@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd918aef85deefc23771413c3eb7b92f1189d39
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776110"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835806"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Åtgärda risker och avblockera användare
 
@@ -37,7 +37,7 @@ Administratörer har följande alternativ för att åtgärda:
 
 ### <a name="self-remediation-with-risk-policy"></a>Själv reparation med risk policy
 
-Om du tillåter att användare själv åtgärdar, med Azure Multi-Factor Authentication (MFA) och lösen ords återställning via självbetjäning (SSPR) i dina risk principer, kan de avblockera sig själva när risken upptäcks. Dessa identifieringar betraktas sedan som stängda. Användare måste redan ha registrerat sig för Azure MFA och SSPR för att kunna använda när risken identifieras.
+Om du tillåter att användare själv åtgärdar, med Azure AD Multi-Factor Authentication (MFA) och lösen ords återställning via självbetjäning (SSPR) i risk principerna, kan de avblockera sig själva när risken upptäcks. Dessa identifieringar betraktas sedan som stängda. Användare måste tidigare ha registrerats för Azure AD MFA och SSPR för att kunna använda när risken identifieras.
 
 Vissa identifieringar kan inte öka risken för att en användare själv åtgärds åtgärd krävs, men administratörer bör fortfarande utvärdera dessa identifieringar. Administratörer kan fastställa att ytterligare åtgärder krävs som att [blockera åtkomst från platser](../conditional-access/howto-conditional-access-policy-location.md) eller minska den acceptabla risken i sina principer.
 
@@ -49,13 +49,13 @@ Administratörer får två alternativ när de återställer ett lösen ord för 
 
 - **Generera ett tillfälligt lösen ord** – genom att skapa ett tillfälligt lösen ord kan du omedelbart flytta tillbaka en identitet till ett säkert tillstånd. Den här metoden kräver att du kontaktar berörda användare eftersom de måste veta vad det tillfälliga lösen ordet är. Eftersom lösen ordet är tillfälligt uppmanas användaren att ändra lösen ordet till något nytt vid nästa inloggning.
 
-- **Kräv att användaren vill återställa lösen ord** – som kräver att användarna återställer lösen ord aktiverar själv återställning utan att kontakta supportavdelningen eller en administratör. Den här metoden gäller endast för användare som är registrerade för Azure MFA och SSPR. Det här alternativet är inte tillgängligt för användare som inte har registrerats.
+- **Kräv att användaren vill återställa lösen ord** – som kräver att användarna återställer lösen ord aktiverar själv återställning utan att kontakta supportavdelningen eller en administratör. Den här metoden gäller endast för användare som är registrerade för Azure AD MFA och SSPR. Det här alternativet är inte tillgängligt för användare som inte har registrerats.
 
 ### <a name="dismiss-user-risk"></a>Ignorera användar risk
 
 Om det inte finns något alternativ för lösen ords återställning, till exempel om användaren har tagits bort, kan du välja att ignorera identifieringar av användar risker.
 
-När du klickar på **Ignorera användar risk**stängs alla händelser och den berörda användaren är inte längre utsatt för risk. Men eftersom den här metoden inte påverkar det befintliga lösen ordet får den inte den relaterade identiteten tillbaka till ett säkert tillstånd. 
+När du klickar på **Ignorera användar risk** stängs alla händelser och den berörda användaren är inte längre utsatt för risk. Men eftersom den här metoden inte påverkar det befintliga lösen ordet får den inte den relaterade identiteten tillbaka till ett säkert tillstånd. 
 
 ### <a name="close-individual-risk-detections-manually"></a>Stänga enskilda risk identifieringar manuellt
 

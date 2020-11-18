@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f6c75337c27e14fb77161cf641cde0a582901e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff2651d2fed9c307bbb90623572b4a74d750d3a4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014641"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836078"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect vanliga frågor och svar
 
@@ -65,7 +65,7 @@ Nej, flera kopplingar för samma AD-domän stöds inte.
 **F: kan jag flytta Azure AD Connect-databasen från den lokala databasen till en fjärran sluten SQL Server instans?**   
 Ja, följande steg innehåller allmän vägledning om hur du gör detta. Vi arbetar för närvarande i ett mer detaljerat dokument.
 1. Säkerhetskopiera LocalDB ADSync-databasen.
-Det enklaste sättet att göra detta är att använda SQL Server Management Studio installerat på samma dator som Azure AD Connect. Anslut till *(LocalDb) .\ADSync*och säkerhetskopiera ADSync-databasen.
+Det enklaste sättet att göra detta är att använda SQL Server Management Studio installerat på samma dator som Azure AD Connect. Anslut till *(LocalDb) .\ADSync* och säkerhetskopiera ADSync-databasen.
 
 2. Återställ ADSync-databasen till fjärrinstansen SQL Server.
 
@@ -261,7 +261,7 @@ Om du behöver hjälp med att uppgradera till en nyare version av Azure AD Conne
 ## <a name="operational-best-practice"></a>Metod tips för användning    
 Nedan följer några metod tips som du bör implementera när du synkroniserar mellan Windows Server Active Directory och Azure Active Directory.
 
-**Använd Multi-Factor Authentication för alla synkroniserade konton** Azure Multi-Factor Authentication hjälper till att skydda åtkomsten till data och program samtidigt som användarnas skull bibehålls. Den ger ytterligare säkerhet genom att kräva en andra form av autentisering och ger stark autentisering via en rad enkla att använda autentiseringsmetoder. Användare kan kanske inte anropas för MFA baserat på konfigurations beslut som en administratör gör. Du kan läsa mer om MFA här: https://www.microsoft.com/security/business/identity/mfa?rtc=1
+**Använd Multi-Factor Authentication för alla synkroniserade konton** Azure AD Multi-Factor Authentication hjälper till att skydda åtkomsten till data och program samtidigt som användarnas skull bibehålls. Den ger ytterligare säkerhet genom att kräva en andra form av autentisering och ger stark autentisering via en rad enkla att använda autentiseringsmetoder. Användare kan kanske inte anropas för MFA baserat på konfigurations beslut som en administratör gör. Du kan läsa mer om MFA här: https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
 **Följ säkerhets rikt linjerna för Azure AD Connect Server** Azure AD Connect servern innehåller kritiska identitets data och bör behandlas som en komponent på nivå 0 som dokumenteras i den [Active Directory administrativa nivå modellen](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Läs även våra [rikt linjer för att skydda din AADConnect-Server](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 74cc5bb2b434e757e090bac45202704eb934a522
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783189"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835755"
 ---
 # <a name="what-is-identity-protection"></a>Vad är Identity Protection?
 
@@ -39,9 +39,9 @@ I sitt [blogg inlägg i oktober 2018](https://techcommunity.microsoft.com/t5/Azu
 >
 > Vid det senaste året har jag ekrar på de 3 främsta attackerna i våra identitets system. Här är den senaste volymen av dessa attacker
 >   
->   - **Risk repetition** : 4.6 BN-attacker som identifieras i maj 2018
->   - **Lösen ords spridning** : 350K i april 2018
->   - **Nätfiske** : det är svårt att kvantifiera exakt, men vi såg 23M risk händelser i mars 2018, många av dessa är Phish relaterade
+>   - **Risk repetition**: 4.6 BN-attacker som identifieras i maj 2018
+>   - **Lösen ords spridning**: 350K i april 2018
+>   - **Nätfiske**: det är svårt att kvantifiera exakt, men vi såg 23M risk händelser i mars 2018, många av dessa är Phish relaterade
 
 ## <a name="risk-detection-and-remediation"></a>Identifiering och reparation av risker
 
@@ -59,7 +59,7 @@ Identitets skyddet identifierar risker i följande klassificeringar:
 
 Mer information om dessa risker och hur/när de beräknas finns i artikeln, [Vad är risk](concept-identity-protection-risks.md).
 
-Risk signalerna kan utlösa reparations åtgärder som att kräva att användarna ska kunna: utföra Azure-Multi-Factor Authentication, återställa sina lösen ord med hjälp av lösen ords återställning via självbetjäning eller blockera tills en administratör vidtar åtgärder.
+Risk signalerna kan utlösa reparations åtgärder som att kräva att användarna ska kunna: utföra Azure AD-Multi-Factor Authentication, återställa sina lösen ord med lösen ords återställning via självbetjäning eller blockera tills en administratör vidtar åtgärder.
 
 ## <a name="risk-investigation"></a>Riskbedömning
 
@@ -102,7 +102,7 @@ Administratörer för villkorlig åtkomst kan också skapa principer som faktorn
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Funktion | Information  | Azure AD Free/Microsoft 365 appar | Azure AD Premium P1|Azure AD Premium P2 |
+| Kapacitet | Information  | Azure AD Free/Microsoft 365 appar | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
 | Risk principer | Användar risk princip (via identitets skydd)  | Nej | Nej |Ja | 
 | Risk principer | Inloggnings risk princip (via identitets skydd eller villkorlig åtkomst)  | Nej |  Nej |Ja |

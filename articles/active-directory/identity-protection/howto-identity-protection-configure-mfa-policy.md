@@ -11,27 +11,27 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4c6b57eaa2a68906053faade48dd0e63fbf0db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 072db1d47abd95844075aeedfeddc4f8cf6bf936
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84464342"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835874"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Gör så här: Konfigurera registrerings principen för Azure-Multi-Factor Authentication
+# <a name="how-to-configure-the-azure-ad-multi-factor-authentication-registration-policy"></a>Gör så här: Konfigurera Azure AD-Multi-Factor Authentication registrerings princip
 
-Azure AD Identity Protection hjälper dig att hantera distributionen av Azure Multi-Factor Authentication-registrering (MFA) genom att konfigurera en princip för villkorlig åtkomst för att kräva MFA-registrering oavsett vilken modern app för autentisering som du loggar in på.
+Azure AD Identity Protection hjälper dig att hantera distributionen av Azure AD Multi-Factor Authentication-registrering (MFA) genom att konfigurera en princip för villkorlig åtkomst för att kräva MFA-registrering oavsett vilken modern app för autentisering som du loggar in på.
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Vad är registrerings principen för Azure-Multi-Factor Authentication?
+## <a name="what-is-the-azure-ad-multi-factor-authentication-registration-policy"></a>Vad är registrerings principen för Azure AD-Multi-Factor Authentication?
 
-Med Azure Multi-Factor Authentication kan du kontrol lera vem du använder mer än bara ett användar namn och lösen ord. Det innehåller ett andra säkerhets lager för användar inloggningar. För att användarna ska kunna svara på MFA-prompter måste de först registrera sig för Azure Multi-Factor Authentication.
+Med Azure AD Multi-Factor Authentication kan du kontrol lera vem du använder mer än bara ett användar namn och lösen ord. Det innehåller ett andra säkerhets lager för användar inloggningar. För att användarna ska kunna svara på MFA-prompter måste de först registrera sig för Azure AD Multi-Factor Authentication.
 
-Vi rekommenderar att du kräver Azure Multi-Factor Authentication för användar inloggningar eftersom det:
+Vi rekommenderar att du kräver Azure AD Multi-Factor Authentication för användar inloggningar eftersom det:
 
 - Ger stark autentisering via en mängd verifierings alternativ.
 - Spelar upp en viktig roll när du förbereder din organisation för att själv åtgärda problemet med att identifiera risker i identitets skyddet.
 
-Mer information om Azure Multi-Factor Authentication finns i [Vad är azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
+Mer information om Azure AD Multi-Factor Authentication finns i [Vad är Azure ad Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
 
 ## <a name="policy-configuration"></a>Principkonfiguration
 
@@ -41,7 +41,7 @@ Mer information om Azure Multi-Factor Authentication finns i [Vad är azure Mult
       1. **Användare** – Välj **alla användare** eller **Välj personer och grupper** om du vill begränsa distributionen.
          1. Du kan också välja att exkludera användare från principen.
    1. Under **kontroller**
-      1. Se till att kryss rutan **Kräv Azure MFA-registrering** är markerad och välj **Välj**.
+      1. Se till att kryss rutan **Kräv Azure AD MFA-registrering** är markerad och välj **Välj**.
    1. **Tillämpa princip**  -  **På**
    1. **Spara**
 
@@ -59,4 +59,4 @@ En översikt över den relaterade användar upplevelsen finns i:
 
 - [Aktivera återställning av lösen ord för självbetjäning i Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Aktivera Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Aktivera Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

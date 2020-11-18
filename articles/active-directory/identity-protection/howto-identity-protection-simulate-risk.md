@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eafeaf59757fcda978fa89b4bc2f9882b769e48
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84463764"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835908"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulera risk identifieringar i identitets skydd
 
@@ -40,7 +40,7 @@ Mer information om varje risk identifiering hittar du i artikeln, [Vad är en ri
 Du måste använda följande procedur för att utföra följande steg:
 
 - [Tor webbläsare](https://www.torproject.org/projects/torbrowser.html.en) för att simulera anonyma IP-adresser. Du kan behöva använda en virtuell dator om organisationen begränsar användningen av webbläsaren Tor.
-- Ett test konto som ännu inte har registrerats för Azure Multi-Factor Authentication.
+- Ett test konto som ännu inte har registrerats för Azure AD Multi-Factor Authentication.
 
 **Utför följande steg för att simulera en inloggning från en anonym IP-adress**:
 
@@ -61,7 +61,7 @@ I proceduren nedan används en nyligen skapad:
 För att utföra följande procedur måste du använda ett användar konto som har:
 
 - Minst en 30-dagars inloggnings historik.
-- Azure-Multi-Factor Authentication aktiverat.
+- Azure AD-Multi-Factor Authentication aktiverat.
 
 **Utför följande steg för att simulera en inloggning från en okänd plats**:
 

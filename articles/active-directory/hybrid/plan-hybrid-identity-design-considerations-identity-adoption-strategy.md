@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294876"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836197"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en strategi för införande av hybrid identitet
 I den här uppgiften definierar du strategin för att införa Hybrid identiteter för din hybrid identitets lösning som uppfyller de affärs krav som diskuterades i:
@@ -176,7 +176,7 @@ Följande stöds inte och bör inte väljas som en implementering:
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Definiera Multi-Factor Authentication-strategi
-I den här uppgiften ska du definiera strategin för Multi-Factor Authentication som ska användas.  Azure Multi-Factor Authentication levereras i två olika versioner.  En är en molnbaserad och den andra finns lokalt baserat på Azure MFA-servern.  Utifrån utvärderingen som du gjorde ovan kan du avgöra vilken lösning som är rätt för din strategi.  Använd tabellen nedan för att avgöra vilket design alternativ som bäst uppfyller företagets säkerhets krav:
+I den här uppgiften ska du definiera strategin för Multi-Factor Authentication som ska användas.  Azure AD Multi-Factor Authentication levereras i två olika versioner.  En är en molnbaserad och den andra finns lokalt baserat på Azure MFA-servern.  Utifrån utvärderingen som du gjorde ovan kan du avgöra vilken lösning som är rätt för din strategi.  Använd tabellen nedan för att avgöra vilket design alternativ som bäst uppfyller företagets säkerhets krav:
 
 Design alternativ för flera faktorer:
 

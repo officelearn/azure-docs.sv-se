@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8776ad915ff215eef143f62aaa9e242ff0354f3e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 28a9080ce878e262573adf0b3c79394079c09ca2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368799"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835976"
 ---
 # <a name="identity-protection-policies"></a>Principer om identitetsskydd
 
@@ -24,11 +24,11 @@ Azure Active Directory Identity Protection innehåller tre standard principer so
 
 ![Principer om identitetsskydd](./media/concept-identity-protection-policies/identity-protection-policies.png)
 
-## <a name="azure-mfa-registration-policy"></a>Registrerings princip för Azure MFA
+## <a name="azure-ad-mfa-registration-policy"></a>Registrerings princip för Azure AD MFA
 
-Identitets skydd kan hjälpa organisationer att distribuera Azure-Multi-Factor Authentication (MFA) med hjälp av en princip för villkorlig åtkomst som kräver registrering vid inloggning. Att aktivera den här principen är ett bra sätt att se till att nya användare i din organisation har registrerat sig för MFA på den första dagen. Multi-Factor Authentication är en av de självbetjänings metoder som används för risk händelser inom identitets skydd. Med självbetjäning kan dina användare vidta åtgärder på egen hand för att minska antalet support samtals volymer.
+Identitets skydd kan hjälpa organisationer att distribuera Azure AD Multi-Factor Authentication (MFA) med hjälp av en princip för villkorlig åtkomst som kräver registrering vid inloggning. Att aktivera den här principen är ett bra sätt att se till att nya användare i din organisation har registrerat sig för MFA på den första dagen. Multi-Factor Authentication är en av de självbetjänings metoder som används för risk händelser inom identitets skydd. Med självbetjäning kan dina användare vidta åtgärder på egen hand för att minska antalet support samtals volymer.
 
-Mer information om Azure Multi-Factor Authentication finns i artikeln [så här fungerar det: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md).
+Mer information om Azure AD Multi-Factor Authentication finns i artikeln [så här fungerar det: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md).
 
 ## <a name="sign-in-risk-policy"></a>Princip för inloggningsrisk
 
@@ -37,7 +37,7 @@ Identitets skydd analyserar signaler från varje inloggning, både i real tid oc
 Om risken identifieras kan användarna utföra Multi-Factor Authentication för att själv åtgärda och stänga den riskfyllda inloggnings händelsen för att förhindra onödig brus för administratörer.
 
 > [!NOTE] 
-> Användare måste tidigare ha registrerats för Azure Multi-Factor Authentication innan de kan utlösa inloggnings risk principen.
+> Användare måste tidigare ha registrerats för Azure AD Multi-Factor Authentication innan de kan utlösa inloggnings risk principen.
 
 ### <a name="custom-conditional-access-policy"></a>Anpassad princip för villkorlig åtkomst
 
@@ -58,8 +58,8 @@ Om risken identifieras kan användarna utföra lösen ords återställning via s
 
 - [Aktivera återställning av lösen ord för självbetjäning i Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Aktivera Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Aktivera Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 
-- [Aktivera registrerings princip för Azure-Multi-Factor Authentication](howto-identity-protection-configure-mfa-policy.md)
+- [Aktivera registrerings princip för Azure AD-Multi-Factor Authentication](howto-identity-protection-configure-mfa-policy.md)
 
 - [Aktivera inloggnings-och användar risk principer](howto-identity-protection-configure-risk-policies.md)

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656742"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835670"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planera distribution av en Azure Active Directory Mina appar
 
@@ -26,7 +26,7 @@ Genom att använda Azure AD Mina appar kan du:
 * Identifiera och få åtkomst till alla företagets Azure AD-anslutna resurser, till exempel program
 * Begär åtkomst till nya appar och grupper
 * Hantera åtkomst till dessa resurser för andra
-* Hantera lösen ords återställning med självbetjäning och Azure Multi-Factor Authentication inställningar
+* Hantera lösen ords återställning med självbetjäning och Azure AD Multi-Factor Authentication inställningar
 * Hantera sina enheter
 
 Administratörer kan också hantera:
@@ -54,7 +54,7 @@ Azure AD Mina appar fördelar företag på följande sätt:
 
 Mina appar är kostnads fria och kräver inga licenser för användning på en grundläggande nivå. Antalet objekt i din katalog och de ytterligare funktioner som du vill distribuera kan dock kräva ytterligare licenser. Några vanliga Azure AD-scenarier som har licensierings krav omfattar följande säkerhetsfunktioner:
 
-* [Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Azure AD-Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 * [Grupp-baserat medlemskap](../fundamentals/active-directory-manage-groups.md)
 * [Återställning av lösenord för självbetjäning](../authentication/tutorial-enable-sspr.md)
 * [Identitetsskydd för Azure Active Directory](../identity-protection/overview-identity-protection.md)
@@ -122,11 +122,11 @@ I följande tabell visas flera viktiga konfigurationer för Mina appar och de ty
 | Fastställa pilot grupper| Identifiera Azure AD-säkerhetsgruppen som ska användas och se till att alla pilot medlemmar ingår i gruppen. |
 | Bestäm vilka grupper eller grupper som ska aktive ras för produktion.| Identifiera Azure AD-säkerhetsgrupper, eller de Active Directory grupper som synkroniserats till Azure AD, som ska användas. Se till att alla pilot medlemmar är en del av gruppen. |
 | Tillåt användare att använda SSO för vissa typer av program| Federerad SSO, OAuth, lösen ords inloggning, App-proxy |
-| Tillåt användare att använda självbetjäning för återställning av lösen ord | Yes |
-| Tillåt användare att använda Multi-Factor Authentication| Yes |
+| Tillåt användare att använda självbetjäning för återställning av lösen ord | Ja |
+| Tillåt användare att använda Multi-Factor Authentication| Ja |
 | Tillåt användare att använda självbetjänings grupp hantering för vissa typer av grupper| Säkerhets grupper, Microsoft 365 grupper |
-| Tillåt användare att använda självbetjänings program hantering| Yes |
-| Tillåt användare att använda åtkomst granskningar| Yes |
+| Tillåt användare att använda självbetjänings program hantering| Ja |
+| Tillåt användare att använda åtkomst granskningar| Ja |
 
 ### <a name="plan-consent-strategy"></a>Planera godkännande strategin
 
@@ -303,13 +303,13 @@ Använd den minst privilegierade rollen för att utföra en obligatorisk uppgift
 
 | Profiler| Roller| Azure AD-roll  |
 | - | -| -|
-| Supportavdelningen-administratör| Nivå 1-stöd| Inget |
+| Supportavdelningen-administratör| Nivå 1-stöd| Inga |
 | Identitets administratör| Konfigurera och Felsök när problem påverkar Azure AD| Global administratör |
-| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
+| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Inga |
 | Infrastruktur administratörer| Certifikat förnyelse ägare| Global administratör |
-| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
+| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Inga |
 
 Du kan använda [Privileged Identity Management](../privileged-identity-management/pim-configure.md) för att hantera roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 
 ## <a name="next-steps"></a>Nästa steg
-[Planera en distribution av Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Planera en distribution av Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 3aaa5d2bc6fdbda0d1db212539c719aa65cae61b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90709172"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745691"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Felsöka replikering mellan regioner
 
@@ -50,6 +50,7 @@ I den här artikeln beskrivs fel meddelanden och lösningar som kan hjälpa dig 
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Kontrol lera att replikeringen har brutits eller inte är initierad och inaktiv (det gick inte att initiera).    |
 |     `Cannot delete   source replication`    |     Det är inte tillåtet att ta bort replikeringen från käll sidan. Se till att du tar bort replikeringen från mål sidan.    |
+| `Volume with replication cannot be deleted`  |  Ta bort replikeringen innan du tar bort volymen. Se [ta bort replikeringar](cross-region-replication-delete.md). Den här åtgärden kräver att du bryter peering innan du tar bort replikeringen för volymen. 
 
 ## <a name="errors-resyncing-volume"></a>Fel vid omsynkronisering av volym
 

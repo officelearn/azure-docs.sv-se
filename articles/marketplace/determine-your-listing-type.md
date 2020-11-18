@@ -1,103 +1,156 @@
 ---
-title: Fastställ publicerings alternativet – Microsoft Commercial Marketplace
-description: Den här artikeln beskriver berättiganderegler och krav för publicering av erbjudanden till Microsoft AppSource och Azure Marketplace.
+title: Introduktion till List alternativ – Microsoft Commercial Marketplace
+description: I den här artikeln beskrivs List alternativ för erbjudanden som publiceras till Microsoft AppSource och Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 09/04/2020
-ms.openlocfilehash: 17b53d656d0344e4178b3034a972e26d6aa0bc15
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/16/2020
+ms.openlocfilehash: 38f65253791f28d9ae9806bea1264e594b769b19
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94492114"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741917"
 ---
-# <a name="determine-your-publishing-option"></a>Fastställa publiceringsalternativ
+# <a name="introduction-to-listing-options"></a>Introduktion till List alternativ
 
-Det publicerings alternativ som du väljer för ditt erbjudande relaterar direkt till både behörighets kraven och GTM-förmånerna för kommersiella platser. Det är viktigt att valet av publicerings alternativ och erbjudande typ definierar hur användarna ska interagera med ditt kommersiella Marketplace-erbjudande.
+Du kan använda de tillgängliga _list alternativen_ på den kommersiella marknads platsen för att kommunicera med potentiella kunder på flera olika sätt. När ditt erbjudande har publicerats visas de List alternativ som du har valt för ditt erbjudande som en knapp i det övre vänstra hörnet av ditt erbjudandes List sida i onlinebutiken. Följande skärm bild visar till exempel sidan erbjudande i Microsoft AppSource onlinebutik med knapparna **kontakta mig** och **testa enhet** .
 
-Om du vill konfigurera ditt erbjudande måste du förstå följande viktiga kommersiella Marketplace-koncept: publicerings alternativ, erbjudande typer och konfiguration och list alternativ som styr hur och var ditt erbjudande presenteras i de kommersiella onlinebutiker online.
+:::image type="content" source="./media/listing-options.png" alt-text="Visar registrerings sidan för ett erbjudande. Knapparna kontakta mig och testa enhet visas.":::
 
-I den här artikeln lär du dig att:
+## <a name="available-listing-options-by-offer-type"></a>Tillgängliga List alternativ per erbjudande typ
 
-- Hur du fastställer en lämplig onlinebutik för din lösning.
-- Vilka publicerings alternativ och list alternativ som finns tillgängliga i varje onlinebutik.
-- Vilka erbjudande typer som är tillgängliga för varje publicerings alternativ.
+När du skapar en erbjudande typ väljer du ett eller flera List alternativ. De här alternativen avgör vilka knappar kunderna ser på sidan för erbjudande listan i onlinebutiker. I list alternativen ingår _kostnads fri utvärderings version_, _test enhet_, _kontakta mig_ och _Hämta den nu_.
 
-## <a name="commercial-marketplace-publishing-options"></a>Publicerings alternativ för kommersiell Marketplace
+Den här tabellen visar vilka List alternativ som är tillgängliga för varje erbjudande typ.
 
-I följande tabell visas publicerings alternativen för erbjudande typer i Microsoft AppSource och Azure Marketplace.
+| Erbjudandetyp | Kostnadsfri utvärdering | Test Drive | Kontakta mig | Hämta nu (Transactable) |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| Azure Application (hanterad app) |   | &#10004; |   | &#10004; |
+| Azure Application (lösnings mal len) |  |  |  |  |
+| Konsult tjänst |  |  | &#10004; |  |
+| Azure-behållare |  |  |  |  |
+| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; |  |
+| Dynamics 365 kund engagemang & PowerApps | &#10004; | &#10004; | &#10004; |  |
+| Dynamics 365 för åtgärder | &#10004; | &#10004; | &#10004; |  |
+| IoT Edge modul |  |  |  |  |
+| Hanterad tjänst |  |  |  |  |
+| Power BI-app |  |  |  |  |
+| Virtuell Azure-dator | &#10004; | &#10004; |  | &#10004; |
+| Programvara som en tjänst | &#10004; | &#10004; | &#10004; | &#10004; |
+||||||
 
-|   | **Lista (kontakt)**  | **Lista (utvärderings version)**  | **Kostnadsfri** | **BYOL** | **Transaktion**|
-| :--------- | :----------- | :------------ | :----------- | :---------- |:---------- |
-| **Virtuell dator** |  |  |  | Azure Marketplace |  Azure Marketplace |
-| **Azure-appar (flera virtuella datorer)** |  |  | Azure Marketplace | Azure Marketplace | Azure Marketplace  |
-| **Behållar avbildning** |  |  | Azure Marketplace | Azure Marketplace |   |
-| **IoT Edge modul** |  |  | Azure Marketplace | Azure Marketplace |   |
-| **Hanterade tjänster** |  |  |  | Azure Marketplace |   |
-| **Konsulttjänster** | Båda onlinebutiker |  |  |  |   |
-| **SaaS-app** | Båda onlinebutiker | Båda onlinebutiker | Båda onlinebutiker |  | Både onlinebutiker * |
-| **Microsoft 365 app** | AppSource | AppSource |  |  | AppSource * *  |
-| **Dynamics 365-tillägg** |  AppSource | AppSource |  |  |   |
-| **PowerApps** | AppSource |AppSource  |  |  |   |
+### <a name="free-trial"></a>Kostnadsfri utvärdering
 
-&#42; Transact-erbjudanden för SaaS-program i Microsoft AppSource är för närvarande endast kredit kort.
+Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av din lösnings utvärderings upplevelse. Detta gör det möjligt för potentiella kunder att använda din program vara som en tjänst (SaaS), IaaS eller Microsoft app-upplevelse utan kostnad från 30 dagar till sex månader, beroende på typen av erbjudande.
 
-&#42;&#42; Microsoft 365 erbjudanden är kostnads fria att installeras och kan säljas via SaaS-erbjudandet som en licens tjänst. Mer information finns i avsnittet [om att köpa Microsoft 365-tillägget via Microsofts kommersiella marknads platser](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+Kunderna använder den _kostnads fria utvärderings_ knappen på ditt erbjudandes List sida för att testa ditt erbjudande. Om du tillhandahåller en kostnads fri utvärderings version av flera planer inom samma erbjudande kan kunderna byta till en kostnads fri utvärderings version på ett annat avtal, men utvärderings perioden startar inte om.
 
-## <a name="choose-a-listing-option"></a>Välj ett List alternativ
+För erbjudanden om virtuella datorer debiteras kunderna Azures infrastruktur kostnader för användning av erbjudandet under en utvärderings period. När utvärderings perioden har löpt ut debiteras kunderna automatiskt för den senaste planen de försökte baseras på standardpriser, såvida de inte annulleras före utvärderings periodens slut.
 
-De List alternativ som är tillgängliga erbjuder differentierade kund engagemang samtidigt som du får åtkomst till lead-delning och [fördelarna med kommersiell marknads](./gtm-your-marketplace-benefits.md)plats. Observera de List alternativ som motsvarar publicerings alternativet:
+### <a name="test-drive"></a>Test Drive
 
-| **Publicerings alternativ**    | **Beskrivning**  |
-| :------------------- | :-------------------|
-| **Lista** | En enkel lista över ditt program eller din tjänst som gör det möjligt för en kommersiell Marketplace-användare att begära att du ansluter till kunden via alternativ för **kontakt** listan. |
-| **Utvärdering** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av lösningens utvärderings version, vilket gör det möjligt för potentiella användare att använda din SaaS, IaaS eller Microsoft app-upplevelse utan kostnad under en begränsad tid innan de köper. De List alternativ som används för publicerings alternativet för utvärdering är antingen **kostnads fria utvärderings versioner** eller **test enheter**. |
-| **BYOL** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av din lösning och slutföra den finansiella transaktionen separat. Typer av BYOL-erbjudanden är idealiska för lokala och molnbaserade migreringar. List alternativet hämtas **nu**.
-| **Transaktion** | Transact-erbjudanden säljs via den kommersiella marknads platsen. Microsoft ansvarar för fakturering och samlingar. List alternativet hämtas **nu**.|
+Kunderna använder knappen _testa enhet_ på ditt erbjudandes List sida för att få åtkomst till en förkonfigurerad miljö för ett fast antal timmar. Mer information om test enheter finns i [Vad är en test enhet?](what-is-test-drive.md)
 
-> [!Note]
-> När du använder alternativet för Transact-publicering är det viktigt att förstå pris-, fakturerings-, fakturerings-och utbetalnings aspekter innan du väljer en erbjudande typ och skapar ditt erbjudande. Läs mer i artikeln om de [kommersiella Transact-funktionerna i Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+> [!TIP]
+> En testen het skiljer sig från en kostnads fri utvärderings version. Du kan erbjuda en testenhet, en kostnads fri utvärderings version eller både och. De förser båda kunderna med din lösning under en fast period. Men en testenhet innehåller även en praktisk guidad rundtur i produktens viktiga funktioner och fördelar som visas i ett verkligt implementerings scenario.
 
-## <a name="selecting-an-online-store"></a>Välja en onlinebutik
+### <a name="contact-me"></a>Kontakta mig
 
-I varje onlinebutik används olika kund krav för affärs-och IT-lösningar. Din erbjudande typ, Transact-funktioner och kategori avgör var ditt erbjudande ska publiceras. Kategorier och under Kategorier mappas till varje onlinebutik utifrån den typ av lösning som du publicerar:
+Enkel lista över ditt program eller din tjänst. Kunder använder knappen _kontakta mig_ på ditt erbjudandes List sida för att begära att du ansluter till dem om ditt erbjudande.
 
-**Microsoft AppSource** erbjuder affärs lösningar, till exempel bransch lösningar och konsult tjänster, för Dynamics 365, Microsoft 365 och Power Platform.
+### <a name="get-it-now"></a>Hämta nu
 
-**Azure Marketplace** erbjuder IT-lösningar som skapats för eller på Azure, samt konsult tjänster som påskyndar kundernas användning av Azure.
+Det här List alternativet innehåller transactable-erbjudanden (prenumerationer och användarbaserade priser), framförar egna licens erbjudanden och skaffar det nu (kostnads fritt). Transactable-erbjudanden säljs via den kommersiella marknads platsen. Microsoft ansvarar för fakturering och samlingar. Kunderna använder _knappen Hämta nu_ för att hämta erbjudandet.
 
-Välj den kategori och under kategori som bäst överensstämmer med din lösnings typ. En brand vägg för webbaserade program är till exempel en IT-lösning som ska publiceras på Azure Marketplace, under kategorin säkerhet. En app för kontrakt hantering är en affärs lösning som ska publiceras på AppSource under försäljnings kategorin. Om du väljer fel kategori eller under kategori kan ditt erbjudande publiceras till fel onlinebutik.
+Alternativet Hämta IT-lista kan innehålla följande pris alternativ, beroende på erbjudande typen:
 
-### <a name="publishing-to-both-online-stores-saas-offers-only"></a>Publicera till båda onlinebutiker (endast SaaS-erbjudanden)
+- Hämta nu (kostnads fritt)
+- Bring your own license (BYOL)
+- Prenumeration
+- Användnings-baserade priser
 
-SaaS-erbjudanden kan publiceras på Azure Marketplace eller AppSource. Om ditt SaaS-erbjudande är *både* en IT-lösning (Azure Marketplace) och en företags lösning (AppSource), väljer du en kategori och/eller en under kategori som gäller för varje onlinebutik. Erbjudanden som publiceras i båda onlinebutiker bör ha ett värde som en IT-lösning *och* en affärs lösning.
+Den här tabellen visar vilka erbjudande typer som har stöd för ytterligare pris alternativ som ingår i alternativet Hämta IT-lista.
 
-> [!IMPORTANT]
-> SaaS-erbjudanden med [avgiftsbelagda faktureringar](partner-center-portal/saas-metered-billing.md) är tillgängliga via Azure Marketplace och Azure Portal. SaaS-erbjudanden med enbart privata planer är tillgängliga via Azure Portal.
+| Erbjudandetyp | Hämta nu (kostnads fritt) | BYOL | Prenumeration | Användnings-baserade priser |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| Azure Application (hanterad app) |   |   | &#10004; | &#10004; |
+| Azure Application (lösnings mal len) | &#10004; |   |   |   |
+| Konsult tjänst |   |   |   |   |
+| Azure-behållare | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
+| Dynamics 365 Business Central | &#10004; |   |   |   |
+| Dynamics 365 kund engagemang & PowerApps | &#10004; |   |   |   |
+| Dynamics 365 för åtgärder | &#10004; |   |   |   |
+| IoT Edge modul | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
+| Hanterad tjänst |   | &#10004; |   |   |
+| Power BI-app | &#10004; |   |   |   |
+| Virtuell Azure-dator |   | &#10004; |   | &#10004;<sup>2</sup> |
+| Programvara som en tjänst | &#10004; |   | &#10004; | &#10004; |
+||||||
 
-| Avgiftsbelagd fakturering | Offentligt abonnemang | Privat plan | Tillgängligt i: |
-|---|---|---|---|
-| Ja             | Ja         | Nej           | Azure Marketplace och Azure Portal |
-| Ja             | Ja         | Ja          | Azure Marketplace och Azure Portal * |
-| Ja             | Nej          | Ja          | Endast Azure Portal |
-| Nej              | Nej          | Ja          | Endast Azure Portal |
+**Förklaring**
 
-&#42; privat plan för erbjudandet är endast tillgängligt via Azure Portal
+<sup>1</sup> kolumnen **pris modell** i fliken **plan översikt** visar _kostnads fria_ eller _BYOL_ , men det går inte att välja.
 
-Ett erbjudande med till exempel fakturering och enbart privat plan (ingen offentlig plan) kommer att köpas av kunder i Azure Portal. Lär dig mer om [privata erbjudanden på Microsofts kommersiella marknads platser](private-offers.md).
+<sup>2</sup> pris per timme och faktureras per månad.
 
-### <a name="categories"></a>Kategorier
+#### <a name="get-it-now-free"></a>Hämta nu (kostnads fritt)
 
-Kategorier och under Kategorier mappas till varje onlinebutik utifrån lösnings typen. Välj de kategorier och under kategorier som bäst passar din lösning. Du kan välja:
+Använd det här alternativet om du vill erbjuda ditt program kostnads fritt. Kunderna använder knappen _Hämta nu_ för att få ditt kostnads fria erbjudande.
 
-- Minst en och upp till två kategorier. Du kan välja en primär kategori och en sekundär kategori.
-- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om du inte väljer någon under kategori kommer ditt erbjudande fortfarande att kunna identifieras under den valda kategorin.
+#### <a name="byol"></a>BYOL
 
-[!INCLUDE [categories and subcategories](./includes/categories.md)]
+Använd den kommersiella Marketplace för att förbättra identifierings möjligheten, automatisera etableringen av lösningen och slutföra den finansiella transaktionen separat från Marketplace. Alternativet för att ta med din egen licens (BYOL) är idealiskt för lokala moln migreringar. Kunder använder knappen _Hämta nu_ för att köpa ditt erbjudande med en licens som de redan har köpt från dig.
+
+#### <a name="subscription"></a>Prenumeration
+
+Du kan debitera en fast avgift för dessa erbjudande typer:
+
+- Azure Application (hanterad app) erbjuder support månads prenumerationer.
+- SaaS erbjuder stöd för både månatliga och årliga prenumerationer.
+
+#### <a name="usage-based-pricing"></a>Användnings-baserade priser
+
+Följande erbjudande typer stöder användnings-baserade priser:
+
+- Azure Application (hanterad app) ger stöd för fakturering av mätare. Mer information finns i [hanterad fakturering för program](./partner-center-portal/azure-app-metered-billing.md).
+- SaaS erbjuder stöd för priser för fakturering och per användare (per klient). Mer information om avgiftsbelagd fakturering finns i [mäta fakturering för SaaS med hjälp av den kommersiella tjänsten för avläsning av marknads platser](./partner-center-portal/saas-metered-billing.md).
+- Virtuella Azure-datorer ger support per kärna, per kärn storlek och priser per marknad och kärn storlek. Pris alternativen kostar per timme och faktureras per månad.
+
+När du skapar ett transactable-erbjudande är det viktigt att förstå pris-, fakturerings-, fakturerings-och utbetalnings aspekter innan du väljer en erbjudande typ och skapar ditt erbjudande. Mer information finns i [onlinebutiker för kommersiella Marketplace](overview.md#commercial-marketplace-online-stores).
+
+## <a name="listing-and-pricing-options-by-online-store"></a>Lista och pris alternativ per onlinebutik
+
+Baserat på en rad olika kriterier avgör vi om ditt erbjudande visas på Azure Marketplace, Microsoft AppSource eller i båda onlinebutiker. Mer information om skillnaderna mellan de två onlinebutiker finns i [onlinebutiker för kommersiella Marketplace](overview.md#commercial-marketplace-online-stores).
+
+I följande tabell visas de alternativ som är tillgängliga för olika erbjudande typer och tillägg och vilka onlinebutiker som ditt erbjudande kan visas på.
+
+| Erbjudande typer och tillägg | Kontakta mig | Kostnadsfri utvärdering | Hämta nu (kostnads fritt) | BYOL | Hämta nu (Transact) |
+| ------------ | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Virtuell Azure-dator |   |   |   | Azure Marketplace | Azure Marketplace |
+| Azure Application |   |   | Azure Marketplace | Azure Marketplace | Azure Marketplace |
+| Azure-behållare  |   |   | Azure Marketplace | Azure Marketplace |   |
+| IoT Edge modul |   |   | Azure Marketplace | Azure Marketplace |   |
+| Hanterad tjänst |   |   |   | Azure Marketplace |   |
+| Konsult tjänst | Båda onlinebutiker |   |   |   |   |
+| SaaS  | Båda onlinebutiker | Båda onlinebutiker | Båda onlinebutiker |   | Både onlinebutiker &#42; |
+| Microsoft 365 app | AppSource | AppSource |   |   | AppSource &#42;&#42; |
+| Dynamics 365 Business Central | AppSource | AppSource |   |   |   |
+| Dynamics 365 för kund engagemang & PowerApps | AppSource | AppSource |   |   |   |
+| Dynamics 365 för åtgärder | AppSource | AppSource |   |   |   |
+| Power BI-app |   |   | AppSource |   |   |
+|||||||
+
+&#42; SaaS transactable erbjudanden i AppSource är för närvarande endast kredit kort.
+
+&#42;&#42; Microsoft 365 tillägg är kostnads fria att installeras och kan försäljas med hjälp av ett SaaS-erbjudande. Mer information finns i köpa [ditt Office 365-tillägg via Microsofts kommersiella Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace.md).
+
+## <a name="marketplace-rewards"></a>Marknads förmåner
+
+Dina marknads förmåner särskiljs baserat på det List alternativ som du väljer. Mer information finns i [dina kommersiella marknads förmåner](gtm-your-marketplace-benefits.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- När du har bestämt dig för ett publicerings alternativ granskar du [publicerings guiden per erbjudande typ](./publisher-guide-by-offer-type.md).
+- Om du vill välja en erbjudande typ som ska skapas, se [publicerings guide efter erbjudande typ](./publisher-guide-by-offer-type.md).

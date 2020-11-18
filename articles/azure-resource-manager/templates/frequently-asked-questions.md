@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f4238035a6fccb0addb9a481287b31732bd2662
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333128"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744543"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Vanliga frågor om ARM-mallar
 
@@ -68,7 +68,7 @@ I den här artikeln får du svar på vanliga frågor om Azure Resource Manager (
 
 * **Kan jag skapa en prenumeration i en ARM-mall?**
 
-  Inte ännu, men vi arbetar på det.
+  Ja, mer information finns i [program mässigt skapa Azure-prenumerationer med de senaste API: erna](../../cost-management-billing/manage/programmatically-create-subscription.md).
 
 * **Hur kan jag testa min mall innan jag distribuerar den?**
 
@@ -104,9 +104,9 @@ I den här artikeln får du svar på vanliga frågor om Azure Resource Manager (
 
 ## <a name="template-specs"></a>Mallspecifikationer
 
-* **Hur kan jag få delta i för hands versionen av mall-specifikationer?**
+* **Hur kan jag komma igång med för hands versionen av mall-specifikationer?**
 
-  [Gå med i vänte listan](https://aka.ms/templateSpecsWaitlist) för mall-specifikationer.
+  Installera den senaste versionen av PowerShell eller Azure CLI. För Azure PowerShell använder du [version 5.0.0 eller senare](/powershell/azure/install-az-ps). För Azure CLI använder du [version 2.14.2 eller senare](/cli/azure/install-azure-cli).
 
 * **Hur är mall-specifikationer och Azure-ritningar relaterade?**
 

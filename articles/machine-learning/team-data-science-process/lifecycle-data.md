@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f7770e929e51ee51b09060e4247c5f92b27d1035
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fffb52e333bea1b2be11b127a9eab6656dc1d1f5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311870"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740336"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Data hämtning och förståelse av steg för team data vetenskaps processen
 
@@ -48,9 +48,7 @@ Det finns tre huvudsakliga uppgifter i det här steget:
 Konfigurera processen för att flytta data från käll platserna till de mål platser där du kör Analytics-åtgärder, till exempel utbildning och förutsägelser. För teknisk information och alternativ för att flytta data med olika Azure-datatjänster, se [Läs in data i lagrings miljöer för analys](ingest-data.md). 
 
 ### <a name="explore-the-data"></a>Utforska data
-Innan du tränar dina modeller måste du utveckla en bra förståelse för dina data. Verkliga data uppsättningar är ofta brus, saknar värden eller har en värd för andra avvikelser. Du kan använda data Sammanfattning och visualisering för att granska kvaliteten på dina data och tillhandahålla den information som du behöver för att bearbeta data innan de är klara för modellering. Den här processen är ofta iterativ.
-
-TDSP tillhandahåller ett automatiserat verktyg som kallas [idé](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils)för att visualisera data och förbereda data sammanfattnings rapporter. Vi rekommenderar att du börjar med IDÉr först för att utforska data för att hjälpa till att utveckla inledande data förståelse interaktivt utan kodning. Sedan kan du skriva anpassad kod för data utforskning och visualisering. Vägledning om hur du rensar data finns i [uppgifter för att förbereda data för förbättrad maskin inlärning](prepare-data.md).  
+Innan du tränar dina modeller måste du utveckla en bra förståelse för dina data. Verkliga data uppsättningar är ofta brus, saknar värden eller har en värd för andra avvikelser. Du kan använda data Sammanfattning och visualisering för att granska kvaliteten på dina data och tillhandahålla den information som du behöver för att bearbeta data innan de är klara för modellering. Den här processen är ofta iterativ. Vägledning om hur du rensar data finns i [uppgifter för att förbereda data för förbättrad maskin inlärning](prepare-data.md).  
 
 När du är nöjd med kvaliteten på de rensade data är nästa steg att bättre förstå de mönster som finns i data. Med den här data analysen kan du välja och utveckla en lämplig förutsägelse modell för målet. Leta efter bevis för hur väl anslutna data är till målet. Ta sedan reda på om det finns tillräckligt med data för att gå vidare med nästa modell steg. Den här processen är ofta iterativ. Du kan behöva hitta nya data källor med mer exakta eller mer relevanta data för att utöka den data uppsättning som ursprungligen identifierades i föregående steg. 
 
@@ -66,9 +64,9 @@ I det här steget utvecklar du en lösnings arkitektur för data pipelinen. Du u
 ## <a name="artifacts"></a>Artifacts
 Följande är slut produkterna i det här skedet:
 
-   * [Data kvalitets rapport](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): den här rapporten innehåller data sammanfattningar, relationerna mellan varje attribut och mål, variabel rangordning med mera. [Idé](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) verktyget som tillhandahålls som en del av TDSP kan snabbt generera den här rapporten på valfri tabell data uppsättning, till exempel en CSV-fil eller en Relations tabell. 
-   * **Lösnings arkitektur** : lösnings arkitekturen kan vara ett diagram eller en beskrivning av din datapipeline som du använder för att köra poängsättning eller förutsägelser på nya data när du har skapat en modell. Den innehåller också pipelinen för att träna om modellen baserat på nya data. Lagra dokumentet i [projekt](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) katalogen när du använder TDSP katalog struktur mal len.
-   * **Kontroll punkts beslut** : innan du påbörjar fullständig teknik och modell utveckling kan du utvärdera om projektet för att avgöra om det förväntade värdet är tillräckligt för att fortsätta med det. Du kan till exempel vara redo att fortsätta, behöva samla in mer data eller överge projektet eftersom data inte finns för att besvara frågan.
+   * [Data kvalitets rapport](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): den här rapporten innehåller data sammanfattningar, relationerna mellan varje attribut och mål, variabel rangordning med mera. 
+   * **Lösnings arkitektur**: lösnings arkitekturen kan vara ett diagram eller en beskrivning av din datapipeline som du använder för att köra poängsättning eller förutsägelser på nya data när du har skapat en modell. Den innehåller också pipelinen för att träna om modellen baserat på nya data. Lagra dokumentet i [projekt](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) katalogen när du använder TDSP katalog struktur mal len.
+   * **Kontroll punkts beslut**: innan du påbörjar fullständig teknik och modell utveckling kan du utvärdera om projektet för att avgöra om det förväntade värdet är tillräckligt för att fortsätta med det. Du kan till exempel vara redo att fortsätta, behöva samla in mer data eller överge projektet eftersom data inte finns för att besvara frågan.
 
 ## <a name="next-steps"></a>Nästa steg
 

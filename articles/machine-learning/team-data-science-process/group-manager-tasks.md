@@ -7,15 +7,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc4262d0190084064103aeabe48bec806213ea7f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7ab6d6511d1e2cec82b321003c9d663249ddcf49
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321227"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740234"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Team data science process Group Manager-uppgifter
 
@@ -43,7 +43,7 @@ I följande självstudie går vi igenom stegen i detalj.
    
    ![Logga in på din Microsoft-konto](./media/group-manager-tasks/signinvs.png)
    
-   Om du inte har någon Microsoft-konto väljer du **Registrera dig nu** , skapar en Microsoft-konto och loggar in med det här kontot. Om din organisation har en Visual Studio-prenumeration loggar du in med autentiseringsuppgifterna för den prenumerationen.
+   Om du inte har någon Microsoft-konto väljer du **Registrera dig nu**, skapar en Microsoft-konto och loggar in med det här kontot. Om din organisation har en Visual Studio-prenumeration loggar du in med autentiseringsuppgifterna för den prenumerationen.
    
 1. När du har loggat in, längst upp till höger på sidan Azure-DevOps, väljer du **Skapa ny organisation**.
    
@@ -65,9 +65,9 @@ Sidan **GroupCommon** Project **Summary** öppnas. Sidans URL är *https: \/ / \
 
 Azure-databaser är värd för följande typer av databaser för din grupp:
 
-- **Gruppera vanliga databaser** : allmänna databaser som flera team inom en data vetenskaps enhet kan använda för många data vetenskaps projekt. 
-- **Team-databaser** : databaser för vissa team inom en data vetenskaps enhet. De här databaserna är speciella för ett grupp behov och kan användas för flera projekt i teamet, men de är inte allmänt nog att användas i flera team inom en data vetenskaps enhet.
-- **Projekt databaser** : databaser för vissa projekt. Sådana databaser får inte vara generella för flera projekt i ett team, eller för andra team i en data vetenskaps enhet.
+- **Gruppera vanliga databaser**: allmänna databaser som flera team inom en data vetenskaps enhet kan använda för många data vetenskaps projekt. 
+- **Team-databaser**: databaser för vissa team inom en data vetenskaps enhet. De här databaserna är speciella för ett grupp behov och kan användas för flera projekt i teamet, men de är inte allmänt nog att användas i flera team inom en data vetenskaps enhet.
+- **Projekt databaser**: databaser för vissa projekt. Sådana databaser får inte vara generella för flera projekt i ett team, eller för andra team i en data vetenskaps enhet.
 
 Om du vill ställa in gemensamma grupper för gruppen i projektet kan du: 
 - Byt namn på standard lagrings platsen för **GroupCommon** till **GroupProjectTemplate**
@@ -75,7 +75,7 @@ Om du vill ställa in gemensamma grupper för gruppen i projektet kan du:
 
 ### <a name="rename-the-default-project-repository-to-groupprojecttemplate"></a>Byt namn på Standard projekt lagrings platsen till GroupProjectTemplate
 
-Så här byter du namn på standard **GroupCommon** Project-lagringsplats till **GroupProjectTemplate** :
+Så här byter du namn på standard **GroupCommon** Project-lagringsplats till **GroupProjectTemplate**:
 
 1. På sidan **GroupCommon** Project **Summary** väljer du **databaser**. Den här åtgärden tar dig till standard **GroupCommon** -lagringsplatsen för GroupCommon-projektet, som är tom för tillfället.
    
@@ -101,7 +101,7 @@ Så här skapar du **GroupUtilities** -lagringsplatsen:
    
    ![Välj ny lagrings plats](./media/group-manager-tasks/create-grouputilities-repo-1.png)
    
-1. I dialog rutan **skapa en ny lagrings plats** väljer du **git** som **typ** , anger *GroupUtilities* som **namn på databasen** och väljer sedan **skapa**.
+1. I dialog rutan **skapa en ny lagrings plats** väljer du **git** som **typ**, anger *GroupUtilities* som **namn på databasen** och väljer sedan **skapa**.
    
    ![Skapa GroupUtilities-lagringsplats](./media/group-manager-tasks/create-grouputilities-repo-2.png)
    
@@ -126,8 +126,6 @@ Så här importerar du TDSP team-databaser:
    ![Importera Microsoft TDSP team-lagringsplats](./media/group-manager-tasks/import-repo-2.png)
    
 1. Längst upp på sidan **databaser** , väljer du den **GroupUtilities** databasen.
-   
-1. Upprepa import processen för att importera innehållet i Microsoft TDSP team **utilitiess** -lagringsplatsen, *https: \/ /GitHub.com/Azure/Azure-TDSP-Utilities.git* , till **GroupUtilities** -lagringsplatsen. 
    
 Var och en av dina två grupp databaser innehåller nu alla filer, förutom de i katalogen *. git* , från Microsoft TDSP-teamets motsvarande lagrings plats. 
 

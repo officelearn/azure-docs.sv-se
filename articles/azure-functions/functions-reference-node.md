@@ -3,14 +3,14 @@ title: JavaScript-referens för utvecklare för Azure Functions
 description: Lär dig hur du utvecklar funktioner med hjälp av Java Script.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 9b920dc8a31967c9d8e1f05a6101fdfcc7a1304e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d32c63332c530ec05eb9f93661a8f2a0c5d8264c
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628840"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743328"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
 
@@ -325,10 +325,10 @@ Utöver standard nivån är följande loggnings metoder tillgängliga som gör a
 
 | Metod                 | Beskrivning                                |
 | ---------------------- | ------------------------------------------ |
-| **fel ( _meddelande_ )**   | Skriver en händelse på fel nivå till loggarna.   |
-| **Varna ( _meddelande_ )**    | Skriver en varnings nivå händelse till loggarna. |
-| **info ( _meddelande_ )**    | Skriver till loggning på informations nivå eller lägre.    |
-| **utförlig ( _meddelande_ )** | Skriver till utförlig nivå loggning.           |
+| **fel (_meddelande_)**   | Skriver en händelse på fel nivå till loggarna.   |
+| **Varna (_meddelande_)**    | Skriver en varnings nivå händelse till loggarna. |
+| **info (_meddelande_)**    | Skriver till loggning på informations nivå eller lägre.    |
+| **utförlig (_meddelande_)** | Skriver till utförlig nivå loggning.           |
 
 I följande exempel skrivs samma logg på varnings spårnings nivån, i stället för informations nivån:
 
@@ -563,21 +563,42 @@ Det finns två sätt att installera paket på Funktionsapp:
 
 ## <a name="environment-variables"></a>Miljövariabler
 
-I funktioner visas [appinställningar](functions-app-settings.md), till exempel tjänst anslutnings strängar, som miljövariabler under körningen. Du kan komma åt de här inställningarna med hjälp av `process.env` , som visas här i den andra och tredje anropet, `context.log()` där vi loggar `AzureWebJobsStorage` `WEBSITE_SITE_NAME` variablerna och.
+Lägg till dina egna miljövariabler i en Function-app i både lokala och molnbaserade miljöer, till exempel drift hemligheter (anslutnings strängar, nycklar och slut punkter) eller miljö inställningar (till exempel profilering av variabler). Få åtkomst till de här inställningarna med hjälp av `process.env` i funktions koden.
+
+### <a name="in-local-development-environment"></a>I lokal utvecklings miljö
+
+När du kör lokalt, innehåller Functions-projektet en [ `local.settings.json` fil](/functions-run-local.md?tabs=node#local-settings-file)där du lagrar miljövariablerna i `Values` objektet. 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### <a name="in-azure-cloud-environment"></a>I Azures moln miljö
+
+När du kör i Azure kan du med hjälp av Function-appen ange [program inställningar](functions-app-settings.md), till exempel tjänst anslutnings strängar, och exponera dessa inställningar som miljövariabler under körningen. 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="access-environment-variables-in-code"></a>Åtkomst till miljövariabler i kod
+
+Få åtkomst till program inställningar som miljövariabler med `process.env` , som visas här i den andra och tredje anropet till den `context.log()` plats där vi loggar `AzureWebJobsStorage` `WEBSITE_SITE_NAME` variablerna och.
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-När du kör lokalt läses AppData in från [local.settings.jsi](functions-run-local.md#local-settings-file) projekt filen.
 
 ## <a name="configure-function-entry-point"></a>Konfigurera funktionens start punkt
 
@@ -667,7 +688,7 @@ TypeScript-filer (. TS) är destaplade i JavaScript-filer (. js) i `dist` utdata
 
 Hur du utvecklar och distribuerar lokalt från ett TypeScript-projekt beror på ditt utvecklingsverktyg.
 
-### <a name="visual-studio-code"></a>Visual Studio-koden
+### <a name="visual-studio-code"></a>Visuell Studio-kod
 
 Med [Azure Functions för kod tillägget för Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) kan du utveckla dina funktioner med typescript. Kärn verktygen är ett krav i Azure Functions-tillägget.
 

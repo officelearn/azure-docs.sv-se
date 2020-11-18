@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: lokal, Docker, behållare
-ms.openlocfilehash: f91d96732c872c6f93ee2de4c5c3eba5fe5ffbc4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ad3f73276a2a965032fd2acf368bce4a0c146632
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412246"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744188"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installera och kör Docker-behållare för tal tjänstens API: er 
 
@@ -31,11 +31,11 @@ Speech-containrar gör det möjligt för kunder att bygga en arkitektur för tal
 > * Standard tal till text
 > * Custom Speech till text
 > * Standard text till tal
-> 
+> * Neurala text till tal
+>
 > Följande tal behållare finns i för hands versionen av gated.
 > * Anpassad text till tal
 > * Tal Språkidentifiering 
-> * Neurala text till tal
 >
 > Om du vill använda tal behållarna måste du skicka in en online-begäran och godkänna den. Mer information finns i avsnittet om **godkännande av begäran till avsnittet kör behållare** nedan.
 
@@ -46,7 +46,7 @@ Speech-containrar gör det möjligt för kunder att bygga en arkitektur för tal
 | Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.8.0 |
 | Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.8.0 |
 | Tal Språkidentifiering | Identifiera det språk som talas i ljudfiler. | 1,0 |
-| Neurala text till tal | Konverterar text till naturligt ljuds tal med djup neurala nätverks teknik, vilket ger mer naturliga syntetiskt syntetiskt tal. | 1.2.0 |
+| Neurala text till tal | Konverterar text till naturligt ljuds tal med djup neurala nätverks teknik, vilket ger mer naturliga syntetiskt syntetiskt tal. | 1.3.0 |
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
@@ -58,7 +58,7 @@ Följande krav gäller innan du använder tal behållare:
 |--|--|
 | Docker-motorn | Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows** måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
 | Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker` kommandon. |
-| Tal resurs | Du måste ha följande för att kunna använda dessa behållare:<br><br>En Azure _tal_ -resurs för att hämta tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på Azure Portalens **tal** översikt och nycklar sidor. Båda krävs för att starta behållaren.<br><br>**{Api_key}** : en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}** : slut punkten enligt vad som anges på sidan **Översikt** |
+| Tal resurs | Du måste ha följande för att kunna använda dessa behållare:<br><br>En Azure _tal_ -resurs för att hämta tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på Azure Portalens **tal** översikt och nycklar sidor. Båda krävs för att starta behållaren.<br><br>**{Api_key}**: en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}**: slut punkten enligt vad som anges på sidan **Översikt** |
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -244,13 +244,13 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-tex
 Alla Taggar, förutom `latest` i, är i följande format och är Skift läges känsliga:
 
 ```
-<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>
 ```
 
 Följande tagg är ett exempel på formatet:
 
 ```
-1.2.0-amd64-en-us-arianeural-preview
+1.3.0-amd64-en-us-arianeural
 ```
 
 För alla språk som stöds och motsvarande röster i **neurala text till tal** -behållaren, se [neurala text till tal-bildtaggar](../containers/container-image-tags.md#neural-text-to-speech).
@@ -322,7 +322,7 @@ Från och med v 2.6.0 av den tal-till-text-behållare ska du använda TextAnalyt
 > [!NOTE]
 > Textanalys- `v3.0` API: t är inte bakåtkompatibel med textanalys `v3.0-preview.1` . För att få den senaste stöd för sentiment-funktioner använder `v2.6.0` du behållar avbildningen tal-till-text och textanalys `v3.0` .
 
-Från och med v-2.2.0 av den tal-till-text-behållaren kan du anropa [sentiment Analysis v3-API: et](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) på utdata. Om du vill anropa sentiment-analysen behöver du en API för textanalys resurs slut punkt. Till exempel: 
+Från och med v-2.2.0 av den tal-till-text-behållaren kan du anropa [sentiment Analysis v3-API: et](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) på utdata. Om du vill anropa sentiment-analysen behöver du en API för textanalys resurs slut punkt. Exempel: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
@@ -351,7 +351,7 @@ Från och med v-2.6.0 av den tal-till-text-behållaren kan du hämta utdata med 
 
 * "Det här är en mening som är den **största man** är en mening."
 
-Om du vill konfigurera en fras lista måste du lägga till egna fraser när du gör anropet. Till exempel:
+Om du vill konfigurera en fras lista måste du lägga till egna fraser när du gör anropet. Exempel:
 
 ```python
     phrase="the tall man"
@@ -420,7 +420,7 @@ Det här kommandot:
 
 
 #### <a name="base-model-download-on-the-custom-speech-to-text-container"></a>Bas modell hämtning av den anpassade tal-till-text-behållaren  
-Från och med v 2.6.0 av den anpassade-till-text-behållaren kan du hämta den tillgängliga bas modell informationen med hjälp av alternativet `BaseModelLocale=<locale>` . Med det här alternativet får du en lista över tillgängliga bas modeller på det aktuella språket under ditt fakturerings konto. Till exempel:
+Från och med v 2.6.0 av den anpassade-till-text-behållaren kan du hämta den tillgängliga bas modell informationen med hjälp av alternativet `BaseModelLocale=<locale>` . Med det här alternativet får du en lista över tillgängliga bas modeller på det aktuella språket under ditt fakturerings konto. Exempel:
 
 ```bash
 docker run --rm -it \
@@ -436,7 +436,7 @@ Det här kommandot:
 * Kör en *Custom Speech-till-text-* behållare från behållar avbildningen.
 * Kontrol lera och returnera tillgängliga bas modeller för mål språket.
 
-Utdata ger dig en lista över bas modeller med information språk, modell-ID och datum/tid för skapande. Du kan använda modell-ID: t för att hämta och använda den aktuella bas modell som du föredrar. Till exempel:
+Utdata ger dig en lista över bas modeller med information språk, modell-ID och datum/tid för skapande. Du kan använda modell-ID: t för att hämta och använda den aktuella bas modell som du föredrar. Exempel:
 ```
 Checking available base model for en-us
 2020/10/30 21:54:20 [Info] Searching available base models for en-us

@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/30/2020
-ms.openlocfilehash: df6da5ce1dcd5213b3e54abe54c087bfdd8480c5
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.date: 11/17/2020
+ms.openlocfilehash: 3225013f09abd326c619b67caf77918889a64859
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379981"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741815"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Snabb start: skapa ett kunskaps lager för Azure Kognitiv sökning i Azure Portal
 
@@ -109,7 +109,7 @@ I den här guiden ska du skapa en färdigheter med kognitiva färdigheter. Käll
 
 1. Expandera **Spara berikade kunskaper i kunskaps lagret**.
 
-1. Välj följande **Azure Table-projektioner** :
+1. Välj följande **Azure Table-projektioner**:
     + **Dokument**
     + **Sidor**
     + **Nyckel fraser**

@@ -1,30 +1,42 @@
 ---
 title: ServicePrincipalSelector-GRÄNSSNITTs element
-description: Beskriver elementet Microsoft. Common. ServicePrincipalSelector UI för Azure Portal. Innehåller en listruta där du kan välja en program identifierare och en text ruta för att ange ett lösen ord eller tumavtryck för certifikatet.
+description: Beskriver elementet Microsoft. Common. ServicePrincipalSelector UI för Azure Portal. Ger en kontroll för att välja ett program och en text ruta för att ange ett lösen ord eller tumavtryck för certifikatet.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
-ms.openlocfilehash: 73b242754bfae53b6df5abd9c2c8dee33b973dad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d41e41f110e927f436b38d6291719c138defa53
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576004"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745822"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Elementet Microsoft. Common. ServicePrincipalSelector UI
 
-En kontroll som låter användarna välja ett befintligt huvud namn för tjänsten eller registrera ett nytt. När du väljer **Skapa ny**går du igenom stegen för att registrera ett nytt program. När du väljer ett befintligt program tillhandahåller kontrollen en text ruta för att ange ett lösen ord eller tumavtryck för certifikatet.
+En kontroll som låter användarna välja ett befintligt [huvud namn för tjänsten](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) eller registrera ett nytt program. När du väljer **Skapa ny** följer du stegen för att registrera ett nytt program. När du väljer ett befintligt program tillhandahåller kontrollen en text ruta för att ange ett lösen ord eller tumavtryck för certifikatet.
 
-## <a name="ui-sample"></a>UI-exempel
+## <a name="ui-samples"></a>UI-exempel
 
-Standardvyn bestäms av värdena i `defaultValue` egenskapen. Om `principalId` egenskapen innehåller en giltig globalt unik identifierare (GUID) söker kontrollen efter programmets objekt-ID. Standardvärdet gäller om användaren inte gör något val i list rutan.
+Du kan använda ett standard program, skapa ett nytt program eller använda ett befintligt program.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-initial.png" alt-text="Initial vy för Microsoft. Common. ServicePrincipalSelector":::
+### <a name="use-default-application-or-create-new"></a>Använd standard programmet eller skapa ny
 
-När du väljer **Skapa ny** eller en befintlig program identifierare från List rutan visas **autentiseringstypen** för att ange ett lösen ord eller certifikat-tumavtryck i text rutan.
+Standardvyn bestäms av värdena i `defaultValue` egenskapen och **tjänstens huvud namns typ** är inställd på **Skapa ny**. Om `principalId` egenskapen innehåller en giltig globalt unik identifierare (GUID) söker kontrollen efter programmets `objectId` . Standardvärdet gäller om användaren inte gör något val från kontrollen.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-selection.png" alt-text="Initial vy för Microsoft. Common. ServicePrincipalSelector":::
+Om du vill registrera ett nytt program väljer du **ändrings val** och dialog rutan **Registrera ett program** visas. Ange **namn**, **typ av konto som stöds** och välj knappen **Registrera** .
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-default.png" alt-text="Initial vy för Microsoft. Common. ServicePrincipalSelector.":::
+
+När du har registrerat ett nytt program använder du **autentiseringstypen** för att ange ett lösen ord eller tumavtryck för certifikatet.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-authenticate.png" alt-text="Microsoft. Common. ServicePrincipalSelector-autentisering.":::
+
+### <a name="use-existing-application"></a>Använd befintligt program
+
+Om du vill använda ett befintligt program väljer du **Välj befintligt** och väljer sedan **gör markering**. Använd dialog rutan **Välj ett program** för att söka efter programmets namn. Från resultaten väljer du programmet och sedan knappen **Välj** . När du har valt ett program visar kontrollen **autentiseringstypen** för att ange ett lösen ord eller tumavtryck för certifikatet.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-existing.png" alt-text="Microsoft. Common. ServicePrincipalSelector Välj befintligt program.":::
 
 ## <a name="schema"></a>Schema
 
@@ -33,14 +45,12 @@ När du väljer **Skapa ny** eller en befintlig program identifierare från List
   "name": "ServicePrincipal",
   "type": "Microsoft.Common.ServicePrincipalSelector",
   "label": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type",
     "sectionHeader": "Service Principal"
   },
   "toolTip": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type"
@@ -63,13 +73,13 @@ När du väljer **Skapa ny** eller en befintlig program identifierare från List
 
 ## <a name="remarks"></a>Kommentarer
 
-- De obligatoriska egenskaperna är:
+- De obligatoriska egenskaperna är följande:
   - `name`
   - `type`
   - `label`
   - `defaultValue`: Anger standard `principalId` och `name` .
 
-- De valfria egenskaperna är:
+- De valfria egenskaperna är följande:
   - `toolTip`: Bifogar en knapp Beskrivning `infoBalloon` till varje etikett.
   - `visible`: Dölj eller Visa kontrollen.
   - `options`: Anger om alternativet tumavtryck för certifikatet ska vara tillgängligt eller inte.
@@ -95,14 +105,12 @@ Följande är ett exempel på `Microsoft.Common.ServicePrincipalSelector` kontro
             "name": "ServicePrincipal",
             "type": "Microsoft.Common.ServicePrincipalSelector",
             "label": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type",
               "sectionHeader": "Service Principal"
             },
             "toolTip": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type"
@@ -138,9 +146,9 @@ Följande är ett exempel på `Microsoft.Common.ServicePrincipalSelector` kontro
 
 ## <a name="example-output"></a>Exempel på utdata
 
-`appId`Är ID: t för den program registrering som du har valt eller skapat. `objectId`Är en matris med objectIds för tjänstens huvud namn som har kon figurer ATS för den valda program registreringen.
+`appId`Är ID: t för den program registrering som du har valt eller skapat. `objectId`Är en matris med objekt-ID: n för tjänstens huvud namn som har kon figurer ATS för den valda program registreringen.
 
-När inget val görs från List rutan `newOrExisting` är egenskap svärdet **nytt**:
+När inget val görs från kontrollen `newOrExisting` är egenskap svärdet **nytt**:
 
 ```json
 {
@@ -165,7 +173,7 @@ När inget val görs från List rutan `newOrExisting` är egenskap svärdet **ny
 }
 ```
 
-När **Skapa ny** eller en befintlig program identifierare väljs i list rutan `newOrExisting` , är egenskap svärdet **befintlig**:
+När **Skapa nytt** eller ett befintligt program väljs från kontrollen `newOrExisting` , är egenskap svärdet **befintligt**:
 
 ```json
 {

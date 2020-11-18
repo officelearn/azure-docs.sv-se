@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 4d307b2a16262645919423ef89c0d87636639bf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b99ec4158b1df5ab558026c05b9ec1024fb0722e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378720"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94742583"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 
@@ -21,7 +21,7 @@ Marketplace-förmåner ger dig till gång till ditt speciella tillväxt steg, me
 
 Programmet skapar en positiv feedback-slinga: fördelarna med varje steg i tillväxten hjälper dig att gå vidare till nästa steg, vilket hjälper dig att utveckla din verksamhet till Microsoft-kunder, med Microsofts fält och via Microsofts kanal genom att använda den kommersiella Marketplace som plattform.
 
-Dina förmåner särskiljs utifrån om ditt erbjudande är [list, utvärdering eller Transact](../determine-your-listing-type.md#choose-a-listing-option).
+Dina förmåner särskiljs utifrån om ditt erbjudande är [kontakta mig, kostnads fri utvärdering eller Transact](../determine-your-listing-type.md).
 
 Du kommer att kontaktas av en medlem i teamet för förmåner när ditt erbjudande går live, baserat på din behörighet.
 

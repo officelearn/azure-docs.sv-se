@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3845c5e5d7cf6bb372744fb3c740c44aa2b94236
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4719bd21bc6299373f9dabfe4733541c6fa27b94
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305618"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740189"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modellerings steg för processens livs cykel för team data vetenskap
 
@@ -41,8 +41,8 @@ Här är en visuell representation av TDSP-livs cykeln:
 ## <a name="how-to-do-it"></a>Gör så här
 Det finns tre huvudsakliga uppgifter i det här steget:
 
-  * **Funktions teknik** : skapa data funktioner från rå data för att under lätta modell träningen.
-  * **Modell träning** : Leta upp den modell som svarar på frågan noggrant genom att jämföra deras framgång.
+  * **Funktions teknik**: skapa data funktioner från rå data för att under lätta modell träningen.
+  * **Modell träning**: Leta upp den modell som svarar på frågan noggrant genom att jämföra deras framgång.
   * Ta reda på om din modell är **lämplig för produktion.**
 
 ### <a name="feature-engineering"></a>Funktionsframställning
@@ -59,22 +59,20 @@ Processen för modell träning innehåller följande steg:
 
    * **Dela indata-data** slumpmässigt för modellering i en tränings data uppsättning och en test data uppsättning.
    * **Skapa modeller** med hjälp av övnings data uppsättningen.
-   * **Utvärdera** utbildningen och test data uppsättningen. Använd en serie av konkurrerande algoritmer för maskin inlärning tillsammans med de olika associerade justerings parametrarna (kallas även *parameter svep* ) som är kopplade till att besvara frågan om intresse med aktuella data.
+   * **Utvärdera** utbildningen och test data uppsättningen. Använd en serie av konkurrerande algoritmer för maskin inlärning tillsammans med de olika associerade justerings parametrarna (kallas även *parameter svep*) som är kopplade till att besvara frågan om intresse med aktuella data.
    * **Fastställ den "bästa" lösningen** för att besvara frågan genom att jämföra måtten för framgång mellan alternativa metoder.
 
 > [!NOTE]
-> **Undvik läckage** : du kan orsaka dataläckage om du inkluderar data utanför den tränings data uppsättning som tillåter en modell eller en algoritm för maskin inlärning för att göra realistiska förutsägelser bättre. Läckage är en vanlig orsak till att data experter får nerv information när de får förutsägelse resultat som verkar vara för lämpliga för att vara sanna. Dessa beroenden kan vara svåra att identifiera. För att undvika läckage krävs ofta att du skapar en analys data uppsättning, skapar en modell och utvärderar resultatet. 
+> **Undvik läckage**: du kan orsaka dataläckage om du inkluderar data utanför den tränings data uppsättning som tillåter en modell eller en algoritm för maskin inlärning för att göra realistiska förutsägelser bättre. Läckage är en vanlig orsak till att data experter får nerv information när de får förutsägelse resultat som verkar vara för lämpliga för att vara sanna. Dessa beroenden kan vara svåra att identifiera. För att undvika läckage krävs ofta att du skapar en analys data uppsättning, skapar en modell och utvärderar resultatet. 
 > 
 > 
-
-Vi tillhandahåller ett [automatiserat verktyg för modellering och rapportering](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) med TDSP som kan köras genom flera algoritmer och parameter rensningar för att skapa en bas linje modell. Det skapar också en rapport för bas linje modellering som sammanfattar prestandan för varje modell och parameter kombination, inklusive varierande prioritet. Den här processen är också iterativ eftersom den kan driva ytterligare funktions tekniker. 
 
 ## <a name="artifacts"></a>Artifacts
 Artefakterna som produceras i det här steget är:
 
    * [Funktions uppsättningar](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): de funktioner som har utvecklats för modellering beskrivs i avsnittet **funktions uppsättningar** i rapporten **data definition** . Den innehåller pekare till koden för att generera funktioner och en beskrivning av hur funktionen genererades.
    * [Modell rapport](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): för varje modell som provas skapas en standard-mall baserad rapport som innehåller information om varje experiment.
-   * **Kontroll punkts beslut** : utvärdera om modellen fungerar tillräckligt för produktion. Några viktiga frågor att fråga om är:
+   * **Kontroll punkts beslut**: utvärdera om modellen fungerar tillräckligt för produktion. Några viktiga frågor att fråga om är:
      * Besvarar modellen frågan med tillräckligt förtroende för test data? 
      * Bör du prova några alternativa metoder? Ska du samla in ytterligare data, göra fler funktioner eller experimentera med andra algoritmer?
 

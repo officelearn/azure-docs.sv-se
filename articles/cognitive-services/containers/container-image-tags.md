@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 11/06/2020
+ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: 0efb278c217ede94f67b47250633622501a24414
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ba51776942ad28fc8d4b0db7dd2d0e162e5322b5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412552"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743345"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Bild taggar för Azure Cognitive Services container och viktig information
 
@@ -574,6 +574,39 @@ Du hittar [neurala text till tal-][sp-ntts] behållar avbildningen i `mcr.micros
 
 Den här behållar avbildningen har följande Taggar tillgängliga. Du kan också hitta en fullständig lista över [taggar i MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list).
 
+
+# <a name="latest-version"></a>[Senaste version](#tab/current)
+
+Viktig information för `v1.3.0` :
+* Neurala-behållaren för text till tal är nu allmänt tillgänglig. 
+
+| Bildtaggar                                  | Kommentarer                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-AriaNeural` rösten.      |
+| `1.3.0-amd64-<locale-and-voice>`    | Ersätt `<locale>` med något av de tillgängliga språken i listan nedan. Till exempel `1.3.0-amd64-en-us-arianeural`. |
+
+
+| v 1.3.0-språkområden och röster           | Kommentarer                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `de-de-katjaneural`                 | Behållar avbildning med `de-DE` språket och `de-DE-KatjaNeural` rösten.     |
+| `en-au-natashaneural`               | Behållar avbildning med `en-AU` språket och `en-AU-NatashaNeural` rösten.   |
+| `en-ca-claraneural`                 | Behållar avbildning med `en-CA` språket och `en-CA-ClaraNeural` rösten.     |
+| `en-gb-libbyneural`                 | Behållar avbildning med `en-GB` språket och `en-GB-LibbyNeural` rösten.     |
+| `en-gb-mianeural`                   | Behållar avbildning med `en-GB` språket och `en-GB-MiaNeural` rösten.       |
+| `en-us-arianeural`                  | Behållar avbildning med `en-US` språket och `en-US-AriaNeural` rösten.      |
+| `en-us-guyneural`                   | Behållar avbildning med `en-US` språket och `en-US-GuyNeural` rösten.       |
+| `es-es-elviraneural`                | Behållar avbildning med `es-ES` språket och `es-ES-ElviraNeural` rösten.    |
+| `es-mx-dalianeural`                 | Behållar avbildning med `es-MX` språket och `es-MX-DaliaNeural` rösten.     |
+| `fr-ca-sylvieneural`                | Behållar avbildning med `fr-CA` språket och `fr-CA-SylvieNeural` rösten.    |
+| `fr-fr-deniseneural`                | Behållar avbildning med `fr-FR` språket och `fr-FR-DeniseNeural` rösten.    |
+| `it-it-elsaneural`                  | Behållar avbildning med `it-IT` språket och `it-IT-ElsaNeural` rösten.      |
+| `ja-jp-nanamineural`                | Behållar avbildning med `ja-JP` språket och `ja-JP-NanamiNeural` rösten.    |
+| `ko-kr-sunhineural`                 | Behållar avbildning med `ko-KR` språket och `ko-KR-SunHiNeural` rösten.     |
+| `pt-br-franciscaneural`             | Behållar avbildning med `pt-BR` språket och `pt-BR-FranciscaNeural` rösten. |
+| `zh-cn-xiaoxiaoneural`              | Behållar avbildning med `zh-CN` språket och `zh-CN-XiaoxiaoNeural` rösten.  |
+
+# <a name="previous-version"></a>[Tidigare version](#tab/previous)
+
 | Bildtaggar                                  | Kommentarer                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-AriaNeural` rösten.      |
@@ -599,6 +632,8 @@ Den här behållar avbildningen har följande Taggar tillgängliga. Du kan ocks�
 | `ko-kr-sunhineural-preview`                 | Behållar avbildning med `ko-KR` språket och `ko-KR-SunHiNeural` rösten.     |
 | `pt-br-franciscaneural-preview`             | Behållar avbildning med `pt-BR` språket och `pt-BR-FranciscaNeural` rösten. |
 | `zh-cn-xiaoxiaoneural-preview`              | Behållar avbildning med `zh-CN` språket och `zh-CN-XiaoxiaoNeural` rösten.  |
+
+---
 
 ## <a name="speech-language-detection"></a>Språkidentifiering
 
@@ -660,7 +695,7 @@ Den här behållar avbildningen har följande Taggar tillgängliga. Du kan ocks�
 
 ---
 
-## <a name="sentiment-analysis"></a>Sentimentanalys
+## <a name="sentiment-analysis"></a>Attitydanalys
 
 [Attitydanalys][ta-se] behållar avbildningen finns i `mcr.microsoft.com` behållar registrets syndikering. Den finns i `azure-cognitive-services/textanalytics/` lagrings platsen och får namnet `sentiment` . Det fullständigt kvalificerade namnet på behållar avbildningen är, `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment`
 

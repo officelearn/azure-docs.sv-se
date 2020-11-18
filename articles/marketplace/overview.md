@@ -1,5 +1,5 @@
 ---
-title: Vad är Microsofts kommersiella marknads plats?
+title: Vad är Microsofts kommersiella marknadsplats?
 description: En översikt över fördelarna och alternativen för Microsoft-partner som visar lösningar på Microsofts kommersiella marknads plats.
 author: mingshen-ms
 ms.author: mingshen
@@ -7,14 +7,14 @@ ms.reviewer: dsindona
 ms.service: marketplace
 ms.topic: overview
 ms.date: 10/15/2020
-ms.openlocfilehash: 0b0f290a5f560fa8f6db109422c8790ecef9698e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a559c8613af97251ea6e85ef2a16121a89ffb6ad
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107053"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94739776"
 ---
-# <a name="what-is-the-microsoft-commercial-marketplace"></a>Vad är Microsofts kommersiella marknads plats?
+# <a name="what-is-the-microsoft-commercial-marketplace"></a>Vad är Microsofts kommersiella marknadsplats?
 
 Microsofts kommersiella marknads plats är en katalog med lösningar från våra oberoende program varu leverantörer (ISV). Som en ISV-medlem i Microsoft Partner Network kan du skapa, publicera och hantera dina kommersiella Marketplace-erbjudanden i Partner Center. Dina lösningar visas i våra onlinebutiker, tillsammans med våra egna Microsoft-lösningar, som ansluter dig till företag, organisationer och myndighets myndigheter runtom i världen.
 
@@ -24,7 +24,7 @@ Den kommersiella marknads platsen finns i fler än 100 länder och regioner och 
 
 Microsofts kommersiella marknads plats har två onlinebutiker: [Microsoft AppSource](https://appsource.microsoft.com/) och [Azure Marketplace](https://azuremarketplace.microsoft.com/). Microsoft AppSource innehåller affärs lösningar och Azure Marketplace innehåller IT-lösningar. Kommersiella Marketplace-program och-tjänster kan också finnas i Microsoft-produkter som Microsoft 365, Dynamics 365, Microsoft Power Platform och Azure. Våra onlinebutiker och produkt upplevelser drar miljon tals potentiella kunder varje månad. Varje onlinebutik erbjuder olika scenarier för att se till att din lösning eller tjänst är tillgänglig för rätt kunder.
 
-När du skapar ett erbjudande för en kommersiell Marketplace i Partner Center, kan det finnas i en eller båda onlinebutiker baserat på erbjudande typen, kategorierna och andra alternativ som du väljer. I sällsynta fall att erbjudandet är relevant för användare av båda onlinebutiker, kan det visas i båda. Mer information finns i [Välj en onlinebutik](determine-your-listing-type.md#selecting-an-online-store) och [en köp guide till Microsoft AppSource och Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
+När du skapar ett erbjudande för en kommersiell Marketplace i Partner Center, kan det finnas i en eller båda onlinebutiker baserat på erbjudande typen, kategorierna och andra alternativ som du väljer. I sällsynta fall att erbjudandet är relevant för användare av båda onlinebutiker, kan det visas i båda. Mer information finns i [lista och pris alternativ per onlinebutik](determine-your-listing-type.md#listing-and-pricing-options-by-online-store) och [en köp guide till Microsoft AppSource och Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
 
 ### <a name="microsoft-appsource"></a>Microsoft AppSource
 
@@ -38,11 +38,11 @@ Här är ett exempel på en lista med erbjudande sidor i AppSource:
 
 Kunder kan också få åtkomst till dina AppSource-erbjudanden via Microsoft 365, Dynamics 365, Power Platform och Azure. I följande exempel visas hur du kommer åt AppSource-tillägg från menyn Power BI **Arkiv** .
 
-:::image type="content" source="media/overview/power-bi.png" alt-text="Visar en lista med erbjudande sidor i Microsoft AppSource."::: 
+:::image type="content" source="media/overview/power-bi.png" alt-text="Visar hur du kommer åt Power BI visualiseringar i AppSource från menyn Power BIs fil."::: 
 
 Det här alternativet öppnar ett fönster där kunden kan söka efter Power BI-tillägg efter namn eller kategori. 
 
-:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Visar en lista med erbjudande sidor i Microsoft AppSource."::: 
+:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Visar en lista över AppSource-tillägg inifrån Power BI."::: 
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -50,17 +50,17 @@ Det här alternativet öppnar ett fönster där kunden kan söka efter Power BI-
 
 Här är ett exempel på en listsida för erbjudande på Azure Marketplace:
 
-:::image type="content" source="media/overview/example-marketplace.png" alt-text="Visar en lista med erbjudande sidor i Microsoft AppSource."::: 
+:::image type="content" source="media/overview/example-marketplace.png" alt-text="Visar en lista med erbjudande sidor i Azure Marketplace."::: 
 
 #### <a name="azure-marketplace-in-the-azure-portal"></a>Azure Marketplace i Azure Portal
 
 Azure-kunder kan upptäcka och Distribuera Azure Marketplace-lösningar via alternativet **skapa en resurs** i [Azure Portal](https://portal.azure.com/).
 
-:::image type="content" source="media/overview/create-resource.png" alt-text="Visar en lista med erbjudande sidor i Microsoft AppSource."::: 
+:::image type="content" source="media/overview/create-resource.png" alt-text="Visar alternativet Skapa en resurs i Azure Portal"::: 
 
 Med det här alternativet öppnas Azure Marketplace i Azure Portal där de kan söka efter lösningar efter namn eller kategori.
 
-:::image type="content" source="media/overview/search-portal.png" alt-text="Visar en lista med erbjudande sidor i Microsoft AppSource."::: 
+:::image type="content" source="media/overview/search-portal.png" alt-text="Visar Sök alternativen för Azure Marketplace i Azure Portal"::: 
 
 ## <a name="benefits-of-selling-with-microsoft"></a>Fördelar med att sälja med Microsoft
 

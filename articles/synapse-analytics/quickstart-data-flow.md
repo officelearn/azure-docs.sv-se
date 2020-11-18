@@ -1,6 +1,6 @@
 ---
-title: En snabb start för att transformera data med ett data flöde för mappning
-description: Den här självstudien innehåller stegvisa instruktioner för att använda Azure Synapse Analytics för att omvandla data med data flöde för mappning
+title: 'Snabb start: transformera data med hjälp av ett mappnings data flöde'
+description: Den här självstudien innehåller stegvisa instruktioner för hur du använder Azure Synapse Analytics för att omvandla data med data flöde för mappning.
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 0bf1611dee2b3f7f9a3059e3118ddbf08c00f886
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 207679ad5b508b687c9cad372d144839fcaa501d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93343134"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743855"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>Snabb start: transformera data med hjälp av mappnings data flöden
 
-I den här snabb starten använder du Azure Synapse Analytics för att skapa en pipeline som transformerar data från en Azure Data Lake Storage (ADLS) Gen2-källa till en ADLS Gen2 mottagare med hjälp av mappnings data flödet. Konfigurations mönstret i den här snabb starten kan utökas vid omvandling av data med hjälp av data flöde för mappning
+I den här snabb starten använder du Azure Synapse Analytics för att skapa en pipeline som transformerar data från en Azure Data Lake Storage Gen2-källa (ADLS Gen2) till en ADLS Gen2 mottagare med hjälp av data flödet för mappning. Konfigurations mönstret i den här snabb starten kan utökas vid omvandling av data med hjälp av data flöde för mappning
 
 I den här snabb starten utför du följande steg:
 
@@ -29,9 +29,9 @@ I den här snabb starten utför du följande steg:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Azure-prenumeration** : Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure Synapse-arbetsyta** : skapa en Synapse-arbetsyta med hjälp av Azure Portal följa anvisningarna i [snabb start: skapa en Synapse-arbetsyta](quickstart-create-workspace.md).
-* **Azure Storage-konto** : du använder ADLS-lagring som *käll* -och *mottagar* data lager. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md).
+* **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* **Azure Synapse-arbetsyta**: skapa en Synapse-arbetsyta med hjälp av Azure Portal följa anvisningarna i [snabb start: skapa en Synapse-arbetsyta](quickstart-create-workspace.md).
+* **Azure Storage-konto**: du använder ADLS-lagring som *käll* -och *mottagar* data lager. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md).
 
     Filen som vi transformerar i den här självstudien är MoviesDB.csv, som du hittar [här](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Om du vill hämta filen från GitHub kopierar du innehållet till en text redigerare som du väljer att spara lokalt som en CSV-fil. Om du vill överföra filen till ditt lagrings konto, se [Ladda upp blobar med Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md). Exemplen refererar till en behållare med namnet "Sample-data".
 
@@ -39,7 +39,7 @@ I den här snabb starten utför du följande steg:
 
 När din Azure Synapse-arbetsyta har skapats kan du öppna Synapse Studio på två sätt:
 
-* Öppna din Synapse-arbetsyta i [Azure Portal](https://ms.portal.azure.com/#home). Överst i översikts avsnittet väljer du **Starta Synapse Studio**.
+* Öppna din Synapse-arbetsyta i [Azure Portal](https://ms.portal.azure.com/#home). Välj **Öppna** på kortet Open Synapse Studio under komma igång.
 * Öppna [Azure Synapse Analytics](https://web.azuresynapse.net/) och logga in på din arbets yta.
 
 I den här snabb starten använder vi arbets ytan med namnet "adftest2020" som exempel. Den kommer automatiskt att gå till start sidan för Synapse Studio.

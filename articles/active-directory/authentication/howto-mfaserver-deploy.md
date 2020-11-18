@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ea9117d3cce2eec4c143e9fb3df76710a93a664
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: eca3b8f1cd8f27c193e8f8235887e21230f60611
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966975"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838628"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Komma igång med Azure Multi-Factor Authentication Server
 
@@ -27,9 +27,9 @@ ms.locfileid: "91966975"
 Den här sidan innehåller anvisningar för hur du installerar servern och konfigurerar den med ditt lokala Active Directory. Om du redan har installerat MFA-servern och vill uppgradera så kan du läsa artikeln om att [uppgradera till den senaste Azure Multi-Factor Authentication-servern](howto-mfaserver-deploy-upgrade.md). Om du vill veta hur du endast installerar webbtjänsten kan du läsa artikeln [Aktivera mobilappautentisering och Azure Multi-Factor Authentication-servern](howto-mfaserver-deploy-mobileapp.md).
 
 > [!IMPORTANT]
-> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure-Multi-Factor Authentication.
+> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure AD-Multi-Factor Authentication.
 >
-> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > Befintliga kunder som aktiverade MFA server före den 1 juli 2019 kan ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
@@ -112,15 +112,15 @@ Om du inte använder funktionen Händelsebekräftelse och om användarna inte an
 Följ de här stegen för att ladda ned Azure Multi-Factor Authentication-servern från Azure-portalen:
 
 > [!IMPORTANT]
-> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication.
+> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) från sina användare bör använda molnbaserad Azure AD-Multi-Factor Authentication.
 >
-> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > Befintliga kunder som aktiverade MFA server före den 1 juli 2019 kan ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt. Följande steg fungerar bara om du är en befintlig MFA Server-kund.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
 2. Sök efter och välj *Azure Active Directory*. Välj **säkerhets**  >  **MFA**.
-3. Under **Manager MFA Server**väljer du **Server inställningar**.
+3. Under **Manager MFA Server** väljer du **Server inställningar**.
 4. Välj **hämta** och följ instruktionerna på hämtningssidan för att spara installationsprogrammet. 
 
    ![Hämta MFA Server från Azure Portal](./media/howto-mfaserver-deploy/downloadportal.png)

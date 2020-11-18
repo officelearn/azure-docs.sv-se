@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3781a87bde283de3b798f840274db1dd5ea3ac7e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9c1b07534c702e509b2b664fbee585aa2cff69f6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366504"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837608"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory användnings villkor
 
@@ -41,7 +41,7 @@ Användnings villkoren för Azure AD har följande funktioner:
 - Kräv att medarbetare eller gäster accepterar dina användnings villkor innan de får åtkomst.
 - Kräv att medarbetare eller gäster accepterar dina användnings villkor på varje enhet innan du får åtkomst.
 - Kräv att medarbetare eller gäster accepterar dina användnings villkor enligt ett återkommande schema.
-- Kräv att medarbetare eller gäster accepterar dina användnings villkor innan säkerhets information registreras i Azure Multi-Factor Authentication (MFA).
+- Kräv att medarbetare eller gäster accepterar dina användnings villkor innan säkerhets information registreras i Azure AD Multi-Factor Authentication (MFA).
 - Kräv att medarbetarna accepterar dina användnings villkor innan säkerhets information registreras i Azure AD självbetjäning för återställning av lösen ord (SSPR).
 - Visa allmänna användnings villkor för alla användare i din organisation.
 - Visa vissa användnings villkor baserat på ett användarattribut (t. ex. läkare jämfört med sjuksköterskor eller inhemska jämfört med internationella medarbetare, via [dynamiska grupper](../enterprise-users/groups-dynamic-membership.md)).
@@ -52,7 +52,7 @@ Användnings villkoren för Azure AD har följande funktioner:
 - Visa en logg med villkor för användnings aktivitet för efterlevnad och granskning.
 - Skapa och hantera användnings villkor med hjälp av [Microsoft Graph API: er](/graph/api/resources/agreement?view=graph-rest-beta) (för närvarande i för hands version).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda och konfigurera användnings villkor för Azure AD måste du ha:
 
@@ -82,7 +82,7 @@ När du har slutfört användnings villkoren använder du följande procedur fö
 
 1. I rutan **namn** anger du ett namn för de användnings villkor som ska användas i Azure Portal.
 1. I rutan **visnings namn** anger du en rubrik som användarna ser när de loggar in.
-1. För **användningsvillkor dokument**bläddrar du till dina slutliga villkor för användning av PDF-filen och väljer den.
+1. För **användningsvillkor dokument** bläddrar du till dina slutliga villkor för användning av PDF-filen och väljer den.
 1. Välj språk för dina användnings villkors dokument. Via språkalternativet kan du ladda upp flera användningsvillkor, vart och ett med olika språk. Versionen av användningsvillkoren som en användare ser baseras på deras inställningar för webbläsaren.
 1. Om du vill att slutanvändarna ska kunna se användnings villkoren innan de godkänns, ställer du in **Kräv att användarna expanderar användnings villkoren** till **på**.
 1. Om du vill att slutanvändarna ska kunna acceptera dina användnings villkor på varje enhet som de ansluter till, ställer du in **Kräv att användare godkänner varje enhet** till **på**. Användare kan behöva installera ytterligare program om det här alternativet är aktiverat. Mer information finns i [användnings villkoren per enhet](#per-device-terms-of-use).
@@ -92,7 +92,7 @@ När du har slutfört användnings villkoren använder du följande procedur fö
 
 1. Använd inställningarna för att **börja om från** och med **frekvensen** för att ange schemat för användnings villkor. I följande tabell visas resultatet av ett par exempel inställningar:
 
-   | Förfaller från | Frequency | Resultat |
+   | Förfaller från | Frekvens | Resultat |
    | --- | --- | --- |
    | Dagens datum  | Varje månad | Från och med idag måste användarna godkänna användnings villkoren och sedan acceptera igen varje månad. |
    | Datum i framtiden  | Varje månad | Från och med idag måste användarna godkänna användnings villkoren. När det framtida datumet inträffar upphör medgivanden att gälla och användarna måste sedan acceptera varje månad igen.  |
@@ -113,7 +113,7 @@ När du har slutfört användnings villkoren använder du följande procedur fö
 
    Det går att använda **förfallna** **godkännanden och varaktighet innan omgodkännandet kräver (dagar)** inställningar tillsammans, men vanligt vis använder du en eller ett annat.
 
-1. Under **villkorlig åtkomst**använder du listan **tillämpa med princip mal len för villkorlig åtkomst** för att välja den mall som ska användas för användnings villkoren.
+1. Under **villkorlig åtkomst** använder du listan **tillämpa med princip mal len för villkorlig åtkomst** för att välja den mall som ska användas för användnings villkoren.
 
    ![Listruta för villkorlig åtkomst för att välja en principmall](./media/terms-of-use/conditional-access-templates.png)
 
@@ -225,7 +225,7 @@ Du kan redigera viss information om användnings villkoren, men du kan inte änd
 
    ![Redigera användnings villkors fönstret som visar namn och visnings alternativ](./media/terms-of-use/edit-tou.png)
 
-1. Klicka på **Spara** för att spara dina ändringar.
+1. Klicka på **Spara** för att spara ändringarna.
 
    När du har sparat ändringarna behöver användarna inte acceptera dessa ändringar igen.
 
@@ -348,7 +348,7 @@ Du kan konfigurera en princip för villkorlig åtkomst för appen för Microsoft
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F: Hur ser jag om/när en användare har godkänt användningsvillkoren?**<br />
-A: Klicka på det antal som **godkänns**på bladet användningsvillkor. Du kan också visa eller söka i accept-aktiviteten i gransknings loggarna för Azure AD. Mer information finns i Visa en rapport över vem som har accepterat och avböjt och [Visa Azure AD-gransknings loggar](#view-azure-ad-audit-logs).
+A: Klicka på det antal som **godkänns** på bladet användningsvillkor. Du kan också visa eller söka i accept-aktiviteten i gransknings loggarna för Azure AD. Mer information finns i Visa en rapport över vem som har accepterat och avböjt och [Visa Azure AD-gransknings loggar](#view-azure-ad-audit-logs).
 
 **F: Hur länge lagras informationen?**<br />
 A: användaren räknar med användnings villkoren och vem som accepterade/avböjde lagras under användnings villkoren. Gransknings loggarna i Azure AD lagras i 30 dagar.

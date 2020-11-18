@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dc11faa502e5a6d8ede761d35d1ba24305b7688
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 13cfed6bf378ff9dacc4b6446cdfc246a87949bb
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964187"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838799"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Konfigurera Azure Multi-Factor Authentication Server så att den fungerar med AD FS 2.0
 
@@ -25,11 +25,11 @@ Den här artikeln är för organisationer som federerade med Azure Active Direct
 Den här dokumentationen beskriver hur du använder Azure Multi-Factor Authentication Server med AD FS 2.0. Mer information om AD FS finns i [Skydda molnresurser och lokala resurser med Azure Multi-Factor Authentication Server med Windows Server 2012 R2 AD FS](howto-mfaserver-adfs-2012.md).
 
 > [!IMPORTANT]
-> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure-Multi-Factor Authentication.
+> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure AD-Multi-Factor Authentication.
 >
-> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
-> Om du använder molnbaserad MFA, se [skydda moln resurser med Azure Multi-Factor Authentication och AD FS](howto-mfa-adfs.md).
+> Om du använder molnbaserad MFA, se [skydda moln resurser med Azure AD Multi-Factor Authentication och AD FS](howto-mfa-adfs.md).
 >
 > Befintliga kunder som aktiverade MFA server före den 1 juli 2019 kan ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
@@ -45,7 +45,7 @@ Om du vill skydda AD FS 2.0 med en proxy installerar du Azure Multi-Factor Authe
 
    ![IIS-autentiseringsläge för MFA Server](./media/howto-mfaserver-adfs-2/setup1.png)
 
-4. Ange inloggnings-URL (t. ex. `https://sso.contoso.com/adfs/ls` ) i dialog rutan konfigurera Form-Based webbplats automatiskt och klicka på **OK**för att identifiera användar namn, lösen ord och domän variabler automatiskt.
+4. Ange inloggnings-URL (t. ex. `https://sso.contoso.com/adfs/ls` ) i dialog rutan konfigurera Form-Based webbplats automatiskt och klicka på **OK** för att identifiera användar namn, lösen ord och domän variabler automatiskt.
 5. Markera rutan **Kräv Azure Multi-Factor Authentication-användarmatchning** om alla användare har importerats eller ska importeras till servern och använda tvåstegsverifiering. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad.
 6. Om sidvariablerna inte kan identifieras automatiskt klickar du på knappen **Ange manuellt** i dialogrutan Konfigurera formulärbaserad webbplats automatiskt.
 7. I dialog rutan Lägg till Form-Based webbplats anger du URL: en till sidan för AD FS inloggning i fältet överförings-URL (som `https://sso.contoso.com/adfs/ls` ) och anger ett program namn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.

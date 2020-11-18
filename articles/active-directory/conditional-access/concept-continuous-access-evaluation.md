@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: daa3f3b1687b01005f32cbd2665c84b933c993b8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992817"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837625"
 ---
 # <a name="continuous-access-evaluation"></a>Utvärdering av kontinuerlig åtkomst
 
@@ -126,7 +126,7 @@ I följande exempel har en administratör för villkorlig åtkomst konfigurerat 
 ## <a name="enable-or-disable-cae-preview"></a>Aktivera eller inaktivera CAE (för hands version)
 
 1. Logga in på **Azure Portal** som administratör för villkorlig åtkomst, säkerhets administratör eller global administratör
-1. Bläddra till **Azure Active Directory**  >  **säkerhet**för  >  **kontinuerlig åtkomst**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhet** för  >  **kontinuerlig åtkomst**.
 1. Välj **Aktivera förhands granskning**.
 
 Från den här sidan kan du välja att begränsa de användare och grupper som ska omfattas av för hands versionen.
@@ -140,11 +140,11 @@ Från den här sidan kan du välja att begränsa de användare och grupper som s
 För CAE har vi bara insikter om namngivna IP-baserade namngivna platser. Vi har inga insikter på andra plats inställningar som [MFA-betrodda IP-adresser](../authentication/howto-mfa-mfasettings.md#trusted-ips) eller landsspecifika platser. När en användare kommer från en MFA-betrodd IP-adress eller betrodda platser som innehåller MFA-betrodda IP-adresser eller land, kommer CAE inte att tillämpas när användaren flyttar till en annan plats. I dessa fall kommer vi att utfärda en CAE-token för en timme utan omedelbar kontroll av IP-tvång.
 
 > [!IMPORTANT]
-> När du konfigurerar platser för utvärdering av kontinuerlig åtkomst ska du bara använda den [IP-baserade villkorliga åtkomst platsen](../conditional-access/location-condition.md#preview-features) och konfigurera alla IP-adresser, **inklusive både IPv4 och IPv6**, som kan visas av leverantören av identitets leverantören och resurser. Använd inte villkor för land eller den betrodda IP-funktionen som är tillgänglig på sidan tjänst inställningar för Azure Multi-Factor Authentication.
+> När du konfigurerar platser för utvärdering av kontinuerlig åtkomst ska du bara använda den [IP-baserade villkorliga åtkomst platsen](../conditional-access/location-condition.md#preview-features) och konfigurera alla IP-adresser, **inklusive både IPv4 och IPv6**, som kan visas av leverantören av identitets leverantören och resurser. Använd inte villkor för land eller den betrodda IP-funktionen som är tillgänglig på sidan tjänst inställningar för Azure AD Multi-Factor Authentication.
 
 ### <a name="ip-address-configuration"></a>Konfigurera IP-adress
 
-Identitets leverantören och resurs leverantörerna kan se olika IP-adresser. Detta matchnings fel kan inträffa på grund av nätverks-proxy-implementeringar i din organisation eller felaktiga IPv4/IPv6-konfigurationer mellan identitets leverantören och resurs leverantören. Till exempel:
+Identitets leverantören och resurs leverantörerna kan se olika IP-adresser. Detta matchnings fel kan inträffa på grund av nätverks-proxy-implementeringar i din organisation eller felaktiga IPv4/IPv6-konfigurationer mellan identitets leverantören och resurs leverantören. Exempel:
 
 - Din identitetsprovider ser en IP-adress från klienten.
 - Resurs leverantören ser en annan IP-adress från klienten när den har passerat via en proxy.

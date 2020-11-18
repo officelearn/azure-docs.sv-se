@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cb442a913ac8bde869144de1a75869a39b12398
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 53f7b0877c1b816bd41226f9207f7dc950eadfd1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966907"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838526"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Uppgradera till den senaste versionen av Azure Multi-Factor Authentication Server
 
@@ -25,9 +25,9 @@ Den här artikeln vägleder dig genom processen för att uppgradera Azure Multi-
 Om du uppgraderar från v6. x eller äldre till v7. x eller senare ändras alla komponenter från .NET 2,0 till .NET 4,5. Alla komponenter kräver också Microsoft Visual C++ 2015 Redistributable Update 1 eller senare. MFA Server Installer installerar både x86-och x64-versionerna av dessa komponenter om de inte redan är installerade. Om användar portalen och webb tjänsten Mobile App körs på separata servrar måste du installera dessa paket innan du uppgraderar dessa komponenter. Du kan söka efter den senaste uppdateringen för Microsoft Visual C++ 2015 Redistributable på [Microsoft Download Center](https://www.microsoft.com/download/). 
 
 > [!IMPORTANT]
-> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure-Multi-Factor Authentication.
+> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure AD-Multi-Factor Authentication.
 >
-> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > Befintliga kunder som aktiverade MFA server före den 1 juli 2019 kan ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
@@ -102,7 +102,7 @@ Dessa anvisningar gäller endast om du kör Multi-Factor Authentication-server s
 
    Om det uppstår ett fel som säger "Microsoft Visual C++ 2015 Redistributable Update 1 eller senare krävs" Ladda ned och installera det senaste uppdaterings paketet från [Microsoft Download Center](https://www.microsoft.com/download/). Installera både x86-och x64-versionerna.
 
-3. Gå till **AD FS**  >  **autentiseringsprinciper**  >  **Redigera globala**principer för multifaktorautentisering. Avmarkera **WindowsAzureMultiFactorAuthentication** eller **AzureMFAServerAuthentication** (beroende på vilken version som är installerad).
+3. Gå till **AD FS**  >  **autentiseringsprinciper**  >  **Redigera globala** principer för multifaktorautentisering. Avmarkera **WindowsAzureMultiFactorAuthentication** eller **AzureMFAServerAuthentication** (beroende på vilken version som är installerad).
 
    När det här steget är slutfört är tvåstegsverifiering via MFA Server inte tillgängligt i det här AD FS klustret förrän du har slutfört steg 8.
 
@@ -110,7 +110,7 @@ Dessa anvisningar gäller endast om du kör Multi-Factor Authentication-server s
 5. Registrera den nya AD FS adaptern genom att köra Register-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell-skriptet. Detta gäller för alla servrar i samma AD FS kluster eftersom det finns en central konfiguration.
 6. Starta om AD FS tjänsten på varje server som har tagits bort från AD FS server gruppen.
 7. Lägg tillbaka de uppdaterade servrarna i AD FS server gruppen och ta bort de andra servrarna från Server gruppen.
-8. Gå till **AD FS**  >  **autentiseringsprinciper**  >  **Redigera globala**principer för multifaktorautentisering. Kontrol lera **AzureMfaServerAuthentication**.
+8. Gå till **AD FS**  >  **autentiseringsprinciper**  >  **Redigera globala** principer för multifaktorautentisering. Kontrol lera **AzureMfaServerAuthentication**.
 9. Upprepa steg 2 för att uppdatera servrarna som nu har tagits bort från AD FS server gruppen och starta om AD FS tjänsten på dessa servrar.
 10. Lägg tillbaka servrarna i AD FS-servergruppen.
 

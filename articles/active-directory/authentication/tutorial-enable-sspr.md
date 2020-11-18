@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbf1a6aebf54c7928fe0636262055f37d7f93bd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 59de3123dc991d0314cd9046d83712d17da53d9f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966550"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837829"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Självstudie: gör det möjligt för användare att låsa upp kontot eller återställa lösen ord med hjälp av Azure Active Directory självbetjäning för återställning av lösen ord
 
@@ -48,7 +48,7 @@ För att slutföra den här självstudien behöver du följande resurser och beh
 
 ## <a name="enable-self-service-password-reset"></a>Aktivera lösenordsåterställning via självbetjäning
 
-Med Azure AD kan du aktivera SSPR för *inga*, *markerade*eller *alla* användare. Med den här detaljerade möjligheten kan du välja en delmängd av användare för att testa registrerings processen och arbets flödet för SSPR. När du är bekväm med processen och kan kommunicera kraven med en bredare uppsättning användare kan du välja en grupp med användare som ska aktive ras för SSPR. Du kan också aktivera SSPR för alla i Azure AD-klienten.
+Med Azure AD kan du aktivera SSPR för *inga*, *markerade* eller *alla* användare. Med den här detaljerade möjligheten kan du välja en delmängd av användare för att testa registrerings processen och arbets flödet för SSPR. När du är bekväm med processen och kan kommunicera kraven med en bredare uppsättning användare kan du välja en grupp med användare som ska aktive ras för SSPR. Du kan också aktivera SSPR för alla i Azure AD-klienten.
 
 > [!NOTE]
 >
@@ -57,9 +57,9 @@ Med Azure AD kan du aktivera SSPR för *inga*, *markerade*eller *alla* användar
 I den här självstudien konfigurerar du SSPR för en uppsättning användare i en test grupp. I följande exempel används gruppen *SSPR-test-Group* . Ange din egen Azure AD-grupp efter behov:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto med *globala administratörs* behörigheter.
-1. Sök efter och välj **Azure Active Directory**och välj sedan **Återställ lösen ord** på menyn till vänster.
-1. På sidan **Egenskaper** , under alternativet Återställning av *lösen ord*för självbetjäning aktiverat, väljer du **Välj grupp**
-1. Bläddra efter och välj din Azure AD-grupp, till exempel *SSPR-test-Group*och välj sedan *Välj*.
+1. Sök efter och välj **Azure Active Directory** och välj sedan **Återställ lösen ord** på menyn till vänster.
+1. På sidan **Egenskaper** , under alternativet Återställning av *lösen ord* för självbetjäning aktiverat, väljer du **Välj grupp**
+1. Bläddra efter och välj din Azure AD-grupp, till exempel *SSPR-test-Group* och välj sedan *Välj*.
 
     [![Välj en grupp i Azure Portal för att aktivera lösen ords återställning ](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png) via självbetjäning](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
 
@@ -135,8 +135,8 @@ I en följande självstudie i den här serien konfigurerar du tillbakaskrivning 
 Om du inte längre vill använda SSPR-funktionen som du har konfigurerat som en del av den här självstudien ställer du in SSPR-statusen på **ingen** av följande steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter och välj **Azure Active Directory**och välj sedan **Återställ lösen ord** på menyn till vänster.
-1. Välj **ingen**på sidan **Egenskaper** under alternativet Återställning av lösen ord för självbetjäning *aktive rad*.
+1. Sök efter och välj **Azure Active Directory** och välj sedan **Återställ lösen ord** på menyn till vänster.
+1. Välj **ingen** på sidan **Egenskaper** under alternativet Återställning av lösen ord för självbetjäning *aktive rad*.
 1. Om du vill tillämpa ändringen av SSPR väljer du **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -149,4 +149,4 @@ I den här självstudien har du aktiverat lösen ords återställning via själv
 > * Testa SSPR-processen som en användare
 
 > [!div class="nextstepaction"]
-> [Aktivera Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)
+> [Aktivera Azure AD Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

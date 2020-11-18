@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cb1a0819902d2dfa27718ccfe39b175959a16c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 03a5f355263b80ef2e5e1c829877dc96ca55787a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963847"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837897"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Självstudie: Konfigurera anpassade förbjudna lösen ord för Azure Active Directory lösen ords skydd
 
@@ -65,8 +65,8 @@ Vi aktiverar den anpassade listan över förbjudna lösen ord och lägger till v
 Om du vill aktivera listan med anpassade förbjudna lösen ord och lägga till poster i den utför du följande steg:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto med *globala administratörs* behörigheter.
-1. Sök efter och välj **Azure Active Directory**och välj sedan **säkerhet** på menyn på vänster sida.
-1. Under **Hantera** meny rubriken väljer du **autentiseringsmetoder**och sedan **lösen ords skydd**.
+1. Sök efter och välj **Azure Active Directory** och välj sedan **säkerhet** på menyn på vänster sida.
+1. Under **Hantera** meny rubriken väljer du **autentiseringsmetoder** och sedan **lösen ords skydd**.
 1. Ange alternativet för **tvinga anpassad lista** till *Ja*.
 1. Lägg till strängar i **listan anpassat blockerade lösen ord**, en sträng per rad. Följande överväganden och begränsningar gäller för listan med anpassade förbjudna lösen ord:
 
@@ -109,8 +109,8 @@ Försök att ändra lösen ordet till en variant av en som du lade till i föreg
 Om du inte längre vill använda den anpassade listan över blockerade lösen ord som du har konfigurerat som en del av den här självstudien utför du följande steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter och välj **Azure Active Directory**och välj sedan **säkerhet** på menyn på vänster sida.
-1. Under **Hantera** meny rubriken väljer du **autentiseringsmetoder**och sedan **lösen ords skydd**.
+1. Sök efter och välj **Azure Active Directory** och välj sedan **säkerhet** på menyn på vänster sida.
+1. Under **Hantera** meny rubriken väljer du **autentiseringsmetoder** och sedan **lösen ords skydd**.
 1. Ange alternativet för **tvinga anpassad lista** till *Nej*.
 1. Om du vill uppdatera den anpassade konfigurationen för förbjudna lösen ord väljer du **Spara**.
 
@@ -124,4 +124,4 @@ I den här självstudien har du aktiverat och konfigurerat anpassade lösen ords
 > * Testa lösen ords ändringar med ett blockerat lösen ord
 
 > [!div class="nextstepaction"]
-> [Aktivera riskbaserad Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)
+> [Aktivera riskfylld Azure AD-Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

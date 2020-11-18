@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f83d232874a7702598b6ea5fdd458c101e7e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7585c91e42b2d3591532756c1ead9ea60b7035e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266586"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837591"
 ---
 # <a name="custom-controls-preview"></a>Anpassade kontroller (förhands granskning)
 
@@ -35,7 +35,7 @@ Alternativet för att skapa en anpassad kontroll finns i avsnittet **Hantera** p
 
 ![Gränssnitt för anpassade kontroller i villkorlig åtkomst](./media/controls/custom-controls-conditional-access.png)
 
-Om du klickar på **ny anpassad kontroll**öppnas ett blad med en text ruta för dina KONTROLLers JSON-data.  
+Om du klickar på **ny anpassad kontroll** öppnas ett blad med en text ruta för dina KONTROLLers JSON-data.  
 
 ![Ny anpassad kontroll](./media/controls/new-custom-controls-conditional-access.png)
 
@@ -53,7 +53,7 @@ Om du vill redigera en anpassad kontroll måste du ta bort den aktuella kontroll
 
 ## <a name="known-limitations"></a>Kända begränsningar
 
-Det går inte att använda anpassade kontroller med identitets skydds automatisering som kräver Azure Multi-Factor Authentication, Azure AD självbetjäning för återställning av lösen ord (SSPR), som uppfyller kraven för Multi-Factor Authentication-krav, för att höja roller i Privileged Identity Manager (PIM), som en del av Intune-registreringen eller när du ansluter enheter till Azure AD.
+Det går inte att använda anpassade kontroller med identitets skydds automatisering som kräver Azure AD Multi-Factor Authentication, Azure AD självbetjäning för återställning av lösen ord (SSPR), som uppfyller kraven för Multi-Factor Authentication-krav, för att höja roller i Privileged Identity Manager (PIM), som en del av Intune-registreringen eller när du ansluter enheter till Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 

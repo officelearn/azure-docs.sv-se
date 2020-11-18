@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 9090c778771436a4fcf60139f3ee59812051057a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 340f451080f43fab213a3afc69f2adfae83514d7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145624"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837336"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Gör så här: Ange valfria anspråk för din app
 
@@ -37,7 +37,7 @@ Listor över standard anspråk finns i [åtkomsttoken](access-tokens.md) och [id
 
 | Kontotyp               | v 1.0-token | v 2.0-token |
 |----------------------------|-------------|-------------|
-| Personlig Microsoft-konto | Saknas         | Stöds   |
+| Personlig Microsoft-konto | E.t.         | Stöds   |
 | Azure AD-konto           | Stöds   | Stöds   |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>v 1.0 och v 2.0 valfria anspråks uppsättningar
@@ -89,7 +89,7 @@ De här anspråken ingår alltid i v 1.0 Azure AD-tokens, men ingår inte i v 2.
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfria anspråk
 
-Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returneras. Dessa ytterligare egenskaper används främst för att hjälpa migrering av lokala program med olika data förväntningar (till exempel för att hjälpa `include_externally_authenticated_upn_without_hash` klienter som inte kan hantera hash-tecken ( `#` ) i UPN)
+Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returneras. Dessa ytterligare egenskaper används främst för att hjälpa migrering av lokala program med olika data förväntningar. Hjälper till exempel `include_externally_authenticated_upn_without_hash` klienter som inte kan hantera hash-tecken ( `#` ) i UPN.
 
 **Tabell 4: värden för konfiguration av valfria anspråk**
 
@@ -115,7 +115,7 @@ Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returnera
 }
 ```
 
-Detta OptionalClaims-objekt gör att ID-token som returnerades till klienten inkluderar ett UPN-anspråk med ytterligare information om hem klient och resurs klient. `upn`Anspråket ändras bara i token om användaren är en gäst i klienten (som använder en annan IDP för autentisering).
+Detta OptionalClaims-objekt gör att ID-token returneras till klienten för att inkludera ett `upn` anspråk med ytterligare information om hem klient och resurs klient. `upn`Anspråket ändras bara i token om användaren är en gäst i klienten (som använder en annan IDP för autentisering).
 
 ## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
 
@@ -124,25 +124,25 @@ Detta OptionalClaims-objekt gör att ID-token som returnerades till klienten ink
 
 Du kan konfigurera valfria anspråk för ditt program via användar gränssnittet eller applikations manifestet.
 
-1. Gå till [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory** .
-1. I avsnittet **Hantera** väljer du **Appregistreringar** .
+1. Gå till [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
+1. I avsnittet **Hantera** väljer du **Appregistreringar**.
 1. Välj det program som du vill konfigurera valfria anspråk för i listan.
 
 **Konfigurera valfria anspråk genom användar gränssnittet:**
 
 [![Konfigurera valfria anspråk i användar gränssnittet](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. I avsnittet **Hantera** väljer du **token-konfiguration** .
-1. Välj **Lägg till valfritt anspråk** .
+1. I avsnittet **Hantera** väljer du **token-konfiguration**.
+1. Välj **Lägg till valfritt anspråk**.
 1. Välj den tokentyp som du vill konfigurera.
 1. Välj de valfria anspråk som ska läggas till.
-1. Välj **Lägg till** .
+1. Välj **Lägg till**.
 
 **Konfigurera valfria anspråk via applikations manifestet:**
 
 [![Visar hur du konfigurerar valfria anspråk med hjälp av app-manifestet](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
-1. I avsnittet **Hantera** väljer du **manifest** . En webbaserad manifest redigerare öppnas, så att du kan redigera manifestet. Du kan också välja **Ladda ned** och redigera manifestet lokalt, och sedan använda **Ladda upp** för att tillämpa det på appen igen. Mer information om applikations manifestet finns i [artikeln förstå program manifestet för Azure AD](reference-app-manifest.md).
+1. I avsnittet **Hantera** väljer du **manifest**. En webbaserad manifest redigerare öppnas, så att du kan redigera manifestet. Du kan också välja **Ladda ned** och redigera manifestet lokalt, och sedan använda **Ladda upp** för att tillämpa det på appen igen. Mer information om applikations manifestet finns i [artikeln förstå program manifestet för Azure AD](reference-app-manifest.md).
 
     Följande program manifest post lägger till de auth_time, ipaddr och UPN valfria anspråk till ID, Access och SAML-token.
 
@@ -174,7 +174,7 @@ Du kan konfigurera valfria anspråk för ditt program via användar gränssnitte
     }
     ```
 
-2. När du är färdig väljer du **Spara** . Nu kommer de angivna valfria anspråken att inkluderas i token för ditt program.
+2. När du är färdig väljer du **Spara**. Nu kommer de angivna valfria anspråken att inkluderas i token för ditt program.
 
 ### <a name="optionalclaims-type"></a>Typ av OptionalClaims
 
@@ -190,7 +190,7 @@ Deklarerar de valfria anspråk som begärs av ett program. Ett program kan konfi
 
 ### <a name="optionalclaim-type"></a>Typ av OptionalClaim
 
-Innehåller ett valfritt anspråk som associeras med ett program eller ett huvud namn för tjänsten. Egenskaperna idToken, accessToken och saml2Token för [OptionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) -typen är en samling OptionalClaim.
+Innehåller ett valfritt anspråk som associeras med ett program eller ett huvud namn för tjänsten. Egenskaperna idToken, accessToken och saml2Token för [OptionalClaims](/graph/api/resources/optionalclaims) -typen är en samling OptionalClaim.
 Om det stöds av ett angivet anspråk kan du också ändra beteendet för OptionalClaim med hjälp av fältet AdditionalProperties.
 
 **Tabell 6: egenskaper för OptionalClaim-typ**
@@ -204,7 +204,7 @@ Om det stöds av ett angivet anspråk kan du också ändra beteendet för Option
 
 ## <a name="configuring-directory-extension-optional-claims"></a>Konfigurerar valfria anspråk för katalog tillägg
 
-Förutom de vanliga valfria anspråks uppsättningarna kan du också konfigurera tokens för att inkludera tillägg. Mer information finns i [dokumentationen för Microsoft Graph extensionProperty](/graph/api/resources/extensionproperty?view=graph-rest-1.0).
+Förutom de vanliga valfria anspråks uppsättningarna kan du också konfigurera tokens för att inkludera tillägg. Mer information finns i [dokumentationen för Microsoft Graph extensionProperty](/graph/api/resources/extensionproperty).
 
 Schema-och öppna tillägg stöds inte av valfria anspråk, bara katalog tilläggen AAD-Graph Style. Den här funktionen är användbar för att bifoga ytterligare användar information som din app kan använda – till exempel en ytterligare identifierare eller ett viktigt konfigurations alternativ som användaren har angett. Se slutet på den här sidan för ett exempel.
 
@@ -231,24 +231,24 @@ Det här avsnittet beskriver konfigurations alternativen under valfria anspråk 
 
 **Konfigurera grupper valfria anspråk genom användar gränssnittet:**
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. När du har autentiserat väljer du din Azure AD-klient genom att välja den från det övre högra hörnet på sidan
-1. Välj **Azure Active Directory** på menyn till vänster
-1. Under avsnittet **Hantera** väljer du **Appregistreringar**
-1. Välj det program som du vill konfigurera valfria anspråk för i listan
-1. Under avsnittet **Hantera** väljer du **token-konfiguration**
-1. Välj **Lägg till grupp anspråk**
-1. Välj de grupp typer som ska returneras ( **säkerhets grupper** eller **katalog roller** , **alla grupper** och/eller **grupper som har tilldelats till programmet** ). De **grupper som har tilldelats program** alternativet inkluderar endast grupper som tilldelats programmet. Alternativet **alla grupper** innehåller **SecurityGroup** , **DirectoryRole** och **DistributionList** , men inte **grupper som är kopplade till programmet** . 
-1. Valfritt: Välj egenskaperna för den speciella tokentypen för att ändra värdet för grupp anspråk till att innehålla lokala Gruppattribut eller ändra anspråks typen till en roll
-1. Välj **Spara**
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. När du har autentiserat väljer du din Azure AD-klient genom att välja den från det övre högra hörnet på sidan.
+1. Välj **Azure Active Directory** på menyn till vänster.
+1. Under avsnittet **Hantera** väljer du **Appregistreringar**.
+1. Välj det program som du vill konfigurera valfria anspråk för i listan.
+1. Under avsnittet **Hantera** väljer du **token-konfiguration**.
+1. Välj **Lägg till grupp anspråk**.
+1. Välj de grupp typer som ska returneras (**säkerhets grupper** eller **katalog roller**, **alla grupper** och/eller **grupper som har tilldelats till programmet**). De **grupper som har tilldelats program** alternativet inkluderar endast grupper som tilldelats programmet. Alternativet **alla grupper** innehåller **SecurityGroup**, **DirectoryRole** och **DistributionList**, men inte **grupper som är kopplade till programmet**. 
+1. Valfritt: Välj egenskaperna för den speciella tokentypen för att ändra värdet för grupp anspråk till att innehålla lokala Gruppattribut eller ändra anspråks typen till en roll.
+1. Välj **Spara**.
 
 **Konfigurera grupper valfria anspråk via applikations manifestet:**
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. När du har autentiserat väljer du din Azure AD-klient genom att välja den från det övre högra hörnet på sidan
-1. Välj **Azure Active Directory** på menyn till vänster
-1. Välj det program som du vill konfigurera valfria anspråk för i listan
-1. Under avsnittet **Hantera** väljer du **manifest**
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. När du har autentiserat väljer du din Azure AD-klient genom att välja den från det övre högra hörnet på sidan.
+1. Välj **Azure Active Directory** på menyn till vänster.
+1. Välj det program som du vill konfigurera valfria anspråk för i listan.
+1. Under avsnittet **Hantera** väljer du **manifest**.
 1. Lägg till följande post med hjälp av manifest redigeraren:
 
    Giltiga värden är:
@@ -268,14 +268,14 @@ Det här avsnittet beskriver konfigurations alternativen under valfria anspråk 
 
 1. Ange alternativ för grupp namns konfiguration valfria anspråk.
 
-   Om du vill att grupper i token ska innehålla attributen för lokal AD-grupp i det valfria anspråks avsnittet anger du vilken tokentyp som valfritt anspråk ska tillämpas på, namnet på valfritt begärt anspråk och eventuella ytterligare egenskaper som önskas.  Flera typer av token kan visas:
+   Om du vill att grupper i token ska innehålla attributen lokal AD-grupp i avsnittet valfria anspråk anger du vilken tokentyp som du vill ska tillämpas på, namnet på valfritt begärt anspråk och eventuella ytterligare egenskaper som önskas.  Flera typer av token kan visas:
 
    - idToken för OIDC-ID-token
    - accessToken för OAuth-åtkomsttoken
    - Saml2Token för SAML-token.
 
    > [!NOTE]
-   > Saml2Token-typen gäller för både SAML 1.1 och SAML 2.0-format-token
+   > Saml2Token-typen gäller för både SAML 1.1 och SAML 2.0-format-token.
 
    För varje relevant tokentyp ändrar du grupp anspråk till att använda OptionalClaims-avsnittet i manifestet. OptionalClaims-schemat ser ut så här:
 
@@ -297,10 +297,10 @@ Det här avsnittet beskriver konfigurations alternativen under valfria anspråk 
 
    I additionalProperties krävs bara en av "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Om det finns fler än en används den första och andra ignoreras.
 
-   Vissa program kräver grupp information om användaren i roll anspråket.  Om du vill ändra anspråks typen till från ett grupp anspråk till ett roll anspråk lägger du till "emit_as_roles" i ytterligare egenskaper.  Grupp värden genereras i roll anspråket.
+   Vissa program kräver grupp information om användaren i roll anspråket.  Om du vill ändra anspråks typen från ett grupp anspråk till ett roll anspråk lägger du till "emit_as_roles" i ytterligare egenskaper.  Grupp värden genereras i roll anspråket.
 
    > [!NOTE]
-   > Om emit_as_roles används alla program roller som kon figurer ATS som användaren är tilldelad visas inte i roll anspråket
+   > Om emit_as_roles används visas inte alla program roller som har kon figurer ATS att användaren är tilldelad i roll anspråket.
 
 **Exempel:**
 
@@ -363,37 +363,36 @@ Det finns flera tillgängliga alternativ för att uppdatera egenskaperna för et
 
 - Du kan använda användar gränssnittet för **token-konfiguration** (se exemplet nedan)
 - Du kan använda **manifestet** (se exemplet nedan). Läs [förstå Azure AD Application manifest-dokumentet](./reference-app-manifest.md) först för en introduktion till manifestet.
-- Det är också möjligt att skriva ett program som använder [Microsoft Graph API](/graph/use-the-api?context=graph%2fapi%2f1.0&view=graph-rest-1.0) för att uppdatera ditt program. [OptionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) -typen i referens hand boken för Microsoft Graph API kan hjälpa dig att konfigurera de valfria anspråken.
+- Det är också möjligt att skriva ett program som använder [Microsoft Graph API](/graph/use-the-api) för att uppdatera ditt program. [OptionalClaims](/graph/api/resources/optionalclaims) -typen i referens hand boken för Microsoft Graph API kan hjälpa dig att konfigurera de valfria anspråken.
 
 **Exempel:**
 
 I exemplet nedan använder du användar gränssnittet för **token-konfiguration** och **manifestet** för att lägga till valfria anspråk till åtkomst, ID och SAML-token som är avsedda för ditt program. Olika valfria anspråk kommer att läggas till i varje tokentyp som programmet kan ta emot:
 
 - ID-token kommer nu att innehålla UPN för federerade användare i fullständig form ( `<upn>_<homedomain>#EXT#@<resourcedomain>` ).
-- De åtkomsttoken som andra klienter begär för det här programmet kommer nu att innehålla auth_time-anspråk
+- De åtkomsttoken som andra klienter begär för det här programmet kommer nu att innehålla auth_time-anspråk.
 - SAML-token kommer nu att innehålla skypeId Directory schema-tillägget (i det här exemplet är app-ID: t för den här appen ab603c56068041afb2f6832e2a17e237). SAML-token kommer att exponera Skype-ID: t som `extension_skypeId` .
 
 **GRÄNSSNITTs konfiguration:**
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
-
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. När du har autentiserat väljer du din Azure AD-klient genom att välja den från det övre högra hörnet på sidan.
 
 1. Välj **Azure Active Directory** på menyn till vänster.
 
-1. Under avsnittet **Hantera** väljer du **Appregistreringar** .
+1. Under avsnittet **Hantera** väljer du **Appregistreringar**.
 
 1. Hitta det program som du vill konfigurera valfria anspråk för i listan och markera det.
 
-1. Under avsnittet **Hantera** väljer du **token-konfiguration** .
+1. Under avsnittet **Hantera** väljer du **token-konfiguration**.
 
-1. Välj **Lägg till valfritt anspråk** , Välj typ av **ID-** token, Välj **UPN** i listan över anspråk och välj sedan **Lägg till** .
+1. Välj **Lägg till valfritt anspråk**, Välj typ av **ID-** token, Välj **UPN** i listan över anspråk och välj sedan **Lägg till**.
 
-1. Välj **Lägg till valfritt anspråk** , Välj **åtkomsttoken,** Välj **auth_time** i listan över anspråk och välj sedan **Lägg till** .
+1. Välj **Lägg till valfritt anspråk**, Välj **åtkomsttoken,** Välj **auth_time** i listan över anspråk och välj sedan **Lägg till**.
 
-1. På sidan Översikt över token konfiguration väljer du Penn ikonen bredvid **UPN** , väljer den **externt autentiserade** växlingen och väljer sedan **Spara** .
+1. På sidan Översikt över token konfiguration väljer du Penn ikonen bredvid **UPN**, väljer den **externt autentiserade** växlingen och väljer sedan **Spara**.
 
-1. Välj **Lägg till valfritt anspråk** , Välj **SAML** -tokentyp och välj **EXTn. skypeID** i listan över anspråk (gäller endast om du har skapat ett Azure AD-användarobjektet som heter SkypeID) och väljer sedan **Lägg till** .
+1. Välj **Lägg till valfritt anspråk**, Välj **SAML** -tokentyp och välj **EXTn. skypeID** i listan över anspråk (gäller endast om du har skapat ett Azure AD-användarobjektet som heter SkypeID) och väljer sedan **Lägg till**.
 
     [![Valfria anspråk för SAML-token](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d33721a70f0a9d4cfb26516d2f252424cc924f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6deb0c005b5ed7daf5b30bea8a65ee70d8b460c5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503818"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837472"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera autentiseringsessionshantering med villkorsstyrd åtkomst
 
@@ -90,7 +90,7 @@ Villkorlig åtkomst är en Azure AD Premium funktion och kräver en Premium-lice
 > [!WARNING]
 > Observera att vi inte har stöd för att skapa två olika principer för samma användar-eller app-kombination om du använder den [konfigurerbara livs längden för token](../develop/active-directory-configurable-token-lifetimes.md) i en offentlig för hands version. Microsoft planerar att dra tillbaka den konfigurerbara livs längden för token för uppdatering och token för sessionstoken den 30 januari 2021 och ersätta den med funktionen för hantering av autentisering med villkorlig åtkomst.  
 >
-> Innan du aktiverar inloggnings frekvens kontrollerar du att andra inställningar för autentisering är inaktiverade i din klient. Om "kom ihåg MFA på betrodda enheter" är aktive rad måste du inaktivera den innan du använder inloggnings frekvensen, eftersom de båda inställningarna kan leda till att användarna uppmanas att vänta. Mer information om omautentiserings-prompter och sessionens livs längd finns i artikeln [optimera omautentiserings-prompter och förstå sessionens livs längd för Azure Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
+> Innan du aktiverar inloggnings frekvens kontrollerar du att andra inställningar för autentisering är inaktiverade i din klient. Om "kom ihåg MFA på betrodda enheter" är aktive rad måste du inaktivera den innan du använder inloggnings frekvensen, eftersom de båda inställningarna kan leda till att användarna uppmanas att vänta. Mer information om omautentiserings-prompter och sessionens livs längd finns i artikeln [optimera omautentiserings-prompter och förstå sessionens livs längd för Azure AD Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Princip 1: kontroll för inloggnings frekvens
 

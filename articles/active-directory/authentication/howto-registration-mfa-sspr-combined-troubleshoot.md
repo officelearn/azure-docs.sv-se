@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae5995340640e9cda16634cf76b9953d7d663c2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b7ac03ff017f8beefe7cc487cdc32741ac1c5a35
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966669"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838186"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Felsöka kombinerad säkerhets informations registrering
 
@@ -34,10 +34,10 @@ I följande tabell visas alla gransknings händelser som har genererats vid komb
 | --- | --- | --- | --- |
 | Användaren registrerade all nödvändig säkerhets information | Klart | Användaren registrerade all nödvändig säkerhets information. | Den här händelsen inträffar när en användare har slutfört registreringen.|
 | Användaren registrerade all nödvändig säkerhets information | Fel | Användaren avbröt registreringen av säkerhets information. | Den här händelsen inträffar när en användare avbryter registreringen från avbrotts läge.|
-| Användarens registrerade säkerhets information | Klart | *Metod*för registrerad användare. | Den här händelsen inträffar när en användare registrerar en enskild metod. *Metoden* kan vara en Authenticator-app, telefon, e-post, säkerhets frågor, applösenord, alternativ telefon och så vidare.| 
+| Användarens registrerade säkerhets information | Klart | *Metod* för registrerad användare. | Den här händelsen inträffar när en användare registrerar en enskild metod. *Metoden* kan vara en Authenticator-app, telefon, e-post, säkerhets frågor, applösenord, alternativ telefon och så vidare.| 
 | Användare granskad säkerhets information | Klart | Användaren har granskat säkerhets informationen. | Den här händelsen inträffar när en användare väljer **ser bra ut** på sidan granskning av säkerhets information.|
 | Användare granskad säkerhets information | Fel | Användaren kunde inte granska säkerhets informationen. | Den här händelsen inträffar när en användare väljer **ser bra ut** på sidan granskning av säkerhets information men det går inte att utföra något på Server delen.|
-| Användaren tog bort säkerhets information | Klart | *Metoden*User Deleted. | Den här händelsen inträffar när en användare tar bort en enskild metod. *Metoden* kan vara en Authenticator-app, telefon, e-post, säkerhets frågor, applösenord, alternativ telefon och så vidare.|
+| Användaren tog bort säkerhets information | Klart | *Metoden* User Deleted. | Den här händelsen inträffar när en användare tar bort en enskild metod. *Metoden* kan vara en Authenticator-app, telefon, e-post, säkerhets frågor, applösenord, alternativ telefon och så vidare.|
 | Användaren tog bort säkerhets information | Fel | Användaren kunde inte ta bort *metoden*. | Den här händelsen inträffar när en användare försöker ta bort en metod men försöket Miss lyckas av någon anledning. *Metoden* kan vara en Authenticator-app, telefon, e-post, säkerhets frågor, applösenord, alternativ telefon och så vidare.|
 | Användaren ändrade standard säkerhets information | Klart | Användaren ändrade standard säkerhets informationen för *metoden*. | Den här händelsen inträffar när en användare ändrar standard metoden. *Metoden* kan vara meddelandeautentisering, en kod från min Authenticator-app eller token, anropa + X XXXXXXXXXX, text A kod till + x xxxxxxxxx och så vidare.|
 | Användaren ändrade standard säkerhets information | Fel | Användaren kunde inte ändra standard säkerhets informationen för *metoden*. | Den här händelsen inträffar när en användare försöker ändra standard metoden, men försöket Miss lyckas av någon anledning. *Metoden* kan vara meddelandeautentisering, en kod från min Authenticator-app eller token, anropa + X XXXXXXXXXX, text A kod till + x xxxxxxxxx och så vidare.|
@@ -151,10 +151,10 @@ Slutför de här stegen för att inaktivera den uppdaterade upplevelsen för din
 
 1. Logga in på Azure Portal som användar administratör.
 2. Gå till **Azure Active Directory**  >  **användar inställningar**  >  **Hantera inställningar för åtkomst panelens för hands versions funktioner**.
-3. Under **användare kan använda för hands versions funktioner för att registrera och hantera säkerhets information**, ange Selector till **none**och välj **Spara**.
+3. Under **användare kan använda för hands versions funktioner för att registrera och hantera säkerhets information**, ange Selector till **none** och välj **Spara**.
 
 Användarna kommer inte längre att uppmanas att registrera sig genom att använda den uppdaterade versionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig mer om kombinerad registrering för självbetjäning för återställning av lösen ord och Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Lär dig mer om kombinerad registrering för självbetjäning för återställning av lösen ord och Azure AD Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)

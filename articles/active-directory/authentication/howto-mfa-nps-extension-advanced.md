@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Azure MFA NPS-tillägget – Azure Active Directory
+title: Konfigurera Azure AD MFA NPS-tillägget – Azure Active Directory
 description: När du har installerat NPS-tillägget använder du de här stegen för Avancerad konfiguration som tillåtna IP-listor och UPN-ersättning.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a9156f84e5189b38a2c15f257bd6a47ac3db130
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 55c6457ec73c9fe9b39d607f26ffe2a577cc200d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964408"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839054"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Avancerade konfigurationsalternativ för NPS-tillägget för multifaktorautentisering
 
-Nätverks princip Server tillägget (NPS) utökar dina molnbaserade Azure Multi-Factor Authentication-funktioner till din lokala infrastruktur. Den här artikeln förutsätter att du redan har installerat tillägget och nu vill veta hur du anpassar tillägget efter behov. 
+Nätverks princip Server tillägget (NPS) utökar dina molnbaserade Azure AD Multi-Factor Authentication-funktioner till din lokala infrastruktur. Den här artikeln förutsätter att du redan har installerat tillägget och nu vill veta hur du anpassar tillägget efter behov. 
 
 ## <a name="alternate-login-id"></a>Alternativt inloggnings-ID
 
 Eftersom NPS-tillägget ansluter till både dina lokala och molnbaserade kataloger kan du stöta på ett problem där dina lokala UPN-namn (User Principal Names) inte matchar namnen i molnet. Lös problemet genom att använda alternativa inloggnings-ID: n. 
 
-I NPS-tillägget kan du ange ett Active Directory-attribut som ska användas i stället för UPN för Azure Multi-Factor Authentication. På så sätt kan du skydda dina lokala resurser med tvåstegsverifiering utan att ändra dina lokala UPN-ändringar. 
+I NPS-tillägget kan du ange ett Active Directory-attribut som ska användas i stället för UPN för Azure AD Multi-Factor Authentication. På så sätt kan du skydda dina lokala resurser med tvåstegsverifiering utan att ändra dina lokala UPN-ändringar. 
 
 Om du vill konfigurera alternativa inloggnings-ID: n går du till `HKLM\SOFTWARE\Microsoft\AzureMfa` och redigerar följande register värden:
 
@@ -55,4 +55,4 @@ När en begäran kommer från en IP-adress som finns i `IP_WHITELIST` , hoppas t
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Åtgärda felmeddelanden från NPS-tillägget för Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)
+[Lös fel meddelanden från NPS-tillägget för Azure AD Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)

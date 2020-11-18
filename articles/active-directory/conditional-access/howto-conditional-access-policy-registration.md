@@ -11,37 +11,37 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da68e21aa279ea2503a21ce35eee52f8e49d1434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049102"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837546"
 ---
-# <a name="conditional-access-securing-security-info-registration"></a>Villkorlig åtkomst: säkra registrering av säkerhets information
+# <a name="conditional-access-securing-security-info-registration"></a>Villkorsstyrd åtkomst: Säkra registrering av säkerhetsinformation
 
-Att skydda när och hur användare registrerar sig för Azure Multi-Factor Authentication och återställning av lösen ord för självbetjäning är nu möjligt med användar åtgärder i princip för villkorlig åtkomst. Den här förhands gransknings funktionen är tillgänglig för organisationer som har aktiverat den [kombinerade förhands granskningen](../authentication/concept-registration-mfa-sspr-combined.md). Den här funktionen kan vara aktive rad i organisationer där de vill använda villkor som betrott nätverks plats för att begränsa åtkomsten till registrering för Azure Multi-Factor Authentication och lösen ords återställning via självbetjäning (SSPR). Mer information om användbara villkor finns i artikeln [villkorlig åtkomst: villkor](concept-conditional-access-conditions.md).
+Nu kan du skydda när och hur användare registrerar sig för Azure AD Multi-Factor Authentication och återställning av lösen ord för självbetjäning är nu möjligt med användar åtgärder i principen för villkorlig åtkomst. Den här förhands gransknings funktionen är tillgänglig för organisationer som har aktiverat den [kombinerade förhands granskningen](../authentication/concept-registration-mfa-sspr-combined.md). Den här funktionen kan vara aktive rad i organisationer där de vill använda villkor som betrott nätverks plats för att begränsa åtkomsten till registrering för Azure AD Multi-Factor Authentication och lösen ords återställning via självbetjäning (SSPR). Mer information om användbara villkor finns i artikeln [villkorlig åtkomst: villkor](concept-conditional-access-conditions.md).
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Skapa en princip för att kräva registrering från en betrodd plats
 
 Följande princip gäller för alla valda användare, som försöker registrera sig med den kombinerade registrerings upplevelsen och blockerar åtkomsten om de inte ansluter från en plats som har marker ATS som ett betrott nätverk.
 
-1. I **Azure Portal**bläddrar du till **Azure Active Directory**  >  **säkerhet**för  >  **villkorlig åtkomst**.
+1. I **Azure Portal** bläddrar du till **Azure Active Directory**  >  **säkerhet** för  >  **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. I namn anger du ett namn för den här principen. Till exempel **kombinerad säkerhets informations registrering på betrodda nätverk**.
-1. Under **tilldelningar**väljer du **användare och grupper**och väljer de användare och grupper som du vill att den här principen ska tillämpas på.
+1. Under **tilldelningar** väljer du **användare och grupper** och väljer de användare och grupper som du vill att den här principen ska tillämpas på.
 
    > [!WARNING]
    > Användare måste aktive ras för den [kombinerade registreringen](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. Under **molnappar eller åtgärder**väljer du **användar åtgärder**, markera **Registrera säkerhets information**.
+1. Under **molnappar eller åtgärder** väljer du **användar åtgärder**, markera **Registrera säkerhets information**.
 1. Under **villkor**  >  **platser**.
    1. Konfigurera **Ja**.
    1. Ta med **vilken plats som helst**.
    1. Undanta **alla betrodda platser**.
    1. Välj **gör** på bladet platser.
    1. Välj **färdig** på bladet villkor.
-1. Under **villkor**  >  **klient program (för hands version)** anger du **Konfigurera** till **Ja**och väljer **klart**.
+1. Under **villkor**  >  **klient program (för hands version)** anger du **Konfigurera** till **Ja** och väljer **klart**.
 1. Under **åtkomst kontroller**  >  **beviljar**.
    1. Välj **blockera åtkomst**.
    1. Klicka sedan på **Välj**.

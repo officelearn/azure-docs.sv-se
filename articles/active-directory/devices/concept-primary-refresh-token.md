@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3f2b059bb6ae63d7f427ce970b2538da922e2dec
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965921"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837271"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Vad är en primär uppdateringstoken?
 
@@ -85,7 +85,7 @@ En PRT förnyas på två olika sätt:
 * **Azure AD CloudAP-plugin var 4: e timme**: CloudAP-plugin-programmet förnyar PRT var fjärde timme under Windows-inloggning. Om användaren inte har någon Internet anslutning under den tiden kommer CloudAP-plugin-programmet att förnya PRT när enheten är ansluten till Internet.
 * **Azure AD WAM-plugin vid begäran om app-token**: WAM-plugin-programmet aktiverar SSO på Windows 10-enheter genom att aktivera obevakade Tokenbegäran för program. WAM-plugin-programmet kan förnya PRT under dessa Tokenbegäran på två olika sätt:
    * En app begär WAM för en åtkomsttoken i bakgrunden men det finns ingen uppdaterad token för den appen. I det här fallet använder WAM PRT för att begära en token för appen och får tillbaka en ny PRT i svaret.
-   * En app begär WAM för en åtkomsttoken, men PRT är ogiltig eller så kräver Azure AD ytterligare behörighet (till exempel Azure Multi-Factor Authentication). I det här scenariot initierar WAM en interaktiv inloggning som kräver att användaren autentiserar eller ger ytterligare verifiering och att en ny PRT utfärdas vid lyckad autentisering.
+   * En app begär WAM för en åtkomsttoken, men PRT är ogiltig eller så kräver Azure AD ytterligare behörighet (till exempel Azure AD Multi-Factor Authentication). I det här scenariot initierar WAM en interaktiv inloggning som kräver att användaren autentiserar eller ger ytterligare verifiering och att en ny PRT utfärdas vid lyckad autentisering.
 
 I en ADFS-miljö krävs inte direkt insikten för domänkontrollanten för att kunna förnya PRT. PRT-förnyelsen kräver bara/ADFS/Services/Trust/2005/usernamemixed-och/ADFS/Services/Trust/13/usernamemixed-slutpunkter som är aktiverade på proxy genom att använda WS-Trust protokoll.
 

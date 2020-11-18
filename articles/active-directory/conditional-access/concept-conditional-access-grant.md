@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a779fee89d52442207358cf90c8cf87e7ef221c2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042799"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837659"
 ---
 # <a name="conditional-access-grant"></a>Villkorlig åtkomst: bevilja
 
@@ -34,7 +34,7 @@ Block är en kraftfull kontroll som bör vara wielded med lämplig kunskap. Prin
 
 Administratörer kan välja att tillämpa en eller flera kontroller när de beviljar åtkomst. Dessa kontroller innehåller följande alternativ: 
 
-- [Kräv Multi-Factor Authentication (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Kräv Multi-Factor Authentication (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [Kräv att enheten är markerad som kompatibel (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Kräv hybrid Azure AD-ansluten enhet](../devices/concept-azure-ad-join-hybrid.md)
 - [Kräv godkänd klientapp](app-based-conditional-access.md)
@@ -50,7 +50,7 @@ Som standard kräver villkorlig åtkomst alla valda kontroller.
 
 ### <a name="require-multi-factor-authentication"></a>Kräv Multi-Factor Authentication
 
-Om du markerar den här kryss rutan krävs det att användarna utför Azure-Multi-Factor Authentication. Mer information om hur du distribuerar Azure Multi-Factor Authentication finns i artikeln [Planera en molnbaserad Azure-Multi-Factor Authentication distribution](../authentication/howto-mfa-getstarted.md).
+Om du markerar den här kryss rutan krävs det att användarna utför Azure AD-Multi-Factor Authentication. Mer information om hur du distribuerar Azure AD Multi-Factor Authentication finns i artikeln [Planera en molnbaserad Azure AD Multi-Factor Authentication-distribution](../authentication/howto-mfa-getstarted.md).
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Kräv att enheten ska markeras som kompatibel
 

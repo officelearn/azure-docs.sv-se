@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ab17e5c0a024fec938f1b588cc4ce69bf16a878
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a4077ade7de93470aaf03acef1dc1cefca8bd3d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083260"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837370"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Hantera enhetsidentiteter med hjälp av Azure-portalen
 
@@ -39,7 +39,7 @@ På sidan **alla enheter** kan du:
 Du kan komma åt enhets portalen med följande steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Bläddra till **Azure Active Directory**  >  **enheter** .
+1. Bläddra till **Azure Active Directory**  >  **enheter**.
 
 ## <a name="manage-devices"></a>Hantera enheter
 
@@ -71,7 +71,7 @@ Båda alternativen gör att administratörer kan:
 
 ### <a name="manage-an-intune-device"></a>Hantera en Intune-enhet
 
-Om du är Intune-administratör kan du hantera enheter där MDM är markerat **Microsoft Intune** . Om enheten inte har registrerats med Microsoft Intune blir alternativet "hantera" nedtonat.
+Om du är Intune-administratör kan du hantera enheter där MDM är markerat **Microsoft Intune**. Om enheten inte har registrerats med Microsoft Intune blir alternativet "hantera" nedtonat.
 
 ### <a name="enable-or-disable-an-azure-ad-device"></a>Aktivera eller inaktivera en Azure AD-enhet
 
@@ -111,7 +111,7 @@ Du kan använda ett enhets-ID för att kontrol lera enhetens ID-information på 
   
 ### <a name="view-or-copy-bitlocker-keys"></a>Visa eller kopiera BitLocker-nycklar
 
-Du kan visa och kopiera BitLocker-nycklarna så att användarna kan återställa krypterade enheter. Dessa nycklar är bara tillgängliga för Windows-enheter som är krypterade och har sina nycklar lagrade i Azure AD. Du kan hitta de här nycklarna när du använder information om en enhet genom att välja **Visa återställnings nyckel** . Om du väljer **Visa återställnings nyckel** skapas en Gransknings logg, som du hittar i `KeyManagement` kategorin.
+Du kan visa och kopiera BitLocker-nycklarna så att användarna kan återställa krypterade enheter. Dessa nycklar är bara tillgängliga för Windows-enheter som är krypterade och har sina nycklar lagrade i Azure AD. Du kan hitta de här nycklarna när du använder information om en enhet genom att välja **Visa återställnings nyckel**. Om du väljer **Visa återställnings nyckel** skapas en Gransknings logg, som du hittar i `KeyManagement` kategorin.
 
 ![Visa BitLocker-nycklar](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
 
@@ -140,7 +140,7 @@ Så här aktiverar du funktionen för för hands versions filtrering i vyn **all
 ![Aktivera funktionen för förhands visning av filter](./media/device-management-azure-portal/device-filter-preview-enable.png)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Bläddra till **Azure Active Directory**  >  **enheter** .
+1. Bläddra till **Azure Active Directory**  >  **enheter**.
 1. Välj banderollen som visas och **prova de nya förbättringarna av enhets filtreringen. Klicka om du vill aktivera förhands granskningen.**
 
 Du kommer nu att kunna **lägga till filter** i vyn **alla enheter** .
@@ -158,19 +158,19 @@ Du måste ha tilldelats någon av följande roller för att kunna visa eller han
 
 ![Enhets inställningar som är relaterade till Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
-- **Användare kan ansluta enheter till Azure AD** – med den här inställningen kan du välja vilka användare som kan registrera sina enheter som Azure AD-anslutna enheter. Standardvärdet är **alla** .
+- **Användare kan ansluta enheter till Azure AD** – med den här inställningen kan du välja vilka användare som kan registrera sina enheter som Azure AD-anslutna enheter. Standardvärdet är **alla**.
 
 > [!NOTE]
 > **Användare kan ansluta enheter till Azure AD** -inställningen gäller bara för Azure AD Join i Windows 10.
 
 - **Ytterligare lokala administratörer på Azure AD-anslutna enheter** – du kan välja de användare som har behörighet till lokal administratör på en enhet. Dessa användare läggs till i rollen *enhets administratörer* i Azure AD. Globala administratörer i Azure AD och enhets ägare beviljas lokal administratörs behörighet som standard. Det här alternativet är en Premium Edition-funktion som är tillgänglig via produkter som Azure AD Premium eller Enterprise Mobility Suite (EMS).
-- **Användare kan registrera sina enheter med Azure AD** – du måste konfigurera den här inställningen så att Windows 10 personal-, iOS-, Android-och MacOS-enheter kan registreras med Azure AD. Om du väljer **ingen** , tillåts inte enheter att registrera med Azure AD. Registrering med Microsoft Intune eller hantering av mobila enheter (MDM) för Microsoft 365 kräver registrering. Om du har konfigurerat någon av dessa tjänster är **alla** markerad och **ingen** är tillgänglig.
-- **Kräv Multi-factor auth för att ansluta enheter** – du kan välja om användarna måste ange ytterligare en autentiseringsnivå för att ansluta sina enheter till Azure AD. Standardvärdet är **Nej** . Vi rekommenderar att du kräver Multi-Factor Authentication när du registrerar en enhet. Innan du aktiverar Multi-Factor Authentication för den här tjänsten måste du se till att Multi-Factor Authentication har kon figurer ATS för de användare som registrerar sina enheter. Mer information om olika Azure Multi-Factor Authentication-tjänster finns i [komma igång med Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
+- **Användare kan registrera sina enheter med Azure AD** – du måste konfigurera den här inställningen så att Windows 10 personal-, iOS-, Android-och MacOS-enheter kan registreras med Azure AD. Om du väljer **ingen**, tillåts inte enheter att registrera med Azure AD. Registrering med Microsoft Intune eller hantering av mobila enheter (MDM) för Microsoft 365 kräver registrering. Om du har konfigurerat någon av dessa tjänster är **alla** markerad och **ingen** är tillgänglig.
+- **Kräv Multi-factor auth för att ansluta enheter** – du kan välja om användarna måste ange ytterligare en autentiseringsnivå för att ansluta sina enheter till Azure AD. Standardvärdet är **Nej**. Vi rekommenderar att du kräver Multi-Factor Authentication när du registrerar en enhet. Innan du aktiverar Multi-Factor Authentication för den här tjänsten måste du se till att Multi-Factor Authentication har kon figurer ATS för de användare som registrerar sina enheter. Mer information om olika Azure AD Multi-Factor Authentication-tjänster finns i [komma igång med Azure ad Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
 > Inställningen **Kräv Multi-factor auth för att ansluta enheter** gäller för enheter som antingen är Azure AD-anslutna eller Azure AD registrerade. Den här inställningen gäller inte för Hybrid Azure AD-anslutna enheter.
 
-- **Maximalt antal enheter** – med den här inställningen kan du välja maximalt antal Azure AD-anslutna eller Azure AD-registrerade enheter som en användare kan ha i Azure AD. Om en användare når den här kvoten kan de inte lägga till fler enheter förrän en eller flera av de befintliga enheterna tas bort. Standardvärdet är **50** .
+- **Maximalt antal enheter** – med den här inställningen kan du välja maximalt antal Azure AD-anslutna eller Azure AD-registrerade enheter som en användare kan ha i Azure AD. Om en användare når den här kvoten kan de inte lägga till fler enheter förrän en eller flera av de befintliga enheterna tas bort. Standardvärdet är **50**.
 
 > [!NOTE]
 > Inställningen för **maximalt antal enheter** gäller för enheter som antingen är Azure AD-anslutna eller Azure AD registrerade. Den här inställningen gäller inte för Hybrid Azure AD-anslutna enheter.
@@ -198,7 +198,7 @@ Gransknings loggen har en Standardlistvy som visar:
 
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
-:::image type="content" source="./media/device-management-azure-portal/64.png" alt-text="Skärm bild av en tabell i avsnittet aktivitet på sidan enheter som visar datum, mål, aktör och aktivitet för fyra gransknings loggar." border="false":::
+:::image type="content" source="./media/device-management-azure-portal/64.png" alt-text="Skärm bild som visar verktygsfältet på sidan enheter. Kolumn objekt är markerat." border="false":::
 
 Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du filtrera granskningsdata med hjälp av följande fält:
 
@@ -211,7 +211,7 @@ Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du
 
 Förutom filtren kan du söka efter vissa poster.
 
-:::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="Skärm bild av en tabell i avsnittet aktivitet på sidan enheter som visar datum, mål, aktör och aktivitet för fyra gransknings loggar." border="false":::
+:::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="Skärm bild av kontroller för gransknings data filter, med kategori, aktivitets resurs typ, aktivitet, datum intervall, mål och aktörs fält och ett sökfält." border="false":::
 
 ## <a name="next-steps"></a>Nästa steg
 

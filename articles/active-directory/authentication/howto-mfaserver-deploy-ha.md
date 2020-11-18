@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a685706b09610dc298854093bb242f0bdcf8cf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 267a543e771f33f0cfe1fac7abe225e3db2a8e3f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964106"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838748"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Konfigurera Azure Multi-Factor Authentication-server för hög tillgänglighet
 
 För att uppnå hög tillgänglighet med din distribution av Azure Server MFA måste du distribuera flera MFA-servrar. Det här avsnittet innehåller information om en belastningsutjämnad design för att uppnå dina hög tillgänglighets mål i Azure MFS Server-distributionen.
 
 > [!IMPORTANT]
-> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure-Multi-Factor Authentication.
+> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure AD-Multi-Factor Authentication.
 >
-> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > Befintliga kunder som aktiverade MFA server före den 1 juli 2019 kan ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
@@ -55,7 +55,7 @@ Tänk på följande viktiga punkter för belastnings utjämning av Azure MFA Ser
 
    ![MFA server med ett perimeternätverk](./media/howto-mfaserver-deploy-ha/mfasecurity.png)
 
-* **Eng ång slö sen ord (eng ång slö sen ord) över SMS (aka ENVÄGS SMS) kräver att tröga sessioner används om trafiken är**belastningsutjämnad. Enkelriktat SMS är ett autentiseringsalternativ som gör MFA-servern att skicka ett textmeddelande som innehåller ett eng ång slö sen ord. Användaren skriver in eng ång slö sen ord i ett prompt-fönster för att slutföra MFA-utmaningen. Om du belastningsutjämna Azure MFA-servrar måste samma server som hanterade den inledande autentiseringsbegäran vara den server som tar emot meddelandet för eng ång slö sen ord från användaren. om en annan MFA-server tar emot eng ång slö sen ord, Miss lyckas autentiseringen. Mer information finns i [eng ång slö sen ord via SMS tillagt i Azure MFA Server](https://blogs.technet.microsoft.com/enterprisemobility/2015/03/02/one-time-password-over-sms-added-to-azure-mfa-server).
+* **Eng ång slö sen ord (eng ång slö sen ord) över SMS (aka ENVÄGS SMS) kräver att tröga sessioner används om trafiken är** belastningsutjämnad. Enkelriktat SMS är ett autentiseringsalternativ som gör MFA-servern att skicka ett textmeddelande som innehåller ett eng ång slö sen ord. Användaren skriver in eng ång slö sen ord i ett prompt-fönster för att slutföra MFA-utmaningen. Om du belastningsutjämna Azure MFA-servrar måste samma server som hanterade den inledande autentiseringsbegäran vara den server som tar emot meddelandet för eng ång slö sen ord från användaren. om en annan MFA-server tar emot eng ång slö sen ord, Miss lyckas autentiseringen. Mer information finns i [eng ång slö sen ord via SMS tillagt i Azure MFA Server](https://blogs.technet.microsoft.com/enterprisemobility/2015/03/02/one-time-password-over-sms-added-to-azure-mfa-server).
 * **Belastningsutjämnade distributioner av användar portalen och webb tjänsten Mobile App kräver tröga sessioner**. Om du läser in balansering av MFA-användargruppen och webb tjänsten Mobile app måste varje session vara kvar på samma server.
 
 ## <a name="high-availability-deployment"></a>Distribution med hög tillgänglighet

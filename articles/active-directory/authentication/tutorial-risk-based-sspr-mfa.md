@@ -10,27 +10,27 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d0fcd57a71baec54fbed2dd41a936895ad9a462
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a120e015bd8ca38e32bd8cbef1fd48f4caef8e44
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966584"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837812"
 ---
-# <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Självstudie: använda risk identifieringar för användar inloggningar för att utlösa Azure-Multi-Factor Authentication eller lösen ords ändringar
+# <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-ad-multi-factor-authentication-or-password-changes"></a>Självstudie: använda risk identifieringar för användar inloggningar för att utlösa Azure AD-Multi-Factor Authentication eller lösen ords ändringar
 
-För att skydda dina användare kan du konfigurera riskfyllda principer i Azure Active Directory (Azure AD) som automatiskt svarar på riskfyllda beteenden. Azure AD Identity Protection principer kan automatiskt blockera ett inloggnings försök eller kräva ytterligare åtgärder, t. ex. kräver en lösen ords ändring eller en uppvarning för Azure Multi-Factor Authentication. Dessa principer fungerar med befintliga principer för villkorlig åtkomst i Azure AD som ett extra skydds lager för din organisation. Användare får aldrig utlösa ett riskfylldt beteende i någon av dessa principer, men din organisation skyddas om ett försök att skada din säkerhet görs.
+För att skydda dina användare kan du konfigurera riskfyllda principer i Azure Active Directory (Azure AD) som automatiskt svarar på riskfyllda beteenden. Azure AD Identity Protection principer kan automatiskt blockera ett inloggnings försök eller kräva ytterligare åtgärder, till exempel kräva en lösen ords ändring eller en uppvarning för Azure AD Multi-Factor Authentication. Dessa principer fungerar med befintliga principer för villkorlig åtkomst i Azure AD som ett extra skydds lager för din organisation. Användare får aldrig utlösa ett riskfylldt beteende i någon av dessa principer, men din organisation skyddas om ett försök att skada din säkerhet görs.
 
 > [!IMPORTANT]
-> I den här självstudien visas en administratör för att aktivera riskfyllda Azure-Multi-Factor Authentication.
+> I den här självstudien visas en administratör för att aktivera riskfyllda Azure AD-Multi-Factor Authentication.
 >
-> Om ditt IT-team inte har aktiverat möjligheten att använda Azure Multi-Factor Authentication eller om du har problem under inloggningen kan du kontakta supportavdelningen för ytterligare hjälp.
+> Om ditt IT-team inte har aktiverat möjligheten att använda Azure AD Multi-Factor Authentication eller om du har problem under inloggningen kan du kontakta supportavdelningen för ytterligare hjälp.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förstå de tillgängliga principerna för Azure AD Identity Protection
-> * Aktivera registrering av Azure-Multi-Factor Authentication
+> * Aktivera registrering av Azure AD-Multi-Factor Authentication
 > * Aktivera riskbaserade lösenordsändringar
 > * Aktivera riskbaserad multifaktorautentisering
 > * Testa riskfyllda principer för användar inloggnings försök
@@ -42,9 +42,9 @@ För att slutföra den här självstudien behöver du följande resurser och beh
 * En fungerande Azure AD-klient med minst en Azure AD Premium P2-eller utvärderings licens aktive rad.
     * Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett konto med *Global administratörs* behörighet.
-* Azure AD har kon figurer ATS för självbetjäning för återställning av lösen ord och Azure Multi-Factor Authentication
+* Azure AD har kon figurer ATS för självbetjäning för återställning av lösen ord och Azure AD Multi-Factor Authentication
     * Om det behövs [Slutför du självstudien för att aktivera Azure AD SSPR](tutorial-enable-sspr.md).
-    * Om det behövs kan du [slutföra självstudien för att aktivera Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+    * Om det behövs [Slutför du självstudien för att aktivera Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
 ## <a name="overview-of-azure-ad-identity-protection"></a>Översikt över Azure AD Identity Protection
 
@@ -64,26 +64,26 @@ Följande tre principer är tillgängliga i Azure AD Identity Protection för at
 * Princip för användarrisk
     * Identifierar och svarar på användar konton som kan ha komprometterade autentiseringsuppgifter. Kan begära att användaren skapar ett nytt lösen ord.
 * Logga in risk princip
-    * Identifierar och svarar på misstänkta inloggnings försök. Kan begära att användaren ger ytterligare former av verifiering med Azure Multi-Factor Authentication.
+    * Identifierar och svarar på misstänkta inloggnings försök. Kan begära att användaren ger ytterligare former av verifiering med hjälp av Azure AD Multi-Factor Authentication.
 * Registreringsprincip för multifaktorautentisering
-    * Kontrollerar att användare har registrerats för Azure Multi-Factor Authentication. Om en inloggnings risk princip begärs för MFA måste användaren redan vara registrerad för Azure Multi-Factor Authentication.
+    * Kontrollerar att användare har registrerats för Azure AD Multi-Factor Authentication. Om en inloggnings risk princip begärs för MFA måste användaren redan vara registrerad för Azure AD-Multi-Factor Authentication.
 
-När du aktiverar en princip användare eller loggar in risk policy, kan du också välja tröskelvärdet för risk nivå – *låg och över*, *medel och över*eller *hög*. Den här flexibiliteten gör det möjligt för dig att bestämma hur aggressiv du vill ska vara i tvinga alla kontroller för misstänkta inloggnings händelser.
+När du aktiverar en princip användare eller loggar in risk policy, kan du också välja tröskelvärdet för risk nivå – *låg och över*, *medel och över* eller *hög*. Den här flexibiliteten gör det möjligt för dig att bestämma hur aggressiv du vill ska vara i tvinga alla kontroller för misstänkta inloggnings händelser.
 
 Mer information om Azure AD Identity Protection finns i [Vad är Azure AD Identity Protection?](../identity-protection/overview-identity-protection.md)
 
 ## <a name="enable-mfa-registration-policy"></a>Aktivera MFA-registrerings princip
 
-Azure AD Identity Protection innehåller en standard princip som kan hjälpa dig att få användare registrerade för Azure Multi-Factor Authentication. Om du använder ytterligare principer för att skydda inloggnings händelser måste användarna redan ha registrerats för MFA. När du aktiverar den här principen kräver den inte att användare utför MFA vid varje inloggnings händelse. Principen kontrollerar bara registrerings statusen för en användare och ber dem att förregistrera sig vid behov.
+Azure AD Identity Protection innehåller en standard princip som kan hjälpa dig att få användare registrerade för Azure AD Multi-Factor Authentication. Om du använder ytterligare principer för att skydda inloggnings händelser måste användarna redan ha registrerats för MFA. När du aktiverar den här principen kräver den inte att användare utför MFA vid varje inloggnings händelse. Principen kontrollerar bara registrerings statusen för en användare och ber dem att förregistrera sig vid behov.
 
 Vi rekommenderar att du aktiverar MFA-registrerings principen för användare som ska aktive ras för ytterligare Azure AD Identity Protection-principer. Utför följande steg för att aktivera den här principen:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett globalt administratörs konto.
-1. Sök efter och välj **Azure Active Directory**, Välj **säkerhet**och välj sedan **identitets skydd**under menyn *skydda* .
+1. Sök efter och välj **Azure Active Directory**, Välj **säkerhet** och välj sedan **identitets skydd** under menyn *skydda* .
 1. Välj **principen för MFA-registrering** på menyn till vänster.
-1. Som standard gäller principen för *alla användare*. Om du vill väljer du **tilldelningar**och väljer sedan de användare eller grupper som du vill tillämpa principen på.
-1. Under *kontroller*väljer du **åtkomst**. Se till att alternativet *Kräv registrering av Azure MFA* är markerat och välj sedan **Välj**.
-1. Ange **tillämpa principen** på *på*och välj sedan **Spara**.
+1. Som standard gäller principen för *alla användare*. Om du vill väljer du **tilldelningar** och väljer sedan de användare eller grupper som du vill tillämpa principen på.
+1. Under *kontroller* väljer du **åtkomst**. Kontrol lera att alternativet för att *kräva Azure AD MFA-registrering* är markerat och välj sedan **Välj**.
+1. Ange **tillämpa principen** på *på* och välj sedan **Spara**.
 
     ![Skärm bild av hur du kräver att användare registrerar sig för MFA i Azure Portal](./media/tutorial-risk-based-sspr-mfa/enable-mfa-registration.png)
 
@@ -94,11 +94,11 @@ Microsoft samarbetar med forskare, polis och rättsväsende, flera säkerhetstea
 Utför följande steg för att aktivera den här principen:
 
 1. Välj **principen för användar risk** på menyn till vänster.
-1. Som standard gäller principen för *alla användare*. Om du vill väljer du **tilldelningar**och väljer sedan de användare eller grupper som du vill tillämpa principen på.
-1. Under *villkor*väljer du  **Välj villkor > väljer en risk nivå**och väljer sedan *medel och över*.
-1. Välj **Välj**och sedan **Slutför**.
-1. Under *åtkomst*väljer du **åtkomst**. Kontrol lera att alternativet **Tillåt åtkomst** och *Kräv lösen ords ändring* är markerat och välj sedan **Välj**.
-1. Ange **tillämpa principen** på *på*och välj sedan **Spara**.
+1. Som standard gäller principen för *alla användare*. Om du vill väljer du **tilldelningar** och väljer sedan de användare eller grupper som du vill tillämpa principen på.
+1. Under *villkor* väljer du  **Välj villkor > väljer en risk nivå** och väljer sedan *medel och över*.
+1. Välj **Välj** och sedan **Slutför**.
+1. Under *åtkomst* väljer du **åtkomst**. Kontrol lera att alternativet **Tillåt åtkomst** och *Kräv lösen ords ändring* är markerat och välj sedan **Välj**.
+1. Ange **tillämpa principen** på *på* och välj sedan **Spara**.
 
     ![Skärm bild av hur du aktiverar användar risk principen i Azure Portal](./media/tutorial-risk-based-sspr-mfa/enable-user-risk-policy.png)
 
@@ -109,11 +109,11 @@ De flesta användare har ett normalt beteende som kan spåras. När de faller ut
 Utför följande steg för att aktivera den här principen:
 
 1. Välj **principen för inloggnings risk** på menyn till vänster.
-1. Som standard gäller principen för *alla användare*. Om du vill väljer du **tilldelningar**och väljer sedan de användare eller grupper som du vill tillämpa principen på.
-1. Under *villkor*väljer du  **Välj villkor > väljer en risk nivå**och väljer sedan *medel och över*.
-1. Välj **Välj**och sedan **Slutför**.
-1. Under *åtkomst*väljer du **Välj en kontroll**. Kontrol lera att alternativet **Tillåt åtkomst** och *Kräv Multi-Factor Authentication* är markerat och välj sedan **Välj**.
-1. Ange **tillämpa principen** på *på*och välj sedan **Spara**.
+1. Som standard gäller principen för *alla användare*. Om du vill väljer du **tilldelningar** och väljer sedan de användare eller grupper som du vill tillämpa principen på.
+1. Under *villkor* väljer du  **Välj villkor > väljer en risk nivå** och väljer sedan *medel och över*.
+1. Välj **Välj** och sedan **Slutför**.
+1. Under *åtkomst* väljer du **Välj en kontroll**. Kontrol lera att alternativet **Tillåt åtkomst** och *Kräv Multi-Factor Authentication* är markerat och välj sedan **Välj**.
+1. Ange **tillämpa principen** på *på* och välj sedan **Spara**.
 
     ![Skärm bild av hur du aktiverar inloggnings risk principen i Azure Portal](./media/tutorial-risk-based-sspr-mfa/enable-sign-in-risk-policy.png)
 
@@ -133,7 +133,7 @@ I den här självstudien har du aktiverat riskfyllda användar principer för Az
 
 > [!div class="checklist"]
 > * Förstå de tillgängliga principerna för Azure AD Identity Protection
-> * Aktivera registrering av Azure-Multi-Factor Authentication
+> * Aktivera registrering av Azure AD-Multi-Factor Authentication
 > * Aktivera riskbaserade lösenordsändringar
 > * Aktivera riskbaserad multifaktorautentisering
 > * Testa riskfyllda principer för användar inloggnings försök

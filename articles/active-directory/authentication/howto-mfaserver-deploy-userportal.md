@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2982e50a66aeccccd333e2a40b7162a4c6e8579
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: abf6a76a47fdc146af91f912fe8dcb2f37064ae3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966992"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838679"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Användarportal för Azure Multi-Factor Authentication-servern
 
@@ -29,9 +29,9 @@ Administratörer av användarportalen kan konfigureras och beviljas behörighet 
 Beroende på din miljö kan du distribuera användarportalen på samma server som Azure Multi-Factor Authentication-servern eller på en annan Internet-ansluten server.
 
 > [!IMPORTANT]
-> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure-Multi-Factor Authentication.
+> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure AD-Multi-Factor Authentication.
 >
-> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > Befintliga kunder som aktiverade MFA server före den 1 juli 2019 kan ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
@@ -120,7 +120,7 @@ Om du har frågor om hur du konfigurerar ett TLS/SSL-certifikat på en IIS-serve
 
 Nu när användarportalen har installerats måste du konfigurera Azure Multi-Factor Authentication-servern så att den fungerar med portalen.
 
-1. I Multi-Factor Authentication-serverkonsolen klickar du på ikonen**Användarportal**. På inställningar-fliken, anger du URL:en för användarportalen i textrutan **Användarportal-URL**. Den här URL:en infogas i e-postmeddelanden som skickas till användare när de importeras till Azure Multi-Factor Authentication-servern om e-postfunktionen har aktiverats.
+1. I Multi-Factor Authentication-serverkonsolen klickar du på ikonen **Användarportal**. På inställningar-fliken, anger du URL:en för användarportalen i textrutan **Användarportal-URL**. Den här URL:en infogas i e-postmeddelanden som skickas till användare när de importeras till Azure Multi-Factor Authentication-servern om e-postfunktionen har aktiverats.
 2. Välj de inställningar som du vill använda på användarportalen. Om användarna till exempel tillåts styra sin autentiseringsmetod, kontrollera att **Tillåt användare välja metod** har markerats, med de metoder som de får välja mellan.
 3. Definiera vem som ska vara administratörer på fliken **Administratörer** . Du kan skapa detaljerade administrativa behörigheter med kryss rutorna och list rutorna i rutorna Lägg till/redigera.
 

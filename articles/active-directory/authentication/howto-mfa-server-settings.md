@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70777c80cdee99f13050d7cd342f22d59da13d73
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3da7c3afa6b414e3d7df3bb58766d1ab7657dbc4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964118"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838969"
 ---
 # <a name="configure-mfa-server-settings"></a>Konfigurera inställningar för MFA-Server
 
 Den här artikeln hjälper dig att hantera Azure MFA Server-inställningar i Azure Portal.
 
 > [!IMPORTANT]
-> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
+> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure AD-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
 Följande inställningar för MFA-servern är tillgängliga:
 
@@ -42,7 +42,7 @@ Med funktionen för att kringgå en funktion kan en användare autentisera en en
 Utför följande steg för att skapa en eng ång slö fördröjning:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-1. Sök efter och välj **Azure Active Directory**och bläddra sedan till **säkerhets**  >  **MFA**  >  **eng ång slö**sen.
+1. Sök efter och välj **Azure Active Directory** och bläddra sedan till **säkerhets**  >  **MFA**  >  **eng ång slö** sen.
 1. Välj **Lägg till**.
 1. Om det behövs väljer du replikeringsgruppen för bypass.
 1. Ange användar namnet som `username\@domain.com` . Ange antalet sekunder som förbikopplingen ska vara sist och orsaken till kringgåendet.
@@ -61,7 +61,7 @@ Cachelagring används främst när lokala system, till exempel VPN, skickar fler
 
 Utför följande steg för att konfigurera cachelagring:
 
-1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  regler för**MFA**-  >  **cachelagring**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  regler för **MFA**-  >  **cachelagring**.
 1. Välj **Lägg till**.
 1. Välj **cache-typ** i list rutan. Ange maximalt antal cache- **sekunder**.
 1. Om det behövs väljer du en autentiseringstyp och anger ett program.

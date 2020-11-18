@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 20b51cc747d3a24b1437eda988397a2e999f6ab3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366334"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837489"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planera en distribution av villkorsstyrd åtkomst
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) analys av villkorlig åtkomst (CA) analyserar 
 
 Microsoft tillhandahåller standard villkors principer som kallas [säkerhets inställningar](../fundamentals/concept-fundamentals-security-defaults.md) som garanterar en grundläggande säkerhets nivå. Din organisation kan dock behöva större flexibilitet än erbjudandet om säkerhets standard. Du kan använda villkorlig åtkomst för att anpassa säkerhets standardvärden med mer detaljerad information och konfigurera nya principer som uppfyller dina krav.
 
-## <a name="learn"></a>Läs mer
+## <a name="learn"></a>Learn
 
 Innan du börjar ska du kontrol lera att du förstår hur [villkorlig åtkomst](overview.md) fungerar och när du ska använda det.
 
@@ -52,7 +52,7 @@ Se [licens krav för villkorlig åtkomst](overview.md).
 
 Om ytterligare funktioner krävs kan du också behöva relaterade licenser. Mer information finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * En fungerande Azure AD-klient med Azure AD Premium-eller utvärderings licens aktive rad. Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -67,13 +67,13 @@ Om ytterligare funktioner krävs kan du också behöva relaterade licenser. Mer 
 Följande resurser kan vara användbara när du lär dig mer om villkorlig åtkomst:
 
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Video
 
 * [Vad är villkorsstyrd åtkomst?](https://youtu.be/ffMAw2IVO7A)
 * [Hur distribuerar jag villkorlig åtkomst?](https://youtu.be/c_izIRNJNuk)
 * [Hur gör jag för att distribuera CA-principer till slutanvändarna?](https://youtu.be/0_Fze7Zpyvc)
 * [Villkorsstyrd åtkomst med enhetskontroller](https://youtu.be/NcONUf-jeS4)
-* [Villkorsstyrd åtkomst med Azure MFA](https://youtu.be/Tbc-SU97G-w)
+* [Villkorlig åtkomst med Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
 * [Villkorlig åtkomst i Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
 
 
@@ -376,7 +376,7 @@ Vissa organisationer har test klienter för detta ändamål. Det kan dock vara s
 
 Test planen är viktig för att få en jämförelse mellan de förväntade resultaten och de faktiska resultaten. Du bör alltid ha en förväntad händelse innan du testar något. I följande tabell visas exempel test fall. Justera scenarier och förväntade resultat baserat på hur dina CA-principer är konfigurerade.
 
-| Princip| Scenario| Förväntat resultat |
+| Policy| Scenario| Förväntat resultat |
 | - | - | - |
 | [Kräv MFA när det inte är på arbetet](untrusted-networks.md)| Auktoriserad användare loggar in på appen på en betrodd plats/ett arbete| Användaren uppmanas inte att MFA |
 | [Kräv MFA när det inte är på arbetet](untrusted-networks.md)| Auktoriserad användare loggar in på appen men inte på en betrodd plats/arbete| Användaren uppmanas att MFA och kan logga in |
@@ -487,7 +487,7 @@ När du har samlat in informationen, se följande resurser:
 
 * [Använd What-If-verktyget för att](troubleshoot-conditional-access-what-if.md) förstå varför en princip har eller inte tillämpats på en användare under en viss omständighet eller om en princip skulle gälla i ett känt tillstånd.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Läs mer om Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 

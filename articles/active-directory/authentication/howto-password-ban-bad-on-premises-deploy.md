@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66df1bbe531c072ff5aa2bebe7b197201e6931a2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b0b34ce55a0896fb804a48779c9c1007c8c340f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077735"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838220"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planera och distribuera lokala Azure Active Directory lösen ords skydd
 
@@ -142,8 +142,8 @@ Uppdaterings tjänsten för Microsoft Azure AD Connect Agent installeras sida vi
 
 Det finns två obligatoriska installations program för en lokal distribution av lösen ords skydd i Azure AD:
 
-* Azure AD Password Protection DC-agent ( *AzureADPasswordProtectionDCAgentSetup.msi* )
-* Azure AD-proxy för lösen ords skydd ( *AzureADPasswordProtectionProxySetup.exe* )
+* Azure AD Password Protection DC-agent (*AzureADPasswordProtectionDCAgentSetup.msi*)
+* Azure AD-proxy för lösen ords skydd (*AzureADPasswordProtectionProxySetup.exe*)
 
 Hämta båda installations program från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -193,7 +193,7 @@ Slutför följande steg för att installera proxy-tjänsten för lösen ords sky
     Get-Service AzureADPasswordProtectionProxy | fl
     ```
 
-    Resultatet bör visa **statusen** *körs* .
+    Resultatet bör visa **statusen** *körs*.
 
 1. Proxy-tjänsten körs på datorn, men saknar autentiseringsuppgifter för att kommunicera med Azure AD. Registrera proxyservern för lösen ords skydd för Azure AD med Azure AD med hjälp av `Register-AzureADPasswordProtectionProxy` cmdleten.
 
@@ -201,7 +201,7 @@ Slutför följande steg för att installera proxy-tjänsten för lösen ords sky
 
     När det här kommandot har slutförts en gång för en Azure AD-proxy för lösen ords skydd, lyckas ytterligare anrop till den, men är onödigt.
 
-    `Register-AzureADPasswordProtectionProxy`Cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget.
+    `Register-AzureADPasswordProtectionProxy`Cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure AD Multi-Factor Authentication men det tredje läget.
 
     > [!TIP]
     > Det kan finnas en märkbar fördröjning före slut för ande första gången den här cmdleten körs för en viss Azure-klient. Om inte ett haveri rapporteras behöver du inte bekymra dig om den här fördröjningen.
@@ -231,11 +231,11 @@ Slutför följande steg för att installera proxy-tjänsten för lösen ords sky
         ```
 
         > [!NOTE]
-        > Det här läget fungerar inte om Azure Multi-Factor Authentication krävs för ditt konto. I så fall använder du något av de föregående två autentiseringsläget eller använder i stället ett annat konto som inte kräver MFA.
+        > Det här läget Miss lyckas om Azure AD Multi-Factor Authentication krävs för ditt konto. I så fall använder du något av de föregående två autentiseringsläget eller använder i stället ett annat konto som inte kräver MFA.
         >
         > Du kan också se MFA krävs om Azure Device Registration (som används under försättsblad av Azure AD Password Protection) har kon figurer ATS för globalt Kräv MFA. För att undvika det här kravet kan du använda ett annat konto som har stöd för MFA med något av de tidigare två autentiseringsläget, eller så kan du också tillfälligt minska kraven för MFA-krav för Azure Device Registration.
         >
-        > Om du vill göra den här ändringen söker du efter och väljer **Azure Active Directory** i Azure Portal och väljer sedan **enheter > enhets inställningar** . Ange **Kräv Multi-factor auth för att ansluta enheter** till *Nej* . Se till att konfigurera om den här inställningen igen till *Ja* när registreringen är klar.
+        > Om du vill göra den här ändringen söker du efter och väljer **Azure Active Directory** i Azure Portal och väljer sedan **enheter > enhets inställningar**. Ange **Kräv Multi-factor auth för att ansluta enheter** till *Nej*. Se till att konfigurera om den här inställningen igen till *Ja* när registreringen är klar.
         >
         > Vi rekommenderar att MFA-kraven kringgås endast i test syfte.
 
@@ -252,7 +252,7 @@ Slutför följande steg för att installera proxy-tjänsten för lösen ords sky
     
     Det här steget körs en gång per skog.
 
-    `Register-AzureADPasswordProtectionForest`Cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget.
+    `Register-AzureADPasswordProtectionForest`Cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure AD Multi-Factor Authentication men det tredje läget.
 
     > [!TIP]
     > Det kan finnas en märkbar fördröjning före slut för ande första gången den här cmdleten körs för en viss Azure-klient. Om inte ett haveri rapporteras behöver du inte bekymra dig om den här fördröjningen.
@@ -282,11 +282,11 @@ Slutför följande steg för att installera proxy-tjänsten för lösen ords sky
         ```
 
         > [!NOTE]
-        > Det här läget fungerar inte om Azure Multi-Factor Authentication krävs för ditt konto. I så fall använder du något av de föregående två autentiseringsläget eller använder i stället ett annat konto som inte kräver MFA.
+        > Det här läget Miss lyckas om Azure AD Multi-Factor Authentication krävs för ditt konto. I så fall använder du något av de föregående två autentiseringsläget eller använder i stället ett annat konto som inte kräver MFA.
         >
         > Du kan också se MFA krävs om Azure Device Registration (som används under försättsblad av Azure AD Password Protection) har kon figurer ATS för globalt Kräv MFA. För att undvika det här kravet kan du använda ett annat konto som har stöd för MFA med något av de tidigare två autentiseringsläget, eller så kan du också tillfälligt minska kraven för MFA-krav för Azure Device Registration.
         >
-        > Om du vill göra den här ändringen söker du efter och väljer **Azure Active Directory** i Azure Portal och väljer sedan **enheter > enhets inställningar** . Ange **Kräv Multi-factor auth för att ansluta enheter** till *Nej* . Se till att konfigurera om den här inställningen igen till *Ja* när registreringen är klar.
+        > Om du vill göra den här ändringen söker du efter och väljer **Azure Active Directory** i Azure Portal och väljer sedan **enheter > enhets inställningar**. Ange **Kräv Multi-factor auth för att ansluta enheter** till *Nej*. Se till att konfigurera om den här inställningen igen till *Ja* när registreringen är klar.
         >
         > Vi rekommenderar att MFA-kraven kringgås endast i test syfte.
 

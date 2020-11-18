@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 74e4ca34a69b121ce5b92ad52125dc317e3aea43
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145366"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837676"
 ---
 # <a name="building-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
@@ -37,7 +37,7 @@ Alla principer tillämpas i två faser:
    - Använd sessionsinformation som samlats in i fas 1 för att identifiera eventuella krav som inte har uppfyllts. 
    - Om det finns en princip som har kon figurer ATS för att blockera åtkomst, med blockera beviljande kontroll, kommer tvång att stoppas här och användaren kommer att blockeras. 
    - Användaren uppmanas att slutföra ytterligare krav för beviljande kontroll som inte uppfylldes under fas 1 i följande ordning, tills principen är nöjd:  
-      - Multifaktorautentisering 
+      - Multi-Factor Authentication 
       - Godkänd klient App/app-skydds princip 
       - Hanterad enhet (kompatibel eller hybrid Azure AD-anslutning) 
       - Villkor för användning 
@@ -101,7 +101,7 @@ Blockera åtkomst är bara att blockera åtkomsten under de angivna tilldelninga
 
 Kontrollen Grant kan utlösa verk ställande av en eller flera kontroller. 
 
-- Kräv Multi-Factor Authentication (Azure Multi-Factor Authentication)
+- Kräv Multi-Factor Authentication (Azure AD Multi-Factor Authentication)
 - Kräv att enheten är markerad som kompatibel (Intune)
 - Kräv hybrid Azure AD-ansluten enhet
 - Kräv godkänd klientapp
@@ -134,7 +134,7 @@ Administratörer kan välja att kräva en av de tidigare kontrollerna eller alla
 En princip för villkorlig åtkomst måste innehålla minst följande för att kunna tillämpas:
 
 - **Namnet** på principen.
-- **Kopplingar**
+- **Tilldelningar**
    - **Användare och/eller grupper** som principen ska tillämpas på.
    - **Molnappar eller åtgärder** för att tillämpa principen på.
 - **Åtkomstkontroller**
@@ -150,7 +150,7 @@ Artikeln [vanliga principer för villkorlig åtkomst](concept-conditional-access
 
 [Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)
 
-[Planera en molnbaserad distribution av Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Planera en molnbaserad Azure AD Multi-Factor Authentication-distribution](../authentication/howto-mfa-getstarted.md)
 
 [Hantera enheternas kompatibilitet med Intune](/intune/device-compliance-get-started)
 

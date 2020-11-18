@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85e8cb63cd06027754628dcf61aad0ac72b8233b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6fa06133c7793cd5f7d14ba587f9f50b523b0299
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967026"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838765"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurera Azure Multi-Factor Authentication Server så att den fungerar med AD FS i Windows Server
 
@@ -25,11 +25,11 @@ Om du använder Active Directory Federation Services (AD FS) och vill skydda mol
 I den här artikeln diskuterar vi hur du använder Azure Multi-Factor Authentication Server med AD FS i Windows Server 2012 R2 eller Windows Server 2016. Mer information finns i [Skydda molnresurser och lokala resurser med hjälp av Azure Multi-Factor Authentication Server med AD FS 2.0](howto-mfaserver-adfs-2.md).
 
 > [!IMPORTANT]
-> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure-Multi-Factor Authentication.
+> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure AD-Multi-Factor Authentication.
 >
 > Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
-> Om du använder molnbaserad MFA, se [skydda moln resurser med Azure Multi-Factor Authentication och AD FS](howto-mfa-adfs.md).
+> Om du använder molnbaserad MFA, se [skydda moln resurser med Azure AD Multi-Factor Authentication och AD FS](howto-mfa-adfs.md).
 >
 > Befintliga kunder som aktiverade MFA server före den 1 juli 2019 kan ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
@@ -91,7 +91,7 @@ Redigera filen MultiFactorAuthenticationAdfsAdapter.config genom att följa steg
 
 1. Ange noden **UseWebServiceSdk** till **sant**.  
 2. Ange värdet för **WebServiceSdkUrl** till URL:en för webbtjänst-SDK för Multi-Factor Authentication. Exempel: *https: \/ \/ contoso.com/ \<certificatename> /multifactorauthwebservicessdk/pfwssdk.asmx*, där *\<certificatename>* är namnet på ditt certifikat.  
-3. Redigera Register-MultiFactorAuthenticationAdfsAdapter.ps1-skriptet genom att lägga till `-ConfigurationFilePath &lt;path&gt;` i slutet av `Register-AdfsAuthenticationProvider` kommandot, där * &lt; sökväg &gt; * är den fullständiga sökvägen till MultiFactorAuthenticationAdfsAdapter.config-filen.
+3. Redigera Register-MultiFactorAuthenticationAdfsAdapter.ps1-skriptet genom att lägga till `-ConfigurationFilePath &lt;path&gt;` i slutet av `Register-AdfsAuthenticationProvider` kommandot, där *&lt; sökväg &gt;* är den fullständiga sökvägen till MultiFactorAuthenticationAdfsAdapter.config-filen.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Konfigurera webbtjänst-SDK med ett användarnamn och lösenord
 
@@ -137,7 +137,7 @@ Registrera adaptern genom att köra skriptet \Program Files\Multi-Factor Authent
 Ställ in en anspråksregel så att Active Directory Federation Services genererar multipleauthn-kravet när en användare utför tvåstegsverifiering om du vill skydda din molnresurs. Det här anspråket överförs till Azure AD. Följ dessa steg:
 
 1. Öppna AD FS-hantering.
-2. Välj **förlitande parts förtroenden**till vänster.
+2. Välj **förlitande parts förtroenden** till vänster.
 3. Högerklicka på **Microsoft Office 365 identitets plattform** och välj **Redigera anspråks regler...**
 
    ![Redigera anspråks regler i ADFS-konsolen](./media/howto-mfaserver-adfs-2012/trustedip1.png)

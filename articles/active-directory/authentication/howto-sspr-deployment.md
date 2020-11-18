@@ -11,19 +11,19 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363733"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838085"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planera en Azure Active Directory distribution av lösen ords återställning via självbetjäning
 
 > [!IMPORTANT]
 > Den här distributions planen ger vägledning och bästa praxis för att distribuera Azure AD självbetjäning för återställning av lösen ord (SSPR).
 >
-> **Om du är en slutanvändare och behöver gå tillbaka till ditt konto går du till [https://aka.ms/sspr](https://aka.ms/sspr) **.
+> **Om du är en slutanvändare och behöver gå tillbaka till ditt konto går du till [https://aka.ms/sspr](https://aka.ms/sspr)**.
 
 [Lösen ords återställning via självbetjäning (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) är en Azure Active Directory (AD)-funktion som gör det möjligt för användare att återställa sina lösen ord utan att kontakta IT-avdelningen för hjälp. Användarna kan snabbt avblockera sig själva och fortsätta att arbeta oavsett var de befinner sig eller tid på dagen. Genom att tillåta att medarbetarna avblockerar sig själva kan din organisation minska den icke produktiva tiden och höga support kostnader för de flesta vanliga problem som rör lösen ord.
 
@@ -64,7 +64,7 @@ Information om hur du jämför versioner och funktioner och aktiverar grupp-elle
 
 Mer information om priser finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * En aktiv Azure AD-klientorganisation med minst en aktiverad utvärderingslicens. Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -75,7 +75,7 @@ Mer information om priser finns i [Azure Active Directory prissättning](https:/
 
 | Resurser| Länk och beskrivning |
 | - | - |
-| Videoklipp| [Ge dina användare bättre IT-skalbarhet](https://youtu.be/g9RpRnylxS8) 
+| Video| [Ge dina användare bättre IT-skalbarhet](https://youtu.be/g9RpRnylxS8) 
 | |[Vad är självbetjäning av lösenordsåterställning?](https://youtu.be/hc97Yx5PJiM)|
 | |[Distribuera återställning av lösen ord för självbetjäning](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
 | |[Hur konfigurerar jag lösen ords återställning via självbetjäning för användare i Azure AD?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
@@ -86,7 +86,7 @@ Mer information om priser finns i [Azure Active Directory prissättning](https:/
 |Självstudier |[Utföra en pilotlansering av självbetjäning av lösenordsåterställning för Azure AD](./tutorial-enable-sspr.md) |
 | |[Aktivera tillbakaskrivning av lösenord](./tutorial-enable-sspr-writeback.md) |
 | |[Återställning av Azure AD-lösenord från inloggnings skärmen för Windows 10](./howto-sspr-windows.md) |
-| VANLIGA FRÅGOR OCH SVAR|[Vanliga frågor och svar om lösen ords hantering](./active-directory-passwords-faq.md) |
+| Vanliga frågor|[Vanliga frågor och svar om lösen ords hantering](./active-directory-passwords-faq.md) |
 
 
 ### <a name="solution-architecture"></a>Lösningsarkitekturen
@@ -115,7 +115,7 @@ Innan du distribuerar SSPR kan du välja att fastställa antalet och den genomsn
 
 Microsoft rekommenderar att organisationer aktiverar den kombinerade registrerings upplevelsen för SSPR och Multi-Factor Authentication. När du aktiverar den här kombinerade registrerings upplevelsen behöver användarna bara välja sin registrerings information en gång för att aktivera båda funktionerna.
 
-Den kombinerade registrerings upplevelsen kräver inte att organisationer aktiverar både SSPR och Azure Multi-Factor Authentication. Kombinerad registrering ger organisationer en bättre användar upplevelse. Mer information finns i [kombinera säkerhets informations registrering](concept-registration-mfa-sspr-combined.md)
+Den kombinerade registrerings upplevelsen kräver inte att organisationer aktiverar både SSPR och Azure AD Multi-Factor Authentication. Kombinerad registrering ger organisationer en bättre användar upplevelse. Mer information finns i [kombinera säkerhets informations registrering](concept-registration-mfa-sspr-combined.md)
 
 ## <a name="plan-the-deployment-project"></a>Planera distributions projektet
 
@@ -321,7 +321,7 @@ Gransknings loggar för registrering och återställning av lösen ord är tillg
 
 ### <a name="authentication-methods--usage-and-insights"></a>Autentiseringsmetoder – användning och insikter
 
-Med [användning och insikter](./howto-authentication-methods-usage-insights.md) kan du förstå hur autentiseringsmetoder för funktioner som Azure MFA och SSPR fungerar i din organisation. Den här rapporterings funktionen ger din organisation möjlighet att förstå vilka metoder som registreras och hur de används.
+Med [användning och insikter](./howto-authentication-methods-usage-insights.md) kan du förstå hur autentiseringsmetoder för funktioner som Azure AD MFA och SSPR arbetar i din organisation. Den här rapporterings funktionen ger din organisation möjlighet att förstå vilka metoder som registreras och hur de används.
 
 ### <a name="troubleshoot"></a>Felsöka
 

@@ -1,6 +1,6 @@
 ---
-title: Hantera autentiseringsmetoder för Azure Multi-Factor Authentication-Azure Active Directory
-description: Lär dig hur du kan konfigurera Azure Active Directory användar inställningar för Azure Multi-Factor Authentication
+title: Hantera autentiseringsmetoder för Azure AD Multi-Factor Authentication-Azure Active Directory
+description: Lär dig hur du kan konfigurera Azure Active Directory användar inställningar för Azure AD Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6309ef6793858051ceaf3c3b33edb9f830b26710
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 1117b5194dae92a8025594ed71fc629670d875cf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378053"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838935"
 ---
-# <a name="manage-user-authentication-methods-for-azure-multi-factor-authentication"></a>Hantera metoder för användarautentisering för Azure Multi-Factor Authentication
+# <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>Hantera metoder för användarautentisering för Azure AD Multi-Factor Authentication
 
 Användare i Azure AD har två distinkta uppsättningar kontakt uppgifter:  
 
 - Kontakt information för offentliga profiler, som hanteras i användar profilen och är synlig för medlemmar i din organisation. För användare som har synkroniserats från lokala Active Directory hanteras den här informationen i lokala Windows Server-Active Directory Domain Services.
 - Autentiseringsmetoder, som alltid hålls privata och som endast används för autentisering, inklusive Multi-Factor Authentication (MFA). Administratörer kan hantera dessa metoder på bladet autentiseringsmetod i en användares metod och användarna kan hantera sina metoder på sidan säkerhets information i ditt konto.
 
-När du hanterar Azure-Multi-Factor Authentication metoder för dina användare kan autentiserings administratörer: 
+När du hanterar Azure AD-Multi-Factor Authentication metoder för dina användare kan autentiserings administratörer: 
 
 1. Lägg till autentiseringsmetoder för en speciell användare, inklusive telefonnummer som används för MFA.
 1. Återställa en användares lösen ord.
@@ -88,7 +88,7 @@ Autentiseringsmetoder kan också hanteras med hjälp av Microsoft Graph-API: er,
 
 Om du har tilldelats rollen som *administratör för autentisering* kan du kräva att användarna återställer sina lösen ord, omregistrerar sig för MFA eller återkalla befintliga MFA-sessioner från sina användar objekt. Utför följande steg för att hantera användar inställningar:
 
-1. Logga in i [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Till vänster väljer du **Azure Active Directory** > **Användare** > **Alla användare**.
 1. Välj den användare som du vill utföra en åtgärd på och välj **autentiseringsmetoder**. Överst i fönstret väljer du något av följande alternativ för användaren:
    - **Återställ lösen ord** återställer användarens lösen ord och tilldelar ett tillfälligt lösen ord som måste ändras vid nästa inloggning.
@@ -107,15 +107,15 @@ För användare som har definierat applösenord kan administratörer också väl
 
 För att ta bort en användares applösenord, utför följande steg:
 
-1. Logga in i [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. På den vänstra sidan väljer du **Azure Active Directory**  >  **användare**  >  **alla användare**.
 1. Välj **Multi-Factor Authentication**. Du kan behöva bläddra till höger för att se det här meny alternativet. Välj skärm bilden nedan om du vill se hela Azure Portals fönster och meny plats: [ ![ Välj Multi-Factor Authentication från fönstret användare i Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Markera kryss rutan bredvid den eller de användare som du vill hantera. En lista med snabb stegs alternativ visas till höger.
-1. Välj **hantera användar inställningar** och markera sedan kryss rutan för **ta bort alla befintliga applösenord som har genererats av de valda användarna** , som du ser i följande exempel: ![ ta bort alla befintliga applösenord](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+1. Välj **hantera användar inställningar** och markera sedan kryss rutan för **ta bort alla befintliga applösenord som har genererats av de valda användarna**, som du ser i följande exempel: ![ ta bort alla befintliga applösenord](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 1. Välj **Spara** och sedan **Stäng**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln visar vi hur du konfigurerar enskilda användar inställningar. Information om hur du konfigurerar övergripande inställningar för Azure Multi-Factor Authentication-tjänsten finns i [Konfigurera inställningar för azure Multi-Factor Authentication](howto-mfa-mfasettings.md).
+I den här artikeln visar vi hur du konfigurerar enskilda användar inställningar. Information om hur du konfigurerar övergripande inställningar för Azure AD Multi-Factor Authentication-tjänsten finns i [Konfigurera inställningar för Azure AD-Multi-Factor Authentication](howto-mfa-mfasettings.md).
 
-Om användarna behöver hjälp kan du läsa [användar handboken för Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).
+Om användarna behöver hjälp kan du läsa [användar handboken för Azure AD Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).

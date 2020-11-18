@@ -1,6 +1,6 @@
 ---
-title: Azure MFA-insamling av användar data – Azure Active Directory
-description: Vilken information används för att autentisera användare med Azure Multi-Factor Authentication?
+title: Insamling av Azure AD MFA-användar data – Azure Active Directory
+description: Vilken information används för att autentisera användare av Azure AD Multi-Factor Authentication?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03ec8eddf55c6b3e90b56501a2e3b657bef6fc8c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ed0d4b754911dda49776379fb318390eae411000
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964204"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839020"
 ---
-# <a name="azure-multi-factor-authentication-user-data-collection"></a>Data insamling för Azure Multi-Factor Authentication-användare
+# <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Azure AD Multi-Factor Authentication användar data insamling
 
-Det här dokumentet beskriver hur du hittar användar information som samlats in av Azure Multi-Factor Authentication-server (MFA Server) och Azure MFA (molnbaserad) i händelse av att du vill ta bort den.
+Det här dokumentet beskriver hur du hittar användar information som samlats in av Azure Multi-Factor Authentication-server (MFA Server) och Azure AD MFA (molnbaserad) i händelse av att du vill ta bort den.
 
 [!INCLUDE [gdpr-hybrid-note](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="information-collected"></a>Information som samlas in
 
-MFA Server, NPS-tillägget och Windows Server 2016 Azure MFA AD FS adapter samlar in och lagrar följande information i 90 dagar.
+MFA Server, NPS-tillägget och Windows Server 2016 Azure AD MFA AD FS adapter samla in och lagra följande information i 90 dagar.
 
 Autentiseringsförsök (används för rapportering och fel sökning):
 
@@ -60,7 +60,7 @@ Autentiseringsförsök (används för rapportering och fel sökning):
 - Autentiserad
 - Resultat
 - Initierar IP-adress
-- Enheter
+- Egenskaper
 - Enhets-token
 - Enhetstyp
 - Mobil program version
@@ -89,7 +89,7 @@ Block (används för att fastställa blockerat tillstånd och för rapportering)
 - Landskod
 - Telefonnummer
 - Telefonnummer formaterat
-- Anknytning
+- Filnamnstillägg
 - Rensa tillägg
 - Blockerad
 - Orsak till blockering
@@ -109,7 +109,7 @@ Kringgås (används för rapportering):
 - Landskod
 - Telefonnummer
 - Telefonnummer formaterat
-- Anknytning
+- Filnamnstillägg
 - Rensa tillägg
 - Kringgå orsak
 - Tidsstämpel för slut för ande
@@ -163,26 +163,26 @@ Använd [Microsofts sekretess Portal](https://portal.azure.com/#blade/Microsoft_
 
 - Det kan ta upp till 30 dagar innan data tas bort helt.
 
-## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Samla in data från Windows Server 2016 Azure MFA AD FS adapter
+## <a name="gather-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter"></a>Samla in data från Windows Server 2016 Azure AD MFA AD FS adapter
 
 Använd [Microsofts sekretess Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) för att göra en begäran om export. 
 
 - MFA-information ingår i exporten, vilket kan ta flera timmar eller dagar att slutföra.
 - Förekomster av användar namnet i AD FS spårnings-eller fel söknings händelse loggar (om de är aktiverade) betraktas som operativa och duplicerat till den information som anges i exporten.
 
-## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Ta bort data från Windows Server 2016 Azure MFA AD FS adapter
+## <a name="delete-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter"></a>Ta bort data från Windows Server 2016 Azure AD MFA AD FS adapter
 
 Använd [Microsofts sekretess Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) för att göra en begäran om konto nära borttagning av all information om MFA-molntjänster som samlas in för den här användaren.
 
 - Det kan ta upp till 30 dagar innan data tas bort helt.
 
-## <a name="gather-data-for-azure-mfa"></a>Samla in data för Azure MFA
+## <a name="gather-data-for-azure-ad-mfa"></a>Samla in data för Azure AD MFA
 
 Använd [Microsofts sekretess Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) för att göra en begäran om export.
 
 - MFA-information ingår i exporten, vilket kan ta flera timmar eller dagar att slutföra.
 
-## <a name="delete-data-for-azure-mfa"></a>Ta bort data för Azure MFA
+## <a name="delete-data-for-azure-ad-mfa"></a>Ta bort data för Azure AD MFA
 
 Använd [Microsofts sekretess Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) för att göra en begäran om konto nära borttagning av all information om MFA-molntjänster som samlas in för den här användaren.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 8eb8be3307cf5e1df987f636be5c01cecaf4ae45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 874ecfc8c1c50816916fb0b04975477a1cbe0a71
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631451"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698095"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU: er
 
@@ -26,7 +26,7 @@ Azure Load Balancer har två SKU: er.
 
 Belastnings utjämning stöder både standard-och Basic-SKU: er. Dessa SKU: er skiljer sig åt i scenario skala, funktioner och priser. Alla scenarier som är möjliga med Basic Load Balancer kan skapas med standard Load Balancer.
 
-Du kan jämföra och se skillnaderna i tabellen nedan. Mer information finns i [Översikt över Azure standard Load Balancer](load-balancer-standard-overview.md).
+Du kan jämföra och se skillnaderna i tabellen nedan. Mer information finns i [Översikt över Azure standard Load Balancer](./load-balancer-overview.md).
 
 >[!NOTE]
 > Microsoft rekommenderar standard Load Balancer.
@@ -34,21 +34,21 @@ Fristående virtuella datorer, tillgänglighetsuppsättningar och VM-skalningsup
 
 | | Standard Load Balancer | Grundläggande Load Balancer |
 | --- | --- | --- |
-| **[Storlek på serverdelspool](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)** | Stöder upp till 1000 instanser. | Har stöd för upp till 300 instanser. |
+| **[Storlek på serverdelspool](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Stöder upp till 1000 instanser. | Har stöd för upp till 300 instanser. |
 | **Slutpunkter för serverdelspool** | Virtuella datorer eller skalnings uppsättningar för virtuella datorer i ett enda virtuellt nätverk. | Virtuella datorer i en enskild tillgänglighetsuppsättning eller en VM-skalningsuppsättning. |
-| **[Hälsotillståndsavsökningar](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Hälsoavsökningar](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Beteende för hälso avsökning](./load-balancer-custom-probe-overview.md#probedown)** | TCP-anslutningar är aktiva vid en instans avsökning __och__ i alla avsökningar. | TCP-anslutningar är vilande vid en instans avsökning. Alla TCP-anslutningar slutar när alla avsökningar är nere. |
 | **Tillgänglighetszoner** | Zoner-redundanta och zonindelade-frontend-klienter för inkommande och utgående trafik. | Inte tillgängligt |
-| **Diagnostik** | [Azure Monitor flerdimensionella mått](./load-balancer-standard-diagnostics.md) | [Azure Monitor loggar](./load-balancer-monitor-log.md) |
+| **Diagnostik** | [Azure Monitor flerdimensionella mått](./load-balancer-standard-diagnostics.md) | [Azure Monitor-loggar](./load-balancer-monitor-log.md) |
 | **HA-portar** | [Tillgängligt för interna Load Balancer](./load-balancer-ha-ports-overview.md) | Inte tillgängligt |
 | **Säker som standard** | Stängda för inkommande flöden om det inte tillåts av en nätverks säkerhets grupp. Intern trafik från det virtuella nätverket till den interna belastningsutjämnaren tillåts. | Öppnas som standard. Nätverks säkerhets gruppen är valfri. |
-| **Utgående regler** | [Deklarativ utgående NAT-konfiguration](./load-balancer-outbound-rules-overview.md) | Inte tillgängligt |
+| **Utgående regler** | [Deklarativ utgående NAT-konfiguration](./load-balancer-outbound-connections.md#outboundrules) | Inte tillgängligt |
 | **TCP-återställning vid inaktivitet** | [Tillgängligt för någon regel](./load-balancer-tcp-reset.md) | Inte tillgängligt |
 | **[Flera frontend-sidor](./load-balancer-multivip-overview.md)** | Inkommande och [utgående](./load-balancer-outbound-connections.md) | Endast inkommande |
 | **Hanterings åtgärder** | De flesta åtgärder < 30 sekunder | 60-90 + sekunders standard |
-| **Serviceavtal** | [99,99 %](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Inte tillgängligt | 
+| **Serviceavtal** | [99,99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Inte tillgängligt | 
 
-Mer information finns i [gränser för belastnings utjämning](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Information om Standard Load Balancer finns i [översikt](load-balancer-standard-overview.md), [prissättning](https://aka.ms/lbpricing) och [serviceantal](https://aka.ms/lbsla).
+Mer information finns i [gränser för belastnings utjämning](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer). Information om Standard Load Balancer finns i [översikt](./load-balancer-overview.md), [prissättning](https://aka.ms/lbpricing) och [serviceantal](https://aka.ms/lbsla).
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -65,4 +65,4 @@ Mer information finns i [gränser för belastnings utjämning](https://docs.micr
 - Läs mer om [hälso avsökningar](load-balancer-custom-probe-overview.md).
 - Lär dig mer om hur du använder [Load Balancer för utgående anslutningar](load-balancer-outbound-connections.md).
 - Lär dig mer om att [standard Load Balancer med belastnings Utjämnings regler för belastnings utjämning](load-balancer-ha-ports-overview.md).
-- Läs mer om [nätverks säkerhets grupper](../virtual-network/security-overview.md).
+- Läs mer om [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md).

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 10c7d4146d61f5b589b29bc8faad5fa8e60a293a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae8fd7f405beb20d516835ccb80b86e769fd0393
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924035"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697092"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Återskapa ett index i Azure Kognitiv sökning
 
@@ -91,7 +91,7 @@ När du läser in indexet fylls varje fälts inverterade index med alla unika, t
 
 Du kan börja fråga ett index så snart det första dokumentet har lästs in. Om du känner till ett dokuments ID returnerar [Sök dokumentet REST API](/rest/api/searchservice/lookup-document) det aktuella dokumentet. För bredare testning bör du vänta tills indexet har lästs in och sedan använda frågor för att kontrol lera den kontext som du förväntar dig att se.
 
-Du kan använda [Sök Utforskaren](search-explorer.md) eller ett webbtest-verktyg som [Postman](search-get-started-postman.md) för att söka efter uppdaterat innehåll.
+Du kan använda [Sök Utforskaren](search-explorer.md) eller ett webbtest-verktyg som [Postman eller Visual Studio Code](search-get-started-rest.md) för att söka efter uppdaterat innehåll.
 
 Om du har lagt till eller bytt namn på ett fält använder du [$Select](search-query-odata-select.md) för att returnera fältet: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 

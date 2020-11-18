@@ -44,6 +44,8 @@
       href: concepts-identity.md
     - name: Rollbaserad åtkomstkontroll
       href: concepts-role-based-access-control.md
+    - name: Övervaka och reparera privata moln
+      href: concepts-monitor-repair-private-cloud.md
     - name: Uppgraderingar för privata moln
       href: concepts-upgrades.md
 - name: Anvisningar

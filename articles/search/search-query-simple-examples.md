@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 834e4fe8c7b3923f40a07c02c0310200db222308
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740691"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697262"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Skapa en enkel fråga i Azure Kognitiv sökning
 
@@ -27,13 +27,13 @@ En alternativ frågesyntax är [full Lucene](query-lucene-syntax.md)och stöder 
 
 I följande exempel används ett sökindex för NYC-jobb som består av jobb som är tillgängliga baserat på en data uppsättning som tillhandahålls av Göteborg från [New York-data](https://nycopendata.socrata.com/) initiativ. Dessa data ska inte betraktas som aktuella eller fullständiga. Indexet finns på en sandbox-tjänst från Microsoft, vilket innebär att du inte behöver en Azure-prenumeration eller Azure-Kognitiv sökning för att testa dessa frågor.
 
-Vad du behöver är Postman eller ett motsvarande verktyg för att skicka HTTP-begäran på GET. Mer information finns i [snabb start: utforska Azure Kognitiv sökning REST API med Postman](search-get-started-postman.md).
+Vad du behöver är Postman eller ett motsvarande verktyg för att skicka HTTP-begäran på GET. Mer information finns i [snabb start: utforska Azure Kognitiv sökning REST API](search-get-started-rest.md).
 
 ### <a name="set-the-request-header"></a>Ange rubriken för begäran
 
 1. I begär ande huvudet anger du **Content-Type** till `application/json` .
 
-2. Lägg till en **API-nyckel**och ange den som den här strängen: `252044BE3886FE4A8E3BAA4F595114BB` . Det här är en frågeparameter för tjänsten sandbox search som är värd för NYC-jobb indexet.
+2. Lägg till en **API-nyckel** och ange den som den här strängen: `252044BE3886FE4A8E3BAA4F595114BB` . Det här är en frågeparameter för tjänsten sandbox search som är värd för NYC-jobb indexet.
 
 När du har angett rubriken för begäran kan du återanvända det för alla frågor i den här artikeln och bara växla ut **Sök =** strängen. 
 
@@ -43,7 +43,7 @@ När du har angett rubriken för begäran kan du återanvända det för alla fr�
 
 Begäran är ett GET-kommando som paras ihop med en URL som innehåller Azure Kognitiv sökning-slutpunkten och Sök strängen.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Hämta rubrik för Postman-förfrågan" border="false":::
 
 URL-kompositionen har följande element:
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 Svar för den här frågan bör se ut ungefär som på följande skärm bild.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Exempel svar på Postman" border="false":::
 
 Du kanske har lagt märke till Sök poängen i svaret. Enhetliga resultat på 1 inträffar när det inte finns någon rang, antingen på grund av att sökningen inte var full texts ökning eller att inga kriterier tillämpades. För null-sökning utan villkor kommer rader tillbaka i valfri ordning. När du inkluderar de faktiska kriterierna visas Sök resultat som utvecklas till meningsfulla värden.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 Används tillsammans tillämpas filtret först på hela indexet och sedan utförs sökningen på resultatet av filtret. Filter kan därför vara en användbar teknik för att förbättra frågeprestanda eftersom de begränsar uppsättningen dokument som sökfrågan behöver bearbeta.
 
-  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Filtrera fråge svar" border="false":::
 
 Om du vill testa detta i Postman med GET kan du klistra in följande sträng:
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Intervall filter för numeriska intervall" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Intervall filter för text intervall" border="false":::
 
 Du kan också prova dessa i Postman med GET:
 
@@ -251,14 +251,14 @@ Med hjälp av standard searchMode (alla) returneras 2800-dokument: de som inneh�
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Sök läge, valfri" border="false":::
 
 Ändra searchMode för att `all` verkställa en kumulativ inverkan på kriterier och returnerar en mindre resultat uppsättning – 21 dokument-bestående av dokument som innehåller hela frasen "brand Department", minus jobben på Metrotech Center-adressen.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Sök läge alla" border="false":::
 
 ## <a name="example-8-structuring-results"></a>Exempel 8: strukturera resultat
 

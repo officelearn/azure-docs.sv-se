@@ -1,20 +1,20 @@
 ---
 title: Azure Policy regler för kontroll av efterlevnad för Azure Kubernetes service (AKS)
 description: Visar Azure Policy regler för regelefterlevnad som är tillgängliga för Azure Kubernetes service (AKS). Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera kompatibiliteten för dina Azure-resurser.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.service: container-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 52d60c3fa471960e6949b0169928280f3ac59e56
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 13fc6e177248794eddd64e2a406980d59e2d37d2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636603"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697817"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-kubernetes-service-aks"></a>Azure Policy regler för kontroll av efterlevnad för Azure Kubernetes service (AKS)
 
-Regelefterlevnad [i Azure policy](../governance/policy/concepts/regulatory-compliance.md) ger Microsoft skapade och hanterade initiativ definitioner, som kallas _inbyggda moduler_ , för **domäner** och **säkerhets kontroller** som är relaterade till olika efterlevnads standarder. Den här sidan listar **domänerna för regelefterlevnad** och **säkerhets kontroller** för Azure Kubernetes service (AKS).
+Regelefterlevnad [i Azure policy](../governance/policy/concepts/regulatory-compliance.md) ger Microsoft skapade och hanterade initiativ definitioner, som kallas _inbyggda moduler_, för **domäner** och **säkerhets kontroller** som är relaterade till olika efterlevnads standarder. Den här sidan listar **domänerna för regelefterlevnad** och **säkerhets kontroller** för Azure Kubernetes service (AKS).
 Du kan tilldela de inbyggda programmen för en **säkerhets kontroll** individuellt för att hjälpa dina Azure-resurser att vara kompatibla med den aktuella standarden.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 97541a4f8d86b90bf6045fc2a9e5abbe86aee5cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c322620e1d66182937be41bb02d48fd1469f459
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717344"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697568"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Standard Load Balancer-diagnostik med mått, aviseringar och resurshälsa
 
 Azure Standard Load Balancer visar följande diagnostiska funktioner:
 
-* **Flerdimensionella mått och aviseringar**: ger stöd för flera dimensionella diagnoser via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för standard konfiguration av belastningsutjämnare. Du kan övervaka, hantera och felsöka standard belastnings Utjämnings resurserna.
+* **Flerdimensionella mått och aviseringar**: ger stöd för flera dimensionella diagnoser via [Azure Monitor](../azure-monitor/overview.md) för standard konfiguration av belastningsutjämnare. Du kan övervaka, hantera och felsöka standard belastnings Utjämnings resurserna.
 
 * **Resurs hälsa**: Resource Health status för Load Balancer finns på Resource Health sidan under övervakaren. Den här automatiska kontrollen informerar om din Load Balancer resurs aktuella tillgänglighet.
 
@@ -70,7 +70,7 @@ Så här visar du måtten för dina Standard Load Balancer resurser:
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Hämta flerdimensionella mått via programmerings gränssnitt
 
-API-vägledning för att hämta flerdimensionella mått definitioner och värden finns i [genom gång av Azure monitoring REST API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). Dessa mått kan skrivas till ett lagrings konto via alternativet "alla mått". 
+API-vägledning för att hämta flerdimensionella mått definitioner och värden finns i [genom gång av Azure monitoring REST API](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Dessa mått kan skrivas till ett lagrings konto via alternativet "alla mått". 
 
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Konfigurera aviseringar för flerdimensionella mått ###
 
@@ -99,7 +99,7 @@ Måttet tillgänglighet för data Sök väg beskriver hälsan för data Sök vä
 Så här hämtar du data Sök vägs tillgänglighet för dina Standard Load Balancer-resurser:
 1. Kontrol lera att rätt belastnings Utjämnings resurs har valts. 
 2. I list rutan **mått** väljer du **tillgänglighet för data Sök väg**. 
-3. Välj **AVG**i list rutan **agg regering** . 
+3. Välj **AVG** i list rutan **agg regering** . 
 4. Lägg också till ett filter på klient delens IP-adress eller frontend-port som dimension med den begärda frontend-IP-adressen eller klient dels porten och gruppera dem sedan efter den valda dimensionen.
 
 ![VIP-sökning](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
@@ -138,9 +138,9 @@ Använd **Average** som agg regering för de flesta scenarier.
 #### <a name="how-do-i-check-my-outbound-connection-statistics"></a>Hur gör jag för att kontrollerar du statistiken för utgående anslutning? 
 <details>
   <summary>Visa</summary>
-Måttet SNAT-anslutningar beskriver volymen av lyckade och misslyckade anslutningar för [utgående flöden](https://aka.ms/lboutbound).
+Måttet SNAT-anslutningar beskriver volymen av lyckade och misslyckade anslutningar för [utgående flöden](./load-balancer-outbound-connections.md).
 
-En misslyckad anslutnings volym på större än noll anger antalet SNAT-portar. Du måste undersöka ytterligare för att avgöra vad som kan orsaka dessa problem. SNAT-portens överbelastnings manifest kan inte upprätta ett [utgående flöde](https://aka.ms/lboutbound). Läs artikeln om utgående anslutningar för att förstå scenarier och mekanismer i arbetet, och för att lära dig hur du minimerar och designar för att undvika SNAT-portar. 
+En misslyckad anslutnings volym på större än noll anger antalet SNAT-portar. Du måste undersöka ytterligare för att avgöra vad som kan orsaka dessa problem. SNAT-portens överbelastnings manifest kan inte upprätta ett [utgående flöde](./load-balancer-outbound-connections.md). Läs artikeln om utgående anslutningar för att förstå scenarier och mekanismer i arbetet, och för att lära dig hur du minimerar och designar för att undvika SNAT-portar. 
 
 För att hämta SNAT-anslutnings statistik:
 1. Välj Metric-typ för **SNAT-anslutningar** och **Sum** som agg regering. 
@@ -157,14 +157,14 @@ För att hämta SNAT-anslutnings statistik:
   <summary>Visa</summary>
 Måttet för de använda SNAT-portarna spårar hur många SNAT-portar som används för att underhålla utgående flöden. Detta anger hur många unika flöden som upprättas mellan en Internet källa och en virtuell dator i Server delen eller en skalnings uppsättning för virtuella datorer som finns bakom en belastningsutjämnare och inte har någon offentlig IP-adress. Genom att jämföra antalet SNAT-portar som du använder med måttet för de allokerade SNAT-portarna kan du avgöra om tjänsten är utsatt för eller riskerar att överskrida SNAT och resulterande utgående flödes haveri. 
 
-Om dina mått indikerar risk för [utgående flödes](https://aka.ms/lboutbound) fel, referera till artikeln och vidta steg för att minimera det för att säkerställa tjänstens hälsa.
+Om dina mått indikerar risk för [utgående flödes](./load-balancer-outbound-connections.md) fel, referera till artikeln och vidta steg för att minimera det för att säkerställa tjänstens hälsa.
 
 Visa SNAT-port användning och allokering:
 1. Ange tids agg regeringen för grafen till 1 minut för att se till att önskade data visas.
 1. Välj **använda SNAT-portar** och/eller **allokerade SNAT-portar** som mått typ och **genomsnitt** som agg regering
     * Som standard är dessa mått det genomsnittliga antalet SNAT-portar som allokerats till eller används av varje virtuell dator eller VMSS, som motsvarar alla offentliga IP-adresser som är kopplade till Load Balancer, sammantaget över TCP och UDP.
     * Om du vill visa totalt antal SNAT-portar som används av eller allokeras för belastningsutjämnaren använder du mått mängds **summan**
-1. Filtrera till en angiven **protokoll typ**, en uppsättning **Server dels IP-adresser**och/eller **klient delens IP-adresser**.
+1. Filtrera till en angiven **protokoll typ**, en uppsättning **Server dels IP-adresser** och/eller **klient delens IP-adresser**.
 1. Om du vill övervaka hälso tillståndet per backend-eller klient dels instans använder du delning. 
     * Med antecknings delning kan du bara visa ett enda mått i taget. 
 1. Om du till exempel vill övervaka SNAT-användning för TCP-flöden per dator, aggregera i **genomsnitt**, dela efter **Server dels IP-adresser** och filtrera efter **protokoll typ**. 
@@ -181,7 +181,7 @@ Visa SNAT-port användning och allokering:
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Hur gör jag för att kontrol lera inkommande/utgående anslutnings försök för min tjänst?
 <details>
   <summary>Visa</summary>
-Måttet SYN paket beskriver volymen av TCP-SYN-paket, som har anlänt eller skickats (för [utgående flöden](https://aka.ms/lboutbound)) som är associerade med en speciell klient del. Du kan använda det här måttet för att förstå TCP-anslutnings försök till din tjänst.
+Måttet SYN paket beskriver volymen av TCP-SYN-paket, som har anlänt eller skickats (för [utgående flöden](./load-balancer-outbound-connections.md)) som är associerade med en speciell klient del. Du kan använda det här måttet för att förstå TCP-anslutnings försök till din tjänst.
 
 Använd **Total** som agg regering för de flesta scenarier.
 
@@ -240,7 +240,7 @@ Så här visar du hälso tillståndet för dina offentliga Standard Load Balance
 
    *Bild: Service Health länken på Azure Monitor*
 
-2. Välj **Resource Health**och kontrol lera att **prenumerations-ID** och **resurs typ = Load Balancer** har marker ATS.
+2. Välj **Resource Health** och kontrol lera att **prenumerations-ID** och **resurs typ = Load Balancer** har marker ATS.
 
    ![Resurs hälso status](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
@@ -252,7 +252,7 @@ Så här visar du hälso tillståndet för dina offentliga Standard Load Balance
 
    *Bild: Load Balancer vyn resurs hälsa*
  
-Beskrivning av allmän resurs hälso status finns i [RHC-dokumentationen](https://docs.microsoft.com/azure/service-health/resource-health-overview). För vissa status värden för Azure Load Balancer anges i tabellen nedan: 
+Beskrivning av allmän resurs hälso status finns i [RHC-dokumentationen](../service-health/resource-health-overview.md). För vissa status värden för Azure Load Balancer anges i tabellen nedan: 
 
 | Resurs hälso status | Beskrivning |
 | --- | --- |
@@ -263,7 +263,7 @@ Beskrivning av allmän resurs hälso status finns i [RHC-dokumentationen](https:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information finns i [Standard Load Balancer](load-balancer-standard-overview.md).
-- Läs mer om den [utgående anslutningen till belastningsutjämnaren](https://aka.ms/lboutbound).
-- Läs mer om [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
-- Lär dig mer om [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) och [hur du hämtar mått via REST API](/rest/api/monitor/metrics/list).
+- Mer information finns i [Standard Load Balancer](./load-balancer-overview.md).
+- Läs mer om den [utgående anslutningen till belastningsutjämnaren](./load-balancer-outbound-connections.md).
+- Läs mer om [Azure Monitor](../azure-monitor/overview.md).
+- Lär dig mer om [Azure Monitor REST API](/rest/api/monitor/) och [hur du hämtar mått via REST API](/rest/api/monitor/metrics/list).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d93a43a44a9ccff4e7918e556b9d759e270d2f42
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072092"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698078"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurera ett AKS-kluster
 
@@ -78,27 +78,28 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 Om du vill skapa Node-pooler med AKS Ubuntu 16,04-avbildningen kan du göra det genom att utesluta den anpassade `--aks-custom-headers` taggen.
 
+## <a name="container-runtime-configuration"></a>Konfiguration av container runtime
 
-## <a name="container-runtime-configuration-preview"></a>Konfiguration av container Runtime (för hands version)
+En container runtime är program vara som kör behållare och hanterar behållar avbildningar på en nod. Körningen gör att du kan köra behållare på Linux eller Windows med hjälp av en viss funktion i abstrakta sys-anrop eller operativ system (OS). AKS-kluster med Kubernetes version 1,19 och större användning `containerd` som behållar körning. AKS-kluster som använder Kubernetes före v 1.19 för Node-pooler använder [Moby](https://mobyproject.org/) (överordnad Docker) som dess behållar körning.
 
-En container runtime är program vara som kör behållare och hanterar behållar avbildningar på en nod. Körningen gör att du kan köra behållare på Linux eller Windows med hjälp av en viss funktion i abstrakta sys-anrop eller operativ system (OS). Idag AKS använder [Moby](https://mobyproject.org/) (överordnad Docker) som container Runtime. 
-    
 ![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/) är ett [OCI](https://opencontainers.org/) -kompatibelt (Open container Initiative)-kompatibel Core container runtime som innehåller den minsta uppsättningen nödvändiga funktioner för att köra behållare och hantera avbildningar på en nod. Den har [donerat](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) till Cloud Native Compute Foundation (CNCF) i mars 2017. Den aktuella Moby-versionen som AKS använder redan idag utnyttjar och är byggd ovanpå `containerd` , som visas ovan. 
+[`Containerd`](https://containerd.io/) är ett [OCI](https://opencontainers.org/) -kompatibelt (Open container Initiative)-kompatibel Core container runtime som innehåller den minsta uppsättningen nödvändiga funktioner för att köra behållare och hantera avbildningar på en nod. Den har [donerat](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) till Cloud Native Compute Foundation (CNCF) i mars 2017. Den aktuella Moby-versionen som AKS använder använder redan och är byggd ovanpå `containerd` , som visas ovan.
 
-Med en behållar-baserad nod och nodkonfigurationer, i stället för att prata med `dockershim` , kommer kubelet att kommunicera direkt med `containerd` via CRI-plugin-programmet (container runtime Interface) och ta bort extra hopp i flödet jämfört med Docker-CRI-implementeringen. Därför ser du bättre Pod start latens och mindre resurs (CPU-och minnes användning).
+Med en `containerd` -baserad nod och nodkonfigurationer, i stället för att prata med `dockershim` , kommer kubelet att kommunicera direkt med `containerd` via CRI-plugin-programmet (container runtime Interface) och ta bort extra hopp i flödet jämfört med Docker-CRI-implementeringen. Därför ser du bättre Pod start latens och mindre resurs (CPU-och minnes användning).
 
 Genom `containerd` att använda för AKS-noder förbättrar Pod-startsvars tiden och resursanvändningen för resurs användningen av container runtime minskar. Dessa förbättringar aktive ras i den här nya arkitekturen där kubelet `containerd` kommunicerar direkt med CRI-plugin-programmet medan Moby/Docker Architecture kubelet pratar med `dockershim` och Docker-motorn innan den når `containerd` , och därför har extra hopp i flödet.
 
 ![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd` fungerar på alla GA-versioner av Kubernetes i AKS och i varje överordnad Kubernetes-version över v 1.10 och stöder alla Kubernetes-och AKS-funktioner.
+`Containerd` fungerar på alla GA-versioner av Kubernetes i AKS och i varje överordnad Kubernetes-version över v-1.19 och stöder alla Kubernetes-och AKS-funktioner.
 
 > [!IMPORTANT]
-> När `containerd` blir allmänt tillgänglig på AKS är det standard alternativet och endast tillgängligt för container runtime på nya kluster. Du kan fortfarande använda Moby-nodepools och-kluster på äldre versioner som stöds tills de faller utanför supporten. 
+> Kluster med resurspooler som skapats på Kubernetes v-1.19 eller som är standardvärdet `containerd` för dess behållar körning. Kluster med noder i en Kubernetes-version som stöds och som är mindre än 1,19 tar emot `Moby` för dess behållar körning, men kommer att uppdateras till `ContainerD` en gång som Kubernetes-versionen för Node-poolen uppdateras till v 1.19 eller senare. Du kan fortfarande använda `Moby` resurspooler och kluster på äldre versioner som stöds tills de faller utanför supporten.
 > 
-> Vi rekommenderar att du testar dina arbets belastningar på `containerd` nodkonfigurationer innan du uppgraderar eller skapar nya kluster med denna container Runtime.
+> Vi rekommenderar starkt att du testar dina arbets belastningar på AKS-noder med `containerD` innan du använder kluster på 1,19 eller mer.
+
+I följande avsnitt förklaras hur du kan använda och testa AKS med `containerD` på kluster som ännu inte använder en Kubernetes version 1,19 eller högre, eller som skapades innan den här funktionen blev allmänt tillgänglig, med hjälp av för hands versionen av container runtime Configuration.
 
 ### <a name="use-containerd-as-your-container-runtime-preview"></a>Använd `containerd` som behållar körning (för hands version)
 

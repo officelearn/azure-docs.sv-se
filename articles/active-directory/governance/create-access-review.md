@@ -15,12 +15,12 @@ ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 18f0627b809f56b813052cc763e6ff961f31aa02
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362781"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697143"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomst granskning av grupper och program i åtkomst granskningar för Azure AD
 
@@ -32,10 +32,12 @@ Du kan se en snabb video som talar om hur du aktiverar åtkomst granskningar:
 
 Den här artikeln beskriver hur du skapar en eller flera åtkomst granskningar för grupp medlemmar eller program åtkomst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure AD Premium P2
 - Global administratör eller användar administratör
+- Förhandsgranskningsvyn Resurs ägare i Microsoft 365 grupper kan skapa recensioner i de Microsoft 365 grupper som de äger
+- Förhandsgranskningsvyn Resurs ägare till Azure AD-säkerhetsgrupper kan skapa recensioner i de Azure AD-säkerhetsgrupper som de äger
 
 Mer information finns i [licens krav](access-reviews-overview.md#license-requirements).
 
@@ -43,7 +45,7 @@ Mer information finns i [licens krav](access-reviews-overview.md#license-require
 
 1. Logga in på Azure Portal och öppna [sidan identitets styrning](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. Klicka på **åtkomst granskningar**på den vänstra menyn.
+1. Klicka på **åtkomst granskningar** på den vänstra menyn.
 
 1. Klicka på **ny åtkomst granskning** för att skapa en ny åtkomst granskning.
 
@@ -57,7 +59,7 @@ Mer information finns i [licens krav](access-reviews-overview.md#license-require
 
     ![Skapa en åtkomst granskning – start-och slutdatum](./media/create-access-review/start-end-dates.png)
 
-1. Om du vill göra åtkomst granskningen återkommande ändrar du **frekvens** inställningen **från en gång** till **varje vecka**, **varje månad**, **kvartals vis**, **halvårs**vis eller **varje år**. Använd skjutreglaget **varaktighet** eller text rutan för att definiera hur många dagar varje granskning av den återkommande serien ska vara öppen för inmatade i granskare. Den längsta tid som du kan ange för en månatlig granskning är till exempel 27 dagar för att undvika överlappande granskningar.
+1. Om du vill göra åtkomst granskningen återkommande ändrar du **frekvens** inställningen **från en gång** till **varje vecka**, **varje månad**, **kvartals vis**, **halvårs** vis eller **varje år**. Använd skjutreglaget **varaktighet** eller text rutan för att definiera hur många dagar varje granskning av den återkommande serien ska vara öppen för inmatade i granskare. Den längsta tid som du kan ange för en månatlig granskning är till exempel 27 dagar för att undvika överlappande granskningar.
 
 1. Använd **End** -inställningen för att ange hur du ska avsluta gransknings serien för återkommande åtkomst. Serien kan sluta på tre sätt: 
     1. Den körs kontinuerligt för att starta recensioner på obestämd tid
@@ -164,7 +166,7 @@ Om du har tilldelat gäster som granskare och de inte har accepterat inbjudan f�
 |Automatiskt granskad | Beslut har registrerats av systemet för alla användare som inte har granskats. Granskning är redo att fortsätta att **tillämpa** om Auto-Apply har Aktiver ATS. |
 |Lägger | Det kommer inte att gå att komma åt användare som har godkänts. |
 |Tillämpat | Nekade användare, om sådana finns, har tagits bort från resursen eller katalogen. |
-|Misslyckades | Granskningen kunde inte fortsätta. Det här felet kan bero på borttagning av klienten, en ändring i licenser eller andra interna klient ändringar. |
+|Misslyckad | Granskningen kunde inte fortsätta. Det här felet kan bero på borttagning av klienten, en ändring i licenser eller andra interna klient ändringar. |
 
 ## <a name="create-reviews-via-apis"></a>Skapa recensioner via API: er
 

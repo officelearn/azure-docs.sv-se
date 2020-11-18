@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e04c7da40719f77ca478f2ce577688af773f523d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 960657d27be4b9dab9f242428592bbb404a49d86
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399235"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697177"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Självstudie: indexera Azure SQL-data med .NET SDK
 
@@ -28,9 +28,9 @@ I den här självstudien används C# och [.NET SDK](/dotnet/api/overview/azure/s
 > * Köra en indexerare för att läsa in data i ett index
 > * Fråga ett index som ett verifierings steg
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
@@ -69,7 +69,7 @@ Om du har en befintlig Azure SQL Database resurs kan du lägga till hotell tabel
 
 1. Markera filen och klicka på **Öppna**. Skriptet bör se ut ungefär som på följande skärmbild:
 
-   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Ny databassida" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="SQL-skript" border="false":::
 
 1. Klicka på **Kör** för att köra frågan. Nu bör du se ett meddelande om att frågan lyckades för tre rader i resultatfönstret.
 
@@ -79,7 +79,7 @@ Om du har en befintlig Azure SQL Database resurs kan du lägga till hotell tabel
     SELECT * FROM Hotels
     ```
 
-1. Kopiera ADO.NET-anslutningssträngen för databasen. Under **Inställningar**  >  **anslutnings strängar**kopierar du anslutnings strängen ADO.net, som liknar exemplet nedan.
+1. Kopiera ADO.NET-anslutningssträngen för databasen. Under **Inställningar**  >  **anslutnings strängar** kopierar du anslutnings strängen ADO.net, som liknar exemplet nedan.
 
     ```sql
     Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -99,7 +99,7 @@ API-anrop kräver tjänst-URL och en åtkomst nyckel. En Sök tjänst skapas med
 
 1. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-   :::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Ny databassida" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel" border="false":::
 
 ## <a name="2---set-up-your-environment"></a>2 – Konfigurera din miljö
 
@@ -201,7 +201,7 @@ Ett indexerare-objekt är plattforms-oberoende, där konfiguration, schemaläggn
 
 Tryck på F5 för att skapa och köra lösningen. Programmet körs i felsökningsläge. I ett konsolfönster rapporteras status för varje åtgärd.
 
-   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Ny databassida" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Konsolutdata" border="false":::
 
 Din kod körs lokalt i Visual Studio, ansluter till din Sök tjänst på Azure, som i sin tur ansluter till Azure SQL Database och hämtar data uppsättningen. Med det här många åtgärder finns det flera möjliga punkter av felet. Om ett fel uppstår kontrollerar du först följande villkor:
 
@@ -215,9 +215,9 @@ Din kod körs lokalt i Visual Studio, ansluter till din Sök tjänst på Azure, 
 
 Använd Azure Portal för att kontrol lera att objektet skapas och Använd sedan **Sök Utforskaren** för att fråga indexet.
 
-1. [Logga](https://portal.azure.com/)in på Azure Portal och på sidan **Översikt** för Search-tjänsten öppnar du varje lista i tur och ett för att kontrol lera att objektet har skapats. **Index**, **indexerare**och **data källor** kommer att ha "Hotels", "Azure-SQL-Indexer" och "Azure-SQL".
+1. [Logga](https://portal.azure.com/)in på Azure Portal och på sidan **Översikt** för Search-tjänsten öppnar du varje lista i tur och ett för att kontrol lera att objektet har skapats. **Index**, **indexerare** och **data källor** kommer att ha "Hotels", "Azure-SQL-Indexer" och "Azure-SQL".
 
-   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Ny databassida" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Paneler för indexerare och datakällor" border="false":::
 
 1. Välj hotell indexet. **Sök Utforskaren** är den första fliken på sidan hotell. 
 
@@ -225,7 +225,7 @@ Använd Azure Portal för att kontrol lera att objektet skapas och Använd sedan
 
    De tre posterna i ditt index returneras som JSON-dokument. Sökutforskaren returnerar dokument i JSON så att du kan se hela strukturen.
 
-   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Ny databassida" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Fråga ett index" border="false":::
    
 1. Ange sedan en söksträng: `search=river&$count=true`. 
 

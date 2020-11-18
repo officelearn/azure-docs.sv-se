@@ -1,7 +1,7 @@
 ---
 title: Ansluta till beräknings instans i Visual Studio Code (för hands version)
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du ansluter till en Azure Machine Learning beräknings instans i Visual Studio Code
+description: Lär dig hur du ansluter till en Azure Machine Learning beräknings instans i Visual Studio Code för att köra interaktiva Jupyter Notebook och arbets belastningar för fjärrutveckling.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 09/03/2020
-ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: 2abad31173992a891e908bdbb61c37e905907d69
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708381"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697586"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Ansluta till en Azure Machine Learning beräknings instans i Visual Studio Code (för hands version)
 
@@ -130,7 +130,7 @@ Host azmlci1
 
 Här finns information om fälten:
 
-|Field|Beskrivning|
+|Fält|Beskrivning|
 |----|---------|
 |Värd|Använd den stenografiska du gillar för beräknings instansen |
 |HostName|Detta är beräknings instansens IP-adress |

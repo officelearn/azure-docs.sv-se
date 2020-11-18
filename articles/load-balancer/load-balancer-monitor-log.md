@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 42ec5a661bd7b42ba5de5bfa99b3898291cc60fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f24ab2c646757f0241748336243b0d5f977d081c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935610"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698333"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor-loggar för offentlig Basic Load Balancer
 
 Du kan använda olika typer av loggar i Azure för att hantera och felsöka grundläggande belastnings utjämning. Vissa av dessa loggar kan nås via portalen. Loggar kan strömmas till en händelsehubben eller en arbets yta för Log Analytics. Alla loggar kan extraheras från Azure Blob Storage och visas i olika verktyg, till exempel Excel och Power BI.  Du kan lära dig mer om de olika typerna av loggar i listan nedan.
 
-* **Aktivitets loggar:** Du kan använda [Visa aktivitets loggar för att övervaka åtgärder på resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) för att visa all aktivitet som skickas till din Azure-prenumeration (er) och deras status. Aktivitets loggar är aktiverade som standard och kan visas i Azure Portal.
+* **Aktivitets loggar:** Du kan använda [Visa aktivitets loggar för att övervaka åtgärder på resurser](../azure-resource-manager/management/view-activity-logs.md) för att visa all aktivitet som skickas till din Azure-prenumeration (er) och deras status. Aktivitets loggar är aktiverade som standard och kan visas i Azure Portal.
 * **Aviserings händelse loggar:** Du kan använda den här loggen för att visa aviseringar som aktive ras av belastningsutjämnaren. Status för belastningsutjämnaren samlas in var femte minut. Den här loggen skrivs bara om en belastnings Utjämnings aviserings händelse höjs.
 * **Hälso avsöknings loggar:** Du kan använda den här loggen för att visa problem som upptäckts av din hälso avsökning, till exempel antalet instanser i din backend-pool som inte tar emot begär Anden från belastningsutjämnaren på grund av hälso avsöknings fel. Loggen skrivs till när statusen för hälso avsökningen ändras.
 
@@ -35,21 +35,21 @@ Du kan använda olika typer av loggar i Azure för att hantera och felsöka grun
 
 Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser. Aktivera loggning av händelse-och hälso avsökning för att börja samla in data som är tillgängliga via dessa loggar. Använd följande steg för att aktivera loggning.
 
-Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har en belastningsutjämnare måste du [skapa en belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) innan du fortsätter.
+Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har en belastningsutjämnare måste du [skapa en belastningsutjämnare](./quickstart-load-balancer-standard-public-portal.md) innan du fortsätter.
 
 1. I portalen klickar du på **resurs grupper**.
 2. Välj **\<resource-group-name>** var belastningsutjämnaren är.
 3. Välj din lastbalanserare.
-4. Välj **Activity log**  >  **diagnostiska inställningar**för aktivitets loggen.
+4. Välj **Activity log**  >  **diagnostiska inställningar** för aktivitets loggen.
 5. I fönstret **diagnostikinställningar** , under **diagnostikinställningar**, väljer du **+ Lägg till diagnostisk inställning**.
 6. I fönstret Skapa **diagnostikinställningar** anger du **MyLBDiagnostics** i fältet **namn** .
 7. Det finns tre alternativ för **diagnostikinställningar**.  Du kan välja en, två eller alla tre och konfigurera var och en för dina behov:
    * **Arkivera till ett lagrings konto**
-   * **Strömma till en Event Hub**
+   * **Strömma till en händelsehubb**
    * **Skicka till Log Analytics**
 
     ### <a name="archive-to-a-storage-account"></a>Arkivera till ett lagringskonto
-    Du behöver ett lagrings konto som redan har skapats för den här processen.  Information om hur du skapar ett lagrings konto finns i [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
+    Du behöver ett lagrings konto som redan har skapats för den här processen.  Information om hur du skapar ett lagrings konto finns i [skapa ett lagrings konto](../storage/common/storage-account-create.md?tabs=azure-portal)
 
     1. Markera kryss rutan bredvid **arkivera till ett lagrings konto**.
     2. Välj **Konfigurera** för att öppna fönstret **Välj ett lagrings konto** .
@@ -58,7 +58,7 @@ Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har en
     5. Välj OK.
 
     ### <a name="stream-to-an-event-hub"></a>Strömma till en händelsehubb
-    Du behöver en Event Hub som redan har skapats för den här processen.  Information om hur du skapar en Event Hub finns i [snabb start: skapa en Event Hub med Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+    Du behöver en Event Hub som redan har skapats för den här processen.  Information om hur du skapar en Event Hub finns i [snabb start: skapa en Event Hub med Azure Portal](../event-hubs/event-hubs-create.md)
 
     1. Markera kryss rutan bredvid **strömma till en Event Hub**
     2. Välj **Konfigurera** för att öppna fönstret **Välj händelsehubben** .
@@ -68,7 +68,7 @@ Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har en
     6. Välj OK.
 
     ### <a name="send-to-log-analytics"></a>Skicka till Log Analytics
-    Du behöver redan ha en Log Analytics-arbetsyta skapad och konfigurerad för den här processen.  Om du vill skapa en Log Analytics arbets yta, se [skapa en Log Analytics arbets yta i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+    Du behöver redan ha en Log Analytics-arbetsyta skapad och konfigurerad för den här processen.  Om du vill skapa en Log Analytics arbets yta, se [skapa en Log Analytics arbets yta i Azure Portal](../azure-monitor/learn/quick-create-workspace.md)
 
     1. Markera kryss rutan bredvid **Skicka till Log Analytics**.
     2. Välj den **prenumeration** där Log Analytics arbets ytan finns i den nedrullningsbara rutan.
@@ -86,9 +86,9 @@ Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har en
 
 ## <a name="activity-log"></a>Aktivitetslogg
 
-Aktivitets loggen skapas som standard. Loggarna bevaras för 90 dagar i Azures händelse logg arkiv. Läs mer om dessa loggar genom att läsa artikeln [Visa aktivitets loggar för att övervaka åtgärder i resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) .
+Aktivitets loggen skapas som standard. Loggarna bevaras för 90 dagar i Azures händelse logg arkiv. Läs mer om dessa loggar genom att läsa artikeln [Visa aktivitets loggar för att övervaka åtgärder i resurser](../azure-resource-manager/management/view-activity-logs.md) .
 
-## <a name="archive-to-storage-account-logs"></a>Arkivera till lagrings konto loggar
+## <a name="archive-to-storage-account-logs"></a>Arkivera till lagringskontologgar
 
 ### <a name="alert-event-log"></a>Aviserings händelse logg
 
@@ -171,7 +171,7 @@ Anslut till ditt lagrings konto och hämta JSON-logg poster för händelse-och h
 När diagnostikinformation strömmas till en Event Hub, kan den användas för centraliserad logg analys i ett SIEM-verktyg från tredje part med Azure Monitor-integrering. Mer information finns i [Stream Azure Monitoring data to Event Hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>Skicka till Log Analytics
-Resurser i Azure kan få sin diagnostikinformation att skickas direkt till en Log Analytics arbets yta där komplexa frågor kan köras mot informationen för fel sökning och analys.  Mer information finns i [samla in Azure-resursposter i Log Analytics arbets yta i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)
+Resurser i Azure kan få sin diagnostikinformation att skickas direkt till en Log Analytics arbets yta där komplexa frågor kan köras mot informationen för fel sökning och analys.  Mer information finns i [samla in Azure-resursposter i Log Analytics arbets yta i Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
 ## <a name="next-steps"></a>Nästa steg
 

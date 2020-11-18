@@ -2,13 +2,13 @@
 title: Resurs leverantörer efter Azure-tjänster
 description: Visar en lista över alla resurs leverantörs namn områden för Azure Resource Manager och Azure-tjänsten för namn området visas.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: f9e31f902d36cf84fc559337f3c69529cf1c014b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/17/2020
+ms.openlocfilehash: c447a08b4422929f042315370b5888f3db0626e4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949130"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697739"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resursleverantörer för Azure-tjänster
 
@@ -74,7 +74,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. data migration | [Azure Database Migration Service](../../dms/index.yml) |
 | Microsoft. DataProtection | Dataskydd |
 | Microsoft. DataShare | [Azure Data Share](../../data-share/index.yml) |
-| Microsoft. DBforMariaDB | [Azure Database for MariaDB](../../mariadb/index.yml) |
+| Microsoft. DBforMariaDB | [Azure Database för MariaDB](../../mariadb/index.yml) |
 | Microsoft. DBforMySQL | [Azure Database for MySQL](../../mysql/index.yml) |
 | Microsoft. DBforPostgreSQL | [Azure Database for PostgreSQL](../../postgresql/index.yml) |
 | Microsoft. DeploymentManager | [Azure Deployment Manager](../templates/deployment-manager-overview.md) |
@@ -126,7 +126,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft. MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft. NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Lastbalanserare](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
 | Microsoft. Notebook | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 | Microsoft. NotificationHubs | [Notification Hubs](../../notification-hubs/index.yml) |
 | Microsoft. ObjectStore | Objekt Arkiv |
@@ -151,7 +151,6 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft. search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft. Security | [Security Center](../../security-center/index.yml) |
-| Microsoft. SecurityGraph | [Security Center](../../security-center/index.yml) |
 | Microsoft. SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
 | Microsoft. SerialConsole<sup>1</sup> | [Azures serie konsol för Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
@@ -174,10 +173,10 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft. token | Token |
 | Microsoft. VirtualMachineImages | [Azure Image Builder](../../virtual-machines/linux/image-builder-overview.md) |
-| Microsoft. VisualStudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| Microsoft. VisualStudio | [Azure DevOps](/azure/devops/) |
 | Microsoft. VMware | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft. VMwareCloudSimple | [Azure VMware Solution by CloudSimple](../../vmware-cloudsimple/index.md) |
-| Microsoft. VSOnline | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| Microsoft. VSOnline | [Azure DevOps](/azure/devops/) |
 | Microsoft. Web | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml) |
 | Microsoft. WindowsDefenderATP | [Microsoft Defender Advanced Threat Protection](../../security-center/security-center-wdatp.md) |
 | Microsoft. WindowsESU | Utökade säkerhets uppdateringar |

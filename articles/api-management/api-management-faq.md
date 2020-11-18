@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 351503db52e4c62414cd5dcbae1f750032a37eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eea3c8525d31a3ca551e9cbc7d21d7dde163b5cc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542299"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698010"
 ---
 # <a name="azure-api-management-faqs"></a>Vanliga frågor och svar om Azure API Management
 Få svar på vanliga frågor, mönster och metod tips för Azure API Management.
@@ -71,18 +71,7 @@ Ja, du kan hantera API Management program mässigt genom att använda:
 * [Distributions-](/powershell/module/wds) och [tjänst hanterings](/powershell/azure/servicemanagement/overview) PowerShell-cmdletar.
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Hur gör jag för att lägga till en användare i gruppen Administratörer?
-Så här kan du lägga till en användare i gruppen Administratörer:
-
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Gå till den resurs grupp som har den API Management-instans som du vill uppdatera.
-3. I API Management tilldelar du rollen **API Management Service Contributor** till användaren.
-
-Nu kan den nyligen tillagda deltagaren använda Azure PowerShell- [cmdletar](/powershell/azure/). Så här loggar du in som administratör:
-
-1. Använd `Connect-AzAccount` cmdleten för att logga in.
-2. Ange kontexten till den prenumeration som har tjänsten med hjälp av `Set-AzContext -SubscriptionID <subscriptionGUID>` .
-3. Hämta en enkel inloggnings-URL med hjälp av `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>` .
-4. Använd URL: en för att få åtkomst till administrations portalen.
+Administratörs grupper är en system grupp som inte kan ändras. Administratörer för Azure-prenumeration är medlemmar i den här gruppen. Du kan inte lägga till en användare i den här gruppen. Mer information finns i [skapa och använda grupper för att hantera utvecklares konton i Azure API Management](./api-management-howto-create-groups.md) .
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Varför är den princip som jag vill lägga till otillgänglig i princip redigeraren?
 Om den princip som du vill lägga till visas nedtonad eller skuggad i princip redigeraren, kontrollerar du att du har rätt omfattning för principen. Varje princips ATS är utformad för att användas i avsnitt med vissa områden och principer. Om du vill granska princip avsnitten och omfattningarna för en princip, se principens användnings avsnitt i [API Management principer](./api-management-policies.md).

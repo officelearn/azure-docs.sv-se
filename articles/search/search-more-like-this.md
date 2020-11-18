@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cd6b64f118460a115963ed0bf105641d80334348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c2f8058a85bbc0643ed31a7dc910339d0f6d9dd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934998"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697058"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>moreLikeThis (för hands version) i Azure Kognitiv sökning
 
@@ -71,4 +71,4 @@ GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$
 Du kan använda valfritt verktyg för webbtest för att experimentera med den här funktionen.  Vi rekommenderar att du använder Postman för den här övningen.
 
 > [!div class="nextstepaction"]
-> [Utforska Azure Kognitiv sökning REST-API: er med Postman](search-get-started-postman.md)
+> [Utforska Azure Kognitiv sökning REST-API: er](search-get-started-rest.md)

@@ -6,21 +6,21 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
-ms.openlocfilehash: eb3605249578b15d67bdd9764490d61812b21c18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68a2cb6926cb41956711a9e3c15d21c250d27f0b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808448"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698505"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Flytta interna Azure-Load Balancer till en annan region med hjälp av Azure Portal
 
 Det finns olika scenarier där du vill flytta din befintliga interna belastningsutjämnare från en region till en annan. Du kanske till exempel vill skapa en intern belastningsutjämnare med samma konfiguration för testning. Du kanske också vill flytta en intern belastningsutjämnare till en annan region som en del av Disaster Recovery-planeringen.
 
-Det går inte att flytta Azures interna belastningsutjämnare från en region till en annan. Du kan dock använda en Azure Resource Manager-mall för att exportera den befintliga konfigurationen och det virtuella nätverket för en intern belastningsutjämnare.  Du kan sedan mellanlagra resursen i en annan region genom att exportera belastningsutjämnaren och virtuella nätverk till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallarna till den nya regionen.  Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Det går inte att flytta Azures interna belastningsutjämnare från en region till en annan. Du kan dock använda en Azure Resource Manager-mall för att exportera den befintliga konfigurationen och det virtuella nätverket för en intern belastningsutjämnare.  Du kan sedan mellanlagra resursen i en annan region genom att exportera belastningsutjämnaren och virtuella nätverk till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallarna till den nya regionen.  Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Se till att den interna belastningsutjämnaren i Azure är i den Azure-region som du vill flytta.
 
@@ -32,7 +32,7 @@ Det går inte att flytta Azures interna belastningsutjämnare från en region ti
 
 - Kontrol lera att din Azure-prenumeration låter dig skapa interna belastningsutjämnare i mål regionen som används. Kontakta supporten och aktivera den kvot som krävs.
 
-- Kontrol lera att din prenumeration har tillräckligt med resurser för att lägga till belastningsutjämnare för den här processen.  Se [begränsningar, kvoter och begränsningar för Azure-prenumerationen och tjänsten](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
+- Kontrol lera att din prenumeration har tillräckligt med resurser för att lägga till belastningsutjämnare för den här processen.  Se [begränsningar, kvoter och begränsningar för Azure-prenumerationen och tjänsten](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>Förbered och flytta
@@ -45,7 +45,7 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
 
 1. Logga in på [Azure Portal](https://portal.azure.com)  >  **resurs grupper**.
 2. Leta upp resurs gruppen som innehåller det virtuella käll nätverket och klicka på den.
-3. Välj **Settings**  >  **Exportera mall**för > inställningar.
+3. Välj **Settings**  >  **Exportera mall** för > inställningar.
 4. Välj **distribuera** på bladet **Exportera mall** .
 5. Klicka på **mall**  >  **Redigera parametrar** för att öppna **parameters.jspå** filen i redigeraren online.
 6. Om du vill redigera parametern för det virtuella nätverks namnet ändrar du egenskapen **Value** under **parametrar**:
@@ -188,7 +188,7 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
 
 17. Verifiera under **Inställningar** att namnet matchar namnet som du angav i parameter redigeraren ovan.
 
-18. Markera kryss rutan under **allmänna**villkor.
+18. Markera kryss rutan under **allmänna** villkor.
 
 19. Klicka på knappen **köp** för att distribuera det virtuella mål nätverket.
 
@@ -196,7 +196,7 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
 
 1. Logga in på [Azure Portal](https://portal.azure.com)  >  **resurs grupper**.
 2. Leta upp resurs gruppen som innehåller den interna belastningsutjämnaren och klicka på den.
-3. Välj **Settings**  >  **Exportera mall**för > inställningar.
+3. Välj **Settings**  >  **Exportera mall** för > inställningar.
 4. Välj **distribuera** på bladet **Exportera mall** .
 5. Klicka på **mall**  >  **Redigera parametrar** för att öppna **parameters.jspå** filen i redigeraren online.
 
@@ -273,7 +273,7 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
                 "tier": "Regional"
             },
         ```
-      Mer information om skillnaderna mellan Basic-och standard SKU-belastningsutjämnare finns i [Översikt över Azure standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+      Mer information om skillnaderna mellan Basic-och standard SKU-belastningsutjämnare finns i [Översikt över Azure standard Load Balancer](./load-balancer-overview.md)
 
     * **Belastnings Utjämnings regler** – du kan lägga till eller ta bort belastnings Utjämnings regler i konfigurationen genom att lägga till eller ta bort poster i **loadBalancingRules** -avsnittet i **template.jspå** filen:
 
@@ -305,7 +305,7 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
                     }
                 ]
         ```
-       Mer information om belastnings Utjämnings regler finns i [Vad är Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+       Mer information om belastnings Utjämnings regler finns i [Vad är Azure Load Balancer?](./load-balancer-overview.md)
 
     * **Avsökningar** – du kan lägga till eller ta bort en avsökning för belastningsutjämnaren i konfigurationen genom att lägga till eller ta bort poster i avsnittet **avsökningar** i **template.js** filen:
 
@@ -325,7 +325,7 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
                     }
                 ],
         ```
-       Mer information om Azure Load Balancer hälso avsökningar finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+       Mer information om Azure Load Balancer hälso avsökningar finns i [Load Balancer hälso avsökningar](./load-balancer-custom-probe-overview.md)
 
     * **Ingående NAT-regler** – du kan lägga till eller ta bort inkommande NAT-regler för belastningsutjämnaren genom att lägga till eller ta bort poster i **inboundNatRules** -avsnittet i **template.jspå** filen:
 
@@ -373,7 +373,7 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
             }
         }
         ```
-        Mer information om inkommande NAT-regler finns i [Vad är Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+        Mer information om inkommande NAT-regler finns i [Vad är Azure Load Balancer?](./load-balancer-overview.md)
 
 12. Klicka på **Spara** i redigeraren online.
 
@@ -385,7 +385,7 @@ Följande steg visar hur du förbereder den interna belastningsutjämnaren för 
 
 17. Verifiera under **Inställningar** att namnet matchar namnet som du angav i parameter redigeraren ovan.  Kontrol lera att resurs-ID: n är ifyllda för alla virtuella nätverk i konfigurationen.
 
-18. Markera kryss rutan under **allmänna**villkor.
+18. Markera kryss rutan under **allmänna** villkor.
 
 19. Klicka på knappen **köp** för att distribuera det virtuella mål nätverket.
 
@@ -402,5 +402,5 @@ Om du vill genomföra ändringarna och slutföra flyttningen av det virtuella n�
 I den här självstudien flyttade du en intern Azure-belastningsutjämnare från en region till en annan och rensade käll resurserna.  Mer information om hur du flyttar resurser mellan regioner och haveri beredskap i Azure finns i:
 
 
-- [Flytta resurser till en ny resursgrupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Migrera virtuella Azure-datorer till en annan region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Migrera virtuella Azure-datorer till en annan region](../site-recovery/azure-to-azure-tutorial-migrate.md)

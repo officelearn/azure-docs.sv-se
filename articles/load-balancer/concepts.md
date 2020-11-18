@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 28c3e4ade2c78a1a77ef7263463803e40727ba8f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 3f8c288f950f34e1764c50e8eb74a8a73b39b3d7
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315311"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698537"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Azure Load Balancer algoritm
 
@@ -63,4 +63,4 @@ Load Balancer interagerar inte direkt med TCP eller UDP eller program skiktet. D
 - Läs mer om [Azure Load Balancer](load-balancer-overview.md).
 - Läs mer om [hälso avsökningar](load-balancer-custom-probe-overview.md).
 - Lär dig mer om [standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
-- Läs mer om [nätverks säkerhets grupper](../virtual-network/security-overview.md).
+- Läs mer om [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md).

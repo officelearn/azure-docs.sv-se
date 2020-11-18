@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7f2df005a8d3211ba53aadb16370624c4f530eb3
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 95ac4ed83a4486665ce378972ea7d6423c2482d5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575874"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682918"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Konfigurera Kundhanterade nycklar för data kryptering i Azure Kognitiv sökning
 
@@ -41,12 +41,12 @@ För tjänster som skapats efter 1 augusti 2020 och i vissa regioner, innehålle
 
 Om du använder en annan region eller en tjänst som skapats före den 1 augusti, är din CMK-kryptering begränsad till enbart data disken, förutom de temporära diskar som används av tjänsten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande verktyg och tjänster används i det här scenariot.
 
 + [Azure kognitiv sökning](search-create-service-portal.md) på en [fakturerbar nivå](search-sku-tier.md#tiers) (Basic eller högre) i vilken region som helst.
-+ [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) i samma prenumeration som Azure kognitiv sökning. Nyckel valvet måste ha aktiverat **skydd mot** **borttagning** och rensning.
++ [Azure Key Vault](../key-vault/general/overview.md)kan du skapa nyckel valv med [Azure Portal](../key-vault//general/quick-create-portal.md), [Azure CLI](../key-vault//general/quick-create-cli.md)eller [Azure PowerShell](../key-vault//general/quick-create-powershell.md). i samma prenumeration som Azure Kognitiv sökning. Nyckel valvet måste ha aktiverat **skydd mot** **borttagning** och rensning.
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). Om du inte har ett kan du [Konfigurera en ny klient](../active-directory/develop/quickstart-create-new-tenant.md).
 
 Du bör ha ett Sök program som kan skapa det krypterade objektet. I den här koden kommer du att referera till nyckel valvet och Active Directory registrerings information. Den här koden kan vara en fungerande app eller prototyp kod som C#- [kod exemplet DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
@@ -110,13 +110,13 @@ Hoppa över det här steget om du redan har en nyckel i Azure Key Vault.
 
 1. Välj **nycklar** till vänster och välj sedan **+ generera/importera**.
 
-1. I fönstret **skapa en nyckel** , i listan med **alternativ** , väljer du den metod som du vill använda för att skapa en nyckel. Du kan **generera** en ny nyckel, **överföra** en befintlig nyckel eller använda **Återställ säkerhets kopia** för att välja en säkerhets kopia av en nyckel.
+1. I fönstret **skapa en nyckel** , i listan med **alternativ**, väljer du den metod som du vill använda för att skapa en nyckel. Du kan **generera** en ny nyckel, **överföra** en befintlig nyckel eller använda **Återställ säkerhets kopia** för att välja en säkerhets kopia av en nyckel.
 
 1. Ange ett **namn** för nyckeln och välj även andra nyckel egenskaper.
 
 1. Välj **skapa** för att starta distributionen.
 
-1. Anteckna nyckel identifieraren – den består av **nyckel värdets URI** , **nyckel namnet** och **nyckel versionen**. Du behöver identifieraren för att definiera ett krypterat index i Azure Kognitiv sökning.
+1. Anteckna nyckel identifieraren – den består av **nyckel värdets URI**, **nyckel namnet** och **nyckel versionen**. Du behöver identifieraren för att definiera ett krypterat index i Azure Kognitiv sökning.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Skapa en ny nyckel valvs nyckel":::
 
@@ -124,7 +124,7 @@ Hoppa över det här steget om du redan har en nyckel i Azure Key Vault.
 
 1. I [Azure Portal](https://portal.azure.com)letar du upp Azure Active Directory resurs för din prenumeration.
 
-1. Till vänster, under **Hantera** , Välj **Appregistreringar** och välj sedan **ny registrering**.
+1. Till vänster, under **Hantera**, Välj **Appregistreringar** och välj sedan **ny registrering**.
 
 1. Ge registreringen ett namn, kanske ett namn som liknar Sök programmets namn. Välj **Register** (Registrera).
 
@@ -158,7 +158,7 @@ I det här steget ska du skapa en åtkomst princip i Key Vault. Den här princip
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="Välj nyckel valv åtkomst principens huvud namn":::
 
-1. I **nyckel behörigheter** väljer du *Hämta* , *packa upp nyckel* och *Radbryt nyckel*.
+1. I **nyckel behörigheter** väljer du *Hämta*, *packa upp nyckel* och *Radbryt nyckel*.
 
 1. I **hemliga behörigheter** väljer du *Hämta*.
 

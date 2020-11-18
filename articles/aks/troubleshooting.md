@@ -4,12 +4,12 @@ description: Lär dig hur du felsöker och löser vanliga problem när du använ
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aefb33325c1a5bf8e94d47106147d4c7c4f0f1ca
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286768"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684176"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -46,7 +46,7 @@ Följande tre (3) ärenden orsakar ett otillräckligt näts storleks fel:
    1. Om du använder Kubernetes inträffar detta när `number of free IPs in the subnet` är **mindre än** `number of buffer nodes needed to upgrade` .
    1. Om du använder Azure-CNI sker detta när `number of free IPs in the subnet` är **mindre än** `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
    
-   Som standard anger AKS-kluster värdet för maximal spänning (Upgrade buffer) för ett (1), men det här uppgraderings beteendet kan anpassas genom att ange [Max värdet för överspänning för en nod](upgrade-cluster.md#customize-node-surge-upgrade-preview) som ökar antalet tillgängliga IP-adresser som krävs för att slutföra en uppgradering.
+   Som standard anger AKS-kluster värdet för maximal spänning (Upgrade buffer) för ett (1), men det här uppgraderings beteendet kan anpassas genom att ange [Max värdet för överspänning för en nod](upgrade-cluster.md#customize-node-surge-upgrade) som ökar antalet tillgängliga IP-adresser som krävs för att slutföra en uppgradering.
 
 1. AKS Create eller AKS Nodepool Add
    1. Om du använder Kubernetes inträffar detta när `number of free IPs in the subnet` är **mindre än** `number of nodes requested for the node pool` .
@@ -86,13 +86,13 @@ AKS har kontroll plan som skalas lodrätt i enlighet med antalet kärnor för at
 
 Dessa tids gränser kan vara relaterade till intern trafik mellan noder som blockeras. Kontrol lera att trafiken inte blockeras, till exempel av [nätverks säkerhets grupper](concepts-security.md#azure-network-security-groups) på under nätet för klustrets noder.
 
-## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Jag försöker aktivera Role-Based Access Control (RBAC) i ett befintligt kluster. Hur kan jag göra det?
+## <a name="im-trying-to-enable-kubernetes-role-based-access-control-kubernetes-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Jag försöker aktivera Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC) i ett befintligt kluster. Hur kan jag göra det?
 
-Att aktivera rollbaserad åtkomst kontroll (RBAC) i befintliga kluster stöds inte för tillfället, det måste anges när du skapar nya kluster. RBAC är aktiverat som standard när du använder CLI, Portal eller en API-version senare än `2020-03-01` .
+Att aktivera Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC) i befintliga kluster stöds inte för tillfället, det måste anges när du skapar nya kluster. Kubernetes RBAC är aktiverat som standard när du använder CLI, Portal eller en API-version senare än `2020-03-01` .
 
-## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Jag skapade ett kluster med RBAC aktiverat och nu ser jag många varningar på Kubernetes-instrumentpanelen. Instrument panelen som används för att fungera utan varningar. Vad ska jag göra?
+## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Jag skapade ett kluster med Kubernetes RBAC aktiverat och nu ser jag många varningar på Kubernetes-instrumentpanelen. Instrument panelen som används för att fungera utan varningar. Vad ska jag göra?
 
-Orsaken till varningarna är att klustret har RBAC aktiverat och åtkomst till instrument panelen är nu begränsad som standard. I allmänhet är den här metoden en bra idé eftersom standard exponeringen för instrument panelen för alla användare av klustret kan leda till säkerhetshot. Om du fortfarande vill aktivera instrument panelen följer du stegen i [det här blogg inlägget](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+Orsaken till varningarna är att klustret har Kubernetes RBAC aktiverat och åtkomst till instrument panelen är nu begränsad som standard. I allmänhet är den här metoden en bra idé eftersom standard exponeringen för instrument panelen för alla användare av klustret kan leda till säkerhetshot. Om du fortfarande vill aktivera instrument panelen följer du stegen i [det här blogg inlägget](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Jag kan inte hämta loggar med kubectl-loggar eller så kan jag inte ansluta till API-servern. Jag får "fel från servern: fel vid uppringning av Server del: slå TCP...". Vad ska jag göra?
 
@@ -154,10 +154,10 @@ Följ stegen *innan du börjar* i rätt dokument för att skapa ett AKS-kluster 
 Namngivnings begränsningar implementeras av både Azure-plattformen och AKS. Om ett resurs namn eller en parameter delar någon av dessa begränsningar returneras ett fel som uppmanar dig att ange en annan Indatatyp. Följande rikt linjer gäller för namngivning:
 
 * Kluster namn måste innehålla 1-63 tecken. De enda tillåtna tecknen är bokstäver, siffror, bindestreck och under streck. Det första och sista tecknet måste vara en bokstav eller en siffra.
-* AKS nod/ *MC_* resurs grupp namn kombinerar resurs grupps namn och resurs namn. Den automatiskt genererade syntaxen för `MC_resourceGroupName_resourceName_AzureRegion` får inte vara större än 80 tecken. Om det behövs kan du minska längden på resurs gruppens namn eller AKS kluster namn. Du kan också [Anpassa resurs grupps namnet för noden](cluster-configuration.md#custom-resource-group-name)
+* AKS nod/*MC_* resurs grupp namn kombinerar resurs grupps namn och resurs namn. Den automatiskt genererade syntaxen för `MC_resourceGroupName_resourceName_AzureRegion` får inte vara större än 80 tecken. Om det behövs kan du minska längden på resurs gruppens namn eller AKS kluster namn. Du kan också [Anpassa resurs grupps namnet för noden](cluster-configuration.md#custom-resource-group-name)
 * *DnsPrefix* måste börja och sluta med alfanumeriska värden och måste vara mellan 1-54 tecken. Giltiga tecken är alfanumeriska värden och bindestreck (-). *DnsPrefix* får inte innehålla specialtecken, till exempel en punkt (.).
 * AKS måste bestå av gemener och 1-11 tecken för Linux-nodkonfigurationer och 1-6-tecken för Windows-nodkonfigurationer. Namnet måste börja med en bokstav och de enda tillåtna tecknen är bokstäver och siffror.
-* *Admin-username* , som anger administratörs användar namnet för Linux-noder, måste börja med en bokstav, får bara innehålla bokstäver, siffror, bindestreck och under streck och har högst 64 tecken.
+* *Admin-username*, som anger administratörs användar namnet för Linux-noder, måste börja med en bokstav, får bara innehålla bokstäver, siffror, bindestreck och under streck och har högst 64 tecken.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Jag får fel meddelanden när jag försöker skapa, uppdatera, skala, ta bort eller uppgradera kluster, den åtgärden är inte tillåten eftersom en annan åtgärd pågår.
 
@@ -167,7 +167,7 @@ Kluster åtgärder är begränsade när en tidigare åtgärd fortfarande pågår
 
 Baserat på utdata från klustrets status:
 
-* Om klustret är i ett annat etablerings tillstånd än *lyckat* eller *misslyckat* väntar du tills åtgärden ( *Uppgradera/uppdatera/skapa/skala/ta bort/migrera* ) har slutförts. Försök med din senaste kluster åtgärd när den tidigare åtgärden har slutförts.
+* Om klustret är i ett annat etablerings tillstånd än *lyckat* eller *misslyckat* väntar du tills åtgärden (*Uppgradera/uppdatera/skapa/skala/ta bort/migrera*) har slutförts. Försök med din senaste kluster åtgärd när den tidigare åtgärden har slutförts.
 
 * Om det finns en misslyckad uppgradering av klustret följer du stegen som beskrivs [i avsnittet Jag får fel meddelanden om att mitt kluster är i ett felaktigt tillstånd och uppgradering eller skalning fungerar inte förrän det har åtgärd ATS](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
@@ -365,7 +365,7 @@ Rekommenderade inställningar:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 och senare | 0777 |
 
-Monterings alternativ kan anges för objektet lagrings klass. I följande exempel anges *0777* :
+Monterings alternativ kan anges för objektet lagrings klass. I följande exempel anges *0777*:
 
 ```yaml
 kind: StorageClass

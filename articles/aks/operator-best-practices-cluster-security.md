@@ -5,12 +5,12 @@ description: Lär dig metod tips för kluster operatörer för att hantera klust
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 9cb51cb0f5b902553bda0b881c8392d74905c4bc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 9ef019e682511e13af46194d26aec48c1555f70e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073639"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683309"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Metod tips för kluster säkerhet och uppgraderingar i Azure Kubernetes service (AKS)
 
@@ -19,7 +19,7 @@ När du hanterar kluster i Azure Kubernetes service (AKS) är säkerheten för d
 Den här artikeln fokuserar på hur du skyddar ditt AKS-kluster. Lär dig att:
 
 > [!div class="checklist"]
-> * Använd Azure Active Directory-och rollbaserad åtkomst kontroll (RBAC) för att skydda åtkomst till API-servern
+> * Använd Azure Active Directory-och Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC) för att skydda åtkomst till API-servern
 > * Skydda container åtkomst till nod resurser
 > * Uppgradera ett AKS-kluster till den senaste Kubernetes-versionen
 > * Håll noderna aktuella och tillämpa säkerhets korrigeringar automatiskt
@@ -30,7 +30,7 @@ Du kan också använda [Azure Kubernetes Services-integrering med Security Cente
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Säker åtkomst till API-servern och klusternoder
 
-**Rekommendationer för bästa praxis** – att säkra åtkomsten till Kubernetes API-Server är ett av de viktigaste sakerna du kan göra för att skydda klustret. Integrera Kubernetes-rollbaserad åtkomst kontroll (RBAC) med Azure Active Directory för att kontrol lera åtkomsten till API-servern. Med de här kontrollerna kan du skydda AKS på samma sätt som du skyddar åtkomsten till dina Azure-prenumerationer.
+**Rekommendationer för bästa praxis** – att säkra åtkomsten till Kubernetes API-Server är ett av de viktigaste sakerna du kan göra för att skydda klustret. Integrera Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC) med Azure Active Directory för att kontrol lera åtkomsten till API-servern. Med de här kontrollerna kan du skydda AKS på samma sätt som du skyddar åtkomsten till dina Azure-prenumerationer.
 
 Kubernetes-API-servern tillhandahåller en enda anslutnings punkt för förfrågningar om att utföra åtgärder inom ett kluster. Om du vill skydda och granska åtkomst till API-servern begränsar du åtkomsten och ger de minst privilegierade åtkomst behörigheter som krävs. Den här metoden är inte unik för Kubernetes, men är särskilt viktig när AKS-klustret är logiskt isolerat för användning med flera klienter.
 
@@ -38,11 +38,11 @@ Azure Active Directory (AD) tillhandahåller en företags klar identitets hanter
 
 ![Azure Active Directory integrering för AKS-kluster](media/operator-best-practices-cluster-security/aad-integration.png)
 
-Använd Kubernetes RBAC och Azure AD-integration för att skydda API-servern och ange det minsta antalet behörigheter som krävs för en begränsad uppsättning resurser, till exempel ett enda namn område. Olika användare eller grupper i Azure AD kan beviljas olika RBAC-roller. Med dessa detaljerade behörigheter kan du begränsa åtkomsten till API-servern och tillhandahålla en tydlig Gransknings logg över åtgärder som utförs.
+Använd Kubernetes RBAC och Azure AD-integration för att skydda API-servern och ange det minsta antalet behörigheter som krävs för en begränsad uppsättning resurser, till exempel ett enda namn område. Olika användare eller grupper i Azure AD kan beviljas olika Kubernetes-roller. Med dessa detaljerade behörigheter kan du begränsa åtkomsten till API-servern och tillhandahålla en tydlig Gransknings logg över åtgärder som utförs.
 
-Den rekommenderade rekommenderade metoden är att använda grupper för att ge åtkomst till filer och mappar jämfört med enskilda identiteter, Använd *Azure AD-* gruppmedlemskap för att binda användare till RBAC-roller i stället för enskilda *användare*. När en användares grupp medlemskap ändras ändras deras åtkomst behörigheter för AKS-klustret enligt detta. Om du binder användaren direkt till en roll kan deras jobb funktion ändras. Azure AD-gruppmedlemskapet skulle uppdateras, men behörigheter för AKS-klustret skulle inte återspegla detta. I det här scenariot kommer användaren att få fler behörigheter än vad användaren behöver.
+Den rekommenderade rekommenderade metoden är att använda grupper för att ge åtkomst till filer och mappar jämfört med enskilda identiteter, använda *Azure AD-* gruppmedlemskap för att binda användare till Kubernetes-roller i stället för enskilda *användare*. När en användares grupp medlemskap ändras ändras deras åtkomst behörigheter för AKS-klustret enligt detta. Om du binder användaren direkt till en roll kan deras jobb funktion ändras. Azure AD-gruppmedlemskapet skulle uppdateras, men behörigheter för AKS-klustret skulle inte återspegla detta. I det här scenariot kommer användaren att få fler behörigheter än vad användaren behöver.
 
-Mer information om Azure AD-integrering och RBAC finns i [metod tips för autentisering och auktorisering i AKS][aks-best-practices-identity].
+Mer information om Azure AD-integrering, Kubernetes RBAC och Azure RBAC finns i [metod tips för autentisering och auktorisering i AKS][aks-best-practices-identity].
 
 ## <a name="secure-container-access-to-resources"></a>Skydda behållar åtkomst till resurser
 
@@ -53,7 +53,7 @@ På samma sätt som du vill ge användare eller grupper det lägsta antalet beh�
 Om du vill ha mer detaljerad kontroll över container åtgärder kan du också använda inbyggda Linux-säkerhetsfunktioner som *apparmor* och *seccomp*. Dessa funktioner definieras på nodnivå och implementeras sedan via ett Pod-manifest. Inbyggda Linux-säkerhetsfunktioner är bara tillgängliga på Linux-noder och poddar.
 
 > [!NOTE]
-> Kubernetes-miljöer, i AKS eller någon annan stans, är inte helt säkra för att ta skydd på flera klienter. Ytterligare säkerhetsfunktioner som *apparmor*, *Seccomp*, *Pod Security Policies*eller mer detaljerad rollbaserad åtkomst kontroll (RBAC) för noder gör det svårare att utnyttja dem. Men för verklig säkerhet när du kör en skydds arbets belastning med flera innehavare, är en hypervisor den enda säkerhets nivå som du bör lita på. Säkerhets domänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av farliga arbets belastningar med flera klienter bör du använda fysiskt isolerade kluster.
+> Kubernetes-miljöer, i AKS eller någon annan stans, är inte helt säkra för att ta skydd på flera klienter. Ytterligare säkerhetsfunktioner som *apparmor*, *Seccomp*, *Pod Security Policies* eller mer detaljerade KUBERNETES rollbaserad åtkomst kontroll (Kubernetes RBAC) för noder gör det svårare att utnyttja dem. Men för verklig säkerhet när du kör en skydds arbets belastning med flera innehavare, är en hypervisor den enda säkerhets nivå som du bör lita på. Säkerhets domänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av farliga arbets belastningar med flera klienter bör du använda fysiskt isolerade kluster.
 
 ### <a name="app-armor"></a>App-skydd
 
@@ -117,7 +117,7 @@ Mer information om AppArmor finns [i AppArmor-profiler i Kubernetes][k8s-apparmo
 
 ### <a name="secure-computing"></a>Säker data behandling
 
-Medan AppArmor fungerar för alla Linux-program fungerar [seccomp (*SEK*urera *comp*uting)][seccomp] på process nivå. Seccomp är också en Linux kernel-säkerhetsmodul och stöds internt av Docker-körningen som används av AKS-noder. Med seccomp kan processen anropa att containrarna kan utföras är begränsade. Du kan skapa filter som definierar vilka åtgärder som ska tillåtas eller nekas och sedan använda anteckningar i ett Pod YAML-manifest för att associera med seccomp-filtret. Detta motsvarar den bästa metoden att bara bevilja behållar den minsta behörighet som behövs för att köra och inte fler.
+Medan AppArmor fungerar för alla Linux-program fungerar [seccomp (*SEK* urera *comp* uting)][seccomp] på process nivå. Seccomp är också en Linux kernel-säkerhetsmodul och stöds internt av Docker-körningen som används av AKS-noder. Med seccomp kan processen anropa att containrarna kan utföras är begränsade. Du kan skapa filter som definierar vilka åtgärder som ska tillåtas eller nekas och sedan använda anteckningar i ett Pod YAML-manifest för att associera med seccomp-filtret. Detta motsvarar den bästa metoden att bara bevilja behållar den minsta behörighet som behövs för att köra och inte fler.
 
 Om du vill se seccomp i praktiken skapar du ett filter som förhindrar ändring av behörigheter för en fil. [SSH][aks-ssh] till en AKS-nod och skapa sedan ett seccomp-filter med namnet */var/lib/kubelet/seccomp/Prevent-chmod* och klistra in följande innehåll:
 

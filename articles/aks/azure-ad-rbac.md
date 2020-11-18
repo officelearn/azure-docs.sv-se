@@ -1,20 +1,20 @@
 ---
-title: Använda Azure AD och RBAC för kluster
+title: Använda Azure AD och Kubernetes RBAC för kluster
 titleSuffix: Azure Kubernetes Service
-description: Lär dig hur du använder Azure Active Directory grupp medlemskap för att begränsa åtkomsten till kluster resurser med rollbaserad åtkomst kontroll (RBAC) i Azure Kubernetes service (AKS)
+description: Lär dig hur du använder Azure Active Directory grupp medlemskap för att begränsa åtkomsten till kluster resurser med hjälp av rollbaserad åtkomst kontroll i Kubernetes (Kubernetes RBAC) i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 2845a091c8a89f22e8892141dd2dad26d6049447
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f49e9f6b4f5aaf58ff055043b52cfe99e3e39f19
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88006850"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684295"
 ---
-# <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Kontrol lera åtkomsten till kluster resurser med hjälp av rollbaserad åtkomst kontroll och Azure Active Directory identiteter i Azure Kubernetes-tjänsten
+# <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Kontrol lera åtkomsten till kluster resurser med Kubernetes-rollbaserad åtkomst kontroll och Azure Active Directory identiteter i Azure Kubernetes-tjänsten
 
-Azure Kubernetes service (AKS) kan konfigureras att använda Azure Active Directory (AD) för användarautentisering. I den här konfigurationen loggar du in på ett AKS-kluster med en Azure AD-autentiseringstoken. Du kan också konfigurera Kubernetes-rollbaserad åtkomst kontroll (RBAC) för att begränsa åtkomsten till kluster resurser baserat på användarens identitet eller grupp medlemskap.
+Azure Kubernetes service (AKS) kan konfigureras att använda Azure Active Directory (AD) för användarautentisering. I den här konfigurationen loggar du in på ett AKS-kluster med en Azure AD-autentiseringstoken. Du kan också konfigurera Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC) om du vill begränsa åtkomsten till kluster resurser baserat på användarens identitet eller grupp medlemskap.
 
 Den här artikeln visar hur du använder medlemskap i Azure AD-grupp för att kontrol lera åtkomst till namn områden och kluster resurser med Kubernetes RBAC i ett AKS-kluster. Exempel grupper och användare skapas i Azure AD, och sedan skapas roller och RoleBindings i AKS-klustret för att ge rätt behörigheter för att skapa och visa resurser.
 
@@ -79,7 +79,7 @@ az role assignment create \
 
 ## <a name="create-demo-users-in-azure-ad"></a>Skapa demo användare i Azure AD
 
-Med två exempel grupper som skapats i Azure AD för våra programutvecklare och SREs, kan du nu skapa två exempel användare. Om du vill testa RBAC-integrationen i slutet av artikeln loggar du in på AKS-klustret med dessa konton.
+Med två exempel grupper som skapats i Azure AD för våra programutvecklare och SREs, kan du nu skapa två exempel användare. Om du vill testa Kubernetes RBAC-integrering i slutet av artikeln loggar du in på AKS-klustret med dessa konton.
 
 Skapa det första användar kontot i Azure AD med hjälp av kommandot [AZ AD User Create][az-ad-user-create] .
 
@@ -129,7 +129,7 @@ Skapa ett namn område i AKS-klustret med kommandot [kubectl Create namespace][k
 kubectl create namespace dev
 ```
 
-I Kubernetes definierar *roller* de behörigheter som ska beviljas och *RoleBindings* tillämpar dem på önskade användare eller grupper. De här tilldelningarna kan tillämpas på ett angivet namn område eller i hela klustret. Mer information finns i [använda RBAC-auktorisering][rbac-authorization].
+I Kubernetes definierar *roller* de behörigheter som ska beviljas och *RoleBindings* tillämpar dem på önskade användare eller grupper. De här tilldelningarna kan tillämpas på ett angivet namn område eller i hela klustret. Mer information finns i [använda KUBERNETES RBAC-auktorisering][rbac-authorization].
 
 Börja med att skapa en roll för *dev* -namnområdet. Den här rollen ger fullständig behörighet till namn området. I produktions miljöer kan du ange mer detaljerade behörigheter för olika användare eller grupper.
 
@@ -285,7 +285,7 @@ Använd nu kommandot [kubectl get poddar][kubectl-get] för att Visa poddar i na
 kubectl get pods --namespace dev
 ```
 
-Som du ser i följande exempel resultat *körs*nginx-pod:
+Som du ser i följande exempel resultat *körs* nginx-pod:
 
 ```console
 $ kubectl get pods --namespace dev
@@ -410,5 +410,5 @@ Metod tips för identitets-och resurs kontroll finns i [metod tips för autentis
 [az-ad-user-create]: /cli/azure/ad/user#az-ad-user-create
 [az-ad-group-member-add]: /cli/azure/ad/group/member#az-ad-group-member-add
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
-[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md

@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09f741b37e06010a0bfbab40317980793240e29
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816243"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683513"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Vanliga frågor och svar om Azure Red Hat
 
@@ -186,13 +186,13 @@ Mer information finns i OpenShift-dokumentationen om inaktive ring av själv eta
 
 ### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Vilka UNIX-rättigheter (i IaaS) är tillgängliga för Masters/infraröda/app-noder?
 
-För 4. x-kluster är Node Access tillgängligt via rollen kluster-admin. Mer information finns i [RBAC-översikt](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+För 4. x-kluster är Node Access tillgängligt via rollen kluster-admin. Mer information finns i [Översikt över KUBERNETES RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 Node Access tillåts inte för 3,11-kluster.
 
 ### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>Vilka OCP-rättigheter har vi? Kluster-admin? Projekt-admin?
 
-För 4. x-kluster är rollen kluster administratör tillgänglig. Mer information finns i [RBAC-översikt](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+För 4. x-kluster är rollen kluster administratör tillgänglig. Mer information finns i [Översikt över KUBERNETES RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 Mer information om 3,11-kluster finns i [Översikt över kluster administration](https://docs.openshift.com/aro/admin_guide/index.html) .
 

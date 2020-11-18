@@ -3,13 +3,13 @@ title: Uppgradera ett AKS-kluster (Azure Kubernetes Service)
 description: Lär dig hur du uppgraderar ett Azure Kubernetes service-kluster (AKS) för att få de senaste funktionerna och säkerhets uppdateringarna.
 services: container-service
 ms.topic: article
-ms.date: 10/21/2020
-ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/17/2020
+ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461455"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683241"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uppgradera ett AKS-kluster (Azure Kubernetes Service)
 
@@ -35,7 +35,7 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 > [!NOTE]
 > När du uppgraderar ett AKS-kluster som stöds kan Kubernetes minor-versioner inte hoppas över. Till exempel tillåts uppgraderingar mellan *1.12. x*  ->  *1.13. x* eller *1.13. x*  ->  *1.14. x* , men *1.12.* x  ->  *1.14. x* är inte.
 >
-> Uppgradera från *1.12. x*  ->  *1.14. x*genom att först uppgradera från *1.12.* x  ->  *1.13. x*och sedan uppgradera från *1.13. x*  ->  *1.14. x*.
+> Uppgradera från *1.12. x*  ->  *1.14. x* genom att först uppgradera från *1.12.* x  ->  *1.13. x* och sedan uppgradera från *1.13. x*  ->  *1.14. x*.
 >
 > Det går bara att hoppa över flera versioner när du uppgraderar från en version som inte stöds tillbaka till en version som stöds. Du kan t. ex. uppgradera från en *1.10. x* --> en 1.15 som stöds *. x* kan slutföras.
 
@@ -51,7 +51,7 @@ Om ingen uppgradering är tillgänglig kommer du att få:
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-## <a name="customize-node-surge-upgrade-preview"></a>Anpassa uppgradering av nod överspänning (för hands version)
+## <a name="customize-node-surge-upgrade"></a>Anpassa uppgradering av nod överspänning
 
 > [!Important]
 > Nod toppar kräver en prenumerations kvot för det begärda Max antalet överspännings antal för varje uppgraderings åtgärd. Till exempel har ett kluster som har 5 noder, var och en med antalet 4 noder, totalt 20 noder. Om varje nod har ett högsta värde för överspänning på 50% krävs ytterligare beräknings-och IP-kvot för 10 noder (2 noder * 5 pooler) för att uppgraderingen ska slutföras.
@@ -66,21 +66,7 @@ AKS accepterar både heltals värden och ett procent värde för maximal översp
 
 Under en uppgradering kan Max värdet för överspänning vara minst 1 och ett högsta värde som motsvarar antalet noder i nodens resurspool. Du kan ange större värden, men det maximala antalet noder som används för maximal spänning är inte högre än antalet noder i poolen vid tidpunkten för uppgraderingen.
 
-### <a name="set-up-the-preview-feature-for-customizing-node-surge-upgrade"></a>Konfigurera för hands versions funktionen för att anpassa uppgradering av nodens ökning
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
-```
-
-Det tar flera minuter för registreringen. Använd kommandot nedan för att kontrol lera att funktionen är registrerad:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
-```
-
-Under för hands versionen behöver du *AKS-Preview CLI-* tillägget för att använda maximal överspänning. Använd kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
+Fram till CLI version 2.16.0 + behöver du använda *AKS-Preview CLI-* tillägget för att använda maximal överspänning. Använd kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -107,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Uppgradera ett AKS-kluster
 
-Med en lista över tillgängliga versioner för ditt AKS-kluster använder du kommandot [AZ AKS Upgrade][az-aks-upgrade] för att uppgradera. Under uppgraderings processen lägger AKS till en ny buffert (eller så många noder som har kon figurer ATS i [maximal spänning](#customize-node-surge-upgrade-preview)) till klustret som kör den angivna Kubernetes-versionen. Sedan kommer den att [Cordon och tömma][kubernetes-drain] en av de gamla noderna för att minimera störningar i program som körs (om du använder maximal överspänning kommer det att [Cordon och tömma][kubernetes-drain] sig så många noder på samma gång som antalet buffertplatser som anges). När den gamla noden är helt dränerad kommer den att återavbildas för att ta emot den nya versionen och den blir noden buffert för följande nod som ska uppgraderas. Den här processen upprepas tills alla noder i klustret har uppgraderats. I slutet av processen tas den sista avtömda noden bort, vilket bibehåller det befintliga antalet noder i agenten.
+Med en lista över tillgängliga versioner för ditt AKS-kluster använder du kommandot [AZ AKS Upgrade][az-aks-upgrade] för att uppgradera. Under uppgraderings processen lägger AKS till en ny buffert (eller så många noder som har kon figurer ATS i [maximal spänning](#customize-node-surge-upgrade)) till klustret som kör den angivna Kubernetes-versionen. Sedan kommer den att [Cordon och tömma][kubernetes-drain] en av de gamla noderna för att minimera störningar i program som körs (om du använder maximal överspänning kommer det att [Cordon och tömma][kubernetes-drain] sig så många noder på samma gång som antalet buffertplatser som anges). När den gamla noden är helt dränerad kommer den att återavbildas för att ta emot den nya versionen och den blir noden buffert för följande nod som ska uppgraderas. Den här processen upprepas tills alla noder i klustret har uppgraderats. I slutet av processen tas den sista avtömda noden bort, vilket bibehåller det befintliga antalet noder i agenten.
 
 ```azurecli-interactive
 az aks upgrade \

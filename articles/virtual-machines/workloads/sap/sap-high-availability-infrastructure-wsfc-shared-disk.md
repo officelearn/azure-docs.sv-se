@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4538654b255aad99ff00477134c9eeb5845e50d6
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167346"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682765"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Förbered Azure-infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS
 
@@ -165,7 +165,7 @@ ms.locfileid: "92167346"
 Den här artikeln beskriver de steg som du vidtar för att förbereda Azure-infrastrukturen för att installera och konfigurera en ASCS-instans med hög tillgänglighet i ett Windows-redundanskluster med hjälp av en *klusterdelad disk* som ett alternativ för att klustra en SAP ASCS-instans.
 Två alternativ för *klusterdelad disk* visas i dokumentationen:
 
-- [Delade diskar i Azure](../../windows/disks-shared.md)
+- [Delade diskar i Azure](../../disks-shared.md)
 - Använda [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) för att skapa speglad lagring, som simulerar klustrad delad disk 
 
 Den uppvisade konfigurationen förlitar sig på [Azure närhets placerings grupper (PPG)](./sap-proximity-placement-scenarios.md) för att uppnå optimal nätverks fördröjning för SAP-arbetsbelastningar. Dokumentationen behandlar inte databas skiktet.  
@@ -174,7 +174,7 @@ Den uppvisade konfigurationen förlitar sig på [Azure närhets placerings grupp
 > Placerings grupper för Azure närhet är nödvändiga för att använda Azure Shared disk.
  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Läs igenom den här artikeln innan du påbörjar installationen:
 
@@ -192,9 +192,9 @@ Värd namnen och IP-adresserna för det presenterade scenariot är:
 | --- | --- | --- |---| ---|
 | första klusternoden ASCS/SCS-kluster |PR1-ASCs-10 |10.0.0.4 |PR1-ASCs-avset |PR1PPG |
 | andra klusternoder ASCS/SCS-kluster |PR1-ASCs-11 |10.0.0.5 |PR1-ASCs-avset |PR1PPG |
-| Kluster nätverks namn | pr1clust |10.0.0.42 (**endast** för Win 2016-kluster) | Saknas | Saknas |
-| Nätverks namn för ASCS-kluster | pr1-ascscl |10.0.0.43 | Saknas | Saknas |
-| ERS kluster nätverks namn (**endast** för ERS2) | pr1-erscl |10.0.0.44 | Saknas | Saknas |
+| Kluster nätverks namn | pr1clust |10.0.0.42 (**endast** för Win 2016-kluster) | saknas | saknas |
+| Nätverks namn för ASCS-kluster | pr1-ascscl |10.0.0.43 | saknas | saknas |
+| ERS kluster nätverks namn (**endast** för ERS2) | pr1-erscl |10.0.0.44 | saknas | saknas |
 
 
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Skapa intern Azure-belastningsutjämnare
@@ -213,17 +213,17 @@ I följande lista visas konfigurationen av belastningsutjämnaren (A) SCS/ERS. K
 - Server dels konfiguration  
     Lägg till alla virtuella datorer som ska ingå i (A) SCS/ERS-klustret. I det här exemplet på virtuella datorer **PR1-ASCs-10** och **PR1-ASCs-11**.
 - Avsöknings port
-    - Port 620**nr** lämna standard alternativet för protokoll (TCP), intervall (5), tröskelvärde för fel (2)
+    - Port 620 **nr** lämna standard alternativet för protokoll (TCP), intervall (5), tröskelvärde för fel (2)
 - Belastnings Utjämnings regler
     - Om du använder Standard Load Balancer väljer du HA-portar
     - Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-        - 32**nr** TCP
-        - 36**nr** TCP
-        - 39**nr** TCP
-        - 81**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 36 **nr** TCP
+        - 39 **nr** TCP
+        - 81 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - Kontrol lera att tids gränsen för inaktivitet (minuter) är inställd på max värdet 30 och att den flytande IP-adressen (direkt Server retur) är aktive rad.
 
@@ -237,17 +237,17 @@ Eftersom ERS2 (Queue server 2) också är klustrad måste ERS2 virtuell IP-adres
   De virtuella datorerna har redan lagts till i ILB-adresspoolen.  
 
 - andra avsöknings port
-    - Port 621**nr**  
+    - Port 621 **nr**  
     Lämna standard alternativet för protokoll (TCP), intervall (5), tröskelvärde för fel (2)
 
 - andra regler för belastnings utjämning
     - Om du använder Standard Load Balancer väljer du HA-portar
     - Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-        - 32**nr** TCP
-        - 33**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 33 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - Kontrol lera att tids gränsen för inaktivitet (minuter) är inställd på max värdet 30 och att den flytande IP-adressen (direkt Server retur) är aktive rad.
 
@@ -466,7 +466,7 @@ Innan du installerar SIOS-programvaran skapar du DataKeeperSvc-domän användare
 
    _Första sidan i SIOS DataKeeper-installationen_
 
-2. Välj **Ja**i dialog rutan.
+2. Välj **Ja** i dialog rutan.
 
    ![Bild 32: DataKeeper informerar dig om att en tjänst kommer att inaktive ras][sap-ha-guide-figure-3032]
 

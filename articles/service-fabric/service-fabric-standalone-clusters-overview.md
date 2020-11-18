@@ -3,12 +3,12 @@ title: Översikt över fristående Service Fabric-kluster
 description: Service Fabric kluster som körs på Windows Server och Linux, vilket innebär att du kan distribuera och vara värd för Service Fabric program överallt där du kan köra Windows Server eller Linux.
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: c57d1ef6db295400ad986adadb804fb942a723e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3162a3d02510ce8efab6c5bcac0f1fdd2b2539b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841075"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684006"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Översikt över Service Fabric fristående kluster
 
@@ -43,10 +43,10 @@ Förutom klient certifikat kan Azure Active Directory också konfigureras för a
 
 Mer information finns i [klient-till-nod-säkerhet](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
+### <a name="service-fabric-role-based-access-control"></a>Service Fabric rollbaserad åtkomst kontroll
 Service Fabric stöder också åtkomst kontroll för att begränsa åtkomsten till vissa kluster åtgärder för olika användar grupper. Detta gör klustret säkrare. Två åtkomst kontroll typer stöds för klienter som ansluter till ett kluster: administratörs roll och användar roll.  
 
-Mer information finns i [rollbaserad Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Mer information finns i [Service Fabric rollbaserad åtkomst kontroll](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ## <a name="scaling"></a>Skalning
 

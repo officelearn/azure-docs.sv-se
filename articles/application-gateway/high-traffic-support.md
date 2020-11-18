@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: 3854e7f3c19f1724a2df1508c9fa519809e07ba9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2c5c017ac0faf443a38fc43dfd27c7e776cb52a0
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658680"
+ms.locfileid: "94683438"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Stöd för höga trafikvolymer i Application Gateway
 
@@ -30,6 +30,8 @@ Se [statistik dokumentationen](./application-gateway-metrics.md) för en fullst�
 ### <a name="set-your-instance-count-based-on-your-peak-cpu-usage"></a>Ange antalet instanser baserat på din högsta CPU-användning
 Om du använder en v1 SKU-Gateway har du möjlighet att ställa in Application Gateway upp till 32 instanser för skalning. Kontrol lera din Application Gateways CPU-användning under den senaste månaden för alla toppar över 80% är den tillgänglig som ett mått för att övervaka. Vi rekommenderar att du ställer in antalet instanser enligt din högsta användning och med 10% till 20% ytterligare buffert för att redovisa eventuella trafik toppar.
 
+:::image type="content" source="./media/application-gateway-covid-guidelines/v1-cpu-utilization-inline.png" alt-text="Mått för v1-processor användning" lightbox="./media/application-gateway-covid-guidelines/v1-cpu-utilization-exp.png":::
+
 ### <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>Använd v2-SKU över v1 för dess funktioner för automatisk skalning och prestanda för delar
 V2-SKU: n erbjuder automatisk skalning för att säkerställa att Application Gateway kan skalas upp när trafiken ökar. Det ger också andra betydande prestanda för delar, till exempel 5x bättre TLS-avlastning, snabbare distribution och uppdaterings tider, zon redundans och mer jämfört med v1. Mer information finns i vår [v2-dokumentation](./application-gateway-autoscaling-zone-redundant.md) och i vår dokumentation om v1-till v2- [migrering](./migrate-v1-v2.md) för att lära dig hur du migrerar dina befintliga v1 SKU-gatewayer till v2-SKU: n. 
 
@@ -41,6 +43,8 @@ För Application Gateway v2 SKU, ställer du in maximalt antal instanser på det
 
 Se till att kontrol lera under näts storleken och antalet tillgängliga IP-adresser i ditt undernät och ange maximalt antal instanser baserat på det. Om ditt undernät inte har tillräckligt med utrymme för att rymma måste du återskapa din gateway i samma eller ett annat undernät som har tillräckligt med kapacitet. 
 
+:::image type="content" source="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-inline.png" alt-text="Konfiguration för automatisk skalning i v2" lightbox="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-exp.png":::
+
 ### <a name="set-your-minimum-instance-count-based-on-your-average-compute-unit-usage"></a>Ange minsta antal instanser baserat på användning av genomsnittlig beräknings enhet
 
 För Application Gateway v2-SKU tar automatisk skalning upp sex till sju minuter för att skala ut och etablera ytterligare uppsättning instanser som är redo att ta trafik. Tills, om det finns kort toppar i trafiken, kan dina befintliga Gateway-instanser komma under stress och detta kan orsaka oväntad fördröjning eller förlust av trafik. 
@@ -48,6 +52,8 @@ För Application Gateway v2-SKU tar automatisk skalning upp sex till sju minuter
 Vi rekommenderar att du ställer in minsta antal instanser på en optimal nivå. Om du t. ex. kräver 50 instanser för att hantera trafiken vid hög belastning, så är det en bra idé att ställa in minst 25 till 30 i stället för på <10 så att även när det finns kort trafik trafik, Application Gateway skulle kunna hantera den och ge tillräckligt med tid för automatisk skalning för att svara och börjar gälla.
 
 Kontrol lera dina beräknings enhets mått under den senaste månaden. Compute Unit-mått är en representation av din gateways processor användning och utifrån din högsta användning dividerat med 10. du kan ange det minsta antalet instanser som krävs. Observera att 1 Application Gateway-instans kan hantera minst 10 beräknings enheter
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-metrics-inline.png" alt-text="V2 beräknar mått för beräknings enheter" lightbox="./media/application-gateway-covid-guidelines/compute-unit-metrics-exp.png":::
 
 ## <a name="manual-scaling-for-application-gateway-v2-sku-standard_v2waf_v2"></a>Manuell skalning för Application Gateway v2 SKU: n (Standard_v2/WAF_v2)
 
@@ -79,6 +85,17 @@ Skapa en avisering när Application Gateway svars status är 4xx eller 5xx. Det 
 
 Skapa avisering när mått för misslyckade förfrågningar överskrider tröskelvärdet. Du bör Observera gatewayen i produktion för att fastställa det statiska tröskelvärdet eller använda dynamiskt tröskelvärde för aviseringen.
 
+### <a name="example-setting-up-an-alert-for-more-than-100-failed-requests-in-the-last-5-minutes"></a>Exempel: Konfigurera en avisering för fler än 100 misslyckade begär Anden under de senaste 5 minuterna
+
+Det här exemplet visar hur du använder Azure Portal för att ställa in en avisering när antalet misslyckade förfrågningar under de senaste 5 minuterna är mer än 100.
+1. Navigera till din **Application Gateway**.
+2. På den vänstra panelen väljer du **mått** på fliken **övervakning** . 
+3. Lägg till ett mått för **misslyckade förfrågningar**.
+4. Klicka på **ny varnings regel** och definiera villkor och åtgärder
+5. Klicka på **skapa aviserings regel** för att skapa och aktivera aviseringen
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/create-alerts-inline.png" alt-text="V2 skapa aviseringar" lightbox="./media/application-gateway-covid-guidelines/create-alerts-exp.png":::
+
 ## <a name="alerts-for-application-gateway-v2-sku-standard_v2waf_v2"></a>Aviseringar för Application Gateway v2 SKU (Standard_v2/WAF_v2)
 
 ### <a name="alert-if-compute-unit-utilization-crosses-75-of-average-usage"></a>Avisera om användningen av beräknings enheter korsar 75% av genomsnittlig användning 
@@ -91,9 +108,9 @@ Det här exemplet visar hur du använder Azure Portal för att ställa in en avi
 1. Navigera till din **Application Gateway**.
 2. På den vänstra panelen väljer du **mått** på fliken **övervakning** . 
 3. Lägg till ett mått för **Genomsnittligt antal aktuella beräknings enheter**. 
-![Konfigurera WAF-mått](./media/application-gateway-covid-guidelines/waf-setup-metrics.png)
 4. Om du har angett att det minsta antalet instanser ska vara den genomsnittliga CU-användningen kan du gå vidare och ange en avisering när 75% av de minsta instanserna används. Om den genomsnittliga användningen till exempel är 10 CUs, ställer du in en avisering på 7,5 CUs. Detta varnar dig om användningen ökar och ger dig tid att svara. Du kan öka det lägsta om du tror att den här trafiken kommer att behållas för att varna dig om att trafiken kan öka. 
-![Konfigurera WAF-avisering](./media/application-gateway-covid-guidelines/waf-setup-monitoring-alert.png)
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-alert-inline.png" alt-text="V2 Compute Unit-aviseringar" lightbox="./media/application-gateway-covid-guidelines/compute-unit-alert-exp.png":::
 
 > [!NOTE]
 > Du kan ställa in aviseringen på ett lägre eller högre antal CU i procent beroende på hur känsliga du vill ha till gång till potentiella trafik toppar.
@@ -122,8 +139,8 @@ Det här måttet anger tidsintervallet mellan början av att upprätta en anslut
 
 Detta är intervallet från den tidpunkt då Application Gateway tar emot den första byten i HTTP-begäran till den tidpunkt då den senaste svars byte har skickats till klienten. Bör skapa en avisering om svars fördröjningen för Server delen är högre än vad som är vanligt. De kan till exempel ställa in att de ska aviseras när den totala tids fördröjningen ökar med mer än 30% från det vanliga värdet.
 
-## <a name="set-up-waf-with-geofiltering-and-bot-protection-to-stop-attacks"></a>Konfigurera WAF med skydd mot filter för att stoppa attacker
-Om du vill ha ett extra säkerhets lager framför ditt program, använder du Application Gateway WAF_v2 SKU för WAF-funktioner. Du kan konfigurera v2-SKU: n så att den endast tillåter åtkomst till dina program från ett specifikt land/region eller länder/regioner. Du ställer in en anpassad WAF-regel för att explicit tillåta eller blockera trafik baserat på den lokala platsen. Mer information finns i avsnittet om att [filtrera anpassade regler](../web-application-firewall/ag/geomatch-custom-rules.md) och [hur du konfigurerar anpassade regler på Application Gateway WAF_v2 SKU via PowerShell](../web-application-firewall/ag/configure-waf-custom-rules.md).
+## <a name="set-up-waf-with-geo-filtering-and-bot-protection-to-stop-attacks"></a>Konfigurera WAF med geo-filtrering och bot-skydd för att stoppa attacker
+Om du vill ha ett extra säkerhets lager framför ditt program, använder du Application Gateway WAF_v2 SKU för WAF-funktioner. Du kan konfigurera v2-SKU: n så att den endast tillåter åtkomst till dina program från ett specifikt land/region eller länder/regioner. Du ställer in en anpassad WAF-regel för att explicit tillåta eller blockera trafik baserat på Geo-platsen. Mer information finns i [regler för geo-filtrering](../web-application-firewall/ag/geomatch-custom-rules.md) och [Konfigurera anpassade regler för Application Gateway WAF_v2 SKU via PowerShell](../web-application-firewall/ag/configure-waf-custom-rules.md).
 
 Aktivera bot-skydd för att blockera kända dåliga robotar. Detta bör minska mängden trafik som får till ditt program. Mer information finns i [bot-skydd med konfigurera instruktioner](../web-application-firewall/ag/configure-waf-custom-rules.md).
 

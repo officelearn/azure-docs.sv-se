@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: b0b19eaa86269feff28c73275e4db4a3d332b3df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f6d5b5ef816127fe5f0c689132326f6157731d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664881"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684418"
 ---
 # <a name="high-availability-ports-overview"></a>Översikt över portar med hög tillgänglighet
 
@@ -66,7 +66,7 @@ Funktionen HA portar är tillgänglig i alla globala Azure-regioner.
 
 Den här konfigurationen är en konfiguration för grundläggande HA-portar. Du kan konfigurera en belastnings Utjämnings regel för en belastnings utjämning på en enda klient dels-IP-adress genom att göra följande:
 1. När du konfigurerar Standard Load Balancer markerar du kryss rutan **ha portar** i Load Balancer regel konfigurationen.
-2. För **flytande IP-adress**väljer du **inaktive rad**.
+2. För **flytande IP-adress** väljer du **inaktive rad**.
 
 Den här konfigurationen tillåter inte någon annan belastnings Utjämnings regel konfiguration på den aktuella belastnings Utjämnings resursen. Det innebär också att ingen annan intern belastnings Utjämnings resurs konfiguration för den angivna uppsättningen backend-instanser tillåts.
 
@@ -99,5 +99,4 @@ Du kan konfigurera *en* offentlig standard Load Balancer resurs för Server dels
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig hur du konfigurerar ha-portar för din ILB via portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)eller [mallar](quickstart-load-balancer-standard-internal-template.md).
-- [Läs mer om Standard Load Balancer](load-balancer-standard-overview.md)
+- [Läs mer om Standard Load Balancer](load-balancer-overview.md)

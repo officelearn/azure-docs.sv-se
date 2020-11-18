@@ -1,5 +1,5 @@
 ---
-title: Hantera RBAC i Kubernetes från Azure
+title: Hantera Azure RBAC i Kubernetes från Azure
 titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du använder Azure RBAC för Kubernetes-auktorisering med Azure Kubernetes service (AKS).
 services: container-service
@@ -7,27 +7,27 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 3f878389f22f3928bc1fc8c89b04353583326da6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: a2a385b2be4e1005a7aabd76261b3190ecd2a506
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346051"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684227"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Använda Azure RBAC för Kubernetes-auktorisering (förhandsversion)
 
 Idag kan du redan utnyttja [integrerad autentisering mellan Azure Active Directory (Azure AD) och AKS](managed-aad.md). När den här integrationen är aktive rad kan kunder använda Azure AD-användare,-grupper eller tjänstens huvud namn som ämnen i Kubernetes RBAC, se mer [här](azure-ad-rbac.md).
-Den här funktionen gör att du kan hantera användar identiteter och autentiseringsuppgifter separat för Kubernetes. Du måste dock fortfarande konfigurera och hantera Azure RBAC och Kubernetes RBAC separat. Mer information om autentisering, auktorisering och RBAC på AKS finns [här](concepts-identity.md).
+Den här funktionen gör att du kan hantera användar identiteter och autentiseringsuppgifter separat för Kubernetes. Du måste dock fortfarande konfigurera och hantera Azure RBAC och Kubernetes RBAC separat. Mer information om autentisering och auktorisering med RBAC på AKS finns [här](concepts-identity.md).
 
 Det här dokumentet beskriver en ny metod som möjliggör en enhetlig hanterings-och åtkomst kontroll över Azure-resurser, AKS och Kubernetes-resurser.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Möjligheten att hantera RBAC för Kubernetes-resurser från Azure ger dig möjlighet att hantera RBAC för kluster resurserna, antingen med hjälp av Azure eller interna Kubernetes-mekanismer. När det är aktiverat verifieras Azure AD-huvudobjekten exklusivt av Azure RBAC medan vanliga Kubernetes-användare och tjänst konton är exklusivt verifierade av Kubernetes RBAC. Mer information om autentisering, auktorisering och RBAC på AKS finns [här](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
+Möjligheten att hantera RBAC för Kubernetes-resurser från Azure ger dig möjlighet att hantera RBAC för kluster resurserna, antingen med hjälp av Azure eller interna Kubernetes-mekanismer. När det är aktiverat verifieras Azure AD-huvudobjekten exklusivt av Azure RBAC medan vanliga Kubernetes-användare och tjänst konton är exklusivt verifierade av Kubernetes RBAC. Mer information om autentisering och auktorisering med RBAC på AKS finns [här](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-### <a name="prerequisites"></a>Förutsättningar 
+### <a name="prerequisites"></a>Krav 
 - Se till att du har Azure CLI-version 2.9.0 eller senare
 - Se till att `EnableAzureRBACPreview` funktions flaggan är aktive rad.
 - Se till att du har `aks-preview` [CLI-tillägget][az-extension-add] v 0.4.55 eller senare installerat
@@ -272,7 +272,7 @@ az group delete -n MyResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om AKS-autentisering, auktorisering och RBAC [här](concepts-identity.md).
+- Läs mer om AKS-autentisering, auktorisering, Kubernetes RBAC och Azure RBAC [här](concepts-identity.md).
 - Läs mer om Azure RBAC [här](../role-based-access-control/overview.md).
 - Läs mer om alla åtgärder som du kan använda för att definiera anpassade Azure-roller för Kubernetes [-auktorisering i](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice)detalj.
 

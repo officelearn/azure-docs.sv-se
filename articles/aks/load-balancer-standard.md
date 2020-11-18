@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: b42a952b096f533f916879a11fdb6b6583fa8592
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660363"
+ms.locfileid: "94684210"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en offentlig Standard Load Balancer i Azure Kubernetes service (AKS)
 
@@ -225,7 +225,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-I det här exemplet får du 4000 allokerade utgående portar för varje nod i mitt kluster och med 7 IP-adresser kan du ha *4000 portar per nod * 100 Nodes = 400k total ports < = 448k total ports = 7 IP-adresser * 64 KB portar per IP*. På så sätt kan du på ett säkert sätt skala till 100 noder och ha en standard uppgraderings åtgärd. Det är viktigt att allokera tillräckligt många portar för ytterligare noder som krävs för uppgradering och andra åtgärder. AKS är som standard en buffert för uppgradering, i det här exemplet kräver detta att 4000 kostnads fria portar vid varje viss tidpunkt. Om du använder [maxSurge-värden](upgrade-cluster.md#customize-node-surge-upgrade-preview)multiplicerar du utgående portar per nod med ditt maxSurge-värde.
+I det här exemplet får du 4000 allokerade utgående portar för varje nod i mitt kluster och med 7 IP-adresser kan du ha *4000 portar per nod * 100 Nodes = 400k total ports < = 448k total ports = 7 IP-adresser * 64 KB portar per IP*. På så sätt kan du på ett säkert sätt skala till 100 noder och ha en standard uppgraderings åtgärd. Det är viktigt att allokera tillräckligt många portar för ytterligare noder som krävs för uppgradering och andra åtgärder. AKS är som standard en buffert för uppgradering, i det här exemplet kräver detta att 4000 kostnads fria portar vid varje viss tidpunkt. Om du använder [maxSurge-värden](upgrade-cluster.md#customize-node-surge-upgrade)multiplicerar du utgående portar per nod med ditt maxSurge-värde.
 
 För att säkert gå över 100 noder måste du lägga till fler IP-adresser.
 

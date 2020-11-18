@@ -1,19 +1,19 @@
 ---
 title: Felsökningsguide för Azure SignalR Service
-description: Learn
+description: Lär dig hur du felsöker vanliga problem
 author: YanJin
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 5b8360134ace3852fb3c7fbe458ca2572f45b624
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 11ea348a80bc226b6a96bea1e7c023ee9c06b13a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663785"
+ms.locfileid: "94684125"
 ---
-# <a name="troubleshooting-guide"></a>Felsökningsguide
+# <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Fel söknings guide för Azure SignalR service vanliga problem
 
 Den här vägledningen är att tillhandahålla en användbar fel söknings guide som baseras på vanliga problem som kunder uppfyllt och löst under de senaste åren.
 
@@ -347,3 +347,9 @@ Ta ASP.NET Core ett till exempel (ASP.NET One liknar):
 
     * [ASP.NET JavaScript-klient](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
 
+## <a name="next-steps"></a>Nästa steg
+
+I den här hand boken har du lärt dig hur du hanterar vanliga problem. Du kan också lära dig mer generiska fel söknings metoder. 
+
+> [!div class="nextstepaction"]
+> [Så här felsöker du problem med anslutning och meddelande leverans](./signalr-howto-troubleshoot-method.md)

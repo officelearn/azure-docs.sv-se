@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 23a620f8031335e5a950df96427b11251f0ec042
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 610ab649d64351b0897ef7358cdaf9280fe3ba55
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649321"
+ms.locfileid: "94684928"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Skillnader i T-SQL mellan SQL Server & Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -521,7 +521,7 @@ System databaser replikeras inte till den sekundära instansen i en failover-gru
 - Den maximala fil storleken på `tempdb` får inte vara större än 24 GB per kärna på en generell användning nivå. Den maximala `tempdb` storleken på en affärskritisk nivå begränsas av lagrings storleken för SQL-hanterad instans. `Tempdb` logg filens storlek är begränsad till 120 GB på Generell användning nivån. Vissa frågor kan returnera ett fel om de behöver mer än 24 GB per kärna i `tempdb` eller om de producerar mer än 120 GB loggdata.
 - `Tempdb` delas alltid upp i 12 datafiler: 1 primär, kallas även Master-, datafil-och 11 icke-primära datafiler. Fil strukturen kan inte ändras och nya filer kan inte läggas till i `tempdb` . 
 - [Minnesoptimerade `tempdb` metadata](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), en ny SQL Server 2019-databas funktion i minnet stöds inte.
-- Objekt som skapats i modell databasen kan inte skapas automatiskt i `tempdb` efter en omstart eller redundansväxling eftersom `tempdb` den inte får den ursprungliga objekt listan från den replikerade modell databasen. 
+- Objekt som skapats i modell databasen kan inte skapas automatiskt i `tempdb` efter en omstart eller redundansväxling eftersom den `tempdb` inte får den första objekt listan från modell databasen. Du måste skapa objekt i `tempdb` manuellt efter varje omstart eller redundansväxling.
 
 ### <a name="msdb"></a>MSDB
 

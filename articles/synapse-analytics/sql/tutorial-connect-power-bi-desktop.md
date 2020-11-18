@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: dc2b068dd7c5e7fb3f9e3505f93245515d90ae23
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7ee2e1e6a46ce07d95797362cde313dc8e0b0fa5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317194"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683547"
 ---
 # <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Självstudie: Använd Server lös SQL-pool med Power BI Desktop & skapa en rapport
 
@@ -27,7 +27,7 @@ I den här självstudien får du lära dig att:
 > - Anslut Power BI Desktop till en server lös SQL-pool
 > - Skapa rapport baserat på vy
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
@@ -113,7 +113,7 @@ Skapa rapporten för Power BI Desktop med hjälp av följande steg:
 
    ![Öppna Power BI Desktop-programmet och välj Hämta data.](./media/tutorial-connect-power-bi-desktop/step-0-open-powerbi.png)
 
-2. Välj **Azure** -  >  **Azure SQL Database**. 
+2. Välj **Azure**-  >  **Azure SQL Database**. 
 
    ![Välj data källa.](./media/tutorial-connect-power-bi-desktop/step-1-select-data-source.png)
 

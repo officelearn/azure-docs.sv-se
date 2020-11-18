@@ -1,39 +1,36 @@
 ---
-title: Anslut till Office 365 Outlook
+title: Integrera med Office 365 Outlook
 description: Automatisera uppgifter och arbets flöden som hanterar e-post, kontakter och kalendrar i Office 365 Outlook med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 9b10778e665675e9e033953e2a8b9df16dd636d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9caf69a7f78c7872f0a5f8a2ed07bdc749a29023
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400782"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683003"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Hantera e-post, kontakter och kalendrar i Office 365 Outlook med hjälp av Azure Logic Apps
 
 Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Office 365 Outlook Connector](/connectors/office365connector/)kan du skapa automatiserade uppgifter och arbets flöden som hanterar ditt arbets-eller skol konto genom att skapa Logi Kap par. Du kan till exempel automatisera dessa uppgifter:
 
-* Hämta, skicka och svara på e-post. 
+* Hämta, skicka och svara på e-post.
 * Schemalägg möten i din kalender.
-* Lägg till och redigera kontakter. 
+* Lägg till och redigera kontakter.
 
-Du kan använda en utlösare för att starta arbets flödet, till exempel när ett nytt e-postmeddelande tas emot, när ett Kalender objekt uppdateras eller när en händelse inträffar i en skillnads tjänst, till exempel Salesforce. Du kan använda åtgärder som svarar på utlösnings händelsen, till exempel skicka ett e-postmeddelande eller skapa en ny kalender händelse. 
+Du kan använda en utlösare för att starta arbets flödet, till exempel när ett nytt e-postmeddelande tas emot, när ett Kalender objekt uppdateras eller när en händelse inträffar i en skillnads tjänst, till exempel Salesforce. Du kan använda åtgärder som svarar på utlösnings händelsen, till exempel skicka ett e-postmeddelande eller skapa en ny kalender händelse.
 
-> [!NOTE]
-> Om du vill automatisera uppgifter för ett- @outlook.com eller @hotmail.com -konto använder du [Outlook.com-anslutningen](../connectors/connectors-create-api-outlook.md).
+## <a name="prerequisites"></a>Krav
 
-## <a name="prerequisites"></a>Förutsättningar
+* Ett Outlook-konto där du loggar in med ett [arbets-eller skol konto](https://www.office.com/). Om du har ett @outlook.com @hotmail.com -eller-konto kan du använda [Outlook.com-anslutaren](../connectors/connectors-create-api-outlook.md) i stället. Om du vill ansluta till Outlook med ett annat användar konto, till exempel ett tjänst konto, se [Anslut med andra konton](#connect-using-other-accounts).
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+* Ett Azure-konto och prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Ett [arbets-eller skol konto](https://www.office.com/)
-
-* Den Logic app där du vill komma åt ditt arbets-eller skol konto. För att starta arbets flödet med en Office 365 Outlook-utlösare måste du ha en [Tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). För att lägga till en Office 365 Outlook-åtgärd i ditt arbets flöde måste din Logic app redan ha en utlösare.
+* Den Logic app där du vill komma åt ditt Outlook-konto. För att starta arbets flödet med en Office 365 Outlook-utlösare måste du ha en [Tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). För att lägga till en Office 365 Outlook-åtgärd i ditt arbets flöde måste din Logic app redan ha en utlösare.
 
 ## <a name="add-a-trigger"></a>Lägga till en utlösare
 
@@ -45,7 +42,7 @@ En [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en h
    
    ![Välj utlösare för att starta din Logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. Om du uppmanas att logga in anger du dina autentiseringsuppgifter för arbetet eller skolan så att din Logic app kan ansluta till ditt konto. Annars, om anslutningen redan finns, anger du informationen för utlösarens egenskaper.
+1. Om du inte har en aktiv anslutning till ditt Outlook-konto uppmanas du att logga in och skapa anslutningen. Om du vill ansluta till Outlook med ett annat användar konto, till exempel ett tjänst konto, se [Anslut med andra konton](#connect-using-other-accounts). Annars anger du informationen för utlösarens egenskaper.
 
    > [!NOTE]
    > Din anslutning upphör inte förrän den har återkallats, även om du ändrar dina inloggnings uppgifter. Mer information finns i [konfigurations bara livs längder för token i Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -56,7 +53,7 @@ En [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en h
 
 1. Ange **frekvens** -och **intervall** värden i utlösaren. Om du vill lägga till andra tillgängliga Utlösar egenskaper, t. ex. **tidszon**, väljer du dessa egenskaper i listan **Lägg till ny parameter** .
 
-   Om du till exempel vill att utlösaren ska kontrol lera kalendern var 15: e minut, ange **frekvens** till **minut**och ange **intervall** till `15` . 
+   Om du till exempel vill att utlösaren ska kontrol lera kalendern var 15: e minut, ange **frekvens** till **minut** och ange **intervall** till `15` . 
 
    ![Ange frekvens och intervall för utlösaren](./media/connectors-create-api-office365-outlook/calendar-settings.png)
 
@@ -78,7 +75,7 @@ En [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en å
 
    ![Välj den åtgärd som ska köras i din Logic app](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. Om du uppmanas att logga in anger du dina autentiseringsuppgifter för arbetet eller skolan så att din Logic app kan ansluta till ditt konto. Annars, om anslutningen redan finns, anger du informationen för åtgärdens egenskaper.
+1. Om du inte har en aktiv anslutning till ditt Outlook-konto uppmanas du att logga in och skapa anslutningen. Om du vill ansluta till Outlook med ett annat användar konto, till exempel ett tjänst konto, se [Anslut med andra konton](#connect-using-other-accounts). Annars anger du informationen för åtgärdens egenskaper.
 
    > [!NOTE]
    > Din anslutning upphör inte förrän den har återkallats, även om du ändrar dina inloggnings uppgifter. Mer information finns i [konfigurations bara livs längder för token i Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -90,6 +87,28 @@ En [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en å
    Om du vill lägga till andra tillgängliga åtgärds egenskaper väljer du dessa egenskaper i listan **Lägg till ny parameter** .
 
 1. I verktygsfältet designer väljer du **Spara**.
+
+<a name="connect-using-other-accounts"></a>
+
+## <a name="connect-using-other-accounts"></a>Anslut med andra konton
+
+Om du försöker ansluta till Outlook genom att använda ett annat konto än det som för närvarande är inloggat på Azure kan du få [enkel inloggning (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md) -fel. Det här problemet uppstår när du loggar in på Azure Portal med ett konto, men använder ett annat konto för att skapa anslutningen. Logic App Designer förväntar sig att använda det konto som är inloggat på Azure. För att lösa det här problemet har du följande alternativ:
+
+* Konfigurera det andra kontot som **deltagare** i din Logic Apps resurs grupp.
+
+  1. Välj **åtkomst kontroll (IAM)** på din Logic Apps resurs grupps meny. Konfigurera det andra kontot med **deltagar** rollen. Mer information finns i [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure-portalen](../role-based-access-control/role-assignments-portal.md).
+
+  1. Om du är inloggad på Azure Portal med ditt arbets-eller skol konto loggar du ut och loggar in igen med ditt andra konto. Nu kan du skapa en anslutning till Outlook med hjälp av det andra kontot.
+
+* Konfigurera det andra kontot så att ditt arbets-eller skol konto har behörigheten "Skicka som".
+
+   Om du har administratörs behörighet för tjänst kontots post låda konfigurerar du att du är ditt arbets-eller skol konto med antingen **Skicka som** eller **Skicka åt** behörigheter. Mer information finns i [ge Mailbox-behörigheter till en annan användar administratörs hjälp](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Du kan sedan skapa anslutningen med hjälp av ditt arbets-eller skol konto. Du kan nu använda tjänst kontots e-postadress i utlösare eller åtgärder där du kan ange avsändaren.
+
+   Till exempel har åtgärden **Skicka ett e-postmeddelande** en valfri parameter **från (skicka som)** som du kan lägga till i åtgärden och använda tjänst kontots e-postadress som avsändare. Följ dessa steg om du vill lägga till den här parametern:
+
+   1. I åtgärden **Skicka ett e-postmeddelande** öppnar du listan **Lägg till en parameter** och väljer parametern **från (Send As)** .
+
+   1. När parametern visas i åtgärden anger du tjänst kontots e-postadress.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 

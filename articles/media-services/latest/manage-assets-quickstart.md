@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 6b4373efc4979900e676257cc0b2748145165499
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0793c8abee27ca415feba313efb029daf092bec9
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91261421"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683037"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Snabb start: Ladda upp, koda och strömma innehåll med portalen
 
@@ -27,7 +27,7 @@ Den här snabb starten visar hur du använder Azure Portal för att ladda upp, k
 * Om du vill börja hantera, kryptera, koda, analysera och strömma medie innehåll i Azure måste du skapa ett Media Services-konto och ladda upp den digitala medie filen med hög kvalitet till en **till gång**. 
     
     > [!NOTE]
-    > Om din video tidigare har laddats upp till Media Services kontot med hjälp av Media Services v3 API eller om innehållet genererades baserat på Live-utdata, visas inte knapparna **koda**, **analysera**eller **kryptera** i Azure Portal. Använd Media Services v3-API: erna för att utföra dessa uppgifter.
+    > Om din video tidigare har laddats upp till Media Services kontot med hjälp av Media Services v3 API eller om innehållet genererades baserat på Live-utdata, visas inte knapparna **koda**, **analysera** eller **kryptera** i Azure Portal. Använd Media Services v3-API: erna för att utföra dessa uppgifter.
 
     Granska följande: 
 
@@ -40,7 +40,7 @@ Den här snabb starten visar hur du använder Azure Portal för att ladda upp, k
         När du använder Azure Portal kan du för närvarande göra följande: generera en TTML och WebVTT-filer med dold textning. Filer i dessa format kan användas för att göra ljud-och videofiler tillgängliga för personer med hörsel funktions hinder. Du kan också extrahera nyckelord från ditt innehåll.
 
         Om du vill ha en omfattande upplevelse som gör det möjligt att extrahera insikter från dina video-och ljudfiler använder du Media Services v3-för inställningar (enligt beskrivningen i [Självstudier: analysera videor med Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>Om du vill ha mer detaljerade insikter använder du [video Indexer](../video-indexer/index.yml) direkt.    
-* När innehållet har bearbetats kan du leverera medie innehåll till klient spelarna. Om du vill göra videor i utmatnings till gången tillgängliga för klienter för uppspelning måste du skapa en **strömmande positionerare**. När du skapar en **strömmande positionerare**måste du ange en **strömmande princip**. Med **direkt uppspelnings principer** kan du definiera strömmande protokoll och krypterings alternativ (om det finns några) för dina **strömmande positionerare**.
+* När innehållet har bearbetats kan du leverera medie innehåll till klient spelarna. Om du vill göra videor i utmatnings till gången tillgängliga för klienter för uppspelning måste du skapa en **strömmande positionerare**. När du skapar en **strömmande positionerare** måste du ange en **strömmande princip**. Med **direkt uppspelnings principer** kan du definiera strömmande protokoll och krypterings alternativ (om det finns några) för dina **strömmande positionerare**.
     
     Beakta
 
@@ -50,11 +50,11 @@ Den här snabb starten visar hur du använder Azure Portal för att ladda upp, k
     * [Filter](filters-concept.md)
 * Du kan skydda ditt innehåll genom att kryptera det med Advanced Encryption Standard (AES-128) eller/och något av de tre stora DRM-systemen: Microsoft PlayReady, Google Widevine och Apple FairPlay. [Kryptera innehåll med Azure Portal](encrypt-content-quickstart.md) snabb start visar hur du konfigurerar innehålls skydd.
         
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[Skapa ett Media Services-konto](create-account-howto.md#use-the-azure-portal)
+[Skapa ett Media Services-konto](create-account-howto.md)
 
 ## <a name="upload"></a>Ladda upp
 

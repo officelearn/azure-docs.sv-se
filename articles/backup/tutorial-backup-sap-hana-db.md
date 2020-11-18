@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 8de567b9f895ea0b3fa4a0f85a8bbad8bf82588f
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7bb836e92ce35869996725cb63f2d3808b570fa1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173764"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684091"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -25,7 +25,7 @@ Den här självstudien visar hur du säkerhetskopierar SAP HANA databaser som k�
 >[!NOTE]
 >Från och med den 1 augusti 2020 är SAP HANA säkerhets kopiering för RHEL (7,4, 7,6, 7,7 & 8,1) allmänt tillgänglig.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
 
@@ -67,7 +67,7 @@ Med privata slut punkter kan du ansluta säkert från servrar i ett virtuellt n�
 
 Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen *AzureBackup* för att tillåta utgående åtkomst till Azure Backup. Förutom taggen Azure Backup måste du också tillåta anslutning för autentisering och data överföring genom att skapa liknande [NSG-regler](../virtual-network/network-security-groups-overview.md#service-tags) för Azure AD (*AzureActiveDirectory*) och Azure Storage (*lagring*). Följande steg beskriver processen för att skapa en regel för taggen Azure Backup:
 
-1. I **alla tjänster**går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
+1. I **alla tjänster** går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
 
 1. Välj **utgående säkerhets regler** under **Inställningar**.
 
@@ -107,9 +107,10 @@ Att köra skriptet för för registrering utför följande funktioner:
 * Den utför utgående nätverks anslutnings kontroller med Azure Backup servrar och beroende tjänster som Azure Active Directory och Azure Storage.
 * Den loggar in i HANA-systemet med hjälp av användar nyckeln som anges som en del av [förutsättningarna](#prerequisites). Användar nyckeln används för att skapa en säkerhets kopierings användare (AZUREWLBACKUPHANAUSER) i HANA-systemet och **användar nyckeln kan tas bort när skriptet för för registrering har körts**.
 * AZUREWLBACKUPHANAUSER har tilldelats följande obligatoriska roller och behörigheter:
-  * DATABAS administratör (när det gäller MDC) och säkerhets kopierings administratör (när det gäller SDC): för att skapa nya databaser under återställningen.
+  * För MDC: databas administratör och säkerhets kopierings administratör (från HANA 2,0 SPS05 och senare): om du vill skapa nya databaser under återställningen.
+  * För SDC: säkerhets kopierings administratör: om du vill skapa nya databaser under återställningen.
   * Katalog läsning: för att läsa säkerhets kopierings katalogen.
-  * SAP_INTERNAL_HANA_SUPPORT: för att få åtkomst till några privata tabeller.
+  * SAP_INTERNAL_HANA_SUPPORT: för att få åtkomst till några privata tabeller. Krävs endast för SDC-och MDC-versionerna under HANA 2,0 SPS04 rev 46. Detta krävs inte för HANA 2,0 SPS04 rev 46 och senare eftersom vi hämtar nödvändig information från offentliga tabeller nu med korrigeringen från HANA-teamet.
 * Skriptet lägger till en nyckel till **hdbuserstore** för AZUREWLBACKUPHANAUSER för plugin-programmet Hana backup för att hantera alla åtgärder (databas frågor, återställnings åtgärder, konfigurera och köra säkerhets kopiering).
 
 >[!NOTE]
@@ -154,7 +155,7 @@ Så här skapar du ett Recovery Services-valv:
    * **Namn**: namnet används för att identifiera Recovery Services valvet och måste vara unikt för Azure-prenumerationen. Ange ett namn som innehåller minst två, men högst 50 tecken. Namnet måste börja med en bokstav och får endast innehålla bokstäver, siffror och bindestreck. I den här självstudien har vi använt namnet **SAPHanaVault**.
    * **Prenumeration**: Välj den prenumeration som ska användas. Om du bara är medlem i en prenumeration ser du det namnet. Om du inte är säker på vilken prenumeration du ska använda, använder du standardprenumerationen (den föreslagna). Du kan bara välja mellan flera alternativ om ditt arbets- eller skolkonto är associerat med mer än en Azure-prenumeration. Här har vi använt prenumerations prenumerationen för **SAP HANA Solution Lab** .
    * **Resursgrupp**: Använd en befintlig resursgrupp eller skapa en ny. Här har vi använt **SAPHANADemo**.<br>
-   Om du vill se en lista över tillgängliga resurs grupper i din prenumeration väljer du **Använd befintlig**och väljer sedan en resurs i list rutan. Skapa en ny resursgrupp genom att välja **Skapa ny** och ange namnet. Fullständig information om resurs grupper finns i [Azure Resource Manager översikt](../azure-resource-manager/management/overview.md).
+   Om du vill se en lista över tillgängliga resurs grupper i din prenumeration väljer du **Använd befintlig** och väljer sedan en resurs i list rutan. Skapa en ny resursgrupp genom att välja **Skapa ny** och ange namnet. Fullständig information om resurs grupper finns i [Azure Resource Manager översikt](../azure-resource-manager/management/overview.md).
    * **Plats**: Välj ett geografiskt område för valvet. Valvet måste finnas i samma region som den virtuella datorn som kör SAP HANA. Vi har använt **USA, östra 2**.
 
 5. Välj **Granska + skapa**.
@@ -165,9 +166,9 @@ Recovery Servicess valvet har nu skapats.
 
 ## <a name="discover-the-databases"></a>Identifiera databaserna
 
-1. I valvet i **komma igång**väljer du **säkerhets kopiering**. I **var kör din arbets belastning?** väljer du **SAP HANA i virtuell Azure-dator**.
+1. I valvet i **komma igång** väljer du **säkerhets kopiering**. I **var kör din arbets belastning?** väljer du **SAP HANA i virtuell Azure-dator**.
 2. Välj **Starta identifiering**. Detta initierar identifiering av oskyddade virtuella Linux-datorer i valv regionen. Du ser den virtuella Azure-datorn som du vill skydda.
-3. I **välj Virtual Machines**väljer du länken för att ladda ned skriptet som ger behörighet till tjänsten Azure Backup för att få åtkomst till de SAP HANA virtuella datorerna för databas identifiering.
+3. I **välj Virtual Machines** väljer du länken för att ladda ned skriptet som ger behörighet till tjänsten Azure Backup för att få åtkomst till de SAP HANA virtuella datorerna för databas identifiering.
 4. Kör skriptet på den virtuella dator som är värd för SAP HANA databas (er) som du vill säkerhetskopiera.
 5. När du har kört skriptet på den virtuella datorn väljer du den virtuella datorn i **välj Virtual Machines**. Välj sedan **identifiera databaser**.
 6. Azure Backup identifierar alla SAP HANA-databaser på den virtuella datorn. Under identifieringen registrerar Azure Backup den virtuella datorn med valvet och installerar ett tillägg på den virtuella datorn. Ingen agent är installerad på databasen.
@@ -182,7 +183,7 @@ Nu när de databaser som vi vill säkerhetskopiera identifieras är det dags att
 
    ![Konfigurera säkerhetskopiering](./media/tutorial-backup-sap-hana-db/configure-backup.png)
 
-2. I **Välj objekt att säkerhetskopiera**väljer du en eller flera databaser som du vill skydda och väljer sedan **OK**.
+2. I **Välj objekt att säkerhetskopiera** väljer du en eller flera databaser som du vill skydda och väljer sedan **OK**.
 
    ![Välj objekt som ska säkerhets kopie ras](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
 
@@ -190,7 +191,7 @@ Nu när de databaser som vi vill säkerhetskopiera identifieras är det dags att
 
    ![Välj säkerhets kopierings princip](./media/tutorial-backup-sap-hana-db/backup-policy.png)
 
-4. När du har skapat principen väljer du **Aktivera säkerhets kopiering**på **menyn säkerhets kopiering**.
+4. När du har skapat principen väljer du **Aktivera säkerhets kopiering** på **menyn säkerhets kopiering**.
 
    ![Välj Aktivera säkerhets kopiering](./media/tutorial-backup-sap-hana-db/enable-backup.png)
 
@@ -209,7 +210,7 @@ Ange princip inställningarna enligt följande:
 
    ![Ange namn för ny princip](./media/tutorial-backup-sap-hana-db/new-policy.png)
 
-2. Välj en **säkerhets kopierings frekvens**i **fullständig säkerhets kopierings princip**. Du kan välja **varje dag** eller **varje vecka**. I den här självstudien valde vi den **dagliga** säkerhets kopieringen.
+2. Välj en **säkerhets kopierings frekvens** i **fullständig säkerhets kopierings princip**. Du kan välja **varje dag** eller **varje vecka**. I den här självstudien valde vi den **dagliga** säkerhets kopieringen.
 
    ![Välj en säkerhets kopierings frekvens](./media/tutorial-backup-sap-hana-db/backup-frequency.png)
 
@@ -231,7 +232,7 @@ Ange princip inställningarna enligt följande:
 
 7. Välj **OK** för att spara policyn och återgå till huvudmenyn **Säkerhetskopieringspolicy**.
 8. Välj **logg säkerhets kopiering** för att lägga till en transaktions logg princip för säkerhets kopiering
-   * **Logg säkerhets kopiering** är som standard inställt på **aktive**rad. Detta kan inte inaktive ras eftersom SAP HANA hanterar alla logg säkerhets kopior.
+   * **Logg säkerhets kopiering** är som standard inställt på **aktive** rad. Detta kan inte inaktive ras eftersom SAP HANA hanterar alla logg säkerhets kopior.
    * Vi har angett **2 timmar** som säkerhets kopierings schema och **15 dagars** kvarhållningsperiod.
 
     ![Logg säkerhets kopierings princip](./media/tutorial-backup-sap-hana-db/log-backup-policy.png)
@@ -245,7 +246,7 @@ Ange princip inställningarna enligt följande:
 
 Du har nu konfigurerat säkerhets kopiering (er) för SAP HANA databas (er).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [Kör säkerhets kopiering på begäran på SAP HANA databaser som körs på virtuella Azure-datorer](backup-azure-sap-hana-database.md#run-an-on-demand-backup)
 * Lär dig hur du [återställer SAP HANA databaser som körs på virtuella Azure-datorer](sap-hana-db-restore.md)

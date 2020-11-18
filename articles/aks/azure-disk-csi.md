@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 260631e36d113b6ccd190f66ce61caa7ba1b187b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 2dba9fbcbddbc7a66763636986f3d98f4f95332c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900890"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683139"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Använd driv rutinerna för Azure disk container Storage-gränssnittet (CSI) i Azure Kubernetes service (AKS) (för hands version)
 Driv rutinen för Azure disk container Storage-gränssnittet (CSI) är en [CSI Specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-kompatibel driv rutin som används av Azure Kubernetes service (AKS) för att hantera livs cykeln för Azure-diskar.
@@ -275,7 +275,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 ## <a name="shared-disk"></a>Delad disk
 
-[Azure delade diskar](../virtual-machines/windows/disks-shared.md) är en funktion för Azure Managed disks som gör att du kan koppla en Azure-disk till agent-noder samtidigt. Genom att ansluta en hanterad disk till flera agent-noder kan du till exempel distribuera nya eller migrera befintliga klustrade program till Azure.
+[Azure delade diskar](../virtual-machines/disks-shared.md) är en funktion för Azure Managed disks som gör att du kan koppla en Azure-disk till agent-noder samtidigt. Genom att ansluta en hanterad disk till flera agent-noder kan du till exempel distribuera nya eller migrera befintliga klustrade program till Azure.
 
 > [!IMPORTANT] 
 > För närvarande stöds endast RAW block Device ( `volumeMode: Block` ) av Azure disk CSI-drivrutinen. Program bör hantera samordning och kontroll av skrivningar, läsningar, lås, cacheminnen, monteringar och staket på den delade disken, som visas som en RAW block-enhet.

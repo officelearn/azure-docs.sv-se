@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b75c85b85674def84d9fcee62549a6458abf9174
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629003"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684856"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Felsöka fel vid utgående anslutningar
 
@@ -63,7 +63,7 @@ Två virtuella datorer i backend-poolen skulle t. ex. ha 1024 SNAT-portar tillg�
 Om du skalar ut till nästa större storleks nivå för backend-poolen finns det möjlighet för några av dina utgående anslutningar att ta tid ut om allokerade portar måste allokeras om.  Om du bara använder några av dina SNAT-portar är det inconsequential att skala ut över nästa större storlek för backend-poolen.  Hälften av de befintliga portarna allokeras om varje gång som du flyttar till nästa nivå i backend-poolen.  Om du inte vill att detta ska ske måste du forma distributionen till nivå storleken.  Eller kontrol lera att programmet kan identifiera och försök igen om det behövs.  TCP keepalive-tillägg kan hjälpa till att upptäcka när SNAT-portar inte längre fungerar på grund av att de allokeras om.
 
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Använd keepalive för att återställa tids gränsen för utgående inaktivitet
-Utgående anslutningar har en tids gräns på 4 minuter. Denna timeout är justerbar via [utgående regler](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Du kan också använda transport (till exempel TCP keepalive) eller keepalive för program lager för att uppdatera ett inaktivt flöde och återställa denna tids gräns vid behov.  
+Utgående anslutningar har en tids gräns på 4 minuter. Denna timeout är justerbar via [utgående regler](outbound-rules.md). Du kan också använda transport (till exempel TCP keepalive) eller keepalive för program lager för att uppdatera ett inaktivt flöde och återställa denna tids gräns vid behov.  
 
 När du använder TCP keepalive-åtgärder räcker det att aktivera dem på ena sidan av anslutningen. Det räcker till exempel att aktivera dem på Server sidan för att återställa flödets inaktivitet och det är inte nödvändigt för båda sidorna att initiera TCP keepalive.  Det finns liknande koncept för program lager, inklusive databas klient server konfiguration.  Kontrol lera Server sidan för vilka alternativ som finns för programspecifika keepalive-objekt.
 

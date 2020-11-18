@@ -2,13 +2,13 @@
 title: Koncept – övervaka och reparera privata moln i Azure VMware-lösningen
 description: Lär dig hur Azure VMware-lösningen övervakar och reparerar VMware ESXi-servrar i ett privat moln i Azure VMware-lösningar.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: bee08304cd14f2aeec6995203638b5a37d9a861c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 11a3c53bff7ce7b67b677977eddb9829f336672d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346232"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684703"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Övervaka och reparera privata moln i Azure VMware-lösningar
 
@@ -42,4 +42,10 @@ Värd reparations processen startar genom att lägga till en ny felfria nod i kl
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig om [uppgraderingar av privata moln i Azure VMware-lösningar](concepts-upgrades.md).  
+Här följer några avsnitt som du kanske vill lära dig mer om:
+
+- [Uppgraderingar av privata moln i Azure VMware-lösningar](concepts-upgrades.md)
+- [Livs cykel hantering av virtuella Azure VMware-lösningar](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Skydda dina virtuella datorer med Azure VMware-lösningen med Azure Security Center-integrering](azure-security-integration.md)
+- [Säkerhetskopiera virtuella datorer i Azure VMware-lösningen med Azure Backup Server](backup-azure-vmware-solution-virtual-machines.md)
+- [Fullständig haveri beredskap för virtuella datorer med Azure VMware-lösning](disaster-recovery-for-virtual-machines.md)

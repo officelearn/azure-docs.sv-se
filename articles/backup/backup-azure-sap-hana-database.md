@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SAP HANA-databas till Azure med Azure Backup
 description: I den här artikeln lär du dig hur du säkerhetskopierar en SAP HANA-databas till virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 28c9716bfb2dd0a6ac380d9ffd6dcd7fd5eb4978
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649447"
+ms.locfileid: "94682857"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Säkerhetskopiera SAP HANA-databaser i virtuella Azure-datorer
 
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig att:
 >**Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar** finns nu i för hands version.<br>
 >Registrera dig för för hands versionen genom att skriva till oss på [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för för registrering gör](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) i avsnitten för att konfigurera databasen för säkerhets kopiering.
 
@@ -144,7 +144,7 @@ Ange princip inställningarna enligt följande:
 1. I **Policynamn** anger du ett namn för den nya policyn.
 
    ![Ange princip namn](./media/backup-azure-sap-hana-database/policy-name.png)
-2. I **Policy för fullständig säkerhetskopia** väljer du en **Säkerhetskopieringsfrekvens** och väljer **Dagligen** eller **Varje vecka**.
+1. I **Policy för fullständig säkerhetskopia** väljer du en **Säkerhetskopieringsfrekvens** och väljer **Dagligen** eller **Varje vecka**.
    * **Varje dag**: Välj den timme och den tidszon som säkerhets kopierings jobbet ska starta.
        * Du måste köra en fullständig säkerhets kopiering. Du kan inte inaktivera det här alternativet.
        * Klicka på **Fullständig säkerhetskopia** för att se principen.
@@ -153,16 +153,16 @@ Ange princip inställningarna enligt följande:
 
    ![Välj säkerhets kopierings frekvens](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
-3. Konfigurera inställningar för kvarhållning för fullständig säkerhets kopiering i **kvarhållningsintervall**.
+1. Konfigurera inställningar för kvarhållning för fullständig säkerhets kopiering i **kvarhållningsintervall**.
     * Som standard är alla alternativ markerade. Rensa eventuella gränser för kvarhållningsintervall som du inte vill använda och ange de som du gör.
     * Den minsta Retentions perioden för någon typ av säkerhets kopiering (fullständig/differentiell/log) är sju dagar.
     * Återställningspunkter taggas för kvarhållning baserat på deras kvarhållningsintervall. Om du till exempel väljer en daglig fullständig säkerhetskopia utlöses endast en fullständig säkerhetskopia varje dag.
     * Säkerhets kopian för en angiven dag märks och bevaras baserat på vecko kvarhållningsintervallet och-inställningen.
     * De månatliga och årliga kvarhållningsintervallen fungerar på liknande sätt.
 
-4. På menyn **Policy för fullständig säkerhetskopia** väljer du **OK** för att acceptera inställningarna.
-5. Välj **differentiell säkerhets kopiering** för att lägga till en differentiell princip.
-6. I **Policy för differentiell säkerhetskopia** väljer du **Aktivera** för att öppna kontrollerna för frekvens och kvarhållning.
+1. På menyn **Policy för fullständig säkerhetskopia** väljer du **OK** för att acceptera inställningarna.
+1. Välj **differentiell säkerhets kopiering** för att lägga till en differentiell princip.
+1. I **Policy för differentiell säkerhetskopia** väljer du **Aktivera** för att öppna kontrollerna för frekvens och kvarhållning.
     * Du kan endast utlösa en differentiell säkerhetskopia per dag.
     * Differentiella säkerhetskopior kan behållas i upp till 180 dagar. Om du behöver längre kvarhållning måste du använda fullständiga säkerhetskopior.
 
@@ -170,22 +170,22 @@ Ange princip inställningarna enligt följande:
 
     > [!NOTE]
     > Stegvisa säkerhets kopieringar stöds nu i offentlig för hands version. Du kan välja antingen en differentiell eller en ökning som en daglig säkerhets kopia, men inte båda.
-7. I **principen för stegvis säkerhets kopiering** väljer du **Aktivera** för att öppna kontrollerna frekvens och kvarhållning.
+1. I **principen för stegvis säkerhets kopiering** väljer du **Aktivera** för att öppna kontrollerna frekvens och kvarhållning.
     * Högst kan du utlösa en stegvis säkerhets kopiering per dag.
     * Stegvisa säkerhets kopieringar kan behållas i högst 180 dagar. Om du behöver längre kvarhållning måste du använda fullständiga säkerhetskopior.
 
     ![Princip för stegvis säkerhets kopiering](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
 
-7. Välj **OK** för att spara policyn och återgå till huvudmenyn **Säkerhetskopieringspolicy**.
-8. Välj **logg säkerhets kopiering** för att lägga till en transaktions logg princip för säkerhets kopiering
+1. Välj **OK** för att spara policyn och återgå till huvudmenyn **Säkerhetskopieringspolicy**.
+1. Välj **logg säkerhets kopiering** för att lägga till en transaktions logg princip för säkerhets kopiering
     * I **logg säkerhets kopiering** väljer du **Aktivera**.  Detta kan inte inaktive ras eftersom SAP HANA hanterar alla logg säkerhets kopior.
     * Ange frekvens och bevarande kontroller.
 
     > [!NOTE]
     > Logg säkerhets kopior börjar bara att flyta efter en lyckad fullständig säkerhets kopiering har slutförts.
 
-9. Välj **OK** för att spara policyn och återgå till huvudmenyn **Säkerhetskopieringspolicy**.
-10. När du är klar med att definiera säkerhets kopierings principen väljer du **OK**.
+1. Välj **OK** för att spara policyn och återgå till huvudmenyn **Säkerhetskopieringspolicy**.
+1. När du är klar med att definiera säkerhets kopierings principen väljer du **OK**.
 
 > [!NOTE]
 > Varje logg säkerhets kopia länkas till den tidigare fullständiga säkerhets kopian för att skapa en återställnings kedja. Den fullständiga säkerhets kopian kommer att behållas tills kvarhållning av den senaste logg säkerhets kopian har upphört att gälla. Detta kan betyda att den fullständiga säkerhets kopian behålls under en längre period för att se till att alla loggar kan återställas. Vi antar att en användare har en veckovis fullständig säkerhets kopiering, dagliga differentiella och 2 timmars loggar. Alla finns kvar i 30 dagar. Men den fullständiga veckan kan bara rensas/tas bort efter att nästa fullständiga säkerhets kopiering är tillgängligt, det vill säga efter 30 + 7 dagar. Till exempel sker en fullständig veckovis fullständig säkerhets kopiering på den 16 november. Enligt bevarande principen bör den behållas tills den 16 december. Den senaste logg säkerhets kopian för denna fullständiga aktivitet sker före nästa schemalagda, på Nov 22. Tills den här loggen är tillgänglig fram till Dec 22, kan den sextonde sexton fullständiga filen inte tas bort. Därför behålls den sextonde sexton fullständiga till och med Dec 22.

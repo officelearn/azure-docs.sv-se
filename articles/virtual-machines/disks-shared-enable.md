@@ -8,22 +8,18 @@ ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1efd4baf80c9ba30b1d1ea35390386bc4e7659d3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 661d4ba575eafa4e261a1c92c1112a259b95eac7
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747776"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683609"
 ---
 # <a name="enable-shared-disk"></a>Aktivera delad disk
 
 Den här artikeln beskriver hur du aktiverar funktionen delade diskar för Azure Managed disks. Azure delade diskar är en ny funktion för Azure Managed disks som gör att du kan ansluta en hanterad disk till flera virtuella datorer samtidigt. Genom att ansluta en hanterad disk till flera virtuella datorer kan du antingen distribuera nya eller migrera befintliga klustrade program till Azure. 
 
-Om du behöver konceptuell information om hanterade diskar som har delade diskar aktiverade, se:
-
-* För Linux: [Azure delade diskar](linux/disks-shared.md)
-
-* För Windows: [Azure delade diskar](windows/disks-shared.md)
+Om du behöver konceptuell information om hanterade diskar som har delade diskar aktiverade kan du läsa mer i [Azure delade diskar](disks-shared.md).
 
 ## <a name="limitations"></a>Begränsningar
 

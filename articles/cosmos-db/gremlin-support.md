@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 10/13/2020
+ms.date: 11/11/2020
 ms.author: sngun
-ms.openlocfilehash: c1af35b754362a230e77c7a3326de8ddb8a09d62
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a149f0b331a77462aa53b948fedf25dd1331969e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083005"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683632"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Azure Cosmos DB Gremlin Graph-stöd och kompatibilitet med TinkerPop-funktioner
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -25,13 +25,14 @@ Azure Cosmos DB diagram motor närmar sig följande steg Specifikation för [Apa
 
 Följande tabell visar populära Gremlin-drivrutiner som du kan använda mot Azure Cosmos DB:
 
-| Ladda ned | Källa | Komma igång | Version av anslutningsappen som stöds |
+| Hämta | Källa | Komma igång | Version av anslutningsappen som stöds |
 | --- | --- | --- | --- |
 | [.NET](https://tinkerpop.apache.org/docs/3.4.6/reference/#gremlin-DotNet) | [Gremlin.NET på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Skapa diagram med .NET](create-graph-dotnet.md) | 3.4.6 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Skapa diagram med Java](create-graph-java.md) | 3.2.0+ |
 | [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Skapa diagram med Node.js](create-graph-nodejs.md) | 3.3.4 + |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Skapa diagram med Python](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP på GitHub](https://github.com/PommeVerte/gremlin-php) | [Skapa diagram med PHP](create-graph-php.md) | 3.1.0 |
+| [Gå till lang](https://github.com/supplyon/gremcos/) | [Gå till lang](https://github.com/supplyon/gremcos/) | | Det här biblioteket har skapats av externa deltagare. Azure Cosmos DBs teamet erbjuder inget stöd eller underhålla biblioteket. |
 | [Gremlin-konsol](https://tinkerpop.apache.org/downloads.html) | [TinkerPop-dokument](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Skapa diagram med Gremlin-konsolen](create-graph-gremlin-console.md) | 3.2.0 + |
 
 ## <a name="supported-graph-objects"></a>Diagram objekt som stöds
@@ -168,23 +169,23 @@ Den skrivoptimerade motorn som tillhandahålls av Azure Cosmos DB stöder automa
 
 ## <a name="behavior-differences"></a>Beteende skillnader
 
-* Azure Cosmos DB Graph-motorn kör * **Bredd-första** _ traverser medan TinkerPop Gremlin är djup-först. Med det här beteendet uppnås bättre prestanda i horisontellt skalbart system som Cosmos DB.
+* Azure Cosmos DB Graph-motorn kör ***Bredd-första** _ traverser medan TinkerPop Gremlin är djup-först. Med det här beteendet uppnås bättre prestanda i horisontellt skalbart system som Cosmos DB.
 
 ## <a name="unsupported-features"></a>Funktioner som inte stöds
 
-_ * **[Gremlin bytekod](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)** _ är en oberoende-specifikation för programmerings språk för diagram bläddringskontroll. Cosmos DB Graph har inte stöd för det än. Använd `GremlinClient.SubmitAsync()` och skicka Traversal som en text sträng.
+_ ***[Gremlin bytekod](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)** _ är en oberoende-specifikation för programmerings språk för diagram bläddringskontroll. Cosmos DB Graph har inte stöd för det än. Använd `GremlinClient.SubmitAsync()` och skicka Traversal som en text sträng.
 
 _ * **`property(set, 'xyz', 1)`** _ set kardinalitet stöds inte idag. Använd `property(list, 'xyz', 1)` i stället. Mer information finns i [Egenskaper för hörn med TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
 
-_ *- **`match()` Steg** _ är inte tillgängligt för tillfället. Det här steget tillhandahåller funktioner för deklarativ fråga.
+_ *-**`match()` Steg** _ är inte tillgängligt för tillfället. Det här steget tillhandahåller funktioner för deklarativ fråga.
 
-_ * **Objekt som egenskaper** _ i hörn eller kanter stöds inte. Egenskaper kan bara vara primitiva typer eller matriser.
+_ ***Objekt som egenskaper** _ i hörn eller kanter stöds inte. Egenskaper kan bara vara primitiva typer eller matriser.
 
-_ * **Sortering efter mat ris egenskaper** _ `order().by(<array property>)` stöds inte. Sortering stöds endast av primitiva typer.
+_ ***Sortering efter mat ris egenskaper** _ `order().by(<array property>)` stöds inte. Sortering stöds endast av primitiva typer.
 
-_ * **Icke-primitiva JSON-typer** _ stöds inte. Användnings `string` -, `number` -eller- `true` / `false` typer. `null` värden stöds inte. 
+_ ***Icke-primitiva JSON-typer** _ stöds inte. Användnings `string` -, `number` -eller- `true` / `false` typer. `null` värden stöds inte. 
 
-_ * **GraphSONv3** _ serialiseraren stöds inte för närvarande. Använd `GraphSONv2` serialiserare, läsare och skrivar klasser i anslutnings konfigurationen. Resultaten som returneras av Azure Cosmos DB Gremlin-API: t har inte samma format som GraphSON-formatet. 
+_ ***GraphSONv3** _ serialiseraren stöds inte för närvarande. Använd `GraphSONv2` serialiserare, läsare och skrivar klasser i anslutnings konfigurationen. Resultaten som returneras av Azure Cosmos DB Gremlin-API: t har inte samma format som GraphSON-formatet. 
 
 **Lambda-uttryck och-funktioner** stöds inte för närvarande. Detta omfattar `.map{<expression>}` `.by{<expression>}` funktionerna, och `.filter{<expression>}` . Om du vill veta mer och lära dig att skriva om dem med Gremlin-steg, se [en kommentar om lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)-tal.
 
@@ -192,7 +193,7 @@ _ * **GraphSONv3** _ serialiseraren stöds inte för närvarande. Använd `Graph
 
 ## <a name="known-limitations"></a>Kända begränsningar
 
-_ **Index användning för Gremlin-frågor med `.V()` steg för steg-för-steg-åtgärder** : för närvarande kommer endast det första `.V()` anropet av en genom gång att använda indexet för att matcha eventuella filter eller predikat som är kopplade till den. Efterföljande anrop kommer inte att se indexet, vilket kan öka svars tiden och kostnaden för frågan.
+_ **Index användning för Gremlin-frågor med `.V()` steg för steg-för-steg-åtgärder**: för närvarande kommer endast det första `.V()` anropet av en genom gång att använda indexet för att matcha eventuella filter eller predikat som är kopplade till den. Efterföljande anrop kommer inte att se indexet, vilket kan öka svars tiden och kostnaden för frågan.
     
     Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
 

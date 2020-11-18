@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30b09d43cbe510318ac4f48e0655d5483491c215
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318453"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682782"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps
 
@@ -33,13 +33,13 @@ Det här avsnittet visar hur du konfigurerar och anger din egen krypterings nyck
 
 * Inom *30 minuter* efter att du skickat https-begäran som skapar din ISE måste du [ge nyckel valv åtkomst till din ISES systemtilldelade identitet](#identity-access-to-key-vault). Annars Miss lyckas ISE-skapande och genererar ett behörighets fel.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Samma krav [prerequisites](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) och [krav för att ge åtkomst till din ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) som när du skapar en ISE i Azure Portal
 
 * Ett Azure Key Vault som har den **mjuka borttagningen** och **inte rensa** egenskaper aktiverat
 
-  Mer information om hur du aktiverar dessa egenskaper finns i [Azure Key Vault översikt över mjuk borttagning](../key-vault/general/soft-delete-overview.md) och [Konfigurera Kundhanterade nycklar med Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Om du inte har använt Azure Key Vault kan du lära dig [hur du skapar ett nyckel valv](../key-vault/secrets/quick-create-portal.md#create-a-vault) med hjälp av Azure Portal eller genom att använda kommandot Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
+  Mer information om hur du aktiverar dessa egenskaper finns i [Azure Key Vault översikt över mjuk borttagning](../key-vault/general/soft-delete-overview.md) och [Konfigurera Kundhanterade nycklar med Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Om du inte har använt [Azure Key Vault](../key-vault/general/overview.md)kan du lära dig hur du skapar ett nyckel valv med hjälp av [Azure Portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md)eller [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 * I ditt nyckel valv är en nyckel som skapas med följande egenskaps värden:
 
@@ -211,7 +211,7 @@ För den här uppgiften kan du använda antingen kommandot Azure PowerShell [set
 
    1. Välj följande alternativ:
 
-      | Inställning | Värden |
+      | Inställningen | Värden |
       |---------|--------|
       | **Konfigurera från mall (valfritt) lista** | Nyckel hantering |
       | **Nyckel behörigheter** | - **Nyckel hanterings åtgärder**: Hämta, lista <p><p>- **Kryptografiska åtgärder**: unwrap Key, wrap Key |
@@ -219,7 +219,7 @@ För den här uppgiften kan du använda antingen kommandot Azure PowerShell [set
 
       ![Välj nyckel hantering > nyckel behörigheter](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
 
-   1. För **Välj huvud konto**väljer du **ingen vald**. När **huvud** fönstret öppnas går du till sökrutan och söker efter och väljer din ISE. När du är klar väljer du **Välj**  >  **Lägg till**.
+   1. För **Välj huvud konto** väljer du **ingen vald**. När **huvud** fönstret öppnas går du till sökrutan och söker efter och väljer din ISE. När du är klar väljer du **Välj**  >  **Lägg till**.
 
       ![Välj den ISE som ska användas som huvud konto](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
 

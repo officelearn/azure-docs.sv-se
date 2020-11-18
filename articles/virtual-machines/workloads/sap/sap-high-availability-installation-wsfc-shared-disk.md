@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5126ae94d8c751952964aaf4df0736a5e546ff36
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c914afb3a72ccac4753a1942b6c4303850654a2e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963643"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682646"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installera SAP NetWeaver HA på ett Windows-redundanskluster och en delad disk för en SAP ASCS/SCS-instans i Azure
 
@@ -149,10 +149,10 @@ ms.locfileid: "91963643"
 
 Den här artikeln beskriver hur du installerar och konfigurerar ett SAP-system med hög tillgänglighet i Azure med hjälp av ett Windows Server-redundanskluster och en klusterdelad disk för att klustra en SAP ASCS/SCS-instans. Som det beskrivs i [arkitektur guiden: kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk][sap-high-availability-guide-wsfc-shared-disk]finns det två alternativ för *klusterdelad disk*:
 
-- [Delade diskar i Azure](../../windows/disks-shared.md)
+- [Delade diskar i Azure](../../disks-shared.md)
 - Använda [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) för att skapa speglad lagring, som simulerar klustrad delad disk 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Granska dessa dokument innan du påbörjar installationen:
 
@@ -250,7 +250,7 @@ Använd den interna belastningsutjämnaren för att göra så att hela kluster k
 Detta fungerar dock inte i vissa klusterkonfigurationer eftersom endast en instans är aktiv. Den andra instansen är passiv och kan inte acceptera någon av arbets belastningarna. En avsöknings funktion hjälper när den interna Azure-belastningsutjämnaren identifierar vilken instans som är aktiv och endast är riktad mot den aktiva instansen.  
 
 > [!IMPORTANT]
-> I den här exempel konfigurationen är **ProbePort** inställd på 620**nr**. För SAP ASCS-instansen med Number **00** är den 620**00**. Du måste ändra konfigurationen så att den matchar dina SAP-instansnamn och SAP SID.
+> I den här exempel konfigurationen är **ProbePort** inställd på 620 **nr**. För SAP ASCS-instansen med Number **00** är den 620 **00**. Du måste ändra konfigurationen så att den matchar dina SAP-instansnamn och SAP SID.
 
 För att lägga till en avsöknings port kör den här PowerShell-modulen på en av de virtuella kluster datorerna:
 

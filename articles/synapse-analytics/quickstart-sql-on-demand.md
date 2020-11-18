@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: b2e502a984e71a06eb57b345371d70d659c6a031
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 270942392e028964c7e9b1c110e4d9f118bd4953
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321674"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682986"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Snabb start: Använd Server lös SQL-pool
 
@@ -22,7 +22,7 @@ Synapse server utan SQL-pool (för hands version) är en server lös Query-tjän
 
 Den här snabb starten visar frågor: CSV-, Apache Parquet-och JSON-filer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Välj en SQL-klient för att utfärda frågor:
 
@@ -153,7 +153,7 @@ Filer lagras i *JSON* *-behållare, mappträdet och* innehåller en post i en bo
 
 ### <a name="query-json-files"></a>Efterfråga JSON-filer
 
-Följande fråga visar hur du använder [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) för att hämta skalära värden (title, Publisher) från en bok med rubriken *Probabilistic och statistiska metoder i Cryptology, en introduktion av valda artiklar* :
+Följande fråga visar hur du använder [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) för att hämta skalära värden (title, Publisher) från en bok med rubriken *Probabilistic och statistiska metoder i Cryptology, en introduktion av valda artiklar*:
 
 ```sql
 SELECT

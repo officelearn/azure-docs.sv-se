@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: eef78ffefe8fe13e6f160e38a05405a80d6e46f8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: aee3f5602d0bd1ff12717d903d662ce4605de61d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660958"
+ms.locfileid: "94683768"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>RDP-Shortpath för Windows Virtual Desktop (för hands version)
 
@@ -99,7 +99,7 @@ Du kan också använda PowerShell för att konfigurera grup princip
 # Replace $domainName value with the name of your Active Directory domain
 # Replace $policyName value with the name of existing Group Policy Object
 $domainName = "contoso.com"
-$policyName = "Default Domain Policy"
+$policyName = "RDP Shortpath Policy"
 Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations' -ValueName 'fUseUdpPortRedirector' -Value 1 -Type:DWord  -Action:Create -Context:Computer -Name $policyName -Domain $domainName
 Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations' -ValueName 'UdpPortNumber' -Value 3390 -Type:DWord  -Action:Create -Context:Computer -Name $policyName -Domain $domainName
 ```
@@ -139,7 +139,7 @@ Du kan också använda PowerShell för att konfigurera grup princip
 # Replace $domainName value with the name of your Active Directory domain
 # Replace $policyName value with the name of existing Group Policy Object
 $domainName = "contoso.com"
-$policyName = "Default Domain Policy"
+$policyName = "RDP Shortpath Policy"
 $gpoSession = Open-NetGPO -PolicyStore "$domainName\$policyName"
 New-NetFirewallRule -DisplayName 'Remote Desktop - Shortpath (UDP-In)'  -Action Allow -Description 'Inbound rule for the Remote Desktop service to allow RDP traffic. [UDP 3390]' -Group '@FirewallAPI.dll,-28752' -Name 'RemoteDesktop-UserMode-In-Shortpath-UDP'  -PolicyStore PersistentStore -Profile Domain, Private -Service TermService -Protocol udp -LocalPort 3390 -Program '%SystemRoot%\system32\svchost.exe' -Enabled:True
 ```
@@ -247,7 +247,7 @@ Om du vill inaktivera RDP-Shortpath för en angiven sessionsnyckel kan du inakti
 2. Gå till **dator konfiguration > administrations mallar > Windows-komponenter > Fjärrskrivbordstjänster > anslutning till fjärrskrivbord värd > anslutningar**.
 3. Ange inställningen **"Välj RDP transport Protocols** till **TCP**
 
-## <a name="feedback"></a>Feedback
+## <a name="public-preview-feedback"></a>Offentlig för hands versions feedback
 
 Vi vill gärna höra om dina upplevelser med den här offentliga för hands versionen!
 * [Använd det här formuläret](https://aka.ms/RDPShortpathFeedback)för frågor, förfrågningar, kommentarer och annan feedback.

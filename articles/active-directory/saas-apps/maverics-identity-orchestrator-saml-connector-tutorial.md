@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: a9d5988f25b833480c4809ba116c48022566b7a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f4fe368e9a56e5ac4c9dfa2648ce4af15a1b5ac0
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458191"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684465"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Självstudie: integrera enkel inloggning med Azure AD med Maverics Identity Orchestrator SAML Connector
 
@@ -157,8 +157,8 @@ secrets:
 Du kan konfigurera ett Azure Key Vault med hjälp av antingen Azure Portal eller Azure CLI.
 
 **Använda Azure-portalen**
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. [Skapa ett nytt nyckel valv](../../key-vault/secrets/quick-create-portal.md#create-a-vault).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. [Skapa ett nytt nyckel valv](../../key-vault/general/quick-create-portal.md).
 1. [Lägg till hemligheterna i nyckel valvet](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 1. [Registrera ett program med Azure AD](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. [Auktorisera ett program för att använda en hemlighet](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
@@ -201,11 +201,11 @@ Du kan konfigurera ett Azure Key Vault med hjälp av antingen Azure Portal eller
 
 ## <a name="configure-your-application-in-azure-ad-for-saml-based-sso"></a>Konfigurera ditt program i Azure AD för SAML-baserad SSO
 
-1. Gå till **företags program**i Azure AD-klienten, Sök efter **MAVERICS Identity Orchestrator SAML Connector**och markera den.
+1. Gå till **företags program** i Azure AD-klienten, Sök efter **MAVERICS Identity Orchestrator SAML Connector** och markera den.
 
 1. I fönstret **Egenskaper** för Maverics Identity Orchestrator SAML Connector anger du **användar tilldelning krävs?** till **Nej** om du vill att programmet ska fungera för nyligen migrerade användare.
 
-1. I **översikts** fönstret Maverics Identity Orchestrator SAML Connector väljer du **Konfigurera enkel inloggning**och väljer sedan **SAML**.
+1. I **översikts** fönstret Maverics Identity Orchestrator SAML Connector väljer du **Konfigurera enkel inloggning** och väljer sedan **SAML**.
 
 1. Redigera den **grundläggande SAML-konfigurationen** genom att välja knappen **Redigera** (Penn ikonen) i fönstret Maverics Identity Orchestrator SAML **-baserad inloggning** .
 
@@ -219,7 +219,7 @@ Du kan konfigurera ett Azure Key Vault med hjälp av antingen Azure Portal eller
 
 1. Välj **Spara**.
 
-1. I avsnittet **SAML-signeringscertifikat** väljer du **kopierings** knappen för att kopiera **URL: en för appens federationens metadata**och sparar den sedan på din dator.
+1. I avsnittet **SAML-signeringscertifikat** väljer du **kopierings** knappen för att kopiera **URL: en för appens federationens metadata** och sparar den sedan på din dator.
 
     ![Skärm bild av kopierings knappen "SAML signerings certifikat".](common/copy-metadataurl.png)
 
@@ -283,7 +283,7 @@ Följ den här konfigurationen för att stegvis migrera användare från en webb
 
 1. På **Maverics Identity Orchestrator SAML Connector | Rutan API-behörigheter** väljer du **Lägg till behörighet** och i rutan **begär API-behörigheter** väljer du **Microsoft Graph** -och **program behörigheter**. 
 
-1. Välj **User. readwrite. all**på nästa skärm och välj sedan **Lägg till behörigheter**. 
+1. Välj **User. readwrite. all** på nästa skärm och välj sedan **Lägg till behörigheter**. 
 
 1. Gå tillbaka till rutan **API-behörigheter** och välj **bevilja administratörs medgivande**.
 

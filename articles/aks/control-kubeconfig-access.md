@@ -4,18 +4,18 @@ description: Lär dig hur du styr åtkomsten till konfigurations filen för Kube
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: c73c4a0ae46c3d2ac3a64543473bd6639d03b434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 371628b02ebecee23697e996ee0d484688167875
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009298"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684822"
 ---
 # <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Använd rollbaserad åtkomst kontroll i Azure för att definiera åtkomst till konfigurations filen Kubernetes i Azure Kubernetes service (AKS)
 
 Du kan interagera med Kubernetes-kluster med `kubectl` verktyget. Azure CLI är ett enkelt sätt att få åtkomst till autentiseringsuppgifter och konfigurations information för att ansluta till dina AKS-kluster med hjälp av `kubectl` . Om du vill begränsa vem som kan hämta den Kubernetes konfigurations informationen (*kubeconfig*) och begränsa behörigheterna som de har, kan du använda rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 
-Den här artikeln visar hur du tilldelar RBAC-roller som begränsar vem som kan hämta konfigurations information för ett AKS-kluster.
+Den här artikeln visar hur du tilldelar Azure-roller som begränsar vem som kan hämta konfigurations information för ett AKS-kluster.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -38,7 +38,7 @@ De två inbyggda rollerna är:
   * Tillåter åtkomst till API-anrop för *Microsoft. container service/managedClusters/listClusterUserCredential/Action* . Det här API-anropet [visar autentiseringsuppgifter för klustrets användare][api-cluster-user].
   * Hämtar *kubeconfig* för *clusterUser* -rollen.
 
-Dessa RBAC-roller kan tillämpas på en Azure Active Directory (AD) användare eller grupp.
+Dessa Azure-roller kan tillämpas på en Azure Active Directory (AD) användare eller grupp.
 
 > [!NOTE]
 > I kluster som använder Azure AD har användare med rollen *clusterUser* en tom *kubeconfig* -fil som efterfrågar en inloggning. När användaren har loggat in har användarna åtkomst baserat på deras inställningar för Azure AD-användare eller grupper. Användare med rollen *clusterAdmin* har administratörs åtkomst.
@@ -92,7 +92,7 @@ Följande exempel på utdata visar att roll tilldelningen har skapats:
 
 ## <a name="get-and-verify-the-configuration-information"></a>Hämta och verifiera konfigurations informationen
 
-Med RBAC-roller tilldelade använder du kommandot [AZ AKS get-credentials][az-aks-get-credentials] för att hämta *kubeconfig* -definitionen för ditt AKS-kluster. I följande exempel hämtas autentiseringsuppgifter för *-admin* , som fungerar korrekt om användaren har beviljats rollen som *kluster administratör*:
+Med tilldelade Azure-roller använder du kommandot [AZ AKS get-credentials][az-aks-get-credentials] för att hämta *kubeconfig* -definitionen för ditt AKS-kluster. I följande exempel hämtas autentiseringsuppgifter för *-admin* , som fungerar korrekt om användaren har beviljats rollen som *kluster administratör*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin

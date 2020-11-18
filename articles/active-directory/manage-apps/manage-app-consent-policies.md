@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: 07637a8be49fb2449c5c92c1a1ea4b2c7ace9a8d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4368f20171da0c1896e642361578580b1d958296
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442267"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659054"
 ---
 # <a name="manage-app-consent-policies"></a>Hantera principer för appmedgivande
 
@@ -31,7 +31,7 @@ Principer för program medgivande där ID: t börjar med "Microsoft-" är inbygg
 
 ## <a name="pre-requisites"></a>Förutsättningar
 
-1. Kontrol lera att du använder [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) -modulen. Det här steget är viktigt om du har installerat både [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) -modulen och [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) -modulen.
+1. Kontrol lera att du använder [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) -modulen. Det här steget är viktigt om du har installerat både [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) -modulen och [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) -modulen.
 
     ```powershell
     Remove-Module AzureAD -ErrorAction SilentlyContinue
@@ -130,7 +130,7 @@ När appens medgivande princip har skapats kan du tillåta att [användarens med
 
 I följande tabell visas en lista över de villkor som stöds för principer för program medgivande.
 
-| Condition (Väderförhållanden) | Beskrivning|
+| Condition (Väderförhållanden) | Description|
 |:---------------|:----------|
 | PermissionClassification | [Behörighets klassificeringen](configure-permission-classifications.md) för behörigheten som beviljas, eller "alla" så att den överensstämmer med behörighets klassificeringen (inklusive behörigheter som inte klassificeras). Standardvärdet är all. |
 | PermissionType | Behörighets typen för den behörighet som beviljas. Använd "program" för program behörigheter (t. ex. app-roller) eller "delegerad" för delegerade behörigheter. <br><br>**Obs!** värdet "delegatedUserConsentable" indikerar delegerade behörigheter som inte har kon figurer ATS av API-utgivaren för att kräva administrativt godkännande – det här värdet kan användas i inbyggda behörighets beviljande principer, men kan inte användas i anpassade behörighets beviljande principer. Krävs. |
@@ -149,7 +149,7 @@ Mer information:
 * [Konfigurera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md)
 * [Lär dig hur du hanterar medgivande till program och att utvärdera medgivande begär Anden](manage-consent-requests.md)
 * [Bevilja administratörsmedgivande för hela klientorganisationen till ett program](grant-admin-consent.md)
-* [Behörigheter och medgivande i Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
+* [Behörigheter och medgivande i Microsoft Identity Platform](../develop/v2-permissions-and-consent.md)
 
 För att få hjälp eller hitta svar på dina frågor:
 * [Azure AD på StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

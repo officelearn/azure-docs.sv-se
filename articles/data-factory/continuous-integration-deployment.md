@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 629c27602df14c0b35e2063d8db2d0b13bbff99a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635906"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658697"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -72,11 +72,11 @@ Följande är en guide för att konfigurera en Azure pipelines-lansering som aut
 
 1.  Öppna det projekt som har kon figurer ATS med din data fabrik i [Azure-DevOps](https://dev.azure.com/).
 
-1.  Välj **pipelines** på vänster sida av sidan och välj sedan **versioner** .
+1.  Välj **pipelines** på vänster sida av sidan och välj sedan **versioner**.
 
     ![Välj pipeliner, versioner](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  Välj **ny pipeline** eller, om du har befintliga pipeliner, väljer du **ny** och sedan **ny versions pipeline** .
+1.  Välj **ny pipeline** eller, om du har befintliga pipeliner, väljer du **ny** och sedan **ny versions pipeline**.
 
 1.  Välj den **tomma jobb** mal len.
 
@@ -84,29 +84,29 @@ Följande är en guide för att konfigurera en Azure pipelines-lansering som aut
 
 1.  I rutan **scen namn** anger du namnet på din miljö.
 
-1.  Välj **Lägg till artefakt** och välj sedan den git-lagringsplats som kon figurer ATS med utvecklings data fabriken. Välj [publicerings grenen](source-control.md#configure-publishing-settings) för lagrings platsen för **standard grenen** . Som standard är publicerings grenen `adf_publish` . Välj **senaste från standard gren** för **standard versionen** .
+1.  Välj **Lägg till artefakt** och välj sedan den git-lagringsplats som kon figurer ATS med utvecklings data fabriken. Välj [publicerings grenen](source-control.md#configure-publishing-settings) för lagrings platsen för **standard grenen**. Som standard är publicerings grenen `adf_publish` . Välj **senaste från standard gren** för **standard versionen**.
 
     ![Lägg till en artefakt](media/continuous-integration-deployment/continuous-integration-image7.png)
 
 1.  Lägg till en Azure Resource Manager distributions uppgift:
 
-    a.  I vyn fas väljer du **Visa fas aktiviteter** .
+    a.  I vyn fas väljer du **Visa fas aktiviteter**.
 
     ![Vyn fas](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Skapa en ny uppgift. Sök efter **distribution av arm-mall** och välj sedan **Lägg till** .
+    b.  Skapa en ny uppgift. Sök efter **distribution av arm-mall** och välj sedan **Lägg till**.
 
     c.  I distributions aktiviteten väljer du prenumeration, resurs grupp och plats för mål data fabriken. Ange autentiseringsuppgifter om det behövs.
 
-    d.  I listan **åtgärd** väljer du **skapa eller uppdatera resurs grupp** .
+    d.  I listan **åtgärd** väljer du **skapa eller uppdatera resurs grupp**.
 
-    e.  Välj knappen med tre punkter ( **...** ) bredvid rutan **mall** . Bläddra till den Azure Resource Manager-mall som genereras i publicerings grenen för den konfigurerade git-lagringsplatsen. Leta efter filen `ARMTemplateForFactory.json` i <FactoryName> mappen i adf_publish grenen.
+    e.  Välj knappen med tre punkter (**...**) bredvid rutan **mall** . Bläddra till den Azure Resource Manager-mall som genereras i publicerings grenen för den konfigurerade git-lagringsplatsen. Leta efter filen `ARMTemplateForFactory.json` i <FactoryName> mappen i adf_publish grenen.
 
     f.  Välj **...** bredvid rutan **mallparametrar** för att välja parameter filen. Leta efter filen `ARMTemplateParametersForFactory.json` i <FactoryName> mappen i adf_publish grenen.
 
     ex.  Välj **...** bredvid rutan **Åsidosätt mallparametrar** och ange önskade parameter värden för mål data fabriken. För autentiseringsuppgifter som kommer från Azure Key Vault anger du hemlighetens namn mellan dubbla citat tecken. Om t. ex. hemlighetens namn är cred1 anger du **"$ (cred1)"** för det här värdet.
 
-    h. Välj **stegvis** för **distributions läget** .
+    h. Välj **stegvis** för **distributions läget**.
 
     > [!WARNING]
     > I fullständigt distributions läge **raderas** resurser som finns i resurs gruppen men inte har angetts i den nya Resource Manager-mallen. Mer information finns i [Azure Resource Manager distributions lägen](../azure-resource-manager/templates/deployment-modes.md)
@@ -115,7 +115,7 @@ Följande är en guide för att konfigurera en Azure pipelines-lansering som aut
 
 1.  Spara versions pipelinen.
 
-1. Om du vill utlösa en version väljer du **Skapa version** . För att automatisera skapandet av versioner, se [Azure DevOps release triggers](/azure/devops/pipelines/release/triggers?view=azure-devops)
+1. Om du vill utlösa en version väljer du **Skapa version**. För att automatisera skapandet av versioner, se [Azure DevOps release triggers](/azure/devops/pipelines/release/triggers?view=azure-devops)
 
    ![Välj Skapa version](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -189,7 +189,7 @@ Data Factory-teamet har angett ett [skript före och efter distribution](#script
 
    ![Exportera en Resource Manager-mall](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-1. I test-och produktions data fabrikerna väljer du **Importera arm-mall** . Den här åtgärden tar dig till Azure Portal, där du kan importera den exporterade mallen. Välj **skapa en egen mall i redigeraren** för att öppna Principeditorn i Resource Manager.
+1. I test-och produktions data fabrikerna väljer du **Importera arm-mall**. Den här åtgärden tar dig till Azure Portal, där du kan importera den exporterade mallen. Välj **skapa en egen mall i redigeraren** för att öppna Principeditorn i Resource Manager.
 
    ![Bygg en egen mall](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
@@ -225,7 +225,7 @@ När du exporterar en Resource Manager-mall Data Factory läser filen från den 
 
 ### <a name="custom-parameter-syntax"></a>Anpassad parameter-syntax
 
-Nedan följer några rikt linjer som du följer när du skapar den anpassade parameter filen **arm-template-parameters-definition.jspå** . Filen består av ett avsnitt för varje entitetstyp: utlösare, pipeline, länkad tjänst, data uppsättning, integration Runtime och data flöde.
+Nedan följer några rikt linjer som du följer när du skapar den anpassade parameter filen **arm-template-parameters-definition.jspå**. Filen består av ett avsnitt för varje entitetstyp: utlösare, pipeline, länkad tjänst, data uppsättning, integration Runtime och data flöde.
 
 * Ange sökvägen till egenskapen under den relevanta entitetstypen.
 * Om du anger ett egenskaps namn för att ange att `*` du vill Parameterisera alla egenskaper under den (enbart till den första nivån, inte rekursivt). Du kan också ange undantag för den här konfigurationen.
@@ -317,7 +317,7 @@ Här är en förklaring av hur föregående mall skapas, uppdelat efter resurs t
 #### <a name="triggers"></a>Utlösare
 
 * Under `typeProperties` , har två egenskaper parametriserade. Det första är `maxConcurrency` , som har angetts att ha ett standardvärde och är av typen `string` . Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency` .
-* `recurrence`Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number` . Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . På samma sätt `freq` är egenskapen en sträng och är parameterstyrda som en sträng. `freq`Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Till exempel `<entityName>_freq`.
+* `recurrence`Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number` . Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . På samma sätt `freq` är egenskapen en sträng och är parameterstyrda som en sträng. `freq`Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Exempelvis `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
@@ -633,19 +633,23 @@ Om du distribuerar en fabrik till produktion och inser att det finns en bugg som
 
 10.   Lägg till ändringarna från snabb korrigeringen till utvecklings grenen så att senare versioner inte tar med samma fel.
 
+Se videon under en djupgående video genom gång om hur du kan åtgärda dina miljöer. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
 ## <a name="best-practices-for-cicd"></a>Metod tips för CI/CD
 
 Om du använder git-integrering med din data fabrik och har en CI/CD-pipeline som flyttar dina ändringar från utveckling till test och sedan till produktion, rekommenderar vi följande metod tips:
 
--   **Git-integrering** . Konfigurera endast din utvecklings data fabrik med git-integrering. Ändringar av test och produktion distribueras via CI/CD och kräver inte git-integrering.
+-   **Git-integrering**. Konfigurera endast din utvecklings data fabrik med git-integrering. Ändringar av test och produktion distribueras via CI/CD och kräver inte git-integrering.
 
--   **Skript för för-och efter distribution** . Innan du utför distributions steget i Resource Manager i CI/CD måste du slutföra vissa åtgärder, t. ex. stoppa och starta om utlösare och rensning. Vi rekommenderar att du använder PowerShell-skript före och efter distributions aktiviteten. Mer information finns i [Uppdatera aktiva utlösare](#updating-active-triggers). Data Factory-teamet har [angett ett skript](#script) som ska användas längst ned på den här sidan.
+-   **Skript för för-och efter distribution**. Innan du utför distributions steget i Resource Manager i CI/CD måste du slutföra vissa åtgärder, t. ex. stoppa och starta om utlösare och rensning. Vi rekommenderar att du använder PowerShell-skript före och efter distributions aktiviteten. Mer information finns i [Uppdatera aktiva utlösare](#updating-active-triggers). Data Factory-teamet har [angett ett skript](#script) som ska användas längst ned på den här sidan.
 
--   **Integrerings körningar och delning** . Integrerings körningar ändras inte ofta och liknar varandra i alla steg i CI/CD. Så Data Factory förväntar dig att du har samma namn och typ av integration runtime i alla stadier av CI/CD. Om du vill dela integrerings körningar i alla faser bör du överväga att använda en ternär fabrik som bara innehåller de delade integrerings körningarna. Du kan använda den här delade fabriken i alla dina miljöer som en länkad integration runtime-typ.
+-   **Integrerings körningar och delning**. Integrerings körningar ändras inte ofta och liknar varandra i alla steg i CI/CD. Så Data Factory förväntar dig att du har samma namn och typ av integration runtime i alla stadier av CI/CD. Om du vill dela integrerings körningar i alla faser bör du överväga att använda en ternär fabrik som bara innehåller de delade integrerings körningarna. Du kan använda den här delade fabriken i alla dina miljöer som en länkad integration runtime-typ.
 
--   **Distribution av hanterad privat slut punkt** . Om det redan finns en privat slut punkt i en fabrik och du försöker distribuera en ARM-mall som innehåller en privat slut punkt med samma namn, men med ändrade egenskaper, kommer distributionen att Miss Förslut. Med andra ord kan du distribuera en privat slut punkt så länge den har samma egenskaper som den som redan finns i fabriken. Om någon egenskap skiljer sig mellan miljöer kan du åsidosätta den genom att parametriserade den egenskapen och ange respektive värde under distributionen.
+-   **Distribution av hanterad privat slut punkt**. Om det redan finns en privat slut punkt i en fabrik och du försöker distribuera en ARM-mall som innehåller en privat slut punkt med samma namn, men med ändrade egenskaper, kommer distributionen att Miss Förslut. Med andra ord kan du distribuera en privat slut punkt så länge den har samma egenskaper som den som redan finns i fabriken. Om någon egenskap skiljer sig mellan miljöer kan du åsidosätta den genom att parametriserade den egenskapen och ange respektive värde under distributionen.
 
--   **Key Vault** . När du använder länkade tjänster vars anslutnings information lagras i Azure Key Vault rekommenderar vi att du håller separata nyckel valv för olika miljöer. Du kan också konfigurera separata behörighets nivåer för varje nyckel valv. Till exempel kanske du inte vill att dina team medlemmar ska ha behörighet till produktions hemligheter. Om du följer den här metoden rekommenderar vi att du behåller samma hemliga namn i alla steg. Om du behåller samma hemliga namn behöver du inte Parameterisera varje anslutnings sträng i CI/CD-miljöer eftersom det enda som ändras är nyckel valvets namn, som är en separat parameter.
+-   **Key Vault**. När du använder länkade tjänster vars anslutnings information lagras i Azure Key Vault rekommenderar vi att du håller separata nyckel valv för olika miljöer. Du kan också konfigurera separata behörighets nivåer för varje nyckel valv. Till exempel kanske du inte vill att dina team medlemmar ska ha behörighet till produktions hemligheter. Om du följer den här metoden rekommenderar vi att du behåller samma hemliga namn i alla steg. Om du behåller samma hemliga namn behöver du inte Parameterisera varje anslutnings sträng i CI/CD-miljöer eftersom det enda som ändras är nyckel valvets namn, som är en separat parameter.
 
 -  **Resurs namn** På grund av begränsningar i ARM-mallar kan problem i distributionen uppstå om dina resurser innehåller blank steg i namnet. Azure Data Factorys teamet rekommenderar att du använder "_" eller "-" tecken i stället för utrymme för resurser. Till exempel är Pipeline_1 ett hellre namn över "pipelining 1".
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/16/2020
 ms.author: b-juche
-ms.openlocfilehash: d4e66511ce3017749076615f081a8fb56d8b8452
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 5409f9177116add1fd794ec1e72f276daf34e029
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591554"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659156"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -150,7 +150,7 @@ Ja, du måste skapa en Active Directory anslutning innan du distribuerar en SMB-
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Hur många Active Directory-anslutningar stöds?
 
-Azure NetApp Files har inte stöd för flera Active Directory (AD)-anslutningar i en *region* , även om AD-anslutningarna finns i olika NetApp-konton. Du kan dock ha flera AD-anslutningar i en enda *prenumeration* , förutsatt att AD-anslutningarna finns i olika regioner. Om du behöver flera AD-anslutningar i en enda region kan du använda separata prenumerationer för att göra det. 
+Azure NetApp Files har inte stöd för flera Active Directory (AD)-anslutningar i en *region*, även om AD-anslutningarna finns i olika NetApp-konton. Du kan dock ha flera AD-anslutningar i en enda *prenumeration*, förutsatt att AD-anslutningarna finns i olika regioner. Om du behöver flera AD-anslutningar i en enda region kan du använda separata prenumerationer för att göra det. 
 
 En AD-anslutning har kon figurer ATS per NetApp-konto. AD-anslutningen visas bara via det NetApp-konto som den skapas i.
 
@@ -167,6 +167,10 @@ Azure NetApp Files stöder Windows Server 2008r2SP1-2019-versioner av Active Dir
 ### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Varför visar det tillgängliga utrymmet på min SMB-klient inte den etablerade storleken?
 
 Den volym storlek som rapporteras av SMB-klienten är den maximala storlek som Azure NetApp Files volymen kan växa till. Storleken på Azure NetApp Files volymen som det visas på SMB-klienten reflekterar inte volymens kvot eller storlek. Du kan få Azure NetApp Files volym storlek eller kvot genom Azure Portal eller API: et.
+
+### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>Jag har problem med att ansluta till min SMB-resurs. Vad ska jag göra?
+
+Vi rekommenderar att du anger den maximala toleransen för synkronisering av dator klockor till fem minuter. Mer information finns i [Max tolerans för synkronisering av dator klockor](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
 
 <!--
 ### Does Azure NetApp Files support LDAP signing? 

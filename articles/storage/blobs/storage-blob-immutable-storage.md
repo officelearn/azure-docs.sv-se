@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 54014a0d76130b82788a1ae432e42baec28df2c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39fdde572e269bb4f5648e91bf85539d02236ff6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448336"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658561"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Lagra affärs kritiska BLOB-data med oföränderlig lagring
 
@@ -102,23 +102,27 @@ Följande begränsningar gäller för juridiska undantag:
 - För en behållare behålls det maximala antalet gransknings loggar för den här principen.
 
 ## <a name="scenarios"></a>Scenarier
+
 I följande tabell visas de typer av Blob Storage-åtgärder som har inaktiverats för olika scenarier. Mer information finns i REST API dokumentationen för [Azure Blob service](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) .
 
-|Scenario  |BLOB-tillstånd  |Nekade BLOB-åtgärder  |Skydd av behållare och konto
-|---------|---------|---------|---------|
-|Effektivt kvarhållningsintervall för blobben har ännu inte gått ut och/eller bevarande av juridiska skäl har angetts     |Oåterkallelig: både ta bort- och skrivskyddad         | Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ta bort behållare, ta bort BLOB, ange BLOB-metadata, sätt sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis Copy-BLOB, Lägg till block<sup>2</sup>         |Borttagning av container nekad; Borttagning av lagrings konto nekades         |
-|Det gällande kvarhållningsintervallet i blobben har upphört att gälla och inget juridiskt undantag har angetts    |Skrivskyddad endast (ta bort tillåts)         |Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ange BLOB-metadata, placerings sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis kopia-BLOB, tillägg block<sup>2</sup>         |Borttagning av behållare nekas om det finns minst 1 BLOB i den skyddade behållaren. Borttagning av lagrings konto nekas endast för *låsta* tidsbaserade principer         |
-|Ingen WORM-princip har tillämpats (ingen tidsbaserad kvarhållning och inget juridiskt undantags märke)     |Föränderlig         |Inget         |Inget         |
+| Scenario | BLOB-tillstånd | Nekade BLOB-åtgärder | Skydd av behållare och konto |
+|--|--|--|--|
+| Effektivt kvarhållningsintervall för blobben har ännu inte gått ut och/eller bevarande av juridiska skäl har angetts | Oåterkallelig: både ta bort- och skrivskyddad | Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ta bort behållare, ta bort BLOB, ange BLOB-metadata, sätt sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis Copy-BLOB, Lägg till block<sup>2</sup> | Borttagning av container nekad; Borttagning av lagrings konto nekades |
+| Det gällande kvarhållningsintervallet i blobben har upphört att gälla och inget juridiskt undantag har angetts | Skrivskyddad endast (ta bort tillåts) | Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ange BLOB-metadata, placerings sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis kopia-BLOB, tillägg block<sup>2</sup> | Borttagning av behållare nekas om det finns minst 1 BLOB i den skyddade behållaren. Borttagning av lagrings konto nekas endast för *låsta* tidsbaserade principer |
+| Ingen WORM-princip har tillämpats (ingen tidsbaserad kvarhållning och inget juridiskt undantags märke) | Föränderlig | Inga | Inga |
 
 <sup>1</sup> Blob-tjänsten tillåter dessa åtgärder att skapa en ny BLOB en gång. Alla efterföljande överskrivnings åtgärder på en befintlig BLOB-sökväg i en oföränderlig container är inte tillåtna.
 
 <sup>2</sup> append-block tillåts endast för tidsbaserade bevarande principer med `allowProtectedAppendWrites` egenskapen aktive rad. Mer information finns i avsnittet [Tillåt att skyddade bifogade blobbar skrivs](#allow-protected-append-blobs-writes) .
 
+> [!IMPORTANT]
+> Vissa arbets belastningar, till exempel [SQL-säkerhetskopiering till URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url), skapar en blob och lägger sedan till den. Om behållaren har en aktiv tidsbaserad bevarande princip eller ett juridiskt undantag, kommer det här mönstret inte att fungera.
+
 ## <a name="pricing"></a>Prissättning
 
 Det kostar inget extra att använda den här funktionen. Oföränderliga data priss ätts på samma sätt som föränderligt-data. Pris information om Azure Blob Storage finns på sidan med [Azure Storage priser](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **Kan du ge dokumentation om WORM-kompatibilitet?**
 

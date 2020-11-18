@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87190e9a7aa3c3a26b77220dd0332d65c640bc2e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763218"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659003"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Hantera certifikat för federerad enkel inloggning i Azure Active Directory
 
@@ -77,7 +77,7 @@ Sedan laddar du ned det nya certifikatet i rätt format, laddar upp det till pro
 
 1. I anvisningarna anger du det kodnings format som krävs för att ladda upp certifikatet.
 1. Följ anvisningarna i avsnittet [automatiskt genererat certifikat för galleriet och program som inte är Galleri program](#auto-generated-certificate-for-gallery-and-non-gallery-applications) tidigare. Det här steget hämtar certifikatet i kodnings formatet som krävs för att ladda upp programmet.
-1. När du vill gå över till det nya certifikatet går du tillbaka till sidan **SAML-signeringscertifikat** och väljer sedan ellipsen (**...**) i den nyligen sparade certifikat raden och väljer **gör certifikat aktivt**. Status för det nya certifikatet ändras till **aktiv**och det tidigare aktiva certifikatet har ändrats till statusen **inaktiv**.
+1. När du vill gå över till det nya certifikatet går du tillbaka till sidan **SAML-signeringscertifikat** och väljer sedan ellipsen (**...**) i den nyligen sparade certifikat raden och väljer **gör certifikat aktivt**. Status för det nya certifikatet ändras till **aktiv** och det tidigare aktiva certifikatet har ändrats till statusen **inaktiv**.
 1. Fortsätt följa de konfigurations anvisningar för SAML-inloggning som du visade tidigare, så att du kan överföra SAML-signerings certifikatet i rätt kodnings format.
 
 ## <a name="add-email-notification-addresses-for-certificate-expiration"></a>Lägg till e-postavisering om att certifikatet upphör att gälla
@@ -111,4 +111,4 @@ Om ett certifikat håller på att gå ut kan du förnya det med en procedur som 
 - [Självstudier för att integrera SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md)
 - [Programhantering med Azure Active Directory](what-is-application-management.md)
 - [Enkel inloggning till program i Azure Active Directory](what-is-single-sign-on.md)
-- [Felsöka SAML-baserad enkel inloggning för program i Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Felsöka SAML-baserad enkel inloggning för program i Azure Active Directory](./debug-saml-sso-issues.md)

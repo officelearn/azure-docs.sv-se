@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5c9b47bf5d638f3c15416416a435653eeb68505
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 46ab1df1b776bf8dc9d6d917e5394c3efeec0de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172052"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659394"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Snabb start: skapa en Azure datasynapses-arbetsyta med Azure CLI
 
@@ -22,7 +22,7 @@ Azure CLI är Azures kommandoradsmiljö för att hantera Azure-resurser. Du kan 
 
 I den här snabb starten lär du dig att skapa en Synapse-arbetsyta med hjälp av Azure CLI.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,34 +32,13 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
     > [!IMPORTANT]
     > Azure Synapse-arbetsytan måste kunna läsa och skriva till det valda ADLS Gen2 kontot. För alla lagrings konton som du länkar som primärt lagrings konto måste du dessutom ha aktiverat **hierarkiskt namn område**  när lagrings kontot skapas, enligt beskrivningen på sidan [skapa en lagrings kontot](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account) . 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="install-the-azure-cli-locally"></a>Installera Azure CLI lokalt
-
-Om du väljer att installera och använda Azure CLI lokalt kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
-
-Om du kör Azure CLI lokalt måste du logga in och autentisera. Det här steget är inte nödvändigt om du använder Azure Cloud Shell. Logga in på Azure CLI genom att köra `az login` och autentisera i webbläsarfönstret:
-
-```azurecli
-az login
-```
-
-Mer information om autentisering med Azure CLI finns i [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli).
-
-## <a name="install-azure-synapse-extension-for-azure-cli"></a>Installera Azure Synapse-tillägget för Azure CLI
-
-```azurecli
-az extension add --name synapse
-```
-
-> [!WARNING]
-> Azure Synapse-tillägget för Azure CLI är i för hands version.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-cli"></a>Skapa en Azure dataSynapses-arbetsyta med hjälp av Azure CLI
 
 1. Definiera nödvändiga miljövariabler för att skapa resurser för Azure dataSynapses-arbetsytan.
 
-    | Miljövariabelns namn | Beskrivning |
+    | Miljövariabelns namn | Description |
     |---|---|---|
     |StorageAccountName| Namn på ditt befintliga ADLS Gen2 lagrings konto.|
     |StorageAccountResourceGroup| Namnet på din befintliga ADLS Gen2 lagrings konto resurs grupp. |

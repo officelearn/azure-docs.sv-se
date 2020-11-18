@@ -15,12 +15,12 @@ ms.date: 03/13/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779d1b73f45f9be5b4bd00d546987b7c1e0b6a43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 820e2cb0d422597f0e649e6934fd8bb11c1521db
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763354"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659037"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Gör så här: Konfigurera Azure AD SAML-token-kryptering
 
@@ -78,7 +78,7 @@ Du kan lägga till det offentliga certifikatet i program konfigurationen i Azure
 
 ### <a name="to-deactivate-token-encryption-in-the-azure-portal"></a>Inaktivera token-kryptering i Azure Portal
 
-1. I Azure Portal går du till **Azure Active Directory > företags program**och väljer sedan det program som har SAML token Encryption aktiverat.
+1. I Azure Portal går du till **Azure Active Directory > företags program** och väljer sedan det program som har SAML token Encryption aktiverat.
 
 1. På sidan program väljer du **token-kryptering**, letar reda på certifikatet och väljer sedan alternativet **...** för att Visa List menyn.
 
@@ -124,7 +124,7 @@ När du konfigurerar en inloggnings information med Graph, PowerShell eller i pr
 
 1. Använd den senaste Azure AD PowerShell-modulen för att ansluta till din klient organisation.
 
-1. Ange krypterings inställningarna för token med kommandot **[set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** .
+1. Ange krypterings inställningarna för token med kommandot **[set-AzureApplication](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** .
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>

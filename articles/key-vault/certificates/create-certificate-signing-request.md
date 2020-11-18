@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: a85656909df5538f9f57e05d79ae768623d7eba6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c8f11f17c9e110509dcbcda291194f9b8d928c50
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289604"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658969"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Skapa och sammanfoga CSR i Key Vault
 
@@ -25,7 +25,15 @@ Mer allmän information om certifikat finns i [Azure Key Vault certifikat](./abo
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="adding-certificate-in-key-vault-issued-by-a-non-trusted-ca"></a>Lägga till certifikat i Key Vault som utfärdats av en icke-betrodd certifikat utfärdare
+## <a name="adding-certificate-in-key-vault-issued-by-partnered-ca"></a>Lägga till certifikat i Key Vault utfärdat av en partner certifikat utfärdare
+Key Vault partner med följande två certifikat utfärdare för att förenkla skapandet av certifikat. 
+
+|Leverantör|Certifikattyp|Konfigurations konfiguration  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault erbjuder OV eller EV SSL-certifikat med DigiCert| [Integrations guide](./how-to-integrate-certificate-authority.md)
+|GlobalSign|Key Vault erbjuder OV eller EV SSL-certifikat med GlobalSign| [Integrations guide](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+
+## <a name="adding-certificate-in-key-vault-issued-by-non-partnered-ca"></a>Lägga till certifikat i Key Vault som utfärdats av en icke-partner CA
 
 Följande steg hjälper dig att skapa ett certifikat från certifikat utfärdare som inte är partner med Key Vault (till exempel är GoDaddy inte en betrodd Key Vault-certifikatutfärdare) 
 

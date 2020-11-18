@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ce3819ff1f9b0c61f7738f90ff17c2798fe888b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9699f425b296f1c88162c78b8f86de74303747be
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642120"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658340"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralisera program hantering med Azure AD
 
@@ -42,8 +42,8 @@ Det går inte att hantera lösen ord. Få säker åtkomst till alla resurser du 
 
 |Funktion  | Beskrivning | Rekommendation |
 |---------|---------|---------|
-|Enkel inloggning|Standardbaserad federerad enkel inloggning med tillförlitliga bransch standarder.|Använd alltid [SAML/OIDC](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-choose-multi-tenant-federation) för att aktivera SSO när ditt program stöder det.|
-|Mina appar|Erbjud dina användare en enkel hubb för att upptäcka och komma åt alla sina program. Gör det möjligt för dem att bli mer produktiva med självbetjänings funktioner, t. ex. att begära åtkomst till appar och grupper eller att hantera åtkomst till resurser för andras räkning.| Distribuera [Mina appar](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) i din organisation när du har integrerat dina appar med Azure AD för enkel inloggning.|
+|Enkel inloggning|Standardbaserad federerad enkel inloggning med tillförlitliga bransch standarder.|Använd alltid [SAML/OIDC](../develop/v2-howto-app-gallery-listing.md) för att aktivera SSO när ditt program stöder det.|
+|Mina appar|Erbjud dina användare en enkel hubb för att upptäcka och komma åt alla sina program. Gör det möjligt för dem att bli mer produktiva med självbetjänings funktioner, t. ex. att begära åtkomst till appar och grupper eller att hantera åtkomst till resurser för andras räkning.| Distribuera [Mina appar](./access-panel-deployment-plan.md) i din organisation när du har integrerat dina appar med Azure AD för enkel inloggning.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Scenario 2: automatisera etablering och avetablering 
 
@@ -53,7 +53,7 @@ De flesta program kräver att en användare är etablerad i programmet innan de 
 
 |Funktion  |Beskrivning|Rekommendation |
 |---------|---------|---------|
-|SCIM-etablering|[Scim](https://aka.ms/SCIMOverview) är en bästa praxis för automatisering av användar etablering. Alla SCIM-kompatibla program kan integreras med Azure AD. Skapa, uppdatera och ta bort användar konton automatiskt utan att behöva hantera CSV-filer, anpassade skript eller lokal-lösningar.|Kolla in den växande listan över [förintegrerade](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) appar i Azure AD App-galleriet|
+|SCIM-etablering|[Scim](https://aka.ms/SCIMOverview) är en bästa praxis för automatisering av användar etablering. Alla SCIM-kompatibla program kan integreras med Azure AD. Skapa, uppdatera och ta bort användar konton automatiskt utan att behöva hantera CSV-filer, anpassade skript eller lokal-lösningar.|Kolla in den växande listan över [förintegrerade](../saas-apps/tutorial-list.md) appar i Azure AD App-galleriet|
 |Microsoft Graph|Använd inandning och data djupet som Azure AD har för att förbättra ditt program med de data som krävs.|Utnyttja [Microsoft Graph](https://developer.microsoft.com/graph/) för att hämta data från Microsoft-eko systemet. |
 
 
@@ -63,17 +63,17 @@ Identiteten är grundbult för säkerhet. Om en identitet blir komprometterad ä
 |Funktion  |Beskrivning| Rekommendation |
 |---------|---------| ---------|
 |Azure MFA|Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Med hjälp av godkända autentiseringsmetoder bidrar Azure MFA till att skydda åtkomsten till dina data och program samtidigt som du kan uppfylla behovet av en enkel inloggnings process.| [Aktivera MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) för dina användare.  |
-|Villkorlig åtkomst|Med villkorlig åtkomst kan du implementera automatiska åtkomst kontroll beslut för vilka som kan komma åt dina molnappar, baserat på villkor.| Granska [säkerhets inställningarna](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) och de [vanliga principerna](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common) som kunderna använder. | 
-|Identity Protection|Identitets skydd använder den information som Microsoft har förvärvat från sin ståndpunkt i organisationer med Azure AD, konsument utrymmet med Microsoft-konton och i spel med Xbox för att skydda dina användare. Microsoft analyserar 6 500 000 000 000-signaler per dag för att identifiera och skydda kunder mot hot.|Aktivera [standard principerna för identitets skydd](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-policies) som tillhandahålls av vår tjänst. | 
+|Villkorlig åtkomst|Med villkorlig åtkomst kan du implementera automatiska åtkomst kontroll beslut för vilka som kan komma åt dina molnappar, baserat på villkor.| Granska [säkerhets inställningarna](../fundamentals/concept-fundamentals-security-defaults.md) och de [vanliga principerna](../conditional-access/concept-conditional-access-policy-common.md) som kunderna använder. | 
+|Identity Protection|Identitets skydd använder den information som Microsoft har förvärvat från sin ståndpunkt i organisationer med Azure AD, konsument utrymmet med Microsoft-konton och i spel med Xbox för att skydda dina användare. Microsoft analyserar 6 500 000 000 000-signaler per dag för att identifiera och skydda kunder mot hot.|Aktivera [standard principerna för identitets skydd](../identity-protection/concept-identity-protection-policies.md) som tillhandahålls av vår tjänst. | 
 
 ## <a name="scenario-4-govern-access-to-your-applications"></a>Scenario 4: styr åtkomsten till dina program
 Identitets styrning hjälper organisationer att få en balans mellan produktiviteten – hur snabbt kan en person ha åtkomst till de program som de behöver, till exempel när de ansluter till min organisation? Och säkerhet – hur ska deras åtkomst ändras över tid, till exempel på grund av ändringar i personens anställnings status? 
 
 |Funktion  |Beskrivning|Rekommendation |
 |---------|---------| ---------|
-|GYMNASIUM|Hantering av Azure AD-behörighet kan hjälpa användare både i och utanför organisationen att hantera åtkomst till sina program effektivt.| Tillåt icke-administratörer att hantera åtkomst till sina program med [åtkomst paket](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-first).|
-|Åtkomstgranskningar|Användarens åtkomst till appar kan granskas regelbundet för att se till att endast rätt personer har fortsatt åtkomst.| [Granska åtkomst](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) till dina mest känsliga program. |
-|Log Analytics|Generera rapporter om vem som har åtkomst till vilka program och lagra dem i ditt SIEM-verktyg som du kan använda för att korrelera data mellan data källor och över tid.| Aktivera [Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) och konfigurera aviseringar för kritiska händelser relaterade till dina program. |
+|GYMNASIUM|Hantering av Azure AD-behörighet kan hjälpa användare både i och utanför organisationen att hantera åtkomst till sina program effektivt.| Tillåt icke-administratörer att hantera åtkomst till sina program med [åtkomst paket](../governance/entitlement-management-access-package-first.md).|
+|Åtkomstgranskningar|Användarens åtkomst till appar kan granskas regelbundet för att se till att endast rätt personer har fortsatt åtkomst.| [Granska åtkomst](../governance/access-reviews-overview.md) till dina mest känsliga program. |
+|Log Analytics|Generera rapporter om vem som har åtkomst till vilka program och lagra dem i ditt SIEM-verktyg som du kan använda för att korrelera data mellan data källor och över tid.| Aktivera [Log Analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) och konfigurera aviseringar för kritiska händelser relaterade till dina program. |
 
 
 ## <a name="scenario-5-hybrid-secure-access"></a>Scenario 5: hybrid säker åtkomst
@@ -81,14 +81,14 @@ Identiteten kan bara vara ditt kontroll plan om den kan ansluta allt över molne
 
 |Funktion  |Beskrivning|Rekommendation |
 |---------|---------|---------|
-|Programproxy|I dag vill anställda vara produktiva var som helst, när som helst och från valfri enhet. De behöver åtkomst till SaaS-appar i molnet och i företags program lokalt. Azure AD Application Proxy ger denna robust åtkomst utan kostsamma och komplexa virtuella privata nätverk (VPN) eller demilitariserad zoner (DMZs).|Konfigurera [fjärråtkomst](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) för dina lokal-appar. |
-|F5, Akamai, Zscaler|Med hjälp av din befintliga nätverks-och leverans kontroll kan du enkelt skydda äldre program som fortfarande är kritiska för dina affärs processer, men som du inte kunde skydda innan Azure AD. Det är troligt att du redan har allt du behöver för att börja skydda programmen.| Använder du Akamai, Citrix, F5 eller Zscaler? Ta en titt på våra färdiga [lösningar](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access). | 
+|Programproxy|I dag vill anställda vara produktiva var som helst, när som helst och från valfri enhet. De behöver åtkomst till SaaS-appar i molnet och i företags program lokalt. Azure AD Application Proxy ger denna robust åtkomst utan kostsamma och komplexa virtuella privata nätverk (VPN) eller demilitariserad zoner (DMZs).|Konfigurera [fjärråtkomst](./application-proxy.md) för dina lokal-appar. |
+|F5, Akamai, Zscaler|Med hjälp av din befintliga nätverks-och leverans kontroll kan du enkelt skydda äldre program som fortfarande är kritiska för dina affärs processer, men som du inte kunde skydda innan Azure AD. Det är troligt att du redan har allt du behöver för att börja skydda programmen.| Använder du Akamai, Citrix, F5 eller Zscaler? Ta en titt på våra färdiga [lösningar](./secure-hybrid-access.md). | 
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
-- [Programhantering](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
-- [Programetablering](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
-- [Hybrid säker åtkomst](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
-- [Identitets styrning](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
-- [Microsoft identitetsplattform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
-- [Identitets säkerhet](https://docs.microsoft.com/azure/active-directory/conditional-access/index)
+- [Programhantering](./index.yml)
+- [Programetablering](../app-provisioning/user-provisioning.md)
+- [Hybrid säker åtkomst](./secure-hybrid-access.md)
+- [Identitetsstyrning](../governance/identity-governance-overview.md)
+- [Microsoft identitetsplattform](../develop/v2-overview.md)
+- [Identitets säkerhet](../conditional-access/index.yml)

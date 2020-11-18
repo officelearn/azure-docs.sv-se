@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2625698ae1d76dbae3ed8a8855b88dd6ac7bb17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79bc43bb2fa99f95a462dcc4c68d27840199b45c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763694"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658544"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Avancerade alternativ för certifikat signering i SAML-token för Galleri-appar i Azure Active Directory
 
@@ -69,11 +69,11 @@ Om du vill ändra ett programs signerings alternativ för SAML-certifikat och al
 
    ![Exempel: sidan för SAML-signerings certifikat](./media/certificate-signing-options/saml-signing-page.png)
 
-1. I list rutan **signerings alternativ väljer du** **signera SAML-svar**, **signera SAML-kontroll**eller **signera SAML-svar och kontroll**. Beskrivningar av de här alternativen visas tidigare i den här artikeln i [alternativ för certifikat signering](#certificate-signing-options).
+1. I list rutan **signerings alternativ väljer du** **signera SAML-svar**, **signera SAML-kontroll** eller **signera SAML-svar och kontroll**. Beskrivningar av de här alternativen visas tidigare i den här artikeln i [alternativ för certifikat signering](#certificate-signing-options).
 1. I list rutan **Signeringsalgoritm** väljer du **SHA-1** eller **SHA-256**. Beskrivningar av de här alternativen visas tidigare i den här artikeln i avsnittet [algoritmer för certifikat signering](#certificate-signing-algorithms) .
 1. Om du är nöjd med dina val väljer du **Spara** för att tillämpa de nya certifikat inställningarna för SAML-signering. Annars väljer du **X** för att ignorera ändringarna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera enkel inloggning till program som inte finns i Azure Active Directory app-galleriet](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Felsöka SAML-baserad enkel inloggning](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Konfigurera enkel inloggning till program som inte finns i Azure Active Directory app-galleriet](./configure-saml-single-sign-on.md)
+* [Felsöka SAML-baserad enkel inloggning](./debug-saml-sso-issues.md)

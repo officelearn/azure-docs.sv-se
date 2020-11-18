@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923b83b388b58313e9613f0f8b71f266dcbeb028
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: be5ce5b3eebb2f784469680cf7614df6ca750b55
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282128"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658272"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD-programproxy-kopplingar
 
@@ -104,7 +104,7 @@ I allmänhet är ju fler användare som du har, desto större dator behöver du.
 > [!NOTE]
 > Det finns inte mycket skillnad på den maximala TPS mellan 4, 8 och 16 kärn datorer. Den största skillnaden mellan dem är i den förväntade svars tiden.
 >
-> Den här tabellen fokuserar också på förväntade prestanda för en anslutning baserat på vilken typ av dator den är installerad på. Detta är skilt från Application Proxy-tjänstens begränsnings gränser, se begränsningar [och begränsningar för tjänsten](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+> Den här tabellen fokuserar också på förväntade prestanda för en anslutning baserat på vilken typ av dator den är installerad på. Detta är skilt från Application Proxy-tjänstens begränsnings gränser, se begränsningar [och begränsningar för tjänsten](../enterprise-users/directory-service-limits-restrictions.md).
 
 ## <a name="security-and-networking"></a>Säkerhet och nätverk
 
@@ -155,7 +155,7 @@ De certifikat som används är specifika för Application Proxy-tjänsten. De sk
 
 När det första lyckade certifikatet har förnyats har Azure AD-programproxy Connector-tjänsten (nätverks tjänsten) inte behörighet att ta bort det gamla certifikatet från den lokala datorns Arkiv. Om certifikatet har upphört att gälla eller inte används av tjänsten längre, kan du ta bort det på ett säkert sätt.
 
-Undvik problem med certifikat förnyelsen genom att kontrol lera att nätverkskommunikation från anslutningen till de [dokumenterade målen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) är aktiverade.
+Undvik problem med certifikat förnyelsen genom att kontrol lera att nätverkskommunikation från anslutningen till de [dokumenterade målen](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) är aktiverade.
 
 Om en anslutning inte är ansluten till tjänsten under flera månader kan dess certifikat vara inaktuella. I det här fallet avinstallerar och installerar du om anslutningen för att utlösa registreringen. Du kan köra följande PowerShell-kommandon:
 
@@ -180,7 +180,7 @@ och Windows-prestandaräknare.
 
 Anslutningarna har både **Administratörs** -och **sessions** loggar. I **Administratörs** loggen ingår nyckel händelser och deras fel. I **sessionsnyckeln** ingår alla transaktioner och deras bearbetnings information.
 
-Öppna **Loggboken** och gå till **program-och tjänst loggar**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**för att se loggarna. Välj **Visa analytiska loggar och fel söknings loggar**på **Visa** -menyn om du vill visa loggen för **sessionen** . Loggen för **sessionen** används vanligt vis för fel sökning och är inaktive rad som standard. Aktivera det för att börja samla in händelser och inaktivera det när det inte längre behövs.
+Öppna **Loggboken** och gå till **program-och tjänst loggar**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector** för att se loggarna. Välj **Visa analytiska loggar och fel söknings loggar** på **Visa** -menyn om du vill visa loggen för **sessionen** . Loggen för **sessionen** används vanligt vis för fel sökning och är inaktive rad som standard. Aktivera det för att börja samla in händelser och inaktivera det när det inte längre behövs.
 
 Du kan kontrol lera tjänstens status i fönstret tjänster. Anslutningen består av två Windows-tjänster: den faktiska anslutningen och uppdateraren. Båda måste köras hela tiden.
 

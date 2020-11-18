@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab3b340654fd6d824edef0a33d1ea363a913654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 403fa4cab94ad6149e388b10acccd9d5e7a2b7a8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764595"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658170"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Hög tillgänglighet och belastnings utjämning för dina Application Proxy-kopplingar och-program
 
@@ -39,7 +39,7 @@ Anslutningar upprättar sina anslutningar baserat på principer för hög tillg�
 
 1. En användare på en klient enhet försöker komma åt ett lokalt program som publicerats via programproxy.
 2. Begäran går via en Azure Load Balancer för att avgöra vilken Application Proxy-tjänstinstans som ska ta begäran. Per region finns det flera instanser av tillgängliga instanser att acceptera begäran. Den här metoden hjälper till att jämnt distribuera trafiken över tjänst instanserna.
-3. Begäran skickas till [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/).
+3. Begäran skickas till [Service Bus](../../service-bus-messaging/index.yml).
 4. Service Bus signaler till en tillgänglig anslutning. Anslutningen hämtar sedan begäran från Service Bus.
    - I steg 2 går förfrågningar till olika Application Proxy Service-instanser, så det är mer sannolikt att anslutningar görs med olika anslutningar. Därför är kopplingarna nästan jämnt använda i gruppen.
 5. Anslutningen skickar begäran till programmets backend-server. Sedan skickar programmet tillbaka svaret till anslutnings tjänsten.
@@ -98,4 +98,4 @@ Läs program varu leverantörens dokumentation för att förstå belastnings Utj
 - [Aktivera enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Aktivera villkorlig åtkomst](application-proxy-integrate-with-sharepoint-server.md)
 - [Felsöka problem med Application Proxy](application-proxy-troubleshoot.md)
-- [Lär dig hur Azure AD-arkitekturen stöder hög tillgänglighet](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
+- [Lär dig hur Azure AD-arkitekturen stöder hög tillgänglighet](../fundamentals/active-directory-architecture.md)

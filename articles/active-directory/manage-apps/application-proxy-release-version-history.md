@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8000d07824c27f60dd5d8d6a457521691fe2b7d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210870"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658408"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD-programproxy: versions historik
 Den här artikeln innehåller versioner och funktioner i Azure Active Directory (Azure AD) Application Proxy som har släppts. Azure AD-teamet uppdaterar regelbundet programproxy med nya funktioner och funktioner. Application Proxy-kopplingar uppdateras automatiskt när en ny version släpps. 
@@ -38,7 +38,7 @@ Hämtning av Azure AD-programproxy Connector |  [Hämta den senaste anslutningen
 Den 22 juli 2020: lanserad för nedladdning den här versionen är bara tillgänglig för installation via nedladdnings sidan. En version av automatisk uppgradering av den här versionen kommer att frisläppas vid ett senare tillfälle.
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
--   Förbättrat stöd för Azure Government moln miljöer. Anvisningar om hur du installerar anslutningen för Azure Government Cloud genom att granska [kraven](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) och [installations stegen](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud).
+-   Förbättrat stöd för Azure Government moln miljöer. Anvisningar om hur du installerar anslutningen för Azure Government Cloud genom att granska [kraven](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) och [installations stegen](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 - Stöd för att använda Fjärrskrivbordstjänster-webbklient med programproxy. Mer information finns i [publicera fjärr skrivbord med Azure AD-programproxy](application-proxy-integrate-with-remote-desktop-services.md) .
 - Förbättrade förhandlingar om WebSocket-tillägg. 
 

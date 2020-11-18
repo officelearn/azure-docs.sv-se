@@ -12,12 +12,12 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d2d6645bea6e99e9f62e36364adf8816329c26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0a103ac9b8e6d29830b5ecd6732cd19547014b0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601147"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659071"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Dölj företags program från slutanvändare i Azure Active Directory
 
@@ -36,7 +36,7 @@ Använd följande steg för att dölja ett program från panelen för appar och 
 1.  Logga in på [Azure Portal](https://portal.azure.com) som global administratör för din katalog.
 2.  Välj **Azure Active Directory**.
 3.  Välj **företags program**. Bladet **företags program – alla program** öppnas.
-4.  Under **program typ**väljer du **företags program**, om det inte redan är markerat.
+4.  Under **program typ** väljer du **företags program**, om det inte redan är markerat.
 5.  Sök efter det program som du vill dölja och klicka på programmet.  Programmets översikt öppnas.
 6.  Klicka på **Egenskaper**. 
 7.  För frågan **synlig för användare?** klickar du på **Nej**.
@@ -47,7 +47,7 @@ Använd följande steg för att dölja ett program från panelen för appar och 
 
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Använd Azure AD PowerShell för att dölja ett program
 
-Om du vill dölja ett program från panelen Mina appar kan du manuellt lägga till HideApp-taggen till tjänstens huvud namn för programmet. Kör följande [AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) -kommandon för att ange programmets som **synlig för användarna?** -egenskapen till **Nej**. 
+Om du vill dölja ett program från panelen Mina appar kan du manuellt lägga till HideApp-taggen till tjänstens huvud namn för programmet. Kör följande [AzureAD PowerShell](/powershell/module/azuread/?view=azureadps-2.0#service_principals) -kommandon för att ange programmets som **synlig för användarna?** -egenskapen till **Nej**. 
 
 ```PowerShell
 Connect-AzureAD
@@ -67,13 +67,12 @@ Använd följande steg för att dölja alla Microsoft 365-program på panelen f�
 2.  Välj **Azure Active Directory**.
 3.  Välj **Användare**.
 4.  Välj **Användarinställningar**.
-5.  Under **företags program**klickar du på hantera hur slutanvändare **startar och visar sina program.**
+5.  Under **företags program** klickar du på hantera hur slutanvändare **startar och visar sina program.**
 6.  För **användare kan bara se office 365-appar i office 365-portalen**, klicka på **Ja**.
 7.  Klicka på **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Visa alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Tilldela en användare eller grupp till en företags app](assign-user-or-group-access-portal.md)
-* [Ta bort en användare eller grupp tilldelning från en företags app](remove-user-or-group-access-portal.md)
-* [Ändra namn eller logo typ för en företags app](change-name-or-logo-portal.md)
-
+* [Ta bort en användare eller grupp tilldelning från en företags app](./assign-user-or-group-access-portal.md)
+* [Ändra namn eller logo typ för en företags app](./add-application-portal-configure.md)

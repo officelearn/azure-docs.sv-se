@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 7e7a1de24e5032b2dade2f325560fd6964c892d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbbb5328f2d7e814be9b5b94ec522bbb01df39e5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86145695"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658255"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Felsöka problem med anslutningsprogram för programproxy 
 
@@ -44,7 +44,7 @@ Det här flödesschemat vägleder dig genom stegen för att felsöka några av d
 |---------|---------|---------|
 |1 | Hitta den kopplings grupp som har tilldelats appen | Du har förmodligen en anslutning som är installerad på flera servrar, i vilket fall kopplingarna ska [tilldelas till anslutnings grupper](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Läs mer om anslutnings grupper i [Publicera program i separata nätverk och platser med anslutnings grupper](application-proxy-connector-groups.md). |
 |2 | Installera anslutningen och tilldela en grupp | Om du inte har installerat en anslutning kan du läsa [Installera och registrera en anslutning](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> Om du har problem med att installera anslutningen, se [problem med att installera anslutningen](application-proxy-connector-installation-problem.md).<br></br> Om kopplingen inte är kopplad till en grupp, se [tilldela kopplingen till en grupp](application-proxy-connector-groups.md#create-connector-groups).<br></br>Om programmet inte har tilldelats någon kopplings grupp, se [tilldela programmet till en kopplings grupp](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|
-|3 | Köra ett port test på anslutnings servern | På kopplings servern kör du ett port test genom att använda [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) eller något annat port test verktyg för att kontrol lera om portarna [443 och 80 är öppna](application-proxy-add-on-premises-application.md#open-ports).|
+|3 | Köra ett port test på anslutnings servern | På kopplings servern kör du ett port test genom att använda [telnet](/windows-server/administration/windows-commands/telnet) eller något annat port test verktyg för att kontrol lera om portarna [443 och 80 är öppna](application-proxy-add-on-premises-application.md#open-ports).|
 |4 | Konfigurera domäner och portar | [Kontrol lera att dina domäner och portar är korrekt konfigurerade](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) För att anslutningen ska fungera korrekt finns det vissa portar som måste vara öppna och URL: er som servern måste kunna komma åt. |
 |5 | Kontrol lera om en server dels proxyserver används | Kontrol lera om anslutningarna använder Server dels proxyservrar eller kringgå dem. Mer information finns i [Felsöka problem med anslutnings proxy och tjänst anslutnings problem](application-proxy-configure-connectors-with-proxy-servers.md#troubleshoot-connector-proxy-problems-and-service-connectivity-issues). |
 |6 | Uppdatera anslutningen och uppdateraren så att den använder Server dels proxyn | Om en backend-proxy används bör du kontrol lera att anslutningen använder samma proxy. Information om hur du felsöker och konfigurerar anslutningar för att arbeta med proxyservrar finns i [arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md). |

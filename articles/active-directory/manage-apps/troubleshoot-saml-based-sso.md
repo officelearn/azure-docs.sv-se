@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 7f7f999c145903be5db3b20ab60bd0f5a18778ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e8508d4fceb1e7fb580350c726dd70eeaea31c6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463646"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658884"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Felsöka SAML-baserad enkel inloggning i Azure Active Directory
-Om det uppstår ett problem när du konfigurerar ett program. Kontrol lera att du har följt alla steg i självstudien för programmet. I programmets konfiguration har du infogat dokumentation om hur du konfigurerar programmet. Du kan också få åtkomst till [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) för en detaljerad steg-för-steg-guide.
+Om det uppstår ett problem när du konfigurerar ett program. Kontrol lera att du har följt alla steg i självstudien för programmet. I programmets konfiguration har du infogat dokumentation om hur du konfigurerar programmet. Du kan också få åtkomst till [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md) för en detaljerad steg-för-steg-guide.
 
 ## <a name="cant-add-another-instance-of-the-application"></a>Det går inte att lägga till en annan instans av programmet
 Om du vill lägga till en andra instans av ett program måste du kunna:
@@ -53,7 +53,7 @@ Om värdena inte matchar de mönster som förkonfigureras i Azure AD. Du kan:
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Var anger jag formatet för EntityID (användar identifierare)
 Du kan inte välja det EntityID-format (User Identifier) som Azure AD skickar till programmet i svaret efter användarautentisering.
 
-Azure AD väljer formatet för attributet NameID (användar identifierare) baserat på det värde som valts eller det format som begärdes av programmet i SAML-AuthRequest. Mer information finns i artikeln [Single Sign-On SAML Protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) i avsnittet NameIDPolicy.
+Azure AD väljer formatet för attributet NameID (användar identifierare) baserat på det värde som valts eller det format som begärdes av programmet i SAML-AuthRequest. Mer information finns i artikeln [Single Sign-On SAML Protocol](../develop/single-sign-on-saml-protocol.md#authnrequest) i avsnittet NameIDPolicy.
 
 ## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Det går inte att hitta Azure AD-metadata för att slutföra konfigurationen med programmet
 Följ dessa steg om du vill ladda ned metadata för programmet eller certifikatet från Azure AD:
@@ -70,7 +70,7 @@ Följ dessa steg om du vill ladda ned metadata för programmet eller certifikate
 Azure AD tillhandahåller inte en URL för att hämta metadata. Det går bara att hämta metadata som en XML-fil.
 
 ## <a name="customize-saml-claims-sent-to-an-application"></a>Anpassa SAML-anspråk som skickats till ett program
-Information om hur du anpassar SAML-attributets anspråk som skickas till ditt program finns i [anspråks mappning i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) för mer information.
+Information om hur du anpassar SAML-attributets anspråk som skickas till ditt program finns i [anspråks mappning i Azure Active Directory](../develop/active-directory-claims-mapping.md) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Snabb starts serie för program hantering](view-applications-portal.md)

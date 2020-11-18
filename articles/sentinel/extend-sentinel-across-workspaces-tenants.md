@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 502b93b4459fba4da04207d9186f8c7ce6b298c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d13f401fab126f57d07d405ab5d6ce461c26e139
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578486"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658952"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Utöka Azure Sentinel för arbetsytor och klientorganisationer
 
@@ -84,7 +84,7 @@ Azure Sentinel stöder en [incident vy för flera arbets ytor](./multiple-worksp
 Azure Sentinel stöder frågor till [flera arbets ytor i en enda fråga](../azure-monitor/log-query/cross-workspace-query.md), så att du kan söka efter och korrelera data från flera arbets ytor i en enda fråga. 
 
 - Använd [uttrycket arbets yta ()](../azure-monitor/log-query/workspace-expression.md) för att referera till en tabell i en annan arbets yta. 
-- Använd [union-operatorn](https://docs.microsoft.com/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) tillsammans med arbets ytan ()-uttrycket för att tillämpa en fråga över tabeller i flera arbets ytor.
+- Använd [union-operatorn](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) tillsammans med arbets ytan ()-uttrycket för att tillämpa en fråga över tabeller i flera arbets ytor.
 
 Du kan använda sparade [funktioner](../azure-monitor/log-query/functions.md) för att förenkla frågor över arbets ytor. Om en referens till en arbets yta till exempel är lång, kanske du vill spara uttrycket `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` som en funktion som kallas `SecurityEventCustomerA` . Du kan sedan skriva frågor som `SecurityEventCustomerA | where ...` .
 

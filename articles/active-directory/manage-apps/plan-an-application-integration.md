@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 913b7975de4598bba7240647c1d9e8c81cd1cec9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182334"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659105"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Att integrera Azure Active Directory med program komma igång-guide
 
@@ -66,9 +66,9 @@ Som nämnts ovan kan det finnas program som inte har hanterats av din organisati
 ## <a name="integrating-applications-with-azure-ad"></a>Integrera program med Azure AD
 I följande artiklar diskuteras de olika sätten att integrera med Azure AD och ge lite vägledning.
 
-* [Bestämma vilken Active Directory som ska användas](../fundamentals/active-directory-administer.md)
+* [Bestämma vilken Active Directory som ska användas](../fundamentals/active-directory-whatis.md)
 * [Använda program i Azures program Galleri](what-is-single-sign-on.md)
-* [Integrerings lista för integrering av SaaS-program](../active-directory-saas-tutorial-list.md)
+* [Integrerings lista för integrering av SaaS-program](../saas-apps/tutorial-list.md)
 
 ### <a name="authentication-types"></a>Autentiseringstyper
 Varje program kan ha olika autentiseringskrav. Med Azure AD kan du använda signerings certifikat med program som använder SAML 2,0, WS-Federation eller OpenID Connect-protokoll samt lösen ords enkel inloggning. Mer information om programautentiserings typer som används med Azure AD finns i [Hantera certifikat för federerade enkla Sign-On i Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) och [lösen ords baserad enkel inloggning](what-is-single-sign-on.md).
@@ -77,7 +77,7 @@ Varje program kan ha olika autentiseringskrav. Med Azure AD kan du använda sign
 Med Microsoft Azure AD Application Proxy kan du ge åtkomst till program som finns i ditt privata nätverk på ett säkert sätt, från valfri plats och på valfri enhet. När du har installerat en Application Proxy-koppling i din miljö kan den enkelt konfigureras med Azure AD.
 
 ### <a name="integrating-custom-applications"></a>Integrera anpassade program
-Om du skriver ett nytt program och vill hjälpa utvecklare att använda kraften i Azure AD, se [GUID-utvecklare](../active-directory-applications-guiding-developers-for-lob-applications.md).
+Om du skriver ett nytt program och vill hjälpa utvecklare att använda kraften i Azure AD, se [GUID-utvecklare](./developer-guidance-for-integrating-applications.md).
 
 Om du vill lägga till ett anpassat program i Azure Application galleriet, se ["ta med din egen app" med Azure AD Self-Service SAML-konfiguration](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
@@ -86,12 +86,12 @@ I följande artiklar beskrivs hur du kan hantera åtkomst till program när de h
 
 * [Hantera åtkomst till appar med hjälp av Azure AD](what-is-access-management.md)
 * [Automatisera med Azure AD-anslutningar](../app-provisioning/user-provisioning.md)
-* [Tilldela användare till ett program](../active-directory-applications-guiding-developers-assigning-users.md)
-* [Tilldela grupper till ett program](../active-directory-applications-guiding-developers-assigning-groups.md)
-* [Dela konton](../active-directory-sharing-accounts.md)
+* [Tilldela användare till ett program](./assign-user-or-group-access-portal.md)
+* [Tilldela grupper till ett program](./assign-user-or-group-access-portal.md)
+* [Dela konton](../enterprise-users/users-sharing-accounts.md)
 
 ## <a name="next-steps"></a>Nästa steg
-För detaljerad information kan du hämta Azure Active Directory distributions planer från [GitHub](https://aka.ms/deploymentplans). För Galleri program kan du hämta distributions planer för enkel inloggning, villkorlig åtkomst och användar etablering via [Azure Portal](https://portal.azure.com). 
+För detaljerad information kan du hämta Azure Active Directory distributions planer från [GitHub](../fundamentals/active-directory-deployment-plans.md). För Galleri program kan du hämta distributions planer för enkel inloggning, villkorlig åtkomst och användar etablering via [Azure Portal](https://portal.azure.com). 
 
 Så här hämtar du en distributions plan från Azure Portal:
 

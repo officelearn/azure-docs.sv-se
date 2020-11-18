@@ -15,12 +15,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e78efd71943332e8a40e5b44b6b78f88e516649a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99fb466debd5a2ee4bb659aea3494469a8bbe8e1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759971"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658425"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Ta bort personliga data för Azure Active Directory-programproxy
 
@@ -35,7 +35,7 @@ Programproxy kan skriva personliga data till följande logg typer:
 
 ## <a name="remove-personal-data-from-windows-event-logs"></a>Ta bort personliga data från händelse loggar i Windows
 
-Information om hur du konfigurerar datakvarhållning för händelse loggar i Windows finns i [Inställningar för händelse loggar](https://technet.microsoft.com/library/cc952132.aspx). Mer information om händelse loggar i Windows finns i [använda Windows-händelseloggen](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
+Information om hur du konfigurerar datakvarhållning för händelse loggar i Windows finns i [Inställningar för händelse loggar](https://technet.microsoft.com/library/cc952132.aspx). Mer information om händelse loggar i Windows finns i [använda Windows-händelseloggen](/windows/win32/wes/using-windows-event-log).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -54,7 +54,7 @@ Använd följande avsnitt för att ta bort personliga data från anslutnings hä
 
 Om du vill visa eller exportera vissa data kan du söka efter relaterade poster i varje anslutnings händelse loggar. Loggarna finns på `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace` .
 
-Eftersom loggarna är textfiler kan du använda [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) för att söka efter text poster som är relaterade till en användare.  
+Eftersom loggarna är textfiler kan du använda [findstr](/windows-server/administration/windows-commands/findstr) för att söka efter text poster som är relaterade till en användare.  
 
 Om du vill söka efter personliga data söker du efter UserID i loggfilerna.
 

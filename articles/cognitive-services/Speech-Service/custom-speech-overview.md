@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 4f65cc79c972a48f97e794b4c2870c3fb6e68d31
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 6dbe97d615753f0a90c8ba80aa7afa6dafa15eb2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557862"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658476"
 ---
 # <a name="what-is-custom-speech"></a>Vad är Custom Speech?
 
@@ -56,26 +56,26 @@ När du har skapat ett Azure-konto och en röst tjänst prenumeration måste du 
 
 Innehåll som data, modeller, tester och slut punkter organiseras i **projekt** i [Custom Speech portalen](https://speech.microsoft.com/customspeech). Varje projekt är specifika för en domän och ett land/språk. Du kan till exempel skapa ett projekt för Call Center som använder engelska i USA.
 
-Om du vill skapa ditt första projekt väljer du tal **-till-text/anpassad tal** och klickar sedan på **nytt projekt**. Följ anvisningarna i guiden för att skapa projektet. När du har skapat ett projekt bör du se fyra flikar: **data** , **testning** , **utbildning** och **distribution**. Använd länkarna som beskrivs i [Nästa steg](#next-steps) för att lära dig hur du använder varje flik.
+Om du vill skapa ditt första projekt väljer du tal **-till-text/anpassad tal** och klickar sedan på **nytt projekt**. Följ anvisningarna i guiden för att skapa projektet. När du har skapat ett projekt bör du se fyra flikar: **data**, **testning**, **utbildning** och **distribution**. Använd länkarna som beskrivs i [Nästa steg](#next-steps) för att lära dig hur du använder varje flik.
 
 > [!IMPORTANT]
 > [Custom Speech portalen](https://aka.ms/custom-speech) uppdaterades nyligen! Om du har skapat tidigare data, modeller, tester och publicerade slut punkter i CRIS.ai-portalen eller med API: er, måste du skapa ett nytt projekt i den nya portalen för att ansluta till dessa gamla entiteter.
 
 ## <a name="model-lifecycle"></a>Modell livs cykel
 
-Det anpassade talet använder både **bas modeller** och **anpassade modeller**. Varje språk har en eller flera **bas modeller**. När en ny tal modell släpps till den vanliga tal tjänsten importeras den också till den Custom Speech tjänsten som en ny **bas modell**. De uppdateras var 3-6 månad, och äldre modeller blir vanligt vis mindre användbara över tid eftersom den senaste modellen vanligt vis har betydligt högre noggrannhet.
+Det anpassade talet använder både **bas modeller** och **anpassade modeller**. Varje språk har en eller flera **bas modeller**. När en ny tal modell släpps till den vanliga tal tjänsten importeras den också till den Custom Speech tjänsten som en ny **bas modell**. De uppdateras vanligt vis var 3-6 månad, och äldre modeller blir mindre användbara över tid eftersom den senaste modellen vanligt vis har högre noggrannhet.
 
-**Anpassade modeller** skapas däremot genom att anpassa en vald bas modell till ett visst kund scenario. Du kan fortsätta att använda en viss anpassad modell under en längre tid när du har kommit till den som uppfyller dina behov, eller om du vill ha en ny utbildning med ytterligare data. 
+**Anpassade modeller** skapas däremot genom att anpassa en vald bas modell till ett visst kund scenario. Du kan fortsätta att använda en viss anpassad modell under en längre tids period när du har kommit till en som uppfyller dina behov, men vi rekommenderar att du regelbundet uppdaterar till den senaste bas modellen och tränar med ytterligare data.
 
 Andra viktiga villkor som rör modell livs cykeln är:
 
-* **Anpassning** : ta en bas modell och anpassa den till domänen/scenariot med hjälp av text data och/eller ljud data
-* **Avkodning** : använda en modell och utföra tal igenkänning (avkoda ljud till text)
-* **Slut punkt** : en användarspecifik distribution av antingen en bas modell eller en anpassad modell som *endast* är tillgänglig för en angiven användare.
+* **Anpassning**: ta en bas modell och anpassa den till domänen/scenariot med hjälp av text data och/eller ljud data
+* **Avkodning**: använda en modell och utföra tal igenkänning (avkoda ljud till text)
+* **Slut punkt**: en användarspecifik distribution av antingen en bas modell eller en anpassad modell som *endast* är tillgänglig för en angiven användare.
 
 ### <a name="expiration-timeline"></a>Tids linje för förfallo datum
 
-Ändringar av bas modeller för att lägga till nya funktioner och förbättra prestanda kan orsaka problem med bakåtkompatibilitet för äldre modeller, och även leda till ändringar av den noggrannhet som observeras med en viss modell på en viss test data uppsättning. Information om hur du hanterar modeller och slut punkter finns i följande tids linjer för modellen och förfallo tids linjerna för slut punkten.
+När nya modeller och nya funktioner blir tillgängliga och äldre, tas mindre exakta modeller bort, se följande tids linjer för modell-och slut punkts utgång:
 
 **Bas modeller** 
 
@@ -94,7 +94,11 @@ När antingen en bas modell eller anpassad modell upphör att gälla, kommer den
 * Information om modell utbildning
 * Distributionssammanfattning
 * Distributions information
- 
+
+Du kan också kontrol lera förfallo datumen via [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) och [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) anpassade tal-API: er under `deprecationDates` egenskapen i JSON-svaret.
+
+Observera att du kan uppgradera modellen på en anpassad tal slut punkt utan drift stopp genom att ändra modellen som används av slut punkten i distributions avsnittet i den anpassade tal portalen, eller via det anpassade tal-API: et.
+
 ## <a name="next-steps"></a>Nästa steg
 
 * [Förbered och testa dina data](how-to-custom-speech-test-data.md)

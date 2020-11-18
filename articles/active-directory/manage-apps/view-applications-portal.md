@@ -12,12 +12,12 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: a79078977d25c55edfb4ad72bbd4602a073231f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 281e408ca79697edbee308e15b70a2cf2055b212
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89277943"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658901"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Snabb start: Visa listan över program som använder din Azure Active Directory (Azure AD)-klient för identitets hantering
 
@@ -41,14 +41,14 @@ Så här visar du de program som är registrerade i din klient organisation:
 1. Logga in på din [Azure Portal](https://portal.azure.com).
 2. På den vänstra navigerings panelen väljer du **Azure Active Directory**.
 3. I fönstret **Azure Active Directory** väljer du **företags program**.
-4. I list rutan **program typ** väljer du **alla program**och sedan **Använd**. Ett slumpmässigt urval av programmen i din klientorganisation visas.
+4. I list rutan **program typ** väljer du **alla program** och sedan **Använd**. Ett slumpmässigt urval av programmen i din klientorganisation visas.
 5. Om du vill visa fler program väljer du **Läs in mer** längst ned i listan. Om det finns flera program i klient organisationen kan det vara lättare att söka efter ett visst program i stället för att bläddra i listan. Sökning efter ett visst program beskrivs senare i den här snabb starten.
 
 ## <a name="select-viewing-options"></a>Välj visningsalternativ
 
 Välj alternativ enligt vad du letar efter.
 
-1. Du kan visa programmen efter **program typ**, **program status**och **program synlighet**.
+1. Du kan visa programmen efter **program typ**, **program status** och **program synlighet**.
 2. Välj något av följande alternativ under **Programtyp**:
     - **Företagsprogram** visar andra program än Microsoft-program.
     - **Microsoft-program** visar Microsoft-program.
@@ -61,7 +61,7 @@ Välj alternativ enligt vad du letar efter.
 
 Så här söker du efter ett visst program:
 
-1. I menyn **program typ** väljer du **alla program**och sedan **Använd**.
+1. I menyn **program typ** väljer du **alla program** och sedan **Använd**.
 2. Ange namnet på det program som du vill söka efter. Om programmet har lagts till i din Azure AD-klient visas det i Sök resultaten. Det här exemplet visar att GitHub inte har lagts till i klient programmet.
     ![Exempel visar att en app inte har lagts till i klient organisationen](media/view-applications-portal/search-for-tenant-application.png)
 3. Prova att skriva de första bokstäverna i ett programnamn. I det här exemplet visas alla program som börjar med **Sales**.
@@ -69,7 +69,7 @@ Så här söker du efter ett visst program:
 
 
 > [!TIP]
-> Du kan automatisera hantering av appar med hjälp av Graph API, se [Automatisera program hantering med Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Du kan automatisera hantering av appar med hjälp av Graph API, se [Automatisera program hantering med Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

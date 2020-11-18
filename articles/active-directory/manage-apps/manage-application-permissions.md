@@ -12,12 +12,12 @@ ms.date: 7/10/2020
 ms.author: mimart
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95e13cedc0cdbaedc8c00b9d855057da7e631c19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ff97d0a69efbe624e959f92f5320f921476a306
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510886"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658986"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Vidta åtgärder för överanvändning eller misstänkta program i Azure Active Directory
 
@@ -29,7 +29,7 @@ Mer information om samtycker till program finns i [Azure Active Directory medgiv
 
 Om du vill utföra följande åtgärder måste du logga in som global administratör, program administratör eller en moln program administratör.
 
-Om du vill begränsa åtkomsten till program måste du kräva användar tilldelning och sedan tilldela användare eller grupper till programmet.  Mer information finns i [metoder för att tilldela användare och grupper](methods-for-assigning-users-and-groups.md).
+Om du vill begränsa åtkomsten till program måste du kräva användar tilldelning och sedan tilldela användare eller grupper till programmet.  Mer information finns i [metoder för att tilldela användare och grupper](./assign-user-or-group-access-portal.md).
 
 Du kan komma åt Azure AD-portalen för att hämta sammanhangsbaserade PowerShell-skript för att utföra åtgärderna.
  
@@ -48,8 +48,8 @@ Vi rekommenderar att du begränsar åtkomsten till programmet genom att aktivera
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör, program administratör eller en moln program administratör.
 2. Välj **Azure Active Directory**  >  **företags program**.
 3. Välj det program som du vill begränsa åtkomsten till.
-4. Välj **Egenskaper**och ange sedan **användar krav som krävs** till **Ja**.
-5. Välj **användare och grupper**och ta sedan bort de oönskade användare som har tilldelats programmet.
+4. Välj **Egenskaper** och ange sedan **användar krav som krävs** till **Ja**.
+5. Välj **användare och grupper** och ta sedan bort de oönskade användare som har tilldelats programmet.
 6. Tilldela användare eller grupper till programmet.
 
 Du kan också ta bort alla användare som är tilldelade till programmet med hjälp av PowerShell.
@@ -66,7 +66,7 @@ Du kan också inaktivera programmet för att hindra användare från att komma �
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör, program administratör eller en moln program administratör.
 2. Välj **Azure Active Directory**  >  **företags program**.
 3. Välj det program som du vill begränsa åtkomsten till.
-4. Välj **Egenskaper**och Ställ in **aktiverat för användare för inloggning?** till **Nej**.
+4. Välj **Egenskaper** och Ställ in **aktiverat för användare för inloggning?** till **Nej**.
 
 ## <a name="investigate-a-suspicious-application"></a>Undersök ett misstänkt program
 
@@ -75,8 +75,8 @@ Vi rekommenderar att du begränsar åtkomsten till programmet genom att aktivera
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör, program administratör eller en moln program administratör.
 3. Välj **Azure Active Directory**  >  **företags program**.
 5. Välj det program som du vill begränsa åtkomsten till.
-6. Välj **Egenskaper**och ange sedan **användar krav som krävs** till **Ja**.
-7. Välj **behörigheter**och granska administratörs-och användarens behörigheter.
+6. Välj **Egenskaper** och ange sedan **användar krav som krävs** till **Ja**.
+7. Välj **behörigheter** och granska administratörs-och användarens behörigheter.
 
 Du kan också använda PowerShell för att:
 
@@ -94,7 +94,7 @@ Vi rekommenderar att du inaktiverar programmet för att blockera användarnas å
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör, program administratör eller en moln program administratör.
 2. Välj **Azure Active Directory**  >  **företags program**.
 3. Välj det program som du vill begränsa åtkomsten till.
-4. Välj **Egenskaper**och kopiera sedan objekt-ID: t.
+4. Välj **Egenskaper** och kopiera sedan objekt-ID: t.
 
 ### <a name="powershell-commands"></a>PowerShell-kommandon
 
@@ -104,7 +104,7 @@ Hämta objekt-ID för tjänstens huvud namn.
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör, program administratör eller en moln program administratör.
 2. Välj **Azure Active Directory**  >  **företags program**.
 3. Välj det program som du vill begränsa åtkomsten till.
-4. Välj **Egenskaper**och kopiera sedan objekt-ID: t.
+4. Välj **Egenskaper** och kopiera sedan objekt-ID: t.
 
 ```powershell
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"

@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9680c9bee6d0cf5c9605ce7b6009a500abd81ffb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e56968250c10bb46553e618fd278df7d642683f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369105"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659088"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Bevilja administratörsmedgivande för hela klientorganisationen till ett program
 
@@ -25,12 +25,12 @@ Lär dig hur du fören klar användar upplevelsen genom att bevilja en klients a
 
 Mer information om samtycker till program finns i [Azure Active Directory medgivande Framework](../develop/consent-framework.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att bevilja administratörs tillåtelse för hela klienten måste du logga in som [Global administratör](../roles/permissions-reference.md#global-administrator--company-administrator), en [program administratör](../roles/permissions-reference.md#application-administrator)eller en [moln program administratör](../roles/permissions-reference.md#cloud-application-administrator).
 
 > [!IMPORTANT]
-> När ett program har beviljats administratörs medgivande kan alla användare logga in på appen om den inte har kon figurer ATS för att kräva användar tilldelning. För att begränsa vilka användare som kan logga in i ett program, kräver användar tilldelning och tilldelar sedan användare eller grupper till programmet. Mer information finns i [metoder för att tilldela användare och grupper](methods-for-assigning-users-and-groups.md).
+> När ett program har beviljats administratörs medgivande kan alla användare logga in på appen om den inte har kon figurer ATS för att kräva användar tilldelning. För att begränsa vilka användare som kan logga in i ett program, kräver användar tilldelning och tilldelar sedan användare eller grupper till programmet. Mer information finns i [metoder för att tilldela användare och grupper](./assign-user-or-group-access-portal.md).
 >
 > Rollen global administratör krävs för att ge administrativt tillstånd för program behörigheter till Microsoft Graph API.
 
@@ -99,6 +99,6 @@ Som alltid bör du noga granska de behörigheter som ett program begär innan me
 
 [Konfigurera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md)
 
-[Behörigheter och medgivande i Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
+[Behörigheter och medgivande i Microsoft Identity Platform](../develop/v2-permissions-and-consent.md)
 
 [Azure AD på StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

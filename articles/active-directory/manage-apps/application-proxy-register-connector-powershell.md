@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5fc1b84e624828d7feb64bd53e8fe8ffff2a7ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f46071d15db57f64eb60d9267d4081a2b0b74a50
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054842"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658442"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Skapa ett obevakat installations skript för Azure AD-programproxy-anslutningen
 
@@ -39,7 +39,7 @@ För att [Application Proxy Connector](application-proxy-connectors.md) ska fung
 Det finns två steg för en obevakad installation. Installera först anslutningen. Sedan registrerar du anslutningen med Azure AD.
 
 > [!IMPORTANT]
-> Om du installerar anslutningen för Azure Government Cloud kontrollerar du [kraven](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) och [installations stegen](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). Detta kräver att du aktiverar åtkomst till en annan uppsättning URL: er och ytterligare en parameter för att köra installationen.
+> Om du installerar anslutningen för Azure Government Cloud kontrollerar du [kraven](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) och [installations stegen](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud). Detta kräver att du aktiverar åtkomst till en annan uppsättning URL: er och ytterligare en parameter för att köra installationen.
 
 ## <a name="install-the-connector"></a>Installera anslutningen
 Använd följande steg för att installera anslutningen utan att registrera den:

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: ec9fb3c9b27d21ac65888379f59d51ecc8042eb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47377817b62d33e8af79e4a0d2dceb68ba9dbdc5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74168690"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658655"
 ---
 # <a name="azure-firewall-service-tags"></a>Azure Firewall service-Taggar
 
@@ -22,7 +22,7 @@ Azure Firewall service-taggar kan användas i nätverks reglernas mål fält. Du
 
 ## <a name="supported-service-tags"></a>Service märken som stöds
 
-Se [säkerhets grupper](../virtual-network/security-overview.md#service-tags) för en lista över service märken som är tillgängliga för användning i Azure Firewall Network rules.
+Se [säkerhets grupper](../virtual-network/network-security-groups-overview.md#service-tags) för en lista över service märken som är tillgängliga för användning i Azure Firewall Network rules.
 
 ## <a name="next-steps"></a>Nästa steg
 

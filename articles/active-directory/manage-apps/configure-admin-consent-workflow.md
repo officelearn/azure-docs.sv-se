@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cde5afe01c90b68567f411bcf26063f02ca5a34a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 7fc688ca0981024e5e08c9fb20ecb6704efbd7f2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027252"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658782"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Konfigurera arbets flödet för administratörs medgivande (för hands version)
 
@@ -35,21 +35,21 @@ Aktivera arbets flödet för administratörs medgivande och välj granskare:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör.
 2. Klicka på **alla tjänster** överst i den vänstra navigerings menyn. **Azure Active Directory-tillägget** öppnas.
-3. Skriv " **Azure Active Directory** " i rutan Filter sökning och välj **Azure Active Directory** objektet.
-4. I navigerings menyn klickar du på **företags program** . 
-5. Under **Hantera** väljer du **användar inställningar** .
-6. Under **administrativa medgivande begär Anden (för hands version)** **kan du ställa in användare så att de kan begära administrativt medgivande till appar som de inte** kan godkänna till **Ja** .
+3. Skriv "**Azure Active Directory**" i rutan Filter sökning och välj **Azure Active Directory** objektet.
+4. I navigerings menyn klickar du på **företags program**. 
+5. Under **Hantera** väljer du **användar inställningar**.
+6. Under **administrativa medgivande begär Anden (för hands version)** **kan du ställa in användare så att de kan begära administrativt medgivande till appar som de inte** kan godkänna till **Ja**.
 
    ![Konfigurera arbets flödes inställningar för administratörs medgivande](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
 6. Konfigurera följande inställningar:
 
-   * **Välj användare om du vill granska förfrågningar om administratörs medgivande** . Välj granskare för det här arbets flödet från en uppsättning användare som har rollen global administratör, moln program administratör och program administratör.
-   * **Valda användare får e-postmeddelanden för förfrågningar** . Aktivera eller inaktivera e-postaviseringar till granskarna när en begäran görs.  
-   * **Valda användare får påminnelser om förfallo datum för begäran** . Aktivera eller inaktivera påminnelser om e-postaviseringar till granskarna när en begäran håller på att gå ut.  
-   * **Medgivande förfrågan upphör att gälla efter (dagar)** . Ange hur lång tid förfrågningar ska vara giltiga.
+   * **Välj användare om du vill granska förfrågningar om administratörs medgivande**. Välj granskare för det här arbets flödet från en uppsättning användare som har rollen global administratör, moln program administratör och program administratör.
+   * **Valda användare får e-postmeddelanden för förfrågningar**. Aktivera eller inaktivera e-postaviseringar till granskarna när en begäran görs.  
+   * **Valda användare får påminnelser om förfallo datum för begäran**. Aktivera eller inaktivera påminnelser om e-postaviseringar till granskarna när en begäran håller på att gå ut.  
+   * **Medgivande förfrågan upphör att gälla efter (dagar)**. Ange hur lång tid förfrågningar ska vara giltiga.
 
-7. Välj **Spara** . Det kan ta upp till en timme innan funktionen aktive ras.
+7. Välj **Spara**. Det kan ta upp till en timme innan funktionen aktive ras.
 
 > [!NOTE]
 > Du kan lägga till eller ta bort granskare för det här arbets flödet genom att ändra listan **Välj granskare för begäran om godkännande** . Observera att en aktuell begränsning av den här funktionen är att granskarna kan behålla möjligheten att granska begär Anden som har gjorts när de betecknas som en granskare.
@@ -60,7 +60,7 @@ När arbets flödet för administratörs godkännande har Aktiver ATS kan använ
 
 1. Användaren försöker logga in i programmet.
 
-2. Meddelandet **godkännande krävs** visas. Användaren anger en motivering för att behöva åtkomst till appen och väljer sedan **begär godkännande** .
+2. Meddelandet **godkännande krävs** visas. Användaren anger en motivering för att behöva åtkomst till appen och väljer sedan **begär godkännande**.
 
    ![Skärm bild som visar dialog rutan godkännande krävs där du kan begära godkännande.](media/configure-admin-consent-workflow/end-user-justification.png)
 
@@ -76,9 +76,9 @@ Granska de administrativa medgivande förfrågningarna och vidta åtgärder:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som en av de registrerade granskarna i arbets flödet för administratörs medgivande.
 2. Välj **alla tjänster** överst i den vänstra navigerings menyn. **Azure Active Directory-tillägget** öppnas.
-3. Skriv " **Azure Active Directory** " i rutan Filter sökning och välj **Azure Active Directory** objektet.
-4. I navigerings menyn klickar du på **företags program** .
-5. Under **aktivitet** väljer du **administrativa medgivande förfrågningar (för hands version)** .
+3. Skriv "**Azure Active Directory**" i rutan Filter sökning och välj **Azure Active Directory** objektet.
+4. I navigerings menyn klickar du på **företags program**.
+5. Under **aktivitet** väljer du **administrativa medgivande förfrågningar (för hands version)**.
 
    > [!NOTE]
    > Granskare ser bara admin-begäranden som skapats efter att de beskrivits som en granskare.
@@ -87,13 +87,13 @@ Granska de administrativa medgivande förfrågningarna och vidta åtgärder:
 2. Granska information om begäran:  
 
    * Om du vill se vem som begär åtkomst och varför väljer du fliken **begär ande av** .
-   * Om du vill se vilka behörigheter som begärs av programmet väljer du **Granska behörigheter och medgivande** .
+   * Om du vill se vilka behörigheter som begärs av programmet väljer du **Granska behörigheter och medgivande**.
 
 8. Utvärdera begäran och vidta lämplig åtgärd:
 
-   * **Godkänn begäran** . Om du vill godkänna en begäran ger du administratörs medgivande till programmet. När en begäran har godkänts, meddelas alla begär Anden om att de har beviljats åtkomst.  
-   * **Neka begäran** . Om du vill neka en begäran måste du ange en motivering som kommer att tillhandahållas för alla begär Ande. När en begäran nekas, meddelas alla begär Anden om att de har nekats åtkomst till programmet. Att neka en begäran hindrar inte användare från att begära att administratören godkänner appen igen i framtiden.  
-   * **Blockera begäran** . Om du vill blockera en begäran måste du ange en motivering som kommer att tillhandahållas för alla begär Ande. När en begäran har blockerats meddelas alla begär Ande om att de har nekats åtkomst till programmet. Om en begäran blockeras skapas ett huvud objekt för tjänsten för programmet i din klient i inaktiverat tillstånd. Användarna kan inte begära administratörs medgivande till programmet i framtiden.
+   * **Godkänn begäran**. Om du vill godkänna en begäran ger du administratörs medgivande till programmet. När en begäran har godkänts, meddelas alla begär Anden om att de har beviljats åtkomst.  
+   * **Neka begäran**. Om du vill neka en begäran måste du ange en motivering som kommer att tillhandahållas för alla begär Ande. När en begäran nekas, meddelas alla begär Anden om att de har nekats åtkomst till programmet. Att neka en begäran hindrar inte användare från att begära att administratören godkänner appen igen i framtiden.  
+   * **Blockera begäran**. Om du vill blockera en begäran måste du ange en motivering som kommer att tillhandahållas för alla begär Ande. När en begäran har blockerats meddelas alla begär Ande om att de har nekats åtkomst till programmet. Om en begäran blockeras skapas ett huvud objekt för tjänsten för programmet i din klient i inaktiverat tillstånd. Användarna kan inte begära administratörs medgivande till programmet i framtiden.
  
 ## <a name="email-notifications"></a>E-postmeddelanden
  
@@ -147,7 +147,7 @@ Nej, för nu kan beställare bara hämta uppdateringar via e-postaviseringar.
 
 **Som granskare är det möjligt att godkänna programmet, men inte för alla?**
  
-Om du är bekymrad med att bevilja administratörs medgivande och tillåta alla användare i klienten att använda programmet, rekommenderar vi att du nekar begäran. Bevilja sedan administrativt godkännande manuellt genom att begränsa åtkomsten till programmet genom att kräva användar tilldelning och tilldela användare eller grupper till programmet. Mer information finns i [metoder för att tilldela användare och grupper](methods-for-assigning-users-and-groups.md).
+Om du är bekymrad med att bevilja administratörs medgivande och tillåta alla användare i klienten att använda programmet, rekommenderar vi att du nekar begäran. Bevilja sedan administrativt godkännande manuellt genom att begränsa åtkomsten till programmet genom att kräva användar tilldelning och tilldela användare eller grupper till programmet. Mer information finns i [metoder för att tilldela användare och grupper](./assign-user-or-group-access-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -157,6 +157,6 @@ Mer information om samtycker till program finns i [Azure Active Directory medgiv
 
 [Bevilja administratörsmedgivande för hela klientorganisationen till ett program](grant-admin-consent.md)
 
-[Behörigheter och medgivande i Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
+[Behörigheter och medgivande i Microsoft Identity Platform](../develop/v2-permissions-and-consent.md)
 
 [Azure AD på StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

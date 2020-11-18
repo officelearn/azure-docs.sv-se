@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 83d7ed6c937d515520058819636bc23c8de173fd
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 03e89b0da25a915a00c70a9a87bd0f675b8e12d6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015284"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658085"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera Fjärrskrivbord med Azure AD-programproxy
 
@@ -28,7 +28,7 @@ Den avsedda mål gruppen för den här artikeln är:
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Så här passar programproxyn i standard-RDS-distributionen
 
-En standard-RDS-distribution innehåller olika fjärr skrivbords roll tjänster som körs på Windows Server. Titta på [Fjärrskrivbordstjänster arkitekturen](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture), det finns flera distributions alternativ. Till skillnad från andra distributions alternativ för fjärr skrivbords tjänster har [RDS-distributionen med Azure AD-programproxy](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (visas i följande diagram) en permanent utgående anslutning från servern som kör anslutnings tjänsten. Andra distributioner lämnar öppna inkommande anslutningar via en belastningsutjämnare.
+En standard-RDS-distribution innehåller olika fjärr skrivbords roll tjänster som körs på Windows Server. Titta på [Fjärrskrivbordstjänster arkitekturen](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture), det finns flera distributions alternativ. Till skillnad från andra distributions alternativ för fjärr skrivbords tjänster har [RDS-distributionen med Azure AD-programproxy](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) (visas i följande diagram) en permanent utgående anslutning från servern som kör anslutnings tjänsten. Andra distributioner lämnar öppna inkommande anslutningar via en belastningsutjämnare.
 
 ![Programproxyn är placerad mellan den virtuella datorn för fjärr skrivbords tjänster och det offentliga Internet](./media/application-proxy-integrate-with-remote-desktop-services/rds-with-app-proxy.png)
 
@@ -37,13 +37,13 @@ I en RDS-distribution körs webb rollen för fjärr skrivbord och RD Gateway-rol
 - RD Gateway kommer till bilden när en användare startar RDP-anslutningen. RD Gateway hanterar krypterad RDP-trafik som kommer via Internet och översätter den till den lokala server som användaren ansluter till. I det här scenariot kommer den trafik som gatewayen tar emot från Azure-AD-programproxy.
 
 >[!TIP]
->Om du inte har distribuerat fjärr skrivbords tjänster tidigare eller vill ha mer information innan du börjar, lär du dig hur du [sömlöst distribuerar fjärr skrivbords tjänster med Azure Resource Manager och Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
+>Om du inte har distribuerat fjärr skrivbords tjänster tidigare eller vill ha mer information innan du börjar, lär du dig hur du [sömlöst distribuerar fjärr skrivbords tjänster med Azure Resource Manager och Azure Marketplace](/windows-server/remote/remote-desktop-services/rds-in-azure).
 
 ## <a name="requirements"></a>Krav
 
 - Både webb-och RD Gateway-slutpunkterna måste finnas på samma dator och med en gemensam rot. Webb server för fjärr skrivbord och Fjärrskrivbordsgateway publiceras som ett enda program med programproxy så att du kan använda enkel inloggning mellan de två programmen.
 
-- Du bör redan ha [distribuerat RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)och [aktiverat Application Proxy](application-proxy-add-on-premises-application.md).
+- Du bör redan ha [distribuerat RDS](/windows-server/remote/remote-desktop-services/rds-in-azure)och [aktiverat Application Proxy](application-proxy-add-on-premises-application.md).
 
 - Dina slutanvändare måste använda en kompatibel webbläsare för att ansluta till webb servern för fjärr skrivbord eller webb klienten för fjärr skrivbord. Mer information finns i [Support för klient konfigurationerna](#support-for-other-client-configurations).
 
@@ -51,7 +51,7 @@ I en RDS-distribution körs webb rollen för fjärr skrivbord och RD Gateway-rol
 
 - Om du använder webb sidan för fjärr skrivbord i Internet Explorer måste du aktivera ActiveX-tillägget för fjärr skrivbords tjänster.
 
-- Om du använder webb klienten för fjärr skrivbord måste du använda Application Proxy [Connector version 1.5.1975 eller senare](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-release-version-history).
+- Om du använder webb klienten för fjärr skrivbord måste du använda Application Proxy [Connector version 1.5.1975 eller senare](./application-proxy-release-version-history.md).
 
 - För flödet för Azure AD-förautentisering kan användare bara ansluta till resurser som publicerats till dem i fönstret **RemoteApp och skriv bord** . Användare kan inte ansluta till en stationär dator med hjälp av rutan **Anslut till en fjärran sluten dator** .
 
@@ -72,8 +72,8 @@ När du har konfigurerat RDS och Azure AD-programproxy för din miljö följer d
    >[!Note]
    >Användarna uppmanas att autentisera sig en gång till Azure AD och en gång till webb servern, men de har enkel inloggning till RD Gateway.
 
-4. Välj **Azure Active Directory**och sedan **app-registreringar**. Välj din app i listan.
-5. Under **Hantera**väljer du **märkes anpassning**.
+4. Välj **Azure Active Directory** och sedan **app-registreringar**. Välj din app i listan.
+5. Under **Hantera** väljer du **märkes anpassning**.
 6. Uppdatera **Start sidans URL** -fält så att de pekar på din webb slut punkt för fjärr skrivbord (till exempel `https://\<rdhost\>.com/RDWeb` ).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Dirigera fjärr skrivbords trafik till Application Proxy
@@ -96,7 +96,7 @@ Anslut till RDS-distributionen som administratör och ändra Server namnet för 
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **Till exempel:**
+   **Exempel:**
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
@@ -111,7 +111,7 @@ Anslut till RDS-distributionen som administratör och ändra Server namnet för 
 Nu när du har konfigurerat fjärr skrivbord har Azure AD-programproxy tagit över som den Internet-riktade komponenten i RDS. Du kan ta bort de andra offentliga slut punkter som är riktade mot Internet på din webb-och RD Gateway-dator.
 
 ### <a name="enable-the-rd-web-client"></a>Aktivera webb klienten för fjärr skrivbord
-Om du även vill att användarna ska kunna använda webb klienten för fjärr skrivbord följer du stegen i [Konfigurera fjärr skrivbords webb klienten](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin) så att användarna kan aktivera detta.
+Om du även vill att användarna ska kunna använda webb klienten för fjärr skrivbord följer du stegen i [Konfigurera fjärr skrivbords webb klienten](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin) så att användarna kan aktivera detta.
 
 Med webb klienten för fjärr skrivbord kan användarna komma åt din organisations fjärr skrivbords infrastruktur via en HTML5-kompatibel webbläsare, till exempel Microsoft Edge, Internet Explorer 11, Google Chrome, Safari eller Mozilla Firefox (v 55.0 och senare).
 
@@ -130,7 +130,7 @@ Konfigurationen som beskrivs i den här artikeln är till för åtkomst till fj�
 
 | Autentiseringsmetod | Klient konfiguration som stöds |
 | --------------------- | ------------------------------ |
-| Förautentisering    | Webb server för fjärr skrivbord – Windows 7/10 med Internet Explorer eller [Edge krom IE-läge](https://docs.microsoft.com/deployedge/edge-ie-mode) + RDS-tillägg |
+| Förautentisering    | Webb server för fjärr skrivbord – Windows 7/10 med Internet Explorer eller [Edge krom IE-läge](/deployedge/edge-ie-mode) + RDS-tillägg |
 | Förautentisering    | Webb klient för fjärrskrivbordsgateway – HTML5 kompatibel webbläsare, till exempel Microsoft Edge, Internet Explorer 11, Google Chrome, Safari eller Mozilla Firefox (v 55.0 och senare) |
 | Genomströmning | Andra operativ system som stöder Microsoft Fjärrskrivbord programmet |
 

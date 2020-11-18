@@ -16,16 +16,16 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 558c6dc24f6d0d17c9a82bbc79f39649f63dc7f4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874551"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658493"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Ett oväntat fel inträffade vid godkännande av ett program
 
-I den här artikeln beskrivs fel som kan uppstå under bearbetningen av ett program. Om du felsöker oväntade meddelanden om medgivande som inte innehåller några fel meddelanden, se [autentiserings scenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
+I den här artikeln beskrivs fel som kan uppstå under bearbetningen av ett program. Om du felsöker oväntade meddelanden om medgivande som inte innehåller några fel meddelanden, se [autentiserings scenarier för Azure AD](../develop/authentication-vs-authorization.md).
 
 Många program som integreras med Azure Active Directory måste ha behörighet att komma åt andra resurser för att kunna fungera. När dessa resurser också är integrerade med Azure Active Directory begärs behörighet att komma åt dem ofta med hjälp av det gemensamma medgivande ramverket. En medgivande-prompt visas, vilket vanligt vis inträffar första gången ett program används, men det kan också ske i en senare användning av programmet.
 
@@ -90,8 +90,6 @@ Slutanvändare kommer inte att kunna bevilja medgivande till appar som har ident
 
 ## <a name="next-steps"></a>Nästa steg 
 
-[Appar, behörigheter och medgivande i Azure Active Directory (v1-slutpunkt)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
+[Appar, behörigheter och medgivande i Azure Active Directory (v1-slutpunkt)](../develop/quickstart-register-app.md)<br>
 
-[Omfång, behörigheter och medgivande i Azure Active Directory (v 2.0-slutpunkt)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+[Omfång, behörigheter och medgivande i Azure Active Directory (v 2.0-slutpunkt)](../develop/v2-permissions-and-consent.md)

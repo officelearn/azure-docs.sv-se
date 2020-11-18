@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 09056846ee3e531724f597ee35f92d812ce2c335
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 674b8ab8266921a4eef8bbf212f3c556b1e587d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86037842"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658360"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Fel sökning: en Azure plats-till-plats-VPN-anslutning kan inte ansluta och sluta fungera
 
@@ -22,7 +22,7 @@ När du har konfigurerat en plats-till-plats-VPN-anslutning mellan ett lokalt n�
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
-Lös problemet genom att först försöka [återställa Azure VPN-gatewayen](vpn-gateway-resetgw-classic.md) och återställa tunneln från den lokala VPN-enheten. Om problemet kvarstår följer du stegen nedan för att identifiera orsaken till problemet.
+Lös problemet genom att först försöka [återställa Azure VPN-gatewayen](./reset-gateway.md) och återställa tunneln från den lokala VPN-enheten. Om problemet kvarstår följer du stegen nedan för att identifiera orsaken till problemet.
 
 ### <a name="prerequisite-step"></a>Förutsättnings steg
 
@@ -46,7 +46,7 @@ Jämför den delade nyckeln för den lokala VPN-enheten med Azure Virtual Networ
 
 Använd någon av följande metoder för att visa den delade nyckeln för Azure VPN-anslutningen:
 
-**Azure Portal**
+**Azure-portalen**
 
 1. Gå till VPN gateway plats-till-plats-anslutningen som du skapade.
 

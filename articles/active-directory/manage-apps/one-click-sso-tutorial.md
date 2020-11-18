@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe4e981782878ce4f86dd7dcb8ae635a60b2405a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763133"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658714"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Konfiguration med ett klick för enkel inloggning
 
@@ -37,10 +37,10 @@ Funktionen SSO med enkel klickning är utformad för att konfigurera enkel inlog
 - Mer effektiv och korrekt SSO-konfiguration.
 - Ingen partner kommunikation eller support krävs för installationen. Programmet innehåller användar gränssnittet för SAML-konfigurationen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En aktiv prenumeration av programmet som ska konfigureras med SSO. Du måste också ha administratörs behörighet.
-- **Mina appar säker inloggnings tillägg** från Microsoft installerat i webbläsaren. Mer information finns i [komma åt och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+- **Mina appar säker inloggnings tillägg** från Microsoft installerat i webbläsaren. Mer information finns i [komma åt och använda appar på portalen Mina appar](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="one-click-sso-configuration-steps"></a>Konfigurations steg för SSO med enkel klickning
 
@@ -59,7 +59,7 @@ Funktionen SSO med enkel klickning är utformad för att konfigurera enkel inlog
 
    ![Installera Mina appar säker inloggnings webb läsar tillägg](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-6. När du har lagt till tillägget i webbläsaren väljer du **installation \<Application Name\> **. När du har omdirigerats till program administrations portalen loggar du in som administratör.
+6. När du har lagt till tillägget i webbläsaren väljer du **installation \<Application Name\>**. När du har omdirigerats till program administrations portalen loggar du in som administratör.
 
    ![Installations programmets namn](./media/one-click-sso-tutorial/setup-sso.png)
 
@@ -84,6 +84,5 @@ Funktionen SSO med enkel klickning är utformad för att konfigurera enkel inlog
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
-* [Vad är webb läsar tillägget Mina appar säker inloggning?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
- 
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Vad är webb läsar tillägget Mina appar säker inloggning?](../user-help/my-apps-portal-end-user-access.md)

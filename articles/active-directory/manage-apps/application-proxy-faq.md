@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 38bff38ebe44d9018299444b89d7743c4cc92b72
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ef38c5364a0df1df63be825e2c46009174840b72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424191"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658136"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Active Directory (Azure AD) Application Proxy
 
@@ -58,7 +58,7 @@ Rekommendationer finns i [hög tillgänglighet och belastnings utjämning för d
 Application Proxy Connector utför certifikatbaserad autentisering till Azure. TLS-avslutning (TLS/HTTPS-kontroll eller acceleration) delar denna autentiseringsmetod och stöds inte. Trafik från anslutningen till Azure måste kringgå alla enheter som utför TLS-avslutning.  
 
 ### <a name="is-tls-12-required-for-all-connections"></a>Krävs TLS 1,2 för alla anslutningar?
-Ja. För att tillhandahålla den bästa krypteringen till våra kunder begränsar Application Proxy-tjänsten åtkomst till endast TLS 1,2-protokoll. Dessa ändringar uppnåddes gradvis och gällde sedan den 31 augusti 2019. Kontrol lera att alla kombinationer av klient-server och webb läsar Server har uppdaterats för att använda TLS 1,2 för att upprätthålla anslutningen till Application Proxy-tjänsten. Detta inkluderar klienter som användarna använder för att få åtkomst till program som publicerats via programproxy. Se förbereda för [TLS 1,2 i Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) för användbara referenser och resurser.
+Ja. För att tillhandahålla den bästa krypteringen till våra kunder begränsar Application Proxy-tjänsten åtkomst till endast TLS 1,2-protokoll. Dessa ändringar uppnåddes gradvis och gällde sedan den 31 augusti 2019. Kontrol lera att alla kombinationer av klient-server och webb läsar Server har uppdaterats för att använda TLS 1,2 för att upprätthålla anslutningen till Application Proxy-tjänsten. Detta inkluderar klienter som användarna använder för att få åtkomst till program som publicerats via programproxy. Se förbereda för [TLS 1,2 i Office 365](/microsoft-365/compliance/prepare-tls-1.2-in-office-365) för användbara referenser och resurser.
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>Kan jag placera en vidarebefordrad proxyserver mellan kopplings servrarna och backend-programservern?
 Ja, det här scenariot stöds från anslutnings versionen 1.5.1526.0. Se [arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md).
@@ -102,7 +102,7 @@ Standard längden är 85 sekunder. Inställningen "Long" är 180 sekunder. Det g
 
 ### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>Hur gör jag för att ändra landnings sidan mina program inläsningar?
 
-På sidan program registreringar kan du ändra start sidans URL till önskad extern URL för landnings sidan. Den angivna sidan kommer att läsas in när programmet startas från Mina appar eller Office 365-portalen. Konfigurations steg finns i [Ange en anpassad start sida för publicerade appar med hjälp av Azure AD-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-home-page)
+På sidan program registreringar kan du ändra start sidans URL till önskad extern URL för landnings sidan. Den angivna sidan kommer att läsas in när programmet startas från Mina appar eller Office 365-portalen. Konfigurations steg finns i [Ange en anpassad start sida för publicerade appar med hjälp av Azure AD-programproxy](./application-proxy-configure-custom-home-page.md)
 
 ### <a name="can-only-iis-based-applications-be-published-what-about-web-applications-running-on-non-windows-web-servers-does-the-connector-have-to-be-installed-on-a-server-with-iis-installed"></a>Kan endast IIS-baserade program publiceras? Vad gäller för webb program som körs på webb servrar som inte kommer från Windows? Måste anslutningen installeras på en server med IIS installerat?
 
@@ -171,7 +171,7 @@ Se [aktivera fjärråtkomst till SharePoint med Azure AD-programproxy](applicati
 
 ### <a name="can-i-use-the-sharepoint-mobile-app-ios-android-to-access-a-published-sharepoint-server"></a>Kan jag använda SharePoint Mobile-appen (iOS/Android) för att få åtkomst till en publicerad SharePoint-Server?
 
-[SharePoint-mobilappen](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) stöder för närvarande inte Azure Active Directory förautentisering.
+[SharePoint-mobilappen](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) stöder för närvarande inte Azure Active Directory förautentisering.
 
 ## <a name="active-directory-federation-services-ad-fs-publishing"></a>Active Directory Federation Services (AD FS) (AD FS) publicering 
 
@@ -193,7 +193,7 @@ Funktioner (EventLogs, PowerShell och Fjärrskrivbordstjänster) i Windows admin
 
 Ja. Länk översättning påverkar prestanda. Application Proxy-tjänsten söker igenom programmet efter hårdkodad-länkar och ersätter dem med deras respektive publicerade externa URL: er innan de presenteras för användaren. 
 
-För bästa prestanda rekommenderar vi att du använder identiska interna och externa URL: er genom att konfigurera [anpassade domäner](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain). Om du inte kan använda anpassade domäner kan du förbättra länk översättnings prestanda med hjälp av säkerhets inloggnings tillägget Mina appar eller Microsoft Edge på mobilen. Se [omdirigera hårdkodad-Länkar för appar som publicerats med Azure AD-programproxy](application-proxy-configure-hard-coded-link-translation.md).
+För bästa prestanda rekommenderar vi att du använder identiska interna och externa URL: er genom att konfigurera [anpassade domäner](./application-proxy-configure-custom-domain.md). Om du inte kan använda anpassade domäner kan du förbättra länk översättnings prestanda med hjälp av säkerhets inloggnings tillägget Mina appar eller Microsoft Edge på mobilen. Se [omdirigera hårdkodad-Länkar för appar som publicerats med Azure AD-programproxy](application-proxy-configure-hard-coded-link-translation.md).
 
 ## <a name="wildcards"></a>Jokertecken
 
@@ -204,5 +204,5 @@ Det här scenariot stöds inte direkt. Alternativen för det här scenariot är:
 1. Publicera både HTTP-och HTTPS-URL: er som separata program med jokertecken, men ge var och en av dem en annan anpassad domän. Den här konfigurationen kommer att fungera eftersom de har olika externa URL: er.
 
 2. Publicera HTTPS-URL: en via ett program med jokertecken. Publicera HTTP-programmen separat med dessa PowerShell-cmdletar för programproxy:
-   - [Application Proxy-programhantering](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
-   - [Application Proxy Connector-hantering](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)
+   - [Application Proxy-programhantering](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [Application Proxy Connector-hantering](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)

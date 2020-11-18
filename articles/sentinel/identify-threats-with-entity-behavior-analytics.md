@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c5e57f2eb3c38a7df23052a4b3d33bc5a9675fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425940"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658799"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identifiera avancerade hot med användar-och enhets beteende analys (UEBA) i Azure Sentinel
 
@@ -109,7 +109,7 @@ Följande typer av entiteter identifieras för närvarande i Azure Sentinel:
 
 ### <a name="entity-pages"></a>Enhets sidor
 
-När du stöter på en entitet (som för närvarande är begränsad till användare och värdar) i en sökning, en avisering eller en undersökning, kan du välja entiteten och gå till en **entitet** , ett datablad som är fullt värdefullt information om entiteten. De typer av information som du hittar på den här sidan är grundläggande fakta om entiteten, en tids linje för viktiga händelser som är relaterade till den här entiteten och insikter om entitetens beteende.
+När du stöter på en entitet (som för närvarande är begränsad till användare och värdar) i en sökning, en avisering eller en undersökning, kan du välja entiteten och gå till en **entitet**, ett datablad som är fullt värdefullt information om entiteten. De typer av information som du hittar på den här sidan är grundläggande fakta om entiteten, en tids linje för viktiga händelser som är relaterade till den här entiteten och insikter om entitetens beteende.
  
 Enhets sidor består av tre delar:
 - Den vänstra panelen innehåller entitetens identifierings information som samlas in från data källor som Azure Active Directory, Azure Monitor, Azure Security Center och Microsoft Defender.
@@ -124,7 +124,7 @@ Enhets sidor består av tre delar:
 
 Tids linjen är en stor del av enhets sidans bidrag till beteende analys i Azure Sentinel. Den innehåller en berättelse om entiteter-relaterade händelser, som hjälper dig att förstå entitetens aktivitet inom en bestämd tidsram.
 
-Du kan välja **tidsintervallet** bland flera förinställda alternativ (till exempel de *senaste 24 timmarna* ) eller ange det som en anpassad tidsram. Dessutom kan du ange filter som begränsar informationen i tids linjen till vissa typer av händelser eller aviseringar.
+Du kan välja **tidsintervallet** bland flera förinställda alternativ (till exempel de *senaste 24 timmarna*) eller ange det som en anpassad tidsram. Dessutom kan du ange filter som begränsar informationen i tids linjen till vissa typer av händelser eller aviseringar.
 
 Följande typer av objekt ingår i tids linjen:
 
@@ -180,7 +180,7 @@ Entitetsformulär är utformade för att ingå i flera användnings scenarier oc
 
 ### <a name="querying-behavior-analytics-data"></a>Fråga om beteende analys data
 
-Med hjälp av [KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/)kan vi fråga beteende analys tabellen.
+Med hjälp av [KQL](/azure/data-explorer/kusto/query/)kan vi fråga beteende analys tabellen.
 
 Exempel: om vi vill hitta alla fall av en användare som inte kunde logga in på en Azure-resurs, där det var användarens första försök att ansluta från ett angivet land, och anslutningarna från det landet är ovanliga även för användarens kollegor, kan vi använda följande fråga:
 

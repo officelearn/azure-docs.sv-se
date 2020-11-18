@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 293a3fc10920a29cd41e4bdb946e5bb06762eb52
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: d261640dfdb59b2b06cfe3066fca26640a0bed54
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427504"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874652"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor loggar dedicerade kluster
 
@@ -36,6 +36,8 @@ Dedikerade kluster hanteras via en Azure-resurs som representerar Azure Monitor 
 
 När klustret har skapats kan det konfigureras och arbets ytorna är länkade till den. När en arbets yta är länkad till ett kluster finns nya data som skickas till arbets ytan i klustret. Endast arbets ytor i samma region som klustret kan länkas till klustret. Arbets ytor kan vara till skillnad från ett kluster med vissa begränsningar. Mer information om dessa begränsningar finns i den här artikeln. 
 
+Data som matas in på dedikerade kluster krypteras två gånger – en gång på tjänst nivå med hjälp av Microsoft-hanterade nycklar eller [kundhanterad nyckel](../platform/customer-managed-keys.md), och en gång på infrastruktur nivå med två olika krypteringsalgoritmer och två olika nycklar. [Dubbel kryptering](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) skyddar mot ett scenario där en av krypteringsalgoritmer eller nycklar kan komprometteras. I det här fallet fortsätter det extra krypterings lagret att skydda dina data. Med dedikerat kluster kan du också skydda dina data med [Lås](../platform/customer-managed-keys.md#customer-lockbox-preview) kontroll.
+
 Alla åtgärder på kluster nivån kräver `Microsoft.OperationalInsights/clusters/write` behörigheten åtgärd i klustret. Den här behörigheten kan beviljas via den ägare eller deltagare som innehåller `*/write` åtgärden eller via rollen Log Analytics Contributor som innehåller `Microsoft.OperationalInsights/*` åtgärden. Mer information om Log Analytics behörigheter finns [i Hantera åtkomst till logg data och arbets ytor i Azure Monitor](../platform/manage-access.md). 
 
 
@@ -47,9 +49,9 @@ Reservations nivån för kluster kapaciteten konfigureras via programmering med 
 
 Det finns två fakturerings lägen för användning i ett kluster. Dessa kan anges av- `billingType` parametern när du konfigurerar klustret. 
 
-1. **Kluster** : i det här fallet (som är standard) görs faktureringen för inmatade data på kluster nivå. De inmatade data mängderna från varje arbets yta som är kopplad till ett kluster sammanställs för att beräkna den dagliga fakturan för klustret. 
+1. **Kluster**: i det här fallet (som är standard) görs faktureringen för inmatade data på kluster nivå. De inmatade data mängderna från varje arbets yta som är kopplad till ett kluster sammanställs för att beräkna den dagliga fakturan för klustret. 
 
-2. **Arbets ytor** : kostnaderna för kapacitets reservationen för klustret anges i proportion till arbets ytorna i klustret (efter redovisningen av tilldelningar per nod från [Azure Security Center](../../security-center/index.yml) för varje arbets yta.)
+2. **Arbets ytor**: kostnaderna för kapacitets reservationen för klustret anges i proportion till arbets ytorna i klustret (efter redovisningen av tilldelningar per nod från [Azure Security Center](../../security-center/index.yml) för varje arbets yta.)
 
 Observera att om din arbets yta använder pris nivån bakåtkompatibelt per nod, kommer den att faktureras baserat på data som matas in mot klustrets kapacitets reservation och inte längre per nod. Data tilldelningar per nod från Azure Security Center fortsätter att gälla.
 
@@ -63,11 +65,11 @@ Först skapar du kluster resurser för att börja skapa ett dedikerat kluster.
 Följande egenskaper måste anges:
 
 - **Kluster** namn: används i administrations syfte. Användare visas inte för det här namnet.
-- **ResourceGroupName** : för alla Azure-resurser tillhör kluster en resurs grupp. Vi rekommenderar att du använder en central IT-resurs grupp eftersom kluster vanligt vis delas av många team i organisationen. Om du vill ha mer design överväganden kan du läsa om [hur du utformar Azure Monitor loggar distribution](../platform/design-logs-deployment.md)
-- **Plats** : ett kluster finns i en angiven Azure-region. Endast arbets ytor i den här regionen kan länkas till det här klustret.
-- **SkuCapacity** : du måste ange *kapacitets reservations* nivån (SKU) när du skapar en *kluster* resurs. *Kapacitets reservations* nivån kan vara inom INTERVALLET 1 000 gb till 3 000 GB per dag. Du kan uppdatera den i steg om 100 senare om det behövs. Om du behöver kapacitets reservations nivå över 3 000 GB per dag kan du kontakta oss på LAIngestionRate@microsoft.com . Mer information om kluster kostnader finns i [hantera kostnader för Log Analytics kluster](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- **ResourceGroupName**: för alla Azure-resurser tillhör kluster en resurs grupp. Vi rekommenderar att du använder en central IT-resurs grupp eftersom kluster vanligt vis delas av många team i organisationen. Om du vill ha mer design överväganden kan du läsa om [hur du utformar Azure Monitor loggar distribution](../platform/design-logs-deployment.md)
+- **Plats**: ett kluster finns i en angiven Azure-region. Endast arbets ytor i den här regionen kan länkas till det här klustret.
+- **SkuCapacity**: du måste ange *kapacitets reservations* nivån (SKU) när du skapar en *kluster* resurs. *Kapacitets reservations* nivån kan vara inom INTERVALLET 1 000 gb till 3 000 GB per dag. Du kan uppdatera den i steg om 100 senare om det behövs. Om du behöver kapacitets reservations nivå över 3 000 GB per dag kan du kontakta oss på LAIngestionRate@microsoft.com . Mer information om kluster kostnader finns i [hantera kostnader för Log Analytics kluster](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
 
-När du har skapat en *kluster* resurs kan du redigera ytterligare egenskaper som *SKU* , * keyVaultProperties eller *billingType*. Se mer information nedan.
+När du har skapat en *kluster* resurs kan du redigera ytterligare egenskaper som *SKU*, * keyVaultProperties eller *billingType*. Se mer information nedan.
 
 > [!WARNING]
 > Skapande av kluster utlöser resursallokering och etablering. Den här åtgärden kan ta upp till en timme att slutföra. Vi rekommenderar att du kör det asynkront.
@@ -162,7 +164,7 @@ Det tar en stund att slutföra etableringen av det Log Analytics klustret. Du ka
 
 När du har skapat *kluster* resursen och den är helt etablerad kan du redigera ytterligare egenskaper på kluster nivå med PowerShell eller REST API. Förutom de egenskaper som är tillgängliga när klustret skapas kan ytterligare egenskaper bara anges efter att klustret har etablerats:
 
-- **keyVaultProperties** : används för att konfigurera Azure Key Vault som används för att etablera en [Azure Monitor kundhanterad nyckel](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure). Den innehåller följande parametrar:  *KeyVaultUri* , *attributnamn* , *version*. 
+- **keyVaultProperties**: används för att konfigurera Azure Key Vault som används för att etablera en [Azure Monitor kundhanterad nyckel](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure). Den innehåller följande parametrar:  *KeyVaultUri*, *attributnamn*, *version*. 
 - **billingType** – egenskapen *billingType* bestämmer fakturerings behörigheten för *kluster* resursen och dess data:
   - **Kluster** (standard) – kapacitets reservationens kostnader för klustret är attribut till *kluster* resursen.
   - **Arbets ytor** – kapacitets reservationens kostnader för klustret anges i proportion till arbets ytorna i klustret, där *kluster* resursen faktureras viss användning om den totala inmatade data för dagen är under kapacitets reservationen. Se [Log Analytics dedikerade kluster](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) för att lära dig mer om kluster pris modellen. 
@@ -180,7 +182,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 **REST**
 
 > [!NOTE]
-> Du kan uppdatera *kluster* resursen *SKU* , *keyVaultProperties* eller *billingType* med hjälp av patch.
+> Du kan uppdatera *kluster* resursen *SKU*, *keyVaultProperties* eller *billingType* med hjälp av patch.
 
 Exempel: 
 

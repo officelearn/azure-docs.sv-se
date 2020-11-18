@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: c11de2f1bc4143281d2859de7a38268932b13fba
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2f585dd80219afac7c67eebabd72cb41dce0b673
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397407"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874516"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Installera en Application Gateway ingress-styrenhet (AGIC) med hjälp av en befintlig Application Gateway
 
@@ -46,7 +46,7 @@ Använd [Cloud Shell](https://shell.azure.com/) för att installera Helm:
 
 1. Installera [Helm](../aks/kubernetes-helm.md) och kör följande för att lägga till `application-gateway-kubernetes-ingress` Helm-paketet:
 
-    - *RBAC-aktiverad* AKS-kluster
+    - *KUBERNETES RBAC aktive rad* AKS-kluster
 
     ```bash
     kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -54,7 +54,7 @@ Använd [Cloud Shell](https://shell.azure.com/) för att installera Helm:
     helm init --tiller-namespace kube-system --service-account tiller-sa
     ```
 
-    - *RBAC har inaktiverats* AKS-kluster
+    - *KUBERNETES RBAC har inaktiverats* AKS-kluster
 
     ```bash
     helm init
@@ -187,7 +187,7 @@ I de första stegen installerar vi Helm till ditt Kubernetes-kluster. Använd [C
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     

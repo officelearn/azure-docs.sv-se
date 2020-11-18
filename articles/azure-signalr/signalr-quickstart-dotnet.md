@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: da91a5a7c077eb14d12a711b8b308d7045c88f4a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c39ef505b0cea0ad0c03b81683db8441077cd0d2
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150990"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874550"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Snabb start: skapa ett chattrum med ASP.NET och SignalR-tjänsten
 
@@ -32,13 +32,13 @@ I den här snabb starten får du lära dig hur du kommer igång med ASP.NET och 
 * [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
 * [ASP.NET-SignalR 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsnet).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Azure-konto.
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsnet).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
@@ -46,7 +46,7 @@ Läge utan *Server* stöds inte för ASP.net SignalR-program. Använd alltid *st
 
 Du kan också skapa Azure-resurser som används i den här snabb starten med [skapa ett skript för signalering](scripts/signalr-cli-create-service.md).
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsnet).
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -60,7 +60,7 @@ Medan tjänsten distribueras tar vi och arbetar med koden. Klona [exempelappen f
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsnet).
 
 ## <a name="configure-and-run-chat-room-web-app"></a>Konfigurera och kör chattrum-webbappen
 
@@ -72,7 +72,7 @@ Medan tjänsten distribueras tar vi och arbetar med koden. Klona [exempelappen f
 
 1. Markera och kopiera den primära anslutningssträngen.
 
-1. Ange nu anslutnings strängen i *web.configs * filen.
+1. Ange nu anslutnings strängen i *web.configs* filen.
 
     ```xml
     <configuration>
@@ -106,7 +106,7 @@ Medan tjänsten distribueras tar vi och arbetar med koden. Klona [exempelappen f
 
 1. Tryck på <kbd>F5</kbd> för att köra projektet i fel söknings läge. Du kan se att programmet körs lokalt. I stället för att vara värd för en signal körning av själva programmet ansluter den nu till Azure SignalR-tjänsten.
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsnet).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
@@ -121,7 +121,7 @@ Skriv namnet på din resursgrupp i textrutan **Filter by name...** (Filtrera eft
 
 Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsnet).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -129,5 +129,3 @@ I den här snabb starten skapade du en ny Azure SignalR service-resurs och anvä
 
 > [!div class="nextstepaction"]
 > [Azure SignalR service med ASP.NET Core](./signalr-quickstart-dotnet-core.md)
-
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)

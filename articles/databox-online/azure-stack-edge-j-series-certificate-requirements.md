@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: e67b507baf1c3271a7fe32318597722e52fd3890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de41bd030ea73ac68bfac5fbfbd03ae14cf7980f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891382"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874244"
 ---
 # <a name="certificate-requirements"></a>Certifikatkrav
 
@@ -30,12 +30,13 @@ Krav för certifikat utfärdare är följande:
 * Certifikatets *utfärdade till:* -fält får inte vara samma som det som *utfärdats av:* fältet, förutom rot certifikat utfärdarens certifikat.
 
 
-
 ## <a name="certificate-algorithms"></a>Certifikat algoritmer
 
 Certifikatets algoritmer måste ha följande krav:
 
 * Certifikat måste använda RSA-nyckelalgoritm.
+
+* Endast RSA-certifikat med Microsoft RSA/SChannel Cryptographic Provider stöds.
 
 * Algoritmen för certifikatautentisering får inte vara SHA1.
 
@@ -81,6 +82,8 @@ De PFX-certifikat som är installerade på din Azure Stack Edge Pro-enhet uppfyl
 * Lösen orden till alla PFX-filer för certifikat måste vara samma vid tidpunkten för distributionen om du använder verktyget Azure Stack readiness Checker. Mer information finns i [Skapa certifikat för din Azure Stack Edge Pro med hjälp av Azure Stack Hub readiness Checker-verktyget](azure-stack-edge-j-series-create-certificates-tool.md).
 
 * Lösen ordet till certifikatets PFX måste vara ett komplext lösen ord. Anteckna det här lösen ordet eftersom det används som en distributions parameter.
+
+* Använd endast RSA-certifikat med Microsoft RSA/SChannel Cryptographic Provider.
 
 Mer information finns i [Exportera PFX-certifikat med privat nyckel](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 

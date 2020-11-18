@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 6508db654cd27ca4b3844f6037f13fb504173e11
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3bd4d328c6b0b73a51f325adde988c8f0988ea8a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361173"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873819"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning-miljö för slutsatsdragning med virtuella nätverk
 
@@ -115,6 +115,8 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 När processen har skapats kan du köra en härledning eller modell bedömning i ett AKS-kluster bakom ett virtuellt nätverk. Mer information finns i [så här distribuerar du till AKS](how-to-deploy-and-where.md).
 
+Mer information om hur du använder Role-Based Access Control med Kubernetes finns i [använda Azure RBAC för Kubernetes-auktorisering](../aks/manage-azure-rbac.md).
+
 ## <a name="network-contributor-role"></a>Rollen nätverks deltagare
 
 > [!IMPORTANT]
@@ -122,7 +124,7 @@ När processen har skapats kan du köra en härledning eller modell bedömning i
 >
 > Använd följande steg för att lägga till identiteten som en nätverks deltagare:
 
-1. Använd följande Azure CLI-kommandon för att hitta tjänstens huvud namn eller hanterat identitets-ID för AKS. Ersätt `<aks-cluster-name>` med namnet på klustret. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller AKS-klustret_ :
+1. Använd följande Azure CLI-kommandon för att hitta tjänstens huvud namn eller hanterat identitets-ID för AKS. Ersätt `<aks-cluster-name>` med namnet på klustret. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller AKS-klustret_:
 
     ```azurecli-interactive
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
@@ -134,7 +136,7 @@ När processen har skapats kan du köra en härledning eller modell bedömning i
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
     ```
 
-1. Använd följande kommando för att hitta ID: t för den resurs grupp som innehåller ditt virtuella nätverk. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller det virtuella nätverket_ :
+1. Använd följande kommando för att hitta ID: t för den resurs grupp som innehåller ditt virtuella nätverk. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller det virtuella nätverket_:
 
     ```azurecli-interactive
     az group show -n <resource-group-name> --query id
@@ -151,8 +153,8 @@ Mer information om hur du använder den interna belastningsutjämnaren med AKS f
 
 Det finns två metoder för att isolera trafik till och från AKS-klustret till det virtuella nätverket:
 
-* __Privat AKS-kluster__ : den här metoden använder Azures privata länk för att skydda kommunikationen med klustret för distribution/hantering.
-* __Intern AKS-belastningsutjämnare__ : den här metoden konfigurerar slut punkten för dina distributioner till AKS för att använda en privat IP-adress i det virtuella nätverket.
+* __Privat AKS-kluster__: den här metoden använder Azures privata länk för att skydda kommunikationen med klustret för distribution/hantering.
+* __Intern AKS-belastningsutjämnare__: den här metoden konfigurerar slut punkten för dina distributioner till AKS för att använda en privat IP-adress i det virtuella nätverket.
 
 > [!WARNING]
 > Den interna belastningsutjämnaren fungerar inte med ett AKS-kluster som använder Kubernetes. Om du vill använda en intern belastningsutjämnare och ett privat AKS-kluster samtidigt konfigurerar du ditt privata AKS-kluster med Azure Container Network Interface (CNI). Mer information finns i [Konfigurera Azure cni-nätverk i Azure Kubernetes-tjänsten](../aks/configure-azure-cni.md).

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 06a2a5bbe637cd2366dbdf218c0278cd683635df
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c2679be2ca1db9017cbc37219402fa4e1c0666a5
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130042"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874431"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>SaaS-API version 2 på den kommersiella marknaden
 
@@ -28,7 +28,7 @@ Tillstånden för en SaaS-prenumeration och tillämpliga åtgärder visas.
 
 ![Livs cykel för en SaaS-prenumeration i Marketplace](./media/saas-subscription-lifecycle-api-v2.png)
 
-#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Köpt men ännu inte aktive rad ( *PendingFulfillmentStart* )
+#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Köpt men ännu inte aktive rad (*PendingFulfillmentStart*)
 
 När en slutanvändare (eller CSP) köper ett SaaS-erbjudande i Marketplace bör utgivaren meddelas om köpet så att ett nytt SaaS-konto skapas och konfigureras för slutanvändaren på utgivarens sida.
 
@@ -82,11 +82,14 @@ Det går bara att uppdatera en aktiv prenumeration. När prenumerationen uppdate
 
 ##### <a name="update-initiated-from-the-marketplace"></a>Uppdatering initierad från Marketplace
 
-I det här flödet ändrar kunden prenumerations planen eller antalet platser från M365 administrations Center.  
+I det här flödet ändrar kunden prenumerations planen eller antalet platser från Azure Portal-eller M365 administrations Center.  
 
 1. När en uppdatering har angetts anropar Microsoft utgivarens webhook-URL, konfigurerad i **anslutningens webhook** -fält i Partner Center, med ett lämpligt värde för *åtgärder* och andra relevanta parametrar.  
 1. Utgivarens sida bör göra nödvändiga ändringar i SaaS-tjänsten och meddela Microsoft när ändringen har slutförts genom att anropa [uppdaterings status för åtgärds-API](#update-the-status-of-an-operation).
 1. Om korrigerings filen skickas med statusen Misslyckad, slutförs inte uppdaterings processen på Microsoft-sidan.  SaaS-prenumerationen kommer att lämnas med befintlig plan och antal platser.
+
+> [!NOTE]
+> Utgivaren ska starta KORRIGERINGen för att [Uppdatera status för åtgärds-API](#update-the-status-of-an-operation) med ett misslyckat/framgångs svar *inom en tids period på 10 sekunder* efter att ha tagit emot webhook-meddelandet. Om korrigering av åtgärds status inte tas emot inom 10 sekunder, korrigeras ändrings planen *automatiskt som lyckad*. 
 
 Sekvensen med API-anrop för ett uppdaterings scenario som initieras av Marketplace visas nedan.
 
@@ -106,9 +109,9 @@ Sekvensen med API-anrop för det initierade uppdaterings scenariot vid publiceri
 
 ![API-anrop för en initierad uppdatering av Publisher-Sidan](./media/saas-update-status-api-v2-calls-publisher-side.png)
 
-#### <a name="suspended-suspended"></a>Pausad ( *inaktive* rad)
+#### <a name="suspended-suspended"></a>Pausad (*inaktive* rad)
 
-Det här läget anger att kundens betalning för SaaS-tjänsten inte har tagits emot. Utgivaren kommer att meddelas om den här ändringen i SaaS prenumerations status av Microsoft. Meddelandet görs via ett anrop till webhook med *Åtgärds* parametern inställd på *pausad* .
+Det här läget anger att kundens betalning för SaaS-tjänsten inte har tagits emot. Utgivaren kommer att meddelas om den här ändringen i SaaS prenumerations status av Microsoft. Meddelandet görs via ett anrop till webhook med *Åtgärds* parametern inställd på *pausad*.
 
 Utgivaren kan eventuellt göra ändringar i SaaS-tjänsten på utgivarens sida. Vi rekommenderar att utgivaren gör informationen tillgänglig för den inaktiverade kunden och begränsar eller blockerar kundens åtkomst till SaaS-tjänsten.  Det finns en sannolikhet att betalningen aldrig tas emot.
 
@@ -119,7 +122,7 @@ Microsoft ger kunden en 30-dagars Grace-period innan prenumerationen avbryts aut
 
 Prenumerations tillståndet ändras till inaktive rad på Microsoft-sidan innan utgivaren vidtar åtgärder. Det går bara att pausa aktiva prenumerationer.
 
-#### <a name="reinstated-suspended"></a>Återupprättad ( *inaktive* rad)
+#### <a name="reinstated-suspended"></a>Återupprättad (*inaktive* rad)
 
 Prenumerationen återställs.
 
@@ -135,7 +138,7 @@ Om korrigeringen skickas med statusen Misslyckad, slutförs inte återställning
 
 Endast en pausad prenumeration kan återställas.  När en SaaS-prenumeration återställs förblir tillståndet pausat.  När den här åtgärden har slutförts aktive ras prenumerationens status.
 
-#### <a name="renewed-subscribed"></a>Förnyad ( *prenumererad* )
+#### <a name="renewed-subscribed"></a>Förnyad (*prenumererad*)
 
 I slutet av prenumerations perioden (efter en månad eller ett år) förnyas SaaS-prenumerationen automatiskt av Microsoft.  Standardinställningen för automatisk förnyelse är *True* för alla SaaS-prenumerationer. Aktiva SaaS-prenumerationer fortsätter att förnyas med vanliga takt. Microsoft meddelar inte utgivaren när en prenumeration förnyas. En kund kan inaktivera automatisk förnyelse för en SaaS-prenumeration via M365-administrationskonsolen eller via Azure Portal.  I det här fallet avbryts SaaS-prenumerationen automatiskt när den aktuella fakturerings perioden är slut.  Kunder kan också avbryta SaaS-prenumerationen vid varje tidpunkt.
 
@@ -143,7 +146,7 @@ Endast aktiva prenumerationer förnyas automatiskt.  Prenumerationerna förblir 
 
 Om en automatisk förnyelse Miss lyckas på grund av ett problem med betalningen kommer prenumerationen att inaktive ras.  Utgivaren kommer att meddelas.
 
-#### <a name="canceled-unsubscribed"></a>Avbruten (avbruten av *prenumeration* ) 
+#### <a name="canceled-unsubscribed"></a>Avbruten (avbruten av *prenumeration*) 
 
 Prenumerationerna når detta tillstånd som svar på antingen en explicit kund-eller CSP-åtgärd genom att avbryta en prenumeration från utgivarens webbplats, Azure Portal eller M365 administrations Center.  En prenumeration kan också avbrytas implicit, på grund av inbetalning av avgifter, efter att ha varit i pausat tillstånd i 30 dagar.
 
@@ -581,7 +584,7 @@ Partnern får också ett webhook-meddelande när åtgärden är redo att slutfö
 
 |  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  URL för att hämta åtgärdens status.  Till exempel `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  URL för att hämta åtgärdens status.  Exempelvis `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
 Felkod: 400 Felaktig begäran: verifierings fel.
 
@@ -646,7 +649,7 @@ Partnern får också ett webhook-meddelande när åtgärden är redo att slutfö
 
 |  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  Länka till en resurs för att få åtgärdens status.  Till exempel `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
+|  `Operation-Location`        |  Länka till en resurs för att få åtgärdens status.  Exempelvis `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
 
 Felkod: 400 Felaktig begäran: verifierings fel.
 
@@ -711,7 +714,7 @@ Partnern får också ett webhook-meddelande när åtgärden har slutförts på M
 
 |  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  Länka till en resurs för att få åtgärdens status.  Till exempel `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  Länka till en resurs för att få åtgärdens status.  Exempelvis `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
 Felkod: 400 Felaktig begäran.  Ta bort finns inte i `allowedCustomerOperations` listan för den här SaaS-prenumerationen.
 
@@ -788,9 +791,9 @@ Kod: 500 internt Server fel. Gör om API-anropet.  Kontakta [Microsoft-supporten
 
 #### <a name="get-operation-status"></a>Hämta åtgärds status
 
-Gör att utgivaren kan spåra statusen för den angivna asynkrona åtgärden:  **Avsluta prenumeration** , **ChangePlan** eller **ChangeQuantity** .
+Gör att utgivaren kan spåra statusen för den angivna asynkrona åtgärden:  **Avsluta prenumeration**, **ChangePlan** eller **ChangeQuantity**.
 
-`operationId`För det här API-anropet kan hämtas från det värde som returneras av **Åtgärds plats** , Hämta väntande åtgärder API-anrop eller det `<id>` parameter värde som togs emot i ett webhook-anrop.
+`operationId`För det här API-anropet kan hämtas från det värde som returneras av **Åtgärds plats**, Hämta väntande åtgärder API-anrop eller det `<id>` parameter värde som togs emot i ett webhook-anrop.
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Ta `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -850,7 +853,7 @@ Kod: 500 internt Server fel.  Gör om API-anropet.  Kontakta [Microsoft-supporte
 
 Uppdatera statusen för en väntande åtgärd för att ange att åtgärden lyckades eller misslyckades på utgivarens sida.
 
-`operationId`För det här API-anropet kan hämtas från det värde som returneras av **Åtgärds plats** , Hämta väntande åtgärder API-anrop eller `<id>` parameter värde som tagits emot i ett webhook-anrop.
+`operationId`För det här API-anropet kan hämtas från det värde som returneras av **Åtgärds plats**, Hämta väntande åtgärder API-anrop eller `<id>` parameter värde som tagits emot i ett webhook-anrop.
 
 ##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>9.0a `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -962,7 +965,7 @@ När utgivaren är klar för testningen av slut punkt till slut punkt:
 
 Ett inköps flöde kan utlösas från Azure Portal eller Microsoft AppSource platser, beroende på var erbjudandet publiceras.
 
-Åtgärder för att *ändra plan* , *ändra antal* och *avbryta prenumerationer* testas från utgivarens sida.  Från Microsoft kan *avbryta prenumerationen* utlösas från både Azure Portal-och administrations Center (portalen där Microsoft AppSource inköp hanteras).  *Ändra kvantitet och plan* kan bara utlösas från administrations Center.
+Åtgärder för att *ändra plan*, *ändra antal* och *avbryta prenumerationer* testas från utgivarens sida.  Från Microsoft kan *avbryta prenumerationen* utlösas från både Azure Portal-och administrations Center (portalen där Microsoft AppSource inköp hanteras).  *Ändra kvantitet och plan* kan bara utlösas från administrations Center.
 
 ## <a name="get-support"></a>Få support
 

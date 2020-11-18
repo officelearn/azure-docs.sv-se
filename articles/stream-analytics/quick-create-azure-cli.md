@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: fa7919f54663387ddef811d02137da6d3ffb9d9b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4e50560d2f090c99d1f354ebbc11ab2357dd61e8
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646635"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874737"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Snabb start: skapa ett Azure Stream Analytics jobb med hjälp av Azure CLI
 
@@ -155,7 +155,7 @@ Skapa en fil med namnet `serialization.json` på den lokala datorn och lägg til
 Kör sedan cmdleten `az stream-analytics input create`. Se till att ersätta värdet för `datasource` variabeln med sökvägen där du har lagrat indata-JSON-filen för indata och värdet för `serialization` variabeln med sökvägen där du har sparat JSON-filen för serialisering.
 
 ```azurecli
-az stream-analytics input create 
+az stream-analytics input create \
     --resource-group streamanalyticsrg 
     --job-name streamanalyticsjob \
     --name asaiotinput \
@@ -191,7 +191,7 @@ Skapa en fil med namnet `datasink.json` på den lokala datorn och lägg till fö
 Kör sedan cmdleten `az stream-analytics output`. Se till att ersätta värdet för `datasource` variabeln med sökvägen där du har sparat JSON-filen för utdata från utskrifts definitionen och värdet för `serialization` variabeln med sökvägen där du har sparat JSON-filen för serialisering.
 
 ```azurecli
-az stream-analytics output create 
+az stream-analytics output create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name asabloboutput \
@@ -206,7 +206,7 @@ Lägg till en omvandling ditt jobb med hjälp av [create-cmdleten AZ Stream-Anal
 Kör `az stream-analytics transformation create` cmdleten.
 
 ```azurecli
-az stream-analytics transformation create 
+az stream-analytics transformation create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name Transformation \
@@ -230,7 +230,7 @@ Starta jobbet med hjälp av start cmdleten [AZ Stream-Analytics Job](/cli/azure/
 När du har kört följande cmdlet returnerar den `True` som utdata om jobbet startar. En utdatamapp skapas i lagringscontainern med de data som har transformerats.
 
 ```azurecli
-az stream-analytics job start 
+az stream-analytics job start \
     --resource-group streamanalyticsrg \
     --name streamanalyticsjob \
     --output-start-mode JobStartTime

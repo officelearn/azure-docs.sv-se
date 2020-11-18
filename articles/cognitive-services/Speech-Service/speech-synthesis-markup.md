@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e0625fd257ed9995fb567785ce07dcb0b0422c61
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9ed4e47cf946827e2e4b9aaeb14d9668e96aeaa5
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311635"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873785"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -200,25 +200,46 @@ För närvarande stöds anpassning av format justeringar för dessa neurala-rös
 * `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunxiNeural` Förhandsgranskningsvyn
+* `zh-CN-XiaohanNeural` Förhandsgranskningsvyn
+* `zh-CN-XiaomoNeural` Förhandsgranskningsvyn
+* `zh-CN-XiaoxuanNeural` Förhandsgranskningsvyn
+* `zh-CN-XiaoruiNeural` Förhandsgranskningsvyn
 
-Ändringarna tillämpas på menings nivå, och stilarna varierar med röst. Om en stil inte stöds returnerar tjänsten tal i standardformat för neutralt tal. Du kan fråga de format som stöds för varje röst via [röst listans API](rest-text-to-speech.md#get-a-list-of-voices).
+Du kan ändra utseendet på tal formatet så att det bättre passar ditt användnings fall. Du kan ange ett starkare eller mjukare format med `styledegree` om du vill göra talet mer lättfattliga programspecifika eller subdued. 
 
-För kinesisk röst XiaoxiaoNeural kan du ytterligare ändra utseendet på tal formatet så att det passar ditt användnings fall bättre. Du kan ange ett starkare eller mjukare format med `styledegree` om du vill göra talet mer lättfattliga programspecifika eller subdued.
+För närvarande stöds anpassning av format justeringar för dessa neurala-röster:
+* `zh-CN-XiaoxiaoNeural`
+
+Förutom att justera tal formaten och format graderna kan du också justera `role` parametern så att rösten imiterar en annan ålder och kön. Till exempel kan en hane-röst öka bredden och ändra intonation till imitera en hona röst.
+
+För närvarande stöds roll uppspelnings justeringar för dessa neurala-röster:
+* `zh-CN-XiaomoNeural`
+* `zh-CN-XiaoxuanNeural`
+
+Ovanstående ändringar tillämpas på menings nivå, och format och roll-spelar varierar med röst. Om en stil eller roll-uppspelning inte stöds returnerar tjänsten tal på det neutrala standard sättet. Du kan se vilka formatmallar och roll uppspelningar som stöds för varje röst via [röst listans API](rest-text-to-speech.md#get-a-list-of-voices) eller genom att använda en kod fri plattform för att [skapa ljud innehåll](https://aka.ms/audiocontentcreation) .
 
 **Syntax**
 
 ```xml
+<mstts:express-as style="string"></mstts:express-as>
+```
+```xml
 <mstts:express-as style="string" styledegree="value"></mstts:express-as>
 ```
+```xml
+<mstts:express-as role="string" style="string"></mstts:express-as>
+```
 > [!NOTE]
-> För tillfället `styledegree` stöder endast XiaoxiaoNeural. 
+> För tillfället `styledegree` stöder endast zh-cn-XiaoxiaoNeural. `role` stöder endast zh-CN-XiaomoNeural och zh-CN-XiaoxuanNeural.
 
 **Attribut**
 
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `style` | Anger tal formatet. För närvarande är det röst alternativ att tala om format. | Krävs om du justerar tal formatet för en neurala röst. Om du använder `mstts:express-as` , måste format tillhandahållas. Om ett ogiltigt värde har angetts ignoreras det här elementet. |
-| `styledegree` | Anger intensiteten för tal format. **Godkända värden** : 0,01 till 2. Standardvärdet är 1 vilket innebär den fördefinierade stil intensiteten. Den minsta enheten är 0,01 vilket resulterar i en något tendens för mål formatet. Värdet 2 resulterar i en dubblerad standard stil.  | Valfritt (för tillfället `styledegree` stöder endast XiaoxiaoNeural.)|
+| `styledegree` | Anger intensiteten för tal format. **Godkända värden**: 0,01 till 2. Standardvärdet är 1 vilket innebär den fördefinierade stil intensiteten. Den minsta enheten är 0,01 vilket resulterar i en något tendens för mål formatet. Värdet 2 resulterar i en dubblerad standard stil.  | Valfritt (för tillfället `styledegree` stöder endast zh-cn-XiaoxiaoNeural.)|
+| `role` | Anger den talande roll som spelas upp. Rösten fungerar som en annan ålder och kön.  | Valfritt (för tillfället `role` stöder endast zh-cn-XiaomoNeural och zh-cn-XiaoxuanNeural.)|
 
 Använd den här tabellen för att avgöra vilka tal format som stöds för varje neurala röst.
 
@@ -250,6 +271,52 @@ Använd den här tabellen för att avgöra vilka tal format som stöds för varj
 |                         | `style="gentle"`          | Uttrycker en viss, avslutningen och Pleasant ton, med lägre färgdjup och Vocal energi         |   
 |                         | `style="lyrical"`         | Uttrycker känslor i ett Melodic-och sentimental-sätt         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Uttrycker en vänlig och användbar ton för kund support  | 
+| `zh-CN-YunxiNeural`    | `style="cheerful"`        | Uttrycker en takt och entusiastisk ton, med högre färgdjup och Vocal energi                         |
+|                         | `style="sad"`             | Uttrycker en sorrowful-ton, med högre avstånd, mindre intensitet och lägre Vocal energi. Vanliga indikatorer för den här känslo skulle vara whimpers eller grått under tal.            |
+|                         | `style="angry"`           | Uttrycker en Angry-och uppretad-ton, med lägre färgdjup, högre intensitet och högre Vocal energi. Högtalaren är i ett tillstånd att vara Irate, avstängt och felfritt.       |
+|                         | `style="fearful"`         | Uttrycker en Scared-och nerv ton, med högre färgdjup, högre Vocal energi och snabbare hastighet. Högtalaren är i läget tenseness och uneasiness.                          |
+|                         | `style="disgruntled"`     | Uttrycker en disdainful och en klagad ton. Tal för den här känslo visar avnöjes och bevarar.              |
+|                         | `style="serious"`         | Uttrycker en strikt och kommando rads ton. Talare låter ofta styvare och mycket mindre avslappnad med fast takt.    |
+|                         | `style="depressed"`       | Uttrycker en melancholic-och despondent-ton med lägre färgdjup och energi    |
+|                         | `style="embarrassed"`     | Uttrycker en osäker och tveka ton när talare känner sig osäker   |
+| `zh-CN-XiaohanNeural`   | `style="cheerful"`        | Uttrycker en takt och entusiastisk ton, med högre färgdjup och Vocal energi                         |
+|                         | `style="sad"`             | Uttrycker en sorrowful-ton, med högre avstånd, mindre intensitet och lägre Vocal energi. Vanliga indikatorer för den här känslo skulle vara whimpers eller grått under tal.            |
+|                         | `style="angry"`           | Uttrycker en Angry-och uppretad-ton, med lägre färgdjup, högre intensitet och högre Vocal energi. Högtalaren är i ett tillstånd att vara Irate, avstängt och felfritt.       |
+|                         | `style="fearful"`         | Uttrycker en Scared-och nerv ton, med högre färgdjup, högre Vocal energi och snabbare hastighet. Högtalaren är i läget tenseness och uneasiness.                          |
+|                         | `style="disgruntled"`     | Uttrycker en disdainful och en klagad ton. Tal för den här känslo visar avnöjes och bevarar.              |
+|                         | `style="serious"`         | Uttrycker en strikt och kommando rads ton. Talare låter ofta styvare och mycket mindre avslappnad med fast takt.    |
+|                         | `style="embarrassed"`     | Uttrycker en osäker och tveka ton när talare känner sig osäker   |
+|                         | `style="affectionate"`    | Uttrycker en varm och affectionate ton, med högre färgdjup och Vocal energi. Högtalaren är i ett tillstånd där du kan dra uppmärksamheten till lyssnaren. Den "personlighet" av högtalaren är ofta av betydelse.          |     
+|                         | `style="gentle"`          | Uttrycker en viss, avslutningen och Pleasant ton, med lägre färgdjup och Vocal energi         |   
+| `zh-CN-XiaomoNeural`    | `style="cheerful"`        | Uttrycker en takt och entusiastisk ton, med högre färgdjup och Vocal energi                         |
+|                         | `style="angry"`           | Uttrycker en Angry-och uppretad-ton, med lägre färgdjup, högre intensitet och högre Vocal energi. Högtalaren är i ett tillstånd att vara Irate, avstängt och felfritt.       |
+|                         | `style="fearful"`         | Uttrycker en Scared-och nerv ton, med högre färgdjup, högre Vocal energi och snabbare hastighet. Högtalaren är i läget tenseness och uneasiness.                          |
+|                         | `style="disgruntled"`     | Uttrycker en disdainful och en klagad ton. Tal för den här känslo visar avnöjes och bevarar.              |
+|                         | `style="serious"`         | Uttrycker en strikt och kommando rads ton. Talare låter ofta styvare och mycket mindre avslappnad med fast takt.    |
+|                         | `style="depressed"`       | Uttrycker en melancholic-och despondent-ton med lägre färgdjup och energi    |
+|                         | `style="gentle"`          | Uttrycker en viss, avslutningen och Pleasant ton, med lägre färgdjup och Vocal energi         |  
+| `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | Uttrycker en takt och entusiastisk ton, med högre färgdjup och Vocal energi                         |
+|                         | `style="angry"`           | Uttrycker en Angry-och uppretad-ton, med lägre färgdjup, högre intensitet och högre Vocal energi. Högtalaren är i ett tillstånd att vara Irate, avstängt och felfritt.       |
+|                         | `style="fearful"`         | Uttrycker en Scared-och nerv ton, med högre färgdjup, högre Vocal energi och snabbare hastighet. Högtalaren är i läget tenseness och uneasiness.                          |
+|                         | `style="disgruntled"`     | Uttrycker en disdainful och en klagad ton. Tal för den här känslo visar avnöjes och bevarar.              |
+|                         | `style="serious"`         | Uttrycker en strikt och kommando rads ton. Talare låter ofta styvare och mycket mindre avslappnad med fast takt.    |
+|                         | `style="depressed"`       | Uttrycker en melancholic-och despondent-ton med lägre färgdjup och energi    |
+|                         | `style="gentle"`          | Uttrycker en viss, avslutningen och Pleasant ton, med lägre färgdjup och Vocal energi         |   
+| `zh-CN-XiaoruiNeural`    | `style="sad"`             | Uttrycker en sorrowful-ton, med högre avstånd, mindre intensitet och lägre Vocal energi. Vanliga indikatorer för den här känslo skulle vara whimpers eller grått under tal.            |
+|                         | `style="angry"`           | Uttrycker en Angry-och uppretad-ton, med lägre färgdjup, högre intensitet och högre Vocal energi. Högtalaren är i ett tillstånd att vara Irate, avstängt och felfritt.       |
+|                         | `style="fearful"`         | Uttrycker en Scared-och nerv ton, med högre färgdjup, högre Vocal energi och snabbare hastighet. Högtalaren är i läget tenseness och uneasiness.                          |
+
+Använd den här tabellen för att avgöra vilka roller som stöds för varje neurala röst.
+
+| Röst                   | Roll                       | Beskrivning                                                 |
+|-------------------------|----------------------------|-------------------------------------------------------------|
+| `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | Rösten imiterar en ung vuxen hona.                 |
+|                         | `role="OlderAdultMale"`    | Rösten imiterar en äldre vuxen hane.                   |
+|                         | `role="Girl"`              | Rösten imiterar en flicka.                               |
+|                         | `role="Boy"`               | Rösten imiterar en pojke.                                |
+| `zh-CN-XiaoxuanNeural`  | `role="YoungAdultFemale"`  | Rösten imiterar en ung vuxen hona.                 |
+|                         | `role="OlderAdultFemale"`  | Rösten imiterar en äldre vuxen hona.                 |
+|                         | `role="OlderAdultMale"`    | Rösten imiterar en äldre vuxen hane.                   |
 
 **Exempel**
 
@@ -278,6 +345,23 @@ Det här SSML-kodfragmentet illustrerar hur `styledegree` attributet används f�
 </speak>
 ```
 
+Det här SSML-kodfragmentet illustrerar hur `role` attributet används för att ändra roll-Play för XiaomoNeural.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaomoNeural">
+        女儿看见父亲走了进来，问道：
+        <mstts:express-as role="YoungAdultFemale" style="calm">
+            “您来的挺快的，怎么过来的？”
+        </mstts:express-as>
+        父亲放下手提包，说：
+        <mstts:express-as role="OlderAdultMale" style="calm">
+            “刚打车过来的，路上还挺顺畅。”
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
 ## <a name="add-or-remove-a-breakpause"></a>Lägg till eller ta bort en paus/pausa
 
 Använd `break` elementet för att infoga pauser (eller brytningar) mellan ord, eller förhindra att pauser automatiskt läggs till av tjänsten text till tal.
@@ -297,7 +381,7 @@ Använd `break` elementet för att infoga pauser (eller brytningar) mellan ord, 
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `strength` | Anger den relativa varaktigheten för en paus med något av följande värden:<ul><li>inget</li><li>x-svaga</li><li>svaga</li><li>medel (standard)</li><li>kraftfull</li><li>x – stark</li></ul> | Valfritt |
-| `time` | Anger den absoluta varaktigheten för en paus på några sekunder eller millisekunder. Exempel på giltiga värden är `2s` och `500` | Valfritt |
+| `time` | Anger den absoluta varaktigheten för en paus i sekunder eller millisekunder. värdet ska vara mindre än 5000ms. Exempel på giltiga värden är `2s` och `500ms` | Valfritt |
 
 | Styrka                      | Beskrivning |
 |-------------------------------|-------------|
@@ -316,6 +400,37 @@ Använd `break` elementet för att infoga pauser (eller brytningar) mellan ord, 
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
+```
+## <a name="add-silence"></a>Lägg till tystnad
+
+Använd `mstts:silence` elementet för att infoga pauser före eller efter text, eller mellan de två intilliggande meningarna. 
+
+> [!NOTE]
+>Skillnaden mellan `mstts:silence` och `break` är som `break` kan läggas till var som helst i texten, men tystnad fungerar bara i början eller slutet av inmatad text, eller på gräns 2 närliggande meningar.  
+
+
+**Syntax**
+
+```xml
+<mstts:silence  type="string"  value="string"/>
+```
+
+**Attribut**
+
+| Attribut | Beskrivning | Obligatorisk/valfri |
+|-----------|-------------|---------------------|
+| `type` | Anger platsen för tystnad som ska läggas till: <ul><li>Ledande – i början av texten </li><li>Svans – i slutet av texten </li><li>Sentenceboundary – mellan intilliggande meningar </li></ul> | Obligatorisk |
+| `Value` | Anger den absoluta varaktigheten för en paus i sekunder eller millisekunder. värdet ska vara mindre än 5000ms. Exempel på giltiga värden är `2s` och `500ms` | Obligatorisk |
+
+**Exempel** I det här exemplet `mtts:silence` används för att lägga till 200 MS av tystnaden mellan två meningar.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">  
+<voice name="en-US-AriaNeural"> 
+<mstts:silence  type="Sentenceboundary" value="200ms"/> 
+If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way. 
+A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time. 
+</voice> 
+</speak> 
 ```
 
 ## <a name="specify-paragraphs-and-sentences"></a>Ange stycken och meningar
@@ -355,6 +470,9 @@ Använd `break` elementet för att infoga pauser (eller brytningar) mellan ord, 
 `ph`Elementet används för fonetiskt uttal i SSML-dokument. `ph`Elementet får bara innehålla text, inga andra element. Tillhandahålla alltid läsliga tal som reserv.
 
 Fonetiska alfabet består av telefoner, som består av bokstäver, siffror eller tecken, ibland i kombination. Varje telefon beskriver ett unikt ljud av tal. Detta är i motsats till det latinska alfabetet, där en bokstav kan representera flera talade ljud. Överväg de olika uttalna av bokstaven "c" i orden "Candy" och "upphör", eller de olika uttal av bokstavs kombinationen "th" i orden "sak" och "de".
+
+> [!NOTE]
+> Fonem-taggen stöds inte för de här 5 rösterna (et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, LV-LV-EveritaNeural och MT-MT-GarceNeural) för tillfället.
 
 **Syntax**
 
@@ -401,6 +519,10 @@ Ibland kan inte text till tal-tjänsten uttala ett ord. Till exempel namnet på 
 
 > [!NOTE]
 > Anpassat lexikon stöder UTF-8-kodning för närvarande. 
+
+> [!NOTE]
+> Anpassat lexikon stöds inte för de här 5 rösterna (et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, LV-LV-EveritaNeural och MT-MT-GarceNeural) för tillfället.
+
 
 **Syntax**
 
@@ -631,7 +753,7 @@ Följande är de innehålls typer som stöds för `interpret-as` `format` attrib
 | `address` | | Texten talas som en adress. Tal syntes motorn uttalar:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Som "Jag är på 150th-domstolen norra östra Redmond Washington". |
 | `cardinal`, `number` | | Texten talas som ett kardinal nummer. Tal syntes motorn uttalar:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Det finns tre alternativ. " |
 | `characters`, `spell-out` | | Texten talas som enskilda bokstäver (rättstavade). Tal syntes motorn uttalar:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />T. ex. "T E S." |
-| `date` | DMY, MDÅ, YMD, ådm, YM, My, MD, DM, d, m, y | Texten talas som ett datum. `format`Attributet anger datumets format ( *d = dag, m = månad och y = år* ). Tal syntes motorn uttalar:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Som "idag är den Nineteenth oktober 2016". |
+| `date` | DMY, MDÅ, YMD, ådm, YM, My, MD, DM, d, m, y | Texten talas som ett datum. `format`Attributet anger datumets format (*d = dag, m = månad och y = år*). Tal syntes motorn uttalar:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Som "idag är den Nineteenth oktober 2016". |
 | `digits`, `number_digit` | | Texten talas som en sekvens med enskilda siffror. Tal syntes motorn uttalar:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Som "1 2 3 4 5 6 7 8 9". |
 | `fraction` | | Texten talas som ett bråk tals tal. Tal syntes motorn uttalar:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Som "tre åttondelar av en tum". |
 | `ordinal` | | Texten talas som ett ordnings tal. Tal syntes motorn uttalar:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Som "Välj det tredje alternativet". |
@@ -717,9 +839,9 @@ Endast en bakgrunds ljud fil tillåts per SSML-dokument. Du kan dock blanda `aud
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `src` | Anger plats/URL för bakgrunds ljud filen. | Krävs om du använder bakgrunds ljud i ditt SSML-dokument. |
-| `volume` | Anger bakgrunds ljud filens volym. **Godkända värden** : `0` till `100` inklusiv. Standardvärdet är `1`. | Valfritt |
-| `fadein` | Anger bakgrunds ljudets varaktighet "tona in" som millisekunder. Standardvärdet är `0` , vilket motsvarar ingen toning i. **Godkända värden** : `0` till `10000` inklusiv.  | Valfritt |
-| `fadeout` | Anger bakgrunds ljudets varaktighet tonar ut i millisekunder. Standardvärdet är `0` , vilket motsvarar ingen toning. **Godkända värden** : `0` till `10000` inklusiv.  | Valfritt |
+| `volume` | Anger bakgrunds ljud filens volym. **Godkända värden**: `0` till `100` inklusiv. Standardvärdet är `1`. | Valfritt |
+| `fadein` | Anger bakgrunds ljudets varaktighet "tona in" som millisekunder. Standardvärdet är `0` , vilket motsvarar ingen toning i. **Godkända värden**: `0` till `10000` inklusiv.  | Valfritt |
+| `fadeout` | Anger bakgrunds ljudets varaktighet tonar ut i millisekunder. Standardvärdet är `0` , vilket motsvarar ingen toning. **Godkända värden**: `0` till `10000` inklusiv.  | Valfritt |
 
 **Exempel**
 

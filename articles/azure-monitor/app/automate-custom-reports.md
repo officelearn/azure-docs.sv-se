@@ -4,12 +4,12 @@ description: Automatisera anpassade dagliga/veckovis/månads Visa rapporter med 
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f35b7cbde7b719a91b23b19481ab704c445485cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827730"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873718"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatisera anpassade rapporter med Azure Application Insights-data
 
@@ -31,7 +31,7 @@ Varje företag har sina unika rapporterings behov, till exempel:
 
 Du kan [köra program mässigt fråga Application Insights](https://dev.applicationinsights.io/) data för att skapa anpassade rapporter enligt ett schema. Följande alternativ kan hjälpa dig att komma igång snabbt:
 
-* [Automatisera rapporter med Microsoft Flow](../platform/logicapp-flow-connector.md)
+* [Automatisera rapporter med energi automatisering](../platform/logicapp-flow-connector.md)
 * [Automatisera rapporter med Logic Apps](automate-with-logic-apps.md)
 * Använd [Azure Function](../../azure-functions/functions-create-first-azure-function.md) -mallen "Application Insights schemalagd Sammanfattning" i övervaknings scenariot. Den här funktionen använder SendGrid för att leverera e-postmeddelandet. 
 
@@ -112,7 +112,7 @@ availabilityResults
 
      ![Skärm bild av utdata](./media/automate-custom-reports/integrate.png)
 
-9. Under **inställningen SendGridAPI Key app**väljer du din nyligen skapade app-inställning för **SendGridAPI**.
+9. Under **inställningen SendGridAPI Key app** väljer du din nyligen skapade app-inställning för **SendGridAPI**.
 
      ![Kör Funktionsapp skärm bild](./media/automate-custom-reports/sendgrid-output.png)
 

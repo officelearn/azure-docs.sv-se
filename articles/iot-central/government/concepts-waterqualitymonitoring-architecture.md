@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2afe53ade9106fa5e1ebb9ec43492a86bd9fc213
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1c4cc7f5440aca27be085c238179cd0ab20b226a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127326"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874057"
 ---
 # <a name="water-quality-monitoring-reference-architecture"></a>Referensarkitektur för övervakning av vattenkvalitet 
 
@@ -41,10 +41,10 @@ Enheter som används i smarta vatten lösningar är vanligt vis anslutna via lå
 Azure IoT Central är en IoT app-plattform som hjälper dig att snabbt komma igång med din IoT-lösning. Du kan märka, anpassa och integrera din lösning med tjänster från tredje part.
 När du ansluter dina Smart vatten enheter till IoT Central får du enhets kommando och kontroll, övervakning och avisering, användar gränssnitt med inbyggda RBAC-och konfigurerbara insikter-instrument paneler och alternativ för utöknings barhet. 
 
-## <a name="extensibility-and-integrations"></a>Utökning och integrering 
+## <a name="extensibility-and-integrations"></a>Utökning och integrering
 Du kan utöka IoT-programmet i IoT Central och om du vill:
 * transformera och integrera IoT-data för avancerad analys, till exempel utbildning av maskin inlärnings modeller, genom kontinuerlig data export från IoT Central program
-* Automatisera arbets flöden i andra system genom att utlösa åtgärder med hjälp av Microsoft Flow eller Webhooks från IoT Central program
+* Automatisera arbets flöden i andra system genom att utlösa åtgärder med hjälp av energi automatisering eller Webhooks från IoT Central program
 * program mässigt åtkomst till ditt IoT-program i IoT Central via IoT Central-API: er
 
 ## <a name="business-applications"></a>Affärs program 

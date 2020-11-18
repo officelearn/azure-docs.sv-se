@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 09/29/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e90bcfe7238ae998ac677a9d7eebef0ffa8939
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568360"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874261"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Felsöka certifikat fel
 
@@ -46,6 +46,7 @@ Följande tabell visar vanliga certifikat fel och detaljerad information om dess
 | CertificateManagement_MissingServerOid | Certifikatet med ämnes namnet saknar {0} OID för serverautentisering. Kontrol lera certifikatets egenskaper och om det behövs kan du ta med ett nytt certifikat.|
 | CertificateManagement_NameMismatch | Felaktig matchning av certifikat typ. Förväntat omfång: {0} , hittades {1} . Ladda upp lämpligt certifikat.|
 | CertificateManagement_NoPrivateKeyPresent | {0}Det finns ingen privat nyckel för certifikatet med ämnes namnet. Ladda upp ett. PFX-certifikat med privat nyckel.|
+| CertificateManagement_NoRSACryptoPrivateKey | Det går inte att komma åt den privata nyckeln för certifikat med mottagar namn {0} . Kontrol lera att du använder ett certifikat som stöds. Endast Microsoft RSA/SChannel Cryptographic Provider stöds. |
 | CertificateManagement_NotSelfSignedCertificate | Certifikatet med ämnes namnet {0} är inte självsignerat. Rot certifikaten ska vara självsignerade |
 | CertificateManagement_NotSupportedOnVirtualAppliance | Den här åtgärden stöds inte på den virtuella enheten. Det här felet indikerar att signering endast sker med Data Box Gateway som körs i moln installationen i taktiska. Felet uppstår när enheten hanteras via Windows PowerShell.|
 | CertificateManagement_SelfSignedCertificate | Certifikatet med ämnes namnet {0} är självsignerat. Ladda upp ett certifikat som är korrekt signerat.|
@@ -57,6 +58,8 @@ Följande tabell visar vanliga certifikat fel och detaljerad information om dess
 | CertificateImportFailure | Certifikatet med tumavtrycket {0} importerades inte på noden {1} . Kontakta Microsoft Support om problemet kvarstår. |
 | CertificateApplyFailure | Certifikatet med tumavtrycket {0} tillämpades inte på noden {1} . Kontakta Microsoft Support om problemet kvarstår.|
 | NodeNotReachable | Det gick inte att verifiera certifikatet på {0} . Kontrol lera systemets maskin-och program varu hälsa.|
+| HÄMTA FELKOD | Det går inte att komma åt den privata nyckeln för det här certifikatet. Kontrol lera att du använder ett certifikat som stöds. Endast Microsoft RSA/SChannel Cryptographic Provider stöds. |
+
 
 ## <a name="next-steps"></a>Nästa steg
 

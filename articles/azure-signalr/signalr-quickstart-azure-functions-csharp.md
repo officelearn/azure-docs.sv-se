@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/25/2020
 ms.author: zhshang
-ms.openlocfilehash: be26fdafe0a8a52669fe41fd5514c808f10df745
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1f28058a766144ada3326b3ee4ce09ca503d1896
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91369135"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873887"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Snabb start: skapa ett chattrum med Azure Functions-och SignalR-tjänsten med hjälp av C\#
 
@@ -27,21 +27,21 @@ Du kan också köra den här självstudien på kommando raden (macOS, Windows el
 
 Om du inte har en Azure-prenumeration kan du [skapa en kostnads fri](https://azure.microsoft.com/free/dotnet) innan du börjar.
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qscsharp).
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto.
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qscsharp).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qscsharp).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qscsharp).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Konfigurera och köra Azure Functions-appen
 
@@ -55,7 +55,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 1. Markera och kopiera den primära anslutningssträngen.
 
-1. I Visual Studio- **Solution Explorer**byter du namn på *local.settings.sample.js* till *local.settings.js*.
+1. I Visual Studio- **Solution Explorer** byter du namn på *local.settings.sample.js* till *local.settings.js*.
 
 1. I *local.settings.json* klistrar du in anslutningssträngen i värdet för inställningen **AzureSignalRConnectionString**. Spara filen.
 
@@ -75,15 +75,15 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
         ```bash
         func start
         ```
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qscsharp).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qscsharp).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qscsharp)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -92,4 +92,3 @@ I den här snabb starten har du skapat och kört ett program i real tid utan ser
 > [!div class="nextstepaction"]
 > [Utveckla Azure Functions med hjälp av Visual Studio](../azure-functions/functions-develop-vs.md)
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)

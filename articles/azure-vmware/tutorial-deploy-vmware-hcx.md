@@ -3,12 +3,12 @@ title: Självstudie – distribuera och konfigurera VMware HCX
 description: Lär dig hur du distribuerar och konfigurerar en VMware HCX-lösning för ditt privata moln i Azure VMware-lösningen.
 ms.topic: tutorial
 ms.date: 11/23/2020
-ms.openlocfilehash: 5ee5390ef45e71baf3843cadc815de2f7e06bdac
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 35cc87d7f3f1345972a7f27cecaeb96c6fa687dc
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842372"
+ms.locfileid: "94873921"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Distribuera och konfigurera VMware HCX
 
@@ -88,9 +88,7 @@ Innan du distribuerar den virtuella installationen till din lokala vCenter måst
 
 1. Välj **administrations**  >  **System uppdateringar** och välj sedan **begär nedladdnings länk**.
 
-1. Välj det alternativ som du vill ladda ned VMware HCX Connector-ägg filen.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/vmware-hcx-download-link.png" alt-text="begär nedladdnings länk" lightbox="media/tutorial-vmware-hcx/vmware-hcx-download-link.png":::
+1. Välj alternativ för att ladda ned VMware HCX Connector-ägg filen.
 
 ## <a name="deploy-the-vmware-hcx-connector-ova-on-premises"></a>Distribuera VMware HCX Connector-ägg lokalt
 
@@ -162,7 +160,7 @@ När du har distribuerat VMware HCX Connector-dataäggen lokalt och startar inst
    > [!NOTE]
    > Du får en fördröjning efter omstarten innan du uppmanas att ange nästa steg.
 
-När tjänsterna har startats om måste du se vCenter som visas som grönt på skärmen som visas. Både vCenter och SSO måste ha lämpliga konfigurations parametrar, vilket bör vara samma som föregående skärm.
+När tjänsterna har startats om visas vCenter som visas som grönt på skärmen som visas. Både vCenter och SSO måste ha lämpliga konfigurations parametrar, vilket bör vara samma som föregående skärm.
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Skärm bild av instrument panelen med grön vCenter-status." lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
@@ -179,11 +177,7 @@ Du kan ansluta (para ihop) VMware HCX Cloud Manager i Azure VMware-lösningen me
 
 1. Logga in på din lokala vCenter och välj **HCX** under **Start**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png" alt-text="Skärm bild av vCenter-klienten med HCX valt bland genvägar." lightbox="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png":::
-
 1. Under **infrastruktur** väljer du **plats par** och väljer sedan alternativet **Anslut till fjärrplats** (i mitten av skärmen). 
-
-   :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="Skärm bild av val för att skapa en fjärrplats." lightbox="media/tutorial-vmware-hcx/connect-remote-site.png":::
 
 1. Ange den Azure VMware-HCX URL eller IP-adress som du noterade tidigare, Azure VMware-lösningen cloudadmin \@ vSphere. local och lösen ordet. Välj **Anslut**.
 
@@ -224,7 +218,7 @@ En översikt över slut punkt till slut punkt av den här proceduren finns i [Az
 
 ### <a name="create-a-compute-profile"></a>Skapa en beräknings profil
 
-1. Välj **beräknings profiler**  >  **skapa beräknings profil**.
+1. Under **infrastruktur** väljer du **Interconnect**  >  **Compute-profiler**  >  **skapa beräknings profil**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-create.png" alt-text="Skärm bild som visar alternativen för att börja skapa en beräknings profil." lightbox="media/tutorial-vmware-hcx/compute-profile-create.png":::
 
@@ -347,7 +341,7 @@ En översikt över slut punkt till slut punkt för den här proceduren finns i [
 
 Följ dessa steg om du vill utöka alla nätverk från din lokala miljö till Azure VMware-lösningen:
 
-1. Under **tjänster** väljer du **nätverks tillägg** och väljer sedan **skapa ett nätverks tillägg**.
+1. Under **tjänster** väljer du **nätverks tillägg**  >  **skapa ett nätverks tillägg**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-network-extension.png" alt-text="Skärm bild som visar alternativ för att börja skapa ett nätverks tillägg." lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
 

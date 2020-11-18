@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7819c934ab97d597d52d4809c11e5c59fb87c89a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4fa0f4d87567bd77faacfd2373dba0d2b8996446
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840676"
+ms.locfileid: "94873377"
 ---
 # <a name="localization-string-ids"></a>Sträng-ID för lokalisering
 
@@ -64,7 +64,7 @@ Följande ID: n används för en innehålls definition med ID `api.signuporsigni
 
 I följande exempel visas användningen av några av användar gränssnitts elementen på sidan för registrering eller inloggning:
 
-![Registrerings-eller inloggnings sidans UX-element](./media/localization-string-ids/localization-susi-2.png)
+:::image type="content" source="./media/localization-string-ids/localization-susi-2.png" alt-text="Skärm bild som visar registrerings-eller inloggnings sidans U X-element.":::
 
 ### <a name="sign-up-or-sign-in-identity-providers"></a>Registrerings-eller inloggnings identitets leverantörer
 

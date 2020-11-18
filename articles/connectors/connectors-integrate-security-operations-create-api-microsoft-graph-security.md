@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 0f121caddc6b629920479a34bef7b284dea117a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ea861dce23e50bc5fcae50116a3e71793d402f8f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677505"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873326"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Förbättra hot skyddet genom att integrera säkerhets åtgärder med Microsoft Graph säkerhets & Azure Logic Apps
 
@@ -30,7 +30,7 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Microsoft Grap
 
 Din Logic Apps-arbetsflöde kan använda åtgärder som får svar från Microsoft Graph Security Connector och göra utdata tillgängliga för andra åtgärder i ditt arbets flöde. Du kan också använda andra åtgärder i arbets flödet för att använda utdata från åtgärder för Microsoft Graph säkerhets anslutning. Om du till exempel får aviseringar med hög allvarlighets grad via Microsoft Graph Security Connector kan du skicka aviseringarna i ett e-postmeddelande med hjälp av Outlook-anslutningen. 
 
-Mer information om Microsoft Graph säkerhet finns i [Översikt över Microsoft Graph Security API](/graph/security-concept-overview). Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Om du letar efter Microsoft Flow eller PowerApps, se [Vad är Flow?](https://flow.microsoft.com/) eller [Vad är PowerApps?](https://powerapps.microsoft.com/)
+Mer information om Microsoft Graph säkerhet finns i [Översikt över Microsoft Graph Security API](/graph/security-concept-overview). Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Om du letar efter Power-eller PowerApps, se [Vad är energi automatisering?](https://flow.microsoft.com/) eller [Vad är PowerApps?](https://powerapps.microsoft.com/)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -64,11 +64,11 @@ Mer information om Microsoft Graph säkerhet finns i [Översikt över Microsoft 
 
    \- eller -
 
-   För befintliga Logi Kap par, under det sista steget där du vill lägga till en Microsoft Graph säkerhets åtgärd väljer du **nytt steg** .
+   För befintliga Logi Kap par, under det sista steget där du vill lägga till en Microsoft Graph säkerhets åtgärd väljer du **nytt steg**.
 
    \- eller -
 
-   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (+) som visas och välj **Lägg till en åtgärd** .
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (+) som visas och välj **Lägg till en åtgärd**.
 
 1. Skriv "Microsoft Graph Security" som filter i rutan Sök. Välj den åtgärd du vill använda i listan åtgärder.
 
@@ -93,8 +93,8 @@ Det här exemplet visar hur du kan starta ett Logic app-arbetsflöde när nya av
 
    | Egenskap | Egenskap (JSON) | Krävs | Typ | Beskrivning |
    |----------|-----------------|----------|------|-------------|
-   | **Intervall** | `interval` | Ja | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p><p>– Månad: 1-16 månader <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder <p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
-   | **Frekvens** | `frequency` | Ja | Sträng | Tidsenhet för upprepning: **sekund** , **minut** , **timme** , **dag** , **vecka** eller **månad** |
+   | **Intervall** | `interval` | Ja | Heltal | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p><p>– Månad: 1-16 månader <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder <p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
+   | **Frekvens** | `frequency` | Ja | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka** eller **månad** |
    | **Tidszon** | `timeZone` | Nej | Sträng | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
    | **Start tid** | `startTime` | Nej | Sträng | Ange start datum och-tid i följande format: <p><p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>\- eller - <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill att 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden har högst 49 år i framtiden och måste följa [8601 ISO-tiden för datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. [*Hur kan jag använda start datum och-tid?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||

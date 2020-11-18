@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 2d71c30d2fb08629674c352ae812d8890463abfe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f2b46b37fc8c773062402c52f2903a7a10acc2c4
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695109"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874720"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -253,12 +253,12 @@ VMware HCX Enterprise Edition (EE) är tillgänglig med Azure VMware-lösningen 
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Hur gör jag för att begära en värd kvot ökning för Azure VMware-lösningen?
 
-För CSP-hanterade prenumerationer måste kunden utföra begäran till partnern och partner teamet kommer att samar beta med Microsoft för att få den ökade kvoten för prenumerationen. Mer information finns i [så här aktiverar du Azure VMware-lösningen resurs artikel](enable-azure-vmware-solution.md) för information. 
+För CSP-hanterade prenumerationer måste kunden skicka begäran till partnern. Partner teamet engagerar sedan med Microsoft för att få en större kvot för prenumerationen. Mer information finns i [Aktivera Azure VMware-lösningens resurs artikel](enable-azure-vmware-solution.md) . 
 
-För EA-prenumerationer måste kunden följa den här proceduren.
+Använd följande procedur för EA-prenumerationer. Först behöver du:
 
-* Du behöver ett [Azure-Enterprise-avtal (EA)](../cost-management-billing/manage/ea-portal-agreements.md) med Microsoft.
-* Du behöver ett Azure-konto i en Azure-prenumeration.
+* Ett [Azure-Enterprise-avtal (EA)](../cost-management-billing/manage/ea-portal-agreements.md) med Microsoft.
+* Ett Azure-konto i en Azure-prenumeration.
 
 Innan du skapar en Azure VMware-lösnings resurs måste du skicka in ett support ärende för att allokera noderna. Det tar upp till fem arbets dagar att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process.
 
@@ -298,11 +298,15 @@ Innan du skapar en Azure VMware-lösnings resurs måste du skicka in ett support
 
 #### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
 
-Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
+Yes. CSP can purchase reserved instances for their customers. For more information, see the [Save costs with a reserved instance](reserved-instance.md) article. 
 
 #### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
 
-No. Currently Azure VMware Solution does not offer multi-tenancy.
+No. Currently Azure VMware Solution doesn't offer multi-tenancy.
+
+#### Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
+
+Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
 
 
 ## Customer communication

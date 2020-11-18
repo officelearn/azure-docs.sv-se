@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 04d8a77cd051823559aba42d5dfc1418e6343ecc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 5e3473a9afefe73fe7b07d3efda1f53675264fc8
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397390"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874635"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Så här installerar du en Application Gateway ingress-styrenhet (AGIC) med en ny Application Gateway
 
@@ -22,7 +22,7 @@ Anvisningarna nedan förutsätter Application Gateway ingress Controller (AGIC) 
 
 Vi rekommenderar att du använder [Azure Cloud Shell](https://shell.azure.com/) för alla kommando rads åtgärder nedan. Starta ditt gränssnitt från shell.azure.com eller genom att klicka på länken:
 
-[![Bädda in start](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
+[![Inbäddad start](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
 
 Du kan också starta Cloud Shell från Azure Portal med följande ikon:
 
@@ -40,7 +40,7 @@ Din [Azure Cloud Shell](https://shell.azure.com/) har redan alla verktyg som kr�
 
 Följ stegen nedan för att skapa ett [huvud namns objekt](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)för en Azure Active Directory (AAD). Registrera `appId` -,- `password` och `objectId` -värden – dessa kommer att användas i följande steg.
 
-1. Skapa AD-tjänstens huvud namn ([Läs mer om RBAC](../role-based-access-control/overview.md)):
+1. Skapa AD-tjänstens huvud namn ([Läs mer om Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
     az ad sp create-for-rbac --skip-assignment -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
@@ -66,7 +66,7 @@ Följ stegen nedan för att skapa ett [huvud namns objekt](../active-directory/d
     }
     EOF
     ```
-    Om du vill distribuera ett **RBAC** -aktiverat kluster anger du `aksEnableRBAC` fältet till `true`
+    Om du vill distribuera ett **KUBERNETES RBAC** -aktiverat kluster ställer du in `aksEnableRBAC` fältet på `true`
 
 ## <a name="deploy-components"></a>Distribuera komponenter
 I det här steget läggs följande komponenter till i din prenumeration:
@@ -131,13 +131,13 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 
 Så här installerar du AAD Pod-identiteten till klustret:
 
-   - *RBAC-aktiverad* AKS-kluster
+   - *KUBERNETES RBAC aktive rad* AKS-kluster
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
      ```
 
-   - *RBAC har inaktiverats* AKS-kluster
+   - *KUBERNETES RBAC har inaktiverats* AKS-kluster
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
@@ -148,7 +148,7 @@ Så här installerar du AAD Pod-identiteten till klustret:
 
 1. Installera [Helm](../aks/kubernetes-helm.md) och kör följande för att lägga till `application-gateway-kubernetes-ingress` Helm-paketet:
 
-    - *RBAC-aktiverad* AKS-kluster
+    - *KUBERNETES RBAC aktive rad* AKS-kluster
 
         ```bash
         kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -156,7 +156,7 @@ Så här installerar du AAD Pod-identiteten till klustret:
         helm init --tiller-namespace kube-system --service-account tiller-sa
         ```
 
-    - *RBAC har inaktiverats* AKS-kluster
+    - *KUBERNETES RBAC har inaktiverats* AKS-kluster
 
         ```bash
         helm init
@@ -228,7 +228,7 @@ Så här installerar du AAD Pod-identiteten till klustret:
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     

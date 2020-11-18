@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 544625fe9fd2dbd87ad7330d7277494cbfbe6eb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e5cb077868a224620d1a23e1ff1aac9c8d9f095
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891091"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874482"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Skapa certifikat för din Azure Stack Edge Pro med Azure Stack Hub readiness Checker-verktyget 
 
@@ -42,7 +42,7 @@ Du kan använda verktyget Azure Stack Hub readiness Checker (AzsReadinessChecker
 Kontrol lera följande om du vill skapa kund service representanter för Azure Stack Edge Pro-enhets distribution: 
 
 - Du har en klient som kör Windows 10 eller Windows Server 2016 eller senare. 
-- Du har laddat ned verktyget Microsoft Azure Stack Hub readiness Checker 1.2002.1133.85 [från PowerShell-galleriet](https://aka.ms/AzsReadinessChecker) på det här systemet. Du kan behöva söka efter det här paketet. Endast den här versionen av verktyget kan skapa certifikat för Azure Stack Edge Pro-enheter.
+- Du har laddat ned verktyget Microsoft Azure Stack Hub readiness Checker [från PowerShell-galleriet](https://aka.ms/AzsReadinessChecker) på det här systemet.
 - Du har följande information för certifikaten:
   - Enhetsnamn
   - Nodens serie nummer
@@ -56,7 +56,7 @@ Använd de här stegen för att förbereda Azure Stack Edge Pro-enhetens certifi
 2. Installera Azure Stack Hub readiness Checker-verktyget. I PowerShell-prompten skriver du: 
 
     ```azurepowershell
-    Install-Module -Name Microsoft.AzureStack.ReadinessChecker -RequiredVersion 1.2002.1133.85 -Force
+    Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
     Om du vill kontrol lera den installerade versionen skriver du:  

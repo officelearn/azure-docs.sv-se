@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1a7204fea1a77dbca57ffc7d512f81e46c4d3b5f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540135"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873401"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Skapa och hantera Azure Machine Learning arbets ytor 
 
@@ -131,8 +131,12 @@ Om du har problem med att komma åt din prenumeration kan du läsa [Konfigurera 
    Prenumeration |Välj den Azure-prenumeration som du vill använda.
    Resursgrupp | Använd en befintlig resursgrupp i din prenumeration eller ange ett namn för att skapa en ny resursgrupp. En resurs grupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **AML-dokument**. Du behöver *deltagar* -eller *ägar* rollen för att använda en befintlig resurs grupp.  Mer information om åtkomst finns i [Hantera åtkomst till en Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
    Region | Välj den Azure-region som är närmast dina användare och data resurserna för att skapa din arbets yta.
+   | Lagringskonto | Standard lagrings kontot för arbets ytan. Som standard skapas en ny. |
+   | Key Vault | Azure Key Vault som används av arbets ytan. Som standard skapas en ny. |
+   | Application Insights | Application Insights-instansen för arbets ytan. Som standard skapas en ny. |
+   | Container Registry | Arbets ytans Azure Container Registry. Som standard skapas en ny _inte_ i början av arbets ytan. I stället skapas den när du behöver den när du skapar en Docker-avbildning under utbildning eller distribution. |
 
-    ![Konfigurera din arbets yta](./media/how-to-manage-workspace/create-workspace-form.png)
+   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Konfigurera din arbets yta.":::
 
 1. När du är klar med konfigurationen av arbets ytan väljer du **Granska + skapa**. Du kan också använda avsnitten [nätverk](#networking) och [Avancerat](#advanced) för att konfigurera fler inställningar för arbets ytan.
 

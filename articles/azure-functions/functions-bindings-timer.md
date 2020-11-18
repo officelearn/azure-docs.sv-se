@@ -4,15 +4,15 @@ description: Förstå hur du använder timer-utlösare i Azure Functions.
 author: craigshoemaker
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/08/2018
+ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6baebdab06a72d3a4af05b4d2e04bc9eee6acb60
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833018"
+ms.locfileid: "94874091"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer-utlösare för Azure Functions
 
@@ -299,11 +299,11 @@ Varje fält kan ha en av följande typer av värden:
 
 |Typ  |Exempel  |Utlöses av  |
 |---------|---------|---------|
-|Ett speciellt värde |<nobr>"0 5 * * * *"</nobr>|i hh: 05:00 där HH är varje timme (en gång i timmen)|
-|Alla värden ( `*` )|<nobr>"0 * 5 * * *"</nobr>|vid 5: mm: 00 varje dag, där mm är varje minut i timmen (60 gånger inom den angivna timmen)|
-|Ett intervall ( `-` operator)|<nobr>"5-7 * * * *"</nobr>|vid HH: mm: 05, hh: mm: 06 och HH: mm: 07 där hh: mm är varje minut i varje timme (3 gånger per minut)|
-|En uppsättning värden ( `,` operator)|<nobr>"5, 8, 10 * * * * *"</nobr>|vid tt: mm: 05, hh: mm: 08 och HH: mm: 10 där hh: mm är varje minut i varje timme (tre gånger per minut)|
-|Ett intervall värde ( `/` operator)|<nobr>"0 */5 * * *"</nobr>|i hh: 00:00, hh: 05:00, hh: 10:00, och så vidare till och med hh: 55:00 där HH är varje timme (12 gånger i timmen)|
+|Ett speciellt värde |<nobr>`0 5 * * * *`</nobr>| En gång i timmen på varje timme på minuten 5 varje timme |
+|Alla värden ( `*` )|<nobr>`0 * 5 * * *`</nobr>| Vid varje minut i timmen, från och med timme 5 |
+|Ett intervall ( `-` operator)|<nobr>`5-7 * * * * *`</nobr>| Tre gånger i minuten – i sekunder 5 till 7 under varje minut varje timme varje dag |
+|En uppsättning värden ( `,` operator)|<nobr>`5,8,10 * * * * *`</nobr>| Tre gånger i minuten – med sekunder 5, 8 och 10 under varje minut varje timme varje dag |
+|Ett intervall värde ( `/` operator)|<nobr>`0 */5 * * * *`</nobr>| 12 gånger en timme – med en sekund på 0 och var femte minut varje timme varje dag |
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -311,18 +311,18 @@ Varje fält kan ha en av följande typer av värden:
 
 Här följer några exempel på NCRONTAB-uttryck som du kan använda för timer-utlösaren i Azure Functions.
 
-|Exempel|Utlöses av  |
-|---------|---------|
-|`"0 */5 * * * *"`|var femte minut|
-|`"0 0 * * * *"`|en gång överst i varje timme|
-|`"0 0 */2 * * *"`|var två: e timme|
-|`"0 0 9-17 * * *"`|en gång i timmen från 9 till 5 PM|
-|`"0 30 9 * * *"`|vid 9:30 varje dag|
-|`"0 30 9 * * 1-5"`|kl. 9:30 varje vardag|
-|`"0 30 9 * Jan Mon"`|kl. 9:30 varje måndag i januari|
+| Exempel            | Utlöses av                     |
+|--------------------|------------------------------------|
+| `0 */5 * * * *`    | var femte minut            |
+| `0 0 * * * *`      | en gång överst i varje timme      |
+| `0 0 */2 * * *`    | var två: e timme               |
+| `0 0 9-17 * * *`   | en gång i timmen från 9 till 5 PM  |
+| `0 30 9 * * *`     | vid 9:30 varje dag               |
+| `0 30 9 * * 1-5`   | kl. 9:30 varje vardag           |
+| `0 30 9 * Jan Mon` | kl. 9:30 varje måndag i januari |
 
 > [!NOTE]
-> NCRONTAB-uttrycket kräver **sex fält** format. Det finns inte stöd för fem fält cron uttryck i Azure.
+> NCRONTAB-uttrycket kräver ett **6 fält** format. Den sjätte fält positionen är ett värde för sekunder som placeras i början av uttrycket. Det finns inte stöd för fem fält cron uttryck i Azure.
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB tids zoner
 

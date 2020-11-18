@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a9ad018980784a1f809ad28a77dacf9f0328fffa
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561326"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873904"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Företags säkerhet och styrning för Azure Machine Learning
 
@@ -30,8 +30,8 @@ När du använder en moln tjänst är det bästa sättet att begränsa åtkomste
 
 Mest autentisering för att Azure Machine Learning resurser använder Azure Active Directory (Azure AD) för autentisering och rollbaserad åtkomst kontroll (Azure RBAC) för auktorisering. Undantagen till detta är:
 
-* __SSH__ : du kan aktivera SSH-åtkomst till vissa beräknings resurser, till exempel Azure Machine Learning beräknings instans. SSH-åtkomst använder nyckelbaserad autentisering. Mer information om hur du skapar SSH-nycklar finns i [skapa och hantera SSH-nycklar](../virtual-machines/linux/create-ssh-keys-detailed.md). Information om hur du aktiverar SSH-åtkomst finns i [skapa och hantera Azure Machine Learning beräknings instans](how-to-create-manage-compute-instance.md).
-* __Modeller som distribueras som webb tjänster__ : distributioner av webb tjänster kan använda __nyckel__ -eller __tokenbaserad__ åtkomst kontroll. Nycklar är statiska strängar. Tokens hämtas med hjälp av ett Azure AD-konto. Mer information finns i [Konfigurera autentisering för modeller som distribueras som en webb tjänst](how-to-authenticate-web-service.md).
+* __SSH__: du kan aktivera SSH-åtkomst till vissa beräknings resurser, till exempel Azure Machine Learning beräknings instans. SSH-åtkomst använder nyckelbaserad autentisering. Mer information om hur du skapar SSH-nycklar finns i [skapa och hantera SSH-nycklar](../virtual-machines/linux/create-ssh-keys-detailed.md). Information om hur du aktiverar SSH-åtkomst finns i [skapa och hantera Azure Machine Learning beräknings instans](how-to-create-manage-compute-instance.md).
+* __Modeller som distribueras som webb tjänster__: distributioner av webb tjänster kan använda __nyckel__ -eller __tokenbaserad__ åtkomst kontroll. Nycklar är statiska strängar. Tokens hämtas med hjälp av ett Azure AD-konto. Mer information finns i [Konfigurera autentisering för modeller som distribueras som en webb tjänst](how-to-authenticate-web-service.md).
 
 Specifika tjänster som Azure Machine Learning är beroende av, t. ex. Azure Data Storage Services, har sina egna metoder för autentisering och auktorisering. Mer information om lagrings tjänsternas autentisering finns i [Anslut till lagrings tjänster](how-to-access-data.md).
 
@@ -75,6 +75,8 @@ I följande tabell visas några av de viktigaste Azure Machine Learning åtgärd
 | Anropa webb tjänst | ✓ | ✓ | ✓ |
 
 Om de inbyggda rollerna inte uppfyller dina behov kan du skapa anpassade roller. Anpassade roller styr alla åtgärder inom en arbets yta, till exempel att skapa en beräkning, skicka in en körning, registrera ett data lager eller distribuera en modell. Anpassade roller kan ha behörigheterna läsa, skriva eller ta bort för de olika resurserna i en arbets yta, till exempel kluster, data lager, modeller och slut punkter. Du kan göra rollen tillgänglig på en speciell arbets yta, en bestämd resurs grupps nivå eller en speciell prenumerations nivå. Mer information finns i [Hantera användare och roller i en Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
+
+Mer information om hur du använder RBAC med Kubernetes finns i [Azure Role-Based Access Control för auktorisering av Kubernetes](../aks/manage-azure-rbac.md).
 
 > [!IMPORTANT]
 > Azure Machine Learning är beroende av andra Azure-tjänster som Azure Blob Storage och Azure Kubernetes Services. Varje Azure-tjänst har sina egna Azure RBAC-konfigurationer. För att uppnå önskad nivå av åtkomst kontroll kan du behöva använda båda Azure RBAC-konfigurationerna för Azure Machine Learning och för de tjänster som används med Azure Machine Learning.
@@ -146,7 +148,7 @@ Du kan övervaka experiment körningar i Azure Machine Learning, inklusive loggn
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-Du kan använda Azure Monitor mått för att visa och övervaka mått för arbets ytan Azure Machine Learning. I [Azure Portal](https://portal.azure.com)väljer du din arbets yta och väljer sedan **mått** :
+Du kan använda Azure Monitor mått för att visa och övervaka mått för arbets ytan Azure Machine Learning. I [Azure Portal](https://portal.azure.com)väljer du din arbets yta och väljer sedan **mått**:
 
 [![Skärm bild som visar exempel mått för en arbets yta](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
 
@@ -185,8 +187,8 @@ Azure Security Center erbjuder enhetlig säkerhetshantering och avancerat skydd 
 
 [Azure policy](../governance/policy/index.yml) är ett styrnings verktyg som gör att du kan se till att Azure-resurserna är kompatibla med dina principer. Med Azure Machine Learning kan du tilldela följande principer:
 
-* **Kundhanterad nyckel** : granska eller Använd om arbets ytor måste använda en kundhanterad nyckel.
-* **Privat länk** : granska om arbets ytor använder en privat slut punkt för att kommunicera med ett virtuellt nätverk.
+* **Kundhanterad nyckel**: granska eller Använd om arbets ytor måste använda en kundhanterad nyckel.
+* **Privat länk**: granska om arbets ytor använder en privat slut punkt för att kommunicera med ett virtuellt nätverk.
 
 Mer information om Azure Policy finns i Azure Policy- [dokumentationen](../governance/policy/overview.md).
 

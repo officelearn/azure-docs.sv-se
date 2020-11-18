@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/09/2020
-ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 11/18/2020
+ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443389"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873530"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Kundhanterad nyckel i Azure Monitor 
 
@@ -21,11 +21,13 @@ Vi rekommenderar att du granskar [begränsningar och](#limitationsandconstraints
 
 ## <a name="customer-managed-key-overview"></a>Översikt över kundhanterad nyckel
 
-[Kryptering i vila](../../security/fundamentals/encryption-atrest.md) är ett gemensamt sekretess-och säkerhets krav i organisationer. Du kan låta Azure helt hantera kryptering i vila, medan du har olika alternativ för att hantera krypterings-eller krypterings nycklar.
+[Kryptering i vila](../../security/fundamentals/encryption-atrest.md) är ett gemensamt sekretess-och säkerhets krav i organisationer. Du kan låta Azure helt hantera kryptering i vila, medan du har olika alternativ för att hantera krypterings-och krypterings nycklar.
 
-Azure Monitor säkerställer att alla data och sparade frågor krypteras i vila med hjälp av Microsoft-hanterade nycklar (MMK). Azure Monitor också ett alternativ för kryptering med hjälp av din egen nyckel som lagras i [Azure Key Vault](../../key-vault/general/overview.md) och som används av lagring för data kryptering. Nyckeln kan vara antingen [program vara eller maskin vara-HSM skyddad](../../key-vault/general/overview.md). Azure Monitor krypterings användningen är identisk med hur [Azure Storage kryptering](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) fungerar.
+Azure Monitor säkerställer att alla data och sparade frågor krypteras i vila med hjälp av Microsoft-hanterade nycklar (MMK). Azure Monitor innehåller också ett alternativ för kryptering med hjälp av din egen nyckel som lagras i din [Azure Key Vault](../../key-vault/general/overview.md) och ger dig kontrollen att återkalla åtkomsten till dina data när som helst. Azure Monitor krypterings användningen är identisk med hur [Azure Storage kryptering](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) fungerar.
 
-Den Kundhanterade nyckel kapaciteten levereras på dedikerade Log Analytics kluster. Det gör att du kan skydda dina data med [Lås](#customer-lockbox-preview) kontrollen och ger dig kontrollen att återkalla åtkomsten till dina data när du vill. Data som matats in under de senaste 14 dagarna behålls också i frekvent cache (SSD-backad) för effektiv Operations Engine-åtgärd. Dessa data förblir krypterade med Microsoft-nycklar oavsett kundhanterad nyckel konfiguration, men kontrollen över SSD-data följer [nyckel återkallning](#key-revocation). Vi arbetar med att ha SSD-data krypterade med Customer-Managed Key i första hälften av 2021.
+Customer-Managed nyckel levereras på dedikerade Log Analytics-kluster som ger högre skydds nivå och kontroll. Data som matas in på dedikerade kluster krypteras två gånger – en gång på tjänst nivå med hjälp av Microsoft-hanterade nycklar eller Kundhanterade nycklar, och en gång på infrastruktur nivån med två olika krypteringsalgoritmer och två olika nycklar. [Dubbel kryptering](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) skyddar mot ett scenario där en av krypteringsalgoritmer eller nycklar kan komprometteras. I det här fallet fortsätter det extra krypterings lagret att skydda dina data. Med dedikerat kluster kan du också skydda dina data med [Lås](#customer-lockbox-preview) kontroll.
+
+Data som matats in under de senaste 14 dagarna behålls också i frekvent cache (SSD-backad) för effektiv Operations Engine-åtgärd. Dessa data förblir krypterade med Microsoft-nycklar oavsett kundhanterad nyckel konfiguration, men kontrollen över SSD-data följer [nyckel återkallning](#key-revocation). Vi arbetar med att ha SSD-data krypterade med Customer-Managed Key i första hälften av 2021.
 
 [Pris modellen Log Analytics kluster](./manage-cost-storage.md#log-analytics-dedicated-clusters) använder kapacitets reservationer som börjar med en 1000 GB/dag-nivå.
 
@@ -74,77 +76,18 @@ Customer-Managed nyckel konfigurationen stöds inte i Azure Portal och etablerin
 
 ### <a name="asynchronous-operations-and-status-check"></a>Asynkrona åtgärder och status kontroll
 
-Vissa konfigurations steg körs asynkront eftersom de inte kan slutföras snabbt. När du använder REST-begäranden i konfigurationen returnerar svaret från början en HTTP-statuskod 200 (OK) och rubriken med *Azure-AsyncOperation* -egenskapen när den godkänns:
+Vissa konfigurations steg körs asynkront eftersom de inte kan slutföras snabbt. När du använder REST returnerar svaret ursprungligen en HTTP-statuskod 200 (OK) och rubriken med *Azure-AsyncOperation-* egenskapen när den godkänns:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
 
-Sedan kan du kontrol lera statusen för den asynkrona åtgärden genom att skicka en GET-begäran till värdet för *Azure-AsyncOperation-* huvudet:
+Du kan kontrol lera statusen för den asynkrona åtgärden genom att skicka en GET-begäran till värdet för *Azure-AsyncOperation-* huvudet:
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
-Svaret innehåller information om åtgärden och dess *status*. Det kan vara något av följande:
-
-Åtgärden pågår
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "InProgress", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-}
-```
-
-Uppdaterings åtgärden för nyckel identifieraren pågår
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Updating", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Kluster borttagning pågår – när du tar bort ett kluster som har länkade arbets ytor utförs borttagningen av länkar för varje arbets yta asynkront och åtgärden kan ta en stund.
-Detta är inte relevant när du tar bort ett kluster utan en länkad arbets yta – i det här fallet tas klustret bort omedelbart.
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Deleting", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Åtgärden har slutförts
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Succeeded", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Åtgärden misslyckades
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Failed", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-    "error" : { 
-        "code": "error-code",  
-        "message": "error-message" 
-    }
-}
-```
+`status`I Response innehåller kan vara något av följande: "pågår", "uppdatering", "ta bort", "lyckades" eller "misslyckades", inklusive felkoden.
 
 ### <a name="allowing-subscription"></a>Tillåter prenumeration
 
@@ -476,7 +419,7 @@ Läs mer om [Customer lockbox för Microsoft Azure](../../security/fundamentals/
   - *kluster* (standard)--faktureringen tillskrivs till den prenumeration som är värd för kluster resursen
   - *arbets ytor* – faktureringen hänförs till prenumerationerna som är värdar för dina arbets ytor proportionellt
   
-  Följ [uppdaterings klustret](#update-cluster-with-key-identifier-details) och ange det nya billingType-värdet. Observera att du inte behöver ange den fullständiga texten i REST-begäran och ska innehålla *billingType* :
+  Följ [uppdaterings klustret](#update-cluster-with-key-identifier-details) och ange det nya billingType-värdet. Observera att du inte behöver ange den fullständiga texten i REST-begäran och ska innehålla *billingType*:
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -595,7 +538,7 @@ Läs mer om [Customer lockbox för Microsoft Azure](../../security/fundamentals/
   1. När du använder REST kopierar du Azure-AsyncOperation URL-värdet från svaret och följer [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
   2. Skicka GET-begäran till kluster eller arbets yta och observera svaret. Till exempel kan inte en länkad arbets yta ha *clusterResourceId* under *funktioner*.
 
-- För support och hjälp som är relaterat till kund Managed Key använder du dina kontakter i Microsoft.
+- [Double Encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) konfigureras automatiskt för kluster som skapats från oktober 2020 när dubbel kryptering var i regionen. Om du skapar ett kluster och får ett fel meddelande om att <region namn> inte stöder Double Encryption för kluster. "kan du fortfarande skapa klustret men med dubbla kryptering inaktiverat. Det går inte att aktivera eller inaktivera det när klustret har skapats. Om du vill skapa ett kluster när Double Encryption inte stöds i region, lägger du till `"properties": {"isDoubleEncryptionEnabled": false}` i rest-brödtext för begäran.
 
 - Felmeddelanden
   

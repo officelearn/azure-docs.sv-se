@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: ccd070d2d7a6fcccab6d243567dfbe02960cc870
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5185e7d0bd60eec239f1233db7f9789cbefc2c10
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376449"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873547"
 ---
 # <a name="manage-qna-maker-resources"></a>Hantera QnA Maker resurser
 
@@ -133,6 +133,7 @@ App Service-miljön kan användas som värd för QnA Maker app service. Om App S
 2. Exponera app service och Tillåt QnA Maker tillgänglighet som:
     * Offentligt tillgänglig – standard
     * DNS-service tag: `CognitiveServicesManagement`
+3. Skapa en QnA Maker kognitiv tjänst instans (Microsoft. CognitiveServices/Accounts) med Azure Resource Manager där QnA Maker-slutpunkten ska vara inställd på App Service-miljön.
 
 ### <a name="network-isolation-for-app-service"></a>Nätverks isolering för App Service
 
@@ -143,8 +144,6 @@ QnA Maker kognitiva tjänster använder tjänst tag gen: `CognitiveServicesManag
 * Gå till avsnittet nätverk i App Service resursen och klicka på alternativet för att konfigurera åtkomst begränsning för att lägga till IP-adresser i en tillåten.
 
 Vi har också ett automatiserat skript som gör samma sak för din App Service. Du kan hitta [PowerShell-skriptet för att konfigurera en tillåten](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) på GitHub. Du måste skriva in prenumerations-ID, resurs grupp och faktiskt App Service namn som skript parametrar. Om du kör skriptet läggs IP-adresserna automatiskt till App Service tillåten.
-    
-1. Skapa en QnA Maker kognitiv tjänst instans (Microsoft. CognitiveServices/Accounts) med Azure Resource Manager där QnA Maker-slutpunkten ska vara inställd på App Service-miljön.
 
 ### <a name="business-continuity-with-traffic-manager"></a>Affärs kontinuitet med Traffic Manager
 
@@ -211,7 +210,7 @@ Du kan visa och återställa dina redigerings nycklar från Azure Portal, där d
 
     ![QnA Maker resurs lista](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
-2. Gå till **nycklar** :
+2. Gå till **nycklar**:
 
     ![Prenumerationsnyckel](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
@@ -221,7 +220,7 @@ Slut punkten finns i samma region som resursen eftersom slut punkts nycklarna an
 
 Slut punkts nycklar kan hanteras från [QNA Maker-portalen](https://qnamaker.ai).
 
-1. Logga in på [QNA Maker Portal](https://qnamaker.ai), gå till din profil och välj sedan **tjänst inställningar** :
+1. Logga in på [QNA Maker Portal](https://qnamaker.ai), gå till din profil och välj sedan **tjänst inställningar**:
 
     ![Slut punkts nyckel](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
@@ -241,7 +240,7 @@ Du kan visa och återställa redigerings nycklarna från Azure Portal, där du s
 
     ![Resurs lista för QnA Maker Managed (för hands version)](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
 
-2. Gå till **nycklar och slut punkt** :
+2. Gå till **nycklar och slut punkt**:
 
     ![Prenumerations nyckel för QnA Maker Managed (för hands version)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
 
@@ -265,7 +264,7 @@ För närvarande kan du inte utföra en uppgradering på plats av Azure Search-S
 
 1. Återställ indexen från din ursprungliga Azure Search-resurs till den nya. Se [exempel koden för säkerhets kopierings återställning](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-1. När data har återställts går du till din nya Azure Search-resurs, väljer **nycklar** och skriver ned **namnet** och **Administratörs nyckeln** :
+1. När data har återställts går du till din nya Azure Search-resurs, väljer **nycklar** och skriver ned **namnet** och **Administratörs nyckeln**:
 
     ![QnA Maker Azure Search-nycklar](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-keys.png)
 

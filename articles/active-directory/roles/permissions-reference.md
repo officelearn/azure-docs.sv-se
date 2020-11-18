@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 9055bb9689895a9b74f3d6b5affa325a3b594d65
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396523"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874686"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -69,7 +69,7 @@ Användare med den här rollen kan skapa program registreringar när inställnin
 
 ### <a name="authentication-administrator"></a>[Administratör för autentisering](#authentication-administrator-permissions)
 
-Användare med den här rollen kan ange eller återställa autentiseringsuppgifter som inte är lösen ord för vissa användare och kan uppdatera lösen ord för alla användare. Autentiserings administratörer kan kräva att användare som inte är administratörer eller som har tilldelats vissa roller omregistrerar sig mot befintliga autentiseringsuppgifter som inte är lösen ord (till exempel MFA eller FIDO) och kan även återkalla att **Spara MFA på enheten** , vilket gör att MFA används vid nästa inloggning. Dessa åtgärder gäller endast för användare som inte är administratörer eller som har tilldelats en eller flera av följande roller:
+Användare med den här rollen kan ange eller återställa autentiseringsuppgifter som inte är lösen ord för vissa användare och kan uppdatera lösen ord för alla användare. Autentiserings administratörer kan kräva att användare som inte är administratörer eller som har tilldelats vissa roller omregistrerar sig mot befintliga autentiseringsuppgifter som inte är lösen ord (till exempel MFA eller FIDO) och kan även återkalla att **Spara MFA på enheten**, vilket gör att MFA används vid nästa inloggning. Dessa åtgärder gäller endast för användare som inte är administratörer eller som har tilldelats en eller flera av följande roller:
 
 * Administratör för autentisering
 * Katalog läsare
@@ -135,7 +135,7 @@ Användare med den här rollen har behörighet att hantera kompatibla funktioner
 I | Kan göra
 ----- | ----------
 [Microsoft 365 Compliance Center](https://protection.office.com) | Skydda och hantera din organisations data mellan Microsoft 365 tjänster<br>Hantera aviseringar om efterlevnad
-[Efterlevnadshanteraren](/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Spåra, tilldela och verifiera organisationens uppgifter för regelefterlevnad
+[Compliance Manager (Efterlevnadshanteraren)](/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Spåra, tilldela och verifiera organisationens uppgifter för regelefterlevnad
 [Office 365 säkerhets & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Hantera data styrning<br>Utföra juridisk information och data undersökning<br>Hantera begäran om data subjekt<br><br>Den här rollen har samma behörigheter som [mängdsredigeraren](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) i Office 365 Security & rollbaserade åtkomst kontroll för Compliance Center.
 [Intune](/intune/role-based-access-control) | Visa alla gransknings data i Intune
 [Cloud App Security](/cloud-app-security/manage-admins) | Har Läs behörighet och kan hantera aviseringar<br>Kan skapa och ändra fil principer och tillåta fil styrnings åtgärder<br>Kan visa alla inbyggda rapporter under Datahantering
@@ -147,7 +147,7 @@ Användare med den här rollen har behörighet att spåra data i Microsoft 365 C
 I | Kan göra
 ----- | ----------
 [Microsoft 365 Compliance Center](https://protection.office.com) | Övervaka efterlevnadsprinciper relaterade principer i Microsoft 365 Services<br>Hantera aviseringar om efterlevnad
-[Efterlevnadshanteraren](/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Spåra, tilldela och verifiera organisationens uppgifter för regelefterlevnad
+[Compliance Manager (Efterlevnadshanteraren)](/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Spåra, tilldela och verifiera organisationens uppgifter för regelefterlevnad
 [Office 365 säkerhets & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Hantera data styrning<br>Utföra juridisk information och data undersökning<br>Hantera begäran om data subjekt<br><br>Den här rollen har samma behörigheter som [mängdsredigeraren för administratörs](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) behörighet i Office 365 säkerhets & rollbaserade åtkomst kontroll för Compliance Center.
 [Intune](/intune/role-based-access-control) | Visa alla gransknings data i Intune
 [Cloud App Security](/cloud-app-security/manage-admins) | Har Läs behörighet och kan hantera aviseringar<br>Kan skapa och ändra fil principer och tillåta fil styrnings åtgärder<br>Kan visa alla inbyggda rapporter under Datahantering
@@ -233,7 +233,7 @@ Användare med den här rollen kan läsa inställningar och administrativ inform
 >- [Administrations Center för OneDrive](https://admin.onedrive.com/) – administrations Center för OneDrive stöder inte rollen global läsare
 >- [M365 administrations Center](https://admin.microsoft.com/Adminportal/Home#/homepage) – den globala läsaren kan inte läsa förfrågningar om kundsäkerhet. Du hittar inte fliken **Customer Locked-begäranden** under **stöd** i den vänstra rutan i M365 administrations Center.
 >- [Office-säkerhet & Compliance Center](https://sip.protection.office.com/homepage) – den globala läsaren kan inte läsa SCC gransknings loggar, söka efter innehåll eller se säkra poäng.
->- [Team administrations Center](https://admin.teams.microsoft.com) – den globala läsaren kan inte läsa **team livs cykeln** , analysera **& rapporter** , **hantering av IP-telefon enheter** och **program katalog**.
+>- [Team administrations Center](https://admin.teams.microsoft.com) – den globala läsaren kan inte läsa **team livs cykeln**, analysera **& rapporter**, **hantering av IP-telefon enheter** och **program katalog**.
 >- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) stöder inte rollen global läsare.
 >- [Azure information Protection](/azure/information-protection/what-is-information-protection) – global läsare stöds endast [för central rapportering](/azure/information-protection/reports-aip) , och när din Azure AD-organisation inte finns på den [enhetliga etiketterande plattformen](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
@@ -311,7 +311,7 @@ Användare i den här rollen kan övervaka meddelanden och råd om hälso uppdat
 
 Använd inte. Den här rollen tilldelas automatiskt från Commerce och är inte avsedd eller stöds inte för någon annan användning. Se informationen nedan.
 
-Den moderna Commerce användar rollen ger vissa användare behörighet att komma åt Microsoft 365 administrations Center och se de vänstra navigerings posterna för **Start** , **fakturering** och **support**. Innehållet som är tillgängligt i dessa områden styrs av handelstilldelade [roller](../../cost-management-billing/manage/understand-mca-roles.md) som har tilldelats användare för att hantera produkter som de har köpt för sig själva eller din organisation. Detta kan omfatta uppgifter som att betala fakturor, eller för åtkomst till fakturerings konton och fakturerings profiler. 
+Den moderna Commerce användar rollen ger vissa användare behörighet att komma åt Microsoft 365 administrations Center och se de vänstra navigerings posterna för **Start**, **fakturering** och **support**. Innehållet som är tillgängligt i dessa områden styrs av handelstilldelade [roller](../../cost-management-billing/manage/understand-mca-roles.md) som har tilldelats användare för att hantera produkter som de har köpt för sig själva eller din organisation. Detta kan omfatta uppgifter som att betala fakturor, eller för åtkomst till fakturerings konton och fakturerings profiler. 
 
 Användare med en modern Commerce-användargrupp har vanligt vis administratörs behörighet i andra Microsoft-inköps system, men har inte rollen som global administratör eller fakturerings administratör för åtkomst till administrations centret. 
 
@@ -489,7 +489,7 @@ Användare med den här rollen kan hantera [team-certifierade enheter](https://w
 
 Användare med den här rollen kan hantera alla aspekter av arbets belastningen Microsoft Teams via Microsoft Teams & Skype för Business administrations Center och respektive PowerShell-moduler. Detta omfattar bland annat alla hanterings verktyg som rör telefoni, meddelanden, möten och själva teamet. Den här rollen ger dessutom möjlighet att skapa och hantera alla Microsoft 365 grupper, hantera support biljetter och övervaka tjänstens hälsa.
 
-### <a name="user-administrator"></a>[Användaradministratör](#user-administrator-permissions)
+### <a name="user-administrator"></a>[Användar administratör](#user-administrator-permissions)
 
 Användare med den här rollen kan skapa användare och hantera alla aspekter av användare med vissa begränsningar (se tabellen) och kan uppdatera principer för lösen ordets giltighets tid. Dessutom kan användare med den här rollen skapa och hantera alla grupper. Den här rollen omfattar även möjligheten att skapa och hantera användar visningar, hantera support biljetter och övervaka tjänstens hälsa. Användar administratörer har inte behörighet att hantera vissa användar egenskaper för användare i de flesta administratörs roller. Användare med den här rollen har inte behörighet att hantera MFA. Rollerna som är undantag till den här begränsningen visas i följande tabell.
 
@@ -1513,7 +1513,7 @@ Kan hantera alla aspekter av den Power BI produkten.
 
 ### <a name="power-platform-administrator-permissions"></a>Behörigheter för Power Platform-administratör
 
-Kan skapa och hantera alla aspekter av Microsoft Dynamics 365, PowerApps och Microsoft Flow. 
+Kan skapa och hantera alla aspekter av Microsoft Dynamics 365, PowerApps och energi automatisering.
 
 > [!NOTE]
 > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i roll beskrivning ovan.
@@ -1524,7 +1524,7 @@ Kan skapa och hantera alla aspekter av Microsoft Dynamics 365, PowerApps och Mic
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. dynamics365/upplånade/allTasks | Hantera alla aspekter av Dynamics 365. |
-| Microsoft. Flow/upplånade/allTasks | Hantera alla aspekter av Microsoft Flow. |
+| Microsoft. Flow/upplånade/allTasks | Hantera alla aspekter av energi automatisering. |
 | Microsoft. powerApps/upplånade/allTasks | Hantera alla aspekter av PowerApps. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |

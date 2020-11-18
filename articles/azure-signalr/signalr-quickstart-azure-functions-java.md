@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.custom: devx-track-java
-ms.openlocfilehash: fac992ba0d6be945fcb3184d27394ff58d98c44c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: aa300122ab6c448862d46579d6e9ce1e5fc06a79
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151026"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874414"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Snabb start: Använd Java för att skapa ett chattrum med Azure Functions-och SignalR-tjänsten
 
@@ -37,21 +37,21 @@ Med Azure SignalR service kan du enkelt lägga till real tids funktioner i ditt 
 > [!NOTE]
 > Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsjava).
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto.
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsjava).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Konfigurera och köra Azure Functions-appen
 
@@ -87,15 +87,16 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
     ```bash
     mvn azure-functions:run
     ```
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
+    
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsjava).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -103,5 +104,3 @@ I den här snabb starten har du skapat och kört ett program utan server i real 
 
 > [!div class="nextstepaction"]
 > [Skapa din första funktion med Java och Maven](../azure-functions/functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java%252cprogramming-language-java)
-
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)

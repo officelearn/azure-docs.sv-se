@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 85cda8458dca4ce24fed9433af1527f49a2393ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2613f91e8c7f1ad3a05792a9a165f4560c09a637
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150979"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874533"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Snabbstart: Sända realtidsmeddelanden från konsolapp
 
@@ -28,17 +28,17 @@ Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsapi).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto.
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsapi).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsapi).
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -51,7 +51,7 @@ Medan tjänsten distribueras ska vi förbereda koden. Klona [exempelappen från 
     ```bash
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsapi).
 
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
@@ -88,7 +88,7 @@ cd bin/Release/netcoreapp2.1/osx.10.13-x64/
 Serverless server -c "<ConnectionString>" -h <HubName>
 ```
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsapi).
 
 ## <a name="run-the-sample-without-publishing"></a>Kör exemplet utan att publicera
 
@@ -106,7 +106,7 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 Du kan köra `dotnet user-secrets set Azure:SignalR:ConnectionString "<ConnectionString>"` i exemplets rotkatalog. Efter det behöver du inte alternativet `-c "<ConnectionString>"` längre.
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsapi).
 
 ## <a name="usage"></a>Användning
 
@@ -122,7 +122,7 @@ broadcast
 
 Du kan starta flera klienter med olika klientnamn.
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsapi).
 
 ## <a name="integration-with-third-party-services"></a><a name="usage"> </a> Integrering med tjänster från tredje part
 
@@ -139,7 +139,7 @@ Version | API-tillstånd | Door | Specifik
 
 Listan över tillgängliga API:er för varje specifika version finns i följande lista.
 
-API | 1,0 – för hands version | 1.0
+API | 1,0 – för hands version | 1,0
 --- | --- | ---
 [Sänd till alla](#broadcast) | **&#x2713;** | **&#x2713;**
 [Sänd till en grupp](#broadcast-group) | **&#x2713;** | **&#x2713;**
@@ -257,11 +257,11 @@ Statuskod för svar | Beskrivning
 `200` | Tjänsten är felfri
 `5xx` | Tjänst fel
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsapi).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qsapi).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -269,5 +269,3 @@ I den här snabb starten har du lärt dig hur du använder REST API för att sä
 
 > [!div class="nextstepaction"]
 > [Utveckla Azure Functions med hjälp av Azure SignalR service-bindningar](signalr-quickstart-azure-functions-csharp.md)
-
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)

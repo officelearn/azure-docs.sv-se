@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 70441c3a1953fa1b6ebd69ef9cdb324d6cc04a5b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e31a1cef427062723adf4b45bd47cd8009630128
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336471"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888818"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym
 
@@ -26,14 +26,12 @@ I den här snabb starten ska du konfigurera följande objekt:
 - En kapacitets grupp
 - En NFS-volym för Azure NetApp Files
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 > [!IMPORTANT]
 > Du måste beviljas åtkomst till Azure NetApp Filess tjänsten. Information om hur du begär åtkomst till tjänsten finns på sidan för att [skicka Azure NetApp Files Waitlist](https://aka.ms/azurenetappfiles).  Du måste vänta en officiell bekräftelse via e-post från Azure NetApp Files-teamet innan du fortsätter.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ---
 
@@ -64,6 +62,10 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
     ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Förbered din miljö för Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
@@ -176,7 +178,7 @@ Följande kodfragment visar hur du skapar ett NetApp-konto i en Azure Resource M
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Från bladet Azure NetApp Files hantering väljer du ditt NetApp-konto ( **myaccount1** ).
+1. Från bladet Azure NetApp Files hantering väljer du ditt NetApp-konto (**myaccount1**).
 
     ![Välj NetApp-konto](../media/azure-netapp-files/azure-netapp-files-select-netapp-account.png)
 
@@ -260,7 +262,7 @@ Följande kodfragment visar hur du skapar en pool för kapacitet i en Azure Reso
 
 3. I fönstret Skapa en volym anger du information för volymen:
    1. Ange **myvol1** som volym namn.
-   2. Välj din Capacity pool ( **mypool1** ).
+   2. Välj din Capacity pool (**mypool1**).
    3. Använd standardvärdet för kvot.
    4. Under virtuellt nätverk klickar du på **Skapa nytt** för att skapa ett nytt virtuellt Azure-nätverk (VNet).  Fyll sedan i följande information:
        * Ange **myvnet1** som VNet-namn.
@@ -269,7 +271,7 @@ Följande kodfragment visar hur du skapar en pool för kapacitet i en Azure Reso
        * Ange adress intervall för under nätet, till exempel 10.7.0.0/24. Du kan inte dela det dedikerade under nätet med andra resurser.
        * Välj **Microsoft. NetApp/volymer** för under näts delegering.
        * Klicka på **OK** för att skapa VNet.
-   5. I undernät väljer du det nyligen skapade VNet ( **myvnet1** ) som delegerat undernät.
+   5. I undernät väljer du det nyligen skapade VNet (**myvnet1**) som delegerat undernät.
 
       ![Skapa ett volym fönster](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)
 
@@ -278,7 +280,7 @@ Följande kodfragment visar hur du skapar en pool för kapacitet i en Azure Reso
 4. Klicka på **protokoll** och utför följande åtgärder:
     * Välj **NFS** som protokoll typ för volymen.
     * Ange **myfilepath1** som den fil Sök väg som ska användas för att skapa export Sök vägen för volymen.
-    * Välj NFS-version ( **NFSv3** eller **nfsv 4.1** ) för volymen.
+    * Välj NFS-version (**NFSv3** eller **nfsv 4.1**) för volymen.
       Se [överväganden](azure-netapp-files-create-volumes.md#considerations) och [bästa praxis](azure-netapp-files-create-volumes.md#best-practice) om NFS-versioner.
 
     ![Ange NFS-protokoll för snabb start](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)

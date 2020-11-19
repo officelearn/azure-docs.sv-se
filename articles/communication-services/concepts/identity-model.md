@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f172bfcb6e4f11520eb9082052968626efe6fecb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: dd2ffacb176ed3733acba8699d4e870b15dd3c42
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651251"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888716"
 ---
 # <a name="identity-model"></a>Identitetsmodell
 
@@ -63,7 +63,7 @@ En åtkomsttoken är alltid giltig i 24 timmar. När den har gått ut är åtkom
 
 En identitet behöver ett sätt att begära en ny åtkomsttoken från en server-side-tjänst. *Omfattnings* parametern definierar en uppsättning primitiver som kan användas. Azure Communication Services stöder följande omfattningar för åtkomsttoken.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |Chatt|  Ger möjlighet att delta i en chatt|
 |VoIP|  Ger möjlighet att anropa identiteter och telefonnummer|
@@ -83,6 +83,6 @@ Om du cachelagrar åtkomsttoken till en lagrings plats rekommenderar vi att du a
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till hantering av åtkomst till token finns i [skapa och hantera åtkomsttoken](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
-* En introduktion till autentisering finns i [autentisera till Azure Communication Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication).
-* En introduktion till data placering och sekretess finns i [region tillgänglighet och data placering](https://docs.microsoft.com/azure/communication-services/concepts/privacy).
+* En introduktion till hantering av åtkomst till token finns i [skapa och hantera åtkomsttoken](../quickstarts/access-tokens.md).
+* En introduktion till autentisering finns i [autentisera till Azure Communication Services](./authentication.md).
+* En introduktion till data placering och sekretess finns i [region tillgänglighet och data placering](./privacy.md).

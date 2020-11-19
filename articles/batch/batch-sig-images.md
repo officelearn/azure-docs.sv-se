@@ -2,14 +2,14 @@
 title: Använd det delade avbildnings galleriet för att skapa en anpassad avbildnings-pool
 description: Anpassade bildpooler är ett effektivt sätt att konfigurera datornoder för att köra batch-arbetsbelastningar.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 4a41e8345bdb4c4e8761debe8e6b39f8588f5a8c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0ba6270e6b6b4fcd258d8f5b3668931706f95b5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745519"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888359"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Använd det delade avbildnings galleriet för att skapa en anpassad avbildnings-pool
 
@@ -40,7 +40,7 @@ Att använda en delad avbildning som kon figurer ATS för ditt scenario kan ge f
 
 - **Ett Azure Batch-konto.** Information om hur du skapar ett batch-konto finns i batch-startstarter med [Azure Portal](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md).
 
-- **En bild av ett delat bild galleri** . Om du vill skapa en delad avbildning måste du ha eller skapa en hanterad avbildnings resurs. Avbildningen bör skapas från ögonblicks bilder av den virtuella datorns OS-disk och eventuellt anslutna data diskar.
+- **En bild av ett delat bild galleri**. Om du vill skapa en delad avbildning måste du ha eller skapa en hanterad avbildnings resurs. Avbildningen bör skapas från ögonblicks bilder av den virtuella datorns OS-disk och eventuellt anslutna data diskar.
 
 > [!NOTE]
 > Om den delade avbildningen inte finns i samma prenumeration som batch-kontot måste du [registrera Microsoft.BatCH-resurs leverantören](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) för den prenumerationen. De två prenumerationerna måste finnas i samma Azure AD-klient.
@@ -208,9 +208,9 @@ Använd följande steg för att skapa en pool från en delad avbildning i Azure 
 1. Öppna [Azure-portalen](https://portal.azure.com).
 1. Gå till **batch-konton** och välj ditt konto.
 1. Välj **pooler** och **Lägg** sedan till för att skapa en ny pool.
-1. I avsnittet **avbildnings typ** väljer du **delat avbildnings Galleri** .
+1. I avsnittet **avbildnings typ** väljer du **delat avbildnings Galleri**.
 1. Slutför de återstående avsnitten med information om din hanterade avbildning.
-1. Välj **OK** .
+1. Välj **OK**.
 
 ![Skapa en pool med från en delad avbildning med portalen.](media/batch-sig-images/create-custom-pool.png)
 
@@ -218,7 +218,7 @@ Använd följande steg för att skapa en pool från en delad avbildning i Azure 
 
 Använd följande vägledning om du planerar att skapa en pool med hundratals eller tusentals virtuella datorer eller mer med en delad avbildning.
 
-- **Delade avbildnings galleriets replik nummer.**  För varje pool med upp till 600 instanser rekommenderar vi att du behåller minst en replik. Om du till exempel skapar en pool med 3000 virtuella datorer bör du behålla minst 5 repliker av avbildningen. Vi rekommenderar alltid att du behåller fler repliker än minimi kraven för bättre prestanda.
+- **Delade avbildnings galleriets replik nummer.**  För varje pool med upp till 300 instanser rekommenderar vi att du behåller minst en replik. Om du till exempel skapar en pool med 3000 virtuella datorer bör du behålla minst 10 repliker av avbildningen. Vi rekommenderar alltid att du behåller fler repliker än minimi kraven för bättre prestanda.
 
 - **Tids gräns för storleks ändring.** Om poolen innehåller ett fast antal noder (om den inte är autoskalning) ökar du `resizeTimeout` egenskapen för poolen beroende på Poolens storlek. För varje 1000 virtuella datorer är den rekommenderade tids gränsen minst 15 minuter. Till exempel är den rekommenderade tids gränsen för en pool med 2000 virtuella datorer minst 30 minuter.
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e153c873305cc128ce97ae7c6a907a8f592f8b32
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: e8decbe22f869573bf7a2221099d2bc30c00fc8a
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357478"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888852"
 ---
 # <a name="quickstart-handle-sms-events"></a>Snabb start: Hantera SMS-händelser
 
@@ -24,7 +24,7 @@ Kom igång med Azure Communication Services genom att använda Azure Event Grid 
 
 ## <a name="about-azure-event-grid"></a>Om Azure Event Grid
 
-[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) är en molnbaserad händelse tjänst. I den här artikeln får du lära dig hur du prenumererar på händelser för [kommunikations tjänst händelser](../../concepts/event-handling.md)och utlöser en händelse för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. I den här artikeln ska vi skicka händelserna till en webbapp som samlar in och visar meddelandena.
+[Azure Event Grid](../../../event-grid/overview.md) är en molnbaserad händelse tjänst. I den här artikeln får du lära dig hur du prenumererar på händelser för [kommunikations tjänst händelser](../../concepts/event-handling.md)och utlöser en händelse för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. I den här artikeln ska vi skicka händelserna till en webbapp som samlar in och visar meddelandena.
 
 ## <a name="prerequisites"></a>Förutsättningar
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -49,7 +49,7 @@ Det kan ta en stund att slutföra registreringen. Välj **Uppdatera** för att u
 
 ### <a name="event-grid-viewer-deployment"></a>Distribution av Event Grids hanterare
 
-I den här snabb starten ska vi använda [exemplet på Azure Event Grid Viewer](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) för att visa händelser i nära real tid. Detta ger användaren erfarenhet av en feed i real tid. Dessutom bör nytto lasten för varje händelse också vara tillgänglig för granskning.  
+I den här snabb starten ska vi använda [exemplet på Azure Event Grid Viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) för att visa händelser i nära real tid. Detta ger användaren erfarenhet av en feed i real tid. Dessutom bör nytto lasten för varje händelse också vara tillgänglig för granskning.  
 
 ## <a name="subscribe-to-the-sms-events-using-web-hooks"></a>Prenumerera på SMS-händelser med hjälp av Webhooks
 
@@ -63,7 +63,7 @@ På sidan **Skapa händelse prenumeration** anger du ett **namn** för händelse
 
 Du kan prenumerera på vissa händelser för att berätta Event Grid vilka SMS-händelser du vill spåra och var de ska skickas. Välj de händelser som du vill prenumerera på på list menyn. För SMS har du möjlighet att välja `SMS Received` och `SMS Delivery Report Received` . 
 
-Om du uppmanas att ange ett **namn på ett system ämne** kan du ange en unik identifierare som du kan använda för att filtrera händelser när de har genererats.
+Om du uppmanas att ange ett **namn på ett system ämne** kan du ange en unik sträng. Det här fältet har ingen effekt på din upplevelse och används för interna telemetri.
 
 Ta en titt på den fullständiga listan med [händelser som stöds av Azure Communication Services](../../concepts/event-handling.md).
 
@@ -75,7 +75,7 @@ Välj **Web Hook** för **slut punkts typ**.
 
 För **slut punkt** klickar du på **Välj en slut punkt** och anger URL: en för din webbapp.
 
-I det här fallet kommer vi att använda URL: en från [Azure Event Grid Viewer-exemplet](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) som vi har konfigurerat tidigare i snabb starten. URL: en för exemplet är i formatet: `https://{{site-name}}.azurewebsites.net/api/updates`
+I det här fallet kommer vi att använda URL: en från [Azure Event Grid Viewer-exemplet](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) som vi har konfigurerat tidigare i snabb starten. URL: en för exemplet är i formatet: `https://{{site-name}}.azurewebsites.net/api/updates`
 
 Välj sedan **Bekräfta markering**.
 
@@ -94,7 +94,7 @@ Ta en titt på den fullständiga listan med [händelser som stöds av Azure Comm
 
 ### <a name="receiving-sms-events"></a>Ta emot SMS-händelser
 
-När du har slutfört ovanstående åtgärd kommer du att märka att `SMS Received` och `SMS Delivery Report Received` händelser skickas till din slut punkt. Dessa händelser visas i [Azure Event Grid Viewer-exemplet](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) som vi har konfigurerat i början. Du kan trycka på ögon ikonen bredvid händelsen om du vill se hela nytto lasten. Händelser kommer att se ut så här:
+När du har slutfört ovanstående åtgärd kommer du att märka att `SMS Received` och `SMS Delivery Report Received` händelser skickas till din slut punkt. Dessa händelser visas i [Azure Event Grid Viewer-exemplet](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) som vi har konfigurerat i början. Du kan trycka på ögon ikonen bredvid händelsen om du vill se hela nytto lasten. Händelser kommer att se ut så här:
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Skärm bild som visar Event Grid schema för en SMS-inhämtad händelse.":::
 
@@ -116,4 +116,4 @@ I den här snabb starten har du lärt dig hur du använder SMS-händelser. Du ka
 Du kanske också vill:
 
  - [Lär dig mer om händelse hanterings koncept](../../concepts/event-handling.md)
- - [Läs mer om Event Grid](https://docs.microsoft.com/azure/event-grid/overview)
+ - [Läs mer om Event Grid](../../../event-grid/overview.md)

@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e6fc3441fac5fe037e9a268d26012761d1fece70
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8faa6533ba4dc7fad61c045278c5504c5f78d900
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92463281"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888971"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Kom igång med webb anrops exemplet
 
@@ -37,7 +37,7 @@ När [webb anrops exemplet](https://github.com/Azure-Samples/communication-servi
 
 :::image type="content" source="./media/web-calling-tutorial-page-1.png" alt-text="Vägledning för webb samtal 1" lightbox="./media/web-calling-tutorial-page-1.png":::
 
-:::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Vägledning för webb samtal 1" lightbox="./media/web-calling-tutorial-page-2.png":::
+:::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Webb samtals Guide 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
 
 ## <a name="user-provisioning-and-sdk-initialization"></a>Användar etablering och SDK-initiering 
@@ -52,29 +52,29 @@ Klicka på knappen "Visa kod" om du vill se exempel koden som du kan använda i 
 
 Du bör se följande när SDK: n har initierats:
 
-:::image type="content" source="./media/user-provisioning.png" alt-text="Vägledning för webb samtal 1" lightbox="./media/user-provisioning.png":::
+:::image type="content" source="./media/user-provisioning.png" alt-text="Användaretablering" lightbox="./media/user-provisioning.png":::
 
 Du är nu redo att börja placera samtal med kommunikations tjänst resursen!
 
 ## <a name="placing-and-receiving-calls"></a>Placera och ta emot samtal
 
-I kommunikations tjänsterna Web Call SDK kan du använda **1:1**, **1: N**och **grupp** anrop.
+I kommunikations tjänsterna Web Call SDK kan du använda **1:1**, **1: N** och **grupp** anrop.
 
 För 1:1 eller 1: N utgående anrop kan du ange flera användar identiteter för kommunikations tjänster som anropar med kommaavgränsade värden. Du kan också ange traditionella (PSTN) telefonnummer som ska anropas med kommaavgränsade värden. 
 
 När du anropar PSTN-telefonnummer anger du ditt alternativa ID för anroparen. Klicka på knappen "placera samtal" för att placera ett utgående samtal:
 
-:::image type="content" source="./media/place-a-call.png" alt-text="Vägledning för webb samtal 1" lightbox="./media/place-a-call.png":::
+:::image type="content" source="./media/place-a-call.png" alt-text="Placera ett samtal" lightbox="./media/place-a-call.png":::
 
 Om du vill ansluta till ett grupp anrop anger du det GUID som identifierar anropet och klickar på knappen Anslut till grupp:
 
-:::image type="content" source="./media/join-a-group-call.png" alt-text="Vägledning för webb samtal 1" lightbox="./media/join-a-group-call.png":::
+:::image type="content" source="./media/join-a-group-call.png" alt-text="Anslut till ett grupp anrop" lightbox="./media/join-a-group-call.png":::
 
 Klicka på knappen "Visa kod" om du vill se exempel koden för att placera samtal, ta emot samtal och ansluta till grupp anrop.
 
 Ett aktivt anrop ser ut så här:
 
-:::image type="content" source="./media/group-call.png" alt-text="Vägledning för webb samtal 1" lightbox="./media/group-call.png":::
+:::image type="content" source="./media/group-call.png" alt-text="Grupp anrop" lightbox="./media/group-call.png":::
 
 Det här exemplet innehåller också kodfragment för följande funktioner:
 
@@ -95,7 +95,7 @@ Mer information finns i följande artiklar:
 
 - Bekanta dig med [att använda det anropande klient biblioteket](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Läs mer om [hur du anropar Works](../concepts/voice-video-calling/about-call-types.md)
-- Granska [API Reference-dokument](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+- Granska [API Reference-dokument](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
 
 ## <a name="additional-reading"></a>Mer att läsa
 
@@ -103,4 +103,4 @@ Mer information finns i följande artiklar:
 - [Redux](https://redux.js.org/) – tillstånds hantering på klient Sidan
 - [FluentUI](https://aka.ms/fluent-ui) – Microsoft Powered UI-bibliotek
 - [Reagera](https://reactjs.org/) – bibliotek för att skapa användar gränssnitt
-- [ASP.net cores](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) ramverk för att skapa webb program
+- [ASP.net cores](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) ramverk för att skapa webb program

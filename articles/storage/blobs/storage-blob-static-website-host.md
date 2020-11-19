@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 03850315a05f569d2c6ba9405b6ec38bb6b1305d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cdaa813e0eccb23563301052aee268ab61533a
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78330403"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888512"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera hantering av en statisk webbplats
 > * Distribuera en Hello World-webbplats
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -77,17 +77,27 @@ Nu skapar du en Hello World-webbplats med Visual Studio Code och distribuerar de
 1. Öppna *index.html* i redigeringsprogrammet, klistra in följande text i filen och spara den:
 
     ```
-    <h1>Hello World!</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>Hello World!</h1>
+      </body>
+    </html>
     ```
 
 1. Skapa standardfelfilen och ge den namnet *404.html*.
 1. Öppna *404.html* i redigeringsprogrammet, klistra in följande text i filen och spara den:
 
     ```
-    <h1>404</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>404</h1>
+      </body>
+    </html>
     ```
 
-1. Högerklicka under mappen *mywebsite* i panelen **Utforskaren** och välj **Distribuera till statisk webbplats... ** för att distribuera webbplatsen. Du uppmanas att logga in på Azure för att hämta en lista över prenumerationer.
+1. Högerklicka under mappen *mywebsite* i panelen **Utforskaren** och välj **Distribuera till statisk webbplats...** för att distribuera webbplatsen. Du uppmanas att logga in på Azure för att hämta en lista över prenumerationer.
 
 1. Välj den prenumeration som innehåller det lagringskonto som du aktiverade hantering av statisk webbplats för. Välj sedan lagringskontot när du tillfrågas.
 

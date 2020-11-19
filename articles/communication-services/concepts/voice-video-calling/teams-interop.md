@@ -9,14 +9,14 @@ ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a7e2240e3f74f82186827ec82bb1aa39a5b93f6c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 028e7f9764cbf75263736471f434e04bc6daca0f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123842"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886829"
 ---
-# <a name="teams-interoperability"></a>Team samverkan
+# <a name="teams-interoperability"></a>Samverkan mellan team
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -35,13 +35,13 @@ Hög nivå arkitekturen för det här användnings fallet ser ut så här:
 
 Även om vissa Teams Mötes funktioner, till exempel upphöjt, interaktivt läge, och grupp-rummen bara är tillgängliga för team användare, kommer ditt anpassade program ha åtkomst till programmets kärn funktioner för ljud-, video-och skärm delning.
 
-När en kommunikations tjänst användare ansluter till Teams mötet, visas det visnings namn som angavs via det anropande klient biblioteket för team användare. Kommunikation Services-användaren behandlas annars som en anonym användare i team. Ditt anpassade program bör överväga användarautentisering och andra säkerhets åtgärder för att skydda team möten. Var mindful av säkerheten för att göra det möjligt för anonyma användare att ansluta till möten och använda [teamets säkerhets guide](https://docs.microsoft.com/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) för att konfigurera funktioner som är tillgängliga för anonyma användare.
+När en kommunikations tjänst användare ansluter till Teams mötet, visas det visnings namn som angavs via det anropande klient biblioteket för team användare. Kommunikation Services-användaren behandlas annars som en anonym användare i team. Ditt anpassade program bör överväga användarautentisering och andra säkerhets åtgärder för att skydda team möten. Var mindful av säkerheten för att göra det möjligt för anonyma användare att ansluta till möten och använda [teamets säkerhets guide](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) för att konfigurera funktioner som är tillgängliga för anonyma användare.
 
-Kommunikations tjänst användare kan ansluta till schemalagda team möten så länge anonyma kopplingar är aktiverade i [Mötes inställningarna](https://docs.microsoft.com/microsoftteams/meeting-settings-in-teams).
+Kommunikations tjänst användare kan ansluta till schemalagda team möten så länge anonyma kopplingar är aktiverade i [Mötes inställningarna](/microsoftteams/meeting-settings-in-teams).
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Anslut din anropande app till ett team möte](../../quickstarts/voice-video-calling/get-started-teams-interop.md)
+> [Anslut din samtalsapp till ett Teams-möte](../../quickstarts/voice-video-calling/get-started-teams-interop.md)

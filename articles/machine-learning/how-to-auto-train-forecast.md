@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 3be1d404d0cac7f9e5c9b1c2f7350cf05c5fe794
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0bbb18a82de508f79cd2fd5dde58c1cf33520950
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358124"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887407"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 
@@ -31,7 +31,7 @@ Det gör du på följande sätt:
 
 En låg kod upplevelse finns i [självstudien: prognostisera efter frågan med automatiserad maskin inlärning](tutorial-automated-ml-forecast.md) för ett exempel på en uppskattning av tids serier med hjälp av automatisk maskin inlärning i [Azure Machine Learning Studio](https://ml.azure.com/).
 
-Till skillnad från klassiska Time Series-metoder i automatiserade ML, är tidigare tids serie värden "pivoterade" för att bli ytterligare dimensioner för modellerings regressor tillsammans med andra förutsägelser. Den här metoden omfattar flera sammanhangsbaserade variabler och deras relation till varandra under utbildningen. Eftersom flera faktorer kan påverka en prognos justeras den här metoden korrekt med verkliga prognos scenarier. Till exempel, när försäljnings prognoser används, interaktioner över historiska trender, utbytes pris och pris alla gemensamt styr försäljnings resultatet. 
+Till skillnad från klassiska Time Series-metoder i automatiserade ML, är tidigare tids serie värden "pivoterade" för att bli ytterligare dimensioner för modellerings regressor tillsammans med andra förutsägelser. Den här metoden omfattar flera sammanhangsbaserade variabler och deras relation till varandra under utbildningen. Eftersom flera faktorer kan påverka en prognos justeras den här metoden korrekt med verkliga prognos scenarier. Till exempel, när försäljnings prognoser används, interaktioner av historiska trender, växelkurs och pris gemensamt, kommer försäljnings resultatet gemensamt. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -138,7 +138,7 @@ ForecastTCN (för hands version)| ForecastTCN är en neurala-nätverks modell so
 
 Precis som med ett Regressions problem definierar du standard utbildnings parametrar som aktivitets typ, antal iterationer, tränings data och antalet kors valideringar. För prognos uppgifter finns det ytterligare parametrar som måste anges som påverkar experimentet. 
 
-I följande tabell sammanfattas dessa ytterligare parametrar. I [referens dokumentationen](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) finns mönster för utformning av syntax.
+I följande tabell sammanfattas dessa ytterligare parametrar. I [ForecastingParameter-klassens referens dokumentation](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) finns mönster för utformning av syntax.
 
 | Parameter &nbsp; namn | Beskrivning | Krävs |
 |-------|-------|-------|
@@ -149,11 +149,11 @@ I följande tabell sammanfattas dessa ytterligare parametrar. I [referens dokume
 |`target_lags`|Antal rader att ange för fördröjning av målvärdena baserat på data frekvensen. Fördröjningen visas som en lista eller ett enda heltal. Fördröjning ska användas när relationen mellan oberoende variabler och beroende variabel inte matchar eller korrelerar som standard. ||
 |`feature_lags`| Funktionerna i fördröjningen väljs automatiskt av automatisk ML när `target_lags` har angetts och `feature_lags` är inställt på `auto` . Att aktivera funktionen lags kan hjälpa till att förbättra noggrannheten. Funktionen lags är inaktive rad som standard. ||
 |`target_rolling_window_size`|*n* historiska perioder som ska användas för att generera prognostiserade värden <= storlek för tränings uppsättning. Om det utelämnas är *n* den fullständiga inlärnings uppsättningens storlek. Ange den här parametern när du bara vill ta hänsyn till en viss mängd historik när du tränar modellen. Lär dig mer om [agg regerings fönster för mål](#target-rolling-window-aggregation).||
-|`short_series_handling`| Möjliggör kort tids serie hantering för att undvika misslyckande vid utbildning på grund av otillräckliga data. Hantering av korta serier har angetts till true som standard.|
+|`short_series_handling_config`| Möjliggör kort tids serie hantering för att undvika misslyckande vid utbildning på grund av otillräckliga data. Hantering av korta serier är inställt på `auto` som standard. Läs mer om [hantering av korta serier](#short-series-handling).|
 
 
 Följande kod, 
-* Utnyttjar klassen för `ForecastingParameters` att definiera prognos parametrar för din experiment utbildning
+* Utnyttjar klassen för [`ForecastingParameters`](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) att definiera prognos parametrar för din experiment utbildning
 * Anger `time_column_name` `day_datetime` fältet i data uppsättningen. 
 * Definierar `time_series_id_column_names` parametern till `"store"` . Detta säkerställer att **två separata tids serie grupper** skapas för data. en för Store A och B.
 * Ställer in `forecast_horizon` till 50 för att förutsäga för hela test uppsättningen. 
@@ -164,13 +164,12 @@ Följande kod,
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
-forecasting_parameters = ForecastingParameters(
-    time_column_name='day_datetime', 
-    forecast_horizon=50,
-    time_series_id_column_names=["store"],
-    target_lags='auto',
-    target_rolling_window_size=10
-)
+forecasting_parameters = ForecastingParameters(time_column_name='day_datetime', 
+                                               forecast_horizon=50,
+                                               time_series_id_column_names=["store"],
+                                               target_lags='auto',
+                                               target_rolling_window_size=10)
+                                              
 ```
 
 De `forecasting_parameters` skickas sedan till standard- `AutoMLConfig` objektet tillsammans med `forecasting` uppgifts typ, primärt mått, avslutnings villkor och tränings data. 
@@ -190,7 +189,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              n_cross_validations=5,
                              enable_ensembling=False,
                              verbosity=logging.INFO,
-                             **time_series_settings)
+                             **forecasting_parameters)
 ```
 
 ### <a name="featurization-steps"></a>Funktionalisering-steg
@@ -226,12 +225,16 @@ Om du vill anpassa featurizations med SDK anger du `"featurization": Featurizati
 
 ```python
 featurization_config = FeaturizationConfig()
+
 # `logQuantity` is a leaky feature, so we remove it.
 featurization_config.drop_columns = ['logQuantitity']
+
 # Force the CPWVOL5 feature to be of numeric type.
 featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+
 # Fill missing values in the target column, Quantity, with zeroes.
 featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+
 # Fill mising values in the `INCOME` column with median value.
 featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
 ```
@@ -260,7 +263,7 @@ Om du vill aktivera djup inlärning ställer du in `enable_dnn=True` i- `AutoMLC
 automl_config = AutoMLConfig(task='forecasting',
                              enable_dnn=True,
                              ...
-                             **time_series_settings)
+                             **forecasting_parameters)
 ```
 > [!Warning]
 > När du aktiverar DNN för experiment som skapats med SDK inaktive ras [bästa modell förklaringar](how-to-machine-learning-interpretability-automl.md) .
@@ -279,6 +282,35 @@ Tabellen visar den resulterande funktions teknik som inträffar när Window aggr
 ![mål för rullande fönster](./media/how-to-auto-train-forecast/target-roll.svg)
 
 Visa en python code-exempel som använder den angivna [mål funktionen för mängd funktions fönster](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
+
+### <a name="short-series-handling"></a>Hantering av korta serier
+
+Med automatisk ML betraktas en tids serie med en **kort serie** om det inte finns tillräckligt många data punkter för att driva tåg-och validerings faserna för modell utveckling. Antalet data punkter varierar för varje experiment, och beror på max_horizon, antalet delningar av kors validering och längden på modellens lookback, vilket är den maximala historik som krävs för att skapa funktioner i Time-serien. Den exakta beräkningen finns i [referens dokumentationen för short_series_handling_config](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
+
+Med automatisk ML får du en kort serie hantering som standard med- `short_series_handling_config` parametern i `ForecastingParameters` objektet. 
+
+Om du vill aktivera hantering av korta serier `freq` måste parametern också definieras. Om du vill ändra standard beteendet `short_series_handling_config = auto` uppdaterar du `short_series_handling_config` parametern i `ForecastingParameter` objektet.  
+
+```python
+from azureml.automl.core.forecasting_parameters import ForecastingParameters
+
+forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
+                                            forecast_horizon=50,
+                                            short_series_handling_config='auto',
+                                            freq = 50
+                                            target_lags='auto')
+```
+I följande tabell sammanfattas de tillgängliga inställningarna för `short_series_handling_config` .
+ 
+|Inställning|Beskrivning
+|---|---
+|`auto`| Följande är standard beteendet för hantering av korta serier <li> *Om alla serier är korta* kan du fylla i data. <br> <li> *Om inte alla serier är korta* släpper du den korta serien. 
+|`pad`| Om du `short_series_handling_config = pad` sedan väljer automatiserad ml läggs dummy-värden till i varje kort serie. Nedan visas kolumn typerna och vad de fylls med: <li>Objekt kolumner med NaNs <li> Numeriska kolumner med 0 <li> Booleska/Logic-kolumner med falskt <li> Mål kolumnen fylls med slumpmässiga värden med medelvärdet noll och standard avvikelsen 1. 
+|`drop`| Om du `short_series_handling_config = drop` sedan väljer automatiserad ml tar den korta serien och används inte för utbildning eller förutsägelse. Förutsägelserna för dessa serier kommer att returnera NaN.
+|`None`| Ingen serie är utfylld eller utelämnad
+
+>[!WARNING]
+>Utfyllnaden kan påverka noggrannheten i den resulterande modellen eftersom vi introducerar artificiell data bara för att få en tidigare utbildning utan problem. <br> <br> Om många av serierna är korta kan du också se vissa konsekvenser i konsekvens resultatet
 
 ## <a name="run-the-experiment"></a>Kör experimentet 
 

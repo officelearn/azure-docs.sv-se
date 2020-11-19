@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 383895f2cb5983abd68bfca67d2c8361ee094ea1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ae508754775d4eb622d8e91ef58eb0d6e1c45692
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744849"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889022"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Automatisk reparation av instanser för skalningsuppsättningar med virtuella Azure-datorer
 
@@ -36,9 +36,9 @@ Innan du aktiverar principen för automatiska reparationer av instanser måste d
 
 För instanser som har marker ATS som "ohälsosam" utlöses automatiska reparationer av skalnings uppsättningen. Se till att program slut punkten är korrekt konfigurerad innan du aktiverar principen för automatisk reparation för att undvika oavsiktliga instans reparationer, medan slut punkten konfigureras.
 
-**Aktivera enskild placerings grupp**
+**Maximalt antal instanser i skalnings uppsättningen**
 
-Den här funktionen är för närvarande endast tillgänglig för skalnings uppsättningar som distribueras som en enda placerings grupp. Egenskapen *singlePlacementGroup* ska anges till *Sant* för att din skalnings uppsättning ska kunna använda funktionen Automatiska reparations reparationer. Lär dig mer om [placerings grupper](./virtual-machine-scale-sets-placement-groups.md#placement-groups).
+Den här funktionen är för närvarande endast tillgänglig för skalnings uppsättningar som har högst 200 instanser. Skalnings uppsättningen kan distribueras antingen som en enda placerings grupp eller med flera placerings grupper, men instans antalet får inte vara högre än 200 om automatiska instans reparationer är aktiverat för skalnings uppsättningen.
 
 **API-version**
 
@@ -62,13 +62,13 @@ Reparations åtgärder för automatisk instans utförs i batchar. Vid en angiven
 
 ### <a name="grace-period"></a>Respitperiod
 
-När en instans går igenom en status ändrings åtgärd på grund av en skicka-, KORRIGERINGs-eller POST-åtgärd som utförs på skalnings uppsättningen (till exempel avbildning, omdistribution, uppdatering osv.), utförs eventuell reparations åtgärd på den instansen först efter att du har väntat på respitperioden. Respitperiod är hur lång tid som tillåts för instansen att återgå till felfritt tillstånd. Grace-perioden startar efter att tillstånds ändringen har slutförts. Detta bidrar till att undvika oförutsedda eller oavsiktliga reparations åtgärder. Respittiden gäller för alla nyskapade instanser i skalnings uppsättningen (inklusive den som skapats som ett resultat av reparations åtgärden). Grace-perioden anges i minuter i ISO 8601-format och kan anges med egenskapen *automaticRepairsPolicy. gracePeriod* . Grace-perioden kan vara mellan 30 minuter och 90 minuter och har ett standardvärde på 30 minuter.
+När en instans går igenom en status ändrings åtgärd på grund av en skicka-, KORRIGERINGs-eller POST-åtgärd som utförs på skalnings uppsättningen (till exempel avbildning, omdistribution, uppdatering osv.), utförs eventuell reparations åtgärd på den instansen först efter att du har väntat på respitperioden. Respitperiod är hur lång tid som tillåts för instansen att återgå till felfritt tillstånd. Grace-perioden startar efter att tillstånds ändringen har slutförts. Detta bidrar till att undvika oförutsedda eller oavsiktliga reparations åtgärder. Respittiden gäller för alla nyskapade instanser i skalnings uppsättningen (inklusive den som skapats som ett resultat av reparations åtgärden). Grace-perioden anges i minuter i ISO 8601-format och kan anges med egenskapen *automaticRepairsPolicy. gracePeriod*. Grace-perioden kan vara mellan 30 minuter och 90 minuter och har ett standardvärde på 30 minuter.
 
 ### <a name="suspension-of-repairs"></a>Upphävande av reparationer 
 
-Skalnings uppsättningar för virtuella datorer ger möjlighet att tillfälligt pausa automatiska instans reparationer vid behov. *ServiceState* för automatisk reparation under egenskapen *orchestrationServices* i instans visning av skalnings uppsättningen för virtuella datorer visar det aktuella läget för de automatiska reparationerna. När en skalnings uppsättning väljs för automatiska reparationer anges värdet för parametern *serviceState* till *körs* . När de automatiska reparationerna har inaktiverats för en skalnings uppsättning är parametern *serviceState* inställd på *pausad* . Om *automaticRepairsPolicy* har definierats i en skalnings uppsättning men funktionen automatiska reparationer inte är aktive rad, är parametern *serviceState* inställd på att *inte köras* .
+Skalnings uppsättningar för virtuella datorer ger möjlighet att tillfälligt pausa automatiska instans reparationer vid behov. *ServiceState* för automatisk reparation under egenskapen *orchestrationServices* i instans visning av skalnings uppsättningen för virtuella datorer visar det aktuella läget för de automatiska reparationerna. När en skalnings uppsättning väljs för automatiska reparationer anges värdet för parametern *serviceState* till *körs*. När de automatiska reparationerna har inaktiverats för en skalnings uppsättning är parametern *serviceState* inställd på *pausad*. Om *automaticRepairsPolicy* har definierats i en skalnings uppsättning men funktionen automatiska reparationer inte är aktive rad, är parametern *serviceState* inställd på att *inte köras*.
 
-Om nyligen skapade instanser för att ersätta de defekta i en skalnings uppsättning fortsätter att vara felfria även när reparations åtgärderna har utförts upprepade gånger, och som en säkerhets åtgärd, uppdaterar plattformen *serviceState* för automatisk reparation till *pausad* . Du kan återuppta den automatiska reparationen igen genom att ange värdet för *serviceState* för automatisk reparation till *körning* . Detaljerade instruktioner finns i avsnittet om att [Visa och uppdatera tjänst status för principen för automatisk reparation](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) för din skalnings uppsättning. 
+Om nyligen skapade instanser för att ersätta de defekta i en skalnings uppsättning fortsätter att vara felfria även när reparations åtgärderna har utförts upprepade gånger, och som en säkerhets åtgärd, uppdaterar plattformen *serviceState* för automatisk reparation till *pausad*. Du kan återuppta den automatiska reparationen igen genom att ange värdet för *serviceState* för automatisk reparation till *körning*. Detaljerade instruktioner finns i avsnittet om att [Visa och uppdatera tjänst status för principen för automatisk reparation](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) för din skalnings uppsättning. 
 
 Processen för automatisk instans reparation fungerar på följande sätt:
 
@@ -96,7 +96,7 @@ Du kan också använda den här [snabb starts mal len](https://github.com/Azure/
  
 Följande steg aktiverar automatisk reparations princip när du skapar en ny skalnings uppsättning.
  
-1. Gå till **skalnings uppsättningar för virtuella datorer** .
+1. Gå till **skalnings uppsättningar för virtuella datorer**.
 1. Välj **+ Lägg** till för att skapa en ny skalnings uppsättning.
 1. Gå till fliken **hälso tillstånd** . 
 1. Leta upp avsnittet **hälso tillstånd** .
@@ -141,7 +141,7 @@ New-AzVmssConfig `
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-I följande exempel aktive ras principen för automatisk reparation när du skapar en ny skalnings uppsättning med hjälp av *[AZ VMSS Create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)* . Skapa först en resurs grupp och skapa sedan en ny skalnings uppsättning med en respitperiod för automatisk reparations policy angiven till 30 minuter.
+I följande exempel aktive ras principen för automatisk reparation när du skapar en ny skalnings uppsättning med hjälp av *[AZ VMSS Create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)*. Skapa först en resurs grupp och skapa sedan en ny skalnings uppsättning med en respitperiod för automatisk reparations policy angiven till 30 minuter.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -156,7 +156,7 @@ az vmss create \
   --automatic-repairs-grace-period 30
 ```
 
-Exemplet ovan använder en befintlig belastningsutjämnare och hälso avsökning för att övervaka program hälso status för instanser. Om du föredrar att använda ett program hälso tillägg för övervakning i stället kan du skapa en skalnings uppsättning, konfigurera program hälso tillägget och sedan aktivera den automatiska instansen reparera principen med hjälp av *AZ VMSS-uppdateringen* , enligt beskrivningen i nästa avsnitt.
+Exemplet ovan använder en befintlig belastningsutjämnare och hälso avsökning för att övervaka program hälso status för instanser. Om du föredrar att använda ett program hälso tillägg för övervakning i stället kan du skapa en skalnings uppsättning, konfigurera program hälso tillägget och sedan aktivera den automatiska instansen reparera principen med hjälp av *AZ VMSS-uppdateringen*, enligt beskrivningen i nästa avsnitt.
 
 ## <a name="enabling-automatic-repairs-policy-when-updating-an-existing-scale-set"></a>Aktivera automatisk reparations princip när du uppdaterar en befintlig skalnings uppsättning
 
@@ -169,12 +169,12 @@ När du har uppdaterat modellen för en befintlig skalnings uppsättning ser du 
 Du kan ändra principen för automatisk reparation för en befintlig skalnings uppsättning via Azure Portal. 
  
 1. Gå till en befintlig skalnings uppsättning för virtuella datorer.
-1. Under **Inställningar** i menyn till vänster väljer du **hälsa och reparation** .
+1. Under **Inställningar** i menyn till vänster väljer du **hälsa och reparation**.
 1. Aktivera alternativet **övervaka program hälsa** .
 1. Leta upp avsnittet **Automatisk reparations princip** .
 1. Aktivera **alternativet** **automatiska reparationer** .
 1. I **respitperiod (min)** anger du respitperioden i minuter, tillåtna värden är mellan 30 och 90 minuter. 
-1. När du är klar väljer du **Spara** . 
+1. När du är klar väljer du **Spara**. 
 
 ### <a name="rest-api"></a>REST-API
 
@@ -209,7 +209,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-Följande är ett exempel på hur du uppdaterar den automatiska instansen reparerar principen för en befintlig skalnings uppsättning med hjälp av *[AZ VMSS Update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)* .
+Följande är ett exempel på hur du uppdaterar den automatiska instansen reparerar principen för en befintlig skalnings uppsättning med hjälp av *[AZ VMSS Update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
 
 ```azurecli-interactive
 az vmss update \  
@@ -223,7 +223,7 @@ az vmss update \
 
 ### <a name="rest-api"></a>REST-API 
 
-Använd [vyn Hämta instans](/rest/api/compute/virtualmachinescalesets/getinstanceview) med API version 2019-12-01 eller högre för skalnings uppsättningen för virtuella datorer för att visa *serviceState* för automatiska reparationer under egenskapen *orchestrationServices* . 
+Använd [vyn Hämta instans](/rest/api/compute/virtualmachinescalesets/getinstanceview) med API version 2019-12-01 eller högre för skalnings uppsättningen för virtuella datorer för att visa *serviceState* för automatiska reparationer under egenskapen *orchestrationServices*. 
 
 ```http
 GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
@@ -309,7 +309,7 @@ Instansen kan vara i Grace-period. Detta är vänte tiden efter en tillstånds �
 
 **Visa program hälso status för skalnings uppsättnings instanser**
 
-Du kan använda [Hämta instans Visa API](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) för instanser i en skalnings uppsättning för virtuella datorer för att Visa programmets hälso status. Med Azure PowerShell kan du använda cmdleten [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) med flaggan *-InstanceView* . Programmets hälso status anges under egenskapen *vmHealth* .
+Du kan använda [Hämta instans Visa API](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) för instanser i en skalnings uppsättning för virtuella datorer för att Visa programmets hälso status. Med Azure PowerShell kan du använda cmdleten [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) med flaggan *-InstanceView* . Programmets hälso status anges under egenskapen *vmHealth*.
 
 I Azure Portal kan du även se hälso status. Gå till en befintlig skalnings uppsättning, Välj **instanser** på menyn till vänster och titta i kolumnen **hälso tillstånd** för hälso status för varje skalnings uppsättnings instans. 
 

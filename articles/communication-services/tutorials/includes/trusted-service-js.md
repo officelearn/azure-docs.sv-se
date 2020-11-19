@@ -8,12 +8,12 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: d4ef8baa123f805d380b14fa24abff65903cb41d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: daf2d675bbbee324769b6e1e8d8d34587d37c72f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947894"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886631"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -37,7 +37,7 @@ Mer information finns i dokumentationen för [klient-serverns arkitektur](../../
 
 ### <a name="azure-functions-set-up"></a>Azure Functions konfigureras
 
-Låt oss börja med att konfigurera den grundläggande strukturen för vår Azure-funktion. Stegvisa instruktioner på fliken konfiguration finns här: [skapa en funktion med Visual Studio Code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript)
+Låt oss börja med att konfigurera den grundläggande strukturen för vår Azure-funktion. Stegvisa instruktioner på fliken konfiguration finns här: [skapa en funktion med Visual Studio Code](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)
 
 Azure-funktionen kräver följande konfiguration:
 
@@ -46,7 +46,7 @@ Azure-funktionen kräver följande konfiguration:
 - Autentiseringsnivå: Anonym (detta kan växlas senare om du föredrar en annan auktoriserings modell)
 - Funktions namn: användardefinierad
 
-När du har påträffat [Azure Functions instruktionerna](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript) med ovanstående konfiguration, bör du ha ett projekt i Visual Studio Code för Azure-funktionen med en `index.js` fil som innehåller själva funktionen. Koden i den här filen bör vara följande:
+När du har påträffat [Azure Functions instruktionerna](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript) med ovanstående konfiguration, bör du ha ett projekt i Visual Studio Code för Azure-funktionen med en `index.js` fil som innehåller själva funktionen. Koden i den här filen bör vara följande:
 
 ```javascript
 
@@ -128,15 +128,15 @@ För befintliga kommunikations tjänster `CommunicationUser` kan du hoppa över 
 
 ## <a name="test-the-azure-function"></a>Testa Azure-funktionen
 
-Kör Azure-funktionen lokalt med `F5` . Detta initierar Azure-funktionen lokalt och gör den tillgänglig via: `http://localhost:7071/api/FUNCTION_NAME` . Ta en titt på ytterligare dokumentation om att [köra lokalt](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#run-the-function-locally)
+Kör Azure-funktionen lokalt med `F5` . Detta initierar Azure-funktionen lokalt och gör den tillgänglig via: `http://localhost:7071/api/FUNCTION_NAME` . Ta en titt på ytterligare dokumentation om att [köra lokalt](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-locally)
 
 Öppna URL: en i webbläsaren så bör du se en svars text med kommunikations användarens ID, token och förfallo datum för token.
 
-:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Diagram över arkitektur för betrodda tjänster":::
+:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Skärm bild som visar ett svars exempel för den skapade Azure-funktionen.":::
 
 ## <a name="deploy-the-function-to-azure"></a>Distribuera funktionen till Azure
 
-Om du vill distribuera din Azure-funktion kan du följa [steg-för-steg-instruktioner](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#sign-in-to-azure)
+Om du vill distribuera din Azure-funktion kan du följa [steg-för-steg-instruktioner](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#sign-in-to-azure)
 
 I allmänhet måste du:
 1. Logga in på Azure från Visual Studio
@@ -151,4 +151,4 @@ Kör Azure-funktionen med URL: en `http://<function-appn-ame>.azurewebsites.net/
 
 Du kan hitta URL: en genom att högerklicka på funktionen i Visual Studio Code och kopiera funktions webb adressen.
 
-Mer information om hur [du kör Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#run-the-function-in-azure)
+Mer information om hur [du kör Azure Function](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-in-azure)

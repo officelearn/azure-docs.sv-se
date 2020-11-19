@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 67c701946eedf85176b3d14b09d3e723c4c74285
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e661b99e3c5028f40ea69ddedc22c7ee2895acec
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072126"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888733"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Händelse hantering i Azure Communication Services
 
@@ -22,13 +22,13 @@ ms.locfileid: "92072126"
 
 Azure Communication Services integreras med [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) för att leverera real tids händelse meddelanden på ett tillförlitligt, skalbart och säkert sätt. Syftet med den här artikeln är att hjälpa dig att konfigurera program att lyssna på kommunikations tjänst händelser. Du kanske till exempel vill uppdatera en databas, skapa ett arbets objekt och leverera ett push-meddelande när ett SMS-meddelande tas emot av ett telefonnummer som är kopplat till kommunikations tjänst resursen.
 
-Azure Event Grid är en helt hanterad tjänst för händelse dirigering som använder en publicerings prenumerations modell. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) och [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview). Den kan leverera händelse aviseringar till icke-Azure-tjänster som använder Webhooks. En fullständig lista över de händelse hanterare som Event Grid stöder finns i [en introduktion till Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+Azure Event Grid är en helt hanterad tjänst för händelse dirigering som använder en publicerings prenumerations modell. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](../../azure-functions/functions-overview.md) och [Azure Logic Apps](../../azure-functions/functions-overview.md). Den kan leverera händelse aviseringar till icke-Azure-tjänster som använder Webhooks. En fullständig lista över de händelse hanterare som Event Grid stöder finns i [en introduktion till Azure Event Grid](../../event-grid/overview.md).
 
 :::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Diagram som visar Azure Event Gridens händelse modell.":::
 
 ## <a name="events-types"></a>Händelse typer
 
-Event Grid använder [händelse prenumerationer](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) för att dirigera händelse meddelanden till prenumeranter. 
+Event Grid använder [händelse prenumerationer](../../event-grid/concepts.md#event-subscriptions) för att dirigera händelse meddelanden till prenumeranter. 
 
 Azure Communication Services avger följande händelse typer:
 
@@ -50,7 +50,7 @@ Du kan använda Azure Portal eller Azure CLI för att prenumerera på händelser
 
 ## <a name="event-subjects"></a>Händelse ämnen
 
-`subject`Fältet för alla kommunikations tjänst händelser identifierar användaren, telefonnumret eller entiteten som händelsen riktar sig mot. Vanliga prefix används för att tillåta enkel [Event Grid filtrering](https://docs.microsoft.com/azure/event-grid/event-filtering).
+`subject`Fältet för alla kommunikations tjänst händelser identifierar användaren, telefonnumret eller entiteten som händelsen riktar sig mot. Vanliga prefix används för att tillåta enkel [Event Grid filtrering](../../event-grid/event-filtering.md).
 
 | Subject-prefix                              | Communication Service-entitet |
 | ------------------------------------------- | ---------------------------- |
@@ -351,6 +351,6 @@ Det här avsnittet innehåller ett exempel på hur data ska se ut för varje hä
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [Vad är event Grid?](https://docs.microsoft.com/azure/event-grid/overview)
-* En introduktion till Azure Event Grid koncept finns [i begrepp i Event Grid?](https://docs.microsoft.com/azure/event-grid/concepts)
-* En introduktion till Azure Event Grid SystemTopics finns i avsnittet [system i Azure Event Grid?](https://docs.microsoft.com/azure/event-grid/system-topics)
+* En introduktion till Azure Event Grid finns i [Vad är event Grid?](../../event-grid/overview.md)
+* En introduktion till Azure Event Grid koncept finns [i begrepp i Event Grid?](../../event-grid/concepts.md)
+* En introduktion till Azure Event Grid SystemTopics finns i avsnittet [system i Azure Event Grid?](../../event-grid/system-topics.md)

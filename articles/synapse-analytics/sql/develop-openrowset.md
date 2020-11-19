@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20003a91726e5ccee7f73d85b7c9a9389801e0ad
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 2458b5f3f0c0091bb6ec24e62a1d5614e4e1ecd8
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701763"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888597"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Använda OpenRowSet med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
@@ -225,6 +225,9 @@ CSV-parser version 2,0-information:
 - Maximal rad storleks gräns är 8 MB.
 - Följande alternativ stöds inte: DATA_COMPRESSION.
 - En tom sträng med citat tecken ("") tolkas som en tom sträng.
+- Format som stöds för datum data typ: ÅÅÅÅ-MM-DD
+- Format som stöds för tids data typen: tt: MM: SS [. bråktal sekunder]
+- Format som stöds för DATETIME2-data typen: ÅÅÅÅ-MM-DD HH: MM: SS [. fraktions sekunder]
 
 HEADER_ROW = {TRUE | !
 

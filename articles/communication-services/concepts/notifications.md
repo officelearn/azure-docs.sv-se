@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b368048e5ea34ebfc073b1ae239cbb40724ae393
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f4de7268f3384f86b7090dfe18576347311e048e
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684380"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888682"
 ---
 # <a name="communication-services-notifications"></a>Meddelanden om kommunikations tjänster
 
@@ -22,11 +22,11 @@ ms.locfileid: "94684380"
 
 Azure Communication Services chatt och anropar klient bibliotek skapar en meddelande kanal i real tid som gör det möjligt att skicka meddelanden till anslutna klienter på ett effektivt och tillförlitligt sätt. På så sätt kan du bygga avancerade funktioner i real tid i dina program utan att behöva implementera logik för komplicerad HTTP-avsökning. Men i mobila program förblir den här signal kanalen bara ansluten när ditt program är aktivt i förgrunden. Om du vill att användarna ska kunna ta emot inkommande samtal eller chatta när ditt program är i bakgrunden, bör du använda push-meddelanden.
 
-Med push-meddelanden kan du skicka information från ditt program till användarnas mobila enheter. Du kan använda push-meddelanden för att visa en dialog ruta, spela upp ett ljud eller visa inkommande samtals gränssnitt. Azure Communication Services ger integration med [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) och [Azure-Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) som gör att du kan lägga till push-meddelanden till dina appar.
+Med push-meddelanden kan du skicka information från ditt program till användarnas mobila enheter. Du kan använda push-meddelanden för att visa en dialog ruta, spela upp ett ljud eller visa inkommande samtals gränssnitt. Azure Communication Services ger integration med [Azure Event Grid](../../event-grid/overview.md) och [Azure-Notification Hubs](../../notification-hubs/notification-hubs-push-notification-overview.md) som gör att du kan lägga till push-meddelanden till dina appar.
 
 ## <a name="trigger-push-notifications-via-azure-event-grid"></a>Utlös push-meddelanden via Azure Event Grid
 
-Azure Communication Services integreras med [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) för att leverera real tids händelse meddelanden på ett tillförlitligt, skalbart och säkert sätt. Du kan utnyttja den här integrationen för att skapa en meddelande tjänst som levererar mobila push-meddelanden till användarna genom att skapa en Event Grid-prenumeration som utlöser en [Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-overview) -eller webhook.
+Azure Communication Services integreras med [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) för att leverera real tids händelse meddelanden på ett tillförlitligt, skalbart och säkert sätt. Du kan utnyttja den här integrationen för att skapa en meddelande tjänst som levererar mobila push-meddelanden till användarna genom att skapa en Event Grid-prenumeration som utlöser en [Azure Function](../../azure-functions/functions-overview.md) -eller webhook.
 
 :::image type="content" source="./media/notifications/acs-events-int.png" alt-text="Diagram över hur kommunikations tjänster integreras med Event Grid.":::
 
@@ -38,23 +38,23 @@ Du kan ansluta en Azure Notification Hub till kommunikations tjänst resursen f�
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram över hur kommunikations tjänster integreras med Azure Notifications Hub.":::
 
-Kommunikations tjänster använder Azure Notification Hub som en direkt tjänst för att kommunicera med de olika plattformsspecifika Push Notification-tjänsterna med hjälp av [direkt sändnings](https://docs.microsoft.com/rest/api/notificationhubs/direct-send) -API: et. På så sätt kan du återanvända dina befintliga Azure Notification Hub-resurser och-konfigurationer för att leverera låg latens, tillförlitliga anrops aviseringar till dina program.
+Kommunikations tjänster använder Azure Notification Hub som en direkt tjänst för att kommunicera med de olika plattformsspecifika Push Notification-tjänsterna med hjälp av [direkt sändnings](/rest/api/notificationhubs/direct-send) -API: et. På så sätt kan du återanvända dina befintliga Azure Notification Hub-resurser och-konfigurationer för att leverera låg latens, tillförlitliga anrops aviseringar till dina program.
 
 > [!NOTE]
 > För närvarande stöds endast push-meddelanden.
 
 ### <a name="notification-hub-provisioning"></a>Etablering av Notification Hub 
 
-Om du vill skicka push-meddelanden till klient enheter med hjälp av Notification Hubs [skapar du en Notification Hub](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal) i samma prenumeration som kommunikations tjänst resursen. Azure Notification Hubs måste konfigureras för den plattforms meddelande tjänst som du vill använda. Information om hur du hämtar push-meddelanden i din klient app från Notification Hubs finns i [komma igång med Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) och välj mål klient plattform i list rutan längst upp på sidan.
+Om du vill skicka push-meddelanden till klient enheter med hjälp av Notification Hubs [skapar du en Notification Hub](../../notification-hubs/create-notification-hub-portal.md) i samma prenumeration som kommunikations tjänst resursen. Azure Notification Hubs måste konfigureras för den plattforms meddelande tjänst som du vill använda. Information om hur du hämtar push-meddelanden i din klient app från Notification Hubs finns i [komma igång med Notification Hubs](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) och välj mål klient plattform i list rutan längst upp på sidan.
 
 > [!NOTE]
 > För närvarande stöds APN-och FCM-plattformarna.
 
-När din Notification Hub har kon figurer ATS kan du associera den med din kommunikations tjänst resurs genom att tillhandahålla en anslutnings sträng för hubben med hjälp av Azure Resource Manager klienten eller via Azure Portal. Anslutnings strängen ska innehålla behörigheter för "Send". Vi rekommenderar att du skapar en annan åtkomst princip med endast behörigheterna "Skicka" specifikt för hubben. Läs mer om [Notification Hubs säkerhets-och åtkomst principer](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security)
+När din Notification Hub har kon figurer ATS kan du associera den med din kommunikations tjänst resurs genom att tillhandahålla en anslutnings sträng för hubben med hjälp av Azure Resource Manager klienten eller via Azure Portal. Anslutnings strängen ska innehålla behörigheter för "Send". Vi rekommenderar att du skapar en annan åtkomst princip med endast behörigheterna "Skicka" specifikt för hubben. Läs mer om [Notification Hubs säkerhets-och åtkomst principer](../../notification-hubs/notification-hubs-push-notification-security.md)
 
 > [!IMPORTANT]
 > Detta gäller endast för token Authentication mode. Autentiseringsläget för certifikat stöds inte från och med nu.  
-För att kunna aktivera APN VOIP-meddelanden måste du ange värdet för paket-ID: t när du konfigurerar Notification Hub så att den är ditt programpaket-ID med `.voip` suffixet. Mer information finns i [använda APN VoIP via Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns) .
+För att kunna aktivera APN VOIP-meddelanden måste du ange värdet för paket-ID: t när du konfigurerar Notification Hub så att den är ditt programpaket-ID med `.voip` suffixet. Mer information finns i [använda APN VoIP via Notification Hubs](../../notification-hubs/voip-apns.md) .
 
 #### <a name="using-the-azure-resource-manager-client-to-configure-the-notification-hub"></a>Konfigurera Notification Hub med hjälp av Azure Resource Manager-klienten
 
@@ -85,5 +85,5 @@ Se [röst samtals snabb start](../quickstarts/voice-video-calling/getting-starte
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [Vad är event Grid?](https://docs.microsoft.com/azure/event-grid/overview)
-* Mer information om Azure Notification Hub-koncepten finns i [azure Notification Hubs-dokumentationen](https://docs.microsoft.com/azure/notification-hubs/)
+* En introduktion till Azure Event Grid finns i [Vad är event Grid?](../../event-grid/overview.md)
+* Mer information om Azure Notification Hub-koncepten finns i [azure Notification Hubs-dokumentationen](../../notification-hubs/index.yml)

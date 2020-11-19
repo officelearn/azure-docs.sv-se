@@ -1,6 +1,6 @@
 ---
 title: Vanliga frågor och svar om migrering från klassiskt läge till Azure Resource Manager
-description: Vanliga frågor och svar om migrering från klassiskt läge till Azure Resource Manager
+description: Vanliga frågor och svar om migrering från klassisk till Azure Resource Manager.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 33dfd298224962617891f3ab1d540462b2b88954
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5734e028f7a735a48e49f4e6c582682bcd7cbd97
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844616"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888393"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Vanliga frågor och svar om migrering från klassiskt läge till Azure Resource Manager
 
@@ -42,11 +42,13 @@ Kunder som haft aktiva eller stoppade men allokerade IaaS-VM: ar (klassisk) i si
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Varför får jag ett fel meddelande om att "NewClassicVMCreationNotAllowedForSubscription"?
 
-IaaS VM (klassisk) är inte längre tillgängligt för nya kunder som en del av indragnings processen. Vi har identifierat dig som nya kunder och därför var din åtgärd inte auktoriserad. Vi rekommenderar starkt att du använder [Azure Virtual Machines med arm](./windows/quick-create-powershell.md). Om du inte kan använda virtuella Azure-datorer med ARM kontaktar du support för att lägga till din prenumeration i listan över tillåtna.
+IaaS VM (klassisk) är inte längre tillgängligt för nya kunder som en del av indragnings processen. Vi har identifierat dig som nya kunder och därför var din åtgärd inte auktoriserad. Vi rekommenderar starkt att du använder Azure Resource Manager. Om du inte kan använda virtuella Azure-datorer med Azure Resource Manager kan du kontakta supporten för att lägga till din prenumeration i listan över tillåtna.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Påverkar den här migreringsplanen några befintliga tjänster eller program som körs på virtuella Azure-datorer? 
 
-Inte förrän den 1 mars 2023 för virtuella IaaS-datorer (klassisk). De virtuella IaaS-datorerna (klassiska) är fullt tillgängliga tjänster som är allmänt tillgängliga. Du kan fortsätta att använda de här resurserna för att utöka storleken på Microsoft Azure. Den 1 mars 2023 kommer de virtuella datorerna att dras tillbaka och alla aktiva eller allokerade virtuella datorer stoppas & frigörs. Andra klassiska resurser påverkas inte, t. ex. Cloud Services (klassisk), lagrings konton (klassisk) osv.   
+Inte förrän den 1 mars 2023 för virtuella IaaS-datorer (klassisk). De virtuella IaaS-datorerna (klassiska) är fullt tillgängliga tjänster som är allmänt tillgängliga. Du kan fortsätta att använda de här resurserna för att utöka storleken på Microsoft Azure. Den 1 mars 2023 kommer de virtuella datorerna att dras tillbaka och alla aktiva eller allokerade virtuella datorer stoppas & frigörs.
+
+Andra klassiska resurser påverkas inte, t. ex. Cloud Services (klassisk), lagrings konton (klassisk) osv.
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>Vad händer med mina virtuella datorer om jag inte planerar för migrering inom den närmaste framtiden? 
 
@@ -124,20 +126,20 @@ Det här meddelandet visas när den virtuella datorn saknar utgående anslutning
 
 För Linux:
 
-* [Översikt över migrering av plattformar som stöds av IaaS-resurser från klassisk till Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](./migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager](./linux/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Använd PowerShell för att migrera IaaS-resurser från klassisk till Azure Resource Manager](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Använd CLI för att migrera IaaS-resurser från klassisk till Azure Resource Manager](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Community-verktyg för att hjälpa till med migrering av IaaS-resurser från klassisk till Azure Resource Manager](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Granska de vanligaste migreringsfelen](./linux/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Översikt över migrering av plattformar som stöds av IaaS-resurser från klassisk till Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md)
+* [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
+* [Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-plan.md)
+* [Använd PowerShell för att migrera IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-ps.md)
+* [Använd CLI för att migrera IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-cli.md)
+* [Community-verktyg för att hjälpa till med migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
+* [Granska de vanligaste migreringsfelen](migration-classic-resource-manager-errors.md)
 
 För Windows:
 
-* [Översikt över migrering av plattformar som stöds av IaaS-resurser från klassisk till Azure Resource Manager](./windows/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](./migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager](./windows/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Använd PowerShell för att migrera IaaS-resurser från klassisk till Azure Resource Manager](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Använd CLI för att migrera IaaS-resurser från klassisk till Azure Resource Manager](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Community-verktyg för att hjälpa till med migrering av IaaS-resurser från klassisk till Azure Resource Manager](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Granska de vanligaste migreringsfelen](./windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Översikt över migrering av plattformar som stöds av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-overview.md)
+* [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
+* [Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-plan.md)
+* [Använd PowerShell för att migrera IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-ps.md)
+* [Använd CLI för att migrera IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-cli.md)
+* [Community-verktyg för att hjälpa till med migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
+* [Granska de vanligaste migreringsfelen](migration-classic-resource-manager-errors.md)

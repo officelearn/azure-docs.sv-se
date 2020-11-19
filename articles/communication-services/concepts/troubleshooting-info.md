@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ff3e7fee87661fb89ba930b7368bd54e71ad57bf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 775075765c8c8eaa94541c0f094c1f7743fe59d9
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357631"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886795"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Fel sökning i Azure Communication Services
 
@@ -23,17 +23,17 @@ I det här dokumentet får du hjälp med fel sökning av problem som kan uppstå
 
 Vi uppmuntrar utvecklare att skicka frågor, föreslå funktioner och rapportera problem som problem i [GitHub-lagringsplatsen](https://github.com/Azure/communication)för kommunikations tjänster. Andra forum är:
 
-* [Microsoft Q&A](https://docs.microsoft.com/answers/questions/topics/single/101418.html)
+* [Microsoft Q&A](/answers/questions/topics/single/101418.html)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/azure+communication)
 
 Beroende på [support avtalet](https://azure.microsoft.com/support/plans/) för Azure-prenumerationen kan du skicka in ett support ärende direkt via [Azure Portal](https://azure.microsoft.com/support/create-ticket/).
 
 För att hjälpa dig att felsöka vissa typer av problem kan du bli ombedd att ange någon av följande delar av informationen:
 
-* **MS-CV-ID** : detta ID används för att felsöka samtal och meddelanden. 
-* **Anrops-ID** : detta ID används för att identifiera kommunikations tjänst anrop.
-* **SMS-meddelande-ID** : detta ID används för att identifiera SMS-meddelanden.
-* **Anrops loggar** : dessa loggar innehåller detaljerad information som kan användas för att felsöka anrop och nätverks problem.
+* **MS-CV-ID**: detta ID används för att felsöka samtal och meddelanden. 
+* **Anrops-ID**: detta ID används för att identifiera kommunikations tjänst anrop.
+* **SMS-meddelande-ID**: detta ID används för att identifiera SMS-meddelanden.
+* **Anrops loggar**: dessa loggar innehåller detaljerad information som kan användas för att felsöka anrop och nätverks problem.
 
 
 ## <a name="access-your-ms-cv-id"></a>Få åtkomst till ditt MS-CV ID

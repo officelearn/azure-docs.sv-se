@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 315dfcb10b11278401d6cc0abd42b40b5f55f72a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6efcadf85816bb6aa014893bb9b20476a0701990
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968369"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886761"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Övervaka och granska loggar för lokala Azure AD-miljöer för lösen ords skydd
 
@@ -66,15 +66,19 @@ De viktigaste händelserna för lösen ords validering är följande:
 
 | Händelse |Lösenordsändring |Lösen ords uppsättning|
 | --- | :---: | :---: |
-|Pass |10014 |10015|
+|Godkänd |10014 |10015|
 |Misslyckande (på grund av lösen ords princip för kunder)| 10016, 30002| 10017, 30003|
 |Misslyckande (på grund av lösen ords princip från Microsoft)| 10016, 30004| 10017, 30005|
 |Misslyckad (på grund av kombinerad lösen ords princip för Microsoft och kunder)| 10016, 30026| 10017, 30027|
+|Misslyckande (på grund av användar namn)| 10016, 30021| 10017, 30022|
 |Endast gransknings pass (skulle ha misslyckats med kundens lösen ords princip)| 10024, 30008| 10025, 30007|
 |Endast gransknings pass (den skulle ha misslyckats med Microsofts lösen ords princip)| 10024, 30010| 10025, 30009|
 |Endast gransknings pass (skulle ha misslyckats med att kombinera principer för lösen ord för Microsoft och kunden)| 10024, 30028| 10025, 30029|
+|Endast gransknings pass (misslyckades på grund av användar namn)| 10016, 30024| 10017, 30023|
 
 De fall i tabellen ovan som refererar till "kombinerade principer" avser situationer där en användares lösen ord hittades som innehåller minst en token från både Microsoft-listan över förbjudna lösen ord och listan över blockerade lösen ord för kunder.
+
+De fall i tabellen ovan som hänvisar till "användar namn" hänvisar till situationer där en användares lösen ord hittades som antingen innehåller användarens konto namn och/eller en av användarens egna namn. Scenariot innebär att användarens lösen ord avvisas när principen är inställd på Genomdriv eller skickas om principen är i gransknings läge.
 
 När ett par med händelser loggas tillsammans, associeras båda händelserna explicit genom att ha samma CorrelationId.
 

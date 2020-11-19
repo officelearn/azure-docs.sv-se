@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: dd042b28035b5e9a4b18041d6c1a81f77cfd4ea7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 092b95845ed033ac0705e325fc6535739088848f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86527412"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888801"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Översikt över automatisk skalning med VM-skalningsuppsättningar i Azure
 En skalnings uppsättning i en virtuell Azure-dator kan öka eller minska antalet virtuella dator instanser som kör ditt program automatiskt. Det här automatiserade och elastiska beteendet minskar hanterings omkostnaderna för att övervaka och optimera programmets prestanda. Du skapar regler som definierar acceptabla prestanda för en positiv kund upplevelse. När de definierade tröskelvärdena är uppfyllda vidtar autoskalning-regler åtgärder för att justera kapaciteten för din skalnings uppsättning. Du kan också schemalägga händelser för att automatiskt öka eller minska kapaciteten för skalnings uppsättningen vid fasta tidpunkter. Den här artikeln innehåller en översikt över vilka prestanda mått som är tillgängliga och vilka åtgärder som kan utföras i autoskalning.
@@ -22,6 +22,9 @@ En skalnings uppsättning i en virtuell Azure-dator kan öka eller minska antale
 
 ## <a name="benefits-of-autoscale"></a>Fördelar med autoskalning
 Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstanserna i din skalningsuppsättning. Om den här ökade belastningen är konsekvent istället för bara en kortsiktig efterfrågan, kan du konfigurera regler för automatisk skalning för att öka antalet virtuella datorinstanser i skalningsuppsättningen.
+
+> [!NOTE]
+> När du använder automatiska instans reparationer för din skalnings uppsättning kan det maximala antalet instanser i skalnings uppsättningen vara 200. Läs mer om [Automatisk reparation av instanser](./virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 När dessa virtuella datorinstanser skapas och dina program distribueras, börjar skalningsuppsättningen att distribuera trafik till dem via lastbalanseraren. Du styr vilka mått som ska övervakas, till exempel processor eller minne, hur länge program belastningen måste uppfylla ett angivet tröskelvärde och hur många virtuella dator instanser som ska läggas till i skalnings uppsättningen.
 
@@ -135,7 +138,7 @@ Du kan skapa regler för autoskalning som använder värdbaserade mått med någ
 - [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure-mall](tutorial-autoscale-template.md)
 
-I den här översikten beskrivs hur du använder regler för autoskalning för att skala vågrätt och öka eller minska *antalet* virtuella dator instanser i din skalnings uppsättning. Du kan också skala lodrätt för att öka eller minska *storleken*på den virtuella dator instansen. Mer information finns i [Lodrät autoskalning med skalnings uppsättningar för virtuella datorer](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+I den här översikten beskrivs hur du använder regler för autoskalning för att skala vågrätt och öka eller minska *antalet* virtuella dator instanser i din skalnings uppsättning. Du kan också skala lodrätt för att öka eller minska *storleken* på den virtuella dator instansen. Mer information finns i [Lodrät autoskalning med skalnings uppsättningar för virtuella datorer](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Information om hur du hanterar dina VM-instanser finns i [Hantera skalnings uppsättningar för virtuella datorer med Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 

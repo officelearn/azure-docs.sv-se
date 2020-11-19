@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b8d74f86fc9c3d2cc020628f67c36d8d67973fff
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 25c7016f6639df46a9279ef9a9aab2736efd4f95
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128677"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888665"
 ---
 # <a name="metrics-overview"></a>Mått översikt
 
-Azure Communication Services tillhandahåller för närvarande mått för chatt och SMS. [Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) kan användas för att rita egna diagram, undersöka avvikelser i dina mått värden och förstå din API-trafik genom att använda de mått data som chatt-och SMS-begäranden genererar.
+Azure Communication Services tillhandahåller för närvarande mått för chatt och SMS. [Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md) kan användas för att rita egna diagram, undersöka avvikelser i dina mått värden och förstå din API-trafik genom att använda de mått data som chatt-och SMS-begäranden genererar.
 
 ## <a name="where-to-find-metrics"></a>Var du hittar mått
 
@@ -30,7 +30,7 @@ Det finns två typer av begär Anden som representeras i kommunikations tjänst 
 
 Både chatt-och SMS API-begäran mått innehåller tre dimensioner som du kan använda för att filtrera dina mått data. De här dimensionerna kan aggregeras tillsammans med `Count` agg regerings typen och har stöd för alla standard Azure agg regerings tids serier `Sum` , inklusive,, `Average` `Min` och `Max` .
 
-Mer information om sammansättnings typer och tids serie agg regeringar som stöds hittar du [i avancerade funktioner i Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#changing-aggregation)
+Mer information om sammansättnings typer och tids serie agg regeringar som stöds hittar du [i avancerade funktioner i Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md#changing-aggregation)
 
 - **Åtgärd** – alla åtgärder eller vägar som kan anropas på ACS Chat Gateway.
 - **Status kod** – status kod svaret som skickas efter begäran.
@@ -75,8 +75,8 @@ Följande åtgärder är tillgängliga på SMS API-begäran mått:
 | SMSMessagesReceived      | Hämtar SMS-meddelanden. |
 
 
-:::image type="content" source="./media/sms-metric.png" alt-text="Mått för chatt-API-begäran.":::
+:::image type="content" source="./media/sms-metric.png" alt-text="Mått för SMS API-begäran.":::
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [data plattforms mått](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)
+- Lär dig mer om [data plattforms mått](../../azure-monitor/platform/data-platform-metrics.md)

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f52111fbbbd90f3d2f39f538c4bf1a2672cd504b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73c381624b69acb6fe7a6296a3153160812818bf
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961246"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886421"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för en SAML-token utfärdare i en Azure Active Directory B2C anpassad princip
 
@@ -26,7 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) genererar flera typer av säkerhetstok
 
 ## <a name="protocol"></a>Protokoll
 
-Namnattributet **för** **protokoll** elementet måste anges till `None` . Ange **OutputTokenFormat** -elementet till `SAML2` .
+Namnattributet **för** **protokoll** elementet måste anges till `SAML2` . Ange **OutputTokenFormat** -elementet till `SAML2` .
 
 I följande exempel visas en teknisk profil för `Saml2AssertionIssuer` :
 

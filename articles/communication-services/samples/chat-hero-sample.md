@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fc757e1310369c48de24c0cc9253c668ca27495c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677419"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888580"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Kom igång med hjälte-exemplet för grupp Chat
 
@@ -40,25 +40,21 @@ Exemplet har både ett program på klient sidan och ett program på Server sidan
 
 Exemplet ser ut så här:
 
-:::image type="content" source="./media/chat/landing-page.png" alt-text="Skärm bild som visar exempel programmets landnings sida.&quot;:::
+:::image type="content" source="./media/chat/landing-page.png" alt-text="Skärm bild som visar exempel programmets landnings sida.":::
 
-När du trycker på knappen &quot;starta en chatt" hämtar webb programmet en åtkomsttoken för användare från program på Server sidan. Denna token används sedan för att ansluta klient appen till Azure Communication Services. När token har hämtats uppmanas du att ange ditt namn och din emoji som ska representera dig i chatten. 
+När du trycker på knappen "starta en chatt" hämtar webb programmet en åtkomsttoken för användare från program på Server sidan. Denna token används sedan för att ansluta klient appen till Azure Communication Services. När token har hämtats uppmanas du att ange ditt namn och din emoji som ska representera dig i chatten. 
 
-:::image type="content" source="./media/chat/pre-chat.png" alt-text="Skärm bild som visar exempel programmets landnings sida.&quot;:::
-
-När du trycker på knappen &quot;starta en chatt":::
+:::image type="content" source="./media/chat/pre-chat.png" alt-text="Skärm bild som visar programmets pre-Chat-skärm.":::
 
 När du har konfigurerat ditt visnings namn och din emoji kan du delta i Chat-sessionen. Nu kommer du att se den huvudsakliga chatt-arbetsytan där den centrala chatten är i livet.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="Skärm bild som visar exempel programmets landnings sida.&quot;:::
-
-När du trycker på knappen &quot;starta en chatt":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="Skärm bild som visar huvud skärmen i exempel programmet.":::
 
 Komponenter för den huvudsakliga Chat-skärmen:
 
-- **Huvud chatt-områden** : det här är den centrala chatten där användarna kan skicka och ta emot meddelanden. Om du vill skicka meddelanden kan du använda ingångs fältet och trycka på RETUR (eller använda knappen Skicka). Chat-meddelanden som tas emot kategoriseras av avsändaren med rätt namn och emoji. Du ser två typer av meddelanden i chattområdet: 1) om du skriver meddelanden när en användare skriver och 2) skickade och lästa meddelanden för meddelanden.
-- **Rubrik** : det är här som användaren ser titeln på chatt-tråden och kontrollerna för att växla mellan list rutorna för deltagare och inställningar, och en lämna-knapp för att avsluta chatt-sessionen.
-- **Sido fältet** : här visas deltagare och inställnings information när de växlas med hjälp av kontrollerna i sidhuvudet. Sido fältet deltagare innehåller en lista över deltagare i chatten och en länk för att bjuda in deltagare till chatten. I sid List rutan inställningar kan du konfigurera titeln för chatten. 
+- **Huvud chatt-områden**: det här är den centrala chatten där användarna kan skicka och ta emot meddelanden. Om du vill skicka meddelanden kan du använda ingångs fältet och trycka på RETUR (eller använda knappen Skicka). Chat-meddelanden som tas emot kategoriseras av avsändaren med rätt namn och emoji. Du ser två typer av meddelanden i chattområdet: 1) om du skriver meddelanden när en användare skriver och 2) skickade och lästa meddelanden för meddelanden.
+- **Rubrik**: det är här som användaren ser titeln på chatt-tråden och kontrollerna för att växla mellan list rutorna för deltagare och inställningar, och en lämna-knapp för att avsluta chatt-sessionen.
+- **Sido fältet**: här visas deltagare och inställnings information när de växlas med hjälp av kontrollerna i sidhuvudet. Sido fältet deltagare innehåller en lista över deltagare i chatten och en länk för att bjuda in deltagare till chatten. I sid List rutan inställningar kan du konfigurera titeln för chatten. 
 
 Nedan hittar du mer information om förutsättningar och steg för att konfigurera exemplet.
 
@@ -122,4 +118,4 @@ Mer information finns i följande artiklar:
 - [Redux](https://redux.js.org/) – tillstånds hantering på klient Sidan
 - [FluentUI](https://aka.ms/fluent-ui) – Microsoft Powered UI-bibliotek
 - [Reagera](https://reactjs.org/) – bibliotek för att skapa användar gränssnitt
-- [ASP.net cores](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) ramverk för att skapa webb program
+- [ASP.net cores](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) ramverk för att skapa webb program

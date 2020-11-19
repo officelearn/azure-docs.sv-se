@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: aaf803d463e03f2de7814fed4b20a0b4312fa1ef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7f1acc44a80d5ef70145997698a928e6f9ce0d48
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148840"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888886"
 ---
 # <a name="what-is-azure-iot-hub"></a>Vad är Azure IoT Hub?
 
@@ -119,6 +119,12 @@ Varje Azure-prenumeration har standardkvotgränser för att förhindra missbruk 
 * [Begränsningar för Azure-prenumerations tjänsten](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [IoT Hub-begränsning och du](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
+
+## <a name="iot-hub-on-azure-stack-hub-preview"></a>IoT Hub på Azure Stack Hub (för hands version)
+
+IoT Hub på Azure Stack Hub (för hands version) kan du skapa hybrid IoT-lösningar. IoT Hub är en hanterad tjänst som fungerar som en central meddelande hubb för dubbelriktad kommunikation mellan IoT-programmet och de enheter som hanteras av. Du kan använda IoT Hub på Azure Stack Hub för att bygga IoT-lösningar med tillförlitlig och säker kommunikation mellan IoT-enheter och dina lokala lösningar.
+
+IoT Hub på Azure Stack Hub är kostnads fritt under den offentliga för hands versionen. Mer information finns i [Översikt över IoT Hub i Azure Stack Hub](/azure-stack/operator/iot-hub-rp-overview).
 
 ## <a name="next-steps"></a>Nästa steg
 

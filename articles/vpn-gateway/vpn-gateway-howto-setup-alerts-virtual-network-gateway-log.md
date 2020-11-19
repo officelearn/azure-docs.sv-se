@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/18/2020
 ms.author: alzam
-ms.openlocfilehash: e2451796cb99f57501ed74aba1dc7a3077b51881
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f10799ab32b6cb26a8b3b5b343f65b960d71357
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441620"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889107"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Konfigurera aviseringar för resurs logg händelser från VPN Gateway
 
@@ -20,20 +20,20 @@ Den här artikeln hjälper dig att ställa in aviseringar baserat på resurs log
 
 Följande resurs loggar är tillgängliga i Azure:
 
-|***Namn*** | ***Beskrivning*** |
+|***Namn** _ | _*_Beskrivning_*_ |
 |---        | ---               |
 |GatewayDiagnosticLog | Innehåller resurs loggar för konfigurations händelser för gateway, primära ändringar och underhålls händelser |
 |TunnelDiagnosticLog | Innehåller ändringar av tunnel tillstånds händelser. Tunnel anslutning/från kopplings händelser har en sammanfattande orsak för tillstånds ändringen om det är tillämpligt |
 |RouteDiagnosticLog | Loggar ändringar av statiska vägar och BGP-händelser som inträffar på gatewayen |
 |IKEDiagnosticLog | Loggar IKE-kontrollmeddelanden och-händelser på gatewayen |
-|P2SDiagnosticLog | Loggar punkt-till-plats-kontrollmeddelanden och händelser på gatewayen. Information om anslutnings källan tillhandahålls enbart för IKEv2-anslutningar |
+|P2SDiagnosticLog | Loggar punkt-till-plats-kontrollmeddelanden och händelser på gatewayen. Information om anslutnings källan tillhandahålls enbart för IKEv2-och OpenVPN-anslutningar |
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a><a name="setup"></a>Konfigurera aviseringar i Azure Portal
 
 Följande exempel steg skapar en avisering för en från kopplings händelse som omfattar en plats-till-plats-VPN-tunnel:
 
 
-1. I Azure Portal söker du efter **Log Analytics** under **alla tjänster** och väljer **Log Analytics arbets ytor**.
+1. I Azure Portal söker du efter _ *Log Analytics** under **alla tjänster** och väljer **Log Analytics arbets ytor**.
 
    ![Val för att gå till Log Analytics arbets ytor](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Skapa")
 
@@ -45,7 +45,7 @@ Följande exempel steg skapar en avisering för en från kopplings händelse som
 
    ![Information om hur du skapar en arbets yta för Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Välj")
 
-4. Hitta din VPN-gateway på **Monitor**  >  bladet övervaka**diagnostikinställningar inställningar** .
+4. Hitta din VPN-gateway på **Monitor**  >  bladet övervaka **diagnostikinställningar inställningar** .
 
    ![Val för att hitta VPN-gatewayen i diagnostikinställningar](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Välj")
 

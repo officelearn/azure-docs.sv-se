@@ -5,12 +5,12 @@ ms.date: 10/21/2020
 ms.topic: conceptual
 description: Beskriver migreringsprocessen från Azure dev Spaces till Bridge till Kubernetes
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, bro till Kubernetes
-ms.openlocfilehash: 7a7642d986d8490c5d0dc3c413e658b21b010798
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d48814df30c17f9b51d8642efa0960a26bbd24f4
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895264"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888529"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrera till Bridge to Kubernetes
 
@@ -46,7 +46,7 @@ Azure dev Spaces och Bridge till Kubernetes har liknande funktioner, men de skil
 | Azure Kubernetes Service | I 15 Azure-regioner | Alla AKS-tjänsteregion    |
 | **Säkerhet** |
 | Säkerhets åtkomst krävs i klustret  | AKS-kluster deltagare  | Kubernetes RBAC – distributions uppdatering   |
-| Säkerhets åtkomst krävs på din utvecklings dator  | Saknas  | Lokal administratör/sudo   |
+| Säkerhets åtkomst krävs på din utvecklings dator  | E.t.  | Lokal administratör/sudo   |
 | **Användbarhet** |
 | Oberoende av Kubernetes och Docker-artefakter  | Nej  | Ja   |
 | Automatisk återställning av ändringar, efter fel sökning  | Nej  | Ja   |
@@ -85,7 +85,7 @@ Brygga till Kubernetes har flexibiliteten att arbeta med program som körs i Kub
 1. Om du använder Visual Studio uppdaterar du Visual Studio IDE till version 16,7 eller senare och installerar bryggan till Kubernetes-tillägget från [Visual Studio Marketplace][vs-marketplace]. Om du använder Visual Studio Code installerar du [bryggan till Kubernetes-tillägget][vsc-marketplace].
 1. Inaktivera Azure dev Spaces-styrenheten med hjälp av Azure Portal eller [Azure dev Spaces CLI][azds-delete].
 1. Använd [Azure Cloud Shell](https://shell.azure.com). Eller på Mac, Linux eller Windows med bash installerat öppnar du en bash shell-prompt. Se till att följande verktyg är tillgängliga i din kommando rads miljö: Azure CLI, Docker, kubectl, sväng, tjära och gunzip.
-1. Skapa ett behållar register eller Använd ett befintligt. Du kan skapa ett behållar register i Azure med [Azure Container Registry](../container-registry/index.yml) eller med hjälp av [Docker Hub](https://hub.docker.com/). När du använder Azure Cloud Shell är det bara Azure Container Registry tillgängligt för Docker-avbildningar.
+1. Skapa ett behållar register eller Använd ett befintligt. Du kan skapa ett behållar register i Azure med [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) eller med hjälp av [Docker Hub](https://hub.docker.com/). När du använder Azure Cloud Shell är det bara Azure Container Registry tillgängligt för Docker-avbildningar.
 1. Kör skriptet för migrering för att konvertera Azure dev Spaces-tillgångar till Bridge till Kubernetes-tillgångar. Skriptet skapar en ny avbildning som är kompatibel med Bridge till Kubernetes, laddar upp den till det angivna registret och använder sedan [Helm](https://helm.sh) för att uppdatera klustret med avbildningen. Du måste ange resurs gruppen, namnet på AKS-klustret och ett behållar register. Det finns andra kommando rads alternativ som du ser här:
 
    ```azure-cli
@@ -117,7 +117,7 @@ Brygga till Kubernetes har flexibiliteten att arbeta med program som körs i Kub
 
 Du kan också använda utvecklare-speciell routning med Bridge till Kubernetes. Azure dev Spaces Team Development-scenariot använder flera Kubernetes-namnområden för att isolera en tjänst från resten av programmet med hjälp av begreppet över-och underordnade namn områden. Bridge to Kubernetes erbjuder samma funktion, men med förbättrade prestanda egenskaper och inom samma program namn område.
 
-Både Bridge till Kubernetes och Azure dev Spaces kräver att HTTP-huvuden finns och sprids i hela programmet. Om du redan har konfigurerat ditt program för att hantera huvud spridningen för Azure dev Spaces måste rubriken uppdateras. Om du vill gå över till Bridge till Kubernetes från Azure dev Spaces, uppdaterar du konfigurerad rubrik från *azds-Route – som* till *Kubernetes-Route-as* .
+Både Bridge till Kubernetes och Azure dev Spaces kräver att HTTP-huvuden finns och sprids i hela programmet. Om du redan har konfigurerat ditt program för att hantera huvud spridningen för Azure dev Spaces måste rubriken uppdateras. Om du vill gå över till Bridge till Kubernetes från Azure dev Spaces, uppdaterar du konfigurerad rubrik från *azds-Route – som* till *Kubernetes-Route-as*.
 
 ## <a name="evaluate-bridge-to-kubernetes"></a>Utvärdera brygga till Kubernetes
 

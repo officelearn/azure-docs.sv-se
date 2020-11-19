@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 541d140716e52b4fe1db4bc999682914a380a5f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ae69f49d37a210dd9fa1bfeedeca6c1b461e20
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85368115"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888869"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Snabb start: skapa en anpassad Provider och distribuera anpassade resurser
 
@@ -23,8 +23,11 @@ I den här snabb starten skapar du en egen resurs leverantör och distribuerar a
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-- Kommandona [Custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) kräver ett tillägg. Mer information finns i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
-- Azure CLI-exempel används `az rest` för `REST` förfrågningar. Mer information finns i [AZ rest](/cli/azure/reference-index#az-rest).
+Förbered din miljö för Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Azure CLI-exempel används `az rest` för `REST` förfrågningar. Mer information finns i [AZ rest](/cli/azure/reference-index#az-rest).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -33,8 +36,6 @@ I den här snabb starten skapar du en egen resurs leverantör och distribuerar a
 - När **ARMClient** har installerats kan du Visa användnings information från en PowerShell-kommandotolk genom att skriva: `armclient.exe` . Eller så går du till [ARMClient-wikin](https://github.com/projectkudu/ARMClient/wiki).
 
 ---
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-custom-provider"></a>Distribuera anpassad Provider
 

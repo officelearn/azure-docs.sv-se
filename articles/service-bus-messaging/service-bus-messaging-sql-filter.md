@@ -2,17 +2,17 @@
 title: Referens för Azure Service Bus SQLFilter-syntax | Microsoft Docs
 description: Den här artikeln innehåller information om SQLFilter-grammatik. En SqlFilter stöder en delmängd av SQL-92-standarden.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/17/2020
+ms.openlocfilehash: 7f3c744b691e678ef18c8fa721ccfaecaee9c1e2
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341589"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888478"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter-syntax
 
-Ett *SqlFilter* -objekt är en instans av [klassen SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)och representerar ett SQL language-baserat filter uttryck som utvärderas mot en [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). En SqlFilter stöder en delmängd av SQL-92-standarden.  
+Ett *SqlFilter* -objekt är en instans av [klassen SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)och representerar ett SQL-baserat filter uttryck som utvärderas mot ett [`BrokeredMessage`](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . En SqlFilter stöder en delmängd av SQL-92-standarden.  
   
  Det här avsnittet innehåller information om SqlFilter-grammatik.  
   
@@ -49,11 +49,11 @@ Ett *SqlFilter* -objekt är en instans av [klassen SqlFilter](/dotnet/api/micros
   
 ## <a name="arguments"></a>Argument  
   
--   `<scope>` är en valfri sträng som anger omfånget för `<property_name>` . Giltiga värden är `sys` eller `user` . `sys`Värdet anger systemets omfattning där `<property_name>` är ett offentligt egenskaps namn för [klassen BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` anger användar omfång där `<property_name>` är en nyckel för [BrokeredMessage-klass](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) ord listan. `user` omfånget är standard omfånget om `<scope>` inget värde anges.  
+-   `<scope>` är en valfri sträng som anger omfånget för `<property_name>` . Giltiga värden är `sys` eller `user` . `sys`Värdet anger systemets omfattning där `<property_name>` är ett offentligt egenskaps namn för [klassen BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` anger användar omfång där `<property_name>` är en nyckel för [BrokeredMessage-klass](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) ord listan. `user` omfånget är standard omfånget om det `<scope>` inte har angetts.  
   
 ## <a name="remarks"></a>Kommentarer
 
-Ett försök att komma åt en icke-befintlig system egenskap är ett fel, medan ett försök att få åtkomst till en icke-befintlig användar egenskap inte är ett fel. I stället utvärderas en icke-befintlig användar egenskap internt som ett okänt värde. Ett okänt värde behandlas särskilt under utvärderingen av operatorn.  
+Ett försök att komma åt en icke-befintlig system egenskap är ett fel, medan ett försök att komma åt en icke-befintlig användar egenskap inte är ett fel. I stället utvärderas en icke-befintlig användar egenskap internt som ett okänt värde. Ett okänt värde behandlas särskilt under utvärderingen av operatorn.  
   
 ## <a name="property_name"></a>property_name  
   
@@ -91,7 +91,7 @@ En `<regular_identifier>` får inte vara ett reserverat nyckelord.
   
 ```  
   
-`<quoted_identifier>` är en sträng som omges av dubbla citat tecken. Ett dubbelt citat tecken i identifierare representeras som två dubbla citat tecken. Du bör inte använda citerade identifierare eftersom det enkelt kan förväxlas med en strängkonstant. Använd en avgränsad identifierare om möjligt. Följande är ett exempel på `<quoted_identifier>` :  
+`<quoted_identifier>` är en sträng som omges av dubbla citat tecken. Ett dubbelt citat tecken i identifierare representeras som två dubbla citat tecken. Det rekommenderas inte att använda citerade identifierare eftersom det enkelt kan förväxlas med en strängkonstant. Använd en avgränsad identifierare om möjligt. Här är ett exempel på `<quoted_identifier>` :  
   
 ```  
 "Contoso & Northwind"  
@@ -121,7 +121,7 @@ En `<regular_identifier>` får inte vara ett reserverat nyckelord.
   
 ### <a name="remarks"></a>Kommentarer  
 
-`<escape_char>` måste vara ett uttryck som utvärderas som en sträng med längden 1. Det används som ett escape-tecken för operatorn LIKE.  
+`<escape_char>` måste vara ett uttryck som utvärderas som en sträng med längden 1. Den används som ett escape-tecken för operatorn LIKE.  
   
  Till exempel `property LIKE 'ABC\%' ESCAPE '\'` matchningar `ABC%` i stället för en sträng som börjar med `ABC` .  
   
@@ -134,9 +134,9 @@ En `<regular_identifier>` får inte vara ett reserverat nyckelord.
   
 ### <a name="arguments"></a>Argument  
   
--   `<integer_constant>` är en sträng med tal som inte omges av citat tecken och som inte innehåller några decimaler. Värdena lagras som `System.Int64` internt och följer samma intervall.  
+-   `<integer_constant>` är en sträng med tal som inte står inom citat tecken och som inte innehåller några decimaler. Värdena lagras som `System.Int64` internt och följer samma intervall.  
   
-     Dessa är exempel på långa konstanter:  
+     Här är exempel på långa konstanter:  
   
     ```  
     1894  
@@ -192,7 +192,7 @@ Sträng konstanter omges av enkla citat tecken och innehåller alla giltiga Unic
   
 ### <a name="remarks"></a>Kommentarer
   
-`newid()`Funktionen returnerar ett **system. GUID** som genereras av `System.Guid.NewGuid()` metoden.  
+`newid()`Funktionen returnerar en `System.Guid` som genereras av `System.Guid.NewGuid()` metoden.  
   
 `property(name)`Funktionen returnerar värdet för den egenskap som refereras till av `name` . `name`Värdet kan vara ett giltigt uttryck som returnerar ett sträng värde.  
   
@@ -218,21 +218,21 @@ Tänk på följande [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfi
   
   Okänd utvärdering i aritmetiska operatorer:  
   
-- För binära operatorer, om antingen den vänstra och/eller högra sidan av operander utvärderas som **okänd**, är resultatet **Okänt**.  
+- För binära operatorer, om antingen den vänstra eller högra sidan av operander utvärderas som **okänd**, är resultatet **Okänt**.  
   
-- För unära operatorer är resultatet **Okänt**om en operand utvärderas som **okänd**.  
+- För unära operatorer är resultatet **Okänt** om en operand utvärderas som **okänd**.  
   
   Okänd utvärdering i binära jämförelse operatorer:  
   
-- Om antingen den vänstra och/eller högra sidan av operander utvärderas som **okänd**är resultatet **Okänt**.  
+- Om antingen den vänstra eller högra sidan av operander utvärderas som **okänd** är resultatet **Okänt**.  
   
   Okänd utvärdering i `[NOT] LIKE` :  
   
-- Om en operand utvärderas som **okänd**är resultatet **Okänt**.  
+- Om en operand utvärderas som **okänd** är resultatet **Okänt**.  
   
   Okänd utvärdering i `[NOT] IN` :  
   
-- Om den vänstra operanden utvärderas som **okänd**är resultatet **Okänt**.  
+- Om den vänstra operanden utvärderas som **okänd** är resultatet **Okänt**.  
   
   Okänd utvärdering i **och** -operator:  
   
@@ -267,6 +267,58 @@ Tänk på följande [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfi
 -   Jämförelse operatorer som,,,, `>` `>=` `<` `<=` `!=` och `=` följer samma semantik som operatorn C# i data typs kampanjer och implicita konverteringar.  
   
 -   Aritmetiska operatorer som,,, `+` `-` `*` `/` och `%` följer samma semantik som operatorn C# i data typs kampanjer och implicita konverteringar.
+
+
+## <a name="examples"></a>Exempel
+
+### <a name="set-rule-action-for-a-sql-filter"></a>Ange regel åtgärd för ett SQL-filter
+
+```csharp
+// instantiate the ManagementClient
+this.mgmtClient = new ManagementClient(connectionString);
+
+// create the SQL filter
+var sqlFilter = new SqlFilter("source = @stringParam");
+
+// assign value for the parameter
+sqlFilter.Parameters.Add("@stringParam", "orders");
+
+// instantiate the Rule = Filter + Action
+var filterActionRule = new RuleDescription
+{
+    Name = "filterActionRule",
+    Filter = sqlFilter,
+    Action = new SqlRuleAction("SET source='routedOrders'")
+};
+
+// create the rule on Service Bus
+await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
+```
+
+### <a name="sql-filter-on-a-system-property"></a>SQL-filter på en system egenskap
+
+```csharp
+sys.Label LIKE '%bus%'`
+```
+
+### <a name="using-or"></a>Använda eller 
+
+```csharp
+ sys.Label LIKE '%bus%'` OR `user.tag IN ('queue', 'topic', 'subscription')
+```
+
+### <a name="using-in-and-not-in"></a>Använda i och inte i
+
+```csharp
+StoreId IN('Store1', 'Store2', 'Store3')"
+
+sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
+
+sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
+```
+
+Ett C#-exempel finns i [avsnittet Filtrera exempel på GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
+
 
 ## <a name="next-steps"></a>Nästa steg
 

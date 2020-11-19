@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: f2b46b37fc8c773062402c52f2903a7a10acc2c4
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: f83413bc54164107b8e8a4e6010f8a826a5fe327
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874720"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888427"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -218,7 +218,7 @@ Du har CloudAdmin grupp privilegier. Mer information finns i [åtkomst-och ident
 
 #### <a name="what-privileges-and-permissions-will-i-have-on-the-nsx-t-manager"></a>Vilka behörigheter och behörigheter kommer jag att ha på NSX-T-hanteraren?
 
-Du kommer att ha fullständiga administratörs behörigheter på NSX-T och kan hantera rollbaserad åtkomst kontroll som du skulle göra med NSX-T Data Center lokalt. Mer information finns i [åtkomst-och identitets koncept](concepts-identity.md).
+Du har fullständiga administratörs privilegier på NSX-T och kan hantera vSphere-rollbaserad åtkomst kontroll som du skulle göra med NSX-T-datacenter lokalt. Mer information finns i [åtkomst-och identitets koncept](concepts-identity.md).
 
 > [!NOTE]
 > En t0-router skapas och konfigureras som en del av distributionen av ett privat moln. Eventuella ändringar av den logiska routern eller den virtuella NSX-T Edge-noden kan påverka anslutningen till ditt privata moln.

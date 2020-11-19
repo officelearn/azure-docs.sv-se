@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 5396845e13e94b4d957f42618baaf19c408f559d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fdd8c752e8cf610ef3c32e1af91b3ad6454c0813
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843782"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887186"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Privata erbjudanden på Microsofts kommersiella marknads plats
 
@@ -42,6 +42,8 @@ För *nya eller befintliga erbjudanden med planer* kan utgivare enkelt skapa nya
 Privata planer är komponenter i ett erbjudande och är bara synliga och köpbara av de riktade kunderna. Privata planer kan återanvända bas avbildningar och/eller erbjudna metadata som redan har publicerats för ett offentligt abonnemang. Med det här alternativet kan utgivare skapa flera privata varianter av ett offentligt erbjudande utan att behöva publicera flera versioner av samma bas avbildning och erbjuda metadata. När en privat plan delar en bas avbildning med en offentlig plan för en virtuell dator och Azure-program, kommer eventuella ändringar i bas avbildningen för erbjudandet att spridas över alla offentliga och privata planer med den bas avbildningen.
 
 För *nya erbjudanden som bara omfattar privata planer* kan utgivare skapa sina erbjudanden som ett annat erbjudande och sedan markera planerna som privata. Erbjudanden som bara har privata planer kommer inte att kunna identifieras eller nås via Microsofts kommersiella marknads plats eller [Azure Portal](https://azure.microsoft.com/features/azure-portal/) av kunder som inte är associerade med erbjudandet.
+
+Privata planer är tillgängliga både för Azure Global och Azure Government.
 
 >[!NOTE]
 >Ett erbjudande som bara innehåller privata planer visas inte i den offentliga Azure Marketplace eller AppSource.

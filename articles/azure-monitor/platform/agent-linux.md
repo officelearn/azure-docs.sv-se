@@ -1,19 +1,19 @@
 ---
-title: Installera Log Analytics agent på Linux-datorer
+title: Installera Log Analytics-agenten på Linux-datorer
 description: Den här artikeln beskriver hur du ansluter Linux-datorer som finns i andra moln eller lokalt för att Azure Monitor med Log Analytics-agenten för Linux.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e1dbf5e20aa206189397cab26e9b867f4942e1d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332509"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886846"
 ---
-# <a name="install-log-analytics-agent-on-linux-computers"></a>Installera Log Analytics agent på Linux-datorer
+# <a name="install-log-analytics-agent-on-linux-computers"></a>Installera Log Analytics-agenten på Linux-datorer
 Den här artikeln innehåller information om hur du installerar Log Analytics-agenten på Linux-datorer med följande metoder:
 
 * [Installera agenten för Linux med hjälp av ett omslutnings skript som](#install-the-agent-using-wrapper-script) finns på GitHub. Detta är den rekommenderade metoden för att installera och uppgradera agenten när datorn har anslutning till Internet, direkt eller via en proxyserver.
@@ -30,13 +30,17 @@ Se [Översikt över Azure Monitor agenter](agents-overview.md#supported-operatin
 
 >[!NOTE]
 >OpenSSL 1.1.0 stöds endast på x86_x64 plattformar (64-bitars) och OpenSSL tidigare än 1. x stöds inte på någon plattform.
->
+
+>[!NOTE]
+>Det finns inte stöd för att köra Log Analytics Linux-agenten i behållare. Om du behöver övervaka behållare kan du använda lösning för [övervakning av behållare](../insights/containers.md) för Docker-värdar eller [Azure Monitor för behållare](../insights/container-insights-overview.md) för Kubernetes.
+
 Från och med versioner som publicerats efter 2018 augusti gör vi följande ändringar i vår support modell:  
 
 * Endast Server versionerna stöds, inte klienten.  
 * Fokusera på en [Azure Linux-distributioner som har bekräftats](../../virtual-machines/linux/endorsed-distros.md). Observera att det kan uppstå en fördröjning mellan en ny distribution/version som är godkänd i Azure Linux och stöds för Log Analytics Linux-agenten.
 * Alla mindre versioner stöds för varje huvud version som anges.
-* Versioner som har passerat support datumet stöds inte.  
+* Versioner som har passerat support datumet stöds inte.
+* Stöder endast VM-avbildningar. behållare, även de som härletts från officiella distribution-utgivares avbildningar, stöds inte.
 * Nya versioner av AMI stöds inte.  
 * Endast versioner som kör SSL 1. x stöds som standard.
 
@@ -128,9 +132,9 @@ Följande steg konfigurerar installationen av agenten för Log Analytics i Azure
 
 Om Linux-datorn behöver kommunicera via en proxyserver till Log Analytics, kan den här konfigurationen anges på kommando raden genom att inkludera `-p [protocol://][user:password@]proxyhost[:port]` . *Protokoll* egenskapen accepterar `http` eller `https` , och egenskapen *ProxyHost* accepterar ett fullständigt KVALIFICERAt domän namn eller en IP-adress för proxyservern. 
 
-Exempelvis: `https://proxy01.contoso.com:30443`
+Exempel: `https://proxy01.contoso.com:30443`
 
-Om autentisering krävs i båda fallen måste du ange användar namn och lösen ord. Exempelvis: `https://user01:password@proxy01.contoso.com:30443`
+Om autentisering krävs i båda fallen måste du ange användar namn och lösen ord. Exempel: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Kör följande kommando för att ange arbetsyte-ID och primär nyckel för att konfigurera Linux-datorn för att ansluta till en Log Analytics-arbetsyta. Med följande kommando laddar du ned agenten, verifierar dess kontrollsumma och installerar den.
     

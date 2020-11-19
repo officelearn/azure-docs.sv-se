@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: aad4cdfe38ee9dd7530cb8ebe21cded18cb0a1ec
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d8afa769c90c5cf9450343cda1a65809062468fb
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128691"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888699"
 ---
 # <a name="communication-services-logs"></a>Kommunikations tjänst loggar
 
@@ -30,7 +30,7 @@ Nya inställningar börjar gälla om tio minuter. Loggarna kommer att visas i de
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="Alternativ för ACS-diagnostiska inställningar.":::
 
-Mer information om hur du konfigurerar diagnostik finns i översikten över [Azures resurs loggar](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview).
+Mer information om hur du konfigurerar diagnostik finns i översikten över [Azures resurs loggar](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="resource-log-categories"></a>Resurs loggs kategorier
 
@@ -53,7 +53,7 @@ Kommunikations tjänsterna erbjuder tre typer av loggar som du kan aktivera:
 | Post-ID | Unikt ID för en specifik användnings post. |
 | Användningstyp | Användnings läge. (till exempel chatt, PSTN, NAT osv.) |
 | Enhets typ | Den typ av enhet som användningen baseras på för ett angivet användnings läge. (till exempel minuter, megabyte, meddelanden osv.). |
-| Kvantitet | Antalet enheter som används eller används för den här posten. |
+| Quantity | Antalet enheter som används eller används för den här posten. |
 
 ### <a name="chat-operational-logs"></a>Chat-operativa loggar
 

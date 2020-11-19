@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
-ms.openlocfilehash: 5e048729aa1d37a63678451525f8f37612c8c464
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9a5bd6dff05fe39d62e5bf5f897bc61936686bb7
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426754"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887237"
 ---
 # <a name="azure-role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Azure rollbaserad åtkomst kontroll behörigheter som krävs för att använda Network Watcher-funktioner
 
@@ -90,6 +90,7 @@ Med rollbaserad åtkomst kontroll i Azure (Azure RBAC) kan du bara tilldela de �
 | Åtgärd                                                              | Beskrivning                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft. Network/networkWatchers/topologi/åtgärd                   | Hämta topologi                                                   |
+| Microsoft. Network/networkWatchers/Topology/Read                     | Samma som ovan                                                  |
 
 ## <a name="reachability-report"></a>Rapport om nåbarhet
 
@@ -102,7 +103,7 @@ Med rollbaserad åtkomst kontroll i Azure (Azure RBAC) kan du bara tilldela de �
 
 Network Watcher funktioner kräver också följande åtgärder:
 
-| Åtgärd (er)                                                           | Description                                                    |
+| Åtgärd (er)                                                           | Beskrivning                                                    |
 | ---------                                                           | -------------                                                  |
 | Microsoft. Authorization/ \* /Read                                     | Används för att hämta roll tilldelningar och princip definitioner i Azure          |
 | Microsoft. Resources/Subscriptions/resourceGroups/Read               | Används för att räkna upp alla resurs grupper i en prenumeration    |

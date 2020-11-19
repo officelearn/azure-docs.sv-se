@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 2ce6959cf025d2e29f0ee3dfb3b29b3eaf5d4221
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 61313a1790fe51cb26168622cc871076c40bb511
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490840"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887441"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Meddelande om planerat underhåll i Azure Database for MariaDB
 
@@ -21,7 +21,7 @@ Lär dig hur du förbereder för planerade underhålls händelser på din Azure 
 
 Azure Database for MariaDB tjänsten utför automatisk uppdatering av underliggande maskin vara, operativ system och databas motor. Korrigeringen innehåller nya tjänst funktioner, säkerhets-och program uppdateringar. För MariaDB-motorn är lägre versions uppgraderingar automatiska och ingår som en del av korrigerings cykeln. Det finns inga användar åtgärder eller konfigurations inställningar som krävs för korrigering. Korrigeringen testas omfattande och distribueras med hjälp av säkerhets metoder för säker distribution.
 
-Ett planerat underhåll är ett underhålls fönster när de här tjänst uppdateringarna distribueras till servrar i en specifik Azure-region. Under planerat underhåll skapas en meddelande händelse som informerar kunder när tjänst uppdateringen distribueras i Azure-regionen som är värd för sina servrar. Minimi tiden mellan två planerade underhåll är 30 dagar. Du får ett meddelande om nästa underhålls period 72 timmar i förväg.
+Ett planerat underhåll är ett underhålls fönster när de här tjänst uppdateringarna distribueras till servrar i en specifik Azure-region. Vid planerat underhåll skapas en meddelandehändelse som informerar kunderna om när tjänstuppdateringen distribueras i den Azure-region där värden för deras servrar finns. Minimi tiden mellan två planerade underhåll är 30 dagar. Du får ett meddelande om nästa underhållsperiod 72 timmar i förväg.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Planerat underhåll – varaktighet och kund påverkan
 
@@ -61,7 +61,7 @@ Du kan antingen kontrol lera den planerade underhålls aviseringen på Azure Por
 7. Se till att aktivera regel vid skapande har angetts till Ja.
 8. Välj **skapa aviserings regel** för att slutföra aviseringen
 
-Detaljerade anvisningar om hur du skapar **tjänstens hälso aviseringar**finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../service-health/alerts-activity-log-service-notifications.md).
+Detaljerade anvisningar om hur du skapar **tjänstens hälso aviseringar** finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../service-health/alerts-activity-log-service-notifications.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Kan jag avbryta eller skjuta upp planerat underhåll?
 
@@ -78,7 +78,7 @@ Ett tillfälligt fel, även kallat ett tillfälligt fel, är ett fel som kommer 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du har frågor eller förslag kan du behöva arbeta med Azure Database for MariaDB, skicka ett e-postmeddelande till Azure Database for MariaDB-teamet på *AskAzureDBforMySQL@service.microsoft.com* .
+- Om du har frågor eller förslag kan du behöva arbeta med Azure Database for MariaDB, skicka ett e-postmeddelande till Azure Database for MariaDB-teamet på **AskAzureDBforMariaDB@service.microsoft.com**
 - Se [hur du ställer in aviseringar](howto-alert-metric.md) för vägledning om hur du skapar en avisering på ett mått.
 - [Felsöka anslutningsproblem till Azure Database for MariaDB](howto-troubleshoot-common-connection-issues.md)
 - [Hantera tillfälliga fel och Anslut effektivt till Azure Database for MariaDB](concepts-connectivity.md)

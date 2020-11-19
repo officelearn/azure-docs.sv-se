@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ecc25af19694c0befdd24b041807e2067db4f13b
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362475"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886948"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Vad är berättigandehantering i Azure AD?
 
@@ -119,7 +119,7 @@ I följande diagram visas ett exempel på de olika elementen i hantering av rät
 
 För att bättre förstå hantering av rättigheter och dess dokumentation kan du gå tillbaka till följande lista över villkor.
 
-| Period | Beskrivning |
+| Term | Beskrivning |
 | --- | --- |
 | åtkomst paket | En samling resurser som ett team eller projekt behöver och som styrs av principer. Ett Access-paket finns alltid i en katalog. Du skapar ett nytt Access-paket för ett scenario där användare måste begära åtkomst.  |
 | åtkomstbegäran | En begäran om åtkomst till resurserna i ett Access-paket. En begäran går vanligt vis igenom ett arbets flöde för godkännande.  Om det godkänns får användaren som begär en åtkomst paket tilldelning. |
@@ -144,17 +144,22 @@ Specialiserade moln, till exempel Azure Tyskland och Azure Kina, är för närva
 Se till att katalogen har minst så många Azure AD Premium P2-licenser som du har:
 
 - Medlems användare som **kan** begära ett åtkomst paket.
-- Medlem och gäst användare som begär ett åtkomst paket.
-- Medlem och gäst användare som godkänner begär Anden för ett Access-paket.
-- Medlem och gäst användare som har en direkt tilldelning till ett Access-paket.
+- Medlem och gäst användare som <u>begär</u> ett åtkomst paket.
+- Medlem och gäst användare som <u>godkänner begär Anden</u> för ett Access-paket.
+- Medlems användare som <u>granskar tilldelningar</u> för ett Access-paket. 
+- Medlem och gäst användare som har en <u>direkt tilldelning</u> till ett Access-paket.
+
+För gäst användare beror licensierings behovet på den [licensierings modell](../external-identities/external-identities-pricing.md) som du använder. Följande gäst användares aktiviteter betraktas dock som Azure AD Premium P2-användning:
+- Gäst användare som <u>begär</u> ett Access-paket. 
+- Gäst användare som <u>godkänner begär Anden</u> för ett Access-paket.
+- Gäst användare som <u>granskar tilldelningar</u> för ett Access-paket.
+- Gäst användare som har en <u>direkt tilldelning</u> till ett Access-paket. 
 
 Azure AD Premium P2-licenser krävs **inte** för följande uppgifter:
 
 - Inga licenser krävs för användare med rollen global administratör som konfigurerar de första katalogerna, åtkomst paket och principer, samt delegerar administrativa uppgifter till andra användare.
 - Inga licenser krävs för användare som har delegerats administrativa uppgifter, t. ex. katalog skapare, katalog ägare och Access Package Manager.
 - Det krävs inga licenser för gäster som **kan** begära åtkomst paket, men begär **inte** ett Access-paket.
-
-Priser för externa Azure AD-identiteter (gäst användare) baseras på månatliga aktiva användare (MAU), vilket är antalet unika användare med autentiserings aktivitet inom en kalender månad. Den här modellen ersätter förhållandet mellan 1:5 och fakturerings modell, som tillåter upp till fem gäst användare för varje Azure AD Premium licens i din klient organisation. När klienten är länkad till en prenumeration och du använder externa identiteter för att samar beta med gäst användare debiteras du automatiskt med hjälp av den MAU fakturerings modellen. Mer information finns i fakturerings modell för [externa Azure AD-identiteter](../external-identities/external-identities-pricing.md).
 
 Mer information om licenser finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
 

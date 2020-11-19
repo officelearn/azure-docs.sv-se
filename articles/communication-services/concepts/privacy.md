@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6b8145666ab92432d01b2f039685afe5534f0958
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 7c522abd04f4a3e480bb5c3e14e78cc03dbd5d86
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043590"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888648"
 ---
 # <a name="region-availability-and-data-residency"></a>Regionstillgänglighet och datahemvist
 
@@ -37,13 +37,13 @@ Det finns två kategorier av kommunikations tjänst data:
 
 ### <a name="identities"></a>Identiteter
 
-Azure Communication Services hanterar en katalog med identiteter, använder [DeleteIdentity](https://docs.microsoft.com/rest/api/communication/communicationidentity/delete) -API: et för att ta bort dem. Om du tar bort en identitet återkallas alla tillhör ande åtkomsttoken och deras Chat-meddelanden tas bort. Mer information om hur du tar bort en identitet [finns på den här sidan](../quickstarts/access-tokens.md).
+Azure Communication Services hanterar en katalog med identiteter, använder [DeleteIdentity](/rest/api/communication/communicationidentity/delete) -API: et för att ta bort dem. Om du tar bort en identitet återkallas alla tillhör ande åtkomsttoken och deras Chat-meddelanden tas bort. Mer information om hur du tar bort en identitet [finns på den här sidan](../quickstarts/access-tokens.md).
 
 - DeleteIdentity
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Med hjälp av Azure Portal-eller Azure Resource Manager-API: er med kommunikations tjänster kan du skapa personliga data. [Använd den här sidan om du vill lära dig hur du hanterar person uppgifter i Azure Resource Manager system.](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-manager-personal-data)
+Med hjälp av Azure Portal-eller Azure Resource Manager-API: er med kommunikations tjänster kan du skapa personliga data. [Använd den här sidan om du vill lära dig hur du hanterar person uppgifter i Azure Resource Manager system.](../../azure-resource-manager/management/resource-manager-personal-data.md)
 
 ### <a name="telephone-number-management"></a>Hantering av telefonnummer
 
@@ -52,7 +52,7 @@ Azure Communication Services underhåller en katalog med telefonnummer som är a
 
 ### <a name="chat"></a>Chatt
 
-Chatt-trådar och meddelanden behålls tills de tas bort explicit. En helt inaktiv tråd tas bort automatiskt efter 30 dagar. Använd [chatt-API: er](https://docs.microsoft.com/rest/api/communication/chat/deletechatmessage/deletechatmessage) för att hämta, Visa, uppdatera och ta bort meddelanden.
+Chatt-trådar och meddelanden behålls tills de tas bort explicit. En helt inaktiv tråd tas bort automatiskt efter 30 dagar. Använd [chatt-API: er](/rest/api/communication/chat/deletechatmessage/deletechatmessage) för att hämta, Visa, uppdatera och ta bort meddelanden.
 
 - `Get Thread`
 - `Get Message`
@@ -73,10 +73,10 @@ Ljud-och videokommunikation är ephemerally som bearbetas av tjänsten och inga 
 
 ## <a name="azure-monitor-and-log-analytics"></a>Azure Monitor och Log Analytics
 
-Azure Communication Services kommer att mata in Azure Monitor loggnings information för att förstå drifts hälsan och användningen av tjänsten. Några av dessa loggar är identiteter och telefonnummer för kommunikations tjänsten som fält data. För att ta bort potentiellt personliga data [använder du dessa procedurer för Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt). Du kanske också vill konfigurera [standard kvarhållningsperioden för Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
+Azure Communication Services kommer att mata in Azure Monitor loggnings information för att förstå drifts hälsan och användningen av tjänsten. Några av dessa loggar är identiteter och telefonnummer för kommunikations tjänsten som fält data. För att ta bort potentiellt personliga data [använder du dessa procedurer för Azure Monitor](../../azure-monitor/platform/personal-data-mgmt.md). Du kanske också vill konfigurera [standard kvarhållningsperioden för Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Azure Data subject-begäranden för GDPR och CCPA](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure?view=o365-worldwide&preserve-view=true)
-- [Microsoft Säkerhetscenter](https://www.microsoft.com/trust-center/privacy/data-location)
+- [Azure Data subject-begäranden för GDPR och CCPA](/microsoft-365/compliance/gdpr-dsr-azure?preserve-view=true&view=o365-worldwide)
+- [Säkerhetscenter](https://www.microsoft.com/trust-center/privacy/data-location)
 - [Azure-interaktiv karta – var är mina kund data?](https://azuredatacentermap.azurewebsites.net/)

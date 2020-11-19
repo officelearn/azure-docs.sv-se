@@ -2,22 +2,22 @@
 title: Självstudie – distribuera och konfigurera VMware HCX
 description: Lär dig hur du distribuerar och konfigurerar en VMware HCX-lösning för ditt privata moln i Azure VMware-lösningen.
 ms.topic: tutorial
-ms.date: 11/23/2020
-ms.openlocfilehash: 35cc87d7f3f1345972a7f27cecaeb96c6fa687dc
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.date: 11/18/2020
+ms.openlocfilehash: 57bcf1bd3023e56f6a64b5d82d8f1fc90be9dd47
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873921"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888750"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Distribuera och konfigurera VMware HCX
 
 Den här artikeln visar hur du distribuerar och konfigurerar den lokala VMware HCX-anslutningen för ditt privata moln i Azure VMware-lösningen. Med VMware HCX kan du migrera dina VMware-arbetsbelastningar till Azure VMware-lösningen och andra anslutna platser via olika typer av migrering. Eftersom Azure VMware-lösningen distribuerar och konfigurerar HCX Cloud Manager måste du ladda ned, aktivera och konfigurera HCX-anslutningen i ditt lokala VMware-datacenter.
 
-VMware HCX Advanced Connector förinstalleras i Azure VMware-lösningen. Det har stöd för upp till tre plats anslutningar (lokalt till molnet eller molnet till molnet). Om du behöver fler än tre plats anslutningar skickar du en [supportbegäran](https://rc.portal.azure.com/#create/Microsoft.Support) för att aktivera [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) -tillägget. Tillägget är för närvarande en för hands version. 
+VMware HCX Advanced Connector förinstalleras i Azure VMware-lösningen. Det har stöd för upp till tre plats anslutningar (lokalt till molnet eller molnet till molnet). Om du behöver fler än tre plats anslutningar skickar du en [supportbegäran](https://portal.azure.com/#create/Microsoft.Support) för att aktivera [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) -tillägget. Tillägget är för närvarande en för hands version. 
 
 >[!NOTE]
->VMware HCX Enterprise Edition (EE) är tillgänglig med Azure VMware-lösningen som en för hands versions tjänst. Det är kostnads fritt och omfattas av villkor för en för hands versions tjänst. När VMware HCX EE-tjänsten är allmänt tillgänglig får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan också välja att stänga av eller avanmäla tjänsten. Det finns ingen enkel degradering-sökväg från VMware HCX EE till VMware HCX Advanced. Om du bestämmer dig för att nedgradera måste du distribuera om, vilket uppstår drift stopp.
+>VMware HCX Enterprise är tillgängligt med Azure VMware-lösningen som en för hands versions tjänst. Det är kostnads fritt och omfattas av villkor för en för hands versions tjänst. När VMware HCX Enterprise-tjänsten är allmänt tillgänglig får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan också välja att stänga av eller avanmäla tjänsten. Det finns ingen enkel degradering-sökväg från VMware HCX Enterprise till VMware HCX Advanced. Om du bestämmer dig för att nedgradera måste du distribuera om, vilket uppstår drift stopp.
 
 Börja med att granska [innan du börjar](#before-you-begin), [program varu versions krav och kraven](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html) [.](#prerequisites) 
 
@@ -46,17 +46,14 @@ När du förbereder distributionen rekommenderar vi att du läser följande VMwa
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Om du planerar att använda VMware HCX EE ser du till att du har begärt aktivering via Azure VMware Solution support Channels.
+Om du planerar att använda VMware HCX Enterprise bör du kontrol lera att du har begärt aktivering via Azure VMware Solution support Channels.
 
-* Oavsett om du använder VMware HCX Advanced eller VMware HCX EE måste du installera korrigeringen från VMwares [KB-artikel 81558](https://kb.vmware.com/s/article/81558).
 
 ### <a name="on-premises-vsphere-environment"></a>Lokal vSphere-miljö
 
-Se till att din lokala vSphere-miljö (käll miljö) uppfyller [minimi kraven](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-7C79D1AF-B213-4767-9DAB-D96B9D97A2BB). 
+Se till att din lokala vSphere-miljö (käll miljö) uppfyller [minimi kraven](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html). 
 
 ### <a name="network-and-ports"></a>Nätverk och portar
-
-* Läs den grundläggande Azure VMware Solution Software-Defined Data Center (SDDC)- [själv studie serien](tutorial-network-checklist.md)
 
 * [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) konfigureras mellan lokala och Azure VMware-lösningar SDDC ExpressRoute-kretsar.
 
@@ -65,7 +62,6 @@ Se till att din lokala vSphere-miljö (käll miljö) uppfyller [minimi kraven](h
 ### <a name="ip-addresses"></a>IP-adresser
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
-
    
 ## <a name="download-the-vmware-hcx-connector-ova"></a>Hämta VMware HCX Connector-ägg
 
@@ -80,7 +76,7 @@ Innan du distribuerar den virtuella installationen till din lokala vCenter måst
 1. Välj **Hantera**  >  **identitet** och välj **vCenter admin-lösenord** för att identifiera lösen ordet.
 
    > [!TIP]
-   > VCenter-lösenordet definierades när du konfigurerade det privata molnet.
+   > VCenter-lösenordet definierades när du konfigurerade det privata molnet. det är samma lösen ord som du använder för att logga in på Azure VMware Solution HCX Manager.
 
    :::image type="content" source="media/tutorial-vmware-hcx/hcx-admin-password.png" alt-text="Hitta HCX-lösenord." lightbox="media/tutorial-vmware-hcx/hcx-admin-password.png":::
 
@@ -115,7 +111,7 @@ Innan du distribuerar den virtuella installationen till din lokala vCenter måst
 1. Verifiera konfigurationen och välj sedan **Slutför** för att distribuera HCX Connector-ägg.
    
    > [!IMPORTANT]
-   > Du kan behöva aktivera den virtuella enheten manuellt.  Om så är fallet väntar du 10-15 minuter innan du fortsätter till nästa steg.
+   > Du måste aktivera den virtuella enheten manuellt.  Efter strömförsörjningen väntar du 10-15 minuter innan du fortsätter till nästa steg.
 
 En översikt över slut punkt till slut punkt av den här proceduren finns i [Azure VMware-lösningen: HCX installation](https://www.youtube.com/embed/BwSnQeefnso) av enhets distribution. 
 
@@ -148,14 +144,14 @@ När du har distribuerat VMware HCX Connector-dataäggen lokalt och startar inst
 1. I **Anslut din vCenter**, anger du FQDN-namnet eller IP-adressen för vCenter-servern och rätt autentiseringsuppgifter och väljer sedan **Fortsätt**.
    
    > [!TIP]
-   > VCenter-servern är den plats där du distribuerar VMware-HCX.
+   > VCenter-servern är den plats där du distribuerar VMware HCX-anslutaren i ditt data Center.
 
 1. I **Konfigurera SSO/PSC** anger du FQDN eller IP-adressen för din plattforms tjänst kontroll och väljer sedan **Fortsätt**.
    
    > [!NOTE]
    > Den här posten är vanligt vis samma som vCenter-FQDN eller IP-adress.
 
-1. Kontrol lera att alla indata är korrekta och välj **starta om**.
+1. Kontrol lera att den angivna informationen är korrekt och välj **starta om**.
     
    > [!NOTE]
    > Du får en fördröjning efter omstarten innan du uppmanas att ange nästa steg.
@@ -166,6 +162,8 @@ När tjänsterna har startats om visas vCenter som visas som grönt på skärmen
 
 En översikt över slut punkt till slut punkt för den här proceduren finns i [Azure VMware-lösningen: Aktivera HCX](https://www.youtube.com/embed/BkAV_TNYxdE) video.
 
+   > [!IMPORTANT]
+   > Oavsett om du använder VMware HCX Advanced eller VMware HCX Enterprise kan du behöva installera korrigeringen från VMwares KB- [artikel 81558](https://kb.vmware.com/s/article/81558). 
 
 ## <a name="configure-the-vmware-hcx-connector"></a>Konfigurera VMware HCX-anslutningen
 
@@ -179,7 +177,7 @@ Du kan ansluta (para ihop) VMware HCX Cloud Manager i Azure VMware-lösningen me
 
 1. Under **infrastruktur** väljer du **plats par** och väljer sedan alternativet **Anslut till fjärrplats** (i mitten av skärmen). 
 
-1. Ange den Azure VMware-HCX URL eller IP-adress som du noterade tidigare, Azure VMware-lösningen cloudadmin \@ vSphere. local och lösen ordet. Välj **Anslut**.
+1. Ange den Azure VMware-lösning HCX Cloud Manager-URL eller IP-adress som du noterade tidigare `https://x.x.x.9` , Azure VMware-lösningens cloudadmin@vsphere.local användar namn och lösen ord. Välj **Anslut**.
 
    > [!NOTE]
    > För att kunna upprätta ett plats par måste din HCX-anslutning kunna dirigera till din HCX Cloud Manager-IP via port 443.
@@ -192,11 +190,9 @@ Du kan ansluta (para ihop) VMware HCX Cloud Manager i Azure VMware-lösningen me
 
 En översikt över slut punkt till slut punkt av den här proceduren finns i [Azure VMware-lösningen: HCX site ihopparning](https://www.youtube.com/embed/sKizDCRHOko) video.
 
-
-
 ### <a name="create-network-profiles"></a>Skapa nätverks profiler
 
-VMware HCX distribuerar en delmängd av virtuella apparater (automatisk) som kräver flera IP-segment. När du skapar nätverks profiler definierar du de IP-segment som du identifierade under [förberedelse och planering av VMware HCX-nätverks segment för distribution](production-ready-deployment-steps.md#vmware-hcx-network-segments).
+VMware HCX-anslutningen distribuerar en delmängd av virtuella apparater (automatisk) som kräver flera IP-segment. När du skapar nätverks profiler använder du de IP-segment som du identifierade under [förberedelse och planering av VMware HCX-nätverks segment för distribution](production-ready-deployment-steps.md#vmware-hcx-network-segments).
 
 Du skapar fyra nätverks profiler:
 
@@ -247,9 +243,6 @@ En översikt över slut punkt till slut punkt av den här proceduren finns i [Az
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-management-network-profile.png" alt-text="Skärm bild som visar valet av en hanterings nätverks profil och knappen Fortsätt." lightbox="media/tutorial-vmware-hcx/select-management-network-profile.png":::
 
-   > [!NOTE]
-   > Med hanterings nätverkets profil kan VMware HCX-enheter kommunicera med vCenter. ESXi-värdarna kan nås via den här profilen.
-
 1. Välj den nätverks profil för överordnad länk som du skapade i föregående procedur från **Välj Nätverks profil för överordnad länk**. Välj sedan **Fortsätt**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-uplink-network-profile.png" alt-text="Skärm bild som visar valet av en nätverks profil för överordnad länk och knappen Fortsätt." lightbox="media/tutorial-vmware-hcx/select-uplink-network-profile.png":::
@@ -260,12 +253,13 @@ En översikt över slut punkt till slut punkt av den här proceduren finns i [Az
 
 1. Välj den nätverks profil för replikering som du skapade i föregående steg från **Välj vSphere-replikeringsgruppens nätverks profil**. Välj sedan **Fortsätt**.
 
-   I de flesta fall är nätverks profilen för replikering samma som nätverks profilen för hantering.  
-
    :::image type="content" source="media/tutorial-vmware-hcx/select-replication-network-profile.png" alt-text="Skärm bild som visar valet av en nätverks profil för replikering och knappen Fortsätt." lightbox="media/tutorial-vmware-hcx/select-replication-network-profile.png":::
 
 1. Från **Välj distribuerade växlar för nätverks tillägg** väljer du de växlar som innehåller de virtuella datorer som ska migreras till Azure VMware-lösningen i ett utökat nätverk på nivå 2. Välj sedan **Fortsätt**.
 
+   > [!NOTE]
+   > Om du inte migrerar virtuella datorer i Layer-2 utökade nätverk kan du hoppa över det här steget.
+   
    :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Skärm bild som visar valet av distribuerade virtuella växlar och knappen Fortsätt." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
 1. Granska anslutnings reglerna och välj **Fortsätt**.  

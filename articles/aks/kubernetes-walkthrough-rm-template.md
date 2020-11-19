@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 09/11/2020
 ms.custom: mvc,subject-armqs, devx-track-azurecli
-ms.openlocfilehash: f0ef1c32035eed26c0717364bda030b6b7662b3e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 271913a731a2bdf5af94885b5fe4027c0334853c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740288"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887509"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster (AKS) med en ARM-mall
 
@@ -22,19 +22,17 @@ Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som gör att d
 
 Den här snabbstarten förutsätter grundläggande kunskaper om Kubernetes-begrepp. Mer information finns i [Viktiga koncept för Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure** . Mallen öppnas på Azure-portalen.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver den här snabb starten att du kör Azure CLI-version 2.0.61 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>Krav
+- Den här artikeln kräver version 2.0.61 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
-Om du vill skapa ett AKS-kluster med en Resource Manager-mall anger du en offentlig SSH-nyckel och Azure Active Directory tjänstens huvud namn. Alternativt kan du använda en [hanterad identitet](use-managed-identity.md) i stället för ett tjänst huvud namn för behörigheter. Om du behöver någon av dessa resurser kan du läsa mer i följande avsnitt: Annars hoppar du till avsnittet [granska mallen](#review-the-template) .
+- Om du vill skapa ett AKS-kluster med en Resource Manager-mall anger du en offentlig SSH-nyckel och Azure Active Directory tjänstens huvud namn. Alternativt kan du använda en [hanterad identitet](use-managed-identity.md) i stället för ett tjänst huvud namn för behörigheter. Om du behöver någon av dessa resurser kan du läsa mer i följande avsnitt: Annars hoppar du till avsnittet [granska mallen](#review-the-template) .
 
 ### <a name="create-an-ssh-key-pair"></a>Skapa ett SSH-nyckelpar
 
@@ -70,7 +68,7 @@ Utdata ser ut ungefär så här:
 }
 ```
 
-Anteckna värdena för *appId* och *password* . De här värdena används i senare steg.
+Anteckna värdena för *appId* och *password*. De här värdena används i senare steg.
 
 ## <a name="review-the-template"></a>Granska mallen
 
@@ -88,22 +86,22 @@ Fler AKS-exempel finns på webbplatsen för [AKS snabb starts mallar][aks-quicks
 
 2. Välj eller ange följande värden.
 
-    I den här snabb starten lämnar du standardvärdena *för OS-diskens storlek GB* , *antal agenter* , *virtuell dator storlek för virtuell dator* , *OS-typ* och Kubernetes- *version* . Ange dina egna värden för följande mallparametrar:
+    I den här snabb starten lämnar du standardvärdena *för OS-diskens storlek GB*, *antal agenter*, *virtuell dator storlek för virtuell dator*, *OS-typ* och Kubernetes- *version*. Ange dina egna värden för följande mallparametrar:
 
-    * **Prenumeration** : Välj en Azure-prenumeration.
-    * **Resurs grupp** : Välj **Skapa ny** . Ange ett unikt namn för resurs gruppen, till exempel *myResourceGroup* , och välj sedan **OK** .
-    * **Plats** : Välj en plats, t. ex. **USA, östra** .
-    * **Kluster namn** : Ange ett unikt namn för AKS-klustret, till exempel *myAKSCluster* .
-    * **DNS-prefix** : Ange ett unikt DNS-prefix för klustret, till exempel *myakscluster* .
-    * **Användar namn för Linux-administratör** : Ange ett användar namn för att ansluta med SSH, till exempel *azureuser* .
-    * **Offentlig SSH RSA-nyckel** : kopiera och klistra in den *offentliga* delen av ditt SSH-nyckelpar (som standard innehåller innehållet på *~/.ssh/id_rsa. pub* ).
-    * **Tjänstens huvud namn för klient-ID** : kopiera och klistra in *appId* för tjänstens huvud namn från `az ad sp create-for-rbac` kommandot.
-    * **Tjänstens huvud namn, klient hemlighet** : kopiera och klistra in *lösen ordet* för tjänstens huvud namn från `az ad sp create-for-rbac` kommandot.
-    * **Jag godkänner villkors tillståndet ovan** : Markera den här rutan om du vill acceptera.
+    * **Prenumeration**: Välj en Azure-prenumeration.
+    * **Resurs grupp**: Välj **Skapa ny**. Ange ett unikt namn för resurs gruppen, till exempel *myResourceGroup*, och välj sedan **OK**.
+    * **Plats**: Välj en plats, t. ex. **USA, östra**.
+    * **Kluster namn**: Ange ett unikt namn för AKS-klustret, till exempel *myAKSCluster*.
+    * **DNS-prefix**: Ange ett unikt DNS-prefix för klustret, till exempel *myakscluster*.
+    * **Användar namn för Linux-administratör**: Ange ett användar namn för att ansluta med SSH, till exempel *azureuser*.
+    * **Offentlig SSH RSA-nyckel**: kopiera och klistra in den *offentliga* delen av ditt SSH-nyckelpar (som standard innehåller innehållet på *~/.ssh/id_rsa. pub*).
+    * **Tjänstens huvud namn för klient-ID**: kopiera och klistra in *appId* för tjänstens huvud namn från `az ad sp create-for-rbac` kommandot.
+    * **Tjänstens huvud namn, klient hemlighet**: kopiera och klistra in *lösen ordet* för tjänstens huvud namn från `az ad sp create-for-rbac` kommandot.
+    * **Jag godkänner villkors tillståndet ovan**: Markera den här rutan om du vill acceptera.
 
     ![Resource Manager-mall för att skapa ett Azure Kubernetes service-kluster i portalen](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. Välj **Köp** .
+3. Välj **Köp**.
 
 Det tar några minuter att skapa AKS-klustret. Vänta tills klustret har distribuerats innan du går vidare till nästa steg.
 
@@ -129,7 +127,7 @@ Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl
 kubectl get nodes
 ```
 
-Följande exempel på utdata visar de noder som skapades i föregående steg. Kontrol lera att status för alla noder är *klar* :
+Följande exempel på utdata visar de noder som skapades i föregående steg. Kontrol lera att status för alla noder är *klar*:
 
 ```output
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -257,14 +255,14 @@ Du kan övervaka förloppet genom att använda kommandot [kubectl get service][k
 kubectl get service azure-vote-front --watch
 ```
 
-Till en början visas *EXTERNAL-IP* för *azure-vote-front* -tjänsten som *väntande* .
+Till en början visas *EXTERNAL-IP* för *azure-vote-front*-tjänsten som *väntande*.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-När *EXTERNAL-IP* -adressen ändras från *väntande* till en faktisk offentlig IP-adress använder du `CTRL-C` för att stoppa `kubectl`-övervakningsprocessen. Följande exempelutdata visar en giltig offentlig IP-adress som har tilldelats tjänsten:
+När *EXTERNAL-IP*-adressen ändras från *väntande* till en faktisk offentlig IP-adress använder du `CTRL-C` för att stoppa `kubectl`-övervakningsprocessen. Följande exempelutdata visar en giltig offentlig IP-adress som har tilldelats tjänsten:
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m

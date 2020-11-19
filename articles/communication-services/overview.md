@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1c79ffb02df4a64b2c506ef0863d9bb2da06db53
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d680df0ec5e18cca4d7a42edf45dbd6a50be1472
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303377"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888614"
 ---
 # <a name="what-is-azure-communication-services"></a>Vad är Azure Communication Services?
 
@@ -77,11 +77,11 @@ Följande resurser hjälper dig att lära dig mer om klient biblioteken för Azu
 
 Det finns två andra Microsoft-kommunikationsprodukter som du kan överväga att inte direkt samverka med kommunikations tjänster för tillfället:
 
- - [Microsoft Graph API: er för moln kommunikation](https://docs.microsoft.com/graph/cloud-communications-concept-overview) kan organisationer bygga kommunikations upplevelser som är kopplade till Azure Active Directory användare med M365-licenser. Detta är perfekt för program som är knutna till Azure Active Directory eller där du vill utöka produktivitets upplevelser i Microsoft Teams. Det finns också API: er för att bygga program och anpassningar i [Teams upplevelsen.](https://docs.microsoft.com/microsoftteams/platform/?view=msteams-client-js-latest&preserve-view=true)
+ - [Microsoft Graph API: er för moln kommunikation](/graph/cloud-communications-concept-overview) kan organisationer bygga kommunikations upplevelser som är kopplade till Azure Active Directory användare med M365-licenser. Detta är perfekt för program som är knutna till Azure Active Directory eller där du vill utöka produktivitets upplevelser i Microsoft Teams. Det finns också API: er för att bygga program och anpassningar i [Teams upplevelsen.](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest)
 
- - [Azure PlayFab-parten](https://docs.microsoft.com/gaming/playfab/features/multiplayer/networking/) fören klar att lägga till samtal med låg latens och data kommunikation i spel. Även om du kan spela spel och nätverks system med kommunikations tjänster, är PlayFab ett skräddarsyt alternativ och kostnads fritt på Xbox.
+ - [Azure PlayFab-parten](/gaming/playfab/features/multiplayer/networking/) fören klar att lägga till samtal med låg latens och data kommunikation i spel. Även om du kan spela spel och nätverks system med kommunikations tjänster, är PlayFab ett skräddarsyt alternativ och kostnads fritt på Xbox.
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
  - [Skapa en Communication Services-resurs](./quickstarts/create-communication-resource.md)

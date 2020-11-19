@@ -1,15 +1,15 @@
 ---
 title: 'Snabb start: skapa en hanterings grupp med Java Script'
 description: I den här snabb starten använder du Java Script för att skapa en hanterings grupp för att organisera resurserna i en resurspool.
-ms.date: 09/30/2020
+ms.date: 11/18/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 965e4b8f81a26cab8f6e34cab3e51d6a97f5a6a6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c1b800f150cebacf8d17785feb1bded5189f1574
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676222"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886608"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Snabb start: skapa en hanterings grupp med Java Script
 
@@ -71,7 +71,7 @@ Om du vill aktivera Java Script för att fråga Azure Resource Graph måste milj
        const createMG = async () => {
           const credentials = await authenticator.interactiveLogin();
           const client = new managementGroups.ManagementGroupsAPI(credentials);
-          const result = await client.createOrUpdate(
+          const result = await client.managementGroups.createOrUpdate(
              groupId: argv.groupID,
              {
                  displayName: argv.displayName
@@ -90,7 +90,7 @@ Om du vill aktivera Java Script för att fråga Azure Resource Graph måste milj
    node index.js --groupID "<NEW_MG_GROUP_ID>" --displayName "<NEW_MG_FRIENDLY_NAME>"
    ```
 
-   Se till att ersätta varje `<>` plats hållare med _hanterings gruppens ID_ och _eget namn för hanterings gruppen_ .
+   Se till att ersätta varje `<>` plats hållare med _hanterings gruppens ID_ och _eget namn för hanterings gruppen_.
 
    När skriptet försöker autentisera visas ett meddelande som liknar följande meddelande i terminalen:
 

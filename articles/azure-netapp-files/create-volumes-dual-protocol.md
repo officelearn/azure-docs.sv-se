@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 4fa2c724906c8a6bfb294541b6616ddc7ae22df6
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 06885e3f6a1ceeebc7c0bb1053e36e9e95a0043e
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591656"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888784"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Skapa en NFSv3-och SMB-volym (Dual-Protocol) för Azure NetApp Files
 
@@ -51,6 +51,8 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
     |-  |-  |-  |-  |-  |
     | UNIX  | NFS   | NFSv3 läges bitar   | UNIX  | NFS och Windows   |
     | NTFS  | Windows   | NTFS ACL: er     | NTFS  |NFS och Windows|
+* UNIX-användare som monterar säkerhets format volymen NTFS med NFS autentiseras som Windows-användare `root` för UNIX `root` och `pcuser` för alla andra användare. Se till att dessa användar konton finns i Active Directory innan du monterar volymen när du använder NFS. 
+
 
 ## <a name="create-a-dual-protocol-volume"></a>Skapa en volym med dubbla protokoll
 

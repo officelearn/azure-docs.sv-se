@@ -3,12 +3,12 @@ title: Planera distributionen av Azure VMware-lösningen
 description: Den här artikeln beskriver ett arbets flöde för distribution av Azure VMware-lösningar.  Det slutliga resultatet är en miljö som är redo för generering och migrering av virtuella datorer (VM).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: a8ebd5bd4a9e553e24fbe528a4f6654bd4a1dee4
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 08a15e6f8cad4068415cec3353544829f2218fb0
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873343"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888988"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planera distributionen av Azure VMware-lösningen
 
@@ -92,14 +92,6 @@ Tänk på följande:
 
 - Om du planerar att utöka nätverk lokalt måste dessa nätverk ansluta till en [vSphere-distribuerad växel (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) i din lokala VMware-miljö.  
 - Om de nätverk som du vill utöka Live på en [vSphere standard växel](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), kan de inte utökas.
-
-## <a name="expressroute-global-reach-peering-network"></a>ExpressRoute Global Reach peering Network
-
-Identifiera ett `/29` CIDR-block för nätverks adress som krävs för ExpressRoute Global Reach-peering. Kom ihåg att alla IP-segment som skapats måste vara unika i din Azure VMware-lösning och lokalt. IP-adresserna i det här segmentet används i varje ände av ExpressRoute-Global Reach-anslutningen för att ansluta ExpressRoute-kretsen för Azure VMware-lösningen med den lokala ExpressRoute-kretsen. 
-
-**Exempel:** 10.1.0.0/29
-
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identifiera-ExpressRoute Global Reach peering Network" border="false":::
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Azure Virtual Network för att ansluta Azure VMware-lösning
 

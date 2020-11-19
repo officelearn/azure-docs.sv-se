@@ -81,6 +81,8 @@
           href: spring-cloud-howto-start-stop-delete.md
         - name: Använda beständig lagring
           href: spring-cloud-howto-persistent-storage.md
+        - name: Identifiera utgående offentliga IP-adresser
+          href: spring-cloud-howto-outbound-public-ip.md
     - name: Övervaka
       items:
         - name: Distribuerad spårning och App Insights
@@ -89,7 +91,7 @@
           href: diagnostic-services.md
         - name: Strömningsloggar i realtid
           href: spring-cloud-howto-log-streaming.md
-    - name: Skydda
+    - name: Säkerhet
       items:
         - name: Aktivera systemtilldelad hanterad identitet
           href: spring-cloud-howto-enable-system-assigned-managed-identity.md

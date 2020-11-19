@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 11/15/2020
-ms.openlocfilehash: 48bd32569b7eb7fa09f83f81190bf96baa42fae0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.date: 11/19/2020
+ms.openlocfilehash: a79055a77ec73ce2b267bb4f16fa91f37e22ea75
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659989"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916788"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Konfigurera en egen värd-IR som en proxy för en Azure-SSIS IR i Azure Data Factory
 
@@ -175,8 +175,10 @@ Följ dessa anvisningar om du vill aktivera dina anpassade/tredje parts komponen
 
 1. Installera dina anpassade/tredje parts komponenter som riktar SQL Server 2017 på Azure-SSIS IR via [standard-/Express-inställningar](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
 
-1. Skapa följande register nycklar för DTSPath på egen värd-IR om de inte redan finns: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` och `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` .
- 
+1. Skapa följande register nycklar för DTSPath på IR med egen värd, om de inte redan finns:
+   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` Ange till `C:\Program Files\Microsoft SQL Server\140\DTS\`
+   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` Ange till `C:\Program Files (x86)\Microsoft SQL Server\140\DTS\`
+   
 1. Installera dina anpassade/tredje parts komponenter riktade mot SQL Server 2017 på egen värd-IR under DTSPath ovan och kontrol lera att installations processen:
 
    1. Skapar `<DTSPath>` , `<DTSPath>/Connections` , `<DTSPath>/PipelineComponents` och `<DTSPath>/UpgradeMappings` mappar om de inte redan finns.
@@ -185,7 +187,7 @@ Följ dessa anvisningar om du vill aktivera dina anpassade/tredje parts komponen
    
    1. Installerar alla sammansättningar som refereras av dina komponenter för anpassade/tredje parts komponenter i Global Assembly Cache (GAC).
 
-Här är ett [exempel på en komponent från tredje part](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir) som använder en Express anpassad installation och egen värd-IR som proxy för Azure-SSIS IR.
+Här följer några exempel på våra partner, [Theobald Software](https://kb.theobald-software.com/xtract-is/XIS-for-Azure-SHIR) och [Aecorsoft](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir), som har anpassat sina komponenter för att använda vår Express anpassade installation och egen värd-IR som proxy för Azure-SSIS IR.
 
 ## <a name="enforce-tls-12"></a>Aktivera TLS 1.2
 

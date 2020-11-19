@@ -2,14 +2,14 @@
 title: Konfigurera privata slut punkter för Azure Event Grid ämnen eller domäner
 description: I den här artikeln beskrivs hur du konfigurerar privata slut punkter för Azure Event Grid ämnen eller domän.
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8e0cfc0a850ae15ea6d03ff6ca8b90003adbfc9
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324152"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916986"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Konfigurera privata slut punkter för Azure Event Grid ämnen eller domäner
 Du kan använda [privata slut punkter](../private-link/private-endpoint-overview.md) för att tillåta ingress av händelser direkt från ditt virtuella nätverk till dina ämnen och domäner på ett säkert sätt över en [privat länk](../private-link/private-link-overview.md) utan att gå via det offentliga Internet. Den privata slut punkten använder en IP-adress från VNet-adressutrymmet för ditt ämne eller din domän. Mer konceptuell information finns i [nätverks säkerhet](network-security.md).
@@ -31,23 +31,23 @@ Det här avsnittet visar hur du använder Azure Portal för att skapa en privat 
     2. Välj en **Azure-resurs grupp** för den privata slut punkten. 
     3. Ange ett **namn** för slut punkten. 
     4. Välj **region** för slut punkten. Din privata slut punkt måste finnas i samma region som ditt virtuella nätverk, men kan i en annan region från den privata länk resursen (i det här exemplet ett event Grid-ämne). 
-    5. Välj sedan **Nästa: resurs >s ** knappen längst ned på sidan. 
+    5. Välj sedan **Nästa: resurs >s** knappen längst ned på sidan. 
 
       ![Privat slut punkt – sidan grunder](./media/configure-private-endpoints/basics-page.png)
 3. Följ de här stegen på sidan **resurs** : 
     1. För anslutnings metod, om du väljer **Anslut till en Azure-resurs i min katalog**, följer du dessa steg. Det här exemplet visar hur du ansluter till en Azure-resurs i din katalog. 
         1. Välj den **Azure-prenumeration** där **ämnet/domänen** finns. 
-        1. För **resurs typ**väljer du **Microsoft. EventGrid/topics** eller **Microsoft. EventGrid/Domains** för **resurs typen**.
-        2. För **resurs**väljer du ett ämne/en domän i den nedrullningsbara listan. 
+        1. För **resurs typ** väljer du **Microsoft. EventGrid/topics** eller **Microsoft. EventGrid/Domains** för **resurs typen**.
+        2. För **resurs** väljer du ett ämne/en domän i den nedrullningsbara listan. 
         3. Bekräfta att **mål under resursen** har angetts till **ämne** eller **domän** (baserat på den resurs typ som du har valt).    
-        4. Välj **Nästa: konfiguration >s ** knappen längst ned på sidan. 
+        4. Välj **Nästa: konfiguration >s** knappen längst ned på sidan. 
 
             ![Skärm bild som visar sidan "skapa en privat slut punkt-resurs".](./media/configure-private-endpoints/resource-page.png)
-    2. Om du väljer **Anslut till en resurs med ett resurs-ID eller ett alias**följer du dessa steg:
-        1. Ange resursens ID. Exempel: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
-        2. För **resurs**anger du **ämne** eller **domän**. 
+    2. Om du väljer **Anslut till en resurs med ett resurs-ID eller ett alias** följer du dessa steg:
+        1. Ange resursens ID. Till exempel: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
+        2. För **resurs** anger du **ämne** eller **domän**. 
         3. valfritt Lägg till ett meddelande om begäran. 
-        4. Välj **Nästa: konfiguration >s ** knappen längst ned på sidan. 
+        4. Välj **Nästa: konfiguration >s** knappen längst ned på sidan. 
 
             ![Privat slut punkt – resurs sida](./media/configure-private-endpoints/connect-azure-resource-id.png)
 4. På sidan **konfiguration** väljer du det undernät i ett virtuellt nätverk som du vill distribuera den privata slut punkten till. 
@@ -57,7 +57,7 @@ Det här avsnittet visar hur du använder Azure Portal för att skapa en privat 
 
     ![Privat slut punkt – konfigurations sida](./media/configure-private-endpoints/configuration-page.png)
 5. På sidan **taggar** skapar du alla Taggar (namn och värden) som du vill koppla till den privata slut punkts resursen. Välj sedan **Granska + skapa** längst ned på sidan. 
-6. Granska alla inställningar på sidan **Granska och skapa**och välj **skapa** för att skapa den privata slut punkten. 
+6. Granska alla inställningar på sidan **Granska och skapa** och välj **skapa** för att skapa den privata slut punkten. 
 
     ![Privat slut punkt – granska & skapa sida](./media/configure-private-endpoints/review-create-page.png)
     
@@ -68,7 +68,7 @@ När du skapar en privat slut punkt måste anslutningen godkännas. Om den resur
 
 Det finns fyra etablerings tillstånd:
 
-| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
+| Tjänståtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
 | Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
@@ -81,7 +81,7 @@ I följande avsnitt visas hur du godkänner eller avvisar en anslutning till en 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. I Sök fältet skriver du **Event Grid ämnen** eller **Event Grid domäner**.
 1. Välj det **ämne** eller den **domän** som du vill hantera.
-1. Välj fliken **nätverk** .
+1. Välj fliken **Nätverk**.
 1. Om det finns några anslutningar som väntar, ser du en anslutning som anges i **väntan** på etablerings status. 
 
 ### <a name="to-approve-a-private-endpoint"></a>Godkänna en privat slut punkt
@@ -108,7 +108,7 @@ Du kan avvisa en privat slut punkt som är i vänte läge eller godkänt tillst�
 
 1. Välj den **privata slut punkt** som du vill avvisa och välj **avvisa** i verktygsfältet.
 
-    ![Skärm bild som visar "nätverk-privata slut punkts anslutningar (förhands granskning)" med "avvisa" valt.](./media/configure-private-endpoints/reject-button.png)
+    ![Skärm bild som visar "nätverk-privata slut punkts anslutningar" med "avvisa" valt.](./media/configure-private-endpoints/reject-button.png)
 1. I dialog rutan **avvisa anslutning** anger du en kommentar (valfritt) och väljer **Ja**. 
 
     ![Privat slut punkt-avvisa](./media/configure-private-endpoints/reject.png)
@@ -121,7 +121,7 @@ Du kan avvisa en privat slut punkt som är i vänte läge eller godkänt tillst�
 
 
 ## <a name="use-azure-cli"></a>Använda Azure CLI
-Om du vill skapa en privat slut punkt använder du metoden [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) som visas i följande exempel:
+Om du vill skapa en privat slut punkt använder du metoden [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) som visas i följande exempel:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -135,12 +135,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Beskrivningar av de parametrar som används i exemplet finns i dokumentationen för [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Några punkter att Observera i det här exemplet är: 
+Beskrivningar av de parametrar som används i exemplet finns i dokumentationen för [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Några punkter att Observera i det här exemplet är: 
 
 - För `private-connection-resource-id` anger du resurs-ID för **ämnet** eller **domänen**. I föregående exempel används avsnittet Typ:.
 - för `group-ids` , ange `topic` eller `domain` . I föregående exempel `topic` används. 
 
-Om du vill ta bort en privat slut punkt använder du [borttagnings metoden AZ Network Private-Endpoint](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) som visas i följande exempel:
+Om du vill ta bort en privat slut punkt använder du [borttagnings metoden AZ Network Private-Endpoint](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) som visas i följande exempel:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
@@ -165,7 +165,7 @@ az extension add -n eventgrid
 ```
 
 ### <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
-Om du vill skapa en privat slut punkt använder du metoden [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) som visas i följande exempel:
+Om du vill skapa en privat slut punkt använder du metoden [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) som visas i följande exempel:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -179,12 +179,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Beskrivningar av de parametrar som används i exemplet finns i dokumentationen för [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Några punkter att Observera i det här exemplet är: 
+Beskrivningar av de parametrar som används i exemplet finns i dokumentationen för [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Några punkter att Observera i det här exemplet är: 
 
 - För `private-connection-resource-id` anger du resurs-ID för **ämnet** eller **domänen**. I föregående exempel används avsnittet Typ:.
 - för `group-ids` , ange `topic` eller `domain` . I föregående exempel `topic` används. 
 
-Om du vill ta bort en privat slut punkt använder du [borttagnings metoden AZ Network Private-Endpoint](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) som visas i följande exempel:
+Om du vill ta bort en privat slut punkt använder du [borttagnings metoden AZ Network Private-Endpoint](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) som visas i följande exempel:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
@@ -311,7 +311,7 @@ az eventgrid topic update \
 I det här avsnittet visas hur du skapar en privat slut punkt för ett ämne eller en domän med hjälp av PowerShell. 
 
 ### <a name="prerequisite"></a>Förutsättning
-Följ anvisningarna nedan för [att: använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md) för att skapa ett Azure Active Directory program och anteckna värdena för **katalog-ID**, **program (klient) ID**och **program (klient) hemlighet**. 
+Följ anvisningarna nedan för [att: använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md) för att skapa ett Azure Active Directory program och anteckna värdena för **katalog-ID**, **program (klient) ID** och **program (klient) hemlighet**. 
 
 ### <a name="prepare-token-and-headers-for-rest-api-calls"></a>Förbered token och rubriker för REST API-anrop 
 Kör följande krav kommandon för att hämta en autentiseringstoken som ska användas med REST API samtal och auktorisering och annan huvud information. 

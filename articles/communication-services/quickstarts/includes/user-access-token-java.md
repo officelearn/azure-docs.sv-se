@@ -10,17 +10,17 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: d87565123a66541d1573deb60189becc42e97df7
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6be69a1ec20ed859769c944a2f66de1310c09507
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94885489"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915155"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 eller senare.
+- [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 eller senare.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - En distribuerad kommunikations tjänst resurs och anslutnings sträng. [Skapa en kommunikations tjänst resurs](../create-communication-resource.md).
 
@@ -103,7 +103,7 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
     .buildClient();
 ```
 
-Du kan initiera klienten med valfri anpassad HTTP-klient som implementerar `com.azure.core.http.HttpClient` gränssnittet. Ovanstående kod visar användningen av [Azure Core nett-HTTP-klienten](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable&preserve-view=true) som tillhandahålls av `azure-core` .
+Du kan initiera klienten med valfri anpassad HTTP-klient som implementerar `com.azure.core.http.HttpClient` gränssnittet. Ovanstående kod visar användningen av [Azure Core nett-HTTP-klienten](/java/api/overview/azure/core-http-netty-readme?preserve-view=true&view=azure-java-stable) som tillhandahålls av `azure-core` .
 
 Du kan också ange hela anslutnings strängen med hjälp av funktionen connectionString () i stället för att tillhandahålla slut punkten och åtkomst nyckeln. 
 ```java

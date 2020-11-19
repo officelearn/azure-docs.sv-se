@@ -115,6 +115,8 @@
           href: windows-boot-error-invalid-image-hash.md
         - name: Windows-stoppfel – felaktig systemkonfigurationsinformation
           href: windows-stop-error-bad-system-config-info.md
+        - name: Windows-stoppfel – maskinvarufel
+          href: windows-stop-error-hardware-malfunction.md
         - name: Windows-stoppfel – status slut på minne
           href: troubleshoot-windows-stop-error.md
         - name: Windows-stoppfel – systemprocessen avslutades

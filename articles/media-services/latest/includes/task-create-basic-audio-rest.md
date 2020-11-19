@@ -5,22 +5,25 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: inhenkel
 ms.custom: CLI
-ms.openlocfilehash: eacdfe663ee3ec323d59daf160fe33af073bc1c5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3a99dd9e69363e8fbb02b7e5e1ac5921d079ba21
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92525198"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917887"
 ---
 <!--Create a basic audio transform REST-->
 
-Följande Azure REST-kommando skapar en grundläggande ljud till gång. Ersätt värdena `subscriptionID` , `resourceGroup` och `amsAccountName` med värden som du håller på att arbeta med. Ge din till gång ett namn genom att ställa in det `assetName` här.
+Följande Azure REST-kommando skapar en grundläggande ljud till gång. Ersätt värdena `subscriptionID` , `resourceGroup` och `amsAccountName` med värden som du håller på att arbeta med. Ge transformeringen ett namn genom att ange `transformName` .
 
-```
+```REST
+
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaServices/{{accountName}}/transforms/{{transformName}}?api-version=2020-05-01
+
 ```
 
 ## <a name="body"></a>Brödtext
+
 ```json
 {
     "properties": {

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/30/2020
-ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/18/2020
+ms.openlocfilehash: c6754e6f0e3f0d6208bd34c96c8bc473429c943c
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131368"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917910"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 
@@ -36,9 +36,9 @@ När du återställer en databas fastställer tjänsten vilka säkerhets kopior 
 
 ### <a name="backup-storage-redundancy"></a>Redundans för lagring av säkerhets kopior
 
-Som standard är SQL Database och SQL-hanterad instans lagra data i Geo-redundanta (RA-GRS) [lagrings-blobar](../../storage/common/storage-redundancy.md) som replikeras till en [kopplad region](../../best-practices-availability-paired-regions.md). Detta hjälper till att skydda mot avbrott som påverkar säkerhets kopierings lagringen i den primära regionen och gör att du kan återställa servern till en annan region i händelse av en katastrof. 
+Som standard är SQL Database och SQL-hanterad instans lagra data i Geo-redundanta [lagrings blobbar](../../storage/common/storage-redundancy.md) som replikeras till en [kopplad region](../../best-practices-availability-paired-regions.md). Detta hjälper till att skydda mot avbrott som påverkar säkerhets kopierings lagringen i den primära regionen och gör att du kan återställa servern till en annan region i händelse av en katastrof. 
 
-Alternativet för att konfigurera redundans för säkerhets kopiering ger flexibiliteten att välja mellan lokalt redundanta, zoner-redundanta eller geo-redundanta lagrings blobbar för en SQL-hanterad instans eller en SQL Database. För att säkerställa att dina data ligger inom samma region där din hanterade instans eller SQL-databas har distribuerats, kan du ändra standardvärdet för Geo-redundant lagring av säkerhets kopior och konfigurera antingen lokalt redundant (LRS) eller zon redundant (ZRS) lagrings blobbar för säkerhets kopieringar. Metoder för redundans för lagring lagrar flera kopior av dina data så att de skyddas från planerade och oplanerade händelser, inklusive tillfälligt maskin varu haveri, nätverks-eller strömavbrott, eller massiv natur katastrofer. Den konfigurerade redundansen för säkerhets kopierings lagring tillämpas på både kortsiktiga säkerhets kopierings inställningar som används för återställning av PITR (Point-of-Time Restore) och säkerhets kopior för långsiktig kvarhållning som används för långsiktiga säkerhets kopior (brv). 
+Alternativet för att konfigurera redundans för säkerhets kopiering ger flexibiliteten att välja mellan lokalt redundanta, zoner-redundanta eller geo-redundanta lagrings blobbar för en SQL-hanterad instans eller en SQL Database. För att se till att dina data finns kvar i samma region där din hanterade instans eller SQL-databas har distribuerats, kan du ändra standardvärdet för Geo-redundant lagring och konfigurera antingen lokalt redundanta eller zoner-redundanta lagrings blobbar för säkerhets kopieringar. Metoder för redundans för lagring lagrar flera kopior av dina data så att de skyddas från planerade och oplanerade händelser, inklusive tillfälligt maskin varu haveri, nätverks-eller strömavbrott, eller massiv natur katastrofer. Den konfigurerade redundansen för säkerhets kopierings lagring tillämpas på både kortsiktiga säkerhets kopierings inställningar som används för återställning av PITR (Point-of-Time Restore) och säkerhets kopior för långsiktig kvarhållning som används för långsiktiga säkerhets kopior (brv). 
 
 För en SQL Database kan du konfigurera redundans för säkerhets kopiering när databasen skapas, eller så kan du uppdatera den för en befintlig databas. de ändringar som gjorts i en befintlig databas gäller endast för framtida säkerhets kopieringar. När redundansen för säkerhets kopierings utrymmet för en befintlig databas har uppdaterats kan det ta upp till 48 timmar innan ändringarna tillämpas. Observera att geo Restore är inaktiverat så snart en databas har uppdaterats för att använda redundant lagring lokalt eller i zonen. 
 
@@ -179,9 +179,9 @@ Du kan övervaka den totala lagrings förbrukningen för säkerhets kopiering f�
 ### <a name="backup-storage-redundancy"></a>Redundans för lagring av säkerhets kopior
 
 Redundans för säkerhets kopierings lagring påverkar säkerhets kopierings kostnaderna på följande sätt:
-- LRS-pris = x
-- ZRS-pris = 1,25 x
-- RA-GRS pris = 2x
+- lokalt redundant pris = x
+- Zone-redundant pris = 1,25 x
+- Geo-redundant pris = 2x
 
 Mer information om priser för säkerhets kopierings lagring Azure SQL Database prissättnings [sidan](https://azure.microsoft.com/pricing/details/sql-database/single/) och [pris sidan för Azure SQL-hanterad instans](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
@@ -190,9 +190,9 @@ Mer information om priser för säkerhets kopierings lagring Azure SQL Database 
 
 ### <a name="monitor-costs"></a>Övervaka kostnader
 
-Om du vill förstå kostnader för säkerhets kopierings lagring går du till **Cost Management + fakturering** i Azure Portal, väljer **Cost Management** och väljer sedan **kostnads analys** . Välj önskad prenumeration som **omfång** och filtrera sedan efter den tids period och tjänst som du är intresse rad av.
+Om du vill förstå kostnader för säkerhets kopierings lagring går du till **Cost Management + fakturering** i Azure Portal, väljer **Cost Management** och väljer sedan **kostnads analys**. Välj önskad prenumeration som **omfång** och filtrera sedan efter den tids period och tjänst som du är intresse rad av.
 
-Lägg till ett filter för **tjänst namn** och välj sedan **SQL-databas** i list rutan. Använd filtret under **kategori för mätning** för att välja fakturerings räknare för din tjänst. För en enskild databas eller en Elastic Database-pool väljer du **Single/elastisk pool PITR backup Storage** . För en hanterad instans väljer du **mi PITR backup Storage** . Under kategorierna för **lagring** och **beräkning** kan intresserar dig också, men de är inte kopplade till reserv lagrings kostnader.
+Lägg till ett filter för **tjänst namn** och välj sedan **SQL-databas** i list rutan. Använd filtret under **kategori för mätning** för att välja fakturerings räknare för din tjänst. För en enskild databas eller en Elastic Database-pool väljer du **Single/elastisk pool PITR backup Storage**. För en hanterad instans väljer du **mi PITR backup Storage**. Under kategorierna för **lagring** och **beräkning** kan intresserar dig också, men de är inte kopplade till reserv lagrings kostnader.
 
 ![Kostnads analys för lagring av säkerhets kopior](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
@@ -373,7 +373,7 @@ Mer information finns i [kvarhållning av säkerhets kopior REST API](/rest/api/
 > [!NOTE]
 > Konfigurerbar redundans för säkerhets kopieringar för SQL-hanterad instans kan bara anges under processen för att skapa hanterade instanser. När resursen har allokerats kan du inte ändra redundans alternativet för lagring av säkerhets kopior. För SQL Database är den offentliga för hands versionen av den här funktionen för närvarande tillgänglig i Brasilien, södra och är allmänt tillgänglig i Sydostasien Azure-region. 
 
-Det går bara att ange en redundans för säkerhets kopiering av en hanterad instans när en instans skapas. För en SQL Database kan den anges när du skapar databasen eller kan uppdateras för en befintlig databas. Standardvärdet är Geo-redundant lagring (RA-GRS). Om du vill ha skillnader i prissättningen mellan lokalt redundant (LRS), zon-redundant (ZRS) och Geo-redundant (RA-GRS) säkerhets kopierings lagring besöker du [pris sidan för hanterade instanser](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+Det går bara att ange en redundans för säkerhets kopiering av en hanterad instans när en instans skapas. För en SQL Database kan den anges när du skapar databasen eller kan uppdateras för en befintlig databas. Standardvärdet är Geo-redundant lagring. Om du vill ha skillnader i prissättningen mellan lokalt redundant, zon-redundant och Geo-redundant lagring av säkerhets kopior kan du besöka [pris sidan för hanterade instanser](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Konfigurera redundans för lagring av säkerhets kopior med hjälp av Azure Portal
 

@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: a26a618d4f1bd9900136561d95c21c1ecbaadfaa
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516449"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916482"
 ---
-# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Offentlig för hands version: Azure Hybrid-förmån – hur det gäller för Virtuella Linux-datorer
+# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Azure Hybrid-förmån – hur det gäller för Virtuella Linux-datorer
 
 ## <a name="overview"></a>Översikt
 
 Azure Hybrid-förmån gör att du enkelt kan migrera dina lokala Red Hat Enterprise Linux (RHEL) och SUSE Linux Enterprise Server (virtuella datorer) till Azure med hjälp av din egen befintliga Red Hat-eller SUSE-programprenumeration. Med den här förmånen betalar du bara för infrastruktur kostnaderna för din virtuella dator eftersom program varu avgiften täcks av din RHEL-eller SLES-prenumeration. Förmånen gäller för alla PAYG-avbildningar (RHEL-och SLES Marketplace).
 
 > [!IMPORTANT]
-> Azure Hybrid-förmån för virtuella Linux-datorer är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Hybrid-förmån för virtuella Linux-datorer är tillgänglig för allmänheten nu
+
 
 ## <a name="benefit-description"></a>Förmåns Beskrivning
 
@@ -44,12 +44,6 @@ Azure Hybrid-förmån är tillgängligt för alla RHEL-och SLES Marketplace-PAYG
 Reserverade instanser, dedikerade värdar och SQL hybrid-förmåner är inte berättigade till Azure Hybrid-förmån om du redan använder fördelarna med virtuella Linux-datorer.
 
 ## <a name="how-to-get-started"></a>Så här kommer du igång
-
-Azure Hybrid-förmån finns för närvarande i en för hands version av virtuella Linux-datorer. När du får åtkomst till förhands granskningen kan du aktivera förmånen med Azure CLI.
-
-### <a name="public-preview"></a>Offentlig för hands version
-
-Azure Hybrid-förmån (för Linux) finns nu i en offentlig för hands versions fas. Du kan använda stegen nedan för att aktivera förmånerna för Red Hat-och SUSE-distributioner. 
 
 ### <a name="red-hat-customers"></a>Red Hat-kunder
 

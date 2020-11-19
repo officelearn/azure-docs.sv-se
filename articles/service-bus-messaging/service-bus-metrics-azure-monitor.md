@@ -2,13 +2,13 @@
 title: Azure Service Bus mått i Azure Monitor | Microsoft Docs
 description: Den här artikeln förklarar hur du använder Azure Monitor för att övervaka Service Bus entiteter (köer, ämnen och prenumerationer).
 ms.topic: article
-ms.date: 09/30/2020
-ms.openlocfilehash: 169edb651a59302d0ea1245fd48787404dd3e555
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 1f8bd9484bf2a2106818da1d6e4ef21e937d2ac3
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598137"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916890"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Service Bus mått i Azure Monitor
 
@@ -23,7 +23,7 @@ Azure Monitor tillhandahåller enhetliga användar gränssnitt för övervakning
 
 Azure Monitor ger till gång till mått på flera sätt. Du kan antingen komma åt mått via [Azure Portal](https://portal.azure.com)eller använda Azure Monitor-API: er (rest och .net) och analys lösningar som Azure Monitor loggar och Event Hubs. Mer information finns i [mått i Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
 
-Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna med data. Om du behöver spara data under en längre tids period kan du arkivera mått data till ett Azure Storage konto. Det här värdet konfigureras i [diagnostikinställningar](../azure-monitor/platform/diagnostic-settings.md) i Azure Monitor.
+Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna med data. Om du behöver lagra data under en längre tids period kan du arkivera mått data till ett Azure Storage konto. Det här värdet konfigureras i [diagnostikinställningar](../azure-monitor/platform/diagnostic-settings.md) i Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Åtkomst mått i portalen
 
@@ -31,7 +31,7 @@ Du kan övervaka mått över tid i [Azure Portal](https://portal.azure.com). I f
 
 ![Skärm bild av sidan övervaka – mått (för hands version) i Azure Portal.][1]
 
-Du kan också komma åt mått direkt via namn området. Det gör du genom att välja ditt namn område och sedan klicka på **mått**. Om du vill visa mått som filtrerats till omfånget för entiteten väljer du entiteten och klickar sedan på **mått**.
+Du kan också komma åt mått direkt via namn området. Det gör du genom att markera ditt namn område och sedan välja **mått**. Om du vill visa mått som filtrerats till entitetens omfång väljer du entiteten och väljer sedan **mått**.
 
 ![Skärm bild av sidan övervakaren-Metrics (för hands version) filtrerad till entitetens omfång.][2]
 
@@ -41,7 +41,7 @@ För mått som stöder dimensioner måste du filtrera med det önskade dimension
 
 Mått och aviseringar på Azure Monitor debiteras per avisering. Dessa avgifter bör vara tillgängliga på portalen när aviseringen har kon figurer ATS och innan den sparas. 
 
-Ytterligare lösningar som inhämtar mått data debiteras direkt av dessa lösningar. Till exempel debiteras du per Azure Storage om du arkiverar mått data till ett Azure Storage konto. Du debiteras också av Log Analytics om du strömmar mått data till Log Analytics för avancerad analys.
+Ytterligare lösningar som inhämtar mått data debiteras direkt av dessa lösningar. Du debiteras till exempel av Azure Storage om du arkiverar mått data till ett Azure Storage konto. du debiteras också av Log Analytics om du strömmar mått data till Log Analytics för avancerad analys.
 
 Följande mått ger en översikt över hälso tillståndet för din tjänst. 
 
@@ -59,7 +59,7 @@ Räknar antalet data-och hanterings åtgärder som begärs.
 | Inkommande förfrågningar| Antalet begär Anden som gjorts till tjänsten Service Bus under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 |Slutförda förfrågningar|Antalet lyckade förfrågningar som gjorts till tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 |Server fel|Antalet begär Anden som inte behandlats på grund av ett fel i tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
-|Användar fel (se följande underavsnitt)|Antalet begär Anden som inte behandlats på grund av användar fel under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
+|Användar fel (se följande underavsnitt)|Antalet begär Anden som inte bearbetas på grund av användar fel under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 |Begränsade begär Anden|Antalet begär Anden som har begränsats eftersom användningen överskreds.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 
 ### <a name="user-errors"></a>Användar fel
@@ -80,20 +80,18 @@ Följande två typer av fel klassificeras som användar fel:
 | Aktiva meddelanden| Antal aktiva meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Dimension: entitetsnamn |
 | Meddelanden med obeställbara meddelanden| Antal meddelanden om obeställbara meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/>Dimension: entitetsnamn |
 | Schemalagda meddelanden| Antal schemalagda meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt  <br/> Dimension: entitetsnamn |
+| Slutförda meddelanden| Antal slutförda meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Dimension: entitetsnamn |
+| Övergivna meddelanden| Antal övergivna meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Dimension: entitetsnamn |
 | Storlek | Storleken på en entitet (kö eller ämne) i byte. <br/><br/>Enhet: antal <br/>Sammansättnings typ: genomsnitt <br/>Dimension: entitetsnamn | 
 
 > [!NOTE]
-> Värden för följande mått är tidpunkts värden. Inkommande meddelanden som förbrukas direkt efter den tidpunkten kanske inte återspeglas i dessa mått. 
-> - Meddelanden
-> - Aktiva meddelanden 
-> - Meddelanden med obeställbara meddelanden 
-> - Schemalagda meddelanden 
+> Värden för meddelanden, aktiva, obeställbara meddelanden, schemalagda, avslutade och övergivna meddelanden är tidpunkts värden. Inkommande meddelanden som förbrukas direkt efter den tidpunkten kanske inte återspeglas i dessa mått. 
 
 ## <a name="connection-metrics"></a>Anslutnings mått
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Aktiva anslutningar|Antalet aktiva anslutningar i ett namn område samt på en entitet i namn området. Värdet för det här måttet är ett värde för tidpunkt. Anslutningar som var aktiva direkt efter den tidpunkten kanske inte återspeglas i måttet.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
+|Aktiva anslutningar|Antalet aktiva anslutningar i ett namn område och på en entitet i namn området. Värdet för det här måttet är ett värde för tidpunkt. Anslutningar som var aktiva direkt efter den tidpunkten kanske inte återspeglas i måttet.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 |Öppna anslutningar |Antalet öppna anslutningar.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 |Stängda anslutningar |Antalet stängda anslutningar.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 
@@ -113,7 +111,7 @@ Följande två typer av fel klassificeras som användar fel:
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 
-Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det är valfritt att lägga till dimensioner i måtten. Om du inte lägger till dimensioner anges måtten på namn områdes nivå. 
+Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det är valfritt att lägga till dimensioner i måtten. Om du inte lägger till dimensioner anges måtten på namn områdes nivån. 
 
 |Dimensions namn|Beskrivning|
 | ------------------- | ----------------- |
@@ -128,10 +126,10 @@ Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det 
     1. Välj **Service Bus namnrum** för fältet **Filtrera efter resurs typ** . 
     2. Välj din prenumeration för fältet **Filtrera efter prenumeration** .
     3. Välj **Service Bus-namnområdet** i listan. 
-    4. Välj **Done** (Klar). 
+    4. Välj **Klar**. 
     
         ![Välj namnrymd](./media/service-bus-metrics-azure-monitor/select-namespace.png)
-1. Välj **Lägg till kriterier**och utför följande åtgärder på sidan **Konfigurera signal logik** :
+1. Välj **Lägg till kriterier** och utför följande åtgärder på sidan **Konfigurera signal logik** :
     1. Välj **mått** för **signal typ**. 
     2. Välj en signal. Till exempel: **tjänst fel**. 
 
@@ -139,16 +137,16 @@ Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det 
     1. Välj **större än** för **villkor**.
     2. Välj **Total** för **tids agg regering**. 
     3. Ange **5** som **tröskelvärde**. 
-    4. Välj **Done** (Klar).    
+    4. Välj **Klar**.    
 
         ![Ange villkor](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
-1. På sidan **Skapa regel** expanderar du **definiera aviserings information**och utför följande åtgärder:
+1. På sidan **Skapa regel** expanderar du **definiera aviserings information** och utför följande åtgärder:
     1. Ange ett **namn** för aviseringen. 
     2. Ange en **Beskrivning** av aviseringen.
     3. Välj **allvarlighets grad** för aviseringen. 
 
         ![Skärm bild av sidan Skapa regel. Definiera aviserings information har expanderats och fälten för aviserings regelns namn, beskrivning och allvarlighets grad är markerade.](./media/service-bus-metrics-azure-monitor/alert-details.png)
-1. På sidan **Skapa regel** expanderar du **definiera åtgärds grupp**, väljer **ny åtgärds grupp**och utför följande åtgärder på **sidan Lägg till åtgärds grupp**. 
+1. På sidan **Skapa regel** expanderar du **definiera åtgärds grupp**, väljer **ny åtgärds grupp** och utför följande åtgärder på **sidan Lägg till åtgärds grupp**. 
     1. Ange ett namn på åtgärds gruppen.
     2. Ange ett kort namn för åtgärds gruppen. 
     3. Välj din prenumeration. 

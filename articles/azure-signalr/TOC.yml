@@ -98,6 +98,12 @@
           href: signalr-howto-diagnostic-logs.md
         - name: Granska efterlevnad med Azure Policy
           href: signalr-howto-azure-policy.md
+    - name: Felsökning
+      items:
+        - name: Felsökningsguider
+          href: signalr-howto-troubleshoot-guide.md
+        - name: Metoder för felsökning
+          href: signalr-howto-troubleshoot-method.md
 - name: Referenser
   items:
     - name: Azure CLI

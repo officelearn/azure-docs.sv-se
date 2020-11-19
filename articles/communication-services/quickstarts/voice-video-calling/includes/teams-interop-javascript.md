@@ -5,17 +5,17 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0559a9b763d273579373bb57922606f14ff6e6db
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ab13e02c9154dbfc1bd28872f1bd6f993019a604
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94574560"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915447"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
 - En fungerande [kommunikations tjänst som anropar en app](../getting-started-with-calling.md).
-- En [team distribution](https://docs.microsoft.com/deployoffice/teams-install).
+- En [team distribution](/deployoffice/teams-install).
 
 ## <a name="enable-teams-interoperability"></a>Aktivera team samverkan
 
@@ -98,7 +98,7 @@ meetingButton.addEventListener("click", () => {
 
 ## <a name="get-the-meeting-context"></a>Hämta Mötes kontexten
 
-Team-kontexten kan hämtas med Graph API: er. Detta beskrivs i [Graph-dokumentationen](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-beta&tabs=http).
+Team-kontexten kan hämtas med Graph API: er. Detta beskrivs i [Graph-dokumentationen](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
 
 Du kan också hämta nödvändig Mötes information från URL: en **till** mötets inbjudan i mötesinbjudan.
 
@@ -115,4 +115,3 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 :::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Skärm bild av det färdiga JavaScript-programmet.":::
 
 Infoga team-kontexten i text rutan och tryck på *Anslut Teams möte* för att ansluta till teamen i kommunikations tjänst programmet.
-

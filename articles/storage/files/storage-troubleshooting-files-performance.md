@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6e4eb37477a335ae93b9982692c238d05c81000b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660295"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916499"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Felsöka prestanda problem i Azure-filresurser
 
@@ -196,7 +196,7 @@ Nya ändringar av SMB Multichannel Config-inställningar utan ommontering.
 
 ### <a name="cause"></a>Orsak  
 
-Hög antal fil ändrings meddelanden på fil resurser kan resultera i avsevärd hög fördröjning. Detta inträffar vanligt vis med webbplatser som finns på fil resurser med en djup kapslad katalog struktur. Ett typiskt scenario är IIS-värdbaserade webb program där fil ändrings meddelanden installeras för varje katalog i standard konfigurationen. Varje ändring (ReadDirectoryChangesW) på den resurs som SMB-klienten är registrerad för skickar ett ändrings meddelande från fil tjänsten till klienten, som tar system resurser, och utfärdar förvärrade med antalet ändringar. Detta kan orsaka resurs begränsning och därmed resultera i högre svars tid på klient sidan. 
+Hög antal fil ändrings meddelanden på fil resurser kan resultera i avsevärd hög fördröjning. Detta inträffar vanligt vis med webbplatser som finns på fil resurser med en djup kapslad katalog struktur. Ett typiskt scenario är IIS-värdbaserade webb program där fil ändrings meddelanden installeras för varje katalog i standard konfigurationen. Varje ändring ([ReadDirectoryChangesW](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) på den resurs som SMB-klienten är registrerad för skickar ett ändrings meddelande från fil tjänsten till klienten, som tar system resurser, och utfärdar förvärrade med antalet ändringar. Detta kan orsaka resurs begränsning och därmed resultera i högre svars tid på klient sidan. 
 
 För att bekräfta kan du använda Azure-mått i portalen – 
 
@@ -213,10 +213,8 @@ För att bekräfta kan du använda Azure-mått i portalen –
     - Uppdatera IIS-arbetsprocessens (W3WP) avsöknings intervall till 0 genom att ange `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` i registret och starta om W3wp-processen. Mer information om den här inställningen finns i [vanliga register nycklar som används av många delar av IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
 - Ökar frekvensen för avsöknings intervallet för fil ändrings meddelanden för att minska volymen.
     - Uppdatera W3WP arbets process avsöknings intervall till ett högre värde (t. ex. 10mins eller 30mins) baserat på ditt krav. Ange `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [i registret](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) och starta om W3wp-processen.
-- Om webbplatsens mappade fysiska katalog har en kapslad katalog struktur kan du försöka begränsa omfattningen av fil ändrings meddelanden för att minska meddelande volymen.
-    - Som standard använder IIS konfiguration från Web.config filer i den fysiska katalogen som den virtuella katalogen mappas till, samt i alla underordnade kataloger i den fysiska katalogen. Om du inte vill använda Web.config filer i underordnade kataloger anger du falskt för attributet allowSubDirConfig i den virtuella katalogen. Mer information hittar du [här](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
-
-Ange inställningen för IIS virtuell katalog "allowSubDirConfig" i Web.Config till false för att undanta mappade fysiska underordnade kataloger från omfånget.  
+- Om webbplatsens mappade fysiska katalog har en kapslad katalog struktur kan du försöka begränsa omfattningen av fil ändrings meddelanden för att minska meddelande volymen. Som standard använder IIS konfiguration från Web.config filer i den fysiska katalogen som den virtuella katalogen mappas till, samt i alla underordnade kataloger i den fysiska katalogen. Om du inte vill använda Web.config filer i underordnade kataloger anger du falskt för attributet allowSubDirConfig i den virtuella katalogen. Mer information hittar du [här](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
+    - Ange inställningen för IIS virtuell katalog "allowSubDirConfig" i Web.Config till *false* för att undanta mappade fysiska underordnade kataloger från omfånget.  
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Så här skapar du en avisering om en fil resurs är begränsad
 

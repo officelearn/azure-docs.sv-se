@@ -4,12 +4,12 @@ description: Anpassade bildpooler är ett effektivt sätt att konfigurera datorn
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f0ba6270e6b6b4fcd258d8f5b3668931706f95b5
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c24da435540f62a793620fe6005d176ce10c7b05
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888359"
+ms.locfileid: "94917791"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Använd det delade avbildnings galleriet för att skapa en anpassad avbildnings-pool
 
@@ -73,6 +73,7 @@ Om du skapar en ny virtuell dator för avbildningen använder du en Azure Market
 - Installera inte Azure-tillägg, till exempel tillägget för anpassat skript, på den virtuella datorn. Om avbildningen innehåller ett förinstallerat tillägg kan Azure drabbas av problem när du distribuerar batch-poolen.
 - När du använder anslutna data diskar måste du montera och Formatera diskarna inifrån en virtuell dator för att använda dem.
 - Kontrol lera att den grundläggande OS-avbildningen som du anger använder standard-Temp-enheten. Batch Node-agenten förväntar sig för närvarande standard-Temp-enheten.
+- Kontrol lera att operativ system disken inte är krypterad.
 - När den virtuella datorn är igång ansluter du till den via RDP (för Windows) eller SSH (för Linux). Installera nödvändig program vara eller kopiera önskade data.  
 
 ### <a name="create-a-vm-snapshot"></a>Skapa en ögonblicks bild av en virtuell dator

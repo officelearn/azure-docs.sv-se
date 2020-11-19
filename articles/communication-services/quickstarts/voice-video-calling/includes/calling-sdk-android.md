@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 1f71c01d53a89ce1b459826689eb5b2e4899b3a2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c015561e66d77e6df352e601bf1a67da5996d4d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886775"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915217"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -153,7 +153,7 @@ Mobila push-meddelanden är de popup-meddelanden som visas på mobila enheter. F
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-Ett Firebase-konto som har kon figurer ATS med Cloud Messaging (FCM) aktiverat och med din Firebase-moln meddelande tjänst ansluten till en Azure Notification Hub-instans. Mer information finns i [meddelanden om kommunikations tjänster](https://docs.microsoft.com/azure/communication-services/concepts/notifications) .
+Ett Firebase-konto som har kon figurer ATS med Cloud Messaging (FCM) aktiverat och med din Firebase-moln meddelande tjänst ansluten till en Azure Notification Hub-instans. Mer information finns i [meddelanden om kommunikations tjänster](../../../concepts/notifications.md) .
 Dessutom förutsätter du själv studie kursen att du använder Android Studio version 3,6 eller senare för att bygga ditt program.
 
 En uppsättning behörigheter krävs för att Android-programmet ska kunna ta emot meddelanden från Firebase Cloud Messaging. I `AndroidManifest.xml` filen lägger du till följande behörighets uppsättning direkt efter *<manifestet... >* eller under *</application>* taggen

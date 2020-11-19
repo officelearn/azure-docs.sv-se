@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 10/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3e43a6b72d8de25de3220a9a6ac4e0b3986a467
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f82254915ffedf97f945be79be0de827a956af45
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701814"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916618"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Snabb start: skapa ett sökindex med hjälp av klient biblioteket för Azure.Search.Documents
 
@@ -38,6 +38,8 @@ Innan du börjar har du följande verktyg och tjänster:
 
 + [Azure.Search.Documents NuGet-paket](https://www.nuget.org/packages/Azure.Search.Documents/)
 
+Azure SDK för .NET överensstämmer med [.net Standard 2,0](/dotnet/standard/net-standard#net-implementation-support), vilket innebär att .NET Framework 4.6.1 och .net Core 2,0 som minimi krav.
+
 ## <a name="set-up-your-project"></a>Konfigurera projektet
 
 Sätt samman anslutnings information för tjänsten och starta sedan Visual Studio för att skapa ett nytt konsol program som kan köras på .NET Core.
@@ -58,15 +60,9 @@ Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din 
 
 ### <a name="install-the-nuget-package"></a>Installera NuGet-paketet
 
-När projektet har skapats lägger du till klient biblioteket. [Azure.Search.Documents-paketet](https://www.nuget.org/packages/Azure.Search.Documents/) består av ett klient bibliotek som innehåller alla API: er som används för att arbeta med en Sök tjänst i .net.
-
-1. I **verktyg**  >  **NuGet Package Manager** väljer du **Hantera NuGet-paket för lösning.**... 
-
-1. Klicka på **Browse** (Bläddra).
+1. I Visual Studio skapar du ett nytt projekt med hjälp av konsolen för konsol program (.NET Core) för C#.
 
 1. Sök efter `Azure.Search.Documents` och välj version 11,0 eller senare.
-
-1. Klicka på **Installera** till höger för att lägga till sammansättningen i projektet och lösningen.
 
 ### <a name="create-a-search-client"></a>Skapa en sökklient
 
@@ -134,9 +130,20 @@ I det här exemplet används synkrona metoder för Azure.Search.Documents-biblio
     }
     ```
 
-1. I **program.cs** skapar du ett [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) -objekt och anropar sedan [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) -metoden för att uttrycka indexet i din Sök tjänst.
+1. I **program.cs** skapar du ett [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) -objekt genom att anropa  [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) -metoden på `SearchIndexClient` .
 
-   ```csharp
+    ```csharp
+    private static void CreateIndex(string indexName, SearchIndexClient indexClient)
+    {
+        FieldBuilder fieldBuilder = new FieldBuilder();
+        var searchFields = fieldBuilder.Build(typeof(Hotel));
+        var definition = new SearchIndex(indexName, searchFields);
+
+        indexClient.CreateOrUpdateIndex(definition);
+    }
+    ```
+
+   <!-- ```csharp
     // Define an index schema using SearchIndex
     // Create the index using SearchIndexClient
     SearchIndex index = new SearchIndex(indexName)
@@ -153,7 +160,7 @@ I det här exemplet används synkrona metoder för Azure.Search.Documents-biblio
 
     Console.WriteLine("{0}", "Creating index...\n");
     idxclient.CreateIndex(index);
-   ```
+   ``` -->
 
 Attributen i fältet avgör hur det används i ett program. Till exempel `IsFilterable` måste attributet tilldelas till alla fält som har stöd för ett filter uttryck.
 
@@ -194,7 +201,7 @@ När du överför dokument måste du använda ett [IndexDocumentsBatch](/dotnet/
 
     När du har initierat [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) -objektet kan du skicka det till indexet genom att anropa [IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments) på [SearchClient](/dotnet/api/azure.search.documents.searchclient) -objektet.
 
-1. Eftersom det här är en konsol app som kör alla kommandon i tur och ordning, lägger du till en vänte tid på 2 sekunder mellan indexering och frågor.
+1. Eftersom det här är en konsol app som kör alla kommandon i tur och ordning, lägger du till en fördröjning på 2 sekunder.
 
     ```csharp
     // Wait 2 seconds for indexing to complete before starting queries (for demo and console-app purposes only)
@@ -206,7 +213,7 @@ När du överför dokument måste du använda ett [IndexDocumentsBatch](/dotnet/
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
-Du kan få frågeresultat så snart det första dokumentet har indexerats, men den faktiska testningen av indexet ska vänta tills alla dokument har indexerats.
+Du kan få frågeresultat så snart det första dokumentet har indexerats, men för korrekt testning väntar du tills alla dokument har indexerats.
 
 I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och resultat. Använd [Sök](/dotnet/api/azure.search.documents.searchclient.search) metoden för frågor. Den här metoden tar Sök text (frågesträngen) och andra [alternativ](/dotnet/api/azure.search.documents.searchoptions).
 
@@ -292,14 +299,6 @@ Både sökningar och filter utförs med metoden [SearchClient. search](/dotnet/a
 Tryck på F5 för att återskapa appen och köra programmet i sin helhet. 
 
 Utdata innehåller meddelanden från [Console. WriteLine](/dotnet/api/system.console.writeline), med tillägget av frågans information och resultat.
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
-
-Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
-
-Kom ihåg att du är begränsad till tre index, indexerare och data källor om du använder en kostnads fri tjänst. Du kan ta bort enskilda objekt i portalen för att hålla dig under gränsen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

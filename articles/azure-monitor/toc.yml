@@ -944,14 +944,28 @@
           href: insights/vminsights-maps.md
         - name: Övervaka prestanda
           href: insights/vminsights-performance.md
-        - name: Övervaka ändringar
-          href: insights/vminsights-change-analysis.md
+        - name: Övervaka gästhälsa (förhandsversion)
+          items:
+            - name: Översikt
+              href: insights/vminsights-health-overview.md
+            - name: Aktivera
+              href: insights/vminsights-health-enable.md
+            - name: Aviseringar
+              href: insights/vminsights-health-alerts.md
+            - name: Konfigurera övervakare i portalen
+              href: insights/vminsights-health-configure.md
+            - name: Konfigurera övervakare i stor skala
+              href: insights/vminsights-health-configure-dcr.md
+            - name: Felsöka
+              href: insights/vminsights-health-troubleshoot.md
         - name: Analysera data med loggfrågor
           href: insights/vminsights-log-search.md
+        - name: Övervaka prestanda
+          href: insights/vminsights-alerts.md
+        - name: Övervaka ändringar
+          href: insights/vminsights-change-analysis.md
         - name: Visualisera data med arbetsböcker
           href: insights/vminsights-workbooks.md
-        - name: Skapa aviseringsregler
-          href: insights/vminsights-alerts.md
         - name: Inaktivera övervakning
           href: insights/vminsights-optout.md
     - name: Azure Monitor för containrar

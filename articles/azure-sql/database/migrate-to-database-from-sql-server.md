@@ -12,17 +12,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/11/2019
-ms.openlocfilehash: 41f3505388e72fba15277067a94cf4e473008f20
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fab52fcea03a2f65c868cfac27f8a8cef115b2be
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790431"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917655"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server-databasmigrering till Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-I den här artikeln får du lära dig om de primära metoderna för att migrera en SQL Server 2005-databas eller senare till Azure SQL Database. Information om hur du migrerar till en Azure SQL-hanterad instans finns i [Migrera en SQL Server instans till en Azure SQL-hanterad instans](../managed-instance/migrate-to-instance-from-sql-server.md). Information om migrering om migrering från andra plattformar finns i [guiden Migrera Azure Database](https://datamigration.microsoft.com/).
+I den här artikeln får du lära dig om de primära metoderna för att migrera en SQL Server 2005-databas eller senare till Azure SQL Database. Information om hur du migrerar till en Azure SQL-hanterad instans finns i [Migrera en SQL Server instans till en Azure SQL-hanterad instans](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md). Vägledning om hur du väljer alternativ för migrering och verktyg för att migrera till Azure SQL finns i [migrera till Azure SQL](../migration-guides/index.yml)
+
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migrera till en enskild databas eller en databas i poolen
 

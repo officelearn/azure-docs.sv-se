@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 498934c01970b296c1491e7ccd36ad947324306a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e90c1d1cfa02f63a2b5115124dee2a9da68e2f3f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445344"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917281"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Skapa en förslags ställare för att aktivera Autoavsluta och föreslagna resultat i en fråga
 
-I Azure Kognitiv sökning aktive ras "Sök som-du-typ" via en **förslags** konstruktion som läggs till i ett [sökindex](search-what-is-an-index.md). En förslags ställare stöder två upplevelser: *komplettera automatiskt* , som slutför indatamängden för en fullständig term fråga och *förslag* som bjuder in genom att klicka igenom till en viss matchning. Funktionen Komplettera automatiskt skapar en fråga. Förslag skapar ett matchande dokument.
+I Azure Kognitiv sökning aktive ras "Sök som-du-typ" via en **förslags** konstruktion som läggs till i ett [sökindex](search-what-is-an-index.md). En förslags ställare stöder två upplevelser: *komplettera automatiskt*, som slutför indatamängden för en fullständig term fråga och *förslag* som bjuder in genom att klicka igenom till en viss matchning. Funktionen Komplettera automatiskt skapar en fråga. Förslag skapar ett matchande dokument.
 
 Följande skärm bild från [skapa din första app i C#](tutorial-csharp-type-ahead-and-suggestions.md) visar båda. Autoavsluta förväntar sig en möjlig term, och avslutar "TW" med "in". Förslag är små Sök resultat, där ett fält som ett hotell namn representerar ett matchande hotell Sök dokument från indexet. För förslag kan du Visa alla fält som innehåller beskrivande information.
 
@@ -54,7 +54,7 @@ Autoavsluta-förmåner från en större pool med fält att rita från eftersom d
 
 Förslag ger å andra sidan bättre resultat när valet av fält är selektivt. Kom ihåg att förslaget är en proxy för ett Sök dokument, så att du vill att fält som bäst representerar ett enda resultat. Namn, titlar eller andra unika fält som skiljer sig mellan flera matchningar fungerar bäst. Om fälten består av upprepade värden, består förslagen av identiska resultat och en användare vet inte vilken av dem som ska klicka.
 
-Lägg till alla fält som du behöver för Komplettera automatiskt, men Använd **$Select** , **$Top** , **$filter** och **searchFields** för att kontrol lera resultaten för förslag.
+Lägg till alla fält som du behöver för Komplettera automatiskt, men Använd **$Select**, **$Top**, **$filter** och **searchFields** för att kontrol lera resultaten för förslag.
 
 ### <a name="choose-analyzers"></a>Välj analys verktyg
 
@@ -120,20 +120,20 @@ Lägg till förslag via [skapa index](/rest/api/searchservice/create-index) elle
 I C# definierar du ett [SearchSuggester-objekt](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` är en samling på ett SearchIndex-objekt, men det kan bara ta ett objekt. 
 
 ```csharp
-private static void CreateIndex(string indexName, SearchIndexClient indexClient)
+private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
 {
-    FieldBuilder fieldBuilder = new FieldBuilder();
-    var searchFields = fieldBuilder.Build(typeof(Hotel));
+    var definition = new SearchIndex()
+    {
+        FieldBuilder builder = new FieldBuilder();
+        Fields = builder.Build(typeof(Hotel);
+        Suggesters = new List<Suggester>() {new Suggester()
+            {
+                Name = "sg",
+                SourceFields = new string[] { "HotelName", "Category" }
+            }}
+    }
 
-    //var suggester = new SearchSuggester("sg", sourceFields = "HotelName", "Category");
-
-    var definition = new SearchIndex(indexName, searchFields);
-
-    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category"});
-
-    definition.Suggesters.Add(suggester);
-
-    indexClient.CreateOrUpdateIndex(definition);
+    await indexClient.CreateIndexAsync(definition);
 }
 ```
 

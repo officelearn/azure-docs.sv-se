@@ -63,14 +63,24 @@
           href: plan-sso-deployment.md
         - name: Alternativ för enkel inloggning
           href: sso-options.md
+        - name: Enkel inloggning med lokala appar
+          href: application-proxy-config-sso-how-to.md
         - name: OIDC-baserad enkel inloggning
           href: configure-oidc-single-sign-on.md
         - name: SAML-baserad SSO
           href: configure-saml-single-sign-on.md
+        - name: SAML-baserad enkel inloggning (lokala appar)
+          href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: Lösenordsbaserad enkel inloggning
           href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: Lösenordsbaserad enkel inloggning (lokala appar)
+          href: application-proxy-configure-single-sign-on-password-vaulting.md
         - name: Länkbaserad enkel inloggning
           href: configure-linked-sign-on.md
+        - name: Rubriksbaserad enkel inloggning (lokala appar)
+          href: application-proxy-configure-single-sign-on-with-headers.md
+        - name: Kerberos-baserad enkel inloggning (lokala appar)
+          href: application-proxy-configure-single-sign-on-with-kcd.md
         - name: Enkel inloggning med ett klick
           href: one-click-sso-tutorial.md
     - name: Programsäkerhet
@@ -182,24 +192,16 @@
           href: application-proxy-remove-personal-data.md
         - name: Konfigurera anpassat domän
           href: application-proxy-configure-custom-domain.md
-        - name: Enkel inloggning med programproxy
-          items:
-            - name: Begränsad Kerberos-delegering (KCD)
-              href: application-proxy-configure-single-sign-on-with-kcd.md
-            - name: Lösenordsvalv
-              href: application-proxy-configure-single-sign-on-password-vaulting.md
-            - name: Rubriker
-              href: application-proxy-configure-single-sign-on-with-ping-access.md
-            - name: SAML SSO
-              href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: Skydda äldre appar med appars leveranskontroller eller nätverk
           href: secure-hybrid-access.md
         - name: Publicera genomgångar
           items:
             - name: Integrera med programproxy på en NDES-server
               href: active-directory-app-proxy-protect-ndes.md
+            - name: Integrera med programproxy med hjälp av PingAccess
+              href: application-proxy-ping-access-publishing-guide.md
             - name: Integrera med Azure AD Domain Services
-              href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
+              href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
             - name: Integrera med Power BI
               href: application-proxy-integrate-with-power-bi.md
             - name: Integrera med Cloud App Security
@@ -256,14 +258,12 @@
               href: application-proxy-connectivity-no-working-connector.md
             - name: Konfigurera i administratörsportalen
               href: application-proxy-config-how-to.md
-            - name: Konfigurera enkel inloggning till min app
-              href: application-proxy-config-sso-how-to.md
             - name: Problem med att skapa en app i administratörsportalen
               href: application-proxy-config-problem.md
             - name: Konfigurera begränsad Kerberos-delegering
               href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
             - name: Konfigurera med PingAccess
-              href: application-proxy-back-end-ping-access-how-to.md
+              href: /azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide
             - name: 'Fel: Det går inte att få åtkomst till det här företagsprogrammet'
               href: application-proxy-sign-in-bad-gateway-timeout-error.md
             - name: Problem med att installera anslutningsappen för programproxyagenten
@@ -281,11 +281,11 @@
 - name: Resurser
   items:
     - name: Support- och hjälpalternativ för utvecklare
-      href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
+      href: ../develop/developer-support-help-options.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
     - name: Azures feedbackforum
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Frågesida på Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+      href: /answers/topics/azure-active-directory.html
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: Tjänstuppdateringar

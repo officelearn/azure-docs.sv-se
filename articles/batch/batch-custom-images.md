@@ -2,24 +2,24 @@
 title: Använd en hanterad avbildning för att skapa en anpassad avbildnings-pool
 description: Skapa en anpassad avbildnings-pool från en hanterad avbildning för att etablera datornoder med program vara och data för ditt program.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 0a357a1d8a22341297f3bee73fb0867fb03f374f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851298"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916584"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Använd en hanterad avbildning för att skapa en anpassad avbildnings-pool
 
-Om du vill skapa en anpassad skrivarpool för batch-poolens virtuella datorer, kan du använda en hanterad avbildning för att skapa en [avbildning av ett delat avbildnings Galleri](batch-sig-images.md). Att bara använda en hanterad avbildning stöds också, men endast för API-versioner upp till och inklusive 2019-08-01. 
+Om du vill skapa en anpassad skrivarpool för batch-poolens virtuella datorer, kan du använda en hanterad avbildning för att skapa en [avbildning av ett delat avbildnings Galleri](batch-sig-images.md). Att bara använda en hanterad avbildning stöds också, men endast för API-versioner upp till och inklusive 2019-08-01.
 
 > [!IMPORTANT]
 > I de flesta fall bör du skapa anpassade avbildningar med hjälp av den delade avbildnings galleriet. Genom att använda det delade avbildnings galleriet kan du etablera pooler snabbare, skala större kvantiteter av virtuella datorer och förbättra tillförlitligheten vid etablering av virtuella datorer. Mer information finns i [använda galleriet för delade avbildningar för att skapa en anpassad pool](batch-sig-images.md).
 
 I det här avsnittet beskrivs hur du skapar en anpassad avbildning med endast en hanterad avbildning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **En hanterad avbildnings resurs**. Om du vill skapa en pool med virtuella datorer med en anpassad avbildning måste du ha eller skapa en hanterad avbildnings resurs i samma Azure-prenumeration och region som batch-kontot. Avbildningen bör skapas från ögonblicks bilder av den virtuella datorns OS-disk och eventuellt anslutna data diskar.
   - Använd en unik anpassad avbildning för varje pool som du skapar.
@@ -49,6 +49,7 @@ Om du skapar en ny virtuell dator för avbildningen använder du en Azure Market
 - Installera inte Azure-tillägg, till exempel tillägget för anpassat skript, på den virtuella datorn. Om avbildningen innehåller ett förinstallerat tillägg kan Azure drabbas av problem när du distribuerar batch-poolen.
 - När du använder anslutna data diskar måste du montera och Formatera diskarna inifrån en virtuell dator för att använda dem.
 - Kontrol lera att den grundläggande OS-avbildningen som du anger använder standard-Temp-enheten. Batch Node-agenten förväntar sig för närvarande standard-Temp-enheten.
+- Kontrol lera att operativ system disken inte är krypterad.
 - När den virtuella datorn är igång ansluter du till den via RDP (för Windows) eller SSH (för Linux). Installera nödvändig program vara eller kopiera önskade data.  
 
 ### <a name="create-a-vm-snapshot"></a>Skapa en ögonblicks bild av en virtuell dator

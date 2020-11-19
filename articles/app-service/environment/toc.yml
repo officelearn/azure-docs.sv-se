@@ -3,6 +3,8 @@
   items:
     - name: Om App Service-miljöer
       href: intro.md
+    - name: App Service-miljön v3 (förhandsversion)
+      href: overview.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -10,11 +12,13 @@
       href: create-external-ase.md
     - name: Skapa intern ASE
       href: create-ilb-ase.md
+    - name: Skapa ASEv3 (förhandsversion)
+      href: creation.md
 - name: Självstudier
   items:
     - name: Integrera med WAF
       href: app-service-app-service-environment-web-application-firewall.md
-    - name: Konfigurera TLS
+    - name: Anpassade inställningar för ASE
       href: app-service-app-service-environment-custom-settings.md
 - name: Exempel
   items:
@@ -28,12 +32,12 @@
       href: network-info.md
     - name: Geo-distribuerad skalning
       href: app-service-app-service-environment-geo-distributed-scale.md
-    - name: ASEv1
-      href: app-service-app-service-environment-intro.md
     - name: Diagnostik
       href: ../overview-diagnostics.md
     - name: Certifikat
       href: certificates.md
+    - name: ASEv3-nätverk (förhandsversion)
+      href: networking.md
 - name: Instruktionsguider
   items:
     - name: Använd ASE
@@ -48,12 +52,16 @@
       href: firewall-integration.md
     - name: Zonredundans
       href: zone-redundancy.md
+    - name: Använda ASEv3 (förhandsversion)
+      href: using.md
 - name: Referens
   items:
     - name: Hanteringsadresser
       href: management-addresses.md
     - name: Dokumentation om ASEv1
       items:
+        - name: ASEv1
+          href: app-service-app-service-environment-intro.md
         - name: Skapa ASEv1
           href: app-service-web-how-to-create-an-app-service-environment.md
         - name: Konfigurera ASEv1

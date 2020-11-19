@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: df4faf367951402914abb03285498e0da6f3105f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9a2bda0a526c307ae17d8415f6f24423ddf51b63
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337684"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917774"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Azure HDInsight ID Broker (HIB)
 
@@ -52,7 +52,7 @@ Följande diagram visar det grundläggande autentiseringsschemat för federerade
 
 Så här skapar du ett Enterprise Security Package kluster med HDInsight ID Broker aktiverat:
 
-1. Logga in i [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Följ de grundläggande stegen för att skapa Enterprise Security Package-kluster. Mer information finns i [skapa ett HDInsight-kluster med Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 1. Välj **Aktivera HDInsight ID Broker**.
 
@@ -137,6 +137,25 @@ curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application
 ``` 
 
 För att använda Beeline och livy kan du även följa de exempel koder som anges [här](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) för att konfigurera klienten att använda OAuth och ansluta till klustret.
+
+## <a name="faq"></a>Vanliga frågor
+### <a name="what-app-is-created-by-hdinsight-in-aad"></a>Vilken app skapas av HDInsight i AAD?
+För varje kluster registreras ett program från tredje part i AAD med kluster-URI som identifierar (t https://clustername.azurehdinsight.net . ex.).
+
+### <a name="why-are-users-prompted-for-consent-before-using-hib-enabled-clusters"></a>Varför uppmanas användarna att ange medgivande innan de använder HIB-aktiverade kluster?
+I AAD krävs medgivande för alla program från tredje part innan det kan autentisera användare eller komma åt data.
+
+### <a name="can-the-consent-be-approved-programatically"></a>Kan medgivande godkännas program mässigt?
+Microsoft Graph API gör att du kan automatisera medgivande, se [API-dokumentationen](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) som sekvensen för att automatisera godkännandet är:
+
+* Registrera en app och bevilja Application. ReadWrite. alla behörigheter till appen för att få åtkomst till Microsoft Graph
+* Efter att ett kluster har skapats frågar du efter kluster appen baserat på ID-URI: n
+* Registrera medgivande för appen
+
+När klustret tas bort tar HDInsight bort appen och det finns inget behov av att rensa ett medgivande.
+
+ 
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,13 +2,13 @@
 title: Distribuera resurser till resurs grupper
 description: Beskriver hur du distribuerar resurser i en Azure Resource Manager mall. Det visar hur du riktar in mer än en resurs grupp.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: fd211641d7fcc02a1db154053597497583b21ae5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/18/2020
+ms.openlocfilehash: 5e33f0d505759944ccaf2233aa122b6ab701c91f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681671"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917434"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Resurs grupps distributioner med ARM-mallar
 
@@ -83,6 +83,8 @@ När du distribuerar till en resurs grupp kan du distribuera resurser för att:
 
 * mål resurs gruppen från åtgärden
 * andra resurs grupper i samma prenumeration eller andra prenumerationer
+* alla prenumerationer i klient organisationen
+* innehavaren för resurs gruppen
 * [tilläggs resurser](scope-extension-resources.md) kan tillämpas på resurser
 
 Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
@@ -95,6 +97,8 @@ Om du vill distribuera resurser till mål resursen lägger du till resurserna i 
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-rg.json" highlight="5":::
 
+En exempel-mall finns i [distribuera till mål resurs grupp](#deploy-to-target-resource-group).
+
 ### <a name="scope-to-resource-group-in-same-subscription"></a>Omfånget till resurs gruppen i samma prenumeration
 
 Om du vill distribuera resurser till en annan resurs grupp i samma prenumeration lägger du till en kapslad distribution och inkluderar `resourceGroup` egenskapen. Om du inte anger prenumerations-ID eller resurs grupp används prenumerationen och resurs gruppen från den överordnade mallen. Alla resurs grupper måste finnas innan du kör distributionen.
@@ -103,13 +107,43 @@ I följande exempel riktar den kapslade distributionen till en resurs grupp med 
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/same-sub-to-resource-group.json" highlight="9,13":::
 
+En exempel-mall finns i [distribuera till flera resurs grupper](#deploy-to-multiple-resource-groups).
+
 ### <a name="scope-to-resource-group-in-different-subscription"></a>Omfånget till resurs gruppen i en annan prenumeration
 
 Om du vill distribuera resurser till en resurs grupp i en annan prenumeration lägger du till en kapslad distribution och inkluderar- `subscriptionId` och- `resourceGroup` egenskaperna. I följande exempel riktar den kapslade distributionen till en resurs grupp med namnet `demoResourceGroup` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/different-sub-to-resource-group.json" highlight="9,10,14":::
 
-## <a name="cross-resource-groups"></a>Kors resurs grupper
+En exempel-mall finns i [distribuera till flera resurs grupper](#deploy-to-multiple-resource-groups).
+
+### <a name="scope-to-subscription"></a>Omfång till prenumeration
+
+Om du vill distribuera resurser till en prenumeration lägger du till en kapslad distribution och inkluderar `subscriptionId` egenskapen. Prenumerationen kan vara prenumerationen för mål resurs gruppen eller någon annan prenumeration i klienten. Ange också `location` egenskapen för den kapslade distributionen.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-subscription.json" highlight="9,10,14":::
+
+En exempel-mall finns i [skapa resurs grupp](#create-resource-group).
+
+### <a name="scope-to-tenant"></a>Scope till klient organisation
+
+Du kan skapa resurser på klient organisationen genom att ange `scope` värdet `/` . Användaren som distribuerar mallen måste ha den [åtkomst som krävs för att distribuera på klienten](deploy-to-tenant.md#required-access).
+
+Du kan använda en kapslad distribution med `scope` och `location` Ange.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
+
+Eller så kan du ange omfånget till `/` för vissa resurs typer, t. ex. hanterings grupper.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
+
+## <a name="deploy-to-target-resource-group"></a>Distribuera till mål resurs grupp
+
+Om du vill distribuera resurser i mål resurs gruppen definierar du resurserna i avsnittet **resurser** i mallen. Följande mall skapar ett lagrings konto i resurs gruppen som anges i distributions åtgärden.
+
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
+
+## <a name="deploy-to-multiple-resource-groups"></a>Distribuera till flera resurs grupper
 
 Du kan distribuera till fler än en resurs grupp i en enda ARM-mall. Använd en [kapslad eller länkad mall](linked-templates.md)om du vill rikta en resurs grupp från en annan resurs grupp än den för den överordnade mallen. I resurs typen distribution anger du värden för det prenumerations-ID och den resurs grupp som du vill att den kapslade mallen ska distribuera till. Resurs grupperna kan finnas i olika prenumerationer.
 
@@ -152,10 +186,10 @@ $secondRG = "secondarygroup"
 $firstSub = "<first-subscription-id>"
 $secondSub = "<second-subscription-id>"
 
-Select-AzSubscription -Subscription $secondSub
+Set-AzContext -Subscription $secondSub
 New-AzResourceGroup -Name $secondRG -Location eastus
 
-Select-AzSubscription -Subscription $firstSub
+Set-AzContext -Subscription $firstSub
 New-AzResourceGroup -Name $firstRG -Location southcentralus
 
 New-AzResourceGroupDeployment `
@@ -207,6 +241,76 @@ az deployment group create \
 ```
 
 ---
+
+## <a name="create-resource-group"></a>Skapa resursgrupp
+
+Från en resurs grupps distribution kan du växla till en prenumerations nivå och skapa en resurs grupp. Följande mall distribuerar ett lagrings konto till mål resurs gruppen och skapar en ny resurs grupp i den angivna prenumerationen.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        },
+        "newResourceGroupName": {
+            "type": "string"
+        },
+        "nestedSubscriptionID": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[variables('storageName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "demoSubDeployment",
+            "location": "westus",
+            "subscriptionId": "[parameters('nestedSubscriptionID')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Resources/resourceGroups",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('newResourceGroupName')]",
+                            "location": "[parameters('location')]",
+                            "properties": {}
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: d48add78eb73ba1aea248e95ddc5ebc0900ee000
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: b900373c7e6a3b3701ae30274ff27629b7f47ef9
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888342"
+ms.locfileid: "94916856"
 ---
 # <a name="supported-devices"></a>Enheter som stöds
 
@@ -33,7 +33,7 @@ Om du behöver hantera Azure-resurser från en mobil enhet kan du försöka med 
 Vi rekommenderar att du använder den senaste webbläsaren som är kompatibel med ditt operativsystem. Följande webbläsare stöds:
 
 * Microsoft Edge (senaste versionen)
-* Internet Explorer 11 (stöds fram till den 31 mars 2021)
+* Internet Explorer 11
 * Safari (senaste versionen, endast Mac)
 * Chrome (senaste versionen)
 * Firefox (senaste versionen)

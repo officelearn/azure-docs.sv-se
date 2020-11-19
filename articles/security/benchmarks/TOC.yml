@@ -139,6 +139,8 @@
       href: ../../container-instances/security-baseline.md
     - name: Säkerhetsbaslinje för Container Registry
       href: ../../container-registry/security-baseline.md
+    - name: Säkerhetsbaslinje för Content Delivery Network
+      href: ../../cdn/security-baseline.md
     - name: Säkerhetsbaslinje för Cosmos DB
       href: ../../cosmos-db/security-baseline.md
     - name: Säkerhetsbaslinje för Cost Management

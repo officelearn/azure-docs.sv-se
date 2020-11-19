@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: a02fa7d9f656ed3b6e61aab1f42e2a3ffca131a7
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490278"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917264"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduktion till etablerade data flöden i Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -65,7 +65,7 @@ Alla behållare som skapats i en databas med ett allokerat data flöde måste sk
 
 Om arbets belastningen på en logisk partition förbrukar mer än det data flöde som har allokerats till en viss logisk partition, är dina åtgärder avgiftsbelagda. När Rate-Limiting sker kan du antingen öka data flödet för hela databasen eller försöka utföra åtgärderna igen. Mer information om partitionering finns i [logiska partitioner](partitioning-overview.md).
 
-Containrar i en databas med delat dataflöde delar på dataflödet (RU/s) som allokerats till databasen. Du kan ha upp till fyra containrar med minst 400 RU/s med databasen. Med standard (manuellt) allokerat data flöde, kräver varje ny behållare efter de första fyra ytterligare 100 RU/s-minimum. Om du till exempel har en databas med delat dataflöde med åtta containrar, är databasens minsta RU/s 800 RU/s. Med autoskalning av allokerat data flöde kan du ha upp till 25 behållare i en databas med autoskalning Max 4000 RU/s (skalas mellan 400-4000 RU/s).
+Containrar i en databas med delat dataflöde delar på dataflödet (RU/s) som allokerats till databasen. Med standard (manuellt) tillhandahållet data flöde kan du ha upp till 25 behållare med minst 400 RU/s på databasen. Med autoskalning av allokerat data flöde kan du ha upp till 25 behållare i en databas med autoskalning Max 4000 RU/s (skalas mellan 400-4000 RU/s).
 
 > [!NOTE]
 > I februari 2020 införde vi en ändring som gör att du kan ha högst 25 behållare i en delad data flödes databas, vilket bättre möjliggör data flödes delning över behållarna. Efter de första 25 behållarna kan du bara lägga till fler behållare i databasen om de är [etablerade med dedikerat data flöde](#set-throughput-on-a-database-and-a-container), som är åtskilda från det delade data flödet i databasen.<br>
@@ -80,11 +80,11 @@ Om arbets belastningarna innebär att du tar bort och återskapar alla samlingar
 Du kan kombinera de två modellerna. Etablering av data flöde på både databasen och behållaren tillåts. Följande exempel visar hur du etablerar standard (manuellt) etablerat data flöde på en Azure Cosmos-databas och en behållare:
 
 * Du kan skapa en Azure Cosmos-databas med namnet *Z* med standard (manuellt) allokerat data flöde för *"K"* ru: er. 
-* Skapa sedan fem behållare med namnet *A* , *B* , *C* , *D* och *E* i databasen. När du skapar container B, se till att aktivera **etablera dedikerat data flöde för det här behållar** alternativet och konfigurera *"P"* -ru: er av etablerat data flöde på den här behållaren. Du kan bara konfigurera delade och dedikerade data flöde när du skapar databasen och behållaren. 
+* Skapa sedan fem behållare med namnet *A*, *B*, *C*, *D* och *E* i databasen. När du skapar container B, se till att aktivera **etablera dedikerat data flöde för det här behållar** alternativet och konfigurera *"P"* -ru: er av etablerat data flöde på den här behållaren. Du kan bara konfigurera delade och dedikerade data flöde när du skapar databasen och behållaren. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Ange data flödet på behållar nivån":::
 
-* *"K"* ru: er-dataflödet delas mellan de fyra behållarna *A* , *C* , *D* , och *E*. Den exakta mängden data flöde som är tillgängliga för *A* , *C* , *D* eller *E* varierar. Det finns inga service avtal för varje enskild behållares data flöde.
+* *"K"* ru: er-dataflödet delas mellan de fyra behållarna *A*, *C*, *D*, och *E*. Den exakta mängden data flöde som är tillgängliga för *A*, *C*, *D* eller *E* varierar. Det finns inga service avtal för varje enskild behållares data flöde.
 * Behållaren med namnet *B* garanterar att du kan hämta *"P"* ru: er-dataflöde hela tiden. Den backas upp av service avtal.
 
 > [!NOTE]
@@ -111,7 +111,6 @@ Det faktiska antalet RU/s kan variera beroende på din konto konfiguration. Men 
 * 400 RU/s 
 * Aktuellt lagrings utrymme i GB * 10 RU/s (om inte din behållare eller databas innehåller mer än 1 TB data, se vårt [program för hög lagring/låg genom strömning](#high-storage-low-throughput-program))
 * Mest RU/s etablerad i databasen eller containern/100
-* Antal behållare * 100 RU/s (endast delad data flödes databas)
 
 ### <a name="changing-the-provisioned-throughput"></a>Ändra det etablerade data flödet
 
@@ -122,7 +121,7 @@ Du kan skala det etablerade data flödet för en behållare eller en databas via
 
 Om du **minskar det etablerade data flödet** kommer du att kunna göra det till ett [minimum](#current-provisioned-throughput).
 
-Om du **ökar det etablerade data flödet** , är det mesta av tiden att göra en omedelbar åtgärd. Det finns dock fall där åtgärden kan ta längre tid på grund av system aktiviteterna för att etablera nödvändiga resurser. I det här fallet kommer ett försök att ändra det etablerade data flödet medan den här åtgärden pågår att ge ett HTTP 423-svar med ett fel meddelande som förklarar att en annan skalnings åtgärd pågår.
+Om du **ökar det etablerade data flödet**, är det mesta av tiden att göra en omedelbar åtgärd. Det finns dock fall där åtgärden kan ta längre tid på grund av system aktiviteterna för att etablera nödvändiga resurser. I det här fallet kommer ett försök att ändra det etablerade data flödet medan den här åtgärden pågår att ge ett HTTP 423-svar med ett fel meddelande som förklarar att en annan skalnings åtgärd pågår.
 
 > [!NOTE]
 > Om du planerar för en mycket stor inmatnings arbets belastning som kräver en stor ökning av det etablerade data flödet, bör du tänka på att skalnings åtgärden inte har något service avtal och, vilket beskrivs i föregående stycke, kan ta lång tid när ökningen är stor. Du kanske vill planera framåt och påbörja skalningen innan arbets belastningen startar och använda nedanstående metoder för att kontrol lera förloppet.
@@ -147,8 +146,8 @@ Den här tabellen visar en jämförelse mellan Provisioning standard (manuell) d
 
 |**Parameter**  |**Standard (manuell) genom strömning på en databas**  |**Standard (manuell) genom strömning på en behållare**|**Autoskalning av data flöde på en databas** | **Autoskalning av data flöde på en behållare**|
 |---------|---------|---------|---------|---------|
-|Start punkt (minst RU/s) |400 RU/s. Efter de första fyra behållarna kräver varje ytterligare behållare minst 100 RU/s</li> |400| Skala mellan 400-4000 RU/s. Kan ha upp till 25 behållare utan RU/s minimum per container</li> | Skala mellan 400-4000 RU/s.|
-|Lägsta RU/s per behållare|100|400|--|Skala mellan 400-4000 RU/s|
+|Start punkt (minst RU/s) |400 RU/s. Kan ha upp till 25 behållare utan RU/s minimum per container.</li> |400| Skala mellan 400-4000 RU/s. Kan ha upp till 25 behållare utan RU/s minimum per container.</li> | Skala mellan 400-4000 RU/s.|
+|Lägsta RU/s per behållare|--|400|--|Skala mellan 400-4000 RU/s|
 |Maximalt ru: er|Obegränsat, på databasen.|Obegränsat, på behållaren.|Obegränsat, på databasen.|Obegränsat, på behållaren.
 |Ru: er tilldelad eller tillgänglig för en speciell behållare|Inga garantier. Ru: er som tilldelas en specifik behållare beror på egenskaperna. Egenskaper kan vara valet av partitionsnyckel för behållare som delar data flödet, distributionen av arbets belastningen och antalet behållare. |Alla ru: er som kon figurer ATS på behållaren är exklusivt reserverade för behållaren.|Inga garantier. Ru: er som tilldelas en specifik behållare beror på egenskaperna. Egenskaper kan vara valet av partitionsnyckel för behållare som delar data flödet, distributionen av arbets belastningen och antalet behållare. |Alla ru: er som kon figurer ATS på behållaren är exklusivt reserverade för behållaren.|
 |Maximalt lagrings utrymme för en behållare|Många.|Obegränsat|Obegränsat|Obegränsat|

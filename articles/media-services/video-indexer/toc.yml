@@ -65,6 +65,8 @@
       href: use-editor-create-project.md
     - name: Bädda in widgetar i programmet
       href: video-indexer-embed-widgets.md
+    - name: Överväganden när du använder Video Indexer i stor skala
+      href: considerations-when-use-at-scale.md
     - name: Haveriberedskap
       href: video-indexer-disaster-recovery.md
     - name: Anpassa innehållsmodeller

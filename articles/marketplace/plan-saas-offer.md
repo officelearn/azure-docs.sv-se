@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5a646f7f42a2af8dcf15f7b7b2cd700e159fe88d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 9034757539a3dfd8b5e43e97ec518479da396456
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734403"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917553"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planera ett SaaS-erbjudande för den kommersiella marknaden
 
@@ -104,7 +104,26 @@ Du kan lägga till eller ändra en CRM-anslutning när som helst under eller eft
 
 ## <a name="selecting-an-online-store"></a>Välja en onlinebutik
 
-När du publicerar ett SaaS-erbjudande visas det i Microsoft AppSource, Azure Marketplace eller båda. I varje onlinebutik används unika kund krav. AppSource är för affärs lösningar och Azure Marketplace är för IT-lösningar. Erbjudande typen, Transact-funktionerna och-kategorierna avgör var ditt erbjudande ska publiceras. Kategorier och under Kategorier mappas till varje onlinebutik utifrån lösnings typen. Detaljerad information om List alternativ som stöds av onlinebutiker finns i [lista och pris alternativ per onlinebutik](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Mer information om kategorier och under kategorier finns [i kategorier och under Kategorier i den kommersiella marknads platsen](categories.md).
+När du publicerar ett SaaS-erbjudande visas det i Microsoft AppSource, Azure Marketplace eller båda. I varje onlinebutik används unika kund krav. AppSource är för affärs lösningar och Azure Marketplace är för IT-lösningar. Erbjudande typen, Transact-funktionerna och-kategorierna avgör var ditt erbjudande ska publiceras. Kategorier och under Kategorier mappas till varje onlinebutik utifrån lösnings typen. 
+
+Om ditt SaaS-erbjudande är *både* en IT-lösning (Azure Marketplace) och en företags lösning (AppSource), väljer du en kategori och en under kategori som gäller för varje onlinebutik. Erbjudanden som publiceras i båda onlinebutiker bör ha ett värde som en IT-lösning *och* en affärs lösning.
+
+> [!IMPORTANT]
+> SaaS-erbjudanden med [avgiftsbelagda faktureringar](partner-center-portal/saas-metered-billing.md) är tillgängliga via Azure Marketplace och Azure Portal. SaaS-erbjudanden med enbart privata planer är tillgängliga via Azure Portal.
+
+| Avgiftsbelagd fakturering | Offentligt abonnemang | Privat plan | Tillgängligt i: |
+|---|---|---|---|
+| Ja             | Ja         | Nej           | Azure Marketplace och Azure Portal |
+| Ja             | Ja         | Ja          | Azure Marketplace och Azure Portal * |
+| Ja             | Nej          | Ja          | Endast Azure Portal |
+| Nej              | Nej          | Ja          | Endast Azure Portal |
+|||||
+
+&#42; privat plan för erbjudandet är endast tillgängligt via Azure Portal
+
+Ett erbjudande med till exempel fakturering och enbart privat plan (ingen offentlig plan) kommer att köpas av kunder i Azure Portal. Lär dig mer om [privata erbjudanden på Microsofts kommersiella marknads platser](private-offers.md).
+
+Detaljerad information om List alternativ som stöds av onlinebutiker finns i [lista och pris alternativ per onlinebutik](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Mer information om kategorier och under kategorier finns [i kategorier och under Kategorier i den kommersiella marknads platsen](categories.md).
 
 ## <a name="legal-contracts"></a>Juridiska avtal
 

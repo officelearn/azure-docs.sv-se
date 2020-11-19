@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services (MARS) Agent – vanliga frågor och sv
 description: Behandlar vanliga frågor om säkerhets kopiering av filer och mappar med Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 9fb9e3993d6f56833e43a4d451c0865b7fd732d3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172518"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917366"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Vanliga frågor och svar – Microsoft Azure Recovery Services (MARS) Agent
 
@@ -22,7 +22,7 @@ Den senaste MARS-agenten som används för att säkerhetskopiera Windows Server-
 
 ### <a name="where-can-i-download-the-vault-credentials-file"></a>Var kan jag hämta filen med autentiseringsuppgifter för valvet?
 
-I Azure Portal navigerar du till **Egenskaper** för valvet. Under **autentiseringsuppgifter för säkerhets kopiering**markerar du kryss rutan för **att redan använda den senaste Recovery Services agenten**. Välj **Hämta**.
+I Azure Portal navigerar du till **Egenskaper** för valvet. Under **autentiseringsuppgifter för säkerhets kopiering** markerar du kryss rutan för **att redan använda den senaste Recovery Services agenten**. Välj **Hämta**.
 
 ![Hämta autentiseringsuppgifter](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
@@ -71,6 +71,10 @@ Ja. MARS-agenten konverterar deduplicerade data till normala data när säkerhet
 ### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>Behöver jag administratörs behörighet för att installera och konfigurera MARS-agenten?
 
 Ja, installationen av MARS-agenten och konfigurationen av säkerhets kopior med MARS-konsolen behöver användaren vara lokal administratör på den skyddade servern.
+
+### <a name="what-is-the-impact-on-mars-agent-backups-of-transferring-the-vault-subscription-to-a-different-azure-ad-directory"></a>Vad är påverkan på säkerhets kopiering av MARS-agenten att överföra valv prenumerationen till en annan Azure AD-katalog?
+
+Ändringen av Azure AD-katalogen påverkar inte säkerhets kopiering av MARS-agenten. 
 
 ## <a name="manage-backups"></a>Hantera säkerhetskopior
 
@@ -181,11 +185,11 @@ Azure Backup agenten kräver en lösen fras (som du angav under registreringen) 
 Tänk på följande:
 
 * Om du avinstallerar och sedan omregistrerar agenten på samma ursprungliga dator med
-  * *Samma lösen fras*kan du återställa säkerhetskopierade data.
-  * En *annan lösen fras*kan du inte återställa dina säkerhetskopierade data.
+  * *Samma lösen fras* kan du återställa säkerhetskopierade data.
+  * En *annan lösen fras* kan du inte återställa dina säkerhetskopierade data.
 * Om du installerar agenten på en *annan dator* med
   * *Samma lösen fras* (som används på den ursprungliga datorn) kan du återställa säkerhetskopierade data.
-  * *Annan lösen fras*kan du inte återställa dina säkerhetskopierade data.
+  * *Annan lösen fras* kan du inte återställa dina säkerhetskopierade data.
 * Om den ursprungliga datorn är skadad (hindrar dig från att återskapa lösen frasen via MARS-konsolen), men du kan återställa eller komma åt den ursprungliga mappen som används av MARS-agenten, kan du eventuellt återställa (om du har glömt lösen ordet). Kontakta kund support om du vill ha mer hjälp.
 
 #### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>Hur gör jag för att återställa om jag har förlorat min ursprungliga dator (där säkerhets kopieringarna vidtogs)?

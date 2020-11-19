@@ -287,6 +287,10 @@
           items:
             - name: Stoppa/starta en MySQL-server
               href: how-to-stop-start-server.md
+        - name: Högre versionsuppgradering
+          items:
+            - name: Högre versionsuppgradering
+              href: how-to-major-version-upgrade.md
         - name: Lagring som växer automatiskt
           items:
             - name: Azure Portal

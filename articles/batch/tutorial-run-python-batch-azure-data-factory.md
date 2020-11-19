@@ -1,18 +1,18 @@
 ---
-title: Köra Python-skript via Data Factory
-description: Självstudie – lär dig hur du kör Python-skript som en del av en pipeline genom Azure Data Factory att använda Azure Batch.
-author: mammask
+title: Självstudie – köra Python-skript via Data Factory
+description: Lär dig hur du kör Python-skript som en del av en pipeline genom Azure Data Factory att använda Azure Batch.
+author: pkshultz
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 08/12/2020
-ms.author: komammas
+ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: c66c14d42c3d14fc4171f6fdfaf2e7f75a531507
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 7752bc3f768aec7a3e98fb1813c4194f81fb9dfb
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886914"
+ms.locfileid: "94917638"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Självstudie: köra Python-skript via Azure Data Factory med Azure Batch
 
@@ -155,6 +155,5 @@ I den här självstudien har du utforskat ett exempel som visar hur du kör Pyth
 Mer information om Azure Data Factory finns i:
 
 > [!div class="nextstepaction"]
-> [Azure Data Factory](../data-factory/introduction.md) 
->  [Pipelines och aktiviteter](../data-factory/concepts-pipelines-activities.md) 
->  [Anpassade aktiviteter](../data-factory/transform-data-using-dotnet-custom-activity.md)
+> [Översikt över Azure Data Factory](../data-factory/introduction.md)
+

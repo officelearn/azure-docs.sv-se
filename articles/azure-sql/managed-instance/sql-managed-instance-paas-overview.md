@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 211ce85fdbf918171ecfc7964bbcdfa2ef245990
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 83f38797e406ff7e62503f59ef979b9ce4f07f97
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790720"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917944"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Vad är en hanterad Azure SQL-instans?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,7 +33,7 @@ Följande diagram beskriver viktiga funktioner i SQL-hanterad instans:
 
 ![Huvudfunktioner](./media/sql-managed-instance-paas-overview/key-features.png)
 
-Den hanterade Azure SQL-instansen är utformad för kunder som vill migrera ett stort antal appar från en lokal eller IaaS, självbyggd eller ISV-baserad miljö till en helt hanterad PaaS-moln miljö med så liten migrering som möjligt. Med den helt automatiserade [tjänsten Azure Data Migration](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)kan kunder lyfta och byta sin befintliga SQL Server instans till SQL-hanterad instans, vilket ger kompatibilitet med SQL Server och fullständig isolering av kund instanser med inbyggt VNet-stöd.  Med Software Assurance kan du byta ut dina befintliga licenser för rabatterade priser på SQL-hanterad instans med hjälp av [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). SQL-hanterad instans är det bästa migrerings målet i molnet för SQL Server instanser som kräver hög säkerhet och en omfattande programmerings yta.
+Den hanterade Azure SQL-instansen är utformad för kunder som vill migrera ett stort antal appar från en lokal eller IaaS, självbyggd eller ISV-baserad miljö till en helt hanterad PaaS-moln miljö med så liten migrering som möjligt. Med den helt automatiserade [tjänsten Azure Data Migration](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)kan kunder lyfta och byta sin befintliga SQL Server instans till SQL-hanterad instans, vilket ger kompatibilitet med SQL Server och fullständig isolering av kund instanser med inbyggt VNet-stöd. Mer information om alternativ och verktyg för migrering finns i [Översikt över migrering: SQL Server till Azure SQL-hanterad instans](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).</br> Med Software Assurance kan du byta ut dina befintliga licenser för rabatterade priser på SQL-hanterad instans med hjälp av [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). SQL-hanterad instans är det bästa migrerings målet i molnet för SQL Server instanser som kräver hög säkerhet och en omfattande programmerings yta.
 
 ## <a name="key-features-and-capabilities"></a>Viktiga funktioner och funktioner
 
@@ -49,7 +49,7 @@ SQL-hanterad instans kombinerar de bästa funktionerna som finns tillgängliga b
 |Isolerad miljö ([VNet-integrering](connectivity-architecture-overview.md), enskild klient tjänst, dedikerad beräkning och lagring) <br>[Transparent data kryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure Active Directory (Azure AD)-autentisering](../database/authentication-aad-overview.md), stöd för enkel inloggning <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server-Huvudkonton (inloggningar)</a>  <br>Följer standarderna för efterlevnad på samma sätt som Azure SQL Database <br>[SQL-granskning](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |Azure Resource Manager-API för automatisering av tjänst etablering och skalning <br>Azure Portal funktioner för manuell tjänst etablering och skalning <br>Datamigreringstjänst
 
 > [!IMPORTANT]
-> En hanterad Azure SQL-instans har certifierats mot ett antal efterlevnads standarder. Mer information finns i [Microsoft Azure Compliance-erbjudanden](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), där du hittar den senaste listan över certifieringar för SQL Managed instance-kompatibilitet, som visas under **SQL Database** .
+> En hanterad Azure SQL-instans har certifierats mot ett antal efterlevnads standarder. Mer information finns i [Microsoft Azure Compliance-erbjudanden](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), där du hittar den senaste listan över certifieringar för SQL Managed instance-kompatibilitet, som visas under **SQL Database**.
 
 Huvud funktionerna i SQL-hanterad instans visas i följande tabell:
 
@@ -85,8 +85,8 @@ Hitta mer information om skillnaden mellan maskin varu generationer i [resurs gr
 
 SQL-hanterad instans finns tillgänglig på två tjänst nivåer:
 
-- **Generell användning** : utformad för program med vanliga prestanda-och I/O latens-krav.
-- **Verksamhets kritisk** : utformad för program med låg I/O latens-krav och minimal påverkan på underliggande underhålls åtgärder på arbets belastningen.
+- **Generell användning**: utformad för program med vanliga prestanda-och I/O latens-krav.
+- **Verksamhets kritisk**: utformad för program med låg I/O latens-krav och minimal påverkan på underliggande underhålls åtgärder på arbets belastningen.
 
 Båda tjänst nivåerna garanterar 99,99% tillgänglighet och gör att du kan välja lagrings storlek och beräknings kapacitet separat. Mer information om arkitekturen för hög tillgänglighet för Azure SQL-hanterad instans finns i [hög tillgänglighet och hanterad Azure SQL-instans](../database/high-availability-sla.md).
 
@@ -156,9 +156,9 @@ Migrering av en krypterad databas till SQL-hanterad instans stöds via Azure Dat
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory-integrering
 
-SQL-hanterad instans stöder traditionella SQL Server inloggningar och inloggningar i databas motorn som är integrerade med Azure AD. Azure AD server-Huvudkonton (inloggningar) ( **offentlig för hands** version) är en Azure Cloud-version av lokala databas inloggningar som du använder i din lokala miljö. Med Azure AD server-Huvudkonton (inloggningar) kan du ange användare och grupper från din Azure AD-klient som en sann instans – begränsade huvud servrar, som kan utföra alla instanser på instans nivå, inklusive frågor över flera databaser inom samma hanterade instans.
+SQL-hanterad instans stöder traditionella SQL Server inloggningar och inloggningar i databas motorn som är integrerade med Azure AD. Azure AD server-Huvudkonton (inloggningar) (**offentlig för hands** version) är en Azure Cloud-version av lokala databas inloggningar som du använder i din lokala miljö. Med Azure AD server-Huvudkonton (inloggningar) kan du ange användare och grupper från din Azure AD-klient som en sann instans – begränsade huvud servrar, som kan utföra alla instanser på instans nivå, inklusive frågor över flera databaser inom samma hanterade instans.
 
-En ny syntax introduceras för att skapa Azure AD server-huvudobjekt (inloggningar), **från extern provider** . Mer information om syntaxen finns i <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning</a>och granska artikeln [etablera en Azure Active Directory administratör för SQL-hanterad instans](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) .
+En ny syntax introduceras för att skapa Azure AD server-huvudobjekt (inloggningar), **från extern provider**. Mer information om syntaxen finns i <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning</a>och granska artikeln [etablera en Azure Active Directory administratör för SQL-hanterad instans](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) .
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integrering och multifaktorautentisering
 
@@ -168,10 +168,10 @@ SQL-hanterad instans gör att du centralt kan hantera identiteter för databas a
 
 SQL-hanterad instans-autentisering syftar på hur användare kan bevisa sin identitet när de ansluter till databasen. SQL-hanterad instans stöder två typer av autentisering:  
 
-- **SQL-autentisering** :
+- **SQL-autentisering**:
 
   Den här autentiseringsmetoden använder ett användar namn och lösen ord.
-- **Azure Active Directory autentisering** :
+- **Azure Active Directory autentisering**:
 
   Den här autentiseringsmetoden använder identiteter som hanteras av Azure Active Directory och stöds för hanterade och integrerade domäner. Använd Active Directory-autentisering (integrerad säkerhet) [närhelst det går](/sql/relational-databases/security/choose-an-authentication-mode).
 
@@ -181,14 +181,14 @@ Auktorisering syftar på vad en användare kan göra inom en databas i en Azure 
 
 ## <a name="database-migration"></a>Databasmigrering
 
-SQL-hanterad instans riktar sig mot användar scenarier med Mass databas migrering från lokala eller IaaS databas implementeringar. SQL-hanterad instans har stöd för flera databas migrerings alternativ:
+SQL-hanterad instans riktar sig mot användar scenarier med Mass databas migrering från lokala eller IaaS databas implementeringar. SQL-hanterad instans stöder flera alternativ för migrering av databas som beskrivs i guiderna för migrering. Se [Översikt över migrering: SQL Server till Azure SQL-hanterad instans](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md) för mer information.
 
 ### <a name="backup-and-restore"></a>Säkerhetskopiering och återställning  
 
 Migreringsprocessen utnyttjar SQL-säkerhetskopieringar till Azure Blob Storage. Säkerhets kopior som lagras i en Azure Storage-BLOB kan återställas direkt till en hanterad instans med hjälp av [kommandot T-SQL REstore](/sql/t-sql/statements/restore-statements-transact-sql?preserve-view=true&view=azuresqldb-mi-current).
 
 - En snabb start som visar hur du återställer Wide World-importörer – standard säkerhets kopierings filen för databasen finns i [återställa en säkerhets kopia till en hanterad instans](restore-sample-database-quickstart.md). Den här snabb starten visar att du måste ladda upp en säkerhets kopia till Azure Blob Storage och skydda den med en SAS-nyckel (signatur för delad åtkomst).
-- Information om återställning från URL finns i [intern återställning från URL](migrate-to-instance-from-sql-server.md#native-restore-from-url).
+- Information om återställning från URL finns i [intern återställning från URL](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md#backup-and-restore).
 
 > [!IMPORTANT]
 > Säkerhets kopieringar från en hanterad instans kan bara återställas till en annan hanterad instans. De kan inte återställas till en SQL Server instans eller Azure SQL Database.

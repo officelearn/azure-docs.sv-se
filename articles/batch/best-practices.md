@@ -1,18 +1,18 @@
 ---
 title: Bästa praxis
-description: Lär dig metod tips och användbara tips för att utveckla din Azure Batch-lösning.
-ms.date: 08/12/2020
+description: Lär dig metod tips och användbara tips för att utveckla dina Azure Batch-lösningar.
+ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: dff6668050e45d9179cd985aa10670b56afe5377
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a799aa7de19b9d5b0b8e085252cb172efebd05dc
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913236"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916873"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
-I den här artikeln beskrivs en samling metod tips för att använda tjänsten Azure Batch effektivt och effektivt, baserat på verklig erfarenhet med batch. Läs den här artikeln för att undvika design fall GRO par, potentiella prestanda problem och anti-mönster när du utvecklar och använder batch.
+I den här artikeln beskrivs en samling med bästa praxis och användbara tips för att använda tjänsten Azure Batch effektivt, baserat på verkliga upplevelser med batch. De här tipsen kan hjälpa dig att förbättra prestandan och undvika design fall GRO par i dina Azure Batch-lösningar.
 
 ## <a name="pools"></a>Pooler
 
@@ -20,7 +20,7 @@ I den här artikeln beskrivs en samling metod tips för att använda tjänsten A
 
 ### <a name="pool-configuration-and-naming"></a>Konfiguration av pooler och namngivning
 
-- **Poolens fördelnings läge** När du skapar ett batch-konto kan du välja mellan två pool tilldelnings lägen: **Batch-tjänst** eller **användar prenumeration** . I de flesta fall bör du använda standard läget för batch-tjänsten, där pooler allokeras bakom scenerna i batch-hanterade prenumerationer. I det alternativa användarprenumerationsläget skapas virtuella Batch-datorer och andra resurser direkt i din prenumeration när en pool skapas. Användar prenumerations konton används främst för att aktivera en viktig, men liten del av scenarier. Du kan läsa mer om användar prenumerations läge på [ytterligare konfiguration för användar prenumerations läge](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+- **Poolens fördelnings läge** När du skapar ett batch-konto kan du välja mellan två pool tilldelnings lägen: **Batch-tjänst** eller **användar prenumeration**. I de flesta fall bör du använda standard läget för batch-tjänsten, där pooler allokeras bakom scenerna i batch-hanterade prenumerationer. I det alternativa användarprenumerationsläget skapas virtuella Batch-datorer och andra resurser direkt i din prenumeration när en pool skapas. Användar prenumerations konton används främst för att aktivera en viktig, men liten del av scenarier. Du kan läsa mer om användar prenumerations läge på [ytterligare konfiguration för användar prenumerations läge](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
 - **Överväg jobb-och uppgifts körnings tid när du bestämmer jobb till pool-mappning.**
     Om du har jobb som huvudsakligen är kortsiktiga och de förväntade totala antalet aktiviteter är små, så att den förväntade körnings tiden för jobbet inte är lång, allokera inte en ny pool för varje jobb. Tilldelnings tiden för noderna minskar jobbets körnings tid.
@@ -41,7 +41,7 @@ I den här artikeln beskrivs en samling metod tips för att använda tjänsten A
 Poolens livs längd kan variera beroende på vilken metod du vill tilldela och vilka alternativ som tillämpas på konfigurationen av poolen. Pooler kan ha en godtycklig livs längd och ett varierande antal data bearbetnings noder i poolen vid varje tidpunkt. Det är ditt ansvar att hantera Compute-noderna i poolen, antingen uttryckligen eller via funktioner som tillhandahålls av tjänsten (autoskalning eller autopool).
 
 - **Se till att pooler är färska.**
-    Du bör ändra storlek på dina pooler till noll med några månader för att se till att du får de [senaste uppdateringarna för Node agent och fel korrigeringar](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Poolen tar inte emot uppdateringar för Node-agenten om den inte återskapas eller ändras till 0 datornoder. Innan du återskapar eller ändrar storlek på poolen rekommenderar vi att du hämtar eventuella noder för fel sökning enligt beskrivningen i avsnittet [Nodes](#nodes) .
+    Ändra storlek på dina pooler till noll med några månader för att se till att du får de [senaste uppdateringarna för Node agent och fel korrigeringar](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Poolen tar inte emot uppdateringar för Node-agenten om den inte återskapas eller ändras till 0 datornoder. Innan du återskapar eller ändrar storlek på poolen rekommenderar vi att du hämtar eventuella noder för fel sökning enligt beskrivningen i avsnittet [Nodes](#nodes) .
 
 - **Skapa ny pool** På en liknande anteckning rekommenderar vi inte att du tar bort och återskapar dina pooler på daglig basis. Skapa i stället en ny pool och uppdatera dina befintliga jobb så att de pekar på den nya poolen. När alla aktiviteter har flyttats till den nya poolen tar du bort den gamla poolen.
 
@@ -67,7 +67,7 @@ Pooler kan skapas med avbildningar från tredje part som publicerats på Azure M
 
 ### <a name="azure-region-dependency"></a>Azure-region beroende
 
-Vi rekommenderar att du inte är beroende av en enda Azure-region om du har en tids känslig eller produktions belastning. Även om det är sällsynt, finns det problem som kan påverka en hel region. Om din bearbetning till exempel behöver starta vid en angiven tidpunkt, kan du överväga att skala upp poolen i din primära region på ett *bra sätt innan du börjar med start tiden* . Om poolens skalning Miss lyckas kan du återgå till att skala upp en pool i en säkerhets kopierings region (eller regioner). Pooler över flera konton i olika regioner ger en klar och lättillgänglig säkerhets kopia om något går fel med en annan pool. Mer information finns i [utforma ditt program för hög tillgänglighet](high-availability-disaster-recovery.md).
+Vi rekommenderar att du inte är beroende av en enda Azure-region om du har en tids känslig eller produktions belastning. Även om det är sällsynt, finns det problem som kan påverka en hel region. Om din bearbetning till exempel behöver starta vid en angiven tidpunkt, kan du överväga att skala upp poolen i din primära region på ett *bra sätt innan du börjar med start tiden*. Om poolens skalning Miss lyckas kan du återgå till att skala upp en pool i en säkerhets kopierings region (eller regioner). Pooler över flera konton i olika regioner ger en klar och lättillgänglig säkerhets kopia om något går fel med en annan pool. Mer information finns i [utforma ditt program för hög tillgänglighet](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Jobb
 
@@ -175,7 +175,7 @@ Mer information om Resource Manager och mallar finns i [snabb start: skapa och d
 
 ## <a name="connectivity"></a>Anslutning
 
-Läs följande vägledning när du överväger anslutningen i dina batch-lösningar.
+Läs följande rikt linjer för anslutning i dina batch-lösningar.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Nätverks säkerhets grupper (NSG: er) och användardefinierade vägar (UDR)
 
@@ -198,6 +198,10 @@ Se till att dina batch-betjäna klienter har lämpliga principer för återförs
 
 Normalt nås virtuella datorer i en batch-pool via offentliga IP-adresser som kan ändras under poolens livstid. Detta kan göra det svårt att interagera med en databas eller annan extern tjänst som begränsar åtkomsten till vissa IP-adresser. För att säkerställa att de offentliga IP-adresserna i poolen inte ändras, kan du skapa en pool med en uppsättning statiska offentliga IP-adresser som du styr. Mer information finns i [skapa en Azure Batch pool med angivna offentliga IP-adresser](create-pool-public-ip.md).
 
+### <a name="testing-connectivity-with-cloud-services-configuration"></a>Testa anslutning med Cloud Services konfiguration
+
+Du kan inte använda det normala "ping"-/ICMP-protokollet med moln tjänster eftersom ICMP-protokollet inte tillåts via Azure Load Balancer. Mer information finns i [anslutningar och nätverk för Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service).
+
 ## <a name="batch-node-underlying-dependencies"></a>Underliggande beroenden för batch-noden
 
 Tänk på följande beroenden och begränsningar när du utformar dina batch-lösningar.
@@ -206,12 +210,12 @@ Tänk på följande beroenden och begränsningar när du utformar dina batch-lö
 
 Azure Batch skapar och hanterar en uppsättning användare och grupper på den virtuella datorn, som inte ska ändras. Det här är skillnaderna:
 
-#### <a name="windows"></a>Windows
+Windows:
 
 - En användare med namnet **PoolNonAdmin**
 - En användar grupp med namnet **WATaskCommon**
 
-#### <a name="linux"></a>Linux
+Linux:
 
 - En användare med namnet **_azbatch**
 
@@ -220,3 +224,9 @@ Azure Batch skapar och hanterar en uppsättning användare och grupper på den v
 Batch försöker aktivt rensa arbets katalogen som aktiviteter körs i, när deras kvarhållningsperiod upphör att gälla. Alla filer som skrivs utanför katalogen är [ditt ansvar att rensa upp](#manage-task-lifetime) för att undvika att fylla i disk utrymme.
 
 Den automatiserade rensningen av arbets katalogen blockeras om du kör en tjänst i Windows från startTask arbets katalog, på grund av att mappen fortfarande används. Detta leder till försämrade prestanda. Åtgärda detta genom att ändra katalogen för tjänsten till en separat katalog som inte hanteras av batch.
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Skapa ett Azure Batch konto med hjälp av Azure Portal](batch-account-create-portal.md).
+- Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
+- Lär dig mer om [standard Azure Batch kvoter, gränser och begränsningar samt hur du begär kvot ökningar](batch-quota-limit.md).

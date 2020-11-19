@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: 2daed8edbc433003b72e80de4f5fbfe3539edb31
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 3bc5fffa2c175998aaeb9b508b4481b247172a68
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94816887"
+ms.locfileid: "94884879"
 ---
 Kom igång med Azure Communication Services med hjälp av kommunikations tjänsterna Java SMS-klient bibliotek för att skicka SMS-meddelanden.
 
@@ -85,7 +85,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.azure.communication.common.CommunicationClientCredential;
 import com.azure.communication.common.PhoneNumber;
 import com.azure.communication.sms.SmsClient;
 import com.azure.communication.sms.SmsClientBuilder;
@@ -113,7 +112,6 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 | SmsClientBuilder              | Den här klassen skapar SmsClient. Du anger den med slut punkt, autentiseringsuppgift och en http-klient. |
 | SmsClient                    | Den här klassen krävs för alla SMS-funktioner. Du använder den för att skicka SMS-meddelanden.                |
 | SendSmsResponse               | Den här klassen innehåller svaret från SMS-tjänsten.                                          |
-| CommunicationClientCredential | Den här klassen hanterar signerings begär Anden.                                                            |
 | PhoneNumber                   | Den här klassen innehåller information om telefonnummer
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
@@ -123,20 +121,32 @@ Instansiera en `SmsClient` med anslutnings strängen. I koden nedan hämtas slut
 Lägg till följande kod i `main`-metoden:
 
 ```java
+// Your can find your endpoint and access key from your resource in the Azure Portal
+String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+String accessKey = "SECRET";
+
 // Create an HttpClient builder of your choice and customize it
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
-
-CommunicationClientCredential credential = new CommunicationClientCredential(accessKey);
 
 // Configure and build a new SmsClient
 SmsClient client = new SmsClientBuilder()
     .endpoint(endpoint)
-    .credential(credential)
+    .accessKey(accessKey)
     .httpClient(httpClient)
     .buildClient();
 ```
 
 Du kan initiera klienten med valfri anpassad HTTP-klient som implementerar `com.azure.core.http.HttpClient` gränssnittet. Ovanstående kod visar användningen av [Azure Core nett-HTTP-klienten](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable&preserve-view=true) som tillhandahålls av `azure-core` .
+
+Du kan också ange hela anslutnings strängen med hjälp av funktionen connectionString () i stället för att tillhandahålla slut punkten och åtkomst nyckeln. 
+```java
+// Your can find your connection string from your resource in the Azure Portal
+String connectionString = "<connection_string>";
+SmsClient client = new SmsClientBuilder()
+    .connectionString(connectionString)
+    .httpClient(httpClient)
+    .buildClient();
+```
 
 ## <a name="send-an-sms-message"></a>Skicka ett SMS-meddelande
 

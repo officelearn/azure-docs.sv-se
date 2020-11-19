@@ -3,12 +3,12 @@ title: Redigera principer för mat ris egenskaper för resurser
 description: Lär dig att arbeta med mat ris parametrar och matris språk uttryck, utvärdera [*]-aliaset och lägga till element med Azure Policy definitions regler.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 92339a6da4fd2061d66935cc8d04428c69822862
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 60044d4a599c14088ea923a6a14cb46543646995
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323234"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920465"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Redigera principer för mat ris egenskaper på Azure-resurser
 
@@ -17,7 +17,7 @@ Azure Resource Manager egenskaper definieras vanligt vis som strängar och boole
 - Typ av [definitions parameter](../concepts/definition-structure.md#parameters)för att tillhandahålla flera alternativ
 - En del av en [princip regel](../concepts/definition-structure.md#policy-rule) med hjälp av villkoren **i** eller **notIn**
 - En del av en princip regel som utvärderar det [ \[ \* \] alias](../concepts/definition-structure.md#understanding-the--alias) som ska utvärderas:
-  - Scenarier som **ingen** , **alla** eller **alla**
+  - Scenarier som **ingen**, **alla** eller **alla**
   - Komplexa scenarier med **antal**
 - I Lägg till- [effekter](../concepts/effects.md#append) för att ersätta eller lägga till i en befintlig matris
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver varje användning av Azure Policy och innehåller fl
 ### <a name="define-a-parameter-array"></a>Definiera en parameter mat ris
 
 Genom att definiera en parameter som en matris kan principen vara flexibel när fler än ett värde krävs.
-Med den här princip definitionen kan parametern **allowedLocations** och standard platsen vara _eastus2_ :
+Med den här princip definitionen kan parametern **allowedLocations** och standard platsen vara _eastus2_:
 
 ```json
 "parameters": {
@@ -44,7 +44,7 @@ Med den här princip definitionen kan parametern **allowedLocations** och standa
 }
 ```
 
-Som **typen** var _sträng_ , kan endast ett värde anges när principen tilldelas. Om den här principen är tilldelad tillåts endast resurser i omfattning inom en enda Azure-region. De flesta princip definitioner måste tillåta en lista över godkända alternativ, till exempel att tillåta _eastus2_ , _öster_ och _westus2_.
+Som **typen** var _sträng_, kan endast ett värde anges när principen tilldelas. Om den här principen är tilldelad tillåts endast resurser i omfattning inom en enda Azure-region. De flesta princip definitioner måste tillåta en lista över godkända alternativ, till exempel att tillåta _eastus2_, _öster_ och _westus2_.
 
 Använd _mat ris_ **typen** för att skapa princip definitionen för att tillåta flera alternativ. Samma princip kan skrivas om på följande sätt:
 
@@ -75,7 +75,7 @@ Den här nya parameter definitionen tar fler än ett värde under princip tillde
 
 ### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Skicka värden till en parameter mat ris under tilldelningen
 
-När du tilldelar principen via Azure Portal visas en parameter av **typen** _matris_ som en enda text ruta. Tipset står "use; separera värden. (t. ex. London; New York) ". Använd följande sträng för att överföra de tillåtna positions värden för _eastus2_ , _öster_ och _westus2_ till parametern:
+När du tilldelar principen via Azure Portal visas en parameter av **typen** _matris_ som en enda text ruta. Tipset står "use; separera värden. (t. ex. London; New York) ". Använd följande sträng för att överföra de tillåtna positions värden för _eastus2_, _öster_ och _westus2_ till parametern:
 
 `eastus2;eastus;westus2`
 
@@ -95,7 +95,7 @@ Parameter värdets format skiljer sig från Azure CLI, Azure PowerShell eller RE
 
 Använd följande kommandon om du vill använda den här strängen med varje SDK:
 
-- Azure CLI: kommando [AZ princip tilldelning skapa](/cli/azure/policy/assignment#az-policy-assignment-create) med parameter **parametrar**
+- Azure CLI: kommando [AZ princip tilldelning skapa](/cli/azure/policy/assignment#az_policy_assignment_create) med parameter **parametrar**
 - Azure PowerShell: cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) med parametern **PolicyParameter**
 - REST API: i åtgärden _Lägg_ till [skapa](/rest/api/resources/policyassignments/create) som en del av begär ande texten som värde för egenskapen **Properties. Parameters**
 
@@ -134,7 +134,7 @@ Försöket att skapa princip definitionen via Azure Portal leder till ett fel me
 
 - "Det gick inte att parameterstyrda principen {GUID} på grund av verifierings fel. Kontrol lera att princip parametrarna är korrekt definierade. Det inre undantaget för utvärderings resultatet av språk uttrycket [parameters (' allowedLocations ')] är type ' matris ', förväntad typ är sträng '. "
 
-Den förväntade **typen** av villkor `equals` är _sträng_. Eftersom **allowedLocations** har definierats som **typ** _mat ris_ , utvärderar principmodulen språk uttryck och genererar felet. Med `in` `notIn` villkoret och förväntar sig princip motorn **typ** _mat ris_ i språk uttrycket. Lös det här fel meddelandet genom att ändra `equals` till antingen `in` eller `notIn` .
+Den förväntade **typen** av villkor `equals` är _sträng_. Eftersom **allowedLocations** har definierats som **typ** _mat ris_, utvärderar principmodulen språk uttryck och genererar felet. Med `in` `notIn` villkoret och förväntar sig princip motorn **typ** _mat ris_ i språk uttrycket. Lös det här fel meddelandet genom att ändra `equals` till antingen `in` eller `notIn` .
 
 ## <a name="referencing-array-resource-properties"></a>Referera till egenskaper för mat ris resurs
 
@@ -201,7 +201,7 @@ Med `field()` funktionen är det returnerade värdet matrisen från innehållet 
 
 #### <a name="referencing-the-array-members-collection"></a>Referens till samlingen av mat ris medlemmar
 
-Alias som använder `[*]` syntaxen representerar en **samling egenskaps värden som valts från en mat ris egenskap** , vilket skiljer sig från att välja själva mat ris egenskapen. I fallet `Microsoft.Test/resourceType/stringArray[*]` returneras en samling som har alla medlemmar i `stringArray` . Som tidigare nämnts `field` kontrollerar ett villkor att alla valda resurs egenskaper uppfyller villkoret, vilket innebär att följande villkor är sant endast om **alla** medlemmar i `stringArray` är lika med "" värde "".
+Alias som använder `[*]` syntaxen representerar en **samling egenskaps värden som valts från en mat ris egenskap**, vilket skiljer sig från att välja själva mat ris egenskapen. I fallet `Microsoft.Test/resourceType/stringArray[*]` returneras en samling som har alla medlemmar i `stringArray` . Som tidigare nämnts `field` kontrollerar ett villkor att alla valda resurs egenskaper uppfyller villkoret, vilket innebär att följande villkor är sant endast om **alla** medlemmar i `stringArray` är lika med "" värde "".
 
 ```json
 {
@@ -311,7 +311,7 @@ Det här beteendet fungerar också med kapslade matriser. Till exempel `count` u
 }
 ```
 
-Kraften hos `count` är i `where` villkoret. När den anges räknar Azure Policy upp mat ris medlemmarna och utvärdera var och en av dem mot villkoret och räknar hur många mat ris medlemmar som utvärderas till `true` . I varje iteration av `where` villkors utvärderingen väljer Azure policy en enskild mat ris medlem * **i** _ och utvärdera resurs innehållet mot `where` villkoret _* som om * *_i_*_ är den enda medlemmen i array_ *. Att endast en mat ris medlem är tillgänglig i varje iteration är ett sätt att tillämpa komplexa villkor på varje enskild mat ris medlem.
+Kraften hos `count` är i `where` villkoret. När den anges räknar Azure Policy upp mat ris medlemmarna och utvärdera var och en av dem mot villkoret och räknar hur många mat ris medlemmar som utvärderas till `true` . I varje iteration av `where` villkors utvärderingen väljer Azure policy en enskild mat ris medlem ***i** _ och utvärdera resurs innehållet mot `where` villkoret _* som om **_i_*_ är den enda medlemmen i array_ *. Att endast en mat ris medlem är tillgänglig i varje iteration är ett sätt att tillämpa komplexa villkor på varje enskild mat ris medlem.
 
 Exempel:
 ```json

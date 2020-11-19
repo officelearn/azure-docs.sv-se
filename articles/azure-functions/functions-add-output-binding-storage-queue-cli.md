@@ -5,20 +5,18 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c7d41d889692856a9818aacd265e67b0c2d3d1ad
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6d0d559579e841553e04c26bf4dcc78934de3e95
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422874"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920210"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Ansluta Azure Functions till Azure Storage med hjälp av kommando rads verktyg
 
 I den här artikeln integrerar du en Azure Storage kö med den funktion och det lagrings konto som du skapade i föregående snabb starts artikel. Du uppnår denna integrering genom att använda en *utgående bindning* som skriver data från en http-begäran till ett meddelande i kön. Om du slutför den här artikeln debiteras inga ytterligare kostnader utöver de få USD cent i föregående snabb start. Mer information om bindningar finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
 
 ## <a name="configure-your-local-environment"></a>Konfigurera din lokala miljö
-
-Innan du börjar måste du slutföra artikeln, [snabb start: skapa ett Azure Functions-projekt från kommando raden][previous-quickstart]. Om du redan har rensat resurser i slutet av den artikeln går du igenom stegen igen för att återskapa Function-appen och relaterade resurser i Azure.
 
 ::: zone pivot="programming-language-csharp"  
 Innan du börjar måste du slutföra artikeln, [snabb start: skapa ett Azure Functions-projekt från kommando raden](create-first-function-cli-csharp.md). Om du redan har rensat resurser i slutet av den artikeln går du igenom stegen igen för att återskapa Function-appen och relaterade resurser i Azure.  

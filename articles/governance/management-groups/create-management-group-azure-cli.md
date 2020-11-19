@@ -4,12 +4,12 @@ description: I den här snabb starten använder du Azure CLI för att skapa en h
 ms.date: 08/31/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f07ae46c95f9ab9cc1ad973204ac5c50320fdf46
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 54d7afbaa4bfe2799ca0d68927394a38d9845c53
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237401"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920669"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>Snabb start: skapa en hanterings grupp med Azure CLI
 
@@ -17,7 +17,7 @@ Hanterings grupper är behållare som hjälper dig att hantera åtkomst, princip
 
 Den första hanterings gruppen som skapas i katalogen kan ta upp till 15 minuter att slutföra. Det finns processer som körs första gången för att konfigurera hanterings grupps tjänsten i Azure för din katalog. Du får ett meddelande när processen är klar. Mer information finns i [den första installationen av hanterings grupper](./overview.md#initial-setup-of-management-groups).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -29,7 +29,7 @@ Den första hanterings gruppen som skapas i katalogen kan ta upp till 15 minuter
 
 ### <a name="create-in-the-azure-cli"></a>Skapa i Azure CLI
 
-För Azure CLI använder du kommandot [AZ Account Management-Group Create](/cli/azure/account/management-group#az-account-management-group-create) för att skapa en ny hanterings grupp. I det här exemplet är hanterings gruppens **namn** _contoso_.
+För Azure CLI använder du kommandot [AZ Account Management-Group Create](/cli/azure/account/management-group#az_account_management_group_create) för att skapa en ny hanterings grupp. I det här exemplet är hanterings gruppens **namn** _contoso_.
 
 ```azurecli-interactive
 az account management-group create --name 'Contoso'
@@ -51,7 +51,7 @@ az account management-group create --name 'ContosoSubGroup' --parent 'Contoso'
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill ta bort en hanterings grupp som skapats ovan använder du kommandot [AZ Account Management-Group Delete](/cli/azure/account/management-group#az-account-management-group-delete) :
+Om du vill ta bort en hanterings grupp som skapats ovan använder du kommandot [AZ Account Management-Group Delete](/cli/azure/account/management-group#az_account_management_group_delete) :
 
 ```azurecli-interactive
 az account management-group delete --name 'Contoso'

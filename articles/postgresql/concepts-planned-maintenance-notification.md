@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1803a0070321ff4d895203f027f839601bb726ee
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 0691411f57944f8203120ec2a6ed19013135458c
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887152"
+ms.locfileid: "94920261"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Meddelande om planerat underhåll i Azure Database for PostgreSQL – enskild server
 
@@ -78,7 +78,7 @@ Ett tillfälligt fel, även kallat ett tillfälligt fel, är ett fel som kommer 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du har frågor eller förslag kan du behöva arbeta med Azure Database for PostgreSQL, skicka ett e-postmeddelande till Azure Database for PostgreSQL-teamet på *AskAzureDBforPostgreSQL@service.microsoft.com* .
+- Om du har frågor eller förslag kan du behöva arbeta med Azure Database for PostgreSQL, skicka ett e-postmeddelande till Azure Database for PostgreSQL-teamet på AskAzureDBforPostgreSQL@service.microsoft.com
 - Se [hur du ställer in aviseringar](howto-alert-on-metric.md) för vägledning om hur du skapar en avisering på ett mått.
 - [Felsöka anslutnings problem till Azure Database for PostgreSQL-enskild server](howto-troubleshoot-common-connection-issues.md)
 - [Hantera tillfälliga fel och Anslut effektivt till Azure Database for PostgreSQL-enskild server](concepts-connectivity.md)

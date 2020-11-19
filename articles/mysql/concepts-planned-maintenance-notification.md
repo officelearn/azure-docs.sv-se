@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 63cc4448034b6a2ae2d74f4a2d9a0a62296678cf
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: ff197f8add65782a594d64661ffecdaced4598c2
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886489"
+ms.locfileid: "94919632"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Meddelande om planerat underhåll i Azure Database for MySQL-enskild server
 
@@ -78,7 +78,7 @@ Ett tillfälligt fel, även kallat ett tillfälligt fel, är ett fel som kommer 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du har frågor eller förslag kan du behöva arbeta med Azure Database for MySQL, skicka ett e-postmeddelande till Azure Database for MySQL-teamet på **AskAzureDBforMySQL@service.microsoft.com** .
+- Om du har frågor eller förslag kan du behöva arbeta med Azure Database for MySQL, skicka ett e-postmeddelande till Azure Database for MySQL-teamet på AskAzureDBforMySQL@service.microsoft.com
 - Se [hur du ställer in aviseringar](howto-alert-on-metric.md) för vägledning om hur du skapar en avisering på ett mått.
 - [Felsöka anslutnings problem till Azure Database for MySQL-enskild server](howto-troubleshoot-common-connection-issues.md)
 - [Hantera tillfälliga fel och Anslut effektivt till Azure Database for MySQL-enskild server](concepts-connectivity.md)

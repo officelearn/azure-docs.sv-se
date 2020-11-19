@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: aa45bc9f70bf05074391dd14cc5fc774eb77c762
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7cd704dad3d0ede55e4df4d9e222ff83fd7ae350
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536259"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919649"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Skapa, granska och distribuera automatiserade maskin inlärnings modeller med Azure Machine Learning
 
@@ -126,9 +126,9 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
     
         1. Aktivera djup inlärning.
     
-        1. Välj *tids kolumn* : den här kolumnen innehåller de tids data som ska användas.
+        1. Välj *tids kolumn*: den här kolumnen innehåller de tids data som ska användas.
 
-        1. Välj *prognos Horisont* : Ange hur många tidsenheter (minuter/timmar/dagar/veckor/månader/år) som modellen ska kunna förutsäga till framtiden. Den ytterligare modellen krävs för att förutsäga i framtiden. den mindre exakta den blir. [Lär dig mer om prognostisering av prognoser och prognoser](how-to-auto-train-forecast.md).
+        1. Välj *prognos Horisont*: Ange hur många tidsenheter (minuter/timmar/dagar/veckor/månader/år) som modellen ska kunna förutsäga till framtiden. Den ytterligare modellen krävs för att förutsäga i framtiden. den mindre exakta den blir. [Lär dig mer om prognostisering av prognoser och prognoser](how-to-auto-train-forecast.md).
 
 1. Valfritt Visa ytterligare konfigurations inställningar: ytterligare inställningar som du kan använda för att styra utbildnings jobbet bättre. Annars tillämpas standardvärdena utifrån experiment val och data. 
 
@@ -137,9 +137,9 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
     Primärt mått| Främsta mått som används för att värdera din modell. [Lär dig mer om modell mått](how-to-configure-auto-train.md#primary-metric).
     Förklara bästa modell | Välj om du vill aktivera eller inaktivera för att visa förklaringar för den rekommenderade bästa modellen. <br> Den här funktionen är för närvarande inte tillgänglig för [vissa algoritmer för Prognosticering](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
     Blockerad algoritm| Välj algoritmer som du vill undanta från utbildnings jobbet. <br><br> Att tillåta algoritmer är bara tillgängligt för [SDK-experiment](how-to-configure-auto-train.md#supported-models). <br> Se de [modeller som stöds för varje aktivitets typ](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
-    Avslutnings kriterium| När något av dessa villkor uppfylls stoppas utbildnings jobbet. <br> *Utbildnings jobb tid (timmar)* : hur lång tid det tar att köra utbildnings jobbet. <br> *Mät* värdes tröskel: minsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
+    Avslutnings kriterium| När något av dessa villkor uppfylls stoppas utbildnings jobbet. <br> *Utbildnings jobb tid (timmar)*: hur lång tid det tar att köra utbildnings jobbet. <br> *Mät* värdes tröskel: minsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
     Validering| Välj ett av de kors validerings alternativ som ska användas i övnings jobbet. <br> [Läs mer om kors validering](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Prognosticering stöder endast mellanvalidering av n:te vikning.
-    Samtidighet| *Max. antal samtidiga iterationer* : maximalt antal pipelines (iterationer) som ska testas i utbildnings jobbet. Jobbet kan inte köra fler än det angivna antalet iterationer.
+    Samtidighet| *Max. antal samtidiga iterationer*: maximalt antal pipelines (iterationer) som ska testas i utbildnings jobbet. Jobbet kan inte köra fler än det angivna antalet iterationer. Läs mer om hur automatiserad ML utför [flera underordnade körningar i kluster](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
 1. Valfritt Visa funktionalisering-inställningar: om du väljer att aktivera **Automatisk funktionalisering** i formuläret för **ytterligare konfigurations inställningar** tillämpas standard funktionalisering-teknikerna. I **Visa funktionalisering-inställningar** kan du ändra dessa standardvärden och anpassa dem efter behov. Lär dig hur du [anpassar featurizations](#customize-featurization). 
 

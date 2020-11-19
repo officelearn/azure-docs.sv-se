@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: how-to, automl
 ms.date: 03/09/2020
-ms.openlocfilehash: a79fc0311e940b9b4eb3e14838ef22e09342a066
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 65ce11581972c83b0294c0afcbe95e5a35ef2471
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358005"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920584"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserad maskininlärning i molnet
 
@@ -45,7 +45,7 @@ ws = Workspace.from_config()
 
 Skapa [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?preserve-view=true&view=azure-ml-py) målet på din arbets yta ( `ws` ) om det inte redan finns.
 
-**Tids uppskattning** : skapandet av AmlCompute-målet tar cirka 5 minuter.
+**Tids uppskattning**: skapandet av AmlCompute-målet tar cirka 5 minuter.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -220,7 +220,7 @@ Om du inte använder en Jupyter-anteckningsbok kan du Visa URL: en från själva
 remote_run.get_portal_url()
 ```
 
-Samma information finns på arbets ytan.  Mer information om de här resultaten finns i [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
+Samma information finns på arbets ytan.  Mer information om de här resultaten finns i [utvärdera automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
 
 ## <a name="example"></a>Exempel
 

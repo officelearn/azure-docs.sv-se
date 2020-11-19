@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: f83413bc54164107b8e8a4e6010f8a826a5fe327
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c9a8b5f9e02cc76789755bf81d309826de1459c5
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888427"
+ms.locfileid: "94920601"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -247,9 +247,9 @@ Du behöver ett Azure-konto i en Azure-prenumeration.
 
 Microsoft och Red Hat delar ett integrerat, Samplacerat support team som tillhandahåller en enhetlig kontakt punkt för Red Hat eko system som körs på Azure-plattformen.  Precis som andra Azure Platform-tjänster som fungerar med Red Hat Enterprise Linux är Azure VMware-lösningen under moln åtkomst och integrerat support paraply, och Red Hat Enterprise Linux stöds för att köras ovanpå Azure VMware-lösningen i Azure.
 
-#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>Är VMware HCX Enterprise Edition tillgänglig och hur mycket kostar det?
+#### <a name="is-vmware-hcx-enterprise-available-and-if-so-how-much-does-it-cost"></a>Är VMware HCX Enterprise tillgängligt, och i så fall, hur mycket kostar det?
 
-VMware HCX Enterprise Edition (EE) är tillgänglig med Azure VMware-lösningen som en *förhands gransknings* funktion/tjänst. Även om VMware HCX EE för Azure VMware-lösningen är i för hands version, är det en kostnads fri funktion/tjänst och omfattas av förhands gransknings tjänstens allmänna villkor. När VMware HCX EE-tjänsten går till GA får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan stänga av eller avanmäla tjänsten.
+VMware HCX Enterprise är tillgängligt med Azure VMware-lösningen som en *förhands gransknings* funktion/tjänst. Även om VMware HCX Enterprise för Azure VMware-lösningen är i för hands version, är det en kostnads fri funktion/tjänst och omfattas av förhands gransknings tjänstens allmänna villkor. När VMware HCX Enterprise-tjänsten är GA får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan stänga av eller avanmäla tjänsten.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Hur gör jag för att begära en värd kvot ökning för Azure VMware-lösningen?
 
@@ -260,8 +260,7 @@ Använd följande procedur för EA-prenumerationer. Först behöver du:
 * Ett [Azure-Enterprise-avtal (EA)](../cost-management-billing/manage/ea-portal-agreements.md) med Microsoft.
 * Ett Azure-konto i en Azure-prenumeration.
 
-Innan du skapar en Azure VMware-lösnings resurs måste du skicka in ett support ärende för att allokera noderna. Det tar upp till fem arbets dagar att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process.
-
+Innan du skapar din Azure VMware-lösning kan du skicka ett support ärende så att noderna tilldelas. Det tar upp till fem arbets dagar att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process.
 
 1. I Azure Portal, under **Hjälp + Support**, skapa en **[ny supportbegäran](https://rc.portal.azure.com/#create/Microsoft.Support)** och ange följande information för biljetten:
    - **Typ av problem:** Produkt

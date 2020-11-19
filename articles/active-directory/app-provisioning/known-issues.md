@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/11/2020
+ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 4b4c02efffb39e88a01c35d3c818930a0f6fd9cf
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8a1c789759f1119a6170fffc2c70874cd9a32fde
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069763"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919698"
 ---
 # <a name="known-issues-application-provisioning"></a>Kända problem: program etablering
 Kända problem som kan vara medvetna om när du arbetar med app-etablering. Du kan ge feedback om program etablerings tjänsten på UserVoice, se [Azure AD Application-etablering UserVoice](https://aka.ms/appprovisioningfeaturerequest). Vi tittar på UserVoice så att vi kan förbättra tjänsten. 
@@ -86,6 +86,9 @@ När du ställer in etablering `enabled = off` eller stannar fortsätter den akt
 
 När en grupp är inom omfånget och en medlem ligger utanför omfånget, kommer gruppen att tillhandahållas. Det går inte att tillhandahålla out of scope-användaren. Om medlemmen kommer tillbaka i omfånget kommer tjänsten inte att upptäcka ändringen omedelbart. Att starta om etableringen löser problemet. Vi rekommenderar att du startar om tjänsten regelbundet för att säkerställa att alla användare är korrekt etablerade.  
 
+**Manager har inte tillhandahållits**
+
+Om en användare och deras chef både är inom omfånget för etablering, etablerar tjänsten användaren och uppdaterar sedan chefen. Men om den dag då användaren är i omfånget och chefen saknar räckvidd, kommer vi att etablera användaren utan chefs referensen. När chefen kommer till omfånget uppdateras inte chefs referensen förrän du startar om etableringen och gör att tjänsten kan utvärdera alla användare igen. 
 
 ## <a name="next-steps"></a>Nästa steg
 - [Så här fungerar etablering](how-provisioning-works.md)

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 45c0108ed87dd5264b9192f5dd69e0198bd59fc1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 66f077028b9f9f7a7644a318d4447eeaaab19e98
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289778"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919938"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Om Azure Key Vault-certifikat
 
@@ -44,8 +44,17 @@ När ett Key Vault-certifikat skapas, kan det hämtas från den adresser bara he
 
 Den adresser bara nyckeln blir mer relevant med icke exporter bara KV-certifikat. Den adresser bara KV-nyckelns åtgärder mappas från fältet nyckel *användning* i kv-certifikat policyn som används för att skapa kv-certifikatet.  
 
+Typ av nyckel par som stöds för certifikat
+
  - Typer som stöds: RSA, RSA-HSM, EC, EC-HSM, okt (listade [här](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) kan exporteras endast med RSA, ec. HSM-nycklar kan inte exporteras.
 
+|Nyckeltyp|Om|Säkerhet|
+|--|--|--|
+|**RSA**| "RSA-nyckel för" Software-Protected "|FIPS 140-2-nivå 1|
+|**RSA-HSM**| "HSM-skyddad" RSA-nyckel (endast Premium-SKU)|FIPS 140-2 nivå 2 HSM|
+|**EC**| "Elliptic Curve-nyckel för" Software-Protected "|FIPS 140-2-nivå 1|
+|**EC-HSM**| "HSM-skyddad" Elliptic kurva-nyckel (endast Premium-SKU)|FIPS 140-2 nivå 2 HSM|
+|||
 
 ## <a name="certificate-attributes-and-tags"></a>Certifikatets attribut och Taggar
 
@@ -57,14 +66,14 @@ Certifikatets attribut speglas till attribut för den adress bara nyckel och hem
 
 Ett Key Vault certifikat har följande attribut:  
 
--   *aktive rad* : boolesk, valfritt, standardvärdet är **True**. Kan anges för att ange om certifikat data kan hämtas som hemliga eller fungerar som en nyckel. Används också tillsammans med *NBF* och *exp* när en åtgärd sker mellan *NBF* och *exp* , och är bara tillåten om aktive rad är inställd på True. Åtgärder utanför *NBF* och *exp* -fönstret tillåts inte automatiskt.  
+-   *aktive rad*: boolesk, valfritt, standardvärdet är **True**. Kan anges för att ange om certifikat data kan hämtas som hemliga eller fungerar som en nyckel. Används också tillsammans med *NBF* och *exp* när en åtgärd sker mellan *NBF* och *exp*, och är bara tillåten om aktive rad är inställd på True. Åtgärder utanför *NBF* och *exp* -fönstret tillåts inte automatiskt.  
 
 Det finns ytterligare skrivskyddade attribut som ingår i svaret:
 
--   *skapad* : IntDate: anger när den här versionen av certifikatet skapades.  
--   *uppdaterad* : IntDate: anger när den här versionen av certifikatet uppdaterades.  
--   *exp* : IntDate: innehåller värdet för det utgångna datumet för x509-certifikatet.  
--   *NBF* : IntDate: innehåller värdet för datumet för x509-certifikatet.  
+-   *skapad*: IntDate: anger när den här versionen av certifikatet skapades.  
+-   *uppdaterad*: IntDate: anger när den här versionen av certifikatet uppdaterades.  
+-   *exp*: IntDate: innehåller värdet för det utgångna datumet för x509-certifikatet.  
+-   *NBF*: IntDate: innehåller värdet för datumet för x509-certifikatet.  
 
 > [!Note] 
 > Om ett nyckelvalvscertifikat upphör att gälla går det inte att använda dess adresserbara nyckel och hemlighet.  

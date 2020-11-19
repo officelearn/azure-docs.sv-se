@@ -11,18 +11,18 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: c8b3ab965c5a85bd6f25e5325fdca24026aec787
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 0f2b9476c9b8c0b5164bfbf29d65d260340effe4
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873836"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919768"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Skapa och ansluta ett Azure Kubernetes service-kluster
 
 Azure Machine Learning kan distribuera utbildade maskin inlärnings modeller till Azure Kubernetes-tjänsten. Du måste dock först __skapa__ ett Azure Kubernetes service-kluster (AKS) från din Azure ml-arbetsyta eller __ansluta__ ett befintligt AKS-kluster. Den här artikeln innehåller information om hur du både skapar och bifogar ett kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -43,6 +43,8 @@ Azure Machine Learning kan distribuera utbildade maskin inlärnings modeller til
 - Om du **ansluter** ett AKS-kluster, som har ett [auktoriserat IP-adressintervall som är aktiverat för att få åtkomst till API-servern](../aks/api-server-authorized-ip-ranges.md), aktiverar du IP-intervallen för AML Control plan för AKS-klustret. Kontroll planet för AML distribueras i kopplade regioner och distribuerar poddar på AKS-klustret. Utan åtkomst till API-servern går det inte att distribuera poddar. Använd [IP-intervallen](https://www.microsoft.com/download/confirmation.aspx?id=56519) för båda [kopplade regionerna](../best-practices-availability-paired-regions.md) när du aktiverar IP-intervall i ett AKS-kluster.
 
     Auktoriserade IP-intervall fungerar endast med Standard Load Balancer.
+
+- När du **kopplar** ett AKS-kluster måste det finnas i samma Azure-prenumeration som din Azure Machine Learning-arbetsyta.
 
 - Om du vill använda ett privat AKS-kluster (med Azures privata länk) måste du först skapa klustret och sedan **koppla** det till arbets ytan. Mer information finns i [skapa ett privat Azure Kubernetes service-kluster](../aks/private-clusters.md).
 

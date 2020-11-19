@@ -3,12 +3,12 @@ title: 'Snabb start: skapa en delad fråga med Azure CLI'
 description: I den här snabb starten följer du stegen för att aktivera resurs diagram tillägget för Azure CLI och skapa en delad fråga.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: daaa0dc4039c37094330148f839fadf7b4013276
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 93df1c858ac6238a0192bcdedac8286f2cf75007
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057203"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919717"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Snabb start: skapa en resurs diagram delad fråga med Azure CLI
 
@@ -16,7 +16,7 @@ Det första steget i att använda Azure Resource Graph med [Azure CLI](/cli/azur
 
 I slutet av den här processen har du lagt till tillägget till din Azure CLI-installation och skapa en delad fråga för resurs diagram.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -28,14 +28,14 @@ Om du vill att Azure CLI ska fungera med Azure Resource Graph måste tillägget 
 
 1. Kontrol lera att den senaste versionen av Azure CLI är installerad (minst **2.8.0**). Om den ännu inte är installerad följer du [de här instruktionerna](/cli/azure/install-azure-cli-windows).
 
-1. I den Azure CLI-miljö du väljer använder du [tillägget AZ Add](/cli/azure/extension#az-extension-add) för att importera resurs diagram tillägget med följande kommando:
+1. I den Azure CLI-miljö du väljer använder du [tillägget AZ Add](/cli/azure/extension#az_extension_add) för att importera resurs diagram tillägget med följande kommando:
 
    ```azurecli-interactive
    # Add the Resource Graph extension to the Azure CLI environment
    az extension add --name resource-graph
    ```
 
-1. Kontrol lera att tillägget har installerats och att den förväntade versionen (minst **1.1.0**) med AZ- [filtillägg visas](/cli/azure/extension#az-extension-list):
+1. Kontrol lera att tillägget har installerats och att den förväntade versionen (minst **1.1.0**) med AZ- [filtillägg visas](/cli/azure/extension#az_extension_list):
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -49,7 +49,7 @@ Om du vill att Azure CLI ska fungera med Azure Resource Graph måste tillägget 
 
 När Azure CLI-tillägget har lagts till i din miljö väljer du en delad fråga för resurs diagram. Den delade frågan är ett Azure Resource Manager objekt som du kan ge behörighet till eller köra i Azure Resource Graph Explorer. Frågan sammanfattar antalet resurser grupperade efter _plats_.
 
-1. Skapa en resurs grupp med [AZ Group Create](/cli/azure/group#az-group-create) för att lagra den delade frågan i Azure Resource Graph. Den här resurs gruppen har namnet `resource-graph-queries` och platsen är `westus2` .
+1. Skapa en resurs grupp med [AZ Group Create](/cli/azure/group#az_group_create) för att lagra den delade frågan i Azure Resource Graph. Den här resurs gruppen har namnet `resource-graph-queries` och platsen är `westus2` .
 
    ```azurecli-interactive
    # Login first with az login if not using Cloud Shell
@@ -58,7 +58,7 @@ När Azure CLI-tillägget har lagts till i din miljö väljer du en delad fråga
    az group create --name 'resource-graph-queries' --location 'westus2'
    ```
 
-1. Skapa en delad Azure Resource Graph-fråga med hjälp av `graph` tillägget och [AZ graf Shared Query Create](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-create) , kommando:
+1. Skapa en delad Azure Resource Graph-fråga med hjälp av `graph` tillägget och [AZ graf Shared Query Create](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_create) , kommando:
 
    ```azurecli-interactive
    # Create the Azure Resource Graph shared query
@@ -68,14 +68,14 @@ När Azure CLI-tillägget har lagts till i din miljö väljer du en delad fråga
       --resource-group 'resource-graph-queries'
    ```
 
-1. Visa en lista över delade frågor i den nya resurs gruppen. Kommandot [AZ graf Shared-Query List](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-list) returnerar en matris med värden.
+1. Visa en lista över delade frågor i den nya resurs gruppen. Kommandot [AZ graf Shared-Query List](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_list) returnerar en matris med värden.
 
    ```azurecli-interactive
    # List all the Azure Resource Graph shared queries in a resource group
    az graph shared-query list --resource-group 'resource-graph-queries'
    ```
 
-1. Om du bara vill ha ett enda delat frågeresultat använder du kommandot [AZ Graph Shared Query show](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-show) .
+1. Om du bara vill ha ett enda delat frågeresultat använder du kommandot [AZ Graph Shared Query show](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_show) .
 
    ```azurecli-interactive
    # Show a specific Azure Resource Graph shared query
@@ -83,7 +83,7 @@ När Azure CLI-tillägget har lagts till i din miljö väljer du en delad fråga
       --name 'Summarize resources by location'
    ```
 
-1. Kör den delade frågan i Azure CLI med `{{shared-query-uri}}` syntaxen i ett [AZ Graph Query](/cli/azure/ext/resource-graph/graph#ext-resource-graph-az-graph-query) -kommando.
+1. Kör den delade frågan i Azure CLI med `{{shared-query-uri}}` syntaxen i ett [AZ Graph Query](/cli/azure/ext/resource-graph/graph#ext_resource_graph_az_graph_query) -kommando.
    Kopiera först `id` fältet från resultatet från föregående `show` kommando. Ersätt `shared-query-uri` text i exemplet med värdet från `id` fältet, men lämna omgivande `{{` `}}` tecken och tecken.
 
    ```azurecli-interactive
@@ -100,9 +100,9 @@ Ett annat sätt att hitta delade frågor för resurs diagram är genom Azure Por
 
 Om du vill ta bort den delade frågan, resurs gruppen och tillägget för resurs grafen från Azure CLI-miljön kan du göra det med hjälp av följande kommandon:
 
-- [AZ graf Shared-Query Delete](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-delete)
-- [az group delete](/cli/azure/group#az-group-delete)
-- [ta bort AZ-tillägg](/cli/azure/extension#az-extension-remove)
+- [AZ graf Shared-Query Delete](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_delete)
+- [az group delete](/cli/azure/group#az_group_delete)
+- [ta bort AZ-tillägg](/cli/azure/extension#az_extension_remove)
 
 ```azurecli-interactive
 # Delete the Azure Resource Graph shared query

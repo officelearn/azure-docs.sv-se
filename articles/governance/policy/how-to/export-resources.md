@@ -4,12 +4,12 @@ description: Lär dig att exportera Azure Policy resurser till GitHub, till exem
 ms.date: 10/29/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c16ceed755cab3228b8f9e401f486a0629f3a60d
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 923b063244f6f47def1c3e6a63d6e4d6b3b88083
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025722"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919573"
 ---
 # <a name="export-azure-policy-resources"></a>Exportera Azure Policy-resurser
 
@@ -19,20 +19,20 @@ Den här artikeln innehåller information om hur du exporterar befintliga Azure 
 
 Följ dessa steg om du vill exportera en princip definition från Azure Portal:
 
-1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip** .
+1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
 
 1. Välj **definitioner** till vänster på sidan Azure policy.
 
-1. Använd knappen **Exportera definitioner** eller Välj ellipsen på raden i en princip definition och välj sedan **Exportera definition** .
+1. Använd knappen **Exportera definitioner** eller Välj ellipsen på raden i en princip definition och välj sedan **Exportera definition**.
 
 1. Välj knappen **Logga in med GitHub** . Om du ännu inte har autentiserat med GitHub för att auktorisera Azure Policy att exportera resursen, granskar du åtkomsten till [GitHub-åtgärden](https://github.com/features/actions) i det nya fönstret som öppnas och väljer **Godkänn AzureGitHubActions** för att fortsätta med export processen. När det är klart stängs det nya fönstret.
 
 1. På fliken **grundläggande** inställningar anger du följande alternativ och väljer sedan fliken **principer** eller **Nästa: principer** -knappen längst ned på sidan.
 
-   - **Lagrings filter** : Ställ in på _mina databaser_ om du bara vill se de databaser som du äger eller _alla_ lagrings platser för att se alla du har beviljat åtgärden GitHub.
-   - **Databas** : Ange till den lagrings plats som du vill exportera Azure policy resurserna till.
-   - **Gren** : Ange grenen i lagrings platsen. Att använda en annan gren än standardinställningen är ett bra sätt att verifiera dina uppdateringar innan du sammanfogar dem till käll koden.
-   - **Katalog** : _rotmappen_ som Azure policy resurserna ska exporteras till. Undermappar under den här katalogen skapas baserat på vilka resurser som exporteras.
+   - **Lagrings filter**: Ställ in på _mina databaser_ om du bara vill se de databaser som du äger eller _alla_ lagrings platser för att se alla du har beviljat åtgärden GitHub.
+   - **Databas**: Ange till den lagrings plats som du vill exportera Azure policy resurserna till.
+   - **Gren**: Ange grenen i lagrings platsen. Att använda en annan gren än standardinställningen är ett bra sätt att verifiera dina uppdateringar innan du sammanfogar dem till käll koden.
+   - **Katalog**: _rotmappen_ som Azure policy resurserna ska exporteras till. Undermappar under den här katalogen skapas baserat på vilka resurser som exporteras.
 
 1. På fliken **principer** anger du Sök omfång genom att välja ellipsen och välja en kombination av hanterings grupper, prenumerationer eller resurs grupper.
    
@@ -47,7 +47,7 @@ Följ dessa steg om du vill exportera en princip definition från Azure Portal:
 
 1. Kontrol lera mappen GitHub lagrings platsen, Branch och _root Level_ för att se att de valda resurserna nu har exporter ATS till din käll kontroll.
 
-Azure Policy resurserna exporteras till följande struktur i den valda GitHub-lagringsplatsen och i _mappen rot nivå_ :
+Azure Policy resurserna exporteras till följande struktur i den valda GitHub-lagringsplatsen och i _mappen rot nivå_:
 
 ```text
 |
@@ -63,11 +63,11 @@ Azure Policy resurserna exporteras till följande struktur i den valda GitHub-la
 
 Azure Policy definitioner, initiativ och tilldelningar kan båda exporteras som JSON med [Azure CLI](/cli/azure/install-azure-cli). Vart och ett av dessa kommandon använder en **namn** parameter för att ange vilket objekt som JSON ska hämtas för. Egenskapen **namn** är ofta ett _GUID_ och inte objektets **DisplayName** .
 
-- Definition – [AZ princip definition show](/cli/azure/policy/definition#az-policy-definition-show)
-- Initiativ – [AZ princip set-definition show](/cli/azure/policy/set-definition#az-policy-set-definition-show)
-- Tilldelning – [AZ princip tilldelning show](/cli/azure/policy/assignment#az-policy-assignment-show)
+- Definition – [AZ princip definition show](/cli/azure/policy/definition#az_policy_definition_show)
+- Initiativ – [AZ princip set-definition show](/cli/azure/policy/set-definition#az_policy_set_definition_show)
+- Tilldelning – [AZ princip tilldelning show](/cli/azure/policy/assignment#az_policy_assignment_show)
 
-Här är ett exempel på att hämta JSON för en princip definition med **namnet** _VirtualMachineStorage_ :
+Här är ett exempel på att hämta JSON för en princip definition med **namnet** _VirtualMachineStorage_:
 
 ```azurecli-interactive
 az policy definition show --name 'VirtualMachineStorage'
@@ -81,7 +81,7 @@ Azure Policy definitioner, initiativ och tilldelningar kan exporteras som JSON m
 - Initiativ- [Get-AzPolicySetDefinition](/powershell/module/az.resources/get-azpolicysetdefinition)
 - Tilldelning- [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment)
 
-Här är ett exempel på att hämta JSON för en princip definition med **namnet** _VirtualMachineStorage_ :
+Här är ett exempel på att hämta JSON för en princip definition med **namnet** _VirtualMachineStorage_:
 
 ```azurepowershell-interactive
 Get-AzPolicyDefinition -Name 'VirtualMachineStorage' | ConvertTo-Json -Depth 10

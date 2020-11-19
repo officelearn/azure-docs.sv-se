@@ -3,12 +3,12 @@ title: 'Snabb start: skapa en skiss med Azure CLI'
 description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter med hjälp av Azure CLI.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 790e23897a24ea06565572163b8226af88e0bb7c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 88ccd3fe6271a79d201007954e7997b68d2dc69b
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057968"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920567"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Snabb start: definiera och tilldela en Azure Blueprint med Azure CLI
 
@@ -116,7 +116,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
      > [!NOTE]
      > Använd fil namnet _blueprint.js_ när du importerar dina skiss definitioner.
-     > Det här fil namnet används när du anropar [AZ skiss-import](/cli/azure/ext/blueprint/blueprint#ext-blueprint-az-blueprint-import).
+     > Det här fil namnet används när du anropar [AZ skiss-import](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
 
      Skiss-objektet skapas som standard i standard prenumerationen. Om du vill ange hanterings gruppen använder du parametern **ManagementGroup**. Om du vill ange prenumerationen använder du parameter **prenumeration**.
 

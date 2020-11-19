@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 03/05/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: a9b68b2d4298c5e692782e529bae9a9df6359953
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 97017e104ecff38ebf4e475fb5f6ae42707ef10e
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331166"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919598"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Använda TLS för att skydda en webbtjänst via Azure Machine Learning
 
@@ -30,7 +30,7 @@ Du använder [https](https://en.wikipedia.org/wiki/HTTPS) för att begränsa åt
 >
 > Mer specifikt distribueras webb tjänster via Azure Machine Learning stöd för TLS version 1,2 för AKS och ACI nya distributioner. Om du använder en äldre TLS-version, rekommenderar vi att du distribuerar om för att få den senaste TLS-versionen för ACI-distributioner.
 
-TLS och SSL är beroende av *digitala certifikat* , som hjälper till med kryptering och identitets verifiering. Mer information om hur digitala certifikat fungerar finns i avsnittet om infrastrukturen för [offentliga nycklar](https://en.wikipedia.org/wiki/Public_key_infrastructure)i Wikipedia-ämnet.
+TLS och SSL är beroende av *digitala certifikat*, som hjälper till med kryptering och identitets verifiering. Mer information om hur digitala certifikat fungerar finns i avsnittet om infrastrukturen för [offentliga nycklar](https://en.wikipedia.org/wiki/Public_key_infrastructure)i Wikipedia-ämnet.
 
 > [!WARNING]
 > Om du inte använder HTTPS för din webb tjänst kan data som skickas till och från tjänsten vara synliga för andra på Internet.
@@ -87,6 +87,9 @@ När du distribuerar till AKS kan du skapa ett nytt AKS-kluster eller koppla ett
 
 Metoden **enable_ssl** kan använda ett certifikat från Microsoft eller ett certifikat som du köper.
 
+> [!WARNING]
+> Om ditt AKS-kluster har kon figurer ATS med en intern belastningsutjämnare kan du __inte__ använda ett certifikat från Microsoft. Användning av ett Microsoft-certifikat kräver en offentlig IP-resurs i Azure, vilket inte är tillgängligt för AKS när den har kon figurer ATS för intern belastningsutjämnare.
+
   * När du använder ett certifikat från Microsoft måste du använda *leaf_domain_label* -parametern. Den här parametern genererar DNS-namnet för tjänsten. Till exempel skapar värdet "contoso" domän namnet "contoso \<six-random-characters> . \<azureregion> . cloudapp.azure.com ", där \<azureregion> är den region som innehåller tjänsten. Alternativt kan du använda parametern *overwrite_existing_domain* för att skriva över den befintliga *leaf_domain_label*.
 
     Om du vill distribuera (eller distribuera om) tjänsten med TLS aktiverat, anger du parametern *ssl_enabled* till "true" oavsett var den gäller. Ange parametern *ssl_certificate* till värdet för *certifikat* filen. Ange *ssl_key* till *nyckel* filens värde.
@@ -115,7 +118,7 @@ Metoden **enable_ssl** kan använda ett certifikat från Microsoft eller ett cer
     attach_config.enable_ssl(leaf_domain_label = "contoso")
     ```
 
-  * När du använder *ett certifikat som du har köpt* använder du parametrarna *ssl_cert_pem_file* , *ssl_key_pem_file* och *ssl_cname* . Följande exempel visar hur du använder *. pem* -filer för att skapa en konfiguration som använder ett TLS/SSL-certifikat som du har köpt:
+  * När du använder *ett certifikat som du har köpt* använder du parametrarna *ssl_cert_pem_file*, *ssl_key_pem_file* och *ssl_cname* . Följande exempel visar hur du använder *. pem* -filer för att skapa en konfiguration som använder ett TLS/SSL-certifikat som du har köpt:
 
     ```python
     from azureml.core.compute import AksCompute
@@ -159,7 +162,8 @@ Sedan måste du uppdatera din DNS så att den pekar på webb tjänsten.
 
   > [!WARNING]
   > Om du använde *leaf_domain_label* för att skapa tjänsten med hjälp av ett certifikat från Microsoft uppdaterar du inte DNS-värdet manuellt för klustret. Värdet ska anges automatiskt.
-
+  >
+  > Om ditt AKS-kluster har kon figurer ATS med en intern belastningsutjämnare kan du __inte__ använda ett Microsoft-certifikat (genom att ange *leaf_domain_label*). Användning av ett Microsoft-certifikat kräver en offentlig IP-resurs i Azure, vilket inte är tillgängligt för AKS när den har kon figurer ATS för intern belastningsutjämnare.
   Uppdatera DNS för den offentliga IP-adressen för AKS-klustret på fliken **konfiguration** under **Inställningar** i det vänstra fönstret. (Se följande bild.) Den offentliga IP-adressen är en resurs typ som skapas under resurs gruppen som innehåller AKS-agentens noder och andra nätverks resurser.
 
   [![Azure Machine Learning: skydda webb tjänster med TLS](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)

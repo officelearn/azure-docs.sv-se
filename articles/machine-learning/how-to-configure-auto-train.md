@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: b49b9f710a98495342687c4ce1dc702078b27246
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f4546433f5bd20e2f001d6d868d8adfb4b9bf8c0
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535341"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920380"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 
@@ -37,7 +37,7 @@ Konfigurations alternativ som är tillgängliga i Automatisk maskin inlärning:
 
 Om du föredrar en ingen kod upplevelse kan du också [skapa dina automatiserade maskin inlärnings experiment i Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här artikeln behöver du 
 * En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md).
@@ -130,26 +130,24 @@ Några exempel är:
 1. Klassificerings experiment med AUC viktat som primärt mått med experiment tids gräns minuter angivet till 30 minuter och 2 kors validerings vikning.
 
    ```python
-       automl_classifier=AutoMLConfig(
-       task='classification',
-       primary_metric='AUC_weighted',
-       experiment_timeout_minutes=30,
-       blocked_models=['XGBoostClassifier'],
-       training_data=train_data,
-       label_column_name=label,
-       n_cross_validations=2)
+       automl_classifier=AutoMLConfig(task='classification',
+                                      primary_metric='AUC_weighted',
+                                      experiment_timeout_minutes=30,
+                                      blocked_models=['XGBoostClassifier'],
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=2)
    ```
 1. I följande exempel är ett Regressions experiment inställt på att sluta efter 60 minuter med fem verifierings kors veck.
 
    ```python
-      automl_regressor = AutoMLConfig(
-      task='regression',
-      experiment_timeout_minutes=60,
-      allowed_models=['KNN'],
-      primary_metric='r2_score',
-      training_data=train_data,
-      label_column_name=label,
-      n_cross_validations=5)
+      automl_regressor = AutoMLConfig(task='regression',
+                                      experiment_timeout_minutes=60,
+                                      allowed_models=['KNN'],
+                                      primary_metric='r2_score',
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=5)
    ```
 
 
@@ -301,6 +299,18 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
+<a name="exit"></a> 
+
+### <a name="exit-criteria"></a>Avslutnings villkor
+
+Det finns några alternativ som du kan definiera i AutoMLConfig för att avsluta experimentet.
+
+|Kriterie| beskrivning
+|----|----
+Inga &nbsp; kriterier | Om du inte definierar några avslutnings parametrar fortsätter experimentet tills inga ytterligare framsteg görs på ditt primära mått.
+Efter &nbsp; en &nbsp; viss &nbsp; &nbsp; tid| Använd `experiment_timeout_minutes` i dina inställningar för att definiera hur lång tid, i minuter, som experimentet ska fortsätta att köras. <br><br> För att undvika tids brist på experiment, det finns minst 15 minuter eller 60 minuter om raden efter kolumn storlek överskrider 10 000 000.
+&nbsp;Poängen &nbsp; har &nbsp; &nbsp; nåtts| Använd `experiment_exit_score` Slutför experimentet när en angiven primär mått Poäng har nåtts.
+
 ## <a name="run-experiment"></a>Kör experiment
 
 För automatisk ML skapar du ett `Experiment` -objekt, som är ett namngivet objekt i en som `Workspace` används för att köra experiment.
@@ -327,17 +337,15 @@ run = experiment.submit(automl_config, show_output=True)
 >Beroenden installeras först på en ny dator.  Det kan ta upp till 10 minuter innan utdata visas.
 >Inställning `show_output` till `True` resultat i utdata som visas i-konsolen.
 
- <a name="exit"></a> 
+### <a name="multiple-child-runs-on-clusters"></a>Flera underordnade körs i kluster
 
-### <a name="exit-criteria"></a>Avslutnings villkor
+Automatiserade ML experiment med underordnade körningar kan utföras på ett kluster som redan kör ett annat experiment. Tiden är dock beroende av hur många noder klustret har, och om noderna är tillgängliga för att köra ett annat experiment.
 
-Det finns några alternativ som du kan definiera för att avsluta experimentet.
+Varje nod i klustret fungerar som en enskild virtuell dator (VM) som kan utföra en enda utbildning. för automatisk ML innebär en underordnad körning. Om alla noder är upptagna är det nya experimentet placerat i kö. Men om det finns kostnads fria noder kommer det nya experimentet att köra automatiserad ML-underordnad parallellt i tillgängliga noder/virtuella datorer.
 
-|Kriterie| beskrivning
-|----|----
-Inga &nbsp; kriterier | Om du inte definierar några avslutnings parametrar fortsätter experimentet tills inga ytterligare framsteg görs på ditt primära mått.
-Efter &nbsp; en &nbsp; viss &nbsp; &nbsp; tid| Använd `experiment_timeout_minutes` i dina inställningar för att definiera hur lång tid, i minuter, som experimentet ska fortsätta att köras. <br><br> För att undvika tids brist på experiment, det finns minst 15 minuter eller 60 minuter om raden efter kolumn storlek överskrider 10 000 000.
-&nbsp;Poängen &nbsp; har &nbsp; &nbsp; nåtts| Använd `experiment_exit_score` Slutför experimentet när en angiven primär mått Poäng har nåtts.
+För att hantera underordnade körningar och när de kan utföras rekommenderar vi att du skapar ett dedikerat kluster per experiment och matchar antalet `max_concurrent_iterations` noder i klustret. På så sätt använder du alla noder i klustret samtidigt med antalet samtidiga underordnade körningar/iterationer som du vill ha.
+
+Konfigurera  `max_concurrent_iterations` i `AutoMLConfig` objektet. Om den inte har kon figurer ATS tillåts som standard bara en samtidiga underordnade körning/iteration per experiment.  
 
 ## <a name="explore-models-and-metrics"></a>Utforska modeller och mått
 
@@ -348,7 +356,7 @@ Se [utvärdera automatiserade experiment resultat för maskin inlärning](how-to
 För att få en funktionalisering-Sammanfattning och förstå vilka funktioner som har lagts till i en viss modell, se [funktionalisering Transparency](how-to-configure-auto-features.md#featurization-transparency). 
 
 > [!NOTE]
-> Algoritmerna för automatisk ML-användning har potentiell slumpmässig het som kan orsaka smärre variationer i rekommenderade modeller slut mått, som noggrannhet. Med automatisk ML utförs även åtgärder för data som träna-test-delning, träna eller kors validering när det behövs. Så om du kör ett experiment med samma konfigurations inställningar och primär mått flera gånger, kommer du troligen att se variationen i varje experiment slutliga Mät resultat på grund av dessa faktorer. 
+> Algoritmerna för automatisk ML-användning har potentiell slumpmässig het som kan orsaka smärre variationer i en rekommenderad modells slutliga mått poäng, som noggrannhet. Med automatisk ML utförs även åtgärder för data som träna-test-delning, träna eller kors validering när det behövs. Så om du kör ett experiment med samma konfigurations inställningar och primär mått flera gånger, kommer du troligen att se variationen i varje experiment slutliga Mät resultat på grund av dessa faktorer. 
 
 ## <a name="register-and-deploy-models"></a>Registrera och distribuera modeller
 

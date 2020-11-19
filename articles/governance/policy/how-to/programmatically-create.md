@@ -3,12 +3,12 @@ title: Skapa principer programmässigt
 description: Den här artikeln vägleder dig genom program mässigt skapa och hantera principer för Azure Policy med Azure CLI, Azure PowerShell och REST API.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 86c1b60608780cba4d8ae27e3c82ace458f09a26
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491808"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920023"
 ---
 # <a name="programmatically-create-policies"></a>Skapa principer programmässigt
 
@@ -16,7 +16,7 @@ Den här artikeln vägleder dig genom program mässigt skapa och hantera princip
 
 Information om kompatibilitet finns i [Hämta efterlevnadsprinciper](get-compliance-data.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrol lera att följande krav är uppfyllda innan du börjar:
 
@@ -203,7 +203,7 @@ Använd följande procedur för att skapa en princip definition:
    ```
 
    Kommandot skapar en princip definition med namnet _Granska lagrings konton som är öppna i offentliga nätverk_.
-   Mer information om andra parametrar som du kan använda finns i [AZ policy definition Create](/cli/azure/policy/definition#az-policy-definition-create).
+   Mer information om andra parametrar som du kan använda finns i [AZ policy definition Create](/cli/azure/policy/definition#az_policy_definition_create).
 
    När anropas utan plats parametrar, `az policy definition creation` sparar standard princip definitionen i den valda prenumerationen av sessionens kontext. Om du vill spara definitionen på en annan plats använder du följande parametrar:
 

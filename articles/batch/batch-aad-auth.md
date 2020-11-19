@@ -4,12 +4,12 @@ description: Batch stöder Azure AD för autentisering från batch-tjänsten. L�
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: cb8306da4022ea1819e2da32a2f513c83bed309f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 685b84f1e628ea67689d3de8bf64c9641edba6fc
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309379"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920516"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera batch service-lösningar med Active Directory
 
@@ -77,15 +77,15 @@ Om du vill autentisera med integrerad autentisering måste du ge dina program be
 
 När du har registrerat ditt program följer du de här stegen i Azure Portal för att ge åtkomst till batch-tjänsten:
 
-1. I Azure Portal väljer du **alla tjänster**och väljer sedan **app-registreringar**.
+1. I Azure Portal väljer du **alla tjänster** och väljer sedan **app-registreringar**.
 1. Sök efter namnet på ditt program i listan med app-registreringar.
 1. Välj programmet och välj **API-behörigheter**.
 1. I avsnittet **API-behörigheter** väljer du **Lägg till en behörighet**.
-1. I **Välj ett API**söker du efter batch-API: et. Sök efter var och en av de här strängarna tills du hittar API:t:
+1. I **Välj ett API** söker du efter batch-API: et. Sök efter var och en av de här strängarna tills du hittar API:t:
     1. **Microsoft Azure Batch**
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864** är id:t för API:t.
 1. När du har hittat batch-API: t väljer du det och väljer sedan **Välj**.
-1. Markera kryss rutan bredvid **åtkomst Azure Batch tjänst** i **Välj behörigheter**och välj sedan **Lägg till behörigheter**.
+1. Markera kryss rutan bredvid **åtkomst Azure Batch tjänst** i **Välj behörigheter** och välj sedan **Lägg till behörigheter**.
 
 Avsnittet **API-behörigheter** visar nu att Azure AD-programmet har åtkomst till både Microsoft Graph och batch-tjänstens API. Behörigheter beviljas till Microsoft Graph automatiskt när du först registrerar din app med Azure AD.
 
@@ -268,13 +268,13 @@ public static async Task<string> GetAuthenticationTokenAsync()
 Skapa ett **BatchTokenCredentials** -objekt som tar ombudet som en parameter. Använd dessa autentiseringsuppgifter för att öppna ett **metoden batchclient** -objekt. Du kan använda det **metoden batchclient** -objektet för efterföljande åtgärder mot batch-tjänsten:
 
 ```csharp
-public static async Task PerformBatchOperations()
+public static void PerformBatchOperations()
 {
     Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+    using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
     {
-        await client.JobOperations.ListJobs().ToListAsync();
+        client.JobOperations.ListJobs();
     }
 }
 ```
@@ -336,13 +336,13 @@ public static async Task<string> GetAuthenticationTokenAsync()
 Skapa ett **BatchTokenCredentials** -objekt som tar ombudet som en parameter. Använd dessa autentiseringsuppgifter för att öppna ett **metoden batchclient** -objekt. Använd sedan det **metoden batchclient** -objektet för efterföljande åtgärder mot batch-tjänsten:
 
 ```csharp
-public static async Task PerformBatchOperations()
+public static void PerformBatchOperations()
 {
     Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+    using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
     {
-        await client.JobOperations.ListJobs().ToListAsync();
+        client.JobOperations.ListJobs();
     }
 }
 ```

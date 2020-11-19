@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: adac986cfa1a975ced7ef579c088ed2739778bf5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1813da8a8a812eeded235d71c351ec352c42707c
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841815"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920091"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics arbets ytans data export i Azure Monitor (förhands granskning)
 Med Log Analytics data export för arbets yta i Azure Monitor kan du kontinuerligt exportera data från valda tabeller i din Log Analytics arbets yta till ett Azure Storage-konto eller Azure-Event Hubs som det samlas in. Den här artikeln innehåller information om den här funktionen och hur du konfigurerar data export i dina arbets ytor.
@@ -81,7 +81,7 @@ Data skickas till händelsehubben i nära real tid när den når Azure Monitor. 
 1. Den grundläggande Event Hub-SKU: n stöder lägre storleks [gräns](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) för händelser och vissa loggar på din arbets yta kan överstiga den och tas bort. Vi rekommenderar att du använder "standard" eller "dedikerad" händelsehubben som export mål.
 2. Volymen för exporterade data ökar ofta med tiden och skalningen av Event Hub måste ökas för att hantera större överföringshastigheter och undvika begränsnings scenarier och data fördröjning. Du bör använda funktionen för automatisk ökning i Event Hubs för att automatiskt skala upp och öka antalet data flödes enheter och uppfylla användnings behoven. Mer information finns i [skala upp Azure Event Hubs data flödes enheter automatiskt](../../event-hubs/event-hubs-auto-inflate.md) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Följande är förutsättningar som måste slutföras innan du konfigurerar Log Analytics data export.
 
 - Lagrings kontot och händelsehubben måste redan skapas och måste finnas i samma region som Log Analytics-arbetsytan. Om du behöver replikera dina data till andra lagrings konton kan du använda något av [alternativen för Azure Storage redundans](../../storage/common/storage-redundancy.md).  
@@ -117,7 +117,11 @@ Om du har konfigurerat ditt lagrings konto för att tillåta åtkomst från vald
 ### <a name="create-or-update-data-export-rule"></a>Skapa eller uppdatera data export regel
 En data export regel definierar data som ska exporteras för en uppsättning tabeller till ett enda mål. Du kan skapa en regel för varje mål.
 
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 Använd följande CLI-kommando för att visa tabeller i din arbets yta. Den kan hjälpa dig att kopiera de tabeller som du vill ha och ta med i data export regeln.
+
 ```azurecli
 az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
 ```
@@ -133,6 +137,8 @@ Använd följande kommando för att skapa en data export regel till en händelse
 ```azurecli
 az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 Använd följande begäran för att skapa en data export regel med hjälp av REST API. Begäran bör använda token token-auktorisering och innehålls typ Application/JSON.
 
@@ -193,26 +199,38 @@ Följande är en exempel text för REST-begäran för en Event Hub där Event Hu
   }
 }
 ```
+---
 
 ## <a name="view-data-export-configuration"></a>Visa data export konfiguration
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 Använd följande kommando för att visa konfigurationen av en data export regel med hjälp av CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export show --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 Använd följande begäran om du vill visa konfigurationen av en data export regel med hjälp av REST API. Begäran bör använda token token-auktorisering.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## <a name="disable-an-export-rule"></a>Inaktivera en export regel
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 Export regler kan inaktive ras så att du kan stoppa exporten när du inte behöver spara data under en viss period, till exempel när testningen utförs. Använd följande kommando för att inaktivera en data export regel med CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --enable false
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 Använd följande begäran om du vill inaktivera en data export regel med hjälp av REST API. Begäran bör använda token token-auktorisering.
 
@@ -234,32 +252,45 @@ Content-type: application/json
     }
 }
 ```
+---
 
 ## <a name="delete-an-export-rule"></a>Ta bort en export regel
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 Använd följande kommando för att ta bort en data export regel med CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export delete --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 Använd följande begäran om du vill ta bort en data export regel med hjälp av REST API. Begäran bör använda token token-auktorisering.
 
 ```rest
 DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Visa alla data export regler i en arbets yta
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 Använd följande kommando för att visa alla data export regler i en arbets yta med CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export list --resource-group resourceGroupName --workspace-name workspaceName
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 Använd följande begäran om du vill visa alla data export regler i en arbets yta med hjälp av REST API. Begäran bör använda token token-auktorisering.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
 ```
+---
 
 ## <a name="unsupported-tables"></a>Tabeller som inte stöds
 Om data export regeln innehåller en tabell som inte stöds kommer konfigurationen att lyckas, men inga data exporteras för tabellen. Om tabellen senare stöds, kommer dess data att exporteras vid denna tidpunkt.

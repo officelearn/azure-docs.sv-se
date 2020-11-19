@@ -1,14 +1,14 @@
 ---
 title: Utveckla och kör Azure Functions lokalt
-description: Lär dig hur du kodar och testar Azure Functions på den lokala datorn innan du kör dem på Azure Functions.
+description: Lär dig att koda och testa Azure Functions på den lokala datorn innan du kör dem på Azure Functions.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: e8af075f39cf25e39e5098d3c6aa27cac9018d2f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: c011dff9f43de59d3f08445a7bbd5387b27563ad
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422951"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920040"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Koda och testa Azure Functions lokalt
 
@@ -18,7 +18,7 @@ När du har möjlighet att utveckla och testa Azure Functions i [Azure Portal], 
 
 Hur du utvecklar funktioner på din lokala dator beror på [språk](supported-languages.md) och verktygs inställningar. Miljöerna i följande tabell stöder lokal utveckling:
 
-|Miljö                              |Språk         |Description|
+|Miljö                              |Språk         |Beskrivning|
 |-----------------------------------------|------------|---|
 |[Visual Studio Code](functions-develop-vs-code.md)| [C# (klass bibliotek)](functions-dotnet-class-library.md), [c#-skript (. CSX)](functions-reference-csharp.md), [Java Script](functions-reference-node.md), [PowerShell](./create-first-function-vs-code-powershell.md), [python](functions-reference-python.md) | [Azure Functions-tillägget för vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) lägger till funktioner som stöder vs Code. Kräver kärn verktyg. Stöder utveckling av Linux, MacOS och Windows när du använder version 2. x av kärn verktygen. Mer information finns i [skapa din första funktion med Visual Studio Code](functions-create-first-function-vs-code.md). |
 | [Kommando tolk eller Terminal](functions-run-local.md) | [C# (klass bibliotek)](functions-dotnet-class-library.md), [c#-skript (. CSX)](functions-reference-csharp.md), [Java Script](functions-reference-node.md), [PowerShell](functions-reference-powershell.md), [python](functions-reference-python.md) | [Azure Functions Core tools] tillhandahåller kärn körning och mallar för att skapa funktioner som möjliggör lokal utveckling. Version 2. x stöder utveckling på Linux, MacOS och Windows. Alla miljöer förlitar sig på kärn verktyg för den lokala Functions-körningen. |

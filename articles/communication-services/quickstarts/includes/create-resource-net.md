@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 258908ed1118b0463e8c824cd8c699fb460dfff2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a9f8fdda1bc853057f3eb858e85b938357397cd
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948295"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886132"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/dotnet/).
 - Den senaste versionen av [klient biblioteket för .net Core](https://dotnet.microsoft.com/download/dotnet-core) för ditt operativ system.
-- Hämta den senaste versionen av [klient biblioteket för .NET-identitet](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet).
+- Hämta den senaste versionen av [klient biblioteket för .NET-identitet](/dotnet/api/azure.identity?view=azure-dotnet).
 - Hämta den senaste versionen av [klient biblioteket för .net-hantering](../../concepts/sdk-options.md).
 
 ## <a name="installing-the-client-library"></a>Installera klient biblioteket
@@ -44,13 +44,13 @@ För att kunna kommunicera med Azure Communication Services måste du först aut
 
 ### <a name="option-1-managed-identity"></a>Alternativ 1: hanterad identitet
 
-Om din kod körs som en tjänst i Azure är det enklaste sättet att autentisera en hanterad identitet från Azure. Läs mer om [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Om din kod körs som en tjänst i Azure är det enklaste sättet att autentisera en hanterad identitet från Azure. Läs mer om [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-[Azure-tjänster som har stöd för hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+[Azure-tjänster som har stöd för hanterade identiteter](../../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
-[Använda hanterade identiteter för App Service och Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+[Använda hanterade identiteter för App Service och Azure Functions](../../../app-service/overview-managed-identity.md?tabs=dotnet)
 
-#### <a name="system-assigned-managed-identity"></a>[Systemtilldelad hanterad identitet](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
+#### <a name="system-assigned-managed-identity"></a>[Systemtilldelad hanterad identitet](../../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity)
 
 ```csharp
 using Azure.Identity;
@@ -62,7 +62,7 @@ var subscriptionId = "AZURE_SUBSCRIPTION_ID";
 var acsClient = new CommunicationManagementClient(subscriptionId, new ManagedIdentityCredential());
 ```
 
-#### <a name="user-assigned-managed-identity"></a>[Användardefinierad hanterad identitet](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity)
+#### <a name="user-assigned-managed-identity"></a>[Användardefinierad hanterad identitet](../../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity)
 
 ClientId för den hanterade identitet som du skapade måste skickas till det `ManagedIdentityCredential` explicit.
 
@@ -79,7 +79,7 @@ var acsClient = new CommunicationManagementClient(subscriptionId, managedIdentit
 
 ### <a name="option-2-service-principal"></a>Alternativ 2: tjänstens huvud namn
 
-I stället för att använda en hanterad identitet kanske du vill autentisera till Azure med ett huvud namn för tjänsten som du hanterar själv. Läs mer i dokumentationen om hur du [skapar och hanterar tjänstens huvud namn i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+I stället för att använda en hanterad identitet kanske du vill autentisera till Azure med ett huvud namn för tjänsten som du hanterar själv. Läs mer i dokumentationen om hur du [skapar och hanterar tjänstens huvud namn i Azure Active Directory](../../../active-directory/develop/howto-create-service-principal-portal.md).
 
 När du har skapat ditt huvud namn för tjänsten måste du samla in följande information om den från Azure Portal:
 
@@ -121,7 +121,7 @@ Nu när du har autentiserats kan du använda hanterings klienten för att skapa 
 
 För vart och ett av följande exempel kommer vi att tilldela våra kommunikations tjänst resurser till en befintlig resurs grupp.
 
-Om du behöver skapa en resurs grupp kan du göra det med hjälp av [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) eller [Azure Resource Manager klient biblioteket](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
+Om du behöver skapa en resurs grupp kan du göra det med hjälp av [Azure Portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md) eller [Azure Resource Manager klient biblioteket](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 ### <a name="create-and-manage-a-communication-services-resource"></a>Skapa och hantera en kommunikations tjänst resurs
 

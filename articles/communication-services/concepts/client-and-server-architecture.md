@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: b844f61963081bf355837fd26254915112cbce11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b63ce25d6839e8672027240099859dc7aad96c5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666950"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886081"
 ---
 # <a name="client-and-server-architecture"></a>Klient-och server arkitektur
 
@@ -37,19 +37,19 @@ Klient bibliotek för Azure Communication Services kräver `user access tokens` 
 
 :::image type="content" source="../media/scenarios/archdiagram-access.png" alt-text="Diagram över arkitektur för användar åtkomst-token.":::
 
-För ytterligare information, se [metod tips för identitets hantering](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+För ytterligare information, se [metod tips för identitets hantering](../../security/fundamentals/identity-management-best-practices.md)
 
 ## <a name="browser-communication"></a>Webb läsar kommunikation
 
 Klient bibliotek för Azure-kommunikation i Java Script kan aktivera webb program med funktioner för text-, röst-och video interaktion. Programmet interagerar direkt med Azure Communication Services via klient biblioteket för att komma åt data planet och leverera text-, röst-och video kommunikation i real tid. Du hittar ett exempel på ett arkitektur flöde nedan:
 
-:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagram över arkitektur för användar åtkomst-token.":::
+:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagram som visar webbläsaren för webb läsar arkitekturen för kommunikations tjänster.":::
 
 ## <a name="native-app-communication"></a>Intern app-kommunikation
 
 Många scenarier hanteras bäst med inbyggda program. Azure Communication Services stöder både webb läsar-till-app-och app-till-app-kommunikation.  När du skapar en inbyggd program upplevelse gör det möjligt för användarna att ta emot samtal även när programmet inte körs. Azure Communication Services gör det enkelt med integrerade push-meddelanden till Google Firebase, Apple Push Notification Service och Windows Push-meddelanden. Du hittar ett exempel på ett arkitektur flöde nedan:
 
-:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagram över arkitektur för användar åtkomst-token.":::
+:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagram som visar arkitektur för kommunikations tjänster för intern app-kommunikation.":::
 
 ## <a name="voice-and-sms-over-the-public-switched-telephony-network-pstn"></a>Voice och SMS via det offentliga växlade telefoni nätverket (PSTN)
 
@@ -58,7 +58,7 @@ Att kommunicera via telefon systemet kan dramatiskt öka räckvidden för ditt p
 > [!Note]
 > Under en offentlig för hands version är etableringen av amerikanska telefonnummer tillgängliga för kunder med fakturerings adresser som finns i USA och Kanada. 
 
-:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagram över arkitektur för användar åtkomst-token.":::
+:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagram som visar PSTN-arkitektur för kommunikations tjänster.":::
 
 Mer information om PSTN-och SMS-lösningar finns i [Planera din PSTN-och SMS-lösning](../concepts/telephony-sms/plan-solution.md)
 
@@ -66,7 +66,7 @@ Mer information om PSTN-och SMS-lösningar finns i [Planera din PSTN-och SMS-lö
 
 Azure Communication Services stöder kommunikation från människa till system, även om text-och röst kanaler, med tjänster som har direkt åtkomst till Azure Communication Services-dataplanen. Du kan till exempel ha en bot-svar på inkommande telefonsamtal eller delta i en webbchatt. Azure Communication Services tillhandahåller klient bibliotek som möjliggör de här scenarierna för att anropa och chatta. Du hittar ett exempel på ett arkitektur flöde nedan:
 
-:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagram över arkitektur för användar åtkomst-token.":::
+:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagram som visar robot arkitektur för kommunikations tjänster.":::
 
 ## <a name="networking"></a>Nätverk
 

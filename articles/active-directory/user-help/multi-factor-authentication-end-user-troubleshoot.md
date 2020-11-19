@@ -13,12 +13,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
-ms.openlocfilehash: 3d95ad4aa100b0a185bde015dfe34d747fc77ec9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 095ea62ee992fa12fc80f715f9e63725e9930595
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322610"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886217"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Vanliga problem med tvåstegsverifiering och ditt arbets- eller skolkonto
 
@@ -74,6 +74,7 @@ Att inte ta emot verifierings koden är ett vanligt problem. Problemet är vanli
 
 Prova detta | Information om vägledning
 --------- | ------------
+Använd Microsoft Authenticator-appen eller verifierings koderna | Du får "du har nått vår gräns för verifierings anrop" eller "du har nått vår gräns för text verifierings koder" fel meddelanden under inloggningen. <br/><br/>Microsoft kan begränsa upprepade autentiseringsförsök som utförs av samma användare under en kort tids period. Den här begränsningen gäller inte för Microsoft Authenticator eller verifierings koden. Om du har nått dessa gränser kan du använda Authenticator-appen, verifierings koden eller försöka logga in igen om några minuter.
 Starta om din mobila enhet | Ibland behöver enheten bara en uppdatering. När du startar om enheten avslutas alla bakgrunds processer och-tjänster. Omstarten stänger också av enhetens kärn komponenter. Alla tjänster och komponenter uppdateras när du startar om enheten.
 Kontrol lera att din säkerhets information är korrekt | Kontrol lera att informationen om säkerhets verifierings metoden är korrekt, särskilt dina telefonnummer. Om du anger fel telefonnummer hamnar alla aviseringar till det felaktiga numret. Den användaren är lyckligt vis inte att kunna göra något med aviseringarna, men du kan inte heller logga in på ditt konto. Om du vill kontrol lera att informationen är korrekt läser du anvisningarna i artikeln [Hantera inställningar för metod för att hantera dina inställningar](multi-factor-authentication-end-user-manage-settings.md) .
 Kontrol lera att dina meddelanden är aktiverade | Se till att dina meddelanden är aktiverade på den mobila enheten. Se till att följande meddelande lägen är tillåtna: <br/><br/> &bull; Telefonsamtal <br/> &bull; Din app för autentisering <br/> &bull; Din app för SMS-meddelanden <br/><br/> Se till att dessa lägen skapar en avisering som är _synlig_ på enheten.

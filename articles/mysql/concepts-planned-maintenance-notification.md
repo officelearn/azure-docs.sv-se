@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c85624d9eced3130a1c7b99943095688beee62bd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 63cc4448034b6a2ae2d74f4a2d9a0a62296678cf
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93417596"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886489"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Meddelande om planerat underhåll i Azure Database for MySQL-enskild server
 
@@ -21,7 +21,7 @@ Lär dig hur du förbereder för planerade underhålls händelser på din Azure 
 
 Azure Database for MySQL tjänsten utför automatisk uppdatering av underliggande maskin vara, operativ system och databas motor. Korrigeringen innehåller nya tjänst funktioner, säkerhets-och program uppdateringar. För MySQL-motorn är lägre versions uppgraderingar automatiska och ingår som en del av korrigerings cykeln. Det finns inga användar åtgärder eller konfigurations inställningar som krävs för korrigering. Korrigeringen testas omfattande och distribueras med hjälp av säkerhets metoder för säker distribution.
 
-Ett planerat underhåll är ett underhålls fönster när de här tjänst uppdateringarna distribueras till servrar i en specifik Azure-region. Under planerat underhåll skapas en meddelande händelse som informerar kunder när tjänst uppdateringen distribueras i Azure-regionen som är värd för sina servrar. Minimi tiden mellan två planerade underhåll är 30 dagar. Du får ett meddelande om nästa underhålls period 72 timmar i förväg.
+Ett planerat underhåll är ett underhålls fönster när de här tjänst uppdateringarna distribueras till servrar i en specifik Azure-region. Vid planerat underhåll skapas en meddelandehändelse som informerar kunderna om när tjänstuppdateringen distribueras i den Azure-region där värden för deras servrar finns. Minimi tiden mellan två planerade underhåll är 30 dagar. Du får ett meddelande om nästa underhållsperiod 72 timmar i förväg.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Planerat underhåll – varaktighet och kund påverkan
 
@@ -48,7 +48,7 @@ Du kan antingen kontrol lera den planerade underhålls aviseringen på Azure Por
 
 1. I [Azure Portal](https://portal.azure.com)väljer du **service Health**.
 2. Fliken Välj **planerat underhåll**
-3. Välj den **prenumeration** , **region** och **tjänst** för vilken du vill kontrol lera aviseringen om planerat underhåll. 
+3. Välj den **prenumeration**, **region** och **tjänst** för vilken du vill kontrol lera aviseringen om planerat underhåll. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>För att få ett meddelande om planerat underhåll
 
@@ -56,7 +56,7 @@ Du kan antingen kontrol lera den planerade underhålls aviseringen på Azure Por
 2. I avsnittet **aviseringar** väljer du **hälso aviseringar**.
 3. Välj **+ Lägg till tjänstens hälso tillstånds avisering** och fyll i fälten.
 4. Fyll i de obligatoriska fälten. 
-5. Välj **händelse typ** , Välj **planerat underhåll** eller **Välj alla**
+5. Välj **händelse typ**, Välj **planerat underhåll** eller **Välj alla**
 6. I **Åtgärds grupper** definierar du hur du vill få aviseringen (få ett e-postmeddelande, utlösa en Logic app osv.)  
 7. Se till att aktivera regel vid skapande har angetts till Ja.
 8. Välj **skapa aviserings regel** för att slutföra aviseringen
@@ -78,7 +78,7 @@ Ett tillfälligt fel, även kallat ett tillfälligt fel, är ett fel som kommer 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du har frågor eller förslag kan du behöva arbeta med Azure Database for MySQL, skicka ett e-postmeddelande till Azure Database for MySQL-teamet på *AskAzureDBforMySQL@service.microsoft.com* .
+- Om du har frågor eller förslag kan du behöva arbeta med Azure Database for MySQL, skicka ett e-postmeddelande till Azure Database for MySQL-teamet på **AskAzureDBforMySQL@service.microsoft.com** .
 - Se [hur du ställer in aviseringar](howto-alert-on-metric.md) för vägledning om hur du skapar en avisering på ett mått.
 - [Felsöka anslutnings problem till Azure Database for MySQL-enskild server](howto-troubleshoot-common-connection-issues.md)
 - [Hantera tillfälliga fel och Anslut effektivt till Azure Database for MySQL-enskild server](concepts-connectivity.md)

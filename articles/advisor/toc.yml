@@ -13,6 +13,10 @@
         - name: ARM-mall
           displayName: Resource Manager
           href: advisor-alerts-arm.md
+- name: Begrepp
+  items:
+    - name: Säkerhetsbaslinje
+      href: security-baseline.md
 - name: Självstudier
   items:
     - name: Kom igång med Advisor

@@ -114,8 +114,8 @@
           href: overview-authentication-authorization.md
         - name: Uppdatering av operativsystem och körning
           href: overview-patch-os-runtime.md
-        - name: Inbyggda säkerhetskontroller
-          href: app-service-security-controls.md
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
         - name: Säkerhetskontroller av Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

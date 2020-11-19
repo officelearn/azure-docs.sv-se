@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f33d7efd1c136619767c3eadd93740442ae7239a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f0e69e3f62d3b9e4debb5761d877dcdfdd246f60
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762050"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886030"
 ---
 # <a name="chat-concepts"></a>Chattbegrepp
 
@@ -120,7 +120,7 @@ Med real tids signaler kan användarna chatta i real tid. Dina tjänster kan anv
 
 ## <a name="using-cognitive-services-with-chat-client-library-to-enable-intelligent-features"></a>Använda Cognitive Services med klient biblioteket i Chat för att aktivera intelligenta funktioner
 
-Du kan använda [Azure kognitiva API: er](https://docs.microsoft.com/azure/cognitive-services/) med klient biblioteket i Chat för att lägga till smarta funktioner i dina program. Du kan till exempel:
+Du kan använda [Azure kognitiva API: er](../../../cognitive-services/index.yml) med klient biblioteket i Chat för att lägga till smarta funktioner i dina program. Du kan till exempel:
 
 - Gör det möjligt för användare att chatta med varandra på olika språk. 
 - Hjälp en support agent att prioritera biljetter genom att identifiera ett negativt sentiment av ett inkommande problem från en kund.
@@ -128,9 +128,9 @@ Du kan använda [Azure kognitiva API: er](https://docs.microsoft.com/azure/cogni
 
 Ett sätt att uppnå detta är genom att låta din betrodda tjänst agera som medlem i en chatt. Anta att du vill aktivera översättning av språk. Den här tjänsten ansvarar för att lyssna på meddelanden som utbyts av andra medlemmar [1], anropar kognitiva API: er för att översätta innehållet till det önskade språket [2, 3] och skicka det översatta resultatet som ett meddelande i chatt-tråden [4]. 
 
-På så sätt kommer meddelande historiken innehålla både original meddelanden och översatta meddelanden. I klient programmet kan du lägga till logik för att visa det ursprungliga eller översatta meddelandet. I [den här snabb](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator) starten får du veta hur du använder kognitiva API: er för att översätta text till olika språk. 
+På så sätt kommer meddelande historiken innehålla både original meddelanden och översatta meddelanden. I klient programmet kan du lägga till logik för att visa det ursprungliga eller översatta meddelandet. I [den här snabb](../../../cognitive-services/translator/quickstart-translator.md) starten får du veta hur du använder kognitiva API: er för att översätta text till olika språk. 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram som visar kommunikations tjänsternas Chat-arkitektur.":::
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram som visar Cognitive Services interagera med kommunikations tjänster.":::
 
 ## <a name="next-steps"></a>Nästa steg
 

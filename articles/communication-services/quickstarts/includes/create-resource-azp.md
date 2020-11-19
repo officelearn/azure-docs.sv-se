@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 11b9c553573d9e6188ba634b4cb966d6a9b850b4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 051f903c0b203045886b80f72d868adc1fa85f73
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948296"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886122"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -23,11 +23,11 @@ Om du vill skapa en Azure Communication Services-resurs loggar du först in på 
 
 Ange **kommunikation** i ingångs läget för **Marketplace** eller Sök fältet överst i portalen.
 
-:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Skärm bild som markerar knappen Skapa en resurs i Azure Portal.":::
+:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Skärm bild som visar en sökning efter kommunikations tjänster i Sök fältet.":::
 
 Välj **kommunikations tjänster** i resultaten och välj sedan **Lägg till**.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Skärm bild som markerar knappen Skapa en resurs i Azure Portal.":::
+:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Skärm bild som visar Azure-panelen och markerar knappen Lägg till.":::
 
 Nu kan du konfigurera resursen för kommunikations tjänster. På den första sidan i skapa-processen uppmanas du att ange:
 
@@ -36,7 +36,7 @@ Nu kan du konfigurera resursen för kommunikations tjänster. På den första si
 * Namnet på kommunikations tjänst resursen
 * Den geografi som resursen ska associeras med
 
-I nästa steg kan du tilldela-taggar till resursen. Taggar kan användas för att organisera dina Azure-resurser. Mer information om taggar finns i [dokumentationen för resurs taggning](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) .
+I nästa steg kan du tilldela-taggar till resursen. Taggar kan användas för att organisera dina Azure-resurser. Mer information om taggar finns i [dokumentationen för resurs taggning](../../../azure-resource-manager/management/tag-resources.md) .
 
 Slutligen kan du granska konfigurationen och **skapa** resursen. Observera att distributionen tar några minuter att slutföra.
 

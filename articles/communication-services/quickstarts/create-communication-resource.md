@@ -10,18 +10,18 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 8b606108d0e33ba1dd49e37c0f407b0caa350f6b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a93ac3b5d988be33c0f27726a75b1006f990d1da
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667511"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886125"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Snabb start: skapa och hantera kommunikations tjänst resurser
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Kom igång med Azure Communication Services genom att tillhandahålla din första kommunikations tjänst resurs. Kommunikations tjänst resurser kan tillhandahållas via Azure Portal eller med klient biblioteket för .NET-hantering. Med hanterings klient biblioteket kan du skapa, konfigurera, uppdatera och ta bort dina resurser och gränssnitt med [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), Azures distributions-och hanterings tjänst. Alla funktioner i klient biblioteken är tillgängliga i Azure Portal. 
+Kom igång med Azure Communication Services genom att tillhandahålla din första kommunikations tjänst resurs. Kommunikations tjänst resurser kan tillhandahållas via Azure Portal eller med klient biblioteket för .NET-hantering. Med hanterings klient biblioteket kan du skapa, konfigurera, uppdatera och ta bort dina resurser och gränssnitt med [Azure Resource Manager](../../azure-resource-manager/management/overview.md), Azures distributions-och hanterings tjänst. Alla funktioner i klient biblioteken är tillgängliga i Azure Portal. 
 
 > [!WARNING]
 > Observera att tillgänglighet för kommunikations tjänster är begränsat till amerikanska geografi under den offentliga för hands versionen. Observera också att kommunikations resurser inte kan överföras till en annan prenumeration under den offentliga för hands versionen.
@@ -47,8 +47,8 @@ När du har navigerat till kommunikations tjänst resursen väljer du **nycklar*
 Klient bibliotek för kommunikations tjänster använder anslutnings strängar för att auktorisera begär Anden som görs till kommunikations tjänster. Du har flera alternativ för att lagra anslutnings strängen:
 
 * Ett program som körs på Skriv bordet eller på en enhet kan lagra anslutnings strängen i en **app.config** eller **web.config** fil. Lägg till anslutnings strängen i avsnittet **appSettings** i de här filerna.
-* Ett program som körs i en Azure App Service kan lagra anslutnings strängen i [app service program inställningar](https://docs.microsoft.com/azure/app-service/configure-common). Lägg till anslutnings strängen i avsnittet **anslutnings strängar** på fliken program inställningar i portalen.
-* Du kan lagra anslutnings strängen i [Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+* Ett program som körs i en Azure App Service kan lagra anslutnings strängen i [app service program inställningar](../../app-service/configure-common.md). Lägg till anslutnings strängen i avsnittet **anslutnings strängar** på fliken program inställningar i portalen.
+* Du kan lagra anslutnings strängen i [Azure Key Vault](../../data-factory/store-credentials-in-key-vault.md).
 * Om du kör programmet lokalt kanske du vill lagra anslutnings strängen i en miljö variabel.
 
 ### <a name="store-your-connection-string-in-an-environment-variable"></a>Lagra anslutnings strängen i en miljö variabel
@@ -67,7 +67,7 @@ När du har lagt till miljövariabeln kan du behöva starta om alla program som 
 
 #### <a name="macos"></a>[macOS](#tab/unix)
 
-Redigera din **. zshrc**och Lägg till miljövariabeln:
+Redigera din **. zshrc** och Lägg till miljövariabeln:
 
 ```bash
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
@@ -77,7 +77,7 @@ När du har lagt till miljövariabeln så kör `source ~/.zshrc` från konsolfö
 
 #### <a name="linux"></a>[Linux](#tab/linux)
 
-Redigera **.bash_profile**och Lägg till miljövariabeln:
+Redigera **.bash_profile** och Lägg till miljövariabeln:
 
 ```bash
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"

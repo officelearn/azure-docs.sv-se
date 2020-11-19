@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4f6e194f04789fbcaf24d69965dfa8ac61b20a38
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358617"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886336"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudie: Använda automatiserad maskininlärning till att beräkna taxikostnader
 
@@ -39,7 +39,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 * Slutför [installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator.
 * När du har slutfört installations guiden öppnar du *självstudierna/regression-automl-NYC-taxi-data/regression-Automated-ml. ipynb* Notebook med samma Notebook-Server.
 
-Den här själv studie kursen finns också på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill köra den i din egen [lokala miljö](how-to-configure-environment.md#local). Kör `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` för att hämta de nödvändiga paketen.
+Den här själv studie kursen finns också på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill köra den i din egen [lokala miljö](how-to-configure-environment.md#local). För att hämta de nödvändiga paketen, 
+* [Installera den fullständiga `automl` klienten](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment).
+* Kör `pip install azureml-opendatasets azureml-widgets` för att hämta de nödvändiga paketen.
 
 ## <a name="download-and-prepare-data"></a>Hämta och förbereda data
 
@@ -72,16 +74,16 @@ green_taxi_df.head(10)
 
 |Nyttolast| lpepPickupDatetime|  lpepDropoffDatetime|    passengerCount| tripDistance|   puLocationId|   doLocationId|   pickupLongitude|    pickupLatitude| dropoffLongitude    |...|   paymentType |fareAmount |extra| mtaTax| improvementSurcharge|   tipAmount|  tollsAmount|    ehailFee|   totalAmount|    tripType|
 |----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|----|---|
-|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4,84|Inget|Inget|– 73,88|40,84|– 73,94|...|2|15,00|0,50|0,50|0.3|0,00|0,00|ndet|16,30|1,00
-|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0,69|Inget|Inget|– 73,96|40,81|– 73,96|...|2|4,50|1,00|0,50|0.3|0,00|0,00|ndet|6,30|1,00
-|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0,45|Inget|Inget|– 73,92|40,76|– 73,91|...|2|4,00|0,00|0,50|0.3|0,00|0,00|ndet|4.80|1,00
-|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0,00|Inget|Inget|– 73,81|40,70|– 73,82|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00
-1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0,50|Inget|Inget|– 73,92|40,76|– 73,92|...|2|4,00|0,50|0,50|0|0,00|0,00|ndet|5,00|1,00
-|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1,10|Inget|Inget|– 73,96|40,72|– 73,95|...|2|6,50|0,50|0,50|0.3|0,00|0,00|ndet|7,80|1,00
-|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0,90|Inget|Inget|– 73,88|40,76|– 73,87|...|2|6,00|0,00|0,50|0.3|0,00|0,00|ndet|6,80|1,00
-|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3,30|Inget|Inget|– 73,96|40,72|– 73,91|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00
-|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1,19|Inget|Inget|– 73,94|40,71|– 73,95|...|1|7,00|0,00|0,50|0.3|1,75|0,00|ndet|9,55|1,00
-|432136|2|2015-01-22 23:16:33 2015-01-22 23:20:13 1 0,65|Inget|Inget|– 73,94|40,71|– 73,94|...|2|5,00|0,50|0,50|0.3|0,00|0,00|ndet|6,30|1,00
+|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4,84|Inga|Inga|– 73,88|40,84|– 73,94|...|2|15,00|0,50|0,50|0.3|0,00|0,00|ndet|16,30|1,00
+|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0,69|Inga|Inga|– 73,96|40,81|– 73,96|...|2|4,50|1,00|0,50|0.3|0,00|0,00|ndet|6,30|1,00
+|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0,45|Inga|Inga|– 73,92|40,76|– 73,91|...|2|4,00|0,00|0,50|0.3|0,00|0,00|ndet|4.80|1,00
+|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0,00|Inga|Inga|– 73,81|40,70|– 73,82|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00
+1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0,50|Inga|Inga|– 73,92|40,76|– 73,92|...|2|4,00|0,50|0,50|0|0,00|0,00|ndet|5,00|1,00
+|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1,10|Inga|Inga|– 73,96|40,72|– 73,95|...|2|6,50|0,50|0,50|0.3|0,00|0,00|ndet|7,80|1,00
+|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0,90|Inga|Inga|– 73,88|40,76|– 73,87|...|2|6,00|0,00|0,50|0.3|0,00|0,00|ndet|6,80|1,00
+|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3,30|Inga|Inga|– 73,96|40,72|– 73,91|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00
+|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1,19|Inga|Inga|– 73,94|40,71|– 73,95|...|1|7,00|0,00|0,50|0.3|1,75|0,00|ndet|9,55|1,00
+|432136|2|2015-01-22 23:16:33 2015-01-22 23:20:13 1 0,65|Inga|Inga|– 73,94|40,71|– 73,94|...|2|5,00|0,50|0,50|0.3|0,00|0,00|ndet|6,30|1,00
 
 Nu när de ursprungliga data har lästs in definierar du en funktion för att skapa olika tidsbaserade funktioner från fältet Hämta datum/tid. Detta skapar nya fält för månads nummer, dag i månad, veckodag och veckodag och ger modellen i tidsbaserad säsongs beroende. Använd `apply()` funktionen på dataframe för att upprepa `build_time_features()` funktionen på varje rad i taxi data.
 
@@ -101,16 +103,16 @@ green_taxi_df.head(10)
 
 |Nyttolast| lpepPickupDatetime|  lpepDropoffDatetime|    passengerCount| tripDistance|   puLocationId|   doLocationId|   pickupLongitude|    pickupLatitude| dropoffLongitude    |...|   paymentType|fareAmount  |extra| mtaTax| improvementSurcharge|   tipAmount|  tollsAmount|    ehailFee|   totalAmount|tripType|month_num|day_of_month|day_of_week|hour_of_day
 |----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|----|---|----|----|----
-|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4,84|Inget|Inget|– 73,88|40,84|– 73,94|...|2|15,00|0,50|0,50|0.3|0,00|0,00|ndet|16,30|1,00|1|11|6|5
-|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0,69|Inget|Inget|– 73,96|40,81|– 73,96|...|2|4,50|1,00|0,50|0.3|0,00|0,00|ndet|6,30|1,00|1|20|1|16
-|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0,45|Inget|Inget|– 73,92|40,76|– 73,91|...|2|4,00|0,00|0,50|0.3|0,00|0,00|ndet|4.80|1,00|1|1|3|5
-|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0,00|Inget|Inget|– 73,81|40,70|– 73,82|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00|1|17|5|2
-1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0,50|Inget|Inget|– 73,92|40,76|– 73,92|...|2|4,00|0,50|0,50|0|0,00|0,00|ndet|5,00|1,00|1|1|3|5
-|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1,10|Inget|Inget|– 73,96|40,72|– 73,95|...|2|6,50|0,50|0,50|0.3|0,00|0,00|ndet|7,80|1,00|1|4|6|19
-|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0,90|Inget|Inget|– 73,88|40,76|– 73,87|...|2|6,00|0,00|0,50|0.3|0,00|0,00|ndet|6,80|1,00|1|3|5|12
-|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3,30|Inget|Inget|– 73,96|40,72|– 73,91|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00|1|9|4|23
-|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1,19|Inget|Inget|– 73,94|40,71|– 73,95|...|1|7,00|0,00|0,50|0.3|1,75|0,00|ndet|9,55|1,00|1|11|6|17
-|432136|2|2015-01-22 23:16:33 2015-01-22 23:20:13 1 0,65|Inget|Inget|– 73,94|40,71|– 73,94|...|2|5,00|0,50|0,50|0.3|0,00|0,00|ndet|6,30|1,00|1|22|3|23
+|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4,84|Inga|Inga|– 73,88|40,84|– 73,94|...|2|15,00|0,50|0,50|0.3|0,00|0,00|ndet|16,30|1,00|1|11|6|5
+|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0,69|Inga|Inga|– 73,96|40,81|– 73,96|...|2|4,50|1,00|0,50|0.3|0,00|0,00|ndet|6,30|1,00|1|20|1|16
+|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0,45|Inga|Inga|– 73,92|40,76|– 73,91|...|2|4,00|0,00|0,50|0.3|0,00|0,00|ndet|4.80|1,00|1|1|3|5
+|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0,00|Inga|Inga|– 73,81|40,70|– 73,82|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00|1|17|5|2
+1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0,50|Inga|Inga|– 73,92|40,76|– 73,92|...|2|4,00|0,50|0,50|0|0,00|0,00|ndet|5,00|1,00|1|1|3|5
+|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1,10|Inga|Inga|– 73,96|40,72|– 73,95|...|2|6,50|0,50|0,50|0.3|0,00|0,00|ndet|7,80|1,00|1|4|6|19
+|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0,90|Inga|Inga|– 73,88|40,76|– 73,87|...|2|6,00|0,00|0,50|0.3|0,00|0,00|ndet|6,80|1,00|1|3|5|12
+|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3,30|Inga|Inga|– 73,96|40,72|– 73,91|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00|1|9|4|23
+|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1,19|Inga|Inga|– 73,94|40,71|– 73,95|...|1|7,00|0,00|0,50|0.3|1,75|0,00|ndet|9,55|1,00|1|11|6|17
+|432136|2|2015-01-22 23:16:33 2015-01-22 23:20:13 1 0,65|Inga|Inga|– 73,94|40,71|– 73,94|...|2|5,00|0,50|0,50|0.3|0,00|0,00|ndet|6,30|1,00|1|22|3|23
 
 Ta bort några av de kolumner som du inte behöver för utbildning eller ytterligare funktions utveckling.
 
@@ -182,7 +184,7 @@ ws = Workspace.from_config()
 
 ## <a name="split-the-data-into-train-and-test-sets"></a>Dela data till uppsättningar för träning och testning
 
-Dela data i utbildnings-och test uppsättningar genom att använda `train_test_split` funktionen i `scikit-learn` biblioteket. Den här funktionen åtskiljer data i data uppsättningen x ( **funktioner** ) för modell utbildning och data uppsättningen y ( **värden att Förutsäg** ) för testning.
+Dela data i utbildnings-och test uppsättningar genom att använda `train_test_split` funktionen i `scikit-learn` biblioteket. Den här funktionen åtskiljer data i data uppsättningen x (**funktioner**) för modell utbildning och data uppsättningen y (**värden att Förutsäg**) för testning.
 
 Parametern `test_size` anger procentandelen av data som ska allokeras till testning. `random_state`Parametern anger ett start värde för den slumpmässiga generatorn, så att dina träna-test-delningar är deterministiska.
 
@@ -322,7 +324,7 @@ print(fitted_model)
 
 ### <a name="test-the-best-model-accuracy"></a>Testa den bästa modellens precision
 
-Använd den bästa modellen för att köra förutsägelser på test data uppsättningen för att förutse taxi-priser. Funktionen `predict` använder den bästa modellen och förutsäger värdena för y, **rese kostnad** , från `x_test` data uppsättningen. Skriv ut de 10 första förutsagda kostnadsvärdena från `y_predict`.
+Använd den bästa modellen för att köra förutsägelser på test data uppsättningen för att förutse taxi-priser. Funktionen `predict` använder den bästa modellen och förutsäger värdena för y, **rese kostnad**, från `x_test` data uppsättningen. Skriv ut de 10 första förutsagda kostnadsvärdena från `y_predict`.
 
 ```python
 y_test = x_test.pop("totalAmount")

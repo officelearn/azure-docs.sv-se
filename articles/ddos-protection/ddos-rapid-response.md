@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 36e61c8d1e0e41fd981f5483eff1f30814b22b92
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 3655b117b641a6179bd6539aaf3f75af07f21a1a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905566"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992377"
 ---
 # <a name="azure-ddos-rapid-response"></a>Snabb svar för Azure DDoS
 
@@ -38,7 +38,7 @@ Du bör bara engagera DRR om:
 ## <a name="engage-drr-during-an-active-attack"></a>Engagera DRR under en aktiv attack
 
 1. Från Azure Portal när du skapar en ny supportbegäran väljer du **typ av problem** som teknisk.
-2. Välj **tjänst** som **DDoS skydd** .
+2. Välj **tjänst** som **DDoS skydd**.
 3. Välj en resurs i list menyn för resursen. _Du måste välja en DDoS-plan som är länkad till det virtuella nätverket som skyddas av DDoS Protection standard för att engagera DRR._
 
     ![Välj resurs](./media/ddos-rapid-response/choose-resource.png)
@@ -51,7 +51,7 @@ Du bör bara engagera DRR om:
 
 DRR följer Azure Rapid Response-Supportens modell. Se [support omfattning och svars](https://azure.microsoft.com/en-us/support/plans/response/) tid för mer information om snabba svar...
 
-Läs [DDoS Protection standard dokumentationen](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)om du vill veta mer.
+Läs [DDoS Protection standard dokumentationen](./ddos-protection-overview.md)om du vill veta mer.
 
 ## <a name="next-steps"></a>Nästa steg
 

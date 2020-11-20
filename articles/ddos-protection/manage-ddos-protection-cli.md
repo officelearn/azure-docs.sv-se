@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 47733f4b141b0064e966d0c083fd6414405f65f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e2f5528fde977520dc0aa0215a480a40ef8f1e7d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095551"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989640"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>Snabb start: skapa och konfigurera Azure DDoS Protection standard med hjälp av Azure CLI
 
@@ -39,7 +39,7 @@ Om du väljer att installera och använda CLI lokalt kräver den här snabb star
 
 I Azure allokerar du relaterade resurser till en resursgrupp. Du kan antingen använda en befintlig resurs grupp eller skapa en ny.
 
-Om du vill skapa en resurs grupp använder du [AZ Group Create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true). I det här exemplet ska vi namnge vår resurs grupp _MyResourceGroup_ och använda platsen _USA, östra_ :
+Om du vill skapa en resurs grupp använder du [AZ Group Create](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-create). I det här exemplet ska vi namnge vår resurs grupp _MyResourceGroup_ och använda platsen _USA, östra_ :
 
 ```azurecli-interactive
 az group create \
@@ -47,7 +47,7 @@ az group create \
     --location eastus
 ```
 
-Skapa nu en DDoS-skydds plan med namnet _MyDdosProtectionPlan_ :
+Skapa nu en DDoS-skydds plan med namnet _MyDdosProtectionPlan_:
 
 ```azurecli-interactive
 az network ddos-protection create \
@@ -59,7 +59,7 @@ az network ddos-protection create \
 
 ### <a name="enable-ddos-protection-for-a-new-virtual-network"></a>Aktivera DDoS-skydd för ett nytt virtuellt nätverk
 
-Du kan aktivera DDoS-skydd när du skapar ett virtuellt nätverk. I det här exemplet ska vi namnge vårt virtuella nätverk _MyVnet_ : 
+Du kan aktivera DDoS-skydd när du skapar ett virtuellt nätverk. I det här exemplet ska vi namnge vårt virtuella nätverk _MyVnet_: 
 
 ```azurecli-interactive
 az network vnet create \
@@ -73,7 +73,7 @@ Du kan inte flytta ett virtuellt nätverk till en annan resurs grupp eller prenu
 
 ### <a name="enable-ddos-protection-for-an-existing-virtual-network"></a>Aktivera DDoS-skydd för ett befintligt virtuellt nätverk
 
-När du [skapar en skydds plan för DDoS](#create-a-ddos-protection-plan)kan du koppla ett eller flera virtuella nätverk till planen. Om du vill lägga till fler än ett virtuellt nätverk visar du bara namn eller ID: n, blankstegsavgränsad. I det här exemplet ska vi lägga till _MyVnet_ :
+När du [skapar en skydds plan för DDoS](#create-a-ddos-protection-plan)kan du koppla ett eller flera virtuella nätverk till planen. Om du vill lägga till fler än ett virtuellt nätverk visar du bara namn eller ID: n, blankstegsavgränsad. I det här exemplet ska vi lägga till _MyVnet_:
 
 ```azurecli-interactive
 az group create \
@@ -111,7 +111,7 @@ Kontrol lera att kommandot returnerar rätt information om din DDoS-skydds plan.
 
 Du kan behålla dina resurser för nästa självstudie. Om du inte längre behöver tar du bort resurs gruppen _MyResourceGroup_ . När du tar bort resurs gruppen tar du även bort DDoS-skydds planen och alla relaterade resurser. 
 
-Ta bort resurs gruppen med hjälp av [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true):
+Ta bort resurs gruppen med hjälp av [AZ Group Delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az_group_delete):
 
 ```azurecli-interactive
 az group delete \

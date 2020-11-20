@@ -1,5 +1,5 @@
 ---
-title: Komponenter i en strategi för DDoS-svar
+title: Komponenter i en strategi för att hantera DDoS-attacker
 description: Lär dig hur du använder Azure DDoS Protection standard för att svara på DDoS-attacker.
 services: ddos-protection
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 23822ce5b311dc479824128d66bc18a15473862d
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a80f03ee82e8d1216353482dc867402adcf7d09
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905563"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992241"
 ---
-# <a name="components-of-a-ddos-response-strategy"></a>Komponenter i en strategi för DDoS-svar
+# <a name="components-of-a-ddos-response-strategy"></a>Komponenter i en strategi för att hantera DDoS-attacker
 
 En DDoS-attack som är riktad mot Azure-resurser kräver vanligt vis minimalt ingripande från en användar synpunkt. Att införliva DDoS-minskning som en del av en strategi för incident svar bidrar fortfarande till att minimera påverkan på affärs kontinuitet.
 
@@ -44,9 +44,9 @@ Det är absolut nödvändigt att förstå omfattningen av din risk från en DDoS
 
 - Är mina tjänster aktiva/aktiva med redundans över flera regioner?
 
-Det är viktigt att du förstår det normala beteendet för ett program och förbereder att agera om programmet inte fungerar som förväntat under en DDoS-attack. Ha Övervakare som kon figurer ATS för affärs kritiska program som efterliknar klient beteende och meddelar dig när relevanta avvikelser upptäcks. Se [metod tips för övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) för att få insikter om hälso tillståndet för ditt program.
+Det är viktigt att du förstår det normala beteendet för ett program och förbereder att agera om programmet inte fungerar som förväntat under en DDoS-attack. Ha Övervakare som kon figurer ATS för affärs kritiska program som efterliknar klient beteende och meddelar dig när relevanta avvikelser upptäcks. Se [metod tips för övervakning och diagnostik](/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) för att få insikter om hälso tillståndet för ditt program.
 
-[Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) är en utöknings bar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Använd Application Insights för att övervaka ditt Live-webbprogram. Prestanda avvikelser identifieras automatiskt. Den innehåller analys verktyg som hjälper dig att diagnostisera problem och förstå vad användarna gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
+[Azure Application Insights](../azure-monitor/app/app-insights-overview.md) är en utöknings bar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Använd Application Insights för att övervaka ditt Live-webbprogram. Prestanda avvikelser identifieras automatiskt. Den innehåller analys verktyg som hjälper dig att diagnostisera problem och förstå vad användarna gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
 
 ## <a name="customer-ddos-response-team"></a>Kund DDoS-svars team
 
@@ -56,7 +56,7 @@ Vi rekommenderar att du använder simulerings övningar som en normal del av tj�
 
 ## <a name="alerts-during-an-attack"></a>Aviseringar under en attack
 
-Azure DDoS Protection standard identifierar och minimerar DDoS-attacker utan att användaren behöver vidta några åtgärder. Om du vill få ett meddelande när det finns en aktiv åtgärd för en skyddad offentlig IP-adress kan du [Konfigurera en avisering](telemetry-monitoring-alerting.md) på måttet **under DDoS-attack eller inte** . Du kan välja att skapa aviseringar för de andra DDoS-måtten för att förstå storleken på angreppet, trafik som släpps och annan information.
+Azure DDoS Protection standard identifierar och minimerar DDoS-attacker utan att användaren behöver vidta några åtgärder. Om du vill få ett meddelande när det finns en aktiv åtgärd för en skyddad offentlig IP-adress kan du [Konfigurera en avisering](telemetry-monitoring-alerting.md) på måttet **under DDoS-attack eller inte**. Du kan välja att skapa aviseringar för de andra DDoS-måtten för att förstå storleken på angreppet, trafik som släpps och annan information.
 
 ### <a name="when-to-contact-microsoft-support"></a>När du ska kontakta Microsoft-supporten
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 32734ff9df2e55d24789742cd49984d8da212a17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3d09ec4c4ab578a87f0d983c0f243bee2a84597
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212186"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991238"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid-bindningar
 
@@ -41,6 +41,7 @@ I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) so
 
 ```cs
 using SendGrid.Helpers.Mail;
+using System.Text.Json;
 
 ...
 
@@ -49,7 +50,7 @@ public static void Run(
     [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
     [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
 {
-var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
 message = new SendGridMessage();
 message.AddTo(emailObject.To);
@@ -71,15 +72,16 @@ public class OutgoingEmail
 
 ```cs
 using SendGrid.Helpers.Mail;
+using System.Text.Json;
 
 ...
 
 [FunctionName("SendEmail")]
-public static async void Run(
+public static async Task Run(
  [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
  [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] IAsyncCollector<SendGridMessage> messageCollector)
 {
- var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+ var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
  var message = new SendGridMessage();
  message.AddTo(emailObject.To);
@@ -189,7 +191,7 @@ Här är JavaScript-koden:
 ```javascript
 module.exports = function (context, input) {
     var message = {
-         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
         from: { email: "sender@contoso.com" },
         subject: "Azure news",
         content: [{
@@ -355,16 +357,16 @@ Med [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/
 
 I följande tabell visas de egenskaper för bindnings konfiguration som är tillgängliga i  *function.js* filen och `SendGrid` attributet/anteckningen.
 
-| *function.jspå* egenskap | Attribut/antecknings egenskap | Beskrivning | Valfritt |
+| *function.jspå* egenskap | Attribut/antecknings egenskap | Description | Valfritt |
 |--------------------------|-------------------------------|-------------|----------|
-| typ |Saknas| Måste anges till `sendGrid` .| Inga |
-| riktning |Saknas| Måste anges till `out` .| Inga |
-| name |Saknas| Variabel namnet som används i funktions koden för begäran eller begär ande texten. Det här värdet är `$return` när det bara finns ett retur värde. | Inga |
-| apiKey | ApiKey | Namnet på en app-inställning som innehåller din API-nyckel. Om den inte anges är standardinställnings namnet för appen *AzureWebJobsSendGridApiKey*.| Inga |
-| på| Om du vill | Mottagarens e-postadress. | Ja |
-| Från| Från | Avsändarens e-postadress. |  Ja |
-| motiv| Ämne | E-postmeddelandets ämne. | Ja |
-| text| Text | E-postinnehållet. | Ja |
+| typ |saknas| Måste anges till `sendGrid` .| No |
+| riktning |saknas| Måste anges till `out` .| No |
+| name |saknas| Variabel namnet som används i funktions koden för begäran eller begär ande texten. Det här värdet är `$return` när det bara finns ett retur värde. | No |
+| apiKey | ApiKey | Namnet på en app-inställning som innehåller din API-nyckel. Om den inte anges är standardinställnings namnet för appen *AzureWebJobsSendGridApiKey*.| No |
+| på| Om du vill | Mottagarens e-postadress. | Yes |
+| Från| Från | Avsändarens e-postadress. |  Yes |
+| motiv| Ämne | E-postmeddelandets ämne. | Yes |
+| text| Text | E-postinnehållet. | Yes |
 
 Valfria egenskaper kan ha standardvärden definierade i bindningen och antingen läggas till eller åsidosättas program mässigt.
 
@@ -390,9 +392,9 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 }
 ```  
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Description |
 |---------|---------|---------| 
-|Från|Saknas|Avsändarens e-postadress för alla funktioner.| 
+|Från|saknas|Avsändarens e-postadress för alla funktioner.| 
 
 
 ## <a name="next-steps"></a>Nästa steg

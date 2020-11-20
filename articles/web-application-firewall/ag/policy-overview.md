@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 11/19/2020
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: 9fb8bf689e2767f681994258c4d2c51be41d6c68
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952139"
+ms.locfileid: "94990133"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Översikt över principer för Azure Web Application-brandvägg (WAF)
 
@@ -41,9 +41,9 @@ Anta att en global princip används för din programgateway. Sedan tillämpar du
 
 För ännu mer anpassning till URI-nivå kan du associera en WAF-princip med en Sök vägs baserad regel. Om det finns vissa sidor på en plats som kräver olika principer, kan du göra ändringar i WAF-principen som endast påverkar en viss URI. Detta kan gälla för en betalnings-eller inloggnings sida eller andra URI: er som behöver en ännu mer speciell WAF-princip än de andra platserna bakom din WAF.
 
-Precis som med WAF-principer per plats åsidosätter mer specifika principer mindre specifika. Det innebär att en per URI-princip på en URL-sökväg mappar åsidosätter alla principer för varje webbplats eller global WAF ovanför.
+Precis som med WAF-principer per webbplats åsidosätter mer specifika principer mindre specifika. Det innebär att en per URI-princip på en URL-sökväg mappar åsidosätter alla principer för varje webbplats eller global WAF ovanför.
 
-## <a name="example"></a>Exempel
+### <a name="example"></a>Exempel
 
 Anta att du har tre platser: contoso.com, fabrikam.com och adatum.com alla bakom samma Application Gateway. Du vill att en WAF ska tillämpas på alla tre platserna, men du behöver extra säkerhet med adatum.com eftersom det är där kunder besöker, bläddrar och köper produkter.
 

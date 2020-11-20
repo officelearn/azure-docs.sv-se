@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 3371b9cc0848e387c0150ca9aa7e7a971cecba1a
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e5472620fe9b07d152a5325b0654044cb1505fd7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905611"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992445"
 ---
 # <a name="ddos-protection-reference-architectures"></a>DDoS Protection referens arkitekturer
 
-DDoS Protection standard är utformad [för tjänster som distribueras i ett virtuellt nätverk](/azure/virtual-network/virtual-network-for-azure-services). För andra tjänster gäller standard tjänsten för DDoS Protection Basic. Följande referens arkitekturer ordnas efter scenarier, med arkitektur mönster grupperade tillsammans.
+DDoS Protection standard är utformad [för tjänster som distribueras i ett virtuellt nätverk](../virtual-network/virtual-network-for-azure-services.md). För andra tjänster gäller standard tjänsten för DDoS Protection Basic. Följande referens arkitekturer ordnas efter scenarier, med arkitektur mönster grupperade tillsammans.
 
 ## <a name="virtual-machine-windowslinux-workloads"></a>Arbets belastningar för virtuella datorer (Windows/Linux)
 
@@ -54,7 +54,7 @@ En vänte region har kon figurer ATS för failover-scenarier.
 
 Azure Traffic Manager dirigerar inkommande begär anden till Application Gateway i en av regionerna. Vid normal drift dirigerar den förfrågningar till Application Gateway i den aktiva regionen. Om regionen blir otillgänglig, Traffic Manager växlar över till Application Gateway i vänte läge.
 
-All trafik från Internet som är avsedd för webb programmet dirigeras till den [Application Gateway offentliga IP-adressen](/azure/application-gateway/application-gateway-web-app-overview) via Traffic Manager. I det här scenariot är App Service (webbapp) inte direkt externt och skyddas av Application Gateway. 
+All trafik från Internet som är avsedd för webb programmet dirigeras till den [Application Gateway offentliga IP-adressen](../application-gateway/application-gateway-web-app-overview.md) via Traffic Manager. I det här scenariot är App Service (webbapp) inte direkt externt och skyddas av Application Gateway. 
 
 Vi rekommenderar att du konfigurerar Application Gateway WAF SKU (förhindra läge) för att skydda mot Layer 7-attacker (HTTP/HTTPS/WebSocket). Dessutom är Web Apps konfigurerade för att [endast acceptera trafik från Application Gateway](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/) IP-adress.
 
@@ -64,7 +64,7 @@ Mer information om den här referens arkitekturen finns i [den här artikeln](/a
 
 ### <a name="hdinsight-on-azure"></a>HDInsight på Azure
 
-Den här referens arkitekturen visar hur du konfigurerar DDoS Protection standard för ett [Azure HDInsight-kluster](/azure/hdinsight/). Se till att HDInsight-klustret är länkat till ett virtuellt nätverk och att DDoS Protection är aktiverat på det virtuella nätverket.
+Den här referens arkitekturen visar hur du konfigurerar DDoS Protection standard för ett [Azure HDInsight-kluster](../hdinsight/index.yml). Se till att HDInsight-klustret är länkat till ett virtuellt nätverk och att DDoS Protection är aktiverat på det virtuella nätverket.
 
 ![Panelerna "HDInsight" och "avancerade inställningar" med inställningar för virtuellt nätverk](./media/ddos-best-practices/image-12.png)
 
@@ -72,7 +72,7 @@ Den här referens arkitekturen visar hur du konfigurerar DDoS Protection standar
 
 I den här arkitekturen dirigeras trafik till HDInsight-klustret från Internet till den offentliga IP-adress som är associerad med belastningsutjämnaren för HDInsight Gateway. Gateway-belastningsutjämnaren skickar sedan trafiken till Head-noderna eller arbetsnoderna direkt. Eftersom DDoS Protection standard är aktiverat i det virtuella HDInsight-nätverket får alla offentliga IP-adresser i det virtuella nätverket DDoS skydd för Layer 3 och 4. Den här referens arkitekturen kan kombineras med referens arkitekturer för N-nivå och flera regioner.
 
-Mer information om den här referens arkitekturen finns i [utöka Azure HDInsight med hjälp av en Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json) -dokumentation.
+Mer information om den här referens arkitekturen finns i [utöka Azure HDInsight med hjälp av en Azure Virtual Network](../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -dokumentation.
 
 
 > [!NOTE]

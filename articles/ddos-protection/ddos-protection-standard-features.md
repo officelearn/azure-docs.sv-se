@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 133a27d8aef6c9df16ffcabfb4fac6c118665890
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: b3f903b69cebd22e870f7ccd5923e6f08455dff3
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905605"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992394"
 ---
-# <a name="azure-ddos-protection-standard-features"></a>Azure DDoS Protection standard funktioner
+# <a name="azure-ddos-protection-standard-features"></a>Funktioner i Azure DDoS Protection Standard
 
 I följande avsnitt beskrivs viktiga funktioner i Azure DDoS Protection standard tjänsten.
 
@@ -48,13 +48,13 @@ Tjänsten Azure DDoS Protection Basic hjälper till att skydda kunder och förhi
 
 ## <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS Protection telemetri, övervakning och aviseringar
 
-DDoS Protection standard exponerar avancerad telemetri via [Azure Monitor](/azure/azure-monitor/overview) under en DDoS attack. Du kan konfigurera aviseringar för de Azure Monitor mått som DDoS Protection använder. Du kan integrera loggning med Splunk (Azure Event Hubs), Azure Monitor loggar och Azure Storage för avancerad analys via Azure Monitor Diagnostics-gränssnittet.
+DDoS Protection standard exponerar avancerad telemetri via [Azure Monitor](../azure-monitor/overview.md) under en DDoS attack. Du kan konfigurera aviseringar för de Azure Monitor mått som DDoS Protection använder. Du kan integrera loggning med Splunk (Azure Event Hubs), Azure Monitor loggar och Azure Storage för avancerad analys via Azure Monitor Diagnostics-gränssnittet.
 
 ### <a name="ddos-mitigation-policies"></a>Principer för DDoS-minskning
 
-I Azure Portal väljer du **övervaka**  >  **mått** . I fönstret **mått** väljer du resurs grupp, väljer en resurs typ för **offentlig IP-adress** och väljer din offentliga Azure-IP-adress. DDoS mått visas i fönstret **tillgängliga mått** .
+I Azure Portal väljer du **övervaka**  >  **mått**. I fönstret **mått** väljer du resurs grupp, väljer en resurs typ för **offentlig IP-adress** och väljer din offentliga Azure-IP-adress. DDoS mått visas i fönstret **tillgängliga mått** .
 
-DDoS Protection standard tillämpar tre automatiskt justerade begränsnings principer (TCP-SYN, TCP och UDP) för varje offentlig IP-adress för den skyddade resursen i det virtuella nätverk där DDoS är aktiverat. Du kan visa princip tröskelvärdena genom att välja måttet **inkommande paket för att utlösa DDoS-minskning** .
+DDoS Protection standard tillämpar tre automatiskt justerade begränsnings principer (TCP-SYN, TCP och UDP) för varje offentlig IP-adress för den skyddade resursen i det virtuella nätverk där DDoS är aktiverat. Du kan visa princip tröskelvärdena genom att välja måttet **inkommande paket för att utlösa DDoS-minskning**.
 
 ![Tillgängliga mått och mått diagram](./media/ddos-best-practices/image-7.png)
 
@@ -72,7 +72,7 @@ Mer information finns i [hantera Azure DDoS Protection standard med hjälp av Az
 
 ## <a name="web-application-firewall-for-resource-attacks"></a>Brand vägg för webbaserade program för resurs attacker
 
-Specifika för resurs attacker i program lagret bör du konfigurera en brand vägg för webbaserade program (WAF) för att skydda webb program. En WAF kontrollerar inkommande webb trafik för att blockera SQL-injektioner, skript körning över flera webbplatser, DDoS och andra nivå 7-attacker. Azure tillhandahåller [WAF som en funktion i Application Gateway](/azure/application-gateway/application-gateway-web-application-firewall-overview) för centraliserat skydd av dina webb program mot vanliga sårbarheter och sårbarheter. Det finns andra WAF-erbjudanden som är tillgängliga från Azure-partner som kan vara mer lämpliga för dina behov via [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
+Specifika för resurs attacker i program lagret bör du konfigurera en brand vägg för webbaserade program (WAF) för att skydda webb program. En WAF kontrollerar inkommande webb trafik för att blockera SQL-injektioner, skript körning över flera webbplatser, DDoS och andra nivå 7-attacker. Azure tillhandahåller [WAF som en funktion i Application Gateway](../web-application-firewall/ag/ag-overview.md) för centraliserat skydd av dina webb program mot vanliga sårbarheter och sårbarheter. Det finns andra WAF-erbjudanden som är tillgängliga från Azure-partner som kan vara mer lämpliga för dina behov via [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
 
 Även brand väggar för webb program är mottagliga för angrepp med tillstånds-och tillstånds angrepp. Vi rekommenderar starkt att du aktiverar DDoS Protection standard på det virtuella WAF-nätverket för att skydda dig från volym-och protokoll attacker. Mer information finns i avsnittet [DDoS Protection referens arkitekturer](ddos-protection-reference-architectures.md) .
 

@@ -1,6 +1,6 @@
 ---
 title: Azure DDoS Protection standard översikt
-description: Lär dig hur Azure DDoS Protection standard, tillsammans med bästa praxis för program design, ger skydd mot DDoS-attacker.
+description: Lär dig hur Azure DDoS Protection Standard tillhandahåller skydd mot DDOS-attacker när du kombinerar det med bästa praxis för dina program.
 services: virtual-network
 documentationcenter: na
 author: yitoh
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: a8d8a41b5d527833ef071275d90cf9102cec47f7
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e3ded2fc286117da1438b0bb28298632532c4329
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905650"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992547"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Översikt över Azure DDoS Protection Standard
 
@@ -38,10 +38,10 @@ Azure DDoS Protection lagrar inte kund information.
 - **Anpassningsbar justering:** Intelligent trafik profilering lär sig programmets trafik över tid och väljer och uppdaterar den profil som är lämplig för din tjänst. Profilen justeras när trafiken förändras över tid.
 - **Skydd med flera skikt:** Ger fullständig stack DDoS-skydd när det används med en brand vägg för webbaserade program.
 - **Omfattande minsknings skala:** Över 60 olika typer av attacker kan begränsas, med global kapacitet, för att skydda mot de största kända DDoS-attacker.
-- **Attack analys:** Få detaljerade rapporter i steg om fem minuter under en attack och en fullständig sammanfattning efter att attacken har avslut ATS. Strömmande flödes loggar till [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-ddos-protection) eller ett SIEM-system (offline Security information and Event Management) för övervakning i nära real tid under ett angrepp.
+- **Attack analys:** Få detaljerade rapporter i steg om fem minuter under en attack och en fullständig sammanfattning efter att attacken har avslut ATS. Strömmande flödes loggar till [Azure Sentinel](../sentinel/connect-azure-ddos-protection.md) eller ett SIEM-system (offline Security information and Event Management) för övervakning i nära real tid under ett angrepp.
 - **Angrepps mått:** Sammanfattade mått från varje attack är tillgängliga via Azure Monitor.
 - **Attack avisering:** Aviseringar kan konfigureras vid start och stopp av ett angrepp och under angriparens varaktighet, med hjälp av inbyggda angrepps mått. Aviseringar integreras i din operativa program vara, t. ex. Microsoft Azure övervaka loggar, Splunk, Azure Storage, e-post och Azure Portal.
-- **DDoS Rapid Response** : engagera DDoS Protection Rapid Response-teamet (DRR) för hjälp med angrepps undersökning och analys. Läs mer i [DDoS Rapid Response](ddos-rapid-response.md).
+- **DDoS Rapid Response**: engagera DDoS Protection Rapid Response-teamet (DRR) för hjälp med angrepps undersökning och analys. Läs mer i [DDoS Rapid Response](ddos-rapid-response.md).
 - **Kostnads garanti:** Service krediter för data överföring och skalbarhet för program för dokumenterade DDoS-attacker.
 
 ## <a name="pricing"></a>Prissättning

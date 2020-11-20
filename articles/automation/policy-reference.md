@@ -1,15 +1,15 @@
 ---
 title: Inbyggda princip definitioner för Azure Automation
 description: Visar Azure Policy inbyggda princip definitioner för Azure Automation. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: acdcb747887dc41b11b2eb0a5a14553c799d22b4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: c90dd3191d4ee408eae8c1cafee3042dd2c1d906
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94741367"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991487"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-automation"></a>Azure Policy inbyggda definitioner för Azure Automation
 

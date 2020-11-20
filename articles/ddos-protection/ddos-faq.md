@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 871ededce1db5e4c3179c187fc46a828cd157456
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 6c475971f604c951280d0351d593cd5d96879d31
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886285"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992411"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Azure DDoS Protection vanliga vanliga frågor och svar
 
@@ -29,7 +29,7 @@ Distribuerad denial of service eller DDoS är en typ av attack där en angripare
 Azure DDoS Protection standard, kombinerat med bästa praxis för program design, innehåller förbättrade DDoS-funktioner för att skydda mot DDoS-attacker. Den justeras automatiskt för att hjälpa till att skydda dina Azure-resurser i ett virtuellt nätverk. Det är enkelt att aktivera skydd på nya eller befintliga virtuella nätverk och det krävs inga program-eller resurs ändringar. Det har flera fördelar jämfört med den grundläggande tjänsten, inklusive loggning, avisering och telemetri. Mer information finns i [Azure DDoS Protection standard översikt](ddos-protection-overview.md) . 
 
 ## <a name="what-about-protection-at-the-service-layer-layer-7"></a>Vad gäller skydd på tjänst skiktet (Layer 7)?
-Kunder kan använda Azure DDoS Protection-tjänsten i kombination med [Application Gateway WAF SKU](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) för skydd både på nätverks nivå (Layer 3 och 4, som erbjuds av Azure DDoS Protection-tjänst) och på program nivå (Layer 7 som erbjuds av Application Gateway WAF SKU).
+Kunder kan använda Azure DDoS Protection-tjänsten i kombination med [Application Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md) för skydd både på nätverks nivå (Layer 3 och 4, som erbjuds av Azure DDoS Protection-tjänst) och på program nivå (Layer 7 som erbjuds av Application Gateway WAF SKU).
 
 ## <a name="are-services-unsafe-in-azure-without-the-service"></a>Är tjänsterna osäkra i Azure utan tjänsten?
 Tjänster som körs på Azure skyddas av Azure DDoS Protection Basic som är på plats för att skydda Azures infrastruktur. Skyddet som skyddar infrastrukturen har dock ett mycket högre tröskelvärde än de flesta program har kapacitet att hantera och ger inte telemetri eller avisering, så medan en trafik volym kan uppfattas som oskadlig av plattformen, kan den vara förödande till programmet som tar emot den. 
@@ -64,6 +64,3 @@ Se [testa genom simuleringar](test-through-simulations.md).
 ## <a name="how-long-does-it-take-for-the-metrics-to-load-on-portal"></a>Hur lång tid tar det för måtten att läsas in på portalen?
 Måtten bör visas på portalen inom 5 minuter. Om din resurs är utsatt för en attack börjar andra mått visas på portalen inom 5-7 minuter. 
     
-
-
-

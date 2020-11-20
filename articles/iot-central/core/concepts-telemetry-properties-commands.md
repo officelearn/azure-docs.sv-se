@@ -3,17 +3,17 @@ title: Telemetri, egenskaper och kommando nytto laster i Azure IoT Central | Mic
 description: Med Azure IoT Central Device templates kan du ange telemetri, egenskaper och kommandon för en enhet måste implementera. Förstå formatet på de data som en enhet kan utbyta med IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/12/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 9e5288bb177d5827f05003e4561bc79240a71b59
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 24fbe347aeb0b47ffd1ba694f761d909ff2950f8
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427872"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989555"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Telemetri, egenskaper och kommandonyttolaster
 
@@ -29,12 +29,12 @@ I den här artikeln beskrivs, för enhets utvecklare, de JSON-nyttolaster som en
 
 Artikeln beskriver inte varje möjlig typ av telemetri, egenskaper och kommando nytto Last, men exemplen illustrerar alla nyckel typer.
 
-I varje exempel visas ett kodfragment från den enhets kapacitets modell (DCM) som definierar typ och exempel på JSON-nyttolaster för att illustrera hur enheten ska interagera med IoT Central-programmet.
+I varje exempel visas ett kodfragment från enhets modellen som definierar typ och exempel på JSON-nyttolaster för att illustrera hur enheten ska interagera med IoT Central-programmet.
 
 > [!NOTE]
-> IoT Central accepterar en giltig JSON-uppsättning, men den kan bara användas för visualiseringar om den matchar en definition i DCM. Du kan exportera data som inte matchar en definition, se [Exportera IoT-data till mål i Azure](howto-export-data.md).
+> IoT Central accepterar en giltig JSON, men den kan bara användas för visualiseringar om den matchar en definition i enhets modellen. Du kan exportera data som inte matchar en definition, se [Exportera IoT-data till mål i Azure](howto-export-data.md).
 
-JSON-filen som definierar DCM använder sig av [DTDL (Digital Definition Language) v1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/dtdlv1.md). I den här specifikationen ingår definitionen av `@id` egenskaps formatet.
+JSON-filen som definierar enhets modellen använder den [digitala DTDL (Digital Definition Language) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 För exempel enhets kod som visar några av dessa nytto laster som används, se avsnittet [skapa och ansluta ett klient program till ditt azure IoT Central-program (Node.js)](tutorial-connect-device-nodejs.md) och [skapa och Anslut ett klient program till dina Azure IoT Central-program (python)](tutorial-connect-device-python.md) .
 
@@ -56,11 +56,10 @@ Med IoT Central kan du Visa rå data som en enhet skickar till ett program. Den 
 
 I det här avsnittet visas exempel på typer av primitiva telemetri som en enhet strömmar till ett IoT Central-program.
 
-Följande kodfragment från ett DCM visar definitionen av en typ av `boolean` telemetri:
+Följande kodfragment från en enhets modell visar definitionen av en `boolean` typ av telemetri:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "BooleanTelemetry"
@@ -76,11 +75,10 @@ En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exemp
 { "BooleanTelemetry": true }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en typ av `string` telemetri:
+Följande kodfragment från en enhets modell visar definitionen av en `string` typ av telemetri:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "StringTelemetry"
@@ -96,11 +94,10 @@ En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exemp
 { "StringTelemetry": "A string value - could be a URL" }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en typ av `integer` telemetri:
+Följande kodfragment från en enhets modell visar definitionen av en `integer` typ av telemetri:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "IntegerTelemetry"
@@ -117,11 +114,10 @@ En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exemp
 { "IntegerTelemetry": 23 }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en typ av `double` telemetri:
+Följande kodfragment från en enhets modell visar definitionen av en `double` typ av telemetri:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DoubleTelemetry"
@@ -137,11 +133,10 @@ En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exemp
 { "DoubleTelemetry": 56.78 }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en typ av `dateTime` telemetri:
+Följande kodfragment från en enhets modell visar definitionen av en `dateTime` typ av telemetri:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DateTimeTelemetry"
@@ -151,17 +146,16 @@ Följande kodfragment från ett DCM visar definitionen av en typ av `dateTime` t
 }
 ```
 
-En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exempel – `DateTime` typer måste vara ISO 8061-kompatibel:
+En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exempel – `DateTime` typer måste vara i ISO 8061-format:
 
 ```json
 { "DateTimeTelemetry": "2020-08-30T19:16:13.853Z" }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en typ av `duration` telemetri:
+Följande kodfragment från en enhets modell visar definitionen av en `duration` typ av telemetri:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DurationTelemetry"
@@ -171,7 +165,7 @@ Följande kodfragment från ett DCM visar definitionen av en typ av `duration` t
 }
 ```
 
-En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exempel – varaktigheten måste vara ISO 8601 duration-kompatibel:
+En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exempel – varaktigheten måste vara i ISO 8601-format:
 
 ```json
 { "DurationTelemetry": "PT10H24M6.169083011336625S" }
@@ -181,11 +175,10 @@ En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exemp
 
 Det här avsnittet innehåller exempel på komplexa typer av telemetri som en enhet strömmar till ett IoT Central-program.
 
-Följande kodfragment från ett DCM visar definitionen av en typ av `geopoint` telemetri:
+Följande kodfragment från en enhets modell visar definitionen av en `geopoint` typ av telemetri:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "GeopointTelemetry"
@@ -207,18 +200,16 @@ En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exemp
 }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en typ av `Enum` telemetri:
+Följande kodfragment från en enhets modell visar definitionen av en `Enum` typ av telemetri:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "EnumTelemetry"
   },
   "name": "EnumTelemetry",
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -226,8 +217,6 @@ Följande kodfragment från ett DCM visar definitionen av en typ av `Enum` telem
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -235,8 +224,6 @@ Följande kodfragment från ett DCM visar definitionen av en typ av `Enum` telem
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -244,8 +231,6 @@ Följande kodfragment från ett DCM visar definitionen av en typ av `Enum` telem
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -263,26 +248,22 @@ En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exemp
 { "EnumTelemetry": 1 }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en typ av `Object` telemetri. Det här objektet har tre fält med typerna `dateTime` , `integer` och `Enum` :
+Följande kodfragment från en enhets modell visar definitionen av en `Object` typ av telemetri. Det här objektet har tre fält med typerna `dateTime` , `integer` och `Enum` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "ObjectTelemetry"
   },
   "name": "ObjectTelemetry",
   "schema": {
-    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property1"
         },
@@ -290,8 +271,6 @@ Följande kodfragment från ett DCM visar definitionen av en typ av `Object` tel
         "schema": "dateTime"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property2"
         },
@@ -299,14 +278,11 @@ Följande kodfragment från ett DCM visar definitionen av en typ av `Object` tel
         "schema": "integer"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property3"
         },
         "name": "Property3",
         "schema": {
-          "@id": "<element id>",
           "@type": "Enum",
           "displayName": {
             "en": "Enum"
@@ -314,8 +290,6 @@ Följande kodfragment från ett DCM visar definitionen av en typ av `Object` tel
           "valueSchema": "integer",
           "enumValues": [
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item1"
               },
@@ -323,8 +297,6 @@ Följande kodfragment från ett DCM visar definitionen av en typ av `Object` tel
               "name": "Item1"
             },
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item2"
               },
@@ -332,8 +304,6 @@ Följande kodfragment från ett DCM visar definitionen av en typ av `Object` tel
               "name": "Item2"
             },
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item3"
               },
@@ -360,11 +330,10 @@ En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exemp
 }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en typ av `vector` telemetri:
+Följande kodfragment från en enhets modell visar definitionen av en `vector` typ av telemetri:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "VectorTelemetry"
@@ -390,14 +359,13 @@ En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exemp
 
 Det här avsnittet innehåller exempel på telemetri-händelser och tillstånd som en enhet skickar till ett IoT Central-program.
 
-Följande kodfragment från ett DCM visar definitionen av en `integer` händelse typ:
+Följande kodfragment från en enhets modell visar definitionen av en `integer` händelse typ:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": [
     "Telemetry",
-    "SemanticType/Event"
+    "Event"
   ],
   "displayName": {
     "en": "IntegerEvent"
@@ -413,27 +381,23 @@ En enhets klient ska skicka händelse data som JSON som ser ut som i följande e
 { "IntegerEvent": 74 }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en `integer` tillstånds typ:
+Följande kodfragment från en enhets modell visar definitionen av en `integer` tillstånds typ:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": [
     "Telemetry",
-    "SemanticType/State"
+    "State"
   ],
   "displayName": {
     "en": "IntegerState"
   },
   "name": "IntegerState",
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level1"
         },
@@ -441,8 +405,6 @@ Följande kodfragment från ett DCM visar definitionen av en `integer` tillstån
         "name": "Level1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level2"
         },
@@ -450,8 +412,6 @@ Följande kodfragment från ett DCM visar definitionen av en `integer` tillstån
         "name": "Level2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level3"
         },
@@ -478,17 +438,17 @@ En enhets klient ska skicka tillstånd som JSON som ser ut som i följande exemp
 
 Det här avsnittet innehåller exempel på primitiva egenskaps typer som en enhet skickar till ett IoT Central-program.
 
-Följande kodfragment från ett DCM visar definitionen av en `boolean` egenskaps typ:
+Följande kodfragment från en enhets modell visar definitionen av en `boolean` egenskaps typ:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "BooleanProperty"
   },
   "name": "BooleanProperty",
-  "schema": "boolean"
+  "schema": "boolean",
+  "writable": false
 }
 ```
 
@@ -498,17 +458,17 @@ En enhets klient ska skicka en JSON-nyttolast som ser ut som i följande exempel
 { "BooleanProperty": false }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en `boolean` egenskaps typ:
+Följande kodfragment från en enhets modell visar definitionen av en `boolean` egenskaps typ:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "LongProperty"
   },
   "name": "LongProperty",
-  "schema": "long"
+  "schema": "long",
+  "writable": false
 }
 ```
 
@@ -518,17 +478,17 @@ En enhets klient ska skicka en JSON-nyttolast som ser ut som i följande exempel
 { "LongProperty": 439 }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en `date` egenskaps typ:
+Följande kodfragment från en enhets modell visar definitionen av en `date` egenskaps typ:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "DateProperty"
   },
   "name": "DateProperty",
-  "schema": "date"
+  "schema": "date",
+  "writable": false
 }
 ```
 
@@ -538,17 +498,17 @@ En enhets klient ska skicka en JSON-nyttolast som ser ut som i följande exempel
 { "DateProperty": "2020-05-17" }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en `duration` egenskaps typ:
+Följande kodfragment från en enhets modell visar definitionen av en `duration` egenskaps typ:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "DurationProperty"
   },
   "name": "DurationProperty",
-  "schema": "duration"
+  "schema": "duration",
+  "writable": false
 }
 ```
 
@@ -558,17 +518,17 @@ En enhets klient ska skicka en JSON-nyttolast som ser ut som i följande exempel
 { "DurationProperty": "PT10H24M6.169083011336625S" }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en `float` egenskaps typ:
+Följande kodfragment från en enhets modell visar definitionen av en `float` egenskaps typ:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "FloatProperty"
   },
   "name": "FloatProperty",
-  "schema": "float"
+  "schema": "float",
+  "writable": false
 }
 ```
 
@@ -578,17 +538,17 @@ En enhets klient ska skicka en JSON-nyttolast som ser ut som i följande exempel
 { "FloatProperty": 1.9 }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en `string` egenskaps typ:
+Följande kodfragment från en enhets modell visar definitionen av en `string` egenskaps typ:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "StringProperty"
   },
   "name": "StringProperty",
-  "schema": "string"
+  "schema": "string",
+  "writable": false
 }
 ```
 
@@ -602,17 +562,17 @@ En enhets klient ska skicka en JSON-nyttolast som ser ut som i följande exempel
 
 Det här avsnittet innehåller exempel på komplexa egenskaps typer som en enhet skickar till ett IoT Central-program.
 
-Följande kodfragment från ett DCM visar definitionen av en `geopoint` egenskaps typ:
+Följande kodfragment från en enhets modell visar definitionen av en `geopoint` egenskaps typ:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "GeopointProperty"
   },
   "name": "GeopointProperty",
-  "schema": "geopoint"
+  "schema": "geopoint",
+  "writable": false
 }
 ```
 
@@ -628,18 +588,17 @@ En enhets klient ska skicka en JSON-nyttolast som ser ut som i följande exempel
 }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en `Enum` egenskaps typ:
+Följande kodfragment från en enhets modell visar definitionen av en `Enum` egenskaps typ:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "EnumProperty"
   },
   "name": "EnumProperty",
+  "writable": false,
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -647,8 +606,6 @@ Följande kodfragment från ett DCM visar definitionen av en `Enum` egenskaps ty
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -656,8 +613,6 @@ Följande kodfragment från ett DCM visar definitionen av en `Enum` egenskaps ty
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -665,8 +620,6 @@ Följande kodfragment från ett DCM visar definitionen av en `Enum` egenskaps ty
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -684,26 +637,23 @@ En enhets klient ska skicka en JSON-nyttolast som ser ut som i följande exempel
 { "EnumProperty": 1 }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en `Object` egenskaps typ. Det här objektet har två fält med typer `string` och `integer` :
+Följande kodfragment från en enhets modell visar definitionen av en `Object` egenskaps typ. Det här objektet har två fält med typer `string` och `integer` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "ObjectProperty"
   },
   "name": "ObjectProperty",
+  "writable": false,
   "schema": {
-    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field1"
         },
@@ -711,8 +661,6 @@ Följande kodfragment från ett DCM visar definitionen av en `Object` egenskaps 
         "schema": "integer"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field2"
         },
@@ -735,17 +683,17 @@ En enhets klient ska skicka en JSON-nyttolast som ser ut som i följande exempel
 }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en `vector` egenskaps typ:
+Följande kodfragment från en enhets modell visar definitionen av en `vector` egenskaps typ:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "VectorProperty"
   },
   "name": "VectorProperty",
-  "schema": "vector"
+  "schema": "vector",
+  "writable": false
 }
 ```
 
@@ -780,11 +728,10 @@ IoT Central förväntar sig ett svar från enheten till skrivbara egenskaps uppd
 
 `ad` är en beskrivning av alternativ strängen.
 
-Följande kodfragment från ett DCM visar definitionen av en skrivbar `string` egenskaps typ:
+Följande kodfragment från en enhets modell visar definitionen av en skrivbar `string` egenskaps typ:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "StringPropertyWritable"
@@ -816,11 +763,10 @@ Enheten ska skicka följande JSON-nyttolast till IoT Central när uppdateringen 
 }
 ```
 
-Följande kodfragment från ett DCM visar definitionen av en skrivbar `Enum` egenskaps typ:
+Följande kodfragment från en enhets modell visar definitionen av en skrivbar `Enum` egenskaps typ:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "EnumPropertyWritable"
@@ -828,7 +774,6 @@ Följande kodfragment från ett DCM visar definitionen av en skrivbar `Enum` ege
   "name": "EnumPropertyWritable",
   "writable": true,
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -836,8 +781,6 @@ Följande kodfragment från ett DCM visar definitionen av en skrivbar `Enum` ege
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -845,8 +788,6 @@ Följande kodfragment från ett DCM visar definitionen av en skrivbar `Enum` ege
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -854,8 +795,6 @@ Följande kodfragment från ett DCM visar definitionen av en skrivbar `Enum` ege
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -890,36 +829,30 @@ Enheten ska skicka följande JSON-nyttolast till IoT Central när uppdateringen 
 
 ## <a name="commands"></a>Kommandon
 
-### <a name="synchronous-command-types"></a>Synkrona kommando typer
+> [!NOTE]
+> I IoT Central-webbgränssnittet kan du välja **kön om alternativet offline** ska användas för ett kommando. Den här inställningen tas inte med om du exporterar en modell eller ett gränssnitt från enhets mal len.
 
-Följande kodfragment från ett DCM visar definitionen av ett synkront kommando som inte har några parametrar och som inte förväntar sig att enheten ska returnera något:
+Följande kodfragment från en enhets modell visar definitionen av ett kommando som inte har några parametrar och som inte förväntar sig att enheten ska returnera något:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "displayName": {
-    "en": "SynchronousCommandBasic"
+    "en": "CommandBasic"
   },
-  "name": "SynchronousCommandBasic"
+  "name": "CommandBasic"
 }
 ```
 
 Enheten får en tom nytto Last i begäran och ska returnera en tom nytto Last i svaret med en `200` http-svarskod för att indikera att det lyckades.
 
-Följande kodfragment från ett DCM visar definitionen av ett synkront kommando som har en heltals parameter och som förväntar sig att enheten returnerar ett heltals värde:
+Följande kodfragment från en enhets modell visar definitionen av ett kommando som har en heltals parameter och som förväntar sig att enheten returnerar ett heltals värde:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
@@ -927,8 +860,7 @@ Följande kodfragment från ett DCM visar definitionen av ett synkront kommando 
     "schema": "integer"
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
@@ -936,39 +868,32 @@ Följande kodfragment från ett DCM visar definitionen av ett synkront kommando 
     "schema": "integer"
   },
   "displayName": {
-    "en": "SynchronousCommandSimple"
+    "en": "CommandSimple"
   },
-  "name": "SynchronousCommandSimple"
+  "name": "CommandSimple"
 }
 ```
 
 Enheten får ett heltals värde som begär ande nytto Last. Enheten ska returnera ett heltals värde som svars nytto last med en `200` http-svarskod för att indikera att det lyckades.
 
-Följande kodfragment från ett DCM visar definitionen av ett synkront kommando som har en objekt parameter och som förväntar sig att enheten returnerar ett objekt. I det här exemplet har båda objekten heltals-och sträng fält:
+Följande kodfragment från en enhets modell visar definitionen av ett kommando som har en objekt parameter och som förväntar sig att enheten returnerar ett objekt. I det här exemplet har båda objekten heltals-och sträng fält:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
     "name": "RequestParam",
     "schema": {
-      "@id": "<element id>",
       "@type": "Object",
       "displayName": {
         "en": "Object"
       },
       "fields": [
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field1"
           },
@@ -976,8 +901,6 @@ Följande kodfragment från ett DCM visar definitionen av ett synkront kommando 
           "schema": "integer"
         },
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field2"
           },
@@ -988,22 +911,18 @@ Följande kodfragment från ett DCM visar definitionen av ett synkront kommando 
     }
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
     "name": "ResponseParam",
     "schema": {
-      "@id": "<element id>",
       "@type": "Object",
       "displayName": {
         "en": "Object"
       },
       "fields": [
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field1"
           },
@@ -1011,8 +930,6 @@ Följande kodfragment från ett DCM visar definitionen av ett synkront kommando 
           "schema": "integer"
         },
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field2"
           },
@@ -1023,9 +940,9 @@ Följande kodfragment från ett DCM visar definitionen av ett synkront kommando 
     }
   },
   "displayName": {
-    "en": "SynchronousCommandComplex"
+    "en": "CommandComplex"
   },
-  "name": "SynchronousCommandComplex"
+  "name": "CommandComplex"
 }
 ```
 
@@ -1041,19 +958,15 @@ I följande kodfragment visas ett exempel på en nytto last för svar som skicka
 { "Field1": 87, "Field2": "Another string value" }
 ```
 
-### <a name="asynchronous-command-types"></a>Asynkrona kommando typer
+### <a name="long-running-commands"></a>Tids krävande kommandon
 
-Följande kodfragment från ett DCM visar definitionen av ett asynkront kommando. Kommandot har en heltals parameter och förväntar sig att enheten returnerar ett heltals värde:
+Följande kodfragment från en enhets modell visar definitionen av ett kommando. Kommandot har en heltals parameter och förväntar sig att enheten returnerar ett heltals värde:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "asynchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
@@ -1061,8 +974,7 @@ Följande kodfragment från ett DCM visar definitionen av ett asynkront kommando
     "schema": "integer"
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
@@ -1070,19 +982,19 @@ Följande kodfragment från ett DCM visar definitionen av ett asynkront kommando
     "schema": "integer"
   },
   "displayName": {
-    "en": "AsynchronousCommandSimple"
+    "en": "LongRunningCommandSimple"
   },
-  "name": "AsynchronousCommandSimple"
+  "name": "LongRunningCommandSimple"
 }
 ```
 
-Enheten får ett heltals värde som begär ande nytto Last. Enheten ska returnera en tom svars nytto last med en `202` http-svarskod för att indikera att enheten har accepterat begäran om asynkron bearbetning.
+Enheten får ett heltals värde som begär ande nytto Last. Om enheten behöver tid för att bearbeta det här kommandot bör den returnera en tom svars nytto last med en `202` http-svarskod för att indikera att enheten har accepterat begäran om bearbetning.
 
 När enheten har bearbetat bearbetningen av begäran ska den skicka en egenskap till IoT Central som ser ut som i följande exempel. Egenskaps namnet måste vara detsamma som kommando namnet:
 
 ```json
 {
-  "AsynchronousCommandSimple": {
+  "LongRunningCommandSimple": {
     "value": 87
   }
 }

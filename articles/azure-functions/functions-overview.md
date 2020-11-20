@@ -1,94 +1,61 @@
 ---
 title: Översikt över Azure Functions
-description: Förstå hur du använder Azure Functions för att optimera asynkrona arbetsbelastningar på några få minuter.
-author: mattchenderson
+description: Lär dig hur Azure Functions kan hjälpa dig att bygga skalbara appar utan server.
+author: craigshoemaker
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
-ms.date: 01/16/2020
+ms.date: 11/20/2020
+ms.author: cshoe
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 0583b68df603b04d47ac6104f0cf127b3c4bedd0
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 31518f2e340aa4f59099e51f4b7b4e76e7366bd1
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173716"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990691"
 ---
-# <a name="an-introduction-to-azure-functions"></a>En introduktion till Azure Functions
+# <a name="introduction-to-azure-functions"></a>Introduktion till Azure Functions
 
-Med Azure Functions kan du köra små delar av kod (kallas "funktioner") utan att oroa dig för program infrastrukturen. Med Azure Functions tillhandahåller moln infrastrukturen alla uppdaterade servrar som du behöver för att hålla ditt program i stor skala.
+Vi skapar ofta system för att reagera på en serie kritiska händelser. Oavsett om du skapar ett webb-API, svarar på databas ändringar, bearbetar IoT-dataströmmar eller till och med hanterar meddelande köer – varje program behöver ett sätt att köra viss kod när dessa händelser inträffar.
 
-En funktion är "utlöst" av en speciell typ av händelse. [Utlösare som stöds](./functions-triggers-bindings.md) innehåller svar på ändringar i data, svarar på meddelanden, körs enligt ett schema eller till följd av en http-begäran.
+För att möta detta måste Azure Functions tillhandahålla "Compute on-demand"-och på två betydande sätt.
 
-Även om du alltid kan koda direkt mot myriaden-tjänster effektiviseras integreringen med andra tjänster med hjälp av bindningar. Med bindningar får du [en deklarativ till gång till en mängd olika Azure-tjänster och tjänster från tredje part](./functions-triggers-bindings.md).
+För det första, Azure Functions gör det möjligt att implementera systemets logik i snabbt tillgängliga kodblock. Kodblock kallas för "Functions". Olika funktioner kan köras när du behöver svara på kritiska händelser.
 
-## <a name="features"></a>Funktioner
+För det andra, som begär Anden ökar, Azure Functions uppfyller efter frågan med så många resurser och funktions instanser som behövs – men bara vid behov. När förfrågningarna blir borta, släpps alla extra resurser och program instanser automatiskt.
 
-Några viktiga funktioner i Azure Functions är:
+Var kommer alla beräknings resurser från? Azure Functions [tillhandahåller så många eller så få beräknings resurser som behövs](./functions-scale.md) för att uppfylla ditt programs behov.
 
-- **Program utan server**: med funktioner kan du utveckla program utan [Server](https://azure.microsoft.com/solutions/serverless/) på Microsoft Azure.
+Att tillhandahålla beräknings resurser på begäran är grunden för [data behandling utan server](https://azure.microsoft.com/solutions/serverless/) i Azure Functions.
 
-- **Val av språk**: Skriv funktioner med valfri [C#, Java, Java Script, python och PowerShell](supported-languages.md).
+## <a name="scenarios"></a>Scenarier
 
-- **Pris modell för betala per användning**: betala bara för den tid som krävs för att köra koden. Se alternativet för förbrukningsvärdplan i [prissättningsavsnittet](#pricing).  
+I många fall [integreras en funktion med en matris med moln tjänster](./functions-triggers-bindings.md) för att tillhandahålla funktions rika implementeringar.
 
-- **Ta med dina egna beroenden**: Functions har stöd för NUGET och NPM, vilket ger dig till gång till dina favorit bibliotek.
+Följande är ett vanligt, _men inte heller en uttömmande_ uppsättning scenarier för Azure Functions.
 
-- **Integrerad säkerhet**: skydda http-utlösta funktioner med OAuth-leverantörer som Azure Active Directory, Facebook, Google, Twitter och Microsoft-konto.
+| Om du vill... | sedan... |
+| --- | --- |
+| **Bygg ett webb-API** | Implementera en slut punkt för dina webb program med hjälp av [http-utlösaren](./functions-bindings-http-webhook.md) |
+| **Bearbeta fil överföringar** | Kör kod när en fil laddas upp eller ändras i [Blob Storage](./functions-bindings-storage-blob.md) |
+| **Bygg ett Server lös arbets flöde** | Kedja en serie funktioner tillsammans med hjälp av [varaktiga funktioner](./durable-functions-overview.md) |
+| **Svara på databas ändringar** | Kör anpassad logik när ett dokument skapas eller uppdateras i [Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
+| **Köra schemalagda aktiviteter** | Kör kod vid [angivna tider](./functions-bindings-timer.md) |
+| **Skapa Reliable Message Queue-system** | Bearbeta meddelande köer med hjälp av [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md)eller [Event Hubs](./functions-bindings-event-hubs.md) |
+| **Analysera IoT-dataströmmar** | Samla in och bearbeta [data från IoT-enheter](./functions-bindings-event-iot.md) |
+| **Bearbeta data i real tid** | Använd [Functions och signal R](./functions-bindings-signalr-service.md) för att svara på data för tillfället |
 
-- **Förenklad integrering**: integrera enkelt med Azure-tjänster och SaaS-erbjudanden (Software-as-a-Service).
+När du skapar dina funktioner har du följande alternativ och tillgängliga resurser:
 
-- **Flexibel utveckling**: Konfigurera kontinuerlig integrering och distribuera din kod via [GitHub](../app-service/scripts/cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/cli-continuous-deployment-vsts.md)och andra utvecklingsverktyg som [stöds](../app-service/deploy-local-git.md).
+- **Använd önskat språk**: Skriv funktioner i [C#, Java, Java Script, PowerShell eller python](./supported-languages.md), eller Använd en [anpassad hanterare](./functions-custom-handlers.md) för att använda i stort sett alla andra språk.
 
-- **Tillstånds känslig arkitektur utan server**: dirigera program utan server med [Durable Functions](durable/durable-functions-overview.md).
+- **Automatisera distribution**: från en verktyg-baserad metod till att använda externa pipeliner finns det en [myriaden tillgängliga distributions alternativ](./functions-deployment-technologies.md) .
 
-- **Öppen källkod**: Functions runtime är öppen källkod och [finns på GitHub](https://github.com/azure/azure-webjobs-sdk-script).
+- **Felsöka en funktion**: använda [övervaknings verktyg](./functions-monitoring.md) och [testnings strategier](./functions-test-a-function.md) för att få insikter om dina appar.
 
-## <a name="what-can-i-do-with-functions"></a>Vad kan jag göra med Functions?
+- **Flexibla pris alternativ**: med [förbruknings](./pricing.md) planen betalar du bara medan funktionerna körs, medan [Premium](./pricing.md) -och [App Service](./pricing.md) -planerna erbjuder funktioner för specialiserade behov.
 
-Functions är en bra lösning för att bearbeta Mass data, integrera system, arbeta med sakernas internet (IoT) och skapa enkla API: er och Micro-tjänster.
+## <a name="next-steps"></a>Nästa steg
 
-Det finns en serie mallar som hjälper dig att komma igång med viktiga scenarier, inklusive:
-
-- **Http**: kör kod baserat på [http-begäranden](functions-create-first-azure-function.md)
-
-- **Timer**: schema kod som ska [köras vid fördefinierade tidpunkter](./functions-create-scheduled-function.md)
-
-- **Azure Cosmos DB**: bearbeta [nya och ändrade Azure Cosmos DB dokument](./functions-create-cosmos-db-triggered-function.md)
-
-- **Blob Storage**: bearbeta [nya och ändrade Azure Storage blobbar](./functions-create-storage-blob-triggered-function.md)
-
-- **Queue Storage**: svara på [Azure Storage köa meddelanden](./functions-create-storage-queue-triggered-function.md)
-
-- **Event Grid**: svara på [Azure Event Grid händelser via prenumerationer och filter](../event-grid/resize-images-on-storage-blob-upload-event.md)
-
-- **Event Hub**: svara på [hög volym av Azure Event Hub-händelser](./functions-bindings-event-hubs.md)
-
-- **Service Bus kö**: Anslut till andra Azure-tjänster eller lokala tjänster genom att [svara Service Bus Queue meddelanden](./functions-bindings-service-bus.md)
-
-- **Service Bus ämnet**: Anslut andra Azure-tjänster eller lokala tjänster genom [att svara på Service Bus ämnes meddelanden](./functions-bindings-service-bus.md)
-
-## <a name="how-much-does-functions-cost"></a><a name="pricing"></a>Hur mycket kostar Functions?
-
-Azure Functions har tre typer av pris planer. Välj den som passar dina behov bäst:
-
-- **Förbruknings plan**: Azure tillhandahåller alla nödvändiga beräknings resurser. Du behöver inte oroa dig för resurs hantering och bara betala för den tid som koden körs.
-
-- **Premium plan**: du anger ett antal förvärmade instanser som alltid är online och som är redo att omedelbart svara. När din funktion körs tillhandahåller Azure eventuella ytterligare beräknings resurser som behövs. Du betalar för de förvärmade instanserna som körs kontinuerligt och eventuella ytterligare instanser som du använder som Azure skalar din app i och ut.
-
-- **App Service plan**: Kör funktioner precis som dina webb program. Om du använder App Service för andra program kan funktionerna köras i samma plan utan extra kostnad.
-
-Mer information om värdplaner finns i [Azure Functions hosting plan comparison](functions-scale.md) (Jämförelse av värdplaner för Azure Functions). Fullständig prisinformation är tillgänglig på sidan [Prissättning för Functions](https://azure.microsoft.com/pricing/details/functions/).
-
-## <a name="next-steps"></a>Efterföljande moment
-
-- [Skapa din första Azure-funktion](functions-create-first-function-vs-code.md)  
-  Kom igång med [Visual Studio Code](functions-create-first-function-vs-code.md), [kommando raden](functions-create-first-azure-function-azure-cli.md)eller Använd [Azure Portal](functions-create-first-azure-function.md).
-
-- [Azure Functions, info för utvecklare](functions-reference.md)  
-  Ger mer teknisk information om Azure Functions-runtime och en referens för kodning av funktioner och definiering av utlösare och bindningar.
-
-- [Så här skalar du Azure Functions](functions-scale.md)  
-  Beskriver tillgängliga serviceplaner för Azure Functions, inklusive värdplanen för förbrukning, och hur du väljer rätt plan.
-
-- [Läs mer om Azure App Service](../app-service/overview.md)  
-  Azure Functions använder Azure App Service för grundläggande funktioner som distributioner, miljövariabler och diagnostik.
+> [!div class="nextstepaction"]
+> [Kom igång genom lektioner, exempel och interaktiva självstudier](./functions-get-started.md)

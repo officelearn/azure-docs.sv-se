@@ -1,15 +1,15 @@
 ---
 title: Inbyggda princip definitioner för Azure-Lighthouse
 description: Visar Azure Policy inbyggda princip definitioner för Azure-Lighthouse. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 183e0ceba97c2613768954f16ce35f62272011c8
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: bd996715c738408b90d29de82a86c54d444f1fa6
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94739617"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992490"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-lighthouse"></a>Azure Policy inbyggda definitioner för Azure-Lighthouse
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e49b713aca23c0373fa71d772ef7567372abe456
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309514"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990575"
 ---
 # <a name="devops-practices-for-luis"></a>DevOps-metoder för LUIS
 
@@ -58,7 +58,7 @@ Så här sparar du en LUIS-app i `.lu` formatet och placerar den under käll kon
 
 ### <a name="build-the-luis-app-from-source"></a>Bygg LUIS-appen från källan
 
-För att en LUIS-app ska kunna *bygga från källan* innebär att du kan [skapa en ny version av Luis-appen genom att importera `.lu` källan](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) , för att [träna versionen](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) och[publicera den](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app). Du kan göra detta i LUIS-portalen eller på kommando raden:
+För att en LUIS-app ska kunna *bygga från källan* innebär att du kan [skapa en ny version av Luis-appen genom att importera `.lu` källan](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) , för att [träna versionen](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) och [publicera den](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app). Du kan göra detta i LUIS-portalen eller på kommando raden:
 
 - Använd LUIS-portalen för att importera appens [ `.lu` version](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) från käll kontroll och [träna](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) och [publicera](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) appen.
 
@@ -74,7 +74,7 @@ Följande typer av filer för ditt LUIS-program bör underhållas under käll ko
 
 - [Batch-testfiler](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-file-format) (yttranden och förväntade resultat) som används för prestanda testning
 
-### <a name="credentialsand-keys-are-not-checked-in"></a>Autentiseringsuppgifter och nycklar är inte incheckade
+### <a name="credentials-and-keys-are-not-checked-in"></a>Autentiseringsuppgifter och nycklar är inte incheckade
 
 Ta inte med prenumerations nycklar eller liknande konfidentiella värden i filer som du checkar in på din lagrings platsen där de kan vara synliga för obehöriga personer. De nycklar och andra värden som du bör förhindra från incheckning är:
 

@@ -8,12 +8,12 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: f4f35aed10465fb06460f2818a876444bf989e01
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2bbf400840c968587de3a0a0951d28c7c35b210f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843969"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990898"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Felsök varför data från dina enheter inte visas i Azure IoT Central
 
@@ -130,12 +130,12 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 }
 ```
 
-| Enhets etablerings status | Beskrivning | Möjlig minskning |
+| Enhets etablerings status | Description | Möjlig minskning |
 | - | - | - |
 | Etablerad | Ingen direkt identifierbar fråga. | E.t. |
 | Registrerad | Enheten har ännu inte anslutits till IoT Central. | Kontrol lera dina enhets loggar för anslutnings problem. |
 | Blockerad | Enheten har blockerats från att ansluta till IoT Central. | Enheten blockeras från att ansluta till IoT Central-programmet. Avblockera enheten i IoT Central och försök igen. Mer information finns i [blockera enheter](concepts-get-connected.md#device-status-values). |
-| Ej godkända | Enheten är inte godkänd. | Enheten är inte godkänd för att ansluta till IoT Central-programmet. Godkänn enheten i IoT Central och försök igen. Läs mer i [Godkänn enheter](concepts-get-connected.md#connect-without-registering-devices) |
+| Ej godkända | Enheten är inte godkänd. | Enheten är inte godkänd för att ansluta till IoT Central-programmet. Godkänn enheten i IoT Central och försök igen. Läs mer i [Godkänn enheter](concepts-get-connected.md#device-registration) |
 | Inte kopplad | Enheten är inte kopplad till någon enhets mall. | Associera enheten med en enhets mall så att IoT Central vet hur data ska parsas. |
 
 Läs mer om [enhets status koder](concepts-get-connected.md#device-status-values).
@@ -150,7 +150,7 @@ Följande tabeller visar de vanliga felkoderna och möjliga åtgärder för att 
 
 Om du ser problem som rör ditt autentiseringspaket:
 
-| Felkod | Beskrivning | Möjlig minskning |
+| Felkod | Description | Möjlig minskning |
 | - | - | - |
 | 400 | Bröd texten i begäran är inte giltig. Det går till exempel inte att parsa den, eller så går det inte att verifiera objektet. | Se till att du skickar rätt begär ande text som en del av attesterings flödet eller Använd en enhets-SDK. |
 | 401 | Det går inte att verifiera autentiseringstoken. Till exempel har den upphört att gälla eller inte gäller för frågans URI. Den här felkoden returneras även till enheter som en del av flödet för TPM-attestering. | Kontrol lera att enheten har rätt autentiseringsuppgifter. |

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 39ce436cd59447b2b6f8d9f88deaab80b00dd639
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 82818c8db326889079948cd2b32b2ed0be6ab50d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812360"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990762"
 ---
 # <a name="iot-central-device-development-overview"></a>Översikt över enhetsutveckling i IoT Central
 
@@ -72,7 +72,7 @@ Mer information finns i Anslut [till Azure IoT Central](./concepts-get-connected
 
 ### <a name="security"></a>Säkerhet
 
-Anslutningen mellan en enhet och ditt IoT Central program skyddas med hjälp av antingen [delade Access-signaturer](./concepts-get-connected.md#connect-devices-at-scale-using-sas) eller bransch standard [X. 509-certifikat](./concepts-get-connected.md#connect-devices-using-x509-certificates).
+Anslutningen mellan en enhet och ditt IoT Central program skyddas med hjälp av antingen [delade Access-signaturer](./concepts-get-connected.md#sas-group-enrollment) eller bransch standard [X. 509-certifikat](./concepts-get-connected.md#x509-group-enrollment).
 
 ### <a name="communication-protocols"></a>Kommunikationsprotokoll
 
@@ -80,12 +80,58 @@ Kommunikations protokoll som en enhet kan använda för att ansluta till IoT Cen
 
 ## <a name="implement-the-device"></a>Implementera enheten
 
+En mall för IoT Central enhet innehåller en _modell_ som anger de beteenden som en enhet av typen ska implementera. Beteenden omfattar telemetri, egenskaper och kommandon.
+
+> [!TIP]
+> Du kan exportera modellen från IoT Central som en digital DTDL v2-JSON-fil [(Endefinierad Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) .
+
+Varje modell har en unik _enhets enhet_ med en unik modell identifierare (DTMI), till exempel `dtmi:com:example:Thermostat;1` . När en enhet ansluter till IoT Central skickar den DTMI för den modell som den implementerar. IoT Central kan sedan associera rätt enhets mal len med enheten.
+
+[IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) definierar en uppsättning konventioner som en enhet ska följa när den implementerar en DTDL-modell.
+
+SDK: er för [Azure IoT-enheter](#languages-and-sdks) omfattar stöd för IoT plug and Play-konventioner.
+
+### <a name="device-model"></a>Enhetsmodell
+
+En enhets modell definieras med hjälp av [DTDL](https://github.com/Azure/opendigitaltwins-dtdl). På det här språket kan du definiera:
+
+- Den telemetri som enheten skickar. Definitionen innehåller telemetrins namn och datatyp. En enhet skickar till exempel temperatur telemetri som en dubbel.
+- De egenskaper som enheten rapporterar till IoT Central. En egenskaps definition innehåller dess namn och datatyp. En enhet rapporterar till exempel status för en ventil som boolesk.
+- De egenskaper som enheten kan ta emot från IoT Central. Alternativt kan du markera en egenskap som skrivbar. IoT Central skickar till exempel en mål temperatur som en dubbel till en enhet.
+- De kommandon som en enhet svarar på. Definitionen innehåller namnet på kommandot och namn och data typer för alla parametrar. En enhet svarar till exempel på ett omstart-kommando som anger hur många sekunder som ska förflyta innan datorn startas om.
+
+En DTDL modell kan vara _ingen-komponent_ eller en modell _med flera komponenter_ :
+
+- Ingen-komponent modell: en enkel modell använder inte inbäddade eller överlappande komponenter. Alla telemetri, egenskaper och kommandon definieras som en enda _standard komponent_. Ett exempel finns i [termostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) -modellen.
+- Modell med flera komponenter. En mer komplex modell som innehåller två eller flera komponenter. Dessa komponenter innehåller en enda standard komponent och en eller flera ytterligare kapslade komponenter. Ett exempel finns i [temperatur styrenhets](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) modellen.
+
+Läs mer i [IoT plug and Play-komponenter i modeller](../../iot-pnp/concepts-components.md)
+
+### <a name="conventions"></a>Konventioner
+
+En enhet bör följa IoT Plug and Play-konventioner när den utbyter data med IoT Central. Konventionerna är:
+
+- Skicka DTMI när den ansluter till IoT Central.
+- Skicka korrekt formaterade JSON-nyttolaster och metadata till IoT Central.
+- Svarar korrekt på skrivbara egenskaper och kommandon från IoT Central.
+- Följ namn konventionerna för komponent kommandon.
+
+> [!NOTE]
+> IoT Central har för närvarande inte fullt stöd för DTDL- **matrisen** och **geospatiala** data typer.
+
+Mer information om formatet på JSON-meddelanden som en enhet utbyter med IoT Central finns i avsnittet om [telemetri, egenskap och kommando nytto laster](concepts-telemetry-properties-commands.md).
+
+Mer information om IoT Plug and Play konventioner finns i [iot plug and Play-konventioner](../../iot-pnp/concepts-convention.md).
+
+### <a name="device-sdks"></a>Enhets-SDK: er
+
 Använd en av [Azure IoT-enhetens SDK](#languages-and-sdks) : er för att implementera enhetens funktions sätt. Koden ska:
 
 - Registrera enheten med DPS och Använd informationen från DPS för att ansluta till den interna IoT-hubben i ditt IoT Central-program.
-- Skicka telemetri i det format som enhets mal len i IoT Central anger. IoT Central använder enhets mal len för att avgöra hur du använder telemetri för visualiseringar och analyser.
-- Synkronisera egenskaps värden mellan enheten och IoT Central. Enhets mal len anger egenskaps namn och data typer så att IoT Central kan visa informationen.
-- Implementera kommando hanterare för kommandona anger i enhets mal len. Enhets mal len anger kommando namn och parametrar som enheten ska använda.
+- Meddela DTMI för den modell som enheten implementerar.
+- Skicka telemetri i det format som enhets modellen anger. IoT Central använder modellen i enhets mal len för att avgöra hur du ska använda telemetri för visualiseringar och analyser.
+- Synkronisera egenskaps värden mellan enheten och IoT Central. Modellen anger egenskaps namn och data typer så att IoT Central kan visa informationen.
+- Implementera kommando hanterare för de kommandon som anges i modellen. Modellen anger de kommando namn och parametrar som enheten ska använda.
 
 Mer information om rollen hets mallar finns i [Vad är enhets mallar?](./concepts-device-templates.md).
 

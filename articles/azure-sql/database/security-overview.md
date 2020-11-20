@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: 1485f06af2bb3c4912df3e34cb23c409b7db3dc2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 39119f62fa938f5f4f6529539d4ca9a84bdf8fd7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780367"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989198"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>En översikt över säkerhets funktioner för Azure SQL Database och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -41,22 +41,22 @@ Regler för IP-brandvägg ger åtkomst till databaser baserat på den ursprungli
 [Regler för virtuella nätverk](vnet-service-endpoint-rule-overview.md) gör det möjligt för Azure SQL Database att endast acceptera kommunikation som skickas från valda undernät i ett virtuellt nätverk.
 
 > [!NOTE]
-> Kontroll av åtkomst med brand Väggs regler gäller *inte* för **SQL-hanterad instans** . Mer information om nätverks konfigurationen som behövs finns i [ansluta till en hanterad instans](../managed-instance/connect-application-instance.md)
+> Kontroll av åtkomst med brand Väggs regler gäller *inte* för **SQL-hanterad instans**. Mer information om nätverks konfigurationen som behövs finns i [ansluta till en hanterad instans](../managed-instance/connect-application-instance.md)
 
 ## <a name="access-management"></a>Åtkomsthantering
 
 > [!IMPORTANT]
-> Hantering av databaser och servrar i Azure styrs av ditt användar kontos roll tilldelningar för portalen. Mer information om den här artikeln finns i [rollbaserad åtkomst kontroll i Azure Portal](../../role-based-access-control/overview.md).
+> Hantering av databaser och servrar i Azure styrs av ditt användar kontos roll tilldelningar för portalen. Mer information om den här artikeln finns i [rollbaserad åtkomst kontroll i Azure i Azure Portal](../../role-based-access-control/overview.md).
 
 ### <a name="authentication"></a>Autentisering
 
 Autentisering är en process för att bevisa att användaren är den som han eller hon ansöker. Azure SQL Database-och SQL-hanterade instanser stöder två typer av autentisering:
 
-- **SQL-autentisering** :
+- **SQL-autentisering**:
 
     SQL-autentisering syftar på autentisering av en användare vid anslutning till Azure SQL Database eller Azure SQL-hanterad instans med hjälp av användar namn och lösen ord. Du måste ange en inloggning med ett användar namn och lösen ord för **Server administratören** när servern skapas. Med dessa autentiseringsuppgifter kan en **Server administratör** autentisera till valfri databas på servern eller instansen som databas ägare. Efter det kan ytterligare SQL-inloggningar och användare skapas av Server administratören, vilket gör det möjligt för användare att ansluta med användar namn och lösen ord.
 
-- **Azure Active Directory autentisering** :
+- **Azure Active Directory autentisering**:
 
     Azure Active Directory autentisering är en mekanism för att ansluta till [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) och [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure Active Directory (Azure AD). Med Azure AD-autentisering kan administratörer centralt hantera identiteter och behörigheter för databas användare tillsammans med andra Azure-tjänster på en central plats. Detta inkluderar minimering av lösen ords lagring och möjliggör centraliserade principer för lösen ords rotation.
 
@@ -65,7 +65,7 @@ Autentisering är en process för att bevisa att användaren är den som han ell
     Ytterligare alternativ för Azure AD-autentisering är tillgängliga [Active Directory Universal-autentisering för SQL Server Management Studio](authentication-mfa-ssms-overview.md) anslutningar inklusive [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) och [villkorlig åtkomst](conditional-access-configure.md).
 
 > [!IMPORTANT]
-> Hantering av databaser och servrar i Azure styrs av ditt användar kontos roll tilldelningar för portalen. Mer information om den här artikeln finns i [rollbaserad åtkomst kontroll i Azure Portal](../../role-based-access-control/overview.md). Kontroll av åtkomst med brand Väggs regler gäller *inte* för **SQL-hanterad instans** . I följande artikel om hur [du ansluter till en hanterad instans](../managed-instance/connect-application-instance.md) finns mer information om nätverks konfigurationen som behövs.
+> Hantering av databaser och servrar i Azure styrs av ditt användar kontos roll tilldelningar för portalen. Mer information om den här artikeln finns i [Azure rollbaserad åtkomst kontroll i Azure Portal](../../role-based-access-control/overview.md). Kontroll av åtkomst med brand Väggs regler gäller *inte* för **SQL-hanterad instans**. I följande artikel om hur [du ansluter till en hanterad instans](../managed-instance/connect-application-instance.md) finns mer information om nätverks konfigurationen som behövs.
 
 ## <a name="authorization"></a>Auktorisering
 
@@ -103,7 +103,7 @@ SQL Database, SQL-hanterad instans och Azure Synapse Analytics Genomdriv krypter
 
 Som bästa praxis rekommenderar vi att du i anslutnings strängen som används av programmet anger en krypterad anslutning och _**inte**_ litar på Server certifikatet. Detta tvingar ditt program att verifiera Server certifikatet och förhindrar därför att ditt program är sårbart för människor i mellan typ attacker.
 
-Till exempel när du använder ADO.NET-drivrutinen utförs detta via  **kryptera = True** och **TrustServerCertificate = false** . Om du får anslutnings strängen från Azure Portal har den rätt inställningar.
+Till exempel när du använder ADO.NET-drivrutinen utförs detta via  **kryptera = True** och **TrustServerCertificate = false**. Om du får anslutnings strängen från Azure Portal har den rätt inställningar.
 
 > [!IMPORTANT]
 > Observera att vissa driv rutiner som inte kommer från Microsoft kanske inte använder TLS som standard eller som förlitar sig på en äldre version av TLS (<1,2) för att fungera. I det här fallet tillåter servern fortfarande att du ansluter till din databas. Vi rekommenderar dock att du utvärderar säkerhets riskerna med att tillåta att driv rutiner och program ansluter till SQL Database, särskilt om du lagrar känsliga data.
@@ -130,7 +130,7 @@ I Azure krypteras alla nyligen skapade databaser som standard och databas krypte
 
 ![Diagram som visar dynamisk data maskning. En affärsappen skickar data till en SQL-databas som maskerar data innan de skickas tillbaka till affärsappen.](./media/security-overview/azure-database-ddm.png)
 
-Dynamisk data maskning begränsar känslig data exponering genom att maskera den till icke-privilegierade användare. Dynamisk data maskning identifierar automatiskt potentiellt känsliga data i Azure SQL Database-och SQL-hanterad instans och ger rekommendationer som kan användas för att maskera dessa fält, med minimal påverkan på program skiktet. Det fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad. Mer information finns i [Kom igång med SQL Database och SQL-hanterad instans dynamisk data maskning](dynamic-data-masking-overview.md).
+Med dynamisk datamaskering begränsas exponeringen av känsliga data genom att de maskeras för icke-privilegierade användare. Dynamisk data maskning identifierar automatiskt potentiellt känsliga data i Azure SQL Database-och SQL-hanterad instans och ger rekommendationer som kan användas för att maskera dessa fält, med minimal påverkan på program skiktet. Det fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad. Mer information finns i [Kom igång med SQL Database och SQL-hanterad instans dynamisk data maskning](dynamic-data-masking-overview.md).
 
 ## <a name="security-management"></a>Säkerhetshantering
 

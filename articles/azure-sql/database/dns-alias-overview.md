@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: 4be3f8c6cd416743c2d1118cf2de01073c3022ff
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 25c2157a8de237d0ec66caa72d59c810d419ac76
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790499"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989130"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias för Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -60,8 +60,8 @@ Följande egenskaper gäller för varje DNS-alias för servern:
 - *Server krävs:* Det går inte att skapa ett DNS-alias om det inte refererar till exakt en server och servern måste redan finnas. Ett uppdaterat alias måste alltid referera till exakt en befintlig server.
   - När du släpper en server släpper Azure-systemet också alla DNS-alias som refererar till servern.
 - *Inte kopplat till någon region:* DNS-alias är inte kopplade till en region. Alla DNS-alias kan uppdateras för att referera till en server som finns i en geografisk region.
-  - Men när du uppdaterar ett alias för att referera till en annan server måste båda servrarna finnas i samma Azure- *prenumeration* .
-- *Behörigheter:* Användaren måste ha behörighet som *Server deltagare* eller högre för att kunna hantera ett DNS-alias. Mer information finns i [Kom igång med Role-Based Access Control i Azure Portal](../../role-based-access-control/overview.md).
+  - Men när du uppdaterar ett alias för att referera till en annan server måste båda servrarna finnas i samma Azure- *prenumeration*.
+- *Behörigheter:* Användaren måste ha behörighet som *Server deltagare* eller högre för att kunna hantera ett DNS-alias. Mer information finns i [Kom igång med Azure rollbaserad åtkomst kontroll i Azure Portal](../../role-based-access-control/overview.md).
 
 ## <a name="manage-your-dns-aliases"></a>Hantera dina DNS-alias
 

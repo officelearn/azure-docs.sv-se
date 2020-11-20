@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: c7a94a24bd825249859ff699ab82ce4d3ae8fce1
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b309ce01595e2e62bea7f78ae728d83bc7d9b9be
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842268"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992173"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -107,12 +107,12 @@ Central identitets hantering ger följande fördelar:
 > [!NOTE]
 >
 > - Azure AD-autentisering registreras i gransknings loggarna i Azure SQL, men inte i inloggnings loggarna för Azure AD.
-> - RBAC-behörigheter som beviljats i Azure gäller inte för Azure SQL Database-eller SQL-hanterade instans behörigheter. Sådana behörigheter måste skapas/mappas manuellt med befintliga SQL-behörigheter.
+> - Azure RBAC-behörigheter som beviljats i Azure gäller inte för Azure SQL Database-eller SQL-hanterade instans behörigheter. Sådana behörigheter måste skapas/mappas manuellt med befintliga SQL-behörigheter.
 > - På klient sidan behöver Azure AD-autentisering till gång till Internet eller via en användardefinierad väg (UDR) till ett virtuellt nätverk.
 > - Azure AD-åtkomsttoken cachelagras på klient sidan och dess livs längd beror på token-konfigurationen. Se artikeln, [konfigurerbara livstider för token i Azure Active Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - Råd om hur du felsöker problem med Azure AD-autentisering finns i följande blogg: [Felsöka Azure AD](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).
 
-### <a name="azure-ad-multi-factor-authentication"></a>Azure AD-Multi-Factor Authentication
+### <a name="azure-ad-multi-factor-authentication"></a>Azure AD-multifaktorautentisering
 
 > Som nämns i: OSA-metoden #2, ISO Access Control (AC)
 

@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 415c9fdcbf0e8bfecaa48b8199702d4159bc32d9
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 138cd03989008aa4fbd7d6ca3e06aff94fa76e33
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629197"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989487"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Återställa med hjälp av automatiska databas säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ För en enskild prenumeration finns det begränsningar för antalet samtidiga å
 Det finns inte någon inbyggd metod för att återställa hela servern. Ett exempel på hur du utför den här uppgiften finns [Azure SQL Database: fullständig Server återställning](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
 > [!IMPORTANT]
-> Om du vill återställa med hjälp av automatiska säkerhets kopieringar måste du vara medlem i rollen SQL Server deltagar roll eller SQL-hanterad instans deltagare (beroende på återställnings målet) i prenumerationen eller så måste du vara prenumerations ägare. Mer information finns i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md). Du kan återställa med hjälp av Azure Portal, PowerShell eller REST API. Du kan inte använda Transact-SQL.
+> Om du vill återställa med hjälp av automatiska säkerhets kopieringar måste du vara medlem i rollen SQL Server deltagar roll eller SQL-hanterad instans deltagare (beroende på återställnings målet) i prenumerationen eller så måste du vara prenumerations ägare. Mer information finns i [Azure RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md). Du kan återställa med hjälp av Azure Portal, PowerShell eller REST API. Du kan inte använda Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
@@ -168,7 +168,7 @@ Slutför processen med att skapa en ny databas från säkerhets kopian. När du 
 
 #### <a name="sql-managed-instance"></a>SQL-hanterad instans
 
-Om du vill geo-återställa en hanterad instans databas från Azure Portal till en befintlig hanterad instans i valfri region väljer du en hanterad instans som du vill att en databas ska återställas på. Gör så här:
+Om du vill geo-återställa en hanterad instans databas från Azure Portal till en befintlig hanterad instans i valfri region väljer du en hanterad instans som du vill att en databas ska återställas på. Följ de här stegen:
 
 1. Välj **ny databas**.
 2. Ange önskat databas namn.

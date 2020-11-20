@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: da046fd633120944231ee440605367bdb730cbff
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 450d471beebbcc554a6d534fb2d5361778f158bc
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543229"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992326"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
@@ -152,7 +152,7 @@ Välj *Enable ml-etikettering* och ange en GPU för att aktivera assisterad mär
 * Klustring
 * För markering
 
-Det exakta antalet etiketterade bilder som krävs för att kunna starta assisterad etikettering är inte ett fast nummer.  Detta kan variera markant från ett etikett projekt till ett annat. För vissa projekt är det ibland möjligt att se förmärknings-eller kluster aktiviteter efter att 300-bilder har märkts manuellt. ML-märkning använder en teknik som kallas *överförings Inlärning* , som använder en förtränad modell för att komma igång med inlärnings processen. Om din data uppsättnings klasser liknar dem i den förtränade modellen kan det finnas etiketter som är tillgängliga efter några hundra manuellt märkta bilder. Om din data uppsättning skiljer sig avsevärt från de data som används för att förträna modellen, kan det ta mycket längre tid.
+Det exakta antalet etiketterade bilder som krävs för att kunna starta assisterad etikettering är inte ett fast nummer.  Detta kan variera markant från ett etikett projekt till ett annat. För vissa projekt är det ibland möjligt att se förmärknings-eller kluster aktiviteter efter att 300-bilder har märkts manuellt. ML-märkning använder en teknik som kallas *överförings Inlärning*, som använder en förtränad modell för att komma igång med inlärnings processen. Om din data uppsättnings klasser liknar dem i den förtränade modellen kan det finnas etiketter som är tillgängliga efter några hundra manuellt märkta bilder. Om din data uppsättning skiljer sig avsevärt från de data som används för att förträna modellen, kan det ta mycket längre tid.
 
 Eftersom de slutliga etiketterna fortfarande är beroende av inmatade Labeler, kallas den här tekniken ibland *mänsklig i slingan* .
 
@@ -213,7 +213,7 @@ På den högra sidan finns en fördelning av etiketterna för de aktiviteter som
 
 ### <a name="data-tab"></a>Fliken data
 
-På fliken **data** kan du se din data uppsättning och granska etiketterade data. Om du ser felaktigt märkta data markerar du den och väljer **avvisa** , vilket tar bort etiketterna och sätter tillbaka dem i den omärkta kön.
+På fliken **data** kan du se din data uppsättning och granska etiketterade data. Om du ser felaktigt märkta data markerar du den och väljer **avvisa**, vilket tar bort etiketterna och sätter tillbaka dem i den omärkta kön.
 
 ### <a name="details-tab"></a>Fliken information
 
@@ -250,7 +250,7 @@ Följ dessa steg om du vill lägga till en eller flera etiketter i ett projekt:
 
 ## <a name="export-the-labels"></a>Exportera etiketterna
 
-Du kan när som helst exportera etikett data för Machine Learning experimentering. Bild etiketter kan exporteras i [Coco-format](http://cocodataset.org/#format-data) eller som en Azure Machine Learning data uppsättning. Använd knappen **Exportera** på sidan **projekt information** i ditt projekt med etiketter.
+Du kan när som helst exportera etikett data för Machine Learning experimentering. Bild etiketter kan exporteras i [Coco-format](http://cocodataset.org/#format-data) eller som en [Azure Machine Learning data uppsättning med etiketter](how-to-use-labeled-dataset.md). Använd knappen **Exportera** på sidan **projekt information** i ditt projekt med etiketter.
 
 COCO-filen skapas i standard-BLOB-arkivet för Azure Machine Learning arbets ytan i en mapp i *export-/Coco*. Du kan komma åt den exporterade Azure Machine Learning data uppsättningen i avsnittet **data uppsättningar** i Machine Learning. På sidan data uppsättnings information finns också exempel kod för att få åtkomst till dina etiketter från python.
 

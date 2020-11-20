@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5c5276f11da687f14630bafd007532d172ef3737
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325000"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990813"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Använd tjänst slut punkter och regler för virtuella nätverk för servrar i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -55,7 +55,7 @@ Det finns en separation av säkerhets roller i administration av Virtual Network
 - **Nätverks administratör:** &nbsp; Aktivera slut punkten.
 - **Databas administratör:** &nbsp; Uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till servern.
 
-*RBAC-alternativ:*
+*Alternativ för Azure RBAC:*
 
 Rollerna för nätverks administratör och databas administratörer har fler funktioner än vad som krävs för att hantera virtuella nätverks regler. Endast en delmängd av deras funktioner krävs.
 
@@ -89,7 +89,7 @@ För Azure SQL Database har funktionen regler för virtuellt nätverk följande 
 
 När du använder tjänst slut punkter för Azure SQL Database bör du gå igenom följande överväganden:
 
-- **Utgående till Azure SQL Database offentliga IP-adresser krävs** : nätverks säkerhets grupper (NSG: er) måste öppnas för att Azure SQL Database IP-adresser för att tillåta anslutning. Du kan göra detta med hjälp av NSG [service-Taggar](../../virtual-network/network-security-groups-overview.md#service-tags) för Azure SQL Database.
+- **Utgående till Azure SQL Database offentliga IP-adresser krävs**: nätverks säkerhets grupper (NSG: er) måste öppnas för att Azure SQL Database IP-adresser för att tillåta anslutning. Du kan göra detta med hjälp av NSG [service-Taggar](../../virtual-network/network-security-groups-overview.md#service-tags) för Azure SQL Database.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -149,7 +149,7 @@ PolyBase och COPY-instruktionen används ofta för att läsa in data i Azure Syn
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
 
-   1. Skapa databasens begränsade autentiseringsuppgifter med **Identity = hanterad tjänstidentitet** :
+   1. Skapa databasens begränsade autentiseringsuppgifter med **Identity = hanterad tjänstidentitet**:
 
        ```sql
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -188,7 +188,7 @@ Du kan ställa in flaggan **IgnoreMissingVNetServiceEndpoint** med hjälp av Pow
 
 ## <a name="errors-40914-and-40615"></a>Fel 40914 och 40615
 
-Anslutnings fel 40914 relaterar till *virtuella nätverks regler* , enligt vad som anges i brand Väggs fönstret i Azure Portal. Fel 40615 liknar varandra, förutom att det relaterar till *IP-adressens regler* i brand väggen.
+Anslutnings fel 40914 relaterar till *virtuella nätverks regler*, enligt vad som anges i brand Väggs fönstret i Azure Portal. Fel 40615 liknar varandra, förutom att det relaterar till *IP-adressens regler* i brand väggen.
 
 ### <a name="error-40914"></a>Fel 40914
 
@@ -238,7 +238,7 @@ Du måste redan ha ett undernät som är taggat med det specifika Virtual Networ
 
 ## <a name="azure-portal-steps"></a>Azure Portal steg
 
-1. Logga in på [Azure Portal][http-azure-portal-link-ref-477t].
+1. Logga in på [Azure-portalen][http-azure-portal-link-ref-477t].
 
 2. Sök efter och välj **SQL-servrar** och välj sedan din server. Under **säkerhet** väljer du **brand väggar och virtuella nätverk**.
 

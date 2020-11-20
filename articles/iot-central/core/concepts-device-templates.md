@@ -3,17 +3,17 @@ title: Vad är Device templates i Azure IoT Central | Microsoft Docs
 description: Med Azure IoT Central Device templates kan du ange beteendet för de enheter som är anslutna till ditt program. En enhets mall anger telemetri, egenskaper och kommandon som enheten måste implementera. En enhets mall definierar också användar gränssnittet för enheten i IoT Central, till exempel formulär och instrument paneler som en operatör använder.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/21/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 75317b5c6af2d0ce89d2db32f4343d9cc73a1a81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e82a377d62184c8ae1d2e8f076b228e36005887a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91813176"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992683"
 ---
 # <a name="what-are-device-templates"></a>Vad är enhetsmallar?
 
@@ -25,86 +25,99 @@ En Solution Builder lägger till enhets mallar i ett IoT Central-program. En enh
 
 En enhets mall innehåller följande avsnitt:
 
-- _En enhets funktions modell (DCM)_. Den här delen av enhets mal len definierar hur enheten interagerar med ditt program. En enhets utvecklare implementerar beteenden som definierats i DCM.
-    - _Gränssnitt_. Ett DCM innehåller ett eller flera gränssnitt som definierar telemetri, egenskaper och kommandon som enheten måste implementera.
-- _Moln egenskaper_. I den här delen av enhets mal len kan utvecklare av lösningar ange alla enhets-metadata som ska lagras. Moln egenskaper synkroniseras aldrig med enheter och finns bara i programmet. Moln egenskaper påverkar inte den kod som en enhets utvecklare skriver för att implementera DCM.
-- _Anpassningar_. Den här delen av enhets mal len gör att lösningen-utvecklare kan åsidosätta några av definitionerna i DCM. Anpassningar är användbara om lösnings utvecklaren vill förfina hur programmet hanterar ett värde, t. ex. ändra visnings namnet för en egenskap eller färgen som används för att visa ett telemetri-värde. Anpassningar påverkar inte den kod som en enhets utvecklare skriver för att implementera DCM.
-- _Vyer_. Den här delen av enhets mal len gör att lösnings utvecklaren kan definiera visualiseringar för att visa data från enheten och formulär för att hantera och kontrol lera en enhet. Vyerna använder DCM, moln egenskaper och anpassningar. Vyer påverkar inte den kod som en enhets utvecklare skriver för att implementera DCM.
+- _En enhets modell_. Den här delen av enhets mal len definierar hur enheten interagerar med ditt program. En enhets utvecklare implementerar beteenden som definierats i modellen.
+    - _Standard komponent_. Varje enhets modell har en standard komponent. Standard komponentens gränssnitt beskriver funktioner som är speciella för enhets modellen.
+    - _Komponenter_. En enhets modell kan innehålla komponenter förutom standard komponenten för att beskriva enhets funktioner. Varje komponent har ett gränssnitt som beskriver komponentens funktioner. Komponent gränssnitt kan återanvändas i andra enhets modeller. Till exempel kan flera telefon enhets modeller använda samma kamera gränssnitt.
+    - _Ärvda gränssnitt_. En enhets modell innehåller ett eller flera gränssnitt som utökar funktionerna i standard komponenten.
+- _Moln egenskaper_. I den här delen av enhets mal len kan utvecklare av lösningar ange alla enhets-metadata som ska lagras. Moln egenskaper synkroniseras aldrig med enheter och finns bara i programmet. Moln egenskaper påverkar inte den kod som en enhets utvecklare skriver för att implementera enhets modellen.
+- _Anpassningar_. Den här delen av enhets mal len gör att lösningen-utvecklare kan åsidosätta några av definitionerna i enhets modellen. Anpassningar är användbara om lösnings utvecklaren vill förfina hur programmet hanterar ett värde, t. ex. ändra visnings namnet för en egenskap eller färgen som används för att visa ett telemetri-värde. Anpassningar påverkar inte den kod som en enhets utvecklare skriver för att implementera enhets modellen.
+- _Vyer_. Den här delen av enhets mal len gör att lösnings utvecklaren kan definiera visualiseringar för att visa data från enheten och formulär för att hantera och kontrol lera en enhet. I vyerna används enhets modell, moln egenskaper och anpassningar. Vyer påverkar inte den kod som en enhets utvecklare skriver för att implementera enhets modellen.
 
-## <a name="device-capability-models"></a>Modeller för enhetskapacitet
+## <a name="device-models"></a>Enhetsmodeller
 
-I DCM definieras hur en enhet interagerar med ditt IoT Central-program. Enhets utvecklaren måste se till att enheten implementerar de beteenden som definierats i DCM så att IoT Central kan övervaka och hantera enheten. Ett DCM-gränssnitt består av ett eller flera _gränssnitt_, och varje gränssnitt kan definiera en samling typer av _telemetri_ , _enhets egenskaper_och _kommandon_. En lösnings utvecklare kan importera en JSON-fil som definierar DCM till en enhets mall eller använda webb gränssnittet i IoT Central för att skapa eller redigera ett DCM. Ändringar i ett DCM-dokument som skapats med webb gränssnittet kräver att [enhets mal len har versions hantering](./howto-version-device-template.md).
+En enhets modell definierar hur en enhet samverkar med ditt IoT Central-program. Enhets utvecklaren måste se till att enheten implementerar de beteenden som definierats i enhets modellen så att IoT Central kan övervaka och hantera enheten. En enhets modell består av ett eller flera _gränssnitt_, och varje gränssnitt kan definiera en samling typer av _telemetri_ , _enhets egenskaper_ och _kommandon_. En lösnings utvecklare kan importera en JSON-fil som definierar enhets modellen i en enhets mall eller använda webb gränssnittet i IoT Central för att skapa eller redigera en enhets modell. Ändringar i en enhets modell som skapats med webb gränssnittet kräver att [enhets mal len har versions hantering](./howto-version-device-template.md).
 
-En lösnings utvecklare kan också exportera en JSON-fil som innehåller DCM. En enhets utvecklare kan använda det här JSON-dokumentet för att förstå hur enheten ska kommunicera med IoT Central-programmet.
+En lösnings utvecklare kan också exportera en JSON-fil som innehåller enhets modellen. En enhets utvecklare kan använda det här JSON-dokumentet för att förstå hur enheten ska kommunicera med IoT Central-programmet.
 
-JSON-filen som definierar DCM använder sig av [DTDL (Digital Definition Language) v1](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). IoT Central förväntar sig att JSON-filen ska innehålla DCM med de gränssnitt som definierats i stället för separata filer.
+JSON-filen som definierar enhets modellen använder den [digitala DTDL (Digital Definition Language) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central förväntar sig att JSON-filen ska innehålla enhets modellen med de gränssnitt som definierats i stället för separata filer.
 
 En typisk IoT-enhet består av:
 
 - Anpassade delar, vilka är de saker som gör din enhet unik.
 - Standard delar, som är saker som är gemensamma för alla enheter.
 
-Dessa delar kallas _gränssnitt_ i ett DCM. Gränssnitt definierar information om varje del din enhet implementerar. Gränssnitt är återanvändbara i DCMs.
+Dessa delar kallas _gränssnitt_ i en enhets modell. Gränssnitt definierar information om varje del din enhet implementerar. Gränssnitt är återanvändbara i enhets modeller. I DTDL refererar en komponent till ett gränssnitt som definierats i en separat DTDL-fil.
 
-I följande exempel visas dispositionen för enhets kapacitets modellen för en miljö sensor enhet med två gränssnitt:
+I följande exempel visas en översikt över enhets modellen för en temperatur styrenhets enhet. Standard komponenten inkluderar definitioner för `workingSet` , `serialNumber` och `reboot` . Enhets modellen omfattar även `thermostat` `deviceInformation` gränssnitten och:
 
 ```json
 {
-  "@id": "urn:contoso:sensor_device:1",
-  "@type": "CapabilityModel",
-  "displayName": "Environment Sensor Capability Model",
-  "implements": [
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:TemperatureController;1",
+  "@type": "Interface",
+  "displayName": "Temperature Controller",
+  "description": "Device with two thermostats and remote reboot.",
+  "contents": [
     {
-      "@type": "InterfaceInstance",
-      "name": "deviceinfo",
-      "schema": {
-        "@id": "urn:azureiot:DeviceManagement:DeviceInformation:1",
-        "@type": "Interface",
-        "displayName": "Device Information",
-        "@context": "http://azureiot.com/v1/contexts/IoTModel.json",
-        "contents": [
-          ...
-        ]
+      "@type": [
+        "Telemetry", "DataSize"
+      ],
+      "name": "workingSet",
+      "displayName": "Working Set",
+      "description": "Current working set of the device memory in KiB.",
+      "schema": "double",
+      "unit" : "kibibyte"
+    },
+    {
+      "@type": "Property",
+      "name": "serialNumber",
+      "displayName": "Serial Number",
+      "description": "Serial number of the device.",
+      "schema": "string"
+    },
+    {
+      "@type": "Command",
+      "name": "reboot",
+      "displayName": "Reboot",
+      "description": "Reboots the device after waiting the number of seconds specified.",
+      "request": {
+        "name": "delay",
+        "displayName": "Delay",
+        "description": "Number of seconds to wait before rebooting the device.",
+        "schema": "integer"
       }
     },
     {
-      "@type": "InterfaceInstance",
-      "name": "sensor",
-      "schema": {
-        "@id": "urn:contoso:EnvironmentalSensor:1",
-        "@type": "Interface",
-        "displayName": "Environmental Sensor",
-        "@context": "http://azureiot.com/v1/contexts/IoTModel.json",
-        "contents": [
-          ...
-        ]
-      }
+      "@type" : "Component",
+      "schema": "dtmi:com:example:Thermostat;1",
+      "name": "thermostat",
+      "displayName": "Thermostat",
+      "description": "Thermostat One."
+    },
+    {
+      "@type": "Component",
+      "schema": "dtmi:azure:DeviceManagement:DeviceInformation;1",
+      "name": "deviceInformation",
+      "displayName": "Device Information interface",
+      "description": "Optional interface with basic device hardware information."
     }
-  ],
-  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
+  ]
 }
 ```
-
-En kapacitets modell har vissa obligatoriska fält:
-
-- `@id`: ett unikt ID i form av ett enkelt enhetligt resurs namn.
-- `@type`: deklarerar att det här objektet är en kapacitets modell.
-- `@context`: anger den DTDL-version som används för kapacitets modellen.
-- `implements`: visar de gränssnitt som enheten implementerar.
-
-Varje post i listan över gränssnitt i avsnittet implementeringar har en:
-
-- `name`: gränssnittets programmerings namn.
-- `schema`: gränssnittets funktions modell implementeras.
 
 Ett gränssnitt har vissa obligatoriska fält:
 
 - `@id`: ett unikt ID i form av ett enkelt enhetligt resurs namn.
 - `@type`: deklarerar att objektet är ett gränssnitt.
 - `@context`: anger den DTDL-version som används för gränssnittet.
-- `contents`: visar de egenskaper, telemetri och kommandon som utgör din enhet.
+- `contents`: visar de egenskaper, telemetri och kommandon som utgör din enhet. Funktionerna kan definieras i flera gränssnitt.
 
 Det finns några valfria fält som du kan använda för att lägga till mer information i kapacitets modellen, till exempel visnings namn och beskrivning.
+
+Varje post i listan över gränssnitt i avsnittet implementeringar har en:
+
+- `name`: gränssnittets programmerings namn.
+- `schema`: gränssnittets funktions modell implementeras.
 
 ## <a name="interfaces"></a>Gränssnitt
 
@@ -114,55 +127,105 @@ Med DTDL kan du beskriva enhetens funktioner. Relaterade funktioner grupperas i 
 - `Telemetry`. Telemetridata representerar mått från sensorer. När din enhet tar ett sensor mått bör den skicka en telemetri-händelse som innehåller sensor data.
 - `Commands`. Kommandon representerar metoder som användarna av enheten kan köra på enheten. Till exempel ett återställnings kommando eller ett kommando för att aktivera eller inaktivera en fläkt.
 
-I följande exempel visas definitionen av miljö sensor gränssnittet:
+I följande exempel visas definitionen av termostat-gränssnittet:
 
 ```json
 {
-  "@type": "Property",
-  "displayName": "Device State",
-  "description": "The state of the device. Two states online/offline are available.",
-  "name": "state",
-  "schema": "boolean"
-},
-{
-  "@type": "Property",
-  "displayName": "Customer Name",
-  "description": "The name of the customer currently operating the device.",
-  "name": "name",
-  "schema": "string",
-  "writable": true
-},
-{
-  "@type": [
-    "Telemetry",
-    "SemanticType/Temperature"
-  ],
-  "description": "Current temperature on the device",
-  "displayName": "Temperature",
-  "name": "temp",
-  "schema": "double",
-  "unit": "Units/Temperature/fahrenheit"
-},
-{
-  "@type": "Command",
-  "name": "turnon",
-  "comment": "This Commands will turn-on the LED light on the device.",
-  "commandType": "synchronous"
-},
-{
-  "@type": "Command",
-  "name": "turnoff",
-  "comment": "This Commands will turn-off the LED light on the device.",
-  "commandType": "synchronous"
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:Thermostat;1",
+  "@type": "Interface",
+  "displayName": "Thermostat",
+  "description": "Reports current temperature and provides desired temperature control.",
+  "contents": [
+    {
+      "@type": [
+        "Telemetry",
+        "Temperature"
+      ],
+      "name": "temperature",
+      "displayName" : "Temperature",
+      "description" : "Temperature in degrees Celsius.",
+      "schema": "double",
+      "unit": "degreeCelsius"
+    },
+    {
+      "@type": [
+        "Property",
+        "Temperature"
+      ],
+      "name": "targetTemperature",
+      "schema": "double",
+      "displayName": "Target Temperature",
+      "description": "Allows to remotely specify the desired target temperature.",
+      "unit" : "degreeCelsius",
+      "writable": true
+    },
+    {
+      "@type": [
+        "Property",
+        "Temperature"
+      ],
+      "name": "maxTempSinceLastReboot",
+      "schema": "double",
+      "unit" : "degreeCelsius",
+      "displayName": "Max temperature since last reboot.",
+      "description": "Returns the max temperature since last device reboot."
+    },
+    {
+      "@type": "Command",
+      "name": "getMaxMinReport",
+      "displayName": "Get Max-Min report.",
+      "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+      "request": {
+        "name": "since",
+        "displayName": "Since",
+        "description": "Period to return the max-min report.",
+        "schema": "dateTime"
+      },
+      "response": {
+        "name" : "tempReport",
+        "displayName": "Temperature Report",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "maxTemp",
+              "displayName": "Max temperature",
+              "schema": "double"
+            },
+            {
+              "name": "minTemp",
+              "displayName": "Min temperature",
+              "schema": "double"
+            },
+            {
+              "name" : "avgTemp",
+              "displayName": "Average Temperature",
+              "schema": "double"
+            },
+            {
+              "name" : "startTime",
+              "displayName": "Start Time",
+              "schema": "dateTime"
+            },
+            {
+              "name" : "endTime",
+              "displayName": "End Time",
+              "schema": "dateTime"
+            }
+          ]
+        }
+      }
+    }
+  ]
 }
 ```
 
-I det här exemplet visas två egenskaper (en skrivskyddad och en skrivbar), en typ av telemetri och två kommandon. En minimal fält Beskrivning har:
+I det här exemplet visas två egenskaper (en skrivskyddad och en skrivbar), en typ av telemetri och ett kommando. En minimal fält Beskrivning har:
 
 - `@type` för att ange typen av funktion: `Telemetry` , `Property` , eller `Command` .  I vissa fall innehåller typen en semantisk typ som gör det möjligt för IoT Central att göra vissa antaganden om hur värdet ska hanteras.
 - `name` för telemetri-värdet.
 - `schema` för att ange data typen för Telemetrin eller egenskapen. Det här värdet kan vara en primitiv typ, till exempel Double, Integer, Boolean eller String. Komplexa objekt typer, matriser och Maps stöds också.
-- `commandType` anger hur kommandot ska hanteras.
 
 Valfria fält, till exempel visnings namn och beskrivning, gör att du kan lägga till mer information i gränssnittet och funktionerna.
 
@@ -180,33 +243,36 @@ För skrivbara egenskaper, returnerar enhets programmet en önskad status kod, v
 
 ## <a name="telemetry"></a>Telemetri
 
-Med IoT Central kan du Visa telemetri om instrument paneler och diagram och använda regler för att utlösa åtgärder när tröskelvärden uppnås. IoT Central använder informationen i DCM, t. ex. data typer, enheter och visnings namn, för att avgöra hur du ska Visa telemetri-värden.
+Med IoT Central kan du Visa telemetri om instrument paneler och diagram och använda regler för att utlösa åtgärder när tröskelvärden uppnås. IoT Central använder informationen i enhets modellen, t. ex. data typer, enheter och visnings namn, för att avgöra hur telemetridata ska visas.
 
 Du kan använda funktionen IoT Central data export för att strömma telemetri till andra destinationer, till exempel lagring eller Event Hubs.
 
 ## <a name="commands"></a>Kommandon
 
-Kommandon är antingen synkrona eller asynkrona. Ett synkront kommando måste köras inom 30 sekunder som standard och enheten måste vara ansluten när kommandot anländer. Om enheten svarar i tid, eller om enheten inte är ansluten, Miss lyckas kommandot.
+Ett kommando måste köras inom 30 sekunder som standard och enheten måste vara ansluten när kommandot anländer. Om enheten svarar i tid, eller om enheten inte är ansluten, Miss lyckas kommandot.
 
-Använd asynkrona kommandon för långvariga åtgärder. Enheten skickar förlopps information med telemetri-meddelanden. Dessa förlopps meddelanden har följande huvud egenskaper:
+Kommandon kan ha parametrar för begäran och returnera ett svar.
 
-- `iothub-command-name`: kommando namnet, till exempel `UpdateFirmware` .
-- `iothub-command-request-id`: det begär ande-ID som genereras på Server sidan och skickas till enheten i det första anropet.
-- `iothub-interface-id`: ID: t för det gränssnitt som detta kommando är definierat på, till exempel `urn:example:AssetTracker:1` .
- `iothub-interface-name`: instans namnet för det här gränssnittet, till exempel `myAssetTracker` .
-- `iothub-command-statuscode`: status koden som returnerades från enheten, till exempel `202` .
+### <a name="offline-commands"></a>Offline-kommandon
+
+Du kan välja köa kommandon om en enhet för närvarande är offline genom att aktivera **kön om alternativet offline** för ett kommando i enhets mal len.
+
+Offline-kommandon är enkelriktade meddelanden till enheten från din lösning. Offline-kommandon kan ha parametrar för begäran men returnerar inte något svar.
+
+> [!NOTE]
+> Det här alternativet är endast tillgängligt i IoT Central webb gränssnitt. Den här inställningen tas inte med om du exporterar en modell eller ett gränssnitt från enhets mal len.
 
 ## <a name="cloud-properties"></a>Molnegenskaper
 
-Moln egenskaper tillhör enhets mal len, men är inte en del av DCM. Moln egenskaper gör att lösnings utvecklaren anger alla metadata för enheten som ska lagras i IoT Central-programmet. Moln egenskaper påverkar inte den kod som en enhets utvecklare skriver för att implementera DCM.
+Moln egenskaper tillhör enhets mal len, men är inte en del av enhets modellen. Moln egenskaper gör att lösnings utvecklaren anger alla metadata för enheten som ska lagras i IoT Central-programmet. Moln egenskaper påverkar inte den kod som en enhets utvecklare skriver för att implementera enhets modellen.
 
 En lösnings utvecklare kan lägga till moln egenskaper till instrument paneler och vyer, tillsammans med enhets egenskaper för att göra det möjligt för en operatör att hantera de enheter som är anslutna till programmet. En lösnings utvecklare kan också använda moln egenskaper som en del av en regel definition för att göra ett tröskel värde redigerbart av en operator.
 
 ## <a name="customizations"></a>Anpassningar
 
-Anpassningar är en del av enhets mal len, men är inte en del av DCM. Anpassningar låter Solution Developer förbättra eller åsidosätta några av definitionerna i DCM. En lösnings utvecklare kan till exempel ändra visnings namnet för en typ av telemetri eller egenskap. En lösnings utvecklare kan också använda anpassningar för att lägga till verifiering, till exempel en minimal eller maximal längd för en sträng enhets egenskap.
+Anpassningar ingår i enhets mal len, men är inte en del av enhets modellen. Anpassningar låter Solution Developer förbättra eller åsidosätta några av definitionerna i enhets modellen. En lösnings utvecklare kan till exempel ändra visnings namnet för en typ av telemetri eller egenskap. En lösnings utvecklare kan också använda anpassningar för att lägga till verifiering, till exempel en minimal eller maximal längd för en sträng enhets egenskap.
 
-Anpassningar kan påverka koden som en enhets utvecklare skriver för att implementera DCM. En anpassning kan till exempel ange lägsta och högsta sträng längd eller lägsta och högsta numeriska värden för telemetri.
+Anpassningar kan påverka koden som en enhets utvecklare skriver för att implementera enhets modellen. En anpassning kan till exempel ange lägsta och högsta sträng längd eller lägsta och högsta numeriska värden för telemetri.
 
 ## <a name="views"></a>Vyer
 
@@ -219,7 +285,7 @@ En lösnings utvecklare skapar vyer som låter operatörer övervaka och hantera
 - Paneler där operatören anropar kommandon, inklusive kommandon som förväntar sig en nytto Last.
 - Paneler för att visa etiketter, bilder eller markdown text.
 
-Telemetri, egenskaper och kommandon som du kan lägga till i en vy bestäms av DCM, moln egenskaper och anpassningar i enhets mal len.
+Telemetri, egenskaper och kommandon som du kan lägga till i en vy bestäms av enhets modellen, moln egenskaperna och anpassningarna i enhets mal len.
 
 ## <a name="next-steps"></a>Nästa steg
 

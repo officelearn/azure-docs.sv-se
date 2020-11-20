@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: a133cdb72e304a254305833b9ae6e8a7ebe30ab3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 211ef9571b5a126686b4583330dc0f80863fd47e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540016"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992054"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Data kryptering med Azure Machine Learning
 
@@ -129,6 +129,12 @@ Varje virtuell dator har också en lokal temporär disk för OS-åtgärder. Om d
 ### <a name="azure-databricks"></a>Azure Databricks
 
 Azure Databricks kan användas i Azure Machine Learning pipeliner. Som standard krypteras DBFS (Databricks File System) som används av Azure Databricks med hjälp av en Microsoft-hanterad nyckel. Information om hur du konfigurerar Azure Databricks att använda Kundhanterade nycklar finns i [Konfigurera Kundhanterade nycklar på standard-DBFS (root)](/azure/databricks/security/customer-managed-keys-dbfs).
+
+### <a name="microsoft-generated-data"></a>Microsoft-genererade data
+
+När du använder tjänster som automatiserade Machine Learning kan Microsoft generera en tillfällig, förbehandlad data för att träna flera modeller. Dessa data lagras i ett data lager i din arbets yta, vilket gör att du kan tillämpa åtkomst kontroller och kryptering på lämpligt sätt.
+
+Du kanske också vill kryptera [diagnostikinformation som loggats från den distribuerade slut punkten](how-to-enable-app-insights.md) till din Azure Application insikter-instans.
 
 ## <a name="encryption-in-transit"></a>Kryptering under överföring
 

@@ -7,17 +7,18 @@ author: rdeltcheva
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 9efdbb32683c9a244226012bd2d4bfcab6046678
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2783d9dc7151190857d870b5493465884b82ffcc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151155"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957273"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SUSE Linux Enterprise Server
 
@@ -50,7 +51,7 @@ För lokal utveckling kan du använda antingen HANA-systemreplikering eller anv�
 På Azure Virtual Machines (VM) är HANA-systemreplikeringen på Azure för närvarande den enda funktion för hög tillgänglighet som stöds. SAP HANA replikeringen består av en primär nod och minst en sekundär nod. Ändringar av data på den primära noden replikeras till den sekundära noden synkront eller asynkront.
 
 I den här artikeln beskrivs hur du distribuerar och konfigurerar de virtuella datorerna, installerar kluster ramverket och installerar och konfigurerar SAP HANA system replikering.
-I exempel konfigurationerna används installations kommandon, instans nummer **03**och Hana system-ID **HN1** .
+I exempel konfigurationerna används installations kommandon, instans nummer **03** och Hana system-ID **HN1** .
 
 Läs följande SAP-anteckningar och dokument först:
 
@@ -112,7 +113,7 @@ Följ dessa steg om du vill distribuera mallen:
     - **System tillgänglighet**: Välj **ha**.
     - **Administratörens användar namn och administratörs lösen ord**: en ny användare skapas som kan användas för att logga in på datorn.
     - **Nytt eller befintligt undernät**: anger om ett nytt virtuellt nätverk och undernät ska skapas eller om ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
-    - **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som **/Subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /subnets/ \<subnet name> **.
+    - **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som **/Subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /subnets/ \<subnet name>**.
 
 ### <a name="manual-deployment"></a>Manuell distribution
 
@@ -143,7 +144,7 @@ Följ dessa steg om du vill distribuera mallen:
 1. Följ dessa konfigurations steg om du använder standard Load Balancer:
    1. Börja med att skapa en IP-pool på klient sidan:
    
-      1. Öppna belastningsutjämnaren, Välj **klient delens IP-pool**och välj **Lägg till**.
+      1. Öppna belastningsutjämnaren, Välj **klient delens IP-pool** och välj **Lägg till**.
       1. Ange namnet på den nya frontend-IP-poolen (till exempel **Hana-frontend**).
       1. Ange **tilldelningen** till **statisk** och ange IP-adressen (till exempel **10.0.0.13**).
       1. Välj **OK**.
@@ -151,7 +152,7 @@ Följ dessa steg om du vill distribuera mallen:
    
    1. Skapa sedan en backend-pool:
    
-      1. Öppna belastningsutjämnaren, Välj **backend-pooler**och välj **Lägg till**.
+      1. Öppna belastningsutjämnaren, Välj **backend-pooler** och välj **Lägg till**.
       1. Ange namnet på den nya backend-poolen (till exempel **Hana-backend**).
       1. Välj **Virtual Network**.
       1. Välj **Lägg till en virtuell dator**.
@@ -161,14 +162,14 @@ Följ dessa steg om du vill distribuera mallen:
    
    1. Skapa sedan en hälso avsökning:
    
-      1. Öppna belastningsutjämnaren, Välj **hälso avsökningar**och välj **Lägg till**.
+      1. Öppna belastningsutjämnaren, Välj **hälso avsökningar** och välj **Lägg till**.
       1. Ange namnet på den nya hälso avsökningen (till exempel **Hana-HP**).
-      1. Välj **TCP** som protokoll och port 625**03**. Behåll värdet för **Interval** inställt på 5 och **tröskelvärdet för tröskelvärdet** har värdet 2.
+      1. Välj **TCP** som protokoll och port 625 **03**. Behåll värdet för **Interval** inställt på 5 och **tröskelvärdet för tröskelvärdet** har värdet 2.
       1. Välj **OK**.
    
    1. Skapa sedan reglerna för belastnings utjämning:
    
-      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler**och välj **Lägg till**.
+      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler** och välj **Lägg till**.
       1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel **Hana-lb**).
       1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **Hana-frontend**, **Hana-backend** och **Hana-HP**).
       1. Välj **ha-portar**.
@@ -179,7 +180,7 @@ Följ dessa steg om du vill distribuera mallen:
 1. Om ditt scenario till exempel använder Basic Load Balancer, följer du dessa konfigurations steg:
    1. Börja med att skapa en IP-pool på klient sidan:
    
-      1. Öppna belastningsutjämnaren, Välj **klient delens IP-pool**och välj **Lägg till**.
+      1. Öppna belastningsutjämnaren, Välj **klient delens IP-pool** och välj **Lägg till**.
       1. Ange namnet på den nya frontend-IP-poolen (till exempel **Hana-frontend**).
       1. Ange **tilldelningen** till **statisk** och ange IP-adressen (till exempel **10.0.0.13**).
       1. Välj **OK**.
@@ -187,7 +188,7 @@ Följ dessa steg om du vill distribuera mallen:
    
    1. Skapa sedan en backend-pool:
    
-      1. Öppna belastningsutjämnaren, Välj **backend-pooler**och välj **Lägg till**.
+      1. Öppna belastningsutjämnaren, Välj **backend-pooler** och välj **Lägg till**.
       1. Ange namnet på den nya backend-poolen (till exempel **Hana-backend**).
       1. Välj **Lägg till en virtuell dator**.
       1. Välj den tillgänglighets uppsättning som skapades i steg 3.
@@ -196,43 +197,43 @@ Följ dessa steg om du vill distribuera mallen:
    
    1. Skapa sedan en hälso avsökning:
    
-      1. Öppna belastningsutjämnaren, Välj **hälso avsökningar**och välj **Lägg till**.
+      1. Öppna belastningsutjämnaren, Välj **hälso avsökningar** och välj **Lägg till**.
       1. Ange namnet på den nya hälso avsökningen (till exempel **Hana-HP**).
-      1. Välj **TCP** som protokoll och port 625**03**. Behåll värdet för **Interval** inställt på 5 och **tröskelvärdet för tröskelvärdet** har värdet 2.
+      1. Välj **TCP** som protokoll och port 625 **03**. Behåll värdet för **Interval** inställt på 5 och **tröskelvärdet för tröskelvärdet** har värdet 2.
       1. Välj **OK**.
    
    1. Skapa regler för belastnings utjämning för SAP HANA 1,0:
    
-      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler**och välj **Lägg till**.
-      1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana – lb-3**03**).
+      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler** och välj **Lägg till**.
+      1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana – lb-3 **03**).
       1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **Hana-frontend**).
-      1. Behåll **protokollet** inställt på **TCP**och ange Port 3**03**15.
+      1. Behåll **protokollet** inställt på **TCP** och ange Port 3 **03** 15.
       1. Öka **tids gränsen för inaktivitet** till 30 minuter.
       1. Se till att **Aktivera flytande IP**.
       1. Välj **OK**.
-      1. Upprepa de här stegen för Port 3**03**17.
+      1. Upprepa de här stegen för Port 3 **03** 17.
    
    1. Skapa regler för belastnings utjämning för system databasen för SAP HANA 2,0:
    
-      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler**och välj **Lägg till**.
-      1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana-lb-3**03**13).
+      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler** och välj **Lägg till**.
+      1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana-lb-3 **03** 13).
       1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **Hana-frontend**).
-      1. Behåll **protokollet** inställt på **TCP**och ange Port 3**03**13.
+      1. Behåll **protokollet** inställt på **TCP** och ange Port 3 **03** 13.
       1. Öka **tids gränsen för inaktivitet** till 30 minuter.
       1. Se till att **Aktivera flytande IP**.
       1. Välj **OK**.
-      1. Upprepa dessa steg för Port 3**03**.
+      1. Upprepa dessa steg för Port 3 **03**.
    
    1. För SAP HANA 2,0 skapar du först reglerna för belastnings utjämning för klient databasen:
    
-      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler**och välj **Lägg till**.
-      1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana – lb-3**03**40).
+      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler** och välj **Lägg till**.
+      1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana – lb-3 **03** 40).
       1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **Hana-frontend**).
-      1. Behåll **protokollet** inställt på **TCP**och ange Port 3**03**40.
+      1. Behåll **protokollet** inställt på **TCP** och ange Port 3 **03** 40.
       1. Öka **tids gränsen för inaktivitet** till 30 minuter.
       1. Se till att **Aktivera flytande IP**.
       1. Välj **OK**.
-      1. Upprepa de här stegen för portarna 3**03**41 och 3**03**42.
+      1. Upprepa de här stegen för portarna 3 **03** 41 och 3 **03** 42.
 
    Om du vill ha mer information om de portar som krävs för SAP HANA kan du läsa kapitel [anslutningarna till klient databaserna](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) i guiden för [SAP HANA klient databaser](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) eller [SAP NOTE 2388694][2388694].
 

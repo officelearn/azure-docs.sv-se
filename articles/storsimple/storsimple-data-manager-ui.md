@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 5d6273cbef1664984d466fb15c7f02ca505b18e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 802f732e8d62f5df861be525316b3c31ab4d0655
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184555"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957936"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Hantera tjänsten StorSimple Data Manager i Azure Portal
 
@@ -42,7 +42,7 @@ Utför följande steg för att skapa en StorSimple Data Manager-tjänst.
 
    2. Välj en **prenumeration** i list rutan. Prenumerationen är kopplad till ditt faktureringskonto. Det här fältet fylls i automatiskt (och går inte att markera) om du bara har en prenumeration.
 
-   3. Välj en befintlig resurs grupp eller skapa en ny grupp. Mer information finns i avsnittet om [Azure-resursgrupper](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+   3. Välj en befintlig resurs grupp eller skapa en ny grupp. Mer information finns i avsnittet om [Azure-resursgrupper](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    4. Ange **platsen** för din tjänst som hus dina lagrings konton och din StorSimple Data Manager-tjänst. Din StorSimple-Enhetshanteraren tjänst, Data Manager tjänst och det associerade lagrings kontot bör vara i de regioner som stöds.
     
@@ -74,7 +74,7 @@ Utför följande steg för att skapa en jobb definition.
 
     ![Konfigurera käll data lagrings platsen](./media/storsimple-data-manager-ui/create-job-definition-2.png)
 
-6. Eftersom det här är en ny Data Manager tjänst konfigureras inga data lager. I **Konfigurera data källa**anger du information om din enhet med StorSimple 8000-serien och data som är av intresse.
+6. Eftersom det här är en ny Data Manager tjänst konfigureras inga data lager. I **Konfigurera data källa** anger du information om din enhet med StorSimple 8000-serien och data som är av intresse.
 
    Om du vill lägga till StorSimple Enhetshanteraren som data lager klickar du på **Lägg till nytt** i list rutan data lager och klickar sedan på **Lägg till data lager**.
 
@@ -94,7 +94,7 @@ Utför följande steg för att skapa en jobb definition.
 
       Klicka på **OK** när du är färdig. Detta sparar data lagrings platsen. Återanvänd den här StorSimple-Enhetshanteraren i andra jobb definitioner utan att ange parametrarna igen. Det tar några sekunder efter att du har klickat på **OK** för att den nyligen skapade käll data lagrings platsen ska visas i list rutan.
 
-7. I list rutan för **data lager**väljer du den data lagrings plats som du skapade. 
+7. I list rutan för **data lager** väljer du den data lagrings plats som du skapade. 
 
    1. Ange namnet på den StorSimple 8000-serie enhet som innehåller data som är av intresse.
 

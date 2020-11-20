@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 7cdd70a44a090b03a3f11626805565469c7c04e7
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: df4d777ad78240b3ca84c51152b37861c4ccc486
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554673"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960010"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Använda Azure Machine Learning Studio i ett virtuellt Azure-nätverk
 
@@ -36,10 +36,10 @@ Se de andra artiklarna i den här serien:
 
 
 > [!IMPORTANT]
-> Om din arbets yta är i ett __suveränt moln__ , till exempel Azure Government eller Azure Kina 21Vianet, stöder integrerade notebook-datorer _inte_ användningen av lagring i ett virtuellt nätverk. Då kan du i stället använda Jupyter-notebook-filer från en beräkningsinstans. Mer information finns i avsnittet [åtkomst data i en Compute instance-anteckningsbok](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
+> Om din arbets yta är i ett __suveränt moln__, till exempel Azure Government eller Azure Kina 21Vianet, stöder integrerade notebook-datorer _inte_ användningen av lagring i ett virtuellt nätverk. Då kan du i stället använda Jupyter-notebook-filer från en beräkningsinstans. Mer information finns i avsnittet [åtkomst data i en Compute instance-anteckningsbok](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Läs [översikten över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 
@@ -90,7 +90,7 @@ Azure Machine Learning använder [data lager](concept-data.md#datastores) för a
 1. I data lager inställningarna väljer du __Ja__ för  __Tillåt Azure Machine Learning-tjänst för att komma åt lagringen med hjälp av arbets ytans hanterad identitet__.
 
 
-De här stegen lägger till den arbets ytans hanterade identiteten som en __läsare__ till lagrings tjänsten med hjälp av Azure Resource-baserad åtkomst kontroll (Azure RBAC). Med __läsar__ åtkomst kan arbets ytan Hämta brand Väggs inställningar och se till att data inte lämnar det virtuella nätverket.
+De här stegen lägger till den arbets ytans hanterade identiteten som en __läsare__ till lagrings tjänsten med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC). Med __läsar__ åtkomst kan arbets ytan Hämta brand Väggs inställningar och se till att data inte lämnar det virtuella nätverket.
 
 > [!NOTE]
 > Det kan ta upp till 10 minuter innan ändringarna börjar gälla.

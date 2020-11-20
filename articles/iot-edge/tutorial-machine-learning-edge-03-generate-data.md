@@ -8,17 +8,14 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c40f7d988f2b5f206f42eae787efcdce786948a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef6e86bbb55a2c51779f2dcf60f802ce549516cb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857086"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959687"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Självstudie: skapa simulerade enhets data
-
-> [!NOTE]
-> Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Om du har kommit till den här artikeln direkt rekommenderar vi att du börjar med den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien för bästa möjliga resultat.
 
 I den här artikeln använder vi Machine Learning Training-data för att simulera en enhet som skickar telemetri till Azure IoT Hub. Som anges i introduktionen använder den här självstudien [turbofan](https://c3.nasa.gov/dashlink/resources/139/) för att simulera data från en uppsättning flyg Plans motorer för utbildning och testning.
 
@@ -45,6 +42,10 @@ DeviceHarness-projektet är ett .NET Core-projekt skrivet i C# som består av fy
 De uppgifter som beskrivs i den här artikeln bör ta ungefär 20 minuter att slutföra.
 
 Den verkliga motsvarigheten till arbetet i det här steget skulle förmodligen utföras av enhets utvecklare och moln utvecklare.
+
+## <a name="prerequisites"></a>Krav
+
+Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Varje artikel i serien bygger på arbetet i föregående artikel. Om du har kommit till den här artikeln direkt kan du gå till den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien.
 
 ## <a name="configure-visual-studio-code-and-build-deviceharness-project"></a>Konfigurera Visual Studio Code och build DeviceHarness Project
 
@@ -131,7 +132,7 @@ De data som skickas av DeviceHarness gick till din IoT-hubb, där du kan kontrol
 
 1. Öppna [Azure Portal](https://portal.azure.com/) och navigera till IoT Hub som skapats för den här självstudien.
 
-1. Välj **mått**i den vänstra rutans meny under **övervakning**.
+1. Välj **mått** i den vänstra rutans meny under **övervakning**.
 
 1. Klicka på list rutan **mått** på sidan diagram definition, rulla nedåt i listan och välj **Routing: data som levereras till lagring**. Diagrammet ska Visa insamling av när data dirigerades till lagringen.
 

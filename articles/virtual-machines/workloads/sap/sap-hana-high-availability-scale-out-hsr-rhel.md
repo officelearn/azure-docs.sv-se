@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 520a7649942fc5186d32020853b98297ef8b34d7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 36c101acc9e272ca0860649aad1a5e18fb5000a5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152123"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957341"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA skalbart system på Red Hat Enterprise Linux 
 
@@ -131,7 +132,7 @@ För konfigurationen som presenteras i det här dokumentet distribuerar du sju v
    Distribuera lokala hanterade diskar för `/hana/data` och `/hana/log` . Den minsta rekommenderade lagrings konfigurationen för `/hana/data` och `/hana/log` beskrivs i [SAP HANA Storage-konfigurationer för virtuella Azure-datorer](./hana-vm-operations-storage.md).
 
    Distribuera det primära nätverks gränssnittet för varje virtuell dator i det `client` virtuella nätverkets undernät.  
-   När den virtuella datorn distribueras via Azure Portal genereras nätverks gränssnittets namn automatiskt. I dessa anvisningar för enkelhetens skull kommer vi att referera till de automatiskt genererade primära nätverks gränssnitten, som är kopplade till det `client` virtuella nätverkets undernät i Azure som **Hana-S1-DB1-client**, **Hana-S1-DB2-client**, **Hana-S1-DB3-client**och så vidare.  
+   När den virtuella datorn distribueras via Azure Portal genereras nätverks gränssnittets namn automatiskt. I dessa anvisningar för enkelhetens skull kommer vi att referera till de automatiskt genererade primära nätverks gränssnitten, som är kopplade till det `client` virtuella nätverkets undernät i Azure som **Hana-S1-DB1-client**, **Hana-S1-DB2-client**, **Hana-S1-DB3-client** och så vidare.  
 
 
    > [!IMPORTANT]
@@ -140,7 +141,7 @@ För konfigurationen som presenteras i det här dokumentet distribuerar du sju v
 
 2. Skapa sex nätverks gränssnitt, ett för varje HANA DB-dator, i det `inter` virtuella nätverkets undernät (i det här exemplet **Hana-S1-DB1 – mellan**, **Hana-S1-DB2-Inter**, **Hana-S1-DB3-Inter**, **Hana-S2-DB1-Inter**, **Hana-S2-DB2-** Inter, och **Hana-S2-DB3-Inter**).  
 
-3. Skapa sex nätverks gränssnitt, ett för varje HANA DB-dator i det `hsr` virtuella nätverkets undernät (i det här exemplet **Hana-S1-DB1-HSR**, **Hana-S1-DB2-HSR**, **Hana-S1-DB3-HSR**, **Hana-S2-DB1-HSR**, **Hana-S2-DB2-HSR**och **Hana-S2-DB3-HSR**).  
+3. Skapa sex nätverks gränssnitt, ett för varje HANA DB-dator i det `hsr` virtuella nätverkets undernät (i det här exemplet **Hana-S1-DB1-HSR**, **Hana-S1-DB2-HSR**, **Hana-S1-DB3-HSR**, **Hana-S2-DB1-HSR**, **Hana-S2-DB2-HSR** och **Hana-S2-DB3-HSR**).  
 
 4. Koppla de nyligen skapade virtuella nätverks gränssnitten till motsvarande virtuella datorer:  
 
@@ -150,7 +151,7 @@ För konfigurationen som presenteras i det här dokumentet distribuerar du sju v
 
     c. I fönstret **Översikt** väljer du **stoppa** för att frigöra den virtuella datorn.  
 
-    d. Välj **nätverk**och Anslut sedan nätverks gränssnittet. I list rutan **bifoga nätverks gränssnitt** väljer du redan skapade nätverks gränssnitt för- `inter` och- `hsr` undernät.  
+    d. Välj **nätverk** och Anslut sedan nätverks gränssnittet. I list rutan **bifoga nätverks gränssnitt** väljer du redan skapade nätverks gränssnitt för- `inter` och- `hsr` undernät.  
     
     e. Välj **Spara**. 
  
@@ -187,7 +188,7 @@ För konfigurationen som presenteras i det här dokumentet distribuerar du sju v
 1. Vi rekommenderar att du använder standard belastnings utjämning. Följ dessa konfigurations steg för att distribuera standard Load Balancer:
    1. Börja med att skapa en IP-pool på klient sidan:
 
-      1. Öppna belastningsutjämnaren, Välj **klient delens IP-pool**och välj **Lägg till**.
+      1. Öppna belastningsutjämnaren, Välj **klient delens IP-pool** och välj **Lägg till**.
       1. Ange namnet på den nya frontend-IP-poolen (till exempel **Hana-frontend**).
       1. Ange **tilldelningen** till **statisk** och ange IP-adressen (till exempel **10.23.0.18**).
       1. Välj **OK**.
@@ -195,7 +196,7 @@ För konfigurationen som presenteras i det här dokumentet distribuerar du sju v
 
    1. Skapa sedan en backend-pool och Lägg till alla virtuella kluster datorer i backend-poolen:
 
-      1. Öppna belastningsutjämnaren, Välj **backend-pooler**och välj **Lägg till**.
+      1. Öppna belastningsutjämnaren, Välj **backend-pooler** och välj **Lägg till**.
       1. Ange namnet på den nya backend-poolen (till exempel **Hana-backend**).
       1. Välj **Lägg till en virtuell dator**.
       1. Välj **Virtuell dator**.
@@ -204,14 +205,14 @@ För konfigurationen som presenteras i det här dokumentet distribuerar du sju v
 
    1. Skapa sedan en hälso avsökning:
 
-      1. Öppna belastningsutjämnaren, Välj **hälso avsökningar**och välj **Lägg till**.
+      1. Öppna belastningsutjämnaren, Välj **hälso avsökningar** och välj **Lägg till**.
       1. Ange namnet på den nya hälso avsökningen (till exempel **Hana-HP**).
-      1. Välj **TCP** som protokoll och port 625**03**. Behåll värdet för **Interval** inställt på 5 och **tröskelvärdet för tröskelvärdet** har värdet 2.
+      1. Välj **TCP** som protokoll och port 625 **03**. Behåll värdet för **Interval** inställt på 5 och **tröskelvärdet för tröskelvärdet** har värdet 2.
       1. Välj **OK**.
 
    1. Skapa sedan reglerna för belastnings utjämning:
    
-      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler**och välj **Lägg till**.
+      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler** och välj **Lägg till**.
       1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel **Hana-lb**).
       1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **Hana-frontend**, **Hana-backend** och **Hana-HP**).
       1. Välj **ha-portar**.
@@ -575,7 +576,7 @@ I det här exemplet har vi använt HANA 2,0 SP4 i det här exemplet för att dis
    b. Ange följande värden i prompten:
 
      * För **Välj en åtgärd**: ange **2** (för Lägg till värdar)
-     * För **att ange kommaavgränsade värdnamn som ska läggas**till: Hana-S1-DB2, Hana-S1-DB3
+     * För **att ange kommaavgränsade värdnamn som ska läggas** till: Hana-S1-DB2, Hana-S1-DB3
      * För **Ytterligare komponenter för installation**: ange **2, 3**
      * För **Ange rot användar namn [root]**: Tryck på RETUR för att acceptera standardvärdet
      * För **Välj roller för värden: Hana-S1-DB2 [1]**: 1 (för arbetare)
@@ -599,7 +600,7 @@ I det här exemplet har vi använt HANA 2,0 SP4 i det här exemplet för att dis
 
 1. **[1]** konfigurera systemreplikering på plats 1:
 
-   Säkerhetskopiera databaserna som **HN1**ADM:
+   Säkerhetskopiera databaserna som **HN1** ADM:
 
     ```
     hdbsql -d SYSTEMDB -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupSYS')"
@@ -936,7 +937,7 @@ Ta med alla virtuella datorer, inklusive majoriteten i klustret.
 
    3. Skapa sedan resursen HANA-instans.  
       > [!NOTE]
-      > Den här artikeln innehåller referenser till termen *slav*, en term som Microsoft inte längre använder. När termen tas bort från program varan tar vi bort det från den här artikeln.  
+      > Den här artikeln innehåller referenser till termen *slav*, en term som Microsoft inte längre använder. När termen tas bort från program varan tar vi bort det från den här artikeln.  
  
       Om du skapar RHEL **7. x** -kluster använder du följande kommandon:    
       ```
@@ -1070,7 +1071,7 @@ Ta med alla virtuella datorer, inklusive majoriteten i klustret.
 
    SAP HANA resurs agenter är beroende av binärfiler, lagrade på `/hana/shared` för att utföra åtgärder under redundansväxlingen. Fil systemet `/hana/shared` är monterat över NFS i den uppvisade konfigurationen. Ett test som kan utföras, är att montera om `/hana/shared` fil systemet som *skrivskyddat*. Den här metoden verifierar att klustret kommer att växlas över, om åtkomsten till går `/hana/shared` förlorad på den aktiva system replikerings platsen.  
 
-   **Förväntat resultat**: när du monterar om `/hana/shared` som *skrivskyddad*Miss lyckas den övervaknings åtgärd som utför läsning/skrivning i fil systemet, eftersom det inte går att skriva till fil systemet och kommer att utlösa Hana-resurs växling vid fel. Samma resultat förväntas när HANA-noden förlorar åtkomst till NFS-resursen.  
+   **Förväntat resultat**: när du monterar om `/hana/shared` som *skrivskyddad* Miss lyckas den övervaknings åtgärd som utför läsning/skrivning i fil systemet, eftersom det inte går att skriva till fil systemet och kommer att utlösa Hana-resurs växling vid fel. Samma resultat förväntas när HANA-noden förlorar åtkomst till NFS-resursen.  
      
    Du kan kontrol lera status för kluster resurserna genom att köra `crm_mon` eller `pcs status` . Resurs tillstånd innan du startar testet:
       ```

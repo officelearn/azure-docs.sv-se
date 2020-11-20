@@ -3,16 +3,17 @@ title: Översikt och arkitektur för SAP-lösningar för Azure Monitor | Microso
 description: Den här artikeln innehåller svar på vanliga frågor om Azure Monitor för SAP-lösningar
 author: rdeltcheva
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: d9730324b2557c8f0bb203f7badbd00e0e7e704e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 5bb40ec930731b58d457500d83b66c7a187b44d8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994253"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957443"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure Monitor för SAP-lösningar (för hands version)
 
@@ -78,7 +79,7 @@ Huvud komponenterna i arkitekturen är:
 - Azure Portal – start punkten för kunderna. Kunder kan navigera till Marketplace i Azure Portal och identifiera Azure Monitor för SAP-lösningar
 - Azure Monitor för SAP Solutions-resurs – en landnings plats där kunder kan visa övervakning av telemetri
 - Hanterad resurs grupp – distribueras automatiskt som en del Azure Monitor av resurs distributionen för SAP-lösningar. Resurserna som distribueras i hjälpen för hanterad resurs grupp i insamlingen av telemetri. Viktiga resurser som distribueras och deras syfte är:
-   - Virtuell Azure-dator: kallas även för *insamlad virtuell*dator. Detta är en Standard_B2ms virtuell dator. Huvud syftet med den här virtuella datorn är att vara värd för *övervaknings nytto lasten*. Övervaknings nytto Last syftar på logiken för insamling av telemetri från käll systemen och överföring av insamlade data till övervaknings ramverket. I diagrammet ovan innehåller övervaknings nytto lasten logiken för att ansluta till SAP HANA Database över SQL-porten.
+   - Virtuell Azure-dator: kallas även för *insamlad virtuell* dator. Detta är en Standard_B2ms virtuell dator. Huvud syftet med den här virtuella datorn är att vara värd för *övervaknings nytto lasten*. Övervaknings nytto Last syftar på logiken för insamling av telemetri från käll systemen och överföring av insamlade data till övervaknings ramverket. I diagrammet ovan innehåller övervaknings nytto lasten logiken för att ansluta till SAP HANA Database över SQL-porten.
    - [Azure Key Vault](../../../key-vault/general/basic-concepts.md): den här resursen distribueras för att lagra autentiseringsuppgifter på SAP HANA-databasen på ett säkert sätt och för att lagra information om [leverantörer](./azure-monitor-providers.md).
    - Log Analytics arbets yta: målet där telemetri-data finns.
       - Visualisering bygger på telemetri i Log Analytics att använda Azure- [arbetsböcker](../../../azure-monitor/platform/workbooks-overview.md). Kunder kan anpassa visualiseringar. Kunder kan också fästa sina arbets böcker eller en speciell visualisering i arbets böcker till Azure-instrumentpanelen för uppdaterings möjligheter med den lägsta precisionen på 30 minuter.

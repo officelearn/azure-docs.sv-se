@@ -8,17 +8,14 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cfb778a1a632dc17a9f50c7ea05debed0edb4fb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9a29e890553d15d19853ec836f8c4296869e143
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88660255"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959636"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Självstudie: träna och distribuera en Azure Machine Learning modell
-
-> [!NOTE]
-> Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Om du har kommit till den här artikeln direkt rekommenderar vi att du börjar med den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien för bästa möjliga resultat.
 
 I den här artikeln utför vi följande uppgifter:
 
@@ -29,6 +26,10 @@ I den här artikeln utför vi följande uppgifter:
 Azure Notebooks dra nytta av en Azure Machine Learning arbets yta, ett grundläggande block som används för att experimentera, träna och distribuera maskin inlärnings modeller.
 
 Stegen i den här artikeln kan vanligt vis utföras av data experter.
+
+## <a name="prerequisites"></a>Krav
+
+Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Varje artikel i serien bygger på arbetet i föregående artikel. Om du har kommit till den här artikeln direkt kan du gå till den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien.
 
 ## <a name="set-up-azure-notebooks"></a>Konfigurera Azure Notebooks
 
@@ -64,7 +65,7 @@ Vi kommer att ladda upp exempel på notebook-filer till ett nytt Azure Notebooks
 
 1. Lägg till ett nytt projekt genom att välja **+** knappen.
 
-1. Ange ett **projekt namn**i dialog rutan **Skapa nytt projekt** . 
+1. Ange ett **projekt namn** i dialog rutan **Skapa nytt projekt** . 
 
 1. Lämna **offentligt** och **viktigt** omarkerat eftersom det inte behövs något behov av att projektet ska vara offentligt eller ha ett viktigt.
 
@@ -114,7 +115,7 @@ Nu när projektet har skapats kan du köra antecknings böckerna.
 
     ![Välj den första notebook som ska köras](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
 
-1. Om antecknings boken **inte är betrodd**klickar du på widgeten **ej betrodd** överst till höger i antecknings boken. Välj **förtroende**när dialog rutan öppnas.
+1. Om antecknings boken **inte är betrodd** klickar du på widgeten **ej betrodd** överst till höger i antecknings boken. Välj **förtroende** när dialog rutan öppnas.
 
 1. För bästa resultat bör du läsa dokumentationen för varje cell och köra den individuellt. Välj **Kör** i verktygsfältet. Senare är det viktigt att köra flera celler. Du kan ignorera uppgraderingar och utfasnings varningar.
 
@@ -137,7 +138,7 @@ Nu när projektet har skapats kan du köra antecknings böckerna.
 
     ![Bekräfta autentisering av program vid enhet](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
 
-1. Kopiera värdet från körnings-ID: t i cellen som föregår **resultaten**och klistra in det för körnings-ID: t i cellen som följer **rekonstruerar en körning**.
+1. Kopiera värdet från körnings-ID: t i cellen som föregår **resultaten** och klistra in det för körnings-ID: t i cellen som följer **rekonstruerar en körning**.
 
    ![Kopiera körnings-ID: t mellan celler](media/tutorial-machine-learning-edge-04-train-model/automl-id.png)
 
@@ -165,7 +166,7 @@ Kontrol lera att antecknings böckerna har slutförts genom att kontrol lera att
 
 1. Kontrol lera att följande Azure-resurser har skapats. Vissa resurs namn läggs till med slumpmässiga tecken.
 
-    | Azure-resurs | Name |
+    | Azure-resurs | Namn |
     | --- | --- |
     | Machine Learning arbets yta | turborfanDemo |
     | Container Registry | turbofandemoxxxxxxxx |

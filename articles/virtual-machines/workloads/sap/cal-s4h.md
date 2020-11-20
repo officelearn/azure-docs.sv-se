@@ -3,16 +3,17 @@ title: Distribuera SAP S/4HANA eller BW/4HANA på en virtuell Azure-dator | Micr
 description: Distribuera SAP S/4HANA eller BW/4HANA på en virtuell Azure-dator
 author: hermanndms
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: hermannd
 ms.reviewer: cynthn
-ms.openlocfilehash: 116de28501b77262ef126ed420982d853376da4e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6492e770479042a5a1b4da6f61917832adad4873
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993407"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959296"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Distribuera SAP S/4HANA eller BW/4HANA på Azure
 Den här artikeln beskriver hur du distribuerar S/4HANA på Azure med hjälp av SAP-biblioteket för Cloud Library (SAP CAL) 3,0. Om du vill distribuera andra SAP HANA-baserade lösningar, till exempel BW/4HANA, följer du samma steg.
@@ -73,9 +74,9 @@ På sidan **lösningar** visas några av de SAP Cal Hana-baserade lösningar som
 
    ![Konto till användar Association](./media/cal-s4h/s4h-pic8a.png)
 
-1. Klicka på **Granska**om du vill koppla ditt konto till den användare som du använder för att logga in på SAP Cal. 
+1. Klicka på **Granska** om du vill koppla ditt konto till den användare som du använder för att logga in på SAP Cal. 
  
-1. Klicka på **skapa**om du vill skapa kopplingen mellan din användare och det nyligen skapade SAP Cal-kontot.
+1. Klicka på **skapa** om du vill skapa kopplingen mellan din användare och det nyligen skapade SAP Cal-kontot.
 
    ![Användare till SAP-konto koppling för CAL](./media/cal-s4h/s4h-pic9b.png)
 
@@ -113,11 +114,11 @@ Vi demonstrerar den grundläggande sökvägen till distributionen här.
 
    ![SAP CAL Basic-läge: skapa instans](./media/cal-s4h/s4h-pic10a.png)
 
-1. Klicka på **skapa**och i meddelande rutan som visas klickar du på **OK**.
+1. Klicka på **skapa** och i meddelande rutan som visas klickar du på **OK**.
 
    ![SAP CAL-kompatibla VM-storlekar](./media/cal-s4h/s4h-pic10b.png)
 
-1. I dialog rutan **privat nyckel** klickar du på **Arkiv** för att lagra den privata nyckeln i SAP Cal. Klicka på **Hämta**för att använda lösen ords skydd för den privata nyckeln. 
+1. I dialog rutan **privat nyckel** klickar du på **Arkiv** för att lagra den privata nyckeln i SAP Cal. Klicka på **Hämta** för att använda lösen ords skydd för den privata nyckeln. 
 
    ![Offentlig SAP CAL-nyckel](./media/cal-s4h/s4h-pic10c.png)
 
@@ -131,7 +132,7 @@ Vi demonstrerar den grundläggande sökvägen till distributionen här.
 
    ![SAP CAL-objekt som distribuerats i den nya portalen](./media/cal-s4h/sapcaldeplyment_portalview.png)
 
-1. På SAP CAL-portalen visas statusen som **aktiv**. Klicka på **Anslut**för att ansluta till lösningen. Olika alternativ för att ansluta till de olika komponenterna distribueras i den här lösningen.
+1. På SAP CAL-portalen visas statusen som **aktiv**. Klicka på **Anslut** för att ansluta till lösningen. Olika alternativ för att ansluta till de olika komponenterna distribueras i den här lösningen.
 
    ![SAP CAL-instanser](./media/cal-s4h/active_solution.png)
 

@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
 ms.custom: devx-track-python
-ms.openlocfilehash: 24985a006390977c89c4eedc23084a9856272eba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aaaf9011d38e7ec02e83db63757c434329b835e0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91355658"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960299"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Snabb start: skapa ett chattrum med Azure Functions-och SignalR-tjänsten med python
 
 Med Azure SignalR Service kan du enkelt lägga till realtidsfunktioner i ditt program. Azure Functions är en serverlös plattform som gör att du kan köra din kod utan att behöva hantera någon infrastruktur. I den här snabbstarten lär du dig hur du använder SignalR Service och Functions för att skapa ett serverlöst realtidschattprogram.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
@@ -31,21 +31,21 @@ Azure Functions kräver [Python 3,6 eller 3,7](https://www.python.org/downloads/
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qspython)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qspython).
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto.
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qspython)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qspython)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qspython)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qspython).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Konfigurera och köra Azure Functions-appen
 
@@ -81,7 +81,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 1. I **local.settings.json** klistrar du in anslutningssträngen i värdet för inställningen **AzureSignalRConnectionString**. Spara filen.
 
-1. Python-funktioner ordnas i mappar. I varje mapp finns två filer: *function.jspå* definierar de bindningar som används i funktionen, och * \_ \_ init \_ \_ . py* är bröd texten i funktionen. Det finns två HTTP-utlösta funktioner i den här funktionsappen:
+1. Python-funktioner ordnas i mappar. I varje mapp finns två filer: *function.jspå* definierar de bindningar som används i funktionen, och *\_ \_ init \_ \_ . py* är bröd texten i funktionen. Det finns två HTTP-utlösta funktioner i den här funktionsappen:
 
     - **negotiate** (förhandla) – använder indatabindningen *SignalRConnectionInfo* för att skapa och returnera giltig anslutningsinformation.
     - **messages** (meddelanden) – tar emot ett chattmeddelande i begärandetexten och använder utdatabindningen *SignalR* för att skicka meddelandet till alla anslutna klientprogram.
@@ -100,15 +100,15 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
     ![Kör Function-app](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
     
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qspython)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qspython)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qspython)
+Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md) eller [berätta för oss](https://aka.ms/asrs/qspython).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -117,4 +117,3 @@ I den här snabb starten har du skapat och kört ett program utan server i real 
 > [!div class="nextstepaction"]
 > [Distribuera Azure Functions med VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
 
-[Har du problem? Berätta för oss.](https://aka.ms/asrs/qspython)

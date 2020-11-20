@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 95edcee32c1917d23e4808e805f947d18d2fa7f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f27cb217b60c23f3cf89f48effb933837269000e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986238"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960333"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduktion till resurs fel sökning i Azure Network Watcher
 
@@ -54,9 +54,9 @@ Följande tabeller visar de olika fel typerna (ID under resultat från föregåe
 | PlannedMaintenance |  Gateway-instansen är under underhåll  |Nej|
 | UserDrivenUpdate | Det här felet inträffar när en användaruppdatering pågår. Uppdateringen kan vara en storleksändring. | Nej |
 | VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | Nej |
-| PlatformInActive | Det är något problem med plattformen. | Inga|
-| ServiceNotRunning | Den underliggande tjänsten körs inte. | Inga|
-| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Det här felet är bara en varning.| Inga|
+| PlatformInActive | Det är något problem med plattformen. | Nej|
+| ServiceNotRunning | Den underliggande tjänsten körs inte. | Nej|
+| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Det här felet är bara en varning.| Nej|
 | ConnectionsNotConnected | Anslutningarna är inte anslutna. Det här felet är bara en varning.| Ja|
 | GatewayCPUUsageExceeded | Den aktuella processor användningen för gateway är > 95%. | Ja |
 
@@ -68,9 +68,9 @@ Följande tabeller visar de olika fel typerna (ID under resultat från föregåe
 | GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |Nej|
 | PlannedMaintenance | Gateway-instansen är under underhåll  |Nej|
 | UserDrivenUpdate | Det här felet inträffar när en användaruppdatering pågår. Uppdateringen kan vara en storleksändring.  | Nej |
-| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | Inga |
-| ConnectionEntityNotFound | Anslutnings konfigurationen saknas | Inga |
-| ConnectionIsMarkedDisconnected | Anslutningen har marker ATS som "frånkopplad" |Inga|
+| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | Nej |
+| ConnectionEntityNotFound | Anslutnings konfigurationen saknas | Nej |
+| ConnectionIsMarkedDisconnected | Anslutningen har marker ATS som "frånkopplad" |Nej|
 | ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Ja |
 | ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Ja|
 | Autentisering | I förväg delad nyckel matchar inte | Ja|
@@ -105,7 +105,7 @@ De resurs fel söknings loggfilerna lagras i ett lagrings konto när resurs fel 
 > [!NOTE]
 > I vissa fall skrivs bara en delmängd av loggfilerna till lagringen.
 
-Anvisningar om hur du laddar ned filer från Azure Storage-konton finns i [komma igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer hittar du här på följande länk: [Storage Explorer](https://storageexplorer.com/)
+Anvisningar om hur du laddar ned filer från Azure Storage-konton finns i [komma igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-quickstart-blobs-dotnet.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer hittar du här på följande länk: [Storage Explorer](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 618b2c6acb8792382adb4c067aa8f33003227091
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9fc34532818a742ef67e4b2532966874d083199d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91532592"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959857"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av C#
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Den här snabbstarten beskriver hur du använder C# för att programmässigt skapa en [registreringsgrupp](concepts-service.md#enrollment-group) som använder mellanliggande CA X.509-certifikat eller CA X.509-rotcertifikat. Registrerings gruppen skapas med hjälp av [Microsoft Azure IoT SDK för .net](https://github.com/Azure/azure-iot-sdk-csharp) och ett exempel på ett C# .net Core-program. En registreringsgrupp kontrollerar åtkomst till etableringstjänsten för enheter som delar ett gemensamt signeringscertifikat i certifikatkedjan. Läs mer i informationen om att [kontrollera enhetsåtkomst till etableringstjänsten med X.509-certifikat](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Mer information om att använda X.509-certifikatbaserad Public Key Infrastructure (PKI) med Azure IoT Hub och enhetsetableringstjänst finns i [Översikt över certifikatsäkerhet med X.509 CA](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+Den här snabbstarten beskriver hur du använder C# för att programmässigt skapa en [registreringsgrupp](concepts-service.md#enrollment-group) som använder mellanliggande CA X.509-certifikat eller CA X.509-rotcertifikat. Registrerings gruppen skapas med hjälp av [Microsoft Azure IoT SDK för .net](https://github.com/Azure/azure-iot-sdk-csharp) och ett exempel på ett C# .net Core-program. En registreringsgrupp kontrollerar åtkomst till etableringstjänsten för enheter som delar ett gemensamt signeringscertifikat i certifikatkedjan. Läs mer i informationen om att [kontrollera enhetsåtkomst till etableringstjänsten med X.509-certifikat](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Mer information om att använda X.509-certifikatbaserad Public Key Infrastructure (PKI) med Azure IoT Hub och enhetsetableringstjänst finns i [Översikt över certifikatsäkerhet med X.509 CA](../iot-hub/iot-hub-x509ca-overview.md). 
 
 Den här snabb starten förväntar dig att du redan har skapat en IoT Hub-och Device Provisioning-tjänstinstans. Om du inte redan har skapat de här resurserna slutför du guiden [konfigurera IoT Hub Device Provisioning service med](./quick-setup-auto-provision.md) snabb starten för Azure Portal innan du fortsätter med den här artikeln.
 
@@ -28,7 +28,7 @@ Den här snabb starten förväntar dig att du redan har skapat en IoT Hub-och De
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Installera [Visual Studio 2019](https://www.visualstudio.com/vs/).
 * Installera [.net Core SDK](https://www.microsoft.com/net/download/windows).
@@ -44,7 +44,7 @@ I den här snabbstarten måste du ha en .pem- eller en .cer-fil som innehåller 
 > Använd certifikat som skapats med SDK-verktyget endast för utvecklings testning.
 > Använd inte dessa certifikat i produktion.
 > De innehåller hårdkodade lösen ord, till exempel *1234*, som upphör att gälla efter 30 dagar.
-> Om du vill lära dig mer om att hämta certifikat som är lämpliga för produktion kan du läsa [How to get an X.509 CA certificate](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) (Hämta ett X.509 CA-certifikat) i dokumentationen för Azure IoT Hub.
+> Om du vill lära dig mer om att hämta certifikat som är lämpliga för produktion kan du läsa [How to get an X.509 CA certificate](../iot-hub/iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) (Hämta ett X.509 CA-certifikat) i dokumentationen för Azure IoT Hub.
 >
 
 Gör så här om du vill använda test verktyget för att skapa certifikat:
@@ -71,25 +71,25 @@ Förutom verktyget i C SDK, visar [verifierings exemplet för grupp certifikat](
 
 För exemplet i den här snabbstarten behöver du anslutningssträngen för etableringstjänsten.
 
-1. Logga in på Azure Portal, Välj **alla resurser**och sedan enhets etablerings tjänsten.
+1. Logga in på Azure Portal, Välj **alla resurser** och sedan enhets etablerings tjänsten.
 
-1. Välj **principer för delad åtkomst**och välj sedan den åtkomst princip som du vill använda för att öppna dess egenskaper. I **åtkomst princip**kopierar du och sparar den primära nyckelns anslutnings sträng.
+1. Välj **principer för delad åtkomst** och välj sedan den åtkomst princip som du vill använda för att öppna dess egenskaper. I **åtkomst princip** kopierar du och sparar den primära nyckelns anslutnings sträng.
 
     ![Hämta etableringsanslutningssträng från portalen](media/quick-enroll-device-x509-csharp/get-service-connection-string-vs2019.png)
 
 ## <a name="create-the-enrollment-group-sample"></a>Skapa exemplet för registrering av grupp 
 
-I det här avsnittet visas hur du skapar en .NET Core-konsol som lägger till en registrerings grupp till etablerings tjänsten. Med vissa ändringar kan du även följa de här stegen för att skapa en [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot)-konsolapp för att lägga till registreringsgruppen. Mer information om hur du utvecklar med IoT Core i finns i [Windows IoT Core-dokumentationen för utvecklare](https://docs.microsoft.com/windows/iot-core/).
+I det här avsnittet visas hur du skapar en .NET Core-konsol som lägger till en registrerings grupp till etablerings tjänsten. Med vissa ändringar kan du även följa de här stegen för att skapa en [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot)-konsolapp för att lägga till registreringsgruppen. Mer information om hur du utvecklar med IoT Core i finns i [Windows IoT Core-dokumentationen för utvecklare](/windows/iot-core/).
 
-1. Öppna Visual Studio och välj **skapa ett nytt projekt**. I **skapa ett nytt projekt**väljer du **konsolens program (.net Core)** för C#-projekt mal len och väljer **sedan nästa**.
+1. Öppna Visual Studio och välj **skapa ett nytt projekt**. I **skapa ett nytt projekt** väljer du **konsolens program (.net Core)** för C#-projekt mal len och väljer **sedan nästa**.
 
-1. Ge projektet namnet *CreateEnrollmentGroup*och tryck sedan på **skapa**.
+1. Ge projektet namnet *CreateEnrollmentGroup* och tryck sedan på **skapa**.
 
     ![Konfigurera Visual C# Windows klassisk Desktop Project](media//quick-enroll-device-x509-csharp/configure-app-vs2019.png)
 
 1. När lösningen öppnas i Visual Studio högerklickar du på projektet **CreateEnrollmentGroup** i fönstret **Solution Explorer** och väljer sedan **Hantera NuGet-paket**.
 
-1. I **NuGet Package Manager**väljer du **Bläddra**, söker efter och väljer **Microsoft. Azure. devices. Provisioning. service**och trycker sedan på **Installera**.
+1. I **NuGet Package Manager** väljer du **Bläddra**, söker efter och väljer **Microsoft. Azure. devices. Provisioning. service** och trycker sedan på **Installera**.
 
     ![Fönstret för NuGet-pakethanteraren](media//quick-enroll-device-x509-csharp/add-nuget.png)
 
@@ -176,7 +176,7 @@ I det här avsnittet visas hur du skapar en .NET Core-konsol som lägger till en
   
 Kör exemplet i Visual Studio för att skapa registreringsgruppen. Ett kommando tolks fönster visas och du kan börja Visa bekräftelse meddelanden. När du har skapat fönstret visas egenskaperna för den nya registrerings gruppen i kommando tolken.
 
-Du kan kontrol lera att registrerings gruppen har skapats. Gå till sammanfattning av enhets etablerings tjänsten och välj **Hantera**registreringar och välj sedan **registrerings grupper**. Du bör se en ny registreringspost som motsvarar det registrerings-ID som du använde i exemplet.
+Du kan kontrol lera att registrerings gruppen har skapats. Gå till sammanfattning av enhets etablerings tjänsten och välj **Hantera** registreringar och välj sedan **registrerings grupper**. Du bör se en ny registreringspost som motsvarar det registrerings-ID som du använde i exemplet.
 
 ![Egenskaper för registrering i portalen](media/quick-enroll-device-x509-csharp/verify-enrollment-portal-vs2019.png)
 
@@ -188,7 +188,7 @@ Om du planerar att utforska C#-tjänst exemplet ska du inte rensa upp resurserna
 
 1. Stäng fönstret C#-exempel i utdata på din dator.
 
-1. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera registreringar**och välj sedan **registrerings grupper**. Välj *registrerings-ID* för registrerings posten du skapade med den här snabb starten och tryck på **ta bort**.
+1. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera registreringar** och välj sedan **registrerings grupper**. Välj *registrerings-ID* för registrerings posten du skapade med den här snabb starten och tryck på **ta bort**.
 
 1. Från enhets etablerings tjänsten i Azure Portal väljer du **certifikat**, väljer det certifikat som du laddade upp för den här snabb starten och trycker på **ta bort** högst upp i **certifikat information**.  
 

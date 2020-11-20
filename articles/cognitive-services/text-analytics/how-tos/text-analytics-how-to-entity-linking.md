@@ -8,47 +8,53 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: cabde27591159b5751435a97a909a5f6f8c3081b
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ef06faa17739153b2a04e777498e1de6e97c0646
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518234"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957103"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Använda namngiven enhets igenkänning i Textanalys
 
-Med API för textanalys kan du ta ostrukturerad text och returnera en lista med disambiguated-entiteter, med länkar till mer information på webben. API: et stöder både NER (Named Entity Recognition) och entitet länkning.
+Med API för textanalys kan du ta ostrukturerad text och returnera en lista med disambiguated-entiteter, med länkar till mer information på webben. API: et stöder både NER (Named Entity Recognition) för flera enhets kategorier och entitet länkning.
 
-### <a name="entity-linking"></a>Entity Linking
+## <a name="entity-linking"></a>Entity Linking
 
 Länkning av entitet är möjligheten att identifiera och disambiguate identiteten för en entitet som finns i text (till exempel att avgöra om en förekomst av ordet "mars" avser planet eller den romerska god). Den här processen kräver att det finns en kunskaps bas på ett lämpligt språk för att länka identifierade entiteter i text. Enhets länkning använder [Wikipedia](https://www.wikipedia.org/) som den här kunskaps basen.
 
+## <a name="named-entity-recognition-ner"></a>Igenkänning av namngivna enheter (NER)
 
-### <a name="named-entity-recognition-ner"></a>Igenkänning av namngivna enheter (NER)
+Med namngiven enhets igenkänning (NER) kan du identifiera olika entiteter i text och kategorisera dem i fördefinierade klasser eller typer, till exempel: person, plats, händelse, produkt och organisation.  
 
-Med namngiven entitets igenkänning (NER) kan du identifiera olika entiteter i text och kategorisera dem i fördefinierade klasser eller typer, till exempel: person, plats, händelse, produkt och organisation.  
+## <a name="personally-identifiable-information-pii"></a>Personligt identifierbar information (PII)
 
-## <a name="named-entity-recognition-versions-and-features"></a>Versioner och funktioner för namngiven enhets igenkänning
+Funktionen PII är en del av NER och kan identifiera och redigera känsliga entiteter i text som är associerade med en enskild person, till exempel: telefonnummer, e-postadress, e-postadress, Passport-nummer.  
+
+## <a name="named-entity-recognition-features-and-versions"></a>Funktioner och versioner för namngiven enhets igenkänning
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Funktion                                                         | NER v 3.0 | NER v 3.1 – för hands version. 2 |
+| Funktion                                                         | NER v 3.0 | NER v 3.1 – för hands version. 3 |
 |-----------------------------------------------------------------|--------|----------|
 | Metoder för enkel-och batch-begäranden                          | X      | X        |
 | Utökad enhets igenkänning över flera kategorier           | X      | X        |
 | Separata slut punkter för att skicka enhets länknings-och NER-begäranden. | X      | X        |
 | Redovisning av personliga `PII` enheter () och hälso tillstånd ( `PHI` )        |        | X        |
+| Bortredigering av `PII`        |        | X        |
 
 Mer information finns i [språk stöd](../language-support.md) .
 
-## <a name="entity-types"></a>Entitetstyper
-
 Med namnet entitets igenkänning v3 får du utökad identifiering över flera typer. För närvarande kan NER v 3.0 identifiera entiteter i [kategorin Allmänt entiteter](../named-entity-types.md).
 
-Namngiven entitets igenkänning v 3.1 – för hands version. 2 innehåller identifierings funktionerna i v 3.0 och möjligheten att identifiera personlig information ( `PII` ) med `v3.1-preview.2/entities/recognition/pii` slut punkten. Du kan använda den valfria `domain=phi` parametern för att identifiera konfidentiell hälso information ( `PHI` ). Mer information finns i avsnittet [enhets kategorier](../named-entity-types.md) artikeln och avsnittet om att [begära slut punkter](#request-endpoints) nedan.
+Namngiven entitets igenkänning v 3.1 – för hands version. 3 innehåller identifierings funktionerna i v 3.0 och: 
+* Möjlighet att identifiera personlig information ( `PII` ) med hjälp av `v3.1-preview.3/entities/recognition/pii` slut punkten. 
+* En valfri `domain=phi` parameter för att identifiera konfidentiell hälso information ( `PHI` ).
+* [Asynkron åtgärd](text-analytics-how-to-call-api.md) med `/analyze` slut punkten.
 
+Mer information finns i artikeln [entitet Categories](../named-entity-types.md) och avsnittet om [begär slut punkter](#request-endpoints) nedan. 
 
 ## <a name="sending-a-rest-api-request"></a>Skicka en REST API-begäran
 
@@ -68,41 +74,41 @@ Skicka en POST-begäran. Du kan [använda Postman](text-analytics-how-to-call-ap
 
 ### <a name="request-endpoints"></a>Begär slut punkter
 
-#### <a name="version-31-preview2"></a>[Version 3,1 – för hands version. 2](#tab/version-3-preview)
+#### <a name="version-31-preview3"></a>[Version 3,1 – för hands version. 3](#tab/version-3-preview)
 
-Igenkänning av namngivna enheter `v3.1-preview.2` använder separata slut punkter för ner, personligt identifierbara och begär Anden om att länka till entiteter. Använd ett URL-format nedan baserat på din begäran:
+Igenkänning av namngivna enheter `v3.1-preview.3` använder separata slut punkter för ner, personligt identifierbarhet och begär Anden om att länka entiteter. Använd ett URL-format nedan baserat på din begäran.
 
-Länkning av entitet
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
+**Länkning av entitet**
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
 
-[Namngiven enhets igenkännings version 3,1 – för hands versions referens för `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)
+[Namngiven enhets igenkännings version 3,1 – för hands versions referens för `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesLinking)
 
-NER
-* Allmänna entiteter – `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/general`
+**Igenkänning av namngiven entitet**
+* Allmänna entiteter – `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/general`
 
-[Namngiven enhets igenkännings version 3,1 – för hands versions referens för `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
+[Namngiven enhets igenkännings version 3,1 – för hands versions referens för `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionGeneral)
 
-Personligt identifierbar information (PII)
-* Personlig ( `PII` ) information – `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
+**Personligt identifierbar information (PII)**
+* Personlig ( `PII` ) information – `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii`
 
 Du kan också använda den valfria `domain=phi` parametern för att identifiera hälso `PHI` information () i text. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
 
-Observera att du kan lägga till `redactedText` egenskapen i svars-JSON som innehåller den ändrade indatamängden där de identifierade PII-enheterna ersätts med ett * för varje tecken i entiteterna.
+Från `v3.1-preview.3` och med, innehåller JSON-svaret en `redactedText` egenskap som innehåller den ändrade indatamängden där de IDENTIFIERAde PII-enheterna ersätts av ett `*` för varje tecken i entiteterna.
 
-[Namngiven enhets igenkännings version 3,1 – för hands versions referens för `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)
+[Namngiven enhets igenkännings version 3,1 – för hands versions referens för `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
 
 #### <a name="version-30"></a>[Version 3,0](#tab/version-3)
 
 Med namnet entitets igenkänning v3 används separata slut punkter för NER och begär Anden om att länka entiteter. Använd ett URL-format nedan baserat på din begäran:
 
-Länkning av entitet
+**Länkning av entitet**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
 [Version 3,0-referens för namngiven enhets igenkänning `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
 
-NER
+**Igenkänning av namngiven entitet**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
 [Version 3,0-referens för namngiven enhets igenkänning `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
@@ -113,7 +119,7 @@ Ange ett rubrik för begäran som ska innehålla din API för textanalys-nyckel.
 
 ### <a name="example-ner-request"></a>Exempel på NER-begäran 
 
-Följande är ett exempel på innehåll som du kan skicka till API: et. Formatet för begäran är detsamma för båda versionerna av API: et.
+Följande JSON är ett exempel på innehåll som du kan skicka till API: et. Formatet för begäran är detsamma för båda versionerna av API: et.
 
 ```json
 {
@@ -138,11 +144,11 @@ API för textanalys är tillstånds lös. Inga data lagras i ditt konto och resu
 
 Alla POST-förfrågningar returnerar ett JSON-formaterat svar med ID och identifierade egenskaper för entiteten.
 
-Utdata returneras direkt. Du kan strömma resultaten till ett program som stöder JSON eller spara utdata till en fil på den lokala datorn och sedan importera den till ett program som gör så att du kan sortera, söka och hantera data. På grund av stöd för flerspråkig och emoji kan svaret innehålla text förskjutningar. Mer information finns i [så här bearbetar du text förskjutningar](../concepts/text-offsets.md) .
+Utdata returneras direkt. Du kan strömma resultaten till ett program som stöder JSON eller spara utdata till en fil på den lokala datorn och sedan importera den till ett program som gör så att du kan sortera, söka och hantera data. På grund av stöd för flerspråkig och emoji kan svaret innehålla text förskjutningar. Mer information finns i [så här bearbetar du text förskjutningar](../concepts/text-offsets.md).
 
 ### <a name="example-responses"></a>Exempel svar
 
-Version 3 tillhandahåller separata slut punkter för generell NER, personligt identifierbarhet och entitets länkning. Svaren för båda åtgärderna nedan. 
+Version 3 tillhandahåller separata slut punkter för allmän NER, personligt identifierbarhet och enhets länkning. Svaren för båda åtgärderna nedan. 
 
 #### <a name="version-31-preview"></a>[Version 3,1 – för hands version](#tab/version-3-preview)
 

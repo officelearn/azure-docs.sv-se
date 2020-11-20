@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7195e3c9f2d38c16bd9cad59a2489157c7c1340f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4257fcca1172502560c182651d649745e494cc1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654641"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958973"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB, liveCache och Content Server-distribution på virtuella Azure-datorer
 
@@ -328,7 +329,7 @@ Vi rekommenderar starkt att du använder den senaste versionen av operativ syste
 Den uppdaterade listan över SAP MaxDB-dokumentation finns i följande SAP-anteckning [767598]
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>MaxDB konfigurations rikt linjer för SAP-installationer i virtuella Azure-datorer
-#### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Lagrings konfiguration
+#### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Storage-konfiguration
 Metod tips för Azure Storage för SAP MaxDB följer de allmänna rekommendationer som nämns i kapitel [lagrings strukturen för en virtuell dator för RDBMS-distributioner](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
@@ -467,7 +468,7 @@ Om du konfigurerar SAP Content Server för att lagra filer i SAP MaxDB-databasen
 
 Om du konfigurerar SAP Content Server för att lagra filer i fil systemet, är ett alternativ att köra manuell säkerhets kopiering/återställning av hela fil strukturen där dokumenten finns. Precis som med SAP MaxDB Backup/Restore, rekommenderar vi att du har en dedikerad disk volym för säkerhets kopiering. 
 
-#### <a name="other"></a>Övrigt
+#### <a name="other"></a>Annat
 Andra SAP Content Server-/regionsspecifika inställningar är transparenta för virtuella Azure-datorer och beskrivs i olika dokument och SAP-anteckningar:
 
 * <https://service.sap.com/contentserver> 

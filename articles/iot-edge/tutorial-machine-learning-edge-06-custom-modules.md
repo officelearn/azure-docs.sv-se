@@ -9,17 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a2087c83ec48b0b732ce1cb954f78fad9b46fef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 199da0586a061bccdf8a6ff8a1f53df2f703512f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857443"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959449"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Självstudie: skapa och distribuera anpassade IoT Edge-moduler
-
-> [!NOTE]
-> Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Om du har kommit till den här artikeln direkt rekommenderar vi att du börjar med den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien för bästa möjliga resultat.
 
 I den här artikeln skapar vi tre IoT Edge moduler som tar emot meddelanden från löv IoT-enheter, kör data via din Machine Learning-modell och vidarebefordrar insikter till IoT Hub.
 
@@ -54,6 +51,10 @@ Följande diagram visar moduler, indata, utdata och IoT Edge hubb vägar för de
 ![Arkitektur diagram för IoT Edge tre moduler](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
 Stegen i den här artikeln utförs vanligt vis av en molnbaserad utvecklare.
+
+## <a name="prerequisites"></a>Krav
+
+Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Varje artikel i serien bygger på arbetet i föregående artikel. Om du har kommit till den här artikeln direkt kan du gå till den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien.
 
 ## <a name="create-a-new-iot-edge-solution"></a>Skapa en ny IoT Edge-lösning
 
@@ -160,7 +161,7 @@ Modulen router är en viktig del av lösningen som säkerställer att meddelande
 
 1. Namnge modulen **turbofanRouter**.
 
-1. När du uppmanas att ange lagrings platsen för Docker-avbildningen använder du registret från Machine Learning-arbetsytan (du hittar registret i noden registryCredentials i *deployment.template.jsi* filen). Det här värdet är den fullständigt kvalificerade adressen till registret, till exempel ** \<your registry\> . azurecr.io/turbofanrouter**.
+1. När du uppmanas att ange lagrings platsen för Docker-avbildningen använder du registret från Machine Learning-arbetsytan (du hittar registret i noden registryCredentials i *deployment.template.jsi* filen). Det här värdet är den fullständigt kvalificerade adressen till registret, till exempel **\<your registry\> . azurecr.io/turbofanrouter**.
 
     > [!NOTE]
     > I den här artikeln använder vi Azure Container Registry som skapades av arbets ytan Azure Machine Learning. Detta är rent för enkelhetens skull. Vi kan ha skapat ett nytt behållar register och publicerat våra moduler där.
@@ -299,7 +300,7 @@ Avro Writer-modulen har två ansvars områden i vår lösning för att lagra med
 
 ### <a name="create-module-and-copy-files"></a>Skapa modul och kopiera filer
 
-1. I Visual Studio Code väljer du **Visa**  >  **kommando-palett**och söker sedan efter och väljer **python: Välj tolk**.
+1. I Visual Studio Code väljer du **Visa**  >  **kommando-palett** och söker sedan efter och väljer **python: Välj tolk**.
 
 1. Välj den installerade python version 3,7 eller senare.
 
@@ -589,13 +590,13 @@ Med routern och klassificeraren på plats förväntar vi dig att ta emot vanliga
 
 1. Välj **Välj en behållare**.
 
-1. På sidan **lagrings konton** letar du reda på det lagrings konto som du använder i den här självstudien, som heter som **iotedgeandml \<unique suffix\> **.
+1. På sidan **lagrings konton** letar du reda på det lagrings konto som du använder i den här självstudien, som heter som **iotedgeandml \<unique suffix\>**.
 
 1. Välj behållaren **ruldata** och klicka på **Välj**.
 
 1. På sidan **Lägg till en lagrings slut punkt** väljer du **skapa** för att skapa lagrings slut punkten.
 
-1. Gå tillbaka till sidan **Lägg till en väg** för **cirkulations frågan**och Ersätt `true` med följande fråga:
+1. Gå tillbaka till sidan **Lägg till en väg** för **cirkulations frågan** och Ersätt `true` med följande fråga:
 
     ```sql
     IS_DEFINED($body.PredictedRul) AND NOT IS_DEFINED($body.OperationalSetting1)
@@ -672,7 +673,7 @@ Vi vill inte dirigera de nya förutsägelse data till vår gamla lagrings plats,
 
 Konfigurera den IoT Hub fil överförings funktionen så att modulen File Writer kan överföra filer till lagrings utrymme.
 
-1. Från menyn i den vänstra rutan i IoT Hub väljer du **fil uppladdning**under **meddelanden**.
+1. Från menyn i den vänstra rutan i IoT Hub väljer du **fil uppladdning** under **meddelanden**.
 
 1. Välj **Azure Storage behållare**.
 
@@ -719,7 +720,7 @@ Nu när vi har gjort konfigurations ändringarna är vi redo att bygga avbildnin
 
 1. Starta en ny terminal med en kommando tolk i Visual Studio Code och logga in på Azure Container Registry (ACR).
 
-  Du hittar de nödvändiga användar namnen, lösen orden och inloggnings Server värdena i Azure Portal. Behållar register namnet har formatet "turbofandemo \<unique id\> ". I menyn i den vänstra rutan under **Inställningar**väljer du **åtkomst nycklar** för att visa dem.
+  Du hittar de nödvändiga användar namnen, lösen orden och inloggnings Server värdena i Azure Portal. Behållar register namnet har formatet "turbofandemo \<unique id\> ". I menyn i den vänstra rutan under **Inställningar** väljer du **åtkomst nycklar** för att visa dem.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -733,7 +734,7 @@ När skapandet har slutförts kommer vi att kunna använda Azure Portal för att
 
 1. Öppna Azure Container Registry för den här självstudien. Behållar register namnet har formatet "turbofandemo \<unique id\> ". 
 
-1. Från menyn i den vänstra rutan under **tjänster**väljer du **databaser**.
+1. Från menyn i den vänstra rutan under **tjänster** väljer du **databaser**.
 
 1. Observera att båda modulerna du skapade, **avrofilewriter** och **turbofanrouter**, visas som databaser.
 

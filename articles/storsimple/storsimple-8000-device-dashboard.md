@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 93d230656fd7ef34e76a143fb3186d23f8d3afed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34bbf4d723e46663efe77560245db74d9dea1fc4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766243"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957919"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Använda enhets översikten i StorSimple Enhetshanteraren-tjänsten
 
@@ -81,7 +81,7 @@ I avsnittet Essentials samlas några av de viktiga egenskaperna, till exempel, s
      I det här sammanhanget refererar *primär lagring* till den totala mängden data som skrivits av värden och kan delas upp av volymtyp: *primärt lagrings utrymme* omfattar både lokalt lagrade data och data på nivå av molnet. *Primär lokalt fast lagring* innehåller bara data som lagras lokalt. *Moln lagring*, å andra sidan, är en mätning av den totala mängden data som lagras i molnet. Det här lagrings utrymmet innehåller data och säkerhets kopior på nivå. Data som lagras i molnet dedupliceras och komprimeras, medan primär lagring anger mängden lagrings utrymme som används innan data dedupliceras och komprimeras. (Du kan jämföra de här två talen för att få en uppfattning om komprimerings hastigheten.) För både primär-och moln lagring baseras de angivna beloppen på den spårnings frekvens som du konfigurerar. Om du till exempel väljer en frekvens på en vecka visar diagrammet data för varje dag i föregående vecka.
 
      Om du vill se mängden moln lagring som förbrukas över tid väljer du alternativet **moln lagring som används** . Om du vill se den totala lagrings utrymme som har skrivits av värden väljer du alternativet **primärt lagrings utrymme som används** och **primärt lokalt fäst lagrings utrymme som används** . 
-     Mer information finns i [använda tjänsten StorSimple Enhetshanteraren för att övervaka StorSimple-enheten](storsimple-monitor-device.md).
+     Mer information finns i [använda tjänsten StorSimple Enhetshanteraren för att övervaka StorSimple-enheten](./storsimple-8000-monitor-device.md).
 
 
 * I panelen **kapacitet** visas den primära lagringen som är etablerad och kvar på enheten i förhållande till det totala lagrings utrymmet som är tillgängligt för samma. Med avseende på den mängd lagrings utrymme som är för beredd och tilldelad för användning **, refererar** **återstående** till den återstående kapacitet som kan tillhandahållas på den här enheten. 
@@ -96,4 +96,3 @@ I avsnittet Essentials samlas några av de viktiga egenskaperna, till exempel, s
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [StorSimple service Summary-bladet](storsimple-8000-service-dashboard.md).
 * Lär dig mer om [att använda tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
-

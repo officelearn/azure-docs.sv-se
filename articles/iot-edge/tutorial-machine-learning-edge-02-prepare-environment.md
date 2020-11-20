@@ -8,19 +8,20 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 99a0805239ee2437ad6ec9ceb40cf45496a07850
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3a3518ba68c9474fc4a34390e6fd9a7d1e88f6c6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047666"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959602"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Självstudie: Konfigurera en miljö för maskin inlärning på IoT Edge
 
-> [!NOTE]
-> Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Om du har kommit till den här artikeln direkt rekommenderar vi att du börjar med den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien för bästa möjliga resultat.
-
 Den här artikeln hjälper dig att förbereda din miljö för utveckling och distribution. Börja med att konfigurera en utvecklings dator med alla verktyg du behöver. Skapa sedan nödvändiga moln resurser i Azure.
+
+## <a name="prerequisites"></a>Krav
+
+Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Varje artikel i serien bygger på arbetet i föregående artikel. Om du har kommit till den här artikeln direkt kan du gå till den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien.
 
 ## <a name="set-up-the-development-vm"></a>Konfigurera den virtuella utvecklings datorn
 
@@ -100,7 +101,7 @@ För att hjälpa dig att minska kostnaderna har den virtuella utvecklings datorn
 
 1. I Azure Portal navigerar du till den virtuella dator som skriptet har skapat.
 
-1. Från menyn i den vänstra rutan under **åtgärder**väljer du **Automatisk avstängning**.
+1. Från menyn i den vänstra rutan under **åtgärder** väljer du **Automatisk avstängning**.
 
 1. Justera den **schemalagda avstängningen** och **tids zonen** efter behov och välj **Spara**.
 
@@ -183,7 +184,7 @@ Som en del av att skapa IoT-hubben skapade även skriptet som vi körde i föreg
 
 1. Välj den IoT Hub som skriptet har skapat i listan över resurser. Det får ett namn som slutar med slumpmässiga tecken som `IotEdgeAndMlHub-jrujej6de6i7w` .
 
-1. I menyn i den vänstra rutan under **meddelanden**väljer du **meddelanderoutning.**
+1. I menyn i den vänstra rutan under **meddelanden** väljer du **meddelanderoutning.**
 
 1. **På sidan meddelanderoutning** väljer du fliken **anpassade slut punkter** .
 

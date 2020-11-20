@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: 9978137edb7874a8b93e0c9a5f1f9979ce449277
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4693af9c29a36aad60b7b525fec024509a4d586
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893178"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958767"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på Red Hat Enterprise Linux 
 
@@ -235,11 +236,11 @@ Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det v
 
    c. Välj klient under nätet Azure Virtual Network. Välj [accelererat nätverk](../../../virtual-network/create-vm-accelerated-networking-cli.md).  
 
-   När du distribuerar de virtuella datorerna genereras nätverks gränssnitts namnet automatiskt. I dessa anvisningar för enkelhetens skull kommer vi att referera till de automatiskt genererade nätverks gränssnitten som är kopplade till klient under nätet för Azures virtuella nätverk, som **hanadb1-client**, **hanadb2-client**och **hanadb3-client**. 
+   När du distribuerar de virtuella datorerna genereras nätverks gränssnitts namnet automatiskt. I dessa anvisningar för enkelhetens skull kommer vi att referera till de automatiskt genererade nätverks gränssnitten som är kopplade till klient under nätet för Azures virtuella nätverk, som **hanadb1-client**, **hanadb2-client** och **hanadb3-client**. 
 
-3. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `storage` virtuella nätverkets undernät (i det här exemplet **hanadb1-Storage**, **hanadb2-Storage**och **hanadb3-Storage**).  
+3. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `storage` virtuella nätverkets undernät (i det här exemplet **hanadb1-Storage**, **hanadb2-Storage** och **hanadb3-Storage**).  
 
-4. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `hana`  virtuella nätverkets undernät (i det här exemplet **hanadb1-Hana**, **hanadb2-Hana**och **hanadb3-Hana**).  
+4. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `hana`  virtuella nätverkets undernät (i det här exemplet **hanadb1-Hana**, **hanadb2-Hana** och **hanadb3-Hana**).  
 
 5. Koppla de nyligen skapade virtuella nätverks gränssnitten till motsvarande virtuella datorer genom att utföra följande steg:  
 
@@ -249,7 +250,7 @@ Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det v
 
     c. I fönstret **Översikt** väljer du **stoppa** för att frigöra den virtuella datorn.  
 
-    d. Välj **nätverk**och Anslut sedan nätverks gränssnittet. I list rutan **bifoga nätverks gränssnitt** väljer du redan skapade nätverks gränssnitt för- `storage` och- `hana` undernät.  
+    d. Välj **nätverk** och Anslut sedan nätverks gränssnittet. I list rutan **bifoga nätverks gränssnitt** väljer du redan skapade nätverks gränssnitt för- `storage` och- `hana` undernät.  
     
     e. Välj **Spara**. 
  
@@ -531,7 +532,7 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
     yum install libgcc_s1 libstdc++6 compat-sap-c++-7 libatomic1 
     </code></pre>
 
-4. **[2], [3]** Ändra ägarskap för SAP HANA `data` och `log` kataloger till **HN1**adm.   
+4. **[2], [3]** Ändra ägarskap för SAP HANA `data` och `log` kataloger till **HN1** adm.   
 
     <pre><code>
     # Execute as root
@@ -730,7 +731,7 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
 
 1. Simulera en nods krasch på en SAP HANA arbetsnoden. Gör följande: 
 
-   a. Innan du simulerar en nods krasch kör du följande kommandon som **HN1**ADM för att avbilda miljöns status:  
+   a. Innan du simulerar en nods krasch kör du följande kommandon som **HN1** ADM för att avbilda miljöns status:  
 
    <pre><code>
     # Check the landscape status
@@ -786,7 +787,7 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
 
 2. Avsluta namnserver genom att göra följande:
 
-   a. Innan testet kan du kontrol lera miljöns status genom att köra följande kommandon som **HN1**ADM:  
+   a. Innan testet kan du kontrol lera miljöns status genom att köra följande kommandon som **HN1** ADM:  
 
    <pre><code>
     #Landscape status 
@@ -808,7 +809,7 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
     hanadb1, 3, 50313, 50314, 0.3, HDB|HDB_WORKER, GREEN
    </code></pre>
 
-   b. Kör följande kommandon som **HN1**adm på den aktiva huvudnoden, som är **hanadb1** i det här fallet:  
+   b. Kör följande kommandon som **HN1** adm på den aktiva huvudnoden, som är **hanadb1** i det här fallet:  
 
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill
@@ -842,7 +843,7 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
     hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB start
    </code></pre>
 
-   När SAP HANA har startat på **hanadb1**förväntar du följande status:  
+   När SAP HANA har startat på **hanadb1** förväntar du följande status:  
 
    <pre><code>
     # Check the instance status
@@ -898,7 +899,7 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
     hn1adm@hanadb3:/usr/sap/HN1/HDB03> HDB start
    </code></pre>
 
-   När SAP HANA har startat på **hanadb3**ser statusen ut så här:  
+   När SAP HANA har startat på **hanadb3** ser statusen ut så här:  
 
    <pre><code>
     # Check the instance status

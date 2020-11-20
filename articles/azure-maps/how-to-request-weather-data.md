@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b5db19a6549e7e4675213973554ff18bf46dda1e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3e0dce10d582006ab8c1dabf6d4b3efc82d8f39f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92915447"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957120"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Begär real tids data och prognostiserade väder data med hjälp av Azure Maps väder tjänster
 
@@ -28,7 +28,13 @@ I den här artikeln får du lära dig hur du:
 * Begär Tim prognoser med hjälp av API för att [få Tim prognos](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview).
 * Minut prognoser per minut med hjälp av API: et för att [få minuter](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview).
 
-## <a name="prerequisites"></a>Förutsättningar
+Den här videon ger en översikt över väder tjänster i Azure Maps med REST samtal-exempel.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player" width="960" height="540" allowFullScreen frameBorder="0" title="Azure Maps väder tjänster för utvecklare – Microsoft Channel 9-video"></iframe>
+
+## <a name="prerequisites"></a>Krav
 
 1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
@@ -44,9 +50,9 @@ I den här självstudien används [Postman](https://www.postman.com/) -programme
 
 I det här exemplet ska du använda [API: t hämta aktuella villkor](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview) för att hämta aktuella väder förhållanden vid koordinater i Seattle, WA.
 
-1. Öppna Postman-appen. Längst upp i Postman-appen väljer du **nytt** . I fönstret **Skapa nytt** väljer du **samling** .  Namnge samlingen och välj knappen **skapa** . Du kommer att använda den här samlingen för resten av exemplen i det här dokumentet.
+1. Öppna Postman-appen. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **samling**.  Namnge samlingen och välj knappen **skapa** . Du kommer att använda den här samlingen för resten av exemplen i det här dokumentet.
 
-2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran** . Ange ett **namn** för begäran. Välj den samling som du skapade i föregående steg och välj sedan **Spara** .
+2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran. Välj den samling som du skapade i föregående steg och välj sedan **Spara**.
 
 3. Välj metoden **Hämta** http på fliken Builder och ange följande URL. För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `{Azure-Maps-Primary-Subscription-key}` du med den primära prenumerations nyckeln.
 
@@ -236,7 +242,7 @@ I det här exemplet ska du använda [API: et för att få svåra väder varninga
 >[!NOTE]
 >I det här exemplet hämtas svåra väder varningar vid tidpunkten för den här skrivningen. Det är sannolikt att det inte längre finns några allvarliga väder varningar på den begärda platsen. Om du vill hämta faktiska allvarliga aviserings data när du kör det här exemplet måste du hämta data på en annan koordinat plats.
 
-1. Öppna Postman-appen, klicka på **ny** och välj **begäran** . Ange ett **namn** för begäran. Välj den samling som du skapade i föregående avsnitt eller skapa en ny och välj sedan **Spara** .
+1. Öppna Postman-appen, klicka på **ny** och välj **begäran**. Ange ett **namn** för begäran. Välj den samling som du skapade i föregående avsnitt eller skapa en ny och välj sedan **Spara**.
 
 2. Välj metoden **Hämta** http på fliken Builder och ange följande URL. För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `{Azure-Maps-Primary-Subscription-key}` du med den primära prenumerations nyckeln.
 
@@ -288,7 +294,7 @@ I det här exemplet ska du använda [API: et för att få svåra väder varninga
 
 I det här exemplet ska du använda [API: et Hämta dagliga prognoser](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview) för att hämta väder prognosen på fem dagar för koordinater i Seattle, WA.
 
-1. Öppna Postman-appen, klicka på **ny** och välj **begäran** . Ange ett **namn** för begäran. Välj den samling som du skapade i föregående avsnitt eller skapa en ny och välj sedan **Spara** .
+1. Öppna Postman-appen, klicka på **ny** och välj **begäran**. Ange ett **namn** för begäran. Välj den samling som du skapade i föregående avsnitt eller skapa en ny och välj sedan **Spara**.
 
 2. Välj metoden **Hämta** http på fliken Builder och ange följande URL. För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `{Azure-Maps-Primary-Subscription-key}` du med den primära prenumerations nyckeln.
 
@@ -536,7 +542,7 @@ I det här exemplet ska du använda [API: et Hämta dagliga prognoser](https://d
 
 I det här exemplet ska du använda [API: et](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview) för att få Tim prognos för att hämta Tim väder prognosen för de kommande 12 timmarna vid koordinater i Seattle, WA.
 
-1. Öppna Postman-appen, klicka på **ny** och välj **begäran** . Ange ett **namn** för begäran. Välj den samling som du skapade i föregående avsnitt eller skapa en ny och välj sedan **Spara** .
+1. Öppna Postman-appen, klicka på **ny** och välj **begäran**. Ange ett **namn** för begäran. Välj den samling som du skapade i föregående avsnitt eller skapa en ny och välj sedan **Spara**.
 
 2. Välj metoden **Hämta** http på fliken Builder och ange följande URL. För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `{Azure-Maps-Primary-Subscription-key}` du med den primära prenumerations nyckeln.
 
@@ -643,7 +649,7 @@ I det här exemplet ska du använda [API: et](https://docs.microsoft.com/rest/ap
 
 I det här exemplet ska du använda [API: et för att hämta Minute](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) för att hämta väder prognoser per minut vid koordinater i Seattle, WA. Väder prognosen anges för kommande 120 minuter. Frågan begär att prognosen ska ges med 15 minuters intervall, men du kan ändra parametern till antingen 1 eller 5 minuter.
 
-1. Öppna Postman-appen, klicka på **ny** och välj **begäran** . Ange ett **namn** för begäran. Välj den samling som du skapade i föregående avsnitt eller skapa en ny och välj sedan **Spara** .
+1. Öppna Postman-appen, klicka på **ny** och välj **begäran**. Ange ett **namn** för begäran. Välj den samling som du skapade i föregående avsnitt eller skapa en ny och välj sedan **Spara**.
 
 2. Välj metoden **Hämta** http på fliken Builder och ange följande URL. För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `{Azure-Maps-Primary-Subscription-key}` du med den primära prenumerations nyckeln.
 

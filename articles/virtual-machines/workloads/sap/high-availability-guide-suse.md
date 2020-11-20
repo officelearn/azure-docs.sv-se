@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 63adf2b1ca7ae795e35e8245440093fe0f6e6c49
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 508fff16f96d0dfddb77b219bb545fb8580b4048
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486182"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958905"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program
 
@@ -156,7 +157,7 @@ Du kan använda en av snabb starts mallarna på GitHub för att distribuera alla
    9. Administratörens användar namn och administratörs lösen ord  
       En ny användare skapas som kan användas för att logga in på datorn.
    10. Undernät-ID  
-   Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/** &lt; PRENUMERATIONS &gt; -ID**/ResourceGroups/** &lt; resurs grupp namn &gt; **/providers/Microsoft.Network/virtualNetworks/** &lt; virtuellt nätverks namn &gt; **/subnets/** &lt; under näts namn &gt; **
+   Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/**&lt; PRENUMERATIONS &gt; -ID**/ResourceGroups/**&lt; resurs grupp namn &gt;**/providers/Microsoft.Network/virtualNetworks/**&lt; virtuellt nätverks namn &gt;**/subnets/**&lt; under näts namn &gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuera Linux manuellt via Azure Portal
 
@@ -193,13 +194,13 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
       1. Välj de virtuella datorerna i (A) SCS-klustret och deras IP-adresser.
       1. Klicka på Lägg till
    1. Skapa hälso avsökningar
-      1. Port 620**00** för ASCS
+      1. Port 620 **00** för ASCS
          1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
          1. Ange namnet på den nya hälso avsökningen (till exempel **NW1-ASCs-HP**)
-         1. Välj TCP som protokoll, Port 620**00**, Behåll intervallet 5 och tröskelvärde 2
+         1. Välj TCP som protokoll, Port 620 **00**, Behåll intervallet 5 och tröskelvärde 2
          1. Klicka på OK
-      1. Port 621**02** för ASCS ers
-         * Upprepa stegen ovan för att skapa en hälso avsökning för ERS (till exempel 621**02** och **NW1-AERS-HP**)
+      1. Port 621 **02** för ASCS ers
+         * Upprepa stegen ovan för att skapa en hälso avsökning för ERS (till exempel 621 **02** och **NW1-AERS-HP**)
    1. Belastnings Utjämnings regler
       1. Regler för belastnings utjämning för ASCS
          1. Öppna belastningsutjämnaren, Välj belastnings Utjämnings regler och klicka på Lägg till
@@ -227,15 +228,15 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
       1. Välj virtuella datorer för (A) SCS-klustret
       1. Klicka på OK
    1. Skapa hälso avsökningar
-      1. Port 620**00** för ASCS
+      1. Port 620 **00** för ASCS
          1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
          1. Ange namnet på den nya hälso avsökningen (till exempel **NW1-ASCs-HP**)
-         1. Välj TCP som protokoll, Port 620**00**, Behåll intervallet 5 och tröskelvärde 2
+         1. Välj TCP som protokoll, Port 620 **00**, Behåll intervallet 5 och tröskelvärde 2
          1. Klicka på OK
-      1. Port 621**02** för ASCS ers
-         * Upprepa stegen ovan för att skapa en hälso avsökning för ERS (till exempel 621**02** och **NW1-AERS-HP**)
+      1. Port 621 **02** för ASCS ers
+         * Upprepa stegen ovan för att skapa en hälso avsökning för ERS (till exempel 621 **02** och **NW1-AERS-HP**)
    1. Belastnings Utjämnings regler
-      1. 32**00** TCP för ASCS
+      1. 32 **00** TCP för ASCS
          1. Öppna belastningsutjämnaren, Välj belastnings Utjämnings regler och klicka på Lägg till
          1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel **NW1 – lb-3200**)
          1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **NW1-ASCs-frontend**)
@@ -244,9 +245,9 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
          1. **Se till att aktivera flytande IP**
          1. Klicka på OK
       1. Ytterligare portar för ASCS
-         * Upprepa stegen ovan för portarna 36**00**, 39**00**, 81**00**, 5**00**13, 5**00 14,** 5**00**16 och TCP för ASCS
+         * Upprepa stegen ovan för portarna 36 **00**, 39 **00**, 81 **00**, 5 **00** 13, 5 **00 14,** 5 **00** 16 och TCP för ASCS
       1. Ytterligare portar för ASCS-ERS
-         * Upprepa stegen ovan för portarna 33**02**, 5**02**13, 5**02**14, 5**02**16 och TCP för ASCS-ers
+         * Upprepa stegen ovan för portarna 33 **02**, 5 **02** 13, 5 **02** 14, 5 **02** 16 och TCP för ASCS-ers
 
 > [!IMPORTANT]
 > Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.  
@@ -450,7 +451,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   Om installationen Miss lyckas med att skapa en undermapp i/usr/SAP/**NW1**/ASCS**00**, så försök att ange ägare och grupp för mappen ASCS**00** och försök igen.
+   Om installationen Miss lyckas med att skapa en undermapp i/usr/SAP/**NW1**/ASCS **00**, så försök att ange ägare och grupp för mappen ASCS **00** och försök igen.
 
    <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
@@ -507,7 +508,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    > [!NOTE]
    > Använd SWPM SP 20 PL 05 eller högre. Lägre versioner ställer inte in behörigheterna korrekt och installationen kommer inte att fungera.
 
-   Om installationen Miss lyckas med att skapa en undermapp i/usr/SAP/**NW1**/ers**02**, kan du försöka att ange ägare och grupp för ers**02** -mappen och försöka igen.
+   Om installationen Miss lyckas med att skapa en undermapp i/usr/SAP/**NW1**/ers **02**, kan du försöka att ange ägare och grupp för ers **02** -mappen och försöka igen.
 
    <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>

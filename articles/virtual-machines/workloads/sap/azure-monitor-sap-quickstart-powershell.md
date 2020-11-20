@@ -5,23 +5,24 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: quickstart
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.devlang: azurepowershell
 ms.date: 09/08/2020
 ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 466883de31f0967f593c3c1abf5c1725bc327e41
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 28b26b8d4d6acdffb4083d182c6a0ce0539080c9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994113"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957375"
 ---
 # <a name="quickstart-deploy-azure-monitor-for-sap-solutions-with-azure-powershell"></a>Snabb start: Distribuera Azure Monitor för SAP-lösningar med Azure PowerShell
 
 I den här artikeln beskrivs hur du kan skapa Azure Monitor för resurser för SAP-lösningar med PowerShell-modulen [AZ. HanaOnAzure](/powershell/module/az.hanaonazure/#sap-hana-on-azure) .
 
 > [!CAUTION]
-> Azure Monitor for SAP-lösningar finns för närvarande i offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal. Det rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Monitor for SAP-lösningar finns för närvarande i offentlig för hands version. Förhandsversionen tillhandahålls utan serviceavtal. Den rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Krav
 

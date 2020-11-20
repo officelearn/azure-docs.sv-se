@@ -3,16 +3,17 @@ title: SAP Business One på Azure Virtual Machines | Microsoft Docs
 description: SAP Business One på Azure.
 author: msjuergent
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: b076045f6a106f77717159d3095ffd5973ab27aa
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 1201ff91634a1f63c8fe0e545ca6d6dee33abe35
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359892"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957392"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One på Azure Virtual Machines
 Det här dokumentet innehåller rikt linjer för att distribuera SAP Business One på Azure Virtual Machines. Dokumentationen ersätter inte installations dokumentationen för Business One för SAP. Dokumentationen bör avse grundläggande planerings-och distributions rikt linjer för Azure-infrastrukturen för att köra företag ett program på.
@@ -23,7 +24,7 @@ Företag One har stöd för två olika databaser:
 
 Vad gäller SQL Server gäller grundläggande distribution av distributioner som dokumenteras i [Azure Virtual Machines DBMS-distribution för SAP NetWeaver](./dbms_guide_general.md) . för SAP HANA beskrivs överväganden i det här dokumentet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill använda den här guiden behöver du grundläggande kunskaper om följande Azure-komponenter:
 
 - [Virtuella Azure-datorer i Windows](../../windows/tutorial-manage-vm.md)

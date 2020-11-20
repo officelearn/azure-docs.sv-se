@@ -8,12 +8,13 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 9189be5f2f513cd27fe8783d6a1825aac016522c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.subservice: workloads
+ms.openlocfilehash: ad3dbd8cdc6fff7eca8c24bb6e5258022d52cb9b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677738"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959466"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Installera TmaxSoft OpenFrame på Azure
 
@@ -96,7 +97,7 @@ Sol förmörkelse för Windows: en utvecklings plattform som stöds av TmaxSoft<
 
 <!-- markdownlint-enable MD033 -->
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Planera på att ägna några dagar åt att sätta samman all nödvändig program vara och slutföra alla manuella processer.
 
@@ -118,15 +119,15 @@ Du kan konfigurera OpenFrame-miljön med olika distributions mönster, men i fö
 
 1. Gå till Azure Portal på <https://portal.azure.com> och logga in på ditt konto.
 
-2. Klicka på **Virtuella datorer** .
+2. Klicka på **Virtuella datorer**.
 
     ![Resurs lista i Azure Portal](media/vm-01.png)
 
-3. Klicka på **Lägg till** .
+3. Klicka på **Lägg till**.
 
     ![Lägg till alternativ i Azure Portal](media/vm-02.png)
 
-4. Till höger om **operativ system** klickar du på **mer** .
+4. Till höger om **operativ system** klickar du på **mer**.
 
      ![Fler alternativ i Azure Portal](media/vm-03.png)
 
@@ -134,9 +135,9 @@ Du kan konfigurera OpenFrame-miljön med olika distributions mönster, men i fö
 
      ![Alternativ för operativ system i Azure Portal](media/vm-04.png)
 
-6. I **grundläggande** inställningar anger du **namn** , **användar namn** , **Autentiseringstyp** , **prenumeration** (betala per användning är betalnings sätten AWS) och **resurs grupp** (Använd en befintlig eller skapa en TmaxSoft-grupp).
+6. I **grundläggande** inställningar anger du **namn**, **användar namn**, **Autentiseringstyp**, **prenumeration** (betala per användning är betalnings sätten AWS) och **resurs grupp** (Använd en befintlig eller skapa en TmaxSoft-grupp).
 
-7. När du är klar (inklusive det offentliga/privata nyckel paret för **Autentiseringstyp** ) klickar du på **Skicka** .
+7. När du är klar (inklusive det offentliga/privata nyckel paret för **Autentiseringstyp**) klickar du på **Skicka**.
 
 > [!NOTE]
 > Om du använder en offentlig SSH-nyckel för **Autentiseringstyp** kan du läsa stegen i nästa avsnitt för att generera det offentliga/privata nyckel paret och sedan återuppta stegen här.
@@ -162,7 +163,7 @@ När du ger nya individer åtkomst till den virtuella datorn:
 
     ![SparaTillFil-gränssnitt](media/puttygen-01.png)
 
-3.  Klicka på **Generera** .
+3.  Klicka på **Generera**.
 
     ![Skärm bild som visar dialog rutan för dialog rutan SparaTillFil-nyckel och markerar knappen generera.](media/puttygen-02.png)
 
@@ -183,13 +184,13 @@ När du ger nya individer åtkomst till den virtuella datorn:
 
 4. Skicka in dina val. Azure börjar distribuera den virtuella datorn. Den här processen tar vanligt vis några minuter.
 
-5. När den virtuella datorn distribueras visas instrument panelen med alla inställningar som valdes under konfigurationen. Anteckna den **offentliga IP-adressen** .
+5. När den virtuella datorn distribueras visas instrument panelen med alla inställningar som valdes under konfigurationen. Anteckna den **offentliga IP-adressen**.
 
     ![Tmax på Azure-instrumentpanelen](media/create-vm-03.png)
 
 6. Öppna PuTTY.
 
-7. För **värdnamn** skriver du ditt användar namn och den offentliga IP-adress som du kopierade. Till exempel **username \@ publicip** .
+7. För **värdnamn** skriver du ditt användar namn och den offentliga IP-adress som du kopierade. Till exempel **username \@ publicip**.
 
     ![Skärm bild som visar dialog rutan SparaTillFil-konfiguration och markerar fältet värd namn (eller IP-adress).](media/putty-01.png)
 
@@ -199,7 +200,7 @@ När du ger nya individer åtkomst till den virtuella datorn:
 
 9. Starta fönstret SparaTillFil genom att klicka på **Öppna** . Om det lyckas är du ansluten till din nya virtuella CentOS-dator som körs på Azure.
 
-10. Om du vill logga in som rot användare skriver du **sudo bash** .
+10. Om du vill logga in som rot användare skriver du **sudo bash**.
 
     ![Inloggning av rot användare i kommando fönstret](media/putty-03.png)
 
@@ -1359,7 +1360,7 @@ Innan du installerar JEUS installerar du Apache Ant-paketet som tillhandahåller
      [oframe7@ofdemo setup]$ . .bash_profile
      ```
 
-11. *Valfritt* . Skapa ett alias för enkel avstängning och start av JEUS-komponenter:
+11. *Valfritt*. Skapa ett alias för enkel avstängning och start av JEUS-komponenter:
 
      ```     
      # JEUS alias
@@ -1389,11 +1390,11 @@ Innan du installerar JEUS installerar du Apache Ant-paketet som tillhandahåller
      > [!NOTE]
      > Om du får problem med port säkerhet öppnar du Port 9736 eller inaktiverar brand väggen ( `systemctl stop firewall` ).
 
-14. Om du vill ändra värdnamn för server1 klickar du på **lås & redigera** och klickar sedan på **server1** . I Server-fönstret ändrar du värdnamn enligt följande:
+14. Om du vill ändra värdnamn för server1 klickar du på **lås & redigera** och klickar sedan på **server1**. I Server-fönstret ändrar du värdnamn enligt följande:
 
-    1.  Ändra **nodnamn** till **ofdemo** .
+    1.  Ändra **nodnamn** till **ofdemo**.
     2.  Klicka på **OK** på höger sida av fönstret.
-    3.  Klicka på **Verkställ ändringar** på den nedre vänstra sidan i fönstret och för Beskrivning anger du *hostname-ändring* .
+    3.  Klicka på **Verkställ ändringar** på den nedre vänstra sidan i fönstret och för Beskrivning anger du *hostname-ändring*.
 
     ![JEUS webadmin-skärmen](media/jeus-02.png)
 

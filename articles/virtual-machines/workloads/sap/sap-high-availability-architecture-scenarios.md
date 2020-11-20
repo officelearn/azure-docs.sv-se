@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c837a4020ab1aaad1798d6b19e72e09edafea1f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b409254abbde1c1f6156052c49a07e6cc09a4dfd
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360360"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958786"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arkitektur och scenarier med hög tillgänglighet för SAP NetWeaver
 
@@ -272,7 +273,7 @@ Exempel:
 (99,95/100) * (99,9/100) * (99,9/100) = 0,9975 eller en övergripande tillgänglighet på 99,75%.
 
 ### <a name="multiple-instances-of-virtual-machines-in-the-same-availability-set"></a>Flera instanser av virtuella datorer i samma tillgänglighets uppsättning
-För alla virtuella datorer som har två eller fler distribuerade instanser i samma *tillgänglighets uppsättning*garanterar vi att du kommer att ha virtuell dator anslutning till minst en instans minst 99,95% av tiden.
+För alla virtuella datorer som har två eller fler distribuerade instanser i samma *tillgänglighets uppsättning* garanterar vi att du kommer att ha virtuell dator anslutning till minst en instans minst 99,95% av tiden.
 
 När två eller flera virtuella datorer ingår i samma tillgänglighets uppsättning tilldelas varje virtuell dator i tillgänglighets uppsättningen en *uppdaterings domän* och en *feldomän* av den underliggande Azure-plattformen.
 
@@ -310,7 +311,7 @@ Två typer av Azure Platform-händelser kan påverka tillgängligheten för dina
 
 Mer information finns i [Hantera tillgängligheten för virtuella Windows-datorer i Azure][azure-virtual-machines-manage-availability].
 
-### <a name="azure-storage-redundancy"></a>Azure Storage redundans
+### <a name="azure-storage-redundancy"></a>Redundans i Azure Storage
 Data i ditt lagrings konto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet, vilket uppfyller Azure Storage Service nivå avtal även i de flesta tillfälliga maskin varu haverier.
 
 Eftersom Azure Storage behåller tre avbildningar av data som standard är användningen av RAID 5 eller RAID 1 på flera Azure-diskar onödig.

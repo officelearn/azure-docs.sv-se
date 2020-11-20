@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.author: normesta
-ms.openlocfilehash: a5cdeba654440e666bc79df361b3f90db8a73b0a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 3ddcbe57112251a428e11d6c164cdb1224553f98
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578656"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959211"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Åtkomst kontroll modell i Azure Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ Följande roller tillåter ett säkerhets objekt att komma åt data i ett lagrin
 | [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Läsa, skriva och ta bort åtkomst till Blob Storage-behållare och blobbar. Den här åtkomsten tillåter inte att säkerhetsobjektet anger ägarskapet för ett objekt, men det kan ändra ACL för objekt som ägs av säkerhets objekt. |
 | [Storage Blob Data-läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Läsa och lista Blob Storage-behållare och blobbar. |
 
-Roller som [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)och [lagrings konto deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) tillåter ett säkerhets objekt att hantera ett lagrings konto, men ger inte åtkomst till data i det kontot. Dessa roller (exklusive **läsare** ) kan dock få åtkomst till lagrings nycklarna som kan användas i olika klient verktyg för att få åtkomst till data.
+Roller som [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)och [lagrings konto deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) tillåter ett säkerhets objekt att hantera ett lagrings konto, men ger inte åtkomst till data i det kontot. Dessa roller (exklusive **läsare**) kan dock få åtkomst till lagrings nycklarna som kan användas i olika klient verktyg för att få åtkomst till data.
 
 ## <a name="access-control-lists-acls"></a>Åtkomstkontrollistor (ACL)
 
@@ -53,16 +53,16 @@ ACL: er ger dig möjlighet att använda "finare kornig het"-åtkomst till katalo
 
 Under säkerhetsobjektbaserade auktorisering utvärderas behörigheter i följande ordning.
 
-: en: &nbsp; &nbsp; roll tilldelningar för Azure RBAC utvärderas först och prioriteras över alla ACL-tilldelningar.
+: en: &nbsp; &nbsp; Azure roles-tilldelningar utvärderas först och prioriteras över alla ACL-tilldelningar.
 
-: två: &nbsp; &nbsp; om åtgärden är fullständigt auktoriserad baserat på Azure RBAC-roll tilldelningen utvärderas inte ACL: er alls.
+: två: &nbsp; &nbsp; om åtgärden är fullständigt auktoriserad baserat på roll tilldelningen i Azure utvärderas ACL: er inte alls.
 
 : tre: &nbsp; &nbsp; om åtgärden inte är fullständigt auktoriserad utvärderas ACL: er.
 
 > [!div class="mx-imgBorder"]
 > ![behörighets flöde för data Lake Storage](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-På grund av hur åtkomst behörigheterna utvärderas av systemet **kan du inte** använda en ACL för att **begränsa** åtkomsten som redan har beviljats av en roll tilldelning. Det beror på att systemet utvärderar roll tilldelningar för Azure RBAC först, och om tilldelningen ger tillräcklig åtkomst behörighet ignoreras ACL: er. 
+På grund av hur åtkomst behörigheterna utvärderas av systemet **kan du inte** använda en ACL för att **begränsa** åtkomsten som redan har beviljats av en roll tilldelning. Det beror på att systemet utvärderar Azure Role-tilldelningar först, och om tilldelningen ger tillräcklig åtkomst behörighet ignoreras ACL: er. 
 
 Följande diagram visar behörighets flödet för tre vanliga åtgärder: Visa katalog innehåll, läsa en fil och skriva en fil.
 
@@ -71,7 +71,7 @@ Följande diagram visar behörighets flödet för tre vanliga åtgärder: Visa k
 
 ## <a name="permissions-table-combining-azure-rbac-and-acl"></a>Behörighets tabell: kombinera Azure RBAC och ACL
 
-I följande tabell visas hur du kombinerar Azure RBAC-roller och ACL-poster så att ett säkerhets objekt kan utföra de åtgärder som anges i kolumnen **operation** . I den här tabellen visas en kolumn som representerar varje nivå i en fiktiv katalog-hierarki. Det finns en kolumn för behållarens rot Katalog ( `/` ), en under katalog med namnet " **Oregon** Göteborg", en under katalog till katalogen Göteborg, som heter **Göteborg** och en textfil i katalogen Göteborg med namnet **Data.txt**. De som visas i dessa kolumner är [korta formulär](data-lake-storage-access-control.md#short-forms-for-permissions) som representeras av ACL-posten som krävs för att bevilja behörigheter. **Ej** _tillämpligt (ej tillämpligt_ ) visas i kolumnen om det inte krävs någon ACL-post för att utföra åtgärden.
+I följande tabell visas hur du kombinerar Azure-roller och ACL-poster så att ett säkerhets objekt kan utföra de åtgärder som anges i kolumnen **operation** . I den här tabellen visas en kolumn som representerar varje nivå i en fiktiv katalog-hierarki. Det finns en kolumn för behållarens rot Katalog ( `/` ), en under katalog med namnet " **Oregon** Göteborg", en under katalog till katalogen Göteborg, som heter **Göteborg** och en textfil i katalogen Göteborg med namnet **Data.txt**. De som visas i dessa kolumner är [korta formulär](data-lake-storage-access-control.md#short-forms-for-permissions) som representeras av ACL-posten som krävs för att bevilja behörigheter. **Ej** _tillämpligt (ej tillämpligt_) visas i kolumnen om det inte krävs någon ACL-post för att utföra åtgärden.
 
 |    Åtgärd             | Tilldelad RBAC-roll               |    /        | Oregon     | Portland | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
@@ -112,7 +112,7 @@ I följande tabell visas hur du kombinerar Azure RBAC-roller och ACL-poster så 
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)]
 
-## <a name="limits-on-azure-rbac-role-assignments-and-acl-entries"></a>Gränser för Azure RBAC-roll tilldelningar och ACL-poster
+## <a name="limits-on-azure-role-assignments-and-acl-entries"></a>Gränser för roll tilldelningar i Azure och ACL-poster
 
 Genom att använda grupper kan du minska det högsta antalet roll tilldelningar per prenumeration och maximalt antal ACL-poster per fil eller katalog. I följande tabell beskrivs dessa gränser.
 

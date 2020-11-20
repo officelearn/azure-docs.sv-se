@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998581"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959789"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Stöd för Azure IoT Hub Device Provisioning Service (DPS) för virtuella nätverk
 
@@ -38,12 +38,12 @@ Av flera skäl kan kunderna vilja begränsa anslutningarna till Azure-resurser, 
 
 Vanliga metoder för att begränsa anslutningen är [IP-filter för DPS](./iot-dps-ip-filtering.md) och virtuella nätverk (VNet) med [privata slut punkter](../private-link/private-endpoint-overview.md). Målet med den här artikeln är att beskriva VNET-metoden för DPS med hjälp av privata slut punkter. 
 
-Enheter som arbetar i lokala nätverk kan använda [virtuella privata nätverk (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) eller [ExpressRoute](https://azure.microsoft.com/services/expressroute/) privata peering för att ansluta till ett VNet i Azure och få åtkomst till DPS-resurser via privata slut punkter. 
+Enheter som arbetar i lokala nätverk kan använda [virtuella privata nätverk (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](https://azure.microsoft.com/services/expressroute/) privata peering för att ansluta till ett VNet i Azure och få åtkomst till DPS-resurser via privata slut punkter. 
 
 En privat slut punkt är en privat IP-adress som tilldelas i ett kundägda VNET som en Azure-resurs kan komma åt. Genom att ha en privat slut punkt för din DPS-resurs kommer du att kunna tillåta att enheter som körs i ditt VNET för att begära etablering av DPS-resursen utan att tillåta trafik till den offentliga slut punkten.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du fortsätter kontrollerar du att följande krav uppfylls:
 
@@ -51,7 +51,7 @@ Innan du fortsätter kontrollerar du att följande krav uppfylls:
 
 * Du har skapat ett Azure VNET med ett undernät där den privata slut punkten ska skapas. Mer information finns i [skapa ett virtuellt nätverk med Azure CLI](../virtual-network/quick-create-cli.md).
 
-* För enheter som arbetar i lokala nätverk ställer du in [VPN (virtuellt privat nätverk)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) eller [ExpressRoute](https://azure.microsoft.com/services/expressroute/) privat peering i ditt Azure VNet.
+* För enheter som arbetar i lokala nätverk ställer du in [VPN (virtuellt privat nätverk)](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](https://azure.microsoft.com/services/expressroute/) privat peering i ditt Azure VNet.
 
 ## <a name="private-endpoint-limitations"></a>Begränsningar för privata slut punkter
 
@@ -105,7 +105,7 @@ Följ dessa steg om du vill konfigurera en privat slut punkt:
 
 4. På sidan _skapa en privat slut punkts konfiguration_ väljer du ditt virtuella nätverk och undernät för att skapa den privata slut punkten i.
  
-    Klicka på **Nästa: Taggar**och om du vill kan du även ange taggar för resursen.
+    Klicka på **Nästa: Taggar** och om du vill kan du även ange taggar för resursen.
 
     ![Konfigurera privat slut punkt](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
@@ -135,7 +135,7 @@ Du kan begära en privat slut punkt till en DPS-resurs per resurs-ID. För att k
 
 3. På sidan _skapa en privat slut punkts konfiguration_ väljer du det virtuella nätverket och under nätet för att skapa den privata slut punkten i.
  
-    Klicka på **Nästa: Taggar**och om du vill kan du även ange taggar för resursen.
+    Klicka på **Nästa: Taggar** och om du vill kan du även ange taggar för resursen.
 
 4. Klicka på **Granska + skapa** och **skapa** för att skapa din begäran om privat slut punkt.
 
@@ -154,5 +154,5 @@ Pris information finns i [priser för privata Azure-länkar](https://azure.micro
 
 Använd länkarna nedan för att lära dig mer om DPS-säkerhetsfunktioner:
 
-* [Säkerhet](concepts-security.md)
+* [Säkerhet](./concepts-service.md#attestation-mechanism)
 * [Stöd för TLS 1,2](tls-support.md)

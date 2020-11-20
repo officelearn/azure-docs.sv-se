@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7e9d73fa94acd2f31452de05ef3caee92d5cf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2214f085c30419cefb3f6f84139d5592873173f7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055511"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960129"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>En introduktion till StorSimple Snapshot Manager
 
@@ -79,7 +79,7 @@ Med StorSimple Snapshot Manager skapar du volymer och konfigurerar dem sedan til
 
 StorSimple Snapshot Manager använder volym grupper för att skapa säkerhets kopior som är programkonsekventa. Program konsekvens finns när alla relaterade filer och databaser synkroniseras och representerar det sanna läget för ett program vid en specifik tidpunkt. Volym grupper (som även kallas *konsekvens grupper*) utgör grunden för en säkerhets kopierings-eller återställnings jobb.
 
-Volym grupper är inte desamma som volym behållare. En volym container innehåller en eller flera volymer som delar ett moln lagrings konto och andra attribut, t. ex. kryptering och bandbredds användning. En behållare med en enda volym kan innehålla upp till 256 tunt allokerade StorSimple-volymer. Mer information om volym behållare finns i [Hantera dina volym behållare](storsimple-manage-volume-containers.md). Volym grupper är samlingar av volymer som du konfigurerar för att under lätta säkerhets kopierings åtgärder. Om du väljer två volymer som tillhör olika volym behållare placerar du dem i en enda volym grupp och skapar sedan en säkerhets kopierings princip för volym gruppen. varje volym säkerhets kopie ras i lämplig volym behållare med hjälp av lämpligt lagrings konto.
+Volym grupper är inte desamma som volym behållare. En volym container innehåller en eller flera volymer som delar ett moln lagrings konto och andra attribut, t. ex. kryptering och bandbredds användning. En behållare med en enda volym kan innehålla upp till 256 tunt allokerade StorSimple-volymer. Mer information om volym behållare finns i [Hantera dina volym behållare](./storsimple-8000-manage-volume-containers.md). Volym grupper är samlingar av volymer som du konfigurerar för att under lätta säkerhets kopierings åtgärder. Om du väljer två volymer som tillhör olika volym behållare placerar du dem i en enda volym grupp och skapar sedan en säkerhets kopierings princip för volym gruppen. varje volym säkerhets kopie ras i lämplig volym behållare med hjälp av lämpligt lagrings konto.
 
 > [!NOTE]
 > Alla volymer i en volym grupp måste komma från en enda moln tjänst leverantör.
@@ -140,4 +140,3 @@ Information om övervakning av säkerhets kopierings jobb finns i [använda Stor
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om hur du [använder StorSimple Snapshot Manager för att administrera din StorSimple-lösning](storsimple-snapshot-manager-admin.md).
 * Hämta [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
-

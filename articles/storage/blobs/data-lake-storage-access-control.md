@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 03117b9f0c3cbaea22f36703f689264549b851e8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320477"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959143"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Åtkomst kontrol listor (ACL: er) i Azure Data Lake Storage Gen2
 
@@ -34,7 +34,7 @@ Om du vill ange behörigheter för fil-och katalog nivå kan du läsa följande 
 
 | Miljö | Artikel |
 |--------|-----------|
-|Azure Lagringsutforskaren |[Använda Azure Storage Explorer till att hantera kataloger, filer och åtkomstkontrollistor i Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|Azure Storage Explorer |[Använda Azure Storage Explorer till att hantera kataloger, filer och åtkomstkontrollistor i Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Använd .NET för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
 |Java|[Använd Java för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
 |Python|[Använd python för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
@@ -60,7 +60,7 @@ Både åtkomst-ACL: er och standard-ACL: er har samma struktur.
 
 ## <a name="levels-of-permission"></a>Behörighets nivåer
 
-Behörigheterna för ett behållar objekt är **läsa**, **skriva**och **köra**och de kan användas på filer och kataloger som visas i följande tabell:
+Behörigheterna för ett behållar objekt är **läsa**, **skriva** och **köra** och de kan användas på filer och kataloger som visas i följande tabell:
 
 |            |    Fil     |   Katalog |
 |------------|-------------|----------|
@@ -73,7 +73,7 @@ Behörigheterna för ett behållar objekt är **läsa**, **skriva**och **köra**
 
 ### <a name="short-forms-for-permissions"></a>Kortformat för behörigheter
 
-**RWX**används för att ange **läsa + skriva + köra**. Ett numeriskt mer komprimerat format finns där **Läsa = 4**, **skriva = 2** och **Köra = 1** och deras summa representerar behörigheterna. Här följer några exempel.
+**RWX** används för att ange **läsa + skriva + köra**. Ett numeriskt mer komprimerat format finns där **Läsa = 4**, **skriva = 2** och **Köra = 1** och deras summa representerar behörigheterna. Här följer några exempel.
 
 | Numeriskt format | Kortformat |      Vad det innebär     |
 |--------------|------------|------------------------|
@@ -90,9 +90,9 @@ I POSIX-format modellen som används av Data Lake Storage Gen2 lagras behörighe
 
 I följande tabell visas de ACL-poster som krävs för att aktivera ett säkerhets objekt för att utföra de åtgärder som anges i kolumnen **operation** . 
 
-I den här tabellen visas en kolumn som representerar varje nivå i en fiktiv katalog-hierarki. Det finns en kolumn för behållarens rot Katalog ( `\` ), en under katalog med namnet " **Oregon**Göteborg", en under katalog till katalogen Göteborg, som heter **Göteborg**och en textfil i katalogen Göteborg med namnet **Data.txt**. 
+I den här tabellen visas en kolumn som representerar varje nivå i en fiktiv katalog-hierarki. Det finns en kolumn för behållarens rot Katalog ( `\` ), en under katalog med namnet " **Oregon** Göteborg", en under katalog till katalogen Göteborg, som heter **Göteborg** och en textfil i katalogen Göteborg med namnet **Data.txt**. 
 
-> [! IMPORANT] den här tabellen förutsätter att du **bara** använder ACL: er utan några Azure RBAC-roll tilldelningar. Om du vill se en liknande tabell som kombinerar Azure RBAC tillsammans med ACL: er, se [behörighets tabell: kombinera Azure RBAC och ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> [! IMPORANT] den här tabellen förutsätter att du **bara** använder ACL: er utan några Azure Role-tilldelningar. Om du vill se en liknande tabell som kombinerar Azure RBAC tillsammans med ACL: er, se [behörighets tabell: kombinera Azure RBAC och ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Åtgärd             |    /    | Oregon | Portland | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -199,11 +199,11 @@ Som illustreras i algoritmen för åtkomst kontroll begränsar masken åtkomsten
 
 För en ny Data Lake Storage Gen2-behållare är masken för åtkomst-ACL: en för rot katalogen ("/") standardvärdet **750** för kataloger och **640** för filer. I följande tabell visas den symboliska notationen för dessa behörighets nivåer.
 
-|Entitet|Kataloger|Filer|
+|Entitet|Kataloger|Files|
 |--|--|--|
 |Ägande användare|`rwx`|`r-w`|
 |Ägande grupp|`r-x`|`r--`|
-|Övrigt|`---`|`---`|
+|Annat|`---`|`---`|
 
 Filerna tar inte emot X-biten eftersom det är irrelevant för filer i ett system för endast lagring. 
 
@@ -224,7 +224,7 @@ När en ny fil eller katalog skapas under en befintlig katalog, fastställer sta
 
 ### <a name="umask"></a>umask
 
-När du skapar en fil eller katalog, används umask för att ändra hur standard-ACL: erna anges för det underordnade objektet. umask är ett 9-bitars värde i överordnade kataloger som innehåller ett RWX-värde för **ägande användare**, **ägande grupp**och **annat**.
+När du skapar en fil eller katalog, används umask för att ändra hur standard-ACL: erna anges för det underordnade objektet. umask är ett 9-bitars värde i överordnade kataloger som innehåller ett RWX-värde för **ägande användare**, **ägande grupp** och **annat**.
 
 Umask för Azure Data Lake Storage Gen2 ett konstant värde som är inställt på 007. Det här värdet översätts till:
 
@@ -270,7 +270,7 @@ Om HNS är inaktiverat används fortfarande Azure Azure RBAC-auktoriseringsregle
 
 Om du vill veta hur systemet utvärderar Azure RBAC och ACL: er tillsammans för att fatta auktoriseringsbeslut för lagrings konto resurser, se [hur behörigheter utvärderas](data-lake-storage-access-control-model.md#how-permissions-are-evaluated).
 
-### <a name="what-are-the-limits-for-azure-rbac-role-assignments-and-acl-entries"></a>Vilka är gränserna för Azure RBAC-roll tilldelningar och ACL-poster?
+### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Vilka är gränserna för roll tilldelningar i Azure och ACL-poster?
 
 Följande tabell innehåller en sammanfattning av gränserna för att överväga när du använder Azure RBAC för att hantera "avkorniga" behörigheter (behörigheter som gäller för lagrings konton eller behållare) och använder ACL: er för att hantera "detaljerade" behörigheter (behörigheter som gäller för filer och kataloger). Använd säkerhets grupper för ACL-tilldelningar. Genom att använda grupper kan du minska det högsta antalet roll tilldelningar per prenumeration och maximalt antal ACl-poster per fil eller katalog. 
 

@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
-ms.openlocfilehash: cd974377637f535383c4e099ac408bea88f887a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90b0ab4fdabd40e803d1f85a640e4cb387e40c44
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88853115"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958956"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer i Windows med Azure NetApp Files (SMB) för SAP-program
 
@@ -146,7 +147,7 @@ Du behöver följande program vara från SAP:
 1. Installera en SAP ASCS/SCS-instans på den första klusternoden. Starta installations verktyget för SAP-SWPM och gå sedan till: **produkt**-  >  **DBMS** > installation > program Server ABAP (eller Java) > High-Availability system > ASCS/SCS-instans > första klusternoden.  
 
 2. Välj **fil resurs kluster** som kluster resurs konfiguration i SWPM.  
-3. När du uppmanas till steg **SAP-systemets kluster parametrar**anger du värd namnet för den Azure NetApp Files SMB-resurs som du redan har skapat som **fil resurs värd namn**.  I det här exemplet är SMB-resursens värdnamn **anfsmb-9562**. 
+3. När du uppmanas till steg **SAP-systemets kluster parametrar** anger du värd namnet för den Azure NetApp Files SMB-resurs som du redan har skapat som **fil resurs värd namn**.  I det här exemplet är SMB-resursens värdnamn **anfsmb-9562**. 
 
    > [!IMPORTANT]
    > Om krav kontrollen i SWPM visar att funktions villkoret för kontinuerlig tillgänglighet inte uppfylls, kan du lösa det genom att följa anvisningarna i [fördröjt fel meddelande när du försöker komma åt en delad mapp som inte längre finns i Windows](https://support.microsoft.com/help/2820470/delayed-error-message-when-you-try-to-access-a-shared-folder-that-no-l).  

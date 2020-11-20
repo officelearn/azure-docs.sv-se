@@ -9,23 +9,24 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec7337ad798d586cb93bd13e60ead1ef9f2a4abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0695af6922182aa8be7acfb4b0a931bed35ef7d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857256"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959313"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Självstudie: skicka data via transparent Gateway
-
-> [!NOTE]
-> Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Om du har kommit till den här artikeln direkt rekommenderar vi att du börjar med den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien för bästa möjliga resultat.
 
 I den här artikeln använder vi den virtuella utvecklings datorn igen som en simulerad enhet. I stället för att skicka data direkt till IoT Hub skickar enheten data till den IoT Edge enheten som kon figurer ATS som en transparent Gateway.
 
 Vi övervakar IoT Edge enhetens funktion medan den simulerade enheten skickar data. När enheten har körts klart tittar vi på data i vårt lagrings konto för att kontrol lera att allt fungerade som förväntat.
 
 Det här steget utförs vanligt vis av en moln-eller enhets utvecklare.
+
+## <a name="prerequisites"></a>Krav
+
+Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Varje artikel i serien bygger på arbetet i föregående artikel. Om du har kommit till den här artikeln direkt kan du gå till den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien.
 
 ## <a name="review-device-harness"></a>Granska enhetens nät
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: ae87771e8a557ad7cb58c9cad9231784606cdd74
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 25f4ae0dbfd7827a36dede6a889c342ea490e273
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426551"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948484"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga frågor och svar om Trafikanalys
 
@@ -58,7 +58,7 @@ Så här kontrollerar du roller som har tilldelats en användare för en prenume
 
 3. Om du vill visa en lista över alla roller som har tilldelats en angiven användare använder du  **Get-AzRoleAssignment-SignInName [user email]-IncludeClassicAdministrators**. 
 
-Om du inte ser några utdata kan du kontakta respektive prenumerations administratör för att få åtkomst till att köra kommandona. Mer information finns i [lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+Om du inte ser några utdata kan du kontakta respektive prenumerations administratör för att få åtkomst till att köra kommandona. Mer information finns i [lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>I vilka Azure-regioner är Trafikanalys tillgängliga?
@@ -126,7 +126,7 @@ Ja.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Kan jag använda en befintlig arbets yta?
 
-Ja. Om du väljer en befintlig arbets yta ser du till att den har migrerats till det nya frågespråket. Om du inte vill uppgradera arbets ytan måste du skapa en ny. Mer information om det nya frågespråket finns [Azure Monitor loggar uppgradera till ny loggs ökning](../log-analytics/log-analytics-log-search-upgrade.md).
+Ja. Om du väljer en befintlig arbets yta ser du till att den har migrerats till det nya frågespråket. Om du inte vill uppgradera arbets ytan måste du skapa en ny. Mer information om det nya frågespråket finns [Azure Monitor loggar uppgradera till ny loggs ökning](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Kan mitt Azure Storage konto finnas i en prenumeration och min Log Analytics arbets yta är i en annan prenumeration?
 
@@ -176,7 +176,7 @@ Du ser resurs informationen på instrument panelen. Det finns dock ingen flödes
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Kan jag konfigurera trafik analys med PowerShell eller en Azure Resource Manager mall eller klient?
 
-Du kan konfigurera trafik analys med hjälp av Windows PowerShell från version 6.2.1 och senare. Om du vill konfigurera flödes loggning och trafik analys för en speciell NSG med hjälp av Set-cmdleten, se [set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). För att hämta flödes loggning och trafik analys status för en speciell NSG, se [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+Du kan konfigurera trafik analys med hjälp av Windows PowerShell från version 6.2.1 och senare. Om du vill konfigurera flödes loggning och trafik analys för en speciell NSG med hjälp av Set-cmdleten, se [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). För att hämta flödes loggning och trafik analys status för en speciell NSG, se [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 För närvarande kan du inte använda en Azure Resource Manager mall för att konfigurera trafik analys.
 
@@ -250,7 +250,7 @@ Till exempel, enligt [pris Planen](https://azure.microsoft.com/pricing/details/n
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Hur ofta Trafikanalys bearbetar data?
 
-Referera till [avsnittet data agg regering](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) i trafikanalys schema och data agg regerings dokument
+Referera till [avsnittet data agg regering](./traffic-analytics-schema.md#data-aggregation) i trafikanalys schema och data agg regerings dokument
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Hur avgör Trafikanalys att en IP-adress är skadlig? 
 
@@ -262,7 +262,7 @@ Trafikanalys har inte inbyggt stöd för aviseringar. Men eftersom Trafikanalys 
 - Du kan använda kortlänk för Log Analytics i Trafikanalys. 
 - Använd [schemat som beskrivs här](traffic-analytics-schema.md) för att skriva dina frågor 
 - Klicka på ny varnings regel för att skapa aviseringen
-- Använd [logg aviserings dokumentationen](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) för att skapa aviseringen
+- Använd [logg aviserings dokumentationen](../azure-monitor/platform/alerts-log.md) för att skapa aviseringen
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Hur gör jag för att kontrol lera vilka virtuella datorer som tar emot den mesta lokala trafiken?
 
@@ -351,7 +351,7 @@ Den geografiska kart sidan innehåller två huvud avsnitt:
 - Vid val av sådana noder flyttas fokus till **rutan information-verktyget** för noden. Fokus flyttas som standard till knappen stängd i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder `Right arrow` `Left arrow` du och nycklar för att flytta framåt respektive bakåt. Att trycka på `Enter` har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
 - När du trycker `Tab` på när fokus är i **rutan information-verktyget**, flyttas fokus till slut punkterna i samma kontinent som den valda noden. Använd- `Right arrow` och- `Left arrow` tangenterna för att flytta genom de här slut punkterna.
 - Om du vill flytta till andra flödes slut punkter eller kontinent-kluster använder du `Tab` för att vidarebefordra rörelser och `Shift+Tab` för omvänd rörelse.
-- När fokus är på **kontinents kluster**använder du piltangenterna `Enter` `Down` för att markera slut punkterna i det kontinents klustret. Om du vill flytta genom slut punkter och knappen Stäng i informations rutan i det kontinent klustret använder du antingen `Right arrow` -eller `Left arrow` -nyckeln för framåt och bakåt. På alla slut punkter kan du använda `Shift+L` för att växla till anslutnings linjen från den valda noden till slut punkten. Du kan `Shift+L` gå tillbaka till den valda slut punkten genom att trycka på igen.
+- När fokus är på **kontinents kluster** använder du piltangenterna `Enter` `Down` för att markera slut punkterna i det kontinents klustret. Om du vill flytta genom slut punkter och knappen Stäng i informations rutan i det kontinent klustret använder du antingen `Right arrow` -eller `Left arrow` -nyckeln för framåt och bakåt. På alla slut punkter kan du använda `Shift+L` för att växla till anslutnings linjen från den valda noden till slut punkten. Du kan `Shift+L` gå tillbaka till den valda slut punkten genom att trycka på igen.
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Tangent bords navigering i alla steg
     
@@ -400,4 +400,4 @@ Sidan topologier för virtuella under nätverk innehåller två huvud avsnitt:
 - När du har valt ett filter på banderollen och tryckte på `Ctrl+F6` , flyttas fokus till en av de markerade noderna (**undernät**) i vyn topologi.
 - Om du vill flytta till andra markerade noder i vyn topologi använder du `Shift+Right arrow` nyckeln för Forward transport. 
 - På markerade noder flyttar fokus till **rutan informations verktyg** för noden. Fokus flyttar som standard till knappen **Mer information** i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder `Right arrow` `Left arrow` du och nycklar för att flytta framåt respektive bakåt. Att trycka på `Enter` har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
-- Vid val av sådana noder kan du gå till alla dess anslutningar, en i taget, genom att trycka på `Shift+Left arrow` nyckel. Fokus flyttas till **rutan informations verktyg** i anslutningen. I någon punkt kan fokus flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.    
+- Vid val av sådana noder kan du gå till alla dess anslutningar, en i taget, genom att trycka på `Shift+Left arrow` nyckel. Fokus flyttas till **rutan informations verktyg** i anslutningen. I någon punkt kan fokus flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.

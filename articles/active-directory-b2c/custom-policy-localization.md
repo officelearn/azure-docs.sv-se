@@ -10,18 +10,18 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cdd7f4957b22eb4c87d60e3d57b0cec675659963
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 7ba0604c0fb1a51c5276f2a28fb0e39b878b7639
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131810"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949572"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Lokalisera användar gränssnittet för ditt program med hjälp av en anpassad princip i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Med språk anpassning i Azure Active Directory B2C (Azure AD B2C) kan du anpassa olika språk efter kundens behov. Microsoft tillhandahåller översättningarna för [36-språk](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages), men du kan också tillhandahålla egna översättningar för alla språk. Även om din upplevelse bara är avsedd för ett enda språk kan du anpassa valfri text på sidorna. 
+Med språk anpassning i Azure Active Directory B2C (Azure AD B2C) kan du anpassa olika språk efter kundens behov. Microsoft tillhandahåller översättningarna för [36-språk](./user-flow-language-customization.md#supported-languages), men du kan också tillhandahålla egna översättningar för alla språk. Även om din upplevelse bara är avsedd för ett enda språk kan du anpassa valfri text på sidorna. 
 
 Den här artikeln visar hur du stöder flera språk i principen för användar resor. Lokalisering kräver tre steg: Konfigurera den explicita listan över språk som stöds, ange språkspecifika strängar och samlingar och redigera [innehålls definitionen](contentdefinitions.md) för sidan. 
 
@@ -246,7 +246,7 @@ I följande exempel läggs de engelska (en) och spanska (ES) anpassade strängar
 1. Spara tilläggs filen.
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 1. Sök efter och välj **Azure AD B2C**.
-1. Under **principer**väljer du **Identity Experience Framework**.
+1. Under **principer** väljer du **Identity Experience Framework**.
 1. Välj **överför anpassad princip**.
 1. Ladda upp tilläggs filen som du har ändrat tidigare.
 
@@ -265,4 +265,3 @@ https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_s
 
 - Läs mer om [lokaliserings](localization.md) ELEMENTET i IEF-referensen.
 - Se listan över [lokaliserings Strängs-ID: n](localization-string-ids.md) som finns i Azure AD B2C.
-

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 10abd1065fe47556109ed69d36493c165dec1418
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 177215775c9e83286aa98872eed0ab211a8f36ff
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738234"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948756"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatisera NSG granskning med vyn Azure Network Watcher säkerhets grupp
 
 Kunder är ofta inriktade mot utmaningen med att verifiera säkerhets position i sin infrastruktur. Den här utmaningen skiljer sig inte från de virtuella datorerna i Azure. Det är viktigt att ha en liknande säkerhets profil baserat på reglerna för nätverks säkerhets gruppen (NSG) som tillämpas. Med hjälp av vyn säkerhets grupp kan du nu hämta en lista över regler som tillämpas på en virtuell dator i en NSG. Du kan definiera en gyllene NSG säkerhets profil och initiera vyn säkerhets grupp på en veckovis takt och jämföra utdata med den gyllene profilen och skapa en rapport. På så sätt kan du enkelt identifiera alla virtuella datorer som inte överensstämmer med den angivna säkerhets profilen.
 
-Om du inte är bekant med nätverks säkerhets grupper kan du läsa [Översikt över nätverks säkerhet](../virtual-network/security-overview.md).
+Om du inte är bekant med nätverks säkerhets grupper kan du läsa [Översikt över nätverks säkerhet](../virtual-network/network-security-groups-overview.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -189,16 +189,3 @@ SideIndicator            : <=
 ## <a name="next-steps"></a>Nästa steg
 
 Om inställningarna har ändrats läser du [Hantera nätverks säkerhets grupper](../virtual-network/manage-network-security-group.md) för att spåra de nätverks säkerhets grupper och säkerhets regler som är i fråga.
-
-
-
-
-
-
-
-
-
-
-
-
-

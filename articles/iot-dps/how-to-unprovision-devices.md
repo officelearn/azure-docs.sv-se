@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5683d40e9565068c6cd79eedb08b036eab2c54cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37099b551e004ebfc702dce37c2a1499aa46ff10
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531397"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950743"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Så här avetablerar du enheter som tidigare var automatiskt etablerade 
 
@@ -25,7 +25,7 @@ I allmänhet omfattar avetablering av en enhet två steg:
    - Information om hur du avregistrerar en enhet finns i [så här avregistrerar du en enhet från Azure IoT Hub Device Provisioning service](how-to-revoke-device-access-portal.md).
    - Information om hur du avregistrerar en enhet program mässigt med hjälp av en av tjänst-SDK: erna för etablerings tjänsten finns i [Hantera enhets registreringar med tjänst-SDK](how-to-manage-enrollments-sdks.md): er.
 
-2. Avregistrera enheten från IoT Hub för att förhindra framtida kommunikation och data överföring. Återigen kan du tillfälligt inaktivera eller permanent ta bort enhetens post i identitets registret för den IoT Hub där den etablerades. Se [inaktivera enheter](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) om du vill veta mer om inaktive ring. Se "enhets hantering/IoT-enheter" för din IoT Hub-resurs i [Azure Portal](https://portal.azure.com).
+2. Avregistrera enheten från IoT Hub för att förhindra framtida kommunikation och data överföring. Återigen kan du tillfälligt inaktivera eller permanent ta bort enhetens post i identitets registret för den IoT Hub där den etablerades. Se [inaktivera enheter](../iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) om du vill veta mer om inaktive ring. Se "enhets hantering/IoT-enheter" för din IoT Hub-resurs i [Azure Portal](https://portal.azure.com).
 
 De exakta steg som du vidtar för att avetablera en enhet beror på dess mekanism för attestering och den tillämpliga registrerings posten med din etablerings tjänst. I följande avsnitt får du en översikt över processen, baserat på registrerings-och attesterings typ.
 
@@ -49,7 +49,7 @@ Om du vill se en lista över enheter som har etablerats via en registrerings gru
 
 1. Logga in på Azure Portal och klicka på **alla resurser** i den vänstra menyn.
 2. Klicka på etablerings tjänsten i listan över resurser.
-3. I etablerings tjänsten klickar du på **Hantera registreringar**och väljer sedan fliken **registrerings grupper** .
+3. I etablerings tjänsten klickar du på **Hantera registreringar** och väljer sedan fliken **registrerings grupper** .
 4. Klicka på registrerings gruppen för att öppna den.
 
    ![Visa registrerings grupp posten i portalen](./media/how-to-unprovision-devices/view-enrollment-group.png)
@@ -63,4 +63,4 @@ Med registrerings grupper finns det två scenarier att tänka på:
 
 - Så här avetablerar du en enskild enhet från en registrerings grupp:
   1. Skapa en inaktive rad enskild registrering för sitt löv certifikat (Device). Detta återkallar åtkomsten till etablerings tjänsten för enheten samtidigt som den ger åtkomst till andra enheter som har registrerings gruppens signerings certifikat i kedjan. Ta inte bort den inaktiverade enskilda registreringen för enheten. På så sätt kan enheten omregistrera sig via registrerings gruppen. 
-  2. Använd listan över etablerade enheter för registrerings gruppen för att hitta den IoT-hubb som enheten etablerades till och inaktivera eller ta bort den från hubbens identitets register. 
+  2. Använd listan över etablerade enheter för registrerings gruppen för att hitta den IoT-hubb som enheten etablerades till och inaktivera eller ta bort den från hubbens identitets register.

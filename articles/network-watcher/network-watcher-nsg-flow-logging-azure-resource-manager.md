@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 6d16d878b0cf7a73c87b5d6e9263a24c4dfb4383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8db4d4ae56a5a0ee0c92de5d9822614a3270b1c5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738149"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948688"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Konfigurera NSG flödes loggar från en Azure Resource Manager mall
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure-portalen](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST-API](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) är Azures inbyggda och kraftfulla sätt att hantera [infrastrukturen som kod](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code).
+[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) är Azures inbyggda och kraftfulla sätt att hantera [infrastrukturen som kod](/azure/devops/learn/what-is-infrastructure-as-code).
 
-Den här artikeln visar hur du aktiverar [NSG Flow-loggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) via programmering med hjälp av en Azure Resource Manager-mall och Azure PowerShell. Vi börjar med att tillhandahålla en översikt över egenskaperna för NSG flödes logg objekt, följt av några exempel på mallar. Sedan distribuerar vi mallen med en lokal PowerShell-instans.
+Den här artikeln visar hur du aktiverar [NSG Flow-loggar](./network-watcher-nsg-flow-logging-overview.md) via programmering med hjälp av en Azure Resource Manager-mall och Azure PowerShell. Vi börjar med att tillhandahålla en översikt över egenskaperna för NSG flödes logg objekt, följt av några exempel på mallar. Sedan distribuerar vi mallen med en lokal PowerShell-instans.
 
 
 ## <a name="nsg-flow-logs-object"></a>NSG flödes loggar objekt
 
 Objektet NSG Flow-loggar med alla parametrar visas nedan.
-För en fullständig översikt över egenskaperna kan du läsa [mallen för NSG Flow-referenser](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
+För en fullständig översikt över egenskaperna kan du läsa [mallen för NSG Flow-referenser](/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
 
 ```json
 {
@@ -76,8 +76,8 @@ Om du vill skapa en resurs för Microsoft. Network/networkWatchers/flowLogs läg
 
 Om du använder Azure Resource Manager mallar för första gången kan du läsa mer om dem med hjälp av länkarna nedan.
 
-* [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
-* [Självstudie: skapa och distribuera din första Azure Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
+* [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [Självstudie: skapa och distribuera din första Azure Resource Manager-mall](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
 Nedan visas två exempel på kompletta mallar för att ställa in NSG Flow-loggar.
@@ -172,14 +172,14 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 ## <a name="verifying-your-deployment"></a>Verifiera distributionen
 
-Det finns ett par olika sätt att kontrol lera om distributionen har slutförts. PowerShell-konsolen ska Visa "ProvisioningState" som "lyckades". Dessutom kan du gå till [Portal sidan NSG Flow logs](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) för att bekräfta dina ändringar. Om det uppstod problem med distributionen kan du ta en titt på [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
+Det finns ett par olika sätt att kontrol lera om distributionen har slutförts. PowerShell-konsolen ska Visa "ProvisioningState" som "lyckades". Dessutom kan du gå till [Portal sidan NSG Flow logs](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) för att bekräfta dina ändringar. Om det uppstod problem med distributionen kan du ta en titt på [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 
 ## <a name="deleting-your-resource"></a>Tar bort resursen
-Med Azure kan du ta bort resurser genom att slutföra distributions läget. Om du vill ta bort en flödes loggar resurs anger du en distribution i slutfört läge utan att inkludera den resurs som du vill ta bort. Läs mer om [hela distributions läget](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)
+Med Azure kan du ta bort resurser genom att slutföra distributions läget. Om du vill ta bort en flödes loggar resurs anger du en distribution i slutfört läge utan att inkludera den resurs som du vill ta bort. Läs mer om [hela distributions läget](../azure-resource-manager/templates/deployment-modes.md#complete-mode)
 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du visualiserar dina NSG-flödes data med:
 * [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 * [Verktyg för öppen källkod](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-* [Azure-Trafikanalys](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Azure-Trafikanalys](./traffic-analytics.md)

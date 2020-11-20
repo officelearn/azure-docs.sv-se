@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bef78766deb739791720838bb27649586da96152
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76834662"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948803"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Självstudie: Övervaka nätverkskommunikationen mellan två virtuella datorer i Azure Portal
 
@@ -48,14 +48,14 @@ Skapa två virtuella datorer.
 2. Välj **Compute** och sedan ett operativsystem. I den här självstudien används **Windows Server 2016 Datacenter**.
 3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |---|---|
     |Namn|myVm1|
     |Användarnamn| Ange ett valfritt användarnamn.|
     |Lösenord| Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
-    |Location| Välj **USA, östra**|
+    |Plats| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Under **Inställningar** väljer du **Tillägg**. Välj **Lägg till tillägg** och välj **Network Watcher Agent for Windows**, så som visas i följande bild:
@@ -70,10 +70,10 @@ Skapa två virtuella datorer.
 
 Utför stegen i [Skapa den första virtuella datorn](#create-the-first-vm) igen med följande ändringar:
 
-|Steg|Inställningen|Värde|
+|Steg|Inställning|Värde|
 |---|---|---|
 | 1 | Välj en version av **Ubuntu Server** |                                                                         |
-| 3 | Name                                  | myVm2                                                                   |
+| 3 | Namn                                  | myVm2                                                                   |
 | 3 | Autentiseringstyp                   | Klistra in den offentliga SSH-nyckeln eller välj **Lösenord** och ange ett lösenord. |
 | 3 | Resursgrupp                        | Välj **Använd befintlig** och sedan **myResourceGroup**.                 |
 | 6 | Tillägg                            | **Network Watcher agent för Linux**                                             |
@@ -90,7 +90,7 @@ Skapa en anslutningsövervakare för övervakning av kommunikationen via TCP-por
 4. Välj **+ Lägg till**.
 5. Ange eller välj information för anslutningen du vill övervaka och välj sedan **Lägg till**. I exemplet som visas i följande bild övervakas anslutningen från den virtuella datorn *myVm1* till den virtuella datorn *myVm2* VM via port 22:
 
-    | Inställningen                  | Värde               |
+    | Inställning                  | Värde               |
     | ---------                | ---------           |
     | Namn                     | myVm1-myVm2(22)     |
     | Källa                   |                     |
@@ -129,7 +129,7 @@ Aviseringar skapas av aviseringsregler i Azure Monitor och kan automatiskt köra
 2. Klicka på **Välj mål** och välj sedan de resurser som du vill ha som mål. Välj **Prenumeration** och ange **Resurstyp** till att filtrera ned till den anslutningsövervakare som du vill använda.
 
     ![aviseringsskärm med mål som valts](./media/connection-monitor/set-alert-rule.png)
-1. När du har valt en resurs som ska vara mål väljer du **Lägg till villkor**. Network Watcher har [mått som du kan skapa aviseringar om](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Ange **Tillgängliga signaler** till måtten ProbesFailedPercent och AverageRoundtripMs:
+1. När du har valt en resurs som ska vara mål väljer du **Lägg till villkor**. Network Watcher har [mått som du kan skapa aviseringar om](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Ange **Tillgängliga signaler** till måtten ProbesFailedPercent och AverageRoundtripMs:
 
     ![aviseringssida med signaler som valts](./media/connection-monitor/set-alert-signals.png)
 1. Fyll i information om aviseringar såsom namn på aviseringsregel, beskrivning och allvarlighetsgrad. Du kan även lägga till en åtgärdsgrupp till aviseringen för att automatisera och anpassa aviseringssvaret.
@@ -146,14 +146,14 @@ Som standard tillåter Azure kommunikation via alla portar mellan virtuella dato
 
 4. Standardregeln som tillåter kommunikation mellan alla virtuella datorer i ett virtuellt nätverk heter **AllowVnetInBound**. Skapa en regel med högre prioritet (lägre nummer) än regeln **AllowVnetInBound** som nekar inkommande kommunikation via port 22. Välj eller ange följande information, acceptera standardvärdena för resten av inställningarna och välj sedan **Lägg till**:
 
-    | Inställningen                 | Värde          |
+    | Inställning                 | Värde          |
     | ---                     | ---            |
     | Målportintervall | 22             |
     | Åtgärd                  | Neka           |
     | Prioritet                | 100            |
     | Namn                    | DenySshInbound |
 
-5. Eftersom anslutningsövervakaren gör avsökningar var 60:e sekund ska du vänta några minuter. Välj **Network Watcher** och **Anslutningsövervakare** till vänster i portalen, och välj sedan övervakaren ** myVm1-myVm2(22)** igen. Nu blir resultatet ett annat, så som visas i följande bild:
+5. Eftersom anslutningsövervakaren gör avsökningar var 60:e sekund ska du vänta några minuter. Välj **Network Watcher** och **Anslutningsövervakare** till vänster i portalen, och välj sedan övervakaren **myVm1-myVm2(22)** igen. Nu blir resultatet ett annat, så som visas i följande bild:
 
     ![Övervaka information om fel](./media/connection-monitor/vm-monitor-fault.png)
 

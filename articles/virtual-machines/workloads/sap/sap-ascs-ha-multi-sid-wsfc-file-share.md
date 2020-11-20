@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a356e96b82e6fbe855d0b474dcb6b1f59c98333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b204aa508370c62aaf33688aeb7ec63d3f8f1b0e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855218"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950626"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>SAP ASCS/SCS-instans multi-SID hög tillgänglighet med kluster för växling vid fel i Windows Server och fil resurs på Azure
 
@@ -47,7 +48,7 @@ Den här artikeln fokuserar på hur du flyttar från en enda ASCS/SCS-installati
 
 Mer information om gränser för belastnings utjämning finns i avsnittet "privat frontend IP per belastningsutjämnare" i [nätverks gränser: Azure Resource Manager][networking-limits-azure-resource-manager]. Överväg också att använda [azure standard load BALANCER SKU](../../../load-balancer/load-balancer-standard-availability-zones.md) i stället för den grundläggande SKU: n för Azure Load Balancer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du har redan konfigurerat ett WSFC-kluster som ska användas för en SAP ASCS/SCS-instans med hjälp av **fil resurs**, som visas i det här diagrammet.
 
@@ -71,13 +72,13 @@ Målet är att installera flera SAP Advanced Business Application Programming (A
 
 _**Bild 2:** SAP multi-SID-konfiguration i två kluster_
 
-Installationen av ytterligare ett ** \<SID2> SAP** -system är identisk med installationen av ett \<SID> system. Två ytterligare förberedelse steg krävs för ASCS-/SCS-klustret samt i fil resursens SOFS-kluster.
+Installationen av ytterligare ett **\<SID2> SAP** -system är identisk med installationen av ett \<SID> system. Två ytterligare förberedelse steg krävs för ASCS-/SCS-klustret samt i fil resursens SOFS-kluster.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Förbereda infrastrukturen för ett SAP multi-SID-scenario
 
 ### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>Förbereda infrastrukturen på domänkontrollanten
 
-Skapa domän gruppen ** \<Domain> \ SAP_ \<SID2> _GlobalAdmin**, till exempel med \<SID2> = PR2. Domän gruppens namn är \<Domain> \ SAP_PR2_GlobalAdmin.
+Skapa domän gruppen **\<Domain> \ SAP_ \<SID2> _GlobalAdmin**, till exempel med \<SID2> = PR2. Domän gruppens namn är \<Domain> \ SAP_PR2_GlobalAdmin.
 
 ### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>Förbereda infrastrukturen för ASCS/SCS-klustret
 
@@ -98,8 +99,8 @@ Du kan återanvända den befintliga \<SAPGlobalHost> och Volume1 av det första 
 _**Bild 3:** Multi-SID-SOFS är samma som det globala SAP-värdnamnet_
 
 > [!IMPORTANT]
->För det andra **SAP \<SID2> ** -systemet används samma Volume1 och samma **\<SAPGlobalHost>** nätverks namn.
->Eftersom du redan har angett **SAPMNT** som resurs namn för olika SAP-system **\<SAPGlobalHost>** måste du använda samma **Volume1**för att kunna återanvända nätverks namnet.
+>För det andra **SAP \<SID2>** -systemet används samma Volume1 och samma **\<SAPGlobalHost>** nätverks namn.
+>Eftersom du redan har angett **SAPMNT** som resurs namn för olika SAP-system **\<SAPGlobalHost>** måste du använda samma **Volume1** för att kunna återanvända nätverks namnet.
 >
 >Fil Sök vägen för den \<SID2> globala värden är C:\ClusterStorage \\ **Volume1**\usr\sap \<SID2> \SYS\.
 >

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 888e2287c869200434e198204881d5bd5014f87d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 29db2214ddabeb6df2aa937c4ccd1f9938143969
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363869"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949453"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Hantera Azure AD B2C anpassade principer med Azure PowerShell
 
@@ -31,7 +31,7 @@ Azure PowerShell innehåller flera cmdletar för kommando rads-och skriptbaserad
 
 * [Azure AD B2C klient organisation](tutorial-create-tenant.md)och autentiseringsuppgifter för en användare i katalogen med rollen [B2C IEF princip administratör](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Anpassade principer](custom-policy-get-started.md) har laddats upp till din klient
-* [Modul för för **hands version** av Azure AD PowerShell för diagram](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+* [Modul för för **hands version** av Azure AD PowerShell för diagram](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
 ## <a name="connect-powershell-session-to-b2c-tenant"></a>Ansluta PowerShell-sessionen till B2C-klienten
 
@@ -191,15 +191,15 @@ Message: Validation failed: 1 validation error(s) found in policy "B2C_1A_SIGNUP
 ...
 ```
 
-Information om hur du felsöker anpassade principer finns i [felsöka Azure AD B2C anpassade principer och identitets miljö](active-directory-b2c-guide-troubleshooting-custom.md).
+Information om hur du felsöker anpassade principer finns i [felsöka Azure AD B2C anpassade principer och identitets miljö](./troubleshoot-custom-policies.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Information om hur du använder PowerShell för att distribuera anpassade principer som en del av en pipeline för kontinuerlig integrering/kontinuerlig leverans (CI/CD) finns i [distribuera anpassade principer från en Azure DevOps-pipeline](deploy-custom-policies-devops.md).
 
 <!-- LINKS - External -->
-[Connect-AzureAD]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy
-[Get-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy
-[New-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/new-azureadmstrustframeworkpolicy
-[Remove-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/remove-azureadmstrustframeworkpolicy
-[Set-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/set-azureadmstrustframeworkpolicy
+[Connect-AzureAD]: /powershell/module/azuread/get-azureadmstrustframeworkpolicy
+[Get-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/get-azureadmstrustframeworkpolicy
+[New-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/new-azureadmstrustframeworkpolicy
+[Remove-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/remove-azureadmstrustframeworkpolicy
+[Set-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/set-azureadmstrustframeworkpolicy

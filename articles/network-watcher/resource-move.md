@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2020
 ms.author: damendo
-ms.openlocfilehash: 97349071fee6a95623e5b5efdc0c9818cfe7b811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84764e73ec5b4ada8c204147def310326a3c7bdd
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87388482"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948433"
 ---
 # <a name="moving-azure-network-watcher-resources-across-regions"></a>Flytta Azure Network Watcher resurser mellan regioner
 
@@ -29,5 +29,5 @@ Network Watcher resursen representerar backend-tjänsten för Network Watcher oc
 Det finns för närvarande inte stöd för att flytta resurser mellan regioner för en underordnad resurs av `*networkWatcher*` resurs typen.
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs [Network Watcher översikt](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
-* Se [vanliga frågor och svar om Network Watcher](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions)
+* Läs [Network Watcher översikt](./network-watcher-monitoring-overview.md)
+* Se [vanliga frågor och svar om Network Watcher](./frequently-asked-questions.md)

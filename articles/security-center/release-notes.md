@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: c0333f9faeae99ee83beda381f77f4f95b0a9192
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 79dcc645ecff00b3189dc90dcf34e042a78ed318
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636128"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949334"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -445,7 +445,7 @@ När Pod säkerhets princip (förhands granskning) är föråldrad måste du ina
 Följande delar av e-postmeddelandena om säkerhets aviseringar har förbättrats: 
 
 - Har lagt till möjligheten att skicka e-postmeddelanden om aviseringar för alla allvarlighets nivåer
-- Har lagt till möjligheten att meddela användare med olika RBAC-roller i prenumerationen
+- Har lagt till möjligheten att meddela användare med olika Azure-roller i prenumerationen
 - Vi meddelar proaktivt prenumerations ägare som standard på aviseringar med hög allvarlighets grad (som har hög sannolikhet för att vara äkta)
 - Vi har tagit bort fältet telefonnummer från konfigurations sidan för e-postaviseringar
 
@@ -673,7 +673,7 @@ Läs mer om Security Center behållar säkerhet i följande artiklar:
 
 Funktionen för anpassningsbara program kontroller har tagit emot två viktiga uppdateringar:
 
-* En ny rekommendation identifierar potentiellt legitimt beteende som inte tidigare har tillåtits. Den nya rekommendationen, **tillåten-regler i din anpassningsbar program kontroll princip ska uppdateras** , och du uppmanas att lägga till nya regler i den befintliga principen för att minska antalet falska positiva identifieringar i adaptiva program kontroller fel aviseringar.
+* En ny rekommendation identifierar potentiellt legitimt beteende som inte tidigare har tillåtits. Den nya rekommendationen, **tillåten-regler i din anpassningsbar program kontroll princip ska uppdateras**, och du uppmanas att lägga till nya regler i den befintliga principen för att minska antalet falska positiva identifieringar i adaptiva program kontroller fel aviseringar.
 
 * Sök vägs regler stöder nu jokertecken. Från den här uppdateringen kan du konfigurera tillåtna Sök vägs regler med hjälp av jokertecken. Det finns två scenarier som stöds:
 
@@ -748,7 +748,7 @@ Två nya rekommendationer har lagts till för att hjälpa till att distribuera [
 - **Log Analytics agenten ska installeras på dina Windows-baserade Azure Arc-datorer (för hands version)**
 - **Log Analytics agent ska installeras på Linux-baserade Azure Arc-datorer (för hands version)**
 
-De här nya rekommendationerna visas i samma fyra säkerhets kontroller som den befintliga (relaterade) rekommendationen, **övervaknings agenten ska installeras på datorerna** : åtgärda säkerhetskonfigurationer, tillämpa anpassningsbar program kontroll, tillämpa system uppdateringar och Aktivera Endpoint Protection.
+De här nya rekommendationerna visas i samma fyra säkerhets kontroller som den befintliga (relaterade) rekommendationen, **övervaknings agenten ska installeras på datorerna**: åtgärda säkerhetskonfigurationer, tillämpa anpassningsbar program kontroll, tillämpa system uppdateringar och Aktivera Endpoint Protection.
 
 Rekommendationerna innehåller också snabb korrigerings funktionen som hjälper dig att påskynda distributions processen. 
 
@@ -787,7 +787,7 @@ Säkerhets kontrollen "implementera rekommenderade säkerhets metoder" innehåll
 
 - **Virtuella datorer som inte är baserade på Internet bör skyddas med nätverks säkerhets grupper**
 
-En befintlig rekommendation, **virtuella datorer som riktas mot Internet bör skyddas med nätverks säkerhets grupper** , skiljer sig inte mellan Internet-riktade och icke-Internetbaserade virtuella datorer. För båda, genererade en rekommendation med hög allvarlighets grad om en virtuell dator inte var tilldelad till en nätverks säkerhets grupp. Den nya rekommendationen separerar datorer som inte är på Internet för att minska antalet falska positiva identifieringar och undvika onödiga aviseringar med hög allvarlighets grad.
+En befintlig rekommendation, **virtuella datorer som riktas mot Internet bör skyddas med nätverks säkerhets grupper**, skiljer sig inte mellan Internet-riktade och icke-Internetbaserade virtuella datorer. För båda, genererade en rekommendation med hög allvarlighets grad om en virtuell dator inte var tilldelad till en nätverks säkerhets grupp. Den nya rekommendationen separerar datorer som inte är på Internet för att minska antalet falska positiva identifieringar och undvika onödiga aviseringar med hög allvarlighets grad.
 
 Läs mer i tabellen med [nätverks rekommendationer](recommendations-reference.md#recs-network) .
 

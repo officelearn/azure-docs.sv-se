@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9fc34a85f8a858adea2161e1734ead589180ea4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ad9820cc3227c788582a9c2a452abe1886a4a2d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978245"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950320"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>SAP-arbetsbelastningskonfigurationer med Azure-tillgänglighetszoner
 [Azure-tillgänglighetszoner](../../../availability-zones/az-overview.md) är en av de funktioner för hög tillgänglighet som Azure tillhandahåller. Med Tillgänglighetszoner förbättras övergripande tillgänglighet för SAP-arbetsbelastningar på Azure. Den här funktionen är redan tillgänglig i vissa [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/). I framtiden kommer det att vara tillgängligt i fler regioner.

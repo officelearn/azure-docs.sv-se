@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb585e2ccf8c8ed071b5156961adf48d4e4b108d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309774"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949776"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Konfigurera identitets skydd och villkorlig åtkomst i Azure AD B2C
 
@@ -23,10 +23,10 @@ ms.locfileid: "92309774"
 
 Identitets skydd ger kontinuerlig identifiering av risker för din Azure AD B2C klient. Om din Azure AD B2C klient pris nivå är Premium P2 kan du Visa detaljerade risk händelser för identitets skydd i Azure Portal. Du kan också använda principer för [villkorlig åtkomst](../active-directory/conditional-access/overview.md) baserat på dessa risk identifieringar för att fastställa åtgärder och tillämpa organisations principer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Din Azure AD B2C klient måste vara [länkad till en Azure AD-prenumeration](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
-- Azure AD B2C Premium P2 krävs för att använda inloggnings-och användar riskbaserade villkorlig åtkomst. Om det behövs [ändrar du Azure AD B2C pris nivå till Premium P2](https://aka.ms/exid-pricing-tier). 
+- Azure AD B2C Premium P2 krävs för att använda inloggnings-och användar riskbaserade villkorlig åtkomst. Om det behövs [ändrar du Azure AD B2C pris nivå till Premium P2](./billing.md). 
 - Du behöver ett konto som har tilldelats rollen som global administratör eller rollen säkerhets administratör för att kunna hantera identitets skydd och villkorlig åtkomst i B2C-klienten.
 - Om du vill använda dessa funktioner i din klient organisation måste du först växla till pris nivån Azure AD B2C Premium P2.
 
@@ -56,11 +56,11 @@ Följande identifieringar för risker stöds för närvarande för Azure AD B2C:
 
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 
-1. Under **säkerhet**väljer du **riskfyllda användare (förhands granskning)**.
+1. Under **säkerhet** väljer du **riskfyllda användare (förhands granskning)**.
 
    ![Riskfyllda användare](media/conditional-access-identity-protection-setup/risky-users.png)
 
-1. Under **säkerhet**väljer du **risk identifieringar (för hands version)**.
+1. Under **säkerhet** väljer du **risk identifieringar (för hands version)**.
 
    ![Riskidentifieringar](media/conditional-access-identity-protection-setup/risk-detections.png)
 
@@ -76,7 +76,7 @@ Om du vill lägga till en princip för villkorlig åtkomst baserat på identifie
 
 3. I Azure Portal söker du efter och väljer **Azure Active Directory**.
 
-4. Välj **Egenskaper**och välj sedan **hantera säkerhets inställningar**.
+4. Välj **Egenskaper** och välj sedan **hantera säkerhets inställningar**.
 
    ![Inaktivera säkerhets inställningarna](media/conditional-access-identity-protection-setup/disable-security-defaults.png)
 
@@ -92,7 +92,7 @@ Om du vill lägga till en princip för villkorlig åtkomst baserat på identifie
 
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 
-1. Under **säkerhet**väljer du **villkorlig åtkomst (för hands version)**. Sidan **principer för villkorlig åtkomst** öppnas. 
+1. Under **säkerhet** väljer du **villkorlig åtkomst (för hands version)**. Sidan **principer för villkorlig åtkomst** öppnas. 
 
 1. Välj **ny princip** och följ dokumentationen för villkorlig åtkomst för Azure AD för att skapa en ny princip. Följande är ett exempel:
 
@@ -105,10 +105,10 @@ Om du vill lägga till en princip för villkorlig åtkomst baserat på identifie
 
 1. Skapa en princip för villkorlig åtkomst som anges ovan med följande inställningar:
    
-   - För **användare och grupper**väljer du test användaren. Markera inte **alla användare** eller blockera dig själv från att logga in.
-   - För **molnappar eller åtgärder**väljer du **Välj appar**och väljer sedan ditt förlitande parts program.
-   - För villkor väljer du **inloggnings risk** , **hög**, **medel**och **låg** risk nivå.
-   - För **beviljande**väljer du **blockera åtkomst**.
+   - För **användare och grupper** väljer du test användaren. Markera inte **alla användare** eller blockera dig själv från att logga in.
+   - För **molnappar eller åtgärder** väljer du **Välj appar** och väljer sedan ditt förlitande parts program.
+   - För villkor väljer du **inloggnings risk** , **hög**, **medel** och **låg** risk nivå.
+   - För **beviljande** väljer du **blockera åtkomst**.
 
       ![Välj blockera åtkomst](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
@@ -130,7 +130,7 @@ Granska resultatet av en händelse för villkorlig åtkomst:
 
 3. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 
-4. Under **aktiviteter**väljer du **gransknings loggar**.
+4. Under **aktiviteter** väljer du **gransknings loggar**.
 
 5. Filtrera gransknings loggen genom att ställa in **kategorin** till **B2C** och ange **aktivitets resurs typ** till **IdentityProtection**. Välj sedan **Använd**.
 

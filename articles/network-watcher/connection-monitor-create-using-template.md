@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 929a2feeb53e8903d675644dcb72b422eceb2858
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c80f2aaf26c0f0e89014c997151599c8bddbe903
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699108"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948824"
 ---
 # <a name="create-a-connection-monitor-using-the-armclient"></a>Skapa en anslutnings övervakare med hjälp av ARMClient
 
@@ -368,7 +368,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 * Test grupper
     * namn – ge test gruppen ett namn.
     * testConfigurations – testa konfigurationer baserat på vilka käll slut punkter ansluter till mål slut punkter
-    * källor – Välj från slut punkter som skapats ovan. Azure-baserade käll slut punkter måste ha Azure Network Watcher-tillägget installerat och Azure-baserade käll slut punkter måste ha haveAzure Log Analytics-agenten installerad. Information om hur du installerar en agent för din källa finns i [Installera övervaknings agenter](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+    * källor – Välj från slut punkter som skapats ovan. Azure-baserade käll slut punkter måste ha Azure Network Watcher-tillägget installerat och Azure-baserade käll slut punkter måste ha haveAzure Log Analytics-agenten installerad. Information om hur du installerar en agent för din källa finns i [Installera övervaknings agenter](./connection-monitor-overview.md#install-monitoring-agents).
     * destinationer – Välj från slut punkter som skapats ovan. Du kan övervaka anslutningar till virtuella Azure-datorer eller en slut punkt (en offentlig IP-adress, URL eller FQDN) genom att ange dem som mål. I en enda test grupp kan du lägga till virtuella Azure-datorer, Office 365-URL: er, Dynamics 365-URL: er och anpassade slut punkter.
     * Inaktivera – Använd det här fältet om du vill inaktivera övervakning för alla källor och mål som test gruppen anger.
 
@@ -400,5 +400,5 @@ Anslutnings övervakare har följande skalnings gränser:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig [hur du analyserar övervaknings data och ställer in aviseringar](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
-* Lär dig [hur du diagnostiserar problem i nätverket](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)
+* Lär dig [hur du analyserar övervaknings data och ställer in aviseringar](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
+* Lär dig [hur du diagnostiserar problem i nätverket](./connection-monitor-overview.md#diagnose-issues-in-your-network)

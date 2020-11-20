@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 556a84acb3461fb39b3eb0390b54878254bafabf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3adbd292d42fd6fd2a0e149e103c17968a6f084b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514541"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950762"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Installera och använda din StorSimple-enhet på ett säkert sätt
 ![Varnings ikon läsa ](./media/storsimple-safety/IC740879.png)
@@ -114,7 +114,7 @@ Enheten är utformad för att användas med två PCMs. Varje PCMs har en strömf
 
 Minska sannolikheten för skada, elektrisk stötande eller dödsfall:
 
-* Ta inte bort höljen från PCM. Det finns en risk för elektrisk stöt i. [Kontakta Microsoft Support](storsimple-contact-microsoft-support.md)om du vill returnera PCM och få en ersättning.
+* Ta inte bort höljen från PCM. Det finns en risk för elektrisk stöt i. [Kontakta Microsoft Support](./storsimple-8000-contact-microsoft-support.md)om du vill returnera PCM och få en ersättning.
 
 ![Meddelande Ikons ](./media/storsimple-safety/IC740881.png) **meddelande:**
 

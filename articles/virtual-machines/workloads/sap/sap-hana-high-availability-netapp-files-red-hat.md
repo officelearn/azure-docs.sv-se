@@ -7,17 +7,18 @@ author: rdeltcheva
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 8800adae73de2672dd89678a6346fe6b0df755ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f107ba4dd0150e9727183d0bd334c9279de17337
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144187"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950014"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA skala upp med Azure NetApp Files på Red Hat Enterprise Linux
 
@@ -51,7 +52,7 @@ ms.locfileid: "92144187"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Den här artikeln beskriver hur du konfigurerar SAP HANA systemreplikering i storskalig distribution, när HANA-filsystem monteras via NFS, med Azure NetApp Files (ANF). I exempel på konfigurationer och installations kommandon används instans nummer **03**och Hana system-ID **HN1** . SAP HANA replikeringen består av en primär nod och minst en sekundär nod.
+Den här artikeln beskriver hur du konfigurerar SAP HANA systemreplikering i storskalig distribution, när HANA-filsystem monteras via NFS, med Azure NetApp Files (ANF). I exempel på konfigurationer och installations kommandon används instans nummer **03** och Hana system-ID **HN1** . SAP HANA replikeringen består av en primär nod och minst en sekundär nod.
 
 När steg i det här dokumentet är markerade med följande prefix är innebörden följande:
 
@@ -236,25 +237,25 @@ Först måste du skapa Azure NetApp Files volymerna. Utför sedan följande steg
 
 8.  Följ dessa konfigurations steg om du använder standard Load Balancer:
     1.  Börja med att skapa en IP-pool på klient sidan:
-        1.  Öppna belastningsutjämnaren, Välj **klient delens IP-pool**och välj **Lägg till**.
+        1.  Öppna belastningsutjämnaren, Välj **klient delens IP-pool** och välj **Lägg till**.
         1.  Ange namnet på den nya frontend-IP-poolen (till exempel **Hana-frontend**).
         1.  Ange **tilldelningen** till **statisk** och ange IP-adressen (till exempel **10.32.0.10**).
         1.  Välj **OK**.
         1.  När den nya frontend-IP-poolen har skapats noterar du poolens IP-adress.
     1.  Skapa sedan en backend-pool:
-        1.  Öppna belastningsutjämnaren, Välj **backend-pooler**och välj **Lägg till**.
+        1.  Öppna belastningsutjämnaren, Välj **backend-pooler** och välj **Lägg till**.
         1.  Ange namnet på den nya backend-poolen (till exempel **Hana-backend**).
         1.  Välj **Lägg till en virtuell dator**.
         1.  Välj * * virtuell dator * *.
         1.  Välj de virtuella datorerna i SAP HANA klustret och deras IP-adresser.
         1.  Välj **Lägg till**.
     1.  Skapa sedan en hälso avsökning:
-        1.  Öppna belastningsutjämnaren, Välj **hälso avsökningar**och välj **Lägg till**.
+        1.  Öppna belastningsutjämnaren, Välj **hälso avsökningar** och välj **Lägg till**.
         1.  Ange namnet på den nya hälso avsökningen (till exempel **Hana-HP**).
-        1.  Välj TCP som protokoll och port 625**03**. Behåll värdet för **Interval** inställt på 5 och **tröskelvärdet för tröskelvärdet** har värdet 2.
+        1.  Välj TCP som protokoll och port 625 **03**. Behåll värdet för **Interval** inställt på 5 och **tröskelvärdet för tröskelvärdet** har värdet 2.
         1.  Välj **OK**.
     1.  Skapa sedan reglerna för belastnings utjämning:
-        1.  Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler**och välj **Lägg till**.
+        1.  Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler** och välj **Lägg till**.
         1.  Ange namnet på den nya belastnings Utjämnings regeln (till exempel **Hana-lb**).
         1.  Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **Hana-frontend**, **Hana-backend** och **Hana-HP**).
         1.  Välj **ha-portar**.
@@ -265,50 +266,50 @@ Först måste du skapa Azure NetApp Files volymerna. Utför sedan följande steg
 
 9. Om ditt scenario till exempel använder Basic Load Balancer, följer du dessa konfigurations steg:
     1.  Konfigurera belastningsutjämnaren. Börja med att skapa en IP-pool på klient sidan:
-        1.  Öppna belastningsutjämnaren, Välj **klient delens IP-pool**och välj **Lägg till**.
+        1.  Öppna belastningsutjämnaren, Välj **klient delens IP-pool** och välj **Lägg till**.
         1.  Ange namnet på den nya frontend-IP-poolen (till exempel **Hana-frontend**).
         1.  Ange **tilldelningen** till **statisk** och ange IP-adressen (till exempel **10.32.0.10**).
         1.  Välj **OK**.
         1.  När den nya frontend-IP-poolen har skapats noterar du poolens IP-adress.
     1.  Skapa sedan en backend-pool:
-        1.  Öppna belastningsutjämnaren, Välj **backend-pooler**och välj **Lägg till**.
+        1.  Öppna belastningsutjämnaren, Välj **backend-pooler** och välj **Lägg till**.
         1.  Ange namnet på den nya backend-poolen (till exempel **Hana-backend**).
         1.  Välj **Lägg till en virtuell dator**.
         1.  Välj den tillgänglighets uppsättning som skapades i steg 3.
         1.  Välj de virtuella datorerna i SAP HANA klustret.
         1.  Välj **OK**.
     1.  Skapa sedan en hälso avsökning:
-        1.  Öppna belastningsutjämnaren, Välj **hälso avsökningar**och välj **Lägg till**.
+        1.  Öppna belastningsutjämnaren, Välj **hälso avsökningar** och välj **Lägg till**.
         1.  Ange namnet på den nya hälso avsökningen (till exempel **Hana-HP**).
-        1.  Välj **TCP** som protokoll och port 625**03**. Behåll värdet för **Interval** inställt på 5 och **tröskelvärdet för tröskelvärdet** har värdet 2.
+        1.  Välj **TCP** som protokoll och port 625 **03**. Behåll värdet för **Interval** inställt på 5 och **tröskelvärdet för tröskelvärdet** har värdet 2.
         1.  Välj **OK**.
     1.  Skapa regler för belastnings utjämning för SAP HANA 1,0:
-        1.  Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler**och välj **Lägg till**.
-        1.  Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana – lb-3**03**).
+        1.  Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler** och välj **Lägg till**.
+        1.  Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana – lb-3 **03**).
         1.  Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **Hana-frontend**).
-        1.  Behåll **protokollet** inställt på **TCP**och ange Port 3**03**15.
+        1.  Behåll **protokollet** inställt på **TCP** och ange Port 3 **03** 15.
         1.  Öka **tids gränsen för inaktivitet** till 30 minuter.
         1.  Se till att **Aktivera flytande IP**.
         1.  Välj **OK**.
-        1.  Upprepa de här stegen för Port 3**03**17.
+        1.  Upprepa de här stegen för Port 3 **03** 17.
     1.  Skapa regler för belastnings utjämning för system databasen för SAP HANA 2,0:
-        1.  Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler**och välj **Lägg till**.
-        1.  Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana-lb-3**03**13).
+        1.  Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler** och välj **Lägg till**.
+        1.  Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana-lb-3 **03** 13).
         1.  Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **Hana-frontend**).
-        1.  Behåll **protokollet** inställt på **TCP**och ange Port 3**03**13.
+        1.  Behåll **protokollet** inställt på **TCP** och ange Port 3 **03** 13.
         1.  Öka **tids gränsen för inaktivitet** till 30 minuter.
         1.  Se till att **Aktivera flytande IP**.
         1.  Välj **OK**.
-        1.  Upprepa dessa steg för Port 3**03**.
+        1.  Upprepa dessa steg för Port 3 **03**.
     1.  För SAP HANA 2,0 skapar du först reglerna för belastnings utjämning för klient databasen:
-        1.  Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler**och välj **Lägg till**.
-        1.  Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana – lb-3**03**40).
+        1.  Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler** och välj **Lägg till**.
+        1.  Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana – lb-3 **03** 40).
         1.  Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **Hana-frontend**).
-        1.  Behåll **protokollet** inställt på **TCP**och ange Port 3**03**40.
+        1.  Behåll **protokollet** inställt på **TCP** och ange Port 3 **03** 40.
         1.  Öka **tids gränsen för inaktivitet** till 30 minuter.
         1.  Se till att **Aktivera flytande IP**.
         1.  Välj **OK**.
-        1.  Upprepa de här stegen för portarna 3**03**41 och 3**03**42.
+        1.  Upprepa de här stegen för portarna 3 **03** 41 och 3 **03** 42.
 
 Om du vill ha mer information om de portar som krävs för SAP HANA kan du läsa kapitel [anslutningarna till klient databaserna](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) i guiden för [SAP HANA klient databaser](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) eller SAP NOTE [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
@@ -563,7 +564,7 @@ I det här exemplet har varje klusternod sina egna HANA NFS-filsystem/Hana/Share
 
    Kontrol lera status för klustret och alla resurser
    > [!NOTE]
-   > Den här artikeln innehåller referenser till termen *slav*, en term som Microsoft inte längre använder. När termen tas bort från program varan tar vi bort det från den här artikeln.
+   > Den här artikeln innehåller referenser till termen *slav*, en term som Microsoft inte längre använder. När termen tas bort från program varan tar vi bort det från den här artikeln.
    
     ```
     sudo pcs status

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: damendo
-ms.openlocfilehash: a603f55bd5bff7b2ed68623e9c712faaf8ac766f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 54b87da73d4427234e65e406d183525d55c6c00d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877137"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948552"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>Snabb start: Distribuera och hantera NSG Flow-loggar med Azure Policy 
 
@@ -25,8 +25,8 @@ ms.locfileid: "91877137"
 Azure Policy hjälper till att framtvinga organisationsstandarder och utvärdera efterlevnad i stor skala. Vanliga användnings fall för Azure Policy inkluderar implementering av styrning för resurs konsekvens, regelefterlevnad, säkerhet, kostnad och hantering. I den här artikeln kommer vi att använda två inbyggda principer som är tillgängliga för NSG flödes loggar för att hantera konfigurationen av Flow-loggar. Den första principen flaggar alla NSG: er utan flödes loggar aktiverade. Den andra principen distribuerar automatiskt flödes loggar för NSG: er utan att flödes loggar Aktiver ATS. 
 
 Om du skapar en Azure-princip för första gången kan du läsa följande: 
-- [Översikt över Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) 
-- [Självstudie för att skapa en princip](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal#create-a-policy-assignment).
+- [Översikt över Azure Policy](../governance/policy/overview.md) 
+- [Självstudie för att skapa en princip](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## <a name="locate-the-policies"></a>Hitta principerna
@@ -134,5 +134,5 @@ Du bör se något som liknar följande skärm bild när principen. Om principen 
 
 ## <a name="next-steps"></a>Nästa steg 
 
--   Använd den här [självstudien](https://docs.microsoft.com/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template) gå djupare genom att använda arm-mallar för att distribuera flödes loggar och trafikanalys.
--   Läs mer om [Network Watcher](https://docs.microsoft.com/azure/network-watcher/)
+-   Använd den här [självstudien](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) gå djupare genom att använda arm-mallar för att distribuera flödes loggar och trafikanalys.
+-   Läs mer om [Network Watcher](./index.yml)

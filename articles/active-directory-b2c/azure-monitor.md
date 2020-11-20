@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: 68a7dd1b9a7af9f2667785c8b822b2771510d00e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562907"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949963"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Övervaka Azure AD B2C med Azure Monitor
 
@@ -25,7 +25,7 @@ Använd Azure Monitor för att dirigera Azure Active Directory B2C (Azure AD B2C
 Du kan dirigera logg händelser till:
 
 * Ett Azure [Storage-konto](../storage/blobs/storage-blobs-introduction.md).
-* En [Log Analytics arbets yta](../azure-monitor/platform/resource-logs-collect-workspace.md) (för att analysera data, skapa instrument paneler och avisering om vissa händelser).
+* En [Log Analytics arbets yta](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) (för att analysera data, skapa instrument paneler och avisering om vissa händelser).
 * En Azure [Event Hub](../event-hubs/event-hubs-about.md) (och integrera med dina Splunk-och Sumo Logic-instanser).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
@@ -34,7 +34,7 @@ I den här artikeln får du lära dig hur du överför loggarna till en Azure Lo
 
 ## <a name="deployment-overview"></a>Distributionsöversikt
 
-Azure AD B2C utnyttjar [Azure Active Directory övervakning](../active-directory/reports-monitoring/overview-monitoring.md). Om du vill aktivera *diagnostikinställningar* i Azure Active Directory inom din Azure AD B2C-klient använder du [Azure-Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) för att [delegera en resurs](../lighthouse/concepts/azure-delegated-resource-management.md), vilket gör att din Azure AD B2C ( **tjänst leverantören** ) kan hantera en Azure AD-resurs ( **kund** ). När du har slutfört stegen i den här artikeln har du åtkomst till resurs gruppen *Azure-AD-B2C-Monitor* som innehåller [arbets ytan Log Analytics](../azure-monitor/learn/quick-create-workspace.md) i **Azure AD B2C** portalen. Du kommer också att kunna överföra loggarna från Azure AD B2C till arbets ytan Log Analytics.
+Azure AD B2C utnyttjar [Azure Active Directory övervakning](../active-directory/reports-monitoring/overview-monitoring.md). Om du vill aktivera *diagnostikinställningar* i Azure Active Directory inom din Azure AD B2C-klient använder du [Azure-Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) för att [delegera en resurs](../lighthouse/concepts/azure-delegated-resource-management.md), vilket gör att din Azure AD B2C ( **tjänst leverantören**) kan hantera en Azure AD-resurs ( **kund**). När du har slutfört stegen i den här artikeln har du åtkomst till resurs gruppen *Azure-AD-B2C-Monitor* som innehåller [arbets ytan Log Analytics](../azure-monitor/learn/quick-create-workspace.md) i **Azure AD B2C** portalen. Du kommer också att kunna överföra loggarna från Azure AD B2C till arbets ytan Log Analytics.
 
 Under den här distributionen får du behörighet för en användare eller grupp i Azure AD B2C katalogen för att konfigurera Log Analytics arbets ytans instans i klienten som innehåller din Azure-prenumeration. För att skapa auktoriseringen distribuerar du en [Azure Resource Manager](../azure-resource-manager/index.yml) -mall till Azure AD-klienten som innehåller prenumerationen.
 
@@ -70,7 +70,7 @@ Börja med att hämta **klient-ID** för din Azure AD B2Cs katalog (även kallat
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller **Azure AD B2C** klienten.
-1. Välj **Azure Active Directory** , Välj **Översikt**.
+1. Välj **Azure Active Directory**, Välj **Översikt**.
 1. Registrera **klient-ID: t**.
 
 ### <a name="32-select-a-security-group"></a>3,2 Välj en säkerhets grupp
@@ -87,7 +87,7 @@ För att förenkla hanteringen rekommenderar vi att du använder Azure AD-använ
 
 ### <a name="33-create-an-azure-resource-manager-template"></a>3,3 skapa en mall för Azure Resource Manager
 
-Därefter skapar du en Azure Resource Manager-mall som ger Azure AD B2C åtkomst till Azure AD-resurs gruppen som du skapade tidigare (till exempel *Azure-AD-B2C-Monitor* ). Distribuera mallen från GitHub-exemplet genom att använda knappen **distribuera till Azure** , som öppnar Azure Portal och låter dig konfigurera och distribuera mallen direkt i portalen. För de här stegen ser du till att du är inloggad på Azure AD-klienten (inte Azure AD B2C klient organisationen).
+Därefter skapar du en Azure Resource Manager-mall som ger Azure AD B2C åtkomst till Azure AD-resurs gruppen som du skapade tidigare (till exempel *Azure-AD-B2C-Monitor*). Distribuera mallen från GitHub-exemplet genom att använda knappen **distribuera till Azure** , som öppnar Azure Portal och låter dig konfigurera och distribuera mallen direkt i portalen. För de här stegen ser du till att du är inloggad på Azure AD-klienten (inte Azure AD B2C klient organisationen).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller din **Azure AD** -klient.
@@ -239,7 +239,7 @@ Följ anvisningarna nedan om du vill skapa en ny arbets bok med en mall för JSO
 1. Tillämpa mallen med knappen **tillämpa** .
 1. Slutför redigeringen av arbets boken genom att välja **klart redigera** -knappen från verktygsfältet.
 1. Spara slutligen arbets boken genom att använda knappen **Spara** i verktygsfältet.
-1. Ange en **rubrik** , till exempel *Azure AD B2C instrument panel*.
+1. Ange en **rubrik**, till exempel *Azure AD B2C instrument panel*.
 1. Välj **Spara**.
 
     ![Spara arbets boken](./media/azure-monitor/wrkb-title.png)

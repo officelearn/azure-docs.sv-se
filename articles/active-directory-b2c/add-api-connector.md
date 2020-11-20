@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 47885e64b40db07ca3b4a7380389967a36abbd9e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504119"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949844"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Lägga till en API-anslutning till ett användar flöde för registrering (för hands version)
 
@@ -27,7 +27,7 @@ Om du vill använda en [API-anslutning](api-connectors-overview.md)skapar du fö
 ## <a name="create-an-api-connector"></a>Skapa en API-anslutning
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Under **Azure-tjänster**väljer du **Azure AD B2C**.
+2. Under **Azure-tjänster** väljer du **Azure AD B2C**.
 4. Välj **API-kopplingar (förhands granskning)** och välj sedan **ny API-anslutning**.
 
    ![Lägg till en ny API-anslutning](./media/add-api-connector/api-connector-new.png)
@@ -36,13 +36,13 @@ Om du vill använda en [API-anslutning](api-connectors-overview.md)skapar du fö
 6. Ange **slut punkts-URL** för API-anropet.
 7. Ange autentiseringsinformation för API: et.
 
-   - Det finns för närvarande endast stöd för grundläggande autentisering. Om du vill använda ett API utan grundläggande autentisering i utvecklings syfte anger du bara ett "dummy"- **användar namn** och **lösen ord** som ditt API kan ignorera. För användning med en Azure-funktion med en API-nyckel kan du inkludera koden som en frågeparameter i **slut punkts-URL: en** (till exempel https []() ://contoso.azurewebsites.NET/API/Endpoint<b>? Code = 0123456789</b>).
+   - Det finns för närvarande endast stöd för grundläggande autentisering. Om du vill använda ett API utan grundläggande autentisering i utvecklings syfte anger du bara ett "dummy"- **användar namn** och **lösen ord** som ditt API kan ignorera. För användning med en Azure-funktion med en API-nyckel kan du inkludera koden som en frågeparameter i **slut punkts-URL: en** (till exempel https []() ://contoso.azurewebsites.NET/API/Endpoint <b>? Code = 0123456789</b>).
 
    ![Konfigurera en ny API-anslutning](./media/add-api-connector/api-connector-config.png)
 8. Välj **Spara**.
 
 ## <a name="the-request-sent-to-your-api"></a>Begäran skickades till ditt API
-En API-anslutning materialiseras som en **http post** -begäran och skickar användarattribut ("anspråk") som nyckel/värde-par i en JSON-text. Attributen serialiseras på samma sätt som [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) användar egenskaper. 
+En API-anslutning materialiseras som en **http post** -begäran och skickar användarattribut ("anspråk") som nyckel/värde-par i en JSON-text. Attributen serialiseras på samma sätt som [Microsoft Graph](/graph/api/resources/user#properties) användar egenskaper. 
 
 **Exempelbegäran**
 ```http
@@ -83,16 +83,16 @@ Dessutom skickas anspråk som är **lokala för användar gränssnittet (ui_loca
 > Om ett anspråk inte har något värde när API-slutpunkten anropas skickas inte anspråket till API: et. Ditt API bör vara utformat för att explicit kontrol lera och hantera det fall där ett anspråk inte finns i begäran.
 
 > [!TIP] 
-> [**identiteter (' Identities ')**](https://docs.microsoft.com/graph/api/resources/objectidentity) och e- **postadressen (e-post)** -anspråk kan användas av ditt API för att identifiera en användare innan de har ett konto i din klient organisation. 
+> [**identiteter (' Identities ')**](/graph/api/resources/objectidentity) och e- **postadressen (e-post)** -anspråk kan användas av ditt API för att identifiera en användare innan de har ett konto i din klient organisation. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Aktivera API-anslutningen i ett användar flöde
 
 Följ dessa steg om du vill lägga till en API-anslutning till ett registrerings användar flöde.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Under **Azure-tjänster**väljer du **Azure AD B2C**.
-4. Välj **användar flöden**och välj sedan det användar flöde som du vill lägga till API-kopplingen till.
-5. Välj **API-kopplingar**och välj sedan de API-slutpunkter som du vill anropa i följande steg i användar flödet:
+2. Under **Azure-tjänster** väljer du **Azure AD B2C**.
+4. Välj **användar flöden** och välj sedan det användar flöde som du vill lägga till API-kopplingen till.
+5. Välj **API-kopplingar** och välj sedan de API-slutpunkter som du vill anropa i följande steg i användar flödet:
 
    - **När du har loggat in med en identitets leverantör**
    - **Innan du skapar användaren**
@@ -103,7 +103,7 @@ Följ dessa steg om du vill lägga till en API-anslutning till ett registrerings
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>När du har loggat in med en identitets leverantör
 
-En API-anslutning i det här steget i registrerings processen anropas omedelbart när användaren autentiseras med en identitets leverantör (som Google, Facebook, & Azure AD). Det här steget föregår*_sidan * Attribute Collection_*_, som är det formulär som visas för användaren att samla in användarattribut. Det här steget anropas inte om en användare registreras med ett lokalt konto.
+En API-anslutning i det här steget i registrerings processen anropas omedelbart när användaren autentiseras med en identitets leverantör (som Google, Facebook, & Azure AD). Det här steget föregår *_sidan * Attribute Collection_* _, som är det formulär som visas för användaren att samla in användarattribut. Det här steget anropas inte om en användare registreras med ett lokalt konto.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Exempel förfrågan skickades till API: et i det här steget
 ```http
@@ -288,7 +288,7 @@ Content-type: application/json
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | Sträng  | Ja      | API-versionen.                                                    |
 | åtgärd      | Sträng  | Ja      | Värdet måste vara `ValidationError` .                                           |
-| status      | Integer | Ja      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
+| status      | Heltal | Ja      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
 | userMessage | Sträng  | Ja      | Meddelande som ska visas för användaren.                                            |
 
 > [!NOTE]

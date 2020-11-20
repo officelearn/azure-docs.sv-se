@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
-ms.openlocfilehash: 9a5bd6dff05fe39d62e5bf5f897bc61936686bb7
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 548db64bd93dd561f9c69e9f594d01f4c0825db9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887237"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948348"
 ---
 # <a name="azure-role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Azure rollbaserad åtkomst kontroll behörigheter som krävs för att använda Network Watcher-funktioner
 
@@ -108,7 +108,7 @@ Network Watcher funktioner kräver också följande åtgärder:
 | Microsoft. Authorization/ \* /Read                                     | Används för att hämta roll tilldelningar och princip definitioner i Azure          |
 | Microsoft. Resources/Subscriptions/resourceGroups/Read               | Används för att räkna upp alla resurs grupper i en prenumeration    |
 | Microsoft. Storage/storageAccounts/Read                              | Används för att hämta egenskaperna för det angivna lagrings kontot   |
-| Microsoft. Storage/storageAccounts/listServiceSas/Action, </br> Microsoft. Storage/storageAccounts/listAccountSas/Action, <br> Microsoft. Storage/storageAccounts/Listnycklar/åtgärd| Används för att hämta signaturer för delad åtkomst (SAS) som aktiverar [säker åtkomst till lagrings kontot](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) och skriver till lagrings kontot |
+| Microsoft. Storage/storageAccounts/listServiceSas/Action, </br> Microsoft. Storage/storageAccounts/listAccountSas/Action, <br> Microsoft. Storage/storageAccounts/Listnycklar/åtgärd| Används för att hämta signaturer för delad åtkomst (SAS) som aktiverar [säker åtkomst till lagrings kontot](../storage/common/storage-sas-overview.md) och skriver till lagrings kontot |
 | Microsoft. Compute/virtualMachines/Read, </br> Microsoft. Compute/virtualMachines/Write| Används för att logga in på den virtuella datorn, göra en paket fångst och ladda upp den till lagrings kontot|
 | Microsoft. Compute/virtualMachines/Extensions/Read </br> Microsoft. Compute/virtualMachines/tillägg/Skriv| Används för att kontrol lera om Network Watcher tillägget finns och installera vid behov |
 | Microsoft. Compute/virtualMachineScaleSets/Read, </br> Microsoft. Compute/virtualMachineScaleSets/Write| Används för att komma åt skalnings uppsättningar för virtuella datorer, göra paket insamlade och överföra dem till lagrings kontot|

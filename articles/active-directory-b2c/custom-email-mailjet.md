@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6f2608dafb77aeba98f188ec04f78649656ef969
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b74de2bdf1f6239f1006c820579a336946939421
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089663"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949589"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Anpassad e-postverifiering med MailJet
 
 Använd anpassad e-post i Azure Active Directory B2C (Azure AD B2C) för att skicka anpassat e-postmeddelande till användare som registrerar sig för att använda dina program. Genom att använda [DisplayControls](display-controls.md) (för närvarande i för hands version) och e-postprovidern från tredje part kan du använda din egen e-postmall och *från:* adress och ämne, samt stöd för lokalisering och anpassad eng ång slö sen ord.
 
-Anpassad e-postverifiering kräver att en e-postleverantör från tredje part används, t. ex. [MailJet](https://Mailjet.com), [SendGrid](custom-email.md)eller [Spark post](https://sparkpost.com), en anpassad REST API eller någon http-baserad e-postprovider (inklusive din egen). I den här artikeln beskrivs hur du konfigurerar en lösning som använder MailJet.
+Anpassad e-postverifiering kräver att en e-postleverantör från tredje part används, t. ex. [MailJet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md)eller [Spark post](https://sparkpost.com), en anpassad REST API eller någon http-baserad e-postprovider (inklusive din egen). I den här artikeln beskrivs hur du konfigurerar en lösning som använder MailJet.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -42,17 +42,17 @@ Sedan lagrar du MailJet API-nyckeln i en Azure AD B2C princip nyckel för dina p
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj din Azure AD B2C katalog.
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. På sidan **Översikt** väljer du **ID för identitets miljö**.
-1. Välj **princip nycklar**och välj sedan **Lägg till**.
-1. För **alternativ**väljer du **manuell**.
+1. Välj **princip nycklar** och välj sedan **Lägg till**.
+1. För **alternativ** väljer du **manuell**.
 1. Ange ett **namn** för princip nyckeln. Exempelvis `MailjetApiKey`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
-1. I **hemlighet**anger du din MailJet **API-nyckel** som du tidigare har spelat in.
-1. För **nyckel användning**väljer du **signatur**.
+1. I **hemlighet** anger du din MailJet **API-nyckel** som du tidigare har spelat in.
+1. För **nyckel användning** väljer du **signatur**.
 1. Välj **Skapa**.
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
-1. För **alternativ**väljer du **manuell**.
+1. För **alternativ** väljer du **manuell**.
 1. Ange ett **namn** för princip nyckeln. Exempelvis `MailjetSecretKey`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
-1. I **hemlighet**anger du din MailJet- **hemliga nyckel** som du tidigare har spelat in.
-1. För **nyckel användning**väljer du **signatur**.
+1. I **hemlighet** anger du din MailJet- **hemliga nyckel** som du tidigare har spelat in.
+1. För **nyckel användning** väljer du **signatur**.
 1. Välj **Skapa**.
 
 ## <a name="create-a-mailjet-template"></a>Skapa en MailJet-mall
@@ -60,7 +60,7 @@ Sedan lagrar du MailJet API-nyckeln i en Azure AD B2C princip nyckel för dina p
 När ett MailJet-konto har skapats och MailJet-API-nyckeln som lagras i en Azure AD B2C-princip nyckel skapar du en MailJet [dynamisk transaktionell mall](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
 
 1. Öppna sidan [transaktionella mallar](https://app.mailjet.com/templates/transactional) på MailJet-webbplatsen och välj **skapa en ny mall**.
-1. Välj **genom att koda den i HTML**och välj sedan **kod från början**.
+1. Välj **genom att koda den i HTML** och välj sedan **kod från början**.
 1. Ange ett unikt mallnamn som `Verification email` och välj sedan **skapa**.
 1. I HTML-redigeraren klistrar du in följande HTML-mall eller använder din egen. `{{var:otp:""}}`Parametrarna och `{{var:email:""}}` kommer att ersättas dynamiskt med eng ång slö sen ord och användarens e-postadress.
 
@@ -160,8 +160,8 @@ När ett MailJet-konto har skapats och MailJet-API-nyckeln som lagras i en Azure
 
 1. Expandera **Redigera ämne** till vänster-överkant
     1. Ange ett standardvärde **för ämnet.** MailJet använder det här värdet när API: et inte innehåller en subject-parameter.
-    1. Som **namn**anger du företagets namn.
-    1. I **adress**väljer du din e-postadress
+    1. Som **namn** anger du företagets namn.
+    1. I **adress** väljer du din e-postadress
     1. Välj **Spara**.
 1. Från höger överkant väljer du **spara & publicera**, och sedan **Ja, publicera ändringar**
 1. Registrera **mall-ID** för mallen som du skapade för användning i ett senare steg. Du anger detta ID när du [lägger till anspråks omvandlingen](#add-the-claims-transformation).

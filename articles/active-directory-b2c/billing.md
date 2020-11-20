@@ -11,16 +11,16 @@ ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 416e2c767b5afd40fea38e6f75fcd3f01440b49a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edff5354d0565bd32cd0332b4aa0f215c2980d73
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89255367"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949793"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Fakturerings modell för Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) Priset baseras på månatliga aktiva användare (MAU), vilket är antalet unika användare med autentiserings aktivitet inom en kalender månad. Den här fakturerings modellen gäller för både Azure AD B2C klienter och [Azure AD gäst användar samarbete (B2B)](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing). MAU-faktureringen hjälper dig att minska kostnaderna genom att erbjuda en kostnads fri nivå och flexibel, förutsägbar prissättning. I den här artikeln får du lära dig om MAU-fakturering, länkar Azure AD B2C-klienter till en prenumeration och hur du ändrar pris nivån.
+Azure Active Directory B2C (Azure AD B2C) Priset baseras på månatliga aktiva användare (MAU), vilket är antalet unika användare med autentiserings aktivitet inom en kalender månad. Den här fakturerings modellen gäller för både Azure AD B2C klienter och [Azure AD gäst användar samarbete (B2B)](../active-directory/external-identities/external-identities-pricing.md). MAU-faktureringen hjälper dig att minska kostnaderna genom att erbjuda en kostnads fri nivå och flexibel, förutsägbar prissättning. I den här artikeln får du lära dig om MAU-fakturering, länkar Azure AD B2C-klienter till en prenumeration och hur du ändrar pris nivån.
 
 > [!IMPORTANT]
 > Den här artikeln innehåller ingen pris information. Den senaste informationen om fakturering och prissättning för användning finns [Azure Active Directory B2C prissättning](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
@@ -49,7 +49,7 @@ Användnings kostnader för Azure Active Directory B2C (Azure AD B2C) faktureras
 
 En prenumeration som är länkad till en Azure AD B2C-klient kan användas för fakturering av Azure AD B2C användning eller andra Azure-resurser, inklusive ytterligare Azure AD B2C resurser. Det går inte att använda för att lägga till andra Azure licensbaserade tjänster eller Office 365-licenser inom Azure AD B2C klient organisationen.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * [Azure-prenumeration](https://azure.microsoft.com/free/)
 * [Azure AD B2C klient](tutorial-create-tenant.md) som du vill länka till en prenumeration
@@ -65,7 +65,7 @@ En prenumeration som är länkad till en Azure AD B2C-klient kan användas för 
 5. Välj **Länka en befintlig Azure AD B2C-klient till min Azure-prenumeration**.
 6. Välj en **Azure AD B2C klient** i list rutan. Endast innehavare som du är global administratör för och som inte redan är länkade till en prenumeration visas. Fältet **Azure AD B2C resurs namn** fylls i med domän namnet för den Azure AD B2C klient som du väljer.
 7. Välj en aktiv Azure- **prenumeration** som du är administratör för.
-8. Under **resurs grupp**väljer du **Skapa ny**och anger sedan **resurs gruppens plats**. Resurs grupps inställningarna här påverkar inte Azure AD B2C klient plats, prestanda eller fakturerings status.
+8. Under **resurs grupp** väljer du **Skapa ny** och anger sedan **resurs gruppens plats**. Resurs grupps inställningarna här påverkar inte Azure AD B2C klient plats, prestanda eller fakturerings status.
 9. Välj **Skapa**.
 
     ![Sidan Azure AD B2C resurs skapande i Azure Portal](./media/billing/portal-01-create-b2c-resource-page.png)
@@ -78,13 +78,13 @@ En klient måste vara länkad till lämplig pris nivå för Azure baserat på de
 
 Följ dessa steg om du vill ändra pris nivån.
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 
-2. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure-prenumerationen som din Azure B2C-klient är länkad till (Välj*inte* själva Azure AD B2C klienten).
+2. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure-prenumerationen som din Azure B2C-klient är länkad till (Välj *inte* själva Azure AD B2C klienten).
 
 3. I rutan Sök högst upp i portalen anger du namnet på din Azure AD B2C klient. Välj sedan klienten i Sök resultaten under **resurser**.
 
-4. På sidan resurs **Översikt** väljer du **ändra**under **pris nivå**.
+4. På sidan resurs **Översikt** väljer du **ändra** under **pris nivå**.
 
    ![Ändra prisnivå](media/billing/change-pricing-tier.png)
  
@@ -94,7 +94,7 @@ Följ dessa steg om du vill ändra pris nivån.
 
 ## <a name="switch-to-mau-billing-pre-november-2019-azure-ad-b2c-tenants"></a>Växla till MAU fakturering (före november 2019 Azure AD B2C klienter)
 
-Om du har länkat Azure AD B2C-klienten till en prenumeration före den **1 November 2019**används den tidigare fakturerings modellen per autentisering. Vi rekommenderar att du uppgraderar till fakturerings modellen för månatliga aktiva användare (MAU). Fakturerings alternativ konfigureras i din Azure AD B2C-resurs.
+Om du har länkat Azure AD B2C-klienten till en prenumeration före den **1 November 2019** används den tidigare fakturerings modellen per autentisering. Vi rekommenderar att du uppgraderar till fakturerings modellen för månatliga aktiva användare (MAU). Fakturerings alternativ konfigureras i din Azure AD B2C-resurs.
 
 MAU-faktureringen växlar till månatliga aktiva användare () kan inte **ångras**. När du har konverterat en Azure AD B2C resurs till den MAU fakturerings modellen kan du inte återställa resursen till fakturerings modellen per autentisering.
 

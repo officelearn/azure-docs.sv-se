@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dcabd01cfbda8cd892c82b391bf649b2b464d6fb
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e522e358a1b76cea08dac550b33d7a2dfa7d926d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927778"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950235"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>SAP HANA tillgänglighet inom en Azure-region
 I den här artikeln beskrivs flera tillgänglighets scenarier i en Azure-region. Azure har många regioner, sprids över hela världen. En lista över Azure-regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/). För att distribuera SAP HANA på virtuella datorer inom en Azure-region, erbjuder Microsoft distribution av en enskild virtuell dator med en HANA-instans. För ökad tillgänglighet kan du distribuera två virtuella datorer med två HANA-instanser i en [Azures tillgänglighets uppsättning](../../windows/tutorial-availability-sets.md) som använder Hana-systemreplikering för tillgänglighet. 

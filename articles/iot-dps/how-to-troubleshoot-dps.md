@@ -8,16 +8,16 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d68314aab636180ff17e330c49c9859b8851b06
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646480"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950694"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Fel sökning med Azure IoT Hub Device Provisioning Service
 
-Anslutnings problem för IoT-enheter kan vara svåra att felsöka eftersom det finns många möjliga fel punkter, till exempel attesterings fel, registrerings fel osv. Den här artikeln innehåller vägledning om hur du identifierar och felsöker problem med enhets anslutningar via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+Anslutnings problem för IoT-enheter kan vara svåra att felsöka eftersom det finns många möjliga fel punkter, till exempel attesterings fel, registrerings fel osv. Den här artikeln innehåller vägledning om hur du identifierar och felsöker problem med enhets anslutningar via [Azure Monitor](../azure-monitor/overview.md).
 
 ## <a name="using-azure-monitor-to-view-metrics-and-set-up-alerts"></a>Använda Azure Monitor för att visa mått och konfigurera aviseringar
 
@@ -42,7 +42,7 @@ Följande procedur beskriver hur du visar och ställer in aviseringar för IoT H
 
 6. Om du vill ställa in en varning för ett mått väljer du **nya varnings regler** längst upp till höger på bladet mått, på samma sätt som du kan gå till **varnings** bladet och välja **nya varnings regler**.
 
-7. Välj **Lägg till villkor**och välj sedan önskat mått och tröskelvärde genom att följa instruktionerna nedan.
+7. Välj **Lägg till villkor** och välj sedan önskat mått och tröskelvärde genom att följa instruktionerna nedan.
 
 Mer information finns [i vad är klassiska varningar i Microsoft Azure?](../azure-monitor/platform/alerts-overview.md)
 
@@ -81,5 +81,5 @@ Använd den här tabellen för att förstå och lösa vanliga fel.
 | 401 | Det går inte att verifiera autentiseringstoken. till exempel har den upphört att gälla eller gäller inte för frågans URI. Den här felkoden returneras även till enheter som en del av flödet för TPM-attestering. | 401 – Ej behörig|
 | 404 | Enhets etablerings tjänstens instans eller en resurs (t. ex. en registrering) finns inte. |404 – Hittades inte |
 | 412 | ETag i begäran matchar inte den befintliga resursens ETag, som per RFC7232. | 412-villkoret misslyckades |
-| 429 | Åtgärder begränsas av tjänsten. Information om begränsningar för vissa tjänster finns i [IoT Hub Device Provisioning service gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 för många begär Anden |
+| 429 | Åtgärder begränsas av tjänsten. Information om begränsningar för vissa tjänster finns i [IoT Hub Device Provisioning service gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | 429 för många begär Anden |
 | 500 | Ett internt fel har inträffat. | 500 internt serverfel|

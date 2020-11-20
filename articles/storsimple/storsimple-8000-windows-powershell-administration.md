@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: bba3666fbce6a8ea591654d1abdad319f1e0857c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65e9657c3948d8ce5883cd33ca8720f501352105
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999525"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950677"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Använda Windows PowerShell för StorSimple för att administrera din enhet
 
@@ -28,7 +28,7 @@ När du har läst den här artikeln kommer du att kunna:
 * Få hjälp i Windows PowerShell för StorSimple.
 
 > [!NOTE]
-> * Med Windows PowerShell för StorSimple-cmdletar kan du hantera din StorSimple-enhet från en serie konsol eller via fjärr anslutning via Windows PowerShell-fjärrkommunikation. Mer information om var och en av de enskilda cmdletar som kan användas i det här gränssnittet finns i [cmdlet-referens för Windows PowerShell för StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+> * Med Windows PowerShell för StorSimple-cmdletar kan du hantera din StorSimple-enhet från en serie konsol eller via fjärr anslutning via Windows PowerShell-fjärrkommunikation. Mer information om var och en av de enskilda cmdletar som kan användas i det här gränssnittet finns i [cmdlet-referens för Windows PowerShell för StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 > * De Azure PowerShell StorSimple-cmdletarna är en annan samling cmdletar som gör att du kan automatisera StorSimple service nivå-och migreringsåtgärder från kommando raden. Mer information om Azure PowerShell-cmdletar för StorSimple finns i [referens för Azure StorSimple-cmdlet](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure).
 
 
@@ -47,7 +47,7 @@ Se till att du använder följande inställningar för SparaTillFil för att ans
 
 #### <a name="to-configure-putty"></a>Så här konfigurerar du SparaTillFil
 
-1. Välj **tangent bord**i rutan **kategori** i dialog rutan SparaTillFil- **omkonfiguration** .
+1. Välj **tangent bord** i rutan **kategori** i dialog rutan SparaTillFil- **omkonfiguration** .
 2. Kontrol lera att följande alternativ är markerade (de är standardinställningarna när du startar en ny session).
    
    | Tangent bords objekt | Välj |
@@ -60,13 +60,13 @@ Se till att du använder följande inställningar för SparaTillFil för att ans
    | Aktivera extra tangent bords funktioner |Control-Alt skiljer sig från AltGr |
    
     ![Inställningar för SparaTillFil som stöds](./media/storsimple-windows-powershell-administration/IC740877.png)
-3. Klicka på **Applicera**.
+3. Klicka på **Använd**.
 4. I fönstret **kategori** väljer du **översättning**.
-5. Välj **UTF-8**i list rutan **teckenuppsättning för fjärrobjekt** .
-6. Under **hantering av linje ritnings tecken**väljer du **Använd Unicode-linje ritning kod punkter**. Följande skärm bild visar rätt val av SparaTillFil.
+5. Välj **UTF-8** i list rutan **teckenuppsättning för fjärrobjekt** .
+6. Under **hantering av linje ritnings tecken** väljer du **Använd Unicode-linje ritning kod punkter**. Följande skärm bild visar rätt val av SparaTillFil.
    
     ![UTF-inställningar](./media/storsimple-windows-powershell-administration/IC740878.png)
-7. Klicka på **Applicera**.
+7. Klicka på **Använd**.
 
 Du kan nu använda SparaTillFil för att ansluta till enhetens serie konsol genom att utföra följande steg.
 
@@ -178,4 +178,3 @@ Du kan enkelt uppdatera hjälpen i Windows PowerShell-gränssnittet. Utför föl
 ## <a name="next-steps"></a>Nästa steg
 
 Om du får problem med din StorSimple-enhet när du utför något av ovanstående arbets flöden, se [verktyg för fel sökning av StorSimple-distributioner](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-

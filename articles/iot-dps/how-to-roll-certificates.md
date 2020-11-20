@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf8b1e04e11dee4e636826430838a467fe034e3f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531414"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951136"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Så här återställer du X. 509 enhets certifikat
 
@@ -51,7 +51,7 @@ När en enhet tillhandahålls första gången via automatisk etablering, startas
 
 När ett nytt löv certifikat har registrerats på enheten kan det inte längre ansluta till IoT Hub eftersom det använder ett nytt certifikat för att ansluta. IoT Hub känner bara igen enheten med det gamla certifikatet. Resultatet av enhetens anslutnings försök kommer att vara ett "obehörig" anslutnings fel. För att lösa det här felet måste du uppdatera registrerings posten för enheten för att kunna hantera enhetens nya löv certifikat. Etablerings tjänsten kan sedan uppdatera IoT Hub enhetens register information vid behov när enheten har etablerats. 
 
-Ett möjligt undantag till det här anslutnings felet är ett scenario där du har skapat en [registrerings grupp](concepts-service.md#enrollment-group) för enheten i etablerings tjänsten. I det här fallet, om du inte rullar rot-eller mellanliggande certifikat i enhetens certifikat kedja, kommer enheten att identifieras om det nya certifikatet är en del av förtroende kedjan som definierats i registrerings gruppen. Om det här scenariot inträffar som en reaktion på en säkerhets överträdelse bör du minst tillåta att de angivna enhets certifikaten i gruppen anses vara överträdelse. Mer information finns i [Tillåt inte vissa enheter i en registrerings grupp](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#disallow-specific-devices-in-an-enrollment-group).
+Ett möjligt undantag till det här anslutnings felet är ett scenario där du har skapat en [registrerings grupp](concepts-service.md#enrollment-group) för enheten i etablerings tjänsten. I det här fallet, om du inte rullar rot-eller mellanliggande certifikat i enhetens certifikat kedja, kommer enheten att identifieras om det nya certifikatet är en del av förtroende kedjan som definierats i registrerings gruppen. Om det här scenariot inträffar som en reaktion på en säkerhets överträdelse bör du minst tillåta att de angivna enhets certifikaten i gruppen anses vara överträdelse. Mer information finns i [Tillåt inte vissa enheter i en registrerings grupp](./how-to-revoke-device-access-portal.md#disallow-specific-devices-in-an-enrollment-group).
 
 Uppdatering av registrerings poster för registrerade certifikat utförs på sidan **Hantera registreringar** . Följ dessa steg för att få åtkomst till sidan:
 
@@ -69,7 +69,7 @@ Hur du hanterar uppdatering av registreringen beror på om du använder enskilda
 
 Om du rullar certifikat som svar på en säkerhets överträdelse bör du använda följande metod för att ta bort det aktuella certifikatet omedelbart:
 
-1. Klicka på **enskilda**registreringar och klicka på posten registrerings-ID i listan. 
+1. Klicka på **enskilda** registreringar och klicka på posten registrerings-ID i listan. 
 
 2. Klicka på knappen **ta bort aktuellt certifikat** och klicka sedan på mappikonen för att välja det nya certifikat som ska överföras för registrerings posten. Klicka på **Spara** när du är färdig.
 
@@ -92,7 +92,7 @@ Om du rullar certifikat för att hantera certifikat upphör ande bör du använd
 Senare när det sekundära certifikatet också snart upphör att gälla och måste återställas, kan du rotera till att använda den primära konfigurationen. Att rotera mellan de primära och sekundära certifikaten på det här sättet minskar stillestånds tiden för enheter som försöker etablera.
 
 
-1. Klicka på **enskilda**registreringar och klicka på posten registrerings-ID i listan. 
+1. Klicka på **enskilda** registreringar och klicka på posten registrerings-ID i listan. 
 
 2. Klicka på **sekundärt certifikat** och klicka sedan på mappikonen för att välja det nya certifikat som ska överföras för registrerings posten. Klicka på **Spara**.
 
@@ -116,7 +116,7 @@ Om du vill uppdatera en grupp registrering som svar på en säkerhets överträd
 
 4. Klicka på fliken **Hantera registreringar** för din enhets etablerings tjänst instans och klicka på listan **registrerings grupper** . Klicka på namnet på din registrerings grupp i listan.
 
-5. Klicka på **ca-certifikat**och välj ditt nya rot certifikat för certifikat utfärdare. Klicka sedan på **Spara**. 
+5. Klicka på **ca-certifikat** och välj ditt nya rot certifikat för certifikat utfärdare. Klicka sedan på **Spara**. 
 
     ![Välj det nya rot certifikat utfärdarens certifikat för ett komprometterat certifikat](./media/how-to-roll-certificates/select-new-root-cert.png)
 
@@ -132,9 +132,9 @@ Om du vill uppdatera en grupp registrering som svar på en säkerhets överträd
 
 #### <a name="update-compromised-intermediate-certificates"></a>Uppdatera komprometterade mellanliggande certifikat
 
-1. Klicka på **registrerings grupper**och klicka sedan på grupp namnet i listan. 
+1. Klicka på **registrerings grupper** och klicka sedan på grupp namnet i listan. 
 
-2. Klicka på **mellanliggande certifikat**och **ta bort aktuellt certifikat**. Klicka på mappikonen för att navigera till det nya mellanliggande certifikatet som ska överföras för registrerings gruppen. Klicka på **Spara** när du är klar. De här stegen bör utföras för både det primära och sekundära certifikatet, om båda komprometteras.
+2. Klicka på **mellanliggande certifikat** och **ta bort aktuellt certifikat**. Klicka på mappikonen för att navigera till det nya mellanliggande certifikatet som ska överföras för registrerings gruppen. Klicka på **Spara** när du är klar. De här stegen bör utföras för både det primära och sekundära certifikatet, om båda komprometteras.
 
     Det nya mellanliggande certifikatet bör signeras av ett verifierat rot certifikat för certifikat utfärdare som redan har lagts till i etablerings tjänsten. Mer information finns i avsnittet om [X. 509-certifikat](concepts-x509-attestation.md#x509-certificates).
 
@@ -162,7 +162,7 @@ Senare när det sekundära certifikatet också snart upphör att gälla och mås
 
 2. Klicka på fliken **Hantera registreringar** för din enhets etablerings tjänst instans och klicka på listan **registrerings grupper** . Klicka på namnet på din registrerings grupp i listan.
 
-3. Klicka på **ca-certifikat**och välj ditt nya rot certifikat för certifikat utfärdare under den **sekundära certifikat** konfigurationen. Klicka sedan på **Spara**. 
+3. Klicka på **ca-certifikat** och välj ditt nya rot certifikat för certifikat utfärdare under den **sekundära certifikat** konfigurationen. Klicka sedan på **Spara**. 
 
     ![Välj det nya rot certifikat utfärdarens certifikat för förfallo datum](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
@@ -175,7 +175,7 @@ Senare när det sekundära certifikatet också snart upphör att gälla och mås
 #### <a name="update-expiring-intermediate-certificates"></a>Uppdatera utgångna mellanliggande certifikat
 
 
-1. Klicka på **registrerings grupper**och klicka på grupp namnet i listan. 
+1. Klicka på **registrerings grupper** och klicka på grupp namnet i listan. 
 
 2. Klicka på **sekundärt certifikat** och klicka sedan på mappikonen för att välja det nya certifikat som ska överföras för registrerings posten. Klicka på **Spara**.
 

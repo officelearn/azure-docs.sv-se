@@ -5,18 +5,19 @@ author: MSSedusch
 manager: juergent
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: c186e7beeed3a1729560d7deb002d573e0014508
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92894108"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950983"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -339,7 +340,7 @@ I hela dokumentet använder vi följande villkor:
 * SAP, liggande: den här termen avser hela SAP-till gångar i en kunds IT-liggande. SAP-landskapet innehåller alla produktions miljöer och icke-produktions miljöer.
 * SAP-system: kombinationen av DBMS-skikt och program nivå i, till exempel ett SAP ERP-utvecklingssystem, SAP BW test system, SAP CRM-produktionssystem osv. I Azure-distributioner finns det inte stöd för att dela upp dessa två skikt mellan lokalt och Azure. Innebär att ett SAP-system antingen är distribuerat lokalt eller distribuerat i Azure. Du kan dock distribuera de olika systemen i ett SAP-landskap till antingen Azure eller lokalt. Du kan t. ex. distribuera SAP CRM-utvecklings-och test system i Azure, men i det lokala SAP CRM-operativsystemet.
 * Mellan platser eller hybrider: beskriver ett scenario där virtuella datorer distribueras till en Azure-prenumeration som har plats-till-plats-, flera-plats-eller ExpressRoute-anslutning mellan lokala data Center (er) och Azure. I gemensam Azure-dokumentation beskrivs även dessa typer av distributioner som olika platser eller hybrid scenarier. Orsaken till anslutningen är att utöka lokala domäner, lokala Active Directory/OpenLDAP och lokala DNS i Azure. Det lokala landskapet utökas till Azure-till gångar för prenumerationen. De virtuella datorerna kan vara en del av den lokala domänen. Domän användare av den lokala domänen kan komma åt servrarna och kan köra tjänster på de virtuella datorerna (t. ex. DBMS-tjänster). Kommunikation och namn matchning mellan virtuella datorer som distribuerats lokalt och Azure-distribuerade virtuella datorer är möjligt. Detta är det vanligaste och nästan exklusiva fallet som distribuerar SAP-tillgångar till Azure. Mer information finns i [den här][vpn-gateway-cross-premises-options] artikeln och [detta][vpn-gateway-site-to-site-create].
-* Azure Monitoring Extension, förbättrad övervakning och Azure-tillägg för SAP: Beskriv ett och samma objekt. Den beskriver ett VM-tillägg som måste distribueras av dig för att tillhandahålla grundläggande data om Azure-infrastrukturen till SAP-värd agenten. SAP i SAP-anteckningar kan referera till det som övervaknings tillägg eller förbättrad övervakning. I Azure refererar vi till det som Azure- **tillägg för SAP** .
+* Azure Monitoring Extension, förbättrad övervakning och Azure-tillägg för SAP: Beskriv ett och samma objekt. Den beskriver ett VM-tillägg som måste distribueras av dig för att tillhandahålla grundläggande data om Azure-infrastrukturen till SAP-värd agenten. SAP i SAP-anteckningar kan referera till det som övervaknings tillägg eller förbättrad övervakning. I Azure refererar vi till det som Azure- **tillägg för SAP**.
 
 > [!NOTE]
 > Mellan lokala eller hybrid distributioner av SAP-system där Azure Virtual Machines som kör SAP-system är medlemmar i en lokal domän som stöds för produktion av SAP-system. Lokala eller hybrid konfigurationer stöds för att distribuera delar eller slutföra SAP-landskap till Azure. Även om du kör hela SAP liggande i Azure måste de virtuella datorerna vara en del av den lokala domänen och ADS/OpenLDAP.
@@ -494,7 +495,7 @@ Mer information om prissättning finns i artikeln [Azure-Virtual Machines](https
 Dessutom erbjuder Azure koncepten för en dedikerad värd. Med det dedikerade värd konceptet får du mer kontroll över de uppdaterings cykler som utförs av Azure. Du kan använda uppdaterings tiden enligt dina egna scheman. Det här erbjudandet riktar sig specifikt till kunder med arbets belastning som kanske inte följer den normala arbets belastnings cykeln. Läs artikeln [Azures dedikerade värd](../../dedicated-hosts.md)för att läsa mer om begreppen i Azures dedikerade erbjudande. Att använda det här erbjudandet stöds för SAP-arbetsbelastningar och används av flera SAP-kunder som vill ha mer kontroll över korrigering av infrastruktur och eventuella underhålls planer för Microsoft. För ytterligare information om hur Microsoft underhåller och uppdaterar Azure-infrastrukturen som är värd för virtuella datorer, kan du läsa artikeln [underhåll för virtuella datorer i Azure](../../maintenance-and-updates.md).
 
 #### <a name="generation-1-and-generation-2-virtual-machines"></a>Virtuella datorer i generation 1 och generation 2
-Microsofts hypervisor kan hantera två olika generationer av virtuella datorer. Dessa format kallas **generation 1** och **generation 2** . **Generation 2** introducerades i år 2012 med Windows Server 2012 hypervisor. Azure startade med virtuella datorer i generation 1. När du distribuerar virtuella Azure-datorer är standardvärdet fortfarande att använda generation 1-formatet. Under tiden kan du även distribuera generation 2 VM-format. Artikel [stödet för virtuella datorer i generation 2 på Azure](../../generation-2.md) visar en lista över virtuella Azure-datorer som kan distribueras som generation 2 VM. Den här artikeln innehåller även de viktiga funktions skillnaderna för virtuella datorer i generation 2 som kan köras i privata moln i Hyper-V och Azure. Mer viktigt den här artikeln visar även funktions skillnader mellan virtuella datorer i generation 1 och virtuella datorer i generation 2, som de körs i Azure.
+Microsofts hypervisor kan hantera två olika generationer av virtuella datorer. Dessa format kallas **generation 1** och **generation 2**. **Generation 2** introducerades i år 2012 med Windows Server 2012 hypervisor. Azure startade med virtuella datorer i generation 1. När du distribuerar virtuella Azure-datorer är standardvärdet fortfarande att använda generation 1-formatet. Under tiden kan du även distribuera generation 2 VM-format. Artikel [stödet för virtuella datorer i generation 2 på Azure](../../generation-2.md) visar en lista över virtuella Azure-datorer som kan distribueras som generation 2 VM. Den här artikeln innehåller även de viktiga funktions skillnaderna för virtuella datorer i generation 2 som kan köras i privata moln i Hyper-V och Azure. Mer viktigt den här artikeln visar även funktions skillnader mellan virtuella datorer i generation 1 och virtuella datorer i generation 2, som de körs i Azure.
 
 > [!NOTE]
 > Det finns funktions skillnader i generation 1 och generation 2 virtuella datorer som körs i Azure. Läs artikeln  [stöd för virtuella datorer i generation 2 på Azure](../../generation-2.md) för att se en lista över dessa skillnader.
@@ -856,7 +857,7 @@ Om den virtuella datorn är för beredd för att vara generisk och slutligen obe
 ---
 > ![Windows-logotyp.][Logo_Windows] Windows
 >
-> Det sista steget är att logga in på en virtuell dator med ett administratörs konto. Öppna ett Windows-kommando fönster som *administratör* . Gå till%windir%\windows\system32\sysprep och kör sysprep.exe.
+> Det sista steget är att logga in på en virtuell dator med ett administratörs konto. Öppna ett Windows-kommando fönster som *administratör*. Gå till%windir%\windows\system32\sysprep och kör sysprep.exe.
 > Ett litet fönster visas. Det är viktigt att kontrol lera **generalize** -alternativet (Standardvärdet är avmarkerat) och ändra avstängnings alternativet från standardvärdet ' reboot ' till ' shutdown '. Den här proceduren förutsätter att Sysprep-processen körs lokalt i gäst operativ systemet på en virtuell dator.
 > Om du vill utföra proceduren med en virtuell dator som redan körs i Azure följer du stegen som beskrivs i [den här artikeln](../../windows/capture-image-resource.md).
 >
@@ -1178,7 +1179,7 @@ Mer information och mer information, specifikt för virtuella DBMS-datorer, finn
 
 I de flesta fall måste du skapa ytterligare diskar för att kunna distribuera SAP-databasen till den virtuella datorn. Vi har talat om överväganden om antalet diskar i kapitlet om [VM/disk Structure för SAP-distributioner][planning-guide-5.5.1] av det här dokumentet. Med Azure Portal kan du ansluta och koppla från diskar när en virtuell bas dator har distribuerats. Diskarna kan kopplas/kopplas från när den virtuella datorn är igång samt när den har stoppats. När du kopplar en disk, Azure Portal erbjuda en tom disk eller en befintlig disk, vilket vid tidpunkten inte är kopplat till en annan virtuell dator.
 
-**Obs** : diskar kan bara kopplas till en virtuell dator vid en bestämd tidpunkt.
+**Obs**: diskar kan bara kopplas till en virtuell dator vid en bestämd tidpunkt.
 
 ![Ansluta/koppla från diskar med Azure standard Storage][planning-guide-figure-1400]
 
@@ -1186,7 +1187,7 @@ Under distributionen av en ny virtuell dator kan du välja om du vill använda M
 
 Därefter måste du bestämma om du vill skapa en ny och en tom disk eller om du vill välja en befintlig disk som överfördes tidigare och som ska kopplas till den virtuella datorn nu.
 
-**Viktigt** : du vill **inte** använda cachelagring av värdar med Azure standard Storage. Du bör lämna inställningen för värd-cachen till standardvärdet NONE. Med Azure Premium Storage bör du aktivera cachelagring av filer om I/O-variabeln huvudsakligen läser som typisk I/O-trafik mot datafiler I databasen. I händelse av databas transaktions logg filen rekommenderas ingen cachelagring.
+**Viktigt**: du vill **inte** använda cachelagring av värdar med Azure standard Storage. Du bör lämna inställningen för värd-cachen till standardvärdet NONE. Med Azure Premium Storage bör du aktivera cachelagring av filer om I/O-variabeln huvudsakligen läser som typisk I/O-trafik mot datafiler I databasen. I händelse av databas transaktions logg filen rekommenderas ingen cachelagring.
 
 ---
 > ![Windows-logotyp.][Logo_Windows] Windows
@@ -1269,13 +1270,13 @@ Det kan vara nödvändigt att konfigurera brand väggen på dina virtuella dator
 > Som standard är Windows-brandväggen i en distribuerad Azure-dator aktive rad. Du måste nu tillåta SAP-porten att öppnas, annars kan inte SAP-ANVÄNDARGRÄNSSNITTET ansluta.
 > Gör så här:
 >
-> * Öppna kontroll Kontrollpanelen\system och säkerhet-brandväggen till **Avancerade inställningar** .
-> * Högerklicka på regler för inkommande trafik och välj **ny regel** .
+> * Öppna kontroll Kontrollpanelen\system och säkerhet-brandväggen till **Avancerade inställningar**.
+> * Högerklicka på regler för inkommande trafik och välj **ny regel**.
 > * I följande guide väljer du att skapa en ny **port** regel.
 > * I nästa steg i guiden lämnar du inställningen vid TCP och skriver in det port nummer som du vill öppna. Eftersom vårt SAP-instans-ID är 00 tog vi 3200. Om instansen har ett annat instans nummer, ska porten du definierade tidigare utifrån instans numret öppnas.
 > * I nästa del av guiden måste du lämna objektet **Tillåt anslutning** markerat.
 > * I nästa steg i guiden måste du definiera om regeln gäller för domän, privat och offentligt nätverk. Justera den om det behövs för dina behov. Men om du ansluter med SAP-GUI från utsidan via det offentliga nätverket måste du ha regeln tillämpad på det offentliga nätverket.
-> * I det sista steget i guiden namnger du regeln och sparar genom att trycka på **Slutför** .
+> * I det sista steget i guiden namnger du regeln och sparar genom att trycka på **Slutför**.
 >
 > Regeln börjar gälla omedelbart.
 >
@@ -1427,7 +1428,7 @@ Add-AzVMDataDisk -VM $vm -Name datadisk -DiskSizeInGB 1023 -CreateOption empty -
 
 ##### <a name="cli"></a>CLI
 
-Följande exempel kod kan användas i Linux. För Windows kan du antingen använda PowerShell som det beskrivs ovan eller anpassa exemplet för att använda% rgName% i stället för $rgName och ange miljövariabeln med hjälp av Windows-kommando *uppsättningen* .
+Följande exempel kod kan användas i Linux. För Windows kan du antingen använda PowerShell som det beskrivs ovan eller anpassa exemplet för att använda% rgName% i stället för $rgName och ange miljövariabeln med hjälp av Windows-kommando *uppsättningen*.
 
 * Skapa en ny resurs grupp för varje utbildning/demo liggande
 
@@ -1776,8 +1777,8 @@ Termen **hög tillgänglighet (ha)** är i allmänhet relaterad till en uppsätt
 
 Vi kan dela upp diskussionen om SAP hög tillgänglighet i Azure i två delar:
 
-* **Azure-infrastruktur med hög tillgänglighet** , till exempel ha för beräkning (VM), nätverk, lagring osv. och dess fördelar för att öka tillgängligheten för SAP-program.
-* **SAP-program hög tillgänglighet** , till exempel ha av SAP-program varu komponenter:
+* **Azure-infrastruktur med hög tillgänglighet**, till exempel ha för beräkning (VM), nätverk, lagring osv. och dess fördelar för att öka tillgängligheten för SAP-program.
+* **SAP-program hög tillgänglighet**, till exempel ha av SAP-program varu komponenter:
   * SAP-program servrar
   * SAP ASCS/SCS-instans
   * DB-server

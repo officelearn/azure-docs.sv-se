@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 80ecd02f9aebbca66169d64d6c6d0302d58ca439
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4426a305d72fdd86ee58b3f4a05153593515d4b5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647672"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949657"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
@@ -41,7 +41,7 @@ Sammanfatta de två icke-exklusiva huvud scenarierna med SAML:
 | Mitt program förväntar sig en SAML-kontroll för att slutföra en autentisering. | **Azure AD B2C fungerar som identitets leverantör (IdP)**<br />Azure AD B2C fungerar som en SAML-IdP i programmen. | Den här artikeln. |
 | Mina användare behöver en enkel inloggning med en SAML-kompatibel identitets leverantör som ADFS, Salesforce eller Shibboleth.  | **Azure AD B2C fungerar som tjänst leverantör (SP)**<br />Azure AD B2C fungerar som en tjänst leverantör vid anslutning till SAML Identity Provider. Det är en Federations-proxy mellan ditt program och SAML Identity Provider.  | <ul><li>[Konfigurera inloggning med ADFS som ett SAML-IdP med anpassade principer](identity-provider-adfs2016-custom.md)</li><li>[Konfigurera inloggning med en Salesforce-SAML-Provider med anpassade principer](identity-provider-salesforce-custom.md)</li></ul> |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför stegen i [Kom igång med anpassade principer i Azure AD B2C](custom-policy-get-started.md). Du behöver den anpassade principen *SocialAndLocalAccounts* från start paketet för anpassad princip som beskrivs i artikeln.
 * Grundläggande förståelse för Security Assertion Markup Language-protokollet (SAML).
@@ -73,7 +73,7 @@ Du kan använda ett certifikat utfärdat av en offentlig certifikat utfärdare e
 
 ### <a name="11-prepare-a-self-signed-certificate"></a>1,1 förbereda ett självsignerat certifikat
 
-Om du inte redan har ett certifikat kan du använda ett självsignerat certifikat för den här självstudien. I Windows kan du använda PowerShell: s [New-SelfSignedCertificate-](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet för att skapa ett certifikat.
+Om du inte redan har ett certifikat kan du använda ett självsignerat certifikat för den här självstudien. I Windows kan du använda PowerShell: s [New-SelfSignedCertificate-](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet för att skapa ett certifikat.
 
 1. Kör PowerShell-kommandot för att generera ett självsignerat certifikat. Ändra `-Subject` argumentet efter behov för ditt program och Azure AD B2C klient namn. Du kan också justera `-NotAfter` datumet för att ange ett annat förfallo datum för certifikatet.
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b34d5cdd95f44082d05153390209de5145e56d3f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089578"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949504"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Genom gång: Lägg till REST API Claims-utbyten till anpassade principer i Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ I det här scenariot kan vi utöka användarens token-data genom att integrera m
 
 Du kan också utforma interaktionen som en teknisk profil för validering. Detta är lämpligt när REST API kommer att verifiera data på skärmen och returnera anspråk. Mer information finns i [genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa för att verifiera användarindata](custom-policy-rest-api-claims-validation.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
 - Lär dig hur du [integrerar REST API Claims-utbyten i din Azure AD B2C anpassade princip](custom-policy-rest-api-intro.md).
@@ -53,7 +53,7 @@ När REST API verifierar data måste den returnera en HTTP 200 (OK), med följan
 }
 ```
 
-Installationen av REST API slut punkten ligger utanför omfånget för den här artikeln. Vi har skapat ett [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) -exempel. Du kan komma åt den fullständiga Azure Function-koden på [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+Installationen av REST API slut punkten ligger utanför omfånget för den här artikeln. Vi har skapat ett [Azure Functions](../azure-functions/functions-reference.md) -exempel. Du kan komma åt den fullständiga Azure Function-koden på [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definiera anspråk
 
@@ -183,9 +183,9 @@ Om du vill återgå `balance` tillbaka till det förlitande part programmet läg
 </RelyingParty>
 ```
 
-Upprepa det här steget för **ProfileEdit.xml**och **PasswordReset.xml** användar resor.
+Upprepa det här steget för **ProfileEdit.xml** och **PasswordReset.xml** användar resor.
 
-Spara de filer som du ändrade: *TrustFrameworkBase.xml*och *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*och *PasswordReset.xml*. 
+Spara de filer som du ändrade: *TrustFrameworkBase.xml* och *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* och *PasswordReset.xml*. 
 
 ## <a name="test-the-custom-policy"></a>Testa den anpassade principen
 
@@ -193,7 +193,7 @@ Spara de filer som du ändrade: *TrustFrameworkBase.xml*och *TrustFrameworkExten
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ramverk för identitets upplevelse**.
-1. Välj **överför anpassad princip**och överför sedan de principfiler som du ändrade: *TrustFrameworkBase.xml*och *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*och *PasswordReset.xml*. 
+1. Välj **överför anpassad princip** och överför sedan de principfiler som du ändrade: *TrustFrameworkBase.xml* och *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* och *PasswordReset.xml*. 
 1. Välj den registrerings-eller inloggnings princip som du laddade upp och klicka på knappen **Kör nu** .
 1. Du bör kunna registrera dig med hjälp av en e-postadress eller ett Facebook-konto.
 1. Den token som skickas tillbaka till programmet inkluderar `balance` anspråket.

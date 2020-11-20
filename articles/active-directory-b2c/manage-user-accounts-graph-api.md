@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4a9323cc92567d681ee8c73a62e0b89c17c22b1e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a5fcbf80850fd9de77e6f9a431afea6d48cb14d1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647621"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949419"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Hantera Azure AD B2C användar konton med Microsoft Graph
 
@@ -35,13 +35,13 @@ Följ stegen i den här instruktions artikeln för att skapa en program registre
 
 ## <a name="user-management-microsoft-graph-operations"></a>Microsoft Graph åtgärder för användar hantering
 
-Följande användar hanterings åtgärder är tillgängliga i [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user):
+Följande användar hanterings åtgärder är tillgängliga i [Microsoft Graph API](/graph/api/resources/user):
 
-- [Hämta en lista över användare](https://docs.microsoft.com/graph/api/user-list)
-- [Skapa en användare](https://docs.microsoft.com/graph/api/user-post-users)
-- [Hämta en användare](https://docs.microsoft.com/graph/api/user-get)
-- [Uppdatera en användare](https://docs.microsoft.com/graph/api/user-update)
-- [Ta bort en användare](https://docs.microsoft.com/graph/api/user-delete)
+- [Hämta en lista över användare](/graph/api/user-list)
+- [Skapa en användare](/graph/api/user-post-users)
+- [Hämta en användare](/graph/api/user-get)
+- [Uppdatera en användare](/graph/api/user-update)
+- [Ta bort en användare](/graph/api/user-delete)
 
 ## <a name="user-properties"></a>Användaregenskaper
 
@@ -60,7 +60,7 @@ En användare med ett kund konto kan logga in med flera identiteter. Till exempe
 
 I Microsoft Graph API lagras både lokala och federerade identiteter i `identities` attributet User, som är av typen [objectIdentity][graph-objectIdentity]. `identities`Samlingen representerar en uppsättning identiteter som används för att logga in på ett användar konto. Den här samlingen gör att användaren kan logga in på användar kontot med någon av dess associerade identiteter.
 
-| Egenskap   | Typ |Description|
+| Egenskap   | Typ |Beskrivning|
 |:---------------|:--------|:----------|
 |signInType|sträng| Anger användarnas inloggnings typer i din katalog. För lokalt konto:,,,,  `emailAddress` `emailAddress1` `emailAddress2` `emailAddress3`  `userName` eller någon annan typ som du vill ha. Socialt konto måste anges till  `federated` .|
 |utfärdare|sträng|Anger utfärdarens identitet. För lokala konton (där **signInType** inte är `federated` det) är den här egenskapen namnet på den lokala B2C-klientens standard domän, till exempel `contoso.onmicrosoft.com` . För sociala identiteter (där **signInType** är  `federated` ) är värdet namnet på utfärdaren, till exempel `facebook.com`|
@@ -125,7 +125,7 @@ Microsoft Graph API har stöd för att skapa och uppdatera en användare med att
 
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Kod exempel: program mässigt hantera användar konton
 
-Det här kod exemplet är ett .NET Core-konsolprogram som använder [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview) för att interagera med Microsoft Graph API. Koden visar hur du anropar API: et för att hantera användare program mässigt i en Azure AD B2C klient organisation.
+Det här kod exemplet är ett .NET Core-konsolprogram som använder [Microsoft Graph SDK](/graph/sdks/sdks-overview) för att interagera med Microsoft Graph API. Koden visar hur du anropar API: et för att hantera användare program mässigt i en Azure AD B2C klient organisation.
 Du kan [Ladda ned exempel arkivet](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*. zip), [Bläddra i lagrings platsen](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) på GitHub eller klona lagrings platsen:
 
 ```cmd
@@ -152,7 +152,7 @@ Programmet visar en lista över kommandon som du kan köra. Du kan till exempel 
 
 ### <a name="code-discussion"></a>Kod diskussion
 
-Exempel koden använder [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), som är utformad för att förenkla skapandet av högkvalitativa, effektiva och elastiska program som har åtkomst till Microsoft Graph.
+Exempel koden använder [Microsoft Graph SDK](/graph/sdks/sdks-overview), som är utformad för att förenkla skapandet av högkvalitativa, effektiva och elastiska program som har åtkomst till Microsoft Graph.
 
 Alla begär anden till Microsoft Graph API kräver en åtkomsttoken för autentisering. Lösningen använder sig av [Microsoft. Graph. auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet-paketet som tillhandahåller ett gränssnitts scenario baserat på Microsoft Authentication Library (MSAL) för användning med Microsoft Graph SDK.
 
@@ -203,7 +203,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Gör API-anrop med hjälp av Microsoft Graph SDK: er](https://docs.microsoft.com/graph/sdks/create-requests) innehåller information om hur du läser och skriver information från Microsoft Graph, använder `$select` för att kontrol lera de egenskaper som returneras, tillhandahålla anpassade frågeparametrar och använda `$filter` `$orderBy` parametrarna och.
+[Gör API-anrop med hjälp av Microsoft Graph SDK: er](/graph/sdks/create-requests) innehåller information om hur du läser och skriver information från Microsoft Graph, använder `$select` för att kontrol lera de egenskaper som returneras, tillhandahålla anpassade frågeparametrar och använda `$filter` `$orderBy` parametrarna och.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -211,5 +211,5 @@ Ett fullständigt index för de Microsoft Graph API-åtgärder som stöds för A
 
 <!-- LINK -->
 
-[graph-objectIdentity]: https://docs.microsoft.com/graph/api/resources/objectidentity
+[graph-objectIdentity]: /graph/api/resources/objectidentity
 [graph-user]: (https://docs.microsoft.com/graph/api/resources/user)

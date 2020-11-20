@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 5dbb8d508fe824d0264043625c988f43092f3f78
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 13b379fd3b4f788d79cbb6a9bf6d40cb1693eaf9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699244"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948999"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Övervakning av nätverks anslutning med anslutnings övervakaren
 
@@ -34,7 +34,7 @@ Här är några användnings fall för anslutnings övervakaren:
 - Ditt hybrid program behöver anslutning till en Azure Storage-slutpunkt. Din lokala plats och ditt Azure-program ansluter till samma Azure Storage slut punkt. Du vill jämföra fördröjningen för den lokala platsen med fördröjningen i Azure-programmet.
 - Du vill kontrol lera anslutningen mellan dina lokala installationer och de virtuella Azure-datorer som är värdar för moln programmet.
 
-Anslutnings övervakaren kombinerar det bästa av två funktioner: funktionen Network Watcher [anslutnings övervakare (klassisk)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) och tjänsten övervakare av NÄTVERKSPRESTANDA (NPM) [tjänst anslutnings övervakare](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute övervakning](https://docs.microsoft.com/azure/expressroute/how-to-npm)och [prestanda övervakning](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) .
+Anslutnings övervakaren kombinerar det bästa av två funktioner: funktionen Network Watcher [anslutnings övervakare (klassisk)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) och tjänsten övervakare av NÄTVERKSPRESTANDA (NPM) [tjänst anslutnings övervakare](../azure-monitor/insights/network-performance-monitor-service-connectivity.md), [ExpressRoute övervakning](../expressroute/how-to-npm.md)och [prestanda övervakning](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) .
 
 Här följer några fördelar med anslutnings övervakaren:
 
@@ -65,7 +65,7 @@ Anslutnings övervakaren förlitar sig på enkla körbara filer för att köra a
 
 Om du vill att anslutnings övervakaren ska identifiera dina virtuella Azure-datorer som övervaknings källor installerar du tillägget Network Watcher agent virtuell dator. Tillägget kallas även *Network Watcher-tillägget*. Virtuella Azure-datorer kräver tillägget för att utlösa övervakning från slut punkt till slut punkt och andra avancerade funktioner. 
 
-Du kan installera Network Watcher-tillägget när du [skapar en virtuell dator](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm). Du kan också separat installera, konfigurera och felsöka Network Watcher-tillägget för [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux) och [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
+Du kan installera Network Watcher-tillägget när du [skapar en virtuell dator](./connection-monitor.md#create-the-first-vm). Du kan också separat installera, konfigurera och felsöka Network Watcher-tillägget för [Linux](../virtual-machines/extensions/network-watcher-linux.md) och [Windows](../virtual-machines/extensions/network-watcher-windows.md).
 
 Regler för en nätverks säkerhets grupp (NSG) eller brand vägg kan blockera kommunikation mellan källan och målet. Anslutnings övervakaren identifierar det här problemet och visar det som ett diagnostiskt meddelande i topologin. Om du vill aktivera anslutnings övervakning kontrollerar du att NSG-och brand Väggs reglerna tillåter paket över TCP eller ICMP mellan källan och målet.
 
@@ -73,7 +73,7 @@ Regler för en nätverks säkerhets grupp (NSG) eller brand vägg kan blockera k
 
 Om du vill att anslutnings övervakaren ska identifiera dina lokala datorer som källor för övervakning installerar du Log Analytics agent på datorerna. Aktivera sedan Övervakare av nätverksprestanda-lösningen. Dessa agenter är länkade till Log Analytics arbets ytor, så du måste konfigurera arbetsyte-ID och primär nyckel innan agenterna kan börja övervaka.
 
-För att installera Log Analytics agent för Windows-datorer, se [Azure Monitor tillägg för virtuell dator för Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows).
+För att installera Log Analytics agent för Windows-datorer, se [Azure Monitor tillägg för virtuell dator för Windows](../virtual-machines/extensions/oms-windows.md).
 
 Om sökvägen omfattar brand väggar eller virtuella nätverks installationer (NVA) kontrollerar du att målet kan kontaktas.
 
@@ -81,7 +81,7 @@ Om sökvägen omfattar brand väggar eller virtuella nätverks installationer (N
 
 Alla prenumerationer som har ett virtuellt nätverk har Aktiver ATS med Network Watcher. När du skapar ett virtuellt nätverk i din prenumeration aktive ras Network Watcher automatiskt i det virtuella nätverkets region och prenumeration. Den här automatiska aktiveringen påverkar inte dina resurser eller debiteras. Se till att Network Watcher inte uttryckligen har inaktiverats för din prenumeration. 
 
-Mer information finns i [aktivera Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+Mer information finns i [aktivera Network Watcher](./network-watcher-create.md).
 
 ## <a name="create-a-connection-monitor"></a>Skapa en anslutningsövervakare 
 
@@ -111,7 +111,7 @@ Anslutnings övervakaren innehåller följande entiteter:
 
  ![Diagram som visar en anslutnings Övervakare som definierar relationen mellan test grupper och tester](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Du kan skapa en anslutnings övervakare med hjälp av [Azure Portal](connection-monitor-preview-create-using-portal.md) eller [ARMClient](connection-monitor-preview-create-using-arm-client.md)
+Du kan skapa en anslutnings övervakare med hjälp av [Azure Portal](./connection-monitor-create-using-portal.md) eller [ARMClient](./connection-monitor-create-using-template.md)
 
 Alla källor, destinationer och testkonfigurationer som du lägger till i en test grupp får delats upp till enskilda tester. Här är ett exempel på hur källor och mål är uppdelade:
 
@@ -213,7 +213,7 @@ Om du bara vill visa misslyckade tester i anslutnings övervakaren där käll-IP
 Visa endast misslyckade tester i anslutnings övervakaren där målet är outlook.office365.com:
 1. Ändra vy att **testa**.
 1. För det tillståndbaserade filtret väljer du **fungerar inte**.
-1. Skriv *Outlook.Office365.com* i Sök fältet
+1. Skriv *Office.live.com* i Sök fältet
 1. I **omfång** i filtret på högsta nivån väljer du **destinationer**.
   
   :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Skärm bild som visar en vy som är filtrerad för att endast Visa misslyckade tester för Outlook.Office365.com-målet" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
@@ -348,5 +348,5 @@ Följande problem kan identifieras för nätverk vars källor är virtuella Azur
 
 ## <a name="next-steps"></a>Nästa steg
     
-   * Lär dig [hur du skapar anslutnings övervakare med hjälp av Azure Portal](connection-monitor-preview-create-using-portal.md)  
-   * Lär dig [hur du skapar anslutnings övervakaren med ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * Lär dig [hur du skapar anslutnings övervakare med hjälp av Azure Portal](./connection-monitor-create-using-portal.md)  
+   * Lär dig [hur du skapar anslutnings övervakaren med ARMClient](./connection-monitor-create-using-template.md)

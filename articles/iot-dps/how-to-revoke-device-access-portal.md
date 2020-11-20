@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532349"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951085"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Så här avregistrerar du en enhet från Azure IoT Hub Device Provisioning Service
 
@@ -32,7 +32,7 @@ För att tillfälligt neka enheten genom att inaktivera registrerings posten:
 
 1. Logga in på Azure Portal och välj **alla resurser** på den vänstra menyn.
 2. I listan över resurser väljer du den etablerings tjänst som du vill inaktivera enheten från.
-3. I etablerings tjänsten väljer du **Hantera registreringar**och väljer sedan fliken **enskilda registreringar** .
+3. I etablerings tjänsten väljer du **Hantera registreringar** och väljer sedan fliken **enskilda registreringar** .
 4. Välj registrerings posten för den enhet som du vill inaktivera. 
 
     ![Välj en individuell registrering](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
@@ -45,7 +45,7 @@ För att permanent tillåta enheten genom att ta bort dess registrerings post:
 
 1. Logga in på Azure Portal och välj **alla resurser** på den vänstra menyn.
 2. I listan över resurser väljer du den etablerings tjänst som du vill inaktivera enheten från.
-3. I etablerings tjänsten väljer du **Hantera registreringar**och väljer sedan fliken **enskilda registreringar** .
+3. I etablerings tjänsten väljer du **Hantera registreringar** och väljer sedan fliken **enskilda registreringar** .
 4. Markera kryss rutan bredvid registrerings posten för den enhet som du vill inaktivera. 
 5. Välj **ta bort** överst i fönstret och välj sedan **Ja** för att bekräfta att du vill ta bort registreringen. 
 
@@ -56,7 +56,7 @@ När du har slutfört proceduren bör du se att posten tas bort från listan öv
 
 ## <a name="disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Tillåt inte ett X. 509-mellanliggande certifikat eller rotcertifikatutfärdarcertifikat med hjälp av en registrerings grupp
 
-X. 509-certifikat ordnas vanligt vis i en certifikat kedja med förtroende. Om ett certifikat vid något Stadium i en kedja blir komprometterat bryts förtroendet. Certifikatet måste vara förhindrat att enhets etablerings tjänsten ska förhindras från etablering av enheter i en kedja som innehåller certifikatet. Mer information om X. 509-certifikat och hur de används med etablerings tjänsten finns i [X. 509-certifikat](./concepts-security.md#x509-certificates). 
+X. 509-certifikat ordnas vanligt vis i en certifikat kedja med förtroende. Om ett certifikat vid något Stadium i en kedja blir komprometterat bryts förtroendet. Certifikatet måste vara förhindrat att enhets etablerings tjänsten ska förhindras från etablering av enheter i en kedja som innehåller certifikatet. Mer information om X. 509-certifikat och hur de används med etablerings tjänsten finns i [X. 509-certifikat](./concepts-x509-attestation.md#x509-certificates). 
 
 En registrerings grupp är en post för enheter som delar en gemensam mekanism för attestering av X. 509-certifikat signerade av samma mellanliggande eller rot certifikat utfärdare. Posten för registrerings gruppen har kon figurer ATS med det X. 509-certifikat som är associerat med mellanliggande eller rot certifikat utfärdare. Posten konfigureras också med konfigurations värden, till exempel dubbla tillstånd och IoT Hub-anslutning, som delas av enheter med certifikatet i certifikat kedjan. Om du inte vill tillåta certifikatet kan du antingen inaktivera eller ta bort registrerings gruppen.
 
@@ -64,7 +64,7 @@ För att tillfälligt neka certifikatet genom att inaktivera registrerings grupp
 
 1. Logga in på Azure Portal och välj **alla resurser** på den vänstra menyn.
 2. I listan över resurser väljer du den etablerings tjänst som du vill tillåta signerings certifikatet från.
-3. I etablerings tjänsten väljer du **Hantera registreringar**och väljer sedan fliken **registrerings grupper** .
+3. I etablerings tjänsten väljer du **Hantera registreringar** och väljer sedan fliken **registrerings grupper** .
 4. Välj registrerings gruppen med det certifikat som du vill inaktivera.
 5. Välj **inaktivera** på växeln **Aktivera post** och välj sedan **Spara**.  
 
@@ -75,7 +75,7 @@ För att permanent tillåta certifikatet genom att ta bort dess registrerings gr
 
 1. Logga in på Azure Portal och välj **alla resurser** på den vänstra menyn.
 2. I listan över resurser väljer du den etablerings tjänst som du vill inaktivera enheten från.
-3. I etablerings tjänsten väljer du **Hantera registreringar**och väljer sedan fliken **registrerings grupper** .
+3. I etablerings tjänsten väljer du **Hantera registreringar** och väljer sedan fliken **registrerings grupper** .
 4. Markera kryss rutan bredvid registrerings gruppen för det certifikat som du vill tillåta. 
 5. Välj **ta bort** överst i fönstret och välj sedan **Ja** för att bekräfta att du vill ta bort registrerings gruppen. 
 
@@ -94,7 +94,7 @@ Följ dessa steg om du vill tillåta en enskild enhet i en registrerings grupp:
 
 1. Logga in på Azure Portal och välj **alla resurser** på den vänstra menyn.
 2. I listan över resurser väljer du etablerings tjänsten som innehåller registrerings gruppen för den enhet som du vill inaktivera.
-3. I etablerings tjänsten väljer du **Hantera registreringar**och väljer sedan fliken **enskilda registreringar** .
+3. I etablerings tjänsten väljer du **Hantera registreringar** och väljer sedan fliken **enskilda registreringar** .
 4. Välj knappen **Lägg till individuell registrering** överst. 
 5. På sidan **Lägg till registrering** väljer du **X. 509** som **mekanism** för attestering för enheten.
 
@@ -110,4 +110,4 @@ När du har skapat registreringen bör du se din inaktiverade enhets registrerin
 
 ## <a name="next-steps"></a>Nästa steg
 
-Avregistrering är också en del av den större avetablerings processen. Avetablering av en enhet omfattar både avregistrering från etablerings tjänsten och avregistrering från IoT Hub. Läs mer om den fullständiga processen i [så här avetablerar du enheter som tidigare var automatiskt etablerade](how-to-unprovision-devices.md) 
+Avregistrering är också en del av den större avetablerings processen. Avetablering av en enhet omfattar både avregistrering från etablerings tjänsten och avregistrering från IoT Hub. Läs mer om den fullständiga processen i [så här avetablerar du enheter som tidigare var automatiskt etablerade](how-to-unprovision-devices.md)

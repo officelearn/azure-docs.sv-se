@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff70df225b5ed27960c96889d409d7005f0fbcc4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972024"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950744"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Återställa en StorSimple-volym från en säkerhetskopia
 
@@ -63,7 +63,7 @@ I uppdatering 4 kan du använda Windows PowerShell-cmdlet: ar för att köra ÅT
 
 * `Set-HcsRehydrationJob` – Med den här cmdleten kan du pausa, stoppa, återuppta ÅTERUPPVÄCKNING-jobbet när ÅTERUPPVÄCKNING pågår.
 
-Mer information om ÅTERUPPVÄCKNING-cmdlets finns i [referens för Windows PowerShell-cmdlet för StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+Mer information om ÅTERUPPVÄCKNING-cmdlets finns i [referens för Windows PowerShell-cmdlet för StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
 Med automatisk ÅTERUPPVÄCKNING förväntas högre höga Läs prestanda. Den faktiska storleken på förbättringarna beror på olika faktorer, till exempel åtkomst mönster, data omsättning och data typ. 
 
@@ -113,7 +113,7 @@ Du kan använda bladet **säkerhets kopierings katalog** för att återställa d
    > [!IMPORTANT]
    > Se till att du först har tagit volymerna offline på värden innan du tar volymerna offline på enheten. Om du inte tar volymerna offline på värden kan det potentiellt leda till skadade data.
    
-4. Gå tillbaka till fliken **säkerhets kopierings katalog** och välj en säkerhets kopierings uppsättning. Högerklicka på och välj sedan **Återställ**på snabb menyn.
+4. Gå tillbaka till fliken **säkerhets kopierings katalog** och välj en säkerhets kopierings uppsättning. Högerklicka på och välj sedan **Återställ** på snabb menyn.
 
     ![Lista över säkerhets kopiering 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
@@ -137,4 +137,3 @@ Slutför återställnings åtgärden genom att ta volymen offline på värden oc
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [hanterar StorSimple-volymer](storsimple-8000-manage-volumes-u2.md).
 * Lär dig hur du [använder tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
-

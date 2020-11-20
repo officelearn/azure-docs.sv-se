@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 8c4df64334957a78fcf05c11625335214f8e032a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: d652f1eae62270fa8968d64a2bd15a1261dca673
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699380"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949198"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Skapa en övervakare i anslutnings övervakaren med hjälp av Azure Portal
 
@@ -102,7 +102,7 @@ Skapa en test grupp i en anslutnings övervakare genom att ange värden för fö
 
 * **Inaktivera test grupp**: du kan markera den här kryss rutan om du vill inaktivera övervakning för alla källor och mål som test gruppen anger. Detta val rensas som standard.
 * **Namn**: ge test gruppen ett namn.
-* **Källor**: du kan ange både virtuella Azure-datorer och lokala datorer som källor om agenter är installerade på dem. Information om hur du installerar en agent för din källa finns i [Installera övervaknings agenter](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+* **Källor**: du kan ange både virtuella Azure-datorer och lokala datorer som källor om agenter är installerade på dem. Information om hur du installerar en agent för din källa finns i [Installera övervaknings agenter](./connection-monitor-overview.md#install-monitoring-agents).
    * Välj Azure-agenter genom att välja fliken **Azure-slutpunkter** . Här ser du bara virtuella datorer som är kopplade till den region som du angav när du skapade anslutnings övervakaren. Som standard grupperas de virtuella datorerna i den prenumeration som de tillhör. De här grupperna är komprimerade. 
    
        Du kan öka detalj nivån från **prenumerations** nivån till andra nivåer i hierarkin:
@@ -117,7 +117,7 @@ Skapa en test grupp i en anslutnings övervakare genom att ange värden för fö
 
    * Välj fliken **ej – Azure-slutpunkter** om du vill välja lokala agenter. Som standard grupperas agenter i arbets ytor efter region. De här arbets ytorna har Övervakare av nätverksprestanda kon figurer ATS. 
    
-       Om du behöver lägga till Övervakare av nätverksprestanda i din arbets yta kan du hämta den från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Information om hur du lägger till Övervakare av nätverksprestanda finns [i övervaknings lösningar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+       Om du behöver lägga till Övervakare av nätverksprestanda i din arbets yta kan du hämta den från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Information om hur du lägger till Övervakare av nätverksprestanda finns [i övervaknings lösningar i Azure Monitor](../azure-monitor/insights/solutions.md). 
    
        Under **skapa anslutnings övervakare** på fliken **grundläggande** väljs standard region. Om du ändrar region kan du välja agenter från arbets ytor i den nya regionen. Du kan välja en eller flera agenter eller undernät. I vyn **undernät** kan du välja vissa IP-adresser för övervakning. Om du lägger till flera undernät skapas ett anpassat lokalt nätverk med namnet **OnPremises_Network_1** . Du kan också ändra **Group** by-väljaren för att gruppera efter agenter.
 
@@ -140,7 +140,7 @@ Skapa en test grupp i en anslutnings övervakare genom att ange värden för fö
     
     * Välj fliken **icke-Azure-slutpunkter** om du vill välja icke-Azure-agenter som mål. Som standard grupperas agenter i arbets ytor efter region. Alla dessa arbets ytor har Övervakare av nätverksprestanda kon figurer ATS. 
     
-      Om du behöver lägga till Övervakare av nätverksprestanda i din arbets yta kan du hämta den från Azure Marketplace. Information om hur du lägger till Övervakare av nätverksprestanda finns [i övervaknings lösningar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+      Om du behöver lägga till Övervakare av nätverksprestanda i din arbets yta kan du hämta den från Azure Marketplace. Information om hur du lägger till Övervakare av nätverksprestanda finns [i övervaknings lösningar i Azure Monitor](../azure-monitor/insights/solutions.md). 
 
       Under **skapa anslutnings övervakare** på fliken **grundläggande**   väljs standard region. Om du ändrar region kan du välja agenter från arbets ytor i den nya regionen. Du kan välja en eller flera agenter eller undernät. I vyn **undernät** kan du välja vissa IP-adresser för övervakning. Om du lägger till flera undernät skapas ett anpassat lokalt nätverk med namnet **OnPremises_Network_1** .  
 
@@ -182,7 +182,7 @@ I Azure Portal för att skapa aviseringar för en anslutnings övervakare anger 
 
 - **Villkors namn**: aviseringen skapas på `Test Result(preview)` måttet. När resultatet av anslutnings övervaknings testet är ett misslyckat resultat, utlöses varnings regeln. 
 
-- **Namn på åtgärds grupp**: du kan ange din e-postadress direkt eller så kan du skapa aviseringar via åtgärds grupper. Om du anger din e-postadress direkt skapas en åtgärds grupp med namnet **NPM e-ActionGroup** . E-post-ID: t läggs till i den åtgärds gruppen. Om du väljer att använda åtgärds grupper måste du välja en tidigare skapad åtgärds grupp. Information om hur du skapar en åtgärds grupp finns [i skapa åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). När aviseringen har skapats kan du [Hantera dina aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
+- **Namn på åtgärds grupp**: du kan ange din e-postadress direkt eller så kan du skapa aviseringar via åtgärds grupper. Om du anger din e-postadress direkt skapas en åtgärds grupp med namnet **NPM e-ActionGroup** . E-post-ID: t läggs till i den åtgärds gruppen. Om du väljer att använda åtgärds grupper måste du välja en tidigare skapad åtgärds grupp. Information om hur du skapar en åtgärds grupp finns [i skapa åtgärds grupper i Azure Portal](../azure-monitor/platform/action-groups.md). När aviseringen har skapats kan du [Hantera dina aviseringar](../azure-monitor/platform/alerts-metric.md#view-and-manage-with-azure-portal). 
 
 - **Varnings regel namn**: namnet på anslutnings övervakaren.
 
@@ -201,5 +201,5 @@ Anslutnings övervakare har följande skalnings gränser:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig [hur du analyserar övervaknings data och ställer in aviseringar](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts).
-* Lär dig [hur du diagnostiserar problem i nätverket](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network).
+* Lär dig [hur du analyserar övervaknings data och ställer in aviseringar](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
+* Lär dig [hur du diagnostiserar problem i nätverket](./connection-monitor-overview.md#diagnose-issues-in-your-network).

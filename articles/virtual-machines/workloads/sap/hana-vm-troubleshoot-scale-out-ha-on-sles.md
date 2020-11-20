@@ -7,17 +7,18 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cf18e2d375d7a45c3641876b8a3ed5974882927
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088316"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965433"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifiera och Felsök SAP HANA skalnings-och hög tillgänglighets installation på SLES 12 SP3 
 
@@ -154,7 +155,7 @@ nc -vz 10.0.1.40 40002
 nc -vz 10.0.2.40 40002
 </code></pre>
 
-För att bevisa att HSR-kommunikationen använder undernät **10.0.1.0/24**bör resultatet se ut som i följande exempel på utdata.
+För att bevisa att HSR-kommunikationen använder undernät **10.0.1.0/24** bör resultatet se ut som i följande exempel på utdata.
 Endast anslutningen via undernät **10.0.1.0/24** ska lyckas:
 
 <pre><code>
@@ -255,7 +256,7 @@ nodelist {
 }
 </code></pre>
 
-I det sista avsnittet, **kvorum**är det viktigt att ange värdet för **expected_votes** korrekt. Det måste vara antalet noder, inklusive majoritetsnoduppsättning-noden. Och värdet för **two_node** måste vara **0**. Ta inte bort posten helt. Ställ bara in värdet på **0**.
+I det sista avsnittet, **kvorum** är det viktigt att ange värdet för **expected_votes** korrekt. Det måste vara antalet noder, inklusive majoritetsnoduppsättning-noden. Och värdet för **two_node** måste vara **0**. Ta inte bort posten helt. Ställ bara in värdet på **0**.
 
 <pre><code>
 quorum {
@@ -492,7 +493,7 @@ Den översta delen av utdata bör se ut som i följande exempel. Det är viktigt
            └─4504 /usr/lib/pacemaker/crmd
 </code></pre>
 
-Om inställningen fortfarande är **inaktive rad**kör du följande kommando:
+Om inställningen fortfarande är **inaktive rad** kör du följande kommando:
 
 <pre><code>
 systemctl enable pacemaker
@@ -538,7 +539,7 @@ En viktig funktion i pacemaker är underhålls läge. I det här läget kan du g
 crm configure property maintenance-mode=true
 </code></pre>
 
-När du kontrollerar med **CRM-status**visas ett meddelande i utdata om att alla resurser är markerade som **ohanterade**. I det här läget reagerar inte klustret på några ändringar som att starta eller stoppa SAP HANA.
+När du kontrollerar med **CRM-status** visas ett meddelande i utdata om att alla resurser är markerade som **ohanterade**. I det här läget reagerar inte klustret på några ändringar som att starta eller stoppa SAP HANA.
 Följande exempel visar utdata från kommandot CRM- **status** när klustret är i underhålls läge:
 
 <pre><code>
@@ -550,7 +551,7 @@ Last change: Wed Sep 12 07:46:54 2018 by root via cibadmin on hso-hana-vm-s2-1
 7 nodes configured
 17 resources configured
 
-              *** Resource management is DISABLED ***
+              **_ Resource management is DISABLED _*_
   The cluster will not attempt to start, stop or recover services
 
 Online: [ hso-hana-dm hso-hana-vm-s1-0 hso-hana-vm-s1-1 hso-hana-vm-s1-2 hso-hana-vm-s2-0 hso-hana-vm-s2-1 hso-hana-vm-s2-2 ]
@@ -586,7 +587,7 @@ crm configure property maintenance-mode=false
 </code></pre>
 
 
-Ett annat **CRM** -kommando hämtar den fullständiga kluster konfigurationen till en redigerare, så att du kan redigera den. När ändringarna har sparats startar klustret lämpliga åtgärder:
+Ett annat _ *CRM**-kommando hämtar den fullständiga kluster konfigurationen till en redigerare, så att du kan redigera den. När ändringarna har sparats startar klustret lämpliga åtgärder:
 
 <pre><code>
 crm configure edit
@@ -682,7 +683,7 @@ Det hjälper också att titta på den SAP HANA landskaps status som kommer från
 
 Det finns vissa försök att undvika onödig redundans. Klustret agerar bara om status ändras från **OK**, returnera värde **4**, till **fel**, returnera värde **1**. Så det är korrekt om utdata från **SAPHanaSR-showAttr** visar en virtuell dator med statusen **offline**. Men det finns ingen aktivitet som ännu inte kan växla mellan primär och sekundär. Ingen kluster aktivitet utlöses så länge SAP HANA inte returnerar ett fel.
 
-Du kan övervaka SAP HANA landskaps hälso status som användar- ** \<HANA SID\> ADM** genom att anropa SAP python-skriptet enligt följande. Du kan behöva anpassa sökvägen:
+Du kan övervaka SAP HANA landskaps hälso status som användar- **\<HANA SID\> ADM** genom att anropa SAP python-skriptet enligt följande. Du kan behöva anpassa sökvägen:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -967,7 +968,7 @@ Du kan också ladda upp **hb_report** utdata i Hawk under **Historik**, som visa
 
 ![Hawk Ladda upp hb_report utdata](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
-Med **Historik Utforskaren**kan du gå igenom alla kluster över gångar som ingår i **hb_report** utdata:
+Med **Historik Utforskaren** kan du gå igenom alla kluster över gångar som ingår i **hb_report** utdata:
 
 ![Hawk-över gångar i hb_report utdata](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
 

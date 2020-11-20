@@ -9,18 +9,18 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 59656db2bbb8a6898ae08a168dbbc7e0a6a82aec
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d9cffcadcb95b6c8c61205d458610f402fa7286d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044725"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964600"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C IoT Edge-modul för Windows-enheter
 
 Använd Visual Studio för att utveckla C-kod och distribuera den till en Windows-enhet som kör Azure IoT Edge.
 
-Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. I de här självstudierna får du lära dig att
+Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -33,17 +33,15 @@ IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Lösnings omfång
+## <a name="prerequisites"></a>Krav
 
 Den här självstudien visar hur du utvecklar en modul i **C** med **Visual Studio 2019** och distribuerar den till en **Windows-enhet**. Om du utvecklar moduler för Linux-enheter går du till [utveckla en C IoT Edge-modul för Linux-enheter](tutorial-c-module.md) i stället.
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera C-moduler till Windows-enheter:
 
-| C | Visual Studio-koden | Visual Studio 2017/2019 |
+| C | Visuell Studio-kod | Visual Studio 2017/2019 |
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Utveckla C-moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
-
-## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien bör du ha gått igenom den föregående själv studie kursen för att konfigurera utvecklings miljön för utveckling av Windows-behållare: [utveckla IoT Edge moduler för Windows-enheter](tutorial-develop-for-windows.md). När du har slutfört den här självstudien bör du ha följande krav på plats:
 

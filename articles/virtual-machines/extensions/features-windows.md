@@ -9,18 +9,19 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00cb63f63ffb1f2e10a276cfdeee9c5e8e1022de
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 565f98126cea8cc03874bb4f83ecdc2c65f8d5fb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427385"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966062"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg och funktioner för virtuella datorer för Windows
 
@@ -42,7 +43,7 @@ Flera olika Azure VM-tillägg är tillgängliga, var och en med ett särskilt an
 
 Förutom process-/regionsspecifika tillägg är ett anpassat skript tillägg tillgängligt för virtuella Windows-och Linux-datorer. Med tillägget för anpassat skript för Windows kan du köra alla PowerShell-skript på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfiguration utöver vad interna Azure-verktyg kan tillhandahålla. Mer information finns i [anpassat skript tillägg för Windows VM](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill hantera tillägget på den virtuella datorn behöver du Azure Windows-agenten installerad. Vissa enskilda tillägg har krav, till exempel åtkomst till resurser eller beroenden.
 
@@ -92,7 +93,7 @@ Följande metoder kan användas för att köra ett tillägg mot en befintlig vir
 
 ### <a name="powershell"></a>PowerShell
 
-Det finns flera PowerShell-kommandon för att köra enskilda tillägg. Om du vill se en lista använder du [Get-Command](/powershell/module/microsoft.powershell.core/get-command) och filter för *tillägg* :
+Det finns flera PowerShell-kommandon för att köra enskilda tillägg. Om du vill se en lista använder du [Get-Command](/powershell/module/microsoft.powershell.core/get-command) och filter för *tillägg*:
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -140,7 +141,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 `Set-AzVMExtension`Kommandot kan användas för att starta alla VM-tillägg. Mer information finns i [set-AzVMExtension-referensen](/powershell/module/az.compute/set-azvmextension).
 
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure Portal. Välj den virtuella datorn i portalen, Välj **tillägg** och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden.
 
@@ -286,7 +287,7 @@ Microsoft.Compute     CustomScriptExtension                1.9
 
 #### <a name="agent-updates"></a>Agent uppdateringar
 
-Windows-gäst agenten innehåller bara *tillägg hanterings kod* , *Windows etablerings koden* är separat. Du kan avinstallera Windows gästa Gent. Det går inte att inaktivera den automatiska uppdateringen av fönster gäst agenten.
+Windows-gäst agenten innehåller bara *tillägg hanterings kod*, *Windows etablerings koden* är separat. Du kan avinstallera Windows gästa Gent. Det går inte att inaktivera den automatiska uppdateringen av fönster gäst agenten.
 
 *Tilläggs hanterings koden* ansvarar för kommunikation med Azure-infrastrukturen och hanterar de åtgärder för VM-tillägg som installation, rapporterings status, uppdaterar enskilda tillägg och tar bort dem. Uppdateringar innehåller säkerhets korrigeringar, fel korrigeringar och förbättringar i *tilläggs hanterings koden*.
 
@@ -294,7 +295,7 @@ Information om hur du kontrollerar vilken version du kör finns i [identifiera i
 
 #### <a name="extension-updates"></a>Tilläggs uppdateringar
 
-När en tilläggs uppdatering är tillgänglig laddar Windows gäst agent ned och uppgraderar tillägget. Automatiska tilläggs uppdateringar är antingen *mindre* eller *snabb korrigeringar*. Du kan välja om du vill inaktivera tillägg som är *mindre* uppdateringar när du etablerar tillägget. I följande exempel visas hur du automatiskt uppgraderar lägre versioner i en Resource Manager-mall med *aktiverat autoupgrademinorversion ": true"* :
+När en tilläggs uppdatering är tillgänglig laddar Windows gäst agent ned och uppgraderar tillägget. Automatiska tilläggs uppdateringar är antingen *mindre* eller *snabb korrigeringar*. Du kan välja om du vill inaktivera tillägg som är *mindre* uppdateringar när du etablerar tillägget. I följande exempel visas hur du automatiskt uppgraderar lägre versioner i en Resource Manager-mall med *aktiverat autoupgrademinorversion ": true"*:
 
 ```json
     "properties": {
@@ -322,7 +323,7 @@ Du kan se från VM-modellen om tillägget etablerades med ' aktiverat autoupgrad
  $vm.Extensions
 ```
 
-Följande exempel på utdata visar att *aktiverat autoupgrademinorversion* är inställt på *True* :
+Följande exempel på utdata visar att *aktiverat autoupgrademinorversion* är inställt på *True*:
 
 ```powershell
 ForceUpdateTag              :
@@ -336,7 +337,7 @@ AutoUpgradeMinorVersion     : True
 
 Om du vill se när en uppdatering av tillägget har inträffat granskar du agent loggarna på den virtuella datorn på *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-I följande exempel hade den virtuella datorn *Microsoft. Compute. CustomScriptExtension 1,8* installerat. En snabb korrigering är tillgänglig för version *1,9* :
+I följande exempel hade den virtuella datorn *Microsoft. Compute. CustomScriptExtension 1,8* installerat. En snabb korrigering är tillgänglig för version *1,9*:
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'

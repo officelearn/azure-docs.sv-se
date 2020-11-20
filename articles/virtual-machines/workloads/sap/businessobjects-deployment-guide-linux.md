@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 17b978d3f4faebd3870868bceeea4572288ecb07
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427470"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965365"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Distributionsguide för SAP BusinessObjects BI-plattform för Linux i Azure
 
@@ -36,7 +37,7 @@ I det här exemplet används under produkt version och fil systemets layout
 - Azure Database for MySQL (version: 8.0.15)
 - MySQL C API-koppling – libmysqlclient (version: 6.1.11)
 
-| Filsystem        | Beskrivning                                                                                                               | Storlek (GB)             | Ägare  | Grupp  | Lagring                    |
+| Filsystem        | Beskrivning                                                                                                               | Storlek (GB)             | Ägare  | Grupp  | Storage                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | Fil systemet för installation av SAP BOBI-instans, standard webb program för Tomcat och databas driv rutiner (om det behövs) | Rikt linjer för SAP-storlek | bl1adm | sapsys | Hanterad Premium disk – SSD |
 | /usr/sap/frsinput  | Monterings katalogen är för delade filer över alla BOBI-värdar som ska användas som indatafilens lagrings katalog  | Affärs behov         | bl1adm | sapsys | Azure NetApp Files         |
@@ -113,7 +114,7 @@ När du skapar din Azure NetApp Files för SAP BOBI Platform File lagrings Serve
 
 Stegen i det här avsnittet använder följande prefix:
 
-**[A]** : steget gäller alla värdar
+**[A]**: steget gäller alla värdar
 
 ### <a name="format-and-mount-sap-file-system"></a>Formatera och montera SAP-fil system
 
@@ -395,15 +396,15 @@ För att SAP BOBI program Server ska kunna komma åt databasen kräver det att d
 
 Stegen i det här avsnittet använder följande prefix:
 
-**[A]** : steget gäller alla värdar.
+**[A]**: steget gäller alla värdar.
 
 1. **[A]** baserat på varianten av Linux (SLES eller RHEL), måste du ange kernel-parametrar och installera nödvändiga bibliotek. Se avsnittet **system krav** i [installations guiden för Business Intelligence-plattform för UNIX](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US).
 
 2. **[A]** kontrol lera att tids zonen på din dator är korrekt inställd. Se [avsnittet ytterligare UNIX-och Linux-krav](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) i installations guiden för.
 
-3. **[A]** skapa ett användar konto ( **bl1** ADM) och grupp (sapsys) som program varans bakgrunds processer kan köras under. Använd det här kontot för att köra installationen och köra program varan. Kontot kräver inte rot privilegier.
+3. **[A]** skapa ett användar konto (**bl1** ADM) och grupp (sapsys) som program varans bakgrunds processer kan köras under. Använd det här kontot för att köra installationen och köra program varan. Kontot kräver inte rot privilegier.
 
-4. **[A]** Ange användar konto ( **bl1** ADM)-miljö för att använda ett UTF-8-språkområde som stöds och se till att konsol programmet stöder UTF-8-teckenuppsättningar. För att säkerställa att operativ systemet använder rätt språk uppsättning, ställer du in de LC_ALL-och LANG-miljövariablerna på din önskade språkvariant i din ( **bl1** ADM) användar miljö.
+4. **[A]** Ange användar konto (**bl1** ADM)-miljö för att använda ett UTF-8-språkområde som stöds och se till att konsol programmet stöder UTF-8-teckenuppsättningar. För att säkerställa att operativ systemet använder rätt språk uppsättning, ställer du in de LC_ALL-och LANG-miljövariablerna på din önskade språkvariant i din (**bl1** ADM) användar miljö.
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -413,7 +414,7 @@ Stegen i det här avsnittet använder följande prefix:
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A]** konfigurera användar konto ( **bl1** ADM).
+5. **[A]** konfigurera användar konto (**bl1** ADM).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -465,7 +466,7 @@ Följ installations guiden för [SAP Bobi-plattformen](https://help.sap.com/view
 
 - På sidan **Välj Installations typ** väljer du **fullständig** installation på första servern (azusbosl1) för annan server (Azusbosl2) och väljer **anpassad/expandera** som kommer att expandera den befintliga Bobi-installationen.
 
-- På skärmen **Välj standard eller befintlig databas** väljer du **Konfigurera en befintlig databas** , där du uppmanas att välja CMS och gransknings databas. Välj **MySQL** för CMS-databas typ och gransknings databas typ.
+- På skärmen **Välj standard eller befintlig databas** väljer du **Konfigurera en befintlig databas**, där du uppmanas att välja CMS och gransknings databas. Välj **MySQL** för CMS-databas typ och gransknings databas typ.
 
   Du kan också välja ingen gransknings databas om du inte vill konfigurera granskning under installationen.
 

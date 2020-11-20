@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 89258b05831170ff502cde80577f3a6851659bf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 385d43e46cd3f9465c0fbf9a02eeae356f48fac4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986315"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966538"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure Portal
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure-portalen](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST-API](network-watcher-nsg-flow-logging-rest.md)
@@ -48,14 +48,14 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 2. Välj **Compute** och välj sedan **Windows Server 2016 Datacenter** eller en version av **Ubuntu Server**.
 3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |---|---|
     |Namn|myVm|
     |Användarnamn| Ange ett valfritt användarnamn.|
     |Lösenord| Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
-    |Location| Välj **USA, östra**|
+    |Plats| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Acceptera standardinställningarna under **Inställningar** och välj **OK**.
@@ -91,11 +91,11 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
 2. Välj **Lagring** och sedan **Koppla undernät – blob, fil, tabell, kö**.
 3. Ange eller Välj följande information, acceptera återstående standardvärden och välj sedan **skapa**.
 
-    | Inställningen        | Värde                                                        |
+    | Inställning        | Värde                                                        |
     | ---            | ---   |
     | Namn           | 3 till 24 tecken långt, får endast innehålla gemener och siffror och måste vara unikt bland alla Azure Storage-konton.                                                               |
-    | Location       | Välj **USA, östra**                                           |
-    | Resursgrupp | Välj **Använd befintlig**och välj sedan **myResourceGroup** |
+    | Plats       | Välj **USA, östra**                                           |
+    | Resursgrupp | Välj **Använd befintlig** och välj sedan **myResourceGroup** |
 
     Det tar ungefär en minut att skapa lagringskontot. Fortsätt inte med de återstående stegen förrän lagringskontot har skapats. I samtliga fall måste lagrings kontot finnas i samma region som NSG.
 4. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv *Network Watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
@@ -111,7 +111,7 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
 
 9. Välj lagringskontot som du skapade i steg 3.
    > [!NOTE]
-   > NSG flödes loggar fungerar inte med lagrings konton som har [hierarkiskt namn område](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) aktiverat.
+   > NSG flödes loggar fungerar inte med lagrings konton som har [hierarkiskt namn område](../storage/blobs/data-lake-storage-namespace.md) aktiverat.
 1. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv *Network Watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
 10. Ange **Bevarande (dagar)** till 5 och välj sedan **Spara**.
 
@@ -123,7 +123,7 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
    ![Ladda ned flödesloggar](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Välj lagringskontot som du konfigurerade i steg 2 i [Aktivera NSG-flödesloggar](#enable-nsg-flow-log).
-4. Under **BLOB service**väljer du **behållare**och väljer sedan behållaren **Insights-logs-networksecuritygroupflowevent** .
+4. Under **BLOB service** väljer du **behållare** och väljer sedan behållaren **Insights-logs-networksecuritygroupflowevent** .
 5. I behållaren navigerar du till mapphierarkin tills du kommer till en PT1H.jspå filen, som du ser i bilden nedan. Loggfiler skrivs till en mapphierarki som följer följande namngivnings konvention: https://{storageAccountName}. blob. Core. Windows. net/Insights-logs-networksecuritygroupflowevent/resourceId =/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y = {Year}/m = {månad}/d = {Day}/h = {Hour}/m = 00/macAddress = {macAddress}/PT1H.jspå
 
    ![Flödeslogg](./media/network-watcher-nsg-flow-logging-portal/log-file.png)

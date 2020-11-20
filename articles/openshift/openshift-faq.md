@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: c09f741b37e06010a0bfbab40317980793240e29
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3a474228776c689dbbd6f15ddd926f29383400ce
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683513"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964719"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Vanliga frågor och svar om Azure Red Hat
 
@@ -21,7 +21,7 @@ I den här artikeln besvaras vanliga frågor och svar om Microsoft Azure Red Hat
 
 ### <a name="which-azure-regions-are-supported"></a>Vilka Azure-regioner stöds?
 
-En lista över regioner som stöds för Azure Red Hat OpenShift 4. x finns i [tillgängliga regioner](https://docs.openshift.com/aro/4/welcome/index.html#available-regions).
+En lista över regioner som stöds för Azure Red Hat OpenShift 4. x finns i [tillgängliga regioner](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all).
 
 En lista över regioner som stöds för Azure Red Hat OpenShift 3,11 finns i [produkt tillgänglighet per region](supported-resources.md#azure-regions).
 

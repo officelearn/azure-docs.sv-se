@@ -7,17 +7,18 @@ author: vermagit
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: eb06f98d1a6e9b76c321e3d202043d656a2d94eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a5aa8983e6cbb0745e05ce275edeadeccb60736
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829058"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966045"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>InfiniBand-drivrutins tillägg för Linux
 
@@ -27,7 +28,7 @@ Anvisningar om manuell installation av OFED-drivrutinerna finns [här](../worklo
 
 Det finns också ett tillägg för att installera InfiniBand-drivrutiner för [virtuella Windows-datorer](hpc-compute-infiniband-windows.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -71,7 +72,7 @@ Följande JSON visar schemat för tillägget.
 
 | Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | datum |
 | utgivare | Microsoft. HpcCompute | sträng |
 | typ | InfiniBandDriverLinux | sträng |
 | typeHandlerVersion | 1,1 | int |

@@ -3,12 +3,12 @@ title: Logg aviseringar från Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln beskriver hur du skapar anpassade logg aviseringar för minnes-och processor användning från Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: ddf898978bdaf51cb81a95c3209855c51212280f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: e9b0e01ca4c0ccb24d0d1b04a4d17ec06db253b6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995266"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966259"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Så här skapar du logg aviseringar från Azure Monitor för behållare
 
@@ -17,7 +17,7 @@ Azure Monitor för behållare övervakar prestandan för behållar arbets belast
 - När processor-eller minnes användning på klusternoder överskrider ett tröskelvärde
 - När processor-eller minnes användning på en behållare inom en styrenhet överskrider ett tröskelvärde jämfört med en gräns som har angetts för motsvarande resurs
 - Antal noder för *Notrappstegs* status
-- *Misslyckades*, *väntar*, *okänd*, *körs*eller *lyckades* Pod-fas antal
+- *Misslyckades*, *väntar*, *okänd*, *körs* eller *lyckades* Pod-fas antal
 - När ledigt disk utrymme på klusternoder överskrider ett tröskelvärde
 
 Om du vill varna för hög processor-eller minnes användning eller ont om ledigt disk utrymme på klusternoder, använder du frågorna som finns för att skapa en måtta avisering eller en mått mätnings avisering. Medan mått aviseringar har kortare svars tider än logg aviseringar innehåller logg aviseringar avancerade frågor och fler riktigt ambitiös. Logg aviserings frågor jämför ett datum/tid-värde för närvarande genom att använda operatorn *nu* och gå tillbaka en timme. (Azure Monitor för behållare lagrar alla datum i UTC-format (Coordinated Universal Time).)
@@ -207,14 +207,14 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-Följande fråga returnerar Pod fas antalet baserat på alla faser: *misslyckad*, *väntar*, *okänd*, *körs*eller *lyckades*.  
+Följande fråga returnerar Pod fas antalet baserat på alla faser: *misslyckad*, *väntar*, *okänd*, *körs* eller *lyckades*.  
 
 ```kusto
-let endDateTime = now();
-    let startDateTime = ago(1h);
-    let trendBinSize = 1m;
-    let clusterName = '<your-cluster-name>';
-    KubePodInventory
+let endDateTime = now(); 
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubePodInventory
     | where TimeGenerated < endDateTime
     | where TimeGenerated >= startDateTime
     | where ClusterName == clusterName
@@ -224,13 +224,13 @@ let endDateTime = now();
         KubePodInventory
         | where TimeGenerated < endDateTime
         | where TimeGenerated >= startDateTime
-        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize PodStatus=any(PodStatus) by TimeGenerated, PodUid, ClusterId
         | summarize TotalCount = count(),
                     PendingCount = sumif(1, PodStatus =~ 'Pending'),
                     RunningCount = sumif(1, PodStatus =~ 'Running'),
                     SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
                     FailedCount = sumif(1, PodStatus =~ 'Failed')
-                 by ClusterName, bin(TimeGenerated, trendBinSize)
+                by ClusterName, bin(TimeGenerated, trendBinSize)
     ) on ClusterName, TimeGenerated
     | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
     | project TimeGenerated,
@@ -244,7 +244,7 @@ let endDateTime = now();
 ```
 
 >[!NOTE]
->Om du vill varna om vissa Pod-faser, till exempel *väntande*, *misslyckad*eller *okänd*, ändrar du den sista raden i frågan. Till exempel för att varna vid *FailedCount* -användning: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
+>Om du vill varna om vissa Pod-faser, till exempel *väntande*, *misslyckad* eller *okänd*, ändrar du den sista raden i frågan. Till exempel för att varna vid *FailedCount* -användning: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
 Följande fråga returnerar diskar för klusternoder som överskrider 90% ledigt utrymme. Om du vill hämta klustrets ID kör du först följande fråga och kopierar värdet från `ClusterId` egenskapen:
 
@@ -287,14 +287,14 @@ Det här avsnittet beskriver hur du skapar en mått mätnings aviserings regel m
 4. I fönstret till vänster väljer du **loggar** för att öppna sidan Azure Monitor loggar. Du använder den här sidan för att skriva och köra Azures logg frågor.
 5. På sidan **loggar** klistrar du in en av [frågorna](#resource-utilization-log-search-queries) som tillhandahölls tidigare i fältet **Sök fråga** och väljer sedan **Kör** för att validera resultatet. Om du inte utför det här steget är alternativet **+ ny avisering** inte tillgängligt för att välja.
 6. Välj **+ ny avisering** om du vill skapa en logg avisering.
-7. I avsnittet **villkor** väljer du **varje gång den anpassade logg sökningen är \<logic undefined> ** fördefinierat anpassat logg villkor. Typ av Sök signal för **anpassad logg** väljs automatiskt eftersom vi skapar en varnings regel direkt från sidan Azure Monitor loggar.  
+7. I avsnittet **villkor** väljer du **varje gång den anpassade logg sökningen är \<logic undefined>** fördefinierat anpassat logg villkor. Typ av Sök signal för **anpassad logg** väljs automatiskt eftersom vi skapar en varnings regel direkt från sidan Azure Monitor loggar.  
 8. Klistra in en av [frågorna](#resource-utilization-log-search-queries) som tillhandahölls tidigare i fältet **Sök fråga** .
 9. Konfigurera aviseringen på följande sätt:
 
-    1. Välj **mått mått**i list rutan **baserad på** . En mått mätning skapar en avisering för varje objekt i frågan som har ett värde över det angivna tröskelvärdet.
-    1. För **villkor**väljer du **större än**och anger **75** som ett ursprungligt bas linje **tröskelvärde** för aviseringar om processor och minnes användning. Ange **90**för varningen för lågt disk utrymme. Eller ange ett annat värde som uppfyller dina kriterier.
-    1. I avsnittet **Utlös avisering baserad på** väljer du **efterföljande överträdelser**. I list rutan väljer du **större än**och anger **2**.
-    1. Om du vill konfigurera en avisering för container-CPU eller minnes användning, under **mängd på**, väljer du **ContainerName**. Välj **ClusterId**för att konfigurera för klusternodens varning för låg disk.
+    1. Välj **mått mått** i list rutan **baserad på** . En mått mätning skapar en avisering för varje objekt i frågan som har ett värde över det angivna tröskelvärdet.
+    1. För **villkor** väljer du **större än** och anger **75** som ett ursprungligt bas linje **tröskelvärde** för aviseringar om processor och minnes användning. Ange **90** för varningen för lågt disk utrymme. Eller ange ett annat värde som uppfyller dina kriterier.
+    1. I avsnittet **Utlös avisering baserad på** väljer du **efterföljande överträdelser**. I list rutan väljer du **större än** och anger **2**.
+    1. Om du vill konfigurera en avisering för container-CPU eller minnes användning, under **mängd på**, väljer du **ContainerName**. Välj **ClusterId** för att konfigurera för klusternodens varning för låg disk.
     1. I avsnittet **utvärdera baserat på** anger du värdet för **period** till **60 minuter**. Regeln körs var 5: e minut och returnerar poster som har skapats under den senaste timmen från aktuell tid. Ange tids perioden till ett brett fönster konto för potentiell data svars tid. Det säkerställer också att frågan returnerar data för att undvika ett falskt negativt meddelande om att aviseringen aldrig utlöses.
 
 10. Slutför varnings regeln genom att välja **klar** .

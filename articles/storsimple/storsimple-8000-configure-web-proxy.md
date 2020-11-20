@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 62c052f2293c670b43f1c77363c8bbbcc03d0de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48671e7558ea1bd613d33372c96fa3c563407e81
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514282"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966232"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Konfigurera webbproxy för din StorSimple-enhet
 
@@ -62,13 +62,13 @@ Använd installations guiden för att vägleda dig genom stegen för webbproxy-k
 1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst** och anger **enhetens administratörs lösen ord**. Skriv följande kommando för att starta en session med installations guiden:
    
     `Invoke-HcsSetupWizard`
-2. Om det här är första gången du har använt installations guiden för enhets registrering måste du konfigurera alla nödvändiga nätverks inställningar tills du når webbproxy-konfigurationen. Om enheten redan har registrerats accepterar du alla konfigurerade nätverks inställningar tills du når webbproxy-konfigurationen. Skriv **Ja**i installations guiden när du uppmanas att konfigurera webbproxy-inställningar.
-3. För **Webbproxyserverns URL**anger du IP-adressen eller det fullständigt kvalificerade domän namnet (FQDN) för webbproxyservern och det TCP-portnummer som du vill att enheten ska använda vid kommunikation med molnet. Använd följande format:
+2. Om det här är första gången du har använt installations guiden för enhets registrering måste du konfigurera alla nödvändiga nätverks inställningar tills du når webbproxy-konfigurationen. Om enheten redan har registrerats accepterar du alla konfigurerade nätverks inställningar tills du når webbproxy-konfigurationen. Skriv **Ja** i installations guiden när du uppmanas att konfigurera webbproxy-inställningar.
+3. För **Webbproxyserverns URL** anger du IP-adressen eller det fullständigt kvalificerade domän namnet (FQDN) för webbproxyservern och det TCP-portnummer som du vill att enheten ska använda vid kommunikation med molnet. Använd följande format:
    
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
     TCP-portnummer 8080 anges som standard.
-4. Välj autentiseringstyp som **NTLM**, **Basic**eller **none**. Basic är den minst säkra autentiseringen för konfigurationen av proxyservern. NT LAN Manager (NTLM) är ett mycket säkert och komplext autentiseringsprotokoll som använder ett 3-vägs meddelande system (ibland fyra om ytterligare integritet krävs) för att autentisera en användare. Standardautentiseringen är NTLM. Mer information finns i [grundläggande](https://hc.apache.org/httpclient-3.x/authentication.html) och [NTLM-autentisering](https://hc.apache.org/httpclient-3.x/authentication.html). 
+4. Välj autentiseringstyp som **NTLM**, **Basic** eller **none**. Basic är den minst säkra autentiseringen för konfigurationen av proxyservern. NT LAN Manager (NTLM) är ett mycket säkert och komplext autentiseringsprotokoll som använder ett 3-vägs meddelande system (ibland fyra om ytterligare integritet krävs) för att autentisera en användare. Standardautentiseringen är NTLM. Mer information finns i [grundläggande](https://hc.apache.org/httpclient-3.x/authentication.html) och [NTLM-autentisering](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
    > **I StorSimple Enhetshanteraren-tjänsten fungerar inte enhets övervaknings diagrammen när Basic-eller NTLM-autentisering är aktiverat i enhetens konfiguration för proxyservern. För att övervaknings diagrammen ska fungera måste autentiseringen vara inställd på ingen.**
@@ -86,7 +86,7 @@ Web Proxy är nu aktiverat. Du kan hoppa över steget [Aktivera webbproxy](#enab
 Ett annat sätt att konfigurera webbproxy-inställningar är via Windows PowerShell för StorSimple-cmdletar. Konfigurera webbproxy genom att utföra följande steg.
 
 #### <a name="to-configure-web-proxy-via-cmdlets"></a>Konfigurera webbproxy via-cmdletar
-1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange **enhetens administratörs lösen ord**när du uppmanas att göra det. Standard lösen ordet är `Password1` .
+1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange **enhetens administratörs lösen ord** när du uppmanas att göra det. Standard lösen ordet är `Password1` .
 2. Skriv följande i kommandotolken:
    
     `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
@@ -108,7 +108,7 @@ Web Proxy är inaktive rad som standard. När du har konfigurerat webbproxyinst�
 Utför följande steg i Windows PowerShell för StorSimple för att aktivera webbproxy på enheten:
 
 #### <a name="to-enable-web-proxy"></a>Så här aktiverar du webbproxy
-1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange **enhetens administratörs lösen ord**när du uppmanas att göra det. Standard lösen ordet är `Password1` .
+1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange **enhetens administratörs lösen ord** när du uppmanas att göra det. Standard lösen ordet är `Password1` .
 2. Skriv följande i kommandotolken:
    
     `Enable-HcsWebProxy`
@@ -154,6 +154,5 @@ Om webbproxy-inställningarna är felaktigt konfigurerade visas fel meddelanden 
 > * Fel som rör webbproxyinställningar visas inte i Azure Portal i Enhetshanterarens tjänsten för StorSimple. Om det uppstår ett problem med webbproxy när konfigurationen har slutförts ändras enhetens status till **offline** i den klassiska portalen. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du får problem när du distribuerar enheten eller konfigurerar webbproxyinställningar, se [fel sökning av distribution av StorSimple-enheter](storsimple-troubleshoot-deployment.md).
+* Om du får problem när du distribuerar enheten eller konfigurerar webbproxyinställningar, se [fel sökning av distribution av StorSimple-enheter](./storsimple-8000-troubleshoot-deployment.md).
 * Om du vill lära dig hur du använder StorSimple Enhetshanteraren-tjänsten går du till [använda StorSimple Enhetshanteraren-tjänsten för att administrera StorSimple-enheten](storsimple-8000-manager-service-administration.md).
-

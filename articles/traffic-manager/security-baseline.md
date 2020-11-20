@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9ed6a57dadb70daed9cdf02421b91d310b4b0f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4523319c04703c04a293471124329512e31a265
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631468"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964685"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Azures säkerhets bas linje för Azure Traffic Manager
 
@@ -270,7 +270,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 I Resource Manager kan du lägga till slut punkter från vilken prenumeration som helst i Traffic Manager, så länge som den person som konfigurerar Traffic Managers profilen har Läs behörighet till slut punkten.
 
-Azure Traffic Manager har en fördefinierad Azure RBAC-roll med namnet "Azure Traffic Manager Contributor" som kan tilldelas till användare.
+Azure Traffic Manager har en fördefinierad Azure-roll med namnet "Traffic Manager Contributor" som kan tilldelas till användare.
 
 - [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](../role-based-access-control/role-assignments-portal.md)
 
@@ -494,7 +494,7 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 - [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Använd taggar till att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
+- [Använda taggar för att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: Ja
 

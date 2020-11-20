@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ff1abd48282a4ec9278d7182fea286178b5bd3ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 469fdbced4601c6ffb4b6aa35e8f943bcb5dde1b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495921"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965790"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Hantera DNS-zoner i Azure DNS med Azure CLI
 
@@ -43,11 +43,11 @@ Kontrollera att du har följande innan du påbörjar konfigurationen.
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
-* Installera den senaste versionen av Azure CLI. Den finns tillgänglig för Windows, Linux och MAC. Mer information finns på [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2).
+* Installera den senaste versionen av Azure CLI. Den finns tillgänglig för Windows, Linux och MAC. Mer information finns på [Installera Azure CLI](/cli/azure/install-az-cli2).
 
 ### <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
-Öppna ett konsolfönster och autentisera med dina autentiseringsuppgifter. Mer information finns i [Logga in i Azure från Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Öppna ett konsolfönster och autentisera med dina autentiseringsuppgifter. Mer information finns i [Logga in i Azure från Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login
@@ -105,7 +105,7 @@ az network dns zone create --resource-group MyResourceGroup --name contoso.com
 
 ### <a name="to-create-a-dns-zone-with-tags"></a>Så här skapar du en DNS-zon med Taggar
 
-I följande exempel visas hur du skapar en DNS-zon med två [Azure Resource Manager Taggar](dns-zones-records.md#tags), *Project = demo* och *Kuvert = test*med hjälp av `--tags` parametern (kort form `-t` ):
+I följande exempel visas hur du skapar en DNS-zon med två [Azure Resource Manager Taggar](dns-zones-records.md#tags), *Project = demo* och *Kuvert = test* med hjälp av `--tags` parametern (kort form `-t` ):
 
 ```azurecli
 az network dns zone create --resource-group MyResourceGroup --name contoso.com --tags "project=demo" "env=test"
@@ -193,7 +193,6 @@ az network dns zone delete --resource-group myresourcegroup --name contoso.com
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [hanterar post uppsättningar och poster](dns-getstarted-create-recordset-cli.md) i din DNS-zon.
+Lär dig hur du [hanterar post uppsättningar och poster](./dns-getstarted-cli.md) i din DNS-zon.
 
 Lär dig hur du [delegerar din domän till Azure DNS](dns-domain-delegation.md).
-

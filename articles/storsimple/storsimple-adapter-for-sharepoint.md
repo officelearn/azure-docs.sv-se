@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.openlocfilehash: a33e01d68a31585e216faa51ac8af193d86c6123
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053284"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966300"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installera och konfigurera StorSimple Adapter för SharePoint
 ## <a name="overview"></a>Översikt
@@ -53,7 +53,7 @@ Microsoft Azure StorSimple implementering av RBS ger följande fördelar:
 Att flytta BLOB-innehåll till fil systemet kan ge andra kostnads besparingar och-fördelar. Att använda RBS kan till exempel minska behovet av dyrbar lagring på nivå 1 och, eftersom den krymper innehålls databasen, kan du minska antalet databaser som krävs i SharePoint-servergruppen. Andra faktorer, t. ex. databas storleks gränser och mängden icke-RBS-innehåll, kan dock också påverka lagrings kraven. Mer information om kostnaderna och fördelarna med att använda RBS finns i [Planera för RBS (SharePoint Foundation 2010)][4] och [välja att använda rbs i SharePoint 2013][5].
 
 ### <a name="capacity-and-performance-limits"></a>Kapacitets-och prestanda begränsningar
-Innan du funderar på att använda RBS i din SharePoint-lösning bör du vara medveten om de testade prestanda-och kapacitets gränserna för SharePoint Server 2010 och SharePoint Server 2013 och hur dessa gränser relaterar till acceptabla prestanda. Mer information finns i [program gränser och begränsningar för SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
+Innan du funderar på att använda RBS i din SharePoint-lösning bör du vara medveten om de testade prestanda-och kapacitets gränserna för SharePoint Server 2010 och SharePoint Server 2013 och hur dessa gränser relaterar till acceptabla prestanda. Mer information finns i [program gränser och begränsningar för SharePoint 2013](/SharePoint/install/software-boundaries-and-limits-0).
 
 Granska följande innan du konfigurerar RBS:
 
@@ -137,9 +137,9 @@ Kontrol lera att SharePoint-servergruppen är korrekt konfigurerad, enligt följ
   
   1. Stäng alla instanser av Internet Explorer.
   2. Starta Serverhanteraren.
-  3. Klicka på **lokal server**i den vänstra rutan.
+  3. Klicka på **lokal server** i den vänstra rutan.
   4. I den högra rutan, bredvid **förbättrad säkerhets konfiguration i IE**, klickar du på **på**.
-  5. Klicka på **av**under **Administratörer**.
+  5. Klicka på **av** under **Administratörer**.
   6. Klicka på **OK**.
 
 ## <a name="remote-blob-storage-rbs-prerequisites"></a>Krav för Remote BLOB Storage (RBS)
@@ -222,11 +222,11 @@ Innan du avinstallerar StorSimple-adaptern för SharePoint-programvara måste du
 #### <a name="to-move-the-blobs-back-to-the-content-databases"></a>Flytta BLOBarna tillbaka till innehålls databaserna
 1. Ladda ned vart och ett av de externa objekten.
 2. Öppna sidan **Central administration av SharePoint** och bläddra till **Systeminställningar**.
-3. Under **Azure-StorSimple**klickar du på **Konfigurera StorSimple-kort**.
+3. Under **Azure-StorSimple** klickar du på **Konfigurera StorSimple-kort**.
 4. På sidan **Konfigurera StorSimple-kort** klickar du på knappen **inaktivera** under var och en av innehålls databaserna som du vill ta bort från den externa blob-lagringen. 
 5. Ta bort objekten från SharePoint och ladda sedan upp dem igen.
 
-Du kan också använda Microsoft PowerShell- `RBS Migrate()` cmdleten som ingår i SharePoint. Mer information finns i [Migrera innehåll till eller från RBS](https://technet.microsoft.com/library/ff628255.aspx).
+Du kan också använda Microsoft PowerShell- `RBS Migrate()` cmdleten som ingår i SharePoint. Mer information finns i [Migrera innehåll till eller från RBS](/previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)).
 
 När du har flyttat BLOBarna tillbaka till innehålls databasen går du till nästa steg: [Avinstallera kortet](#uninstall-the-adapter).
 
@@ -251,15 +251,15 @@ När du har flyttat BLOBarna tillbaka till SQL Server innehålls databaser kan d
 
 #### <a name="to-use-the-control-panel-to-uninstall-the-adapter"></a>Använda kontroll panelen för att avinstallera kortet
 1. Öppna kontroll panelen och klicka sedan på **program och funktioner**.
-2. Välj **StorSimple Adapter för SharePoint**och klicka sedan på **Avinstallera**.
+2. Välj **StorSimple Adapter för SharePoint** och klicka sedan på **Avinstallera**.
 
 ## <a name="next-steps"></a>Nästa steg
 [Läs mer om StorSimple](storsimple-overview.md).
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073
-[2]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
-[4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
-[5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/library/ff943565.aspx
+[2]: /SharePoint/administration/rbs-planning
+[3]: /previous-versions/office/sharepoint-server-2010/ff628583(v=office.14)
+[4]: /previous-versions/office/sharepoint-foundation-2010/ff628569(v=office.14)
+[5]: /SharePoint/administration/rbs-planning
+[8]: /SharePoint/administration/maintain-rbs

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 54b15d5865b1abb0d624628ed4b5c9892ab04d41
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542141"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965841"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -146,7 +146,7 @@ Läs mer om [etiketter för bild instans segment](how-to-label-images.md).
 
 ### <a name="azure-machine-learning-sdk-for-python-v1150"></a>Azure Machine Learning SDK för python v-1.15.0
 + **Fel korrigeringar och förbättringar**
-  + **azureml-contrib-interpret**
+  + **azureml-contrib-tolka**
     + LIME-förklaring har flyttats från azureml-contrib-tolka till tolka-community-paket och bild förklaring borttagen från azureml-contrib-tolka paket
     + instrument panelen för visualiseringar har tagits bort från azureml-contrib-tolka paket, förklarings klient som flyttats till azureml-tolka paket och föråldras i azureml-contrib-tolka paket och antecknings böcker som är uppdaterade för att återspegla
     + åtgärda pypi-paketets beskrivningar för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolka och AzureML-tensorboard
@@ -210,7 +210,7 @@ Läs mer om [etiketter för bild instans segment](how-to-label-images.md).
     + Uppdaterad AzureML MLflow-dokumentation och exempel på bärbara datorer 
     + Nytt stöd för MLflow-projekt med AzureML-backend
     + Stöd för MLflow-modell registret
-    + RBAC-stöd har lagts till för AzureML-MLflow åtgärder 
+    + Azure RBAC-stöd har lagts till för AzureML-MLflow åtgärder 
     
   + **azureml-pipeline-core**
     + Förbättrad dokumentation av PipelineOutputFileDataset.parse_ * metoder.
@@ -985,7 +985,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
   + **azureml-pipeline-steps**
     + Har flyttat `AutoMLStep` till `azureml-pipeline-steps` paketet. Föråldrade `AutoMLStep` i `azureml-train-automl-runtime` .
     + Exempel på dokumentation som lagts till för data uppsättning som PythonScriptStep-indata
-  + **azureml-tensorboard**
+  + **azureml – tensorboard**
     + uppdaterade azureml-tensorboard för att stödja tensorflow 2,0
     + Visa rätt port nummer när du använder en anpassad Tensorboard-port på en beräknings instans
   + **azureml-train-automl-client**
@@ -1836,7 +1836,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
   + Prestanda för `read_parquet` har förbättrats vid körning i Spark.
   + Ett problem har åtgärd ATS där `column_type_builder` det inte gick att skapa en enskild kolumn med tvetydiga datum format.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 + **Förhands gransknings funktion**
   + Logg-och utdatafilen är nu tillgängliga för att köra informations sidor. Filerna strömmar uppdateringar i real tid när växling vid förhands visning är aktive rad.
   + Möjligheten att ange kvot på en arbets ytans nivå släpps i för hands versionen. AmlCompute kvoter tilldelas på prenumerations nivå, men nu kan du distribuera den kvoten mellan arbets ytor och tilldela den till en rättvis delning och styrning. Klicka bara på bladet **användning och kvoter** i det vänstra navigerings fältet på arbets ytan och välj fliken **Konfigurera kvoter** . Du måste vara prenumerations administratör för att kunna ange kvoter på arbets ytans nivå eftersom detta är en åtgärd över arbets ytan.
@@ -2115,7 +2115,7 @@ Azure Machine Learning SDK för python v-1.0.30 har släppts.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
   + Nu kan du skicka om ett befintligt skript som körs på ett befintligt fjärrberäknings kluster.
   + Nu kan du köra en publicerad pipeline med nya parametrar på fliken pipeliner.
   + Körnings informationen stöder nu ett nytt visnings program för Snapshot-filen. Du kan visa en ögonblicks bild av katalogen när du skickade en speciell körning. Du kan också hämta den antecknings bok som har skickats för att starta körningen.
@@ -2173,7 +2173,7 @@ Azure Machine Learning SDK för python v-1.0.30 har släppts.
 + **Fel korrigeringar och förbättringar**
   + Vi har lagt till stöd i Azure Machine Learning pipelines för att ställa in source_directory_data_store-egenskapen till ett önskat data lager (till exempel en blob-lagring) på [RunConfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?preserve-view=true&view=azure-ml-py) som anges i [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py). Som standard använder Azure File Store som lagrings data lager, som kan köra begränsnings problem när ett stort antal steg körs samtidigt.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 + **Nya funktioner**
   + Ny dra och släpp tabell redigerings miljö för rapporter. Användare kan dra en kolumn från en källa till tabell området där en förhands granskning av tabellen kommer att visas. Kolumnerna kan ordnas om.

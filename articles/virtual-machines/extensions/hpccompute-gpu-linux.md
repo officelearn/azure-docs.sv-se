@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 52f896e5cbcc8089ee8683338c99fb514400be4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c06d8e4ab368934182ed67b91dedb9ba9bcfc199
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511151"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965331"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-drivrutins tillägg för Linux
 
@@ -71,9 +72,9 @@ Följande JSON visar schemat för tillägget.
 
 ### <a name="properties"></a>Egenskaper
 
-| Name | Värde/exempel | Datatyp |
+| Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | datum |
 | utgivare | Microsoft. HpcCompute | sträng |
 | typ | NvidiaGpuDriverLinux | sträng |
 | typeHandlerVersion | 1.3 | int |
@@ -82,7 +83,7 @@ Följande JSON visar schemat för tillägget.
 
 Alla inställningar är valfria. Standard beteendet är att inte uppdatera kerneln om det inte krävs för installation av driv rutiner, installera den senaste driv rutinen och CUDA Toolkit (i tillämpliga fall).
 
-| Name | Beskrivning | Standardvärde | Giltiga värden | Datatyp |
+| Namn | Beskrivning | Standardvärde | Giltiga värden | Datatyp |
 | ---- | ---- | ---- | ---- | ---- |
 | Uppdatering | Uppdatera kärnan även om det inte krävs för att installera driv rutiner | falskt | SANT, FALSKT | boolean |
 | driverVersion | NV: RUTNÄTs driv rutins version<br> NC/ND: CUDA Toolkit-version. De senaste driv rutinerna för de valda CUDA installeras automatiskt. | senaste | RUTNÄT: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | sträng |

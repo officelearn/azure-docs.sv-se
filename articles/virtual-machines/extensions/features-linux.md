@@ -9,17 +9,18 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 283eb9b9cbdc03813cf7c765c9ef3be5965919eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 129897d3288a900803efbfba8abf86c276077fa8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978347"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966079"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Tillägg och funktioner för virtuella datorer för Linux
 
@@ -37,7 +38,7 @@ Flera olika Azure VM-tillägg är tillgängliga, var och en med ett särskilt an
 
 Förutom process-/regionsspecifika tillägg är ett anpassat skript tillägg tillgängligt för virtuella Windows-och Linux-datorer. Med tillägget för anpassat skript för Linux kan alla bash-skript köras på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfiguration utöver vad interna Azure-verktyg kan tillhandahålla. Mer information finns i avsnittet om [anpassat skript tillägg för Linux-datorer](custom-script-linux.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill hantera tillägget på den virtuella datorn behöver du Azure Linux-agenten installerad. Vissa enskilda tillägg har krav, till exempel åtkomst till resurser eller beroenden.
 
@@ -107,7 +108,7 @@ info:    vm extension set command OK
 
 ### <a name="azure-portal"></a>Azure Portal
 
-VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure Portal. Välj den virtuella datorn i portalen, Välj **tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden.
+VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure Portal. Välj den virtuella datorn i portalen, Välj **tillägg** och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden.
 
 Följande bild visar installationen av det anpassade skript tillägget för Linux från Azure Portal:
 
@@ -381,7 +382,7 @@ Utdata liknar följande exempel på utdata:
   }
 ```
 
-Du kan också hitta körnings status för tillägg i Azure Portal. Om du vill visa status för ett tillägg väljer du den virtuella datorn, väljer **tillägg**och väljer sedan önskat tillägg.
+Du kan också hitta körnings status för tillägg i Azure Portal. Om du vill visa status för ett tillägg väljer du den virtuella datorn, väljer **tillägg** och väljer sedan önskat tillägg.
 
 ### <a name="rerun-a-vm-extension"></a>Kör ett VM-tillägg igen
 

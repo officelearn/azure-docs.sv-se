@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 2f606a2ff036c6bc3b4e3c508632d48ae8d40f15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36b96581d98465b860b630fe2f9a8aa64cf0f64f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400051"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964940"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple för Cloud Solutions provider-program: vanliga frågor och svar
 
@@ -59,7 +59,7 @@ StorSimple virtuella matris för CSP finns på alla marknader där StorSimple ä
 Det finns flera lösningar:
 
 - Partnerna kan återförsälja StorSimple Virtual Array. 
-- Partner kan leverera lösningar som bygger på StorSimple och andra Azure-tjänster eller program från tredje part. Mer information finns i vissa möjliga [lösningar som finns runt StorSimple](https://aka.ms/storsimple-build-solutions).
+- Partner kan leverera lösningar som bygger på StorSimple och andra Azure-tjänster eller program från tredje part. Mer information finns i vissa möjliga [lösningar som finns runt StorSimple](./storsimple-disaster-recovery-using-azure-site-recovery.md).
 - De kan också identifiera nya affärs modeller genom att leverera hanterade tjänster.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Vilka incitament är tillgängliga för StorSimple CSP-partner? Är jag berättigad till alla CSP-program?

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 358399426798ac20897d207c93a8874357e8b781
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96dcc2bae03b1bd05fb3d1512dba757f180eed8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88182008"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964923"
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>Vad är StorSimple för program i Cloud Solutions-leverantörer?
 
@@ -30,7 +30,7 @@ Microsoft Azure StorSimple är en unik metod för företags lagring med äkta hy
 
 StorSimple virtuell matris för Cloud Solutions Provider (CSP) gör det möjligt för partner att använda den här möjligheten. De partner som äger slut punkt till slut punkt för kundens livs cykel med direkt etablering, fakturering och support för Microsofts moln tjänster. I korthet kan partner nu nu StorSimple med sina tjänster till kunder.
 
-Mer information om StorSimple för CSP finns på [översikts sidan för Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) .
+Mer information om StorSimple för CSP finns på [översikts sidan för Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-overview) .
 
 För ytterligare information om fakturering, prissättning, incitament och få support i CSP, gå till [StorSimple i CSP: vanliga frågor och svar](storsimple-partner-csp-faq.md). 
 

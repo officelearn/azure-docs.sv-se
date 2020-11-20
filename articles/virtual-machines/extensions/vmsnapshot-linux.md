@@ -6,16 +6,17 @@ documentationcenter: ''
 author: trinadhkotturu
 manager: gwallace
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9fe50388e2fc21c28ca1f04035cc7c725e4f87ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf653bb42351c9ab4811fde695c8f821fd42d7c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275055"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966776"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Linux-tillägg för VM-ögonblicksbild för Azure Backup
 
@@ -25,7 +26,7 @@ Azure Backup ger stöd för säkerhets kopiering av arbets belastningar från lo
 
 VMSnapshot-tillägget visas endast i Azure Portal för icke-hanterade virtuella datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 En lista över operativ system som stöds finns i [operativ system som stöds av Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
@@ -64,7 +65,7 @@ Följande JSON visar schemat för ögonblicks bilds tillägget för den virtuell
 
 | Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | datum |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | sträng |
 | commandStartTimeUTCTicks | 6.36458 e + 17 | sträng |
 | locale | sv-se | sträng |

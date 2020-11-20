@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/14/2020
+ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 905dde6932afb440c34bcccb563bfda98f23eb7c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: c60adb09da05ba945bcf6ccb55e71c395f064211
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363841"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965110"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Data-och hastighets begränsningar för API för textanalys
 <a name="data-limits"></a>
@@ -31,24 +31,28 @@ Använd den här artikeln för att hitta gränserna för storlek och frekvenser 
 
 | Gräns | Värde |
 |------------------------|---------------|
-| Maximal storlek på ett enskilt dokument | 5 120 tecken som mäts av [StringInfo. LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Gäller även för Textanalys för hälso container. |
-| Maximal storlek på hela begäran | 1 MB. Gäller även för Textanalys för hälso container. |
+| Maximal storlek på ett enskilt dokument | 5 120 tecken som mäts av [StringInfo. LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Gäller även Textanalys för hälso tillstånd. |
+| Maximal storlek för ett enskilt dokument ( `/analyze` slut punkt)  | 125K tecken som mäts av [StringInfo. LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Gäller inte Textanalys för hälso tillstånd. |
+| Maximal storlek på hela begäran | 1 MB. Gäller även Textanalys för hälso tillstånd. |
 
-Det maximala antalet dokument som du kan skicka i en enskild begäran beror på vilken API-version och funktion du använder.
+Det maximala antalet dokument som du kan skicka i en enskild begäran beror på vilken API-version och funktion du använder. `/analyze`Slut punkten avvisar hela begäran om något dokument överskrider max storleken (125K tecken)
 
 #### <a name="version-3"></a>[Version 3](#tab/version-3)
 
-Följande gränser har ändrats i v3 för API: et. Om du överskrider gränserna nedan skapas en HTTP 400-felkod.
+Följande begränsningar gäller för det aktuella v3-API: et. Om du överskrider gränserna nedan skapas en HTTP 400-felkod.
 
 
 | Funktion | Maximalt antal dokument per begäran | 
 |----------|-----------|
 | Språkidentifiering | 1000 |
 | Attitydanalys | 10 |
+| Åsikts utvinning | 10 |
 | Extrahering av nyckelfraser | 10 |
 | Igenkänning av namngiven enhet | 5 |
 | Entity Linking | 5 |
-| Textanalys för hälso container | 1000 |
+| Textanalys för hälsa  | 10 för det webbaserade API: t 1000 för containern. |
+| Analysera slut punkt | 25 för alla åtgärder. |
+
 #### <a name="version-2"></a>[Version 2](#tab/version-2)
 
 | Funktion | Maximalt antal dokument per begäran | 
@@ -74,7 +78,7 @@ Din hastighets gräns varierar beroende på [pris nivå](https://azure.microsoft
 | S3            | 500                 | 500                 |
 | S4            | 1000                | 1000                |
 
-Begär Anden mäts för varje Textanalys funktion separat. Du kan till exempel skicka maximalt antal begär Anden för din pris nivå till varje funktion på samma tillfälle.  
+Begär ande priser mäts för varje Textanalys funktion separat. Du kan skicka maximalt antal begär Anden för din pris nivå till varje funktion på samma tid. Om du till exempel befinner dig på `S` nivån och skickar 1000-begäranden samtidigt kan du inte skicka ytterligare en begäran om 59 sekunder.
 
 
 ## <a name="see-also"></a>Se även

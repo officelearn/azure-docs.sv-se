@@ -3,16 +3,17 @@ title: Anslut Azure ExpressRoute med Oracle Cloud Infrastructure | Microsoft Doc
 description: Anslut Azure-ExpressRoute med OCI-FastConnect (Oracle Cloud Infrastructure) för att aktivera Oracle-programlösningar mellan moln
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle
 ms.reviewer: cynthn
-ms.openlocfilehash: e932bf7381e1246f4b489e7d564cf5486c3ec635
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2717ba307cac82465e0c5df996ef3b668af5e7d4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996231"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963716"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Konfigurera en direkt anslutning mellan Azure och Oracle Cloud Infrastructure  
 
@@ -30,7 +31,7 @@ Följande bild visar en översikt över sammanlänkningen:
 
 ![Nätverks anslutning mellan moln](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du vill upprätta en anslutning mellan Azure och OCI måste du ha en aktiv Azure-prenumeration och ett aktivt OCI-innehav.
 
@@ -57,7 +58,7 @@ Följande bild visar en översikt över sammanlänkningen:
     * Under FastConnect-konfiguration väljer du **Microsoft Azure: ExpressRoute** som Provider.
     * Välj den gateway för dynamisk routning som du etablerade i föregående steg.
     * Välj den bandbredd som ska tillhandahållas. För bästa prestanda måste bandbredden matcha den bandbredd som väljs när du skapar ExpressRoute-kretsen.
-    * I **Provider service Key**klistrar du in ExpressRoute-tjänst nyckeln.
+    * I **Provider service Key** klistrar du in ExpressRoute-tjänst nyckeln.
     * Använd det första/30 privata IP-adressutrymmet hämtas i ett föregående steg för den **primära BGP-IP-adressen** och det andra/30 privata IP-adressutrymmet för den **sekundära BGP-IP** -adressen.
         * Tilldela den första användbara adressen för de två intervallen för Oracle BGP IP-adressen (primär och sekundär) och den andra adressen till kundens BGP IP-adress (från ett FastConnect-perspektiv). Den första användbara IP-adressen är den andra IP-adressen i adress utrymmet/30 (den första IP-adressen är reserverad av Microsoft).
     * Klicka på **Skapa**.

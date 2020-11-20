@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 36c15907c0f45befacf35389652f6d91c0ab1958
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1f5db17549c2b95d5dd0dd2f866ca1d1c0e7d8aa
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787915"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965127"
 ---
 # <a name="planning-and-operations-guide"></a>Planerings- och drifthandbok
 Den här guiden är till för IT-experter, IT-arkitekter, informations säkerhets analytiker och moln administratörer som planerar att använda Azure Security Center.
@@ -71,12 +71,12 @@ Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbet
 
 Security Center använder [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), vilket ger [inbyggda roller](../role-based-access-control/built-in-roles.md) som kan tilldelas till användare, grupper och tjänster i Azure. När en användare öppnar Security Center ser de bara information om de resurser som de har åtkomst till. Detta betyder att användaren tilldelas rollen som ägare, deltagare eller läsare för den prenumeration eller resursgrupp som en resurs hör till. Förutom dessa roller finns två specifika roller i Security Center:
 
-- **Security-läsare** : en användare som tillhör den här rollen kan bara visa Security Center-konfigurationer, vilket innehåller rekommendationer, aviseringar, principer och hälsa, men kan inte ändra.
-- **Security-admin** : samma som security-läsare, men kan också uppdatera säkerhetsprinciper, stänga rekommendationer och aviseringar.
+- **Security-läsare**: en användare som tillhör den här rollen kan bara visa Security Center-konfigurationer, vilket innehåller rekommendationer, aviseringar, principer och hälsa, men kan inte ändra.
+- **Security-admin**: samma som security-läsare, men kan också uppdatera säkerhetsprinciper, stänga rekommendationer och aviseringar.
 
 Security Center-rollerna som beskrivs ovan har inte åtkomst till andra delar av Azure, till exempel lagring, webb och mobil eller IoT (sakernas internet).
 
-Med utgångspunkt i de fiktiva personer som beskrivs i diagrammet ovan krävs följande rollbaserade åtkomst:
+Med hjälp av personer som förklaras i föregående diagram krävs följande Azure RBAC:
 
 **Jens (arbetsbelastningsägare)**
 
@@ -106,7 +106,7 @@ Tänk även på följande:
 * Endast ägare och deltagare i prenumerationer samt Security-administratörer kan ändra säkerhetsprinciper.
 * Endast ägare och deltagare i prenumerationer och resursgrupper kan tillämpa säkerhetsrekommendationer på en resurs.
 
-När du planerar åtkomstkontroll med rollbaserad åtkomst (RBAC) för Security Center är det viktigt att du vet vem i din organisation som ska använda Security Center, samt vilka typer av uppgifter som de ska utföra, innan du konfigurerar den rollbaserade åtkomsten.
+När du planerar åtkomst kontroll med Azure RBAC för Security Center bör du se till att förstå vilka i din organisation som kommer att använda Security Center. Dessutom vilka typer av uppgifter som de ska utföra och sedan konfigurera Azure RBAC i enlighet med detta.
 
 > [!NOTE]
 > Vi rekommenderar att du ger användarna den roll som precis ger dem den behörighet de behöver för att kunna utföra sina arbetsuppgifter. De användare som till exempel endast behöver se information om säkerhetsstatusen på resurser men inte vidta några åtgärder, som att tillämpa rekommendationer eller ändra principer, bör få rollen som läsare.
@@ -207,9 +207,9 @@ Security Center identifierar och varnar dig om hot så fort de uppstår. Organis
 
 Du kan använda Security Center-aviseringar i följande faser:
 
-* **Identifiera** : Identifiera misstänkt aktivitet i en eller flera resurser.
-* **Utvärdera** : Utför en första utvärdering för att få mer information om den misstänkta aktiviteten.
-* **Diagnostisera** : Gå igenom de tekniska rutinerna genom att utföra åtgärdsstegen för att åtgärda problemet.
+* **Identifiera**: Identifiera misstänkt aktivitet i en eller flera resurser.
+* **Utvärdera**: Utför en första utvärdering för att få mer information om den misstänkta aktiviteten.
+* **Diagnostisera**: Gå igenom de tekniska rutinerna genom att utföra åtgärdsstegen för att åtgärda problemet.
 
 I säkerhetsaviseringarna finns information som gör att du kan förstå vilken typ av angrepp det rör sig om och vad du kan göra för att åtgärda angreppet. I vissa aviseringar finns länkar antingen till mer information eller till andra informationskällor inom Azure. Du kan använda informationen för ytterligare forskning och för att påbörja åtgärdsarbetet. Du kan också söka säkerhetsrelaterade data som lagras på din arbetsyta.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: bf3da62e989f0e029efdc8e9c70f5f45e0ddd765
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8af9549efc3e8dab54f55dd404346d87201dee2c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76932300"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965620"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Översikt över omvänd DNS och support i Azure
 
@@ -89,7 +89,7 @@ En omvänd sökning efter IP-adressen "192.0.2.129" för en PTR-post med namnet 
 
 Namnet på en IPv6-zon för omvänd sökning ska ha följande format: `<IPv6 network prefix in reverse order>.ip6.arpa`
 
-Till exempel. När du skapar en omvänd zon som värd för poster för värdar med IP-adresser som finns i avsnittet 2001: db8:1 000: ABDC::/64, skulle zon namnet skapas genom att isolera-adressens nätverksprefix (2001: db8: ABDC::). Nästa steg är att expandera IPv6-nätverksprefix för att ta bort [noll](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), om det användes för att förkorta IPv6-adressprefixet (2001:0DB8: ABDC: 0000::). Ändra ordningen genom att använda en period som avgränsare mellan varje hexadecimalt tal i prefixet för att skapa det omvända nätverksprefix ( `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2` ) och lägga till suffixet `.ip6.arpa` .
+Till exempel. När du skapar en omvänd zon som värd för poster för värdar med IP-adresser som finns i avsnittet 2001: db8:1 000: ABDC::/64, skulle zon namnet skapas genom att isolera-adressens nätverksprefix (2001: db8: ABDC::). Nästa steg är att expandera IPv6-nätverksprefix för att ta bort [noll](/previous-versions/windows/it-pro/windows-server-2003/cc781672(v=ws.10)), om det användes för att förkorta IPv6-adressprefixet (2001:0DB8: ABDC: 0000::). Ändra ordningen genom att använda en period som avgränsare mellan varje hexadecimalt tal i prefixet för att skapa det omvända nätverksprefix ( `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2` ) och lägga till suffixet `.ip6.arpa` .
 
 
 |Nätverksprefix  |Expanderat och omvänt nätverksprefix |Standard-suffix |Namn på omvänd zon  |
@@ -114,4 +114,3 @@ Mer information om omvänd DNS finns i [Omvänd DNS-sökning på Wikipedia](http
 Lär dig hur du kan vara [värd för zonen för omvänd sökning för det IP-adressintervall som tilldelas Internet leverantör i Azure DNS](dns-reverse-dns-for-azure-services.md).
 <br>
 Lär dig att [Hantera omvända DNS-poster för dina Azure-tjänster](dns-reverse-dns-for-azure-services.md).
-

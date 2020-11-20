@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
-ms.openlocfilehash: 9b6cac64d2e3def673f6d7c27e80bd64eead9e97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e17812e1116f1e625685d5a818c18e25cdb2da
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84689171"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965807"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Hantera DNS-zoner i Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Klassisk Azure-CLI](dns-operations-dnszones-cli-nodejs.md)
+> * [Klassisk Azure-CLI](./dns-operations-dnszones-cli.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
 Den här artikeln visar hur du hanterar DNS-zoner med hjälp av Azure Portal. Du kan också hantera dina DNS-zoner med plattforms oberoende [Azure CLI](dns-operations-dnszones-cli.md) eller Azure [PowerShell](dns-operations-dnszones.md).
@@ -38,7 +38,7 @@ Den här artikeln visar hur du hanterar DNS-zoner med hjälp av Azure Portal. Du
 4. På bladet **Skapa DNS-zon** anger du följande värden och klickar sedan på **Skapa**:
 
 
-   | **Inställning** | **Värde** | **Information** |
+   | **Inställning** | **Värde** | **Detaljer** |
    |---|---|---|
    |**Namn**|contoso.com|Namnet på DNS-zonen|
    |**Prenumeration**|[Din prenumeration]|Välj en prenumeration att skapa DNS-zonen i.|
@@ -50,7 +50,7 @@ Den här artikeln visar hur du hanterar DNS-zoner med hjälp av Azure Portal. Du
 
 ## <a name="list-dns-zones"></a>Lista DNS-zoner
 
-I Azure Portal navigerar du till **fler tjänster**  >  **nätverk**  >  **DNS-zoner**. Varje DNS-zon är en egen resurs, och information som antal post uppsättningar och namnservrar visas i den här vyn. Kolumn **namns servrarna** är inte i standardvyn. Om du vill lägga till det klickar du på **kolumner**, väljer **namnservrar**och klickar sedan på **Slutför**.
+I Azure Portal navigerar du till **fler tjänster**  >  **nätverk**  >  **DNS-zoner**. Varje DNS-zon är en egen resurs, och information som antal post uppsättningar och namnservrar visas i den här vyn. Kolumn **namns servrarna** är inte i standardvyn. Om du vill lägga till det klickar du på **kolumner**, väljer **namnservrar** och klickar sedan på **Slutför**.
 
 ![lista DNS-zoner](./media/dns-operations-dnszones-portal/listzones.png)
 

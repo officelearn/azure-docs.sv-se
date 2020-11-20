@@ -8,20 +8,20 @@ ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8eb4e49e6c0e3f011015d40b8eca036d5218674c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4284956138002d209ab0934cdd052748ef8aab78
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891707"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966283"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>StylesObject schema referens guide för dynamiska kartor
 
-Den här artikeln är en referens guide till JSON-schemat och syntaxen för `StylesObject` . `StylesObject`Är en `StyleObject` matris som representerar stateset-format. Använd tjänsten Azure Maps Creator [Feature State](/rest/api/maps/featurestate) för att tillämpa dina stateset-format på inhämtade kart data funktioner. När du har skapat dina stateset-format och associerat dem med ingångna kart funktioner kan du använda dem för att skapa dynamiska kartor i inomhus. Mer information om hur du skapar dynamiska kartor finns i [implementera dynamisk formatering för skapare inomhus Maps](indoor-map-dynamic-styling.md).
+ `StylesObject`Är en `StyleObject` matris som representerar stateset-format. Använd tjänsten Azure Maps Creator [Feature State](/rest/api/maps/featurestate) för att tillämpa dina stateset-format på inhämtade kart data funktioner. När du har skapat dina stateset-format och associerat dem med ingångna kart funktioner kan du använda dem för att skapa dynamiska kartor i inomhus. Mer information om hur du skapar dynamiska kartor finns i [implementera dynamisk formatering för skapare inomhus Maps](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>StyleObject
 
-A `StyleObject` är antingen som en [`BooleanTypeStyleRule`](#booleantypestylerule) eller en [`NumericTypeStyleRule`](#numerictypestylerule) .
+A `StyleObject` är antingen en [`BooleanTypeStyleRule`](#booleantypestylerule) eller en [`NumericTypeStyleRule`](#numerictypestylerule) .
 
 I JSON nedan visas ett `BooleanTypeStyleRule` namngivet `occupied` och ett `NumericTypeStyleRule` namngivet `temperature` .
 
@@ -76,7 +76,7 @@ En `NumberRuleObject` består av en [`RangeObject`](#rangeobject) och en `color`
 
 Om du definierar flera överlappande intervall blir den valda färgen den färg som definieras i det första intervallet som är uppfyllt.
 
-I följande JSON-exempel behåller båda intervallen sant när värdet för *tillstånd* är mellan 50-60. Men färgen som ska användas `#343deb` beror på att det är det första intervallet i listan som är uppfyllt.
+I följande JSON-exempel behåller båda intervallen sant när värdet för *tillstånd* är mellan 50-60. Den färg som ska användas beror dock på att `#343deb` det är det första intervallet i listan som är uppfyllt.
 
 ```json
 

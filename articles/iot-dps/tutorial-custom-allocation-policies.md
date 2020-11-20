@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e20183356655668750cb1450338d4c8af1ee2d8c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4cab1765a387bbae61c9c242a8e7a1ca881ea1f5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951714"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966674"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Självstudie: Använd principer för anpassad allokering med enhets etablerings tjänsten (DPS)
 
@@ -40,13 +40,13 @@ I den här självstudien ska du göra följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * I den här artikeln förutsätter vi att du har slutfört stegen i [konfigurera IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md) för att skapa IoT Hub och DPS-instansen.
 
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
 
-* För en Windows-utvecklings miljö krävs [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 med arbets belastningen [Skriv bords utveckling med C++](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) aktiverat. Visual Studio 2015 och Visual Studio 2017 stöds också.
+* För en Windows-utvecklings miljö krävs [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 med arbets belastningen [Skriv bords utveckling med C++](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) aktiverat. Visual Studio 2015 och Visual Studio 2017 stöds också.
 
 * För Linux eller macOS, se lämpligt avsnitt i [förbereda din utvecklings miljö](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) i [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) -dokumentationen.
 
@@ -59,7 +59,7 @@ I det här avsnittet skapar du en Azure-funktion som implementerar din anpassade
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Från start sidan väljer du **+ skapa en resurs**.
 
-2. Skriv "Funktionsapp" i Sök rutan *Sök i Marketplace* . Välj **Funktionsapp**i list rutan och välj sedan **skapa**.
+2. Skriv "Funktionsapp" i Sök rutan *Sök i Marketplace* . Välj **Funktionsapp** i list rutan och välj sedan **skapa**.
 
 3. På sidan för **Funktionsapp** skapa, under fliken **grundläggande** , anger du följande inställningar för den nya Function-appen och väljer **Granska + skapa**:
 
@@ -181,9 +181,9 @@ I det här avsnittet ska du skapa en ny registrerings grupp som använder den an
 
 2. Välj **Hantera registreringar** i den vänstra rutan och välj sedan knappen **Lägg till registrerings grupp** överst på sidan.
 
-3. I **Lägg till registrerings grupp**anger du informationen i tabellen nedan och klickar på knappen **Spara** .
+3. I **Lägg till registrerings grupp** anger du informationen i tabellen nedan och klickar på knappen **Spara** .
 
-    | Field | Beskrivning och/eller föreslaget värde |
+    | Fält | Beskrivning och/eller föreslaget värde |
     | :---- | :----------------------------- |
     | **Gruppnamn** | Ange **contoso-Custom-allokerade – enheter** |
     | **Attesterings typ** | Välj **symmetrisk nyckel** |
@@ -296,7 +296,7 @@ Det här avsnittet är riktat mot en Windows-baserad arbets Station. Ett Linux-e
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    Om `cmake` du inte hittar din C++-kompilator kan du få build-fel när du kör kommandot. Om det händer kan du försöka köra kommandot i [kommando tolken för Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
+    Om `cmake` du inte hittar din C++-kompilator kan du få build-fel när du kör kommandot. Om det händer kan du försöka köra kommandot i [kommando tolken för Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
     När bygget är klart ser de sista utdataraderna ut ungefär som följande utdata:
 
@@ -316,7 +316,7 @@ Det här avsnittet är riktat mot en Windows-baserad arbets Station. Ett Linux-e
 
 ## <a name="simulate-the-devices"></a>Simulera enheterna
 
-I det här avsnittet uppdaterar du ett etablerings exempel med namnet ** \_ test dev \_ client- \_ exempel** som finns i Azure IoT C SDK som du har skapat tidigare.
+I det här avsnittet uppdaterar du ett etablerings exempel med namnet **\_ test dev \_ client- \_ exempel** som finns i Azure IoT C SDK som du har skapat tidigare.
 
 Den här exempel koden simulerar en enhets startsekvens som skickar etablerings förfrågan till din enhets etablerings tjänst instans. Startsekvensen gör att toaster-enheten identifieras och tilldelas IoT-hubben med hjälp av den anpassade principen för tilldelning.
 
@@ -347,7 +347,7 @@ Den här exempel koden simulerar en enhets startsekvens som skickar etablerings 
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. I `main()` funktionen hittar du anropet till `Prov_Device_Register_Device()` . Precis före det anropet lägger du till följande rader med kod som använder [`Prov_Device_Set_Provisioning_Payload()`](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) för att skicka en anpassad JSON-nyttolast under etableringen. Detta kan användas för att ge mer information till dina anpassade fördelnings funktioner. Detta kan också användas för att överföra enhets typen i stället för att undersöka registrerings-ID: t.
+6. I `main()` funktionen hittar du anropet till `Prov_Device_Register_Device()` . Precis före det anropet lägger du till följande rader med kod som använder [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) för att skicka en anpassad JSON-nyttolast under etableringen. Detta kan användas för att ge mer information till dina anpassade fördelnings funktioner. Detta kan också användas för att överföra enhets typen i stället för att undersöka registrerings-ID: t.
 
     ```c
     // An example custom payload
@@ -364,7 +364,7 @@ Den här exempel koden simulerar en enhets startsekvens som skickar etablerings 
 
 ### <a name="simulate-the-contoso-toaster-device"></a>Simulera contoso toaster-enheten
 
-1. För att simulera toaster-enheten hittar du anropet till `prov_dev_set_symmetric_key_info()` i ** \_ test av dev- \_ klient \_ . c** som är kommenterad.
+1. För att simulera toaster-enheten hittar du anropet till `prov_dev_set_symmetric_key_info()` i **\_ test av dev- \_ klient \_ . c** som är kommenterad.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -380,7 +380,7 @@ Den här exempel koden simulerar en enhets startsekvens som skickar etablerings 
 
     Spara filen.
 
-2. På Visual Studio-menyn väljer du **Felsök**  >  **Start utan fel sökning** för att köra lösningen. I prompten för att återskapa projektet väljer du **Ja**för att återskapa projektet innan det körs.
+2. På Visual Studio-menyn väljer du **Felsök**  >  **Start utan fel sökning** för att köra lösningen. I prompten för att återskapa projektet väljer du **Ja** för att återskapa projektet innan det körs.
 
     Följande text är ett exempel på att logga utdata från den anpassade fördelnings funktions koden som körs för toaster-enheten. Observera att ett nav har valts för en toaster-enhet. Observera också att den `payload` medlem som innehåller det anpassade JSON-innehåll som du har lagt till i koden. Detta är tillgängligt för din kod att använda i `deviceRuntimeContext` .
 

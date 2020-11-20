@@ -8,18 +8,19 @@ manager: juergent
 editor: ''
 keywords: 'HLI, HANA, SKU: er, S896, S224, S448, S672, Optane, SAP'
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08872b95c4cff3c261a545f117cc4e6bf24e15a5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: fd979f553ff03d8373948d73c416a96bb140b544
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411481"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964770"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>Tillgängliga SKU: er för stora instanser av HANA
 
@@ -104,9 +105,9 @@ Två olika klasser av maskin vara delar in SKU: er i:
 
 En fullständig HANA-stor instans stämpel är inte helt allokerad för en enskild kund&#39;s användning. Detta faktum gäller för rack och lagrings resurser som är anslutna via en nätverks infrastruktur som också distribueras i Azure. HANA stor instans infrastruktur, som Azure, distribuerar olika kund &quot; klienter &quot; som är isolerade från varandra på följande tre nivåer:
 
-- **Nätverk** : isolera via virtuella nätverk inom den Hana-stora instans stämplingen.
-- **Lagring** : isolering genom virtuella lagrings datorer som har lagrings volymer tilldelade och isolerar lagrings volymer mellan klienter.
-- **Compute** : dedikerad tilldelning av Server enheter till en enda klient. Ingen hård disk eller mjuk partitionering av Server enheter. Ingen delning av en enskild server eller värd enhet mellan klienter. 
+- **Nätverk**: isolera via virtuella nätverk inom den Hana-stora instans stämplingen.
+- **Lagring**: isolering genom virtuella lagrings datorer som har lagrings volymer tilldelade och isolerar lagrings volymer mellan klienter.
+- **Compute**: dedikerad tilldelning av Server enheter till en enda klient. Ingen hård disk eller mjuk partitionering av Server enheter. Ingen delning av en enskild server eller värd enhet mellan klienter. 
 
 Distributioner av HANA-stora instans enheter mellan olika klienter är inte synliga för varandra. HANA-stora instans enheter som distribueras i olika klienter kan inte kommunicera direkt med varandra på nivån HANA stor instans Stamp. Endast HANA stora instans enheter inom en klient organisation kan kommunicera med varandra på nivån HANA-stor instans stämpel.
 

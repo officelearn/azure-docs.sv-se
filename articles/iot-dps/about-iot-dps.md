@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e3fce15cdeb1792749224299167b52fc2311d04e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b33b866a10ad4a44cef14f3c86d8ca1f40c4750
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318287"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965382"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Enhetsetablering med Azure IoT Hub Device Provisioning Service
 Microsoft Azure har en stor uppsättning integrerade offentliga molntjänster för alla dina IoT-lösningsbehov. IoT Hub Device Provisioning Service (DPS) är en hjälp tjänst för IoT Hub som möjliggör Zero-Touch och just-in-Time-etablering till rätt IoT Hub utan mänsklig inblandning. DPS möjliggör etablering av miljon tals enheter på ett säkert och skalbart sätt.
@@ -81,7 +81,7 @@ DPS har många funktioner, vilket gör det idealiskt för att konfigurera enhete
 
 * Stöd för **säker attestering** för både X.509- och TPM-baserade identiteter.
 * **Registreringslista** som innehåller fullständiga uppgifter för enheter eller grupper av enheter som kan komma att registreras. Registreringslistan innehåller information om önskad konfiguration för enheten när den registreras, och den kan uppdateras när som helst.
-* **Flera allokeringsregler** för att kontrol lera hur DPS tilldelar enheter till IoT-hubbar som stöder dina scenarier: lägsta latens, jämnt viktad distribution (standard) och statisk konfiguration via registrerings listan. Svars tiden fastställs med samma metod som [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
+* **Flera allokeringsregler** för att kontrol lera hur DPS tilldelar enheter till IoT-hubbar som stöder dina scenarier: lägsta latens, jämnt viktad distribution (standard) och statisk konfiguration via registrerings listan. Svars tiden fastställs med samma metod som [Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md#performance).
 * **Övervaknings- och diagnostikloggning** för att kontrollera att allt fungerar korrekt.
 * **Stöd för flera hubbar** gör att DPS kan tilldela enheter till fler än en IoT Hub. DPS kan prata med hubbar i flera Azure-prenumerationer.
 * **Stöd för flera regioner** gör att DPS kan tilldela enheter till IoT-hubbar i andra regioner.
@@ -119,7 +119,7 @@ Mer information om kvotgränser:
 * [Tjänstbegränsningar för Azure-prenumeration](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Relaterade Azure-komponenter
-DPS automatiserar enhets etablering med Azure IoT Hub. Läs mer om [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
+DPS automatiserar enhets etablering med Azure IoT Hub. Läs mer om [IoT Hub](../iot-hub/index.yml).
 
 ## <a name="next-steps"></a>Nästa steg
 Nu har du en översikt över etablering av IoT-enheter i Azure. Nästa steg är att testa ett IoT-scenario från slutpunkt till slutpunkt.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: damendo
-ms.openlocfilehash: a16e99df57da66d2633947f8aecdf1d2cef9ab15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 115adb7a71d820a75261837f4c14b1b84adb98da
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737418"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965535"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Felsöka anslutningar med Azure Network Watcher med hjälp av Azure Portal
 
@@ -37,7 +37,7 @@ Den här artikeln förutsätter att du har följande resurser:
 * Virtuella datorer för att felsöka anslutningar med.
 
 > [!IMPORTANT]
-> Fel sökning av anslutning kräver att den virtuella datorn som du felsöker från har `AzureNetworkWatcherExtension` VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
+> Fel sökning av anslutning kräver att den virtuella datorn som du felsöker från har `AzureNetworkWatcherExtension` VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json). Tillägget krävs inte på mål slut punkten.
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Kontrol lera anslutningen till en virtuell dator
 
@@ -45,7 +45,7 @@ Det här exemplet kontrollerar anslutningen till en virtuell mål dator via port
 
 Navigera till Network Watcher och klicka på **anslutnings fel sökning**. Välj den virtuella dator som du vill kontrol lera anslutningen från. I avsnittet **mål** väljer du **Välj en virtuell dator** och väljer rätt virtuell dator och port att testa.
 
-När du klickar på **kontrol lera kontrol**leras anslutningen mellan de virtuella datorerna på den angivna porten. I det här exemplet är den virtuella mål datorn inte nåbar, en lista över hopp visas.
+När du klickar på **kontrol lera kontrol** leras anslutningen mellan de virtuella datorerna på den angivna porten. I det här exemplet är den virtuella mål datorn inte nåbar, en lista över hopp visas.
 
 ![Kontrol lera anslutnings resultatet för en virtuell dator][1]
 

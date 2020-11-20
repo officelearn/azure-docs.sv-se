@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 6c6282f487d6a20de4654118df94c8bfac8a441d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cda36539e4a24bbb017873dafd2c12356a785e55
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075933"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966606"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med Java-tjänst-SDK
 
@@ -22,7 +22,7 @@ ms.locfileid: "93075933"
 
 I den här snabb starten skapar du program mässigt en enskild registrering för en simulerad TPM-enhet i Azure IoT Hub Device Provisioning Service med hjälp av Java-tjänst-SDK med hjälp av ett Java-exempelprogram.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Konfiguration av [IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md)slutförs.
 - Avslut av [lästa kryptografiska nycklar från TPM-enheten](quick-create-simulated-device.md#simulatetpm).
@@ -35,9 +35,9 @@ I den här snabb starten skapar du program mässigt en enskild registrering för
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön 
 
-1. Kontrollera att [Java SE Development Kit 8](https://aka.ms/azure-jdks) är installerat på datorn. 
+1. Kontrollera att [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) är installerat på datorn. 
 
-2. Konfigurera miljövariabler för Java-installationen. Variabeln `PATH` ska innehålla den fullständiga sökvägen till katalogen *jdk1.8.x\bin* . Om det här är datorns första Java-installation skapar du en ny miljövariabeln med namnet `JAVA_HOME` och gör så att den pekar på den fullständiga sökvägen till katalogen *jdk1.8.x* . På Windows-datorer finns den här katalogen i mappen *C:\\Program\\Java\\* och du kan skapa eller redigera miljövariabler genom att söka efter **Redigera systemets miljövariabler** i **Kontrollpanelen** på Windows-datorn. 
+2. Konfigurera miljövariabler för Java-installationen. Variabeln `PATH` ska innehålla den fullständiga sökvägen till katalogen *jdk1.8.x\bin*. Om det här är datorns första Java-installation skapar du en ny miljövariabeln med namnet `JAVA_HOME` och gör så att den pekar på den fullständiga sökvägen till katalogen *jdk1.8.x*. På Windows-datorer finns den här katalogen i mappen *C:\\Program\\Java\\* och du kan skapa eller redigera miljövariabler genom att söka efter **Redigera systemets miljövariabler** i **Kontrollpanelen** på Windows-datorn. 
 
    Du kan kontrollera om Java har konfigurerats på datorn genom att köra följande kommando i kommandofönstret:
 
@@ -68,16 +68,16 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för TPM
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-2. I den nedladdade källkoden går du till exempelmappen **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_** . Öppna filen **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** i valfritt redigeringsprogram och lägg till följande information:
+2. I den nedladdade källkoden går du till exempelmappen **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**. Öppna filen **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** i valfritt redigeringsprogram och lägg till följande information:
 
    1. Lägg till `[Provisioning Connection String]` för etableringstjänsten från portalen enligt följande:
        1. Navigera till etablerings tjänsten i [Azure Portal](https://portal.azure.com). 
-       2. Öppna **Policyer för delad åtkomst** och välj en princip som har behörigheten *EnrollmentWrite* .
-       3. Kopiera **Anslutningssträng – primär nyckel** . 
+       2. Öppna **Policyer för delad åtkomst** och välj en princip som har behörigheten *EnrollmentWrite*.
+       3. Kopiera **Anslutningssträng – primär nyckel**. 
 
            ![Hämta etableringsanslutningssträngen från portalen](./media/quick-enroll-device-tpm-java/provisioning-string.png)  
 
-       4. I exempelkodfilen **_ServiceEnrollmentSample.java_** ersätter du `[Provisioning Connection String]` med **Anslutningssträng – primär nyckel** .
+       4. I exempelkodfilen **_ServiceEnrollmentSample.java_** ersätter du `[Provisioning Connection String]` med **Anslutningssträng – primär nyckel**.
     
            ```Java
            private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
@@ -85,7 +85,7 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för TPM
 
    2. Lägg till TPM-enhetsinformation:
        1. Hämta *registrerings-ID* och *TPM-bekräftelsenyckeln* för en TPM-enhetssimulering genom att följa stegen som leder till avsnittet [Simulera TPM-enhet](quick-create-simulated-device.md#simulatetpm).
-       2. Använd **_registrerings-ID_** och **_bekräftelsenyckeln_** från utdata i det föregående steget för att ersätta `[RegistrationId]` och `[TPM Endorsement Key]` i exempelkodfilen **_ServiceEnrollmentSample.java_** :
+       2. Använd **_registrerings-ID_** och **_bekräftelsenyckeln_** från utdata i det föregående steget för att ersätta `[RegistrationId]` och `[TPM Endorsement Key]` i exempelkodfilen **_ServiceEnrollmentSample.java_**:
         
            ```Java
            private static final String REGISTRATION_ID = "[RegistrationId]";
@@ -94,13 +94,13 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för TPM
 
    3. Alternativt kan du konfigurera etableringstjänsten genom exempelkoden:
       - Om du vill lägga till konfigurationen i exemplet gör du följande:
-        1. Navigera till IoT-hubben som är länkad till din etableringstjänst i [Azure Portal](https://portal.azure.com). Öppna fliken **Översikt** för hubben och kopiera **värdnamnet** . Tilldela **värdnamnet** till parametern *IOTHUB_HOST_NAME* .
+        1. Navigera till IoT-hubben som är länkad till din etableringstjänst i [Azure Portal](https://portal.azure.com). Öppna fliken **Översikt** för hubben och kopiera **värdnamnet**. Tilldela **värdnamnet** till parametern *IOTHUB_HOST_NAME*.
             ```Java
             private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
             ```
-        2. Tilldela ett eget namn till parametern *DEVICE_ID* och behåll standardvärdet för *PROVISIONING_STATUS* , *ENABLED* . 
+        2. Tilldela ett eget namn till parametern *DEVICE_ID* och behåll standardvärdet för *PROVISIONING_STATUS*, *ENABLED*. 
     
-      - Eller: om du väljer att inte konfigurera etableringstjänsten kommentera ut eller ta bort följande instruktioner i filen _ServiceEnrollmentSample.java_ :
+      - Eller: om du väljer att inte konfigurera etableringstjänsten kommentera ut eller ta bort följande instruktioner i filen _ServiceEnrollmentSample.java_:
           ```Java
           // The following parameters are optional. Remove it if you don't need.
           individualEnrollment.setDeviceId(DEVICE_ID);
@@ -108,7 +108,7 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för TPM
           individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
           ```
 
-   4. Studera exempelkoden. Den skapar, uppdaterar, frågar och tar bort en enskild TPM-enhetsregistrering. Du kan verifiera att registreringen har lyckats i portalen genom att tillfälligt kommentera ut följande rader med kod i filen _ServiceEnrollmentSample.java_ :
+   4. Studera exempelkoden. Den skapar, uppdaterar, frågar och tar bort en enskild TPM-enhetsregistrering. Du kan verifiera att registreringen har lyckats i portalen genom att tillfälligt kommentera ut följande rader med kod i filen _ServiceEnrollmentSample.java_:
     
        ```Java
        // *********************************** Delete info of individualEnrollment ************************************
@@ -116,13 +116,13 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för TPM
        provisioningServiceClient.deleteIndividualEnrollment(REGISTRATION_ID);
        ```
 
-   5. Spara filen _ServiceEnrollmentSample.java_ .
+   5. Spara filen _ServiceEnrollmentSample.java_.
 
 <a id="runjavasample"></a>
 
 ## <a name="build-and-run-the-java-sample-code"></a>Skapa och kör Java-exempelkoden
 
-1. Öppna ett kommandofönster och navigera till mappen **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_** .
+1. Öppna ett kommandofönster och navigera till mappen **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**.
 
 2. Skapa exempelkoden genom att använda följande kommando:
 

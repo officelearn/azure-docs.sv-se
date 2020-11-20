@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 0198a32800f364f921a2b9f64048166c48a14f7e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ed458ee0267a65bb7551940fc522509dc310311
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323897"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966623"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabb start: skapa och etablera en simulerad X. 509-enhet med Java-enhets-SDK för IoT Hub Device Provisioning Service
 
@@ -22,18 +22,18 @@ ms.locfileid: "91323897"
 
 I den här snabb starten skapar du en simulerad X. 509-enhet på en Windows-dator. Du använder Device-exempel-Java-kod för att ansluta den här simulerade enheten med IoT-hubben med hjälp av en enskild registrering med enhets etablerings tjänsten (DPS).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Bekant med [etablerings](about-iot-dps.md#provisioning-process) koncept.
 - Slut för ande av [konfigurations IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md).
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java se Development Kit 8](https://aka.ms/azure-jdks).
+- [Java se Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 - [Maven](https://maven.apache.org/install.html).
 - [Git](https://git-scm.com/download/).
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön 
 
-1. Kontrollera att [Java SE Development Kit 8](https://aka.ms/azure-jdks) är installerat på datorn.
+1. Kontrollera att [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) är installerat på datorn.
 
 2. Ladda ned och installera [Maven](https://maven.apache.org/install.html).
 
@@ -80,7 +80,7 @@ Den här artikeln visar enskilda registreringar.
     java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
     ```
 
-2. Ange **N** för _Do you want to input common name _ (Vill du ange ett eget namn). Kopiera utdata för `Client Cert` med start från *-----BEGIN CERTIFICATE-----* och till och med *-----END CERTIFICATE-----* till Urklipp.
+2. Ange **N** för _Do you want to input common name_ (Vill du ange ett eget namn). Kopiera utdata för `Client Cert` med start från *-----BEGIN CERTIFICATE-----* och till och med *-----END CERTIFICATE-----* till Urklipp.
 
    ![Generator för enskilt certifikat](./media/java-quick-create-simulated-device-x509/individual.png)
 
@@ -94,7 +94,7 @@ Den här artikeln visar enskilda registreringar.
 
 7. Ange följande information på panelen **Lägg till registrering** :
    - Välj **X.509** som identitet för bestyrkande *mekanism*.
-   - Under *filen Primary Certificate. pem eller. cer*väljer du *Välj en fil* för att välja certifikat filen **X509individual. pem** som skapades i föregående steg.  
+   - Under *filen Primary Certificate. pem eller. cer* väljer du *Välj en fil* för att välja certifikat filen **X509individual. pem** som skapades i föregående steg.  
    - Du kan även ange följande information:
      - Välj en IoT hub som är länkad till din etableringstjänst.
      - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet. 

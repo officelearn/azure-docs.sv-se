@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5970e82619667a47ba160c84df2cdeb145b0dab8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80298808"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966181"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systemkrav för StorSimple Virtual Array
 
@@ -29,7 +29,7 @@ System kraven är:
 
 Informationen om system krav för StorSimple som publiceras i den här artikeln gäller endast StorSimple-virtuella matriser.
 
-* För enheter med 8000-serien går du till [system krav för din enhet med StorSimple 8000-serien](storsimple-system-requirements.md).
+* För enheter med 8000-serien går du till [system krav för din enhet med StorSimple 8000-serien](./storsimple-8000-system-requirements.md).
 * För enheter med 7000-serien går du till [system krav för din enhet med StorSimple 5000-7000-serien](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
 ## <a name="software-requirements"></a>Programvarukrav
@@ -84,20 +84,20 @@ Följande program varu krav gäller för SMB-klienter som har åtkomst till din 
 
 
 ### <a name="supported-storage-format"></a>Lagrings format som stöds
-Endast Azure Block Blob-lagring stöds. Page blobbar stöds inte. Mer information [om block-blobar och Page blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+Endast Azure Block Blob-lagring stöds. Page blobbar stöds inte. Mer information [om block-blobar och Page blobbar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
-## <a name="networking-requirements"></a>Nätverks krav
+## <a name="networking-requirements"></a>Nätverkskrav
 I följande tabell visas de portar som måste öppnas i brand väggen för att tillåta iSCSI-, SMB-, moln-eller hanterings trafik. I den här tabellen avser *i* eller *inkommande* den riktning som inkommande klient begär åtkomst till din enhet. *Out* eller *utgående* avser i vilken riktning din StorSimple-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
 
-| **Port nr<sup>1</sup>** | **In eller ut** | **Port omfång** | **Obligatoriskt** | **Kommentarer** |
+| **Port nr <sup>1</sup>** | **In eller ut** | **Port omfång** | **Obligatoriskt** | **Kommentarer** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Ut |WAN |Inga |Utgående port används för Internet åtkomst för att hämta uppdateringar. <br></br>Den utgående webbproxyn är användare konfigurerbar. |
+| TCP 80 (HTTP) |Ut |WAN |Nej |Utgående port används för Internet åtkomst för att hämta uppdateringar. <br></br>Den utgående webbproxyn är användare konfigurerbar. |
 | TCP 443 (HTTPS) |Ut |WAN |Ja |Utgående port används för att komma åt data i molnet. <br></br>Den utgående webbproxyn är användare konfigurerbar. |
 | UDP 53 (DNS) |Ut |WAN |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad DNS-server. <br></br> Observera att om du distribuerar en fil server rekommenderar vi att du använder den lokala DNS-servern. |
 | UDP 123 (NTP) |Ut |WAN |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad NTP-server.<br></br> Observera att om du distribuerar en fil server rekommenderar vi att du synkroniserar tid med Active Directory domän kontrol Lanterna. |
 | TCP 80 (HTTP) |I |LAN |Ja |Det här är den inkommande porten för lokalt användar gränssnitt på StorSimple-enheten för lokal hantering. <br></br> Observera att åtkomst till det lokala användar gränssnittet över HTTP omdirigeras automatiskt till HTTPS. |
 | TCP 443 (HTTPS) |I |LAN |Ja |Det här är den inkommande porten för lokalt användar gränssnitt på StorSimple-enheten för lokal hantering. |
-| TCP 3260 (iSCSI) |I |LAN |Inga |Den här porten används för att få åtkomst till data via iSCSI. |
+| TCP 3260 (iSCSI) |I |LAN |Nej |Den här porten används för att få åtkomst till data via iSCSI. |
 
 <sup>1</sup> inga inkommande portar måste öppnas på det offentliga Internet.
 

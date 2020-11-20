@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
-ms.openlocfilehash: 64f91263154f7e65238acdcef9d97e5f2d09aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9c7a2df83e9d630ce2b4635a830fb941180c758
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006032"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965008"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000-serien: en hybrid moln lagrings lösning
 
@@ -48,7 +48,7 @@ I följande tabell beskrivs några av de viktiga fördelarna som Microsoft Azure
 | Data mobilitet |Data som överförs till Microsoft Azure moln tjänster kan nås från andra platser för återställnings-och migrerings syfte. Dessutom kan du använda StorSimple för att konfigurera StorSimple-moln utrustning på virtuella datorer som körs i Microsoft Azure. De virtuella datorerna kan sedan använda virtuella enheter för att komma åt lagrade data för test-eller återställnings syfte. |
 | Verksamhetskontinuitet |Tillåter att användare i StorSimple 5000-7000-serien migrerar sina data till en StorSimple 8000-serie enhet. |
 | Tillgänglighet i Azure Governments portalen |StorSimple finns i Azure Government-portalen. Mer information finns i [distribuera din lokala StorSimple-enhet i myndighets portalen](storsimple-8000-deployment-walkthrough-gov-u2.md). |
-| Data skydd och tillgänglighet |StorSimple 8000-serien har stöd för Zone-redundant lagring (ZRS), förutom lokalt redundant lagring (LRS) och Geo-redundant lagring (GRS). Läs [den här artikeln om Azure Storage redundans alternativ](https://azure.microsoft.com/documentation/articles/storage-redundancy/) för ZRS-information. |
+| Data skydd och tillgänglighet |StorSimple 8000-serien har stöd för Zone-redundant lagring (ZRS), förutom lokalt redundant lagring (LRS) och Geo-redundant lagring (GRS). Läs [den här artikeln om Azure Storage redundans alternativ](../storage/common/storage-redundancy.md) för ZRS-information. |
 | Stöd för kritiska program |StorSimple gör att du kan identifiera lämpliga volymer som lokalt fästa, vilket i sin tur säkerställer att data som krävs av kritiska program inte skiktas i molnet. Lokalt fästa volymer omfattas inte av moln fördröjningar eller anslutnings problem. Mer information om lokalt fästa volymer finns i [använda tjänsten StorSimple Enhetshanteraren för att hantera volymer](storsimple-8000-manage-volumes-u2.md). |
 | Låg latens och höga prestanda |Du kan skapa moln utrustning som drar nytta av funktionerna för hög prestanda och låg latens i Azure Premium Storage. Mer information om StorSimple Premium Cloud-apparater finns i [distribuera och hantera en StorSimple Cloud Appliance i Azure](storsimple-8000-cloud-appliance-u2.md). |
 
@@ -315,4 +315,3 @@ Innan du distribuerar din Microsoft Azure StorSimple-lösning rekommenderar vi a
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om [StorSimple-säkerhet](storsimple-8000-security.md).
-

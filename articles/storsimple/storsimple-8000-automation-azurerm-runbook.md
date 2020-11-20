@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 8b74e23147e4dcc6f786c1c08b8a03bd07dd0b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5f2a86fb7c776436ea707ef293a66c033014c33
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744040"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966334"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Använd Azure Automation runbooks för att hantera StorSimple-enheter
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs hur Azure Automation runbooks används för att han
 
 Det här avsnittet tar ett exempel på Windows PowerShell-skript för StorSimple och beskriver de olika stegen som krävs för att importera skriptet till en Runbook och sedan publicera och köra runbooken.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrol lera att du har:
 
@@ -186,7 +186,7 @@ Utför följande steg för att skapa en Automation-modul för enhets hantering i
 
        ![Skärm bild som visar fönstret Lägg till Automation-konto med värden för prenumeration, skapa kör som-konto i Azure och skapa 2](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
-      När Automation-kontot har skapats får du ett meddelande. Mer information om hur du skapar ett Automation-konto finns i [skapa ett Kör som-konto](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+      När Automation-kontot har skapats får du ett meddelande. Mer information om hur du skapar ett Automation-konto finns i [skapa ett Kör som-konto](../automation/manage-runas-account.md).
 
 3. För att säkerställa att Automation-kontot som skapas kan komma åt StorSimple-Enhetshanteraren tjänsten måste du tilldela lämpliga behörigheter till Automation-kontot. Gå till **åtkomst kontroll** i din StorSimple Enhetshanteraren-tjänst. Klicka på **+ Lägg till** och ange namnet på ditt Azure Automation konto. **Spara** inställningarna.
 
@@ -206,7 +206,7 @@ Utför följande steg för att skapa en Automation-modul för enhets hantering i
 
     ![Klicka på ny-Runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Redigera runbooken och klicka på **test fönster**. Ange parametrar som namn på din StorSimple-Enhetshanteraren tjänst, namnet på StorSimple-enheten och prenumerationen. **Starta** testet. Rapporten skapas när körningen har slutförts. Mer information finns i så här [testar du en Runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+8. Redigera runbooken och klicka på **test fönster**. Ange parametrar som namn på din StorSimple-Enhetshanteraren tjänst, namnet på StorSimple-enheten och prenumerationen. **Starta** testet. Rapporten skapas när körningen har slutförts. Mer information finns i så här [testar du en Runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
 
     ![Skärm bild som visar testet där du canenter parameter värden och startar ett test](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 

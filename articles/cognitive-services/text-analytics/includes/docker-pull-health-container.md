@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 519625f6468372ec7ace523dae7648212f4f3203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b2c9548f9c1289ae0abd61a72d7146a3bbca29
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779635"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965177"
 ---
-Fyll i och skicka [fråge formuläret för Cognitive Services containers](https://aka.ms/csgate) för att begära åtkomst till behållaren.
+Fyll i och skicka [formuläret för Cognitive Services begäran](https://aka.ms/csgate) för att begära åtkomst till textanalys för offentlig för hands version av hälso tillstånd.  Det här programmet gäller för både behållaren och den offentliga för hands versionen av webb-API: et.
 Formuläret efterfrågar information om dig, ditt företag och användar scenariot som du använder behållaren för. När du har skickat formuläret granskar Azure Cognitive Services-teamet det för att säkerställa att du uppfyller villkoren för åtkomst till det privata behållar registret.
 
 > [!IMPORTANT]
@@ -25,7 +25,7 @@ Formuläret efterfrågar information om dig, ditt företag och användar scenari
 > * Den Azure-resurs som du använder för att köra behållaren måste ha skapats med det godkända Azure-prenumerations-ID: t. 
 > * Kontrol lera din e-postadress (både Inkorgen och skräppostmappen) för uppdateringar av status för ditt program från Microsoft.
 
-Använd kommandot Docker Login med autentiseringsuppgifter som anges i ditt onboarding-e-postmeddelande för att ansluta till vårt privata behållar register för Cognitive Services behållare.
+När det har godkänts skickas ett e-postmeddelande med autentiseringsuppgifterna för att komma åt det privata behållar registret.  Använd kommandot Docker Login med autentiseringsuppgifter som anges i ditt onboarding-e-postmeddelande för att ansluta till vårt privata behållar register för Cognitive Services behållare.
 
 
 ```Docker

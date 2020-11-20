@@ -1,14 +1,14 @@
 ---
 title: Förstå frågespråket
 description: Beskriver resurs diagram tabeller och tillgängliga Kusto data typer, operatorer och funktioner som kan användas med Azure Resource Graph.
-ms.date: 10/28/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7c3ad55a0f1af623211852c02aabd37560c00bc6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 34aaaa60ed9d757cc1a63ffaebb2225900cff61f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926095"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966691"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå frågespråket i Azure Resource Graph
 
@@ -24,19 +24,19 @@ Den här artikeln beskriver de språk komponenter som stöds av resurs diagram:
 
 ## <a name="resource-graph-tables"></a>Resurs diagram tabeller
 
-Resurs diagram innehåller flera tabeller för de data som lagras om Azure Resource Manager resurs typer och deras egenskaper. Dessa tabeller kan användas med `join` eller- `union` operatörer för att hämta egenskaper från relaterade resurs typer. Här är listan över tabeller som är tillgängliga i resurs diagram:
+Resurs diagram innehåller flera tabeller för de data som lagras om Azure Resource Manager resurs typer och deras egenskaper. Vissa tabeller kan användas med `join` eller- `union` operatörer för att hämta egenskaper från relaterade resurs typer. Här är listan över tabeller som är tillgängliga i resurs diagram:
 
-|Resurs diagram tabeller |Description |
+|Resurs diagram tabell |Kan `join` ? |Beskrivning |
 |---|---|
-|Resurser |Standard tabellen om ingen har definierats i frågan. De flesta resurs typer och egenskaper för Resource Manager finns här. |
-|ResourceContainers |Inkluderar prenumeration (i förhands granskning-- `Microsoft.Resources/subscriptions` ) och resurs typ och data för resurs grupp ( `Microsoft.Resources/subscriptions/resourcegroups` ). |
-|AdvisorResources |Innehåller resurser som är _relaterade_ till `Microsoft.Advisor` . |
-|AlertsManagementResources |Innehåller resurser som är _relaterade_ till `Microsoft.AlertsManagement` . |
-|GuestConfigurationResources |Innehåller resurser som är _relaterade_ till `Microsoft.GuestConfiguration` . |
-|MaintenanceResources |Innehåller resurser som är _relaterade_ till `Microsoft.Maintenance` . |
-|PolicyResources |Innehåller resurser som är _relaterade_ till `Microsoft.PolicyInsights` . (För **hands version** )|
-|SecurityResources |Innehåller resurser som är _relaterade_ till `Microsoft.Security` . |
-|ServiceHealthResources |Innehåller resurser som är _relaterade_ till `Microsoft.ResourceHealth` . |
+|Resurser |Ja |Standard tabellen om ingen har definierats i frågan. De flesta resurs typer och egenskaper för Resource Manager finns här. |
+|ResourceContainers |Ja |Inkluderar prenumeration (i förhands granskning-- `Microsoft.Resources/subscriptions` ) och resurs typ och data för resurs grupp ( `Microsoft.Resources/subscriptions/resourcegroups` ). |
+|AdvisorResources |Nej |Innehåller resurser som är _relaterade_ till `Microsoft.Advisor` . |
+|AlertsManagementResources |Nej |Innehåller resurser som är _relaterade_ till `Microsoft.AlertsManagement` . |
+|GuestConfigurationResources |Nej |Innehåller resurser som är _relaterade_ till `Microsoft.GuestConfiguration` . |
+|MaintenanceResources |Nej |Innehåller resurser som är _relaterade_ till `Microsoft.Maintenance` . |
+|PolicyResources |Nej |Innehåller resurser som är _relaterade_ till `Microsoft.PolicyInsights` . (För **hands version**)|
+|SecurityResources |Nej |Innehåller resurser som är _relaterade_ till `Microsoft.Security` . |
+|ServiceHealthResources |Nej |Innehåller resurser som är _relaterade_ till `Microsoft.ResourceHealth` . |
 
 En fullständig lista, inklusive resurs typer, finns i [referens: tabeller och resurs typer som stöds](../reference/supported-tables-resources.md).
 
@@ -45,7 +45,7 @@ En fullständig lista, inklusive resurs typer, finns i [referens: tabeller och r
 
 Använd resurs diagram Utforskaren i portalen för att identifiera vilka resurs typer som är tillgängliga i varje tabell. Alternativt kan du använda en fråga, till exempel `<tableName> | distinct type` för att hämta en lista över resurs typer som den aktuella resurs diagram tabellen stöder, som finns i din miljö.
 
-Följande fråga visar en enkel `join` . Frågeresultatet blandar samman kolumnerna och alla duplicerade kolumn namn från den kopplade tabellen, _ResourceContainers_ i det här exemplet, läggs till med **1** . Eftersom _ResourceContainers_ -tabellen har typer för både prenumerationer och resurs grupper kan du använda någon av typerna för att ansluta till _resursen från resurs_ tabellen.
+Följande fråga visar en enkel `join` . Frågeresultatet blandar samman kolumnerna och alla duplicerade kolumn namn från den kopplade tabellen, _ResourceContainers_ i det här exemplet, läggs till med **1**. Eftersom _ResourceContainers_ -tabellen har typer för både prenumerationer och resurs grupper kan du använda någon av typerna för att ansluta till _resursen från resurs_ tabellen.
 
 ```kusto
 Resources
@@ -53,7 +53,7 @@ Resources
 | limit 1
 ```
 
-Följande fråga visar en mer komplex användning av `join` . Frågan begränsar den kopplade tabellen till prenumerations resurser och `project` inkluderar bara det ursprungliga fältet _subscriptionId_ och _namn_ fältet har bytt namn till _undernamn_ . Fält namns tillägget undviker `join` att lägga till det som _name1_ eftersom fältet redan finns i _resurser_ . Den ursprungliga tabellen filtreras med `where` och följande `project` inkluderar kolumner från båda tabellerna. Frågeresultatet är ett enda nyckel valv som visar typ, namnet på nyckel valvet och namnet på den prenumeration som det finns i.
+Följande fråga visar en mer komplex användning av `join` . Frågan begränsar den kopplade tabellen till prenumerations resurser och `project` inkluderar bara det ursprungliga fältet _subscriptionId_ och _namn_ fältet har bytt namn till _undernamn_. Fält namns tillägget undviker `join` att lägga till det som _name1_ eftersom fältet redan finns i _resurser_. Den ursprungliga tabellen filtreras med `where` och följande `project` inkluderar kolumner från båda tabellerna. Frågeresultatet är ett enda nyckel valv som visar typ, namnet på nyckel valvet och namnet på den prenumeration som det finns i.
 
 ```kusto
 Resources
@@ -68,7 +68,7 @@ Resources
 
 ## <a name="extended-properties-preview"></a><a name="extended-properties"></a>Utökade egenskaper (förhands granskning)
 
-Som _förhands gransknings_ funktion har några av resurs typerna i resurs diagram ytterligare egenskaper som är tillgängliga för frågor utöver de egenskaper som tillhandahålls av Azure Resource Manager. Den här uppsättningen värden, som kallas _utökade egenskaper_ , finns på en resurs typ som stöds i `properties.extended` . Om du vill se vilka resurs typer som har _utökade egenskaper_ använder du följande fråga:
+Som _förhands gransknings_ funktion har några av resurs typerna i resurs diagram ytterligare egenskaper som är tillgängliga för frågor utöver de egenskaper som tillhandahålls av Azure Resource Manager. Den här uppsättningen värden, som kallas _utökade egenskaper_, finns på en resurs typ som stöds i `properties.extended` . Om du vill se vilka resurs typer som har _utökade egenskaper_ använder du följande fråga:
 
 ```kusto
 Resources
@@ -125,7 +125,7 @@ Här är listan över KQL tabell operatörer som stöds av resurs diagram med vi
 |[reparationer](/azure/kusto/query/countoperator) |[Räkna nyckel valv](../samples/starter.md#count-keyvaults) | |
 |[kontrollstämpel](/azure/kusto/query/distinctoperator) |[Visa distinkta värden för ett visst alias](../samples/starter.md#distinct-alias-values) | |
 |[batteri](/azure/kusto/query/extendoperator) |[Antal virtuella datorer efter OS-typ](../samples/starter.md#count-os) | |
-|[ansluta](/azure/kusto/query/joinoperator) |[Nyckel valv med prenumerations namn](../samples/advanced.md#join) |Join-varianter som stöds: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [Inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Gräns på 3 `join` i en enskild fråga. Anpassade kopplings strategier, till exempel sändnings anslutning, är inte tillåtna. Kan användas i en enskild tabell eller mellan _resurserna_ och _ResourceContainers_ -tabellerna. |
+|[ansluta](/azure/kusto/query/joinoperator) |[Nyckel valv med prenumerations namn](../samples/advanced.md#join) |Join-varianter som stöds: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [Inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Gräns på 3 `join` i en enskild fråga. Anpassade kopplings strategier, till exempel sändnings anslutning, är inte tillåtna. Information om vilka tabeller som kan användas `join` finns i [resurs diagram tabeller](#resource-graph-tables). |
 |[gränserna](/azure/kusto/query/limitoperator) |[Lista över alla offentliga IP-adresser](../samples/starter.md#list-publicip) |Synonymen för `take` . Fungerar inte med [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Äldre Operator, Använd `mv-expand` i stället. _ROWLIMIT_ max 400. Standardvärdet är 128. |
 |[MV-expandera](/azure/kusto/query/mvexpandoperator) |[Lista Cosmos DB med vissa Skriv platser](../samples/advanced.md#mvexpand-cosmosdb) |_ROWLIMIT_ max 400. Standardvärdet är 128. |
@@ -136,7 +136,7 @@ Här är listan över KQL tabell operatörer som stöds av resurs diagram med vi
 |[sammanfatta](/azure/kusto/query/summarizeoperator) |[Antal Azure-resurser](../samples/starter.md#count-resources) |Endast förenklad första sidan |
 |[take](/azure/kusto/query/takeoperator) |[Lista över alla offentliga IP-adresser](../samples/starter.md#list-publicip) |Synonymen för `limit` . Fungerar inte med [Skip](./work-with-data.md#skipping-records). |
 |[top](/azure/kusto/query/topoperator) |[Visa de första fem virtuella datorerna efter namn och deras OS-typ](../samples/starter.md#show-sorted) | |
-|[Union](/azure/kusto/query/unionoperator) |[Kombinera resultat från två frågor till ett enda resultat](../samples/advanced.md#unionresults) |Enskild tabell tillåts: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _columnName_ - \] _tabell_ . Gräns på 3 `union` ben i en enda fråga. Fuzzy-upplösning av `union` ben tabeller är inte tillåten. Kan användas i en enskild tabell eller mellan _resurserna_ och _ResourceContainers_ -tabellerna. |
+|[Union](/azure/kusto/query/unionoperator) |[Kombinera resultat från två frågor till ett enda resultat](../samples/advanced.md#unionresults) |Enskild tabell tillåts: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _columnName_ - \] _tabell_. Gräns på 3 `union` ben i en enda fråga. Fuzzy-upplösning av `union` ben tabeller är inte tillåten. Kan användas i en enskild tabell eller mellan _resurserna_ och _ResourceContainers_ -tabellerna. |
 |[vilken](/azure/kusto/query/whereoperator) |[Visa resurser som innehåller lagring](../samples/starter.md#show-storage) | |
 
 ## <a name="query-scope"></a>Frågeomfång
@@ -169,7 +169,7 @@ Vissa egenskaps namn, till exempel sådana som innehåller en `.` eller, måste 
 
 - `.` – Rad brytning av egenskaps namnet: `['propertyname.withaperiod']`
   
-  Exempel fråga som radbryter egenskapen _OData. Type_ :
+  Exempel fråga som radbryter egenskapen _OData. Type_:
 
   ```kusto
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a9ad018980784a1f809ad28a77dacf9f0328fffa
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 4e2bcb683c9d4c5248315549bf6d6ee26b2a51ac
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873904"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965042"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Företags säkerhet och styrning för Azure Machine Learning
 
@@ -28,7 +28,7 @@ När du använder en moln tjänst är det bästa sättet att begränsa åtkomste
 
 ## <a name="authentication--authorization"></a>Autentisering & auktorisering
 
-Mest autentisering för att Azure Machine Learning resurser använder Azure Active Directory (Azure AD) för autentisering och rollbaserad åtkomst kontroll (Azure RBAC) för auktorisering. Undantagen till detta är:
+Mest autentisering för att Azure Machine Learning resurser använder Azure Active Directory (Azure AD) för autentisering och rollbaserad åtkomst kontroll i Azure (Azure RBAC) för auktorisering. Undantagen till detta är:
 
 * __SSH__: du kan aktivera SSH-åtkomst till vissa beräknings resurser, till exempel Azure Machine Learning beräknings instans. SSH-åtkomst använder nyckelbaserad autentisering. Mer information om hur du skapar SSH-nycklar finns i [skapa och hantera SSH-nycklar](../virtual-machines/linux/create-ssh-keys-detailed.md). Information om hur du aktiverar SSH-åtkomst finns i [skapa och hantera Azure Machine Learning beräknings instans](how-to-create-manage-compute-instance.md).
 * __Modeller som distribueras som webb tjänster__: distributioner av webb tjänster kan använda __nyckel__ -eller __tokenbaserad__ åtkomst kontroll. Nycklar är statiska strängar. Tokens hämtas med hjälp av ett Azure AD-konto. Mer information finns i [Konfigurera autentisering för modeller som distribueras som en webb tjänst](how-to-authenticate-web-service.md).
@@ -49,7 +49,7 @@ Mer information finns i [autentisering för Azure Machine Learning-arbetsyta](ho
 
 ### <a name="azure-rbac"></a>Azure RBAC
 
-Du kan skapa flera arbets ytor och varje arbets yta kan delas av flera personer. Du kan styra vilka funktioner eller åtgärder för arbets ytans användare som har åtkomst genom att tilldela deras Azure AD-konto till Azure RBAC-roller. Följande är de inbyggda rollerna:
+Du kan skapa flera arbets ytor och varje arbets yta kan delas av flera personer. Du kan styra vilka funktioner eller åtgärder för arbets ytans användare som har åtkomst genom att tilldela deras Azure AD-konto till Azure-roller. Följande är de inbyggda rollerna:
 
 * Ägare
 * Deltagare

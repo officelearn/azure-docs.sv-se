@@ -8,16 +8,17 @@ manager: balar
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: 23520a0249e22b3f81c7f7c598ef10d8c3acb550
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: c427a206e0422e66cb526a29a462d8b6bdf6818e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900189"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965943"
 ---
 # <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Uppdatera Network Watcher-tillägget till den senaste versionen
 
@@ -25,7 +26,7 @@ ms.locfileid: "92900189"
 
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) är en övervaknings-, diagnostik-och analys tjänst för nätverks prestanda som övervakar Azure-nätverk. Tillägget Network Watcher agent virtuell dator (VM) är ett krav för att samla in nätverks trafik på begäran och använda andra avancerade funktioner på virtuella Azure-datorer. Network Watcher-tillägget används av funktioner som anslutnings övervakaren, anslutnings övervakaren (för hands version), anslutnings fel sökning och paket fångst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du har Network Watcher tillägget installerat på den virtuella datorn.
 
@@ -82,7 +83,8 @@ Kör följande kommandon:
 Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "WestUS" -VMName "myVM1" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentLinux"
 
 #Windows command
-Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "WestUS" -VMName "myVM1" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows"
+Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "WestUS" -VMName "myVM1" -Name "NetworkWatcherAgentWindows" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows" -ForceRerun "True"
+
 ```
 
 Om det inte fungerar. Ta bort och installera tillägget igen med hjälp av stegen nedan. Den senaste versionen läggs till automatiskt.
@@ -143,4 +145,4 @@ Om du har angett automatisk uppgradering till true för Network Watcher-tillägg
 
 ## <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du läsa Network Watcher tilläggs dokumentation för [Linux](./network-watcher-linux.md) eller [Windows](./network-watcher-windows.md). Du kan också kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också fil en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/)och välj **få support** . Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du läsa Network Watcher tilläggs dokumentation för [Linux](./network-watcher-linux.md) eller [Windows](./network-watcher-windows.md). Du kan också kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också fil en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/)och välj **få support**. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

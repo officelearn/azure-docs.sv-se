@@ -9,17 +9,18 @@ manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-resource-manager
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
-ms.openlocfilehash: 15ece836e172b8316222ea606ca638650795d5d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5593257fa17944eebce6346a1eb9e88e7af2c06
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852600"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965960"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Problem med att använda VM-tillägg i python 3 – aktiverade Linux Azure Virtual Machines system
 
@@ -47,7 +48,7 @@ Uppgraderingar på plats, till exempel uppgradering från **Ubuntu 18,04 LTS** t
 
 1. Innan du distribuerar tillägget återställer du `/usr/bin/python` symlink med hjälp av den leverantörs metod som tillhandahålls av Linux-distribution.
 
-   - För **Python 2,7**använder du till exempel: `sudo apt update && sudo apt install python-is-python2`
+   - För **Python 2,7** använder du till exempel: `sudo apt update && sudo apt install python-is-python2`
 
 1. Den här rekommendationen är för Azure-kunder och stöds inte i Azure Stack:
 

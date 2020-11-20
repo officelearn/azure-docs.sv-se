@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 1ba6a19b271943c7ecbe2254ef2544a5f576ad3d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3827fa7a98cef9358db0ee102925586bce97fae6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167431"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965246"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program med flera SID-guide
 
@@ -96,7 +97,7 @@ För att uppnå hög tillgänglighet kräver SAP-NetWeaver hög tillgängliga NF
 ![Översikt över SAP NetWeaver-hög tillgänglighet](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
 > [!IMPORTANT]
-> Stödet för multi-SID-klustring av SAP ASCS/ERS med SUSE Linux som gäst operativ system i virtuella Azure-datorer är begränsat till **fem** SAP-sid i samma kluster. Varje nytt SID ökar komplexiteten. Det finns **inte stöd**för en blandning av SAP-server 1 och transaktionskö för replikering Server 2 i samma kluster. Multi-SID-klustring beskriver installationen av flera SAP ASCS/ERS-instanser med olika sid i ett pacemaker-kluster. För närvarande stöds inte Multi-SID-klustring för ASCS/ERS.  
+> Stödet för multi-SID-klustring av SAP ASCS/ERS med SUSE Linux som gäst operativ system i virtuella Azure-datorer är begränsat till **fem** SAP-sid i samma kluster. Varje nytt SID ökar komplexiteten. Det finns **inte stöd** för en blandning av SAP-server 1 och transaktionskö för replikering Server 2 i samma kluster. Multi-SID-klustring beskriver installationen av flera SAP ASCS/ERS-instanser med olika sid i ett pacemaker-kluster. För närvarande stöds inte Multi-SID-klustring för ASCS/ERS.  
 
 > [!TIP]
 > Multi-SID-klustring av SAP ASCS/ERS är en lösning med bättre komplexitet. Det är mer komplicerat att implementera. Det innebär också en högre administrativ ansträngning vid körning av underhålls aktiviteter (t. ex. operativ system uppdatering). Innan du börjar den faktiska implementeringen tar du tid att planera distributionen och alla komponenter som virtuella datorer, NFS monterar, VIP, konfigurationer för belastnings utjämning och så vidare.  
@@ -112,7 +113,7 @@ I följande lista visas konfigurationen av (A) SCS-och ERS-belastningsutjämnare
   * IP-adress för NW2:10.3.1.16
   * IP-adress för NW3:10.3.1.13
 * Avsöknings portar
-  * Port 620<strong> &lt; nr &gt; </strong>, därför för NW1, NW2 och NW3 avsöknings portar 620**00**, 620**10** och 620**20**
+  * Port 620 <strong> &lt; nr &gt;</strong>, därför för NW1, NW2 och NW3 avsöknings portar 620 **00**, 620 **10** och 620 **20**
 * Belastnings Utjämnings regler – 
 * skapa en för varje instans, det vill säga NW1/ASCS, NW2/ASCS och NW3/ASCS.
   * Om du använder Standard Load Balancer väljer du **ha-portar**
@@ -132,7 +133,7 @@ I följande lista visas konfigurationen av (A) SCS-och ERS-belastningsutjämnare
   * IP-adress för NW2-10.3.1.17
   * IP-adress för NW3-10.3.1.19
 * Avsöknings port
-  * Port 621<strong> &lt; nr &gt; </strong>, därför för NW1, NW2 och N # avsöknings portar 621**02**, 621**12** och 621**22**
+  * Port 621 <strong> &lt; nr &gt;</strong>, därför för NW1, NW2 och N # avsöknings portar 621 **02**, 621 **12** och 621 **22**
 * Belastnings Utjämnings regler – skapa en för varje instans, det vill säga NW1/ERS, NW2/ERS och NW3/ERS.
   * Om du använder Standard Load Balancer väljer du **ha-portar**
   * Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
@@ -178,7 +179,7 @@ I det här exemplet antar vi att system- **NW1** redan har distribuerats i klust
 
 Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
 
-### <a name="prerequisites"></a>Förutsättningar 
+### <a name="prerequisites"></a>Krav 
 
 > [!IMPORTANT]
 > Innan du följer anvisningarna för att distribuera ytterligare SAP-system i klustret, följer du anvisningarna för att distribuera det första SAP-systemet i klustret, eftersom det finns steg som bara behövs under den första system distributionen.  
@@ -290,7 +291,7 @@ Den här dokumentationen förutsätter att:
 
 2. **[1]** installera SAP NetWeaver ASCS  
 
-   Installera SAP NetWeaver ASCS som root med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för belastningsutjämnarens frontend-konfiguration för ASCS. För till exempel system **NW2**, är det virtuella värd namnet <b>msnw2ascs</b>, <b>10.3.1.16</b> och det instans nummer som du använde för avsökningen av belastningsutjämnaren, till exempel <b>10</b>. för system- **NW3**är det virtuella värd namnet <b>msnw3ascs</b>, <b>10.3.1.13</b> och det instans nummer som du använde för avsökningen av belastningsutjämnaren, till exempel <b>20</b>.
+   Installera SAP NetWeaver ASCS som root med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för belastningsutjämnarens frontend-konfiguration för ASCS. För till exempel system **NW2**, är det virtuella värd namnet <b>msnw2ascs</b>, <b>10.3.1.16</b> och det instans nummer som du använde för avsökningen av belastningsutjämnaren, till exempel <b>10</b>. för system- **NW3** är det virtuella värd namnet <b>msnw3ascs</b>, <b>10.3.1.13</b> och det instans nummer som du använde för avsökningen av belastningsutjämnaren, till exempel <b>20</b>.
 
    Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER för att tillåta att en användare som inte är rot användare ansluter till sapinst. Du kan använda parameter SAPINST_USE_HOSTNAME för att installera SAP med hjälp av ett virtuellt värdnamn.  
 
@@ -298,7 +299,7 @@ Den här dokumentationen förutsätter att:
       sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
      ```
 
-   Om installationen Miss lyckas med att skapa en undermapp i/usr/SAP/**sid**/ASCS**instans #**, kan du försöka att ange ägare till **sid**adm och grupp till sapsys för ASCS-**instansen #** och försöka igen.
+   Om installationen Miss lyckas med att skapa en undermapp i/usr/SAP/**sid**/ASCS **instans #**, kan du försöka att ange ägare till **sid** adm och grupp till sapsys för ASCS-**instansen #** och försöka igen.
 
 3. **[1]** skapa en virtuell IP-och hälso avsöknings kluster resurser för ers-instansen av det extra SAP-system som du distribuerar till klustret. Exemplet som visas här är för **NW2** och **NW3** ers, med hjälp av NFS-server med hög tillgänglighet. 
 
@@ -340,7 +341,7 @@ Den här dokumentationen förutsätter att:
 
 4. **[2]** installera SAP NetWeaver ers
 
-   Installera SAP NetWeaver ERS som rot på den andra noden med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för belastningsutjämnarens frontend-konfiguration för ERS. Till exempel för system **NW2**blir det virtuella värd namnet <b>msnw2ers</b>, <b>10.3.1.17</b> och det instans nummer som du använde för avsökningen av belastningsutjämnaren, till exempel <b>12</b>. För system- **NW3**är det virtuella värd namnet <b>msnw3ers</b>, <b>10.3.1.19</b> och det instans nummer som du använde för avsökningen av belastningsutjämnaren, till exempel <b>22</b>. 
+   Installera SAP NetWeaver ERS som rot på den andra noden med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för belastningsutjämnarens frontend-konfiguration för ERS. Till exempel för system **NW2** blir det virtuella värd namnet <b>msnw2ers</b>, <b>10.3.1.17</b> och det instans nummer som du använde för avsökningen av belastningsutjämnaren, till exempel <b>12</b>. För system- **NW3** är det virtuella värd namnet <b>msnw3ers</b>, <b>10.3.1.19</b> och det instans nummer som du använde för avsökningen av belastningsutjämnaren, till exempel <b>22</b>. 
 
    Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER för att tillåta att en användare som inte är rot användare ansluter till sapinst. Du kan använda parameter SAPINST_USE_HOSTNAME för att installera SAP med hjälp av ett virtuellt värdnamn.  
 
@@ -351,7 +352,7 @@ Den här dokumentationen förutsätter att:
    > [!NOTE]
    > Använd SWPM SP 20 PL 05 eller högre. Lägre versioner ställer inte in behörigheterna korrekt och installationen kommer inte att fungera.
 
-   Om installationen Miss lyckas med att skapa en undermapp i/usr/SAP/**NW2**/ers**instance #**, kan du försöka att ange ägare till **sid**adm och gruppen till sapsys för mappen ers**instance #** och försök igen.
+   Om installationen Miss lyckas med att skapa en undermapp i/usr/SAP/**NW2**/ers **instance #**, kan du försöka att ange ägare till **sid** adm och gruppen till sapsys för mappen ers **instance #** och försök igen.
 
    Om det var nödvändigt för att migrera ERS-gruppen för det nyligen distribuerade SAP-systemet till en annan klusternod, glöm inte att ta bort plats begränsningen för ERS-gruppen. Du kan ta bort begränsningen genom att köra följande kommando (exemplet anges för SAP Systems **NW2** och **NW3**).  
 
@@ -469,7 +470,7 @@ Den här dokumentationen förutsätter att:
     ```
 
    SAP introducerade stöd för att köa Server 2, inklusive replikering, från SAP NW 7,52. Från och med ABAP Platform 1809 installeras som standard Server 2. Se SAP NOTE [2630416](https://launchpad.support.sap.com/#/notes/2630416) för Server 2-stöd.
-   Om du använder[ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(Queue server 2 Architecture) definierar du resurserna för SAP Systems **NW2** och **NW3** enligt följande:
+   Om du använder [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(Queue server 2 Architecture) definierar du resurserna för SAP Systems **NW2** och **NW3** enligt följande:
 
     ```
      sudo crm configure property maintenance-mode="true"
@@ -772,7 +773,7 @@ De tester som presenteras finns i två noder, multi-SID-kluster med tre SAP-syst
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-   Kör följande kommandon som **Nw2**ADM för att MIGRERA Nw2 ASCS-instansen.
+   Kör följande kommandon som **Nw2** ADM för att MIGRERA Nw2 ASCS-instansen.
 
    ```
     slesmsscl2:nw2adm 53> sapcontrol -nr 10 -host msnw2ascs -user nw2adm password -function HAFailoverToNode ""

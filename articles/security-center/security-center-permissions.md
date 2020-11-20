@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 2edaf6dd139ed4612b91d3a19c3d1398d5afdec1
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 446abd8cca14c0c1c27458ef86cee4400252e3b0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340367"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965212"
 ---
 # <a name="permissions-in-azure-security-center"></a>Behörigheter i Azure Security Center
 
@@ -40,7 +40,7 @@ Förutom dessa roller finns två specifika roller i Security Center:
 
 I följande tabell visas roller och tillåtna åtgärder i Security Center.
 
-|Åtgärd|Säkerhets läsare/ <br> Läsare |Säkerhetsadministratör  |Resurs grupps deltagare/ <br> Resurs grupp ägare  |Prenumerations deltagare  |Prenumerations ägare  |
+|Action|Säkerhets läsare/ <br> Läsare |Säkerhetsadministratör  |Resurs grupps deltagare/ <br> Resurs grupp ägare  |Prenumerations deltagare  |Prenumerations ägare  |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Redigera säkerhets princip|-|✔|-|-|✔|
 |Lägg till/tilldela initiativ (inklusive) regler för regelefterlevnad)|-|-|-|-|✔|
@@ -56,7 +56,7 @@ I följande tabell visas roller och tillåtna åtgärder i Security Center.
 >
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln förklaras hur Security Center använder RBAC för att tilldela behörigheter till användare och identifierat tillåtna åtgärder för varje roll. Nu när du är bekant med roll tilldelningarna som krävs för att övervaka säkerhets status för din prenumeration, redigera säkerhets principer och använda rekommendationer, lär du dig att:
+I den här artikeln förklaras hur Security Center använder Azure RBAC för att tilldela behörigheter till användare och identifierat tillåtna åtgärder för varje roll. Nu när du är bekant med roll tilldelningarna som krävs för att övervaka säkerhets status för din prenumeration, redigera säkerhets principer och använda rekommendationer, lär du dig att:
 
 - [Ange säkerhetsprinciper i Security Center](tutorial-security-policy.md)
 - [Hantera säkerhets rekommendationer i Security Center](security-center-recommendations.md)

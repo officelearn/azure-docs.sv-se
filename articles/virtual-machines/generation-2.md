@@ -8,14 +8,14 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 7234c02d387e2fbf21a7f6002e44f84deb851133
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0aedcc3be4cb319dc24990507d85756bd77777e4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977603"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963835"
 ---
-# <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer i generation 2 i Azure
+# <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer ur generation 2 i Azure
 
 Stöd för virtuella datorer i generation 2 (VM) är nu tillgängligt på Azure. Du kan inte ändra en virtuell dators generation när du har skapat den, så Läs igenom övervägandena på den här sidan innan du väljer en generation.
 
@@ -93,7 +93,7 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funktioner för generation 1 vs. generation 2
 
-| Funktion | Generation 1 | Generation 2 |
+| Kapacitet | Generation 1 | Generation 2 |
 |------------|--------------|--------------|
 | OS-disk > 2 TB                    | röntgen                | :heavy_check_mark: |
 | Anpassad disk/avbildning/växla OS         | :heavy_check_mark: | :heavy_check_mark: |
@@ -101,7 +101,8 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Säkerhetskopiera och återställa                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galleri för delad avbildning              | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Disk Encryption             | :heavy_check_mark: | röntgen                |
+| [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | röntgen                |
+| [Kryptering på serversidan](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>Skapar en virtuell dator i generation 2
 
@@ -192,7 +193,7 @@ Du kan också skapa virtuella datorer i generation 2 med hjälp av skalnings upp
   1. Gå till sidan Egenskaper för virtuell dator i Azure Portal.
   1. Välj **stopp** -knappen om du vill stänga av och frigöra den virtuella datorn.
   1. I avsnittet **diskar** väljer du den OS-disk som du vill öka.
-  1. I avsnittet **diskar** väljer du **konfiguration**och uppdaterar **storleken** till det värde som du vill använda.
+  1. I avsnittet **diskar** väljer du **konfiguration** och uppdaterar **storleken** till det värde som du vill använda.
   1. Gå tillbaka till sidan Egenskaper för virtuell dator och **Starta** den virtuella datorn.
   
   Du kan se en varning för OS-diskar som är större än 2 TiB. Varningen gäller inte för virtuella datorer i generation 2. OS-disk storlekar som är större än 4 TiB stöds dock inte.

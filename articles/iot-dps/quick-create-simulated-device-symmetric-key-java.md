@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: fa1354c471cf23d85b3c2b0b563ed0463f5e19b2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a32811b439a569a8f8f82fcc046e0f4b89e47a38
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90528439"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966708"
 ---
 # <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>Snabb start: etablera en simulerad enhet för att IoT Hub med symmetriska nycklar
 
@@ -32,9 +32,9 @@ Den här artikeln riktar sig till en Windows-arbetsstation. Du kan dock utföra 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Kontrol lera att du har [Java se Development Kit 8](https://aka.ms/azure-jdks) eller senare installerat på datorn.
+* Kontrol lera att du har [Java se Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) eller senare installerat på datorn.
 
 * Ladda ned och installera [Maven](https://maven.apache.org/install.html).
 
@@ -66,7 +66,7 @@ Den här artikeln riktar sig till en Windows-arbetsstation. Du kan dock utföra 
 
 3. Ange följande information på panelen **Lägg till registrering** och tryck på knappen **Spara** .
 
-   - **Mekanism:** välj **Symmetrisk nyckel** som identitetsattesterings*mekanism*.
+   - **Mekanism:** välj **Symmetrisk nyckel** som identitetsattesterings *mekanism*.
 
    - **Generera nycklar automatiskt**: Markera den här kryss rutan.
 

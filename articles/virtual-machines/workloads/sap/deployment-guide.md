@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed30c271e4c2458a33784cbcfc682001b542f2b6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359621"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964957"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 
@@ -324,7 +325,7 @@ Azure Virtual Machines är lösningen för organisationer som behöver beräknin
 
 I den här artikeln beskriver vi stegen för att distribuera SAP-program på virtuella datorer (VM) i Azure, inklusive alternativa distributions alternativ och fel sökning. Den här artikeln bygger på informationen i [Azure Virtual Machines planering och implementering för SAP NetWeaver][planning-guide]. Det kompletterar även SAP-installations dokumentation och SAP-anteckningar, som är de viktigaste resurserna för att installera och distribuera SAP-program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -421,7 +422,7 @@ Följande flödes schema visar den SAP-särskilda sekvens av steg för att distr
 
 Det enklaste sättet att skapa en ny virtuell dator med en avbildning från Azure Marketplace är att använda Azure Portal.
 
-1.  Gå till <https://portal.azure.com/#create/hub>.  Eller Välj **+ nytt**på Azure Portal-menyn.
+1.  Gå till <https://portal.azure.com/#create/hub>.  Eller Välj **+ nytt** på Azure Portal-menyn.
 1.  Välj **Compute (beräkna**) och välj sedan den typ av operativ system som du vill distribuera. Till exempel Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7,2 (RHEL 7,2) eller Oracle Linux 7,2. Standard List visningen visar inte alla operativ system som stöds. Välj **Visa alla** för en fullständig lista. Mer information om operativ system som stöds för distribution av SAP-program finns i SAP anmärkning [1928533].
 1.  På nästa sida granskar du allmänna villkor.
 1.  I rutan **Välj en distributions modell** väljer du **Resource Manager**.
@@ -508,7 +509,7 @@ Ange följande parametrar för mallen i Azure Portal:
    * **Nytt eller befintligt undernät**: avgör om ett nytt virtuellt nätverk och undernät skapas eller om ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
    * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/ &lt; prenumerations-id>/resourceGroups/ &lt; resurs grupp namn>/providers/Microsoft.Network/virtualNetworks/ &lt; virtuellt nätverks namn>/subnets/ &lt; under nät namn>
 
-1. **Allmänna**villkor:  
+1. **Allmänna** villkor:  
     Granska och godkänn de juridiska villkoren.
 
 1. Välj **Köp**.
@@ -564,7 +565,7 @@ Följande flödes schema visar den SAP-anpassade sekvensen av steg för att dist
 
 Det enklaste sättet att skapa en ny virtuell dator från en hanterad disk avbildning är att använda Azure Portal. Mer information om hur du skapar en hanterad disk avbildning finns [i avbilda en hanterad avbildning av en generaliserad virtuell dator i Azure](../../windows/capture-image-resource.md)
 
-1.  Gå till <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Alternativt väljer du **bilder**på Azure Portal-menyn.
+1.  Gå till <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Alternativt väljer du **bilder** på Azure Portal-menyn.
 1.  Välj den hanterade disk avbildning som du vill distribuera och klicka på **Skapa virtuell dator**
 
 Guiden vägleder dig genom att ange de parametrar som krävs för att skapa den virtuella datorn, förutom alla nödvändiga resurser, t. ex. nätverks gränssnitt och lagrings konton. Några av dessa parametrar är:
@@ -648,7 +649,7 @@ Ange följande parametrar för mallen i Azure Portal:
    * **Nytt eller befintligt undernät**: avgör om ett nytt virtuellt nätverk och undernät skapas eller om ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
    * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/ &lt; prenumerations-id>/resourceGroups/ &lt; resurs grupp namn>/providers/Microsoft.Network/virtualNetworks/ &lt; virtuellt nätverks namn>/subnets/ &lt; under nät namn>
 
-1. **Allmänna**villkor:  
+1. **Allmänna** villkor:  
     Granska och godkänn de juridiska villkoren.
 
 1. Välj **Köp**.
@@ -736,7 +737,7 @@ Ange följande parametrar för mallen i Azure Portal:
    * **Nytt eller befintligt undernät**: avgör om ett nytt virtuellt nätverk och undernät skapas, eller om ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
    * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/ &lt; prenumerations-id>/resourceGroups/ &lt; resurs grupp namn>/providers/Microsoft.Network/virtualNetworks/ &lt; virtuellt nätverks namn>/subnets/ &lt; under nät namn>
 
-1. **Allmänna**villkor:  
+1. **Allmänna** villkor:  
     Granska och godkänn de juridiska villkoren.
 
 1. Välj **Köp**.
@@ -854,9 +855,9 @@ De steg som du vidtar för att konfigurera proxyservern i Windows skiljer sig fr
 
 Proxyinställningarna måste konfigureras korrekt för det lokala system kontot för att få åtkomst till Internet. Om proxyinställningarna inte anges av grupprincip kan du konfigurera inställningarna för det lokala system kontot.
 
-1. Gå till **Start**, ange **gpedit. msc**och välj sedan **RETUR**.
+1. Gå till **Start**, ange **gpedit. msc** och välj sedan **RETUR**.
 1. Välj **dator konfiguration**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Internet Explorer**. Kontrol lera att inställningen **gör proxyinställningar per dator (i stället för per användare)** inaktive rad eller inte konfigurerad.
-1. I **kontroll panelen**går du till **nätverks-och delnings Center**  >  **Internet alternativ**.
+1. I **kontroll panelen** går du till **nätverks-och delnings Center**  >  **Internet alternativ**.
 1. På fliken **anslutningar** väljer du knappen **LAN-inställningar** .
 1. Avmarkera kryssrutan **Automatisk identifiering av inställningar**.
 1. Markera kryss rutan **Använd en proxyserver för ditt lokala nätverk** och ange sedan proxyservern och-porten.
@@ -1279,7 +1280,7 @@ Om några av infrastruktur data inte levereras korrekt enligt beskrivningen i [b
 
    ![Utdata för lyckad test av Azure-tillägget för SAP][deployment-guide-figure-1300]
 
-Kontrol lera att alla hälso kontroll resultat är **OK**. Om vissa kontroller inte visar **OK**kör du uppdaterings-cmdleten enligt beskrivningen i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5]. Vänta i 15 minuter och upprepa kontrollerna som beskrivs i [beredskaps kontrollen för Azure-tillägg för SAP][deployment-guide-5.1] och [hälso kontroll för Azure-tillägget för SAP-konfiguration][deployment-guide-5.2]. Om kontrollerna fortfarande indikerar ett problem med vissa eller alla räknare, se [Felsöka Azure-tillägget för SAP][deployment-guide-5.3].
+Kontrol lera att alla hälso kontroll resultat är **OK**. Om vissa kontroller inte visar **OK** kör du uppdaterings-cmdleten enligt beskrivningen i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5]. Vänta i 15 minuter och upprepa kontrollerna som beskrivs i [beredskaps kontrollen för Azure-tillägg för SAP][deployment-guide-5.1] och [hälso kontroll för Azure-tillägget för SAP-konfiguration][deployment-guide-5.2]. Om kontrollerna fortfarande indikerar ett problem med vissa eller alla räknare, se [Felsöka Azure-tillägget för SAP][deployment-guide-5.3].
 
 > [!Note]
 > Du kan uppleva vissa varningar i fall där du använder hanterade standard Azure-diskar. Varningar visas i stället för testerna som returnerar "OK". Detta är normalt och avsett i händelse av disk typen. Se även [Felsöka Azure-tillägget för SAP][deployment-guide-5.3]

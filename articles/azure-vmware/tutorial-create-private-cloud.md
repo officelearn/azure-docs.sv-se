@@ -1,14 +1,14 @@
 ---
 title: Självstudie – distribuera vSphere-kluster i Azure
-description: Lär dig att distribuera ett vSphere-kluster i Azure med hjälp av Azure VMWare-lösningen
+description: Lär dig hur du distribuerar ett vSphere-kluster i Azure med hjälp av Azure VMware-lösningen
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: b673a67fac734c9cb63e96b6a0c3dc9182f4b994
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/19/2020
+ms.openlocfilehash: 93937f8ca0918494810885f5cb45de571a6e1529
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952292"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966317"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Självstudie: Distribuera ett privat moln för Azure VMware-lösningar i Azure
 
@@ -16,13 +16,13 @@ Med Azure VMware-lösningen kan du distribuera ett vSphere-kluster i Azure. Den 
 
 Eftersom Azure VMware-lösningen inte tillåter att du hanterar ditt privata moln med din lokala vCenter vid lanseringen krävs ytterligare konfiguration. Dessa procedurer och relaterade krav beskrivs i den här självstudien.
 
-I de här självstudierna får du lära dig att
+I den här självstudien får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett privat moln för Azure VMware-lösningen
 > * Verifiera att det privata molnet har distribuerats
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Lämpliga administrativa rättigheter och behörigheter för att skapa ett privat moln.
@@ -51,7 +51,7 @@ Välj **testa det** övre högra hörnet i ett kodblock. Du kan också starta Cl
 
 #### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *öster* :
+Skapa en resursgrupp med kommandot `[az group create](/cli/azure/group)`. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *öster* :
 
 ```azurecli-interactive
 
@@ -77,12 +77,12 @@ az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --locati
 
 ## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Ta bort ett privat moln i Azure VMware-lösningen
 
-Om du har ett privat moln i Azure VMware-lösningen som du inte längre behöver kan du ta bort det. Ett privat moln i Azure VMware-lösningen innehåller en isolerad nätverks domän, ett eller flera vSphere-kluster etablerade på dedikerade servermappar och ofta många virtuella datorer. När ett privat moln tas bort tas alla virtuella datorer, deras data och kluster bort. De dedikerade Bare Metal-noderna rensas säkert och returneras till den kostnads fria poolen. Den nätverks domän som etablerades för kunden tas bort.  
+Om du har ett privat moln i Azure VMware-lösningen som du inte längre behöver kan du ta bort det. Ett privat moln i Azure VMware-lösningen innehåller en isolerad nätverks domän, ett eller flera etablerade vSphere-kluster på dedikerade server värdar och flera virtuella datorer. När ett privat moln tas bort tas alla virtuella datorer, deras data och kluster bort. De dedikerade Bare Metal-värdarna rensas säkert och returneras till den kostnads fria poolen. Den nätverks domän som etablerades för kunden tas bort.  
 
 > [!CAUTION]
 > Borttagning av det privata molnet är en åtgärd som inte kan ångras. När det privata molnet har tagits bort går det inte att återställa data eftersom de avslutar alla aktiva arbets belastningar och komponenter och förstör alla privata moln data och konfigurations inställningar, inklusive offentliga IP-adresser.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 När ett privat moln har tagits bort finns det inget sätt att återställa de virtuella datorerna och deras data. Om data för den virtuella datorn kommer att krävas senare måste administratören först säkerhetskopiera alla data innan du tar bort det privata molnet.
 
@@ -92,7 +92,7 @@ När ett privat moln har tagits bort finns det inget sätt att återställa de v
 
 2. Välj det privata moln som ska tas bort.
  
-3. Ange namnet på det privata molnet och välj **Ja**. Under några timmar kommer borttagnings processen att slutföras.  
+3. Ange namnet på det privata molnet och välj **Ja**. Under några timmar slutförs borttagnings processen.  
 
 ## <a name="azure-vmware-commands"></a>Azure VMware-kommandon
 
@@ -100,7 +100,7 @@ En lista över kommandon som du kan använda med Azure VMware-lösningen finns i
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
+I den här självstudiekursen har du lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa ett privat moln för Azure VMware-lösningen

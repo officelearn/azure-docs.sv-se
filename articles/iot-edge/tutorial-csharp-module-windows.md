@@ -9,18 +9,18 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: e1e34bacb905bf48fc5f7cd44e66cf4a4326de91
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d6bc11f4f468b784b957ded954dc9a1720e89bfd
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044657"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964464"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C# IoT Edge-modul för Windows-enheter
 
 Använd Visual Studio för att utveckla C#-kod och distribuera den till en Windows-enhet som kör Azure IoT Edge.
 
-Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. I de här självstudierna får du lära dig att
+Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -33,18 +33,16 @@ IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Lösnings omfång
+## <a name="prerequisites"></a>Krav
 
 Den här självstudien visar hur du utvecklar en modul i **C#** med hjälp av **Visual Studio 2019** och distribuerar den till en **Windows-enhet**. Om du utvecklar moduler för Linux-enheter går du till [utveckla en C# IoT Edge modul för Linux-enheter](tutorial-csharp-module.md) i stället.
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera C#-moduler till Windows-enheter:
 
-| C# | Visual Studio-koden | Visual Studio 2017/2019 |
+| C# | Visuell Studio-kod | Visual Studio 2017/2019 |
 | -- | ------------------ | ------------------ |
 | **Windows AMD64-utveckling** | ![Utveckla C#-moduler för WinAMD64 i VS Code](./media/tutorial-c-module/green-check.png) | ![Utveckla C#-moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64-felsökning** |   | ![Felsöka C#-moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
-
-## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien bör du ha gått igenom föregående självstudie för att konfigurera din utvecklings miljö, [utveckla en IoT Edge modul för en Windows-enhet](tutorial-develop-for-windows.md). När du har slutfört den här självstudien bör du redan ha följande krav:
 
@@ -115,7 +113,7 @@ Distributions manifestet delar autentiseringsuppgifterna för behållar registre
 
 Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem vidare via en utgående kö. Nu ska vi lägga till ytterligare kod så att modulen bearbetar meddelandena på gränsen innan de vidarebefordrar dem till IoT Hub. Uppdatera modulen så att den analyserar temperatur data i varje meddelande, och skickar endast meddelandet till IoT Hub om temperaturen överskrider ett visst tröskelvärde.
 
-1. Öppna **CSharpModule**  >  **program.cs**i Visual Studio.
+1. Öppna **CSharpModule**  >  **program.cs** i Visual Studio.
 
 2. Överst i **CSharpModule**-namnrymden läger du till tre **using**-instruktioner för typer som ska användas senare:
 
@@ -273,7 +271,7 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
 
 8. Spara filen Program.cs.
 
-9. Öppna filen **deployment.template.js** i IoT Edge-lösningen. Den här filen talar om för IoT Edge-agenten vilka moduler som ska distribueras, i det här fallet **SimulatedTemperatureSensor** och **CSharpModule**och talar om för IoT Edge Hub hur meddelanden ska dirigeras mellan dem.
+9. Öppna filen **deployment.template.js** i IoT Edge-lösningen. Den här filen talar om för IoT Edge-agenten vilka moduler som ska distribueras, i det här fallet **SimulatedTemperatureSensor** och **CSharpModule** och talar om för IoT Edge Hub hur meddelanden ska dirigeras mellan dem.
 
 10. Lägg till **CSharpModule**-modultvillingen till distributionsmanifestet. Infoga följande JSON-innehåll längst ned i avsnittet **modulesContent** efter **$edgeHub**-modultvillingen:
 

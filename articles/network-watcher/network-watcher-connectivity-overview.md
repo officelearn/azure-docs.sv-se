@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
-ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6411e019d77b219e40bd91da973e00afda0ff18b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84708951"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965493"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introduktion till anslutnings fel sökning i Azure Network Watcher
 
 Funktionen för att felsöka anslutningar i Network Watcher ger möjlighet att kontrol lera en direkt TCP-anslutning från en virtuell dator till en virtuell dator (VM), fullständigt kvalificerat domän namn (FQDN), URI eller IPv4-adress. Nätverks scenarier är komplexa, de implementeras med hjälp av nätverks säkerhets grupper, brand väggar, användardefinierade vägar och resurser som tillhandahålls av Azure. Komplexa konfigurationer gör fel sökning av anslutnings problem. Network Watcher bidrar till att minska tiden för att hitta och identifiera anslutnings problem. Resultaten som returneras kan ge insikter om ett anslutnings problem på grund av ett plattforms-eller användar konfigurations problem. Anslutningen kan kontrol leras med [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md)och [REST API](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Fel sökning av anslutning kräver att den virtuella datorn som du felsöker från har `AzureNetworkWatcherExtension` VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
+> Fel sökning av anslutning kräver att den virtuella datorn som du felsöker från har `AzureNetworkWatcherExtension` VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json). Tillägget krävs inte på mål slut punkten.
 
 ## <a name="response"></a>Svarsåtgärder
 
@@ -31,14 +31,14 @@ I följande tabell visas de egenskaper som returneras när fel sökning av anslu
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
-|ConnectionStatus     | Status för anslutnings kontrollen. Det går att **komma åt** möjliga **resultat och det**kan inte användas.        |
+|ConnectionStatus     | Status för anslutnings kontrollen. Det går att **komma åt** möjliga **resultat och det** kan inte användas.        |
 |AvgLatencyInMs     | Genomsnittlig svars tid under anslutnings kontrollen i millisekunder. (Visas bara om kontroll status kan kontaktas)        |
 |MinLatencyInMs     | Lägsta svars tid under anslutnings kontrollen i millisekunder. (Visas bara om kontroll status kan kontaktas)        |
 |MaxLatencyInMs     | Högsta svars tid under anslutnings kontrollen i millisekunder. (Visas bara om kontroll status kan kontaktas)        |
 |ProbesSent     | Antal avsökningar som skickats under kontrollen. Max värdet är 100.        |
 |ProbesFailed     | Antal avsökningar som inte kunde kontrol leras. Max värdet är 100.        |
 |Hopp     | Hopp per hopp väg från källa till mål.        |
-|Hopp []. Bastyp     | Typ av resurs. Möjliga värden är **Source**, **VirtualAppliance**, **VnetLocal**och **Internet**.        |
+|Hopp []. Bastyp     | Typ av resurs. Möjliga värden är **Source**, **VirtualAppliance**, **VnetLocal** och **Internet**.        |
 |Hopp []. Identitet | Unikt ID för hoppet.|
 |Hopp []. Adresspool | Hoppets IP-adress.|
 |Hopp []. ResourceId | ResourceID för hoppet om hoppet är en Azure-resurs. Om det är en Internet resurs är ResourceID **Internet**. |

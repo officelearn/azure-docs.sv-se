@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
-ms.openlocfilehash: 28d5ae1451b97c19576baa3f9760b8f784db3175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 099ead37b8d6b46b767ef59ff24a7e7ff9dc9e3c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84736738"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966453"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Hantera paket fångster med Azure Network Watcher med hjälp av portalen
 
@@ -40,14 +40,14 @@ Om en nätverks säkerhets grupp är kopplad till nätverks gränssnittet eller 
 
 ## <a name="start-a-packet-capture"></a>Starta en paket fångst
 
-1. I webbläsaren navigerar du till [Azure Portal](https://portal.azure.com) och väljer **alla tjänster**och väljer sedan **Network Watcher** i **avsnittet nätverk**.
+1. I webbläsaren navigerar du till [Azure Portal](https://portal.azure.com) och väljer **alla tjänster** och väljer sedan **Network Watcher** i **avsnittet nätverk**.
 2. Välj **paket avbildning** under **diagnostikverktyg för nätverk**. Alla befintliga paket fångster visas, oavsett deras status.
 3. Välj **Lägg till** för att skapa en paket fångst. Du kan välja värden för följande egenskaper:
    - **Prenumeration**: den prenumeration som den virtuella datorn som du vill skapa paket fångsten för finns i.
    - **Resurs grupp**: den virtuella datorns resurs grupp.
    - **Virtuell mål dator**: den virtuella dator som du vill skapa paket fångst för.
    - **Namn på paket fångst**: ett namn för paket fångsten.
-   - **Lagrings konto eller fil**: Välj **lagrings konto**, **fil**eller både och. Om du väljer **fil**skrivs avbildningen till en sökväg i den virtuella datorn.
+   - **Lagrings konto eller fil**: Välj **lagrings konto**, **fil** eller både och. Om du väljer **fil** skrivs avbildningen till en sökväg i den virtuella datorn.
    - **Lokal fil Sök väg**: den lokala sökvägen på den virtuella datorn där paket fångsten ska sparas (endast giltig när *filen* har valts). Sökvägen måste vara en giltig sökväg. Om du använder en virtuell Linux-dator måste sökvägen börja med */var/Captures*.
    - **Lagrings konton**: Välj ett befintligt lagrings konto om du har valt *lagrings konto*. Det här alternativet är bara tillgängligt om du har valt **lagring**.
    
@@ -74,7 +74,7 @@ När den tids gräns som har angetts för paket fångsten har gått ut stoppas p
 > [!NOTE]
 > Portalen automatiskt:
 >  * Skapar en nätverks övervakare i samma region som den region som den valda virtuella datorn finns i, om regionen inte redan har en nätverks övervakare.
->  * Lägger till tillägget *AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) eller [Windows](../virtual-machines/windows/extensions-nwa.md) virtuell dator i den virtuella datorn om det inte redan är installerat.
+>  * Lägger till tillägget *AzureNetworkWatcherExtension* [Linux](../virtual-machines/extensions/network-watcher-linux.md) eller [Windows](../virtual-machines/extensions/network-watcher-windows.md) virtuell dator i den virtuella datorn om det inte redan är installerat.
 
 ## <a name="delete-a-packet-capture"></a>Ta bort en paket avbildning
 

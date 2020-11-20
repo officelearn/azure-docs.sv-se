@@ -10,20 +10,20 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: d53c1c137e8359e3379e2403cf655c1f1dc592f5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 7ab2e037cc7593431a668a216fcc152c0511c410
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016407"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965093"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Modell version i API för textanalys
 
-Med version 3 av API för textanalys kan du välja den modell version som används på dina data. Använd den valfria `model-version` parametern för att välja modell versionen i API-begärandena. Exempel: `<resource-url>/text/analytics/v3.0/sentiment?model-version=2020-04-01`. Om den här parametern inte anges kommer API: et att standardvärdet vara den senaste stabila versionen. 
+Med version 3 av API för textanalys kan du välja den modell version som används på dina data. Använd den valfria `model-version` parametern för att välja modell versionen i API-begärandena. Till exempel: `<resource-url>/text/analytics/v3.0/sentiment?model-version=2020-04-01`. Om den här parametern inte anges kommer API: et att standardvärdet vara den senaste stabila versionen. 
 
 ## <a name="available-versions"></a>Tillgängliga versioner
 
-Använd tabellen nedan för att se vilka modell versioner som stöds av varje slut punkt.
+Använd tabellen nedan för att se vilka modell versioner som stöds av varje värdbaserad slut punkt.
 
 
 | Slutpunkt                        | Versioner som stöds                                     | Senaste version |
@@ -33,6 +33,7 @@ Använd tabellen nedan för att se vilka modell versioner som stöds av varje sl
 | `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
 | `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,              | `2020-04-01`   |
 | `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-07-01`   |
+| `/entities/health`              | `2020-09-03`                           | `2020-09-03`   |
 | `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
 
 

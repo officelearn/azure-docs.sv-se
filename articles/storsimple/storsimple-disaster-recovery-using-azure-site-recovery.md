@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 30a5f92e0092d3e20db25b519fec46e6018dd543
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6d98f1a1dfb575f4af8b666d173f9354b5eeac6b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168026"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966266"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatiserad katastrof återställnings lösning med Azure Site Recovery för fil resurser som finns på StorSimple
 
@@ -37,14 +37,14 @@ Det här dokumentet beskriver i detalj hur du kan skapa en katastrof återställ
 ## <a name="supported-azure-site-recovery-deployment-options"></a>Azure Site Recovery distributions alternativ som stöds
 Kunder kan distribuera fil servrar som fysiska servrar eller virtuella datorer som körs på Hyper-V eller VMware och sedan skapa fil resurser från volymer hämtas out of StorSimple Storage. Azure Site Recovery kan skydda både fysiska och virtuella distributioner till antingen en sekundär plats eller till Azure. Det här dokumentet beskriver information om en DR-lösning med Azure som återställnings plats för en virtuell fil server som finns på Hyper-V och med fil resurser på StorSimple-lagring. Andra scenarier där fil serverns virtuella dator finns på en virtuell VMware-dator eller en fysisk dator kan implementeras på samma sätt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Att implementera en lösning för haveri beredskap med en klickning som använder Azure Site Recovery för fil resurser som finns på StorSimple-lagringen har följande krav:
 
    - Lokal Windows Server 2012 R2-baserad virtuell dator på Hyper-V eller VMware eller en fysisk dator
    - StorSimple lagrings enhet lokalt registrerad med Azure StorSimple Manager
    - StorSimple Cloud Appliance som skapats i Azure StorSimple Manager. Installationen kan behållas i avstängnings tillstånd.
    - Fil resurser som finns på de volymer som kon figurer ATS på StorSimple lagrings enhet
-   - [Azure Site Recovery Services-valvet](../site-recovery/site-recovery-vmm-to-vmm.md) har skapats i en Microsoft Azure-prenumeration
+   - [Azure Site Recovery Services-valvet](/azure/storsimple/hyper-v-vmm-disaster-recovery) har skapats i en Microsoft Azure-prenumeration
 
 Om Azure är din återställnings plats kör du dessutom [verktyget för beredskap för virtuella Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) -datorer på virtuella datorer för att säkerställa att de är kompatibla med virtuella Azure-datorer och Azure Site Recovery-tjänster.
 
@@ -94,12 +94,12 @@ Det här steget kräver att du förbereder den lokala fil Server miljön, skapar
 1. Klicka på **Nästa**.
 1. Godkänn **villkoren i avtalet** och klicka sedan på **Nästa**.
 1. Klicka på **Finish**.
-1. Skapa fil resurser med hjälp av volymer hämtas out of StorSimple Storage. Mer information finns i [använda tjänsten StorSimple Manager för att hantera volymer](storsimple-manage-volumes.md).
+1. Skapa fil resurser med hjälp av volymer hämtas out of StorSimple Storage. Mer information finns i [använda tjänsten StorSimple Manager för att hantera volymer](./index.yml).
    
    1. På dina lokala virtuella datorer trycker du på Windows-tangenten + Q och söker efter **iSCSI**.
    1. Välj **iSCSI-initierare**.
    1. Välj fliken **konfiguration** och kopiera initierarens namn.
-   1. Logga in på [Azure-portalen](https://portal.azure.com/).
+   1. Logga in på [Azure Portal](https://portal.azure.com/).
    1. Välj fliken **StorSimple** och välj sedan den StorSimple Manager tjänst som innehåller den fysiska enheten.
    1. Skapa volym containrar och skapa sedan volym (er). (Dessa volymer är för fil resurserna på fil serverns virtuella datorer). Kopiera initierarens namn och ange ett lämpligt namn för Access Control poster när du skapar volymerna.
    1. Välj fliken **Konfigurera** och anteckna enhetens IP-adress.
@@ -107,12 +107,12 @@ Det här steget kräver att du förbereder den lokala fil Server miljön, skapar
    1. Öppna Azure Portal och välj fliken **volymer och enheter** . Klicka på **Konfigurera automatiskt**. Volymen som du skapade bör visas.
    1. Välj fliken **enheter** i portalen och välj sedan **skapa en ny virtuell enhet.** (Den här virtuella enheten kommer att användas om en redundansväxling inträffar). Den här nya virtuella enheten kan försättas i offline-tillstånd för att undvika extra kostnader. Om du vill koppla från den virtuella enheten går du till avsnittet **Virtual Machines** på portalen och stänger den.
    1. Gå tillbaka till lokala virtuella datorer och öppna disk hantering (tryck på Windows-tangenten + X och välj **disk hantering**).
-   1. Du kommer att märka vissa extra diskar (beroende på antalet volymer som du har skapat). Högerklicka på den första, Välj **initiera disk**och välj **OK**. Högerklicka på avsnittet inte **tilldelat** , Välj **Ny enkel volym**, tilldela en enhets beteckning och Slutför guiden.
+   1. Du kommer att märka vissa extra diskar (beroende på antalet volymer som du har skapat). Högerklicka på den första, Välj **initiera disk** och välj **OK**. Högerklicka på avsnittet inte **tilldelat** , Välj **Ny enkel volym**, tilldela en enhets beteckning och Slutför guiden.
    1. Upprepa steg l för alla diskar. Nu kan du se alla diskar på **den här datorn** i Utforskaren.
    1. Använd rollen fil-och lagrings tjänster för att skapa fil resurser på dessa volymer.
 
 #### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Skapa och förbereda ett Azure Site Recovery-valv
-Läs Azure Site Recovery- [dokumentationen](../site-recovery/site-recovery-hyper-v-site-to-azure.md) för att komma igång med Azure Site Recovery innan du skyddar den virtuella fil servern.
+Läs Azure Site Recovery- [dokumentationen](/azure/storsimple/hyper-v-azure-tutorial) för att komma igång med Azure Site Recovery innan du skyddar den virtuella fil servern.
 
 #### <a name="to-enable-protection"></a>Aktivera skydd
 1. Koppla från iSCSI-målen från de lokala virtuella datorer som du vill skydda genom att Azure Site Recovery:
@@ -124,9 +124,9 @@ Läs Azure Site Recovery- [dokumentationen](../site-recovery/site-recovery-hyper
    > [!NOTE]
    > Detta gör att fil resurserna är tillfälligt otillgängliga.
    
-1. [Aktivera skydd av virtuell dator](../site-recovery/site-recovery-hyper-v-site-to-azure.md) för den virtuella fil serverdatorn från Azure Site Recovery-portalen.
+1. [Aktivera skydd av virtuell dator](/azure/storsimple/hyper-v-azure-tutorial) för den virtuella fil serverdatorn från Azure Site Recovery-portalen.
 1. När den första synkroniseringen börjar kan du återansluta målet igen. Gå till iSCSI-initieraren, Välj StorSimple-enheten och klicka på **Anslut**.
-1. När synkroniseringen är klar och statusen för den virtuella datorn är **skyddad**väljer du den virtuella datorn, väljer fliken **Konfigurera** och uppdaterar nätverket för den virtuella datorn i enlighet med detta (det nätverk som det misslyckade över VM: ar kommer att ingå i). Om nätverket inte visas innebär det att synkroniseringen fortfarande pågår.
+1. När synkroniseringen är klar och statusen för den virtuella datorn är **skyddad** väljer du den virtuella datorn, väljer fliken **Konfigurera** och uppdaterar nätverket för den virtuella datorn i enlighet med detta (det nätverk som det misslyckade över VM: ar kommer att ingå i). Om nätverket inte visas innebär det att synkroniseringen fortfarande pågår.
 
 ### <a name="enable-protection-of-storsimple-volumes"></a>Aktivera skydd av StorSimple-volymer
 Om du inte har valt alternativet **Aktivera en standard säkerhets kopiering för den här volymen** för StorSimple-volymerna går du till **säkerhets kopierings principer** i StorSimple managers Tjänsten och skapar en lämplig säkerhets kopierings princip för alla volymer. Vi rekommenderar att du anger frekvensen för säkerhets kopieringar till det återställnings punkt mål (återställnings punkt mål) som du vill se för programmet.
@@ -173,14 +173,14 @@ Du kan skapa en återställnings plan i ASR för att automatisera växlings proc
    - **BaseUrl**: Resource Manager-URL för Azure-molnet. Hämta med **Get-AzEnvironment | Select-Object namn, ResourceManagerUrl-** cmdlet.
    - _RecoveryPlanName_**– ResourceGroupName**: Resource Manager-gruppen som har resursen StorSimple.
    - _RecoveryPlanName_**-ManagerName**: den StorSimple-resurs som har StorSimple-enheten.
-   - _RecoveryPlanName_**-enhets**namn: den StorSimple-enhet som måste växlas över.
+   - _RecoveryPlanName_**-enhets** namn: den StorSimple-enhet som måste växlas över.
    - _RecoveryPlanName_**-DeviceIpAddress**: enhetens IP-adress (detta finns på fliken **enheter** under StorSimple Enhetshanteraren avsnittet nätverks inställningar för &gt; **Settings** &gt; **Network** &gt; **DNS-inställningar** ).
    - _RecoveryPlanName_**-VolumeContainers**: en kommaavgränsad sträng med volym behållare som finns på den enhet som måste redundansväxla. till exempel: volcon1, volcon2, volcon3.
    - _RecoveryPlanName_**-TargetDeviceName**: StorSimple Cloud Appliance som behållarna ska redundansväxla till.
    - _RecoveryPlanName_**-TargetDeviceIpAddress**: IP-adressen för mål enheten (detta finns på **Virtual Machine** &gt; fliken nätverks **inställnings** grupp i avsnittet virtuell dator &gt; **Networking** ).
    - _RecoveryPlanName_**-StorageAccountName**: namnet på det lagrings konto där skriptet (som måste köras på den virtuella datorn som har redundansväxlats) kommer att lagras. Det kan vara valfritt lagrings konto som har lite utrymme för att lagra skriptet tillfälligt.
    - _RecoveryPlanName_**– StorageAccountKey**: åtkomst nyckeln för lagrings kontot ovan.
-   - _RecoveryPlanName_**-VMGUIDS**: när du skyddar en virtuell dator tilldelar Azure Site Recovery varje virtuell dator ett unikt ID som ger information om den misslyckade virtuella datorn. Hämta VMGUID genom att välja fliken **Recovery Services** och klicka på **skyddade objekt** &gt; **skydds grupper** &gt; **Machines** &gt; **Egenskaper**för datorer. Om du har flera virtuella datorer lägger du till GUID som en kommaavgränsad sträng.
+   - _RecoveryPlanName_**-VMGUIDS**: när du skyddar en virtuell dator tilldelar Azure Site Recovery varje virtuell dator ett unikt ID som ger information om den misslyckade virtuella datorn. Hämta VMGUID genom att välja fliken **Recovery Services** och klicka på **skyddade objekt** &gt; **skydds grupper** &gt; **Machines** &gt; **Egenskaper** för datorer. Om du har flera virtuella datorer lägger du till GUID som en kommaavgränsad sträng.
 
      Om namnet på återställnings planen till exempel är fileServerpredayRP, ska fliken **variabler**, **anslutningar** och **certifikat** visas på följande sätt när du har lagt till alla till gångar.
 

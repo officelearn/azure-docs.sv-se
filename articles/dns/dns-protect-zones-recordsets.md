@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: 52cb1f144608202739dc46f2053950b38d810631
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8163fcb3b349e298bc89f06523e3e784bdc4ed49
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330163"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965685"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Så här skyddar du DNS-zoner och -poster
 
@@ -34,7 +34,7 @@ Resurs gruppen *myResourceGroup* innehåller fem zoner för Contoso Corporation.
 
 Det enklaste sättet att tilldela Azure RBAC-behörigheter är [via Azure Portal](../role-based-access-control/role-assignments-portal.md).  
 
-Öppna **åtkomst kontroll (IAM)** för resurs gruppen och välj sedan **Lägg till**och välj sedan rollen som **deltagare i DNS-zonen** . Välj de användare eller grupper som krävs för att bevilja behörigheter.
+Öppna **åtkomst kontroll (IAM)** för resurs gruppen och välj sedan **Lägg till** och välj sedan rollen som **deltagare i DNS-zonen** . Välj de användare eller grupper som krävs för att bevilja behörigheter.
 
 ![Resurs grupps nivå Azure RBAC via Azure Portal](./media/dns-protect-zones-recordsets/rbac1.png)
 
@@ -67,7 +67,7 @@ Azure RBAC-regler kan användas för en prenumeration, en resurs grupp eller en 
 
 Resurs gruppen *myResourceGroup* innehåller till exempel zonen *contoso.com* och en under zon *Customers.contoso.com*. CNAME-poster skapas för varje kund konto. Det administratörs konto som används för att hantera CNAME-poster tilldelas behörigheter för att skapa poster i *Customers.contoso.com* -zonen. Kontot kan bara hantera *Customers.contoso.com* .
 
-Azure RBAC-behörigheter på Zone-nivå kan beviljas via Azure Portal.  Öppna **åtkomst kontroll (IAM)** för zonen, Välj **Lägg till**och välj sedan rollen för **DNS-zonen deltagare** och välj de användare eller grupper som krävs för att bevilja behörigheter.
+Azure RBAC-behörigheter på Zone-nivå kan beviljas via Azure Portal.  Öppna **åtkomst kontroll (IAM)** för zonen, Välj **Lägg till** och välj sedan rollen för **DNS-zonen deltagare** och välj de användare eller grupper som krävs för att bevilja behörigheter.
 
 ![DNS-zon nivå Azure RBAC via Azure Portal](./media/dns-protect-zones-recordsets/rbac2.png)
 
@@ -198,11 +198,11 @@ Det finns två typer av resurs Lås: **CanNotDelete** och **ReadOnly**. Dessa l�
 
 Använd ett skrivskyddat lås för zonen för att förhindra att ändringar görs. Det här låset förhindrar att nya post uppsättningar skapas och att befintliga post uppsättningar ändras eller tas bort.
 
-Resurs lås för zonens nivå kan skapas via Azure Portal.  Välj **Lås**på sidan DNS-zon och välj sedan **+ Lägg till**:
+Resurs lås för zonens nivå kan skapas via Azure Portal.  Välj **Lås** på sidan DNS-zon och välj sedan **+ Lägg till**:
 
 ![Resurs lås på zon nivå via Azure Portal](./media/dns-protect-zones-recordsets/locks1.png)
 
-Resurs lås på zon-nivå kan också skapas via [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock?view=latest):
+Resurs lås på zon-nivå kan också skapas via [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock?view=latest):
 
 ```azurepowershell
 # Lock a DNS zone
@@ -216,7 +216,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-Motsvarande kommando är också [tillgängligt via Azure CLI](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create):
+Motsvarande kommando är också [tillgängligt via Azure CLI](/cli/azure/lock?view=azure-cli-latest#az-lock-create):
 
 ```azurecli
 # Lock a DNS zone

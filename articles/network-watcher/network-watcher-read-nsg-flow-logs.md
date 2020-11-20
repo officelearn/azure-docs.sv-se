@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
-ms.openlocfilehash: 18023f5a5b36dd971080d7a62fdd44698a205bb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9b9e91cda93a986fdaaf0f53d8987544e783a2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272543"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966473"
 ---
 # <a name="read-nsg-flow-logs"></a>Läs NSG-flödesloggar
 
 Lär dig hur du läser NSG flödes loggar med PowerShell.
 
-NSG flödes loggar lagras i ett lagrings konto i [block-blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Block blobbar består av mindre block. Varje logg är en separat Block-Blob som genereras varje timme. Nya loggar genereras varje timme, loggarna uppdateras med nya poster med några minuters mellanrum med den senaste informationen. I den här artikeln får du lära dig hur du läser delar av flödes loggarna.
+NSG flödes loggar lagras i ett lagrings konto i [block-blobbar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Block blobbar består av mindre block. Varje logg är en separat Block-Blob som genereras varje timme. Nya loggar genereras varje timme, loggarna uppdateras med nya poster med några minuters mellanrum med den senaste informationen. I den här artikeln får du lära dig hur du läser delar av flödes loggarna.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -37,7 +37,7 @@ Innan du börjar måste du ha nätverks säkerhets gruppens flödes loggning akt
 
 ## <a name="retrieve-the-block-list"></a>Hämta blockeringslistan
 
-Följande PowerShell konfigurerar de variabler som krävs för att skicka frågor till NSG Flow-logaritmen och listar blocken inom [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block-bloben. Uppdatera skriptet så att det innehåller giltiga värden för din miljö.
+Följande PowerShell konfigurerar de variabler som krävs för att skicka frågor till NSG Flow-logaritmen och listar blocken inom [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block-bloben. Uppdatera skriptet så att det innehåller giltiga värden för din miljö.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -189,6 +189,6 @@ Det här scenariot är ett exempel på hur du kan läsa poster i NSG Flow-loggar
 
 Besök [Använd elastisk stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Använd Grafana](network-watcher-nsg-grafana.md)och [Använd Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) för att lära dig mer om hur du kan visa NSG flödes loggar. En Azure-funktion med öppen källkod som använder blobarna direkt och skickas till olika Log Analytics-konsumenter kan hittas här: [Azure Network WATCHER NSG Flow logs Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Du kan använda [Azure trafikanalys](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) för att få insikter om dina trafikflöde. Trafikanalys använder [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) för att kunna köra ditt trafikflöde.
+Du kan använda [Azure trafikanalys](./traffic-analytics.md) för att få insikter om dina trafikflöde. Trafikanalys använder [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) för att kunna köra ditt trafikflöde.
 
 Läs mer om Storage blobbar på: [Azure Functions Blob Storage-bindningar](../azure-functions/functions-bindings-storage-blob.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975072"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965688"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Använda paket fångst för proaktiv nätverks övervakning med aviseringar och Azure Functions
 
@@ -35,11 +35,11 @@ Genom att använda Network Watcher, aviseringar och funktioner i Azure-eko syste
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den senaste versionen av [Azure PowerShell](/powershell/azure/install-Az-ps).
 * En befintlig instans av Network Watcher. Om du inte redan har en, [skapar du en instans av Network Watcher](network-watcher-create.md).
-* En befintlig virtuell dator i samma region som Network Watcher med tillägget [Windows-tillägget](../virtual-machines/windows/extensions-nwa.md) eller [Linux-tillägget för virtuella datorer](../virtual-machines/linux/extensions-nwa.md).
+* En befintlig virtuell dator i samma region som Network Watcher med tillägget [Windows-tillägget](../virtual-machines/extensions/network-watcher-windows.md) eller [Linux-tillägget för virtuella datorer](../virtual-machines/extensions/network-watcher-linux.md).
 
 ## <a name="scenario"></a>Scenario
 
@@ -74,7 +74,7 @@ Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen
 
 2. Ange följande värden på bladet **Funktionsapp** och välj sedan **OK** för att skapa appen:
 
-    |**Inställning** | **Värde** | **Information** |
+    |**Inställning** | **Värde** | **Detaljer** |
     |---|---|---|
     |**Appens namn**|PacketCaptureExample|Namnet på Function-appen.|
     |**Prenumeration**|[Din prenumeration] Den prenumeration som du vill skapa Function-appen för.||
@@ -85,9 +85,9 @@ Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen
 
 3. På bladet **PacketCaptureExample Function-appar** väljer **du**  >  **anpassad funktion**  > **+** .
 
-4. Välj **HttpTrigger-PowerShell**och ange sedan återstående information. Slutligen, för att skapa funktionen, väljer du **skapa**.
+4. Välj **HttpTrigger-PowerShell** och ange sedan återstående information. Slutligen, för att skapa funktionen, väljer du **skapa**.
 
-    |**Inställning** | **Värde** | **Information** |
+    |**Inställning** | **Värde** | **Detaljer** |
     |---|---|---|
     |**Scenario**|Experimentell|Typ av scenario|
     |**Namnge din funktion**|AlertPacketCapturePowerShell|Namnet på funktionen|
@@ -264,7 +264,7 @@ Det är nu dags att göra anrop till Network Watcher inifrån Azure-funktionen. 
 4. Avsöknings paket med jämna mellanrum tills det är klart.
 5. Meddela användaren att insamlings sessionen för paketet är slutförd.
 
-Följande exempel är PowerShell-kod som kan användas i-funktionen. Det finns värden som måste ersättas för **subscriptionId**, **resourceGroupName**och **storageAccountName**.
+Följande exempel är PowerShell-kod som kan användas i-funktionen. Det finns värden som måste ersättas för **subscriptionId**, **resourceGroupName** och **storageAccountName**.
 
 ```powershell
             #Import Azure PowerShell modules required to make calls to Network Watcher
@@ -340,9 +340,9 @@ Aviseringar kan konfigureras för att meddela individer när ett speciellt mått
 
 ### <a name="create-the-alert-rule"></a>Skapa aviserings regeln
 
-Gå till en befintlig virtuell dator och Lägg sedan till en varnings regel. Mer detaljerad dokumentation om hur du konfigurerar aviseringar finns i [skapa aviseringar i Azure Monitor för Azure-tjänster – Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Ange följande värden på bladet **aviserings regel** och välj sedan **OK**.
+Gå till en befintlig virtuell dator och Lägg sedan till en varnings regel. Mer detaljerad dokumentation om hur du konfigurerar aviseringar finns i [skapa aviseringar i Azure Monitor för Azure-tjänster – Azure Portal](../azure-monitor/platform/alerts-classic-portal.md). Ange följande värden på bladet **aviserings regel** och välj sedan **OK**.
 
-  |**Inställning** | **Värde** | **Information** |
+  |**Inställning** | **Värde** | **Detaljer** |
   |---|---|---|
   |**Namn**|TCP_Segments_Sent_Exceeded|Aviserings regelns namn.|
   |**Beskrivning**|TCP skickade segment överskred tröskeln|Beskrivning av varnings regeln.|
@@ -353,7 +353,7 @@ Gå till en befintlig virtuell dator och Lägg sedan till en varnings regel. Mer
   |**Webhook**|[webhook-URL från Function app]| Webhook-URL: en från Function-appen som skapades i föregående steg.|
 
 > [!NOTE]
-> Måttet TCP-segment är inte aktiverat som standard. Läs mer om hur du aktiverar ytterligare mått genom att besöka [Aktivera övervakning och diagnostik](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
+> Måttet TCP-segment är inte aktiverat som standard. Läs mer om hur du aktiverar ytterligare mått genom att besöka [Aktivera övervakning och diagnostik](../azure-monitor/overview.md).
 
 ## <a name="review-the-results"></a>Granska resultaten
 
@@ -363,11 +363,11 @@ När kriteriet för aviserings utlösare skapas skapas en paket insamling. Gå t
 
 Om infångstfilen lagras lokalt kan du hämta den genom att logga in på den virtuella datorn.
 
-Anvisningar om hur du laddar ned filer från Azure Storage-konton finns i [komma igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som du kan använda är [Storage Explorer](https://storageexplorer.com/).
+Anvisningar om hur du laddar ned filer från Azure Storage-konton finns i [komma igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-quickstart-blobs-dotnet.md). Ett annat verktyg som du kan använda är [Storage Explorer](https://storageexplorer.com/).
 
 När din avbildning har hämtats kan du Visa den med hjälp av alla verktyg som kan läsa en **Cap** -fil. Följande är länkar till två av dessa verktyg:
 
-- [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
+- [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide)
 - [WireShark](https://www.wireshark.org/)
 
 ## <a name="next-steps"></a>Nästa steg

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6a7b4d8c3d2e2b33d8e2a9936670992b1c922b6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a07957a75bfe82d8ce350675f0d29b2f03e069
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737367"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966147"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Utför identifiering av nätverks intrång med Network Watcher och verktyg för öppen källkod
 
@@ -80,7 +80,7 @@ tail -f /var/log/suricata/fast.log
 
 #### <a name="install-elasticsearch"></a>Installera ElasticSearch
 
-1. Den elastiska stacken från version 5,0 och senare kräver Java 8. Kör kommandot `java -version` för att kontrol lera din version. Om du inte har installerat Java kan du läsa mer i dokumentationen om [Azure-suppored JDKs](https://aka.ms/azure-jdks).
+1. Den elastiska stacken från version 5,0 och senare kräver Java 8. Kör kommandot `java -version` för att kontrol lera din version. Om du inte har installerat Java kan du läsa mer i dokumentationen om [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 1. Hämta rätt binärt paket för systemet:
 

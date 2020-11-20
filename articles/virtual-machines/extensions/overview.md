@@ -4,16 +4,17 @@ description: Läs mer om Azure VM-tillägg
 services: virtual-machines
 author: amjads1
 ms.service: virtual-machines
+ms.subservice: extensions
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/03/2020
 ms.author: amjads
-ms.openlocfilehash: 73738f339bea3e8e075530e5de564c1c0854d283
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1dd26fce2e0a761ceed211933cb79ce518905e2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87552058"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965892"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure-tillägg och -funktioner för virtuella datorer
 Tillägg är små program som tillhandahåller konfiguration av efter distribution och automatisering på virtuella Azure-datorer. Azure-plattformen är värd för många tillägg som omfattar program för VM-konfiguration, övervakning, säkerhet och verktyg. Utgivare tar ett program, placerar det i ett tillägg och fören klar installationen. Allt du behöver göra är att ange obligatoriska parametrar. 

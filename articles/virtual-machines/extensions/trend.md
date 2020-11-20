@@ -4,16 +4,17 @@ description: Den här artikeln beskriver hur du installerar och konfigurerar Tre
 author: axayjo
 tags: azure-service-management
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: bed1d567aa48a11c01ae952e6a4a2028e260e6e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d6d80287d05517933f066d5e49fa31e78a48943
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288526"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966387"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Så här installerar och konfigurerar du Trend Micro djupgående säkerhet som en tjänst på en virtuell Windows-dator
 
@@ -36,7 +37,7 @@ Om du använder en post från **Marketplace** öppnas en guide som hjälper dig 
 
 Gör så här när du kommer till **inställnings** bladet i guiden:
 
-1. Klicka på **tillägg**och sedan på **Lägg till tillägg** i nästa fönster.
+1. Klicka på **tillägg** och sedan på **Lägg till tillägg** i nästa fönster.
 
    ![Börja lägga till tillägget][1]
 
@@ -65,7 +66,7 @@ write-host $vm.VM.ProvisionGuestAgent
 
 Om du inte känner till moln tjänsten och namnet på den virtuella datorn kör du **Get-AzureVM** för att visa informationen för alla virtuella datorer i din aktuella prenumeration.
 
-Om kommandot **Skriv-Host** returnerar **True**installeras VM-agenten. Om den returnerar **false**kan du läsa anvisningarna och en länk till hämtningen i Azure-bloggen publicera [VM-agenten och tilläggen – del 2](https://go.microsoft.com/fwlink/p/?LinkId=403947).
+Om kommandot **Skriv-Host** returnerar **True** installeras VM-agenten. Om den returnerar **false** kan du läsa anvisningarna och en länk till hämtningen i Azure-bloggen publicera [VM-agenten och tilläggen – del 2](https://go.microsoft.com/fwlink/p/?LinkId=403947).
 
 Om den virtuella dator agenten är installerad kör du dessa kommandon.
 

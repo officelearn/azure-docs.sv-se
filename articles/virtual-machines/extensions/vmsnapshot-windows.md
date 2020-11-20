@@ -6,15 +6,16 @@ documentationcenter: ''
 author: trinadhkotturu
 manager: gwallace
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: trinadhk
-ms.openlocfilehash: d771c6dd114b252c070a0e56ba3ab23c597ad5aa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1d1342cffc6bc8743c34cb4c028c0790de91dc50
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088864"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965875"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Windows-tillägg för VM-ögonblicksbild för Azure Backup
 
@@ -22,7 +23,7 @@ Azure Backup ger stöd för säkerhets kopiering av arbets belastningar från lo
 
 VMSnapshot-tillägget visas endast i Azure Portal för icke-hanterade virtuella datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 En lista över operativ system som stöds finns i [operativ system som stöds av Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
@@ -59,9 +60,9 @@ Följande JSON visar schemat för ögonblicks bilds tillägget för den virtuell
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Name | Värde/exempel | Datatyp |
+| Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | datum |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | sträng |
 | commandStartTimeUTCTicks | 6.36458 e + 17 | sträng |
 | locale | sv-se | sträng |

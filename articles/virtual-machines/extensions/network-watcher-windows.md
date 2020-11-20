@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 27e46af7-2150-45e8-b084-ba33de8c5e3f
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: mimckitt
-ms.openlocfilehash: e78a18055d85e2105ea604d568c154c889ab0655
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 813fc7db2a028590797bef1c54fff20b231c3d7d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86206015"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965909"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Network Watcher virtuell agent för virtuella datorer för Windows
 
@@ -64,7 +65,7 @@ Följande JSON visar schemat för Network Watcher agent-tillägget. Tillägget k
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Name | Värde/exempel |
+| Namn | Värde/exempel |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | utgivare | Microsoft. Azure. NetworkWatcher |

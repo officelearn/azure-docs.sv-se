@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5aa6906f7f06e109342d81db6171773a68642e0c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 76695d4d8dbc3e3a6b04b89b8f34e41b83a92963
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342288"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965195"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetspolicyer
 
@@ -46,7 +46,7 @@ Visa dina säkerhetsprinciper i Security Center:
 
 1. I instrument panelen **Security Center** väljer du **säkerhets princip**.
 
-    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Sidan princip hantering&quot;:::
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Sidan princip hantering":::
 
    På skärmen **princip hantering** kan du se antalet hanterings grupper, prenumerationer och arbets ytor samt hanterings gruppens struktur.
 
@@ -57,7 +57,7 @@ Visa dina säkerhetsprinciper i Security Center:
    ![princip sida](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > Om det finns en etikett &quot;MG ärvd" tillsammans med standard principen, innebär det att principen har tilldelats till en hanterings grupp och ärvts av den prenumeration som du visar.
+    > Om det finns en etikett "MG ärvd" tillsammans med standard principen, innebär det att principen har tilldelats till en hanterings grupp och ärvts av den prenumeration som du visar.
 
 
 1. Välj bland de tillgängliga alternativen på den här sidan:
@@ -68,18 +68,7 @@ Visa dina säkerhetsprinciper i Security Center:
 
     1. Om du vill visa och redigera standard principen väljer du **Visa gällande princip** och fortsätter enligt beskrivningen nedan. 
 
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Sidan princip hantering&quot;:::
-
-   På skärmen **princip hantering** kan du se antalet hanterings grupper, prenumerationer och arbets ytor samt hanterings gruppens struktur.
-
-1. Välj den prenumeration eller hanterings grupp vars principer du vill visa.
-
-1. Sidan säkerhets princip för den prenumerationen eller hanterings gruppen visas. Den visar de tillgängliga och tilldelade principerna.
-
-   ![princip sida](./media/tutorial-security-policy/security-policy-page.png)
-
-    > [!NOTE]
-    > Om det finns en etikett &quot;MG ärvd":::
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Skärmen gällande princip":::
 
        Den här **säkerhets princip** skärmen visar den åtgärd som vidtas av de principer som har tilldelats den prenumeration eller hanterings grupp du valt.
        
@@ -97,7 +86,7 @@ Visa dina säkerhetsprinciper i Security Center:
 
 Du kan redigera säkerhets principer via Azure Policy-portalen via REST API eller med hjälp av Windows PowerShell.
 
-Security Center använder Role-Based Access Control (RBAC) som innehåller inbyggda roller som du kan tilldela till Azure-användare, grupper och tjänster. När användare öppnar Security Center ser de bara information om de resurser som de har åtkomst till. Det innebär att användare tilldelas rollen som *ägare*, *deltagare*eller *läsare* till resursens prenumeration. Det finns också två olika Security Centers roller:
+Security Center använder rollbaserad åtkomst kontroll i Azure (Azure RBAC) som innehåller inbyggda roller som du kan tilldela till Azure-användare, grupper och tjänster. När användare öppnar Security Center ser de bara information om de resurser som de har åtkomst till. Det innebär att användare tilldelas rollen som *ägare*, *deltagare* eller *läsare* till resursens prenumeration. Det finns också två olika Security Centers roller:
 
 - **Säkerhets läsare**: har behörighet att Visa Security Center objekt, till exempel rekommendationer, aviseringar, principer och hälsa. Det går inte att göra ändringar.
 - **Säkerhets administratör**: har samma visnings rättigheter som *säkerhets läsaren*. Kan också uppdatera säkerhets principen och ignorera aviseringar.

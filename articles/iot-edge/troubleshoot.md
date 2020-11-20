@@ -4,16 +4,16 @@ description: Använd den här artikeln för att lära dig om diagnostiska färdi
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/27/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 540c4394a73ceff1f68a613561c034ca3bc7efc5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: daae45c9eca45022225ea47aa048815d5eff70c4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046578"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964515"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Felsöka IoT Edge-enheten
 
@@ -46,6 +46,8 @@ Fel söknings verktyget kör många kontroller som är sorterade i följande tre
 * *Anslutnings kontroller* verifierar att IoT Edge runtime kan komma åt portar på värd enheten och att alla IoT Edge-komponenter kan ansluta till IoT Hub. Den här uppsättningen kontroller returnerar fel om IoT Edge enheten ligger bakom en proxyserver.
 * I *produktions beredskaps kontrollerna* kan du söka efter rekommenderade produktions metoder, t. ex. tillstånd för certifikat från enhetens certifikat utfärdare och logg fils konfigurationen för modulen.
 
+Verktyget IoT Edge check använder en behållare för att köra dess diagnostik. Behållar avbildningen, `mcr.microsoft.com/azureiotedge-diagnostics:latest` , är tillgänglig via [Microsoft container Registry](https://github.com/microsoft/containerregistry). Om du behöver köra en kontroll på en enhet utan direkt åtkomst till Internet, behöver enheterna åtkomst till behållar avbildningen.
+
 Information om var och en av de diagnostiska kontroller som utförs av verktyget, inklusive vad du ska göra om du får ett fel eller en varning, finns i [IoT Edge Felsök checkar](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
 ## <a name="gather-debug-information-with-support-bundle-command"></a>Samla in felsöknings information med kommandot "support-Bundle"
@@ -66,6 +68,8 @@ I Windows:
 iotedge support-bundle --since 6h
 ```
 
+Du kan också använda ett [direkt metod](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) anrop till enheten för att överföra utdata från kommandot support-Bundle till Azure Blob Storage.
+
 > [!WARNING]
 > Utdata från `support-bundle` kommandot kan innehålla värden, enhets-och Modulnamn, information som loggas av dina moduler osv. Tänk på detta om du delar utdata i ett offentligt forum.
 
@@ -74,6 +78,23 @@ iotedge support-bundle --since 6h
 Om du kör en äldre version av IoT Edge kan du eventuellt lösa problemet genom att uppgradera. `iotedge check`Verktyget kontrollerar att IoT Edge Security daemon är den senaste versionen, men kontrollerar inte versionerna av IoT Edge Hub och agent-moduler. Om du vill kontrol lera versionen av Runtime-modulerna på enheten använder du kommandona `iotedge logs edgeAgent` och `iotedge logs edgeHub` . Versionsnumret skrivs ut i loggarna när modulen startas.
 
 Anvisningar om hur du uppdaterar din enhet finns i [uppdatera IoT Edge Security daemon och runtime](how-to-update-iot-edge.md).
+
+## <a name="verify-the-installation-of-iot-edge-on-your-devices"></a>Verifiera installationen av IoT Edge på dina enheter
+
+Du kan kontrol lera installationen av IoT Edge på dina enheter genom [att övervaka edgeAgent-modulen med dubbla](https://docs.microsoft.com/azure/iot-edge/how-to-monitor-module-twins).
+
+För att få den senaste edgeAgent-modulen dubbla, kör du följande kommando från [Azure Cloud Shell](https://shell.azure.com/):
+
+   ```azurecli-interactive
+   az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
+   ```
+
+Det här kommandot kommer att mata ut alla edgeAgent- [rapporterade egenskaper](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub). Här följer några användbara som övervakar enhetens status:
+
+* körnings status
+* Start tid för körning
+* senaste slut tid för körning
+* antal omstart för körning
 
 ## <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Kontrol lera status för IoT Edge Security Manager och dess loggar
 
@@ -192,6 +213,8 @@ När IoT Edge Security Daemon körs tittar du på loggarna för behållarna för
 ```cmd
 iotedge logs <container name>
 ```
+
+Du kan också använda ett [direkt metod](how-to-retrieve-iot-edge-logs.md#upload-module-logs) anrop till en modul på enheten för att ladda upp loggarna för den modulen till Azure Blob Storage.
 
 ## <a name="view-the-messages-going-through-the-iot-edge-hub"></a>Visa meddelanden som går via IoT Edge Hub
 

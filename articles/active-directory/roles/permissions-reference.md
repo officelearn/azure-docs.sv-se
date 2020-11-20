@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9055bb9689895a9b74f3d6b5affa325a3b594d65
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 2cdf89fa3281e070d6b1ac762d30d7c391f4126f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874686"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963648"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -707,10 +707,11 @@ Fullständig åtkomst till hantering av enheter i Azure AD.
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | Microsoft. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
-| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Läs BitLocker-nyckel objekt och egenskaper (inklusive återställnings nyckel) i Azure Active Directory. |
 | Microsoft. Directory/Devices/Delete | Ta bort enheter i Azure Active Directory. |
 | Microsoft. Directory/enheter/inaktivera | Inaktivera enheter i Azure Active Directory. |
 | Microsoft. Directory/Devices/Enable | Aktivera enheter i Azure Active Directory. |
+| Microsoft. Directory/Devices/extensionAttributes/Update | Uppdatera alla värden för egenskapen Devices. extensionAttributes i Azure Active Directory. |
 | Microsoft. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
@@ -731,6 +732,7 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använder Azur
 | Microsoft. Directory/Applications/allProperties/allTasks | Skapa och ta bort program och läsa och uppdatera alla egenskaper i Azure Active Directory. |
 | Microsoft. Directory/appRoleAssignments/allProperties/allTasks | Skapa och ta bort appRoleAssignments och läsa och uppdatera alla egenskaper i Azure Active Directory. |
 | Microsoft. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Läs BitLocker-nyckel objekt och egenskaper (inklusive återställnings nyckel) i Azure Active Directory. |
 | Microsoft. Directory/Contacts/allProperties/allTasks | Skapa och ta bort kontakter och läsa och uppdatera alla egenskaper i Azure Active Directory. |
 | Microsoft. Directory/kontrakt/allProperties/allTasks | Skapa och ta bort kontrakt och läsa och uppdatera alla egenskaper i Azure Active Directory. |
 | Microsoft. Directory/Devices/allProperties/allTasks | Skapa och ta bort enheter och läsa och uppdatera alla egenskaper i Azure Active Directory. |
@@ -1087,6 +1089,7 @@ Kan läsa allt som en global administratör kan, men inte redigera något.
 | Microsoft. Directory/program/Basic/Read    | Läsa grundläggande egenskaper för program i Azure Active Directory. |
 | Microsoft. Directory/program/ägare/läsa    | Läsa program. Owners-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/Applications/policies/Read    | Läsa program. policys-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Läs BitLocker-nyckel objekt och egenskaper (inklusive återställnings nyckel) i Azure Active Directory. |
 | Microsoft. Directory/Contacts/Basic/Read    | Läsa grundläggande egenskaper för kontakter i Azure Active Directory. |
 | Microsoft. Directory/Contacts/memberOf/läsa    | Läsa contacts. memberOf-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/kontrakt/Basic/Read    | Läsa grundläggande egenskaper för kontrakt i Azure Active Directory. |
@@ -1267,13 +1270,16 @@ Kan hantera alla aspekter av Intune-produkten.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Läs BitLocker-nyckel objekt och egenskaper (inklusive återställnings nyckel) i Azure Active Directory. |
 | Microsoft. Directory/Contacts/Basic/Update | Uppdatera grundläggande egenskaper för kontakter i Azure Active Directory. |
 | Microsoft. Directory/kontakter/skapa | Skapa kontakter i Azure Active Directory. |
 | Microsoft. Directory/Contacts/Delete | Ta bort kontakter i Azure Active Directory. |
 | Microsoft. Directory/Devices/Basic/Update | Uppdatera grundläggande egenskaper för enheter i Azure Active Directory. |
-| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/Devices/Create | Skapa enheter i Azure Active Directory. |
 | Microsoft. Directory/Devices/Delete | Ta bort enheter i Azure Active Directory. |
+| Microsoft. Directory/enheter/inaktivera | Inaktivera enheter i Azure Active Directory. |
+| Microsoft. Directory/Devices/Enable | Aktivera enheter i Azure Active Directory. |
+| Microsoft. Directory/Devices/extensionAttributes/Update | Uppdatera alla värden för egenskapen Devices. extensionAttributes i Azure Active Directory. |
 | Microsoft. Directory/Devices/registeredOwners/Update | Uppdatera Devices. registeredOwners-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/Devices/registeredUsers/Update | Uppdatera Devices. registeredUsers-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/Groups/appRoleAssignments/Update | Uppdatera Groups. appRoleAssignments-egenskapen i Azure Active Directory. |
@@ -1654,9 +1660,9 @@ Kan läsa säkerhets information och rapporter och hantera konfigurationen i Azu
 | --- | --- |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Läs BitLocker-nyckel objekt och egenskaper (inklusive återställnings nyckel) i Azure Active Directory. |
 | Microsoft. Directory/Applications/policies/Update | Uppdatera Applications. policys-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
-| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/identityProtection/allProperties/Read | Läs alla resurser i Microsoft. AAD. identityProtection. |
 | Microsoft. Directory/identityProtection/allProperties/Update | Uppdatera alla resurser i Microsoft. AAD. identityProtection. |
 | Microsoft. Directory/policies/Basic/Update | Uppdatera grundläggande egenskaper för principer i Azure Active Directory. |
@@ -1706,7 +1712,7 @@ Kan läsa säkerhets information och rapporter i Azure AD och Microsoft 365.
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | Microsoft. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
-| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Läs BitLocker-nyckel objekt och egenskaper (inklusive återställnings nyckel) i Azure Active Directory. |
 | Microsoft. Directory/policys/conditionalAccess/Basic/Read | Läs policies. conditionalAccess-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
 | Microsoft. AAD. identityProtection/upplånare/Läs | Läs alla resurser i Microsoft. AAD. identityProtection. |

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92509ff96af0ed2a7d77799edca8447ff6839ab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e116096afbd01af4914be49d5675881724d5069
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019665"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965603"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Skapa DNS-zoner och post uppsättningar med hjälp av .NET SDK
 
@@ -79,7 +79,7 @@ Om du faktiskt vill skapa eller uppdatera zonen i Azure DNS skickas det zon obje
 > [!NOTE]
 > DnsManagementClient stöder tre arbets lägen: synkron (' CreateOrUpdate '), asynkron (' CreateOrUpdateAsync ') eller asynkron med åtkomst till HTTP-svaret (' CreateOrUpdateWithHttpMessagesAsync ').  Du kan välja något av dessa lägen, beroende på dina program behov.
 
-Azure DNS stöder optimistisk samtidighet, som kallas [ETags](dns-getstarted-create-dnszone.md). I det här exemplet anger du "*" för rubriken "If-None-Match" och anger Azure DNS att skapa en DNS-zon om det inte redan finns en.  Anropet Miss lyckas om det redan finns en zon med det här namnet i den aktuella resurs gruppen.
+Azure DNS stöder optimistisk samtidighet, som kallas [ETags](./dns-getstarted-powershell.md). I det här exemplet anger du "*" för rubriken "If-None-Match" och anger Azure DNS att skapa en DNS-zon om det inte redan finns en.  Anropet Miss lyckas om det redan finns en zon med det här namnet i den aktuella resurs gruppen.
 
 ```cs
 // Create zone parameters

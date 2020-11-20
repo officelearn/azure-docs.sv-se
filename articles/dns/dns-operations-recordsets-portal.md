@@ -7,22 +7,22 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
-ms.openlocfilehash: 111d94db1cbec658daabfb1a4c38c8160d6f50b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22ceba69ecf865d906021068a39a9d273b842ca2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696839"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965739"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Hantera DNS-poster och post uppsättningar med hjälp av Azure Portal
 
 Den här artikeln visar hur du hanterar post uppsättningar och poster för din DNS-zon med hjälp av Azure Portal.
 
-Det är viktigt att förstå skillnaden mellan DNS-postuppsättningar och enskilda DNS-poster. En post uppsättning är en samling poster i en zon som har samma namn och är av samma typ. Mer information finns i [Skapa DNS-postuppsättningar och poster med hjälp av Azure Portal](dns-getstarted-create-recordset-portal.md).
+Det är viktigt att förstå skillnaden mellan DNS-postuppsättningar och enskilda DNS-poster. En post uppsättning är en samling poster i en zon som har samma namn och är av samma typ. Mer information finns i [Skapa DNS-postuppsättningar och poster med hjälp av Azure Portal](./dns-getstarted-portal.md).
 
 ## <a name="create-a-new-record-set-and-record"></a>Skapa en ny post uppsättning och post
 
-Om du vill skapa en post uppsättning i Azure Portal, se [Skapa DNS-poster med hjälp av Azure Portal](dns-getstarted-create-recordset-portal.md).
+Om du vill skapa en post uppsättning i Azure Portal, se [Skapa DNS-poster med hjälp av Azure Portal](./dns-getstarted-portal.md).
 
 ## <a name="view-a-record-set"></a>Visa en post uppsättning
 
@@ -79,7 +79,7 @@ Du kan använda Azure Portal för att ta bort poster från en post uppsättning.
 
 ## <a name="delete-a-record-set"></a><a name="delete"></a>Ta bort en post uppsättning
 
-1. Klicka på **ta bort**på bladet **post uppsättnings egenskaper** för din post uppsättning.
+1. Klicka på **ta bort** på bladet **post uppsättnings egenskaper** för din post uppsättning.
 
     ![Ta bort en post uppsättning](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 

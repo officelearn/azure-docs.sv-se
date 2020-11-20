@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 119436cbe03e619b0d09df30ab2c5dc34126b0ce
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 20d44fd3150f9da31e9c242017e597d4f46e4d5d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629401"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963937"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Utlösa en körning av en Machine Learning pipeline från en Logic app
 
 Utlös körning av Azure Machine Learning pipelinen när nya data visas. Du kanske exempelvis vill utlösa pipelinen för att träna en ny modell när nya data visas i Blob Storage-kontot. Konfigurera utlösaren med [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -96,7 +96,7 @@ När du har etablerat din Logi Kap par kan du använda de här stegen för att k
 1. Välj **Spara** så är ditt schema nu klart.
 
 > [!IMPORTANT]
-> Om du använder rollbaserad åtkomst kontroll (RBAC) för att hantera åtkomst till din pipeline, [anger du behörigheterna för ditt pipeline-scenario (utbildning eller poängsättning)](how-to-assign-roles.md#common-scenarios).
+> Om du använder rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att hantera åtkomst till din pipeline, anger du [behörigheterna för ditt pipeline-scenario (utbildning eller poängsättning)](how-to-assign-roles.md#common-scenarios).
 
 ## <a name="next-steps"></a>Nästa steg
 

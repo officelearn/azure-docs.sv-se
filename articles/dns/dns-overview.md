@@ -6,18 +6,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: rohink
-ms.openlocfilehash: d59f166897674e9dcff8086b8f5c906605155ee3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5df2c2f686a1993dcd25d5391d5b553f2b42d937
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87924282"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965654"
 ---
 # <a name="what-is-azure-dns"></a>Vad är Azure DNS?
 
 Azure DNS är en värdtjänst för DNS-domäner som tillhandahåller namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med hjälp av samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster.
 
-Du kan inte använda Azure DNS för att köpa ett domännamn. För en årlig avgift så kan du köpa ett domännamn med hjälp av [App Service-domäner](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) eller en domännamnsregistrator från tredje part. Dina domäner kan sedan hanteras i Azure DNS för posthantering. Mer information finns i [delegera en domän till Azure DNS](dns-domain-delegation.md).
+Du kan inte använda Azure DNS för att köpa ett domännamn. För en årlig avgift så kan du köpa ett domännamn med hjälp av [App Service-domäner](../app-service/manage-custom-dns-buy-domain.md#buy-the-domain) eller en domännamnsregistrator från tredje part. Dina domäner kan sedan hanteras i Azure DNS för posthantering. Mer information finns i [delegera en domän till Azure DNS](dns-domain-delegation.md).
 
 Följande funktioner ingår med Azure DNS.
 
@@ -29,11 +29,11 @@ DNS-domäner i Azure DNS finns på Azures globala nätverk med DNS-namnservrar. 
 
  Azure DNS bygger på Azure Resource Manager, erbjuder bland annat följande funktioner:
 
-* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) för att kontrol lera vem som har åtkomst till vissa åtgärder för din organisation.
+* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../azure-resource-manager/management/overview.md) för att kontrol lera vem som har åtkomst till vissa åtgärder för din organisation.
 
-* [Aktivitetsloggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) för att övervaka hur en användare i organisationen ändrar en resurs eller hitta ett fel vid felsökning.
+* [Aktivitetsloggar](../azure-resource-manager/management/overview.md) för att övervaka hur en användare i organisationen ändrar en resurs eller hitta ett fel vid felsökning.
 
-* [Resurslåsning](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) för att låsa en prenumeration, resursgrupp eller resurs. Låsning förhindrar att andra användare i organisationen tar bort eller ändrar viktiga resurser av misstag.
+* [Resurslåsning](../azure-resource-manager/management/lock-resources.md) för att låsa en prenumeration, resursgrupp eller resurs. Låsning förhindrar att andra användare i organisationen tar bort eller ändrar viktiga resurser av misstag.
 
 Mer information finns i [Så skyddar du DNS-zoner och -poster](dns-protect-zones-recordsets.md). 
 
@@ -67,6 +67,6 @@ Mer information finns i [översikten över Azure DNS-aliasposter](dns-alias.md).
 
 * Lär dig om DNS-zoner och poster i [översikten över DNS-zoner och poster](dns-zones-records.md).
 
-* Lär dig hur du skapar en zon i Azure DNS i [Skapa en DNS-zon](./dns-getstarted-create-dnszone-portal.md).
+* Lär dig hur du skapar en zon i Azure DNS i [Skapa en DNS-zon](./dns-getstarted-portal.md).
 
 * Vanliga frågor om Azure DNS finns i [vanliga frågor och svar för Azure DNS](dns-faq.md).

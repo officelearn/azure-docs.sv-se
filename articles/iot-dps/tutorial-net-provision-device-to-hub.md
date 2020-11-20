@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 55195949cfaa741389f38deaea69806c568c0ce6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9a14ee6ee3e10b36d64ec11fc23807efe2bfaf2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008275"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966572"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Självstudie: registrera enheten till en IoT-hubb med Azure IoT Hub Provisioning service-klienten (.NET)
 
@@ -42,12 +42,12 @@ Den här självstudien simulerar perioden under eller direkt efter processen fö
 I det här steget ska du lägga till enhetens unika säkerhetsartefakter till enhetsetableringstjänsten. Dessa säkerhetsartefakter är:
 
 - För TPM-baserade enheter:
-    - *Bekräftelsenyckeln* som är unik för varje TPM-krets eller simulering. Läs [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) (Förstå TPM-bekräftelsenyckeln) för mer information.
+    - *Bekräftelsenyckeln* som är unik för varje TPM-krets eller simulering. Läs [Understand TPM Endorsement Key](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770443(v=ws.11)) (Förstå TPM-bekräftelsenyckeln) för mer information.
     - *Registrerings-ID:t* som används för att unikt identifiera en enhet i namnrymden/omfattningen. Det kan vara samma som enhetens ID, men det måste inte vara det. ID:t är obligatoriskt för alla enheter. För TPM-baserade enheter kan registrerings-ID:t härledas från själv TPM, till exempel en SHA-256-hash för TPM-bekräftelsenyckeln.
 
 - För X.509-baserade enheter:
-    - [X.509-certifikatet som utfärdats till enheten](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), antingen som en *.pem*- eller *.cer*-fil. För enskild registrering måste du använda *lövcertifikatet* för ditt X.509-system, och för registreringsgrupper måste du använda *rotcertifikatet* eller ett motsvarande *signeringscertifikat*.
-    - *Registrerings-ID:t* som används för att unikt identifiera en enhet i namnrymden/omfattningen. Det kan vara samma som enhetens ID, men det måste inte vara det. ID:t är obligatoriskt för alla enheter. Registrerings-ID härleds från certifikatets eget namn (CN) för X.509-baserade enheter. Mer information om kraven finns under [Enhetskoncept](https://docs.microsoft.com/azure/iot-dps/concepts-device).
+    - [X.509-certifikatet som utfärdats till enheten](/windows/win32/seccertenroll/about-x-509-public-key-certificates), antingen som en *.pem*- eller *.cer*-fil. För enskild registrering måste du använda *lövcertifikatet* för ditt X.509-system, och för registreringsgrupper måste du använda *rotcertifikatet* eller ett motsvarande *signeringscertifikat*.
+    - *Registrerings-ID:t* som används för att unikt identifiera en enhet i namnrymden/omfattningen. Det kan vara samma som enhetens ID, men det måste inte vara det. ID:t är obligatoriskt för alla enheter. Registrerings-ID härleds från certifikatets eget namn (CN) för X.509-baserade enheter. Mer information om kraven finns under [Enhetskoncept](./concepts-service.md).
 
 Det finns två sätt att registrera enheten till enhetsetableringstjänsten:
 
@@ -129,7 +129,7 @@ Det finns två sätt att registrera enheten till enhetsetableringstjänsten:
     Console.ReadLine();
     ```
         
-1. Högerklicka på din lösning i Visual Studio-Solution Explorer och klicka sedan på **Ange start projekt...**. Välj **enstaka start projekt**och välj sedan **DeviceProvisioning** -projektet i list menyn.  
+1. Högerklicka på din lösning i Visual Studio-Solution Explorer och klicka sedan på **Ange start projekt...**. Välj **enstaka start projekt** och välj sedan **DeviceProvisioning** -projektet i list menyn.  
 
 1. Kör .NET-enhetsappen **DeviceProvisiong**. Den bör konfigurera etablering av enheten: 
 

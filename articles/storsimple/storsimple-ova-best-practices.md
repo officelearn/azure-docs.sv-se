@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71b018da6b54ebf2b45a261378ea521a397159e5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81460655"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964991"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Metodtips för StorSimple Virtual Array
 
@@ -111,7 +111,7 @@ Det minsta lokala utrymmet som krävs för återställning är 330 GB.
 
 Vid en oväntad tillväxt kan du etablera en lokal disk på 1,25-1,5 TB.
 
-### <a name="group-policy"></a>Grup princip
+### <a name="group-policy"></a>Grupprincip
 Grupprincip är en infrastruktur som gör att du kan implementera vissa konfigurationer för användare och datorer. Grupprincip inställningar finns i grupprincip objekt (GPO) som är länkade till följande Active Directory Domain Services-behållare (AD DS): platser, domäner eller organisationsenheter (OU). 
 
 Om din virtuella matris är domänansluten, kan grup princip objekt tillämpas på den. Dessa grup princip objekt kan installera program som en antivirus program vara som kan påverka driften av den virtuella StorSimple-matrisen.
@@ -119,7 +119,7 @@ Om din virtuella matris är domänansluten, kan grup princip objekt tillämpas p
 Vi rekommenderar därför att du:
 
 * Se till att den virtuella matrisen finns i en egen organisationsenhet (OU) för Active Directory.
-* Se till att inga grup princip objekt (GPO) tillämpas på den virtuella matrisen. Du kan blockera arv för att se till att den virtuella matrisen (underordnad nod) inte automatiskt ärver grup princip objekt från den överordnade. Mer information finns i [Blockera arv](https://technet.microsoft.com/library/cc731076.aspx).
+* Se till att inga grup princip objekt (GPO) tillämpas på den virtuella matrisen. Du kan blockera arv för att se till att den virtuella matrisen (underordnad nod) inte automatiskt ärver grup princip objekt från den överordnade. Mer information finns i [Blockera arv](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
 
 ### <a name="networking"></a>Nätverk
 Nätverks konfigurationen för din virtuella matris görs via det lokala webb gränssnittet. Ett virtuellt nätverks gränssnitt har Aktiver ATS via hypervisorn som den virtuella matrisen är etablerad i. Använd sidan [nätverks inställningar](storsimple-virtual-array-deploy3-fs-setup.md) om du vill konfigurera det virtuella nätverks gränssnittets IP-adress, undernät och gateway.  Du kan också konfigurera den primära och sekundära DNS-servern, tids inställningarna och valfria proxyinställningar för enheten. Det mesta av nätverks konfigurationen är en eng ång slö period. Granska [StorSimple nätverks krav](storsimple-ova-system-requirements.md#networking-requirements) innan du distribuerar den virtuella matrisen.
@@ -137,7 +137,7 @@ När du distribuerar den virtuella matrisen rekommenderar vi att du följer dess
   * Konfigurera statiska IP-adresser. Du måste konfigurera en primär och en sekundär DNS-server.
   * Om du definierar flera nätverks gränssnitt på den virtuella matrisen, kan endast det första nätverks gränssnittet (som standard är **Ethernet**) komma åt molnet. Du kan styra typen av trafik genom att skapa flera virtuella nätverks gränssnitt på din virtuella matris (konfigurerad som en iSCSI-server) och ansluta dessa gränssnitt till olika undernät.
 * Om du vill begränsa moln bandbredden (används av den virtuella matrisen) konfigurerar du begränsning på routern eller brand väggen. Om du definierar begränsning i hypervisor-programmet kommer det att begränsa alla protokoll inklusive iSCSI och SMB i stället för bara moln bandbredden.
-* Kontrol lera att tidssynkroniseringen för hypervisorer är aktive rad. Om du använder Hyper-V väljer du din virtuella matris i Hyper-V Manager, går till **inställningar &gt; integrerings tjänster**och kontrollerar att **tidssynkroniseringen** är markerad.
+* Kontrol lera att tidssynkroniseringen för hypervisorer är aktive rad. Om du använder Hyper-V väljer du din virtuella matris i Hyper-V Manager, går till **inställningar &gt; integrerings tjänster** och kontrollerar att **tidssynkroniseringen** är markerad.
 
 ### <a name="storage-accounts"></a>Lagringskonton
 StorSimple virtuella matris kan associeras med ett enda lagrings konto. Det här lagrings kontot kan vara ett automatiskt genererat lagrings konto, ett konto i samma prenumeration som tjänsten eller ett lagrings konto som är kopplat till en annan prenumeration. Mer information finns i [Hantera lagrings konton för den virtuella matrisen](storsimple-virtual-array-manage-storage-accounts.md).
@@ -289,4 +289,3 @@ Flera virtuella matriser kan behöva distribueras för att kunna användas för 
 
 ## <a name="see-also"></a>Se även
 Lär dig hur du [administrerar din virtuella StorSimple-matris](storsimple-virtual-array-manager-service-administration.md) via tjänsten StorSimple Manager.
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 62f4a06ec729d896dc11a290bc7a5ccc7c321683
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b363d90d05e95b017c3a655b57dbabc3712a155
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984057"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965552"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Hantera och analysera flödes loggar för nätverks säkerhets grupper i Azure med hjälp av Network Watcher och Graylog
 
@@ -40,7 +40,7 @@ Flödes loggar för nätverks säkerhets grupper aktive ras med hjälp av Networ
 
 ### <a name="enable-network-security-group-flow-logging"></a>Aktivera flödes loggning för nätverks säkerhets grupp
 
-I det här scenariot måste du ha nätverks säkerhets gruppens flödes loggning aktiverat på minst en nätverks säkerhets grupp i ditt konto. Anvisningar om hur du aktiverar flödes loggar för nätverks säkerhets grupper finns i följande artikel [Introduktion till flödes loggning för nätverks säkerhets grupper](network-watcher-nsg-flow-logging-overview.md).
+I det här scenariot måste du ha nätverks säkerhets gruppens flödes loggning aktiverat på minst en nätverks säkerhets grupp i ditt konto. Anvisningar om hur du aktiverar flödes loggar för nätverks säkerhets grupper finns i följande artikel [Introduktion till flödes loggning för nätverks säkerhets grupper](network-watcher-nsg-flow-logging-overview.md).
 
 ### <a name="setting-up-graylog"></a>Konfigurera Graylog
 
@@ -53,7 +53,7 @@ I det här exemplet används den minsta Graylog-installationen (dvs. en enda ins
 
 Graylog kan installeras på många sätt, beroende på din plattform och dina preferenser. En fullständig lista över möjliga installations metoder finns i Graylog officiella [dokumentation](https://docs.graylog.org/en/2.2/pages/installation.html). Graylog-serverprogrammet körs på Linux-distributioner och uppfyller följande krav:
 
--  Java-SE 8 eller senare – [Azul Azure JDK-dokumentation](https://aka.ms/azure-jdks)
+-  Java-SE 8 eller senare – [Azul Azure JDK-dokumentation](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 -  Elastisk sökning 2. x (2.1.0 eller senare)- [installations dokumentation för ElasticSearch](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2,4 eller senare – [MongoDB installations dokumentation](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
@@ -246,4 +246,4 @@ Genom att integrera Network Watcher med Graylog har du nu ett bekvämt och centr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du visualiserar flödes loggar för nätverks säkerhets grupper med Power BI genom att besöka [visualisera nätverks säkerhets grupp flöden loggar med Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+Lär dig hur du visualiserar flödes loggar för nätverks säkerhets grupper med Power BI genom att besöka [visualisera nätverks säkerhets grupp flöden loggar med Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72bf252488878c8b6fabb2ea2d61658a2cd87e14
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75891504"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966215"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple säkerhet och data skydd
 
@@ -269,7 +269,7 @@ Här följer några frågor och svar om säkerhets-och Microsoft Azure StorSimpl
 
 **A:** Du kan hämta det nya certifikatet från StorSimple Enhetshanteraren-tjänsten och sedan ange att det ska installeras i certifikat arkivet för fjärråtkomstklienterna. Anvisningar finns i:
 
-* [Importera-certifikat-cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
+* [Importera-certifikat-cmdlet](/powershell/module/pkiclient/import-certificate)
 
 **F:** Är mina data skyddade om tjänsten StorSimple Enhetshanteraren komprometteras?
 
@@ -288,4 +288,3 @@ Här följer några frågor och svar om säkerhets-och Microsoft Azure StorSimpl
 ## <a name="next-steps"></a>Nästa steg
 
 [Distribuera din StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md).
-

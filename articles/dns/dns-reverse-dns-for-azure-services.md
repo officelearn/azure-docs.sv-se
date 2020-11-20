@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 15396467e92b3e035add03d0d29888558571aa2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3adbf34e4c19a76c2b5b2b1968c7821f37965929
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711246"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965637"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Konfigurera omvänd DNS för tjänster som finns i Azure
 
@@ -247,11 +247,10 @@ Nej. Azure har för närvarande endast stöd för omvänd DNS för IPv4 PublicIp
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Kan jag skicka e-postmeddelanden till externa domäner från mina Azure Compute-tjänster?
 
-Den tekniska möjligheten att skicka e-post direkt från en Azure-distribution beror på prenumerations typen. Oavsett prenumerations typ rekommenderar Microsoft att använda betrodda e-posttjänster för att skicka utgående e-post. Mer information finns i [förbättrad Azure-säkerhet för att skicka e-post – November 2017 uppdatering](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
+Den tekniska möjligheten att skicka e-post direkt från en Azure-distribution beror på prenumerations typen. Oavsett prenumerations typ rekommenderar Microsoft att använda betrodda e-posttjänster för att skicka utgående e-post. Mer information finns i [förbättrad Azure-säkerhet för att skicka e-post – November 2017 uppdatering](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om omvänd DNS finns i [Omvänd DNS-sökning på Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Lär dig hur du kan vara [värd för zonen för omvänd sökning för det IP-adressintervall som tilldelas Internet leverantör i Azure DNS](dns-reverse-dns-for-azure-services.md).
-

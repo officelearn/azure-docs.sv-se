@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9da94f80f9a9c1b3cba7b8e3ac4fef7e717918c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e976199730ec74f9e76b9f4199e90e192916474
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88042759"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966725"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Vad är funktionen för autoregistrering i Azure DNS privata zoner
 
@@ -29,7 +29,7 @@ Du kan aktivera automatisk registrering genom att välja alternativet Aktivera a
 
 * Autoregistrering fungerar bara för virtuella datorer. För alla andra resurser som interna belastningsutjämnare osv. kan du skapa DNS-poster manuellt i den privata DNS-zon som är länkad till det virtuella nätverket.
 * DNS-poster skapas automatiskt för den primära virtuella datorns nätverkskort. Om dina virtuella datorer har mer än ett nätverkskort kan du manuellt skapa DNS-poster för andra nätverks gränssnitt.
-* DNS-poster skapas automatiskt endast om den primära virtuella datorns nätverkskort använder DHCP. Om statiska IP-adresser har kon figurer ATS (till exempel för att använda [flera IP-adresser i Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-portal#os-config)) skapas inga poster för den virtuella datorn med autoregistrering.
+* DNS-poster skapas automatiskt endast om den primära virtuella datorns nätverkskort använder DHCP. Om statiska IP-adresser har kon figurer ATS (till exempel för att använda [flera IP-adresser i Azure](../virtual-network/virtual-network-multiple-ip-addresses-portal.md#os-config)) skapas inga poster för den virtuella datorn med autoregistrering.
 * Autoregistrering för IPv6 (AAAA-poster) stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg

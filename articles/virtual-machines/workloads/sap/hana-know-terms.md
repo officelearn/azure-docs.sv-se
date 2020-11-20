@@ -11,15 +11,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2020
+ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b65190c0fd2fcac132f762116a63357a08e6bf02
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7777888bd27325e9094032458922969494a9a64e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967745"
+ms.locfileid: "94984965"
 ---
 # <a name="know-the-terms"></a>Förstå villkoren
 
@@ -45,6 +45,7 @@ Flera vanliga definitioner används ofta i arkitektur-och teknisk distributions 
 - **Revision**: det finns två olika stämplar revisioner för Hana-stora instans stämplar. Dessa skiljer sig från arkitekturen och närhet till Azures värdar för virtuella datorer
     - "Revision 3" (rev 3): är den ursprungliga design som har distribuerats från mitten av året 2016
     - "Revision 4" (rev 4): är en ny design som kan ge närmare närhet till värdar för virtuella Azure-datorer och med den lägre nätverks fördröjningen mellan virtuella Azure-datorer och HANA stora instans enheter 
+    - "Revision 4,2" (rev 4,2): på befintliga revision 4-domänkontrollanter ommärkess resurserna till BareMetal-infrastrukturen.  Kunder kan komma åt sina resurser som BareMetal-instanser från Azure Portal. 
 
 Det finns flera olika ytterligare resurser som du kan använda för att distribuera en SAP-arbetsbelastning i molnet. Om du planerar att köra en distribution av SAP HANA i Azure måste du ha erfarenhet av och känna till principerna för Azure-IaaS och distributionen av SAP-arbetsbelastningar på Azure IaaS. Innan du fortsätter kan du läsa [Använd SAP-lösningar på Azure Virtual Machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för mer information. 
 

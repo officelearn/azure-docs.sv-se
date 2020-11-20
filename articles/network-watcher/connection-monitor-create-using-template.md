@@ -1,5 +1,5 @@
 ---
-title: Skapa anslutnings övervakare – ARMClient
+title: Skapa anslutnings övervakare (för hands version) – ARM-mall
 titleSuffix: Azure Network Watcher
 description: Lär dig hur du skapar anslutnings övervakaren med hjälp av ARMClient.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: c80f2aaf26c0f0e89014c997151599c8bddbe903
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e1a0ecd85d07aa4fdf5482c5104c17eb4a068688
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948824"
+ms.locfileid: "94984234"
 ---
-# <a name="create-a-connection-monitor-using-the-armclient"></a>Skapa en anslutnings övervakare med hjälp av ARMClient
+# <a name="create-a-connection-monitor-using-the-arm-template"></a>Skapa en anslutnings övervakare med ARM-mallen
 
 Lär dig hur du skapar anslutnings övervakaren för att övervaka kommunikationen mellan dina resurser med hjälp av ARMClient. Det stöder hybrid-och Azure Cloud-distributioner.
+
+> [!IMPORTANT]
+> Anslutnings övervakaren är för närvarande en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 

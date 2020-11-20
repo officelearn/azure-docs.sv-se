@@ -1,5 +1,5 @@
 ---
-title: Migrera till anslutnings övervakaren från anslutnings övervakaren
+title: Migrera till anslutnings övervakaren (förhands granskning) från anslutnings övervakaren
 titleSuffix: Azure Network Watcher
 description: Lär dig hur du migrerar till anslutnings övervakaren från anslutnings övervakaren.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-ms.openlocfilehash: 0ae1a1f36b9f81145b49245d8e6ace37ab36f834
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d785ecd48816150cd33d8e2f5fcce2ff36f1603f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94974911"
+ms.locfileid: "94985798"
 ---
-# <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrera till anslutnings övervakaren från anslutnings övervakaren (klassisk)
+# <a name="migrate-to-connection-monitor-preview-from-connection-monitor-classic"></a>Migrera till anslutnings övervakaren (förhands granskning) från anslutnings övervakaren (klassisk)
 
-Du kan migrera befintliga anslutnings övervakare till ny, förbättrad anslutnings övervakare med bara några klick och utan stillestånds tid. Läs mer om fördelarna i [anslutnings övervakaren](./connection-monitor-overview.md).
+Du kan migrera befintliga anslutnings övervakare till ny, förbättrad anslutnings övervakare (för hands version) med bara några klick och utan avbrott. Läs mer om fördelarna i [anslutnings övervakaren](./connection-monitor-overview.md).
+
+> [!IMPORTANT]
+> Anslutnings övervakaren är för närvarande en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="key-points-to-note"></a>Viktiga punkter att Observera
 
@@ -34,7 +38,7 @@ Migreringen hjälper till att producera följande resultat:
    * **Aviseringar**: migreras automatiskt till de nya måtten.
    * **Instrument paneler och integreringar**: Kräv manuell redigering av de angivna måtten. 
     
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du använder en anpassad arbets yta ser du till att Network Watcher är aktive rad i din prenumeration och i den region i Log Analytics arbets ytan. 
 

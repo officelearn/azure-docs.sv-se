@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/14/2020
-ms.openlocfilehash: 42f6badabd27ceaa302f635a7a33b0161b870dc5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3cab3b262f9116903d0b423cd5e4a0ebd03c46fa
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782866"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984438"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig kvarhållning av säkerhets kopior
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ I följande avsnitt visar vi hur du använder Azure Portal för att konfigurera 
 
 Du kan konfigurera SQL Database att [behålla automatiserade säkerhets kopieringar](long-term-retention-overview.md) under en längre tid än kvarhållningsperioden för din tjänst nivå.
 
-1. I Azure Portal väljer du SQL Server instansen och klickar sedan på **hantera säkerhets kopior** . På fliken **Konfigurera principer** markerar du kryss rutan för den databas där du vill ange eller ändra bevarande principer för långsiktig säkerhets kopiering. Om kryss rutan bredvid databasen inte är markerad gäller inte ändringarna för principen för den databasen.  
+1. I Azure Portal väljer du SQL Server instansen och klickar sedan på **hantera säkerhets kopior**. På fliken **Konfigurera principer** markerar du kryss rutan för den databas där du vill ange eller ändra bevarande principer för långsiktig säkerhets kopiering. Om kryss rutan bredvid databasen inte är markerad gäller inte ändringarna för principen för den databasen.  
 
    ![hantera säkerhets kopierings länk](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
@@ -39,7 +39,7 @@ Du kan konfigurera SQL Database att [behålla automatiserade säkerhets kopierin
 
    ![konfigurera principer](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
 
-3. När du är klar klickar du på **Använd** .
+3. När du är klar klickar du på **Använd**.
 
 > [!IMPORTANT]
 > När du aktiverar en långsiktig bevarande princip för säkerhets kopiering kan det ta upp till sju dagar innan den första säkerhets kopieringen blir synlig och tillgänglig för återställning. Mer information om säkerhets kopierings cadance finns i [långsiktig kvarhållning av säkerhets kopior](long-term-retention-overview.md).
@@ -48,7 +48,7 @@ Du kan konfigurera SQL Database att [behålla automatiserade säkerhets kopierin
 
 Visa säkerhets kopiorna som bevaras för en speciell databas med en LTR-princip och Återställ från dessa säkerhets kopior.
 
-1. I Azure Portal väljer du servern och klickar sedan på **hantera säkerhets kopior** . På fliken **tillgängliga säkerhets kopior** väljer du den databas som du vill se tillgängliga säkerhets kopior för.
+1. I Azure Portal väljer du servern och klickar sedan på **hantera säkerhets kopior**. På fliken **tillgängliga säkerhets kopior** väljer du den databas som du vill se tillgängliga säkerhets kopior för.
 
    ![Välj databas](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
 
@@ -100,7 +100,7 @@ För **Remove-AzSqlDatabaseLongTermRetentionBackup** måste du ha en av följand
 > [!NOTE]
 > Rollen SQL Server Contributor har inte behörighet att ta bort LTR-säkerhetskopieringar.
 
-RBAC-behörigheter kan beviljas i antingen *prenumerations* -eller *resurs grupps* omfång. Men för att få åtkomst till LTR-säkerhets kopieringar som tillhör en tappad Server måste behörigheten beviljas i *prenumerations* omfånget för den servern.
+Azure RBAC-behörigheter kan beviljas i antingen *prenumerations* -eller *resurs grupps* omfång. Men för att få åtkomst till LTR-säkerhets kopieringar som tillhör en tappad Server måste behörigheten beviljas i *prenumerations* omfånget för den servern.
 
 - Microsoft. SQL/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/Delete
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb66d8a197a33d6d0ad46502b510662f43ea1ca
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532525"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988569"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
@@ -55,7 +55,7 @@ Dessa parametrar kan ingå i frågesträngen för REST-begäran.
 
 | Parameter | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
-| `language` | Identifierar det talade språk som identifieras. Se [vilka språk som stöds](language-support.md#speech-to-text). | Krävs |
+| `language` | Identifierar det talade språk som identifieras. Se [vilka språk som stöds](language-support.md#speech-to-text). | Obligatorisk |
 | `format` | Anger resultat formatet. Godkända värden är `simple` och `detailed` . Enkla resultat inkluderar `RecognitionStatus` , `DisplayText` , `Offset` och `Duration` . Detaljerade svar innehåller fyra olika representationer av visnings text. Standardinställningen är `simple`. | Valfritt |
 | `profanity` | Anger hur du hanterar svordomar i igenkännings resultat. Godkända värden är `masked` , som ersätter svordomar med asterisker, `removed` som tar bort alla svordomar från resultatet, eller `raw` som innehåller svordomarna i resultatet. Standardinställningen är `masked`. | Valfritt |
 | `cid` | När du använder [Custom Speech Portal](how-to-custom-speech.md) för att skapa anpassade modeller kan du använda anpassade modeller via deras **slut punkts-ID** som finns på **distributions** sidan. Använd **slut punkts-ID** som argument för `cid` parametern frågesträng. | Valfritt |
@@ -64,12 +64,12 @@ Dessa parametrar kan ingå i frågesträngen för REST-begäran.
 
 I den här tabellen listas obligatoriska och valfria sidhuvuden för begäran om tal till text.
 
-|Sidhuvud| Beskrivning | Obligatorisk/valfri |
+|Huvud| Description | Obligatorisk/valfri |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Din prenumerations nyckel för röst tjänst. | Antingen den här rubriken eller `Authorization` krävs. |
 | `Authorization` | En autentiseringstoken föregås av ordet `Bearer` . Mer information finns i [Autentisering](#authentication). | Antingen den här rubriken eller `Ocp-Apim-Subscription-Key` krävs. |
 | `Pronunciation-Assessment` | Anger parametrar för visning av uttal i igenkännings resultat, som utvärderar uttal av tal ingångar, med indikatorer på precision, Fluency, fullständighet osv. Den här parametern är en Base64-kodad JSON som innehåller flera detaljerade parametrar. Se [uttal av bedömnings parametrar](#pronunciation-assessment-parameters) för hur du skapar den här rubriken. | Valfritt |
-| `Content-type` | Beskriver formatet och codecen för de angivna ljud data. Godkända värden är `audio/wav; codecs=audio/pcm; samplerate=16000` och `audio/ogg; codecs=opus` . | Krävs |
+| `Content-type` | Beskriver formatet och codecen för de angivna ljud data. Godkända värden är `audio/wav; codecs=audio/pcm; samplerate=16000` och `audio/ogg; codecs=opus` . | Obligatorisk |
 | `Transfer-Encoding` | Anger att segmenterade ljud data ska skickas i stället för en enda fil. Använd endast den här rubriken om du segmenterar ljuddata. | Valfritt |
 | `Expect` | Skicka om du använder segmenterad överföring `Expect: 100-continue` . Tal tjänsten bekräftar den första begäran och väntar på ytterligare data.| Krävs om du skickar segmenterade ljud data. |
 | `Accept` | Om det anges måste det vara `application/json` . Tal tjänsten ger resultat i JSON. Vissa ramverk för begäran tillhandahåller ett inkompatibelt standardvärde. Det är en bra idé att alltid inkludera `Accept` . | Valfritt, men rekommenderas. |
@@ -90,10 +90,10 @@ Ljud skickas i bröd texten i HTTP- `POST` begäran. Det måste vara i något av
 
 I den här tabellen listas obligatoriska och valfria parametrar för uttal-utvärdering.
 
-| Parameter | Beskrivning | Obligatorisk/valfri |
+| Parameter | Beskrivning | Obligatoriskt? |
 |-----------|-------------|---------------------|
-| ReferenceText | Texten som uttalet kommer att utvärderas mot. | Krävs |
-| GradingSystem | Punkt systemet för resultat kalibrering. Godkända värden är `FivePoint` och `HundredMark` . Standardinställningen är `FivePoint`. | Valfritt |
+| ReferenceText | Texten som uttalet kommer att utvärderas mot. | Obligatorisk |
+| GradingSystem | Punkt systemet för resultat kalibrering. `FivePoint`Systemet ger ett flytt ALS värde på 0-5 och `HundredMark` ger en 0-100 flytt ALS poäng. Standard: `FivePoint`. | Valfritt |
 | Precision | Utvärderings precisionen. Godkända värden är `Phoneme` , som visar poängen på den fullständiga text-, Word-och fonem-nivån, `Word` som visar poängen på den fullständiga text-och ord nivån, `FullText` som bara visar poängen på hela text nivån. Standardinställningen är `Phoneme`. | Valfritt |
 | Dimension | Definierar kriterierna för utdata. Godkända värden är `Basic` , som bara visar noggrannhets poängen, `Comprehensive` visar poängen på fler dimensioner (t. ex. Fluency Poäng och total poäng på nivån full text nivå, fel typ på ord nivå). Kontrol lera [svars parametrar](#response-parameters) för att se definitioner av olika Poäng dimensioner och ord fel typer. Standardinställningen är `Basic`. | Valfritt |
 | EnableMiscue | Aktiverar miscue-beräkning. Med det här alternativet kommer uttalade ord att jämföras med referens texten och markeras med utelämnanden/infogning baserat på jämförelsen. Godkända värden är `False` och `True` . Standardinställningen är `False`. | Valfritt |

@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 2768af90b498ded775c65521bac52f8325c53ea4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2253ff1797f526d4507b780417f04c255f24645e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94746531"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985282"
 ---
-|Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Ta med din egen nyckel data skydd måste vara aktiverat för PostgreSQL-servrar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F18adea5e-f416-4d0f-8aa8-d24321e3e274) |Genom att använda Kundhanterade nycklar för att kryptera data i vila i Azure Database for PostgreSQL databas servrar kan du implementera en separation av uppgifter i hanteringen av nycklar och data. När du konfigurerar en kundhanterad nyckel används nyckeln för att skydda och kontrol lera åtkomsten till nyckeln som krypterar dina data. Du har fullständig kontroll och ansvar för nyckel livs cykeln, inklusive rotation och hantering.  Användning av Kundhanterade nycklar krävs ibland för efterlevnad. |AuditIfNotExists, inaktiverat |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableByok_Audit.json) |
 |[Anslutnings begränsning ska vara aktiverat för PostgreSQL-databas servrar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5345bb39-67dc-4960-a1bf-427e16b9a0bd) |Den här principen hjälper till att granska alla PostgreSQL-databaser i din miljö utan anslutnings begränsning aktive rad. Den här inställningen aktiverar tillfälligt anslutnings begränsning per IP för alltför många ogiltiga lösen ords inloggnings fel. |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_ConnectionThrottling_Enabled_Audit.json) |

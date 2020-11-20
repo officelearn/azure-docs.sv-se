@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 3952736af9cf7c3b720769cee6a58e3fc52a6111
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b62a0da7074676787b7e1c0182ca7588b83cdbe0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127411"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985050"
 ---
 # <a name="what-is-azure-iot-central"></a>Vad är Azure IoT Central?
 
@@ -58,7 +58,7 @@ Som Solution Builder använder du webbaserade verktyg för att skapa en _enhets 
 
 Den här [enhets mal len](howto-set-up-template.md) innehåller:
 
-- En _modell för enhets kapacitet_ som beskriver de funktioner som en enhet ska implementera. Enhets funktionerna är:
+- En _enhets modell_ som beskriver de funktioner som en enhet ska implementera. Enhets funktionerna är:
 
   - Den telemetri som den strömmar till IoT Central.
   - De skrivskyddade egenskaperna som används för att rapportera tillstånd till IoT Central.
@@ -72,9 +72,9 @@ Den här [enhets mal len](howto-set-up-template.md) innehåller:
 
 Som Solution Builder har du flera alternativ för att skapa enhets mallar:
 
-- Utforma enhets mal len i IoT Central och implementera sedan dess enhets kapacitets modell i enhets koden.
-- Skapa en enhets kapacitets modell med Visual Studio Code och publicera modellen till en lagrings plats. Implementera din enhets kod från modellen och Anslut enheten till IoT Central-programmet. IoT Central hittar enhetens kapacitets modell från lagrings platsen och skapar en enkel enhets mall åt dig.
-- Skapa en enhets kapacitets modell med Visual Studio Code. Implementera din enhets kod från modellen. Importera enhetens kapacitets modell manuellt till ditt IoT Central program och Lägg sedan till eventuella moln egenskaper, anpassningar och instrument paneler som ditt IoT Central program behöver.
+- Utforma enhets mal len i IoT Central och implementera sedan dess enhets modell i enhets koden.
+- Skapa en enhets modell med Visual Studio Code och publicera modellen till en lagrings plats. Implementera din enhets kod från modellen och Anslut enheten till IoT Central-programmet. IoT Central hittar enhets modellen från lagrings platsen och skapar en enkel enhets mall åt dig.
+- Skapa en enhets modell med Visual Studio Code. Implementera din enhets kod från modellen. Importera enhets modellen manuellt till ditt IoT Central program och Lägg sedan till eventuella moln egenskaper, anpassningar och instrument paneler som ditt IoT Central program behöver.
 
 Som Solution Builder kan du använda IoT Central för att generera kod för test enheter för att validera dina enhets mallar.
 
@@ -151,7 +151,6 @@ Varje Azure-prenumeration har standard kvoter som kan påverka omfånget för di
 - Mat ris schema typer stöds inte.
 - Endast C-enhetens SDK och Node.js enhets-och tjänst-SDK: er stöds.
 - IoT Central är för närvarande tillgängligt på platserna USA, Europa, Asien och stillahavsområdet, Australien, Storbritannien och Japan.
-- Enhets kapacitets modeller måste ha alla gränssnitt definierade infogade i samma fil.
 
 ## <a name="next-steps"></a>Nästa steg
 

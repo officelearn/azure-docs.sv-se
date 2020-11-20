@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: c15750a7a63293994ff7c6b68cb85a5066acee90
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: d22d70a360290e7fbfabf1d05fc49d4ef6eb8c83
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981144"
+ms.locfileid: "94986342"
 ---
 # <a name="creating-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
 I den här självstudien får du lära dig hur du skapar en Synapse-arbetsyta, en dedikerad SQL-pool och en server lös Apache Spark pool. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här själv studie kursen måste du ha åtkomst till en resurs grupp som du har tilldelats **ägar** rollen för. Skapa arbets ytan Synapse i den här resurs gruppen.
 
@@ -67,7 +67,7 @@ Spark-poolen meddelar Azure Synapse hur många Spark-resurser som ska användas.
 
 ## <a name="the-built-in-serverless-sql-pool"></a>Den inbyggda SQL-poolen utan Server
 
-Varje arbets yta levereras med en fördefinierad pool som kallas **inbyggd**. Det går inte att ta bort poolen. Med SQL-poolen utan server kan du arbeta med SQL utan att behöva skapa eller tänka på att hantera en server lös SQL-pool i Azure Synapse. Till skillnad från dedikerade SQL-pooler baseras faktureringen för en server lös SQL-pool på mängden data som genomsöks för att köra frågan, inte antalet resurser som används för att köra frågan.
+Varje arbets yta levereras med en fördefinierad Server lös SQL-pool som kallas **inbyggd**. Det går inte att ta bort poolen. SQL-pooler utan Server gör att du kan använda SQL-withou som måste reservera kapacitet med dedikerade SQL-pooler. Till skillnad från dedikerade SQL-pooler baseras faktureringen för en server lös SQL-pool på mängden data som genomsöks för att köra frågan, inte antalet allokerade kapacitet till poolen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec45ce7634b7bc0a8f38f354112cdc2e172f1e17
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 58f0ffa8bd43a8428603334b6c89fa1cf36315b5
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288365"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987345"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Vanliga frågor om identitets skydd i Azure Active Directory
 
@@ -95,6 +95,4 @@ Med tanke på att användar risken är kumulativ och inte upphör att gälla, ka
 
 Hög mängd risk poängen kan baseras på andra funktioner i inloggningen eller det faktum att fler än en identifiering har Aktiver ATS för den inloggningen. En inloggning kan dessutom ha en inloggnings risk (agg regering) av medel, även om identifieringarna som är associerade med inloggningen är av hög risk. 
 
-### <a name="why-is-the-detection-which-is-linked-to-a-risky-sign-in-have-a-different-risk-level-than-the-sign-in-risk-level-real-time"></a>Varför har identifieringen som är kopplad till en riskfylld inloggning en annan risk nivå än inloggnings risk nivån (real tid)? 
 
-Vi har nyligen gjort förbättringar för hur real tids inloggnings risken beräknas. Den avvikelse som observeras mellan risk identifierings nivån och inloggnings risk nivån är resultatet av dessa ändringar. Observera att inloggnings risken i real tid är det värde som används vid princip tillämpning. 

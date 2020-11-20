@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: b9afb35a0e8a1c2513ce032030271599d181cd14
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 77ed71d74e75abfdf7f84aee9b116f1d9d2ccc9d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792692"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985866"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Självstudie: skydda en databas i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,15 +78,15 @@ Konfigurera en brandväggsregel på servernivå:
     ![brandväggsregler för server](./media/secure-database-tutorial/server-name.png)
 
     > [!NOTE]
-    > Se till att kopiera det fullständigt kvalificerade servernamnet (till exempel *yourserver.database.windows.net* ) för användning senare i självstudien.
+    > Se till att kopiera det fullständigt kvalificerade servernamnet (till exempel *yourserver.database.windows.net*) för användning senare i självstudien.
 
-1. På **översiktssidan** väljer du **Konfigurera serverns brandvägg** . Sidan **brand Väggs inställningar** för servern öppnas.
+1. På **översiktssidan** väljer du **Konfigurera serverns brandvägg**. Sidan **brand Väggs inställningar** för servern öppnas.
 
-   1. Välj **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med regeln kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall. Välj **Spara** .
+   1. Välj **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med regeln kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall. Välj **Spara**.
 
       ![ange brandväggsregel för server](./media/secure-database-tutorial/server-firewall-rule2.png)
 
-   1. Välj **OK** och stäng sidan **Brandväggsinställningar** .
+   1. Välj **OK** och stäng sidan **Brandväggsinställningar**.
 
 Nu kan du ansluta till valfri databas på servern med IP-adressen eller IP-adressintervallet som angetts.
 
@@ -98,7 +98,7 @@ Konfigurera en brand Väggs regel på databas nivå:
 
 1. Anslut till databasen med exempelvis [SQL Server Management Studio](connect-query-ssms.md).
 
-1. I **Object Explorer** högerklickar du på databasen och väljer **Ny fråga** .
+1. I **Object Explorer** högerklickar du på databasen och väljer **Ny fråga**.
 
 1. Ändra IP-adressen till din offentliga IP-adress i frågefönstret och lägg till instruktionen:
 
@@ -109,7 +109,7 @@ Konfigurera en brand Väggs regel på databas nivå:
 1. Välj **Kör** i verktygsfältet för att skapa brandväggsregeln.
 
 > [!NOTE]
-> Du kan också skapa en brandväggsregel på servernivå i SSMS med kommandot [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current), men du måste vara ansluten till *master* -databasen.
+> Du kan också skapa en brandväggsregel på servernivå i SSMS med kommandot [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current), men du måste vara ansluten till *master*-databasen.
 
 ## <a name="create-an-azure-ad-admin"></a>Skapa en Azure AD-administratör
 
@@ -119,23 +119,23 @@ Kontrollera att du använder den lämpliga hanterade domänen med Azure Active D
 
 Så här anger du Azure AD-administratör:
 
-1. I Azure Portal på **SQL Server** -sidan väljer du **Active Directory admin** . Välj sedan **Ange administratör** .
+1. I Azure Portal på **SQL Server** -sidan väljer du **Active Directory admin**. Välj sedan **Ange administratör**.
 
     ![Välj active directory](./media/secure-database-tutorial/admin-settings.png)  
 
     > [!IMPORTANT]
     > Du måste vara antingen ”Företagsadministratör” eller ”Global administratör” för att utföra den här uppgiften.
 
-1. På sidan **Lägg till administratör** söker du efter och väljer AD-användaren eller gruppen och därefter **Välj** . Alla medlemmar och grupper för din Active Directory visas, och nedtonade poster stöds inte som Azure AD-administratörer. Se avsnittet om [Azure AD-funktioner och begränsningar](authentication-aad-overview.md#azure-ad-features-and-limitations).
+1. På sidan **Lägg till administratör** söker du efter och väljer AD-användaren eller gruppen och därefter **Välj**. Alla medlemmar och grupper för din Active Directory visas, och nedtonade poster stöds inte som Azure AD-administratörer. Se avsnittet om [Azure AD-funktioner och begränsningar](authentication-aad-overview.md#azure-ad-features-and-limitations).
 
     ![välja administratör](./media/secure-database-tutorial/admin-select.png)
 
     > [!IMPORTANT]
-    > Rollbaserad åtkomstkontroll (RBAC) gäller enbart för portalen och sprids inte till SQL Server.
+    > Rollbaserad åtkomst kontroll i Azure (Azure RBAC) gäller bara för portalen och har inte spridits till SQL Server.
 
 1. Välj **Spara** längst upp på sidan **Active Directory administratör** .
 
-    Processen med att ändra administratör kan ta några minuter. Sedan visas den nya administratören i rutan **Active Directory-administratör** .
+    Processen med att ändra administratör kan ta några minuter. Sedan visas den nya administratören i rutan **Active Directory-administratör**.
 
 > [!NOTE]
 > När du anger en Azure AD-administratör kan det nya administratörs namnet (användare eller grupp) inte finnas som SQL Server inloggning eller användare i *huvud* databasen. Om den gör det misslyckas installationen och ändringarna återställs, vilket indikerar att det redan finns ett administratörsnamn. Eftersom SQL Server inloggning eller användare inte är en del av Azure AD, Miss lyckas alla åtgärder för att ansluta användaren med Azure AD-autentisering.
@@ -155,9 +155,9 @@ Hantera åtkomst till databasen genom att lägga till användare i databasen ell
 
 Välj autentiseringstyp för databasen för att lägga till användare:
 
-- **SQL-autentisering** , som använder användarnamn och lösenord för inloggning, och användarna är endast behöriga i kontexten av en specifik databas inom servern
+- **SQL-autentisering**, som använder användarnamn och lösenord för inloggning, och användarna är endast behöriga i kontexten av en specifik databas inom servern
 
-- **Azure AD-autentisering** , använder identiteter som hanteras av Azure AD
+- **Azure AD-autentisering**, använder identiteter som hanteras av Azure AD
 
 ### <a name="sql-authentication"></a>SQL-autentisering
 
@@ -165,7 +165,7 @@ Så här lägger du till en användare med SQL-autentisering:
 
 1. Anslut till databasen med exempelvis [SQL Server Management Studio](connect-query-ssms.md).
 
-1. I **Object Explorer** högerklickar du på databasen och väljer **Ny fråga** .
+1. I **Object Explorer** högerklickar du på databasen och väljer **Ny fråga**.
 
 1. Skriv följande kommando i frågefönstret:
 
@@ -187,7 +187,7 @@ Så här lägger du till en användare med SQL-autentisering:
 
 ### <a name="azure-ad-authentication"></a>Azure AD-autentisering
 
-Azure Active Directory-autentisering kräver att databasanvändare skapas som användare av oberoende databas. En oberoende databasanvändare mappar till en identitet i Azure AD-katalogen som är kopplad till databasen och har ingen inloggning i *master* -databasen. Azure AD-identiteten kan vara antingen ett enskilt användarkonto eller en grupp. Mer information finns i avsnittet om [oberoende databasanvändare, göra databasen portabel](/sql/relational-databases/security/contained-database-users-making-your-database-portable) och läs [Azure AD-självstudien](authentication-aad-configure.md) om hur du autentiserar med hjälp av Azure AD.
+Azure Active Directory-autentisering kräver att databasanvändare skapas som användare av oberoende databas. En oberoende databasanvändare mappar till en identitet i Azure AD-katalogen som är kopplad till databasen och har ingen inloggning i *master*-databasen. Azure AD-identiteten kan vara antingen ett enskilt användarkonto eller en grupp. Mer information finns i avsnittet om [oberoende databasanvändare, göra databasen portabel](/sql/relational-databases/security/contained-database-users-making-your-database-portable) och läs [Azure AD-självstudien](authentication-aad-configure.md) om hur du autentiserar med hjälp av Azure AD.
 
 > [!NOTE]
 > Databasanvändare (exklusive administratörer) kan inte skapas med hjälp av Azure-portalen. Azure-roller sprids inte till SQL-servrar, databaser eller informations lager. De används endast för att hantera Azure-resurser och gäller inte för databasbehörigheter.
@@ -201,7 +201,7 @@ Så här lägger du till en användare med Azure AD-autentisering:
 
 1. Anslut till din server i Azure med hjälp av ett Azure AD-konto med minst behörigheten *ändra alla användare* .
 
-1. I **Object Explorer** högerklickar du på databasen och väljer **Ny fråga** .
+1. I **Object Explorer** högerklickar du på databasen och väljer **Ny fråga**.
 
 1. I frågefönstret anger du följande kommando och ändrar `<Azure_AD_principal_name>` till Azure AD-användarens huvudnamn eller visningsnamnet för Azure AD-gruppen:
 
@@ -225,7 +225,7 @@ Så här kopierar du en säker anslutningssträng:
 
 1. I Azure Portal väljer du **SQL-databaser** på den vänstra menyn och väljer din databas på sidan **SQL-databaser** .
 
-1. På databasens **översiktssida** klickar du på **Visa databasanslutningssträngar** .
+1. På databasens **översiktssida** klickar du på **Visa databasanslutningssträngar**.
 
 1. Välj en drivrutinsflik och kopiera den fullständiga anslutningssträngen.
 
@@ -246,11 +246,11 @@ Så här aktiverar du Azure Defender för SQL:
 
 1. I Azure Portal väljer du **SQL-databaser** på den vänstra menyn och väljer din databas på sidan **SQL-databaser** .
 
-1. På **översiktssidan** väljer du **Servernamn** . Sidan Server öppnas.
+1. På **översiktssidan** väljer du **Servernamn**. Sidan Server öppnas.
 
-1. På **SQL Server** -sidan, leta upp avsnittet **säkerhet** och välj **Security Center** .
+1. På **SQL Server** -sidan, leta upp avsnittet **säkerhet** och välj **Security Center**.
 
-   1. Aktivera funktionen genom att välja **på** under **Azure Defender for SQL** . Välj ett lagringskonto för att spara resultat av sårbarhetsbedömning. Välj sedan **Spara** .
+   1. Aktivera funktionen genom att välja **på** under **Azure Defender for SQL** . Välj ett lagringskonto för att spara resultat av sårbarhetsbedömning. Välj sedan **Spara**.
 
       ![Navigeringsfönster](./media/secure-database-tutorial/threat-settings.png)
 
@@ -272,27 +272,27 @@ Så här aktiverar du granskning:
 
 1. I Azure Portal väljer du **SQL-databaser** på den vänstra menyn och väljer din databas på sidan **SQL-databaser** .
 
-1. I avsnittet **Säkerhet** väljer du **Granskning** .
+1. I avsnittet **Säkerhet** väljer du **Granskning**.
 
 1. Under **granskningsinställningarna** anger du följande värden:
 
-   1. Ställ in **Granskning** på **PÅ** .
+   1. Ställ in **Granskning** på **PÅ**.
 
    1. Välj **Mål för spårningsloggen** som något av följande:
 
-       - **Storage** , ett Azure Storage-konto där händelseloggar sparas och kan laddas ned som *.xel* -filer
+       - **Storage**, ett Azure Storage-konto där händelseloggar sparas och kan laddas ned som *.xel*-filer
 
           > [!TIP]
           > Använd samma lagringskonto för alla granskade databaser för att få ut mesta möjliga av granskningsrapportmallarna.
 
-       - **Log Analytics** , som automatiskt lagrar händelser för frågor eller ytterligare analys
+       - **Log Analytics**, som automatiskt lagrar händelser för frågor eller ytterligare analys
 
            > [!NOTE]
            > En **Log Analytics arbets yta** krävs för att stödja avancerade funktioner som analys, anpassade aviserings regler och Excel eller Power BI exporter. Utan en arbetsyta är endast frågeredigeraren tillgänglig.
 
-       - **Event Hub** , som tillåter att händelser dirigeras för användning i andra program
+       - **Event Hub**, som tillåter att händelser dirigeras för användning i andra program
 
-   1. Välj **Spara** .
+   1. Välj **Spara**.
 
       ![Granska inställningar](./media/secure-database-tutorial/audit-settings.png)
 
@@ -311,13 +311,13 @@ Så här aktiverar du datamaskning:
 
 1. I Azure Portal väljer du **SQL-databaser** på den vänstra menyn och väljer din databas på sidan **SQL-databaser** .
 
-1. I avsnittet **Säkerhet** väljer du **Dynamisk datamaskning** .
+1. I avsnittet **Säkerhet** väljer du **Dynamisk datamaskning**.
 
 1. Under inställningarna för **Dynamisk datamaskning** väljer du **Lägg till mask** för att lägga till en maskningsregel. Azure fyller automatiskt i tillgängliga databasscheman, tabeller och kolumner att välja bland.
 
     ![Maskinställningar](./media/secure-database-tutorial/mask-settings.png)
 
-1. Välj **Spara** . Den valda informationen maskeras nu för sekretess.
+1. Välj **Spara**. Den valda informationen maskeras nu för sekretess.
 
     ![Maskexempel](./media/secure-database-tutorial/mask-query.png)
 
@@ -329,9 +329,9 @@ Så här aktiverar eller kontrollerar du kryptering:
 
 1. I Azure Portal väljer du **SQL-databaser** på den vänstra menyn och väljer din databas på sidan **SQL-databaser** .
 
-1. I avsnittet **Säkerhet** väljer du **Transparent datakryptering** .
+1. I avsnittet **Säkerhet** väljer du **Transparent datakryptering**.
 
-1. Om det behövs väljer du **PÅ** för **Datakryptering** . Välj **Spara** .
+1. Om det behövs väljer du **PÅ** för **Datakryptering**. Välj **Spara**.
 
     ![Transparent datakryptering](./media/secure-database-tutorial/encryption-settings.png)
 

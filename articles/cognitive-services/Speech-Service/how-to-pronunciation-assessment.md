@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 245a00acb07d1c0e769a243413fccdf64d544f5a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1cc313daf0e76ddd14865959410b07d9bdc189d7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133777"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984929"
 ---
 # <a name="pronunciation-assessment"></a>Uttal av uttal
 
@@ -154,12 +154,12 @@ double pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 
 Den här tabellen innehåller konfigurations parametrar för uttal-utvärdering.
 
-| Parameter | Beskrivning | Obligatorisk/valfri |
+| Parameter | Beskrivning | Obligatoriskt? |
 |-----------|-------------|---------------------|
 | ReferenceText | Texten som uttalet kommer att utvärderas mot. | Obligatorisk |
-| GradingSystem | Punkt systemet för resultat kalibrering. Godkända värden är `FivePoint` och `HundredMark` . Standardinställningen är `FivePoint`. | Valfritt |
-| Precision | Utvärderings precisionen. Godkända värden är `Phoneme` , som visar poängen på den fullständiga text-, Word-och fonem-nivån, `Word` som visar poängen på den fullständiga text-och ord nivån, `FullText` som bara visar poängen på hela text nivån. Standardinställningen är `Phoneme`. | Valfritt |
-| EnableMiscue | Aktiverar miscue-beräkning. Med det här alternativet kommer uttalade ord att jämföras med referens texten och markeras med utelämnanden/infogning baserat på jämförelsen. Godkända värden är `False` och `True` . Standardinställningen är `False`. | Valfritt |
+| GradingSystem | Punkt systemet för resultat kalibrering. `FivePoint`Systemet ger ett flytt ALS värde på 0-5 och `HundredMark` ger en 0-100 flytt ALS poäng. Standard: `FivePoint`. | Valfritt |
+| Precision | Utvärderings precisionen. Godkända värden är `Phoneme` , som visar poängen på den fullständiga text-, Word-och fonem-nivån, `Word` som visar poängen på den fullständiga text-och ord nivån, `FullText` som bara visar poängen på hela text nivån. Standard: `Phoneme`. | Valfritt |
+| EnableMiscue | Aktiverar miscue-beräkning. Med det här alternativet kommer uttalade ord att jämföras med referens texten och markeras med utelämnanden/infogning baserat på jämförelsen. Godkända värden är `False` och `True` . Standard: `False`. | Valfritt |
 | ScenarioId | Ett GUID som anger ett anpassat punkt system. | Valfritt |
 
 ### <a name="pronunciation-assessment-result-parameters"></a>Resultat parametrar för uttal-bedömning

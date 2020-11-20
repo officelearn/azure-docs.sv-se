@@ -1,5 +1,5 @@
 ---
-title: Anslutnings övervakare | Microsoft Docs
+title: Anslutnings övervakare (för hands version) i Azure | Microsoft Docs
 description: Lär dig hur du använder anslutnings övervakaren för att övervaka nätverkskommunikation i en distribuerad miljö.
 services: network-watcher
 documentationcenter: na
@@ -15,18 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 13b379fd3b4f788d79cbb6a9bf6d40cb1693eaf9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cb24cc55844d7c42d68e75d6f6ef947b1315a306
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948999"
+ms.locfileid: "94984370"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor"></a>Övervakning av nätverks anslutning med anslutnings övervakaren
+# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Övervakning av nätverks anslutning med anslutnings övervakare (för hands version)
 
 Anslutnings övervakaren tillhandahåller enhetlig anslutnings övervakning från slut punkt till slut punkt i Azure Network Watcher. Funktionen anslutnings övervakare stöder hybrid-och Azure Cloud-distributioner. Network Watcher innehåller verktyg för att övervaka, diagnostisera och Visa anslutnings relaterade mått för dina Azure-distributioner.
 
-Här är några användnings fall för anslutnings övervakaren:
+> [!IMPORTANT]
+> Anslutnings övervakaren är för närvarande en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Här är några användnings fall för anslutnings övervakaren:
 
 - Din frontend-webbserver för webb servern kommunicerar med en virtuell databas Server-dator i ett program med flera nivåer. Du vill kontrol lera nätverks anslutningen mellan de två virtuella datorerna.
 - Du vill att virtuella datorer i regionen USA, östra, ska pinga virtuella datorer i den centrala regionen och du vill jämföra nätverks fördröjningar i flera regioner.
@@ -271,11 +274,11 @@ I anslutnings Övervakare som skapades före anslutnings övervakaren, är alla 
 
 När du använder mått anger du resurs typen som Microsoft. Network/networkWatchers/connectionMonitors
 
-| Mått | Visningsnamn | Enhet | Sammansättningstyp | Beskrivning | Dimensioner |
+| Mått | Visningsnamn | Enhet | Sammansättningstyp | Description | Dimensioner |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | % Avsökningar misslyckades | Procentandel | Genomsnitt | Procent av anslutnings övervaknings avsökningarna misslyckades. | Inga dimensioner |
+| ProbesFailedPercent | % Avsökningar misslyckades | Procent | Genomsnitt | Procent av anslutnings övervaknings avsökningarna misslyckades. | Inga dimensioner |
 | AverageRoundtripMs | Genomsnittlig tid för fördröjning (MS) | Millisekunder | Genomsnitt | Genomsnittlig för inblandning av nätverks belastning för anslutnings övervaknings avsökningar skickas mellan källa och mål. |             Inga dimensioner |
-| ChecksFailedPercent (för hands version) | % Kontroller misslyckades (förhands granskning) | Procentandel | Genomsnitt | Procent andelen misslyckade kontroller för ett test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protokoll <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| ChecksFailedPercent (för hands version) | % Kontroller misslyckades (förhands granskning) | Procent | Genomsnitt | Procent andelen misslyckade kontroller för ett test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protokoll <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 | RoundTripTimeMs (för hands version) | Tur och retur tid (MS) (för hands version) | Millisekunder | Genomsnitt | Söker efter kontroller som skickats mellan källa och mål. Värdet är inte medelvärdet. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protokoll <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Metric-baserade aviseringar för anslutnings övervakaren

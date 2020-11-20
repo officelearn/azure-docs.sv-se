@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/29/2020
-ms.openlocfilehash: 8b0d6665b440516d29cc9aeb0b6e50f509528574
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ec193eab02d937e9d93b8632fa171fec8227d6c2
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503444"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987532"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Hantera Azure SQL Managed instance långsiktig kvarhållning av säkerhets kopior (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ Följande avsnitt visar hur du använder PowerShell för att konfigurera långsi
 
 ## <a name="azure-roles-to-manage-long-term-retention"></a>Azure-roller för att hantera långsiktig kvarhållning
 
-För **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** och **restore-AzSqlInstanceDatabase**måste du ha en av följande roller:
+För **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** och **restore-AzSqlInstanceDatabase** måste du ha en av följande roller:
 
 - Prenumerations ägarens roll eller
 - Rollen hanterad instans deltagare eller
@@ -39,7 +39,7 @@ För **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** och **restore-AzSqlIns
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read`
 
-För **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**måste du ha en av följande roller:
+För **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup** måste du ha en av följande roller:
 
 - Prenumerations ägarens roll eller
 - Anpassad roll med följande behörighet:
@@ -48,7 +48,7 @@ För **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**måste du ha en av f
 > [!NOTE]
 > Rollen hanterad instans deltagare har inte behörighet att ta bort LTR-säkerhetskopieringar.
 
-RBAC-behörigheter kan beviljas i antingen *prenumerations* -eller *resurs grupps* omfång. Men för att komma åt LTR-säkerhetskopieringar som tillhör en utelämnad instans måste behörigheten beviljas i *prenumerations* omfånget för den instansen.
+Azure RBAC-behörigheter kan beviljas i antingen *prenumerations* -eller *resurs grupps* omfång. Men för att komma åt LTR-säkerhetskopieringar som tillhör en utelämnad instans måste behörigheten beviljas i *prenumerations* omfånget för den instansen.
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 

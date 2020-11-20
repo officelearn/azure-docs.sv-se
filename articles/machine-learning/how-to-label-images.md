@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542192"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984455"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt 
 
@@ -82,7 +82,7 @@ I synnerhet i ett etikett projekt kan Machine Learning-modellen bara vara tillr�
 
 Om ditt projekt är av typen "bild klassificering med flera klasser", tilldelar du en enskild tagg till hela bilden. Om du vill granska riktningarna när som helst går du till sidan **instruktioner** och väljer **Visa detaljerade instruktioner**.
 
-Om du upptäcker att du har gjort ett misstag efter att du har tilldelat en tagg till en avbildning kan du åtgärda det. Välj " **X** " på etiketten som visas under bilden för att ta bort taggen. Eller Välj avbildningen och välj en annan klass. Det nyligen markerade värdet ersätter den tidigare tillämpade taggen.
+Om du upptäcker att du har gjort ett misstag efter att du har tilldelat en tagg till en avbildning kan du åtgärda det. Välj "**X**" på etiketten som visas under bilden för att ta bort taggen. Eller Välj avbildningen och välj en annan klass. Det nyligen markerade värdet ersätter den tidigare tillämpade taggen.
 
 ## <a name="tag-images-for-multi-label-classification"></a>Tagga bilder för klassificering med flera etiketter
 
@@ -96,7 +96,7 @@ Välj den bild som du vill etikettera och välj sedan taggen. Taggen tillämpas 
 
 ![Animering visar flöde för multilabel](./media/how-to-label-images/multilabel.gif)
 
-Du korrigerar ett misstag genom att klicka på " **X** " för att ta bort en enskild tagg eller välja bilderna och sedan välja taggen, vilket raderar taggen från alla valda bilder. Det här scenariot visas här. Om du klickar på "land" tas taggen bort från de två valda bilderna.
+Du korrigerar ett misstag genom att klicka på "**X**" för att ta bort en enskild tagg eller välja bilderna och sedan välja taggen, vilket raderar taggen från alla valda bilder. Det här scenariot visas här. Om du klickar på "land" tas taggen bort från de två valda bilderna.
 
 ![En skärm bild visar flera avmarkeringar](./media/how-to-label-images/multiple-deselection.png)
 
@@ -133,7 +133,7 @@ Om ditt projekt är av typen "instans segmentering (Polygon)", anger du en eller
 
 1. Välj en tagg för den polygon som du planerar att skapa.
 1. Välj verktyget **Rita polygon region** verktyget ![ Rita polygon region ](./media/how-to-label-images/polygon-tool.png) eller välj "P".
-3. Klicka för varje punkt i polygonen.  När du har slutfört formen, dubbelklickar du på den för att slutföra.
+1. Klicka för varje punkt i polygonen.  När du har slutfört formen, dubbelklickar du på den för att slutföra.
 
     :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Skapa polygoner för katt och hund":::
 
@@ -158,3 +158,5 @@ När du är klar med etiketter väljer du ditt namn i det övre högra hörnet i
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig att [träna avbildnings klassificerings modeller i Azure](./tutorial-train-models-with-aml.md)
+
+

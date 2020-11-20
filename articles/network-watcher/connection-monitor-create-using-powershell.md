@@ -1,5 +1,5 @@
 ---
-title: Skapa anslutnings övervakare – PowerShell
+title: Skapa anslutnings övervakare (för hands version) – PowerShell
 titleSuffix: Azure Network Watcher
 description: Lär dig hur du skapar anslutnings övervakare med hjälp av PowerShell.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: fa8b2d967a336343d23c5f6aa4477ebcf2396407
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b1ffce75d5c38177c70db3ec1fc024a01821d3ab
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949045"
+ms.locfileid: "94984251"
 ---
-# <a name="create-a-connection-monitor-using-powershell"></a>Skapa en anslutnings övervakare med PowerShell
+# <a name="create-a-connection-monitor-preview-using-powershell"></a>Skapa en anslutnings övervakare (för hands version) med PowerShell
 
 Lär dig hur du skapar anslutnings övervakaren för att övervaka kommunikationen mellan dina resurser med hjälp av PowerShell.
+
+> [!IMPORTANT]
+> Anslutnings övervakaren är för närvarande en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 
@@ -80,7 +84,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 * Slutpunkter
     * namn – unikt namn för varje slut punkt
-    * resourceId – för Azure-slutpunkter refererar resurs-ID till Azure Resource Manager resurs-ID för virtuella datorer. För icke-Azure-slutpunkter refererar resurs-ID till Azure Resource Manager-resurs-ID: t för den Log Analytics arbets ytan som är länkad till icke-Azure-agenter.
+    * resourceId – för Azure-slutpunkter refererar resurs-ID till Azure Resource Manager resurs-ID för virtuella datorer. För icke-Azure-slutpunkter refererar resurs-ID till Azure Resource Manager resurs-ID för arbets ytan Log Analytics som är länkad till icke-Azure-agenter.
     * adress – endast tillämpligt när inget resurs-ID har angetts eller om resurs-ID: t är Log Analytics arbets ytan. Om det används med Log Analytics resurs-ID, refererar detta till det fullständiga domän namnet för den agent som kan användas för övervakning. Om det används utan resurs-ID kan detta vara webb adressen eller IP-adressen för en offentlig slut punkt.
     * Filtrera – för icke-Azure-slutpunkter använder du filter för att välja agenter från Log Analytics arbets ytan som ska användas för övervakning i anslutnings övervaknings resursen. Om inga filter anges kan alla agenter som hör till Log Analytics arbets ytan användas för övervakning
         * typ – ange typ som "agent adress"
@@ -100,6 +104,10 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
         * preferHTTPS – ange om HTTPS ska användas över HTTP
         * Port – ange vilken målport du önskar.
         * disableTraceRoute – detta gäller för test grupper vars protokoll är TCP eller ICMP. Den stoppar källor från identifiering av topologi och sökning efter hopp.
+        * metod – detta gäller för test av konfigurationer vars protokoll är HTTP. Välj metoden HTTP-begäran – antingen GET eller POST
+        * Sökväg – Ange Sök vägs parametrar som ska läggas till i URL
+        * validStatusCodes – Välj tillämpliga status koder. Om svars koden inte matchar den här listan visas ett diagnostiskt meddelande
+        * requestHeaders – ange anpassade rubrik strängar för begäran som kommer att skickas till målet
     * successThreshold – du kan ange tröskelvärden för följande nätverks parametrar:
         * checksFailedPercent – ange procent andelen kontroller som kan avbrytas när källor kontrollerar anslutningen till destinationer genom att använda de villkor som du har angett. Procent andelen misslyckade kontroller i TCP-eller ICMP-protokollet kan likställas med procent andelen av paket förlusten. För HTTP-protokoll representerar det här fältet den procent andel av HTTP-begäranden som inte fick något svar.
         * roundTripTimeMs – ange önskad söktext i millisekunder för hur lång tid det tar att ansluta till målet via test konfigurationen.

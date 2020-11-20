@@ -7,12 +7,12 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 812fd0c10b63cfe469a10a99069f201fcc2cc658
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9e5f4fd14f56f0a2dff45dd2650ea552b07fecd7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126745"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987362"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exportera IoT-data till moln mål med hjälp av data export (bakåtkompatibelt)
 
@@ -22,7 +22,7 @@ ms.locfileid: "92126745"
 > - Information om de nya funktionerna för för hands versions data export finns i [Exportera IoT-data till moln mål med hjälp av data export](./howto-export-data.md).
 > - Mer information om skillnaderna mellan funktionerna för för hands versions export och äldre data export finns i [jämförelse tabellen](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
-Den här artikeln beskriver hur du använder funktionen för data export i Azure IoT Central. Med den här funktionen kan du exportera dina data kontinuerligt till **azure Event Hubs**, **Azure Service Bus**eller **Azure Blob Storage** -instanser. Data export använder JSON-formatet och kan omfatta telemetri, enhets information och information om enhets mal len. Använd exporterade data för:
+Den här artikeln beskriver hur du använder funktionen för data export i Azure IoT Central. Med den här funktionen kan du exportera dina data kontinuerligt till **azure Event Hubs**, **Azure Service Bus** eller **Azure Blob Storage** -instanser. Data export använder JSON-formatet och kan omfatta telemetri, enhets information och information om enhets mal len. Använd exporterade data för:
 
 - Insikter och analys av varma sökvägar. Det här alternativet inkluderar utlöser anpassade regler i Azure Stream Analytics, utlöser anpassade arbets flöden i Azure Logic Apps eller skickar dem via Azure Functions som ska omvandlas.
 - Kall vägs analys, till exempel utbildnings modeller i Azure Machine Learning eller långsiktig trend analys i Microsoft Power BI.
@@ -72,7 +72,7 @@ Följ dessa steg om du inte har ett befintligt Azure Storage-konto att exportera
     |Standard|Blob Storage|
     |Premium|Block Blob Storage|
 
-2. Skapa en behållare i ditt lagrings konto. Gå till ditt lagringskonto. Under **BLOB service**väljer du **Bläddra i blobbar**. Välj **+ behållare** överst för att skapa en ny behållare.
+2. Skapa en behållare i ditt lagrings konto. Gå till ditt lagringskonto. Under **BLOB service** väljer du **Bläddra i blobbar**. Välj **+ behållare** överst för att skapa en ny behållare.
 
 ## <a name="set-up-data-export"></a>Konfigurera data export
 
@@ -80,14 +80,14 @@ Nu när du har ett mål att exportera data till, följer du dessa steg för att 
 
 1. Logga in på ditt IoT Central-program.
 
-2. Välj **data export**i det vänstra fönstret.
+2. Välj **data export** i det vänstra fönstret.
 
     > [!Tip]
     > Om du inte ser **data export** i det vänstra fönstret har du inte behörighet att konfigurera data export i din app. Prata med en administratör för att konfigurera data export.
 
-3. Välj knappen **+ ny** . Välj ett av **azure Blob Storage**, **azure Event Hubs**, **Azure Service Bus kö**eller **Azure Service Bus ämne** som export mål. Det maximala antalet exporter per program är fem.
+3. Välj knappen **+ ny** . Välj ett av **azure Blob Storage**, **azure Event Hubs**, **Azure Service Bus kö** eller **Azure Service Bus ämne** som export mål. Det maximala antalet exporter per program är fem.
 
-4. Ange ett namn på exporten. I list rutan väljer du ditt **namn område**eller **anger en anslutnings sträng**.
+4. Ange ett namn på exporten. I list rutan väljer du ditt **namn område** eller **anger en anslutnings sträng**.
 
     - Du ser bara lagrings konton, Event Hubs namnrymder och Service Bus namnrum i samma prenumeration som ditt IoT Central-program. Om du vill exportera till ett mål utanför den här prenumerationen väljer du **Ange en anslutnings sträng** och se steg 6.
     - För appar som har skapats med den kostnads fria pris Planen är det enda sättet att konfigurera data exporten via en anslutnings sträng. Appar i den kostnads fria pris Planen har ingen tillhör ande Azure-prenumeration.
@@ -96,24 +96,24 @@ Nu när du har ett mål att exportera data till, följer du dessa steg för att 
 
 5. Välj en händelsehubben, en kö, ett ämne eller en behållare i list rutan.
 
-6. Valfritt Om du väljer **Ange en anslutnings sträng**visas en ny ruta där du kan klistra in anslutnings strängen. Så här hämtar du anslutnings strängen för din:
+6. Valfritt Om du väljer **Ange en anslutnings sträng** visas en ny ruta där du kan klistra in anslutnings strängen. Så här hämtar du anslutnings strängen för din:
 
     - Event Hubs eller Service Bus går du till namn området i Azure Portal:
         - Så här använder du en anslutnings sträng för hela namn området:
-            1. Under **Inställningar**väljer du **principer för delad åtkomst**
+            1. Under **Inställningar** väljer du **principer för delad åtkomst**
             2. Skapa en ny nyckel eller Välj en befintlig nyckel som har **send** -behörighet.
             3. Kopiera antingen den primära eller sekundära anslutnings strängen
         - Om du vill använda anslutnings strängen för en speciell instans av Event Hub eller Service Bus kö eller ämne går du till **entiteter > Event Hubs** eller **entiteter > köer** eller **entiteter > ämnen**. Välj en angiven instans och följ stegen ovan för att få en anslutnings sträng.
     - Lagrings konto går du till lagrings kontot i Azure Portal:
         - Det finns bara stöd för anslutnings strängar för hela lagrings kontot. Anslutnings strängar som är begränsade till en enda behållare stöds inte.
-          1. Under **Inställningar**väljer du **åtkomst nycklar**
+          1. Under **Inställningar** väljer du **åtkomst nycklar**
           2. Kopiera antingen anslutnings strängen KEY1 eller key2-anslutningssträngen
 
     Klistra in i anslutnings strängen. Skriv in instans-eller Skift läges känslig **behållar namn**.
 
-7. Under **data som ska exporteras**väljer du de typer av data som ska exporteras genom att ange typen till **på**.
+7. Under **data som ska exporteras** väljer du de typer av data som ska exporteras genom att ange typen till **på**.
 
-8. **Om du**vill aktivera data export kontrollerar du att aktivera växling är **aktiverat** . Välj **Spara**.
+8. **Om du** vill aktivera data export kontrollerar du att aktivera växling är **aktiverat** . Välj **Spara**.
 
 9. Efter några minuter visas dina data i det valda målet.
 
@@ -184,7 +184,7 @@ I följande exempel visas en post som exporter ATS till Blob Storage:
 }
 ```
 
-## <a name="devices"></a>Enheter
+## <a name="devices"></a>Egenskaper
 
 Varje meddelande eller post i en ögonblicks bild representerar en eller flera ändringar av en enhet och dess enhets-och moln egenskaper sedan det senaste exporterade meddelandet. Meddelandet innehåller:
 
@@ -382,7 +382,6 @@ Det här exemplet visar ett meddelande om enhets data i händelsehubben eller Se
                           {
                               "@id": "<id>",
                               "@type": ["Command"],
-                              "commandType": "synchronous",
                               "request": {
                                   "@id": "<id>",
                                   "@type": ["SchemaField"],
@@ -506,7 +505,6 @@ Detta exempel på en ögonblicks bild visar ett meddelande som innehåller enhet
                           {
                               "@id": "<id>",
                               "@type": ["Command"],
-                              "commandType": "synchronous",
                               "request": {
                                   "@id": "<id>",
                                   "@type": ["SchemaField"],
@@ -559,7 +557,7 @@ Om du har en befintlig data export i ditt för hands versions program där strö
 
 Från och med 3 februari 2020 kommer data formatet som beskrivs ovan att visas i alla nya exporter i program med enheter och enhetsspecifika aktiverade. Alla exporter som skapats före det här datumet förblir i det gamla data formatet fram till den 30 juni 2020, då dessa exporter automatiskt migreras till det nya data formatet. Det nya data formatet matchar [enheten](/rest/api/iotcentral/devices/get), [enhets egenskapen](/rest/api/iotcentral/devices/getproperties), [enhetens moln egenskap](/rest/api/iotcentral/devices/getcloudproperties)och [enhets mal len](/rest/api/iotcentral/devicetemplates/get) objekt i IoT Central offentliga API: et.
 
-För **enheter**är viktiga skillnader mellan det gamla data formatet och det nya data formatet:
+För **enheter** är viktiga skillnader mellan det gamla data formatet och det nya data formatet:
 - `@id` för enheten tas bort `deviceId` byter namn till `id` 
 - `provisioned` flagga läggs till för att beskriva enhetens etablerings status
 - `approved` flagga har lagts till för att beskriva enhetens godkännande tillstånd

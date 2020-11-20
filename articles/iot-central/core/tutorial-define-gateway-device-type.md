@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f95df6fb74071dc16814f11fb48521f984c89778
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967902"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988059"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Självstudie – definiera en ny enhets typ för IoT gateway i ditt Azure IoT Central-program
 
@@ -35,7 +35,7 @@ I den här självstudien skapar du en mall för **Smart Building** gateway-enhet
 > [!div class="checklist"]
 > Skapa mallar för underordnade enheter skapa en mall för en gateway-enhet publicera enhets mal len skapa de simulerade enheterna
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien måste du [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md).
 
@@ -51,11 +51,11 @@ Så här skapar du en enhets mall för en **S1 sensor** enhet:
 
 1. På sidan **Granska** väljer du **skapa** för att lägga till enhets mal len i programmet. 
 
-Så här skapar du en enhets mall för en * RS40 för användnings**sensor** :
+Så här skapar du en enhets mall för en * RS40 för användnings *_sensor_* :
 
 1. I det vänstra fönstret väljer du **enhets mallar**. Välj sedan **+** för att börja lägga till mallen.
 
-1. Rulla nedåt tills du ser panelen för ***RS40 besittnings sensor** enhet. Välj panelen och välj sedan **Nästa: anpassa**.
+1. Rulla nedåt tills du ser panelen för **_RS40 besittnings sensor_* enhet. Välj panelen och välj sedan **Nästa: anpassa**.
 
 1. På sidan **Granska** väljer du **skapa** för att lägga till enhets mal len i programmet. 
 
@@ -110,7 +110,7 @@ För att lägga till moln egenskaper till enhets mal len för **Smart skapande G
 
     | Visningsnamn      | Semantiktyp | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Inget          | Datum   |
+    | Senaste servicedatum | Inget          | Date   |
     | Kundnamn     | Inget          | Sträng |
 
 2. Välj **Spara**.
@@ -142,7 +142,7 @@ Så här publicerar du en gateways enhets mall:
 
 3. I dialog rutan **publicera en enhets mall** väljer du **publicera**.
 
-När en enhets mal len har publicerats visas den på sidan **enheter** och i operatorn. I en publicerad enhets mall kan du inte redigera en enhets kapacitets modell utan att skapa en ny version. Du kan dock göra uppdateringar av moln egenskaper, anpassningar och vyer i en publicerad enhets mall. De här uppdateringarna innebär inte att en ny version skapas. När du har gjort några ändringar väljer du **publicera**  för att skicka ut ändringarna till din operatör.
+När en enhets mal len har publicerats visas den på sidan **enheter** och i operatorn. I en publicerad enhets mall kan du inte redigera en enhets modell utan att skapa en ny version. Du kan dock göra uppdateringar av moln egenskaper, anpassningar och vyer i en publicerad enhets mall. De här uppdateringarna innebär inte att en ny version skapas. När du har gjort några ändringar väljer du **publicera**  för att skicka ut ändringarna till din operatör.
 
 ## <a name="create-the-simulated-devices"></a>Skapa de simulerade enheterna
 

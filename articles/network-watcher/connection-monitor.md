@@ -15,14 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: bef78766deb739791720838bb27649586da96152
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 667b07b3fe53ca6d88eba94faeaeeae074d71f1e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948803"
+ms.locfileid: "94984285"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Självstudie: Övervaka nätverkskommunikationen mellan två virtuella datorer i Azure Portal
+
+> [!NOTE]
+> Den här självstudien beskriver anslutnings övervakaren (klassisk). Prova den nya och förbättrade [anslutnings övervakaren](connection-monitor-overview.md) för att få förbättrad anslutnings övervakning
 
 Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) och en slutpunkt, som en annan virtuell dator, fungerar ordentligt. Ibland görs konfigurationsändringar som kan bryta kommunikationen. I den här guiden får du lära dig att:
 
@@ -33,6 +36,10 @@ Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) oc
 > * Diagnostisera ett kommunikationsproblem mellan två virtuella datorer och lär dig hur du kan lösa det
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+> [!IMPORTANT]
+> Anslutnings övervakaren är för närvarande en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -73,7 +80,7 @@ Utför stegen i [Skapa den första virtuella datorn](#create-the-first-vm) igen 
 |Steg|Inställning|Värde|
 |---|---|---|
 | 1 | Välj en version av **Ubuntu Server** |                                                                         |
-| 3 | Namn                                  | myVm2                                                                   |
+| 3 | Name                                  | myVm2                                                                   |
 | 3 | Autentiseringstyp                   | Klistra in den offentliga SSH-nyckeln eller välj **Lösenord** och ange ett lösenord. |
 | 3 | Resursgrupp                        | Välj **Använd befintlig** och sedan **myResourceGroup**.                 |
 | 6 | Tillägg                            | **Network Watcher agent för Linux**                                             |

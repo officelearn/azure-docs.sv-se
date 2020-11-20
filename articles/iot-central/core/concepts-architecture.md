@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc33d3c07461b5662e1454ec131dbc2b5f19a390
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7b048581b29fa4244c42261810f382b229a627dd
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126181"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985975"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central-arkitektur
 
@@ -23,7 +23,7 @@ Den här artikeln ger en översikt över Microsoft Azure IoT Central-arkitekture
 
 ![Arkitektur på översta nivån](media/concepts-architecture/architecture.png)
 
-## <a name="devices"></a>Enheter
+## <a name="devices"></a>Egenskaper
 
 Enheter utbyter data med ditt Azure IoT Central-program. En enhet kan:
 
@@ -54,7 +54,7 @@ IoT Central aktiverar följande funktioner för IoT Edge enheter:
   - Telemetri varje modul skickar.
   - Egenskaperna varje modul rapporterar.
   - De kommandon som varje modul svarar på.
-  - Relationerna mellan en IoT Edge Gateway enhets kapacitets modell och kapacitets modell för underordnad enhet.
+  - Relationerna mellan en IoT Edge gateway-enhet och en underordnad enhet.
   - Moln egenskaper som inte lagras på den IoT Edge enheten.
   - Anpassningar, instrument paneler och formulär som är en del av ditt IoT Central-program.
 
@@ -119,7 +119,7 @@ Azure IoT Central lagrar program data i molnet. Program data som lagras innehål
 
 Azure IoT Central använder ett tids serie lager för Mät data som skickas från dina enheter. Tids serie data från enheter som används av Analytics-tjänsten.
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analys
 
 Analytics-tjänsten ansvarar för att skapa anpassade rapporterings data som visas i programmet. En operatör kan [Anpassa den analys](howto-create-analytics.md) som visas i programmet. Analytics-tjänsten bygger på [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) och bearbetar Mät data som skickas från dina enheter.
 
@@ -133,12 +133,12 @@ I ett Azure IoT Central-program definierar enhets mallarna beteende och funktion
 
 ![Arkitektur för mall](media/concepts-architecture/template-architecture.png)
 
-I en mall för IoT Central program enhet innehåller:
+I en mall för IoT Central [enhet](concepts-device-templates.md) innehåller:
 
-- **Enhets kapacitets modeller** anger funktioner för en enhet, till exempel den telemetri som skickas, egenskaper som definierar enhetens tillstånd och de kommandon som enheten svarar på. Enhetens kapacitet är indelat i ett eller flera gränssnitt.
+- En **enhets modell** för att ange funktioner för en enhet, till exempel den telemetri som skickas, egenskaper som definierar enhetens tillstånd och de kommandon som enheten svarar på. Enhetens kapacitet är indelat i ett eller flera gränssnitt.
 - **Moln egenskaper** ange egenskaper IoT Central arkiv för en enhet. Dessa egenskaper lagras endast i IoT Central och skickas aldrig till en enhet.
 - **Vyer** anger vilka instrument paneler och formulär som Builder skapar för att låta operatören övervaka och hantera enheterna.
-- **Anpassningar** gör att verktyget åsidosätter vissa av definitionerna i enhetens kapacitets modell för att göra dem mer relevanta för det IoT Central programmet.
+- **Anpassningar** gör att verktyget åsidosätter vissa av definitionerna i enhets modellen för att göra dem mer relevanta för det IoT Central programmet.
 
 Ett program kan ha en eller flera simulerade och riktiga enheter som baseras på varje enhets mall.
 
@@ -152,7 +152,7 @@ I ett Azure IoT Central-program kan du [skapa och köra jobb](howto-run-a-job.md
 
 ## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
 
-En [administratör kan definiera åtkomst regler](howto-manage-users-roles.md) för ett Azure IoT Central-program med en av de fördefinierade rollerna eller genom att skapa en anpassad roll. Roller avgör vilka delar av programmet som en användare har åtkomst till och vilka åtgärder de kan utföra.
+Alla IoT Central-program har sitt eget inbyggda RBAC-system. En [administratör kan definiera åtkomst regler](howto-manage-users-roles.md) för ett Azure IoT Central-program med en av de fördefinierade rollerna eller genom att skapa en anpassad roll. Roller avgör vilka delar av programmet som en användare har åtkomst till och vilka åtgärder de kan utföra.
 
 ## <a name="security"></a>Säkerhet
 

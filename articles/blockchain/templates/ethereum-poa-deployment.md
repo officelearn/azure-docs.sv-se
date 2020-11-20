@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bbfca4d890440574ee6717ca910969226fc781a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283436"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987073"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuera Ethereum proof-of-Authority – Solution Template på Azure
 
@@ -33,7 +33,7 @@ Lösningsmallar | IaaS | Solution templates är Azure Resource Manager mallar so
 [Azure Blockchain Service](../service/overview.md) | PaaS | För hands versionen av Azure blockchain service fören klar investeringen, hanteringen och styrningen av konsortiet blockchain-nätverk. Använd Azure blockchain-tjänsten för lösningar som kräver PaaS, konsortiets hantering eller kontrakt och transaktions sekretess.
 [Azure Blockchain Workbench](../workbench/overview.md) | IaaS och PaaS | Azure blockchain Workbench Preview är en samling Azure-tjänster och-funktioner som är utformade för att hjälpa dig att skapa och distribuera blockchain-program för att dela affärs processer och data med andra organisationer. Använd Azure blockchain Workbench för prototyp av en blockchain-lösning eller ett koncept för blockchain-program. Azure Blockchain Workbench tillhandahålls utan serviceavtal. Använd [sidan Microsoft Q&en fråga](/answers/topics/azure-blockchain-workbench.html) för support.
 
-## <a name="solution-architecture"></a>Lösningsarkitektur
+## <a name="solution-architecture"></a>Lösningsarkitekturen
 
 Med hjälp av mallen för Ethereum-lösningar kan du distribuera en enda eller flera regioner-baserade Ethereum-nätverk med flera medlemmar.
 
@@ -48,7 +48,7 @@ Varje distribution av konsortiet ingår:
 * Azure Monitor för agg regering av loggar och prestanda statistik
 * VNet Gateway (valfritt) för att tillåta VPN-anslutningar över privata virtuella nätverk
 
-Som standard är RPC-och peering-slutpunkterna tillgängliga över offentlig IP för att möjliggöra förenklad anslutning mellan prenumerationer och moln. För åtkomst på program nivå kan du använda [paritetens godkännande avtal](https://wiki.parity.io/Permissioning). Nätverk som distribueras bakom VPN, som utnyttjar VNet-gatewayer för anslutning mellan prenumerationer stöds. Eftersom VPN-och VNet-distributioner är mer komplexa kan du behöva börja med en offentlig IP-modell vid prototyp av en lösning.
+Som standard är RPC-och peering-slutpunkterna tillgängliga över offentlig IP för att möjliggöra förenklad anslutning mellan prenumerationer och moln. För åtkomst på program nivå kan du använda Paritetens godkännande avtal. Nätverk som distribueras bakom VPN, som utnyttjar VNet-gatewayer för anslutning mellan prenumerationer stöds. Eftersom VPN-och VNet-distributioner är mer komplexa kan du behöva börja med en offentlig IP-modell vid prototyp av en lösning.
 
 Docker-behållare används för tillförlitlighet och modulärhet. Azure Container Registry används för att vara värd för och hantera versions avbildningar som en del av varje distribution. Behållar avbildningarna består av:
 
@@ -84,19 +84,19 @@ I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs** i det �
 
 Välj **blockchain**  >  **Ethereum proof-of-Authority Consortium (för hands version)**.
 
-### <a name="basics"></a>Grundläggande inställningar
+### <a name="basics"></a>Grunder
 
-Under **grunderna**anger du värden för standard parametrar för alla distributioner.
+Under **grunderna** anger du värden för standard parametrar för alla distributioner.
 
-![Grundläggande inställningar](./media/ethereum-poa-deployment/basic-blade.png)
+![Grunder](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parameter | Beskrivning | Exempelvärde
 ----------|-------------|--------------
 Skapa ett nytt nätverk eller Anslut till ett befintligt nätverk | Du kan skapa ett nytt konsortiums nätverk eller ansluta till ett befintligt konsortiums nätverk. För att kunna ansluta till ett befintligt nätverk krävs ytterligare parametrar. | Skapa ny
 E-postadress | Du får ett e-postmeddelande när distributionen är klar med information om distributionen. | En giltig e-postadress
 Användar namn för virtuell dator | Administratörs användar namn för varje distribuerad virtuell dator | 1-64 alfanumeriska tecken
-Autentiseringstyp | Metoden för att autentisera till den virtuella datorn. | lösenordsinställning
-lösenordsinställning | Lösen ordet för administratörs kontot för var och en av de virtuella datorerna som distribueras. Alla virtuella datorer har till början samma lösen ord. Du kan ändra lösen ordet efter etableringen. | 12-72 tecken 
+Autentiseringstyp | Metoden för att autentisera till den virtuella datorn. | Lösenord
+Lösenord | Lösen ordet för administratörs kontot för var och en av de virtuella datorerna som distribueras. Alla virtuella datorer har till början samma lösen ord. Du kan ändra lösen ordet efter etableringen. | 12-72 tecken 
 Prenumeration | Den prenumeration som används för att distribuera konsortiets nätverk |
 Resursgrupp| Den resurs grupp som används för att distribuera konsortial nätverket. | myResourceGroup
 Plats | Azure-regionen för resurs gruppen. | USA, västra 2
@@ -105,7 +105,7 @@ Välj **OK**.
 
 ### <a name="deployment-regions"></a>Distributions regioner
 
-Under *distributions regioner*anger du antalet regioner och platser för var och en. Du kan distribuera högst fem regioner. Den första regionen ska överensstämma med avsnittet för resurs gruppens plats från *grunderna* . För utvecklings-eller test nätverk kan du använda en enda region per medlem. För produktion kan du distribuera över två eller flera regioner för hög tillgänglighet.
+Under *distributions regioner* anger du antalet regioner och platser för var och en. Du kan distribuera högst fem regioner. Den första regionen ska överensstämma med avsnittet för resurs gruppens plats från *grunderna* . För utvecklings-eller test nätverk kan du använda en enda region per medlem. För produktion kan du distribuera över två eller flera regioner för hög tillgänglighet.
 
 ![distributions regioner](./media/ethereum-poa-deployment/deployment-regions.png)
 
@@ -119,7 +119,7 @@ Välj **OK**.
 
 ### <a name="network-size-and-performance"></a>Nätverks storlek och prestanda
 
-Under *nätverks storlek och prestanda*anger du indata för storleken på konsortiets nätverk. Lagrings storleken för validator-noden styr den potentiella storleken på blockchain. Storleken kan ändras efter distributionen.
+Under *nätverks storlek och prestanda* anger du indata för storleken på konsortiets nätverk. Lagrings storleken för validator-noden styr den potentiella storleken på blockchain. Storleken kan ändras efter distributionen.
 
 ![Nätverks storlek och prestanda](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
@@ -141,7 +141,7 @@ Välj **OK**.
 
 ### <a name="ethereum-settings"></a>Ethereum-inställningar
 
-Under *Inställningar för Ethereum*anger du Ethereum konfigurations inställningar.
+Under *Inställningar för Ethereum* anger du Ethereum konfigurations inställningar.
 
 ![Ethereum-inställningar](./media/ethereum-poa-deployment/ethereum-settings.png)
 
@@ -169,8 +169,8 @@ Parameter | Beskrivning | Exempelvärde
 Övervakning | Alternativ för att aktivera övervakning | Aktivera
 Ansluta till befintliga Azure Monitor loggar | Alternativ för att skapa en ny Azure Monitor loggar instans eller ansluta till en befintlig instans | Skapa ny
 Plats | Den region där den nya instansen distribueras | East US
-Befintligt logganalys-arbetsyte-ID (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Arbetsyte-ID för den befintliga Azure Monitor loggar instansen||Ej tillämpligt
-Befintlig Log Analytics primär nyckel (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Den primära nyckel som används för att ansluta till den befintliga Azure Monitor loggar instansen||Ej tillämpligt
+Befintligt logganalys-arbetsyte-ID (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Arbetsyte-ID för den befintliga Azure Monitor loggar instansen||NA
+Befintlig Log Analytics primär nyckel (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Den primära nyckel som används för att ansluta till den befintliga Azure Monitor loggar instansen||NA
 
 Välj **OK**.
 
@@ -333,7 +333,7 @@ Av säkerhets skäl nekas åtkomst till SSH-porten av en säkerhets regel för n
 
 1. Välj **Spara**. Det kan ta några minuter att göra ändringar.
 
-Du kan fjärrans luta till de virtuella datorerna för validator-noder via SSH med ditt tillhandahållna administratörs användar namn och lösen ord/SSH-nyckel. SSH-kommandot för att komma åt den första validator-noden visas i mallens distributions data. Exempel:
+Du kan fjärrans luta till de virtuella datorerna för validator-noder via SSH med ditt tillhandahållna administratörs användar namn och lösen ord/SSH-nyckel. SSH-kommandot för att komma åt den första validator-noden visas i mallens distributions data. Ett exempel:
 
 ``` bash
 ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
@@ -341,7 +341,7 @@ ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
 
 Öka port numret med ett om du vill gå till ytterligare Transaction Nodes.
 
-Om du har distribuerat till fler än en region ändrar du kommandot till belastnings utjämningens DNS-namn eller IP-adress i den regionen. Om du vill hitta DNS-namn eller IP-adress för de andra regionerna hittar du resursen med namngivnings konventionen ** \* \* \* \* \* – lbpip \# -REG** och visar dess egenskaper för DNS-namn och IP-adress.
+Om du har distribuerat till fler än en region ändrar du kommandot till belastnings utjämningens DNS-namn eller IP-adress i den regionen. Om du vill hitta DNS-namn eller IP-adress för de andra regionerna hittar du resursen med namngivnings konventionen **\* \* \* \* \* – lbpip \# -REG** och visar dess egenskaper för DNS-namn och IP-adress.
 
 ## <a name="azure-traffic-manager-load-balancing"></a>Belastnings utjämning i Azure Traffic Manager
 
@@ -370,7 +370,7 @@ Om du väljer att skapa en Traffic Manager-profil kan du använda DNS-namnet på
 
 1. Välj fliken **slut punkter** och välj knappen **Lägg till** .
 1. Ge slut punkten ett unikt namn.
-1. Välj **offentlig IP-adress**för **mål resurs typ**.
+1. Välj **offentlig IP-adress** för **mål resurs typ**.
 1. Välj den offentliga IP-adressen för den första regionens belastningsutjämnare.
 
     ![Routning Traffic Manager](./media/ethereum-poa-deployment/traffic-manager-routing.png)
@@ -685,9 +685,9 @@ Nu när ditt smarta kontrakt har distribuerats kan du skicka en transaktion för
 
 ## <a name="webassembly-wasm-support"></a>WASM-stöd (WebAssembly)
 
-WebAssembly support har redan Aktiver ATS för dig i nyligen distribuerade PoA-nätverk. Det gör det möjligt att utveckla Smart-kontrakt på alla språk som instaplar i Web-Assembly (Rust, C, C++). Mer information finns i: [paritets översikt över WebAssembly](https://wiki.parity.io/WebAssembly-Home) och [självstudie från paritets teknik](https://github.com/paritytech/pwasm-tutorial)
+WebAssembly support har redan Aktiver ATS för dig i nyligen distribuerade PoA-nätverk. Det gör det möjligt att utveckla Smart-kontrakt på alla språk som instaplar i Web-Assembly (Rust, C, C++). Mer information finns i [självstudier från paritets teknik](https://github.com/paritytech/pwasm-tutorial).
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Jag märker att det finns många transaktioner i nätverket som jag inte har skickat. Var kommer de att komma från?
 

@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 11/16/2020
-ms.openlocfilehash: e91a3cc0a96add1f53d220e04fb98d63cc7c33f4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841095"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988552"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -142,15 +142,15 @@ Behörigheter för en failover-grupp hanteras via [rollbaserad åtkomst kontroll
 
 ### <a name="create-failover-group"></a>Skapa redundans grupp
 
-Om du vill skapa en grupp för växling vid fel behöver du RBAC-skriv åtkomst till både den primära och sekundära servern och till alla databaser i gruppen redundans. För en SQL-hanterad instans behöver du RBAC-skrivrättigheter till både den primära och sekundära SQL-hanterade instansen, men behörigheter för enskilda databaser är inte relevanta eftersom det inte går att lägga till eller ta bort enskilda SQL-hanterade instans databaser i en grupp för växling vid fel.
+Om du vill skapa en grupp för växling vid fel måste du ha Azure RBAC-skrivrättigheter till både den primära och sekundära servern och till alla databaser i gruppen redundans. För en SQL-hanterad instans behöver du Azure RBAC-skrivrättigheter både för den primära och sekundära SQL-hanterade instansen, men behörigheter för enskilda databaser är inte relevanta eftersom det inte går att lägga till eller ta bort enskilda SQL-hanterade instans databaser i en grupp för växling vid fel.
 
 ### <a name="update-a-failover-group"></a>Uppdatera en failover-grupp
 
-Om du vill uppdatera en failover-grupp behöver du RBAC-skriv åtkomst till gruppen redundans och alla databaser på den aktuella primära servern eller den hanterade instansen.  
+Om du vill uppdatera en failover-grupp behöver du Azure RBAC-skriv åtkomst till gruppen redundans och alla databaser på den aktuella primära servern eller den hanterade instansen.  
 
 ### <a name="fail-over-a-failover-group"></a>Redundansväxla en failover-grupp
 
-Om du vill redundansväxla en failover-grupp behöver du RBAC-skriv åtkomst till gruppen redundans på den nya primära servern eller den hanterade instansen.
+Om du vill redundansväxla en failover-grupp behöver du Azure RBAC-skriv åtkomst till gruppen redundans på den nya primära servern eller den hanterade instansen.
 
 ## <a name="best-practices-for-sql-database"></a>Metod tips för SQL Database
 
@@ -409,7 +409,7 @@ Tänk på följande begränsningar:
 
 ## <a name="programmatically-managing-failover-groups"></a>Hantera failover-grupper program mässigt
 
-Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replikering också hanteras program mässigt med hjälp av Azure PowerShell och REST API. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning Azure Resource Manager-API: er för hantering, inklusive [Azure SQL Database REST API](/rest/api/sql/) och [Azure PowerShell-cmdletar](/powershell/azure/). Dessa API: er kräver användning av resurs grupper och stöd för rollbaserad säkerhet (RBAC). För ytterligare information om hur du implementerar åtkomst roller, se [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md).
+Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replikering också hanteras program mässigt med hjälp av Azure PowerShell och REST API. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning Azure Resource Manager-API: er för hantering, inklusive [Azure SQL Database REST API](/rest/api/sql/) och [Azure PowerShell-cmdletar](/powershell/azure/). Dessa API: er kräver användning av resurs grupper och stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC). För ytterligare information om hur du implementerar åtkomst roller, se [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Hantera SQL Database redundans
 

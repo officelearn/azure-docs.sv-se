@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 5c51649e742f6e314e0e324ae19c38f1a83b02ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c4248246be845aa8608aac8b8a3ce761ea1ef86
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016868"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987056"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Ansluta Azure IoT Edge-enheter till ett Azure IoT Central-program
 
@@ -63,9 +63,9 @@ I Azure IoT Central kan du importera ett distributions manifest för att skapa e
 
 IoT Central modeller en IoT Edge-enhet på följande sätt:
 
-* Varje IoT Edge enhets mal len har en enhets kapacitets modell.
+* Varje IoT Edge enhets mal len har en enhets modell.
 * För varje anpassad modul som anges i distributions manifestet genereras en moduls funktions modell.
-* En relation upprättas mellan varje moduls funktions modell och en enhets kapacitets modell.
+* En relation upprättas mellan varje moduls funktions modell och en enhets modell.
 * En modul kapacitets modell implementerar modulens gränssnitt.
 * Varje modul gränssnitt innehåller telemetri, egenskaper och kommandon.
 
@@ -73,7 +73,7 @@ IoT Central modeller en IoT Edge-enhet på följande sätt:
 
 ## <a name="iot-edge-gateway-devices"></a>IoT Edge gateway-enheter
 
-Om du har valt en IoT Edge enhet som en gateway-enhet kan du lägga till underordnade relationer till enhets kapacitets modeller för enheter som du vill ansluta till gateway-enheten.
+Om du har valt en IoT Edge enhet som en gateway-enhet kan du lägga till underordnade relationer till enhets modeller för enheter som du vill ansluta till gateway-enheten.
 
 ## <a name="next-steps"></a>Nästa steg
 

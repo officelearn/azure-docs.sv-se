@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: f4cb57eb8d3396667e6c9cb40b7e41b1e97622ed
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: f33cb7d4d005f15d0a5fcc70d56ebd4698f86694
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981195"
+ms.locfileid: "94988229"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Styra uppdateringar med underhålls kontroll och Azure PowerShell
 
@@ -69,7 +69,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Skapa en underhålls konfiguration med schemalagt fönster
 
-Använd New-AzMaintenanceConfiguration för att skapa en underhålls konfiguration med ett schemalagt fönster när Azure ska tillämpa uppdateringarna på dina resurser. I det här exemplet skapas en underhålls konfiguration med namnet config med ett schemalagt fönster på 5 timmar den fjärde måndagen i varje månad. När du har skapat en schemalagd period behöver du inte längre använda uppdateringarna manuellt.
+Du kan också deklarera ett schemalagt fönster när Azure ska tillämpa uppdateringarna på dina resurser. I det här exemplet skapas en underhålls konfiguration med namnet config med ett schemalagt fönster på 5 timmar den fjärde måndagen i varje månad. När du har skapat en schemalagd period behöver du inte längre använda uppdateringarna manuellt.
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -85,12 +85,10 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > Underhålls **tiden** måste vara *2 timmar* eller längre. **Upprepning** av underhåll måste anges till minst en gång i 35 dagar.
 
-**Upprepning** av underhåll kan uttryckas som:
- | Värde | Exempel |
-      |-------|-------------|
-      | snitt | recurEvery: Day **eller** RecurEvery: 3Days | 
-      | veckovis | recurEvery: 3Weeks **eller** RecurEvery: Week lördag, söndag | 
-      | hyres | recurEvery: månad day23, day24 **eller** RecurEvery: månad sista söndag **eller** RecurEvery: månad fjärde måndagen | 
+**Upprepning** av underhåll kan uttryckas som varje dag, varje vecka eller varje månad. Några exempel är:
+ - dagligen-"recurEvery: Day" **eller** "RecurEvery: 3Days" 
+ - varje vecka – "recurEvery: 3Weeks" **eller** "RecurEvery: Week lördag, söndag" 
+ - Monthly-"recurEvery: Month day23, day24" **eller** "RecurEvery: Month förra söndag" **eller** "RecurEvery: månad fjärde måndagen"  
       
 
 ## <a name="assign-the-configuration"></a>Tilldela konfigurationen

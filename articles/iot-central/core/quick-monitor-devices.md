@@ -3,18 +3,17 @@ title: Snabb start – övervaka dina enheter i Azure IoT Central
 description: Snabb start – som en operatör lär du dig att använda ditt Azure IoT Central-program för att övervaka dina enheter.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: philmea
-ms.openlocfilehash: af5683bf253e26ab928e46059f9af9d2ab8af3bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e4485e4f8e873b1b49dc3d6df72eb04a1cbe8c17
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987344"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992784"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Snabb start: Använd Azure IoT Central för att övervaka dina enheter
 
@@ -28,29 +27,29 @@ Innan du börjar bör du slutföra de tre föregående snabb starterna [skapa et
 
 ## <a name="receive-a-notification"></a>Få ett meddelande
 
-Azure IoT Central skickar meddelanden om enheter via e-post. Verktyget lade till en regel för att skicka ett meddelande när temperaturen i en ansluten enhets sensor har överskridit ett tröskelvärde. Kontrollera e-postmeddelanden som skickas till det konto som valdes ut av byggaren för att få meddelanden.
+Azure IoT Central skickar meddelanden om enheter via e-post. Som ett verktyg lade du till en regel för att skicka ett meddelande till en operatör när fuktigheten i en ansluten enhets sensor överskred ett tröskelvärde. Som operatör kontrollerar du dina e-postmeddelanden för meddelanden.
 
 Öppna e-postmeddelandet som du fick i slutet av [Konfigurera reglerna och åtgärderna för](quick-configure-rules.md) snabb starten av enheten. I e-postmeddelandet väljer du länken till enheten:
 
-![E-postavisering](media/quick-monitor-devices/email.png)
+:::image type="content" source="media/quick-monitor-devices/email.png" alt-text="Skärm bild som visar e-postavisering":::
 
 **Översikts** visningen för den simulerade enheten som du skapade i föregående snabb starter öppnas i webbläsaren:
 
-![Enheten som utlöste e-postmeddelandet](media/quick-monitor-devices/dashboard.png)
+:::image type="content" source="media/quick-monitor-devices/dashboard.png" alt-text="Skärm bild som visar en översikt över enhet som utlöste meddelandet":::
 
 ## <a name="investigate-an-issue"></a>Undersöka ett problem
 
-Som operatör kan du Visa information om enheten i vyerna **Översikt**, **om**och **kommandon** . Verktyget skapade en **hanterad enhets** vy där du kan redigera enhets information och ange enhets egenskaper.
+Som operatör kan du Visa information om enheten i vyerna **Översikt**, **om** och **kommandon** . Verktyget skapade en **hanterad enhets** vy där du kan redigera enhets information och ange enhets egenskaper.
 
-Diagrammet på instrumentpanelen visar en kurva över enhetens temperatur. Du bestämmer att enhetens temperatur är för hög.
+Diagrammet på instrument panelen visar ett område med enhetens fuktighet. Du bestämmer att enhetens fuktighet är för hög.
 
 ## <a name="remediate-an-issue"></a>Lösa ett problem
 
 Använd sidan **Hantera enhet** om du vill göra en ändring i enheten.
 
-Ändra **fläkt hastigheten** till 500 för att kyla enheten. Välj **Spara** för att uppdatera enheten. När enheten bekräftar inställningarna ändras statusen för egenskapen till **synkroniserad**:
+Ändra **mål temperatur** till 80 för att värma enheten och minska fuktigheten. Välj **Spara** för att uppdatera enheten. När enheten bekräftar inställningarna ändras statusen för egenskapen till **synkroniserad**:
 
-![Uppdateringsinställningar](media/quick-monitor-devices/change-settings.png)
+:::image type="content" source="media/quick-monitor-devices/change-settings.png" alt-text="Skärm bild som visar den uppdaterade mål temperatur inställningen för enheten":::
 
 ## <a name="next-steps"></a>Nästa steg
 

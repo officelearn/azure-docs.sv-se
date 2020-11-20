@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
-ms.openlocfilehash: b3919cbbe0ba7a796a21ae566afb8e2d9fa784db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0362c9ed4f736474dbd49e1bfaf1373e0f48acd6
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88716681"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992717"
 ---
 # <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Transformera JSON och XML med flytande mallar som Maps i Azure Logic Apps
 
@@ -80,7 +80,7 @@ Den här artikeln visar hur du utför dessa uppgifter:
 
    ![Välj integrations konto](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-1. I **översikts** fönstret under **komponenter**väljer du **Maps**.
+1. I **översikts** fönstret under **komponenter** väljer du **Maps**.
 
     ![Välj panelen kartor](./media/logic-apps-enterprise-integration-liquid-transform/select-maps-tile.png)
 
@@ -152,7 +152,7 @@ Använd [Postman](https://www.getpostman.com/postman) eller ett liknande verktyg
 
   * Om din mall använder [vätske filter](https://shopify.github.io/liquid/basics/introduction/#filters), se till att du följer [namngivnings konventionerna DotLiquid och C#](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers#filter-and-output-casing), som använder *menings hölje*. För alla flytande transformeringar kontrollerar du att filter namnen i mallen också använder menings höljen. Annars fungerar inte filtren.
 
-    Om du t. ex. använder `replace` filtret används `Replace` , inte `replace` . Samma regel gäller om du provar exempel på [DotLiquid online](http://dotliquidmarkup.org/try-online). Mer information finns i [Shopify flytande filter](https://shopify.dev/docs/themes/liquid/reference/filters) och [filter för DotLiquid-vätskor](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters). Shopify-specifikationen innehåller exempel för varje filter, så för jämförelse kan du prova de här exemplen på [DotLiquid-try online](https://dotliquidmarkup.org/try-online).
+    Om du t. ex. använder `replace` filtret används `Replace` , inte `replace` . Samma regel gäller om du provar exempel på [DotLiquid online](http://dotliquidmarkup.org/try-online). Mer information finns i [Shopify flytande filter](https://shopify.dev/docs/themes/liquid/reference/filters) och [filter för DotLiquid-vätskor](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters). Shopify-specifikationen innehåller exempel för varje filter, så för jämförelse kan du prova de här exemplen på [DotLiquid-try online](http://dotliquidmarkup.org/try-online).
 
   * `json`Filtret från Shopify-tilläggs filtren är för närvarande [inte implementerat i DotLiquid](https://github.com/dotliquid/dotliquid/issues/384). Normalt kan du använda det här filtret för att förbereda text utdata för JSON-sträng tolkning, men i stället måste du använda `Replace` filtret i stället.
 
@@ -244,7 +244,7 @@ Här är exempel på indata och utdata:
 
 * [Shopify – flytande språk och exempel](https://shopify.github.io/liquid/basics/introduction/)
 * [DotLiquid](http://dotliquidmarkup.org/)
-* [DotLiquid – prova online](https://dotliquidmarkup.org/try-online)
+* [DotLiquid – prova online](http://dotliquidmarkup.org/try-online)
 * [DotLiquid GitHub](https://github.com/dotliquid/dotliquid)
 * [DotLiquid GitHub-problem](https://github.com/dotliquid/dotliquid/issues/)
 * Läs mer om [Maps](../logic-apps/logic-apps-enterprise-integration-maps.md)

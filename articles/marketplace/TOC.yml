@@ -15,7 +15,7 @@
       href: partner-center-portal/account-migration-from-cpp-to-pc.md
 - name: Begrepp
   items:
-    - name: Publiceringsalternativ och överväganden
+    - name: Listalternativ
       href: determine-your-listing-type.md
     - name: Göra transaktioner på den kommersiella marknadsplatsen
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
@@ -349,15 +349,14 @@
       items:
         - name: Översikt av API för uppfyllnad av SaaS
           href: partner-center-portal/pc-saas-fulfillment-apis.md
-          items:
-            - name: Registrera ett SaaS-program
-              href: partner-center-portal/pc-saas-registration.md
-            - name: 'API:er för uppfyllnad av SaaS, v2'
-              href: partner-center-portal/pc-saas-fulfillment-api-v2.md
-            - name: 'API:er för uppfyllnad av SaaS, v1 (inaktuell)'
-              href: partner-center-portal/pc-saas-fulfillment-api-v1.md
-            - name: 'API:er för uppfyllnad av SaaS – vanliga frågor och svar'
-              href: partner-center-portal/saas-fulfillment-apis-faq.md
+        - name: Registrera ett SaaS-program
+          href: partner-center-portal/pc-saas-registration.md
+        - name: 'API:er för uppfyllnad av SaaS, v2'
+          href: partner-center-portal/pc-saas-fulfillment-api-v2.md
+        - name: 'API:er för uppfyllnad av SaaS, v1 (inaktuell)'
+          href: partner-center-portal/pc-saas-fulfillment-api-v1.md
+        - name: 'API:er för uppfyllnad av SaaS – vanliga frågor och svar'
+          href: partner-center-portal/saas-fulfillment-apis-faq.md
 - name: Resurser
   items:
     - name: Vanliga frågor och svar om den kommersiella marknadsplatsen

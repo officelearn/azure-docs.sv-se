@@ -5,16 +5,17 @@ services: virtual-machines-linux
 author: axayjo
 manager: gwallace
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 0ae6366acf270d762b1c15563bfec1b2eb2a1b8d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ffbafb76fd2c6dd06a88bfd79746557889039cd6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421081"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956032"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-diagnostiktillägget för att övervaka mått och loggar
 
@@ -68,7 +69,7 @@ Distributioner och versioner som stöds:
 - Debian 9, 8, 7
 - RHEL 7, 6,7 +
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * **Azure Linux-agentens version 2.2.0 eller senare**. De flesta Azure VM Linux-avbildningar innehåller version 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` för att bekräfta versionen som är installerad på den virtuella datorn. Om den virtuella datorn kör en äldre version av gäst agenten följer du [de här anvisningarna](./update-linux-agent.md) för att uppdatera den.
 * **Azure CLI**. [Konfigurera Azure CLI](/cli/azure/install-azure-cli) -miljön på din dator.
@@ -228,7 +229,7 @@ Den här uppsättningen konfigurations information innehåller känslig informat
 }
 ```
 
-Name | Värde
+Namn | Värde
 ---- | -----
 storageAccountName | Namnet på det lagrings konto där data skrivs av tillägget.
 storageAccountEndPoint | valfritt Slut punkten som identifierar molnet där lagrings kontot finns. Om den här inställningen saknas, LAD standardvärdet för det offentliga Azure-molnet `https://core.windows.net` . Om du vill använda ett lagrings konto i Azure Germany, Azure Government eller Azure Kina anger du detta värde i enlighet med detta.
@@ -604,7 +605,7 @@ TransfersPerSecond | Läs-eller Skriv åtgärder per sekund
 
 Sammanställda värden för alla fil system kan hämtas genom inställningen `"condition": "IsAggregate=True"` . Värdena för ett bestämt monterat fil system, till exempel "/mnt", kan hämtas genom att ställa in `"condition": 'Name="/mnt"'` . 
 
-**Obs** : om du använder Azure-portalen i stället för JSON, är rätt villkors fält formulär namn = '/mnt '
+**Obs**: om du använder Azure-portalen i stället för JSON, är rätt villkors fält formulär namn = '/mnt '
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>inbyggda mått för disk klassen
 
@@ -812,7 +813,7 @@ Data som skickas till JsonBlob-mottagare lagras i blobbar i lagrings kontot med 
 Dessutom kan du använda dessa UI-verktyg för att komma åt data i Azure Storage:
 
 * Visual Studio-Server Explorer.
-* [Skärm bild som visar behållare och tabeller i Azure Storage Explorer.](https://azurestorageexplorer.codeplex.com/ "Azure Lagringsutforskaren").
+* [Skärm bild som visar behållare och tabeller i Azure Storage Explorer.](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
 Den här ögonblicks bilden av en Microsoft Azure Storage Explorer-session visar de genererade Azure Storage tabellerna och behållarna från ett korrekt konfigurerat LAD 3,0-tillägg på en virtuell test dator. Avbildningen stämmer inte exakt med [exemplet på LAD 3,0-konfigurationen](#an-example-lad-30-configuration).
 

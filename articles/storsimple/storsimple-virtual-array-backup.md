@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c7f4ab92e4cce3937a933fec97008c281a0eae
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742255"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954128"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Säkerhetskopiera resurser eller volymer på din virtuella StorSimple-matris
 
@@ -28,7 +28,7 @@ ms.locfileid: "91742255"
 
 Den virtuella StorSimple-matrisen är en lokal virtuell enhet med hybrid moln lagring som kan konfigureras som en fil server eller en iSCSI-server. Med den virtuella matrisen kan användaren skapa schemalagda och manuella säkerhets kopieringar av alla resurser eller volymer på enheten. När den konfigureras som en fil server, tillåter den också återställning på objekt nivå. I den här självstudien beskrivs hur du skapar schemalagda och manuella säkerhets kopieringar och utför återställning på objekt nivå för att återställa en borttagen fil på den virtuella matrisen.
 
-Den här självstudien gäller endast för virtuella StorSimple-matriser. Information om 8000-serien finns i [skapa en säkerhets kopia för enhet med 8000-serien](storsimple-manage-backup-policies-u2.md)
+Den här självstudien gäller endast för virtuella StorSimple-matriser. Information om 8000-serien finns i [skapa en säkerhets kopia för enhet med 8000-serien](./storsimple-8000-manage-backup-policies-u2.md)
 
 ## <a name="back-up-shares-and-volumes"></a>Säkerhetskopiera resurser och volymer
 
@@ -100,7 +100,7 @@ Om du vill visa befintliga säkerhets kopior utför du följande steg i Azure Po
     ![Navigera till säkerhets kopierings katalog](./media/storsimple-virtual-array-backup/viewbackups1.png)
 2. Ange följande kriterier som ska användas för filtrering:
    
-   - **Tidsintervall** – kan vara **de senaste 1 timmarna**, **de senaste 24 timmarna**, **senaste 7 dagarna**, **senaste 30 dagarna**, **senaste året**och **anpassat datum**.
+   - **Tidsintervall** – kan vara **de senaste 1 timmarna**, **de senaste 24 timmarna**, **senaste 7 dagarna**, **senaste 30 dagarna**, **senaste året** och **anpassat datum**.
     
    - **Enheter** – Välj i listan över fil servrar eller iSCSI-servrar som registrerats med din StorSimple Enhetshanteraren-tjänst.
    
@@ -108,11 +108,10 @@ Om du vill visa befintliga säkerhets kopior utför du följande steg i Azure Po
    
      ![Filtrera säkerhets kopior](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. Klicka på **Applicera**. Den filtrerade listan med säkerhets kopior visas på bladet **säkerhets kopierings katalog** . Observera att endast 100 säkerhets kopierings element kan visas vid en specifik tidpunkt.
+3. Klicka på **Använd**. Den filtrerade listan med säkerhets kopior visas på bladet **säkerhets kopierings katalog** . Observera att endast 100 säkerhets kopierings element kan visas vid en specifik tidpunkt.
    
     ![Uppdaterad säkerhets kopierings katalog](./media/storsimple-virtual-array-backup/viewbackups3.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om hur [du administrerar din virtuella StorSimple-matris](storsimple-ova-web-ui-admin.md).
-

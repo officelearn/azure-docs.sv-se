@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 900273ec48c71e6f88d28bccff6f1e2abd412c1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17ada83f6fa1b57f8dd72d591b6625f25e9a2388
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079582"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955862"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till tilläggshanteraren för Azure Desired State Configuration
 
@@ -37,7 +38,7 @@ Ingen kontinuerlig rapportering är tillgänglig, förutom lokalt på den virtue
 
 Den här artikeln innehåller information om båda scenarierna: använda DSC-tillägget för automatisering onboarding och använda DSC-tillägget som ett verktyg för att tilldela konfigurationer till virtuella datorer med hjälp av Azure SDK.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - **Lokal dator**: om du vill interagera med tillägget för Azure VM måste du antingen använda Azure Portal eller Azure PowerShell SDK.
 - **Gästa Gent**: den virtuella Azure-dator som konfigureras av DSC-konfigurationen måste vara ett operativ system som stöder Windows Management Framework (WMF) 4,0 eller senare. En fullständig lista över OS-versioner som stöds finns i [versions historik för DSC-tillägg](../../automation/automation-dsc-extension-history.md).
@@ -108,7 +109,7 @@ Cmdlet: en **Remove-AzVMDscExtension** tar bort tilläggs hanteraren från en an
 Viktig information om cmdlets för DSC-tillägg i Resource Manager:
 
 - Azure Resource Manager-cmdlet: ar är synkrona.
-- Parametrarna *ResourceGroupName*, *VMName*, *ArchiveStorageAccountName*, *version*och *location* krävs.
+- Parametrarna *ResourceGroupName*, *VMName*, *ArchiveStorageAccountName*, *version* och *location* krävs.
 - *ArchiveResourceGroupName* är en valfri parameter. Du kan ange den här parametern när ditt lagrings konto tillhör en annan resurs grupp än den där den virtuella datorn skapas.
 - Använd den automatiska **uppdaterings** växeln för att automatiskt uppdatera tilläggs hanteraren till den senaste versionen när den är tillgänglig. Den här parametern har möjlighet att starta om den virtuella datorn när en ny version av WMF lanseras.
 
@@ -178,7 +179,7 @@ Så här konfigurerar du DSC i portalen:
 
 1. Gå till en virtuell dator.
 2. Under **Inställningar** väljer du **Tillägg**.
-3. På den nya sidan som skapas väljer du **+ Lägg till**och väljer sedan **PowerShell Desired State Configuration**.
+3. På den nya sidan som skapas väljer du **+ Lägg till** och väljer sedan **PowerShell Desired State Configuration**.
 4. Klicka på **skapa** längst ned på sidan tilläggs information.
 
 Portalen samlar in följande ingångar:

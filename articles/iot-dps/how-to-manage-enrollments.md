@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 06c355b913d5b786455cae20d1a57eb8c63c3ee1
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6ec146a05df1b896f8ca594d29cf13341b70765a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843022"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954570"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Hantera enhets registreringar med Azure Portal
 
@@ -91,5 +91,3 @@ I de fall där enhet (er) inte behöver tillhandahållas till någon IoT-hubb ka
 1. När åtgärden har slutförts ser du att posten tas bort från listan över enhets registreringar. 
  
     ![Ta bort registreringen i portalen](./media/how-to-manage-enrollments/remove-enrollment.png)
-
-

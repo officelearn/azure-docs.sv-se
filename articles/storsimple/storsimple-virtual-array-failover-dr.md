@@ -15,19 +15,19 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24eb03069689d6dc89d8e237e0e65c71af6c6173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 509a3ac383cebd91821e9c4b872c253ab3b0a947
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184728"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956202"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Haveriberedskap och redundansväxling av enhet för StorSimple Virtual Array via Azure-portalen
 
 ## <a name="overview"></a>Översikt
 I den här artikeln beskrivs haveri beredskap för din Microsoft Azure StorSimple virtuella matris, inklusive detaljerade steg för att redundansväxla till en annan virtuell matris. Med en redundansväxling kan du flytta data från en *käll* enhet i data centret till en *målenhet* . Mål enheten kanske finns på samma eller en annan geografisk plats. Redundansväxlingen för hela enheten. Under redundansväxlingen ändrar käll enhetens moln data ägande till den på mål enheten.
 
-Den här artikeln gäller endast för virtuella StorSimple-matriser. Om du vill redundansväxla en enhet med 8000-serien går du till [enhetens redundans och haveri beredskap för din StorSimple-enhet](storsimple-device-failover-disaster-recovery.md).
+Den här artikeln gäller endast för virtuella StorSimple-matriser. Om du vill redundansväxla en enhet med 8000-serien går du till [enhetens redundans och haveri beredskap för din StorSimple-enhet](./storsimple-8000-device-failover-disaster-recovery.md).
 
 ## <a name="what-is-disaster-recovery-and-device-failover"></a>Vad är haveri beredskap och enhets växling vid fel?
 
@@ -44,7 +44,7 @@ Haveri beredskap dirigeras via funktionen enhets växling vid fel och initieras 
 
 ## <a name="prerequisites-for-device-failover"></a>Förhandskrav för enhetsredundans
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Kontrol lera att följande krav är uppfyllda för en enhets växling vid fel:
 
@@ -126,7 +126,7 @@ Utför följande steg för att återställa enheten till en virtuell StorSimple-
 6. Inaktive ringen startar. Du får ett meddelande när inaktive ringen har slutförts.
    
     ![Skärm bild av en förlopps indikator som visar att enheten inaktive ras.](./media/storsimple-virtual-array-failover-dr/failover2.png)
-7. Enhetens tillstånd kommer nu att ändras till **inaktiverat**på sidan enheter.
+7. Enhetens tillstånd kommer nu att ändras till **inaktiverat** på sidan enheter.
     ![Skärm bild av sidan enheter. Egenskaperna för den inaktiverade enheten visas, inklusive status, som visas som inaktive rad.](./media/storsimple-virtual-array-failover-dr/failover3.png)
 8. I bladet **enheter** väljer du och klickar på den inaktiverade käll enheten för redundans. 
 9. I bladet för **enhets instrument panelen** klickar du på **redundans**. 
@@ -134,7 +134,7 @@ Utför följande steg för att återställa enheten till en virtuell StorSimple-
     
     1. Fältet käll enhet fylls i automatiskt. Notera den totala data storleken för käll enheten. Data storleken måste vara mindre än den tillgängliga kapaciteten på mål enheten. Granska informationen som är kopplad till käll enheten, till exempel enhets namn, total kapacitet och namnen på de resurser som har redundansväxlats.
 
-    2. Välj en **målenhet**i list rutan med tillgängliga enheter. Endast de enheter som har tillräcklig kapacitet visas i list rutan.
+    2. Välj en **målenhet** i list rutan med tillgängliga enheter. Endast de enheter som har tillräcklig kapacitet visas i list rutan.
 
     3. Kontrol lera att **Jag förstår att den här åtgärden kommer att redundansväxla data till mål enheten**. 
 
@@ -181,4 +181,3 @@ Om det finns StorSimple enheter som har registrerats precis innan en haveri påt
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om hur du [administrerar den virtuella StorSimple-matrisen med hjälp av det lokala webb gränssnittet](storsimple-ova-web-ui-admin.md).
-

@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 7e42fb43fee4d3f8097b7ac530056d948e3f98c8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 044a8c119c8a881983a7e2bab08c0a670bc3bf0f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486199"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956304"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program
 
@@ -261,13 +262,13 @@ Först måste du skapa Azure NetApp Files volymerna. Distribuera de virtuella da
       1. Välj de virtuella datorerna i (A) SCS-klustret och deras IP-adresser.
       1. Klicka på Lägg till
    1. Skapa hälso avsökningar
-      1. Port 620**00** för ASCS
+      1. Port 620 **00** för ASCS
          1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
          1. Ange namnet på den nya hälso avsökningen (till exempel **hälso tillstånd. QAS. ASCS**)
-         1. Välj TCP som protokoll, Port 620**00**, Behåll intervallet 5 och tröskelvärde 2
+         1. Välj TCP som protokoll, Port 620 **00**, Behåll intervallet 5 och tröskelvärde 2
          1. Klicka på OK
-      1. Port 621**01** för ASCS ers
-            * Upprepa stegen ovan under "c" för att skapa en hälso avsökning för ERS (till exempel 621**01** och **Health. QAS. ERS**)
+      1. Port 621 **01** för ASCS ers
+            * Upprepa stegen ovan under "c" för att skapa en hälso avsökning för ERS (till exempel 621 **01** och **Health. QAS. ERS**)
    1. Belastnings Utjämnings regler
       1. Skapa en backend-pool för ASCS
          1. Öppna belastningsutjämnaren, Välj belastnings Utjämnings regler och klicka på Lägg till
@@ -295,15 +296,15 @@ Först måste du skapa Azure NetApp Files volymerna. Distribuera de virtuella da
       1. Välj virtuella datorer för (A) SCS-klustret
       1. Klicka på OK
    1. Skapa hälso avsökningar
-      1. Port 620**00** för ASCS
+      1. Port 620 **00** för ASCS
          1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
          1. Ange namnet på den nya hälso avsökningen (till exempel **hälso tillstånd. QAS. ASCS**)
-         1. Välj TCP som protokoll, Port 620**00**, Behåll intervallet 5 och tröskelvärde 2
+         1. Välj TCP som protokoll, Port 620 **00**, Behåll intervallet 5 och tröskelvärde 2
          1. Klicka på OK
-      1. Port 621**01** för ASCS ers
-            * Upprepa stegen ovan under "c" för att skapa en hälso avsökning för ERS (till exempel 621**01** och **Health. QAS. ERS**)
+      1. Port 621 **01** för ASCS ers
+            * Upprepa stegen ovan under "c" för att skapa en hälso avsökning för ERS (till exempel 621 **01** och **Health. QAS. ERS**)
    1. Belastnings Utjämnings regler
-      1. 32**00** TCP för ASCS
+      1. 32 **00** TCP för ASCS
          1. Öppna belastningsutjämnaren, Välj belastnings Utjämnings regler och klicka på Lägg till
          1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel **lb. QAS. ASCS. 3200**)
          1. Välj IP-adressen för klient delen för ASCS, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **frontend. QAS. ASCS**)
@@ -312,9 +313,9 @@ Först måste du skapa Azure NetApp Files volymerna. Distribuera de virtuella da
          1. **Se till att aktivera flytande IP**
          1. Klicka på OK
       1. Ytterligare portar för ASCS
-         * Upprepa stegen ovan under "d" för portarna 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00 16 och**TCP för ASCS
+         * Upprepa stegen ovan under "d" för portarna 36 **00**, 39 **00**, 81 **00**, 5 **00** 13, 5 **00** 14, 5 **00 16 och** TCP för ASCS
       1. Ytterligare portar för ASCS-ERS
-         * Upprepa stegen ovan under "d" för portarna 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**och TCP för ASCS-ers
+         * Upprepa stegen ovan under "d" för portarna 32 **01**, 33 **01**, 5 **01** 13, 5 **01** 14, 5 **01** och TCP för ASCS-ers
 
       
       > [!IMPORTANT]
@@ -560,7 +561,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
 
-   Om installationen Miss lyckas med att skapa en undermapp i/usr/SAP/**QAS**/ASCS**00**, så försök att ange ägare och grupp för mappen ASCS**00**  och försök igen. 
+   Om installationen Miss lyckas med att skapa en undermapp i/usr/SAP/**QAS**/ASCS **00**, så försök att ange ägare och grupp för mappen ASCS **00**  och försök igen. 
 
    <pre><code>
    chown <b>qas</b>adm /usr/sap/<b>QAS</b>/ASCS<b>00</b>
@@ -625,7 +626,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    > [!NOTE]
    > Använd SWPM SP 20 PL 05 eller högre. Lägre versioner ställer inte in behörigheterna korrekt och installationen kommer inte att fungera.
 
-   Om installationen Miss lyckas med att skapa en undermapp i/usr/SAP/**QAS**/ers**01**, försök att ange ägare och grupp för ers**01** -mappen och försök igen.
+   Om installationen Miss lyckas med att skapa en undermapp i/usr/SAP/**QAS**/ers **01**, försök att ange ägare och grupp för ers **01** -mappen och försök igen.
 
    <pre><code>
    chown qasadm /usr/sap/<b>QAS</b>/ERS<b>01</b>

@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ed99145a2d3860849c4a8117a93a9a0f24d227c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1cd6f5f7865d18461ac7a635530e9aabfde380a6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540934"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955420"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Azure Storage-typer för SAP-arbetsbelastning
 Azure har flera olika lagrings typer som skiljer sig mycket i funktioner, data flöde, svars tid och priser. Några av lagrings typerna är inte eller av begränsad användning för SAP-scenarier. Flera typer av Azure-lagring är väl lämpade eller optimerade för vissa SAP-arbetsbelastnings scenarier. I synnerhet för SAP HANA fick vissa Azure Storage-typer certifierade för användning med SAP HANA. I det här dokumentet ska vi gå igenom de olika typerna av lagring och beskriva deras kapacitet och användbarhet med SAP-arbetsbelastningar och SAP-komponenter.
@@ -273,7 +274,7 @@ Ytterligare inbyggda funktioner för ANF-lagring:
 - Kloning av ANF-volymer från ögonblicks bilder
 - Återställa volymer från ögonblicks bilder (snapin-återställning)
 
-**Sammanfattning** : Azure NetApp Files är en Hana-certifierad lagring med låg latens som gör det möjligt att distribuera NFS-och SMB-volymer eller-resurser. Lagringen levereras med tre olika service nivåer som ger olika data flöde och IOPS på ett linjärt sätt per GiB kapacitet för volymen. ANF-lagringen aktiverar för att distribuera SAP HANA skalnings scenarier med en nod i vänte läge. Lagrings utrymmet är lämpligt för att tillhandahålla fil resurser efter behov för/sapmnt eller SAP global transport katalog. ANF-lagringen levereras med funktions tillgänglighet som är tillgänglig som inbyggda NetApp-funktioner.  
+**Sammanfattning**: Azure NetApp Files är en Hana-certifierad lagring med låg latens som gör det möjligt att distribuera NFS-och SMB-volymer eller-resurser. Lagringen levereras med tre olika service nivåer som ger olika data flöde och IOPS på ett linjärt sätt per GiB kapacitet för volymen. ANF-lagringen aktiverar för att distribuera SAP HANA skalnings scenarier med en nod i vänte läge. Lagrings utrymmet är lämpligt för att tillhandahålla fil resurser efter behov för/sapmnt eller SAP global transport katalog. ANF-lagringen levereras med funktions tillgänglighet som är tillgänglig som inbyggda NetApp-funktioner.  
 
 
 

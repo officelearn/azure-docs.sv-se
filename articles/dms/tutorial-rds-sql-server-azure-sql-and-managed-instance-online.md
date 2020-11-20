@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 12725c28c3e128317301bc51f9ce93f76021cc2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 249667dfa8c0491027f0244d4aa5e49d19399ab0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291375"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955046"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-managed-instance-online-using-dms"></a>Självstudie: Migrera RDS-SQL Server till Azure SQL Database eller en Azure SQL-hanterad instans online med DMS
 
-Du kan använda Azure Database Migration Service för att migrera databaserna från en RDS SQL Server-instans till [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) eller en [HANTERAd Azure SQL-instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) med minimal stillestånds tid. I den här självstudien migrerar du **Adventureworks2012** -databasen som återställs till en RDS-SQL Server instans av SQL Server 2012 (eller senare) till SQL Database eller en SQL-hanterad instans med hjälp av Azure Database migration service.
+Du kan använda Azure Database Migration Service för att migrera databaserna från en RDS SQL Server-instans till [Azure SQL Database](/azure/sql-database/) eller en [HANTERAd Azure SQL-instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) med minimal stillestånds tid. I den här självstudien migrerar du **Adventureworks2012** -databasen som återställs till en RDS-SQL Server instans av SQL Server 2012 (eller senare) till SQL Database eller en SQL-hanterad instans med hjälp av Azure Database migration service.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -48,12 +48,12 @@ I den här artikeln beskrivs en online-migrering från RDS-SQL Server till SQL D
 För att slutföra den här kursen behöver du:
 
 * Skapa en [RDS SQL Server-databas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html).
-* [Skapa en databas i Azure SQL Database i Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) eller [skapa en databas i SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started)och skapa sedan en tom databas med namnet **AdventureWorks2012**. 
+* [Skapa en databas i Azure SQL Database i Azure Portal](../azure-sql/database/single-database-create-quickstart.md) eller [skapa en databas i SQL-hanterad instans](../azure-sql/managed-instance/instance-create-quickstart.md)och skapa sedan en tom databas med namnet **AdventureWorks2012**. 
 * Ladda ned och installera [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) version 3.3 eller senare.
-* Skapa en Microsoft Azure Virtual Network för Azure Database Migration Service med hjälp av Azure Resource Manager distributions modellen. Om du migrerar till en SQL-hanterad instans, se till att skapa DMS-instansen i samma virtuella nätverk som används för SQL-hanterad instans, men i ett annat undernät.  Alternativt, om du använder ett annat virtuellt nätverk för DMS, måste du skapa en virtuell nätverks-peering mellan de två virtuella nätverken. Mer information om hur du skapar ett virtuellt nätverk finns i [Virtual Network-dokumentationen](https://docs.microsoft.com/azure/virtual-network/)och i synnerhet snabb starts artiklar med stegvisa anvisningar.
+* Skapa en Microsoft Azure Virtual Network för Azure Database Migration Service med hjälp av Azure Resource Manager distributions modellen. Om du migrerar till en SQL-hanterad instans, se till att skapa DMS-instansen i samma virtuella nätverk som används för SQL-hanterad instans, men i ett annat undernät.  Alternativt, om du använder ett annat virtuellt nätverk för DMS, måste du skapa en virtuell nätverks-peering mellan de två virtuella nätverken. Mer information om hur du skapar ett virtuellt nätverk finns i [Virtual Network-dokumentationen](../virtual-network/index.yml)och i synnerhet snabb starts artiklar med stegvisa anvisningar.
 
     > [!NOTE]
-    > Om du använder ExpressRoute med nätverks-peering till Microsoft under installationen av det virtuella nätverket lägger du till följande tjänst [slut punkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) i under nätet där tjänsten ska tillhandahållas:
+    > Om du använder ExpressRoute med nätverks-peering till Microsoft under installationen av det virtuella nätverket lägger du till följande tjänst [slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md) i under nätet där tjänsten ska tillhandahållas:
     >
     > * Slut punkt för mål databas (till exempel SQL-slutpunkt, Cosmos DB slut punkt och så vidare)
     > * Lagrings slut punkt
@@ -61,10 +61,10 @@ För att slutföra den här kursen behöver du:
     >
     > Den här konfigurationen är nödvändig eftersom den Azure Database Migration Service saknar Internet anslutning. 
 
-* Se till att de virtuella nätverkets säkerhets grupp regler inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om NSG för trafik filtrering i virtuellt nätverk finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-* Konfigurera din [Windows-brandvägg för databasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* Se till att de virtuella nätverkets säkerhets grupp regler inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om NSG för trafik filtrering i virtuellt nätverk finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Konfigurera din [Windows-brandvägg för databasmotoråtkomst](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt käll-SQL Server, som har standardinställningen TCP-port 1433.
-* För SQL Database skapar du en [brand Väggs regel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på server nivå för att tillåta Azure Database migration service åtkomst till mål databasen. Ange under nätets intervall för det virtuella nätverk som används för Azure Database Migration Service.
+* För SQL Database skapar du en [brand Väggs regel](../azure-sql/database/firewall-configure.md) på server nivå för att tillåta Azure Database migration service åtkomst till mål databasen. Ange under nätets intervall för det virtuella nätverk som används för Azure Database Migration Service.
 * Se till att de autentiseringsuppgifter som används för att ansluta till RDS SQL Server-källinstansen är associerade med ett konto som är medlem i serverrollen för ”Processadmin” och medlem av databasrollerna ”db_owner” på alla databaser som ska migreras.
 * Se till att de autentiseringsuppgifter som används för att ansluta till mål databasen har behörighet att kontrol lera databasen på mål databasen i SQL Database och en medlem i sysadmin-rollen om du migrerar till en databas i SQL-hanterad instans.
 * Källversionen för RDS SQL Server måste vara SQL Server 2012 och senare. För att fastställa vilken version av SQL Server-instansen som körs kan du läsa artikeln [Hur man fastställer version, utgåva, och uppdateringsnivå för SQL Server och dess komponenter](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
@@ -94,7 +94,7 @@ För att slutföra den här kursen behöver du:
     select * from sys.triggers
     DISABLE TRIGGER (Transact-SQL)
     ```
-    Mer information finns i artikeln [om att inaktivera utlösare (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
+    Mer information finns i artikeln [om att inaktivera utlösare (Transact-SQL)](/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
 ## <a name="migrate-the-sample-schema"></a>Migrera exempelschemat
 Använd DMA för att migrera schemat.
@@ -121,7 +121,7 @@ Utför följande steg för att migrera **AdventureWorks2012** -schemat:
 
     ![Källanslutningsinformation för Data Migration Assistant](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dma-source-connect.png)
 
-6. Välj **Nästa**under **Anslut till mål server**, ange mål anslutnings information för databasen i SQL Database eller SQL-hanterad instans, Välj **Anslut**och välj sedan den **AdventureWorksAzure** -databas som du företablerade.
+6. Välj **Nästa** under **Anslut till mål server**, ange mål anslutnings information för databasen i SQL Database eller SQL-hanterad instans, Välj **Anslut** och välj sedan den **AdventureWorksAzure** -databas som du företablerade.
 
     ![Målanslutningsinformation för Data Migration Assistant](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dma-target-connect.png)
 
@@ -149,7 +149,7 @@ Utför följande steg för att migrera **AdventureWorks2012** -schemat:
 
     ![Visa resursprovidrar](media/tutorial-sql-server-to-azure-sql-online/portal-select-resource-provider.png)
 
-3. Sök efter migrering och välj sedan **Registrera**till höger om **Microsoft. data migration**.
+3. Sök efter migrering och välj sedan **Registrera** till höger om **Microsoft. data migration**.
 
     ![Registrera resursprovider](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/portal-register-resource-provider.png)    
 
@@ -171,7 +171,7 @@ Utför följande steg för att migrera **AdventureWorks2012** -schemat:
 
     Det virtuella nätverket ger Azure Database Migration Service åtkomst till käll SQL Server och mål SQL Database eller SQL-hanterad instans.
 
-    Mer information om hur du skapar ett virtuellt nätverk i Azure Portal finns i artikeln [skapa ett virtuellt nätverk med hjälp av Azure Portal](https://aka.ms/DMSVnet).
+    Mer information om hur du skapar ett virtuellt nätverk i Azure Portal finns i artikeln [skapa ett virtuellt nätverk med hjälp av Azure Portal](../virtual-network/quick-create-portal.md).
 
 6. Välj en prisnivå. För den här onlinemigreringen måste du markera Premium-prisnivån.
 
@@ -232,7 +232,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 ## <a name="specify-target-details"></a>Ange målinformation
 
-1. Välj **Spara**och ange sedan anslutnings information för mål databasen i Azure på skärmen **information om migreringens mål** .
+1. Välj **Spara** och ange sedan anslutnings information för mål databasen i Azure på skärmen **information om migreringens mål** .
 
     ![Välja mål](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-select-target3.png)
 
@@ -250,7 +250,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 4. Välj **Spara** när du har angett följande **Avancerade inställningar för onlinemigrering**.
 
-    | Inställningen | Beskrivning |
+    | Inställning | Beskrivning |
     | ------------- | ------------- |
     | **Maximalt antal tabeller som kan läsas in parallellt** | Anger antalet tabeller som DMS kör parallellt under migreringen. Standardvärdet är 5, men det kan ställas in på ett optimalt värde för att uppfylla specifika migreringsbehov baserat på alla POC-migreringar. |
     | **När en källtabell trunkeras** | Anger om DMS trunkerar måltabellen under migreringen. Den här inställningen kan vara användbar om en eller flera tabeller trunkeras som en del av migreringsprocessen. |
@@ -288,13 +288,13 @@ När den fullständiga inläsningen är klar är databaserna märkta med **Klar 
 
 2. Stoppa alla inkommande transaktioner till källdatabasen och vänta tills **Väntande ändringar** visar **0**.
 3. Välj **Bekräfta** och sedan **Apply** (Använd).
-4. När status för databas migreringen är **slutförd**ansluter du dina program till den nya mål databasen.
+4. När status för databas migreringen är **slutförd** ansluter du dina program till den nya mål databasen.
 
     ![Aktivitetsstatus – slutförd](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-activity-completed.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om kända problem och begränsningar vid migrering av online-migreringar till Azure finns i artikeln [kända problem och lösningar med online-migreringar](known-issues-azure-sql-online.md).
-* Information om Database Migration Service finns i artikeln [Vad är Database migration service?](https://docs.microsoft.com/azure/dms/dms-overview).
-* Information om SQL Database finns i artikeln [Vad är tjänsten SQL Database?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
-* Information om SQL-hanterade instanser finns i artikeln [Vad är SQL-hanterad instans](https://docs.microsoft.com/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview).
+* Information om Database Migration Service finns i artikeln [Vad är Database migration service?](./dms-overview.md).
+* Information om SQL Database finns i artikeln [Vad är tjänsten SQL Database?](../azure-sql/database/sql-database-paas-overview.md).
+* Information om SQL-hanterade instanser finns i artikeln [Vad är SQL-hanterad instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).

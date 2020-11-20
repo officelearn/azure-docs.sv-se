@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: rohink
-ms.openlocfilehash: a27c4519024d6d3d2f3852534619b5f8c2bb5e43
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 85b681cbeb1b06784529e321c9e907ab2bdecb73
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489616"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954655"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS mått och aviseringar
 Azure DNS är en värd tjänst för DNS-domäner som tillhandahåller namn matchning med hjälp av Microsoft Azure-infrastrukturen. Den här artikeln beskriver mått och aviseringar för den Azure DNS tjänsten.
@@ -62,7 +62,7 @@ Måttet för *data uppsättningens kapacitetsutnyttjande* i Azure DNS visar proc
 *Bild: Azure DNS post uppsättnings mått för kapacitets användning*
 
 ## <a name="alerts-in-azure-dns"></a>Aviseringar i Azure DNS
-Azure Monitor ger möjlighet att varna mot tillgängliga mått värden. DNS-måtten är tillgängliga i den nya aviserings konfigurations upplevelsen. Som beskrivs i detalj i [dokumentationen för Azure Monitor-aviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)kan du välja DNS-zon som resurs, välja mått signal typ och konfigurera aviserings logiken och andra parametrar, till exempel **period** och **frekvens**. Du kan ytterligare definiera en [Åtgärds grupp](../azure-monitor/platform/action-groups.md) för när aviserings villkoret är uppfyllt, genom att ange att aviseringen ska levereras via de valda åtgärderna. Mer information om hur du konfigurerar aviseringar för Azure Monitor mått finns i [skapa, Visa och hantera aviseringar med hjälp av Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+Azure Monitor ger möjlighet att varna mot tillgängliga mått värden. DNS-måtten är tillgängliga i den nya aviserings konfigurations upplevelsen. Som beskrivs i detalj i [dokumentationen för Azure Monitor-aviseringar](../azure-monitor/platform/alerts-metric.md)kan du välja DNS-zon som resurs, välja mått signal typ och konfigurera aviserings logiken och andra parametrar, till exempel **period** och **frekvens**. Du kan ytterligare definiera en [Åtgärds grupp](../azure-monitor/platform/action-groups.md) för när aviserings villkoret är uppfyllt, genom att ange att aviseringen ska levereras via de valda åtgärderna. Mer information om hur du konfigurerar aviseringar för Azure Monitor mått finns i [skapa, Visa och hantera aviseringar med hjälp av Azure Monitor](../azure-monitor/platform/alerts-metric.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [Azure DNS](dns-overview.md).

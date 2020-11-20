@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9181ef93dfedbc28b297bef48a0bc37ba6d69798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e43ad35cdaad89d5b9f43007bad8782f358c1a6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646769"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954349"
 ---
 # <a name="what-is-a-virtual-network-link"></a>Vad är en virtuell nätverks länk?
 
@@ -23,7 +23,7 @@ Du kan länka ett virtuellt nätverk till en privat DNS-zon som ett virtuellt re
 
 ## <a name="registration-virtual-network"></a>Registrera virtuellt nätverk
 
-När du [skapar en länk](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) mellan en privat DNS-zon och ett virtuellt nätverk har du ett alternativ för att aktivera [AUTOREGISTRERING](./private-dns-autoregistration.md) av DNS-poster för virtuella datorer. Om du väljer det här alternativet blir det virtuella nätverket ett virtuellt registrerings nätverk för den privata DNS-zonen. En DNS-post skapas automatiskt för de virtuella datorer som du distribuerar i nätverket. DNS-poster skapas för de virtuella datorer som du redan har distribuerat i det virtuella nätverket. Från det virtuella nätverkets perspektiv blir den privata DNS-zonen registrerings zonen för det virtuella nätverket.
+När du [skapar en länk](./private-dns-getstarted-portal.md#link-the-virtual-network) mellan en privat DNS-zon och ett virtuellt nätverk har du ett alternativ för att aktivera [AUTOREGISTRERING](./private-dns-autoregistration.md) av DNS-poster för virtuella datorer. Om du väljer det här alternativet blir det virtuella nätverket ett virtuellt registrerings nätverk för den privata DNS-zonen. En DNS-post skapas automatiskt för de virtuella datorer som du distribuerar i nätverket. DNS-poster skapas för de virtuella datorer som du redan har distribuerat i det virtuella nätverket. Från det virtuella nätverkets perspektiv blir den privata DNS-zonen registrerings zonen för det virtuella nätverket.
 En privat DNS-zon kan ha flera virtuella registrerings nätverk, men varje virtuellt nätverk kan ha exakt en registrerings zon kopplad till sig.
 
 ## <a name="resolution-virtual-network"></a>Virtuella matchnings nätverk
@@ -31,9 +31,9 @@ En privat DNS-zon kan ha flera virtuella registrerings nätverk, men varje virtu
 När du skapar en virtuell nätverks länk under en privat DNS-zon och väljer att inte aktivera registrering av DNS-poster, behandlas det virtuella nätverket som en upplösnings bara virtuellt nätverk. DNS-poster för virtuella datorer som distribueras i sådana nätverk skapas inte automatiskt i den länkade privata DNS-zonen. De virtuella datorer som distribueras i ett sådant nätverk kan dock skicka frågor till DNS-posterna från den privata DNS-zonen. Dessa poster kan skapas manuellt av dig eller så kan de fyllas i andra virtuella nätverk som har länkats till registrerings nätverk med den privata DNS-zonen.
 En privat DNS-zon kan ha flera virtuella matchnings nätverk och ett virtuellt nätverk kan ha flera associerade matchnings zoner.
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 
-För att förstå hur många registrerings-och lösnings nätverk kan du länka till privata DNS-zoner se [Azure DNS gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+För att förstå hur många registrerings-och lösnings nätverk kan du länka till privata DNS-zoner se [Azure DNS gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## <a name="other-considerations"></a>Ytterligare överväganden
 
@@ -49,7 +49,7 @@ För att förstå hur många registrerings-och lösnings nätverk kan du länka 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du länkar ett virtuellt nätverk till en privat DNS-zon med hjälp av [Azure Portal](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+* Lär dig hur du länkar ett virtuellt nätverk till en privat DNS-zon med hjälp av [Azure Portal](./private-dns-getstarted-portal.md#link-the-virtual-network)
 
 * Lär dig hur du skapar en privat zon i Azure DNS med [Azure PowerShell](./private-dns-getstarted-powershell.md) eller [Azure CLI](./private-dns-getstarted-cli.md).
 

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 ms.author: aahi
 keywords: text utvinning, sentiment-analys, text analys
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 6d10161609abda321ed1be9dfda0acabf2030c9e
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a91be0798dc67bfb751807b385d638343b89562b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365303"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957052"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Vad är API för textanalys?
 
@@ -27,7 +27,7 @@ API:et är en del av [Azure Cognitive Services](../index.yml), en samling maskin
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-## <a name="sentiment-analysis"></a>Sentimentanalys
+## <a name="sentiment-analysis"></a>Attitydanalys
 
 Använd [sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md) och ta reda på vad man tycker om ditt varumärke eller ditt ämne genom att lansera texten för LED trådar om positiv eller negativ sentiment. 
 
@@ -50,6 +50,10 @@ Med den namngivna enhets igenkänningen (NER) kan du [identifiera och kategorise
 ## <a name="use-containers"></a>Använda containrar
 
 [Använd textanalys behållare](how-tos/text-analytics-how-to-install-containers.md) som en lokal lösning för utvinnings text och använda API: et. Med dessa Docker-behållare kan du extrahera nyckel fraser, identifiera språk och analysera sentiment närmare dina data.
+
+## <a name="asynchronous-operations"></a>Asynkrona åtgärder
+
+Med `/analyze` slut punkten kan du använda urvals funktioner i API för textanalys [asynkront](how-tos/text-analytics-how-to-call-api.md), till exempel extrahering av ner och nyckel fraser.
 
 ## <a name="typical-workflow"></a>Typiskt arbetsflöde
 

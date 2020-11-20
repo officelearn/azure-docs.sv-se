@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: 407183837f7be01f5182ff0890426170da223161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df789161bb9db8d49f069992600b5fcb4f78dd03
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91363179"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955250"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Självstudie: Migrera Oracle till Azure Database for PostgreSQL online med DMS (för hands version)
 
-Du kan använda Azure Database Migration Service för att migrera databaserna från Oracle-databaser som finns lokalt eller på virtuella datorer för att [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) med minimal stillestånds tid. Med andra ord kan du slutföra migreringen med minimal stillestånds tid för programmet. I den här självstudien migrerar du exempel databasen **HR** från en lokal eller virtuell dator instans av Oracle-11g till Azure Database for PostgreSQL med hjälp av aktiviteten online-migrering i Azure Database migration service.
+Du kan använda Azure Database Migration Service för att migrera databaserna från Oracle-databaser som finns lokalt eller på virtuella datorer för att [Azure Database for PostgreSQL](../postgresql/index.yml) med minimal stillestånds tid. Med andra ord kan du slutföra migreringen med minimal stillestånds tid för programmet. I den här självstudien migrerar du exempel databasen **HR** från en lokal eller virtuell dator instans av Oracle-11g till Azure Database for PostgreSQL med hjälp av aktiviteten online-migrering i Azure Database migration service.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -50,12 +50,12 @@ För att slutföra den här kursen behöver du:
 * Hämta och installera [Oracle 11G version 2 (Standard Edition, Standard Edition One eller Enterprise Edition)](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html).
 * Ladda ned exempel **HR** -databasen [härifrån.](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002)
 * Hämta och [Installera ora2pg på antingen Windows eller Linux](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf).
-* [Skapa en instans i Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
-* Anslut till instansen och skapa en databas med hjälp av instruktionen i det här [dokumentet](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
-* Skapa en Microsoft Azure Virtual Network för Azure Database Migration Service med hjälp av Azure Resource Manager distributions modell, som tillhandahåller plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Mer information om hur du skapar ett virtuellt nätverk finns i [Virtual Network-dokumentationen](https://docs.microsoft.com/azure/virtual-network/)och i synnerhet snabb starts artiklar med stegvisa anvisningar.
+* [Skapa en instans i Azure Database for PostgreSQL](../postgresql/quickstart-create-server-database-portal.md).
+* Anslut till instansen och skapa en databas med hjälp av instruktionen i det här [dokumentet](../postgresql/tutorial-design-database-using-azure-portal.md).
+* Skapa en Microsoft Azure Virtual Network för Azure Database Migration Service med hjälp av Azure Resource Manager distributions modell, som tillhandahåller plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](../expressroute/expressroute-introduction.md) eller [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Mer information om hur du skapar ett virtuellt nätverk finns i [Virtual Network-dokumentationen](../virtual-network/index.yml)och i synnerhet snabb starts artiklar med stegvisa anvisningar.
 
   > [!NOTE]
-  > Om du använder ExpressRoute med nätverks-peering till Microsoft under installationen av det virtuella nätverket lägger du till följande tjänst [slut punkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) i under nätet där tjänsten ska tillhandahållas:
+  > Om du använder ExpressRoute med nätverks-peering till Microsoft under installationen av det virtuella nätverket lägger du till följande tjänst [slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md) i under nätet där tjänsten ska tillhandahållas:
   >
   > * Slut punkt för mål databas (till exempel SQL-slutpunkt, Cosmos DB slut punkt och så vidare)
   > * Lagrings slut punkt
@@ -63,11 +63,11 @@ För att slutföra den här kursen behöver du:
   >
   > Den här konfigurationen är nödvändig eftersom Azure Database Migration Service saknar Internet anslutning.
 
-* Se till att dina regler för nätverks säkerhets gruppen (NSG) för virtuella nätverk inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om NSG för trafik filtrering i virtuellt nätverk finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
-* Konfigurera din [Windows-brandvägg för databasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* Se till att dina regler för nätverks säkerhets gruppen (NSG) för virtuella nätverk inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om NSG för trafik filtrering i virtuellt nätverk finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Konfigurera din [Windows-brandvägg för databasmotoråtkomst](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Öppna Windows-brandväggen för att tillåta Azure Database Migration Service åtkomst till käll-Oracle-servern, som standard är TCP-port 1521.
 * När du använder en brand Väggs installation framför dina käll databaser, kan du behöva lägga till brand Väggs regler för att tillåta Azure Database Migration Service åtkomst till käll databaserna för migrering.
-* Skapa en [brand Väggs regel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på server nivå för Azure Database for PostgreSQL att tillåta Azure Database migration service åtkomst till mål databaserna. Ange under nätets intervall för det virtuella nätverk som används för Azure Database Migration Service.
+* Skapa en [brand Väggs regel](../azure-sql/database/firewall-configure.md) på server nivå för Azure Database for PostgreSQL att tillåta Azure Database migration service åtkomst till mål databaserna. Ange under nätets intervall för det virtuella nätverk som används för Azure Database Migration Service.
 * Ge åtkomst till käll-Oracle-databaserna.
 
   > [!NOTE]
@@ -206,7 +206,7 @@ Azure Database Migration Service kan också skapa tabell schemat PostgreSQL. Tj�
 > [!IMPORTANT]
 > Azure Database Migration Service skapar bara tabell schemat. andra databas objekt, till exempel lagrade procedurer, paket, index osv., skapas inte.
 
-Se även till att ta bort sekundär nyckeln i mål databasen för att köra den fullständiga belastningen. I avsnittet **migrera exempel schema** i artikeln hittar du ett skript som du kan [använda för att](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online) ta bort sekundär nyckeln. Använd Azure Database Migration Service för att köra fullständig belastning och synkronisering.
+Se även till att ta bort sekundär nyckeln i mål databasen för att köra den fullständiga belastningen. I avsnittet **migrera exempel schema** i artikeln hittar du ett skript som du kan [använda för att](./tutorial-postgresql-azure-postgresql-online.md) ta bort sekundär nyckeln. Använd Azure Database Migration Service för att köra fullständig belastning och synkronisering.
 
 ### <a name="when-the-postgresql-table-schema-already-exists"></a>När PostgreSQL-tabellens schema redan finns
 
@@ -261,7 +261,7 @@ Så här kommer du igång:
 
     ![Visa resursprovidrar](media/tutorial-oracle-azure-postgresql-online/portal-select-resource-provider.png)
 
-3. Sök efter migrering och välj sedan **Registrera**till höger om **Microsoft. data migration**.
+3. Sök efter migrering och välj sedan **Registrera** till höger om **Microsoft. data migration**.
 
     ![Registrera resursprovider](media/tutorial-oracle-azure-postgresql-online/portal-register-resource-provider.png)
 
@@ -281,7 +281,7 @@ Så här kommer du igång:
 
     Det virtuella nätverket ger Azure Database Migration Service åtkomst till käll-Oracle och mål Azure Database for PostgreSQL instansen.
 
-    Mer information om hur du skapar ett virtuellt nätverk i Azure Portal finns i artikeln [skapa ett virtuellt nätverk med hjälp av Azure Portal](https://aka.ms/DMSVnet).
+    Mer information om hur du skapar ett virtuellt nätverk i Azure Portal finns i artikeln [skapa ett virtuellt nätverk med hjälp av Azure Portal](../virtual-network/quick-create-portal.md).
 
 5. Välj en prisnivå.
 
@@ -304,7 +304,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
     ![Hitta din instans av Azure Database Migration Service](media/tutorial-oracle-azure-postgresql-online/dms-instance-search.png)
 
 3. Välj + **Nytt migreringsprojekt**.
-4. På skärmen **ny migrerings projekt** anger du ett namn för projektet i text rutan **käll Server typ** , väljer **Oracle**i text rutan **mål server typ** väljer du **Azure Database for PostgreSQL**.
+4. På skärmen **ny migrerings projekt** anger du ett namn för projektet i text rutan **käll Server typ** , väljer **Oracle** i text rutan **mål server typ** väljer du **Azure Database for PostgreSQL**.
 5. I avsnittet **Välj typ av aktivitet** väljer du **migrering av data online**.
 
    ![Skapa Database Migration Service-projekt](media/tutorial-oracle-azure-postgresql-online/dms-create-project5.png)
@@ -322,7 +322,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 ## <a name="upload-oracle-oci-driver"></a>Ladda upp Oracle OCI-drivrutin
 
-1. Välj **Spara**och på skärmen **Installera OCI-drivrutin** loggar du in på ditt Oracle-konto och laddar ned driv rutins **instantclient-basiclite-windows.x64-12.2.0.1.0.zip** (37 128 586 byte (s)) (SHA1-kontrollsumma: 865082268) [härifrån](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst).
+1. Välj **Spara** och på skärmen **Installera OCI-drivrutin** loggar du in på ditt Oracle-konto och laddar ned driv rutins **instantclient-basiclite-windows.x64-12.2.0.1.0.zip** (37 128 586 byte (s)) (SHA1-kontrollsumma: 865082268) [härifrån](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst).
 2. Ladda ned driv rutinen till en delad mapp.
 
    Kontrol lera att mappen delas med det användar namn som du angav med minst skrivskyddad åtkomst. Azure Database Migration Service åtkomst och läsningar från resursen för att överföra OCI-drivrutinen till Azure genom att personifiera det användar namn som du anger.
@@ -333,7 +333,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 ## <a name="specify-target-details"></a>Ange målinformation
 
-1. Välj **Spara**och ange sedan anslutnings information för mål Azure Database for PostgreSQL servern på sidan **mål information** , vilket är den företablerade instansen av Azure Database for PostgreSQL som **HR** -schemat har distribuerats till.
+1. Välj **Spara** och ange sedan anslutnings information för mål Azure Database for PostgreSQL servern på sidan **mål information** , vilket är den företablerade instansen av Azure Database for PostgreSQL som **HR** -schemat har distribuerats till.
 
     ![Skärmen Målinformation](media/tutorial-oracle-azure-postgresql-online/dms-add-target-details1.png)
 
@@ -359,7 +359,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
      ![Aktivitets status-körs](media/tutorial-oracle-azure-postgresql-online/dms-activity-running.png)
 
-2. Under **databas namn**väljer du en annan databas för att komma till migreringsprocessen för **fullständig data inläsning** och **stegvisa data synkronisering** .
+2. Under **databas namn** väljer du en annan databas för att komma till migreringsprocessen för **fullständig data inläsning** och **stegvisa data synkronisering** .
 
     Fullständig datainläsning visar den initiala inläsningsmigreringsstatus, och Inkrementell datasynkronisering visar CDC-status (change data capture).
 
@@ -378,7 +378,7 @@ När den fullständiga inläsningen är klar är databaserna märkta med **Klar 
    ![Starta snabb](media/tutorial-oracle-azure-postgresql-online/dms-start-cutover.png)
 
 3. Välj **Bekräfta** och sedan **Använd**.
-4. När status för databas migreringen är **slutförd**ansluter du dina program till den nya mål Azure Database for PostgreSQLs instansen.
+4. När status för databas migreringen är **slutförd** ansluter du dina program till den nya mål Azure Database for PostgreSQLs instansen.
 
  > [!NOTE]
  > Eftersom PostgreSQL som standard har schema. Table. Column i gemener, kan du återställa från versaler till gemener genom att använda skriptet i avsnittet **Konfigurera schemat i Azure Database for PostgreSQL** tidigare i den här artikeln.
@@ -386,5 +386,5 @@ När den fullständiga inläsningen är klar är databaserna märkta med **Klar 
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om kända problem och begränsningar när du utför onlinemigreringar till Azure Database for PostgreSQL finns i artikeln [Kända problem och lösningar för Azure Database for PostgreSQL-onlinemigreringar](known-issues-azure-postgresql-online.md).
-* Information om Azure Database Migration Service finns i artikeln [Vad är Azure Database migration service?](https://docs.microsoft.com/azure/dms/dms-overview).
-* Mer information om Azure Database for PostgreSQL finns i artikeln [Vad är Azure Database for PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).
+* Information om Azure Database Migration Service finns i artikeln [Vad är Azure Database migration service?](./dms-overview.md).
+* Mer information om Azure Database for PostgreSQL finns i artikeln [Vad är Azure Database for PostgreSQL?](../postgresql/overview.md).

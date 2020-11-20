@@ -8,17 +8,18 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e38fcd069fa6a3e8582dcd96b2bd0b4074986de7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511168"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955811"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Önskat tillstånds konfigurations tillägg med Azure Resource Manager mallar
 
@@ -81,7 +82,7 @@ Mer information finns i [VirtualMachineExtension-klass](/dotnet/api/microsoft.az
 ## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Mall-exempel för skalnings uppsättningar för virtuella Windows-datorer
 
 En nod för skalnings uppsättning för virtuell dator har ett **egenskaps** avsnitt som har ett **VirtualMachineProfile, extensionProfile-** attribut.
-Under **tillägg**lägger du till information om DSC-tillägg.
+Under **tillägg** lägger du till information om DSC-tillägg.
 
 DSC-tillägget ärver standard tilläggs egenskaper.
 Mer information finns i [VirtualMachineScaleSetExtension-klass](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
@@ -179,7 +180,7 @@ En lista över de argument som är tillgängliga för standard konfigurations sk
 
 | Egenskapsnamn | Typ | Beskrivning |
 | --- | --- | --- |
-| Settings. wmfVersion |sträng |Anger den version av Windows Management Framework (WMF) som ska installeras på den virtuella datorn. Om du anger den här egenskapen till **senaste** installeras den senaste versionen av WMF. För närvarande är de enda möjliga värdena för den här egenskapen **4,0**, **5,0**, **5,1**och **senaste**. Dessa möjliga värden är beroende av uppdateringar. Standardvärdet är **senaste**. |
+| Settings. wmfVersion |sträng |Anger den version av Windows Management Framework (WMF) som ska installeras på den virtuella datorn. Om du anger den här egenskapen till **senaste** installeras den senaste versionen av WMF. För närvarande är de enda möjliga värdena för den här egenskapen **4,0**, **5,0**, **5,1** och **senaste**. Dessa möjliga värden är beroende av uppdateringar. Standardvärdet är **senaste**. |
 | settings.configuration. URL |sträng |Anger den URL-plats från vilken du vill ladda ned din DSC-konfiguration. zip-fil. Om den angivna URL: en kräver en SAS-token för åtkomst, ställer du in egenskapen **protectedSettings.configurationUrlSasToken** på värdet för din SAS-token. Den här egenskapen krävs om **settings.configuration. script** eller **settings.configuration. Function** definieras. Om inget värde anges för dessa egenskaper anropar tillägget standard konfigurations skriptet för att ange plats Configuration Manager (LCM) metadata och argument ska anges. |
 | settings.configuration. script |sträng |Anger fil namnet på skriptet som innehåller definitionen av din DSC-konfiguration. Det här skriptet måste finnas i rotmappen i zip-filen som hämtats från den URL som anges av egenskapen **settings.configuration. URL** . Den här egenskapen krävs om **settings.configuration. URL** eller **settings.configuration. script** definieras. Om inget värde anges för dessa egenskaper anropar tillägget standard konfigurations skriptet för att ange LCM metadata och argument ska anges. |
 | settings.configuration. Function |sträng |Anger namnet på din DSC-konfiguration. Den angivna konfigurationen måste inkluderas i skriptet som **settings.configuration. script** definierar. Den här egenskapen krävs om **settings.configuration. URL** eller **settings.configuration. Function** definieras. Om inget värde anges för dessa egenskaper anropar tillägget standard konfigurations skriptet för att ange LCM metadata och argument ska anges. |
@@ -201,7 +202,7 @@ Du kan använda standard konfigurations skriptet för DSC-tillägget för att ko
 | protectedSettings.configurationArguments. RegistrationKey |PSCredential |Nödvändig egenskap. Anger den nyckel som används för en nod för att registrera med Azure Automation tjänsten som lösen ord för ett PowerShell-Credential-objekt. Det här värdet kan identifieras automatiskt med hjälp av metoden **listnycklar** mot Automation-kontot.  Se [exemplet](#example-using-referenced-azure-automation-registration-values). |
 | settings.configurationArguments. RegistrationUrl |sträng |Nödvändig egenskap. Anger URL: en för den Automation-slutpunkt där noden försöker registrera sig. Det här värdet kan identifieras automatiskt med hjälp av **referens** metoden mot Automation-kontot. |
 | settings.configurationArguments. NodeConfigurationName |sträng |Nödvändig egenskap. Anger nodens konfiguration i Automation-kontot som ska tilldelas noden. |
-| settings.configurationArguments.ConfigurationMode |sträng |Anger läget för LCM. Giltiga alternativ är **ApplyOnly**, **ApplyandMonitor**och **ApplyandAutoCorrect**.  Standardvärdet är **ApplyandMonitor**. |
+| settings.configurationArguments.ConfigurationMode |sträng |Anger läget för LCM. Giltiga alternativ är **ApplyOnly**, **ApplyandMonitor** och **ApplyandAutoCorrect**.  Standardvärdet är **ApplyandMonitor**. |
 | settings.configurationArguments. RefreshFrequencyMins | UInt32 | Anger hur ofta LCM försöker kontrol lera med Automation-kontot för uppdateringar.  Standardvärdet är **30**.  Minimalt värde är **15**. |
 | settings.configurationArguments.ConfigurationModeFrequencyMins | UInt32 | Anger hur ofta LCM verifierar den aktuella konfigurationen. Standardvärdet är **15**. Minimalt värde är **15**. |
 | settings.configurationArguments. RebootNodeIfNeeded | boolean | Anger om en nod kan startas om automatiskt om en DSC-åtgärd begär det. Standardvärdet är **false**. |
@@ -294,7 +295,7 @@ I följande exempel hämtas **RegistrationUrl** och **RegistrationKey** genom at
 
 ## <a name="update-from-a-previous-format"></a>Uppdatera från ett tidigare format
 
-Alla inställningar i ett tidigare format för tillägget (och som har de offentliga egenskaperna **ModulesUrl**, **ModuleSource**, **ModuleVersion**, **ConfigurationFunction**, **SasToken**eller **Properties**) anpassas automatiskt till det aktuella fil formatet.
+Alla inställningar i ett tidigare format för tillägget (och som har de offentliga egenskaperna **ModulesUrl**, **ModuleSource**, **ModuleVersion**, **ConfigurationFunction**, **SasToken** eller **Properties**) anpassas automatiskt till det aktuella fil formatet.
 De körs precis som de gjorde tidigare.
 
 Följande schema visar hur det tidigare inställnings schemat såg ut som:

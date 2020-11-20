@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: c787df901fc33c2dcd2c8a901202c72ea6de45d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84fd1a2d3d0dc4ce6960469ea3212b8ca1d4d07c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513606"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956780"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Inaktivera och ta bort en virtuell StorSimple-matris
 
@@ -30,7 +30,7 @@ När du inaktiverar en virtuell StorSimple-matris bryter du förbindelsen mellan
 * Inaktivera en enhet 
 * Ta bort en inaktive rad enhet
 
-Informationen i den här artikeln gäller endast virtuella StorSimple-matriser. Information om 8000-serien finns i så här [inaktiverar eller tar du bort en enhet](storsimple-deactivate-and-delete-device.md).
+Informationen i den här artikeln gäller endast virtuella StorSimple-matriser. Information om 8000-serien finns i så här [inaktiverar eller tar du bort en enhet](./storsimple-8000-deactivate-and-delete-device.md).
 
 ## <a name="when-to-deactivate"></a>När ska du inaktivera?
 
@@ -49,7 +49,7 @@ Utför följande steg för att inaktivera enheten.
 1. I din tjänst går du till **hantering > enheter**. I bladet **enheter** klickar du på och väljer den enhet som du vill inaktivera.
    
     ![Välj enhet som ska inaktive ras](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete7.png)
-2. I bladet för din **enhets instrument panel** klickar du på **... Mer** och välj **inaktivera**i listan.
+2. I bladet för din **enhets instrument panel** klickar du på **... Mer** och välj **inaktivera** i listan.
    
     ![Klicka på Inaktivera](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete8.png)
 3. Skriv enhets namnet i bladet **inaktive ring** och klicka sedan på **inaktivera**. 
@@ -90,5 +90,4 @@ Utför följande steg för att ta bort enheten.
 
 * För information om hur du växlar över, gå till [redundans och haveri beredskap för din virtuella StorSimple-matris](storsimple-virtual-array-failover-dr.md).
 
-* Om du vill veta mer om hur du använder tjänsten StorSimple Enhetshanteraren går du till [använda tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple virtuella matris](storsimple-virtual-array-manager-service-administration.md). 
-
+* Om du vill veta mer om hur du använder tjänsten StorSimple Enhetshanteraren går du till [använda tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple virtuella matris](storsimple-virtual-array-manager-service-administration.md).

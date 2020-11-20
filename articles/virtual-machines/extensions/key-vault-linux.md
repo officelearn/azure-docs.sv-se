@@ -5,15 +5,16 @@ services: virtual-machines-linux
 author: msmbaldwin
 tags: keyvault
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2d5a6949c5dbe1e4c3c668dcb9eae6e51e5806f7
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e6e3e1769b6043599d606b84b531ec908519d4c7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926044"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955573"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault tillägg för virtuell dator för Linux
 
@@ -79,15 +80,15 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 > Detta beror på att `/secrets` sökvägen returnerar det fullständiga certifikatet, inklusive den privata nyckeln, medan `/certificates` sökvägen inte fungerar. Mer information om certifikat hittar du här: [Key Vault certifikat](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> Egenskapen "authenticationSettings" **krävs** bara för virtuella datorer med **användare tilldelade identiteter** .
+> Egenskapen "authenticationSettings" **krävs** bara för virtuella datorer med **användare tilldelade identiteter**.
 > Den anger identitet som ska användas för autentisering till Key Vault.
 
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Name | Värde/exempel | Datatyp |
+| Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | datum |
 | utgivare | Microsoft.Azure.KeyVault | sträng |
 | typ | KeyVaultForLinux | sträng |
 | typeHandlerVersion | 1,0 | int |
@@ -222,7 +223,7 @@ Observera följande begränsningar/krav:
   Nej, Key Vault VM-tillägget har inte någon gräns för antalet observedCertificates.
 
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure PowerShell.
 

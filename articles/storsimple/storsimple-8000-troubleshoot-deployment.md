@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 5806266955eafab8c3c8c99695ff82736de92e9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 600934e2d46c1a84a83fa1290db13b3d0d1508f4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187072"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956899"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Felsök problem med distribution av StorSimple-enheter
 ## <a name="overview"></a>Översikt
@@ -46,12 +46,12 @@ I följande avsnitt får du hjälp att lösa problem som du stöter på när du 
 ## <a name="first-time-setup-wizard-process"></a>Installations guiden för första gången
 I följande steg sammanfattas processen för installations guiden. Detaljerad installations information finns i [distribuera din lokala StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md).
 
-1. Kör cmdleten [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) för att starta installations guiden som hjälper dig att utföra de återstående stegen. 
+1. Kör cmdleten [Invoke-HcsSetupWizard](/previous-versions/windows/powershell-scripting/dn688135(v=wps.630)) för att starta installations guiden som hjälper dig att utföra de återstående stegen. 
 2. Konfigurera nätverket: med installations guiden kan du konfigurera nätverks inställningar för nätverks gränssnittet DATA 0 på din StorSimple-enhet. Inställningarna omfattar följande:
-   * Virtuell IP-adress (VIP), nätmask och gateway – cmdleten [set-HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) körs i bakgrunden. Den konfigurerar IP-adressen, nät masken och gatewayen för nätverks gränssnittet DATA 0 på din StorSimple-enhet.
-   * Primär DNS-Server – cmdleten [set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) körs i bakgrunden. Den konfigurerar DNS-inställningarna för din StorSimple-lösning.
-   * NTP-server – cmdleten [set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) körs i bakgrunden. Den konfigurerar NTP-serverinställningar för din StorSimple-lösning.
-   * Valfri webbproxy – cmdleten [set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) körs i bakgrunden. Den anger och aktiverar webbproxy-konfigurationen för din StorSimple-lösning.
+   * Virtuell IP-adress (VIP), nätmask och gateway – cmdleten [set-HcsNetInterface](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)) körs i bakgrunden. Den konfigurerar IP-adressen, nät masken och gatewayen för nätverks gränssnittet DATA 0 på din StorSimple-enhet.
+   * Primär DNS-Server – cmdleten [set-HcsDnsClientServerAddress](/previous-versions/windows/powershell-scripting/dn688172(v=wps.630)) körs i bakgrunden. Den konfigurerar DNS-inställningarna för din StorSimple-lösning.
+   * NTP-server – cmdleten [set-HcsNtpClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) körs i bakgrunden. Den konfigurerar NTP-serverinställningar för din StorSimple-lösning.
+   * Valfri webbproxy – cmdleten [set-HcsWebProxy](/previous-versions/windows/powershell-scripting/dn688154(v=wps.630)) körs i bakgrunden. Den anger och aktiverar webbproxy-konfigurationen för din StorSimple-lösning.
 3. Konfigurera lösen ordet: nästa steg är att konfigurera enhetens administratörs lösen ord.
    Enhetens administratörs lösen ord används för att logga in på enheten. Enheten standardlösenord är **Password1**.
         
@@ -139,7 +139,7 @@ Du kan använda tjänsten StorSimple Enhetshanteraren som körs i Microsoft Azur
 | 9 |Varning: det gick inte att aktivera enheten. Enhets administratören och StorSimple Snapshot Manager lösen ord har inte ändrats. |Om registreringen Miss lyckas ändras inte enhets administratörs-och StorSimple Snapshot Manager lösen ord. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Verktyg för felsökning av StorSimple-distributioner
-StorSimple innehåller flera verktyg som du kan använda för att felsöka din StorSimple-lösning. Exempel:
+StorSimple innehåller flera verktyg som du kan använda för att felsöka din StorSimple-lösning. Dessa omfattar:
 
 * Support paket och enhets loggar.
 * Cmdletar som är särskilt utformade för fel sökning.
@@ -157,7 +157,7 @@ Ett support paket innehåller alla relevanta loggar som kan hjälpa Microsoft Su
    2. I rutan **åtgärder** klickar du på **Öppna Sparad logg** och pekar på loggfilerna i etvx/ETW-format (support paketet). Nu kan du Visa filen. När du har öppnat filen kan du högerklicka på den och spara filen som text.
       
       > [!IMPORTANT]
-      > Du kan också använda cmdleten **Get-WinEvent** för att öppna dessa filer i Windows PowerShell. Mer information finns i [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) i referens dokumentationen för Windows PowerShell-cmdleten.
+      > Du kan också använda cmdleten **Get-WinEvent** för att öppna dessa filer i Windows PowerShell. Mer information finns i [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) i referens dokumentationen för Windows PowerShell-cmdleten.
      
 5. När loggarna öppnas i Loggboken letar du efter följande loggar som innehåller problem som rör enhets konfigurationen:
    
@@ -189,7 +189,7 @@ När du konfigurerar nätverks gränssnitt för en första enhets distribution �
    * Om gränssnittet är felfritt men inte aktiverat visas **ifIndex** status som **NotPresent**.
    * Om gränssnittet inte finns visas det inte i listan. Användar gränssnittet för StorSimple Enhetshanteraren-tjänsten kommer fortfarande att visa det här gränssnittet i ett felaktigt tillstånd.
 
-Mer information om hur du använder den här cmdleten finns i [Get-netadapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) i Windows PowerShell-cmdlet-referensen.
+Mer information om hur du använder den här cmdleten finns i [Get-netadapter](/powershell/module/netadapter/get-netadapter?view=win10-ps) i Windows PowerShell-cmdlet-referensen.
 
 I följande avsnitt visas exempel på utdata från `Get-NetAdapter` cmdleten.
 
@@ -284,7 +284,7 @@ Använd `Test-HcsmConnection` cmdleten för en enhet som redan är ansluten till
    * ErrorCode. CiSDeviceDecommissioned – Detta anger att enheten är inaktive rad.
    * ErrorCode. DeviceNotReady – Detta anger att enheten är i underhålls läge.
    * ErrorCode. DeviceNotReady – det betyder att enheten inte är online.
-3. Verifiera att tjänsten StorSimple Enhetshanteraren körs (Använd cmdleten [Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx) ). Om tjänsten inte körs kan du se följande fel:
+3. Verifiera att tjänsten StorSimple Enhetshanteraren körs (Använd cmdleten [Get-ClusterResource](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461004(v=technet.10)) ). Om tjänsten inte körs kan du se följande fel:
    
    * ErrorCode. CiSApplianceAgentNotOnline
    * ErrorCode. CisPowershellScriptHcsError – detta tyder på att det uppstod ett undantag när du körde Get-ClusterResource.
@@ -308,7 +308,7 @@ Använd `Test-HcsmConnection` cmdleten för en enhet som redan är ansluten till
 
 Loggfilerna CiSCommandletLog0Curr. errlog och CiSAgentsvc0Curr. errlog innehåller mer information, till exempel information om undantag.
 
-Mer information om hur du använder cmdleten finns i [test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) i referens dokumentationen för Windows PowerShell.
+Mer information om hur du använder cmdleten finns i [test-HcsmConnection](/previous-versions/windows/powershell-scripting/dn715782(v=wps.630)) i referens dokumentationen för Windows PowerShell.
 
 > [!IMPORTANT]
 > Du kan köra denna cmdlet för både den aktiva och den passiva styrenheten.
@@ -553,5 +553,5 @@ Felet kan bero på något av följande:
 
 <!--Link references-->
 
-[1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
-[2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx 
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd379547(v=ws.10)
+[2]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd392266(v=ws.10)

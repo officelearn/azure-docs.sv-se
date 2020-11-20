@@ -7,13 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c5346858aa119f11ef34916b24c70c966286ab86
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 91ef218abc51cbdf079fd9e1baa8eb2b907087df
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089051"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954213"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Felsök vanliga problem med Azure våren Cloud
 
@@ -21,7 +20,6 @@ Den här artikeln innehåller anvisningar för fel sökning av problem med moln 
 
 ## <a name="availability-performance-and-application-issues"></a>Tillgänglighets-, prestanda-och program problem
 
-::: zone pivot="programming-language-java"
 ### <a name="my-application-cant-start-for-example-the-endpoint-cant-be-connected-or-it-returns-a-502-after-a-few-retries"></a>Det går inte att starta programmet (till exempel slut punkten kan inte anslutas, eller så returnerar den en 502 efter några återförsök)
 
 Exportera loggarna till Azure Log Analytics. Tabellen för program loggar med våren heter *AppPlatformLogsforSpring*. Mer information finns i [Analysera loggar och mått med diagnostikinställningar](diagnostic-services.md).
@@ -45,9 +43,9 @@ Tjänst bindningar kan också orsaka fel i program starten. Använd nyckelord so
 
 När du felsöker program krascher startar du genom att kontrol lera programmets körnings status och identifierings status. Det gör du genom att gå till _app Management_ i Azure Portal för att se till att status för alla program _körs_ _och är igång._
 
-* Om status är _igång_ men identifierings statusen inte är _upp_går du till avsnittet ["det går inte att registrera programmet"](#my-application-cant-be-registered) .
+* Om status är _igång_ men identifierings statusen inte är _upp_ går du till avsnittet ["det går inte att registrera programmet"](#my-application-cant-be-registered) .
 
-* Om identifierings statusen är _upp_går du till mått för att kontrol lera programmets hälso tillstånd. Kontrol lera följande mått:
+* Om identifierings statusen är _upp_ går du till mått för att kontrol lera programmets hälso tillstånd. Kontrol lera följande mått:
 
 
   - `TomcatErrorCount` (_Tomcat. global. error_): alla våren Application-undantag räknas här. Om det här talet är stort går du till Azure Log Analytics för att kontrol lera program loggarna.
@@ -69,7 +67,6 @@ När du felsöker program krascher startar du genom att kontrol lera programmets
 
 
 Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
-::: zone-end
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Mitt program använder stora mängder CPU- eller minnesresurser
 
@@ -79,7 +76,7 @@ Om ditt program upplever hög processor-eller minnes användning är något av t
 
 För att fastställa vilken situation som gäller gör du följande:
 
-1. Gå till **mått**och välj antingen procent eller **tjänst minne som används**för **tjänstens processor användning** .
+1. Gå till **mått** och välj antingen procent eller **tjänst minne som används** för **tjänstens processor användning** .
 2. Lägg till ett **app =** filter för att ange vilket program som du vill övervaka.
 3. Dela måtten efter **instans**.
 
@@ -93,7 +90,6 @@ Om alla instanser är igång går du till Azure Log Analytics för att skicka fr
 
 Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Fråga loggarna genom att använda [Kusto-frågespråket](/azure/kusto/query/).
 
-::: zone pivot="programming-language-java"
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Check lista för att distribuera ditt våren-program till Azure våren Cloud
 
 Innan du registrerar ditt program bör du kontrol lera att det uppfyller följande kriterier:
@@ -105,7 +101,6 @@ Innan du registrerar ditt program bör du kontrol lera att det uppfyller följan
 * JVM-parametrarna har sina förväntade värden.
 * Vi rekommenderar att du inaktiverar eller tar bort den inbäddade _konfigurations servern_ och _tjänst registrerings_ tjänsterna från programpaketet.
 * Om några Azure-resurser ska bindas via _tjänstbindning_ kontrollerar du att målresurserna är igång.
-::: zone-end
 
 ## <a name="configuration-and-management"></a>Konfiguration och hantering
 
@@ -124,7 +119,6 @@ Om du vill konfigurera Azure våren Cloud Service-instansen med hjälp av Resour
 
 Namnet på Azure våren Cloud Service-instansen kommer att användas för att begära ett under domän namn under `azureapps.io` , så installationen Miss kommer att Miss förväntas om namnet står i konflikt med ett befintligt namn. Du kan hitta mer information i aktivitets loggarna.
 
-::: zone pivot="programming-language-java"
 ### <a name="i-cant-deploy-a-net-core-app"></a>Jag kan inte distribuera en .NET Core-app
 
 Du kan inte ladda upp en *zip* -fil för en .net Core Steeltoe-app med hjälp av Azure Portal eller Resource Manager-mallen.
@@ -132,9 +126,7 @@ Du kan inte ladda upp en *zip* -fil för en .net Core Steeltoe-app med hjälp av
 När du distribuerar programpaketet med hjälp av [Azure CLI](/cli/azure/get-started-with-azure-cli)avsöker Azure CLI regelbundet distributions förloppet och i slutet visas distributions resultatet.
 
 Kontrol lera att programmet är paketerat i rätt *. zip* -filformat. Om den inte paketeras korrekt kommer processen att sluta svara eller så visas ett fel meddelande.
-::: zone-end
 
-::: zone pivot="programming-language-java"
 ### <a name="i-cant-deploy-a-jar-package"></a>Jag kan inte distribuera ett JAR-paket
 
 Du kan inte ladda upp/source-paketet för Java Archive File (JAR) med hjälp av Azure Portal eller Resource Manager-mallen.
@@ -232,7 +224,6 @@ Kontrol lera om `spring-boot-actuator` beroendet är aktiverat i ditt programpak
 ```
 
 Om dina program loggar kan arkiveras till ett lagrings konto men inte skickas till Azure Log Analytics, kontrollerar du om du [har konfigurerat arbets ytan på rätt sätt](../azure-monitor/learn/quick-create-workspace.md). Om du använder en kostnads fri nivå av Azure Log Analytics, Observera att [den kostnads fria nivån inte tillhandahåller något service nivå avtal (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
-::: zone-end
 
 ## <a name="next-steps"></a>Nästa steg
 

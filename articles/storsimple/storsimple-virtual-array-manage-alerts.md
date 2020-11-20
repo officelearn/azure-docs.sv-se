@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a24890f42b795bb4b9a7d187f74ceb9a4f8557f5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 12fcc9996697f3bbba35826d79bec238bfb0f8b3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539234"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956219"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Använd StorSimple Enhetshanteraren för att hantera aviseringar för den virtuella StorSimple-matrisen
 
@@ -61,7 +61,7 @@ När du har aktiverat e-postavisering för en virtuell matris kommer medlemmar i
        ![Skärm bild som visar en informations dialog ruta som verifierar test-e-postmeddelandet.](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
       
       > [!NOTE]
-      > Om test aviserings meddelandet inte kan skickas visar tjänsten StorSimple Enhetshanteraren ett lämpligt meddelande. Klicka på **OK** , vänta några minuter och försök sedan att skicka ett test meddelande igen.
+      > Om test aviserings meddelandet inte kan skickas visar tjänsten StorSimple Enhetshanteraren ett lämpligt meddelande. Klicka på **OK**, vänta några minuter och försök sedan att skicka ett test meddelande igen.
       >
       >
    5. Klicka på **Spara** längst ned på sidan för att spara konfigurationen. Klicka på **Ja** när du uppmanas att bekräfta åtgärden.
@@ -72,7 +72,7 @@ När du har aktiverat e-postavisering för en virtuell matris kommer medlemmar i
 
 Din virtuella StorSimple-matris genererar aviseringar som svar på olika villkor. Följande är de vanligaste typerna av aviserings villkor:
 
-* **Anslutnings problem** – dessa aviseringar inträffar när det är svårt att överföra data. Kommunikations problem kan uppstå under överföring av data till och från Azure Storage-kontot eller på grund av bristande anslutning mellan de virtuella enheterna och tjänsten StorSimple Enhetshanteraren. Kommunikations problem är några av de svåra att åtgärda eftersom det finns så många fel punkter. Först bör du först kontrol lera att nätverks anslutningen och Internet åtkomst är tillgängliga innan du fortsätter till mer avancerad fel sökning. Information om portar och brand Väggs inställningar finns i [system krav för StorSimple Virtual Array](storsimple-ova-system-requirements.md). Om du behöver hjälp med fel sökning går du till [Felsöka med cmdleten Test-Connection](storsimple-troubleshoot-deployment.md).
+* **Anslutnings problem** – dessa aviseringar inträffar när det är svårt att överföra data. Kommunikations problem kan uppstå under överföring av data till och från Azure Storage-kontot eller på grund av bristande anslutning mellan de virtuella enheterna och tjänsten StorSimple Enhetshanteraren. Kommunikations problem är några av de svåra att åtgärda eftersom det finns så många fel punkter. Först bör du först kontrol lera att nätverks anslutningen och Internet åtkomst är tillgängliga innan du fortsätter till mer avancerad fel sökning. Information om portar och brand Väggs inställningar finns i [system krav för StorSimple Virtual Array](storsimple-ova-system-requirements.md). Om du behöver hjälp med fel sökning går du till [Felsöka med cmdleten Test-Connection](./storsimple-8000-troubleshoot-deployment.md).
 * **Prestanda problem** – de här aviseringarna orsakas när systemet inte fungerar optimalt, till exempel när det är under en tung belastning.
 
 Dessutom kan du se aviseringar relaterade till säkerhet, uppdateringar eller jobb haverier.
@@ -130,21 +130,21 @@ I följande tabeller visas några av de StorSimple-aviseringar som du kan stöta
 
 | Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Enhets < *enhets namnet* > är inte anslutet till molnet. |Den namngivna enheten kan inte ansluta till molnet. |Det gick inte att ansluta till molnet. Detta kan bero på något av följande:<ul><li>Det kan finnas ett problem med nätverks inställningarna på enheten.</li><li>Det kan finnas ett problem med lagrings kontots autentiseringsuppgifter.</li></ul>Mer information om fel sökning av anslutnings problem finns i enhetens [lokala webb gränssnitt](storsimple-ova-web-ui-admin.md) . |
+| Enhets <*enhets namnet*> är inte anslutet till molnet. |Den namngivna enheten kan inte ansluta till molnet. |Det gick inte att ansluta till molnet. Detta kan bero på något av följande:<ul><li>Det kan finnas ett problem med nätverks inställningarna på enheten.</li><li>Det kan finnas ett problem med lagrings kontots autentiseringsuppgifter.</li></ul>Mer information om fel sökning av anslutnings problem finns i enhetens [lokala webb gränssnitt](storsimple-ova-web-ui-admin.md) . |
 
 ### <a name="configuration-alerts"></a>Konfigurations aviseringar
 
 | Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
 | Konfiguration av lokal virtuell enhet stöds inte. |Långsamma prestanda. |Den aktuella konfigurationen kan resultera i försämrade prestanda. Kontrol lera att servern uppfyller minimi kraven för konfiguration. Mer information finns i krav för [StorSimple Virtual Array](storsimple-ova-system-requirements.md). |
-| Du håller på att ta slut på det allokerade disk utrymmet på < *enhets namnet* \> . |Varning om disk utrymme. |Det allokerade disk utrymmet håller på att ta slut. För att frigöra utrymme bör du överväga att flytta arbets belastningar till en annan volym eller dela eller ta bort data. |
+| Du håller på att ta slut på det allokerade disk utrymmet på <*enhets namnet* \> . |Varning om disk utrymme. |Det allokerade disk utrymmet håller på att ta slut. För att frigöra utrymme bör du överväga att flytta arbets belastningar till en annan volym eller dela eller ta bort data. |
 
 ### <a name="job-failure-alerts"></a>Aviseringar om jobb haveri
 
 | Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Det gick inte att slutföra säkerhets kopieringen av < *enhets namnet* \> . |Säkerhets kopierings jobbet kunde inte utföras. |Det gick inte att skapa en säkerhets kopia. Överväg något av följande:<ul><li>Anslutnings problem kan hindra säkerhets kopieringen från att slutföras. Se till att det inte finns några anslutnings problem. Mer information om fel sökning av anslutnings problem finns i det [lokala webb gränssnittet](storsimple-ova-web-ui-admin.md) för den virtuella enheten.</li><li>Du har nått den tillgängliga lagrings gränsen. Överväg att ta bort eventuella säkerhets kopior som inte längre behövs för att frigöra utrymme.</li></ul> Lös problemen, rensa aviseringen och försök igen. |
-| Det gick inte att utföra kloningen av < *enhets namnet* \> . |Det gick inte att klona jobbet. |Det gick inte att skapa en klon. Överväg något av följande:<ul><li>Säkerhets kopierings listan kanske inte är giltig. Uppdatera listan för att kontrol lera att den fortfarande är giltig.</li><li>Anslutnings problem kan hindra klonings åtgärden från att slutföras. Se till att det inte finns några anslutnings problem.</li><li>Du har nått den tillgängliga lagrings gränsen. Överväg att ta bort eventuella säkerhets kopior som inte längre behövs för att frigöra utrymme.</li></ul>Lös problemen, rensa aviseringen och försök igen. |
+| Det gick inte att slutföra säkerhets kopieringen av <*enhets namnet* \> . |Säkerhets kopierings jobbet kunde inte utföras. |Det gick inte att skapa en säkerhets kopia. Överväg något av följande:<ul><li>Anslutnings problem kan hindra säkerhets kopieringen från att slutföras. Se till att det inte finns några anslutnings problem. Mer information om fel sökning av anslutnings problem finns i det [lokala webb gränssnittet](storsimple-ova-web-ui-admin.md) för den virtuella enheten.</li><li>Du har nått den tillgängliga lagrings gränsen. Överväg att ta bort eventuella säkerhets kopior som inte längre behövs för att frigöra utrymme.</li></ul> Lös problemen, rensa aviseringen och försök igen. |
+| Det gick inte att utföra kloningen av <*enhets namnet* \> . |Det gick inte att klona jobbet. |Det gick inte att skapa en klon. Överväg något av följande:<ul><li>Säkerhets kopierings listan kanske inte är giltig. Uppdatera listan för att kontrol lera att den fortfarande är giltig.</li><li>Anslutnings problem kan hindra klonings åtgärden från att slutföras. Se till att det inte finns några anslutnings problem.</li><li>Du har nått den tillgängliga lagrings gränsen. Överväg att ta bort eventuella säkerhets kopior som inte längre behövs för att frigöra utrymme.</li></ul>Lös problemen, rensa aviseringen och försök igen. |
 
 ### <a name="networking-alerts"></a>Nätverks aviseringar
 
@@ -157,13 +157,13 @@ I följande tabeller visas några av de StorSimple-aviseringar som du kan stöta
 | Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
 | Du upplever oväntade fördröjningar i data överföringen. |Långsam data överföring. |Begränsnings fel inträffar när du överskrider skalbarhets målen för en lagrings tjänst. Lagrings tjänsten gör detta för att säkerställa att ingen enskild klient eller klient organisation kan använda tjänsten på bekostnad av andra. Mer information om hur du felsöker ditt Azure Storage-konto finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
-| Du har ont om lokalt reservations disk utrymme på < *enhets namnet* \> . |Långsam svars tid. |10% av den totala etablerade storleken för < *enhets namnet* \> är reserverat på den lokala enheten och du börjar nu ta slut på det reserverade utrymmet. Arbets belastningen på < *enhets namnet* \> genererar en högre andel omsättning eller så kanske du nyligen har migrerat en stor mängd data. Detta kan resultera i försämrade prestanda. Överväg följande åtgärder för att lösa problemet:<ul><li>Öka moln bandbredden till den här enheten.</li><li>Minska eller flytta arbets belastningar till en annan volym eller resurs.</li></ul> |
+| Du har ont om lokalt reservations disk utrymme på <*enhets namnet* \> . |Långsam svars tid. |10% av den totala etablerade storleken för <*enhets namnet* \> är reserverat på den lokala enheten och du börjar nu ta slut på det reserverade utrymmet. Arbets belastningen på <*enhets namnet* \> genererar en högre andel omsättning eller så kanske du nyligen har migrerat en stor mängd data. Detta kan resultera i försämrade prestanda. Överväg följande åtgärder för att lösa problemet:<ul><li>Öka moln bandbredden till den här enheten.</li><li>Minska eller flytta arbets belastningar till en annan volym eller resurs.</li></ul> |
 
 ### <a name="security-alerts"></a>Säkerhetsaviseringar
 
 | Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Lösen ordet för < *enhets namnet* \> upphör att gälla om < *nummer* \> dagar. |Lösen ords varning. |Ditt lösen ord upphör att gälla om < *nummer* \> dagar. Överväg att ändra ditt lösen ord. Mer information finns i [ändra StorSimple för den virtuella matris enheten](storsimple-virtual-array-change-device-admin-password.md). |
+| Lösen ordet för <*enhets namnet* \> upphör att gälla om <*nummer* \> dagar. |Lösen ords varning. |Ditt lösen ord upphör att gälla om <*nummer* \> dagar. Överväg att ändra ditt lösen ord. Mer information finns i [ändra StorSimple för den virtuella matris enheten](storsimple-virtual-array-change-device-admin-password.md). |
 
 ## <a name="next-steps"></a>Nästa steg
 

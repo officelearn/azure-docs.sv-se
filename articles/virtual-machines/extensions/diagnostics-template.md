@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31f690277675650323763a7bc6872ad736f5776c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181f226a4d7aa37ffd8c667db4736a96450e2be5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837014"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955964"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar
 Azure-diagnostik-tillägget innehåller funktioner för övervakning och diagnostik på en Windows-baserad virtuell Azure-dator. Du kan aktivera dessa funktioner på den virtuella datorn genom att inkludera tillägget som en del av Azure Resource Manager-mallen. Mer information om hur du inkluderar tillägg som en del av en mall för virtuella datorer finns i [redigera Azure Resource Manager mallar med VM-tillägg](../windows/template-description.md#extensions) . I den här artikeln beskrivs hur du kan lägga till Azure-diagnostik-tillägget i en mall för virtuella Windows-datorer.  
@@ -167,7 +168,7 @@ Exempel: *WADMetricsPT1HP10DV2S20151108* innehåller mått data som sammanställ
 
 Varje WADMetrics-tabell innehåller följande kolumner:
 
-* **PartitionKey**: partitionsnyckel konstrueras baserat på värdet *resourceID* för att unikt identifiera VM-resursen. Exempelvis: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
+* **PartitionKey**: partitionsnyckel konstrueras baserat på värdet *resourceID* för att unikt identifiera VM-resursen. Exempel: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
 * **RowKey**: följer formatet `<Descending time tick>:<Performance Counter Name>` . Tids Skale beräkningen för fallande timmar är Max tids skal minus tiden i början av agg regerings perioden. Exempel: om exempel perioden startades 10-nov-2015 och 00:00Hrs UTC skulle beräkningen vara: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)` . För prestanda räknaren tillgängliga minnes byte kommer rad nyckeln att se ut så här: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: är namnet på prestanda räknaren. Detta matchar den *counterSpecifier* som definierats i XML-konfigurationen.
 * **Maximum**: det maximala värdet för prestanda räknaren över samlings perioden.

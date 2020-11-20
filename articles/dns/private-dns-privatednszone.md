@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: a951bc07c4a8ed42b1c116332d13674656bbaafd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eaa320e79f1d595303c6d9fe1399df12cb6c52b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646803"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954417"
 ---
 # <a name="what-is-a-private-azure-dns-zone"></a>Vad är en privat Azure DNS zon
 
@@ -23,9 +23,9 @@ De poster som finns i en privat DNS-zon kan inte matchas från Internet. DNS-mat
 Du kan länka en privat DNS-zon till ett eller flera virtuella nätverk genom att skapa [virtuella nätverks länkar](./private-dns-virtual-network-links.md).
 Du kan också aktivera funktionen för [automatisk registrering](./private-dns-autoregistration.md) för att automatiskt hantera livs cykeln för DNS-poster för de virtuella datorer som distribueras i ett virtuellt nätverk.
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 
-För att förstå hur många privata DNS-zoner du kan skapa i en prenumeration och hur många post uppsättningar som stöds i en privat DNS-zon, se [Azure DNS gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+För att förstå hur många privata DNS-zoner du kan skapa i en prenumeration och hur många post uppsättningar som stöds i en privat DNS-zon, se [Azure DNS gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## <a name="restrictions"></a>Begränsningar
 

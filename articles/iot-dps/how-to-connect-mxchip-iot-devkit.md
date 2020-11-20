@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6b6649d03da319171b24baa24983972bf270679
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528661"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954553"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Använd Azure IoT Hub Device Provisioning Service automatisk etablering för att registrera MXChip IoT-DevKit med IoT Hub
 
@@ -30,9 +30,9 @@ Den här artikeln beskriver hur du använder Azure-IoT Hub Device Provisioning S
 
 Utför stegen i den här självstudien genom att först utföra följande uppgifter:
 
-* Konfigurera din DevKits Wi-Fi och Förbered utvecklings miljön genom att följa anvisningarna i avsnittet "förbereda utvecklings miljön" i [ansluta IoT DEVKIT AZ3166 till Azure IoT Hub i molnet](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
+* Konfigurera din DevKits Wi-Fi och Förbered utvecklings miljön genom att följa anvisningarna i avsnittet "förbereda utvecklings miljön" i [ansluta IoT DEVKIT AZ3166 till Azure IoT Hub i molnet](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 * Uppgradera till den senaste inbyggda program varan (1.3.0 eller senare) med själv studie kursen [Uppdatera DevKit-programvaran](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) .
-* Skapa och länka en IoT Hub med en enhets etablerings tjänst instans genom att följa stegen i [konfigurera IoT Hub Device Provisioning service med Azure Portal](/azure/iot-dps/quick-setup-auto-provision).
+* Skapa och länka en IoT Hub med en enhets etablerings tjänst instans genom att följa stegen i [konfigurera IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md).
 
 ## <a name="open-sample-project"></a>Öppna exempel projekt
 
@@ -74,7 +74,7 @@ Så här sparar du en UDS på DevKit:
 
 ## <a name="update-the-global-device-endpoint-and-id-scope"></a>Uppdatera den globala enhetens slut punkt och ID-omfång
 
-I enhets kod måste du ange [enhets etablerings slut punkt](/azure/iot-dps/concepts-service#device-provisioning-endpoint) och ID-omfång för att säkerställa klient isoleringen.
+I enhets kod måste du ange [enhets etablerings slut punkt](./concepts-service.md#device-provisioning-endpoint) och ID-omfång för att säkerställa klient isoleringen.
 
 1. I Azure Portal väljer du fönstret **Översikt** i enhets etablerings tjänsten och noterar värdena för **Global enhets slut punkt** och **ID-omfång** .
   ![Global slut punkt och ID-omfång för enhets etablerings tjänsten](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
@@ -90,7 +90,7 @@ I enhets kod måste du ange [enhets etablerings slut punkt](/azure/iot-dps/conce
 
 ## <a name="generate-x509-certificate"></a>Generera X. 509-certifikat
 
-[Mekanismen för attestering](/azure/iot-dps/concepts-device#attestation-mechanism) som används i det här exemplet är X. 509-certifikat. Du måste använda ett verktyg för att generera det.
+[Mekanismen för attestering](./concepts-service.md#attestation-mechanism) som används i det här exemplet är X. 509-certifikat. Du måste använda ett verktyg för att generera det.
 
 1. I VS Code, klickar du på `F1` , skriver och väljer **Öppna ny terminal** för att öppna terminalfönstret.
 
@@ -141,4 +141,3 @@ Sammanfattnings vis har du lärt dig att:
 > * Kontrol lera att enheten är registrerad.
 
 Lär dig hur du [skapar och etablerar en simulerad enhet](./quick-create-simulated-device.md).
-

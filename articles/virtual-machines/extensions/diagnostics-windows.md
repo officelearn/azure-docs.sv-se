@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 2e6d88f2-1980-4a24-827e-a81616a0d247
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: mimckitt
-ms.openlocfilehash: 3b46ae07d4bbbcd02b9880a394b72c790553f95c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9561f96dafd936244831cff2ed05cda4d915d27d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837031"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955981"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Använd PowerShell för att aktivera Azure-diagnostik på en virtuell dator som kör Windows
 
@@ -98,7 +99,7 @@ Konfigurationen måste uppdateras för att inkludera följande:
 * Attributet *resourceID* för **mått** elementet måste uppdateras med resurs-ID: t för den virtuella datorn.
   
   * Resurs-ID: t kan skapas med följande mönster: "/Subscriptions/{*prenumerations-ID för prenumerationen med den virtuella datorn*}/resourceGroups/{*resourcegroup namn för den virtuella datorn*}/providers/Microsoft.Compute/virtualMachines/{*det virtuella dator namnet*}".
-  * Om prenumerations-ID: t för prenumerationen där den virtuella datorn körs till exempel är **11111111-1111-1111-1111-111111111111**är resurs grupps namnet för resurs gruppen **MyResourceGroup**och namnet på den virtuella datorn är **MyWindowsVM**. värdet för *resourceID* skulle då vara:
+  * Om prenumerations-ID: t för prenumerationen där den virtuella datorn körs till exempel är **11111111-1111-1111-1111-111111111111** är resurs grupps namnet för resurs gruppen **MyResourceGroup** och namnet på den virtuella datorn är **MyWindowsVM**. värdet för *resourceID* skulle då vara:
     
       ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >

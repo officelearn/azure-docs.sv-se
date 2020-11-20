@@ -8,17 +8,18 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fe788677a084575d41f2f28154b74b28ea9d3d8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84689494"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955743"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC-tillägg
 
@@ -97,16 +98,16 @@ Följande JSON visar schemat för inställnings delen av DSC-tillägget i en Azu
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Name | Värde/exempel | Datatyp |
+| Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2018-10-01 | date |
+| apiVersion | 2018-10-01 | datum |
 | utgivare | Microsoft. PowerShell. DSC | sträng |
 | typ | DSC | sträng |
 | typeHandlerVersion | 2,77 | int |
 
 ### <a name="settings-property-values"></a>Egenskaps värden för inställningar
 
-| Name | Datatyp | Beskrivning
+| Namn | Datatyp | Beskrivning
 | ---- | ---- | ---- |
 | Settings. wmfVersion | sträng | Anger den version av Windows Management Framework som ska installeras på den virtuella datorn. Om du anger den här egenskapen till "senaste" installeras den uppdaterade versionen av WMF. De enda aktuella möjliga värdena för den här egenskapen är "4,0", "5,0" och "senaste". Dessa möjliga värden är beroende av uppdateringar. Standardvärdet är "senaste". |
 | settings.configuration. URL | sträng | Anger den URL-plats från vilken du vill ladda ned ZIP-filen för DSC-konfigurationen. Om den angivna webb adressen kräver en SAS-token för åtkomst måste du ange värdet för SAS-token för egenskapen protectedSettings.configurationUrlSasToken. Den här egenskapen krävs om settings.configuration. script och/eller settings.configuration. Function definieras.
@@ -120,7 +121,7 @@ Följande JSON visar schemat för inställnings delen av DSC-tillägget i en Azu
 
 ### <a name="protected-settings-property-values"></a>Egenskaps värden för skyddade inställningar
 
-| Name | Datatyp | Beskrivning
+| Namn | Datatyp | Beskrivning
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | sträng | Definierar de parametrar som du vill skicka till din DSC-konfiguration. Den här egenskapen kommer att krypteras. |
 | protectedSettings.configurationUrlSasToken | sträng | Anger SAS-token för åtkomst till den URL som definieras av Configuration. URL. Den här egenskapen kommer att krypteras. |

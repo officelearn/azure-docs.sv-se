@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92041be4d3d5ef4d980c17fa0a5870b740c1784a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744142"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956117"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuera StorSimple Enhetshanteraren-tjänsten för StorSimple Virtual Array
 
@@ -36,7 +36,7 @@ Vanliga uppgifter som rör en StorSimple Enhetshanteraren tjänst är:
 * Hämta nyckel för tjänstregistrering
 * Återskapa tjänst registrerings nyckeln
 
-I den här självstudien beskrivs hur du utför vart och ett av föregående uppgifter. Informationen i den här artikeln gäller endast virtuella StorSimple-matriser. Mer information om StorSimple 8000-serien finns i [distribuera en StorSimple Manager-tjänst](storsimple-manage-service.md).
+I den här självstudien beskrivs hur du utför vart och ett av föregående uppgifter. Informationen i den här artikeln gäller endast virtuella StorSimple-matriser. Mer information om StorSimple 8000-serien finns i [distribuera en StorSimple Manager-tjänst](./storsimple-8000-manage-service.md).
 
 ## <a name="create-a-service"></a>Skapa en tjänst
 
@@ -89,12 +89,12 @@ Listan över tjänster kommer att uppdateras.
  ![Uppdaterad lista över tjänster](./media/storsimple-virtual-array-manage-service/deleteservice7.png)
 
 ## <a name="get-the-service-registration-key"></a>Hämta nyckel för tjänstregistrering
-När du har skapat en tjänst måste du registrera din StorSimple-enhet med tjänsten. För att registrera din första StorSimple-enhet behöver du tjänst registrerings nyckeln. Om du vill registrera ytterligare enheter med en befintlig StorSimple-tjänst behöver du både registrerings nyckeln och krypterings nyckeln för tjänst data (som genereras på den första enheten under registreringen). Mer information om krypterings nyckeln för tjänst data finns i [StorSimple Security](storsimple-security.md). Du kan hämta registrerings nyckeln genom att gå till bladet **nycklar** för din tjänst.
+När du har skapat en tjänst måste du registrera din StorSimple-enhet med tjänsten. För att registrera din första StorSimple-enhet behöver du tjänst registrerings nyckeln. Om du vill registrera ytterligare enheter med en befintlig StorSimple-tjänst behöver du både registrerings nyckeln och krypterings nyckeln för tjänst data (som genereras på den första enheten under registreringen). Mer information om krypterings nyckeln för tjänst data finns i [StorSimple Security](./storsimple-8000-security.md). Du kan hämta registrerings nyckeln genom att gå till bladet **nycklar** för din tjänst.
 
 Utför följande steg för att hämta tjänst registrerings nyckeln.
 
 #### <a name="to-get-the-service-registration-key"></a>Hämta tjänst registrerings nyckeln
-1. I bladet **StorSimple Enhetshanteraren** går du till **hanterings &gt; ** **nycklar**.
+1. I bladet **StorSimple Enhetshanteraren** går du till **hanterings &gt;** **nycklar**.
    
    ![Bladet Nycklar](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. I bladet **nycklar** visas en tjänst registrerings nyckel. Kopiera registrerings nyckeln med hjälp av kopierings ikonen. 
@@ -107,10 +107,10 @@ Du måste återskapa en tjänst registrerings nyckel om du måste utföra nyckel
 Utför följande steg för att återskapa en tjänst registrerings nyckel.
 
 #### <a name="to-regenerate-the-service-registration-key"></a>Återskapa tjänst registrerings nyckeln
-1. I bladet **StorSimple Enhetshanteraren** går du till **hanterings &gt; ** **nycklar**.
+1. I bladet **StorSimple Enhetshanteraren** går du till **hanterings &gt;** **nycklar**.
    
    ![Bladet nycklar igen](./media/storsimple-virtual-array-manage-service/getregkey2.png)
-2. Klicka på **Återskapa**på bladet **nycklar** .
+2. Klicka på **Återskapa** på bladet **nycklar** .
    
    ![Klicka på återskapa](./media/storsimple-virtual-array-manage-service/getregkey5.png)
 3. I bladet **Återskapa tjänst registrerings nyckel** granskar du den åtgärd som krävs när nycklarna återskapas. Alla efterföljande enheter som är registrerade med den här tjänsten kommer att använda den nya registrerings nyckeln. Klicka på **Återskapa** för att bekräfta. Du får ett meddelande när registreringen är klar.
@@ -125,4 +125,3 @@ Utför följande steg för att återskapa en tjänst registrerings nyckel.
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [kommer igång](storsimple-virtual-array-deploy1-portal-prep.md) med en virtuell StorSimple-matris.
 * Lär dig hur du [administrerar din StorSimple-enhet](storsimple-ova-web-ui-admin.md).
-

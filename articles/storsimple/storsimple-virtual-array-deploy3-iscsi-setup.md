@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 81799e6ec366c7429fdb29b85b4ff65d353a8fba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6289f335234c9b7efec02a18e12b40a1140c1b3f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742425"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956559"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Distribuera virtuell StorSimple-matris – konfigureras som en iSCSI-server via Azure Portal
 
@@ -37,7 +37,7 @@ De procedurer som beskrivs här tar cirka 30 minuter till 1 timme att slutföra.
 
 Innan du konfigurerar och konfigurerar din virtuella StorSimple-matris måste du kontrol lera att:
 
-* Du har etablerat en virtuell matris och anslutit till den enligt beskrivningen i [distribuera StorSimple Virtual Array-etablera en virtuell matris i Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) eller [distribuera StorSimple Virtual Array-etablera en virtuell matris i VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+* Du har etablerat en virtuell matris och anslutit till den enligt beskrivningen i [distribuera StorSimple Virtual Array-etablera en virtuell matris i Hyper-V](./storsimple-virtual-array-deploy2-provision-hyperv.md) eller [distribuera StorSimple Virtual Array-etablera en virtuell matris i VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
 * Du har tjänst registrerings nyckeln från StorSimple Enhetshanteraren-tjänsten som du skapade för att hantera dina StorSimple virtuella matriser. Mer information finns i **steg 2: Hämta tjänst registrerings nyckeln** i [distribuera StorSimple Virtual Array – förbereda portalen](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 * Om det här är den andra eller efterföljande virtuella matris som du registrerar med en befintlig StorSimple-Enhetshanteraren tjänst bör du ha krypterings nyckeln för tjänst data. Den här nyckeln genererades när den första enheten har registrerats med den här tjänsten. Om du har förlorat den här nyckeln läser du **Hämta krypterings nyckeln för tjänst data** i [Använd webb gränssnittet för att administrera din virtuella StorSimple-matris](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
@@ -64,10 +64,10 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
 2. Logga in på webb gränssnittet för den virtuella enheten som **StorSimpleAdmin**. Ange det lösen ord för enhets administratör som du ändrade i steg 3: starta den virtuella enheten i [distribuera StorSimple virtuell matris – etablera en virtuell enhet i Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) eller [distribuera StorSimple Virtual Array-etablera en virtuell enhet i VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
     ![Inloggnings sida](./media/storsimple-virtual-array-deploy3-iscsi-setup/image4.png)
-3. Du kommer till **Start** sidan. Den här sidan beskriver de olika inställningar som krävs för att konfigurera och registrera den virtuella enheten med tjänsten StorSimple Enhetshanteraren. Observera att **nätverks inställningarna**, **webbproxy-inställningarna**och **tids inställningarna** är valfria. De enda nödvändiga inställningarna är **enhets inställningar** och **moln inställningar**.
+3. Du kommer till **Start** sidan. Den här sidan beskriver de olika inställningar som krävs för att konfigurera och registrera den virtuella enheten med tjänsten StorSimple Enhetshanteraren. Observera att **nätverks inställningarna**, **webbproxy-inställningarna** och **tids inställningarna** är valfria. De enda nödvändiga inställningarna är **enhets inställningar** och **moln inställningar**.
    
     ![Startsida](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
-4. På sidan **nätverks inställningar** under **nätverks gränssnitt**kommer data 0 att konfigureras automatiskt åt dig. Varje nätverks gränssnitt anges som standard för att hämta en IP-adress automatiskt (DHCP). Därför tilldelas en IP-adress, ett undernät och en gateway automatiskt (för både IPv4 och IPv6).
+4. På sidan **nätverks inställningar** under **nätverks gränssnitt** kommer data 0 att konfigureras automatiskt åt dig. Varje nätverks gränssnitt anges som standard för att hämta en IP-adress automatiskt (DHCP). Därför tilldelas en IP-adress, ett undernät och en gateway automatiskt (för både IPv4 och IPv6).
    
     När du planerar att distribuera din enhet som en iSCSI-server (för att etablera block lagring) rekommenderar vi att du inaktiverar alternativet **Hämta IP-adress automatiskt** och konfigurerar statiska IP-adresser.
    
@@ -77,14 +77,14 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
 5. DNS-servrar krävs eftersom de används när enheten försöker kommunicera med moln lagrings tjänst leverantörer eller för att lösa din enhet efter namn om den är konfigurerad som en fil server. På sidan **nätverks inställningar** under **DNS-servrarna**:
    
    1. En primär och en sekundär DNS-server kommer att konfigureras automatiskt. Om du väljer att konfigurera statiska IP-adresser kan du ange DNS-servrar. För hög tillgänglighet rekommenderar vi att du konfigurerar en primär och en sekundär DNS-server.
-   2. Klicka på **Applicera**. Nätverks inställningarna tillämpas och kontrol leras.
+   2. Klicka på **Använd**. Nätverks inställningarna tillämpas och kontrol leras.
 6. På sidan **enhets inställningar** :
    
    1. Tilldela enheten ett unikt **namn** . Namnet kan innehålla 1-15 tecken och får innehålla bokstäver, siffror och bindestreck.
    2. Klicka på ikonen iSCSI-server ikon för **iSCSI-server** ![ ](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) för den **typ** av enhet som du skapar. Med en iSCSI-server kan du etablera block lagring.
    3. Ange om du vill att den här enheten ska vara domänansluten. Om enheten är en iSCSI-server är det valfritt att ansluta till domänen. Om du inte vill ansluta din iSCSI-server till en domän klickar du på **tillämpa**, väntar på att inställningarna ska tillämpas och går sedan vidare till nästa steg.
       
-       Om du vill ansluta enheten till en domän. Ange ett **domän namn**och klicka sedan på **Använd**.
+       Om du vill ansluta enheten till en domän. Ange ett **domän namn** och klicka sedan på **Använd**.
       
       > [!NOTE]
       > Om du ansluter din iSCSI-server till en domän måste du se till att den virtuella matrisen finns i en egen organisationsenhet (OU) för Microsoft Azure Active Directory och inga grup princip objekt (GPO) tillämpas på den.
@@ -93,7 +93,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    4. En dialog ruta visas. Ange autentiseringsuppgifterna för domänen i det angivna formatet. Klicka på kryssikonen ![kryssikon](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Domänautentiseringsuppgifter kommer att verifieras. Ett fel meddelande visas om autentiseringsuppgifterna är felaktiga.
       
        ![autentiseringsuppgifter](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
-   5. Klicka på **Applicera**. Detta gäller och validerar enhets inställningarna.
+   5. Klicka på **Använd**. Detta gäller och validerar enhets inställningarna.
 7. (Valfritt) Konfigurera webbproxyservern. Även om webbproxykonfigurationen är valfri, var medveten om att om du använder en webbproxy så kan du bara konfigurera den här.
    
     ![Konfigurera webbproxy](./media/storsimple-virtual-array-deploy3-iscsi-setup/image9.png)
@@ -103,7 +103,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    1. Ange **webbproxy-URL** i följande format: *http: \/ /host-IP-adress* eller *fullständigt domän namn: port nummer*. Observera att HTTPS-URL: er inte stöds.
    2. Ange **autentisering** som **Basic** eller **none**.
    3. Om du använder autentisering måste du också ange ett **användar namn** och **lösen ord**.
-   4. Klicka på **Applicera**. Detta validerar och tillämpar de konfigurerade webbproxyinställningarna.
+   4. Klicka på **Använd**. Detta validerar och tillämpar de konfigurerade webbproxyinställningarna.
 8. (Valfritt) Konfigurera tid inställningarna för enheten, till exempel tidszon och primära och sekundära NTP-servrar. NTP-servrar krävs eftersom din enhet måste synkronisera tid så att den kan autentiseras med dina moln tjänst leverantörer.
    
     ![Tids inställningar](./media/storsimple-virtual-array-deploy3-iscsi-setup/image10.png)
@@ -113,7 +113,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    1. I list rutan väljer du **tidszon baserat på den geografiska** plats där enheten distribueras. Standard tids zonen för enheten är PST. Enheten använder den här tidszonen för alla schemalagda åtgärder.
    2. Ange en **primär NTP-server** för din enhet eller acceptera standardvärdet för Time.Windows.com. Kontrollera att ditt nätverk tillåter att NTP-trafik skickas från ditt datacenter till Internet.
    3. Alternativt kan du ange en **sekundär NTP-server** för enheten.
-   4. Klicka på **Applicera**. Detta validerar och tillämpar de konfigurerade tids inställningarna.
+   4. Klicka på **Använd**. Detta validerar och tillämpar de konfigurerade tids inställningarna.
 9. Konfigurera moln inställningarna för enheten. I det här steget ska du slutföra konfigurationen av den lokala enheten och sedan registrera enheten med StorSimple Enhetshanteraren-tjänsten.
    
    1. Ange **tjänst registrerings nyckeln** som du fick i **steg 2: Hämta tjänst registrerings nyckeln** i [distribuera StorSimple Virtual Array – Förbered portalen](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
@@ -156,7 +156,7 @@ Utför följande steg i Azure Portal för att slutföra den nödvändiga enhets 
 
 ## <a name="step-3-add-a-volume"></a>Steg 3: Lägg till en volym
 
-1. På bladet **enheter** väljer du den enhet som du precis har konfigurerat som en iSCSI-server. Klicka på **...** (du kan också högerklicka på den här raden) och välj **Lägg till volym**på snabb menyn. Du kan också klicka på **+ Lägg till volym** från kommando fältet. Då öppnas bladet **Lägg till volym** .
+1. På bladet **enheter** väljer du den enhet som du precis har konfigurerat som en iSCSI-server. Klicka på **...** (du kan också högerklicka på den här raden) och välj **Lägg till volym** på snabb menyn. Du kan också klicka på **+ Lägg till volym** från kommando fältet. Då öppnas bladet **Lägg till volym** .
    
     ![Lägg till en volym](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis10m.png)
 2. Gör följande på bladet **Lägg till volym** :
@@ -174,7 +174,7 @@ Utför följande steg i Azure Portal för att slutföra den nödvändiga enhets 
 3. Om du vill lägga till en ny ansluten värd klickar du på **Lägg till ny**, anger ett namn för värden och dess iSCSI-kvalificerade namn (IQN) och klickar sedan på **Lägg till**. Om du inte har det kvalificerade iSCSI-resultatet går du till [bilaga A: Hämta IQN för en Windows Server-värd](#appendix-a-get-the-iqn-of-a-windows-server-host).
    
       ![Lägg till en volym 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis15m.png)
-4. Klicka på **OK**när du är klar med konfigurationen av volymen. En volym skapas med de angivna inställningarna och ett meddelande visas. Som standard aktive ras övervakning och säkerhets kopiering för volymen.
+4. Klicka på **OK** när du är klar med konfigurationen av volymen. En volym skapas med de angivna inställningarna och ett meddelande visas. Som standard aktive ras övervakning och säkerhets kopiering för volymen.
    
      ![Lägg till en volym 4](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis18m.png)
 5. Du kan kontrol lera att volymen har skapats genom att gå till bladet **volymer** . Du bör se volymen som visas.
@@ -245,7 +245,4 @@ Utför följande steg för att få det kvalificerade iSCSI-namnet (IQN) för en 
 3. Spara den här strängen.
 
 <!--Reference link-->
-[1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
-
-
-
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

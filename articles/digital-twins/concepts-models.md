@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 12eed6aeccffe854810e9c2ddc8a5c4e59b8c312
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0a38f9b8135fed08a95df68f108e44c34fec6325
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337941"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955335"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Förstå dubbla modeller i Azure Digitals flätas
 
 En viktig egenskap för Azure Digitals dubbla är möjligheten att definiera en egen vokabulär och skapa ett dubbel diagram i de självdefinierade villkoren i din verksamhet. Den här funktionen tillhandahålls genom användardefinierade **modeller**. Du kan tänka på modeller som Substantiv i en beskrivning av din värld. 
 
-En modell liknar en **klass** i ett objektorienterad programmeringsspråk som definierar en data form för ett visst koncept i din verkliga arbets miljö. Modeller har namn (t. ex. *rum* eller *TemperatureSensor* ) och innehåller element som egenskaper, telemetri/händelser och kommandon som beskriver vad den här typen av entitet i din miljö kan göra. Senare kommer du att använda dessa modeller för att skapa [**digitala**](concepts-twins-graph.md) delar som representerar vissa entiteter som uppfyller den här typen beskrivning.
+En modell liknar en **klass** i ett objektorienterad programmeringsspråk som definierar en data form för ett visst koncept i din verkliga arbets miljö. Modeller har namn (t. ex. *rum* eller *TemperatureSensor*) och innehåller element som egenskaper, telemetri/händelser och kommandon som beskriver vad den här typen av entitet i din miljö kan göra. Senare kommer du att använda dessa modeller för att skapa [**digitala**](concepts-twins-graph.md) delar som representerar vissa entiteter som uppfyller den här typen beskrivning.
 
 Azure Digitals-modeller visas i det JSON-LD-baserade **digitala DTDL-språket (definitions språk)**.  
 
@@ -49,7 +49,7 @@ Ett DTDL modell gränssnitt kan innehålla noll, ett eller flera av följande f�
 * **Relations hip** -relationer gör att du kan representera hur ett digitalt garn kan användas med andra digitala dubbla. Relationer kan representera olika semantiska betydelser, till exempel *innehåller* ("golv innehåller rum"), *häftiga* ("HVAC cools Room"), *isBilledTo* ("kompressor är fakturerad till användare") osv. Relationer tillåter lösningen att tillhandahålla ett diagram över relaterade entiteter.
 
 > [!NOTE]
-> I [spec for DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definieras även **kommandon** , som är metoder som kan köras på ett digitalt värde (som ett återställnings kommando eller ett kommando för att aktivera eller inaktivera en fläkt). *Kommandon stöds dock inte för närvarande i Azure Digital-dubbla.*
+> I [spec for DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definieras även **kommandon**, som är metoder som kan köras på ett digitalt värde (som ett återställnings kommando eller ett kommando för att aktivera eller inaktivera en fläkt). *Kommandon stöds dock inte för närvarande i Azure Digital-dubbla.*
 
 ### <a name="properties-vs-telemetry"></a>Egenskaper kontra telemetri
 
@@ -84,7 +84,7 @@ Azure Digitals flätar tar inte heller hänsyn till `writable` attributet på eg
 
 Dubbla typ modeller kan skrivas i valfri text redigerare. DTDL-språket följer JSON-syntax, så du bör lagra modeller med fil namns tillägget *. JSON*. Med JSON-tillägget kan många programmerings text redigerare tillhandahålla grundläggande syntaxkontroll och markeringar för dina DTDL-dokument. Det finns också ett [DTDL-tillägg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) tillgängligt för [Visual Studio Code](https://code.visualstudio.com/).
 
-Det här avsnittet innehåller ett exempel på en typisk modell som skrivs som ett DTDL-gränssnitt. Modellen beskriver **planet** , var och en med ett namn, en massa och en temperatur.
+Det här avsnittet innehåller ett exempel på en typisk modell som skrivs som ett DTDL-gränssnitt. Modellen beskriver **planet**, var och en med ett namn, en massa och en temperatur.
  
 Tänk på att planeterna också kan samverka med **måne** som är deras satelliter och kan innehålla **lådor**. I exemplet nedan `Planet` uttrycker modellen anslutningar till dessa andra entiteter genom att referera till två externa modeller – `Moon` och `Crater` . Dessa modeller definieras också i exempel koden nedan, men de är mycket enkla så att de inte subtraheras från det primära `Planet` exemplet.
 
@@ -144,10 +144,10 @@ Fälten i modellen är:
 | `@type` | Identifierar vilken typ av information som beskrivs. För ett gränssnitt är typen *gränssnitt*. |
 | `@context` | Ställer in [kontexten](https://niem.github.io/json/reference/json-ld/context/) för JSON-dokumentet. Modeller bör använda `dtmi:dtdl:context;2` . |
 | `displayName` | valfritt Gör att du kan ge modellen ett eget namn om du vill. |
-| `contents` | Alla återstående gränssnitts data placeras här, som en matris med attributdefinitioner. Varje attribut måste innehålla en `@type` ( *egenskap* , *telemetri* , *kommando* , *relation* eller *komponent* ) för att identifiera sorteringen av gränssnitts information som anges och sedan en uppsättning egenskaper som definierar det faktiska attributet (till exempel `name` och `schema` för att definiera en *egenskap* ). |
+| `contents` | Alla återstående gränssnitts data placeras här, som en matris med attributdefinitioner. Varje attribut måste innehålla en `@type` (*egenskap*, *telemetri*, *kommando*, *relation* eller *komponent*) för att identifiera sorteringen av gränssnitts information som anges och sedan en uppsättning egenskaper som definierar det faktiska attributet (till exempel `name` och `schema` för att definiera en *egenskap*). |
 
 > [!NOTE]
-> Observera att komponent gränssnittet ( *Crater* i det här exemplet) definieras i samma matris som gränssnittet som använder det ( *planet* ). Komponenter måste definieras på det här sättet i API-anrop för att gränssnittet ska kunna hittas.
+> Observera att komponent gränssnittet (*Crater* i det här exemplet) definieras i samma matris som gränssnittet som använder det (*planet*). Komponenter måste definieras på det här sättet i API-anrop för att gränssnittet ska kunna hittas.
 
 ### <a name="possible-schemas"></a>Möjliga scheman
 
@@ -222,9 +222,13 @@ I det här exemplet bidrar *CelestialBody* till ett namn, en massa och en temper
 
 När arvet har tillämpats visar det utökade gränssnittet alla egenskaper från hela arvs kedjan.
 
-Det utökade gränssnittet kan inte ändra någon av definitionerna för de överordnade gränssnitten. den kan bara läggas till i dem. Det går inte heller att omdefiniera en funktion som redan har definierats i något av dess överordnade gränssnitt (även om funktionerna har definierats som samma). Om ett överordnat gränssnitt till exempel definierar en `double` egenskaps *vikt* får inte det utökade gränssnittet innehålla en deklaration av *vikten* , även om det är en `double` .
+Det utökade gränssnittet kan inte ändra någon av definitionerna för de överordnade gränssnitten. den kan bara läggas till i dem. Det går inte heller att omdefiniera en funktion som redan har definierats i något av dess överordnade gränssnitt (även om funktionerna har definierats som samma). Om ett överordnat gränssnitt till exempel definierar en `double` egenskaps *vikt* får inte det utökade gränssnittet innehålla en deklaration av *vikten*, även om det är en `double` .
 
-## <a name="validating-models"></a>Validerar modeller
+## <a name="best-practices-for-designing-models"></a>Metod tips för att utforma modeller
+
+När modeller konstrueras för att återspegla entiteterna i din miljö kan det vara praktiskt att se framåt och ta hänsyn till [frågans](concepts-query-language.md) konsekvenser för din design. Du kanske vill utforma egenskaper på ett sätt som gör det möjligt att undvika stora resultat uppsättningar från diagram genom gången. Du kanske också vill modellera relationer som ska besvaras i en enda fråga som relationer på en enda nivå.
+
+### <a name="validating-models"></a>Validerar modeller
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 

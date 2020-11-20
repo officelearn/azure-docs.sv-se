@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: dec354767875d91c6062cdfbb0009e857dbe2636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: faf06775b78c5a7c90cea000ac0a1eb768107ef4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056559"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956848"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Uppdatera din StorSimple 8000-serie enhet
 > [!NOTE]
-> Den klassiska portalen för StorSimple är inaktuell. Dina StorSimple-enhetshanterare flyttas automatiskt till nya Azure Portal enligt utfasningsschemat. Du kommer att få ett e-postmeddelande och ett portalmeddelande om flytten. Det här dokumentet kommer också att dras tillbaka snart. Om du har frågor om flytten kan du läsa [Vanliga frågor och svar: Flytta till Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+> Den klassiska portalen för StorSimple är inaktuell. Dina StorSimple-enhetshanterare flyttas automatiskt till nya Azure Portal enligt utfasningsschemat. Du kommer att få ett e-postmeddelande och ett portalmeddelande om flytten. Det här dokumentet kommer också att dras tillbaka snart. Om du har frågor om flytten kan du läsa [Vanliga frågor och svar: Flytta till Azure Portal](./index.yml).
 
 ## <a name="overview"></a>Översikt
 Med funktionerna för StorSimple-uppdateringar kan du enkelt hålla din StorSimple-enhet uppdaterad. Beroende på uppdaterings typen kan du tillämpa uppdateringar på enheten via den klassiska Azure-portalen eller via Windows PowerShell-gränssnittet. I den här självstudien beskrivs uppdaterings typerna och hur du installerar dem.
@@ -120,6 +120,5 @@ Följande procedurer beskriver hur du använder Windows PowerShell för StorSimp
 Om en enhet återställs till fabriks inställningarna går alla uppdateringar förlorade. När fabriks återställnings enheten har registrerats och kon figurer ATS måste du manuellt installera uppdateringar via den klassiska Azure-portalen och/eller Windows PowerShell för StorSimple. Mer information om fabriks återställning finns i [återställa enheten till fabriks inställningarna](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om hur du [använder Windows PowerShell för StorSimple för att administrera din StorSimple-enhet](storsimple-windows-powershell-administration.md).
-* Lär dig mer om [att använda tjänsten StorSimple Manager för att administrera din StorSimple-enhet](storsimple-manager-service-administration.md).
-
+* Läs mer om hur du [använder Windows PowerShell för StorSimple för att administrera din StorSimple-enhet](./storsimple-8000-windows-powershell-administration.md).
+* Lär dig mer om [att använda tjänsten StorSimple Manager för att administrera din StorSimple-enhet](./storsimple-8000-manager-service-administration.md).

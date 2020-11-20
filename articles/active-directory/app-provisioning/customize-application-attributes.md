@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 42ec826ab95363c2599be541fe451473be5ca08d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f65fb37a4cc6640bc998af1c56e7852cccaba234
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441961"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955538"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Självstudie – anpassa användar etablering attribut-mappningar för SaaS-program i Azure Active Directory
 
@@ -128,7 +128,7 @@ När du redigerar listan över attribut som stöds anges följande egenskaper:
   - *Reference* -Attribute innehåller ett ID som refererar till ett värde som lagras i en annan tabell i mål programmet.
   - *String*  -Attribute innehåller en text sträng.
 - **Primär nyckel?** – Anger om attributet definieras som ett primär nyckel fält i målobjektets schema.
-- **Kunna?** – Anger om attributet måste fyllas i mål programmet eller systemet.
+- **Obligatoriskt?** – Anger om attributet måste fyllas i mål programmet eller systemet.
 - **Flera värden?** – Anger om attributet stöder flera värden.
 - **Exakt fall?** – Om attributvärdena utvärderas på ett skift läges känsligt sätt.
 - **API-uttryck** – Använd inte, om det inte instrueras att göra det i dokumentationen för en speciell etablerings anslutning (till exempel Workday).
@@ -136,7 +136,7 @@ När du redigerar listan över attribut som stöds anges följande egenskaper:
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Etablering av ett anpassat tilläggs-attribut för ett SCIM-kompatibelt program
 SCIM RFC definierar en kärn användare och ett grupp schema, samtidigt som tilläggen till schemat kan uppfylla ditt programs behov. Så här lägger du till ett anpassat attribut i ett SCIM-program:
-   1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com), Välj **företags program** , Välj ditt program och välj sedan **etablering**.
+   1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com), Välj **företags program**, Välj ditt program och välj sedan **etablering**.
    2. Under **mappningar** väljer du det objekt (användare eller grupp) som du vill lägga till ett anpassat attribut för.
    3. Längst ned på sidan väljer du **Visa avancerade alternativ**.
    4. Välj **Redigera attributlistan för APPNAME**.
@@ -202,7 +202,7 @@ Använd stegen nedan för att etablera roller för en användare till ditt progr
   - **Saker att tänka på**
     - Se till att flera roller inte är tilldelade till en användare. Vi kan inte garantera vilken roll som ska tillhandahållas.
     
-  - **Exempel på utdata** 
+  - **Exempel förfrågan (POST)** 
 
    ```json
     {
@@ -226,6 +226,21 @@ Använd stegen nedan för att etablera roller för en användare till ditt progr
    }
    ```
   
+  - **Exempel på utdata (korrigering)** 
+    
+   ```
+   "Operations": [
+   {
+   "op": "Add",
+   "path": "roles",
+   "value": [
+   {
+   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+   }
+   ]
+   ```  
+Förfrågnings formatet i korrigerings filen och POST skiljer sig. För att säkerställa att inlägget och KORRIGERINGen skickas i samma format kan du använda funktions flaggan som beskrivs [här](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior). 
+
 - **AppRoleAssignmentsComplex** 
   - **När du ska använda:** Använd AppRoleAssignmentsComplex-uttrycket för att etablera flera roller för en användare. 
   - **Så här konfigurerar du:** Redigera listan över attribut som stöds enligt beskrivningen ovan för att inkludera ett nytt attribut för roller: 

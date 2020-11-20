@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: baa035269f4a5b2f39263264f23183b308264ead
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 090797549cc61aa27945114e5ef8b666226b66e2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513937"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957001"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Hantera dina StorSimple enhets styrenheter
 
@@ -117,7 +117,7 @@ Utför följande steg för att återställa Microsoft Azure StorSimple-enheten t
    
     `Reset-HcsFactoryDefault`
    
-    För att i stället återställa en enda kontrollant använder du cmdleten  [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) med `-scope` parametern.)
+    För att i stället återställa en enda kontrollant använder du cmdleten  [Reset-HcsFactoryDefault](/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) med `-scope` parametern.)
    
     Systemet startas om flera gånger. Du får ett meddelande när återställningen har slutförts. Beroende på system modellen kan det ta 45-60 minuter för en 8100-enhet och 60-90 minuter för en 8600 för att slutföra den här processen.
    
@@ -161,4 +161,3 @@ I det här avsnittet har vi sammanfattat några vanliga frågor om hantering av 
 ## <a name="next-steps"></a>Nästa steg
 * Om du stöter på problem med dina StorSimple enhets styrenheter som du inte kan lösa med hjälp av procedurerna i den här själv studie kursen [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 * Om du vill veta mer om hur du använder StorSimple Enhetshanteraren-tjänsten går du till [använda StorSimple Enhetshanteraren-tjänsten för att administrera StorSimple-enheten](storsimple-8000-manager-service-administration.md).
-

@@ -2,17 +2,18 @@
 title: Vad är lösningar för att köra Oracle WebLogic-Server i Azure Kubernetes-tjänsten
 description: Lär dig hur du kör Oracle WebLogic Server på Azure Kubernetes-tjänsten.
 author: rezar
-ms.service: container-service
+ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/28/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: ff7b9b0bfcdc0c06eae14ecfdccabf9e337d3649
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: a57d5a00fad9a17e01b96ebdf395fb7a4b857935
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186687"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968697"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>Vad är lösningar för att köra Oracle WebLogic-Server i Azure Kubernetes-tjänsten?
 
@@ -34,15 +35,15 @@ Utöver att certifiera WebLogic-servern på AKS, innehåller Oracle och Microsof
 
 Vägledningen förutsätter att du distribuerar domänen utanför Docker-avbildningen och använder standard Docker-avbildningarna från Oracle. Vi lägger till vägledning för att aktivera anpassade avbildningar med din domän i en Docker-avbildning. Ytterligare enkel användning och integrering av Azure-tjänster är möjliga i framtiden via Marketplace-erbjudanden som speglar Oracle WebLogic-Server på Azure Virtual Machines-lösningar.
 
-_De här lösningarna är en egen licens_ . De förutsätter att du redan har rätt licenser med Oracle och att de är korrekt licensierade för att köra erbjudanden i Azure.
+_De här lösningarna är en egen licens_. De förutsätter att du redan har rätt licenser med Oracle och att de är korrekt licensierade för att köra erbjudanden i Azure.
 
-_Om du är intresse rad av att jobba nära dina migrerings scenarier med teknik teamet som utvecklar dessa lösningar kan du fylla i [den här korta undersökningen](https://aka.ms/wls-on-azure-survey) och ta med din kontakt information_ . Program chefer, arkitekter och tekniker kommer att kontakta dig inom kort och börja nära samarbete. Möjligheten att samar beta med ett migreringsjobb är kostnads fri medan lösningarna är aktiva inledande utveckling.
+_Om du är intresse rad av att jobba nära dina migrerings scenarier med teknik teamet som utvecklar dessa lösningar kan du fylla i [den här korta undersökningen](https://aka.ms/wls-on-azure-survey) och ta med din kontakt information_. Program chefer, arkitekter och tekniker kommer att kontakta dig inom kort och börja nära samarbete. Möjligheten att samar beta med ett migreringsjobb är kostnads fri medan lösningarna är aktiva inledande utveckling.
 
 ## <a name="deployment-architectures"></a>Distributions arkitekturer
 
 Lösningarna för att köra Oracle WebLogic-servern på Azure Kubernetes-tjänsten gör det möjligt att använda en rad olika produktions klara distributions arkitekturer med relativt enkelt.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="Du kan använda exempel skripten för att distribuera WebLogic-servern på AKS":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="Komplexa WebLogic-Server distributioner är aktiverade på AKS":::
 
 Utöver vad lösningarna ger kunderna fullständig flexibilitet att anpassa sina distributioner ytterligare. Det är sannolikt ovanpå att distribuera program kunder att integrera ytterligare Azure-resurser med sina distributioner. Kunderna uppmanas att ge feedback i undersökningen för att ytterligare förbättra lösningarna.
 

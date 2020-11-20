@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: 6c9c54450788a89a7b1aadbb0b4682a60619c061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 765bb66b572f0c046222cfb617fe4caa80925256
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334607"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967410"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Få åtkomst till och hantera IBM DB2-resurser med hjälp av Azure Logic Apps
 
@@ -28,7 +28,7 @@ IBM DB2 Connector stöder dessa IBM DB2-plattformar och-versioner tillsammans me
 
 | Plattform | Version | 
 |----------|---------|
-| IBM DB2 för z/OS | 11,1, 10,1 |
+| IBM DB2 för z/OS | 12, 11,1, 10,1 |
 | IBM DB2 för i | 7,3, 7,2, 7,1 |
 | IBM DB2 för LUW | 11, 10,5 |
 |||
@@ -78,11 +78,11 @@ I exemplen i den här artikeln används **upprepnings** utlösaren.
 
 ## <a name="connect-to-cloud-db2"></a>Ansluta till Cloud DB2
 
-Om du vill konfigurera din anslutning anger du följande information när du uppmanas till det, väljer **skapa**och sparar sedan din Logic app:
+Om du vill konfigurera din anslutning anger du följande information när du uppmanas till det, väljer **skapa** och sparar sedan din Logic app:
 
 | Egenskap | Krävs | Beskrivning |
 |----------|----------|-------------|
-| **Anslut via lokal gateway** | Inga | Gäller endast för lokala anslutningar. |
+| **Anslut via lokal gateway** | Nej | Gäller endast för lokala anslutningar. |
 | **Anslutnings namn** | Ja | Namnet på anslutningen, till exempel "MyLogicApp-DB2-Connection" |
 | **Server** | Ja | Adressen eller Ali Asets kolon port nummer för DB2-servern, till exempel "myDB2server.cloudapp.net:50000" <p><p>**Obs!** det här värdet är en sträng som representerar en TCP/IP-adress eller ett alias, antingen i IPv4-eller IPv6-format, följt av ett kolon och ett port nummer för TCP/IP. |
 | **Databas** | Ja | Namnet på din databas <p><p>**Obs!** det här värdet är en sträng som representerar ett DRDA Relations databas namn (RDBNAM): <p>– DB2 för z/OS accepterar en 16 byte-sträng där databasen kallas "IBM DB2 for z/OS"-plats. <br>-DB2 för jag accepterar en 18-byte-sträng där databasen kallas "IBM DB2 for i" Relations databas. <br>– DB2 för LUW accepterar en 8-byte-sträng. |
@@ -122,11 +122,11 @@ Om du vill köra din Logi Kap par manuellt går du till verktygsfältet i design
 
 1. På din Logic app-meny väljer du **Översikt**.
 
-1. Under **Sammanfattning**i avsnittet **körnings historik** väljer du den senaste körningen, som är det första objektet i listan.
+1. Under **Sammanfattning** i avsnittet **körnings historik** väljer du den senaste körningen, som är det första objektet i listan.
 
    ![Visa körningshistorik](./media/connectors-create-api-db2/run-history.png)
 
-1. Under **Logic app-körning**kan du nu granska status, indata och utdata för varje steg i din Logic app.
+1. Under **Logic app-körning** kan du nu granska status, indata och utdata för varje steg i din Logic app.
 Expandera åtgärden **Hämta tabeller** .
 
    ![Expandera åtgärd](./media/connectors-create-api-db2/expand-action-step.png)
@@ -159,7 +159,7 @@ Om du vill hämta en post i en DB2 Database-tabell använder du åtgärden **Hä
 
    ![Skärm bild som visar åtgärden "Hämta rad (för hands version)" med det öppnade "Tabell namnet"-listan och värdet "AREA" valt.](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
-1. När du är klar väljer du **Spara**i verktygsfältet designer.
+1. När du är klar väljer du **Spara** i verktygsfältet designer.
 
 ### <a name="view-output-row"></a>Visa utmatnings rad
 
@@ -167,9 +167,9 @@ Om du vill köra din Logi Kap par manuellt går du till verktygsfältet i design
 
 1. På din Logic app-meny väljer du **Översikt**.
 
-1. Under **Sammanfattning**i avsnittet **körnings historik** väljer du den senaste körningen, som är det första objektet i listan.
+1. Under **Sammanfattning** i avsnittet **körnings historik** väljer du den senaste körningen, som är det första objektet i listan.
 
-1. Under **Logic app-körning**kan du nu granska status, indata och utdata för varje steg i din Logic app.
+1. Under **Logic app-körning** kan du nu granska status, indata och utdata för varje steg i din Logic app.
 Expandera åtgärden **Hämta rad** .
 
 1. Om du vill visa indata väljer du **Visa rå data**.
@@ -194,9 +194,9 @@ Om du vill hämta alla poster i en DB2-databas tabell använder du åtgärden **
 
    ![Skärm bild som visar åtgärden "Hämta rad (för hands version)" med värdet "AREA" som har marker ATS i listan "Tabell namn".](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
-1. Välj **Visa avancerade alternativ**om du vill ange ett filter eller en fråga för resultat.
+1. Välj **Visa avancerade alternativ** om du vill ange ett filter eller en fråga för resultat.
 
-1. När du är klar väljer du **Spara**i verktygsfältet designer.
+1. När du är klar väljer du **Spara** i verktygsfältet designer.
 
 ### <a name="view-output-rows"></a>Visa utdatakolumner
 
@@ -204,9 +204,9 @@ Om du vill köra din Logi Kap par manuellt går du till verktygsfältet i design
 
 1. På din Logic app-meny väljer du **Översikt**.
 
-1. Under **Sammanfattning**i avsnittet **körnings historik** väljer du den senaste körningen, som är det första objektet i listan.
+1. Under **Sammanfattning** i avsnittet **körnings historik** väljer du den senaste körningen, som är det första objektet i listan.
 
-1. Under **Logic app-körning**kan du nu granska status, indata och utdata för varje steg i din Logic app.
+1. Under **Logic app-körning** kan du nu granska status, indata och utdata för varje steg i din Logic app.
 Expandera åtgärden **Hämta rader** .
 
 1. Om du vill visa indata väljer du **Visa rå data**.
@@ -243,7 +243,7 @@ Om du vill lägga till en enskild post i en DB2-databas tabell använder du åtg
 
    ![Skärm bild som visar Logic Apps designer med åtgärden "Infoga rad (förhands granskning)" och exempel egenskaps värden.](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
-1. När du är klar väljer du **Spara**i verktygsfältet designer.
+1. När du är klar väljer du **Spara** i verktygsfältet designer.
 
 ### <a name="view-insert-row-outputs"></a>Visa infogning av rad-utdata
 
@@ -251,9 +251,9 @@ Om du vill köra din Logi Kap par manuellt går du till verktygsfältet i design
 
 1. På din Logic app-meny väljer du **Översikt**.
 
-1. Under **Sammanfattning**i avsnittet **körnings historik** väljer du den senaste körningen, som är det första objektet i listan.
+1. Under **Sammanfattning** i avsnittet **körnings historik** väljer du den senaste körningen, som är det första objektet i listan.
 
-1. Under **Logic app-körning**kan du nu granska status, indata och utdata för varje steg i din Logic app.
+1. Under **Logic app-körning** kan du nu granska status, indata och utdata för varje steg i din Logic app.
 Expandera åtgärden **Infoga rad** .
 
 1. Om du vill visa indata väljer du **Visa rå data**.
@@ -291,7 +291,7 @@ Om du vill uppdatera en enskild post i en DB2-databas tabell använder du åtgä
 
    ![Skärm bild som visar Logic Apps designer med åtgärden Uppdatera rad (förhands granskning) där du väljer en tabell.](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
-1. När du är klar väljer du **Spara**i verktygsfältet designer.
+1. När du är klar väljer du **Spara** i verktygsfältet designer.
 
 ### <a name="view-update-row-outputs"></a>Visa uppdatering av rad utdata
 
@@ -299,9 +299,9 @@ Om du vill köra din Logi Kap par manuellt går du till verktygsfältet i design
 
 1. På din Logic app-meny väljer du **Översikt**.
 
-1. Under **Sammanfattning**i avsnittet **körnings historik** väljer du den senaste körningen, som är det första objektet i listan.
+1. Under **Sammanfattning** i avsnittet **körnings historik** väljer du den senaste körningen, som är det första objektet i listan.
 
-1. Under **Logic app-körning**kan du nu granska status, indata och utdata för varje steg i din Logic app.
+1. Under **Logic app-körning** kan du nu granska status, indata och utdata för varje steg i din Logic app.
 Expandera åtgärden **Uppdatera rad** .
 
 1. Om du vill visa indata väljer du **Visa rå data**.
@@ -336,7 +336,7 @@ Om du vill ta bort en enskild post från en DB2-databas tabell använder du åtg
 
    ![Skärm bild som visar Logic Apps designer med åtgärden "ta bort rad (förhands granskning)" där du väljer en tabell som ska tas bort.](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
-1. När du är klar väljer du **Spara**i verktygsfältet designer.
+1. När du är klar väljer du **Spara** i verktygsfältet designer.
 
 ### <a name="view-delete-row-outputs"></a>Visa ta bort rad utdata
 
@@ -344,9 +344,9 @@ Om du vill köra din Logi Kap par manuellt går du till verktygsfältet i design
 
 1. På din Logic app-meny väljer du **Översikt**.
 
-1. Under **Sammanfattning**i avsnittet **körnings historik** väljer du den senaste körningen, som är det första objektet i listan.
+1. Under **Sammanfattning** i avsnittet **körnings historik** väljer du den senaste körningen, som är det första objektet i listan.
 
-1. Under **Logic app-körning**kan du nu granska status, indata och utdata för varje steg i din Logic app.
+1. Under **Logic app-körning** kan du nu granska status, indata och utdata för varje steg i din Logic app.
 Expandera åtgärden **ta bort rad** .
 
 1. Om du vill visa indata väljer du **Visa rå data**.

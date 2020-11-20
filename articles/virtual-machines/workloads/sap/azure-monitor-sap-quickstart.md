@@ -5,14 +5,15 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 4b0e54c434f68a8a26f49b6ba0c1010e93d36ad6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c3b3848e4e4f7b0445f882265dbe66bb10b48833
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739887"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968595"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Distribuera Azure Monitor för SAP-lösningar med Azure Portal
 
@@ -24,13 +25,13 @@ Logga in på Azure-portalen på https://portal.azure.com
 
 ## <a name="create-monitoring-resource"></a>Skapa övervaknings resurs
 
-1. Välj **Azure Monitor för SAP-lösningar** från **Azure Marketplace** .
+1. Välj **Azure Monitor för SAP-lösningar** från **Azure Marketplace**.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="Bilden visar hur du väljer Azure Monitor för SAP-lösningar från Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-1.png":::
 
 2. Ange de värden som krävs på fliken **grundläggande** . Om det är tillämpligt kan du använda en befintlig Log Analytics-arbetsyta.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Bilden visar hur du väljer Azure Monitor för SAP-lösningar från Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Visning av Azure Portal konfigurations alternativ." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
 
 3. När du väljer ett virtuellt nätverk måste du kontrol lera att de system som du vill övervaka kan kontaktas i det virtuella nätverket. 
 
@@ -43,7 +44,7 @@ Logga in på Azure-portalen på https://portal.azure.com
 
 1. Välj fliken **Provider** för att lägga till de providrar som du vill konfigurera. Du kan lägga till flera providers efter en annan eller lägga till dem efter att du har distribuerat övervaknings resursen. 
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Bilden visar hur du väljer Azure Monitor för SAP-lösningar från Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Visar fliken Provider för att lägga till ytterligare providrar i Azure Monitor för SAP-lösningar." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
 
 2. Välj **Lägg till provider** och välj **SAP HANA** i list rutan. 
 
@@ -54,13 +55,13 @@ Logga in på Azure-portalen på https://portal.azure.com
 
 4. Ange namnet på den databas klient som du vill använda. Du kan välja vilken klient som helst, men vi rekommenderar att du använder **SYSTEMDB** eftersom det möjliggör en bredare matris av övervaknings områden. 
 
-5. Mata in det SQL-portnummer som är associerat med din HANA-databas. Port numret måste ha formatet **[3]**  +  **[instance #]**  +  **[13]** . Till exempel 30013. 
+5. Mata in det SQL-portnummer som är associerat med din HANA-databas. Port numret måste ha formatet **[3]**  +  **[instance #]**  +  **[13]**. Till exempel 30013. 
 
 6. Ange det databas användar namn som du vill använda. Se till att databas användaren har tilldelats de **övervaknings** -och **katalog Läs** rollerna. 
 
-7. När du är färdig väljer du **Lägg till provider** . Fortsätt att lägga till ytterligare providrar vid behov eller Välj **Granska + skapa** för att slutföra distributionen.
+7. När du är färdig väljer du **Lägg till provider**. Fortsätt att lägga till ytterligare providrar vid behov eller Välj **Granska + skapa** för att slutföra distributionen.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Bilden visar hur du väljer Azure Monitor för SAP-lösningar från Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Bild av konfigurations alternativ när du lägger till leverantörs information." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
 ### <a name="high-availability-cluster-pacemaker-provider"></a>Pacemaker-Provider (hög tillgänglighets kluster)
 
@@ -73,9 +74,9 @@ Logga in på Azure-portalen på https://portal.azure.com
  
 3. Mata in system-ID (SID), värdnamn och kluster namn.
 
-4. När du är färdig väljer du **Lägg till provider** . Fortsätt att lägga till ytterligare providrar vid behov eller Välj **Granska + skapa** för att slutföra distributionen.
+4. När du är färdig väljer du **Lägg till provider**. Fortsätt att lägga till ytterligare providrar vid behov eller Välj **Granska + skapa** för att slutföra distributionen.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Bilden visar hur du väljer Azure Monitor för SAP-lösningar från Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Bilden visar alternativ som är relaterade till pacemaker-providern för HA-klustret." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
 
 
 ### <a name="microsoft-sql-server-provider"></a>Microsoft SQL Server Provider
@@ -111,9 +112,9 @@ Logga in på Azure-portalen på https://portal.azure.com
 
 3. Fyll i fälten med information som är kopplad till din Microsoft SQL Server. 
 
-4. När du är färdig väljer du **Lägg till provider** . Fortsätt att lägga till ytterligare providrar vid behov eller Välj **Granska + skapa** för att slutföra distributionen.
+4. När du är färdig väljer du **Lägg till provider**. Fortsätt att lägga till ytterligare providrar vid behov eller Välj **Granska + skapa** för att slutföra distributionen.
 
-     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Bilden visar hur du väljer Azure Monitor för SAP-lösningar från Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
+     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Bilden visar information om att lägga till Microsoft SQL Server-providern." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 
 ## <a name="next-steps"></a>Nästa steg
 

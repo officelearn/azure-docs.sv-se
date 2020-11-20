@@ -3,22 +3,23 @@ title: Azure Monitor för SAP-lösnings leverantörer | Microsoft Docs
 description: Den här artikeln innehåller svar på vanliga frågor om Azure Monitor för SAP Solutions-leverantörer.
 author: rdeltcheva
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: f5df8bccc10ca64ee9a04f195299c5228b7274c1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 056eba8694d1727350809121f763181e3cdbdc64
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356458"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968612"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Azure Monitor för SAP Solutions-providers (för hands version)
 
 ## <a name="overview"></a>Översikt  
 
-I samband med Azure Monitor för SAP-lösningar refererar en *providertyp* till en speciell *Provider*. Till exempel *SAP HANA* , som har kon figurer ATS för en speciell komponent i SAP-landskap, t. ex. SAP HANA Database. En provider innehåller anslutnings informationen för motsvarande komponent och hjälper till att samla in telemetridata från den komponenten. En Azure Monitor för SAP-lösningar (även kallat SAP Monitor-resurs) kan konfigureras med flera leverantörer av samma providertyp eller flera providers för flera typer av leverantörer.
+I samband med Azure Monitor för SAP-lösningar refererar en *providertyp* till en speciell *Provider*. Till exempel *SAP HANA*, som har kon figurer ATS för en speciell komponent i SAP-landskap, t. ex. SAP HANA Database. En provider innehåller anslutnings informationen för motsvarande komponent och hjälper till att samla in telemetridata från den komponenten. En Azure Monitor för SAP-lösningar (även kallat SAP Monitor-resurs) kan konfigureras med flera leverantörer av samma providertyp eller flera providers för flera typer av leverantörer.
    
 Kunderna kan välja att konfigurera olika typer av leverantörer för att aktivera insamling av data från motsvarande komponenter i deras SAP-landskap. Kunder kan till exempel konfigurera en provider för SAP HANA typ av Provider, en annan provider för kluster leverantör med hög tillgänglighet och så vidare.  
 

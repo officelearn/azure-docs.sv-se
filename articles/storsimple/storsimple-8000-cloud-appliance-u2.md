@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d78051c1a5af82a986152c8244d25b68dd65d552
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87021383"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968850"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuera och hantera en StorSimple Cloud Appliance-installation i Azure (Uppdatering 3 eller senare)
 
@@ -47,10 +47,10 @@ StorSimple-molninstallationen finns i två modeller, standardmodellen 8010 (kall
 | **Maximal kapacitet** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 kärnor, 7 GB minne)| Standard_DS3 (4 kärnor, 14 GB minne)|
 | **Regional tillgänglighet** |Alla Azure-regioner |Azure-regioner som har stöd för Premium Storage och virtuella Azure-datorer, DS3<br></br>Använd [listan](https://azure.microsoft.com/regions/services/) för att se om både **virtuella datorer > DS-serien** och **lagring > disklagring** är tillgängligt i din region. |
-| **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/common/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br> |
+| **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/common/storage-account-create.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br> |
 | **Riktlinjer för arbetsbelastning** |Hämtning av filer från säkerhetskopior på objektnivå |Utvecklings- och testscenarier i molnet <br></br>Arbetsbelastningar med kortare svarstider och högre prestanda<br></br>Sekundär enhet för katastrofåterställning |
 
-<sup>1</sup> *tidigare*kallades 1100.
+<sup>1</sup> *tidigare* kallades 1100.
 
 <sup>2</sup> *både 8010 och 8020 använder Azure standard Storage för moln nivån. Skillnaden finns endast på den lokala nivån i enheten*.
 
@@ -96,7 +96,7 @@ Innan du etablerar molninstallationen måste du göra följande förberedelser i
 Gör följande uppdateringar i StorSimple Device Manager-tjänsten innan du skapar en molninstallation:
 
 * Lägg till [åtkomstkontrollposter](storsimple-8000-manage-acrs.md) för de virtuella datorer som ska vara värdservrar för molninstallationen.
-* Använd ett [lagringskonto](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) i samma region som molninstallationen. Lagringskonton i olika regioner kan resultera i sämre prestanda. Du kan använda ett Standard- eller Premium Storage-konto med molninstallationen. Mer information om hur du skapar ett [Standardlagringskonto](../storage/common/storage-create-storage-account.md).
+* Använd ett [lagringskonto](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) i samma region som molninstallationen. Lagringskonton i olika regioner kan resultera i sämre prestanda. Du kan använda ett Standard- eller Premium Storage-konto med molninstallationen. Mer information om hur du skapar ett [Standardlagringskonto](../storage/common/storage-account-create.md).
 * Använd ett annat lagringskonto när du skapar molninstallationen än det som används för dina data. Om samma lagringskonto används kan det resultera i sämre prestanda.
 
 Kontrollera att du har följande information innan du börjar:
@@ -267,7 +267,7 @@ Om du vill stoppa alla kostnader måste du ta bort molninstallationen. Om du vil
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Felsöka problem med Internetanslutning
 Om det inte finns någon Internetanslutning när molninstallationen skapas, så misslyckas åtgärden. Du kan felsöka problem med Internetanslutningen genom att utföra följande steg i Azure Portal:
 
-1. [Skapa en virtuell Windows-dator i Azure-portalen](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Den virtuella datorn måste använda samma lagringskonto, virtuella nätverk och undernät som används av molninstallationen. Om det finns en befintlig Windows Server-värd i Azure som använder samma lagringskonto, virtuella nätverk och undernät, kan du även använda den för att felsöka Internetanslutningen.
+1. [Skapa en virtuell Windows-dator i Azure-portalen](../virtual-machines/windows/quick-create-portal.md). Den virtuella datorn måste använda samma lagringskonto, virtuella nätverk och undernät som används av molninstallationen. Om det finns en befintlig Windows Server-värd i Azure som använder samma lagringskonto, virtuella nätverk och undernät, kan du även använda den för att felsöka Internetanslutningen.
 2. Logga in via fjärrinloggning på den virtuella datorn som skapades i föregående steg.
 3. Öppna ett kommandofönster i den virtuella datorn (Win + R och skriv sedan `cmd`).
 4. Kör följande cmd i prompten.

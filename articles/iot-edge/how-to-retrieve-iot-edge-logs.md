@@ -4,18 +4,18 @@ description: IoT Edge modul logg hämtning och uppladdning till Azure Blob Stora
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 64264028706c1493f687f032a7ec39e69188bd45
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 97cdc4ad0b1d5e7dfb6642fa0163f810be5d7171
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171922"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966929"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Hämta loggar från IoT Edge-distributioner
 
@@ -141,6 +141,14 @@ az iot hub invoke-module-method \
 
 Använd metoden **UploadModuleLogs** Direct för att skicka de begärda loggarna till en angiven Azure Blob Storage-behållare.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Om du vill överföra loggar från en enhet bakom en gateway-enhet måste du ha konfigurerat [API-proxyn och Blob Storage-modulerna](how-to-configure-api-proxy-module.md) på enheten på den översta nivån. Dessa moduler dirigerar loggarna från den lägre lager enheten via din gateway-enhet till din lagring i molnet.
+
+::: moniker-end
+
 Den här metoden godkänner en JSON-nyttolast som liknar **GetModuleLogs**, med tillägg av nyckeln "sasUrl":
 
 ```json
@@ -260,6 +268,14 @@ I Azure Portal startar du metoden med metod namnet `UploadModuleLogs` och följa
 ## <a name="upload-support-bundle-diagnostics"></a>Ladda upp support pakets diagnostik
 
 Använd metoden **UploadSupportBundle** Direct för att paketera och överföra en zip-fil med IoT Edge modul loggar till en tillgänglig Azure Blob Storage-behållare. Den här direkta metoden kör [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) kommandot på din IoT Edge enhet för att hämta loggarna.
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Om du vill överföra loggar från en enhet bakom en gateway-enhet måste du ha konfigurerat [API-proxyn och Blob Storage-modulerna](how-to-configure-api-proxy-module.md) på enheten på den översta nivån. Dessa moduler dirigerar loggarna från den lägre lager enheten via din gateway-enhet till din lagring i molnet.
+
+::: moniker-end
 
 Den här metoden accepterar en JSON-nyttolast med följande schema:
 

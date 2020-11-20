@@ -7,18 +7,19 @@ author: saghorpa
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0585c1251ba18e1390f3eee28a989edee6eb8591
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56e2e2a048e44dcad626208b059e258d55ba7057
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77616933"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967609"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA – stora instanser hög tillgänglighet och haveri beredskap på Azure 
 
@@ -69,7 +70,7 @@ Du hittar mer information om SAP HANA hög tillgänglighet i följande SAP-artik
 
 Om du vill dra nytta av Disaster Recovery-funktionen hos HANA-stora instanser måste du utforma nätverks anslutningen till de två Azure-regionerna. Du behöver en Azure ExpressRoute-krets-anslutning lokalt i din huvudsakliga Azure-region och en annan krets anslutning från lokal plats till din katastrof återställnings region. Det här måttet avser en situation där det finns ett problem i en Azure-region, inklusive en Microsoft MSEE: N-plats (Enterprise Edge router).
 
-Som ett andra mått kan du ansluta alla virtuella Azure-nätverk som ansluter till SAP HANA på Azure (stora instanser) i en region till en ExpressRoute-krets som ansluter HANA-stora instanser i den andra regionen. Med den här *kors anslutningen*kan tjänster som körs på ett virtuellt Azure-nätverk i region 1 ansluta till Hana-stora instans enheter i region 2 och det andra sättet runt. Det här måttet åtgärdar ett fall där endast en av MSEE: N-platserna som ansluter till din lokala plats med Azure går offline.
+Som ett andra mått kan du ansluta alla virtuella Azure-nätverk som ansluter till SAP HANA på Azure (stora instanser) i en region till en ExpressRoute-krets som ansluter HANA-stora instanser i den andra regionen. Med den här *kors anslutningen* kan tjänster som körs på ett virtuellt Azure-nätverk i region 1 ansluta till Hana-stora instans enheter i region 2 och det andra sättet runt. Det här måttet åtgärdar ett fall där endast en av MSEE: N-platserna som ansluter till din lokala plats med Azure går offline.
 
 Följande bild illustrerar en elastisk konfiguration för katastrof återställnings fall:
 

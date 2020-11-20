@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 7b27aae712843ece27fd61927c4bfecff00399fa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a4670da5f5e89a4e020e26d1d704f172b8ab0864
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747012"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968323"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -25,7 +25,7 @@ I den här artikeln används [Azure Portal](https://portal.azure.com) och Azure 
 
 |Typ|Plattform|Plats|Beskrivning|
 |-|-|-|-|
-| Programloggning | Windows, Linux | App Service fil system och/eller Azure Storage blobbar | Loggar meddelanden som genereras av din program kod. Meddelandena kan genereras av det webb ramverk du väljer eller från din program kod direkt med hjälp av standard loggnings mönstret för ditt språk. Varje meddelande tilldelas en av följande kategorier: **kritisk** , **fel** , **Varning** , **information** , **fel sökning** och **spårning** . Du kan välja hur utförlig loggning ska ske genom att ange allvarlighets grad när du aktiverar program loggning.|
+| Programloggning | Windows, Linux | App Service fil system och/eller Azure Storage blobbar | Loggar meddelanden som genereras av din program kod. Meddelandena kan genereras av det webb ramverk du väljer eller från din program kod direkt med hjälp av standard loggnings mönstret för ditt språk. Varje meddelande tilldelas en av följande kategorier: **kritisk**, **fel**, **Varning**, **information**, **fel sökning** och **spårning**. Du kan välja hur utförlig loggning ska ske genom att ange allvarlighets grad när du aktiverar program loggning.|
 | Webb Server loggning| Windows | App Service fil system eller Azure Storage blobbar| Rå data för HTTP-begäran i [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Varje logg meddelande innehåller data, till exempel HTTP-metoden, resurs-URI, klient-IP, klient port, användar agent, svars kod och så vidare. |
 | Detaljerade fel meddelanden| Windows | App Service fil system | Kopior av *. htm* -felsidor som skulle ha skickats till klient webbläsaren. Av säkerhets skäl bör detaljerade felsidor inte skickas till klienter i produktion, men App Service kan spara felsidan varje gången ett program fel uppstår som har HTTP-kod 400 eller senare. Sidan kan innehålla information som kan hjälpa dig att avgöra varför servern returnerar felkoden. |
 | Spårning av misslyckade begär Anden | Windows | App Service fil system | Detaljerad spårnings information om misslyckade förfrågningar, inklusive spårning av IIS-komponenter som används för att bearbeta begäran och den tid som tagits i varje komponent. Det är användbart om du vill förbättra platsens prestanda eller isolera ett särskilt HTTP-fel. En mapp skapas för varje misslyckad begäran, som innehåller XML-loggfilen och XSL-formatmallen för att Visa logg filen med. |
@@ -42,7 +42,7 @@ I den här artikeln används [Azure Portal](https://portal.azure.com) och Azure 
 > [!NOTE]
 > Program loggning för Blob Storage kan bara använda lagrings konton i samma region som App Service
 
-Om du vill aktivera program loggning för Windows-appar i [Azure Portal](https://portal.azure.com)navigerar du till din app och väljer **App Service loggar** .
+Om du vill aktivera program loggning för Windows-appar i [Azure Portal](https://portal.azure.com)navigerar du till din app och väljer **App Service loggar**.
 
 Välj **antingen för** **program loggning (fil system)** eller **program loggning (BLOB)** eller båda. 
 
@@ -53,7 +53,7 @@ Alternativet **fil system** är för tillfälliga fel söknings syfte och inakti
 >
 > Om du [återskapar åtkomst nycklarna för lagrings kontot](../storage/common/storage-account-create.md)måste du också återställa respektive loggnings konfiguration för att använda de uppdaterade åtkomst nycklarna. Gör så här:
 >
-> 1. På fliken **Konfigurera** ställer du in respektive loggnings funktion på **av** . Spara inställningen.
+> 1. På fliken **Konfigurera** ställer du in respektive loggnings funktion på **av**. Spara inställningen.
 > 2. Aktivera loggning till lagrings kontots BLOB igen. Spara inställningen.
 >
 >
@@ -68,21 +68,21 @@ Välj **nivå** eller den informations nivå som ska loggas. Följande tabell vi
 |**Information** | Information, varning, fel, kritiskt|
 |**Verbose** | Spåra, felsöka, info, varning, fel, kritiskt (alla kategorier) |
 
-När du är färdig väljer du **Spara** .
+När du är färdig väljer du **Spara**.
 
 ## <a name="enable-application-logging-linuxcontainer"></a>Aktivera program loggning (Linux/container)
 
-Om du vill aktivera program loggning för Linux-appar eller anpassade behållar program i [Azure Portal](https://portal.azure.com)navigerar du till din app och väljer **App Service loggar** .
+Om du vill aktivera program loggning för Linux-appar eller anpassade behållar program i [Azure Portal](https://portal.azure.com)navigerar du till din app och väljer **App Service loggar**.
 
-I **program loggning** väljer du **fil system** .
+I **program loggning** väljer du **fil system**.
 
 I **kvot (MB)** anger du disk kvoten för program loggarna. I **kvarhållningsperiod (dagar)** anger du antalet dagar som loggarna ska behållas.
 
-När du är färdig väljer du **Spara** .
+När du är färdig väljer du **Spara**.
 
 ## <a name="enable-web-server-logging"></a>Aktivera webb Server loggning
 
-Om du vill aktivera loggning av webb server för Windows-appar i [Azure Portal](https://portal.azure.com)navigerar du till din app och väljer **App Service loggar** .
+Om du vill aktivera loggning av webb server för Windows-appar i [Azure Portal](https://portal.azure.com)navigerar du till din app och väljer **App Service loggar**.
 
 För **webb Server loggning** väljer du **lagring** för att lagra loggar på Blob Storage eller **fil system** för att lagra loggar i App Service fil system. 
 
@@ -91,18 +91,18 @@ I **kvarhållningsperiod (dagar)** anger du antalet dagar som loggarna ska behå
 > [!NOTE]
 > Om du [återskapar åtkomst nycklarna för lagrings kontot](../storage/common/storage-account-create.md)måste du återställa respektive loggnings konfiguration för att använda de uppdaterade nycklarna. Gör så här:
 >
-> 1. På fliken **Konfigurera** ställer du in respektive loggnings funktion på **av** . Spara inställningen.
+> 1. På fliken **Konfigurera** ställer du in respektive loggnings funktion på **av**. Spara inställningen.
 > 2. Aktivera loggning till lagrings kontots BLOB igen. Spara inställningen.
 >
 >
 
-När du är färdig väljer du **Spara** .
+När du är färdig väljer du **Spara**.
 
 ## <a name="log-detailed-errors"></a>Logga detaljerade fel
 
-Om du vill spara felsidan eller spåra misslyckade begär Anden för Windows-appar i [Azure Portal](https://portal.azure.com)navigerar du till din app och väljer **App Service loggar** .
+Om du vill spara felsidan eller spåra misslyckade begär Anden för Windows-appar i [Azure Portal](https://portal.azure.com)navigerar du till din app och väljer **App Service loggar**.
 
-Under **detaljerad fel loggning** eller **spårning av misslyckade begär Anden** väljer du **på** och väljer sedan **Spara** .
+Under **detaljerad fel loggning** eller **spårning av misslyckade begär Anden** väljer du **på** och väljer sedan **Spara**.
 
 Båda typerna av loggar lagras i App Service fil system. Upp till 50 fel (filer/mappar) bevaras. När antalet HTML-filer överstiger 50 tas de äldsta 26 felen bort automatiskt.
 
@@ -128,7 +128,7 @@ Innan du strömmar loggar i real tid aktiverar du den loggtyp som du vill använ
 
 ### <a name="in-azure-portal"></a>I Azure Portal
 
-Om du vill strömma loggar i [Azure Portal](https://portal.azure.com)navigerar du till din app och väljer **logg ström** . 
+Om du vill strömma loggar i [Azure Portal](https://portal.azure.com)navigerar du till din app och väljer **logg ström**. 
 
 ### <a name="in-cloud-shell"></a>I Cloud Shell
 
@@ -170,7 +170,7 @@ För Windows-appar innehåller ZIP-filen innehållet i *D:\Home\LogFiles* -katal
 |-|-|-|
 | **Program loggar** |*/LogFiles/Application/* | Innehåller en eller flera textfiler. Formatet på logg meddelandena beror på vilken loggnings leverantör du använder. |
 | **Spårning av misslyckade begär Anden** | */LogFiles/W3SVC#########/* | Innehåller XML-filer och en XSL-fil. Du kan visa de formaterade XML-filerna i webbläsaren. |
-| **Detaljerade fel loggar** | */LogFiles/DetailedErrors/* | Innehåller HTM-felfiler. Du kan visa HTM-filerna i webbläsaren.<br/>Ett annat sätt att Visa spårningen av misslyckade begär Anden är att navigera till din app-sida i portalen. På den vänstra menyn väljer du **diagnostisera och löser problem** , sedan söker du efter **spårnings loggar för misslyckade begär Anden** och klickar sedan på ikonen för att bläddra och visa den spårning som du vill använda. |
+| **Detaljerade fel loggar** | */LogFiles/DetailedErrors/* | Innehåller HTM-felfiler. Du kan visa HTM-filerna i webbläsaren.<br/>Ett annat sätt att Visa spårningen av misslyckade begär Anden är att navigera till din app-sida i portalen. På den vänstra menyn väljer du **diagnostisera och löser problem**, sedan söker du efter **spårnings loggar för misslyckade begär Anden** och klickar sedan på ikonen för att bläddra och visa den spårning som du vill använda. |
 | **Webb server loggar** | */LogFiles/http/RawLogs/* | Innehåller textfiler som formaterats med [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Den här informationen kan läsas med en text redigerare eller ett verktyg som [log parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service stöder inte `s-computername` fälten, `s-ip` , eller `cs-version` . |
 | **Distributions loggar** | */LogFiles/git/* och */Deployments/* | Innehåller loggar som genereras av interna distributions processer samt loggar för git-distributioner. |
 
@@ -187,14 +187,14 @@ I följande tabell visas de logg typer och beskrivningar som stöds:
 
 | Loggtyp | Windows | Windows-behållare | Linux | Linux-behållare | Beskrivning |
 |-|-|-|-|-|-|
-| AppServiceConsoleLogs | TBA | TBA | Ja | Ja | Standardutdata och standard fel |
-| AppServiceHTTPLogs | Ja | TBA | Ja | Ja | Webb server loggar |
-| AppServiceEnvironmentPlatformLogs | Ja | E.t. | Ja | Ja | App Service-miljön: skalning, konfigurations ändringar och status loggar|
-| AppServiceAuditLogs | Ja | TBA | Ja | Ja | Inloggnings aktivitet via FTP och kudu |
-| AppServiceFileAuditLogs | Ja | TBA | TBA | TBA | Fil ändringar som har gjorts i webbplatsens innehåll. endast tillgängligt för Premium-nivån och över |
-| AppServiceAppLogs | ASP .NET | TBA | Java SE & Tomcat | Java SE & Tomcat | Program loggar |
-| AppServiceIPSecAuditLogs  | Ja | TBA | Ja | Ja | Begär Anden från IP-regler |
-| AppServicePlatformLogs  | TBA | TBA | Ja | Ja | Åtgärds loggar för behållare |
+| AppServiceConsoleLogs | Java SE & Tomcat | Ja | Ja | Ja | Standardutdata och standard fel |
+| AppServiceHTTPLogs | Ja | Ja | Ja | Ja | Webb server loggar |
+| AppServiceEnvironmentPlatformLogs | Ja | Saknas | Ja | Ja | App Service-miljön: skalning, konfigurations ändringar och status loggar|
+| AppServiceAuditLogs | Ja | Ja | Ja | Ja | Inloggnings aktivitet via FTP och kudu |
+| AppServiceFileAuditLogs | Ja | Ja | TBA | TBA | Fil ändringar som har gjorts i webbplatsens innehåll. endast tillgängligt för Premium-nivån och över |
+| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat välsignat-bilder | Java SE & Tomcat välsignat-bilder | Program loggar |
+| AppServiceIPSecAuditLogs  | Ja | Ja | Ja | Ja | Begär Anden från IP-regler |
+| AppServicePlatformLogs  | TBA | Ja | Ja | Ja | Åtgärds loggar för behållare |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Nästa steg
 * [Fråga efter loggar med Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

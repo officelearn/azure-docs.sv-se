@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: d7c7cf335336cc552adaf5d9490bc58d64b0cdc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2395e3c6f2026bc1024de38122bc20959fdcf9b7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515448"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967099"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Använd tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple virtuella matris
 ![konfigurations process flöde](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
@@ -34,7 +34,7 @@ När du har läst den här artikeln får du veta hur du:
 * Administrera din virtuella StorSimple-matris via tjänsten StorSimple Enhetshanteraren
 
 > [!NOTE]
-> Om du vill visa de hanterings alternativ som är tillgängliga för enheten StorSimple 8000-serien går du till [använda StorSimple Manager-tjänsten för att administrera StorSimple-enheten](storsimple-manager-service-administration.md).
+> Om du vill visa de hanterings alternativ som är tillgängliga för enheten StorSimple 8000-serien går du till [använda StorSimple Manager-tjänsten för att administrera StorSimple-enheten](./storsimple-8000-manager-service-administration.md).
 > 
 > 
 
@@ -78,4 +78,3 @@ Klicka på lämplig procedur i tabellen om du vill ha mer information om varje a
 
 ## <a name="next-steps"></a>Nästa steg
 Information om webb gränssnittet och hur du använder det finns i [använda StorSimple-WEBBgränssnittet för att administrera din StorSimple-virtuella matris](storsimple-ova-web-ui-admin.md).
-

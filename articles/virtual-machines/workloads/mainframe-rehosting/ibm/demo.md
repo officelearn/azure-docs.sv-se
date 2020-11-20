@@ -3,6 +3,7 @@ title: Konfigurera en programutvecklare styrd distribution (ADCD) i IBM zD&T v1 
 description: Kör en miljö för IBM Z-utveckling och test miljö (zD&T) i Azure Virtual Machines (VM).
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 documentationcenter: ''
 author: njray
 manager: edprice
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcd354b906b4d6c92d8b3186fc8e09c94a31ca55
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87052406"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968408"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Konfigurera en programutvecklare styrd distribution (ADCD) i IBM zD&T v1
 
@@ -52,17 +53,17 @@ Precis som zD&T är ADCDs bara tillgängliga för IBM-kunder och-partner och är
 
 2. Välj **hämtning av program vara** och **medie åtkomst**.
 
-3. Välj **program erbjudande och avtals nummer**och klicka på **Fortsätt**.
+3. Välj **program erbjudande och avtals nummer** och klicka på **Fortsätt**.
 
 4. Ange del beskrivningen eller del numret och klicka på **Finder**.
 
 5. Du kan också klicka på listan alfabetisk ordning om du vill visa och Visa theproduct efter namn.
 
-6. Välj **alla operativ system** i **fältet operativ system**och **alla språk** i **fältet språk**. Klicka sedan på **gå**.
+6. Välj **alla operativ system** i **fältet operativ system** och **alla språk** i **fältet språk**. Klicka sedan på **gå**.
 
 7. Klicka på **Välj enskilda filer** för att expandera listan och Visa de enskilda media som ska laddas ned.
 
-8. Verifiera de paket som du vill ladda ned, Välj **Ladda ned**och ladda ned filerna till den katalog som du vill använda.
+8. Verifiera de paket som du vill ladda ned, Välj **Ladda ned** och ladda ned filerna till den katalog som du vill använda.
 
 ## <a name="upload-the-adcd-packages"></a>Ladda upp ADCD-paketen
 
@@ -107,17 +108,17 @@ Nästa steg är att konfigurera zD&T för att använda de uppladdade paketen. Av
 2. Observera URL-utdata med kommandot och Använd denna URL för att få åtkomst till webb servern. Det ser ut ungefär så här:
      > https://(din VM-namn eller IP-adress): 9443/ZDTMC/index.html
      >
-     > Kom ihåg att din webb åtkomst använder port 9443. Använd detta för att logga in på webb servern. Användar-ID: t för ZD&T är **zdtadmin** och lösen ordet är ett **lösen**ord.
+     > Kom ihåg att din webb åtkomst använder port 9443. Använd detta för att logga in på webb servern. Användar-ID: t för ZD&T är **zdtadmin** och lösen ordet är ett **lösen** ord.
 
     ![Välkomst skärmen för IBM zD&T Enterprise Edition](media/02-welcome.png)
 
-3. På sidan **Snabbstart** under **Konfigurera**väljer du **bild lagring**.
+3. På sidan **Snabbstart** under **Konfigurera** väljer du **bild lagring**.
 
      ![IBM zD&T Enterprise Edition Snabbstart skärm](media/03-quickstart.png)
 
 4. På sidan **Konfigurera avbildnings lagring** väljer du **SSH-File Transfer Protocol**.
 
-5. För **värd namn**skriver du **localhost** och anger sökvägen till den plats där du laddade upp avbildningarna. Till exempel/home/MyUserID/ZDT/adcd/nov2017/volumes.
+5. För **värd namn** skriver du **localhost** och anger sökvägen till den plats där du laddade upp avbildningarna. Till exempel/home/MyUserID/ZDT/adcd/nov2017/volumes.
 
 6. Ange **användar-ID** och **lösen ord** för den virtuella datorn. Använd inte ZD&T. ex. användar-ID och lösen ord.
 
@@ -127,13 +128,13 @@ Nästa steg är att konfigurera zD&T för att använda de uppladdade paketen. Av
 
 Nästa steg är att konfigurera zD&T-mål miljön. Den här emulerade värd miljön är den plats där dina avbildningar körs.
 
-1. På sidan **Snabbstart** under **Konfigurera**väljer du **mål miljöer**.
+1. På sidan **Snabbstart** under **Konfigurera** väljer du **mål miljöer**.
 
 2. På sidan **Konfigurera mål miljöer** väljer du **Lägg till mål**.
 
 3. Välj **Linux**. IBM stöder två typer av miljöer, Linux och moln (OpenStack), men den här demon körs på Linux.
 
-4. På sidan **Lägg till mål miljö** anger du **localhost**som **värd namn**. Behåll **SSH-porten** inställd på **22**.
+4. På sidan **Lägg till mål miljö** anger du **localhost** som **värd namn**. Behåll **SSH-porten** inställd på **22**.
 
 5. I rutan **mål miljö etikett** anger du en etikett som **MyCICS.**
 
@@ -143,7 +144,7 @@ Nästa steg är att konfigurera zD&T-mål miljön. Den här emulerade värd milj
 
 När du har slutfört de tidigare konfigurations stegen måste du konfigurera zD&T för att använda paketen och mål miljön. Återigen använder du avbildnings lagrings processen i zD&T, som gör att du kan montera och använda avbildningarna. Den kan använda SSH eller FTP.
 
-1. På sidan **Snabbstart** under **Konfigurera**väljer du **ADCD**. En uppsättning instruktioner visas som anger vilka steg som måste utföras innan ett ADCD-paket kan monteras. Detta förklarar varför vi har namngett mål katalogen på det sätt som vi gjorde tidigare.
+1. På sidan **Snabbstart** under **Konfigurera** väljer du **ADCD**. En uppsättning instruktioner visas som anger vilka steg som måste utföras innan ett ADCD-paket kan monteras. Detta förklarar varför vi har namngett mål katalogen på det sätt som vi gjorde tidigare.
 
 2. Förutsatt att alla avbildningar har laddats upp till rätt kataloger, klickar du på **avbildningen från ADCD** -länken som visas längst ned till höger (visas i steg 7 i följande skärm bild).
 

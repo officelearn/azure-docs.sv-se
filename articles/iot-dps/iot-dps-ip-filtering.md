@@ -7,12 +7,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 580c378df5fc3912aa540b5d85adf99bc42605e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f50c84212e62fae378d9d95e8990e084c82bb99a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511950"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967218"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Använda IP-anslutningsfilter för Azure IoT DPS
 
@@ -22,7 +22,7 @@ Säkerheten är en viktig aspekt i alla IoT-lösningar. Ibland måste du uttryck
 
 Det finns två specifika scenarier då det kan vara bra att blockera anslutningar till en DPS-slutpunkt från särskilda IP-adresser:
 
-* DPS bör endast ta emot trafik från ett visst intervall med IP-adresser och avvisa allt annat. Till exempel använder du DPS med [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) för att skapa privata anslutningar mellan en DPS och dina enheter.
+* DPS bör endast ta emot trafik från ett visst intervall med IP-adresser och avvisa allt annat. Till exempel använder du DPS med [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) för att skapa privata anslutningar mellan en DPS och dina enheter.
 
 * Du måste avvisa trafik från IP-adresser som har identifierats som misstänkta av DPS-administratören.
 
@@ -48,7 +48,7 @@ Fyll i fälten när du har valt **Lägg till IP-filterregel**.
 
 ![När du har valt Lägg till IP-filterregel](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Ange ett **namn** för IP-filterregeln. Namnet måste vara en unik, skiftlägeskänslig, alfanumerisk sträng på upp till 128 tecken. Du kan endast använda 7-bitars alfanumeriska ASCII-tecken samt `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
+* Ange ett **namn** för IP-filterregeln. Namnet måste vara en unik, skiftlägeskänslig, alfanumerisk sträng på upp till 128 tecken. Du kan endast använda 7-bitars alfanumeriska ASCII-tecken samt `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
 
 * Ange en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. I CIDR-notation representerar exempelvis 192.168.100.0/22 de 1 024 IPv4-adresserna från 192.168.100.0 till 192.168.103.255.
 
@@ -74,7 +74,7 @@ Om du vill ta bort en IP-filterregel väljer du papperskorgsikonen på den aktue
 
 ## <a name="update-ip-filter-rules-in-code"></a>Uppdatera IP-filterregler i kod
 
-Du kan hämta och ändra ett IP-filter för DPS med hjälp av Azure-resursproviderns REST-slutpunkt. Mer information finns i `properties.ipFilterRules` i [createorupdate-metoden](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
+Du kan hämta och ändra ett IP-filter för DPS med hjälp av Azure-resursproviderns REST-slutpunkt. Mer information finns i `properties.ipFilterRules` i [createorupdate-metoden](/rest/api/iot-dps/iotdpsresource/createorupdate).
 
 Det går för närvarande inte att uppdatera IP-filterregler för DPS med Azure CLI eller Azure PowerShell. Det kan däremot göras med Azure Resource Manager-mallar. Hjälp med att använda Resource Manager-mallar finns i avsnittet om [Azure Resource Manager-mallar](../azure-resource-manager/templates/overview.md). Mallexemplen nedan visar hur du skapar, redigerar och tar bort IP-filterregler för DPS.
 
@@ -136,7 +136,7 @@ Uppdatera mallens attribut för IP-filterregler baserat på dina krav.
 | Attribut                | Beskrivning |
 | ------------------------ | ----------- |
 | **FilterName**           | Ange ett namn för IP-filterregeln. Namnet måste vara en unik, skiftlägeskänslig, alfanumerisk sträng på upp till 128 tecken. Du kan endast använda 7-bitars alfanumeriska ASCII-tecken samt {'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}. |
-| **Åtgärd**               | Värden som stöds är **Acceptera** eller **Avvisa** som åtgärden för IP-filterregeln. |
+| **Åtgärd**               | Värden som stöds är **Acceptera** eller  **Avvisa** som åtgärden för IP-filterregeln. |
 | **ipMask**               | Ange en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. I CIDR-notation representerar exempelvis 192.168.100.0/22 de 1 024 IPv4-adresserna från 192.168.100.0 till 192.168.103.255. |
 
 

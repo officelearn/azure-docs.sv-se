@@ -4,16 +4,17 @@ description: Lär dig hur du installerar och konfigurerar Symantec-Endpoint Prot
 author: roiyz
 tags: azure-service-management
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
-ms.openlocfilehash: a89ec99af02b32d452fba1dffb0387ae6013a7c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e001c85dd960e9d60ff321cfecc8bf8b80de087c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292436"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967949"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Så här installerar och konfigurerar du Symantec Endpoint Protection på en virtuell Windows-dator
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
@@ -42,7 +43,7 @@ $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-Om kommandot **Skriv-Host** visar **True**installeras VM-agenten. Om det visar **falskt**kan du läsa anvisningarna och en länk till hämtningen i Azure-bloggen publicera [VM-agenten och tilläggen – del 2][Agent].
+Om kommandot **Skriv-Host** visar **True** installeras VM-agenten. Om det visar **falskt** kan du läsa anvisningarna och en länk till hämtningen i Azure-bloggen publicera [VM-agenten och tilläggen – del 2][Agent].
 
 Om den virtuella dator agenten har installerats kör du dessa kommandon för att installera Symantec Endpoint Protection-agenten.
 
@@ -56,7 +57,7 @@ Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionNam
 Så här kontrollerar du att Symantecs säkerhets tillägg har installerats och är uppdaterat:
 
 1. Logga in på den virtuella datorn. Instruktioner finns i [så här loggar du in på en virtuell dator som kör Windows Server][Logon].
-2. För Windows Server 2008 R2 klickar du på **starta > Symantec Endpoint Protection**. För Windows Server 2012 eller Windows Server 2012 R2 skriver du **Symantec**på Start skärmen och klickar sedan på **Symantec Endpoint Protection**.
+2. För Windows Server 2008 R2 klickar du på **starta > Symantec Endpoint Protection**. För Windows Server 2012 eller Windows Server 2012 R2 skriver du **Symantec** på Start skärmen och klickar sedan på **Symantec Endpoint Protection**.
 3. Från fliken **status** i fönstret **status – Symantec Endpoint Protection** , tillämpa uppdateringar eller starta om vid behov.
 
 ## <a name="additional-resources"></a>Ytterligare resurser

@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75a2762a0937efbceaa168f8a2d6409e2e3a7ae4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73890656"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967235"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Sammanfattning av funktioner för begäranden om kunddata
 
@@ -62,6 +62,6 @@ Det går också att utföra export åtgärder för registreringar och registreri
 
 ## <a name="links-to-additional-documentation"></a>Länkar till ytterligare dokumentation
 
-Fullständig dokumentation för Device Provisioning service-API: er finns på [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps) .
+Fullständig dokumentation för Device Provisioning service-API: er finns på [https://docs.microsoft.com/rest/api/iot-dps](/rest/api/iot-dps) .
 
 Azure IoT Hub [funktioner för kunddata-begäran](../iot-hub/iot-hub-customer-data-requests.md).

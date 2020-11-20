@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: f2a62cb08fcce6597f02c080231f5e1808794054
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c1b19927207e1accb4ae6c47625eed41a6b0b92
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509968"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967796"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Installation av SAP HANA på virtuella Azure-datorer
 ## <a name="introduction"></a>Introduktion
@@ -29,7 +30,7 @@ Den här guiden hjälper dig att peka på rätt resurser för att distribuera HA
 > [!NOTE]
 > I den här guiden beskrivs distributioner av SAP HANA till virtuella Azure-datorer. Information om hur du distribuerar SAP HANA till HANA-stora instanser finns i [så här installerar och konfigurerar du SAP HANA (stora instanser) i Azure](./hana-installation.md).
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här guiden förutsätter också att du är bekant med:
 * SAP HANA-och SAP-NetWeaver och hur de installeras lokalt.
 * Installera och använda SAP HANA-och SAP-programinstanser på Azure.

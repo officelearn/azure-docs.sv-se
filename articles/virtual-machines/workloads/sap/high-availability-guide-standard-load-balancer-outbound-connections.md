@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: d4d21ac0fc0f218b9168adfad3e1b2ec42092b42
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a6b62e9c894c25b2c3cd064524881ae5db51ec5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544757"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968544"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Offentlig slut punkts anslutning för Virtual Machines med Azure Standard Load Balancer i SAP-scenarier med hög tillgänglighet
 
@@ -109,8 +110,8 @@ Konfigurationen skulle se ut så här:
 4. Skapa regler för nätverks säkerhets grupper för att begränsa åtkomsten till särskilda offentliga slut punkter. Om det finns en befintlig nätverks säkerhets grupp kan du justera den. Exemplet nedan visar hur du aktiverar åtkomst till Azures hanterings-API: 
    1. Navigera till nätverks säkerhets gruppen
    1. Klicka på utgående säkerhets regler
-   1. Lägg till en regel för att **neka** all utgående åtkomst till **Internet** .
-   1. Lägg till en regel för att **tillåta** åtkomst till **AzureCloud** , med prioritet som är lägre än regelns prioritet för att neka all Internet åtkomst.
+   1. Lägg till en regel för att **neka** all utgående åtkomst till **Internet**.
+   1. Lägg till en regel för att **tillåta** åtkomst till **AzureCloud**, med prioritet som är lägre än regelns prioritet för att neka all Internet åtkomst.
 
 
    Utgående säkerhets regler skulle se ut så här: 
@@ -147,14 +148,14 @@ Arkitekturen skulle se ut så här:
    1. Klicka på Lägg till undernät. Ange **AzureFirewallSubnet** som namn. Ange lämpligt adress intervall. Spara.  
 3. Skapa Azure-brandvägg.  
    1. I Azure Portal väljer du alla resurser klickar du på Lägg till, brand vägg, skapa. Välj resurs grupp (Välj samma resurs grupp där Virtual Network är).  
-   1. Ange ett namn för Azure Firewall-resursen. Till exempel **MyAzureFirewall** .  
+   1. Ange ett namn för Azure Firewall-resursen. Till exempel **MyAzureFirewall**.  
    1. Välj region och välj minst två tillgänglighets zoner, justerade med de tillgänglighets zoner där de virtuella datorerna distribueras.  
    1. Välj din Virtual Network, där de virtuella SAP-datorerna och Azure standard Load Balancer distribueras.  
-   1. Offentlig IP-adress: Klicka på Skapa och ange ett namn. Till exempel **MyFirewallPublicIP** .  
+   1. Offentlig IP-adress: Klicka på Skapa och ange ett namn. Till exempel **MyFirewallPublicIP**.  
 4. Skapa en Azure Firewall-regel för att tillåta utgående anslutning till angivna offentliga slut punkter. Exemplet visar hur du tillåter åtkomst till den offentliga slut punkten för Azure Management API.  
    1. Välj regler, nätverks regel samling och klicka sedan på Lägg till regel samling för nätverk.  
-   1. Namn: **MyOutboundRule** , ange prioritet, Välj åtgärden **Tillåt** .  
-   1. Tjänst: name **ToAzureAPI** .  Protokoll: Välj **valfritt** . Käll adress: Ange intervallet för under nätet där de virtuella datorerna och Standard Load Balancer distribueras till exempel: **11.97.0.0/24** . Mål portar: ange <b>*</b> .  
+   1. Namn: **MyOutboundRule**, ange prioritet, Välj åtgärden **Tillåt**.  
+   1. Tjänst: name **ToAzureAPI**.  Protokoll: Välj **valfritt**. Käll adress: Ange intervallet för under nätet där de virtuella datorerna och Standard Load Balancer distribueras till exempel: **11.97.0.0/24**. Mål portar: ange <b>*</b> .  
    1. Spara
    1. När du fortfarande är placerad i Azure-brandväggen väljer du Översikt. Anteckna den privata IP-adressen för Azure-brandväggen.  
 5. Skapa väg till Azure-brandvägg  
@@ -164,9 +165,9 @@ Arkitekturen skulle se ut så här:
 
    Brand Väggs regeln skulle se ut så här: ![ diagram som visar vad brand väggen skulle se ut.](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
-6. Skapa användardefinierad väg från under nätet för dina virtuella datorer till den privata IP-adressen för **MyAzureFirewall** .
+6. Skapa användardefinierad väg från under nätet för dina virtuella datorer till den privata IP-adressen för **MyAzureFirewall**.
    1. När du är placerad i routningstabellen klickar du på vägar. Välj Lägg till. 
-   1. Väg namn: ToMyAzureFirewall, adressprefix: **0.0.0.0/0** . Typ av nästa hopp: Välj virtuell installation. Adress till nästa hopp: Ange den privata IP-adressen för den brand vägg som du konfigurerade: **11.97.1.4** .  
+   1. Väg namn: ToMyAzureFirewall, adressprefix: **0.0.0.0/0**. Typ av nästa hopp: Välj virtuell installation. Adress till nästa hopp: Ange den privata IP-adressen för den brand vägg som du konfigurerade: **11.97.1.4**.  
    1. Spara
 
 ## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Använda proxy för pacemaker-anrop till Azure Management API
@@ -185,7 +186,7 @@ Du kan använda proxy för att tillåta pacemaker-anrop till den offentliga slut
 
 ### <a name="pacemaker-configuration-with-proxy"></a>Pacemaker-konfiguration med proxy 
 
-Det finns många olika proxy-alternativ i branschen. Stegvisa instruktioner för proxy-distributionen ligger utanför det här dokumentets omfattning. I exemplet nedan förutsätter vi att din proxy svarar på **MyProxyService** och lyssnar på port **MyProxyPort** .  
+Det finns många olika proxy-alternativ i branschen. Stegvisa instruktioner för proxy-distributionen ligger utanför det här dokumentets omfattning. I exemplet nedan förutsätter vi att din proxy svarar på **MyProxyService** och lyssnar på port **MyProxyPort**.  
 Om du vill tillåta att pacemaker kommunicerar med Azures hanterings-API utför du följande steg på alla noder i klustret:  
 
 1. Redigera konfigurations filen för pacemaker/etc/sysconfig/pacemaker och Lägg till följande rader (alla klusternoder):

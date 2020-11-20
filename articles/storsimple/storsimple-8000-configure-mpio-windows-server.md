@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: cc88d5b7a458c3666cdb4469d7021917d27115f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d44fada1eddf2d3f80bec085d8a5bf751197eb1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514336"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968816"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Konfigurera Multipath I/O för din StorSimple-enhet
 
 I den här självstudien beskrivs de steg som du bör följa för att installera och använda funktionen Multipath I/O (MPIO) på en värd som kör Windows Server 2012 R2 och ansluten till en fysisk StorSimple-enhet. Vägledningen i den här artikeln gäller endast fysiska enheter i StorSimple 8000-serien. MPIO stöds för närvarande inte på en StorSimple Cloud Appliance.
 
-Microsoft har byggt support för funktionen Multipath I/O (MPIO) i Windows Server för att hjälpa dig att skapa hög tillgängliga, feltoleranta iSCSI-nätverkskonfigurationer. MPIO använder redundanta fysiska Sök vägs komponenter – kort, kablar och växlar – för att skapa logiska sökvägar mellan servern och lagrings enheten. Om det uppstår ett komponent haveri, vilket leder till att en logisk sökväg Miss lyckas, använder multipath Logic en alternativ sökväg för I/O så att program fortfarande kan komma åt sina data. Beroende på din konfiguration kan MPIO också förbättra prestanda genom att ombalansera belastningen över alla dessa sökvägar. Mer information finns i [MPIO-översikt](https://technet.microsoft.com/library/cc725907.aspx "Översikt över MPIO och funktioner").
+Microsoft har byggt support för funktionen Multipath I/O (MPIO) i Windows Server för att hjälpa dig att skapa hög tillgängliga, feltoleranta iSCSI-nätverkskonfigurationer. MPIO använder redundanta fysiska Sök vägs komponenter – kort, kablar och växlar – för att skapa logiska sökvägar mellan servern och lagrings enheten. Om det uppstår ett komponent haveri, vilket leder till att en logisk sökväg Miss lyckas, använder multipath Logic en alternativ sökväg för I/O så att program fortfarande kan komma åt sina data. Beroende på din konfiguration kan MPIO också förbättra prestanda genom att ombalansera belastningen över alla dessa sökvägar. Mer information finns i [MPIO-översikt](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725907(v=ws.11) "Översikt över MPIO och funktioner").
 
 För hög tillgänglighet för din StorSimple-lösning ska MPIO konfigureras på din StorSimple-enhet. När MPIO är installerat på dina värd servrar som kör Windows Server 2012 R2 kan servrarna tolerera en länk, ett nätverk eller ett gränssnitts haveri.
 
@@ -61,9 +61,9 @@ Slutför följande procedur för att installera den här funktionen på Windows 
    2. På sidan **Välj Installations typ** godkänner du standardinställningen för **rollbaserad eller funktions baserad** installation. Klicka på **Nästa**.
    
        ![Guiden Lägg till roller och funktioner 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
-   3. På sidan **Välj mål server** väljer du **Välj en server från**serverpoolen. Värd servern ska identifieras automatiskt. Klicka på **Nästa**.
+   3. På sidan **Välj mål server** väljer du **Välj en server från** serverpoolen. Värd servern ska identifieras automatiskt. Klicka på **Nästa**.
    4. På sidan **Välj serverroller**, klickar du på **Nästa**.
-   5. På sidan **Välj funktioner** väljer du **Multipath I/O**och klickar på **Nästa**.
+   5. På sidan **Välj funktioner** väljer du **Multipath I/O** och klickar på **Nästa**.
    
        ![Guiden Lägg till roller och funktioner 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
    6. På sidan **Bekräfta installations inställningarna** bekräftar du valet och väljer sedan **starta om mål servern automatiskt om det behövs**, som du ser nedan. Klicka på **Installera**.
@@ -81,12 +81,12 @@ MPIO måste konfigureras för att identifiera StorSimple-volymer. Utför följan
 
 1. Öppna **MPIO-konfigurationen**. Klicka på **Serverhanteraren > instrument panel > verktyg > MPIO**.
 2. I dialog rutan **Egenskaper för MPIO** väljer du fliken **identifiera flera sökvägar** .
-3. Välj **Lägg till stöd för iSCSI-enheter**och klicka sedan på **Lägg till**.  
+3. Välj **Lägg till stöd för iSCSI-enheter** och klicka sedan på **Lägg till**.  
    ![MPIO-egenskaper identifierar flera sökvägar](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. Starta om servern när du uppmanas till det.
 5. I dialog rutan **Egenskaper för MPIO** klickar du på fliken MPIO- **enheter** . Klicka på **Lägg till**.
     </br>![MPIO-egenskaper MPIO-enheter](./media/storsimple-configure-mpio-windows-server/IC741004.png)
-6. I dialog rutan **Lägg till MPIO-stöd** under **enhetens maskinvaru-ID**anger du enhetens serie nummer. Hämta enhetens serie nummer genom att komma åt StorSimple Enhetshanteraren-tjänsten. Navigera till **enheter > instrument panelen**. Enhetens serie nummer visas i den högra rutan i **snabb** fönstret på enhetens instrument panel.
+6. I dialog rutan **Lägg till MPIO-stöd** under **enhetens maskinvaru-ID** anger du enhetens serie nummer. Hämta enhetens serie nummer genom att komma åt StorSimple Enhetshanteraren-tjänsten. Navigera till **enheter > instrument panelen**. Enhetens serie nummer visas i den högra rutan i **snabb** fönstret på enhetens instrument panel.
     </br>
     ![Lägg till stöd för MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Starta om servern när du uppmanas till det.
@@ -116,7 +116,7 @@ När MPIO har kon figurer ATS på Windows Server kan volym (er) som skapats på 
 7. I dialog rutan **Anslut till mål** markerar du kryss rutan **aktivera flera sökvägar** . Klicka på **Avancerat**.
 8. I dialog rutan **Avancerade inställningar** utför du följande steg:
    
-   1. Välj **Microsoft iSCSI Initiator**i list rutan **lokalt kort** .
+   1. Välj **Microsoft iSCSI Initiator** i list rutan **lokalt kort** .
    2. Välj IP-adressen för värden i list rutan **INITIERA IP** -adress.
    3. I list rutan IP-adress för **mål Portal** väljer du IP för enhets gränssnittet.
    4. Klicka på **OK** för att återgå till dialog rutan **Egenskaper för iSCSI-initierare** .
@@ -132,7 +132,7 @@ När MPIO har kon figurer ATS på Windows Server kan volym (er) som skapats på 
 13. Initiera disken och skapa en ny volym. Under format processen väljer du en block storlek på 64 KB.
     
     ![Diskhantering](./media/storsimple-configure-mpio-windows-server/IC741008.png)
-14. Under **disk hantering**högerklickar du på **disken** och väljer **Egenskaper**.
+14. Under **disk hantering** högerklickar du på **disken** och väljer **Egenskaper**.
 15. Klicka på fliken **MPIO** i dialog rutan StorSimple modell # # # # **Egenskaper för disk enhet med flera sökvägar** .
     
     ![StorSimple 8100-disk DeviceProp med flera sökvägar.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
@@ -161,7 +161,7 @@ Följande procedur beskriver hur du lägger till sessioner när en StorSimple-en
 
 ### <a name="to-configure-mpio-for-high-availability-and-load-balancing"></a>Konfigurera MPIO för hög tillgänglighet och belastnings utjämning
 
-1. Utför en identifiering av målet: i dialog rutan **Egenskaper för iSCSI-initierare** klickar du på **identifiera Portal**på fliken **identifiering** .
+1. Utför en identifiering av målet: i dialog rutan **Egenskaper för iSCSI-initierare** klickar du på **identifiera Portal** på fliken **identifiering** .
 2. I dialog rutan **Anslut till mål** anger du IP-adressen för ett av enhetens nätverks gränssnitt.
 3. Klicka på **OK** för att återgå till dialog rutan **Egenskaper för iSCSI-initierare** .
 4. I dialog rutan **Egenskaper för iSCSI-initierare** väljer du fliken **mål** , markerar det identifierade målet och klickar sedan på **Anslut**. Dialog rutan **Anslut till mål** visas.
@@ -172,15 +172,15 @@ Följande procedur beskriver hur du lägger till sessioner när en StorSimple-en
    3. Klicka på **Avancerat**.
 6. I dialog rutan **Avancerade inställningar** :
    
-   1. Välj **Microsoft iSCSI Initiator**i list rutan **lokalt kort** .
+   1. Välj **Microsoft iSCSI Initiator** i list rutan **lokalt kort** .
    2. I list rutan **INITIERA IP** väljer du den IP-adress som motsvarar det första gränssnittet på värden (iSCSI-gränssnittet).
    3. I list rutan **IP-adress för mål Portal** väljer du IP-adressen för det första data gränssnittet som är aktiverat på enheten.
    4. Klicka på **OK** för att återgå till dialog rutan Egenskaper för iSCSI-initierare.
-7. Klicka på **Egenskaper**och i dialog rutan **Egenskaper** klickar du på **Lägg till session**.
+7. Klicka på **Egenskaper** och i dialog rutan **Egenskaper** klickar du på **Lägg till session**.
 8. I dialog rutan **Anslut till mål** markerar du kryss rutan **aktivera flera sökvägar** och klickar sedan på **Avancerat**.
 9. I dialog rutan **Avancerade inställningar** :
    
-   1. Välj **Microsoft iSCSI Initiator**i list rutan **lokalt kort** .
+   1. Välj **Microsoft iSCSI Initiator** i list rutan **lokalt kort** .
    2. I list rutan **INITIERA IP** väljer du den IP-adress som motsvarar det andra iSCSI-gränssnittet på värden.
    3. I list rutan **IP-adress för mål Portal** väljer du IP-adressen för det andra data gränssnittet som är aktiverat på enheten.
    4. Klicka på **OK** för att återgå till dialog rutan **Egenskaper för iSCSI-initierare** . Du har nu lagt till en andra session till målet.
@@ -191,4 +191,3 @@ Följande procedur beskriver hur du lägger till sessioner när en StorSimple-en
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om [att använda tjänsten StorSimple Enhetshanteraren för att ändra StorSimple-enhetens konfiguration](storsimple-8000-modify-device-config.md).
-

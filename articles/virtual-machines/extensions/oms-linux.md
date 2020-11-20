@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: fc9c5e1f5922543ea14b13e3e5b424190dbbfb7a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cb1e2337d5a5214c4e748e5b0f45f223b8bcb445
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892218"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968000"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics-tillägg för virtuella datorer för Linux
 
@@ -32,7 +33,7 @@ Azure Monitor-loggar tillhandahåller funktioner för övervakning, avisering oc
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -176,7 +177,7 @@ När du placerar tillägg-JSON i roten för mallen, innehåller resurs namnet en
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
-Azure CLI kan användas för att distribuera Log Analytics-agentens VM-tillägg till en befintlig virtuell dator. Ersätt *myWorkspaceKey* -värdet nedan med din arbetsyte nyckel och *myWorkspaceId* -värdet med ditt arbetsyte-ID. Du hittar dessa värden i Log Analytics arbets ytan i Azure Portal under *Avancerade inställningar* . 
+Azure CLI kan användas för att distribuera Log Analytics-agentens VM-tillägg till en befintlig virtuell dator. Ersätt *myWorkspaceKey* -värdet nedan med din arbetsyte nyckel och *myWorkspaceId* -värdet med ditt arbetsyte-ID. Du hittar dessa värden i Log Analytics arbets ytan i Azure Portal under *Avancerade inställningar*. 
 
 ```azurecli
 az vm extension set \

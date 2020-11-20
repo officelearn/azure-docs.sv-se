@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 12e5a6db7257678b3d4d14d7583a1a30da0d3a87
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371077"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967150"
 ---
 # <a name="monitor-identity-and-access"></a>Övervaka identitet och åtkomst
 
-Säkerhetsperimetern har utvecklats från en nätverks gräns till en identitets perimeter. Med den här utvecklingen är säkerheten mindre säker på ditt nätverk och mer om att hantera säkerheten för dina appar, data och användare.
+Säkerhetsperimetern har utvecklats från en nätverksgräns till en identitetsgräns. Med den här utvecklingen är säkerheten mindre säker på ditt nätverk och mer om att hantera säkerheten för dina appar, data och användare.
 
 Genom att övervaka aktiviteternas och konfigurations inställningarna som är relaterade till identiteten, kan du vidta proaktiva åtgärder innan en incident inträffar, eller återaktiverade åtgärder för att stoppa försöks angrepp.
 
@@ -30,7 +30,7 @@ Genom att övervaka aktiviteternas och konfigurations inställningarna som är r
 
 Azure Security Center har två dedikerade säkerhets kontroller för att se till att du uppfyller organisationens identitets-och säkerhets krav: 
 
- - **Hantera åtkomst och behörigheter** – vi rekommenderar att du använder den [lägsta behörighets modellen för åtkomst](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) och ser till att du endast beviljar användare den åtkomst som krävs för att utföra sina jobb. Den här kontrollen innehåller även rekommendationer för att implementera [rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/overview.md) för att kontrol lera åtkomsten till dina resurser.
+ - **Hantera åtkomst och behörigheter** – vi rekommenderar att du använder den [lägsta behörighets modellen för åtkomst](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) och ser till att du endast beviljar användare den åtkomst som krävs för att utföra sina jobb. Den här kontrollen innehåller även rekommendationer för att implementera [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) för att kontrol lera åtkomsten till dina resurser.
  
  - **Aktivera MFA** – med [MFA](https://www.microsoft.com/security/business/identity/mfa) aktiverat är dina konton säkrare och användare kan fortfarande autentisera till nästan alla program med enkel inloggning.
 

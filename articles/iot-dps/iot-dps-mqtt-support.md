@@ -10,12 +10,12 @@ ms.author: ravokkar
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 7683f5d60c5d788707e2f89774cee42e7820db87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a7ec2f4f8fdf631a6bc5096296275291ec41751
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87924214"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967133"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Kommunicera med din DPS med MQTT-protokollet
 
@@ -29,22 +29,22 @@ DPS är inte en komplett MQTT-Broker och har inte stöd för alla beteenden som 
 All enhets kommunikation med DPS måste skyddas med TLS/SSL. DPS stöder därför inte anslutningar som inte är säkra via port 1883.
 
  > [!NOTE] 
- > DPS stöder för närvarande inte enheter som använder [mekanismen](https://docs.microsoft.com/azure/iot-dps/concepts-device#attestation-mechanism) för TPM-attestering över MQTT-protokollet.
+ > DPS stöder för närvarande inte enheter som använder [mekanismen](./concepts-service.md#attestation-mechanism) för TPM-attestering över MQTT-protokollet.
 
 ## <a name="connecting-to-dps"></a>Ansluta till DPS
 
 En enhet kan använda MQTT-protokollet för att ansluta till en DPS med något av följande alternativ.
 
-* Bibliotek i SDK: er för [Azure IoT-etablering](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#microsoft-azure-provisioning-sdks).
+* Bibliotek i SDK: er för [Azure IoT-etablering](../iot-hub/iot-hub-devguide-sdks.md#microsoft-azure-provisioning-sdks).
 * MQTT-protokollet direkt.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Använda MQTT-protokollet direkt (som en enhet)
 
 Om en enhet inte kan använda enhets-SDK: erna kan den fortfarande ansluta till den offentliga enhetens slut punkter med MQTT-protokollet på port 8883. I **Connect** -paketet ska enheten använda följande värden:
 
-* Använd **registrationId**för fältet **ClientId** .
+* Använd **registrationId** för fältet **ClientId** .
 
-* För fältet **username** använder du `{idScope}/registrations/{registration_id}/api-version=2019-03-31` , där `{idScope}` är [idScope](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope) för DPS.
+* För fältet **username** använder du `{idScope}/registrations/{registration_id}/api-version=2019-03-31` , där `{idScope}` är [idScope](./concepts-service.md#id-scope) för DPS.
 
 * I fältet **lösen ord** använder du en SAS-token. Formatet på SAS-token är detsamma som för både HTTPS-och AMQP-protokollen:
 
@@ -70,8 +70,8 @@ Om du vill använda MQTT-protokollet direkt *måste* klienten ansluta via TLS 1,
 
 Om du vill registrera en enhet via DPS bör en enhet prenumerera med ett `$dps/registrations/res/#` **ämnes filter**. Jokertecken `#` i ämnes filtret används bara för att tillåta att enheten tar emot ytterligare egenskaper i ämnes namnet. DPS tillåter inte användning av `#` eller `?` jokertecken för filtrering av underavsnitt. Eftersom DPS inte är en allmän pub-underordnad meddelande tjänst, stöder den bara de dokumenterade ämnes namn och ämnes filter.
 
-Enheten bör publicera ett registrerings meddelande till DPS med `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` ett **ämnes namn**. Nytto lasten ska innehålla [enhetens registrerings](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) objekt i JSON-format.
-I ett lyckat scenario får enheten ett svar på `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` ämnes namnet där x är ett nytt försök efter-värdet i sekunder. Nytto lasten för svaret kommer att innehålla [RegistrationOperationStatus](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) -objektet i JSON-format.
+Enheten bör publicera ett registrerings meddelande till DPS med `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` ett **ämnes namn**. Nytto lasten ska innehålla [enhetens registrerings](/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) objekt i JSON-format.
+I ett lyckat scenario får enheten ett svar på `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` ämnes namnet där x är ett nytt försök efter-värdet i sekunder. Nytto lasten för svaret kommer att innehålla [RegistrationOperationStatus](/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) -objektet i JSON-format.
 
 ## <a name="polling-for-registration-operation-status"></a>Avsökning för registrerings åtgärds status
 

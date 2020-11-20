@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c288f59b1cb9a85ed4bc978d1c3fba18ba30b572
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960328"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968765"
 ---
 # <a name="contact-microsoft-support"></a>Kontakta Microsoft Support
 
@@ -21,7 +21,7 @@ StorSimple-Enhetshanteraren ger möjlighet att **Logga en ny supportbegäran** p
 * Så här hanterar du en livs cykel för support begär Anden från portalen.
 * Starta en support-session i Windows PowerShell-gränssnittet på din StorSimple-enhet.
 
-Granska [StorSimple 8000-serien support service avtal och information](https://msdn.microsoft.com/library/mt433077.aspx) innan du skapar en supportbegäran.
+Granska [StorSimple 8000-serien support service avtal och information](./storsimple-8000-support-options.md) innan du skapar en supportbegäran.
 
 ## <a name="create-a-support-request"></a>Skapa en supportbegäran
 
@@ -47,15 +47,15 @@ Beroende på ditt [support](https://azure.microsoft.com/support/plans/)avtal kan
     2. Ange om problemet är relaterat till enheten eller tjänsten StorSimple Enhetshanteraren.
     3. Välj en **kategori** för det här problemet och ange mer **information** om problemet.
     4. Ange start datum och start tid för problemet.
-    5. Klicka på mappikonen i **fil överföringen**för att bläddra till ditt support paket.
+    5. Klicka på mappikonen i **fil överföringen** för att bläddra till ditt support paket.
     6. Kontrol lera **delning av diagnostikinformation**.
     7. Klicka på **Nästa**.
 
        ![Kontakta MS support via ny portal 3](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
-4. Klicka på **steg 3 kontakt information**i bladet **nytt support ärende** . Utför följande steg på bladet **kontakt information** :
+4. Klicka på **steg 3 kontakt information** i bladet **nytt support ärende** . Utför följande steg på bladet **kontakt information** :
 
-   1. I **kontakt alternativen**anger du önskad kontakt metod (telefon eller e-post) och språket. Svars tiden väljs automatiskt baserat på prenumerations planen.
+   1. I **kontakt alternativen** anger du önskad kontakt metod (telefon eller e-post) och språket. Svars tiden väljs automatiskt baserat på prenumerations planen.
    2. I kontakt uppgifterna anger du ditt namn, din e-postadress, valfri kontakt, land/region. Markera kryss rutan **Spara kontakt ändringar för framtida support begär Anden** .
    3. Klicka på **Skapa**.
    

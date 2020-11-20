@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 872d1f43f1e9dc180e41a2bf625ca18b74522b40
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 14f17c6716fe98a11d03e8d1021bcdb1058fe671
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409518"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968119"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med C#-tjänst-SDK
 
@@ -39,25 +39,25 @@ Den här artikeln visar hur du program mässigt skapar en enskild registrering f
 
 För exemplet i den här snabbstarten behöver du anslutningssträngen för etableringstjänsten.
 
-1. Logga in på Azure Portal, Välj **alla resurser**och sedan enhets etablerings tjänsten.
+1. Logga in på Azure Portal, Välj **alla resurser** och sedan enhets etablerings tjänsten.
 
-1. Välj **principer för delad åtkomst**och välj sedan den åtkomst princip som du vill använda för att öppna dess egenskaper. I **åtkomst princip**kopierar du och sparar den primära nyckelns anslutnings sträng.
+1. Välj **principer för delad åtkomst** och välj sedan den åtkomst princip som du vill använda för att öppna dess egenskaper. I **åtkomst princip** kopierar du och sparar den primära nyckelns anslutnings sträng.
 
     ![Hämta etableringsanslutningssträng från portalen](media/quick-enroll-device-tpm-csharp/get-service-connection-string-vs2019.png)
 
 ## <a name="create-the-individual-enrollment-sample"></a>Skapa ett exempel på enskild registrering
 
-Det här avsnittet visar hur du skapar en .NET Core-webbapp som lägger till en enskild registrering för en TPM-enhet till etablerings tjänsten. Med vissa ändringar kan du även följa de här stegen för att skapa en [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot)-konsolapp för att lägga till den enskilda registreringen. Mer information om hur du utvecklar med IoT Core finns i [dokumentationen till Windows IoT Core Developer](https://docs.microsoft.com/windows/iot-core/).
+Det här avsnittet visar hur du skapar en .NET Core-webbapp som lägger till en enskild registrering för en TPM-enhet till etablerings tjänsten. Med vissa ändringar kan du även följa de här stegen för att skapa en [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot)-konsolapp för att lägga till den enskilda registreringen. Mer information om hur du utvecklar med IoT Core finns i [dokumentationen till Windows IoT Core Developer](/windows/iot-core/).
 
-1. Öppna Visual Studio och välj **skapa ett nytt projekt**. I **skapa ett nytt projekt**väljer du projekt mal len **konsol program (.net Core)** för C# och väljer **sedan nästa**.
+1. Öppna Visual Studio och välj **skapa ett nytt projekt**. I **skapa ett nytt projekt** väljer du projekt mal len **konsol program (.net Core)** för C# och väljer **sedan nästa**.
 
-1. Ge projektet namnet *CreateTpmEnrollment*och tryck på **skapa**.
+1. Ge projektet namnet *CreateTpmEnrollment* och tryck på **skapa**.
 
     ![Konfigurera Visual C# Windows klassisk Desktop Project](media/quick-enroll-device-tpm-csharp/configure-tpm-app-vs2019.png)
 
 1. När lösningen öppnas i Visual Studio högerklickar du på projektet **CreateTpmEnrollment** i rutan **Solution Explorer** . Välj **Hantera NuGet-paket**.
 
-1. I **NuGet Package Manager**väljer du **Bläddra**, söker efter och väljer **Microsoft. Azure. devices. Provisioning. service**och trycker sedan på **Installera**.
+1. I **NuGet Package Manager** väljer du **Bläddra**, söker efter och väljer **Microsoft. Azure. devices. Provisioning. service** och trycker sedan på **Installera**.
 
    ![Fönstret för NuGet-pakethanteraren](media//quick-enroll-device-tpm-csharp/add-nuget.png)
 
@@ -147,7 +147,7 @@ Kör exemplet i Visual Studio för att skapa den enskilda registreringen för di
 
 Ett kommando tolks fönster visas och du kan börja Visa bekräftelse meddelanden. När den har skapats visas egenskaperna för den nya enskilda registreringen i kommando tolkens fönster.
 
-Du kan kontrol lera att den enskilda registreringen har skapats. Gå till sammanfattning av enhets etablerings tjänsten och välj **Hantera registreringar**och välj sedan **enskilda registreringar**. Du bör se en ny registreringspost som motsvarar det registrerings-ID som du använde i exemplet.
+Du kan kontrol lera att den enskilda registreringen har skapats. Gå till sammanfattning av enhets etablerings tjänsten och välj **Hantera registreringar** och välj sedan **enskilda registreringar**. Du bör se en ny registreringspost som motsvarar det registrerings-ID som du använde i exemplet.
 
 ![Egenskaper för registrering i portalen](media/quick-enroll-device-tpm-csharp/verify-enrollment-portal-vs2019.png)
 
@@ -161,13 +161,13 @@ Om du planerar att utforska C#-tjänst exemplet ska du inte rensa upp resurserna
 
 1. Stäng fönstret C#-exempel i utdata på din dator.
 
-1. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera registreringar**och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för registrerings posten som du skapade med den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret.
+1. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera registreringar** och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för registrerings posten som du skapade med den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret.
 
 1. Om du har följt stegen i [skapa och etablera en simulerad TPM-enhet med C#-enhets-SDK](quick-create-simulated-device-tpm-csharp.md) för att skapa en simulerad TPM-enhet utför du följande steg:
 
     1. Stäng TPM-simulatorfönstret och exempelutdatafönstret för den simulerade enheten.
 
-    1. I Azure-portalen går du till den IoT Hub där din enhet etablerades. I menyn under **Explorer**väljer du IoT- **enheter**, markerar kryss rutan bredvid *enhets-ID* för den enhet som du registrerade i den här snabb starten och trycker sedan på knappen **ta bort** högst upp i fönstret.
+    1. I Azure-portalen går du till den IoT Hub där din enhet etablerades. I menyn under **Explorer** väljer du IoT- **enheter**, markerar kryss rutan bredvid *enhets-ID* för den enhet som du registrerade i den här snabb starten och trycker sedan på knappen **ta bort** högst upp i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 

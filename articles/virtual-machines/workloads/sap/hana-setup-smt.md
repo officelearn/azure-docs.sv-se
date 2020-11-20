@@ -7,18 +7,19 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c186b73cb00d03b731cd015b3ee06bf8f2233fa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88b1cd2a5bf33d6401f0d2e15237400e27c72e54
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541160"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967660"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Konfigurera SMT-Server för SUSE Linux
 Stora instanser av SAP HANA har ingen direkt anslutning till Internet. Det är inte enkelt att registrera en sådan enhet med operativ system leverantören och att ladda ned och tillämpa uppdateringar. En lösning för SUSE Linux är att konfigurera en SMT-server på en virtuell Azure-dator. Var värd för den virtuella datorn i ett virtuellt Azure-nätverk, som är ansluten till den stora HANA-instansen. Med en sådan SMT-Server kan den stora instans enheten HANA registrera och hämta uppdateringar. 
@@ -78,7 +79,7 @@ Resolving package dependencies...
 ```
 
 
-Du kan också använda verktyget YAST för att installera SMT-paketen. Gå till **program varu underhåll**i YaST och Sök efter SMT. Välj **SMT**, som växlar automatiskt till YaST2-SMT.
+Du kan också använda verktyget YAST för att installera SMT-paketen. Gå till **program varu underhåll** i YaST och Sök efter SMT. Välj **SMT**, som växlar automatiskt till YaST2-SMT.
 
 ![Skärm bild av SMT i YAST](./media/hana-installation/image5_smt_in_yast.PNG)
 

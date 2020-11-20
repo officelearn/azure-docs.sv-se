@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e90c1d1cfa02f63a2b5115124dee2a9da68e2f3f
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 9122d6716aa94a7e0164c9c7774c7c8d85be814a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917281"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968017"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Skapa en förslags ställare för att aktivera Autoavsluta och föreslagna resultat i en fråga
 
@@ -40,9 +40,11 @@ En förslags ställare är en intern data struktur som stöder sökning efter ty
 
 Om du vill skapa en förslags pekare, lägger du till en i en [index definition](/rest/api/searchservice/create-index). En förslags ställare får ett namn och en samling fält över vilka typeahead-upplevelsen är aktive rad. och [Ange varje egenskap](#property-reference). Det bästa sättet att skapa en förslags ställare är när du även definierar det fält som ska använda det.
 
-+ Använd endast sträng fält
++ Använd endast sträng fält.
 
-+ Använd standard standard Lucene Analyzer ( `"analyzer": null` ) eller en [språk analys](index-add-language-analyzers.md) (till exempel `"analyzer": "en.Microsoft"` ) i fältet
++ Om sträng fältet är en del av en komplex typ (t. ex. fältet stad i adressen) inkluderar du överordnad i fältet: `"Address/City"` (rest och C# och python) eller `["Address"]["City"]` (Java Script).
+
++ Använd standard standard Lucene Analyzer ( `"analyzer": null` ) eller en [språk analys](index-add-language-analyzers.md) (till exempel `"analyzer": "en.Microsoft"` ) i fältet.
 
 Om du försöker skapa en förslags ställare med redan existerande fält kommer API: et att tillåta det. Prefix skapas vid indexering, om del termer i två eller flera teckenkombinationer är token i hela termer. Eftersom befintliga fält redan har tokens, måste du återskapa indexet om du vill lägga till dem i en förslags ställare. Mer information finns i [så här återskapar du ett Azure kognitiv sökning-index](search-howto-reindex.md).
 

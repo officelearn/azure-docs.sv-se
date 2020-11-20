@@ -9,23 +9,24 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 4730f05adc2625ac576f5963f68d8e3ca8ede355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 389842901a4c508015d527c0fd8fd87af57dcd9b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331513"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967932"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics-tillägg för virtuella datorer för Windows
 
 Azure Monitor-loggar innehåller övervaknings funktioner över molnbaserade och lokala till gångar. Tillägget för virtuell dator med Log Analytics agent för Windows publiceras och stöds av Microsoft. Tillägget installerar Log Analytics agent på virtuella Azure-datorer och registrerar virtuella datorer i en befintlig Log Analytics-arbetsyta. Det här dokumentet innehåller information om plattformar, konfigurationer och distributions alternativ som stöds för Log Analytics virtuell dator tillägg för Windows.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -34,7 +35,7 @@ Mer information om de Windows-operativsystem som stöds finns i artikeln [Övers
 ### <a name="agent-and-vm-extension-version"></a>Version för agent och VM-tillägg
 Följande tabell innehåller en mappning av versionen av Windows Log Analytics VM-tillägget och Log Analytics agent-paketet för varje version. 
 
-| Log Analytics Windows agent-paket version | Log Analytics version av Windows VM-tillägg | Lanserings datum | Viktig information |
+| Log Analytics Windows agent-paket version | Log Analytics version av Windows VM-tillägg | Utgivningsdatum | Viktig information |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18040 | 1.0.18040.2 | Augusti 2020   | <ul><li>Löser ett problem på Azure-bågen</li></ul> |
 | 10.20.18038 | 1.0.18038 | April 2020   | <ul><li>Aktiverar anslutning via privat länk med Azure Monitor privata länk omfång</li><li>Lägger till inmatnings begränsning för att undvika plötslig, oavsiktligt inflöde vid inmatning till en arbets yta</li><li>Lägger till stöd för ytterligare Azure Government moln och regioner</li><li>Löser ett fel där HealthService.exe kraschat</li></ul> |
@@ -43,9 +44,9 @@ Följande tabell innehåller en mappning av versionen av Windows Log Analytics V
 | 10.20.18011 | 1.0.18011 | Juli 2019 | <ul><li> Mindre fel korrigeringar och stabiliserings förbättringar </li><li> Ökat MaxExpressionDepth till 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Juni 2019 | <ul><li> Mindre fel korrigeringar och stabiliserings förbättringar </li><li> Möjlighet att inaktivera standardautentiseringsuppgifter vid anslutning av proxy (stöd för WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) har lagts till </li></ul>|
 | 10.19.13515 | 1.0.13515 | Mars 2019 | <ul><li>Mindre stabiliserings korrigeringar </li></ul> |
-| 10.19.10006 | Saknas | Dec 2018 | <ul><li> Mindre stabiliserings korrigeringar </li></ul> | 
-| 8.0.11136 | Saknas | Sept 2018 |  <ul><li> Stöd har lagts till för att identifiera resurs-ID-ändring vid flyttning av virtuell dator </li><li> Stöd har lagts till för rapporterings resurs-ID vid användning av installation utan tillägg </li></ul>| 
-| 8.0.11103 | Saknas |  April 2018 | |
+| 10.19.10006 | saknas | Dec 2018 | <ul><li> Mindre stabiliserings korrigeringar </li></ul> | 
+| 8.0.11136 | saknas | Sept 2018 |  <ul><li> Stöd har lagts till för att identifiera resurs-ID-ändring vid flyttning av virtuell dator </li><li> Stöd har lagts till för rapporterings resurs-ID vid användning av installation utan tillägg </li></ul>| 
+| 8.0.11103 | saknas |  April 2018 | |
 | 8.0.11081 | 1.0.11081 | Nov 2017 | | 
 | 8.0.11072 | 1.0.11072 | Sept 2017 | |
 | 8.0.11049 | 1.0.11049 | Feb 2017 | |
@@ -92,7 +93,7 @@ Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kr�
 | apiVersion | 2015-06-15 |
 | utgivare | Microsoft. EnterpriseCloud. Monitoring |
 | typ | MicrosoftMonitoringAgent |
-| typeHandlerVersion | 1.0 |
+| typeHandlerVersion | 1,0 |
 | workspaceId (t) * | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (t. ex.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ = = |
 

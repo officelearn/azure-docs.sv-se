@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
-ms.openlocfilehash: cc82109c60ac077d9e92e4d4a52abdaf8577771f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 61f8fd3d671bbd66d2dc5656e9a467b06798d280
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971191"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968425"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption för Linux (Microsoft. Azure. Security. AzureDiskEncryptionForLinux)
 
@@ -26,13 +27,13 @@ ms.locfileid: "91971191"
 
 Azure Disk Encryption utnyttjar del systemet dm-crypt i Linux för att tillhandahålla fullständig disk kryptering på [utvalda Azure Linux-distributioner](../linux/disk-encryption-overview.md).  Den här lösningen är integrerad med Azure Key Vault för att hantera disk krypterings nycklar och hemligheter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En fullständig lista över krav finns i [Azure Disk Encryption för virtuella Linux-datorer](../linux/disk-encryption-overview.md), särskilt i följande avsnitt:
 
 - [Virtuella datorer och operativ system som stöds](../linux/disk-encryption-overview.md#supported-vms-and-operating-systems)
 - [Ytterligare krav för virtuell dator](../linux/disk-encryption-overview.md#additional-vm-requirements)
-- [Nätverks krav](../linux/disk-encryption-overview.md#networking-requirements)
+- [Nätverkskrav](../linux/disk-encryption-overview.md#networking-requirements)
 - [Lagrings krav för krypterings nyckel](../linux/disk-encryption-overview.md#encryption-key-storage-requirements)
 
 ## <a name="extension-schema"></a>Tilläggs schema
@@ -143,7 +144,7 @@ Använda `AADClientCertificate` :
 
 | Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | datum |
 | utgivare | Microsoft. Azure. Security | sträng |
 | typ | AzureDiskEncryptionForLinux | sträng |
 | typeHandlerVersion | 1,1, 0,1 | int |

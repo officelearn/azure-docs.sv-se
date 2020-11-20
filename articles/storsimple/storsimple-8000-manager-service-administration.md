@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.openlocfilehash: c8d8e3b9058b753dc2a6da35878449c94399225e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69a36f38cc76693f596b45d4df6e232bc01584d5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85508052"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967983"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Använd tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet
 
@@ -65,7 +65,7 @@ Klicka på lämplig procedur i tabellen om du vill ha mer information om varje a
 | Om åtkomst kontroll poster</br>Skapa en åtkomst kontroll post</br>Redigera en åtkomst kontroll post</br>Ta bort en åtkomst kontroll post |[Hantera åtkomst kontroll poster](storsimple-8000-manage-acrs.md) |
 | Visa jobbinformation</br>Avbryta ett jobb |[Hantera jobb](storsimple-8000-manage-jobs-u2.md) |
 | Få varningsmeddelanden</br>Hantera aviseringar</br>Granska aviseringar |[Visa och hantera StorSimple-aviseringar](storsimple-8000-manage-alerts.md) |
-| Skapa övervaknings diagram |[Övervaka din StorSimple-enhet](storsimple-monitor-device.md) |
+| Skapa övervaknings diagram |[Övervaka din StorSimple-enhet](./storsimple-8000-monitor-device.md) |
 | Lägg till en volym behållare</br>Ändra en volym behållare</br>Ta bort en volym behållare |[Hantera volymcontainrar](storsimple-8000-manage-volume-containers.md) |
 | Lägg till en volym</br>Ändra en volym</br>Koppla från en volym</br>Ta bort en volym</br>Övervaka en volym |[Hantera volymer](storsimple-8000-manage-volumes-u2.md) |
 | Ändra enhets inställningar</br>Ändra tids inställningar</br>Ändra inställningar för DNS.md</br>Konfigurera nätverks gränssnitt |[Ändra enhets konfigurationen för din StorSimple-enhet](storsimple-8000-modify-device-config.md) |
@@ -73,7 +73,7 @@ Klicka på lämplig procedur i tabellen om du vill ha mer information om varje a
 | Ändra enhetens administratörs lösen ord</br>Ändra StorSimple Snapshot Manager-lösenord |[Ändra StorSimple-lösenord](storsimple-8000-change-passwords.md) |
 | Konfigurera fjärrhantering |[Fjärrans luta till din StorSimple-enhet](storsimple-8000-remote-connect.md) |
 | Konfigurera aviseringsinställningar |[Visa och hantera StorSimple-aviseringar](storsimple-8000-manage-alerts.md) |
-| Konfigurera CHAP för din StorSimple-enhet |[Konfigurera CHAP för din StorSimple-enhet](storsimple-configure-chap.md) |
+| Konfigurera CHAP för din StorSimple-enhet |[Konfigurera CHAP för din StorSimple-enhet](./storsimple-8000-configure-chap.md) |
 | Lägga till en säkerhetskopieringspolicy</br>Lägg till eller ändra ett schema</br>Ta bort en princip för säkerhets kopiering</br>Gör en manuell säkerhets kopiering</br>Skapa en anpassad säkerhets kopierings princip med flera volymer och scheman |[Hantera säkerhetskopieringsprinciper](storsimple-8000-manage-backup-policies-u2.md) |
 | Stoppa enhets styrenheter</br>Starta om enhets styrenheter</br>Stänga av enhets styrenheter</br>Återställa enheten till fabriks inställningarna</br>(Ovan gäller endast för lokala enheter) |[Hantera StorSimple enhets styrenhet](storsimple-8000-manage-device-controller.md) |
 | Lär dig mer om StorSimple maskin varu komponenter</br>Övervaka maskinvarustatus</br>(Ovan gäller endast för lokala enheter) |[Övervaka maskin varu komponenter](storsimple-8000-monitor-hardware-status.md) |
@@ -88,4 +88,3 @@ Om du får problem med den dagliga driften av din StorSimple-enhet eller med nå
 * [Använda indikatorer för StorSimple-övervakning](storsimple-monitoring-indicators.md)
 
 Om du inte kan lösa problemen och behöver skapa en tjänstbegäran, se [kontakt Microsoft Support](storsimple-8000-contact-microsoft-support.md).
-

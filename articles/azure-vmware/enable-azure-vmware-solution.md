@@ -1,17 +1,17 @@
 ---
 title: Aktivera din Azure VMware-lösnings resurs
-description: Lär dig hur du skickar en support förfrågan för att aktivera din Azure VMware-lösnings resurs. Du kan också begära fler noder i ditt befintliga privata moln i Azure VMware-lösningen.
+description: Lär dig hur du skickar en support förfrågan för att aktivera din Azure VMware-lösnings resurs. Du kan också begära fler värdar i ditt befintliga Azure VMware-lösningar privata moln.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 8e1b891559cb2d01adc9fdf834ef3c9714fe1233
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: cd58611f77c2f2fb1694597fc9ef049420093ccc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888444"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967371"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Så här aktiverar du Azure VMware-lösnings resurser
-Lär dig hur du skickar en support förfrågan för att aktivera din [Azure VMware-lösnings](introduction.md) resurs. Du kan också begära fler noder i ditt befintliga privata moln i Azure VMware-lösningen.
+Lär dig hur du skickar en support förfrågan för att aktivera din [Azure VMware-lösnings](introduction.md) resurs. Du kan också begära fler värdar i ditt befintliga Azure VMware-lösningar privata moln.
 
 ## <a name="eligibility-criteria"></a>Behörighetskrav
 
@@ -22,7 +22,7 @@ Du behöver ett Azure-konto i en Azure-prenumeration. Azure-prenumerationen mås
 
 
 ## <a name="enable-azure-vmware-solution-for-ea-customers"></a>Aktivera Azure VMware-lösningen för EA-kunder
-Innan du skapar din Azure VMware-lösnings resurs måste du skicka in ett support ärende om du vill att dina noder ska tilldelas. När support teamet har tagit emot din begäran tar det upp till fem arbets dagar för att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process.
+Innan du skapar din Azure VMware-lösning måste du skicka in ett support ärende för att dina värdar ska tilldelas. När support teamet får din begäran tar det upp till fem arbets dagar för att bekräfta din begäran och allokera dina värdar. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler värdar ska tilldelas, går du igenom samma process.
 
 
 1. I Azure Portal, under **Hjälp + Support**, skapa en **[ny supportbegäran](https://rc.portal.azure.com/#create/Microsoft.Support)** och ange följande information för biljetten:
@@ -38,20 +38,20 @@ Innan du skapar din Azure VMware-lösnings resurs måste du skicka in ett suppor
 
    - POC eller produktion 
    - Regionsnamn
-   - Antal noder
+   - Antal värdar
    - Annan information
 
    >[!NOTE]
-   >Azure VMware-lösningen rekommenderar minst tre noder för att skapa ett privat moln och för redundans av N + 1-noder. 
+   >Azure VMware-lösningen rekommenderar minst tre värdar för att kunna sätta upp ditt privata moln och för redundanta N + 1-värdar. 
 
 1. Välj **Granska + skapa** för att skicka begäran.
 
    Det tar upp till fem arbets dagar för en support representant att bekräfta din begäran.
 
    >[!IMPORTANT] 
-   >Om du redan har en befintlig Azure VMware-lösning, och du begär ytterligare noder, bör vi tänka på att vi behöver fem arbets dagar för att allokera noderna. 
+   >Om du redan har en befintlig Azure VMware-lösning och du begär ytterligare värdar måste vi tänka på att vi behöver fem arbets dagar för att allokera värdarna. 
 
-1. Innan du kan etablera dina noder bör du kontrol lera att du registrerar resurs leverantören för **Microsoft. AVS** i Azure Portal.  
+1. Innan du kan etablera dina värdar bör du kontrol lera att du registrerar resurs leverantören för **Microsoft. AVS** i Azure Portal.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
@@ -99,21 +99,21 @@ När du har konfigurerat Azure-planen och de nödvändiga vSphere RBAC-behörigh
 
    - POC eller produktion 
    - Regionsnamn
-   - Antal noder
+   - Antal värdar
    - Annan information
    - Är avsikten att vara värd för flera kunder?
 
    >[!NOTE]
-   >Azure VMware-lösningen rekommenderar minst tre noder för att skapa ett privat moln och för redundans av N + 1-noder. 
+   >Azure VMware-lösningen rekommenderar minst tre värdar för att kunna sätta upp ditt privata moln och för redundanta N + 1-värdar. 
 
 1. Välj **Granska + skapa** för att skicka begäran.
 
    Det tar upp till fem arbets dagar för en support representant att bekräfta din begäran.
 
    >[!IMPORTANT] 
-   >Om du redan har en befintlig Azure VMware-lösning, och du begär ytterligare noder, bör vi tänka på att vi behöver fem arbets dagar för att allokera noderna. 
+   >Om du redan har en befintlig Azure VMware-lösning och du begär ytterligare värdar måste vi tänka på att vi behöver fem arbets dagar för att allokera värdarna. 
 
-1. När den har lagts till i Azure-planen och med kvoten aktive rad kan kunden eller partner administratören distribuera ett privat moln i Azure VMware-lösningen via Azure Portal. Innan du kan etablera dina noder bör du kontrol lera att du registrerar resurs leverantören för **Microsoft. AVS** i Azure Portal.  
+1. När den har lagts till i Azure-planen och med kvoten aktive rad kan kunden eller partner administratören distribuera ett privat moln i Azure VMware-lösningen via Azure Portal. Innan du kan etablera dina värdar bör du kontrol lera att du registrerar resurs leverantören för **Microsoft. AVS** i Azure Portal.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>

@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 3e06c79b9cbd5643d119974a4ed8628ea1b1cd4f
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 9eee315aac28847710662b463add7d6e68d8d505
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096767"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967303"
 ---
 # <a name="x509-certificate-attestation"></a>X.509-certifikatattestering
 
@@ -26,7 +26,7 @@ X. 509-certifikat kan lagras i en maskinvaru-säkerhetsmodul HSM.
 
 ## <a name="x509-certificates"></a>X. 509-certifikat
 
-Att använda X. 509-certifikat som en mekanism för attestering är ett utmärkt sätt att skala produktion och förenkla enhets etablering. X. 509-certifikat ordnas vanligt vis i en certifikat kedja med förtroende där varje certifikat i kedjan signeras av den privata nyckeln för nästa högre certifikat, och så vidare, och sedan avslutas i ett självsignerat rot certifikat. Den här överenskommelsen upprättar en delegerad förtroende kedja från rot certifikatet som genererats av en betrodd rot certifikat utfärdare (CA) via varje mellanliggande certifikat utfärdare till certifikatet "löv" som har installerats på en enhet. Mer information finns i [enhets autentisering med X. 509 CA-certifikat](/azure/iot-hub/iot-hub-x509ca-overview). 
+Att använda X. 509-certifikat som en mekanism för attestering är ett utmärkt sätt att skala produktion och förenkla enhets etablering. X. 509-certifikat ordnas vanligt vis i en certifikat kedja med förtroende där varje certifikat i kedjan signeras av den privata nyckeln för nästa högre certifikat, och så vidare, och sedan avslutas i ett självsignerat rot certifikat. Den här överenskommelsen upprättar en delegerad förtroende kedja från rot certifikatet som genererats av en betrodd rot certifikat utfärdare (CA) via varje mellanliggande certifikat utfärdare till certifikatet "löv" som har installerats på en enhet. Mer information finns i [enhets autentisering med X. 509 CA-certifikat](../iot-hub/iot-hub-x509ca-overview.md). 
 
 Certifikat kedjan representerar ofta vissa logiska eller fysiska hierarkier som är kopplade till enheter. En tillverkare kan till exempel:
 - utfärda ett självsignerat certifikat för rot certifikat utfärdare
@@ -34,11 +34,11 @@ Certifikat kedjan representerar ofta vissa logiska eller fysiska hierarkier som 
 - Använd varje fabriks certifikat för att generera ett unikt mellanliggande CA-certifikat för varje produktions linje i anläggningen
 - och Använd slutligen produktions rads certifikatet för att generera ett unikt enhets certifikat (slutenhet) för varje enhet som tillverkas på linjen. 
 
-Mer information finns i [konceptuell förståelse av X. 509 CA-certifikat i IoT-branschen](/azure/iot-hub/iot-hub-x509ca-concept). 
+Mer information finns i [konceptuell förståelse av X. 509 CA-certifikat i IoT-branschen](../iot-hub/iot-hub-x509ca-concept.md). 
 
 ### <a name="root-certificate"></a>Rot certifikat
 
-Ett rot certifikat är ett självsignerat X. 509-certifikat som representerar en certifikat utfärdare (CA). Det är upphör, eller förtroende ankare, för certifikat kedjan. Rot certifikat kan vara självutfärdade av en organisation eller köpas från en rot certifikat utfärdare. Läs mer i [Hämta X. 509 CA-certifikat](/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Rot certifikatet kan också kallas för ett rot certifikat för certifikat UTFÄRDAre.
+Ett rot certifikat är ett självsignerat X. 509-certifikat som representerar en certifikat utfärdare (CA). Det är upphör, eller förtroende ankare, för certifikat kedjan. Rot certifikat kan vara självutfärdade av en organisation eller köpas från en rot certifikat utfärdare. Läs mer i [Hämta X. 509 CA-certifikat](../iot-hub/iot-hub-security-x509-get-started.md#get-x509-ca-certificates). Rot certifikatet kan också kallas för ett rot certifikat för certifikat UTFÄRDAre.
 
 ### <a name="intermediate-certificate"></a>Mellanliggande certifikat
 
@@ -56,7 +56,7 @@ Löv certifikatet eller certifikatet för slutentiteten identifierar certifikat 
 
 Löv certifikat som används med en [enskild registrerings](./concepts-service.md#individual-enrollment) post har ett krav på att **ämnes namnet** måste anges till registrerings-ID för den enskilda registrerings posten. Löv certifikat som används med en [registrerings grupp](./concepts-service.md#enrollment-group) post ska ha **ämnes namnet** inställt på önskat enhets-ID som visas i **registrerings posterna** för den autentiserade enheten i registrerings gruppen.
 
-Mer information finns i [autentisera enheter som är signerade med X. 509 CA-certifikat](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Mer information finns i [autentisera enheter som är signerade med X. 509 CA-certifikat](../iot-hub/iot-hub-x509ca-overview.md#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Kontrol lera enhets åtkomst till etablerings tjänsten med X. 509-certifikat
 

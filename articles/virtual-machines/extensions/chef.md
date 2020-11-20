@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: 9391bb4867717b6780b50cf90b998254227d2310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8977563c6b19754eda53686baf85f840a7583e77
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082621"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968374"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Kock VM-tillägg för Linux och Windows
 
@@ -67,7 +68,7 @@ Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver mi
 
 ### <a name="core-property-values"></a>Egenskaps värden för kärna
 
-| Name | Värde/exempel | Datatyp
+| Namn | Värde/exempel | Datatyp
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | sträng (datum) |
 | utgivare | `Chef.Bootstrap.WindowsAzure` | sträng |
@@ -76,7 +77,7 @@ Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver mi
 
 ### <a name="settings"></a>Inställningar
 
-| Name | Värde/exempel | Datatyp | Obligatoriskt?
+| Namn | Värde/exempel | Datatyp | Obligatoriskt?
 | ---- | ---- | ---- | ----
 | inställningar/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | sträng (URL) | J |
 | inställningar/bootstrap_options/validation_client_name | `myorg-validator` | sträng | J |
@@ -84,7 +85,7 @@ Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver mi
 
 ### <a name="protected-settings"></a>Skyddade inställningar
 
-| Name | Exempel | Datatyp | Obligatoriskt?
+| Namn | Exempel | Datatyp | Obligatoriskt?
 | ---- | ---- | ---- | ---- |
 | protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | sträng | J |
 

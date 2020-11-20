@@ -3,12 +3,12 @@ title: Koncept – privata moln och kluster
 description: Lär dig mer om de viktigaste funktionerna i Azure VMware-lösningen program varu definierade Data Center och vSphere-kluster.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 0454ade503ce40de46363f65d36a64340219c0b1
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: af34bb0d83d9571ae91dce90cab198a61cfe82a1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874023"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967388"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware-lösning, privata moln och kluster koncept
 
@@ -38,7 +38,7 @@ Du kan använda vSphere och NSX-T Manager för att hantera de flesta andra aspek
 
 ## <a name="hosts"></a>Värdar
 
-Azure VMware-lösningar privata moln kluster använder Hyper-konvergerade, Bare-Metal Infrastructure-noder. I följande tabell visas processorns RAM-, processor-och disk kapacitet. 
+Azure VMware-lösningar privata moln kluster använder Hyper-konvergerade, Bare-Metal infrastruktur värdar. I följande tabell visas processorns RAM-, processor-och disk kapacitet. 
 
 | Värdtyp              |             Processor             |   RAM (GB)   |  Virtuellt San NVMe cache-nivå (TB, RAW)  |  kapacitets nivå för virtuellt San SSD (TB, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4a53dd803b22899b7dd15db0aa1ff411641a11dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3339f883d177366a64187e0c090752527802c8d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88183266"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968782"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Använd Azure Resource Manager SDK-baserade skript för att hantera StorSimple-enheter
 
@@ -49,7 +49,7 @@ Följande exempel skript är tillgängliga för att automatisera olika StorSimpl
 
 Det här avsnittet tar ett exempel skript och innehåller information om de olika stegen som krävs för att köra skriptet.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrol lera att du har:
 
@@ -57,7 +57,7 @@ Innan du börjar ska du kontrol lera att du har:
     * I en Windows-miljö följer du stegen i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps). Du kan installera Azure PowerShell på Windows Server-värden för din StorSimple om du använder en sådan.
     * I en Linux-eller MacOS-miljö följer du stegen i [Installera och konfigurera Azure PowerShell på MacOS eller Linux](/powershell/azure/install-az-ps).
 
-Om du vill ha mer information om hur du använder Azure PowerShell går du till [komma igång med att använda Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Om du vill ha mer information om hur du använder Azure PowerShell går du till [komma igång med att använda Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ### <a name="run-azure-powershell-script"></a>Kör Azure PowerShell skript
 

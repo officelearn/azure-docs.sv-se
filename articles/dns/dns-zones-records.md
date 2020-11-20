@@ -9,12 +9,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
-ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41eb15a38c97532951723f12d1ac74c90c838eb1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85846835"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968204"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Översikt över DNS-zoner och -poster
 
@@ -93,7 +93,7 @@ Zon serie numret i SOA-posten uppdateras inte automatiskt när ändringar görs 
 [SRV-poster](https://en.wikipedia.org/wiki/SRV_record) används av olika tjänster för att ange server platser. När du anger en SRV-post i Azure DNS:
 
 * *Tjänsten* och *protokollet* måste anges som en del av namnet på post uppsättningen, prefixet med under streck.  Till exempel " \_ SIP". \_ tcp.name '.  För en post i zonens Apex behöver du inte ange \@ i post namnet. Använd bara tjänsten och protokollet, till exempel " \_ SIP". \_ TCP.
-* *Prioritet*, *vikt*, *port*och *mål* anges som parametrar för varje post i post uppsättningen.
+* *Prioritet*, *vikt*, *port* och *mål* anges som parametrar för varje post i post uppsättningen.
 
 ### <a name="txt-records"></a>TXT-poster
 
@@ -127,7 +127,7 @@ Azure DNS PowerShell använder som standard ETags för att blockera samtidiga ä
 
 På nivån för Azure DNS REST API anges ETags med HTTP-huvuden.  Deras beteende anges i följande tabell:
 
-| Sidhuvud | Beteende |
+| Huvud | Beteende |
 | --- | --- |
 | Inget |PLACERINGen lyckas (inga etag-kontroller) |
 | If-Match \<etag> |PLACERINGen lyckas endast om resursen finns och etag matchar |
@@ -135,7 +135,7 @@ På nivån för Azure DNS REST API anges ETags med HTTP-huvuden.  Deras beteende
 | If-None-Match * |PLACERINGen lyckas endast om resursen inte finns |
 
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 
 Följande standard gränser gäller när du använder Azure DNS:
 
@@ -143,5 +143,5 @@ Följande standard gränser gäller när du använder Azure DNS:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill börja använda Azure DNS kan du läsa om hur du [skapar en DNS-zon](dns-getstarted-create-dnszone-portal.md) och hur du [skapar DNS-poster](dns-getstarted-create-recordset-portal.md).
+* Om du vill börja använda Azure DNS kan du läsa om hur du [skapar en DNS-zon](./dns-getstarted-portal.md) och hur du [skapar DNS-poster](./dns-getstarted-portal.md).
 * Om du vill migrera en befintlig DNS-zon, lär du dig att [Importera och exportera en DNS-zonfil](dns-import-export.md).

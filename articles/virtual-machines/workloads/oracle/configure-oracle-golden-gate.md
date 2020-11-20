@@ -3,16 +3,17 @@ title: Implementera den gyllene Oracle-porten på en virtuell Azure Linux-dator 
 description: Få snabbt en Oracle-gyllene grind igång i Azure-miljön.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: c480de6da0427b8eda212e02e08c7b3f5426941c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3fff58c240341776a3bb99c059c179cc4f9d96e9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534149"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966878"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementera den gyllene Oracle-porten på en virtuell Azure Linux-dator 
 
@@ -24,7 +25,7 @@ Kontrollera att Azure CLI har installerats innan du börjar. Mer information fin
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön
 
-Du måste skapa två virtuella Azure-datorer på samma tillgänglighets uppsättning för att kunna utföra installationen av den gyllene Oracle-porten. Marketplace-avbildningen som du använder för att skapa de virtuella datorerna är **Oracle: Oracle-Database-EE: 12.1.0.2: senaste** .
+Du måste skapa två virtuella Azure-datorer på samma tillgänglighets uppsättning för att kunna utföra installationen av den gyllene Oracle-porten. Marketplace-avbildningen som du använder för att skapa de virtuella datorerna är **Oracle: Oracle-Database-EE: 12.1.0.2: senaste**.
 
 Du måste också vara bekant med UNIX Editor vi och ha en grundläggande förståelse för begäran om x11 (X Windows).
 
@@ -347,7 +348,7 @@ SQL> EXIT;
 ### <a name="download-golden-gate-software"></a>Hämta program vara från gyllene grind
 Slutför följande steg för att ladda ned och förbereda Oracle-programmet för den gyllene porten:
 
-1. Ladda ned **fbo_ggs_Linux_x64_shiphome.zip** -filen från [nedladdnings sidan för Oracle gyllene grind](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Under nedladdnings rubriken **Oracle GoldenGate 12. x. x för Oracle Linux x86-64** , bör det finnas en uppsättning. zip-filer att ladda ned.
+1. Ladda ned **fbo_ggs_Linux_x64_shiphome.zip** -filen från [nedladdnings sidan för Oracle gyllene grind](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Under nedladdnings rubriken **Oracle GoldenGate 12. x. x för Oracle Linux x86-64**, bör det finnas en uppsättning. zip-filer att ladda ned.
 
 2. När du har hämtat zip-filerna till klient datorn använder du Secure Copy Protocol (SCP) för att kopiera filerna till den virtuella datorn:
 
@@ -389,9 +390,9 @@ Detta är ett valfritt steg. Du kan hoppa över det här steget om du använder 
 3. I SparaTillFil-nyckel Generator:
 
    - Om du vill generera en nyckel väljer du knappen **generera** .
-   - Kopiera innehållet i nyckeln ( **CTRL + C** ).
+   - Kopiera innehållet i nyckeln (**CTRL + C**).
    - Välj knappen **Spara privat nyckel** .
-   - Ignorera varningen som visas och välj sedan **OK** .
+   - Ignorera varningen som visas och välj sedan **OK**.
 
    ![Skärm bild av sidan med sidan för SparaTillFil-nyckel Generator](./media/oracle-golden-gate/puttykeygen.png)
 
@@ -403,21 +404,21 @@ Detta är ett valfritt steg. Du kan hoppa över det här steget om du använder 
    $ cd .ssh
    ```
 
-5. Skapa en fil med namnet **authorized_keys** . Klistra in innehållet i nyckeln i den här filen och spara sedan filen.
+5. Skapa en fil med namnet **authorized_keys**. Klistra in innehållet i nyckeln i den här filen och spara sedan filen.
 
    > [!NOTE]
    > Nyckeln måste innehålla strängen `ssh-rsa` . Dessutom måste innehållet i nyckeln vara en enskild textrad.
    >  
 
-6. Starta PuTTY. I rutan **kategori** väljer du **anslutnings** -  >  **SSH** -  >  **autentisering** . I rutan **privat nyckel fil för autentisering** , bläddra till den nyckel som du skapade tidigare.
+6. Starta PuTTY. I rutan **kategori** väljer du **anslutnings**-  >  **SSH**-  >  **autentisering**. I rutan **privat nyckel fil för autentisering** , bläddra till den nyckel som du skapade tidigare.
 
    ![Skärm bild av sidan Ange privat nyckel](./media/oracle-golden-gate/setprivatekey.png)
 
-7. I rutan **kategori** väljer du **anslutnings** -  >  **SSH** -  >  **begäran om x11** . Välj sedan rutan **aktivera vidarebefordran av begäran om x11** .
+7. I rutan **kategori** väljer du **anslutnings**-  >  **SSH**-  >  **begäran om x11**. Välj sedan rutan **aktivera vidarebefordran av begäran om x11** .
 
    ![Skärm bild av sidan Aktivera begäran om X11](./media/oracle-golden-gate/enablex11.png)
 
-8. I fönstret **kategori** går du till **session** . Ange värd information och välj sedan **Öppna** .
+8. I fönstret **kategori** går du till **session**. Ange värd information och välj sedan **Öppna**.
 
    ![Skärm bild av sidan session](./media/oracle-golden-gate/puttysession.png)
 
@@ -436,7 +437,7 @@ Slutför följande steg för att installera den gyllene Oracle-porten:
 
    ![Skärm bild av installations sidan Välj installations sida](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Ändra program varu platsen. Välj sedan rutan **starta hanteraren** och ange databas platsen. Fortsätt genom att välja **Nästa** .
+3. Ändra program varu platsen. Välj sedan rutan **starta hanteraren** och ange databas platsen. Fortsätt genom att välja **Nästa**.
 
    ![Skärm bild av sidan Välj installation](./media/oracle-golden-gate/golden_gate_install_02.png)
 

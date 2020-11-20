@@ -2,18 +2,18 @@
 title: Vanliga frågor och svar
 description: Innehåller svar på några vanliga frågor om Azure VMware-lösningen.
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/19/2020
 ms.author: dikamath
-ms.openlocfilehash: c9a8b5f9e02cc76789755bf81d309826de1459c5
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 0bc3e0ab5b3017c2d051113a57d79214ffce0836
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920601"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967354"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
-Svar på vanliga frågor om Azure VMware-lösningen.
+I den här artikeln får du svar på vanliga frågor om Azure VMware-lösningen.
 
 ## <a name="general"></a>Allmänt
 
@@ -33,7 +33,7 @@ Alla Azure-tjänster kommer att vara tillgängliga för kunder med Azure VMware-
 
 #### <a name="do-i-use-the-same-tools-that-i-use-now-to-manage-private-cloud-resources"></a>Använder jag samma verktyg som jag använder nu för att hantera privata moln resurser?
 
-Ja. Azure Portal används för distribution och ett antal hanterings åtgärder. vCenter och NSX Manager används för att hantera vSphere-och NSX-T-resurser.
+Ja. Azure Portal används för distribution och flera hanterings åtgärder. vCenter och NSX Manager används för att hantera vSphere-och NSX-T-resurser.
 
 #### <a name="can-i-manage-a-private-cloud-with-my-on-premises-vcenter"></a>Kan jag hantera ett privat moln med min lokala vCenter?
 
@@ -65,7 +65,7 @@ Med den nya Azure VMware-lösningen har Microsoft och VMware en direkt moln leve
 Ja, förutsatt att det system som är installerat på kan komma åt det privata molnet vCenter och använder offentlig DNS för att matcha ESXi-värdnamn.
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Finns det särskilda instruktioner för att installera och använda VMRC med virtuella Azure VMware-lösningar?
-Nej, Använd de [instruktioner som tillhandahålls av VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) och uppfylla de VM-krav som anges i dessa instruktioner. 
+Nej. Använd de [instruktioner som tillhandahålls av VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) för att uppfylla de VM-krav som anges i dessa instruktioner. 
 
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>Stöds VMware HCX i VPN-nätverk?
 Nej, på grund av krav på bandbredd och latens.
@@ -105,7 +105,7 @@ Varje ESXi-värd i Azure VMware-lösningen konfigureras med 4 25 Gbit/s nätverk
 
 Ja, alla virtuellt San-data krypteras som standard med hjälp av nycklar som lagras i Azure Key Vault.
 
-#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendor-isv-backup-solutions"></a>Du dokumenterar att CommVault, Veritas och Veeam har utökat sina säkerhets kopierings lösningar för att fungera med Azure VMware-lösningen. Vad gäller andra oberoende program varu leverantörer (ISV) säkerhets kopierings lösningar?
+#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendors-isvs-backup-solutions"></a>Du dokumenterar att CommVault, Veritas och Veeam har utökat sina säkerhets kopierings lösningar för att fungera med Azure VMware-lösningen. Vad gäller andra oberoende program varu leverantörer (ISV) säkerhets kopierings lösningar?
 
 Så långt vi vet så bör alla säkerhets kopierings lösningar som använder VMware-VADP med HotAdd transport läge fungera direkt från rutan på Azure VMware-lösningen.
 
@@ -147,7 +147,7 @@ Nej. Avancerade ESXi-värdar är reserverade för användning i produktions klus
 
 #### <a name="what-versions-of-vmware-software-is-used-in-private-clouds"></a>Vilka versioner av VMware-programvaran används i privata moln?
 
-Privata moln använder vSphere 6,7, virtuellt San 6,7, VMware HCX och version 2,5 av NSX-T.  
+Privata moln använder vSphere 6,7 U3, virtuellt San 6,7 U3, VMware HCX och NSX-T 2,5.  Mer information finns i [versions kraven för VMware-programvaran](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
 
 #### <a name="do-private-clouds-use-vmware-nsx"></a>Använder privata moln VMware-NSX?
 
@@ -163,7 +163,7 @@ Nej, du behöver inte använda NSX lokalt.
 
 #### <a name="what-is-the-upgrade-and-update-schedule-for-vmware-software-in-a-private-cloud"></a>Vad är uppgraderings-och uppdaterings schema för VMware-programvara i ett privat moln?
 
-Uppgraderingarna av det privata molnet för program varu paketet görs för att hålla program varan i en version av den senaste versionen av program varu paket från VMware. Program varu versionerna för det privata molnet kan skilja sig från de senaste versionerna av de enskilda program varu komponenterna (ESXi, NSX-T, vCenter, virtuellt SAN).
+Den privata moln program varu paketets uppgraderingar behåller program varan i en version av den senaste versionen av program varu paket från VMware. Program varu versionerna för det privata molnet kan skilja sig från de senaste versionerna av de enskilda program varu komponenterna (ESXi, NSX-T, vCenter, virtuellt SAN).
 
 #### <a name="how-often-will-the-private-cloud-software-stack-be-updated"></a>Hur ofta uppdateras program stacken för privata moln?
 
@@ -184,7 +184,7 @@ Du kan ansluta till tjänsten på något av två sätt:
 
 #### <a name="how-do-i-connect-a-workload-vm-to-the-internet-or-an-azure-service-endpoint"></a>Hur gör jag för att ansluter du en virtuell dator för arbets belastning till Internet eller en Azure-tjänst slut punkt?
 
-I Azure Portal aktiverar du Internet anslutning för ett privat moln. Med NSX-T Manager skapar du en NSX-T T1-router och en logisk växel. Sedan använder du vCenter för att distribuera en virtuell dator i det nätverks segment som definieras av den logiska växeln. Den virtuella datorn kommer att ha nätverks åtkomst till Internet och till Azure-tjänster.
+I Azure Portal aktiverar du Internet anslutning för ett privat moln. Med NSX-T Manager skapar du en NSX-T T1-router och en logisk växel. Sedan använder du vCenter för att distribuera en virtuell dator i det nätverks segment som definieras av den logiska växeln. Den virtuella datorn kommer att ha nätverks åtkomst till Internet-och Azure-tjänsterna.
 
 #### <a name="do-i-need-to-restrict-access-from-the-internet-to-vms-on-logical-networks-in-a-private-cloud"></a>Behöver jag begränsa åtkomst från Internet till virtuella datorer i logiska nätverk i ett privat moln?
 
@@ -237,7 +237,7 @@ Ja, kunderna kan distribuera Azure VMware-lösningen i en Azure-prenumeration so
 
 Microsoft ger support för Azure VMware-lösningen. Du kan skicka in en [support förfrågan](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
-För CSP-hanterade prenumerationer tillhandahålls den första support nivån av lösnings leverantören på samma sätt som CSP gör för andra Azure-tjänster.
+För CSP-hanterade prenumerationer ger den första support nivån lösnings leverantören på samma sätt som CSP gör för andra Azure-tjänster.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Vilka konton behöver jag för att skapa ett privat moln I Azure VMware-lösningen?
 
@@ -245,11 +245,11 @@ Du behöver ett Azure-konto i en Azure-prenumeration.
 
 #### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Stöds Red Hat-lösningar i Azure VMware-lösningen?
 
-Microsoft och Red Hat delar ett integrerat, Samplacerat support team som tillhandahåller en enhetlig kontakt punkt för Red Hat eko system som körs på Azure-plattformen.  Precis som andra Azure Platform-tjänster som fungerar med Red Hat Enterprise Linux är Azure VMware-lösningen under moln åtkomst och integrerat support paraply, och Red Hat Enterprise Linux stöds för att köras ovanpå Azure VMware-lösningen i Azure.
+Microsoft och Red Hat delar ett integrerat, Samplacerat support team som tillhandahåller en enhetlig kontakt punkt för Red Hat eko system som körs på Azure-plattformen.  Precis som andra Azure Platform-tjänster som fungerar med Red Hat Enterprise Linux, omfattas Azure VMware-lösningen under moln åtkomst och integrerat support paraply. Red Hat Enterprise Linux stöds för att köras ovanpå Azure VMware-lösningen i Azure.
 
 #### <a name="is-vmware-hcx-enterprise-available-and-if-so-how-much-does-it-cost"></a>Är VMware HCX Enterprise tillgängligt, och i så fall, hur mycket kostar det?
 
-VMware HCX Enterprise är tillgängligt med Azure VMware-lösningen som en *förhands gransknings* funktion/tjänst. Även om VMware HCX Enterprise för Azure VMware-lösningen är i för hands version, är det en kostnads fri funktion/tjänst och omfattas av förhands gransknings tjänstens allmänna villkor. När VMware HCX Enterprise-tjänsten är GA får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan stänga av eller avanmäla tjänsten.
+VMware HCX Enterprise är tillgängligt med Azure VMware-lösningen som en *förhands gransknings* funktion/tjänst. Även om VMware HCX Enterprise för Azure VMware-lösningen är i för hands version, är det en kostnads fri funktion/tjänst och omfattas av förhands gransknings tjänstens allmänna villkor. När VMware HCX Enterprise-tjänsten är GA får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan stänga av eller inaktivera tjänsten.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Hur gör jag för att begära en värd kvot ökning för Azure VMware-lösningen?
 
@@ -260,7 +260,7 @@ Använd följande procedur för EA-prenumerationer. Först behöver du:
 * Ett [Azure-Enterprise-avtal (EA)](../cost-management-billing/manage/ea-portal-agreements.md) med Microsoft.
 * Ett Azure-konto i en Azure-prenumeration.
 
-Innan du skapar din Azure VMware-lösning kan du skicka ett support ärende så att noderna tilldelas. Det tar upp till fem arbets dagar att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process.
+Innan du kan skapa en Azure VMware-lösning kan du skicka ett support ärende så att dina värdar tilldelas dina värdar. Det tar upp till fem arbets dagar att bekräfta och slutföra din begäran. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler värdar ska tilldelas, går du igenom samma process.
 
 1. I Azure Portal, under **Hjälp + Support**, skapa en **[ny supportbegäran](https://rc.portal.azure.com/#create/Microsoft.Support)** och ange följande information för biljetten:
    - **Typ av problem:** Produkt
@@ -275,46 +275,47 @@ Innan du skapar din Azure VMware-lösning kan du skicka ett support ärende så 
 
    - POC eller produktion 
    - Regionsnamn
-   - Antal noder
+   - Antal värdar
    - Annan information
 
    >[!NOTE]
-   >Azure VMware-lösningen rekommenderar minst tre noder för att skapa ett privat moln och för redundans av N + 1-noder. 
+   >Azure VMware-lösningen rekommenderar minst tre värdar för att kunna sätta upp ditt privata moln och för redundanta N + 1-värdar. 
 
 1. Välj **Granska + skapa** för att skicka begäran.
 
    Det tar upp till fem arbets dagar för en support representant att bekräfta din begäran.
 
    >[!IMPORTANT] 
-   >Om du redan har en befintlig Azure VMware-lösning, och du begär ytterligare noder, bör vi tänka på att vi behöver fem arbets dagar för att allokera noderna. 
+   >Om du redan har en befintlig Azure VMware-lösning och begär ytterligare värdar, bör du tänka på att vi behöver fem arbets dagar för att allokera värdarna. 
 
-1. Innan du kan etablera dina noder bör du kontrol lera att du registrerar resurs leverantören för **Microsoft. AVS** i Azure Portal.  
+1. Innan du kan etablera dina värdar bör du kontrol lera att du registrerar resurs leverantören för **Microsoft. AVS** i Azure Portal.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
+   ```
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+   Ytterligare sätt att registrera resurs leverantören finns i [Azure Resource providers och-typer](../azure-resource-manager/management/resource-providers-and-types.md). 
 
-#### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+#### <a name="are-reserved-instances-available-for-purchasing-through-the-cloud-solution-provider-csp-program"></a>Är reserverade instanser tillgängliga för inköp via Cloud Solution Provider (CSP)-programmet?
 
-Yes. CSP can purchase reserved instances for their customers. For more information, see the [Save costs with a reserved instance](reserved-instance.md) article. 
+Ja. CSP kan köpa reserverade instanser för sina kunder. Mer information finns i artikeln [Spara kostnader med reserverad instans](reserved-instance.md) . 
 
-#### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+#### <a name="does-azure-vmware-solution-offer-multi-tenancy-for-hosting-csp-partners"></a>Erbjuder Azure VMware-lösningen flera innehavare för att vara värd för CSP-partner?
 
-No. Currently Azure VMware Solution doesn't offer multi-tenancy.
+Nej. Azure VMware-lösningen erbjuder för närvarande inte flera innehavare.
 
-#### Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
+#### <a name="will-traffic-between-on-premises-and-azure-vmware-solution-over-expressroute-incur-any-outbound-data-transfer-charge-in-the-metered-data-plan"></a>Kommer trafiken mellan lokala och Azure VMware-lösningar över ExpressRoute innebära eventuell utgående avgift för överföring av data i det avgiftsbelagda data abonnemanget?
 
-Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
+Trafik i Azure VMware-lösningen ExpressRoute-kretsen mäts inte på något sätt. Trafik från din ExpressRoute-krets som ansluter till din lokala Azure debiteras enligt pris planerna för ExpressRoute.
 
 
-## Customer communication
+## <a name="customer-communication"></a>Kund kommunikation
 
-#### How can I receive an alert when Azure sends service health notifications to my Azure subscription?
+#### <a name="how-can-i-receive-an-alert-when-azure-sends-service-health-notifications-to-my-azure-subscription"></a>Hur får jag en avisering när Azure skickar meddelanden om tjänstens hälso tillstånd till min Azure-prenumeration?
 
-Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal.  You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+Tjänst problem, planerat underhåll, hälso-och sjukvårds meddelanden, säkerhets rådgivare publiceras via **service Health** i Azure Portal.  Du kan vidta åtgärder när du ställer in aktivitets logg aviseringar för dessa aviseringar. Mer information finns i [Skapa service Health-aviseringar med hjälp av Azure Portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
 
-:::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
+:::image type="content" source="media/service-health.png" alt-text="Skärm bild av Service Health meddelanden":::
 
 
 

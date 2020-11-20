@@ -7,18 +7,19 @@ author: prtyag
 manager: hrushib
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8f573f5f00d266fe5d27857cc9e244d136f61a5
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: b6afcfe7684102b451860d9916d849842489cace
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379272"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967711"
 ---
 # <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump för SAP HANA på stora Azure-instanser (HLI)
 
@@ -28,7 +29,7 @@ I dessa fall kan det vara problem med operativ systemet eller programmet och kdu
 
 ## <a name="enable-kdump-service"></a>Aktivera kdump-tjänsten
 
-Det här dokumentet beskriver information om hur du aktiverar kdump-tjänsten på den stora Azure HANA-instansen ( **typ I och typ II** )
+Det här dokumentet beskriver information om hur du aktiverar kdump-tjänsten på den stora Azure HANA-instansen (**typ I och typ II**)
 
 ## <a name="supported-skus"></a>SKU: er som stöds
 
@@ -61,7 +62,7 @@ Det här dokumentet beskriver information om hur du aktiverar kdump-tjänsten p�
 |   Typ II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
 |   Typ II                   |  SuSE        |   SLES 12 SP4         |  S576m      |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Kdump-tjänsten använder `/var/crash` katalogen för att skriva dum par, se till att partitionen motsvarar den här katalogen har tillräckligt med utrymme för att ta emot dumpar.
 

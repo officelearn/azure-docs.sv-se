@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: a35b4e398757cb3d4b17e4fd6a5e342fe3c82918
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66a1e22282864d0425173504735d6beb42b76ad7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710387"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967269"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple som ett säkerhets kopierings mål med Backup Exec
 
@@ -79,7 +79,7 @@ StorSimple erbjuder följande förmåner:
 
 Även om StorSimple presenterar två huvudsakliga distributions scenarier (primärt säkerhets kopierings mål och sekundärt säkerhets kopierings mål) är det grundläggande en enkel, block lagrings enhet. StorSimple utför all komprimering och deduplicering. Den skickar och hämtar sömlöst data mellan molnet och programmet och fil systemet.
 
-Mer information om StorSimple finns i [StorSimple 8000-serien: hybrid moln lagrings lösning](storsimple-overview.md). Du kan också granska de [tekniska specifikationerna för StorSimple 8000-serien](storsimple-technical-specifications-and-compliance.md).
+Mer information om StorSimple finns i [StorSimple 8000-serien: hybrid moln lagrings lösning](storsimple-overview.md). Du kan också granska de [tekniska specifikationerna för StorSimple 8000-serien](./storsimple-8000-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Det går bara att använda en StorSimple-enhet som ett säkerhets kopierings mål för StorSimple 8000 Update 3 och senare versioner.
@@ -170,7 +170,7 @@ För att lösningen ska fungera optimalt rekommenderar vi att du följer de här
 
 ### <a name="deploy-storsimple"></a>Distribuera StorSimple
 
-En steg-för-steg-StorSimple distributions vägledning finns i [distribuera din lokala StorSimple-enhet](storsimple-deployment-walkthrough-u2.md).
+En steg-för-steg-StorSimple distributions vägledning finns i [distribuera din lokala StorSimple-enhet](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ### <a name="deploy-backup-exec"></a>Distribuera Backup Exec
 
@@ -185,7 +185,7 @@ I det här avsnittet demonstreras några konfigurations exempel. Följande exemp
 | StorSimple distributions uppgifter  | Ytterligare kommentarer |
 |---|---|
 | Distribuera din lokala StorSimple-enhet. | Versioner som stöds: Update 3 och senare versioner. |
-| Aktivera säkerhets kopierings målet. | Använd de här kommandona för att aktivera eller inaktivera säkerhets kopieringens mål läge och hämta status. Mer information finns i fjärrans [luta till en StorSimple-enhet](storsimple-remote-connect.md).</br> Aktivera säkerhets kopierings läge: `Set-HCSBackupApplianceMode -enable` . </br> Så här stänger du av säkerhets kopierings läge: `Set-HCSBackupApplianceMode -disable` . </br> Så här hämtar du det aktuella läget för inställningarna för säkerhets kopierings läge: `Get-HCSBackupApplianceMode` . |
+| Aktivera säkerhets kopierings målet. | Använd de här kommandona för att aktivera eller inaktivera säkerhets kopieringens mål läge och hämta status. Mer information finns i fjärrans [luta till en StorSimple-enhet](./storsimple-8000-remote-connect.md).</br> Aktivera säkerhets kopierings läge: `Set-HCSBackupApplianceMode -enable` . </br> Så här stänger du av säkerhets kopierings läge: `Set-HCSBackupApplianceMode -disable` . </br> Så här hämtar du det aktuella läget för inställningarna för säkerhets kopierings läge: `Get-HCSBackupApplianceMode` . |
 | Skapa en gemensam volym behållare för din volym som lagrar säkerhetskopierade data. Alla data i en volym behållare har deduplicerats. | StorSimple volym behållare definierar Deduplicerings domäner.  |
 | Skapa StorSimple-volymer. | Skapa volymer med storlekar så nära den förväntade användningen som möjligt, eftersom volym storleken påverkar varaktigheten för moln ögonblicks bilder. Information om hur du ändrar storlek på en volym finns i om [bevarande principer](#retention-policies).</br> </br> Använd StorSimple-skiktade volymer och markera kryss rutan **Använd den här volymen för lagrings data** som inte används mindre ofta. </br> Det finns inte stöd för att använda lokalt fästa volymer. |
 | Skapa en unik säkerhets kopierings princip för StorSimple för alla säkerhets kopierings mål volymer. | En princip för StorSimple-säkerhetskopiering definierar volym konsekvens gruppen. |
@@ -211,16 +211,16 @@ Konfigurera din lösning enligt rikt linjerna i följande avsnitt.
 - Inaktivera Windows Server-defragmentering på StorSimple-volymerna.
 - Inaktivera indexering av Windows Server på StorSimple-volymer.
 - Kör en virus genomsökning på käll värden (inte mot StorSimple-volymerna).
-- Inaktivera standard underhåll av [Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) i aktivitets hanteraren. Gör detta på något av följande sätt:
+- Inaktivera standard underhåll av [Windows Server](/windows/win32/w8cookbook/automatic-maintenance) i aktivitets hanteraren. Gör detta på något av följande sätt:
   - Inaktivera underhålls Configurator i Schemaläggaren i Windows.
-  - Hämta [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) från Windows Sysinternals. När du har hämtat PsExec kör du Azure PowerShell som administratör och skriver:
+  - Hämta [PsExec](/sysinternals/downloads/psexec) från Windows Sysinternals. När du har hämtat PsExec kör du Azure PowerShell som administratör och skriver:
     ```powershell
     psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
     ```
 
 ### <a name="storsimple-best-practices"></a>Metod tips för StorSimple
 
-  -   Se till att StorSimple-enheten har uppdaterats till [uppdatering 3 eller senare](storsimple-install-update-3.md).
+  -   Se till att StorSimple-enheten har uppdaterats till [uppdatering 3 eller senare](./index.yml).
   -   Isolera iSCSI-och moln trafik. Använd dedikerade iSCSI-anslutningar för trafik mellan StorSimple och säkerhets kopierings servern.
   -   Se till att din StorSimple-enhet är ett dedikerat säkerhets kopierings mål. Blandade arbets belastningar stöds inte eftersom de påverkar din RTO och återställnings punkt.
 
@@ -233,7 +233,7 @@ Konfigurera din lösning enligt rikt linjerna i följande avsnitt.
 -   StorSimple stöder fullständig och stegvis säkerhets kopiering. Vi rekommenderar att du inte använder syntetiska och differentiella säkerhets kopieringar.
 -   Säkerhetskopierade datafiler ska endast innehålla data för ett speciellt jobb. Till exempel tillåts inga medie tillägg över olika jobb.
 -   Inaktivera jobb verifiering. Vid behov bör verifieringen schemaläggas efter det senaste säkerhets kopierings jobbet. Det är viktigt att förstå att det här jobbet påverkar säkerhets kopierings fönstret.
--   Välj **lagring**  >  Egenskaper för**disk**  >  **information**  >  **Properties**. Inaktivera **förallokerat disk utrymme**.
+-   Välj **lagring**  >  Egenskaper för **disk**  >  **information**  >  **Properties**. Inaktivera **förallokerat disk utrymme**.
 
 De senaste inställningarna för säkerhets kopierings-exec och bästa praxis för att implementera dessa krav finns [på Veritas webbplats](https://www.veritas.com).
 
@@ -267,15 +267,15 @@ Baserat på föregående antaganden skapar du en 26-TiB StorSimple-nivå volym f
 
 ### <a name="to-set-up-backup-exec-storage"></a>Konfigurera Backup Exec Storage
 
-1.  I hanterings konsolen för Backup Exec väljer du **lagring**  >  **Konfigurera**lagring  >  **diskbaserad lagring**  >  **Nästa**.
+1.  I hanterings konsolen för Backup Exec väljer du **lagring**  >  **Konfigurera** lagring  >  **diskbaserad lagring**  >  **Nästa**.
 
     ![Backup Exec Management-konsolen, konfigurera lagrings Sidan](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 
-2.  Välj **disklagring**och välj sedan **Nästa**.
+2.  Välj **disklagring** och välj sedan **Nästa**.
 
     ![Backup Exec Management-konsolen, Välj lagrings sida](./media/storsimple-configure-backup-target-using-backup-exec/image5.png)
 
-3.  Ange ett representativt namn, till exempel **lördag fullständig**och en beskrivning. Välj **Nästa**.
+3.  Ange ett representativt namn, till exempel **lördag fullständig** och en beskrivning. Välj **Nästa**.
 
     ![Sida för hanterings konsol för Backup Exec, namn och beskrivning](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
 
@@ -283,7 +283,7 @@ Baserat på föregående antaganden skapar du en 26-TiB StorSimple-nivå volym f
 
     ![Backup Exec Management-konsolen, sidan Val av lagrings disk](./media/storsimple-configure-backup-target-using-backup-exec/image9.png)
 
-5.  Öka antalet skriv åtgärder till **16**och välj sedan **Nästa**.
+5.  Öka antalet skriv åtgärder till **16** och välj sedan **Nästa**.
 
     ![Sidan säkerhets kopierings hanterings konsol, inställningar för samtidiga Skriv åtgärder](./media/storsimple-configure-backup-target-using-backup-exec/image10.png)
 
@@ -323,11 +323,11 @@ Följande sekvens förutsätter att Backup Exec och mål värden konfigureras i 
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Tilldela StorSimple-volymer till ett säkerhets kopierings jobb med säkerhets kopierings körning
 
-1.  I Backup Exec Management-konsolen väljer du **värd**  >  **säkerhets**kopiering  >  **till disk**.
+1.  I Backup Exec Management-konsolen väljer du **värd**  >  **säkerhets** kopiering  >  **till disk**.
 
     ![Backup Exec Management-konsolen väljer du värd, säkerhets kopiering och säkerhets kopiering till disk](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 
-2.  Välj **Redigera**under **säkerhets**kopiering i dialog rutan **Egenskaper för definition av säkerhets kopiering** .
+2.  Välj **Redigera** under **säkerhets** kopiering i dialog rutan **Egenskaper för definition av säkerhets kopiering** .
 
     ![Backup Exec Management Console, dialog rutan Egenskaper för säkerhets kopierings definition](./media/storsimple-configure-backup-target-using-backup-exec/image15.png)
 
@@ -342,7 +342,7 @@ Följande sekvens förutsätter att Backup Exec och mål värden konfigureras i 
     > [!NOTE]
     > **Komprimering** och **krypterings typ** har angetts till **none**.
 
-6.  Under **Verifiera**markerar du kryss rutan **kontrol lera inte data för det här jobbet** . Att använda det här alternativet kan påverka StorSimple-nivåer.
+6.  Under **Verifiera** markerar du kryss rutan **kontrol lera inte data för det här jobbet** . Att använda det här alternativet kan påverka StorSimple-nivåer.
 
     > [!NOTE]
     > Defragmentering, indexering och bakgrunds verifiering påverkar StorSimple-skiktet negativt.
@@ -411,7 +411,7 @@ I följande tabell visas hur du konfigurerar säkerhets kopieringar som ska kör
 
     ![Skärm bild som visar listan där du behöver välja lagrings utrymme.](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
-5.  Välj **Verifiera**och markera kryss rutan **kontrol lera inte data för det här jobbet** .
+5.  Välj **Verifiera** och markera kryss rutan **kontrol lera inte data för det här jobbet** .
 
     ![Skärm bild som visar var du väljer alternativet kontrol lera inte data för det här jobbet.](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
@@ -419,7 +419,7 @@ I följande tabell visas hur du konfigurerar säkerhets kopieringar som ska kör
 
     ![Skärm bild som visar egenskaper för säkerhets kopierings definition.](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
-7.  I kolumnen **säkerhets kopia** lägger du till en ny fas. Använd **stegvis**för källan. För målet väljer du den StorSimple-volym där det stegvisa säkerhets kopierings jobbet ska arkiveras. Upprepa steg 1-6.
+7.  I kolumnen **säkerhets kopia** lägger du till en ny fas. Använd **stegvis** för källan. För målet väljer du den StorSimple-volym där det stegvisa säkerhets kopierings jobbet ska arkiveras. Upprepa steg 1-6.
 
 ## <a name="storsimple-cloud-snapshots"></a>StorSimple moln ögonblicks bilder
 
@@ -472,9 +472,9 @@ I följande avsnitt beskrivs hur du skapar ett kort skript för att starta och t
 
 En katastrof kan orsakas av olika faktorer. I följande tabell visas vanliga scenarier för haveri beredskap.
 
-| Scenario | Påverkan | Återställa | Obs! |
+| Scenario | Påverkan | Återställa | Kommentarer |
 |---|---|---|---|
-| StorSimple enhets problem | Säkerhets kopierings-och återställnings åtgärder avbryts. | Ersätt den felande enheten och utför [StorSimple redundans och haveri beredskap](storsimple-device-failover-disaster-recovery.md). | Om du behöver utföra en återställning efter återställning av enheten hämtas fullständiga data arbets uppsättningar från molnet till den nya enheten. Alla åtgärder är i moln hastighet. Processen för omskanning av index och katalog kan orsaka att alla säkerhets kopierings uppsättningar genomsöks och hämtas från moln nivån till den lokala enhets nivån, vilket kan vara en tids krävande process. |
+| StorSimple enhets problem | Säkerhets kopierings-och återställnings åtgärder avbryts. | Ersätt den felande enheten och utför [StorSimple redundans och haveri beredskap](./storsimple-8000-device-failover-disaster-recovery.md). | Om du behöver utföra en återställning efter återställning av enheten hämtas fullständiga data arbets uppsättningar från molnet till den nya enheten. Alla åtgärder är i moln hastighet. Processen för omskanning av index och katalog kan orsaka att alla säkerhets kopierings uppsättningar genomsöks och hämtas från moln nivån till den lokala enhets nivån, vilket kan vara en tids krävande process. |
 | Säkerhets kopiering exec server-krasch | Säkerhets kopierings-och återställnings åtgärder avbryts. | Återskapa säkerhets kopierings servern och utför databas återställningen enligt beskrivningen i [så här gör du en manuell säkerhets kopiering och återställning av Backup Exec-databasen (BEDB)](http://www.veritas.com/docs/000041083). | Du måste återskapa eller återställa Backup Exec-servern på återställnings platsen för haveri beredskap. Återställ databasen till den senaste punkten. Om den återställda Backup Exec-databasen inte är synkroniserad med dina senaste säkerhets kopierings jobb krävs indexering och katalogering. Den här processen för att indexera och genomsöka kataloger kan orsaka att alla säkerhets kopierings uppsättningar genomsöks och hämtas från moln nivån till den lokala enhets nivån. Detta gör det ytterligare tids krävande. |
 | Plats haveri som leder till förlust av både säkerhets kopierings servern och StorSimple | Säkerhets kopierings-och återställnings åtgärder avbryts. | Återställ StorSimple först och återställ sedan Backup Exec. | Återställ StorSimple först och återställ sedan Backup Exec. Om du behöver utföra en återställning efter enhets återställningen hämtas fullständiga data arbets uppsättningar från molnet till den nya enheten. Alla åtgärder är i moln hastighet. |
 
@@ -482,12 +482,12 @@ En katastrof kan orsakas av olika faktorer. I följande tabell visas vanliga sce
 
 Följande dokument refereras till i den här artikeln:
 
-- [StorSimple Multipath I/O-installation](storsimple-configure-mpio-windows-server.md)
-- [Lagrings scenarier: tunn allokering](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Använda GPT-enheter](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Konfigurera skugg kopior för delade mappar](https://technet.microsoft.com/library/cc771893.aspx)
+- [StorSimple Multipath I/O-installation](./storsimple-8000-configure-mpio-windows-server.md)
+- [Lagrings scenarier: tunn allokering](/windows-hardware/drivers/storage/thin-provisioning)
+- [Använda GPT-enheter](/previous-versions/windows/hardware/design/dn653580(v=vs.85)#EHD)
+- [Konfigurera skugg kopior för delade mappar](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771893(v=ws.11))
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om hur du [återställer från en säkerhets kopia](storsimple-restore-from-backup-set-u2.md).
-- Läs mer om hur du utför [redundans och haveri beredskap](storsimple-device-failover-disaster-recovery.md).
+- Läs mer om hur du [återställer från en säkerhets kopia](./storsimple-8000-restore-from-backup-set-u2.md).
+- Läs mer om hur du utför [redundans och haveri beredskap](./storsimple-8000-device-failover-disaster-recovery.md).

@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c7e8d4875a8bf3f53ac536ae95ac7499a74d45c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a8a8157721f34abf7761a85febc7bcea3abb88
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082162"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967847"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Anslut ett virtuellt nätverk till HANA-stora instanser
 
@@ -32,7 +33,7 @@ När du har skapat ett virtuellt Azure-nätverk kan du ansluta nätverket till S
 Om det redan finns en gateway kontrollerar du om det är en ExpressRoute-gateway eller inte. Om det inte är en ExpressRoute-Gateway tar du bort gatewayen och skapar den igen som en ExpressRoute-Gateway. Om en ExpressRoute-Gateway redan har upprättats, se följande avsnitt i den här artikeln, "länka virtuella nätverk". 
 
 - Använd antingen [Azure Portal](https://portal.azure.com/) eller PowerShell för att skapa en ExpressRoute VPN-gateway som är ansluten till det virtuella nätverket.
-  - Om du använder Azure Portal lägger du till en ny **Virtual Network Gateway**och väljer sedan **ExpressRoute** som typ av gateway.
+  - Om du använder Azure Portal lägger du till en ny **Virtual Network Gateway** och väljer sedan **ExpressRoute** som typ av gateway.
   - Om du använder PowerShell måste du först hämta och använda den senaste [Azure PowerShell SDK: n](https://azure.microsoft.com/downloads/). 
  
 Följande kommandon skapar en ExpressRoute-Gateway. De texter som föregås av en _$_ är användardefinierade variabler som ska uppdateras med din speciella information.
@@ -149,7 +150,7 @@ Data som behövs och nyckelord som du behöver använda för att Microsoft ska k
 - Subject ' ändra mitt nätverk – Lägg till Global Reach '
 - Information: ' Lägg till Global Reach till HANA-stor instans till HANA-stor instans-klient eller Lägg till Global Reach till en stor instans av en stor instans på plats till HANA.
 - Mer information för den stora data instansen HANA till HANA stor instans-väska: du måste definiera de **två Azure-regioner** där de två klienterna ska ansluta **och** du måste skicka in **/29 IP-adressintervall**
-- Ytterligare information för den lokala instansen av den lokala instansen av klient väska: du måste definiera den **Azure-region** där den virtuella Hana-instansen är distribuerad som du vill ansluta till direkt. Du måste också ange GUID för **autentisering** och **krets-ID** som du fick när du etablerade ExpressRoute-kretsen mellan lokalt och Azure. Du måste dessutom ge ditt **ASN**ett namn. Den sista slut produkten är ett **/29 IP-adressintervall** för ExpressRoute-Global Reach.
+- Ytterligare information för den lokala instansen av den lokala instansen av klient väska: du måste definiera den **Azure-region** där den virtuella Hana-instansen är distribuerad som du vill ansluta till direkt. Du måste också ange GUID för **autentisering** och **krets-ID** som du fick när du etablerade ExpressRoute-kretsen mellan lokalt och Azure. Du måste dessutom ge ditt **ASN** ett namn. Den sista slut produkten är ett **/29 IP-adressintervall** för ExpressRoute-Global Reach.
 
 > [!NOTE]
 > Om båda fallen ska hanteras måste du ange två olika/29 IP-adressintervall som inte överlappar med andra IP-adressintervall som används hittills. 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: e802f798ade5e6bfe0b40b17bbf15df5387ef7c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 26192c742ab2e010c18c02226252dbb480b72cee
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357852"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967167"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Vill du arkivera vad som är nytt i Azure Security Center?
 
@@ -188,7 +188,7 @@ Nu kan du lägga till standarder som till exempel:
 - **Canada Federal PBMM**
 - **Azure CIS-1.1.0 (ny)** (som är en mer fullständig representation av Azure CIS-1.1.0)
 
-Dessutom har vi nyligen lagt till **Azures säkerhets benchmark** , de Microsoft-baserade Azure-/regionsspecifika rikt linjerna för säkerhet och efterlevnad av praxis som baseras på vanliga ramverk för efterlevnad. Ytterligare standarder kommer att stödjas på instrument panelen när de blir tillgängliga.  
+Dessutom har vi nyligen lagt till **Azures säkerhets benchmark**, de Microsoft-baserade Azure-/regionsspecifika rikt linjerna för säkerhet och efterlevnad av praxis som baseras på vanliga ramverk för efterlevnad. Ytterligare standarder kommer att stödjas på instrument panelen när de blir tillgängliga.  
  
 Läs mer om hur [du anpassar uppsättningen med standarder på instrument panelen för](update-regulatory-compliance-packages.md)regelefterlevnad.
 
@@ -392,7 +392,7 @@ Kubernetes blir snabbt den nya standarden för att distribuera och hantera progr
 De nya funktionerna i den här offentliga för hands versionen omfattar:
 
 - **Identifiering & synlighet** -kontinuerlig identifiering av hanterade AKS-instanser i Security Center registrerade prenumerationer.
-- **Säkra Poäng rekommendationer** – åtgärds bara objekt som hjälper kunder att följa rekommenderade säkerhets metoder i AKS som en del av kundens säkra poäng, till exempel "rollbaserad Access Control ska användas för att begränsa åtkomsten till ett Kubernetes service-kluster".
+- **Säkra Poäng rekommendationer** – åtgärds bara objekt som hjälper kunder att följa rekommenderade säkerhets metoder för AKS och öka sina säkra poäng. Rekommendationer inkluderar objekt som "rollbaserad åtkomst kontroll" ska användas för att begränsa åtkomsten till ett Kubernetes-tjänst kluster ".
 - **Hot identifiering** – värd-och klusterbaserade analyser, till exempel "en privilegie rad behållare identifierad".
 
 

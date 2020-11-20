@@ -3,6 +3,7 @@ title: Installera IBM zD&T dev/test-miljö på Azure | Microsoft Docs
 description: Distribuera IBM Z utvecklings-och test miljö (zD&T) på Azure Virtual Machine (VM) Infrastructure as a Service (IaaS).
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 documentationcenter: ''
 author: njray
 ms.author: edprice
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12a812f66345a26701b2a1623487fd262ede4be
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499927"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968340"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installera IBM zD&T dev/test-miljö på Azure
 
@@ -39,7 +40,7 @@ Mer information finns i [Översikt över zD&T](https://www.ibm.com/support/knowl
 
 Den här artikeln visar hur du konfigurerar Z-utveckling och test miljö (zD&T) Enterprise Edition på Azure. Sedan kan du använda webb servern zD&T Enterprise Edition för att skapa och hantera Z-baserade miljöer på Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!NOTE]
 > IBM tillåter att zD&T Enterprise Edition endast installeras i utvecklings-och test miljöer –*inte* produktions miljöer.
@@ -62,7 +63,7 @@ Den här artikeln visar hur du konfigurerar Z-utveckling och test miljö (zD&T) 
 
 3. Hämta SSH-autentiseringsuppgifterna som visas på bladet **Översikt** på den virtuella datorn via knappen **Anslut** . Välj fliken **SSH** och kopiera SSH-inloggnings kommandot till Urklipp.
 
-4. Logga in på ett [bash-gränssnitt](../../../../cloud-shell/quickstart.md) från den lokala datorn och klistra in kommandot. Den kommer att vara i formatet **SSH \<user id\> \@ \<IP Address\> **. När du uppmanas att ange dina autentiseringsuppgifter anger du dem för att upprätta en anslutning till din Hem Katalog.
+4. Logga in på ett [bash-gränssnitt](../../../../cloud-shell/quickstart.md) från den lokala datorn och klistra in kommandot. Den kommer att vara i formatet **SSH \<user id\> \@ \<IP Address\>**. När du uppmanas att ange dina autentiseringsuppgifter anger du dem för att upprätta en anslutning till din Hem Katalog.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Kopiera installations filen till servern
 
@@ -108,7 +109,7 @@ Installations filen för webb servern är **ZDT \_ install \_ ee \_ v 12.0.0.1. 
 
 4. Tryck på **RETUR** och Läs igenom licens avtalen noggrant. I slutet av licensen anger du **Ja** för att fortsätta.
 
-5. När du uppmanas att ändra lösen ordet för den nyligen skapade **användaren, använder**du kommandot **sudo passwd ibmsys1** och anger det nya lösen ordet.
+5. När du uppmanas att ändra lösen ordet för den nyligen skapade **användaren, använder** du kommandot **sudo passwd ibmsys1** och anger det nya lösen ordet.
 
 6. Så här kontrollerar du om installationen lyckades
 

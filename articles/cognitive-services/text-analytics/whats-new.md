@@ -8,23 +8,40 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: f0204f5b923cf3363d85be9642d2866436df155a
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: references_regions
+ms.openlocfilehash: 8743e765a050bfc4a2ba93a1b3e0344a960edb76
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369468"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966895"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
 API för textanalys uppdateras regelbundet. Den här artikeln innehåller information om nya versioner och funktioner för att hålla dig uppdaterad med den senaste utvecklingen.
 
+## <a name="november-2020"></a>November 2020
+
+* En [ny slut punkt](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) med API för textanalys v 3.1 – för hands version. 3 för den nya asynkrona [analys-API: n](how-tos/text-analytics-how-to-call-api.md?tabs=analyze), som stöder BATCHBEARBETNING för ner, PII och extraherings åtgärder för nyckel fraser.
+* En [ny slut punkt](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) med API för textanalys v 3.1 – för hands version. 3 för nya asynkrona [textanalys för](how-tos/text-analytics-for-health.md) hälsovärdbaserade API: er med stöd för batchbearbetning.
+* De båda nya funktionerna i listan ovan är bara tillgängliga i följande regioner `West US 2` : `East US 2` , `Central US` , `North Europe` och `West Europe` .
+* Portugisiska (Brasilien) `pt-BR` stöds nu i [Attitydanalys](how-tos/text-analytics-how-to-sentiment-analysis.md) v3. x, från och med modell version `2020-04-01` . Den lägger till i det befintliga `pt-PT` stödet för portugisiska.
+* Uppdaterade klient bibliotek, som inkluderar asynkron analys och Textanalys för hälso åtgärder. Du kan hitta exempel på GitHub:
+
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+
+
+> [!div class="nextstepaction"]
+> [Läs mer om API för textanalys v 3.1 – för hands version. 3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
+
 ## <a name="october-2020"></a>Oktober 2020
 
 * Stöd för hindi för Attitydanalys v3. x, från och med modell version `2020-04-01` . 
-* Modell `2020-09-01` -version för v3/languages-slutpunkten som lägger till förbättrade språk identifierings-och precisions förbättringar.
+* Modell version `2020-09-01` för v3/languages-slutpunkten som lägger till förbättrade språk identifierings-och precisions förbättringar.
 * v3-tillgänglighet i Central Indien och Förenade Arabemiraten Nord.
 
 ## <a name="september-2020"></a>September 2020
@@ -147,7 +164,7 @@ Namnen på följande egenskaper i JSON-svaret har ändrats, i tillämpliga fall:
 
 ### <a name="text-analytics-api-v31-public-preview"></a>API för textanalys v 3.1 offentlig för hands version
    * Ny Attitydanalys funktion – [Utanser utvinning](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
-   * Nytt [personligt ( `PII` ) domän filter](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) för skyddad hälso information ( `PHI` ).
+   * Nytt personligt ( `PII` ) domän filter för skyddad hälso information ( `PHI` ).
 
 > [!div class="nextstepaction"]
 > [Läs mer om för hands versionen av API för textanalys v 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
@@ -162,7 +179,7 @@ Som en del av den [enhetliga Azure SDK-versionen](https://techcommunity.microsof
    * [JavaScript (Node.js)](./quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript&tabs=version-3)
    * [Java](./quickstarts/text-analytics-sdk.md?pivots=programming-language-java&tabs=version-3)
    
-   > [!div class="nextstepaction"]
+> [!div class="nextstepaction"]
 > [Läs mer om API för textanalys v3 SDK](./quickstarts/text-analytics-sdk.md?tabs=version-3)
 
 ### <a name="named-entity-recognition-v3-public-preview"></a>Namngiven enhets igenkänning v3 offentlig för hands version
@@ -185,9 +202,6 @@ Ytterligare entitetstyper är nu tillgängliga i den namngivna enhets igenkänni
     * Telefonnummer (endast USA)
     * URL
     * IP-adress
-
-> [!div class="nextstepaction"]
-> [Läs mer om namngiven enhets igenkänning v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
 
 ### <a name="october-2019"></a>Oktober 2019
 
@@ -223,7 +237,7 @@ Det stöder engelska ( `en` ), japanska ( `ja` ), kinesiska (förenklad) `zh-Han
 
 * [Vad är API för textanalys?](overview.md)  
 * [Exempel på användarscenarier](text-analytics-user-scenarios.md)
-* [Sentimentanalys](how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Språkidentifiering](how-tos/text-analytics-how-to-language-detection.md)
+* [Sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Språk identifiering](how-tos/text-analytics-how-to-language-detection.md)
 * [Igenkänning av enhet](how-tos/text-analytics-how-to-entity-linking.md)
-* [Extrahering av nyckelfraser](how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Extrahering av nyckel fraser](how-tos/text-analytics-how-to-keyword-extraction.md)

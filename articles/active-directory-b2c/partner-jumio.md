@@ -11,24 +11,24 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4e5becdd026b0a1c9e848b183ebeee5833654461
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3a8881b9fe44727caf07b3cc0d5ee19f0444e98
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259279"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953669"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Jumio med Azure Active Directory B2C
 
 I den här självstudien ger vi vägledning om hur du integrerar Azure Active Directory B2C (Azure AD B2C) med [Jumio](https://www.jumio.com/). Jumio är en tjänst för ID-verifiering som möjliggör verifiering av automatiserat ID i real tid för att skydda kund information.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du:
 
 - En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 
-- En [Azure AD B2C klient](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) som är länkad till din Azure-prenumeration.
+- En [Azure AD B2C klient](./tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -65,7 +65,7 @@ När du har skapat ett Jumio-konto kan du använda kontot för att konfigurera A
 
 ### <a name="deploy-the-api"></a>Distribuera API: et
 
-Distribuera den tillhandahållna [API-koden](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) till en Azure-tjänst. Du kan publicera koden från Visual Studio genom att följa [dessa anvisningar](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Distribuera den tillhandahållna [API-koden](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) till en Azure-tjänst. Du kan publicera koden från Visual Studio genom att följa [dessa anvisningar](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Du behöver URL: en för den distribuerade tjänsten för att konfigurera Azure AD med nödvändiga inställningar.
@@ -85,13 +85,13 @@ Distribuera den tillhandahållna [API-koden](https://github.com/azure-ad-b2c/par
 
    Certifikatet exporteras sedan till den plats som angetts för ``{your-local-path}`` .
 
-3. Importera certifikatet till Azure App Service genom att följa anvisningarna i [den här artikeln](https://docs.microsoft.com/azure/app-service/configure-ssl-certificate#upload-a-private-certificate).
+3. Importera certifikatet till Azure App Service genom att följa anvisningarna i [den här artikeln](../app-service/configure-ssl-certificate.md#upload-a-private-certificate).
 
 ### <a name="create-a-signingencryption-key"></a>Skapa en signerings-/krypterings nyckel
 
 Skapa en slumpmässig sträng med en längd på högst 64 tecken som bara innehåller bokstäver och siffror.
 
-Exempelvis: ``C9CB44D98642A7062A0D39B94B6CDC1E54276F2E7CFFBF44288CEE73C08A8A65``
+Exempel: ``C9CB44D98642A7062A0D39B94B6CDC1E54276F2E7CFFBF44288CEE73C08A8A65``
 
 Använd följande PowerShell-skript för att skapa strängen:
 
@@ -102,9 +102,9 @@ Använd följande PowerShell-skript för att skapa strängen:
 
 ### <a name="configure-the-api"></a>Konfigurera API
 
-Du kan [Konfigurera program inställningar i Azure App Service](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
+Du kan [Konfigurera program inställningar i Azure App Service](../app-service/configure-common.md#configure-app-settings). Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
 
-| Programinställningar | Källa | Obs! |
+| Programinställningar | Källa | Kommentarer |
 | :-------- | :------------| :-----------|
 |JumioSettings:AuthUsername | Konfiguration av Jumio-konto |     |
 |JumioSettings:AuthPassword | Konfiguration av Jumio-konto |     |
@@ -118,7 +118,7 @@ Du kan [Konfigurera program inställningar i Azure App Service](https://docs.mic
 
 ### <a name="deploy-the-ui"></a>Distribuera användar gränssnittet
 
-1. Konfigurera en [Blob Storage-behållare i ditt lagrings konto](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
+1. Konfigurera en [Blob Storage-behållare i ditt lagrings konto](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 
 2. Lagra UI-filerna från [mappen UI](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/UI) i BLOB-behållaren.
 
@@ -139,7 +139,7 @@ Du kan [Konfigurera program inställningar i Azure App Service](https://docs.mic
 
 1. Gå till [Azure AD B2C principen](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/Policies) i mappen principer.
 
-2. Följ [den här artikeln](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) för att ladda ned [LocalAccounts start paket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
+2. Följ [den här artikeln](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) för att ladda ned [LocalAccounts start paket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
 
 3. Konfigurera principen för Azure AD B2C klient.
 
@@ -148,15 +148,15 @@ Du kan [Konfigurera program inställningar i Azure App Service](https://docs.mic
 
 ## <a name="test-the-user-flow"></a>Testa användar flödet
 
-1. Öppna Azure AD B2C-klienten. Under **principer**väljer du **Identity Experience Framework**.
+1. Öppna Azure AD B2C-klienten. Under **principer** väljer du **Identity Experience Framework**.
 
 2. Välj din tidigare skapade **SignUpSignIn**.
 
 3. Välj **Kör användar flöde** och sedan:
 
-   a. För **program**väljer du den registrerade appen (EXEMPLET är JWT).
+   a. För **program** väljer du den registrerade appen (EXEMPLET är JWT).
 
-   b. För **svars-URL**väljer du **omdirigerings-URL**: en.
+   b. För **svars-URL** väljer du **omdirigerings-URL**: en.
 
    c. Välj **Kör användar flöde**.
 
@@ -168,6 +168,6 @@ Du kan [Konfigurera program inställningar i Azure App Service](https://docs.mic
 
 Mer information finns i följande artiklar:
 
-- [Anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Anpassade principer i Azure AD B2C](./custom-policy-overview.md)
 
-- [Kom igång med anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Kom igång med anpassade principer i Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

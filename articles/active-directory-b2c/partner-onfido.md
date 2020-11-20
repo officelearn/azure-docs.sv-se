@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5d0835114844069d4ebdc992b872f9be1f0b3ca6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48fc8533ee1fd206e69e16d4c03e4b4acf047135
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259228"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953703"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Onfido med Azure Active Directory B2C
 
@@ -24,13 +24,13 @@ I den här självstudien ger vi vägledning om hur du integrerar Azure AD B2C me
 
 I det här exemplet ansluter vi Onfido-tjänsten i registrerings-eller inloggnings flödet för att verifiera identiteten. Välgrundade beslut om vilken produkt och tjänst som användaren har åtkomst till görs baserat på Onfido resultat.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du:
 
 - En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 
-- [En Azure AD B2C klient](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) som är länkad till din Azure-prenumeration.
+- [En Azure AD B2C klient](./tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 
 - Ett [utvärderings konto](https://onfido.com/signup/)för Onfido.
 
@@ -74,7 +74,7 @@ Mer information om Onfido finns i [API-dokumentationen för Onfido](https://docu
 
 ### <a name="part-1---deploy-the-api"></a>Del 1 – distribuera API: et
 
-- Distribuera den tillhandahållna [API-koden](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) till en Azure-tjänst. Du kan publicera koden från Visual Studio genom att följa dessa [anvisningar](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+- Distribuera den tillhandahållna [API-koden](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) till en Azure-tjänst. Du kan publicera koden från Visual Studio genom att följa dessa [anvisningar](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 - Set-CORS, Lägg till **tillåtet ursprung** som https://{your_tenant_name}. b2clogin. com
 
 >[!NOTE]
@@ -82,9 +82,9 @@ Mer information om Onfido finns i [API-dokumentationen för Onfido](https://docu
 
 #### <a name="adding-sensitive-configuration-settings"></a>Lägga till känsliga konfigurations inställningar
 
-Program inställningar kan konfigureras i [App Service i Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). App Service gör det möjligt att konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. REST-API: et behöver följande inställningar:
+Program inställningar kan konfigureras i [App Service i Azure](../app-service/configure-common.md#configure-app-settings). App Service gör det möjligt att konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. REST-API: et behöver följande inställningar:
 
-| Namn på program inställning | Källa | Obs! |
+| Namn på program inställning | Källa | Kommentarer |
 |:-------------------------|:-------|:-------|
 |OnfidoSettings: AuthToken| Onfido-konto |
 
@@ -92,7 +92,7 @@ Program inställningar kan konfigureras i [App Service i Azure](https://docs.mic
 
 #### <a name="configure-your-storage-location"></a>Konfigurera din lagrings plats
 
-1. Konfigurera en [Blob Storage-behållare i ditt lagrings konto](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
+1. Konfigurera en [Blob Storage-behållare i ditt lagrings konto](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 
 2. Lagra UI-filerna från [mappen UI](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) till BLOB-behållaren.
 
@@ -100,7 +100,7 @@ Program inställningar kan konfigureras i [App Service i Azure](https://docs.mic
 
    a. Gå till **Inställningar**  > **tillåtet ursprung**, ange `https://{your_tenant_name}.b2clogin.com` . Ersätt ditt-Tenant-namn med namnet på din Azure AD B2C-klient. Till exempel https://fabrikam.b2clogin.com . Använd små bokstäver när du anger ditt klient namn.
 
-   b. För **tillåtna metoder**väljer du `GET` och `PUT` .
+   b. För **tillåtna metoder** väljer du `GET` och `PUT` .
 
    c. Välj **Spara**.
 
@@ -118,7 +118,7 @@ Program inställningar kan konfigureras i [App Service i Azure](https://docs.mic
 
 1. Lagra UI-filerna från mappen UI till BLOB-behållaren.
 
-2. Använd [Azure Storage Explorer](https://docs.microsoft.com/azure/virtual-machines/windows/disks-use-storage-explorer-managed-disks) för att hantera dina filer och åtkomst behörigheter.
+2. Använd [Azure Storage Explorer](../virtual-machines/disks-use-storage-explorer-managed-disks.md) för att hantera dina filer och åtkomst behörigheter.
 
 ### <a name="part-3---configure-azure-ad-b2c"></a>Del 3 – Konfigurera Azure AD B2C
 
@@ -142,7 +142,7 @@ I de angivna [anpassade principerna](https://github.com/azure-ad-b2c/partner-int
 
 ### <a name="part-4---configure-the-azure-ad-b2c-policy"></a>Del 4 – konfigurera principen för Azure AD B2C
 
-Se det här [dokumentet](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) för instruktioner om hur du konfigurerar Azure AD B2C-klienten och konfigurerar principer.
+Se det här [dokumentet](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) för instruktioner om hur du konfigurerar Azure AD B2C-klienten och konfigurerar principer.
 
 >[!NOTE]
 > Som bästa praxis rekommenderar vi att kunderna lägger till medgivande meddelanden på sidan samling av attribut. Meddela användarna att informationen kommer att skickas till tjänster från tredje part för identitets verifiering.
@@ -169,6 +169,6 @@ Se det här [dokumentet](https://docs.microsoft.com/azure/active-directory-b2c/c
 
 Mer information finns i följande artiklar:
 
-- [Anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Anpassade principer i Azure AD B2C](./custom-policy-overview.md)
 
-- [Kom igång med anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Kom igång med anpassade principer i Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

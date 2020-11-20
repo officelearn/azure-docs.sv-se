@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 5a0ea8a2f07ef596cd80e9165eedb2b98dab0bfa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0df0c12d5942179e2492bfdc932fa25d126a2426
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978721"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951748"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Använd tjänsten StorSimple Enhetshanteraren för att hantera dina autentiseringsuppgifter för lagrings kontot
 
@@ -55,7 +55,7 @@ De vanligaste uppgifterna som rör lagrings konton som kan utföras är:
 Det finns tre typer av lagrings konton som kan användas med din StorSimple-enhet.
 
 * **Automatiskt genererade lagrings konton** – som namnet antyder skapas den här typen av lagrings konto automatiskt när tjänsten skapas. Mer information om hur det här lagrings kontot skapas finns i [steg 1: skapa en ny tjänst](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) i [distribuera din lokala StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md). 
-* **Lagrings konton i tjänst prenumerationen** – dessa är de Azure Storage-konton som är associerade med samma prenumeration som tjänsten. Mer information om hur dessa lagrings konton skapas finns i [om Azure Storage-konton](../storage/common/storage-create-storage-account.md). 
+* **Lagrings konton i tjänst prenumerationen** – dessa är de Azure Storage-konton som är associerade med samma prenumeration som tjänsten. Mer information om hur dessa lagrings konton skapas finns i [om Azure Storage-konton](../storage/common/storage-account-create.md). 
 * **Lagrings konton utanför tjänst prenumerationen** – dessa är de Azure Storage-konton som inte är associerade med tjänsten och troligen fanns innan tjänsten skapades.
 
 ## <a name="add-a-storage-account"></a>Lägg till ett lagrings konto
@@ -80,7 +80,7 @@ Använd följande procedurer för att lägga till autentiseringsuppgifter för A
 3. Klicka på **Lägg till**.
 4. Gör följande på bladet **Lägg till autentiseringsuppgift för lagrings konto** :
    
-    1. För **prenumeration**väljer du **annat**.
+    1. För **prenumeration** väljer du **annat**.
    
     2. Ange namnet på ditt Azure Storage-kontos autentiseringsuppgifter.
    
@@ -179,4 +179,3 @@ Du får ett meddelande när nyckeln har synkroniserats.
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [StorSimple-säkerhet](storsimple-8000-security.md).
 * Lär dig mer om [att använda tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
-

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: a866a225da87c22a3a276a5d59b8e86f1f955cae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34eeeed2b3c44336cd4aa1219d54b1811c6988f5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856202"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952326"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Jämför lagrings alternativ för användning med Azure HDInsight-kluster
 
@@ -36,6 +36,8 @@ I följande tabell sammanfattas de Azure Storage tjänster som stöds med olika 
 |Azure Storage| Generell användning v1 | Objekt | Blob | Standard | E.t. | Alla | Alla |
 |Azure Storage| Blob Storage * * | Objekt | Blockera BLOB | Standard | Frekvent, låg frekvent, Arkiv | Alla | Alla |
 |Azure Data Lake Storage Gen1| E.t. | Hierarkisk (FileSystem) | Saknas | Saknas | Saknas | 3,6 endast | Alla utom HBase |
+|Azure Storage| Blockera BLOB| Objekt | Blockera BLOB | Premium | E.t.| 3.6 + | Endast HBase med accelererade skrivningar|
+|Azure Data Lake Storage Gen2| Blockera BLOB| Hierarkisk (FileSystem) | Blockera BLOB | Premium | E.t.| 3.6 + | Endast HBase med accelererade skrivningar|
 
 * * För HDInsight-kluster kan endast sekundära lagrings konton vara av typen BlobStorage och Page BLOB är inte ett lagrings alternativ som stöds.
 
@@ -48,15 +50,15 @@ Du kan skapa kluster med hjälp av kombinationer av tjänster för primär och v
 | HDInsight-version | Primär lagring | Sekundär lagring | Stöds |
 |---|---|---|---|
 | 3,6 & 4,0 | Generell användning v1, Generell användning v2 | Generell användning v1, Generell användning v2, BlobStorage (block blobbar) | Ja |
-| 3,6 & 4,0 | Generell användning v1, Generell användning v2 | Data Lake Storage Gen2 | Inga |
+| 3,6 & 4,0 | Generell användning v1, Generell användning v2 | Data Lake Storage Gen2 | Nej |
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Ja |
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Generell användning v1, Generell användning v2, BlobStorage (block blobbar) | Ja |
-| 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Inga |
+| 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Nej |
 | 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Ja |
 | 3,6 | Data Lake Storage Gen1 | Generell användning v1, Generell användning v2, BlobStorage (block blobbar) | Ja |
-| 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Inga |
-| 4,0 | Data Lake Storage Gen1 | Alla | Inga |
-| 4,0 | Generell användning v1, Generell användning v2 | Data Lake Storage Gen1 | Inga |
+| 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Nej |
+| 4,0 | Data Lake Storage Gen1 | Valfri | Nej |
+| 4,0 | Generell användning v1, Generell användning v2 | Data Lake Storage Gen1 | Nej |
 
 * = Det kan vara en eller flera Data Lake Storage Gen2, så länge de är konfigurerat för att använda samma hanterade identitet för kluster åtkomst.
 

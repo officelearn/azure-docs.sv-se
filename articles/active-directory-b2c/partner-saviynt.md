@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 8406074933489e53e9235a8a6a05b68f1dd42a85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 184616058cb2a86025eb75b4923e374ab42ebf05
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259144"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953567"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Saviynt med Azure Active Directory B2C
 
@@ -30,13 +30,13 @@ I den här självstudien får du ställa in Saviynt för att tillhandahålla det
 
 - Säkerhet på data nivå för att avgöra om en användare kan utföra en viss åtgärd på en viss användare. Till exempel kan support administratören för en Storbritannien-region endast hantera Storbritannien-användare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du:
 
 - En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 
-- En [Azure AD B2C klient](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Klienten är länkad till din Azure-prenumeration.
+- En [Azure AD B2C klient](./tutorial-create-tenant.md). Klienten är länkad till din Azure-prenumeration.
 
 - En Saviynt- [prenumeration](https://saviynt.com/contact-us/)
 
@@ -48,7 +48,7 @@ Saviynt-integreringen innehåller följande komponenter:
 
 - [Saviynt](https://saviynt.com/integrations/azure-ad/for-b2c/) – identitets styrnings plattformen som ger en detaljerad delegerad administration för användar livs cykel hantering och åtkomst styrning av Azure AD B2C användare.  
 
-- [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api) – det här API: et tillhandahåller gränssnitten för Saviynt för att hantera Azure AD B2C-användare och deras åtkomst i Azure AD B2C.
+- [Microsoft Graph API](/graph/use-the-api) – det här API: et tillhandahåller gränssnitten för Saviynt för att hantera Azure AD B2C-användare och deras åtkomst i Azure AD B2C.
 
 I följande arkitektur diagram visas implementeringen.
 
@@ -69,7 +69,7 @@ I följande arkitektur diagram visas implementeringen.
 
 1. Kontakta [Saviynt](https://saviynt.com/contact-us/) om du vill skapa ett Saviynt-konto
 
-2. Skapa delegerade administrations principer och tilldela användare som [delegerade administratörer](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-concept-delegation) med olika roller.
+2. Skapa delegerade administrations principer och tilldela användare som [delegerade administratörer](../active-directory/users-groups-roles/roles-concept-delegation.md) med olika roller.
 
 ## <a name="configure-azure-ad-b2c-with-saviynt"></a>Konfigurera Azure AD B2C med Saviynt
 
@@ -91,7 +91,7 @@ I följande arkitektur diagram visas implementeringen.
 
 8. Gå till nästa sida och välj **program behörigheter**.
 
-9. Välj **katalog**och välj **katalog. Read. all** och **Directory. readwrite. all** kryss rutor.
+9. Välj **katalog** och välj **katalog. Read. all** och **Directory. readwrite. all** kryss rutor.
 
 10. Välj **Lägg till behörigheter**. Granska de behörigheter som lagts till.
 
@@ -113,7 +113,7 @@ I följande arkitektur diagram visas implementeringen.
 I stegen nedan förklaras hur du aktiverar Saviynt för att utföra användar borttagnings åtgärder i Azure AD B2C.
 
 >[!NOTE]
->[Utvärdera risken innan du beviljar administratörs roller åtkomst till ett huvud namn för tjänsten.](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+>[Utvärdera risken innan du beviljar administratörs roller åtkomst till ett huvud namn för tjänsten.](../active-directory/develop/app-objects-and-service-principals.md)
 
 1. Installera den senaste versionen av MSOnline PowerShell-modulen på en Windows-arbetsstation/-Server.
 
@@ -133,8 +133,8 @@ Bläddra till ditt Saviynt-program och testa hantering av användar livs cykel o
 
 Mer information finns i följande artiklar:
 
-- [Anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Anpassade principer i Azure AD B2C](./custom-policy-overview.md)
 
-- [Kom igång med anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Kom igång med anpassade principer i Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
 
-- [Skapa ett webb-API-program](https://docs.microsoft.com/azure/active-directory-b2c/add-web-api-application)
+- [Skapa ett webb-API-program](./add-web-api-application.md)

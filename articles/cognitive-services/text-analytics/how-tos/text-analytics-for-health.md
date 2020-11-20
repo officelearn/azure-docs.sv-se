@@ -8,38 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: e3e0ae444e2b3b6ac195a83653baf4b71bac6644
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: references_regions
+ms.openlocfilehash: e7f017c1f3dc189af2b0fc053912decca3459478
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363875"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952768"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Gör så här: använda Textanalys för hälsa (för hands version)
-
-> [!NOTE]
-> Textanalys för hälso containern har nyligen uppdaterats. Se [Nyheter](../whats-new.md) för mer information om nya ändringar. Kom ihåg att hämta den senaste behållaren för att använda de uppdateringar som anges.
 
 > [!IMPORTANT] 
 > Textanalys för hälsa är en förhands gransknings funktion som tillhandahålls "i befintligt skick" och "med alla fel". Därför **bör textanalys för hälsa (för hands version) inte implementeras eller distribueras i produktions användningen.** Textanalys för hälsa är inte avsedd eller görs tillgänglig för användning som medicinsk enhet, klinisk support, diagnostikverktyg eller annan teknik som är avsedd att användas i diagnosen, härdning, minskning, behandling eller förebyggande av sjukdom eller andra villkor, och ingen licens eller rättighet beviljas av Microsoft för att använda den här funktionen i sådana syften. Den här funktionen är inte utformad eller avsedd att implementeras eller distribueras som en ersättning för yrkes rådgivning eller hälso besked, diagnos, behandling eller klinisk dom från en sjukvårds expert och bör inte användas som sådan. Kunden är ensam ansvarig för all användning av Textanalys för hälsa. Microsoft garanterar inte att Textanalys för hälsa eller material som tillhandahålls i samband med funktionen kommer att vara tillräckligt för medicinska skäl eller på annat sätt uppfylla hälso tillståndet eller hälso tillståndet för en person. 
 
 
-Textanalys för hälsa är en behållar tjänst som extraherar och namnger relevant medicinsk information från ostrukturerade texter som läkares anteckningar, Utskicks sammanfattning, kliniska dokument och elektroniska hälso poster.  
+Textanalys för hälsan är en funktion i API för textanalyss tjänsten som extraherar och namnger relevant medicinsk information från ostrukturerade texter som läkares anteckningar, Utskicks sammanfattning, kliniska dokument och elektroniska hälso poster.  Det finns två sätt att använda den här tjänsten: 
+
+* Det webbaserade API: t (asynkront) 
+* En Docker-behållare (synkron)   
 
 ## <a name="features"></a>Funktioner
 
-Textanalys för hälso containern utför för närvarande namngiven entitets igenkänning (NER), Relations extrahering, enhets negation och entitet länkning för engelsk text i din egen utvecklings miljö som uppfyller dina specifika krav för säkerhet och data styrning.
+Textanalys för hälso tillstånd utför namngivna enhets igenkänning (NER), Relations extrahering, avnegationer och entiteter som länkas på engelsk språk text för att få insikter om ostrukturerad klinisk och medicinsk text.
 
-#### <a name="named-entity-recognition"></a>[Igenkänning av namngiven entitet](#tab/ner)
+### <a name="named-entity-recognition"></a>[Igenkänning av namngiven entitet](#tab/ner)
 
 Igenkänning av namngivna enheter identifierar ord och fraser som nämns i ostrukturerad text som kan associeras med en eller flera semantiska typer, till exempel diagnos, medicinens namn, symptom/signering eller ålder.
 
 > [!div class="mx-imgBorder"]
 > ![Hälso NER](../media/ta-for-health/health-named-entity-recognition.png)
 
-#### <a name="relation-extraction"></a>[Relations extrahering](#tab/relation-extraction)
+### <a name="relation-extraction"></a>[Relations extrahering](#tab/relation-extraction)
 
 Relations extrahering identifierar meningsfulla anslutningar mellan begrepp som anges i text. Till exempel hittas en relation för "villkor" för att associera ett villkors namn med en tid. 
 
@@ -47,7 +48,7 @@ Relations extrahering identifierar meningsfulla anslutningar mellan begrepp som 
 > ![Hälso vård](../media/ta-for-health/health-relation-extraction.png)
 
 
-#### <a name="entity-linking"></a>[Entity Linking](#tab/entity-linking)
+### <a name="entity-linking"></a>[Entity Linking](#tab/entity-linking)
 
 Entiteten länkar disambiguates distinkta entiteter genom att associera namngivna entiteter som nämns i text till begrepp som finns i en fördefinierad databas med begrepp. Till exempel det enhetliga medicinska språk systemet (UMLS).
 
@@ -56,7 +57,7 @@ Entiteten länkar disambiguates distinkta entiteter genom att associera namngivn
 
 Textanalys för hälso tillstånd stöder länkning till hälso-och biomedicin-vokabulär som finns i Metathesaurus-kunskaps källan (Unified medicin language system) ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)).
 
-#### <a name="negation-detection"></a>[Negation identifiering](#tab/negation-detection) 
+### <a name="negation-detection"></a>[Negation identifiering](#tab/negation-detection) 
 
 Innebörden av medicinskt innehåll påverkas starkt av modifierare, till exempel negation, som kan ha kritiska indirekt om de feldiagnostiseras. Textanalys för hälso tillstånd stöder negation identifiering för de olika entiteter som anges i texten. 
 
@@ -67,173 +68,189 @@ Innebörden av medicinskt innehåll påverkas starkt av modifierare, till exempe
 
 Se [entitets kategorier](../named-entity-types.md?tabs=health) som returneras av textanalys för hälsan för en fullständig lista över entiteter som stöds.
 
-## <a name="supported-languages"></a>Språk som stöds
+### <a name="supported-languages-and-regions"></a>Språk och regioner som stöds
 
-Textanalys för hälsa stöder endast språk dokument i engelska.
+Textanalys för hälsa stöder endast språk dokument i engelska. 
 
-## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
+Textanalys för Health-värdbaserad webb-API är för närvarande endast tillgängligt i dessa regioner: västra USA 2, östra USA 2, centrala USA, norra Europa och Västeuropa.
 
-Fyll i och skicka [fråge formuläret för Cognitive Services containers](https://aka.ms/csgate) för att begära åtkomst till behållaren. För närvarande debiteras du inte för Textanalys för hälso tillstånds användning. 
+## <a name="request-access-to-the-public-preview"></a>Begär åtkomst till den offentliga för hands versionen
 
-[!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
+Fyll i och skicka [formuläret för Cognitive Services begäran](https://aka.ms/csgate) för att begära åtkomst till textanalys för offentlig för hands version av hälso tillstånd. Du debiteras inte för Textanalys för hälso tillstånds användning. 
 
-[!INCLUDE [Authenticate to the container registry](../../../../includes/cognitive-services-containers-access-registry.md)]
+Formuläret efterfrågar information om dig, ditt företag och användar scenariot som du använder behållaren för. När du har skickat formuläret granskar Azure Cognitive Services-teamet det och skickar ett meddelande till dig med ett beslut.
 
-## <a name="install-the-container"></a>Installera behållaren
+> [!IMPORTANT]
+> * I formuläret måste du använda en e-postadress som är kopplad till ett Azure-prenumerations-ID.
+> * Den Azure-resurs som du använder måste ha skapats med det godkända ID: t för Azure-prenumerationen. 
+> * Kontrol lera din e-postadress (både Inkorgen och skräppostmappen) för uppdateringar av status för ditt program från Microsoft.
 
-Det finns flera sätt att installera och köra behållaren. 
+## <a name="using-the-docker-container"></a>Använda Docker-behållaren 
 
-- Använd [Azure Portal](text-analytics-how-to-install-containers.md?tabs=healthcare) för att skapa en textanalys resurs och Använd Docker för att hämta din behållare.
-- Använd följande PowerShell-och [Azure CLI](/cli/azure/?view=azure-cli-latest) -skript för att automatisera konfigurationen av resurs distributions behållare.
+Om du vill köra Textanalys för hälso tillstånds behållare i din egen miljö, följer [du anvisningarna för att ladda ned och installera behållaren](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare).
 
-### <a name="install-the-container-using-azure-web-app-for-containers"></a>Installera behållaren med Azure Web App for Containers
+## <a name="using-the-client-library"></a>Använda klientbiblioteket
 
-Azure [Web App for containers](https://azure.microsoft.com/services/app-service/containers/) är en Azure-resurs som är dedikerad till att köra behållare i molnet. Den innehåller färdiga funktioner som autoskalning, stöd för Docker-behållare och Docker-form, HTTPS-stöd och mycket mer.
-
-> [!NOTE]
-> Med hjälp av Azure Web App får du automatiskt en domän i form av `<appservice_name>.azurewebsites.net`
-
-Kör det här PowerShell-skriptet med Azure CLI för att skapa en Web App for Containers med hjälp av din prenumeration och behållar avbildningen över HTTPS. Vänta tills skriptet har slutförts (cirka 25-30 minuter) innan du skickar den första begäran.
-
-```bash
-$subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
-$resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
-                                           #    and AppSerivce to be attached to.
-$resources_location = ""                   # This is the location you wish the AppServicePlan to be deployed to.
-                                           #    You can use the "az account list-locations -o table" command to
-                                           #    get the list of available locations and location code names.
-$appservice_plan_name = ""                 # This is the AppServicePlan name you wish to have.
-$appservice_name = ""                      # This is the AppService resource name you wish to have.
-$TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Text Analytics resource.
-$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Text Analytics resource.
-$DOCKER_REGISTRY_SERVER_PASSWORD = ""      # This will be provided separately.
-$DOCKER_REGISTRY_SERVER_USERNAME = ""      # This will be provided separately.
-$DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-healthcare:latest"
-
-az login
-az account set -s $subscription_name
-az appservice plan create -n $appservice_plan_name -g $resource_group_name --is-linux -l $resources_location --sku P3V2
-az webapp create -g $resource_group_name -p $appservice_plan_name -n $appservice_name -i $DOCKER_IMAGE_NAME -s $DOCKER_REGISTRY_SERVER_USERNAME -w $DOCKER_REGISTRY_SERVER_PASSWORD
-az webapp config appsettings set -g $resource_group_name -n $appservice_name --settings Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
-
-# Once deployment complete, the resource should be available at: https://<appservice_name>.azurewebsites.net
-```
-
-### <a name="install-the-container-using-azure-container-instance"></a>Installera behållaren med Azure Container instance
-
-Du kan också använda en Azure Container Instance (ACI) för att förenkla distributionen. ACI är en resurs som gör att du kan köra Docker-behållare på begäran i en hanterad, Server lös Azure-miljö. 
-
-Se [hur du använder Azure Container instances](text-analytics-how-to-use-container-instances.md) för steg som beskriver hur du distribuerar en ACI-resurs med hjälp av Azure Portal. Du kan också använda PowerShell-skriptet nedan med hjälp av Azure CLI, som skapar en ACI i din prenumeration med hjälp av behållar avbildningen.  Vänta tills skriptet har slutförts (cirka 25-30 minuter) innan du skickar den första begäran.  På grund av gränsen för maximalt antal processorer per ACI-resurs väljer du inte det här alternativet om du förväntar dig att skicka fler än 5 stora dokument (cirka 5000 tecken var) per begäran.
-Se [ACI regional support](../../../container-instances/container-instances-region-availability.md) artikel för tillgänglighets information. 
-
-> [!NOTE] 
-> Azure Container Instances inkluderar inte HTTPS-stöd för de inbyggda domänerna. Om du behöver HTTPS måste du konfigurera den manuellt, inklusive att skapa ett certifikat och registrera en domän. Du hittar anvisningar om hur du gör detta med NGINX nedan.
-
-```bash
-$subscription_name = ""                    # The name of the subscription you want you resource to be created on.
-$resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
-                                           # and AppService to be attached to.
-$resources_location = ""                   # This is the location you wish the web app to be deployed to.
-                                           # You can use the "az account list-locations -o table" command to
-                                           # Get the list of available locations and location code names.
-$azure_container_instance_name = ""        # This is the AzureContainerInstance name you wish to have.
-$TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Text Analytics resource.
-$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Text Analytics resource.
-$DOCKER_REGISTRY_SERVER_PASSWORD = ""      # This will be provided separately.
-$DOCKER_REGISTRY_SERVER_USERNAME = ""      # This will be provided separately.
-$DNS_LABEL = ""                            # This is the DNS label name you wish your ACI will have
-$DOCKER_REGISTRY_LOGIN_SERVER = "containerpreview.azurecr.io"
-$DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-healthcare:latest"
-
-az login
-az account set -s $subscription_name
-az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 4 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
-
-# Once deployment complete, the resource should be available at: http://<unique_dns_label>.<resource_group_region>.azurecontainer.io:5000
-```
-
-### <a name="secure-aci-connectivity"></a>Säker ACI-anslutning
-
-Som standard tillhandahålls ingen säkerhet när du använder ACI med container-API. Detta beror på att behållare som vanligt vis körs som en del av en pod som skyddas från utsidan av en nätverks brygga. Du kan dock ändra en behållare med en klient som är klient del och hålla behållarens slut punkt privat. I följande exempel används [nginx](https://www.nginx.com) som en ingress-Gateway för att stödja HTTPS/SSL och autentisering av klient certifikat.
-
-> [!NOTE]
-> NGINX är en HTTP-server och proxy med öppen källkod med hög prestanda. En NGINX-behållare kan användas för att avsluta en TLS-anslutning för en enda behållare. Det är också möjligt att använda mer komplexa NGINX ingångs-baserade TLS-lösningar.
-
-#### <a name="set-up-nginx-as-an-ingress-gateway"></a>Konfigurera NGINX som en ingress-Gateway
-
-NGINX använder [konfigurationsfiler](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) för att aktivera funktioner vid körning. För att aktivera TLS-avslutning för en annan tjänst måste du ange ett SSL-certifikat för att avsluta TLS-anslutningen och  `proxy_pass` Ange en adress för tjänsten. Ett exempel anges nedan.
+Med den senaste för hands versionen av Textanalys klient biblioteket kan du anropa Textanalys för hälso tillstånd med hjälp av ett klient objekt. Läs referens dokumentationen och se exemplen på GitHub:
+* [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+* [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+* [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 
-> [!NOTE]
-> `ssl_certificate` förväntar sig att en sökväg anges i NGINX-behållarens lokala fil system. Den angivna adressen `proxy_pass` måste vara tillgänglig i nginx-behållarens nätverk.
 
-NGINX-behållaren läser in alla filer i `_.conf_` som är monterade under `/etc/nginx/conf.d/` i http-konfigurationen.
+## <a name="sending-a-rest-api-request"></a>Skicka en REST API-begäran 
 
-```nginx
-server {
-  listen              80;
-  return 301 https://$host$request_uri;
-}
-server {
-  listen              443 ssl;
-  # replace with .crt and .key paths
-  ssl_certificate     /cert/Local.crt;
-  ssl_certificate_key /cert/Local.key;
+### <a name="preparation"></a>Förberedelse
 
-  location / {
-    proxy_pass http://cognitive-service:5000;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Real-IP  $remote_addr;
-  }
+Textanalys för hälsa ger bättre resultat när du ger det mindre mängd text att arbeta med. Detta är motsatt till några av de andra Textanalys funktionerna, till exempel extrahering av nyckel fraser som fungerar bättre på större block med text. För att få bästa möjliga resultat från dessa åtgärder bör du överväga att omstrukturera inmatningarna i enlighet därmed.
+
+Du måste ha JSON-dokument i det här formatet: ID, text och språk. 
+
+Dokument storleken måste vara under 5 120 tecken per dokument. Det maximala antalet dokument som tillåts i en samling finns i artikeln [data begränsningar](../concepts/data-limits.md?tabs=version-3) under begrepp. Samlingen skickas i begäranstexten.
+
+### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>Strukturera API-begäran för den värdbaserade asynkrona webb-API: et
+
+För både behållare och värdbaserade webb-API måste du skapa en POST-begäran. Du kan [använda Postman](text-analytics-how-to-call-api.md), ett spiral kommando eller en **API test-konsol** i [TEXTANALYS för hälsovärd-API-referens](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) för att snabbt konstruera och skicka en post-begäran till värdbaserade webb-API i önskad region. 
+
+Nedan visas ett exempel på en JSON-fil som är kopplad till Textanalys för hälso-API-begärans INLÄGGs text:
+
+```json
+example.json
+
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Subject was administered 100mg remdesivir intravenously over a period of 120 min"
+    }
+  ]
 }
 ```
 
-#### <a name="example-docker-compose-file"></a>Exempel på Docker Compose-fil
+### <a name="hosted-asynchronous-web-api-response"></a>Värdbaserat asynkront webb-API-svar 
 
-Exemplet nedan visar hur du kan skapa en [Docker](https://docs.docker.com/compose/reference/overview) -fil för att distribuera NGINX och textanalys för hälso behållarna:
+Eftersom den här POST-begäran används för att skicka ett jobb för den asynkrona åtgärden finns det ingen text i objektet Response.  Du behöver dock värdet för åtgärds plats nyckeln i svarshuvuden för att göra en GET-begäran för att kontrol lera status för jobbet och utdata.  Nedan visas ett exempel på värdet för åtgärds plats nyckeln i svars huvudet för POST-begäran:
 
-```yaml
-version: "3.7"
-services:
-  cognitive-service:
-    image: {IMAGE_ID}
-    ports:
-      - 5000:5000
-    environment:
-      - eula=accept
-      - billing={ENDPOINT_URI}
-      - apikey={API_KEY}
-      - Logging:Disk:Format=json
-    volumes:
-        # replace with path to logs folder
-      - <path-to-logs-folder>:/output
-  nginx:
-    image: nginx
-    ports:
-      - 443:443
-    volumes:
-        # replace with paths for certs and conf folders
-      - <path-to-certs-folder>:/cert
-      - <path-to-conf-folder>:/etc/nginx/conf.d/
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/health/jobs/<jobID>`
+
+Om du vill kontrol lera jobbets status gör du en GET-begäran till URL: en i värdet för nyckel rubriken åtgärds plats i POST-svaret.  Följande tillstånd används för att visa status för ett jobb:,,,,, `NotStarted` `running` `succeeded` `failed` `rejected` `cancelling` och `cancelled` .  
+
+Du kan avbryta ett jobb med en `NotStarted` eller `running` -status med ett Delete http-anrop till samma URL som Get-begäran.  Det finns mer information om BORTTAGNINGs anropet i [textanalys för hälso värdbaserade API-referens](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/CancelHealthJob).
+
+Följande är ett exempel på svaret på en GET-begäran.  Observera att utmatningen är tillgänglig för hämtning tills `expirationDateTime` (24 timmar från den tidpunkt då jobbet skapades) har passerat efter vilken utdata rensas.
+
+```json
+{
+    "jobId": "b672c6f5-7c0d-4783-ba8c-4d0c47213454",
+    "lastUpdateDateTime": "2020-11-18T01:45:00Z",
+    "createdDateTime": "2020-11-18T01:44:55Z",
+    "expirationDateTime": "2020-11-19T01:44:55Z",
+    "status": "succeeded",
+    "errors": [],
+    "results": {
+        "documents": [
+            {
+                "id": "1",
+                "entities": [
+                    {
+                        "offset": 25,
+                        "length": 5,
+                        "text": "100mg",
+                        "category": "Dosage",
+                        "confidenceScore": 1.0,
+                        "isNegated": false
+                    },
+                    {
+                        "offset": 31,
+                        "length": 10,
+                        "text": "remdesivir",
+                        "category": "MedicationName",
+                        "confidenceScore": 1.0,
+                        "isNegated": false,
+                        "links": [
+                            {
+                                "dataSource": "UMLS",
+                                "id": "C4726677"
+                            },
+                            {
+                                "dataSource": "MSH",
+                                "id": "C000606551"
+                            },
+                            {
+                                "dataSource": "NCI",
+                                "id": "C152185"
+                            },
+                            {
+                                "dataSource": "NCI_FDA",
+                                "id": "3QKI37EEHE"
+                            }
+                        ]
+                    },
+                    {
+                        "offset": 42,
+                        "length": 13,
+                        "text": "intravenously",
+                        "category": "MedicationRoute",
+                        "confidenceScore": 1.0,
+                        "isNegated": false
+                    },
+                    {
+                        "offset": 56,
+                        "length": 4,
+                        "text": "over",
+                        "category": "Time",
+                        "confidenceScore": 0.87,
+                        "isNegated": false
+                    },
+                    {
+                        "offset": 73,
+                        "length": 7,
+                        "text": "120 min",
+                        "category": "Time",
+                        "confidenceScore": 0.99,
+                        "isNegated": false
+                    }
+                ],
+                "relations": [
+                    {
+                        "relationType": "DosageOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/0",
+                        "target": "#/results/documents/0/entities/1"
+                    },
+                    {
+                        "relationType": "RouteOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/2",
+                        "target": "#/results/documents/0/entities/1"
+                    },
+                    {
+                        "relationType": "TimeOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/3",
+                        "target": "#/results/documents/0/entities/1"
+                    },
+                    {
+                        "relationType": "TimeOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/4",
+                        "target": "#/results/documents/0/entities/1"
+                    }
+                ],
+                "warnings": []
+            }
+        ],
+        "errors": [],
+        "modelVersion": "2020-09-03"
+    }
+}
 ```
 
-Starta den här Docker-filen genom att köra följande kommando från en-konsol på rot nivån för filen:
 
-```bash
-docker-compose up
-```
+### <a name="structure-the-api-request-for-the-container"></a>Strukturera API-begäran för behållaren
 
-Mer information finns i NGINX-dokumentationen om [nginx SSL-avslutning](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/).
-
-
-## <a name="example-api-request"></a>Exempel på API-begäran
-Containern innehåller REST-baserade slutpunkts-API:er för frågeförutsägelse.  Vi har också tillhandahållit ett visualiserings verktyg i behållaren som är tillgängligt genom att lägga till **demonstrationen** till slut punkten för behållaren, till exempel:
-
-```bash
-http://<serverURL>:5000/demo
-```
-
-Använd exemplet nedan för att skicka en fråga till behållaren som du har distribuerat och som ersätter `serverURL` variabeln med lämpligt värde.
+Du kan [använda Postman](text-analytics-how-to-call-api.md) eller exemplet på en spiral förfrågan nedan om du vill skicka en fråga till den behållare som du har distribuerat, och ersätta `serverURL` variabeln med lämpligt värde.  Observera att API-versionen i URL: en för behållaren skiljer sig från den värdbaserade API: n.
 
 ```bash
 curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
@@ -261,9 +278,9 @@ example.json
 }
 ```
 
-## <a name="api-response-body"></a>API-svars text
+### <a name="container-response-body"></a>Behållarens svars text
 
-Följande JSON är ett exempel på Textanalys för svars texten för hälso-API:
+Följande JSON är ett exempel på Textanalys för hälso-API-svars text från det synkrona anropet från behållare:
 
 ```json
 {
@@ -273,81 +290,65 @@ Följande JSON är ett exempel på Textanalys för svars texten för hälso-API:
             "entities": [
                 {
                     "id": "0",
-                    "offset": 17,
-                    "length": 11,
-                    "text": "itchy sores",
-                    "category": "SymptomOrSign",
-                    "confidenceScore": 1.0,
-                    "isNegated": false
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "entities": [
-                {
-                    "id": "0",
-                    "offset": 11,
-                    "length": 4,
-                    "text": "50mg",
+                    "offset": 25,
+                    "length": 5,
+                    "text": "100mg",
                     "category": "Dosage",
                     "confidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
                     "id": "1",
-                    "offset": 16,
-                    "length": 8,
-                    "text": "benadryl",
+                    "offset": 31,
+                    "length": 10,
+                    "text": "remdesivir",
                     "category": "MedicationName",
                     "confidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
                             "dataSource": "UMLS",
-                            "id": "C0700899"
-                        },
-                        {
-                            "dataSource": "CHV",
-                            "id": "0000044903"
-                        },
-                        {
-                            "dataSource": "MMSL",
-                            "id": "899"
+                            "id": "C4726677"
                         },
                         {
                             "dataSource": "MSH",
-                            "id": "D004155"
+                            "id": "C000606551"
                         },
                         {
                             "dataSource": "NCI",
-                            "id": "C300"
+                            "id": "C152185"
                         },
                         {
-                            "dataSource": "NCI_DTP",
-                            "id": "NSC0033299"
-                        },
-                        {
-                            "dataSource": "PDQ",
-                            "id": "CDR0000039163"
-                        },
-                        {
-                            "dataSource": "PSY",
-                            "id": "05760"
-                        },
-                        {
-                            "dataSource": "RXNORM",
-                            "id": "203457"
+                            "dataSource": "NCI_FDA",
+                            "id": "3QKI37EEHE"
                         }
                     ]
                 },
                 {
                     "id": "2",
-                    "offset": 32,
-                    "length": 11,
-                    "text": "twice daily",
-                    "category": "Frequency",
+                    "offset": 42,
+                    "length": 13,
+                    "text": "intravenously",
+                    "category": "MedicationRoute",
                     "confidenceScore": 1.0,
+                    "isNegated": false
+                },
+                {
+                    "id": "3",
+                    "offset": 56,
+                    "length": 4,
+                    "text": "over",
+                    "category": "Time",
+                    "confidenceScore": 0.87,
+                    "isNegated": false
+                },
+                {
+                    "id": "4",
+                    "offset": 73,
+                    "length": 7,
+                    "text": "120 min",
+                    "category": "Time",
+                    "confidenceScore": 0.99,
                     "isNegated": false
                 }
             ],
@@ -355,26 +356,38 @@ Följande JSON är ett exempel på Textanalys för svars texten för hälso-API:
                 {
                     "relationType": "DosageOfMedication",
                     "bidirectional": false,
-                    "source": "#/documents/1/entities/0",
-                    "target": "#/documents/1/entities/1"
+                    "source": "#/documents/0/entities/0",
+                    "target": "#/documents/0/entities/1"
                 },
                 {
-                    "relationType": "FrequencyOfMedication",
+                    "relationType": "RouteOfMedication",
                     "bidirectional": false,
-                    "source": "#/documents/1/entities/2",
-                    "target": "#/documents/1/entities/1"
+                    "source": "#/documents/0/entities/2",
+                    "target": "#/documents/0/entities/1"
+                },
+                {
+                    "relationType": "TimeOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/0/entities/3",
+                    "target": "#/documents/0/entities/1"
+                },
+                {
+                    "relationType": "TimeOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/0/entities/4",
+                    "target": "#/documents/0/entities/1"
                 }
             ]
         }
     ],
     "errors": [],
-    "modelVersion": "2020-07-24"
+    "modelVersion": "2020-09-03"
 }
 ```
 
 ### <a name="negation-detection-output"></a>Identifierings resultat för negation
 
-När du använder negation identifiering kan i vissa fall en enskild negations period hantera flera villkor samtidigt. Negationen av en identifierad entitet representeras i JSON-utdata av flaggans booleska värde `isNegated` :
+När du använder negation identifiering kan i vissa fall en enskild negations period hantera flera villkor samtidigt. Negationen av en identifierad entitet representeras i JSON-utdata av flaggans booleska värde `isNegated` , till exempel:
 
 ```json
 {

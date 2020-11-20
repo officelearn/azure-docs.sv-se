@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 29b34041042f00d72b8a9fe86e31bd80f8c77dc2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91396543"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953958"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Vad är Azure Active Directory B2C?
 
@@ -79,23 +79,23 @@ Sparbankens sparbanker erbjuder flera inloggnings alternativ baserat på relatio
 
 * **Enskilda** kunder kan registrera sig eller logga in med enskilda konton, till exempel med en social identitetsprovider eller en e-postadress och ett lösen ord.
 * **Företags** kunder kan registrera sig och logga in med sina företags uppgifter.
-* **Partner** och leverantörer är personer som tillhandahåller en livsmedels lagrings plats med produkter att sälja. Partner identitet tillhandahålls av [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
+* **Partner** och leverantörer är personer som tillhandahåller en livsmedels lagrings plats med produkter att sälja. Partner identitet tillhandahålls av [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
 
 ![Enskilda (B2C), Business (B2C) och partner (B2B) inloggnings sidor](./media/overview/woodgrove-overview.png)
 
 ### <a name="authenticate-individual-customers"></a>Autentisera enskilda kunder
 
-När en kund väljer **Logga in med ditt personliga konto**omdirigeras de till en anpassad inloggnings sida med Azure AD B2C. Du kan se följande bild som vi har anpassat användar gränssnittet (UI) för att se och känna sig precis som webbplatsen för Sparbanken. Sparbankens kunder bör vara medvetna om att autentiseringen är värdbaserad och skyddas av Azure AD B2C.
+När en kund väljer **Logga in med ditt personliga konto** omdirigeras de till en anpassad inloggnings sida med Azure AD B2C. Du kan se följande bild som vi har anpassat användar gränssnittet (UI) för att se och känna sig precis som webbplatsen för Sparbanken. Sparbankens kunder bör vara medvetna om att autentiseringen är värdbaserad och skyddas av Azure AD B2C.
 
 ![Anpassad inloggnings sida för Sparbanken som finns Azure AD B2C](./media/overview/sign-in.png)
 
 Med Sparbanken kan kunderna registrera sig och logga in med sina Google-, Facebook-eller Microsoft-konton som identitets leverantör. Eller så kan de registrera sig genom att använda sin e-postadress och ett lösen ord för att skapa vad som kallas *lokalt konto*.
 
-När en kund väljer **att registrera sig med ditt personliga konto** och sedan **Registrera dig nu**visas en anpassad registrerings sida.
+När en kund väljer **att registrera sig med ditt personliga konto** och sedan **Registrera dig nu** visas en anpassad registrerings sida.
 
 ![Anpassad inloggnings sida för Sparbanken som finns Azure AD B2C](./media/overview/sign-up.png)
 
-När du har angett en e-postadress och valt **Skicka verifierings kod**skickar Azure AD B2C koden. När de har angett sin kod väljer du **verifiera kod**och anger sedan den andra informationen i formuläret. de måste också godkänna villkoren i tjänsten.
+När du har angett en e-postadress och valt **Skicka verifierings kod** skickar Azure AD B2C koden. När de har angett sin kod väljer du **verifiera kod** och anger sedan den andra informationen i formuläret. de måste också godkänna villkoren i tjänsten.
 
 Genom att klicka på knappen **skapa** kan Azure AD B2C omdirigera användaren tillbaka till webbplatsen Sparbanken. När den omdirigeras skickar Azure AD B2C en OpenID Connect-autentiseringstoken till Sparbank-webbappen. Användaren är nu inloggad och redo att gå och visnings namnet visas i det övre högra hörnet för att indikera att de är inloggade.
 
@@ -111,7 +111,7 @@ Den här principen visar användaren med ett alternativ för att använda sina f
 
 Länken **Logga in med ditt leverantörs konto** använder Azure Active Directory B2B's samarbets funktioner. Azure AD B2B är en serie funktioner i Azure Active Directory för att hantera partner identiteter. Dessa identiteter kan vara federerade från Azure Active Directory för åtkomst till Azure AD B2C-skyddade program.
 
-Lär dig mer om Azure AD B2B i [Vad är gäst användar åtkomst i Azure Active Directory B2B?](../active-directory/b2b/what-is-b2b.md).
+Lär dig mer om Azure AD B2B i [Vad är gäst användar åtkomst i Azure Active Directory B2B?](../active-directory/external-identities/what-is-b2b.md).
 
 <!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
 ### Sample code

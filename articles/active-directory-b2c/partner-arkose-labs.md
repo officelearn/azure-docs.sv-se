@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4d8174cd0bfdb2297099b403fb836210c5529ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 333bb42643539cedec04d37680749c749a003536
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86170232"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953890"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Arkose Labs med Azure Active Directory B2C
 
@@ -66,13 +66,13 @@ Följ dessa steg om du vill skapa ett lagrings konto:
 
 4. Välj **Lägg till**.
 
-5. Under **resurs grupp**väljer du **Skapa ny**, anger ett namn för den nya resurs gruppen och väljer sedan **OK**.
+5. Under  **resurs grupp** väljer du  **Skapa ny**, anger ett namn för den nya resurs gruppen och väljer sedan **OK**.
 
 6. Ange ett namn för lagringskontot. Namnet du väljer måste vara unikt för Azure, mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.
 
 7. Välj platsen för lagrings kontot eller acceptera standard platsen.
 
-8. Acceptera alla andra standardvärden, Välj  **Granska & skapa**  >  **skapa**.
+8. Acceptera alla andra standardvärden, Välj   **Granska & skapa**  >  **skapa**.
 
 9. När lagrings kontot har skapats väljer  **du gå till resurs**.
 
@@ -80,7 +80,7 @@ Följ dessa steg om du vill skapa ett lagrings konto:
 
 1. På sidan Översikt för lagrings kontot väljer du  **blobbar**.
 
-2. Välj  **behållare**, ange ett namn för behållaren, Välj  **BLOB** (endast anonym Läs åtkomst för blobbar) och välj sedan **OK**.
+2. Välj   **behållare**, ange ett namn för behållaren, Välj   **BLOB** (endast anonym Läs åtkomst för blobbar) och välj sedan **OK**.
 
 #### <a name="enable-cross-origin-resource-sharing-cors"></a>Aktivera resurs delning mellan ursprung (CORS)
 
@@ -88,13 +88,13 @@ Azure AD B2C kod i en webbläsare använder en modern och standard metod för at
 
 1. I menyn väljer du  **CORS**.
 
-2. För  **tillåtna ursprung**anger du  `https://your-tenant-name.b2clogin.com` . Ersätt ditt-Tenant-namn med namnet på din Azure AD B2C-klient. Till exempel,  `https://fabrikam.b2clogin.com`. Använd små bokstäver när du anger ditt klient namn.
+2. För  **tillåtna ursprung** anger du  `https://your-tenant-name.b2clogin.com` . Ersätt ditt-Tenant-namn med namnet på din Azure AD B2C-klient. Till exempel,  `https://fabrikam.b2clogin.com`. Använd små bokstäver när du anger ditt klient namn.
 
-3. För **tillåtna metoder**väljer du **Hämta**, **Placera**och **alternativ**.
+3. För  **tillåtna metoder** väljer du  **Hämta**, **Placera** och  **alternativ**.
 
-4. För **tillåtna huvuden**anger du en asterisk (*).
+4. För **tillåtna huvuden** anger du en asterisk (*).
 
-5. För **exponerade rubriker**anger du en asterisk (*).
+5. För **exponerade rubriker** anger du en asterisk (*).
 
 6. Ange 200 för **högsta ålder**.
 
@@ -106,7 +106,7 @@ Azure AD B2C kod i en webbläsare använder en modern och standard metod för at
 
 Hämta git-bash och följ stegen nedan:
 
-1. Följ anvisningarna för att [skapa en webbapp](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php)tills meddelandet "Grattis!Du har distribuerat din första PHP-app till App Service "visar.
+1. Följ anvisningarna för att [skapa en webbapp](../app-service/quickstart-php.md)tills meddelandet "Grattis!Du har distribuerat din första PHP-app till App Service "visar.
 
 2. Öppna din lokala mapp och Byt namn på filen **index. php** till **verify-token. php**.
 
@@ -156,7 +156,7 @@ Den här anpassade sid-URL: en hämtas från platsen för index.html-filen i blo
 
 ## <a name="test-the-user-flow"></a>Testa användar flödet
 
-1. Öppna Azure AD B2C klient organisation och välj **användar flöden**under **principer**.
+1. Öppna Azure AD B2C klient organisation och välj **användar flöden** under **principer**.
 
 2. Välj ditt tidigare skapade användar flöde.
 

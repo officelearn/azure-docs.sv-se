@@ -12,12 +12,12 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d38f10e5a4f2562825ed2374317602b0640894ae
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 84a3ef7b41b17e85c594213246211d45911ac56a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275880"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953057"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Självstudie: registrera ett webb program i Azure Active Directory B2C
 
@@ -37,17 +37,17 @@ Om du inte redan har skapat din egen [Azure AD B2C-klient](tutorial-create-tenan
 
 ## <a name="register-a-web-application"></a>Registrera ett webbprogram
 
-Om du vill registrera ett webb program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (bakåtkompatibelt)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
+Om du vill registrera ett webb program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (bakåtkompatibelt)** . [Läs mer om den nya upplevelsen](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
-1. Välj **Appregistreringar**och välj sedan **ny registrering**.
+1. Välj **Appregistreringar** och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *webapp1*.
-1. Under **konto typer som stöds**väljer du **konton i valfri identitets leverantör eller organisations katalog (för autentisering av användare med användar flöden)**.
-1. Under **omdirigerings-URI**väljer du **webb**och anger sedan `https://jwt.ms` i text rutan URL.
+1. Under **konto typer som stöds** väljer du **konton i valfri identitets leverantör eller organisations katalog (för autentisering av användare med användar flöden)**.
+1. Under **omdirigerings-URI** väljer du **webb** och anger sedan `https://jwt.ms` i text rutan URL.
 
     Omdirigerings-URI: n är den slut punkt som användaren skickas till av auktoriseringsservern (Azure AD B2C i det här fallet) när dess interaktion med användaren har slutförts och till vilken en åtkomsttoken eller auktoriseringskod skickas vid lyckad auktorisering. I ett produktions program är det vanligt vis en offentligt tillgänglig slut punkt där appen körs, t `https://contoso.com/auth-response` . ex.. För testnings ändamål som den här självstudien kan du ställa in den till `https://jwt.ms` , ett Microsoft-ägda webb program som visar det avkodade innehållet i en token (innehållet i token aldrig lämnar webbläsaren). Under utveckling av appar kan du lägga till slut punkten där ditt program lyssnar lokalt, t `https://localhost:5000` . ex.. Du kan när som helst lägga till och ändra omdirigerings-URI: er i dina registrerade program.
 
@@ -56,7 +56,7 @@ Om du vill registrera ett webb program i din Azure AD B2C klient kan du använda
     * Svars-URL: en måste börja med schemat `https` .
     * Svars-URL: en är Skift läges känslig. Dess fall måste matcha fallet med URL-sökvägen till det program som körs. Om ditt program t. ex. ingår som en del av sökvägen `.../abc/response-oidc` ska du inte ange `.../ABC/response-oidc` i svars-URL: en. Eftersom webbläsaren behandlar sökvägar som Skift läges känsliga, kan cookies som är kopplade till `.../abc/response-oidc` uteslutas om de omdirigeras till den Skift läges fel matchnings bara `.../ABC/response-oidc` URL: en.
 
-1. Under **behörigheter**markerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörighet* .
+1. Under **behörigheter** markerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörighet* .
 1. Välj **Register** (Registrera).
 
 #### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
@@ -66,7 +66,7 @@ Om du vill registrera ett webb program i din Azure AD B2C klient kan du använda
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Välj **program (bakåtkompatibelt)** och välj sedan **Lägg till**.
 1. Ange ett namn på programmet. Till exempel *webapp1*.
-1. För **Inkludera webb program/webb-API**väljer du **Ja**.
+1. För **Inkludera webb program/webb-API** väljer du **Ja**.
 1. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. Du kan till exempel ange att den ska lyssna lokalt på `http://localhost:5000` . Du kan när som helst lägga till och ändra omdirigerings-URI: er i dina registrerade program.
 
     Följande begränsningar gäller för omdirigerings-URI: er:
@@ -88,7 +88,7 @@ För ett webb program måste du skapa en program hemlighet. Den här hemligheten
 1. På den vänstra menyn, under **Hantera**, väljer du **certifikat & hemligheter**.
 1. Välj **Ny klienthemlighet**.
 1. Ange en beskrivning av klient hemligheten i rutan **Beskrivning** . Till exempel *clientsecret1*.
-1. Under **upphör ande**väljer du en varaktighet för vilken hemligheten är giltig och väljer sedan **Lägg till**.
+1. Under **upphör ande** väljer du en varaktighet för vilken hemligheten är giltig och väljer sedan **Lägg till**.
 1. Registrera hemlighetens **värde**. Du använder det här värdet som program hemlighet i programmets kod.
 
 #### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)

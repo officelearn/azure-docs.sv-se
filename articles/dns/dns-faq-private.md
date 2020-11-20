@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 9d183f2da7b916b1547fa1f81aa877b1b5488b41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24f2ca238288854b99160a25c3d4dcedf8ce3368
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308443"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952394"
 ---
 # <a name="azure-private-dns-faq"></a>Vanliga frågor och svar om Azure Private DNS
 
@@ -34,7 +34,7 @@ Nej. Privata zoner fungerar tillsammans med virtuella nätverk. Du kan använda 
 
 ## <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>Kan samma privata zon användas för flera virtuella nätverk för matchning?
 
-Ja. Du kan länka en privat DNS-zon med tusentals virtuella nätverk. Mer information finns i [Azure DNS gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+Ja. Du kan länka en privat DNS-zon med tusentals virtuella nätverk. Mer information finns i [Azure DNS gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>Kan ett virtuellt nätverk som tillhör en annan prenumeration länkas till en privat zon?
 
@@ -75,11 +75,11 @@ Ja. Privata zoner ersätter inte standard Azure-tillhandahållen internal.clouda
 ## <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>Kommer DNS-suffixet på virtuella datorer i ett länkat virtuellt nätverk att ändras till den privata zonen?
 
 Nej. DNS-suffixet på de virtuella datorerna i det länkade virtuella nätverket är kvar som standard Azure-tillhandahållet suffix ("*. internal.cloudapp.net"). Du kan manuellt ändra det här DNS-suffixet på dina virtuella datorer till den privata zonen.
-Information om hur du ändrar det här suffixet hittar du i [använda dynamisk DNS för att registrera värdnamn på din egen DNS-Server](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-ddns#windows-clients)
+Information om hur du ändrar det här suffixet hittar du i [använda dynamisk DNS för att registrera värdnamn på din egen DNS-Server](../virtual-network/virtual-networks-name-resolution-ddns.md#windows-clients)
 
 ## <a name="what-are-the-usage-limits-for-azure-dns-private-zones"></a>Vilka är användnings gränser för Azure DNS privata zoner?
 
-Se [Azure DNS gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) för information om användnings gränserna för Azure DNS privata zoner.
+Se [Azure DNS gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits) för information om användnings gränserna för Azure DNS privata zoner.
 
 ## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>Varför visas inte mina befintliga privata DNS-zoner i den nya Portal upplevelsen?
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 273e9f7ce65cdd15000b1cc4ac7c19cde5992992
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af671996722524de9af1a90ae8dfde27f814c8c2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396781"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951646"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Övervaka VPN-gatewayer med Network Watcher fel sökning
 
@@ -51,7 +51,7 @@ Innan du startar det här scenariot måste du ha följande krav:
 
 ### <a name="create-the-runbook"></a>Skapa Runbook
 
-Det första steget i att konfigurera exemplet är att skapa runbooken. I det här exemplet används ett Kör som-konto. Mer information om kör som-konton finns i [autentisera Runbooks med kör som-konto i Azure](../automation/automation-create-runas-account.md)
+Det första steget i att konfigurera exemplet är att skapa runbooken. I det här exemplet används ett Kör som-konto. Mer information om kör som-konton finns i [autentisera Runbooks med kör som-konto i Azure](../automation/manage-runas-account.md)
 
 ### <a name="step-1"></a>Steg 1
 
@@ -67,7 +67,7 @@ Klicka på **Lägg till en Runbook** för att starta Runbook-processen.
 
 ### <a name="step-3"></a>Steg 3
 
-Under **snabb registrering**klickar du på **skapa en ny Runbook** för att skapa runbooken.
+Under **snabb registrering** klickar du på **skapa en ny Runbook** för att skapa runbooken.
 
 ![Lägg till ett Runbook-blad][3]
 

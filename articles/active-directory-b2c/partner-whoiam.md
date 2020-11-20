@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 718ccbaa57ffe9f4ebaf4e8df448b602ba8cc3fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1b2c7513562e951e1098cf327780387ddf6a495
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293159"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953550"
 ---
 # <a name="tutorial-for-configuring-whoiam-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera WhoIAM med Azure Active Directory B2C
 
@@ -24,13 +24,13 @@ I den här självstudien ger vi vägledning om hur du konfigurerar [WhoIAM](http
 
 BRIMS är en uppsättning appar och tjänster som har distribuerats i din miljö. Det ger dig röst-, SMS-och e-postverifiering av användar basen. BRIMS fungerar tillsammans med din befintliga identitets-och åtkomst hanterings lösning och är plattforms oberoende.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du:
 
 - En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 
-- [En Azure AD B2C klient](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) som är länkad till din Azure-prenumeration.
+- [En Azure AD B2C klient](./tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 
 - Ett [utvärderings konto](https://www.whoiam.ai/contact-us/)för WhoIAM.
 
@@ -72,7 +72,7 @@ I följande arkitektur diagram visas implementeringen.
 
     - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): används för att lagra och hämta inställningar.
 
-    - [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#:~:text=Application%20Insights%2C%20a%20feature%20of%20Azure%20Monitor%2C%20is,professionals.%20Use%20it%20to%20monitor%20your%20live%20applications) (valfritt): används för att logga in på API-och administrations portalen.
+    - [Application Insights](../azure-monitor/app/app-insights-overview.md) (valfritt): används för att logga in på API-och administrations portalen.
 
 3. Distribuera BRIMS-API: et och BRIMS administrations portal i din Azure-miljö.
 
@@ -82,15 +82,15 @@ Mer information om WhoIAM-BRIMS finns i [produkt dokumentationen](https://www.wh
 
 ## <a name="test-the-user-flow"></a>Testa användar flödet
 
-1. Öppna Azure AD B2C-klienten. Under **principer**väljer du **Identity Experience Framework**.
+1. Öppna Azure AD B2C-klienten. Under **principer** väljer du **Identity Experience Framework**.
 
 2. Välj din tidigare skapade **SignUpSignIn**.
 
 3. Välj **Kör användar flöde** och sedan:
 
-   a. För **program**väljer du den registrerade appen (EXEMPLET är JWT).
+   a. För **program** väljer du den registrerade appen (EXEMPLET är JWT).
 
-   b. För **svars-URL**väljer du **omdirigerings-URL**: en.
+   b. För **svars-URL** väljer du **omdirigerings-URL**: en.
 
    c. Välj **Kör användar flöde**.
 
@@ -102,6 +102,6 @@ Mer information om WhoIAM-BRIMS finns i [produkt dokumentationen](https://www.wh
 
 Mer information finns i följande artiklar:
 
-- [Anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Anpassade principer i Azure AD B2C](./custom-policy-overview.md)
 
-- [Kom igång med anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Kom igång med anpassade principer i Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

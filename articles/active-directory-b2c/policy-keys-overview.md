@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 02294d4832224f1c94a4c586f3dcc455255bfbbf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 30348d7ca12ded2d1f4b0522a7cabeadf0553a07
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670110"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953363"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Översikt över princip nycklar i Azure Active Directory B2C
 
@@ -28,15 +28,15 @@ Azure Active Directory B2C (Azure AD B2C) lagrar hemligheter och certifikat i fo
  I den här artikeln beskrivs vad du behöver veta om de princip nycklar som används av Azure AD B2C.
 
 > [!NOTE]
-> För närvarande är konfiguration av princip nycklar begränsad till [anpassade principer](active-directory-b2c-get-started-custom.md) .
+> För närvarande är konfiguration av princip nycklar begränsad till [anpassade principer](./custom-policy-get-started.md) .
 
 Du kan konfigurera hemligheter och certifikat för att upprätta förtroende mellan tjänster i Azure Portal under menyn **princip nycklar** . Nycklar kan vara symmetriska eller asymmetriska. *Symmetrisk* kryptering eller kryptering med privat nyckel är den plats där en delad hemlighet används för att både kryptera och dekryptera data. *Asymmetrisk* kryptering eller kryptering med offentliga nycklar är ett kryptografiskt system som använder par nycklar, som består av offentliga nycklar som delas med det förlitande part programmet och privata nycklar som är kända för Azure AD B2C.
 
 ## <a name="policy-keyset-and-keys"></a>Princip-Keys och nycklar
 
-Resursen på den översta nivån för princip nycklar i Azure AD B2C är behållaren **nyckel uppsättning** . Varje nyckel uppsättning innehåller minst en **nyckel** . En nyckel har följande attribut:
+Resursen på den översta nivån för princip nycklar i Azure AD B2C är behållaren **nyckel uppsättning** . Varje nyckel uppsättning innehåller minst en **nyckel**. En nyckel har följande attribut:
 
-| Attribut |  Krävs | Kommentarer |
+| Attribut |  Obligatorisk | Kommentarer |
 | --- | --- |--- |
 | `use` | Ja | Användning: identifierar den avsedda användningen av den offentliga nyckeln. Kryptera data `enc` eller verifiera signaturen på data `sig` .|
 | `nbf`| Nej | Datum och tid för aktivering. |
@@ -58,26 +58,26 @@ Av säkerhets synpunkt kan Azure AD B2C regelbundet förnya nycklar eller direkt
 
 Om en Azure AD B2C nyckel uppsättning har flera nycklar, är det bara en av nycklarna som är aktiv i taget, baserat på följande kriterier:
 
-- Nyckel aktiveringen baseras på **aktiverings datumet** .
+- Nyckel aktiveringen baseras på **aktiverings datumet**.
   - Nycklarna sorteras efter aktiverings datum i stigande ordning. Nycklar med aktiverings datum längre fram i framtiden visas lägre i listan. Nycklar utan aktiverings datum finns längst ned i listan.
   - När aktuellt datum och tid är större än en nyckels aktiverings datum aktiverar Azure AD B2C nyckeln och slutar använda den tidigare aktiva nyckeln.
 - När den aktuella nyckelns förfallo tid har förflutit och nyckel behållaren innehåller en ny nyckel som är giltig för *inte före* och *utgångs* tid, aktive ras den nya nyckeln automatiskt.
 - När den aktuella nyckelns förfallo tid har förflutit och nyckel containern *inte* innehåller en ny nyckel som är giltig för *inte före* och *utgångs* tid kan Azure AD B2C inte använda den utgångna nyckeln. Azure AD B2C får ett fel meddelande inom en beroende komponent i den anpassade principen. För att undvika det här problemet kan du skapa en standard nyckel utan aktiverings-och förfallo datum som säkerhets-net.
-- Nyckelns slut punkt (JWKS-URI) för OpenId Connect-välkända konfigurations slut punkten visar de nycklar som kon figurer ATS i nyckel behållaren när nyckeln refereras till i den [tekniska JwtIssuer-profilen](https://docs.microsoft.com/azure/active-directory-b2c/jwt-issuer-technical-profile). Ett program som använder ett OIDC-bibliotek kommer automatiskt att hämta dessa metadata så att de använder rätt nycklar för att verifiera token. Mer information finns i använda [Microsoft Authentication Library](https://docs.microsoft.com/azure/active-directory/develop/msal-b2c-overview), som alltid hämtar de senaste token signerings nycklar automatiskt.
+- Nyckelns slut punkt (JWKS-URI) för OpenId Connect-välkända konfigurations slut punkten visar de nycklar som kon figurer ATS i nyckel behållaren när nyckeln refereras till i den [tekniska JwtIssuer-profilen](./jwt-issuer-technical-profile.md). Ett program som använder ett OIDC-bibliotek kommer automatiskt att hämta dessa metadata så att de använder rätt nycklar för att verifiera token. Mer information finns i använda [Microsoft Authentication Library](../active-directory/develop/msal-b2c-overview.md), som alltid hämtar de senaste token signerings nycklar automatiskt.
 
 ## <a name="policy-key-management"></a>Hantering av princip nyckel
 
-Om du vill hämta den aktuella aktiva nyckeln i en nyckel behållare använder du Microsoft Graph-API [getActiveKey](https://docs.microsoft.com/graph/api/trustframeworkkeyset-getactivekey) -slutpunkten.
+Om du vill hämta den aktuella aktiva nyckeln i en nyckel behållare använder du Microsoft Graph-API [getActiveKey](/graph/api/trustframeworkkeyset-getactivekey) -slutpunkten.
 
 Lägga till eller ta bort signerings-och krypterings nycklar:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. I Azure Portal söker du efter och väljer **Azure AD B2C** .
-1. På sidan Översikt, under **principer** , väljer du **Identity Experience Framework** .
+1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
+1. På sidan Översikt, under **principer**, väljer du **Identity Experience Framework**.
 1. Välj **princip nycklar** 
-    1. Om du vill lägga till en ny nyckel väljer du **Lägg till** .
-    1. Om du vill ta bort en ny nyckel markerar du nyckeln och väljer sedan **ta bort** . Om du vill ta bort nyckeln skriver du namnet på den nyckel behållare som ska tas bort. Azure AD B2C tar bort nyckeln och skapar en kopia av nyckeln med suffixet. bak.
+    1. Om du vill lägga till en ny nyckel väljer du **Lägg till**.
+    1. Om du vill ta bort en ny nyckel markerar du nyckeln och väljer sedan **ta bort**. Om du vill ta bort nyckeln skriver du namnet på den nyckel behållare som ska tas bort. Azure AD B2C tar bort nyckeln och skapar en kopia av nyckeln med suffixet. bak.
 
 ### <a name="replace-a-key"></a>Ersätta en nyckel
 
@@ -89,10 +89,3 @@ Nycklarna i en nyckel uppsättning är inte utbytbara eller flyttbara. Om du beh
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du använder Microsoft Graph för att automatisera en [nyckel uppsättning](microsoft-graph-operations.md#trust-framework-policy-keyset) och distribution av [princip nycklar](microsoft-graph-operations.md#trust-framework-policy-key) .
-
-
-
-
-
-
-

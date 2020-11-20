@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eca6297a704e1ef478c09baf227cf622d6890bb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84298863"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953159"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett Node.js-webb-API från en skrivbordsapp med Azure Active Directory B2C
 
@@ -51,21 +51,21 @@ Om du vill anropa ett skyddat webb-API från ett internt klient program måste d
 
 I den nödvändiga självstudien har du registrerat ett internt klient program med namnet *nativeapp1*. Följande steg konfigurerar den interna program registreringen med de API-omfattningar som du exponerade för *webapi1* i föregående avsnitt. Detta gör det möjligt för Skriv bords programmet att hämta en åtkomsttoken från Azure AD B2C att webb-API: et kan använda för att verifiera och ge begränsad åtkomst till resurser. Du konfigurerar och kör både desktop program och webb-API-kod exempel senare i självstudien.
 
-Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
+Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
-1. Välj **Appregistreringar**och välj sedan det interna klient program som ska ha åtkomst till API: et. Till exempel *nativeapp1*.
+1. Välj **Appregistreringar** och välj sedan det interna klient program som ska ha åtkomst till API: et. Till exempel *nativeapp1*.
 1. Under **Hantera**, Välj **API-behörigheter**.
-1. Under **konfigurerade behörigheter**väljer du **Lägg till en behörighet**.
+1. Under **konfigurerade behörigheter** väljer du **Lägg till en behörighet**.
 1. Välj fliken **Mina API: er** .
 1. Välj det API som det interna klient programmet ska beviljas åtkomst till. Till exempel *webapi1*.
-1. Under **behörighet**expanderar du **demo**och väljer sedan de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
+1. Under **behörighet** expanderar du **demo** och väljer sedan de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
 1. Välj **Lägg till behörigheter**. Vänta några minuter innan du fortsätter till nästa steg.
 1. Välj **bevilja administrativt godkännande för (ditt klient namn)**.
 1. Välj ditt inloggade administratörs konto eller logga in med ett konto i Azure AD B2C-klienten som har tilldelats minst administratörs rollen för *moln program* .
 1. Välj **Acceptera**.
-1. Välj **Uppdatera**och verifiera sedan att "beviljat..." visas under **status** för båda omfattningarna. Det kan ta några minuter innan behörigheterna har spridits.
+1. Välj **Uppdatera** och verifiera sedan att "beviljat..." visas under **status** för båda omfattningarna. Det kan ta några minuter innan behörigheterna har spridits.
 
 #### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
 

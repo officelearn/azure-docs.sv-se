@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: adb9bf48800062d2cc6976a88ec48c1993858dec
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 18979ba8cbc4e68bf79275059c6c1c976578c407
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089544"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953380"
 ---
 # <a name="secure-your-restful-services"></a>Skydda dina RESTful-tjänster 
 
@@ -28,7 +28,7 @@ Lär dig hur du integrerar en REST API inom Azure AD B2C användar resa i artikl
 
 I den här artikeln får du lära dig hur du skyddar REST API med antingen HTTP Basic, klient certifikat eller OAuth2-autentisering. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför stegen i någon av följande rikt linjer:
 
@@ -47,20 +47,20 @@ Om du vill konfigurera en REST API teknisk profil med HTTP Basic-autentisering s
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj din Azure AD B2C katalog.
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. På sidan Översikt väljer du **ID för identitets miljö**.
-1. Välj **princip nycklar**och välj sedan **Lägg till**.
-1. För **alternativ**väljer du **manuell**.
-1. I **namn**skriver du **RestApiUsername**.
+1. Välj **princip nycklar** och välj sedan **Lägg till**.
+1. För **alternativ** väljer du **manuell**.
+1. I **namn** skriver du **RestApiUsername**.
     Prefixet *B2C_1A_* kan läggas till automatiskt.
 1. I rutan **hemlighet** anger du REST API användar namn.
-1. För **nyckel användning**väljer du **kryptering**.
+1. För **nyckel användning** väljer du **kryptering**.
 1. Välj **Skapa**.
 1. Välj **princip nycklar** igen.
 1. Välj **Lägg till**.
-1. För **alternativ**väljer du **manuell**.
-1. I **namn**skriver du **RestApiPassword**.
+1. För **alternativ** väljer du **manuell**.
+1. I **namn** skriver du **RestApiPassword**.
     Prefixet *B2C_1A_* kan läggas till automatiskt.
 1. I rutan **hemlighet** anger du REST API lösen ordet.
-1. För **nyckel användning**väljer du **kryptering**.
+1. För **nyckel användning** väljer du **kryptering**.
 1. Välj **Skapa**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-http-basic-authentication"></a>Konfigurera din REST API tekniska profil för att använda HTTP Basic-autentisering
@@ -111,7 +111,7 @@ Autentisering av klient certifikat är en ömsesidigt certifikatbaserad autentis
 
 ### <a name="prepare-a-self-signed-certificate-optional"></a>Förbereda ett självsignerat certifikat (valfritt)
 
-Om du inte redan har ett certifikat kan du använda ett självsignerat certifikat för icke-produktions miljöer. I Windows kan du använda PowerShell: s [New-SelfSignedCertificate-](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet för att skapa ett certifikat.
+Om du inte redan har ett certifikat kan du använda ett självsignerat certifikat för icke-produktions miljöer. I Windows kan du använda PowerShell: s [New-SelfSignedCertificate-](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet för att skapa ett certifikat.
 
 1. Kör PowerShell-kommandot för att generera ett självsignerat certifikat. Ändra `-Subject` argumentet efter behov för ditt program och Azure AD B2C klient namn. Du kan också justera `-NotAfter` datumet för att ange ett annat förfallo datum för certifikatet.
     ```powershell
@@ -136,9 +136,9 @@ Om du inte redan har ett certifikat kan du använda ett självsignerat certifika
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj din Azure AD B2C katalog.
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. På sidan Översikt väljer du **ID för identitets miljö**.
-1. Välj **princip nycklar**och välj sedan **Lägg till**.
+1. Välj **princip nycklar** och välj sedan **Lägg till**.
 1. I rutan **alternativ** väljer du **överför**.
-1. Skriv **RestApiClientCertificate**i rutan **namn** .
+1. Skriv **RestApiClientCertificate** i rutan **namn** .
     Prefixet *B2C_1A_* läggs till automatiskt.
 1. I rutan **fil uppladdning** väljer du certifikatets PFX-fil med en privat nyckel.
 1. I rutan **lösen ord** anger du certifikatets lösen ord.
@@ -230,9 +230,9 @@ Ett anspråk ger tillfällig lagring av data under en Azure AD B2C princip körn
 
 ### <a name="acquiring-an-access-token"></a>Förvärva en åtkomsttoken 
 
-Du kan få en åtkomsttoken på ett av flera sätt: genom att hämta den [från en federerad identitetsprovider](idp-pass-through-custom.md), genom att anropa en REST API som returnerar en åtkomsttoken, genom att använda ett [ROPC-flöde](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc)eller genom att använda flödet för [klientautentiseringsuppgifter](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).  
+Du kan få en åtkomsttoken på ett av flera sätt: genom att hämta den [från en federerad identitetsprovider](idp-pass-through-custom.md), genom att anropa en REST API som returnerar en åtkomsttoken, genom att använda ett [ROPC-flöde](../active-directory/develop/v2-oauth-ropc.md)eller genom att använda flödet för [klientautentiseringsuppgifter](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
 
-I följande exempel används en REST API teknisk profil för att göra en begäran till Azure AD-token-slutpunkten med de klientautentiseringsuppgifter som skickas som HTTP Basic-autentisering. Om du vill konfigurera detta i Azure AD, se [Microsoft Identity Platform och OAuth 2,0-klientens autentiseringsuppgifter Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). Du kan behöva ändra detta till ett gränssnitt med din identitets leverantör. 
+I följande exempel används en REST API teknisk profil för att göra en begäran till Azure AD-token-slutpunkten med de klientautentiseringsuppgifter som skickas som HTTP Basic-autentisering. Om du vill konfigurera detta i Azure AD, se [Microsoft Identity Platform och OAuth 2,0-klientens autentiseringsuppgifter Flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Du kan behöva ändra detta till ett gränssnitt med din identitets leverantör. 
 
 För ServiceUrl ersätter du namnet på din klient organisation med namnet på din Azure AD-klient. Se [RESTful Technical Profile](restful-technical-profile.md) Reference för alla alternativ som är tillgängliga.
 
@@ -267,11 +267,11 @@ Om du vill stödja autentisering med Bearer-token i din anpassade princip ändra
 1. Öppna princip filen *TrustFrameworkExtensions.xml* tillägg i arbets katalogen.
 1. Sök efter `<TechnicalProfile>` noden som innehåller `Id="REST-API-SignUp"` .
 1. Leta upp `<Metadata>` elementet.
-1. Ändra *AuthenticationType* till *Bearer*på följande sätt:
+1. Ändra *AuthenticationType* till *Bearer* på följande sätt:
     ```xml
     <Item Key="AuthenticationType">Bearer</Item>
     ```
-1. Ändra eller Lägg till *UseClaimAsBearerToken* i *bearerToken*enligt följande. *BearerToken* är namnet på det anspråk som Bearer-token kommer att hämtas från (utgående anspråk från `SecureREST-AccessToken` ).
+1. Ändra eller Lägg till *UseClaimAsBearerToken* i *bearerToken* enligt följande. *BearerToken* är namnet på det anspråk som Bearer-token kommer att hämtas från (utgående anspråk från `SecureREST-AccessToken` ).
 
     ```xml
     <Item Key="UseClaimAsBearerToken">bearerToken</Item>
@@ -318,11 +318,11 @@ Om du vill konfigurera en REST API teknisk profil med en OAuth2 Bearer-token hä
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj din Azure AD B2C katalog.
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. På sidan Översikt väljer du **ID för identitets miljö**.
-1. Välj **princip nycklar**och välj sedan **Lägg till**.
-1. För **alternativ**väljer du `Manual` .
+1. Välj **princip nycklar** och välj sedan **Lägg till**.
+1. För **alternativ** väljer du `Manual` .
 1. Ange ett **namn** för princip nyckeln. Exempelvis `RestApiBearerToken`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
-1. I **hemlighet**anger du din klient hemlighet som du tidigare har spelat in.
-1. För **nyckel användning**väljer du `Encryption` .
+1. I **hemlighet** anger du din klient hemlighet som du tidigare har spelat in.
+1. För **nyckel användning** väljer du `Encryption` .
 1. Välj **Skapa**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-the-bearer-token-policy-key"></a>Konfigurera din REST API tekniska profil för att använda princip nyckeln för Bearer-token
@@ -367,4 +367,4 @@ Följande är ett exempel på en RESTful-teknisk profil som kon figurer ATS med 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om elementet [RESTful Technical Profile](restful-technical-profile.md) i referensen IEF. 
+- Läs mer om elementet [RESTful Technical Profile](restful-technical-profile.md) i referensen IEF.

@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 0b89b4f8-6d6c-45d7-8d20-fe93430217ca
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6945be2d9a5d7cd56556c7d89998b21efe26d80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d9e611ea3bd1243ef93bd5731199c549ed7e431
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314087"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951306"
 ---
 # <a name="create-a-high-availability-sap-netweaver-multi-sid-configuration"></a>Skapa en hög tillgänglig SAP NetWeaver multi-SID-konfiguration
 
@@ -55,7 +56,7 @@ Den här artikeln fokuserar på hur du flyttar från en enda ASCS/SCS-installati
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du har redan konfigurerat ett WSFC-kluster som används för en SAP ASCS/SCS-instans, enligt beskrivningen i [hand boken för SAP-NetWeaver med hög tillgänglighet på virtuella Windows-datorer][sap-ha-guide] och som visas i det här diagrammet.
 
 ![Hög tillgänglighet SAP ASCS/SCS-instans][sap-ha-guide-figure-6001]

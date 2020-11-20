@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c753e9a18f9869e1bf11aa437fb60484f2553e17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bec7ffe28fbcdafd365f9867ebecaee5d2647e5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259262"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953701"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera LexisNexis med Azure Active Directory B2C
 
@@ -27,13 +27,13 @@ Den här integrationen tillhandahåller profilering baserat på några få delar
 - Telefonnummer
 - Profilering av information som samlas in från användarens dator
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du:
 
 - En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 
-- [En Azure AD B2C klient](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) som är länkad till din Azure-prenumeration.
+- [En Azure AD B2C klient](./tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -73,16 +73,16 @@ När ett konto har skapats får du den information du behöver för API-konfigur
 
 ### <a name="part-1---deploy-the-api"></a>Del 1 – distribuera API: et
 
-Distribuera den tillhandahållna [API-koden](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) till en Azure-tjänst. Du kan publicera koden från Visual Studio genom att följa dessa [anvisningar](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Distribuera den tillhandahållna [API-koden](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) till en Azure-tjänst. Du kan publicera koden från Visual Studio genom att följa dessa [anvisningar](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Du behöver URL: en för den distribuerade tjänsten för att konfigurera Azure AD med nödvändiga inställningar.
 
 ### <a name="part-2---configure-the-api"></a>Del 2 – Konfigurera API: et
 
-Program inställningar kan [konfigureras i App Service i Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings).  Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
+Program inställningar kan [konfigureras i App Service i Azure](../app-service/configure-common.md#configure-app-settings).  Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
 
-| Programinställningar | Källa | Obs! |
+| Programinställningar | Källa | Kommentarer |
 | :-------- | :------------| :-----------|
 |ThreatMetrix: URL | Konfiguration av ThreatMetrix-konto |     |
 |ThreatMetrix: OrgId | Konfiguration av ThreatMetrix-konto |     |
@@ -95,13 +95,13 @@ Program inställningar kan [konfigureras i App Service i Azure](https://docs.mic
 
 Den här lösningen använder anpassade UI-mallar som läses in av Azure AD B2C. Dessa UI-mallar utför profilering som skickas direkt till ThreatMetrix-tjänsten.
 
-Se de här [anvisningarna](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#custom-page-content-walkthrough) för att distribuera de inkluderade [UI-filerna](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) till ett Blob Storage-konto. Anvisningarna är att konfigurera ett Blob Storage-konto, konfigurera CORS och aktivera offentlig åtkomst.
+Se de här [anvisningarna](./custom-policy-ui-customization.md#custom-page-content-walkthrough) för att distribuera de inkluderade [UI-filerna](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) till ett Blob Storage-konto. Anvisningarna är att konfigurera ett Blob Storage-konto, konfigurera CORS och aktivera offentlig åtkomst.
 
 Användar gränssnittet baseras på den [blå mallen för havs](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). Alla länkar i användar gränssnittet bör uppdateras för att referera till den distribuerade platsen. I mappen UI söker du efter och ersätter https://yourblobstorage/blobcontainer med den distribuerade platsen.
 
 ### <a name="part-4---create-api-policy-keys"></a>Del 4 – Skapa API-principinställningar
 
-Referera till det här [dokumentet](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#add-rest-api-username-and-password-policy-keys) och skapa två princip nycklar – ett för API-användarnamnet och ett för det API-lösenord som du definierade ovan.
+Referera till det här [dokumentet](./secure-rest-api.md#add-rest-api-username-and-password-policy-keys) och skapa två princip nycklar – ett för API-användarnamnet och ett för det API-lösenord som du definierade ovan.
 
 Exempel principen använder följande nyckel namn:
 
@@ -122,7 +122,7 @@ I den angivna [TrustFrameworkExtensions-principen](https://github.com/azure-ad-b
 
 ### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>Del 7 – konfigurera principen för Azure AD B2C
 
-Se det här [dokumentet](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) för att hämta [Start paket för lokala konton](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) och konfigurera [principen](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) för Azure AD B2C klient.
+Se det här [dokumentet](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) för att hämta [Start paket för lokala konton](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) och konfigurera [principen](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) för Azure AD B2C klient.
 
 >[!NOTE]
 >Uppdatera de angivna principerna så att de relaterar till din angivna klient.
@@ -153,6 +153,6 @@ Se det här [dokumentet](https://docs.microsoft.com/azure/active-directory-b2c/c
 
 Mer information finns i följande artiklar:
 
-- [Anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Anpassade principer i Azure AD B2C](./custom-policy-overview.md)
 
-- [Kom igång med anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Kom igång med anpassade principer i Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

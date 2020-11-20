@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f99c5b9362380690badce832c3dd540137d35ac
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 07897823a3ba3b83e240e8e8dc005ea13b036fce
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215422"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952054"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Program typer som kan användas i Active Directory B2C
  
@@ -141,7 +141,7 @@ Program som innehåller tids krävande processer eller som fungerar utan föreko
 
 Även om OAuth 2,0-klientens autentiseringsuppgifter för tilldelning av klient inte stöds direkt av Azure AD B2C-Autentiseringstjänsten, kan du konfigurera flödet för autentiseringsuppgifter för klienten med hjälp av Azure AD och Microsoft Identity Platform/token-slutpunkten för ett program i din Azure AD B2C-klient. En Azure AD B2C-klient delar vissa funktioner med Azure AD Enterprise-klienter.
 
-Information om hur du konfigurerar inloggnings flödet för klienten finns i [Azure Active Directory v 2.0 och OAuth 2,0-klientens autentiseringsuppgifter Flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). En lyckad autentisering resulterar i att en token formateras så att den kan användas av Azure AD enligt beskrivningen i [referens för Azure AD-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Information om hur du konfigurerar inloggnings flödet för klienten finns i [Azure Active Directory v 2.0 och OAuth 2,0-klientens autentiseringsuppgifter Flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). En lyckad autentisering resulterar i att en token formateras så att den kan användas av Azure AD enligt beskrivningen i [referens för Azure AD-token](../active-directory/develop/id-tokens.md).
 
 Anvisningar om hur du registrerar ett hanterings program finns i [hantera Azure AD B2C med Microsoft Graph](microsoft-graph-get-started.md).
 
@@ -155,7 +155,7 @@ Det här scenariot med länkade webb-API:er kan användas genom en tilldelning a
 
 Redigera inte Azure AD B2C program på följande sätt:
 
-- På andra program hanterings [portaler som program registrerings portalen](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
+- På andra programhanteringsportaler, som [Programregistreringsportalen](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
 - Använda Graph API eller PowerShell.
 
 Om du redigerar Azure AD B2C-programmet utanför Azure Portal blir det ett felaktigt program och kan inte längre användas med Azure AD B2C. Ta bort programmet och skapa det igen.

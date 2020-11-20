@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5528607b0559dad246262748c83c9d359ee2144e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c362ce256259606c85af0a7e13ccde1715bb012b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385747"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953941"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrera ett OWIN webb-API till b2clogin.com
 
@@ -42,7 +42,7 @@ Du måste först hämta slut punkts-URI: er för token för varje utfärdare som
 Börja med att välja ett befintligt användar flöde:
 
 1. Navigera till din Azure AD B2C-klient i [Azure Portal](https://portal.azure.com)
-1. Under **principer**väljer du **användar flöden (principer)**
+1. Under **principer** väljer du **användar flöden (principer)**
 1. Välj en befintlig princip, till exempel *B2C_1_signupsignin1*, och välj sedan **Kör användar flöde**
 1. Under rubriken **Kör användar flöde** längst upp på sidan väljer du hyperlänken för att navigera till OpenID Connect Discovery-slutpunkten för det användar flödet.
 
@@ -88,7 +88,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 I det här avsnittet uppdaterar du koden för att ange att både token utfärdarens slut punkter är giltiga.
 
 1. Öppna lösningen **B2C-WebAPI-dotNet. SLN** i Visual Studio
-1. I **TaskService** -projektet öppnar du filen *TaskService \\ App_Start \\ * * startup.auth.cs** * i redigeraren
+1. I **TaskService** -projektet öppnar du filen * TaskService \\ App_Start \\ **startup.auth.cs** _ _ i redigeraren
 1. Lägg till följande `using` direktiv överst i filen:
 
     `using System.Collections.Generic;`
@@ -107,7 +107,7 @@ I det här avsnittet uppdaterar du koden för att ange att både token utfärdar
     };
     ```
 
-`TokenValidationParameters` tillhandahålls av MSAL.NET och används av OWIN mellanprogram i nästa avsnitt av kod i *startup.auth.cs*. När flera giltiga utfärdare har angetts görs OWIN program pipelinen medveten om att båda token-slutpunkterna är giltiga utfärdare.
+`TokenValidationParameters` tillhandahålls av MSAL.NET och används av OWIN mellanprogram i nästa avsnitt av kod i _Startup. auth. cs *. När flera giltiga utfärdare har angetts görs OWIN program pipelinen medveten om att båda token-slutpunkterna är giltiga utfärdare.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -123,7 +123,7 @@ Som tidigare nämnts tillhandahåller andra OWIN-bibliotek vanligt vis en liknan
 
 Med båda URI: erna som stöds av ditt webb-API, behöver du nu uppdatera webb programmet så att det hämtar tokens från b2clogin.com-slutpunkten.
 
-Du kan till exempel konfigurera exempel webb programmet så att det använder den nya slut punkten genom att ändra `ida:AadInstance` värdet i filen *TaskWebApp \\ * * Web.config** * i **TaskWebApp** -projektet.
+Du kan till exempel konfigurera exempel webb programmet att använda den nya slut punkten genom att ändra `ida:AadInstance` värdet i *filen TaskWebApp \\ **Web.config** _ _* TaskWebApp * * Project.
 
 Ändra `ida:AadInstance` värdet i *Web.config* av TaskWebApp så att det refererar till `{your-b2c-tenant-name}.b2clogin.com` i stället för `login.microsoftonline.com` .
 
@@ -154,6 +154,6 @@ Mer information om de olika typerna av säkerhetstoken som genereras av Azure AD
 [sample-repo]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi
 
 <!-- LINKS - Internal -->
-[katana]: https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/
-[validissuers]: https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters.validissuers
-[tokenvalidationparameters]: https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters
+[katana]: /aspnet/aspnet/overview/owin-and-katana/
+[validissuers]: /dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters.validissuers
+[tokenvalidationparameters]: /dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters

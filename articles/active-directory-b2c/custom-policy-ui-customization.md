@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb833ff35dae4fe1c0c27204ec66fa6b4cdb82c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 340c9629af89bfacb85b37503743fc5770070ae3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388892"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951850"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started
 
 Om du vill konfigurera UI-anpassning kopierar du **ContentDefinition** och dess underordnade element från bas filen till tilläggs filen.
 
-1. Öppna bas filen för din princip. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> . Den här bas filen är en av de principfiler som ingår i den anpassade principens start paket, som du borde ha skaffat i förutsättningen, [Kom igång med anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Öppna bas filen för din princip. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> . Den här bas filen är en av de principfiler som ingår i den anpassade principens start paket, som du borde ha skaffat i förutsättningen, [Kom igång med anpassade principer](./custom-policy-get-started.md).
 1. Sök efter och kopiera hela innehållet i **ContentDefinitions** -elementet.
 1. Öppna tilläggs filen. Till exempel *TrustFrameworkExtensions.xml*. Sök efter **BuildingBlocks** -elementet. Om elementet inte finns lägger du till det.
 1. Klistra in hela innehållet i **ContentDefinitions** -elementet som du kopierade som ett underordnat objekt till **BuildingBlocks** -elementet.
@@ -66,7 +66,7 @@ Om du vill konfigurera UI-anpassning kopierar du **ContentDefinition** och dess 
 
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 1. Sök efter och välj **Azure AD B2C**.
-1. Under **principer**väljer du **Identity Experience Framework**.
+1. Under **principer** väljer du **Identity Experience Framework**.
 1. Välj **överför anpassad princip**.
 1. Ladda upp tilläggs filen som du har ändrat tidigare.
 

@@ -3,16 +3,17 @@ title: Konfigurera Oracle ASM på en virtuell Azure Linux-dator | Microsoft Docs
 description: Få snabbt till gång till Oracle ASM i Azure-miljön.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: b9653cded11edd36602caea0ecd50cfb8dd05ebe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e5593d530891e39404e0b9760861f2f22ae333d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547188"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952717"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Konfigurera Oracle ASM på en virtuell Azure Linux-dator  
 
@@ -144,7 +145,7 @@ Mer information om hur du installerar Oracle ASM finns i [Oracle ASMLib Download
 
 ## <a name="set-up-oracle-asm"></a>Konfigurera Oracle ASM
 
-I den här självstudien är standard användaren *rutnät* och standard gruppen är *asmadmin* . Se till att *Oracle* -användaren är en del av asmadmin-gruppen. Utför följande steg för att konfigurera din Oracle ASM-installation:
+I den här självstudien är standard användaren *rutnät* och standard gruppen är *asmadmin*. Se till att *Oracle* -användaren är en del av asmadmin-gruppen. Utför följande steg för att konfigurera din Oracle ASM-installation:
 
 1. Konfigurationen av driv rutinen för Oracle ASM-biblioteket omfattar att definiera standard användaren (rutnät) och standard gruppen (asmadmin) samt att konfigurera enheten så att den startar vid start (Välj y) och för att söka efter diskar vid start (Välj y). Du måste besvara prompterna från följande kommando:
 
@@ -385,7 +386,7 @@ Slutför följande steg för att ladda ned och förbereda Oracle Grid Infrastruc
    vi /etc/waagent.conf
    ```
 
-   Sök efter `ResourceDisk.SwapSizeMB` och ändra värdet till **8192** . Du måste klicka `insert` för att ange infognings läge, skriva in värdet **8192** och sedan på `esc` för att återgå till kommando läge. Skriv och tryck på om du vill skriva ändringarna och avsluta filen `:wq` `enter` .
+   Sök efter `ResourceDisk.SwapSizeMB` och ändra värdet till **8192**. Du måste klicka `insert` för att ange infognings läge, skriva in värdet **8192** och sedan på `esc` för att återgå till kommando läge. Skriv och tryck på om du vill skriva ändringarna och avsluta filen `:wq` `enter` .
    
    > [!NOTE]
    > Vi rekommenderar starkt att du alltid använder `WALinuxAgent` för att konfigurera växlings utrymme så att det alltid skapas på den lokala tillfälliga disken (temporär disk) för bästa prestanda. Mer information finns i [så här lägger du till en växlings fil i Linux Azure Virtual Machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
@@ -420,15 +421,15 @@ Att konfigurera Oracle ASM kräver ett grafiskt gränssnitt för att slutföra i
    > Nyckeln måste innehålla strängen `ssh-rsa` . Dessutom måste innehållet i nyckeln vara en enskild textrad.
    >  
 
-6. Starta SparaTillFil på klient systemet. I rutan **kategori** går du till **Connection**  >  **SSH**  >  **auth** . I rutan **privat nyckel fil för autentisering** , bläddra till den nyckel som du skapade tidigare.
+6. Starta SparaTillFil på klient systemet. I rutan **kategori** går du till **Connection**  >  **SSH**  >  **auth**. I rutan **privat nyckel fil för autentisering** , bläddra till den nyckel som du skapade tidigare.
 
    ![Skärm bild av alternativen för SSH-autentisering](./media/oracle-asm/setprivatekey.png)
 
-7. I fönstret **kategori** går du till **anslutnings** -  >  **SSH** -  >  **begäran om x11** . Markera kryss rutan **aktivera vidarebefordran av begäran om x11** .
+7. I fönstret **kategori** går du till **anslutnings**-  >  **SSH**-  >  **begäran om x11**. Markera kryss rutan **aktivera vidarebefordran av begäran om x11** .
 
    ![Skärm bild av alternativen för vidarebefordring av SSH-begäran om X11](./media/oracle-asm/enablex11.png)
 
-8. I fönstret **kategori** går du till **session** . Ange din Oracle ASM VM `<publicIPaddress>` i dialog rutan värdnamn, Fyll i ett nytt `Saved Session` namn och klicka sedan på på `Save` .  När du har sparat `open` det klickar du på för att ansluta till din virtuella Oracle ASM-dator.  Första gången du ansluter får du en varning om att fjärrdatorn inte är cachelagrad i registret. Klicka på för `yes` att lägga till den och fortsätta.
+8. I fönstret **kategori** går du till **session**. Ange din Oracle ASM VM `<publicIPaddress>` i dialog rutan värdnamn, Fyll i ett nytt `Saved Session` namn och klicka sedan på på `Save` .  När du har sparat `open` det klickar du på för att ansluta till din virtuella Oracle ASM-dator.  Första gången du ansluter får du en varning om att fjärrdatorn inte är cachelagrad i registret. Klicka på för `yes` att lägga till den och fortsätta.
 
    ![Skärm bild av alternativen för SparaTillFil-sessioner](./media/oracle-asm/puttysession.png)
 
@@ -436,7 +437,7 @@ Att konfigurera Oracle ASM kräver ett grafiskt gränssnitt för att slutföra i
 
 Slutför följande steg för att installera Oracle Grid-infrastrukturen:
 
-1. Logga in som **rutnät** . (Du bör kunna logga in utan att behöva ange ett lösen ord.) 
+1. Logga in som **rutnät**. (Du bör kunna logga in utan att behöva ange ett lösen ord.) 
 
    > [!NOTE]
    > Om du kör Windows kontrollerar du att du har startat Xming innan du påbörjar installationen.
@@ -448,7 +449,7 @@ Slutför följande steg för att installera Oracle Grid-infrastrukturen:
 
    12C version 1 av Oracle Grid Infrastructure öppnas. (Det kan ta några minuter innan installations programmet startar.)
 
-2. På sidan **Välj installations alternativ** väljer du **Installera och konfigurera Oracle Grid-infrastruktur för en fristående server** .
+2. På sidan **Välj installations alternativ** väljer du **Installera och konfigurera Oracle Grid-infrastruktur för en fristående server**.
 
    ![Skärm bild av installations alternativ sidan Välj installations alternativ](./media/oracle-asm/install01.png)
 
@@ -456,9 +457,9 @@ Slutför följande steg för att installera Oracle Grid-infrastrukturen:
 
 4. På sidan **skapa ASM-disk grupp** :
    - Ange ett namn för disk gruppen.
-   - Under **redundans** väljer du **extern** .
-   - Under **storlek på allokeringsenhet** väljer du **4** .
-   - Under **Lägg till diskar** väljer du **ORCLASMSP** .
+   - Under **redundans** väljer du **extern**.
+   - Under **storlek på allokeringsenhet** väljer du **4**.
+   - Under **Lägg till diskar** väljer du **ORCLASMSP**.
    - Klicka på `next`.
 
 5. På sidan **Ange ASM-lösenord** väljer du alternativet **Använd samma lösen ord för dessa konton** och anger ett lösen ord.
@@ -508,9 +509,9 @@ Utför följande steg för att konfigurera din Oracle ASM-installation:
 
 3. I dialog rutan **skapa disk grupp** :
 
-   - Ange disk gruppens namn **data** .
-   - Under **Välj medlems diskar** väljer du **ORCL_DATA** och **ORCL_DATA1** .
-   - Under **storlek på allokeringsenhet** väljer du **4** .
+   - Ange disk gruppens namn **data**.
+   - Under **Välj medlems diskar** väljer du **ORCL_DATA** och **ORCL_DATA1**.
+   - Under **storlek på allokeringsenhet** väljer du **4**.
    - `ok`Skapa disk gruppen genom att klicka på.
    - `ok`Stäng bekräftelse fönstret genom att klicka på.
 
@@ -520,10 +521,10 @@ Utför följande steg för att konfigurera din Oracle ASM-installation:
 
 5. I dialog rutan **skapa disk grupp** :
 
-   - Ange disk grupp namnet **FRA** .
-   - Välj **extern (ingen)** under **redundans** .
-   - Under **Välj medlems diskar** väljer du **ORCL_FRA** .
-   - Under **storlek på allokeringsenhet** väljer du **4** .
+   - Ange disk grupp namnet **FRA**.
+   - Välj **extern (ingen)** under **redundans**.
+   - Under **Välj medlems diskar** väljer du **ORCL_FRA**.
+   - Under **storlek på allokeringsenhet** väljer du **4**.
    - `ok`Skapa disk gruppen genom att klicka på.
    - `ok`Stäng bekräftelse fönstret genom att klicka på.
 
@@ -553,9 +554,9 @@ Oracle Database-programvaran är redan installerad på Azure Marketplace-avbildn
 
    - Ange ett namn för databasen.
    - För **lagrings typ** ser du till att **Automatisk lagrings hantering (ASM)** är markerat.
-   - Använd standard platsen för den föreslagna ASM-platsen för **databasfiler** .
+   - Använd standard platsen för den föreslagna ASM-platsen för **databasfiler**.
    - För **snabb återställnings område** använder du standard platsen som rekommenderas av ASM.
-   - Ange ett **Administratörs lösen ord** och **Bekräfta lösen ordet** .
+   - Ange ett **Administratörs lösen ord** och **Bekräfta lösen ordet**.
    - Se till `create as container database` har valts.
    - Ange ett `pluggable database name` värde.
 

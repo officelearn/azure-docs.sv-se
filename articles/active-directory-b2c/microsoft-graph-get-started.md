@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d95b45b9be0893282a532bae9ec0278c3a141686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e32f50e02e45487830c5ea7ff476a0571960f6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385934"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954009"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Hantera Azure AD B2C med Microsoft Graph
 
@@ -49,10 +49,10 @@ Innan dina skript och program kan interagera med [Microsoft Graph-API][ms-graph-
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
-1. Välj **Appregistreringar**och välj sedan **ny registrering**.
+1. Välj **Appregistreringar** och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *managementapp1*.
 1. Välj **konton endast i den här organisations katalogen**.
-1. Under **behörigheter**avmarkerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörigheter* .
+1. Under **behörigheter** avmarkerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörigheter* .
 1. Välj **Register** (Registrera).
 1. Registrera **program-ID: t (Client)** som visas på program översikts sidan. Du använder det här värdet i ett senare steg.
 
@@ -66,7 +66,7 @@ Ge sedan de registrerade program behörigheterna för att manipulera klient resu
 
 [!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
-Nu har du ett program som har behörighet att *skapa*, *läsa*, *Uppdatera*och *ta bort* användare i din Azure AD B2C klient. Fortsätt till nästa avsnitt för att lägga till behörigheter för *lösen ords uppdatering* .
+Nu har du ett program som har behörighet att *skapa*, *läsa*, *Uppdatera* och *ta bort* användare i din Azure AD B2C klient. Fortsätt till nästa avsnitt för att lägga till behörigheter för *lösen ords uppdatering* .
 
 ## <a name="enable-user-delete-and-password-update"></a>Aktivera användar borttagning och lösen ords uppdatering
 
@@ -76,7 +76,7 @@ Om programmet eller skriptet måste ta bort användare eller uppdatera sina lös
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och använd filtret för **katalog + prenumeration** för att växla till Azure AD B2C klienten.
 1. Sök efter och välj **Azure AD B2C**.
-1. Under **Hantera**väljer du **roller och administratörer**.
+1. Under **Hantera** väljer du **roller och administratörer**.
 1. Välj rollen **användar administratör** .
 1. Välj **Lägg till tilldelningar**.
 1. I rutan **Välj** text anger du namnet på det program som du registrerade tidigare, till exempel *managementapp1*. Välj ditt program när det visas i Sök resultatet.
@@ -85,12 +85,12 @@ Om programmet eller skriptet måste ta bort användare eller uppdatera sina lös
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har registrerat ditt hanterings program och har beviljat den nödvändiga behörigheten kan dina program och tjänster (till exempel Azure-pipeliner) använda sina autentiseringsuppgifter och behörigheter för att interagera med Microsoft Graph-API: et. 
 
-* [Hämta en åtkomsttoken från Azure AD](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
-* [Använd åtkomsttoken för att anropa Microsoft Graph](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
+* [Hämta en åtkomsttoken från Azure AD](/graph/auth-v2-service#4-get-an-access-token)
+* [Använd åtkomsttoken för att anropa Microsoft Graph](/graph/auth-v2-service#4-get-an-access-token)
 * [B2C-åtgärder som stöds av Microsoft Graph](microsoft-graph-operations.md)
 * [Hantera Azure AD B2C användar konton med Microsoft Graph](manage-user-accounts-graph-api.md)
 * [Hämta gransknings loggar med Azure AD repor ting API](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
-[ms-graph]: https://docs.microsoft.com/graph/
+[ms-graph]: /graph/
 [ms-graph-api]: https://docs.microsoft.com/graph/api/overview

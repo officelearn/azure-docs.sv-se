@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 2ce38add-1078-4bb9-a1da-6f407a9bc910
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 14ffcbf2e111e052f4b45259b0b25664049d3b3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62803bd450db351290bbc12d650d23a4148a4536
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855373"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951204"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Förbered Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser
 
@@ -218,8 +219,8 @@ Läs följande artikel innan du påbörjar installationen:
 | --- | --- | --- | --- |
 | Första klusternoden ASCS/SCS-kluster | ASCs-1 | 10.0.6.4 | ASCs – som |
 | Andra klusternoden ASCS/SCS-kluster | ASCs-2 | 10.0.6.5 | ASCs – som |
-| Kluster nätverks namn |ASCs-cl | 10.0.6.6 | Saknas |
-| SAP PR1 ASCS-kluster nätverks namn |PR1 – ASCs | 10.0.6.7 | Saknas |
+| Kluster nätverks namn |ASCs-cl | 10.0.6.6 | saknas |
+| SAP PR1 ASCS-kluster nätverks namn |PR1 – ASCs | 10.0.6.7 | saknas |
 
 
 **Tabell 1**: ASCS/SCS-kluster
@@ -236,8 +237,8 @@ Läs följande artikel innan du påbörjar installationen:
 | Första klusternoden | SOFS-1 | 10.0.6.10 | SOFS – som |
 | Andra klusternoden | SOFS-2 | 10.0.6.11 | SOFS – som |
 | Tredje klusternoden | SOFS-3 | 10.0.6.12 | SOFS – som |
-| Kluster nätverks namn | SOFS-cl | 10.0.6.13 | Saknas |
-| Globalt värd namn för SAP | sapglobal | Använd IP-adresser för alla klusternoder | Saknas |
+| Kluster nätverks namn | SOFS-cl | 10.0.6.13 | saknas |
+| Globalt värd namn för SAP | sapglobal | Använd IP-adresser för alla klusternoder | saknas |
 
 **Tabell 3**: Scale-Out fil Server kluster
 
@@ -259,9 +260,9 @@ Förbered Azure-infrastrukturen genom att slutföra följande:
 * När du använder Windows Server 2016 rekommenderar vi att du konfigurerar [Azure Cloud-vittnet][deploy-cloud-witness].
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Distribuera Scale-Out fil Server kluster manuellt 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Distribuera Scale-Out fil Server kluster manuellt 
 
-Du kan distribuera Microsoft Scale-Out fil Server kluster manuellt, enligt beskrivningen i blogg [Lagringsdirigering i Azure][ms-blog-s2d-in-azure]genom att köra följande kod:  
+Du kan distribuera Microsoft Scale-Out fil Server kluster manuellt, enligt beskrivningen i blogg [Lagringsdirigering i Azure][ms-blog-s2d-in-azure]genom att köra följande kod:  
 
 
 ```powershell
@@ -315,7 +316,7 @@ Vi rekommenderar att du använder Managed Disks.
 _**Bild 1**: gränssnitts skärmen för Scale-Out mall för Hanteraren för fil server resurser med Managed disks_
 
 Gör följande i mallen:
-1. Ange det minsta antalet **2**i rutan **antal virtuella datorer** .
+1. Ange det minsta antalet **2** i rutan **antal virtuella datorer** .
 2. I rutan **disk antal för virtuell dator** anger du ett minsta disk antal på **3** (2 diskar + 1 reserv disk = 3 diskar).
 3. I rutan **SOFS Name (namn** ) anger du den globala SAP-värdens nätverks namn, **sapglobalhost**.
 4. I rutan **resurs namn** anger du fil resursens namn, **sapmnt**.

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 921d9e2138c8aa9c09535a673a7cd2d32e9cddad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f4a71740c487896208a3da7bf35bb39899c56937
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89271591"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952071"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Identitets skydd och villkorlig åtkomst för Azure AD B2C
 
@@ -60,7 +60,7 @@ I Azure AD B2C kan du utlösa villkor för villkorlig åtkomst från inbyggda an
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-Du kan också hantera principer för villkorlig åtkomst i Azure AD B2C med Microsoft Graph API. Mer information finns i [dokumentationen för villkorlig åtkomst](../active-directory/conditional-access/overview.md) och [Microsoft Graph referensen](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md).
+Du kan också hantera principer för villkorlig åtkomst i Azure AD B2C med Microsoft Graph API. Mer information finns i [dokumentationen för villkorlig åtkomst](../active-directory/conditional-access/overview.md) och [Microsoft Graph referensen](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

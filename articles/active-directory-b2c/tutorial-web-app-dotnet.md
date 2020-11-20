@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 5957ccb7bd7ff7e7acc0ed76899850bbca09ad6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c3c63b6116e02e8a742b69e90c11e182d72ab2e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664808"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953040"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Självstudie: aktivera autentisering i ett webb program med hjälp av Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ I självstudien som du avslutade som en del av förutsättningarna registrerade 
 
 ### <a name="add-a-redirect-uri-reply-url"></a>Lägg till en omdirigerings-URI (svars-URL)
 
-Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
+Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
@@ -53,7 +53,7 @@ Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår 
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar**, Välj fliken **ägda program** och välj sedan *webapp1* -programmet.
-1. Under **webb**väljer du länken **Lägg till URI** , anger `https://localhost:44316` och väljer sedan **Spara**.
+1. Under **webb** väljer du länken **Lägg till URI** , anger `https://localhost:44316` och väljer sedan **Spara**.
 1. Välj **Översikt**.
 1. Registrera **program-ID (Client)** för användning i ett senare steg när du konfigurerar webb programmet.
 
@@ -77,7 +77,7 @@ Skapa sedan en klient hemlighet för det registrerade webb programmet. Kod exemp
 
 ## <a name="configure-the-sample"></a>Konfigurera exemplet
 
-I den här självstudien konfigurerar du ett exempel som du kan ladda ned från GitHub. Exemplet använder ASP.NET för att tillhandahålla en enkel att göra-lista. I exemplet används [Microsoft OWIN-mellanprogramkomponenter](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/). [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) eller klona exemplet från GitHub. Se till att extrahera exempelfilen i en mapp där sökvägens totala teckenlängd är mindre än 260.
+I den här självstudien konfigurerar du ett exempel som du kan ladda ned från GitHub. Exemplet använder ASP.NET för att tillhandahålla en enkel att göra-lista. I exemplet används [Microsoft OWIN-mellanprogramkomponenter](/aspnet/aspnet/overview/owin-and-katana/). [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) eller klona exemplet från GitHub. Se till att extrahera exempelfilen i en mapp där sökvägens totala teckenlängd är mindre än 260.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git

@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cfce5b42d37908d0ba89cff9c4831cb25b968524
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07a8f785cf2b9a64f3acb9f44c4fca5023c4fcf3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259330"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953754"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera IDology med Azure Active Directory B2C 
 
 I den här självstudien ger vi vägledning om hur du integrerar Azure AD B2C med [IDology](https://www.idology.com/solutions/). IDology är en identitets verifiering och en kontroll leverantör med flera lösningar. I det här exemplet kommer vi att behandla ExpectID-lösningen från IDology.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du:
 
@@ -67,15 +67,15 @@ I följande arkitektur diagram visas implementeringen.
 
 ### <a name="part-1---deploy-the-api"></a>Del 1 – distribuera API: et
 
-Distribuera den tillhandahållna [API-koden](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) till en Azure-tjänst. Du kan publicera koden från Visual Studio genom att följa dessa [anvisningar](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Distribuera den tillhandahållna [API-koden](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) till en Azure-tjänst. Du kan publicera koden från Visual Studio genom att följa dessa [anvisningar](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 Du behöver URL: en för den distribuerade tjänsten för att konfigurera Azure AD med nödvändiga inställningar.
 
 ### <a name="part-2---configure-the-api"></a>Del 2 – Konfigurera API: et 
 
-Program inställningar kan [konfigureras i App Service i Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
+Program inställningar kan [konfigureras i App Service i Azure](../app-service/configure-common.md#configure-app-settings). Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
 
-| Programinställningar | Källa | Obs! |
+| Programinställningar | Källa | Kommentarer |
 | :-------- | :------------| :-----------|
 |IdologySettings:ApiUsername | Konfiguration av IDology-konto |     |
 |IdologySettings:ApiPassword | Konfiguration av IDology-konto |     |
@@ -119,7 +119,7 @@ Exempel principen använder följande nyckel namn:
 
 ## <a name="test-the-user-flow"></a>Testa användar flödet
 
-1. Öppna Azure AD B2C klient organisation och välj **användar flöden**under **principer**.
+1. Öppna Azure AD B2C klient organisation och välj **användar flöden** under **principer**.
 
 2. Välj ditt tidigare skapade **användar flöde**.
 
@@ -145,5 +145,4 @@ Mer information finns i följande artiklar:
 
 - [Anpassade principer i Azure AD B2C](custom-policy-overview.md)
 
-- [Kom igång med anpassade principer i Azure AD B2C](custom-policy-get-started.md?tabs=applications) 
-
+- [Kom igång med anpassade principer i Azure AD B2C](custom-policy-get-started.md?tabs=applications)

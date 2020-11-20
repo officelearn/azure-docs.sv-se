@@ -11,19 +11,19 @@ ms.topic: how-to
 ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 558e6cea4d5e0c9bd0f6222f9070d2b867a5bf44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6064bd2c62922abea44508b8bf6cdfa3e7ecbc92
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85384948"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953312"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Logga in med ett iOS-program
 
 Microsofts identitetsplattform använder öppna standarder som OAuth2 och OpenID Connect. Med ett öppet standard protokoll får fler utvecklare möjlighet att välja ett bibliotek som ska integreras med våra tjänster. Vi har angett den här genom gången och andra som kan hjälpa utvecklare att skriva program som ansluter till Microsoft Identity Platform. De flesta bibliotek som implementerar [RFC6749 OAuth2-specifikationen](https://tools.ietf.org/html/rfc6749) kan ansluta till Microsoft Identity Platform.
 
 > [!WARNING]
-> Microsoft tillhandahåller inte korrigeringar för bibliotek från tredje part och har inte utfört en granskning av dessa bibliotek. Det här exemplet använder ett bibliotek från tredje part med namnet AppAuth som har testats för kompatibilitet i grundläggande scenarier med Azure AD B2C. Problem och funktions begär Anden ska dirigeras till bibliotekets projekt med öppen källkod. Mer information finns i [den här artikeln](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
+> Microsoft tillhandahåller inte korrigeringar för bibliotek från tredje part och har inte utfört en granskning av dessa bibliotek. Det här exemplet använder ett bibliotek från tredje part med namnet AppAuth som har testats för kompatibilitet i grundläggande scenarier med Azure AD B2C. Problem och funktions begär Anden ska dirigeras till bibliotekets projekt med öppen källkod. Mer information finns i [den här artikeln](../active-directory/develop/reference-v2-libraries.md).
 >
 >
 
@@ -45,8 +45,8 @@ Registrera även en anpassad omdirigerings-URI för användning i ett senare ste
 ## <a name="create-your-user-flows"></a>Skapa dina användar flöden
 I Azure AD B2C definieras varje användar upplevelse av ett [användar flöde](user-flow-overview.md). Det här programmet innehåller en identitets upplevelse: en kombinerad inloggning och registrering. När du skapar användar flödet måste du se till att:
 
-* Under **registrerings attribut**väljer du attributets **visnings namn**.  Du kan också välja andra attribut.
-* Under **program anspråk**väljer du **visnings namn** för anspråk och **användarens objekt-ID**. Du kan även välja andra anspråk.
+* Under **registrerings attribut** väljer du attributets **visnings namn**.  Du kan också välja andra attribut.
+* Under **program anspråk** väljer du **visnings namn** för anspråk och **användarens objekt-ID**. Du kan även välja andra anspråk.
 * Kopiera **namnet** på varje användar flöde efter att du har skapat det. Ditt användar flödes namn föregås av `b2c_1_` när du sparar användar flödet.  Du behöver användar flödes namnet senare.
 
 När du har skapat dina användar flöden är du redo att skapa din app.

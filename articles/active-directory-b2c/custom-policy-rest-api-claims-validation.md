@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30273c0103d8a0fde12b1b7c6f66d16dd4ea84cb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 761bc4db7760ef5e84e3fc3c8a5deea5d4508f51
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089527"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951935"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa för att verifiera användarindata
 
@@ -28,7 +28,7 @@ I det här scenariot lägger vi till möjligheten för användarna att ange ett 
 
 Du kan också utforma interaktionen som ett Orchestration-steg. Detta är lämpligt när REST API inte kommer att verifiera data på skärmen och alltid returnera anspråk. Mer information finns i [genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa som ett Dirigerings steg](custom-policy-rest-api-claims-exchange.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
 - Lär dig hur du [integrerar REST API Claims-utbyten i din Azure AD B2C anpassade princip](custom-policy-rest-api-intro.md).
@@ -65,7 +65,7 @@ Om verifieringen misslyckades måste REST API returnera en HTTP 409 (konflikt) m
 }
 ```
 
-Installationen av REST API slut punkten ligger utanför omfånget för den här artikeln. Vi har skapat ett [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) -exempel. Du kan komma åt den fullständiga Azure Function-koden på [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+Installationen av REST API slut punkten ligger utanför omfånget för den här artikeln. Vi har skapat ett [Azure Functions](../azure-functions/functions-reference.md) -exempel. Du kan komma åt den fullständiga Azure Function-koden på [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definiera anspråk
 
@@ -233,11 +233,11 @@ Om du vill returnera kampanj koden anspråk tillbaka till den förlitande parten
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ramverk för identitets upplevelse**.
-1. Välj **överför anpassad princip**och överför sedan de principfiler som du ändrade: *TrustFrameworkExtensions.xml*och *SignUpOrSignin.xml*. 
+1. Välj **överför anpassad princip** och överför sedan de principfiler som du ändrade: *TrustFrameworkExtensions.xml* och *SignUpOrSignin.xml*. 
 1. Välj den registrerings-eller inloggnings princip som du laddade upp och klicka på knappen **Kör nu** .
 1. Du bör kunna registrera dig med en e-postadress.
 1. Klicka på länken **Registrera dig nu** .
-1. I **ditt lojalitets-ID**skriver du 1234 och klickar på **Fortsätt**. Nu bör du få ett verifierings fel meddelande.
+1. I **ditt lojalitets-ID** skriver du 1234 och klickar på **Fortsätt**. Nu bör du få ett verifierings fel meddelande.
 1. Ändra till ett annat värde och klicka på **Fortsätt**.
 1. Den token som skickas tillbaka till programmet inkluderar `promoCode` anspråket.
 

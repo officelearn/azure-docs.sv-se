@@ -3,16 +3,17 @@ title: Konfigurera IBM DB2-HADR på virtuella Azure-datorer (VM) | Microsoft Doc
 description: Upprätta hög tillgänglighet för IBM DB2-LUW på virtuella datorer i Azure.
 author: msjuergent
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 88a84cd90efb42ea096cad647d75f1c3736426f4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0cd1458c90970e219f2929e26423e455ba647a28
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146431"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951323"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Hög tillgänglighet för IBM DB2-LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server med pacemaker
 
@@ -131,7 +132,7 @@ Kontrol lera att det valda operativ systemet stöds av IBM/SAP för IBM DB2 LUW.
 
 ## <a name="create-the-pacemaker-cluster"></a>Skapa pacemaker-klustret
     
-Information om hur du skapar ett grundläggande pacemaker-kluster för den här IBM DB2-servern finns i [Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure][sles-pacemaker]. 
+Information om hur du skapar ett grundläggande pacemaker-kluster för den här IBM DB2-servern finns i [Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure][sles-pacemaker]. 
 
 ## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>Installera IBM DB2 LUW och SAP-miljön
 
@@ -399,11 +400,11 @@ Om du vill konfigurera Azure Load Balancer rekommenderar vi att du använder [Az
 
 1. Skapa en IP-adresspool på klient sidan:
 
-   a. I Azure Portal öppnar du Azure Load Balancer, väljer **IP-pool för klient**del och väljer sedan **Lägg till**.
+   a. I Azure Portal öppnar du Azure Load Balancer, väljer **IP-pool för klient** del och väljer sedan **Lägg till**.
 
    b. Ange namnet på den nya frontend-IP-poolen (till exempel **DB2-Connection**).
 
-   c. Ange **tilldelningen** till **statisk**och ange IP-adressen för den **virtuella-IP** -adress som definierats i början.
+   c. Ange **tilldelningen** till **statisk** och ange IP-adressen för den **virtuella-IP** -adress som definierats i början.
 
    d. Välj **OK**.
 
@@ -411,7 +412,7 @@ Om du vill konfigurera Azure Load Balancer rekommenderar vi att du använder [Az
 
 1. Skapa en backend-pool:
 
-   a. I Azure Portal öppnar du Azure Load Balancer, väljer backend- **pooler**och väljer sedan **Lägg till**.
+   a. I Azure Portal öppnar du Azure Load Balancer, väljer backend- **pooler** och väljer sedan **Lägg till**.
 
    b. Ange namnet på den nya backend-poolen (till exempel **DB2-backend**).
 
@@ -425,23 +426,23 @@ Om du vill konfigurera Azure Load Balancer rekommenderar vi att du använder [Az
 
 1. Skapa en hälso avsökning:
 
-   a. I Azure Portal öppnar du Azure Load Balancer, väljer **hälso avsökningar**och väljer **Lägg till**.
+   a. I Azure Portal öppnar du Azure Load Balancer, väljer **hälso avsökningar** och väljer **Lägg till**.
 
    b. Ange namnet på den nya hälso avsökningen (till exempel **DB2-HP**).
 
-   c. Välj **TCP** som protokoll och port **62500**. Behåll **intervallvärdet** inställt på **5**och behåll **tröskelvärdet för tröskelvärdet** som är satt till **2**.
+   c. Välj **TCP** som protokoll och port **62500**. Behåll **intervallvärdet** inställt på **5** och behåll **tröskelvärdet för tröskelvärdet** som är satt till **2**.
 
    d. Välj **OK**.
 
 1. Skapa regler för belastnings utjämning:
 
-   a. I Azure Portal öppnar du Azure Load Balancer, väljer **belastnings Utjämnings regler**och väljer sedan **Lägg till**.
+   a. I Azure Portal öppnar du Azure Load Balancer, väljer **belastnings Utjämnings regler** och väljer sedan **Lägg till**.
 
    b. Ange namnet på den nya Load Balancers regeln (till exempel **DB2-sid**).
 
    c. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **DB2-frontend**).
 
-   d. Behåll **protokollet** inställt på **TCP**och ange *kommunikations port*för port databas.
+   d. Behåll **protokollet** inställt på **TCP** och ange *kommunikations port* för port databas.
 
    e. Öka **tids gränsen för inaktivitet** till 30 minuter.
 
@@ -572,8 +573,8 @@ crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
 - **CRM-resurs-migrering \<res_name> \<host> :** skapar plats begränsningar och kan orsaka problem med övertag Ande
-- **resurs rensning \<res_name> i CRM **: rensar plats begränsningar
-- **CRM-resurs \<res_name> rensning **: rensar alla fel i resursen
+- **resurs rensning \<res_name> i CRM**: rensar plats begränsningar
+- **CRM-resurs \<res_name> rensning**: rensar alla fel i resursen
 
 ### <a name="test-the-fencing-agent"></a>Testa avgränsnings agenten
 

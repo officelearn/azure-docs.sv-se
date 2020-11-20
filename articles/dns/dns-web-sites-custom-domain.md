@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 151d5f083fe0e945b330d65095c908be93e3330f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 369c7dab174f0269797b10635882a6821ade8311
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316400"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952955"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Självstudie: Skapa DNS-poster i en anpassad domän för en webbapp 
 
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 > * Lägg till anpassade värdnamn i din webbapp
 > * Testa de anpassade domännamnen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -49,7 +49,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 * Skapa en DNS-zon i Azure DNS och delegera zonen i registratorn till Azure DNS.
 
-   1. Om du vill skapa en DNS-zon följer du stegen i [Skapa en DNS-zon](dns-getstarted-create-dnszone.md).
+   1. Om du vill skapa en DNS-zon följer du stegen i [Skapa en DNS-zon](./dns-getstarted-powershell.md).
    2. Om du vill delegera zonen till Azure DNS följer du stegen i [DNS-domändelegering](dns-delegate-domain-azure-dns.md).
 
 När du har skapat en zon och delegerat den till Azure DNS kan du sedan skapa poster för din anpassade domän.

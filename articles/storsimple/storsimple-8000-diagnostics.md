@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: ca674f38b5c327123bc1d13dd284f84f614881b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf0570cd62a2c329407cfb6dd087020f53cdc991
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300453"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954077"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Använd verktyget StorSimple Diagnostics för att felsöka enhets problem i 8000-serien
 
@@ -332,7 +332,7 @@ Här är ett exempel på utdata från 8100-enheten. Du kan se i utdata som:
 * DATA 2-5 är inte aktiverade i portalen.
 * DNS-serverkonfigurationen är giltig och enheten kan ansluta via DNS-servern.
 * NTP-serverns anslutning är också bra.
-* Portarna 80 och 443 är öppna. Port 9354 är dock blockerad. Baserat på [systemets nätverks krav](storsimple-system-requirements.md)måste du öppna porten för Service Bus-kommunikationen.
+* Portarna 80 och 443 är öppna. Port 9354 är dock blockerad. Baserat på [systemets nätverks krav](./storsimple-8000-system-requirements.md)måste du öppna porten för Service Bus-kommunikationen.
 * TLS/SSL-certifieringen är giltig.
 * Enheten kan ansluta till lagrings kontot: _myss8000storageacct_.
 * Anslutningen till uppdaterings servrarna är giltig.
@@ -388,7 +388,7 @@ Utför följande steg för att använda det här verktyget:
 
     Om den Läs-och skriv fördröjning som rapporteras av diagnostikverktyget är hög:
 
-    1. Konfigurera Lagringsanalys för BLOB Services och analysera utdata för att förstå fördröjningarna för Azure Storage-kontot. Detaljerade anvisningar finns i [Aktivera och konfigurera Lagringsanalys](../storage/common/storage-enable-and-view-metrics.md). Om de fördröjningarna också är höga och jämförbara med de nummer som du fick från StorSimple-diagnostikverktyget måste du logga en tjänstbegäran med Azure Storage.
+    1. Konfigurera Lagringsanalys för BLOB Services och analysera utdata för att förstå fördröjningarna för Azure Storage-kontot. Detaljerade anvisningar finns i [Aktivera och konfigurera Lagringsanalys](../storage/blobs/monitor-blob-storage.md). Om de fördröjningarna också är höga och jämförbara med de nummer som du fick från StorSimple-diagnostikverktyget måste du logga en tjänstbegäran med Azure Storage.
 
     2. Om lagrings konto fördröjningen är låg kontaktar du nätverks administratören och undersöker eventuella latens problem i nätverket.
 
@@ -440,6 +440,6 @@ Här är en tabell som beskriver de olika Windows PowerShell-parametrarna i syst
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig [syntaxen för Invoke-HcsDiagnostics-cmdleten](https://technet.microsoft.com/library/mt795371.aspx).
+* Lär dig [syntaxen för Invoke-HcsDiagnostics-cmdleten](/previous-versions/windows/powershell-scripting/mt795371(v=wps.630)).
 
-* Läs mer om hur du [felsöker distributions problem](storsimple-troubleshoot-deployment.md) på din StorSimple-enhet.
+* Läs mer om hur du [felsöker distributions problem](./storsimple-8000-troubleshoot-deployment.md) på din StorSimple-enhet.

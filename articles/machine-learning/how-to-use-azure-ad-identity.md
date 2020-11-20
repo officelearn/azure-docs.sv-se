@@ -11,18 +11,18 @@ ms.subservice: core
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7b76c81a78bfd3eb57a54f1d23ba1b154b09b3e6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: bcf5f75cf5cabe42f530a6a179c2cafd43b5520d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660159"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952547"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Använda Azure AD-identitet med din Machine Learning-webbtjänst i Azure Kubernetes-tjänsten
 
 I den här instruktionen får du lära dig hur du tilldelar en Azure Active Directory (Azure AD)-identitet till din distribuerade maskin inlärnings modell i Azure Kubernetes-tjänsten. Med [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) Project kan program få åtkomst till moln resurser på ett säkert sätt med hjälp av en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) och Kubernetes-primitiver. Detta gör att webb tjänsten kan komma åt dina Azure-resurser på ett säkert sätt utan att behöva bädda in autentiseringsuppgifter eller hantera tokens direkt inuti `score.py` skriptet. I den här artikeln beskrivs stegen för att skapa och installera en Azure-identitet i Azure Kubernetes service-klustret och tilldela identiteten till den distribuerade webb tjänsten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Azure CLI-tillägget för Machine Learning-tjänsten](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK för python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)eller [Azure Machine Learning Visual Studio Code-tillägget](tutorial-setup-vscode-extension.md).
 
@@ -32,13 +32,13 @@ I den här instruktionen får du lära dig hur du tilldelar en Azure Active Dire
 
 ## <a name="create-and-install-an-azure-identity"></a>Skapa och installera en Azure-identitet
 
-1. Använd följande kommando för att avgöra om ditt AKS-kluster är RBAC-aktiverat:
+1. Använd följande kommando för att avgöra om ditt AKS-kluster är Kubernetes RBAC aktiverat:
 
     ```azurecli-interactive
     az aks show --name <AKS cluster name> --resource-group <resource group name> --subscription <subscription id> --query enableRbac
     ```
 
-    Det här kommandot returnerar värdet `true` om RBAC är aktiverat. Det här värdet anger kommandot som ska användas i nästa steg.
+    Det här kommandot returnerar värdet `true` om KUBERNETES RBAC är aktiverat. Det här värdet anger kommandot som ska användas i nästa steg.
 
 1. Installera [Azure AD Pod-identitet](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/) i ditt AKS-kluster.
 

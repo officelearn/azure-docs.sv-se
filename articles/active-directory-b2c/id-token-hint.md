@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 79a99d9f0ca117d8f47d56d76399210a72b91bb7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132082"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951663"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för ID-token i en Azure Active Directory B2C anpassad princip
 
@@ -133,10 +133,10 @@ Samma nyckel som används av token Issuer måste skapas i Azure AD B2C princip n
 1. På sidan Översikt, under **principer**, väljer du **Identity Experience Framework**.
 1. Välj **princip nycklar** 
 1. Välj **manuell**.
-1. Som **namn**använder du `IdTokenHintKey` .  
+1. Som **namn** använder du `IdTokenHintKey` .  
    Prefixet `B2C_1A_` kan läggas till automatiskt.
 1. I rutan **hemlighet** anger du den inloggnings nyckel som du skapade tidigare.
-1. Använd **kryptering**för **nyckel användning**.
+1. Använd **kryptering** för **nyckel användning**.
 1. Välj **Skapa**.
 1. Bekräfta att du har skapat nyckeln `B2C_1A_IdTokenHintKey` .
 
@@ -189,7 +189,7 @@ Se exemplet på [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>Steg 1. Förbereda ett självsignerat certifikat
 
-Om du inte redan har ett certifikat kan du använda ett självsignerat certifikat för den här instruktions guiden. I Windows kan du använda PowerShell: s [New-SelfSignedCertificate-](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet för att skapa ett certifikat.
+Om du inte redan har ett certifikat kan du använda ett självsignerat certifikat för den här instruktions guiden. I Windows kan du använda PowerShell: s [New-SelfSignedCertificate-](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet för att skapa ett certifikat.
 
 Kör PowerShell-kommandot för att generera ett självsignerat certifikat. Ändra `-Subject` argumentet efter behov för ditt program och Azure AD B2C klient namn. Du kan också justera `-NotAfter` datumet för att ange ett annat förfallo datum för certifikatet.
 

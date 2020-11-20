@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.custom: devx-track-python
-ms.openlocfilehash: 6a113b3a3df475853f3690a0e932378bc0e2ab02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4455f21ae7243ab7a15e8d746d6674289f9fdb5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844634"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953031"
 ---
 # <a name="tutorial-enable-authentication-in-a-python-web-application-with-azure-ad-b2c"></a>Självstudie: aktivera autentisering i ett python-webbprogram med Azure AD B2C
 
@@ -49,7 +49,7 @@ Dessutom behöver du följande i din lokala utvecklings miljö:
 
 I den andra själv studie kursen som du avslutade som en del av förutsättningarna registrerade du ett webb program i Azure AD B2C. Om du vill aktivera kommunikation med kod exemplet i den här självstudien lägger du till en svars-URL (kallas även en omdirigerings-URI) till program registreringen.
 
-Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
+Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
@@ -57,8 +57,8 @@ Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår 
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar**, Välj fliken **ägda program** och välj sedan *webapp1* -programmet.
-1. Under **Hantera**väljer du **autentisering**.
-1. Under **webb**väljer du länken **Lägg till URI** och anger sedan `http://localhost:5000/getAToken` i text rutan.
+1. Under **Hantera** väljer du **autentisering**.
+1. Under **webb** väljer du länken **Lägg till URI** och anger sedan `http://localhost:5000/getAToken` i text rutan.
 1. Välj **Spara**.
 
 #### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
@@ -162,13 +162,13 @@ Det här exempel programmet stöder registrering, inloggning och lösen ords åt
 
     Använd en giltig e-postadress och verifiera med verifieringskoden. Ställ in ett lösenord. Ange värden för de begärda attributen.
 
-    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Webbläsare som visar webb programmet python-flaskan körs lokalt":::
+    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Sidan registrera visas i Azure AD B2C användar flöde":::
 
 1. Välj **skapa** för att skapa ett lokalt konto i katalogen Azure AD B2C.
 
 När du väljer **skapa**, visar programmet namnet på den inloggade användaren.
 
-:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="Webbläsare som visar webb programmet python-flaskan körs lokalt":::
+:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="Webbläsare som visar webb programmet python flaska med inloggad användare":::
 
 Om du vill testa inloggningen väljer du länken **Logga ut** och väljer sedan **Logga in** och loggar in med den e-postadress och det lösen ord som du angav när du registrerade dig.
 

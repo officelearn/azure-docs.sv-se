@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: bfa8943af16fe62015a4736f561875235e205fc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ada4226500437e7733605a29988ee7cacae40761
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163891"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953091"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Självstudie: bevilja åtkomst till ett ASP.NET webb-API med hjälp av Azure Active Directory B2C
 
@@ -40,16 +40,16 @@ Slutför stegen och kraven i [själv studie kursen: aktivera autentisering i ett
 
 Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en begäran från en skyddad resurs från klientprogram som använder en åtkomsttoken.
 
-Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
+Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. Välj **Appregistreringar**och välj sedan **ny registrering**.
+1. Välj **Appregistreringar** och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *webapi1*.
-1. Under **omdirigerings-URI**väljer du **webb**och anger sedan en slut punkt där Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `https://localhost:44332`.
+1. Under **omdirigerings-URI** väljer du **webb** och anger sedan en slut punkt där Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `https://localhost:44332`.
 1. Välj **Register** (Registrera).
 1. Registrera **program-ID: t (Client)** för användning i ett senare steg.
 
@@ -60,7 +60,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **program (bakåtkompatibelt)** och välj sedan **Lägg till**.
 5. Ange ett namn på programmet. Till exempel *webapi1*.
-6. För **Inkludera webb program/webb-API**väljer du **Ja**.
+6. För **Inkludera webb program/webb-API** väljer du **Ja**.
 7. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `https://localhost:44332`.
 8. För **URI för app-ID** anger du den identifierare som används för webb-API:t. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Exempelvis `https://contosotenant.onmicrosoft.com/api`.
 9. Klicka på **Skapa**.
@@ -94,7 +94,7 @@ Exempellösningen innehåller två projekt:
 ### <a name="configure-the-web-application"></a>Konfigurera webbappen
 
 1. Öppna **B2C-WebAPI-DotNet**-lösningen i Visual Studio.
-1. Öppna **Web.config**i projektet **TaskWebApp** .
+1. Öppna **Web.config** i projektet **TaskWebApp** .
 1. Kör API:et lokalt genom att använda inställningen för lokala värden för **api:TaskServiceUrl**. Ändra Web.config enligt följande:
 
     ```csharp
@@ -111,7 +111,7 @@ Exempellösningen innehåller två projekt:
 
 ### <a name="configure-the-web-api"></a>Konfigurera webb-API
 
-1. Öppna **Web.config**i projektet **TaskService** .
+1. Öppna **Web.config** i projektet **TaskService** .
 1. Ställ in API:t så det använder din klientorganisation.
 
     ```csharp

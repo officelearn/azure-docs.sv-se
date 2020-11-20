@@ -9,19 +9,20 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 9d1759e5b809bc40e63fb6024fb7f107ad347da6
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ee7cc1c81bd35bf2b51c712c3a60a046435ee700
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094479"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951292"
 ---
-# <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Plattforms planerings-och implementerings guide för SAP BusinessObjects BI på Azure
+# <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Planerings- och implementeringsguide för SAP BusinessObjects BI-plattform i Azure
 
 ## <a name="overview"></a>Översikt
 
@@ -183,7 +184,7 @@ Azure SQL Database erbjuder följande tre inköps modeller:
 
 Azure Database for MySQL levereras med tre olika pris nivåer. De skiljer sig åt från beräknings mängden i virtuella kärnor, minne per vCore och lagrings teknik som används för att lagra datumet. Följande är en övergripande detalj information om alternativen och för mer information om olika attribut, se [pris nivån](../../../mysql/concepts-pricing-tiers.md) för Azure Database for MySQL.
 
-- Basic
+- Grundläggande
 
   Den används för de mål arbets belastningar som kräver ljus beräkning och I/O-prestanda.
 
@@ -235,7 +236,7 @@ Azure erbjuder olika sorters virtuella datorer för alla dina program behov. Men
 
 Baserat på storleken på SAP BI-plattformen måste du mappa ditt krav till Azure Virtual Machine, som stöds i Azure för SAP-produkten. SAP NOTE [1928533](https://launchpad.support.sap.com/#/notes/1928533) är en lämplig start punkt som visar de Azure VM-typer som stöds för SAP-produkter på Windows och Linux. Dessutom måste du kontrol lera om de virtuella dator typerna är tillgängliga i en viss region, förutom att välja de rent virtuella dator typer som stöds. Du kan kontrol lera tillgängligheten för VM-typen på [produkter som är tillgängliga](https://azure.microsoft.com/global-infrastructure/services/) på sidan region. För att välja pris modell kan du referera till [Azure Virtual Machines för SAP-arbetsbelastningar](planning-guide.md#azure-virtual-machines-for-sap-workload)
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 
 Azure Storage är en Azure-hanterad moln tjänst som tillhandahåller lagring som är mycket tillgänglig, säker, hållbar, skalbar och redundant. Vissa av lagrings typerna har begränsad användning för SAP-scenarier. Men flera Azure Storage typer är väl lämpade eller optimerade för vissa scenarier med SAP-arbetsbelastningar. Mer information finns [Azure Storage typer för SAP-arbetsbelastnings](planning-guide-storage.md) guide, eftersom det visar olika lagrings alternativ som är lämpliga för SAP.
 

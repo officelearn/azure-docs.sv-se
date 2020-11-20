@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 16b5814835ec5cad6b66087fee37676155196339
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214931"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952088"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Den nya Appregistreringar upplevelsen för Azure Active Directory B2C
 
@@ -91,14 +91,14 @@ Omdirigerings-URI: er måste associeras med en app-typ, antingen webb eller offe
 
 ## <a name="application-certificates--secrets"></a>Program certifikat & hemligheter
 
-I den nya upplevelsen i stället för **nycklar**använder du bladet **certifikat & hemligheter** för att hantera certifikat och hemligheter. Certifikat & hemligheter gör det möjligt för program att identifiera sig själva för Autentiseringstjänsten när de tar emot token på en plats för webb adresser (med ett HTTPS-schema). Vi rekommenderar att du använder ett certifikat i stället för en klient hemlighet för klientens autentiseringsuppgifter vid autentisering mot Azure AD. Certifikat kan inte användas för att autentisera mot Azure AD B2C.
+I den nya upplevelsen i stället för **nycklar** använder du bladet **certifikat & hemligheter** för att hantera certifikat och hemligheter. Certifikat & hemligheter gör det möjligt för program att identifiera sig själva för Autentiseringstjänsten när de tar emot token på en plats för webb adresser (med ett HTTPS-schema). Vi rekommenderar att du använder ett certifikat i stället för en klient hemlighet för klientens autentiseringsuppgifter vid autentisering mot Azure AD. Certifikat kan inte användas för att autentisera mot Azure AD B2C.
 
 
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Funktioner som inte är tillämpliga i Azure AD B2C-klienter
 Följande funktioner i Azure AD App Registration är inte tillämpliga på eller tillgängliga i Azure AD B2C klienter:
 - **Roller och administratörer** – för närvarande inte tillgängligt för Azure AD B2C.
 - **Anpassning – UI** /UX-anpassning konfigureras i **företags anpassnings** miljön eller som en del av ett användar flöde. Lär dig hur du [anpassar användar gränssnittet i Azure Active Directory B2C](customize-ui-overview.md).
-- **Domän verifiering i Publisher** – appen är registrerad på *. onmicrosoft.com*, vilket inte är en verifierad domän. Dessutom används Publisher-domänen främst för att bevilja användar medgivande, som inte gäller för Azure AD B2C appar för användarautentisering. [Läs mer om Publisher-domän](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
+- **Domän verifiering i Publisher** – appen är registrerad på *. onmicrosoft.com*, vilket inte är en verifierad domän. Dessutom används Publisher-domänen främst för att bevilja användar medgivande, som inte gäller för Azure AD B2C appar för användarautentisering. [Läs mer om Publisher-domän](../active-directory/develop/howto-configure-publisher-domain.md).
 - **Token-konfiguration** – token är konfigurerad som en del av ett användar flöde i stället för en app.
 - **Snabb** starten är för närvarande inte tillgänglig för Azure AD B2C klienter.
 <!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->

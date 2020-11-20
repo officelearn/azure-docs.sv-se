@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d8d898d3825fa40cbfd13337067c24cf14f9a544
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 9db46d13c9a798204958a7c295df9cca169fc08f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102025"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954043"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph åtgärder som är tillgängliga för Azure AD B2C
 
@@ -26,11 +26,11 @@ Varje länk i följande avsnitt riktar sig mot motsvarande sida i Microsoft Grap
 
 ## <a name="user-management"></a>Användarhantering
 
-- [Visa användare](https://docs.microsoft.com/graph/api/user-list)
-- [Skapa en konsument användare](https://docs.microsoft.com/graph/api/user-post-users)
-- [Hämta en användare](https://docs.microsoft.com/graph/api/user-get)
-- [Uppdatera en användare](https://docs.microsoft.com/graph/api/user-update)
-- [Ta bort en användare](https://docs.microsoft.com/graph/api/user-delete)
+- [Visa användare](/graph/api/user-list)
+- [Skapa en konsument användare](/graph/api/user-post-users)
+- [Hämta en användare](/graph/api/user-get)
+- [Uppdatera en användare](/graph/api/user-update)
+- [Ta bort en användare](/graph/api/user-delete)
 
 Mer information om hur du hanterar Azure AD B2C användar konton med Microsoft Graph-API finns i [hantera Azure AD B2C användar konton med Microsoft Graph](manage-user-accounts-graph-api.md).
 
@@ -47,70 +47,70 @@ Mer information om hur du hanterar användares inloggnings telefonnummer med Mic
 
 Hantera de identitets leverantörer som är tillgängliga för dina användar flöden i Azure AD B2C-klienten.
 
-- [Visa lista med identitets leverantörer som registrerats i Azure AD B2C klient organisationen](https://docs.microsoft.com/graph/api/identityprovider-list)
-- [Skapa en identitets leverantör](https://docs.microsoft.com/graph/api/identityprovider-post-identityproviders)
-- [Hämta en identitets leverantör](https://docs.microsoft.com/graph/api/identityprovider-get)
-- [Uppdatera identitets leverantör](https://docs.microsoft.com/graph/api/identityprovider-update)
-- [Ta bort en identitets leverantör](https://docs.microsoft.com/graph/api/identityprovider-delete)
+- [Visa lista med identitets leverantörer som registrerats i Azure AD B2C klient organisationen](/graph/api/identityprovider-list)
+- [Skapa en identitets leverantör](/graph/api/identityprovider-post-identityproviders)
+- [Hämta en identitets leverantör](/graph/api/identityprovider-get)
+- [Uppdatera identitets leverantör](/graph/api/identityprovider-update)
+- [Ta bort en identitets leverantör](/graph/api/identityprovider-delete)
 
 ## <a name="user-flow"></a>Användarflöde
 
 Konfigurera fördefinierade principer för registrering, inloggning, kombinerad registrering och inloggning, återställning av lösen ord och profil uppdatering.
 
-- [Visa lista över användar flöden](https://docs.microsoft.com/graph/api/identityuserflow-list)
-- [Skapa ett användarflöde](https://docs.microsoft.com/graph/api/identityuserflow-post-userflows)
-- [Hämta ett användar flöde](https://docs.microsoft.com/graph/api/identityuserflow-get)
-- [Ta bort ett användar flöde](https://docs.microsoft.com/graph/api/identityuserflow-delete)
+- [Visa lista över användar flöden](/graph/api/identityuserflow-list)
+- [Skapa ett användarflöde](/graph/api/identityuserflow-post-userflows)
+- [Hämta ett användar flöde](/graph/api/identityuserflow-get)
+- [Ta bort ett användar flöde](/graph/api/identityuserflow-delete)
 
 ## <a name="custom-policies"></a>Anpassade principer
 
 Med följande åtgärder kan du hantera principer för Azure AD B2C förtroende Framework, så kallade [anpassade principer](custom-policy-overview.md).
 
-- [Lista alla förtroende Ramverks principer som kon figurer ATS i en klient](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
-- [Skapa förtroende Ramverks princip](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
-- [Läsa egenskaper för en befintlig förtroende Ramverks princip](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
-- [Uppdatera eller skapa förtroende Ramverks princip.](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)
-- [Ta bort en befintlig princip för förtroende ramverk](https://docs.microsoft.com/graph/api/trustframeworkpolicy-delete)
+- [Lista alla förtroende Ramverks principer som kon figurer ATS i en klient](/graph/api/trustframework-list-trustframeworkpolicies)
+- [Skapa förtroende Ramverks princip](/graph/api/trustframework-post-trustframeworkpolicy)
+- [Läsa egenskaper för en befintlig förtroende Ramverks princip](/graph/api/trustframeworkpolicy-get)
+- [Uppdatera eller skapa förtroende Ramverks princip.](/graph/api/trustframework-put-trustframeworkpolicy)
+- [Ta bort en befintlig princip för förtroende ramverk](/graph/api/trustframeworkpolicy-delete)
 
 ## <a name="policy-keys"></a>Principnycklar
 
 I ramverket med identitets upplevelsen lagras hemligheter som refereras i en anpassad princip för att upprätta förtroende mellan komponenter. Dessa hemligheter kan vara symmetriska eller asymmetriska nycklar/värden. I Azure Portal visas dessa entiteter som **princip nycklar**.
 
-Resursen på den översta nivån för princip nycklar i Microsoft Graph API är den [betrodda Ramverks nyckel uppsättningen](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset). Varje nyckel **uppsättning** innehåller minst en **nyckel**. Skapa en nyckel genom att först skapa en tom nyckel uppsättning och sedan generera en nyckel i nyckel uppsättningen. Du kan skapa en manuell hemlighet, överföra ett certifikat eller en PKCS12 nyckel. Nyckeln kan vara en genererad hemlighet, en sträng som du definierar (till exempel Facebook-programmets hemlighet) eller ett certifikat som du överför. Om en nyckel uppsättning har flera nycklar är bara en av nycklarna aktiv.
+Resursen på den översta nivån för princip nycklar i Microsoft Graph API är den [betrodda Ramverks nyckel uppsättningen](/graph/api/resources/trustframeworkkeyset). Varje nyckel **uppsättning** innehåller minst en **nyckel**. Skapa en nyckel genom att först skapa en tom nyckel uppsättning och sedan generera en nyckel i nyckel uppsättningen. Du kan skapa en manuell hemlighet, överföra ett certifikat eller en PKCS12 nyckel. Nyckeln kan vara en genererad hemlighet, en sträng som du definierar (till exempel Facebook-programmets hemlighet) eller ett certifikat som du överför. Om en nyckel uppsättning har flera nycklar är bara en av nycklarna aktiv.
 
 ### <a name="trust-framework-policy-keyset"></a>Princip uppsättning för förtroende ramverk
 
-- [Visa en lista med de förtroende Framework-standarduppsättningarna](https://docs.microsoft.com/graph/api/trustframework-list-keysets)
-- [Skapa ett förtroende Framework-standarduppsättningar](https://docs.microsoft.com/graph/api/trustframework-post-keysets)
-- [Hämta en nyckel uppsättning](https://docs.microsoft.com/graph/api/trustframeworkkeyset-get)
-- [Uppdatera en förtroende Framework-gruppuppsättning](https://docs.microsoft.com/graph/api/trustframeworkkeyset-update)
-- [Ta bort ett förtroende Framework-gruppuppsättningar](https://docs.microsoft.com/graph/api/trustframeworkkeyset-delete)
+- [Visa en lista med de förtroende Framework-standarduppsättningarna](/graph/api/trustframework-list-keysets)
+- [Skapa ett förtroende Framework-standarduppsättningar](/graph/api/trustframework-post-keysets)
+- [Hämta en nyckel uppsättning](/graph/api/trustframeworkkeyset-get)
+- [Uppdatera en förtroende Framework-gruppuppsättning](/graph/api/trustframeworkkeyset-update)
+- [Ta bort ett förtroende Framework-gruppuppsättningar](/graph/api/trustframeworkkeyset-delete)
 
 ### <a name="trust-framework-policy-key"></a>Princip nyckel för förtroende ramverk
 
-- [Hämta den aktuella aktiva nyckeln i nyckel uppsättningen](https://docs.microsoft.com/graph/api/trustframeworkkeyset-getactivekey)
-- [Generera en nyckel i nyckel uppsättningen](https://docs.microsoft.com/graph/api/trustframeworkkeyset-generatekey)
-- [Ladda upp en sträng baserad hemlighet](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadsecret)
-- [Ladda upp ett X. 509-certifikat](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadcertificate)
-- [Ladda upp ett PKCS12-format certifikat](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12)
+- [Hämta den aktuella aktiva nyckeln i nyckel uppsättningen](/graph/api/trustframeworkkeyset-getactivekey)
+- [Generera en nyckel i nyckel uppsättningen](/graph/api/trustframeworkkeyset-generatekey)
+- [Ladda upp en sträng baserad hemlighet](/graph/api/trustframeworkkeyset-uploadsecret)
+- [Ladda upp ett X. 509-certifikat](/graph/api/trustframeworkkeyset-uploadcertificate)
+- [Ladda upp ett PKCS12-format certifikat](/graph/api/trustframeworkkeyset-uploadpkcs12)
 
 ## <a name="applications"></a>Program
 
-- [Lista program](https://docs.microsoft.com/graph/api/application-list)
-- [Skapa ett program](https://docs.microsoft.com/graph/api/resources/application)
-- [Uppdatera program](https://docs.microsoft.com/graph/api/application-update)
-- [Skapa servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal)
-- [Skapa oauth2Permission-beviljande](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant)
-- [Ta bort program](https://docs.microsoft.com/graph/api/application-delete)
+- [Lista program](/graph/api/application-list)
+- [Skapa ett program](/graph/api/resources/application)
+- [Uppdatera program](/graph/api/application-update)
+- [Skapa servicePrincipal](/graph/api/resources/serviceprincipal)
+- [Skapa oauth2Permission-beviljande](/graph/api/resources/oauth2permissiongrant)
+- [Ta bort program](/graph/api/application-delete)
 
 ## <a name="application-extension-properties"></a>Egenskaper för program tillägg
 
-- [Egenskaper för List tillägg](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
+- [Egenskaper för List tillägg](/graph/api/application-list-extensionproperty)
 
 Azure AD B2C tillhandahåller en katalog som kan innehålla 100 anpassade attribut per användare. För användar flöden hanteras de här tilläggs egenskaperna [med hjälp av Azure Portal](custom-policy-custom-attributes.md). För anpassade principer skapar Azure AD B2C egenskapen åt dig, första gången principen skriver ett värde för egenskapen Extension.
 
 ## <a name="audit-logs"></a>Granskningsloggar
 
-- [Lista gransknings loggar](https://docs.microsoft.com/graph/api/directoryaudit-list)
+- [Lista gransknings loggar](/graph/api/directoryaudit-list)
 
 Mer information om hur du kommer åt Azure AD B2C gransknings loggar med Microsoft Graph-API finns i [åtkomst Azure AD B2C gransknings loggar](view-audit-logs.md).

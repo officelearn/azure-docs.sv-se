@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 10/14/2020
+ms.date: 11/19/2020
 ms.author: victorh
-ms.openlocfilehash: 0f7fec997ec6d0c73fe6d1039ab1033752e0cedf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9fb8bf689e2767f681994258c4d2c51be41d6c68
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566579"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952139"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Översikt över principer för Azure Web Application-brandvägg (WAF)
 
@@ -53,7 +53,7 @@ Den här globala principen är lämplig för contoso.com och fabrikam.com, men d
 
 Adatum.com/payments-URI: n är där du måste vara försiktig. Tillämpa en annan princip på denna URI och lämna alla regler aktiverade, och ta även bort alla undantag.
 
-I det här exemplet har du en global princip som gäller för två platser. Du har en princip för varje plats som gäller för en plats och sedan en per-URI-princip som gäller för en viss Sök vägs baserad regel. Se (Infoga länk här när det finns) så här skapar du per-plats-och per-URI-principer för motsvarande PowerShell i det här exemplet.
+I det här exemplet har du en global princip som gäller för två platser. Du har en princip för varje plats som gäller för en plats och sedan en per-URI-princip som gäller för en viss Sök vägs baserad regel. Se [Konfigurera WAF-principer per webbplats med hjälp av Azure PowerShell](per-site-policies.md) för motsvarande PowerShell för det här exemplet.
 
 ## <a name="existing-waf-configurations"></a>Befintliga WAF-konfigurationer
 

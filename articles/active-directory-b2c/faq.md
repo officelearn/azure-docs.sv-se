@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 384f178481f7a6ff202d5363ba09c242b1fc366d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054771"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951799"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: vanliga frågor och svar
 
@@ -37,7 +37,7 @@ Azure AD B2C kan inte användas för att autentisera användare för Microsoft 3
 
 I en Azure AD-klient är det användare som tillhör klient inloggningen med en e-postadress till formuläret `<xyz>@<tenant domain>` . `<tenant domain>`Är en av de verifierade domänerna i klient organisationen eller den första `<...>.onmicrosoft.com` domänen. Den här typen av konto är ett arbets-eller skol konto.
 
-I en Azure AD B2C klient vill de flesta appar att användaren loggar in med valfri e-postadress (till exempel,, joe@comcast.net bob@gmail.com sarah@contoso.com eller jim@live.com ). Den här typen av konto är ett lokalt konto. Vi stöder också godtyckliga användar namn som lokala konton (till exempel Johan, Robert, Sarah eller Jim). Du kan välja en av dessa två lokala konto typer när du konfigurerar identitets leverantörer för Azure AD B2C i Azure Portal. I Azure AD B2C klient väljer du **identitets leverantörer**, väljer **lokalt konto**och väljer sedan **användar namn**.
+I en Azure AD B2C klient vill de flesta appar att användaren loggar in med valfri e-postadress (till exempel,, joe@comcast.net bob@gmail.com sarah@contoso.com eller jim@live.com ). Den här typen av konto är ett lokalt konto. Vi stöder också godtyckliga användar namn som lokala konton (till exempel Johan, Robert, Sarah eller Jim). Du kan välja en av dessa två lokala konto typer när du konfigurerar identitets leverantörer för Azure AD B2C i Azure Portal. I Azure AD B2C klient väljer du **identitets leverantörer**, väljer **lokalt konto** och väljer sedan **användar namn**.
 
 Användar konton för program kan skapas via ett registrerings användar flöde, inloggnings-eller inloggnings användar flöde, Microsoft Graph-API eller i Azure Portal.
 
@@ -90,7 +90,7 @@ Du kan använda Microsoft Graph-API: et för att skriva migrerings verktyget. Me
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Vilket användar flöde för lösen ord används för lokala konton i Azure AD B2C?
 
-Lösen ordet för det Azure AD B2C användar flödet för lokala konton baseras på principen för Azure AD. Azure AD B2C's-registrering, registrering eller inloggning och användar flöden för återställning av lösen ord använder sig av "stark" lösen ords säkerhet och upphör aldrig att gälla lösen ord. Mer information finns i [lösen ords principer och begränsningar i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+Lösen ordet för det Azure AD B2C användar flödet för lokala konton baseras på principen för Azure AD. Azure AD B2C's-registrering, registrering eller inloggning och användar flöden för återställning av lösen ord använder sig av "stark" lösen ords säkerhet och upphör aldrig att gälla lösen ord. Mer information finns i [lösen ords principer och begränsningar i Azure Active Directory](../active-directory/authentication/concept-sspr-policy.md).
 
 Information om konto utelåsning och lösen ord finns i [Hantera hot mot resurser och data i Azure Active Directory B2C](threat-management.md).
 
@@ -104,7 +104,7 @@ Nej, av säkerhets skäl kan Azure AD B2C sidor inte öppnas i en iFrame. Tjäns
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Fungerar Azure AD B2C med CRM-system som Microsoft Dynamics?
 
-Integrering med Microsoft Dynamics 365-portalen är tillgänglig. Se [Konfigurera Dynamics 365-portalen för att använda Azure AD B2C för autentisering](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
+Integrering med Microsoft Dynamics 365-portalen är tillgänglig. Se [Konfigurera Dynamics 365-portalen för att använda Azure AD B2C för autentisering](/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Fungerar Azure AD B2C med SharePoint lokalt 2016 eller tidigare?
 
@@ -112,7 +112,7 @@ Azure AD B2C är inte avsett för det externa SharePoint-scenariot för partner 
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>Ska jag använda Azure AD B2C eller B2B för att hantera externa identiteter?
 
-Läs [jämföra B2B-samarbete och B2C i Azure AD](../active-directory/b2b/compare-with-b2c.md) för att lära dig mer om hur du använder lämpliga funktioner i dina externa identitets scenarier.
+Läs [jämföra B2B-samarbete och B2C i Azure AD](../active-directory/external-identities/compare-with-b2c.md) för att lära dig mer om hur du använder lämpliga funktioner i dina externa identitets scenarier.
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Vilka rapporterings-och gransknings funktioner tillhandahåller Azure AD B2C? Är de samma som i Azure AD Premium?
 
@@ -134,7 +134,7 @@ Inte för tillfället. Den här funktionen finns i vår översikt. Att verifiera
 
 Följ dessa steg om du vill ta bort din Azure AD B2C-klient.
 
-Du kan använda vår nya enhetlig **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
+Du kan använda vår nya enhetlig **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
@@ -142,13 +142,13 @@ Du kan använda vår nya enhetlig **Appregistreringar** upplevelse eller äldre 
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Ta bort alla **användar flöden (principer)** i Azure AD B2C klient organisationen.
-1. Välj **Appregistreringar**och välj sedan fliken **alla program** .
+1. Välj **Appregistreringar** och välj sedan fliken **alla program** .
 1. Ta bort alla program som du har registrerat.
 1. Ta bort **B2C-Extensions-appen**.
 1. Under **Hantera** väljer du **Användare**.
 1. Välj varje användare i tur (exkludera den *prenumerations administratörs* användare som du för närvarande är inloggad som). Välj **ta bort** längst ned på sidan och välj **Ja** när du uppmanas till det.
 1. Välj **Azure Active Directory** på menyn till vänster.
-1. Under **Hantera**väljer du **användar inställningar**.
+1. Under **Hantera** väljer du **användar inställningar**.
 1. Under **Hantera**, väljer du **Egenskaper**
 1. Under **Åtkomsthantering för Azure-resurser** väljer du **Ja** och väljer sedan **Spara**.
 1. Logga ut från Azure Portal och logga sedan in igen för att uppdatera åtkomsten.
@@ -167,9 +167,9 @@ Du kan använda vår nya enhetlig **Appregistreringar** upplevelse eller äldre 
 1. Välj varje användare i tur (exkludera den *prenumerations administratörs* användare som du för närvarande är inloggad som). Välj **ta bort** längst ned på sidan och välj **Ja** när du uppmanas till det.
 1. Välj **Appregistreringar** under **Hantera**.
 1. Välj **Visa alla program**
-1. Välj programmet med namnet **B2C-Extensions-app**, Välj **ta bort**och välj sedan **Ja** när du uppmanas att göra det.
-1. Under **Hantera**väljer du **användar inställningar**.
-1. Om det är tillgängligt väljer du **Nej**under **LinkedIn-konto anslutningar**och väljer sedan **Spara**.
+1. Välj programmet med namnet **B2C-Extensions-app**, Välj **ta bort** och välj sedan **Ja** när du uppmanas att göra det.
+1. Under **Hantera** väljer du **användar inställningar**.
+1. Om det är tillgängligt väljer du **Nej** under **LinkedIn-konto anslutningar** och väljer sedan **Spara**.
 1. Under **Hantera**, väljer du **Egenskaper**
 1. Under **Åtkomsthantering för Azure-resurser** väljer du **Ja** och väljer sedan **Spara**.
 1. Logga ut från Azure Portal och logga sedan in igen för att uppdatera åtkomsten.

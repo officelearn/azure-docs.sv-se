@@ -10,18 +10,18 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60b7bb33dfbf29b7e448887ce992d03009133b2e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87482846"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953499"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Skydda ett Azure API Management-API med Azure AD B2C
 
 Lär dig hur du begränsar åtkomsten till ditt Azure API Management-API (APIM) till klienter som har autentiserats med Azure Active Directory B2C (Azure AD B2C). Följ stegen i den här artikeln för att skapa och testa en inkommande princip i APIM som begränsar åtkomsten till de begär Anden som innehåller en giltig Azure AD B2C-utfärdad åtkomsttoken.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande resurser på plats innan du fortsätter med stegen i den här artikeln:
 
@@ -35,14 +35,14 @@ Du behöver följande resurser på plats innan du fortsätter med stegen i den h
 
 När du skyddar ett API i Azure API Management med Azure AD B2C behöver du flera värden för den [inkommande principen](../api-management/api-management-howto-policies.md) som du skapar i APIM. Registrera först program-ID: t för ett program som du tidigare har skapat i Azure AD B2C klient organisationen. Om du använder det program som du skapade i kraven använder du program-ID: t för *webbapp1*.
 
-Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
+Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. Välj **Appregistreringar**och välj fliken **ägda program** .
+1. Välj **Appregistreringar** och välj fliken **ägda program** .
 1. Registrera värdet i kolumnen **program (klient) ID** för *webapp1* eller ett annat program som du har skapat tidigare.
 
 #### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
@@ -50,7 +50,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. Under **Hantera**väljer du **program (bakåtkompatibelt)**.
+1. Under **Hantera** väljer du **program (bakåtkompatibelt)**.
 1. Registrera värdet i kolumnen **program-ID** för *webapp1* eller något annat program som du har skapat tidigare.
 
 * * *
@@ -60,7 +60,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 Sedan hämtar du den välkända konfigurations-URL: en för en av dina Azure AD B2C användar flöden. Du behöver också slut punkts-URI för token som du vill ha stöd för i Azure API Management.
 
 1. Bläddra till Azure AD B2C-klienten i [Azure Portal](https://portal.azure.com).
-1. Under **principer**väljer du **användar flöden**.
+1. Under **principer** väljer du **användar flöden**.
 1. Välj en befintlig princip, till exempel *B2C_1_signupsignin1*, och välj sedan **Kör användar flöde**.
 1. Registrera URL: en i en hyperlänk som visas under rubriken **Kör användar flöde** längst upp på sidan. Den här URL: en är den OpenID anslutnings välkända identifierings slut punkten för användar flödet och du använder den i nästa avsnitt när du konfigurerar den inkommande principen i Azure API Management.
 
@@ -88,7 +88,7 @@ Nu är du redo att lägga till den inkommande principen i Azure API Management s
 1. Välj **API:er**.
 1. Välj det API som du vill skydda med Azure AD B2C.
 1. Välj fliken **Design**.
-1. Under **inkommande bearbetning**väljer **\</\>** du för att öppna princip kod redigeraren.
+1. Under **inkommande bearbetning** väljer **\</\>** du för att öppna princip kod redigeraren.
 1. Placera följande `<validate-jwt>` tagg inuti `<inbound>` principen.
 
     1. Uppdatera `url` värdet i `<openid-config>` elementet med principens välkända konfigurations-URL.
@@ -126,10 +126,10 @@ Om du vill anropa API: et behöver du både en åtkomsttoken som utfärdats av A
 Du behöver först en token som utfärdats av Azure AD B2C att använda i `Authorization` rubriken i Postman. Du kan få en genom att använda funktionen **Kör nu** i ditt inloggnings-eller inloggnings användar flöde som du har skapat som en av kraven.
 
 1. Bläddra till Azure AD B2C-klienten i [Azure Portal](https://portal.azure.com).
-1. Under **principer**väljer du **användar flöden**.
+1. Under **principer** väljer du **användar flöden**.
 1. Välj ett befintligt inloggnings-eller inloggnings användar flöde, till exempel *B2C_1_signupsignin1*.
-1. För **program**väljer du *webapp1*.
-1. För **svars-URL**väljer du `https://jwt.ms` .
+1. För **program** väljer du *webapp1*.
+1. För **svars-URL** väljer du `https://jwt.ms` .
 1. Välj **Kör användar flöde**.
 
     ![Sidan kör användar flöde för registrering av inloggnings användar flöde i Azure Portal](media/secure-apim-with-b2c-token/portal-03-user-flow.png)
@@ -145,7 +145,7 @@ Ett klient program (i det här fallet Postman) som anropar ett publicerat API m�
 
 1. Bläddra till din Azure API Management-tjänstinstans i [Azure Portal](https://portal.azure.com).
 1. Välj **Prenumerationer**.
-1. Välj ellipsen för **produkten: obegränsad**och välj sedan **Visa/Dölj nycklar**.
+1. Välj ellipsen för **produkten: obegränsad** och välj sedan **Visa/Dölj nycklar**.
 1. Registrera den **primära nyckeln** för produkten. Du använder den här nyckeln för `Ocp-Apim-Subscription-Key` sidhuvudet i din HTTP-begäran i Postman.
 
 ![Sidan prenumerations nyckel med Visa/Dölj-nycklar markerade i Azure Portal](media/secure-apim-with-b2c-token/portal-04-api-subscription-key.png)

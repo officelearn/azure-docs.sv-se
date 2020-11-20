@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bb13b350dfecf70e5f3a45755f6f77069a855c6c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f7a4d0852edded516b7fbe42f15abfe160e44cd3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363852"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952802"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Översikt över användar konton i Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Följande typer av konton är tillgängliga:
 - **Konsument konto** – ett konsument konto används av en användare av de program som du har registrerat med Azure AD B2C. Konsument konton kan skapas av:
   - Användaren går igenom ett registrerings användar flöde i ett Azure AD B2C program
   - Använda Microsoft Graph API
-  - Använda Azure Portal
+  - Använda Azure-portalen
 
 ## <a name="work-account"></a>Arbets konto
 
@@ -50,29 +50,29 @@ När du lägger till ett nytt arbets konto måste du tänka på följande konfig
 Du kan använda följande information för att skapa ett nytt arbets konto:
 
 - [Azure-portalen](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Uppdatera en användar profil
 
 Du kan använda följande information för att uppdatera profilen för en användare:
 
 - [Azure-portalen](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Återställa ett lösen ord för en användare
 
 Du kan använda följande information för att återställa lösen ordet för en användare:
 
 - [Azure-portalen](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Gäst användare
 
-Du kan bjuda in externa användare till din klient som gäst användare. Ett typiskt scenario för att bjuda in en gäst användare till din Azure AD B2C klient organisation är att dela administrations ansvar. Ett exempel på hur du använder ett gäst konto finns i [Egenskaper för en Azure Active Directory B2B-samarbets användare](../active-directory/b2b/user-properties.md).
+Du kan bjuda in externa användare till din klient som gäst användare. Ett typiskt scenario för att bjuda in en gäst användare till din Azure AD B2C klient organisation är att dela administrations ansvar. Ett exempel på hur du använder ett gäst konto finns i [Egenskaper för en Azure Active Directory B2B-samarbets användare](../active-directory/external-identities/user-properties.md).
 
 När du bjuder in en gäst användare till din klient anger du e-postadressen till mottagaren och ett meddelande som beskriver inbjudan. Länken inbjudan tar användaren till sidan för godkännande där knappen **Kom igång** är markerad och granskningen av behörigheter godkänns. Om en inkorg inte är kopplad till e-postadressen kan användaren gå till sidan medgivande genom att gå till en Microsoft-sida med de inbjudna autentiseringsuppgifterna. Användaren tvingas sedan att lösa in inbjudan på samma sätt som om du klickar på länken i e-postmeddelandet. Till exempel: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-Du kan också använda [Microsoft Graph API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) för att bjuda in en gäst användare.
+Du kan också använda [Microsoft Graph API](/graph/api/invitation-post?view=graph-rest-beta) för att bjuda in en gäst användare.
 
 ## <a name="consumer-user"></a>Konsument användare
 

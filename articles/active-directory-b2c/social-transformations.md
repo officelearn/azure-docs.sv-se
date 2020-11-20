@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eaa2984c0d7a5d3763f554e39f687fdbd2865e96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c60cecb9d6bfeeefc0569a1a57185d13f0c6442f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203392"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953125"
 ---
 # <a name="social-accounts-claims-transformations"></a>Anspråk omvandlingar för sociala konton
 
@@ -39,9 +39,9 @@ Den här artikeln innehåller exempel på hur du kan använda anspråk för soci
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-Skapar en JSON-representation av användarens alternativeSecurityId-egenskap som kan användas i anrop till Azure Active Directory. Mer information finns i [AlternativeSecurityId](https://docs.microsoft.com/graph/api/resources/alternativesecurityid) -schemat.
+Skapar en JSON-representation av användarens alternativeSecurityId-egenskap som kan användas i anrop till Azure Active Directory. Mer information finns i [AlternativeSecurityId](/graph/api/resources/alternativesecurityid) -schemat.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | key | sträng | ClaimType som anger den unika användar identifierare som används av den sociala identitets leverantören. |
 | InputClaim | identityProvider | sträng | ClaimType som anger namnet på den sociala konto identitets leverantören, till exempel facebook.com. |
@@ -73,7 +73,7 @@ Använd den här anspråks omvandlingen för att generera en `alternativeSecurit
 
 Lägger till ett `AlternativeSecurityId` till ett `alternativeSecurityIdCollection` anspråk.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | objekt | sträng | Den ClaimType som ska läggas till i utgående anspråk. |
 | InputClaim | samling | alternativeSecurityIdCollection | Den ClaimTypes som används av anspråks omvandlingen om den är tillgänglig i principen. Om det här alternativet anges lägger anspråks omvandlingen i `item` slutet av samlingen. |
@@ -110,7 +110,7 @@ I följande exempel länkas en ny social identitet med ett befintligt konto. Så
 
 Returnerar lista över utfärdare från **alternativeSecurityIdCollection** -anspråket till ett nytt **stringCollection** -anspråk.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | alternativeSecurityIdCollection | alternativeSecurityIdCollection | Den ClaimType som ska användas för att hämta listan över identitets leverantörer (utfärdare). |
 | OutputClaim | identityProvidersCollection | stringCollection | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats. Lista över identitets leverantörer som är kopplade till alternativeSecurityIdCollection-indatamängden |
@@ -137,7 +137,7 @@ Följande Claims-omvandling läser användar **alternativeSecurityIds** -ansprå
 
 Tar bort en **AlternativeSecurityId** från ett **alternativeSecurityIdCollection** -anspråk.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | identityProvider | sträng | Den ClaimType som innehåller identitets leverantörens namn som ska tas bort från samlingen. |
 | InputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som används av anspråks omvandlingen. Transformationen Claims tar bort identityProvider från samlingen. |

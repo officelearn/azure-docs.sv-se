@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29116d880a51444eb45a351e2118a07d13873043
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259381"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953856"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Experian: med Azure Active Directory B2C
 
@@ -36,13 +36,13 @@ I det här exemplet används Experian:-integrerade digitala identiteter och **Cr
 - Land/region
 - Telefonnummer
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du:
 
 - En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 
-- [En Azure AD B2C klient](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) som är länkad till din Azure-prenumeration.
+- [En Azure AD B2C klient](./tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -77,14 +77,14 @@ I följande arkitektur diagram visas implementeringen.
 
 ### <a name="part-1---deploy-the-api"></a>Del 1 – distribuera API: et
 
-Distribuera den tillhandahållna [API-koden](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) till en Azure-tjänst. Du kan publicera koden från Visual Studio genom att följa dessa [anvisningar](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Distribuera den tillhandahållna [API-koden](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) till en Azure-tjänst. Du kan publicera koden från Visual Studio genom att följa dessa [anvisningar](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Du behöver URL: en för den distribuerade tjänsten för att konfigurera Azure AD med nödvändiga inställningar.
 
 ### <a name="part-2---deploy-the-client-certificate"></a>Del 2 – distribuera klient certifikatet
 
-Experian:-API-anropet skyddas av ett klient certifikat. Det här klient certifikatet kommer att tillhandahållas av Experian:. Efter de instruktioner som anges i det här [dokumentet](https://docs.microsoft.com/azure/app-service/environment/certificates#private-client-certificate)måste certifikatet överföras till Azure App-tjänsten. Exempel principen använder dessa nycklar steg i processen:
+Experian:-API-anropet skyddas av ett klient certifikat. Det här klient certifikatet kommer att tillhandahållas av Experian:. Efter de instruktioner som anges i det här [dokumentet](../app-service/environment/certificates.md#private-client-certificate)måste certifikatet överföras till Azure App-tjänsten. Exempel principen använder dessa nycklar steg i processen:
 
 - Ladda upp certifikatet
 
@@ -92,9 +92,9 @@ Experian:-API-anropet skyddas av ett klient certifikat. Det här klient certifik
 
 ### <a name="part-3---configure-the-api"></a>Del 3 – Konfigurera API: et
 
-Program inställningar kan [konfigureras i App Service i Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
+Program inställningar kan [konfigureras i App Service i Azure](../app-service/configure-common.md#configure-app-settings). Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
 
-| Programinställningar | Källa | Obs! |
+| Programinställningar | Källa | Kommentarer |
 | :-------- | :------------| :-----------|
 |CrossCoreConfig: TenantId | Konfiguration av Experian:-konto |     |
 |CrossCoreConfig:OrgCode | Konfiguration av Experian:-konto |     |
@@ -110,7 +110,7 @@ Program inställningar kan [konfigureras i App Service i Azure](https://docs.mic
 
 ### <a name="part-4---create-api-policy-keys"></a>Del 4 – Skapa API-principinställningar
 
-Referera till det här [dokumentet](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#add-rest-api-username-and-password-policy-keys) och skapa två princip nycklar – ett för API-användarnamnet och ett för API-lösenordet som du definierade ovan för HTTP Basic-autentisering.
+Referera till det här [dokumentet](./secure-rest-api.md#add-rest-api-username-and-password-policy-keys) och skapa två princip nycklar – ett för API-användarnamnet och ett för API-lösenordet som du definierade ovan för HTTP Basic-autentisering.
 
 >[!NOTE]
 >Du behöver nycklar för att konfigurera principerna senare.
@@ -133,7 +133,7 @@ I de angivna [anpassade principerna](https://github.com/azure-ad-b2c/partner-int
 
 ### <a name="part-6---configure-the-azure-ad-b2c-policy"></a>Del 6 – konfigurera principen för Azure AD B2C
 
-Se det här [dokumentet](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) för instruktioner om hur du konfigurerar Azure AD B2C-klienten och konfigurerar principer.
+Se det här [dokumentet](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) för instruktioner om hur du konfigurerar Azure AD B2C-klienten och konfigurerar principer.
 
 >[!NOTE]
 >Den här exempel principen baseras på [lokala konton start paket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
@@ -167,6 +167,6 @@ Se det här [dokumentet](https://docs.microsoft.com/azure/active-directory-b2c/c
 
 Mer information finns i följande artiklar:
 
-- [Anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Anpassade principer i Azure AD B2C](./custom-policy-overview.md)
 
-- [Kom igång med anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Kom igång med anpassade principer i Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

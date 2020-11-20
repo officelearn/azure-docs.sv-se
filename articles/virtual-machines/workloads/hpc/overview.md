@@ -4,16 +4,16 @@ description: Lär dig mer om funktionerna i InfiniBand-aktiverade H-och N-serien
 author: vermagit
 ms.author: amverma
 ms.service: virtual-machines
-ms-subservice: hpc
+ms.subservice: workloads
 ms.topic: overview
 ms.date: 07/29/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: e2c3a1559b4a6642f17a2a998e68543a519b1225
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 5950e9ab6ec979938a2318c4d25f53db4f5e1064
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996719"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951391"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>Data behandling med höga prestanda på InfiniBand-aktiverade H-och N-seriens virtuella datorer
 

@@ -11,22 +11,22 @@ ms.date: 05/06/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48c79306d376c2faa1089886881a7b5e9a792c86
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d9bdf7258296b82e65e03f6b8af8021b9a7be0f0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840567"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952479"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Hantera användar data i Azure Active Directory B2C
 
- Den här artikeln beskriver hur du kan hantera användar data i Azure Active Directory B2C (Azure AD B2C) med hjälp av de åtgärder som tillhandahålls av [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api). Hantering av användar data inkluderar borttagning eller export av data från gransknings loggar.
+ Den här artikeln beskriver hur du kan hantera användar data i Azure Active Directory B2C (Azure AD B2C) med hjälp av de åtgärder som tillhandahålls av [Microsoft Graph API](/graph/use-the-api). Hantering av användar data inkluderar borttagning eller export av data från gransknings loggar.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>Ta bort användar data
 
-Användar data lagras i Azure AD B2C-katalogen och i gransknings loggarna. Alla användar gransknings data behålls i 7 dagar i Azure AD B2C. Om du vill ta bort användar data inom den 7-dagars perioden kan du använda åtgärden [ta bort en användare](https://docs.microsoft.com/graph/api/user-delete) . Det krävs en BORTTAGNINGs åtgärd för var och en av de Azure AD B2C klienter där data kan finnas.
+Användar data lagras i Azure AD B2C-katalogen och i gransknings loggarna. Alla användar gransknings data behålls i 7 dagar i Azure AD B2C. Om du vill ta bort användar data inom den 7-dagars perioden kan du använda åtgärden [ta bort en användare](/graph/api/user-delete) . Det krävs en BORTTAGNINGs åtgärd för var och en av de Azure AD B2C klienter där data kan finnas.
 
 Varje användare i Azure AD B2C tilldelas ett objekt-ID. Objekt-ID ger en entydig identifierare som du kan använda för att ta bort användar data i Azure AD B2C. Beroende på din arkitektur kan objekt-ID: t vara en användbar korrelations identifierare över andra tjänster, till exempel ekonomi-, marknadsförings-och kund Relations hanterings databaser.
 

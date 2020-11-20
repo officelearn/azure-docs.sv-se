@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a330fc18f39ffd7007e2a41a28016df69a2b739
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e0baeb7eddb1d74a8d7708b04391134d2e188b2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314665"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951969"
 ---
 # <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>Azure-Virtual Machines med hög tillgänglighet för SAP NetWeaver
 
@@ -404,7 +405,7 @@ Här kan du få Azure Resource Manager mallar för exempel scenariot som vi besk
 
 Förbereda infrastrukturen för arkitektur mal len 1:
 
-- I Azure Portal på bladet **parametrar** väljer du **ha**i rutan **SYSTEMAVAILABILITY** .
+- I Azure Portal på bladet **parametrar** väljer du **ha** i rutan **SYSTEMAVAILABILITY** .
 
   ![Bild 11: Ange Azure Resource Manager parametrar för hög tillgänglighet för SAP][sap-ha-guide-figure-3000]
 
@@ -450,7 +451,7 @@ För produktion av SAP-system distribuerar du virtuella Azure-datorer med föret
 >
 >
 
-1. I Azure Portal väljer du **befintlig**på bladet **parametrar** i rutan **NEWOREXISTINGSUBNET** .
+1. I Azure Portal väljer du **befintlig** på bladet **parametrar** i rutan **NEWOREXISTINGSUBNET** .
 2. I rutan **SUBNETID** lägger du till den fullständiga strängen för din för beredda Azure Network-SUBNETID där du planerar att distribuera dina virtuella Azure-datorer.
 3. Om du vill hämta en lista över alla Azure Network-undernät, kör du följande PowerShell-kommando:
 
@@ -474,7 +475,7 @@ För produktion av SAP-system distribuerar du virtuella Azure-datorer med föret
 ### <a name="deploy-cloud-only-sap-instances-for-test-and-demo"></a><a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a> Distribuera endast molnbaserade SAP-instanser för test och demo
 Du kan distribuera SAP-systemet med hög tillgänglighet i en distributions modell som endast är molnbaserad. Den här typen av distribution är främst användbar för demo-och test användnings fall. Det passar inte för produktions användnings fall.
 
-- I Azure Portal väljer du **ny**på bladet **parametrar** i rutan **NEWOREXISTINGSUBNET** . Lämna fältet **SUBNETID** tomt.
+- I Azure Portal väljer du **ny** på bladet **parametrar** i rutan **NEWOREXISTINGSUBNET** . Lämna fältet **SUBNETID** tomt.
 
   SAP Azure Resource Manager-mallen skapar automatiskt det virtuella Azure-nätverket och under nätet.
 
@@ -621,13 +622,13 @@ För lokal distribution behöver du dessa reserverade värdnamn och IP-adresser:
 
 När du skapar klustret skapar du de virtuella värd namnen **PR1-ASCs-vir** och **PR1-DBMS-vir** och de associerade IP-adresserna som hanterar själva klustret. Information om hur du gör detta finns i [samla in klusternoder i en kluster konfiguration][sap-ha-guide-8.12.1].
 
-Du kan skapa de andra två virtuella värd namnen manuellt, **PR1-ASCs-SAP** och **PR1-DBMS-SAP**och tillhör ande IP-adresser på DNS-servern. Den klustrade SAP-ASCS/SCS-instansen och den klustrade DBMS-instansen använder dessa resurser. Information om hur du gör detta finns i [skapa ett virtuellt värdnamn för en klustrad SAP ASCS/SCS-instans][sap-ha-guide-9.1.1].
+Du kan skapa de andra två virtuella värd namnen manuellt, **PR1-ASCs-SAP** och **PR1-DBMS-SAP** och tillhör ande IP-adresser på DNS-servern. Den klustrade SAP-ASCS/SCS-instansen och den klustrade DBMS-instansen använder dessa resurser. Information om hur du gör detta finns i [skapa ett virtuellt värdnamn för en klustrad SAP ASCS/SCS-instans][sap-ha-guide-9.1.1].
 
 ### <a name="set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Ange statiska IP-adresser för virtuella SAP-datorer
 När du har distribuerat de virtuella datorerna som ska användas i klustret måste du ange statiska IP-adresser för alla virtuella datorer. Gör detta i Azure Virtual Network-konfigurationen och inte i gäst operativ systemet.
 
 1. I Azure Portal väljer du IP-adress för **resurs gruppens**  >  **nätverks kort**  >  **Inställningar**  >  **IP Address**.
-2. Välj **statisk**i bladet **IP-adresser** under **tilldelning**. I rutan **IP-adress** anger du den IP-adress som du vill använda.
+2. Välj **statisk** i bladet **IP-adresser** under **tilldelning**. I rutan **IP-adress** anger du den IP-adress som du vill använda.
 
    > [!NOTE]
    > Om du ändrar IP-adressen för nätverkskortet måste du starta om de virtuella Azure-datorerna för att tillämpa ändringen.  
@@ -665,7 +666,7 @@ SAP Azure Resource Manager-mallen skapar en intern Azure-belastningsutjämnare s
 
 Ange en statisk IP-adress för den interna Azure-belastningsutjämnaren:
 
-1. Den inledande distributionen anger den interna IP-adressen för belastningsutjämnaren till **dynamisk**. I Azure Portal väljer du **statisk**i bladet **IP-adresser** under **tilldelning**.
+1. Den inledande distributionen anger den interna IP-adressen för belastningsutjämnaren till **dynamisk**. I Azure Portal väljer du **statisk** i bladet **IP-adresser** under **tilldelning**.
 2. Ange IP-adressen för den interna belastningsutjämnaren **PR1-lb-ASCs** till IP-adressen för det virtuella värd namnet för SAP ASCS/SCS-instansen.
 3. Ange IP-adressen för den interna belastningsutjämnaren **PR1 – lb-DBMS** till IP-adressen för den virtuella värd namnet för DBMS-instansen.
 
@@ -737,7 +738,7 @@ Ange IP-adressen för belastningsutjämnaren **PR1 – lb-DBMS** till IP-adresse
 
 Om du vill använda olika nummer för SAP ASCS-eller SCS-instanserna måste du ändra namn och värden för deras portar från standardvärdena.
 
-1. I Azure Portal väljer du ** < *sid*>-lb-ASCs**belastnings  >  **Utjämnings regler**.
+1. I Azure Portal väljer du **< *sid*>-lb-ASCs** belastnings  >  **Utjämnings regler**.
 2. Ändra följande värden för alla belastnings Utjämnings regler som tillhör SAP ASCS-eller SCS-instansen:
 
    * Namn
@@ -798,7 +799,7 @@ Att ställa in ett kluster för redundanskluster i Windows Server för en SAP AS
 #### <a name="collect-the-cluster-nodes-in-a-cluster-configuration"></a><a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Samla in klusternoderna i en kluster konfiguration
 
 1. I guiden Lägg till roller och funktioner lägger du till kluster för växling vid fel i båda klusternoderna.
-2. Konfigurera redundansklustret med hjälp av Klusterhanteraren för växling vid fel. I Klusterhanteraren för växling vid fel väljer du **skapa kluster**och lägger sedan till endast namnet på det första klustret, nod A. Lägg inte till den andra noden ännu; du kommer att lägga till den andra noden i ett senare steg.
+2. Konfigurera redundansklustret med hjälp av Klusterhanteraren för växling vid fel. I Klusterhanteraren för växling vid fel väljer du **skapa kluster** och lägger sedan till endast namnet på det första klustret, nod A. Lägg inte till den andra noden ännu; du kommer att lägga till den andra noden i ett senare steg.
 
    ![Bild 18: Lägg till servern eller namnet på den virtuella datorn för den första klusternoden][sap-ha-guide-figure-3007]
 
@@ -902,7 +903,7 @@ Att konfigurera ett kluster fil resurs vittne omfattar följande uppgifter:
 
    Se till att behörigheterna omfattar behörigheten att ändra data i resursen för objektet kluster namn (i vårt exempel **PR1-ASCs-vir $**).
 
-3. Välj **Lägg**till om du vill lägga till kluster namns objekt i listan. Ändra filtret för att kontrol lera dator objekt, utöver de som visas i bild 31.
+3. Välj **Lägg** till om du vill lägga till kluster namns objekt i listan. Ändra filtret för att kontrol lera dator objekt, utöver de som visas i bild 31.
 
    ![Bild 31: ändra objekt typer för att inkludera datorer][sap-ha-guide-figure-3020]
 
@@ -993,7 +994,7 @@ Det finns två sätt att lägga till .NET Framework 3,5:
 
 Installera SIOS DataKeeper Cluster Edition på varje nod i klustret. Skapa en virtuell delad lagring med SIOS DataKeeper genom att skapa en synkroniserad spegling och sedan simulera klusterdelad lagring.
 
-Innan du installerar SIOS-programvaran skapar du **DataKeeperSvc**för domän användare.
+Innan du installerar SIOS-programvaran skapar du **DataKeeperSvc** för domän användare.
 
 > [!NOTE]
 > Lägg till **DataKeeperSvc** -användaren i den **lokala administratörs** gruppen på båda klusternoderna.
@@ -1010,7 +1011,7 @@ Så här installerar du SIOS DataKeeper:
 
    _**Bild 41:** Första sidan i SIOS DataKeeper-installationen_
 
-2. Välj **Ja**i dialog rutan som visas i bild 42.
+2. Välj **Ja** i dialog rutan som visas i bild 42.
 
    ![Bild 42: DataKeeper informerar dig om att en tjänst kommer att inaktive ras][sap-ha-guide-figure-3032]
 
@@ -1132,7 +1133,7 @@ Att installera SAP med en ASCS/SCS-instans med hög tillgänglighet omfattar fö
 1. I Windows DNS Manager skapar du en DNS-post för det virtuella värd namnet för ASCS/SCS-instansen.
 
    > [!IMPORTANT]
-   > Den IP-adress som du tilldelar det virtuella värd namnet för ASCS/SCS-instansen måste vara samma som den IP-adress som du tilldelade till Azure Load Balancer (** < *sid*>-lb-ASCS**).  
+   > Den IP-adress som du tilldelar det virtuella värd namnet för ASCS/SCS-instansen måste vara samma som den IP-adress som du tilldelade till Azure Load Balancer (**< *sid*>-lb-ASCS**).  
    >
    >
 
@@ -1268,7 +1269,7 @@ Så här lägger du till en avsöknings port:
    }
    ```
 
-   När du har försatt **SAP <*sid* > ** -klusterresursen online kontrollerar du att **ProbePort** är inställt på det nya värdet.
+   När du har försatt **SAP <*sid* >** -klusterresursen online kontrollerar du att **ProbePort** är inställt på det nya värdet.
 
    ```powershell
    $SAPSID = "PR1"     # SAP <SID>
@@ -1292,7 +1293,7 @@ Du måste öppna en avsöknings port för Windows-brandväggen på båda kluster
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
 
-**ProbePort** har angetts till **62000**. Nu kan du komma åt fil resursen ** \\ \ascsha-clsap\sapmnt** från andra värdar, t. ex. från **ascsha-databas administratörer**.
+**ProbePort** har angetts till **62000**. Nu kan du komma åt fil resursen **\\ \ascsha-clsap\sapmnt** från andra värdar, t. ex. från **ascsha-databas administratörer**.
 
 ### <a name="install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Installera databas instansen
 

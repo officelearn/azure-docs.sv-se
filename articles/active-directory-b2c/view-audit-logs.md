@@ -12,12 +12,12 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9485fb09d3ac7684ba91bcd37720a0e55603404b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383945"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952734"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C gransknings loggar
 
@@ -37,7 +37,7 @@ Kategorin **B2C** i gransknings loggar innehåller följande typer av aktivitete
 |Auktorisering |Aktiviteter som rör auktorisering av en användare för att få åtkomst till B2C-resurser (till exempel en administratör som har åtkomst till en lista över B2C-principer).         |
 |Katalog |Aktiviteter relaterade till katalogattribut som hämtats när en administratör loggar in med hjälp av Azure Portal. |
 |Program | Skapa, läsa, uppdatera och ta bort (CRUD) åtgärder på B2C-program. |
-|Tangent |CRUD åtgärder för nycklar som lagras i en B2C Key-behållare. |
+|Nyckel |CRUD åtgärder för nycklar som lagras i en B2C Key-behållare. |
 |Resurs |CRUD-åtgärder på B2C-resurser. Till exempel principer och identitets leverantörer.
 |Autentisering |Validering av användarautentiseringsuppgifter och utfärdande av token.|
 
@@ -51,9 +51,9 @@ I den här exempel bilden från Azure Portal visas de data som registrerats när
 
 Panelen aktivitets information innehåller följande relevanta information:
 
-|Section|Field|Beskrivning|
+|Section|Fält|Beskrivning|
 |-------|-----|-----------|
-| Aktivitet | Name | Vilken aktivitet som ägde rum. Du kan till exempel *utfärda en id_token till programmet*, vilket avslutar den faktiska användar inloggningen. |
+| Aktivitet | Namn | Vilken aktivitet som ägde rum. Du kan till exempel *utfärda en id_token till programmet*, vilket avslutar den faktiska användar inloggningen. |
 | Initierad av (aktör) | ObjectId | **Objekt-ID** för det B2C-program som användaren loggar in på. Den här identifieraren visas inte i Azure Portal, men är tillgänglig via Microsoft Graph API. |
 | Initierad av (aktör) | Namn | **Program-ID** för det B2C-program som användaren loggar in på. |
 | Mål | ObjectId | **Objekt-ID** för den användare som loggar in. |
@@ -84,7 +84,7 @@ Om du vill hämta listan över aktivitets händelser i en fil med kommaavgränsa
 
 ## <a name="get-audit-logs-with-the-azure-ad-reporting-api"></a>Hämta gransknings loggar med Azure AD repor ting API
 
-Gransknings loggar publiceras i samma pipeline som andra aktiviteter för Azure Active Directory, så att de kan nås via [rapporterings-API: et för Azure Active Directory](https://docs.microsoft.com/graph/api/directoryaudit-list). Mer information finns i [Kom igång med API för Azure Active Directory rapportering](../active-directory/reports-monitoring/concept-reporting-api.md).
+Gransknings loggar publiceras i samma pipeline som andra aktiviteter för Azure Active Directory, så att de kan nås via [rapporterings-API: et för Azure Active Directory](/graph/api/directoryaudit-list). Mer information finns i [Kom igång med API för Azure Active Directory rapportering](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 ### <a name="enable-reporting-api-access"></a>Aktivera rapporterings-API-åtkomst
 

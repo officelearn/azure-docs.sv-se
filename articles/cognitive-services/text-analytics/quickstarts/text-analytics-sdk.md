@@ -13,12 +13,12 @@ ms.author: aahi
 keywords: text utvinning, sentiment-analys, text analys
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 6d69c47c4833247ac259f9dcc166d7ab2696c117
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5a0856df71f87e49c1a7d627ba92419352c796d5
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977827"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980973"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Snabb start: Använd Textanalys klient bibliotek
 
@@ -38,6 +38,7 @@ Använd Textanalys klient bibliotek för att utföra:
 > * Den senaste stabila versionen av API för textanalys är `3.0` .
 >    * Se till att du bara följer anvisningarna för den version som du använder.
 > * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan.
+> * Om du vill använda textanalys för hälso tillstånd eller asynkrona åtgärder, se exemplen på GitHub för [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) eller [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
@@ -50,6 +51,7 @@ Använd Textanalys klient bibliotek för att utföra:
 > [!IMPORTANT]
 > * Den senaste stabila versionen av API för textanalys är `3.0` .
 > * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan.
+Om du vill använda textanalys för hälso tillstånd eller asynkrona åtgärder, se exemplen på GitHub för [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) eller [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
@@ -72,7 +74,7 @@ Använd Textanalys klient bibliotek för att utföra:
 > [!IMPORTANT]
 > * Den senaste stabila versionen av API för textanalys är `3.0` .
 >    * Se till att du bara följer anvisningarna för den version som du använder.
-> * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan. 
+> * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan. Om du vill använda textanalys för hälso tillstånd eller asynkrona åtgärder, se exemplen på GitHub för [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) eller [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 [!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
@@ -104,7 +106,7 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 > [Utforska en lösning](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
 
 * [Översikt över Textanalys](../overview.md)
-* [Sentimentanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Sentiment-analys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Igenkänning av enhet](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Identifiera språk](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Språk igenkänning](../how-tos/text-analytics-how-to-language-detection.md)

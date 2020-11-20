@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 73fa295c0c0d30cb0797820baaf2a4b03a1b7c99
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 96e6b7a672e2967403626cb9ba7db87fc4dd795c
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783461"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980209"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Använd privata slut punkter för Azure Storage
 
@@ -33,13 +33,13 @@ Med hjälp av privata slut punkter för ditt lagrings konto kan du:
 
 En privat slut punkt är ett särskilt nätverks gränssnitt för en Azure-tjänst i din [Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNet). När du skapar en privat slut punkt för ditt lagrings konto ger den säker anslutning mellan klienter i ditt VNet och ditt lagrings utrymme. Den privata slut punkten tilldelas en IP-adress från det virtuella nätverkets IP-adressintervall. Anslutningen mellan den privata slut punkten och lagrings tjänsten använder en säker privat länk.
 
-Program i det virtuella nätverket kan ansluta till lagrings tjänsten via den privata slut punkten sömlöst **med samma anslutnings strängar och auktoriseringsbeslut som de skulle använda i övrigt** . Privata slut punkter kan användas med alla protokoll som stöds av lagrings kontot, inklusive REST och SMB.
+Program i det virtuella nätverket kan ansluta till lagrings tjänsten via den privata slut punkten sömlöst **med samma anslutnings strängar och auktoriseringsbeslut som de skulle använda i övrigt**. Privata slut punkter kan användas med alla protokoll som stöds av lagrings kontot, inklusive REST och SMB.
 
 Privata slut punkter kan skapas i undernät som använder [tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md). Klienter i ett undernät kan därmed ansluta till ett lagrings konto med hjälp av privat slut punkt, samtidigt som tjänstens slut punkter används för att komma åt andra.
 
 När du skapar en privat slutpunkt för en lagringstjänst i ditt VNet skickas en begäran om godkännande till lagringskontots ägare. Om användaren som begär att den privata slut punkten ska skapas även är ägare till lagrings kontot, godkänns den här medgivande förfrågningen automatiskt.
 
-Lagrings kontots ägare kan hantera medgivande förfrågningar och privata slut punkter via fliken " *privata slut punkter* " för lagrings kontot i [Azure Portal](https://portal.azure.com).
+Lagrings kontots ägare kan hantera medgivande förfrågningar och privata slut punkter via fliken "*privata slut punkter*" för lagrings kontot i [Azure Portal](https://portal.azure.com).
 
 > [!TIP]
 > Om du vill begränsa åtkomsten till ditt lagrings konto via enbart den privata slut punkten konfigurerar du lagrings brand väggen för att neka eller kontrol lera åtkomst via den offentliga slut punkten.
@@ -52,8 +52,9 @@ När du skapar den privata slut punkten måste du ange det lagrings konto och de
 
 > [!TIP]
 > Skapa en separat privat slut punkt för den sekundära instansen av lagrings tjänsten för bättre Läs prestanda på RA-GRS-konton.
+> Se till att skapa ett lagrings konto för generell användning v2 (standard eller Premium).
 
-Om du vill ha Läs behörighet till den sekundära regionen med ett lagrings konto som kon figurer ATS för Geo-redundant lagring, behöver du separata privata slut punkter för både den primära och sekundära tjänstens instanser av tjänsten. Du behöver inte skapa en privat slut punkt för den sekundära instansen för **redundansväxling** . Den privata slut punkten ansluts automatiskt till den nya primära instansen efter redundansväxlingen. Mer information om alternativ för redundans finns [Azure Storage redundans](storage-redundancy.md).
+Om du vill ha Läs behörighet till den sekundära regionen med ett lagrings konto som kon figurer ATS för Geo-redundant lagring, behöver du separata privata slut punkter för både den primära och sekundära tjänstens instanser av tjänsten. Du behöver inte skapa en privat slut punkt för den sekundära instansen för **redundansväxling**. Den privata slut punkten ansluts automatiskt till den nya primära instansen efter redundansväxlingen. Mer information om alternativ för redundans finns [Azure Storage redundans](storage-redundancy.md).
 
 Mer detaljerad information om hur du skapar en privat slut punkt för ditt lagrings konto finns i följande artiklar:
 
@@ -67,13 +68,13 @@ Mer detaljerad information om hur du skapar en privat slut punkt för ditt lagri
 Klienter i ett VNet som använder den privata slut punkten bör använda samma anslutnings sträng för lagrings kontot, som klienter som ansluter till den offentliga slut punkten. Vi förlitar sig på DNS-matchning för att automatiskt dirigera anslutningarna från VNet till lagrings kontot via en privat länk.
 
 > [!IMPORTANT]
-> Använd samma anslutnings sträng för att ansluta till lagrings kontot med privata slut punkter, som du annars skulle använda. Anslut inte till lagrings kontot med hjälp av URL: en för *privatelink* -underdomänen.
+> Använd samma anslutnings sträng för att ansluta till lagrings kontot med privata slut punkter, som du annars skulle använda. Anslut inte till lagrings kontot med hjälp av URL: en för *privatelink*-underdomänen.
 
 Vi skapar en [privat DNS-zon](../../dns/private-dns-overview.md) som är kopplad till det virtuella nätverket med nödvändiga uppdateringar för privata slut punkter som standard. Men om du använder en egen DNS-server kan du behöva göra ytterligare ändringar i DNS-konfigurationen. Avsnittet om [DNS-ändringar](#dns-changes-for-private-endpoints) nedan beskriver de uppdateringar som krävs för privata slut punkter.
 
 ## <a name="dns-changes-for-private-endpoints"></a>DNS-ändringar för privata slut punkter
 
-När du skapar en privat slut punkt uppdateras DNS CNAME-resursposten för lagrings kontot till ett alias i en under domän med prefixet " *privatelink* ". Som standard skapar vi också en [privat DNS-zon](../../dns/private-dns-overview.md)som motsvarar under domänen " *privatelink* " med DNS a-resursposter för de privata slut punkterna.
+När du skapar en privat slut punkt uppdateras DNS CNAME-resursposten för lagrings kontot till ett alias i en under domän med prefixet "*privatelink*". Som standard skapar vi också en [privat DNS-zon](../../dns/private-dns-overview.md)som motsvarar under domänen "*privatelink*" med DNS a-resursposter för de privata slut punkterna.
 
 När du löser lagrings slut punktens URL från utanför det virtuella nätverket med den privata slut punkten matchas den offentliga slut punkten för lagrings tjänsten. Vid matchning från det VNet som är värd för den privata slut punkten matchas slut punktens URL-adress till den privata slut punktens IP-adress.
 
@@ -96,7 +97,7 @@ DNS-resursposterna för StorageAccountA, när de löses av en klient i det VNet 
 
 Den här metoden ger åtkomst till lagrings kontot **med samma anslutnings sträng** för klienter på det virtuella nätverk som är värd för privata slut punkter, samt klienter utanför VNet.
 
-Om du använder en anpassad DNS-server i ditt nätverk måste klienterna kunna matcha FQDN för lagrings kontots slut punkt till den privata slut punktens IP-adress. Du bör konfigurera DNS-servern för att delegera din privata länk under domän till den privata DNS-zonen för det virtuella nätverket eller konfigurera A-posterna för " *StorageAccountA.privatelink.blob.Core.Windows.net* " med den privata slut punkten IP-adress.
+Om du använder en anpassad DNS-server i ditt nätverk måste klienterna kunna matcha FQDN för lagrings kontots slut punkt till den privata slut punktens IP-adress. Du bör konfigurera DNS-servern för att delegera din privata länk under domän till den privata DNS-zonen för det virtuella nätverket eller konfigurera A-posterna för "*StorageAccountA.privatelink.blob.Core.Windows.net*" med den privata slut punkten IP-adress.
 
 > [!TIP]
 > När du använder en anpassad eller lokal DNS-server bör du konfigurera DNS-servern för att matcha lagrings kontots namn i under domänen "privatelink" till IP-adressen för den privata slut punkten. Du kan göra detta genom att delegera privatelink-underdomänen till det virtuella nätverkets privata DNS-zon eller konfigurera DNS-zonen på DNS-servern och lägga till DNS-posterna.

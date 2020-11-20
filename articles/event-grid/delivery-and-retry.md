@@ -3,18 +3,21 @@ title: Azure Event Grid leverans och försök igen
 description: Beskriver hur Azure Event Grid levererar händelser och hur de hanterar meddelanden som inte levererats.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042955"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981110"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelande leverans och försök igen
 
 I den här artikeln beskrivs hur Azure Event Grid hanterar händelser när leverans inte har bekräftats.
 
-Event Grid tillhandahåller varaktig leverans. Den levererar varje meddelande minst en gång för varje prenumeration. Händelser skickas till den registrerade slut punkten för varje prenumeration direkt. Om en slut punkt inte bekräftar mottagandet av en händelse Event Grid försök att leverera händelsen igen.
+Event Grid tillhandahåller varaktig leverans. Den levererar varje meddelande **minst en gång** för varje prenumeration. Händelser skickas till den registrerade slut punkten för varje prenumeration direkt. Om en slut punkt inte bekräftar mottagandet av en händelse Event Grid försök att leverera händelsen igen.
+
+> [!NOTE]
+> Event Grid garanterar inte för händelse leverans, så prenumeranten kan ta emot dem i rätt ordning. 
 
 ## <a name="batched-event-delivery"></a>Leverans av batch-händelser
 
@@ -78,7 +81,7 @@ Som ett slut punkts problem med leverans fel börjar Event Grid fördröja lever
 Det funktionella syftet med försenad leverans är att skydda Felaktiga slut punkter och Event Grid systemet. Utan avstängning och fördröjning av leverans till felaktiga slut punkter, kan Event Grids princip för återförsök och volym kapacitet lätt överbelasta ett system.
 
 ## <a name="dead-letter-events"></a>Händelser för obeställbara meddelanden
-När Event Grid inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden** . Event Grid obeställbara meddelanden en händelse när **något av följande** villkor uppfylls. 
+När Event Grid inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden**. Event Grid obeställbara meddelanden en händelse när **något av följande** villkor uppfylls. 
 
 - Händelsen har inte levererats inom **Time-to-Live-** perioden. 
 - **Antalet försök** att leverera händelsen har överskridit gränsen.

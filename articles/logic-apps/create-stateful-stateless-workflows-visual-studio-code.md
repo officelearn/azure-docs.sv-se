@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.date: 11/17/2020
+ms.openlocfilehash: 14809cb28870e88cfa584c4f02360d50beabf901
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410563"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981053"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Skapa tillståndskänsliga eller tillståndslösa arbetsflöden i Visual Studio Code med Azure Logic Apps-tillägget (förhandsversion)
 
@@ -66,7 +66,7 @@ Med tillägget Azure Logic Apps (förhands granskning) får du till gång till m
 
 ## <a name="stateful-versus-stateless-logic-apps"></a>Tillstånds känsliga gentemot tillstånds lösa Logic Apps
 
-* *Tillstånds känsliga*
+* *Tillståndskänsliga*
 
   Skapa tillstånds känsliga Logic-appar när du behöver behålla, granska eller referera till data från tidigare händelser. Dessa Logi Kap par är både indata och utdata för varje åtgärd och deras arbets flödes tillstånd i extern lagring, som gör det möjligt att granska körnings informationen och historiken när varje körning har slutförts. Tillstånds känsliga Logic Apps ger hög återhämtning om eller när avbrott inträffar. När tjänster och system har återställts kan du återskapa avbruten Logic app från det sparade läget och köra Logi kap Apps på nytt. Tillstånds känsliga arbets flöden kan fortsätta att köras i upp till ett år.
 
@@ -110,7 +110,7 @@ Dessa funktioner är inte tillgängliga eller stöds inte för den här offentli
 
 * Du kan distribuera den nya **Logic app (för hands version)** -resurs typen enbart till en [Premium-eller App Service värd plan i Azure](#publish-azure) eller till en [Docker-behållare](#deploy-docker)och inte [integrerings tjänst miljöer (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). **Förbruknings** värd planer stöds inte eller är inte tillgängliga för distribution av den här resurs typen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="access-and-connectivity"></a>Åtkomst och anslutning
 
@@ -206,7 +206,7 @@ Dessa funktioner är inte tillgängliga eller stöds inte för den här offentli
 
    1. På fliken **användare** går du till **>** **tillägg** **>** **Azure Logic Apps (för hands version)**.
 
-   1. Under **Azure Logic Apps v2: panel läge** bekräftar du att **Aktivera panel läge** är markerat. Under **Azure Logic Apps v2: Project runtime** , ställer du in versionen på **~ 3** eller **~ 2** , baserat på den [Azure Functions Core tools version](#prerequisites) som du installerade tidigare.
+   1. Under **Azure Logic Apps v2: panel läge** bekräftar du att **Aktivera panel läge** är markerat. Under **Azure Logic Apps v2: Project runtime**, ställer du in versionen på **~ 3** eller **~ 2**, baserat på den [Azure Functions Core tools version](#prerequisites) som du installerade tidigare.
 
       > [!IMPORTANT]
       > Om du vill använda den [ **infogade kod** åtgärden](../logic-apps/logic-apps-add-run-inline-code.md) för att köra JavaScript-kod kontrollerar du att du använder Project runtime version 3 eftersom åtgärden inte stöder version 2. Den här åtgärden stöds inte heller för Linux-operativsystem.
@@ -326,7 +326,7 @@ Innan du kan skapa din Logi Kap par skapar du ett lokalt projekt så att du kan 
 
       Det här felet kan inträffa om du tidigare har försökt öppna designern och sedan har utgått eller tagit bort projektet. Lös problemet genom att ta bort mappen **ExtensionBundles** på den här platsen **. ..\Users \\ {your-username} \AppData\Local\Temp\Functions\ExtensionBundles** och försök **workflow.js** att öppna filen i designern igen.
 
-1. I listan **aktivera anslutningar i Azure** väljer du **Använd anslutningar från Azure** , som gäller för alla hanterade anslutningar som är tillgängliga och distribuerade i Azure, inte bara anslutningar för Azure-tjänster.
+1. I listan **aktivera anslutningar i Azure** väljer du **Använd anslutningar från Azure**, som gäller för alla hanterade anslutningar som är tillgängliga och distribuerade i Azure, inte bara anslutningar för Azure-tjänster.
 
    ![Skärm bild som visar Explorer-fönstret med alternativet "aktivera anslutningar i Azure" och "Använd anslutningar från Azure" markerat.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
 
@@ -367,7 +367,7 @@ När du har öppnat Logic app designer från **workflow.jspå** filens snabb men
 
 Logic app-arbetsflödet i det här exemplet använder utlösaren och följande åtgärder:
 
-* Den inbyggda [begär ande utlösaren](../connectors/connectors-native-reqres.md), **när en http-begäran tas emot** , som tar emot inkommande samtal eller begär Anden och skapar en slut punkt som andra tjänster eller Logi Kap par kan anropa.
+* Den inbyggda [begär ande utlösaren](../connectors/connectors-native-reqres.md), **när en http-begäran tas emot**, som tar emot inkommande samtal eller begär Anden och skapar en slut punkt som andra tjänster eller Logi Kap par kan anropa.
 
 * [Office 365 Outlook-åtgärd](../connectors/connectors-create-api-office365-outlook.md), **Skicka ett e-postmeddelande**.
 
@@ -392,9 +392,9 @@ Logic app-arbetsflödet i det här exemplet använder utlösaren och följande �
 
    1. I designern väljer du objektet, som öppnar objektets informations fönster till höger.
 
-   1. Expandera Visual Studio Code-fönstret tillräckligt mycket så att knappen ellipser ( **...** ) visas i det översta högra hörnet bredvid utlösaren eller åtgärds namnet. 
+   1. Expandera Visual Studio Code-fönstret tillräckligt mycket så att knappen ellipser (**...**) visas i det översta högra hörnet bredvid utlösaren eller åtgärds namnet. 
 
-   1. Öppna ellipser-menyn ( **...** ) och välj **ta bort**. Bekräfta borttagningen genom att välja **OK**.
+   1. Öppna ellipser-menyn (**...**) och välj **ta bort**. Bekräfta borttagningen genom att välja **OK**.
 
       ![Skärm bild som visar det valda objektet i designern med öppna informations fönstret och med knappen med valda ellipser och alternativet "ta bort".](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 
@@ -446,13 +446,13 @@ Logic app-arbetsflödet i det här exemplet använder utlösaren och följande �
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Att** | Yes | <*din-e-postadress*> | E-postmottagaren, som kan vara din e-postadress i test syfte. I det här exemplet används det fiktiva e-postmeddelandet `sophiaowen@fabrikam.com` . |
-   | **Ämne** | Yes | `An email from your example workflow` | E-postmeddelandets ämne |
-   | **Brödtext** | Yes | `Hello from your example workflow!` | Innehållet i e-postmeddelandet |
+   | **Att** | Ja | <*din-e-postadress*> | E-postmottagaren, som kan vara din e-postadress i test syfte. I det här exemplet används det fiktiva e-postmeddelandet `sophiaowen@fabrikam.com` . |
+   | **Ämne** | Ja | `An email from your example workflow` | E-postmeddelandets ämne |
+   | **Brödtext** | Ja | `Hello from your example workflow!` | Innehållet i e-postmeddelandet |
    ||||
 
    > [!NOTE]
-   > Om du vill göra ändringar i informations fönstret på fliken **Inställningar** , **kör efter** eller **statiskt resultat** , se till att du väljer **genomför** ändringarna innan du växlar flikar eller byter fokus till designern. Annars behåller Visual Studio-koden inte dina ändringar. Mer information finns på sidan om förhands gransknings tilläggets [kända problem GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+   > Om du vill göra ändringar i informations fönstret på fliken **Inställningar**, **kör efter** eller **statiskt resultat** , se till att du väljer **genomför** ändringarna innan du växlar flikar eller byter fokus till designern. Annars behåller Visual Studio-koden inte dina ändringar. Mer information finns på sidan om förhands gransknings tilläggets [kända problem GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 1. I designern väljer du **Spara**.
 
@@ -494,11 +494,11 @@ Testa din Logi Kap par genom att följa dessa steg för att starta en felsöknin
 
    1. I fönstret **Skapa nytt** under **Bygg block** väljer du **begäran**.
 
-   1. I fönstret **Spara begäran** , under **namn för begäran** , anger du ett namn för begäran, till exempel `Test workflow trigger` .
+   1. I fönstret **Spara begäran** , under **namn för begäran**, anger du ett namn för begäran, till exempel `Test workflow trigger` .
 
    1. Under **Välj en samling eller mapp att spara till** väljer du **skapa samling**.
 
-   1. Under **alla samlingar** anger du ett namn för samlingen som ska skapas för att ordna dina begär Anden, trycker på RETUR och väljer **Spara till < *samlings namn* >**. I det här exemplet används `Logic Apps requests` som samlings namn.
+   1. Under **alla samlingar** anger du ett namn för samlingen som ska skapas för att ordna dina begär Anden, trycker på RETUR och väljer **Spara till <*samlings namn* >**. I det här exemplet används `Logic Apps requests` som samlings namn.
 
       Postman fönster för begär ande öppnas så att du kan skicka en begäran till återanrops-URL: en för begäran utlösare.
 
@@ -523,18 +523,18 @@ Testa din Logi Kap par genom att följa dessa steg för att starta en felsöknin
 
    ![Skärm bild som visar sidan för arbets flödets översikt med körnings status och historik](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | Körnings status | Description |
+   | Körnings status | Beskrivning |
    |------------|-------------|
    | **Avbruten** | Körningen stoppades eller slutfördes inte på grund av externa problem, till exempel ett system avbrott eller en upphörde Azure-prenumeration. |
    | **Avbröts** | Körningen utlöstes och startades men tog emot en begäran om annullering. |
    | **Misslyckad** | Minst en åtgärd i körningen misslyckades. Inga efterföljande åtgärder i arbets flödet har ställts in för att hantera det här problemet. |
-   | **Körs** | Körningen utlöstes och pågår, men den här statusen kan också visas för en körning som är begränsad på grund av [Åtgärds gränser](logic-apps-limits-and-config.md) eller den [aktuella pris Planen](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Tips** : om du konfigurerar [diagnostikloggning](monitor-logic-apps-log-analytics.md)kan du få information om eventuella begränsnings händelser som inträffar. |
+   | **Körs** | Körningen utlöstes och pågår, men den här statusen kan också visas för en körning som är begränsad på grund av [Åtgärds gränser](logic-apps-limits-and-config.md) eller den [aktuella pris Planen](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Tips**: om du konfigurerar [diagnostikloggning](monitor-logic-apps-log-analytics.md)kan du få information om eventuella begränsnings händelser som inträffar. |
    | **Lyckades** | Körningen lyckades. Om en åtgärd Miss lyckas, hanterar en efterföljande åtgärd i arbets flödet detta fel. |
-   | **Tids gränsen uppnåddes** | Tids gränsen för körningen uppnåddes eftersom den aktuella varaktigheten överskred tids gränsen för körning, vilket styrs av inställningen för [ **kvarhållning av körnings historik i dagar**](logic-apps-limits-and-config.md#run-duration-retention-limits). Körningens varaktighet beräknas med hjälp av körningens start tid och tids gräns för körning vid den Start tiden. <p><p>**Obs!** om Körningens varaktighet också överskrider den aktuella *gränsen för körnings historik* , som också styrs av inställningen för [ **kvarhållning av körnings historik i dagar**](logic-apps-limits-and-config.md#run-duration-retention-limits), rensas körningen från körnings historiken med ett dagligt rensnings jobb. Oavsett om tids gränsen för körningen är slut eller slutförd beräknas alltid kvarhållningsperioden med hjälp av start tiden och den *aktuella* kvarhållningsperioden. Så om du minskar tids gränsen för en pågående körnings tid för en flygning. Körningen är dock antingen kvar eller så tas den bort från körnings historiken, baserat på om Körningens varaktighet överskred gränsen för kvarhållning. |
+   | **Tids gränsen uppnåddes** | Tids gränsen för körningen uppnåddes eftersom den aktuella varaktigheten överskred tids gränsen för körning, vilket styrs av inställningen för [ **kvarhållning av körnings historik i dagar**](logic-apps-limits-and-config.md#run-duration-retention-limits). Körningens varaktighet beräknas med hjälp av körningens start tid och tids gräns för körning vid den Start tiden. <p><p>**Obs!** om Körningens varaktighet också överskrider den aktuella *gränsen för körnings historik*, som också styrs av inställningen för [ **kvarhållning av körnings historik i dagar**](logic-apps-limits-and-config.md#run-duration-retention-limits), rensas körningen från körnings historiken med ett dagligt rensnings jobb. Oavsett om tids gränsen för körningen är slut eller slutförd beräknas alltid kvarhållningsperioden med hjälp av start tiden och den *aktuella* kvarhållningsperioden. Så om du minskar tids gränsen för en pågående körnings tid för en flygning. Körningen är dock antingen kvar eller så tas den bort från körnings historiken, baserat på om Körningens varaktighet överskred gränsen för kvarhållning. |
    | **Väntar** | Körningen har inte startat eller pausats, till exempel på grund av en tidigare arbets flödes instans som fortfarande körs. |
    |||
 
-1. Om du vill granska status för varje steg i en speciell körning och stegets indata och utdata, väljer du knappen med tre punkter ( **...** ) för den här körningen och väljer **Visa kör**.
+1. Om du vill granska status för varje steg i en speciell körning och stegets indata och utdata, väljer du knappen med tre punkter (**...**) för den här körningen och väljer **Visa kör**.
 
    ![Skärm bild som visar arbets flödets körnings historik rad med ellipser-knappen och "Visa körning" valt](./media/create-stateful-stateless-workflows-visual-studio-code/show-run-history.png)
 
@@ -542,9 +542,12 @@ Testa din Logi Kap par genom att följa dessa steg för att starta en felsöknin
 
    ![Skärm bild som visar varje steg i arbets flödets körning och deras status](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
 
+   > [!NOTE]
+   > Om en körning misslyckades och ett steg i vyn övervakning visar `400 Bad Request` felet, kan det här problemet uppstå från ett längre Utlösar-namn eller åtgärds namn som gör att den underliggande Uniform Resource Identifier (URI) överskrider standard tecken gränsen. Mer information finns i ["400 Felaktig begäran"](#400-bad-request).
+
    Här är möjliga statusar som varje steg i arbets flödet kan ha:
 
-   | Åtgärds status | Ikon | Description |
+   | Åtgärds status | Ikon | Beskrivning |
    |---------------|------|-------------|
    | Avbruten | ![Ikon för status för avbrutna åtgärder][aborted-icon] | Åtgärden stoppades eller avslutades inte på grund av externa problem, till exempel ett system avbrott eller en upphördende Azure-prenumeration. |
    | Avbrutet | ![Ikon för status för avbrutna åtgärder][cancelled-icon] | Åtgärden kördes men tog emot en begäran om annullering. |
@@ -621,7 +624,7 @@ När du har gjort uppdateringar till din Logic app kan du köra ett annat test g
 
 1. Skicka en annan begäran om att utlösa arbets flödet i Postman eller ditt verktyg för att skapa och skicka begär Anden.
 
-1. Om du har skapat ett tillstånds känsligt arbets flöde kontrollerar du status för den senaste körningen på arbets flödets översikts sida. Om du vill visa status, indata och utdata för varje steg i den här körningen väljer du knappen med tre punkter ( **...** ) för den här körningen och väljer **Visa kör**.
+1. Om du har skapat ett tillstånds känsligt arbets flöde kontrollerar du status för den senaste körningen på arbets flödets översikts sida. Om du vill visa status, indata och utdata för varje steg i den här körningen väljer du knappen med tre punkter (**...**) för den här körningen och väljer **Visa kör**.
 
    Här är till exempel steg för steg-status för en körning när exempel arbets flödet har uppdaterats med svars åtgärden.
 
@@ -750,7 +753,7 @@ I Visual Studio Code kan du Visa alla distribuerade Logi Kap par i din Azure-pre
 
 1. Om du vill visa alla arbets flöden i Logic-appen expanderar du din Logic app och expanderar sedan noden **arbets flöden** .
 
-1. Om du vill visa ett särskilt arbets flöde öppnar du arbets flödets snabb meny och väljer **Öppna i designer** , som öppnar arbets flödet i skrivskyddat läge.
+1. Om du vill visa ett särskilt arbets flöde öppnar du arbets flödets snabb meny och väljer **Öppna i designer**, som öppnar arbets flödet i skrivskyddat läge.
 
    För att redigera arbets flödet har du följande alternativ:
 
@@ -859,7 +862,7 @@ Följ dessa steg om du redan har distribuerat projektet till Azure Portal:
 
 1. Leta upp och öppna din **Logic app-resurs (förhands granskning)** i [Azure Portal](https://portal.azure.com).
 
-1. På menyn Logic Apps, under **Inställningar** , väljer du **konfiguration**.
+1. På menyn Logic Apps, under **Inställningar**, väljer du **konfiguration**.
 
 1. På fliken **program inställningar** väljer du **ny program inställning**.
 
@@ -869,7 +872,7 @@ Följ dessa steg om du redan har distribuerat projektet till Azure Portal:
 
 1. I rutan **värde** anger du följande värde: `WithStatelessRunHistory`
 
-   Till exempel:
+   Ett exempel:
 
    ![Skärm bild som visar resursen Azure Portal och Logic app (för hands version) med inställningen "konfiguration" > nya program inställningar "<" Lägg till/redigera program inställning "och" arbets flöden. {yourWorkflowName}. Alternativet OperationOptions "är inställt på" WithStatelessRunHistory ".](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
 
@@ -885,7 +888,7 @@ Följ dessa steg om du vill aktivera övervakning i en distribuerad **Logic app-
 
 1. I [Azure Portal](https://portal.azure.com)letar du reda på och väljer resursen distribuerad **Logic app (för hands version)** .
 
-1. På den resurs menyn, under **API** , väljer du **CORS**.
+1. På den resurs menyn, under **API**, väljer du **CORS**.
 
 1. Lägg till jokertecknet (*) under **tillåtna ursprung** i **CORS** -fönstret.
 
@@ -957,7 +960,7 @@ Med hjälp av [verktyget .net Core kommando rads gränssnitt (CLI)](/dotnet/core
 
    `POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
 
-   Värdet för < *Master-key* > definieras i det Azure Storage-konto som du anger `AzureWebJobsStorage` i filen, **Azure-WebJobs-hemligheter/{Deployment-Name}/host.jspå** , där du hittar värdet i det här avsnittet:
+   Värdet för <*Master-key*> definieras i det Azure Storage-konto som du anger `AzureWebJobsStorage` i filen, **Azure-WebJobs-hemligheter/{Deployment-Name}/host.jspå**, där du hittar värdet i det här avsnittet:
 
    ```json
    {
@@ -1014,6 +1017,47 @@ Den här tabellen anger beteendet för det underordnade arbets flödet baserat p
   * Gränsen på kod tecken ökar med 1 024 tecken till 100 000 tecken.
 
   * Tids gränsen för att köra koden ökar från fem sekunder till 15 sekunder.
+
+<a name="troubleshooting"></a>
+
+## <a name="troubleshoot-errors-and-problems"></a>Felsök fel och problem
+
+<a name="400-bad-request"></a>
+
+### <a name="400-bad-request"></a>"400 Felaktig begäran"
+
+När en körning Miss lyckas och du inspekterar vyn kör i övervakning, kan det här felet visas i en utlösare eller åtgärd som har ett längre namn, vilket gör att den underliggande Uniform Resource Identifier (URI) överskrider standard tecken gränsen.
+
+För att lösa det här problemet och justera för längre URI, redigerar du- `UrlSegmentMaxCount` och- `UrlSegmentMaxLength` register nycklarna på datorn genom att följa stegen nedan. Nyckelns standardvärden beskrivs i det här avsnittet [Http.sys register inställningar för Windows](/troubleshoot/iis/httpsys-registry-windows).
+
+> [!IMPORTANT]
+> Innan du börjar ska du se till att spara ditt arbete. Den här lösningen kräver att du startar om datorn när du är klar så att ändringarna börjar gälla.
+
+1. Öppna fönstret **Kör** på datorn och kör `regedit` kommandot som öppnar Registereditorn.
+
+1. I rutan **User Account Control** väljer du **Ja** för att tillåta ändringarna på datorn.
+
+1. I den vänstra rutan under **dator** expanderar du noderna längs sökvägen, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters** och väljer sedan **parametrar**.
+
+1. Leta upp register nycklarna i den högra `UrlSegmentMaxCount` rutan `UrlSegmentMaxLength` .
+
+1. Öka de här nyckel värdena så att URI: erna kan hantera de namn som du vill använda. Om nycklarna inte finns lägger du till dem i mappen **parametrar** genom att följa dessa steg:
+
+   1. Från snabb menyn **parametrar** väljer du **nytt**  >  **DWORD-värde (32-bitars)**.
+
+   1. Ange `UrlSegmentMaxCount` som det nya nyckel namnet i redigerings rutan som visas.
+
+   1. Öppna snabb menyn för den nya nyckeln och välj **ändra**.
+
+   1. I rutan **Redigera sträng** som visas anger du det **värde** värdes nyckel värde som du vill ha i hexadecimalt eller decimalt format. `400`I hexadecimal till exempel motsvarar `1024` i decimal tal.
+
+   1. Upprepa dessa steg om du vill lägga till ett `UrlSegmentMaxLength` nyckel värde.
+
+   När du har ökat eller lagt till dessa nyckel värden ser Registereditorn ut som i det här exemplet:
+
+   ![Skärm bild som visar Registereditorn.](media/create-stateful-stateless-workflows-visual-studio-code/edit-registry-settings-uri-length.png)
+
+1. När du är klar startar du om datorn så att ändringarna kan börja gälla.
 
 ## <a name="next-steps"></a>Nästa steg
 

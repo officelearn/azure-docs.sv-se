@@ -57,6 +57,12 @@
               href: manage-vm-extensions-template.md
         - name: Hantera agent
           href: manage-agent.md
+    - name: Scenarier
+      items:
+        - name: Registrera till Azure Sentinel
+          href: scenario-onboard-azure-sentinel.md
+        - name: Registrera till Azure Security Center
+          href: /security-center/quickstart-onboard-machines.md
     - name: Felsökning
       items:
         - name: Problem med agentanslutning

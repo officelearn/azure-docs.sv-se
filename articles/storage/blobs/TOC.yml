@@ -733,8 +733,10 @@
           items:
             - name: Migrera från Data Lake Storage Gen1
               href: data-lake-storage-migrate-gen1-to-gen2.md
-            - name: Migrera ett lokalt Hadoop Distributed File System-lager
+            - name: Migrera ett Hadoop Distributed File System-lager offline
               href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+            - name: Migrera ett Hadoop Distributed File System-lager online
+              href: migrate-gen2-wandisco-live-data-platform.md
         - name: Hantera
           items:
             - name: .NET

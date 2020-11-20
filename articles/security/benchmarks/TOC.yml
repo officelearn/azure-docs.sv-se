@@ -61,10 +61,14 @@
       href: security-baselines-overview.md
     - name: Säkerhetsbaslinje för API Management
       href: ../../api-management/security-baseline.md
+    - name: Säkerhetsbaslinje för App Service
+      href: ../../app-service/security-baseline.md
     - name: Säkerhetsbaslinje för Application Gateway
       href: ../../application-gateway/security-baseline.md
     - name: Säkerhetsbaslinje för automatisering
       href: ../../automation/security-baseline.md
+    - name: Säkerhetsbaslinje för Azure Advisor
+      href: ../../advisor/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Backup
       href: ../../backup/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Cache for Redis
@@ -97,6 +101,8 @@
       href: ../../frontdoor/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Functions
       href: ../../azure-functions/security-baseline.md
+    - name: Säkerhetsbaslinje för Azure Information Protection
+      href: /azure/information-protection/security-baseline
     - name: Säkerhetsbaslinje för Azure IoT Hub
       href: ../../iot-hub/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Kubernetes Service

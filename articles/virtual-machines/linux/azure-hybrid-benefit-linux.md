@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: a26a618d4f1bd9900136561d95c21c1ecbaadfaa
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 1459c80c857a436c8369d3ebe89794e0b69c33b1
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916482"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980889"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Azure Hybrid-förmån – hur det gäller för Virtuella Linux-datorer
 
@@ -146,6 +146,35 @@ A: Nej, du kan inte. Försök att ange en licens typ som felaktigt matchar den d
 *F: Jag har registrerat dig med Red Hat Cloud Access men det går fortfarande inte att aktivera förmånen för mina virtuella RHEL-datorer. Vad gör jag?*
 
 A: det kan ta lite tid för prenumerations registreringen av Red Hat Cloud Access att sprida sig från Red Hat till Azure. Kontakta Microsoft-supporten om du fortfarande ser felet efter en arbets dag.
+
+*F: Jag har distribuerat en virtuell dator med hjälp av en RHEL BYOS "gyllene bild". Kan jag konvertera faktureringen för dessa bilder från BYOS till PAYG?*
+
+A: Nej, du kan inte. Azure Hybrid-förmån stöder endast konvertering för avbildningar enligt principen betala per användning.
+
+*F: Jag har distribuerat en virtuell dator med hjälp av en RHEL BYOS "gyllene bild". Kan jag konvertera faktureringen för dessa bilder från BYOS till PAYG?*
+
+A: Nej, du kan inte. Azure Hybrid-förmån stöder endast konvertering för avbildningar enligt principen betala per användning.
+
+*F: Jag har laddat upp en egen RHEL-avbildning från lokal (via ASR eller på annat sätt) till Azure. Kan jag konvertera faktureringen för dessa bilder från BYOS till PAYG?*
+
+A: Nej, du kan inte. Azure Hybrid-förmån funktionen är bara tillgänglig för RHEL-och SLES Marketplace-avbildningar idag. 
+
+*F: kan jag använda Azure Hybrid-förmån på virtuella datorer som har distribuerats från Marketplace RHEL och SLES SAP-avbildningar?*
+
+A: Ja, du kan. Du kan använda licens typen RHEL_BYOS för virtuella datorer i RHEL och SLES_BYOS för konverteringar av virtuella datorer som distribueras från Marketplace RHEL och SLES SAP-avbildningar.
+
+*F: kan jag använda Azure Hybrid-förmån på skalnings uppsättningen för virtuella datorer (VMSS) för RHEL och SLES?*
+
+A: Nej, du kan inte. VMSS är inte inom omfånget för Azure Hybrid-förmån idag för RHEL och SLES för närvarande.
+
+*F: kan jag använda Azure Hybrid-förmån på reserverade instanser (RIs) för RHEL och SLES?*
+
+A: Nej, du kan inte. Det finns för närvarande inte i omfånget Azure Hybrid-förmån för RHEL och SLES.
+
+*F: kan jag använda Azure Hybrid-förmån på en virtuell dator som har distribuerats för SQL Server på RHEL-avbildningar?*
+
+A: Nej, du kan inte. Det finns ingen plan för att stödja dessa.
+ 
 
 ## <a name="common-issues"></a>Vanliga problem
 Det här avsnittet innehåller en lista över vanliga problem som kan påträffas och åtgärder för att minska.

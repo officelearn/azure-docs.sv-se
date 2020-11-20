@@ -12,17 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 01169f3e73fb1d6ddf0ecaf4958c6121cb21c295
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 6b8a9cbfd3e7057f0d85d5f4e19fea3aa4fbe90b
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216138"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980226"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Självstudie: Logga in användare och anropa Microsoft Graph-API: et från en JavaScript-app med en enda sida (SPA) med auth Code Flow
 
-I den här självstudien får du lära dig hur du skapar ett Java Script (Single-Page Application) som använder Microsoft Authentication Library (MSAL) för Java Script v 2.0 för att:
+I den här självstudien skapar du ett Java Script-program (Single-Side Application) som loggar in användare och anropar Microsoft Graph med hjälp av kod flödet för auktorisering med PKCE. Det SPA som du skapar använder Microsoft Authentication Library (MSAL) för Java Script v 2.0.
 
+I de här självstudierna har du
 > [!div class="checklist"]
 > * Utför OAuth 2,0-auktoriseringskod med PKCE
 > * Logga in personliga Microsoft-konton samt arbets-och skol konton
@@ -31,7 +32,7 @@ I den här självstudien får du lära dig hur du skapar ett Java Script (Single
 
 MSAL.js 2,0 förbättrar MSAL.js 1,0 genom att stödja auktoriserings kod flödet i webbläsaren i stället för det implicita tilldelnings flödet. MSAL.js 2,0 har **inte** stöd för det implicita flödet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Node.js](https://nodejs.org/en/download/) för att köra en lokal webbserver
 * [Visual Studio Code](https://code.visualstudio.com/download) eller en annan kod redigerare
@@ -118,13 +119,13 @@ Nu har du en liten server för att hantera din SPA. När du har slutfört resten
 ```
 msal-spa-tutorial/
 ├── app
-│   ├── authConfig.js
-│   ├── authPopup.js
-│   ├── authRedirect.js
-│   ├── graphConfig.js
-│   ├── graph.js
-│   ├── index.html
-│   └── ui.js
+│   ├── authConfig.js
+│   ├── authPopup.js
+│   ├── authRedirect.js
+│   ├── graphConfig.js
+│   ├── graph.js
+│   ├── index.html
+│   └── ui.js
 └── server.js
 ```
 
@@ -324,10 +325,10 @@ const tokenRequest = {
   - För det huvudsakliga (eller *globala*) Azure-molnet anger du `https://login.microsoftonline.com` .
   - För **nationella** moln (till exempel Kina) kan du hitta lämpliga värden i [nationella moln](authentication-national-cloud.md).
 - `Enter_the_Tenant_info_here` ska vara något av följande:
-  - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn**. Exempelvis `contoso.microsoft.com`.
-  - Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med `organizations` .
-  - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med `common` .
-  - Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med `consumers` .
+  - Om ditt program har stöd *för konton i den här organisations katalogen* ersätter du värdet med **klient-ID** eller **klient namn**. Exempelvis `contoso.microsoft.com`.
+  - Om ditt program har stöd *för konton i en organisations katalog* ersätter du värdet med `organizations` .
+  - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton* ersätter du värdet med `common` .
+  - Om du bara vill begränsa stödet till *personliga Microsoft-konton* ersätter du värdet med `consumers` .
 - `Enter_the_Redirect_Uri_Here` är `http://localhost:3000`.
 
 `authority`Värdet i *authConfig.js* bör likna följande om du använder det globala Azure-molnet:
@@ -336,7 +337,7 @@ const tokenRequest = {
 authority: "https://login.microsoftonline.com/common",
 ```
 
-Skapa en fil med namnet *graphConfig.js*i mappen *app* . Lägg till följande kod för att tillhandahålla ditt program konfigurations parametrar för att anropa API: et för Microsoft Graph:
+Skapa en fil med namnet *graphConfig.js* i mappen *app* . Lägg till följande kod för att tillhandahålla ditt program konfigurations parametrar för att anropa API: et för Microsoft Graph:
 
 ```javascript
 // Add the endpoints here for Microsoft Graph API services you'd like to use.
@@ -547,7 +548,7 @@ function readMail() {
 
 När en användare väljer knappen **Logga in** för första gången, `signIn` anropar metoden `loginPopup` för att logga in användaren. `loginPopup`Metoden öppnar ett popup-fönster med *Microsoft Identity Platform-slutpunkten* för att fråga och verifiera användarens autentiseringsuppgifter. Efter en lyckad inloggning initierar *msal.js* [auktoriseringskod-flödet](v2-oauth2-auth-code-flow.md).
 
-I det här fallet skickas en PKCE till den CORS-skyddade token-slutpunkten och utbyts för token. En ID-token, åtkomsttoken och uppdaterad token tas emot av ditt program och bearbetas av *msal.js*och informationen i tokens cachelagras.
+I det här fallet skickas en PKCE till den CORS-skyddade token-slutpunkten och utbyts för token. En ID-token, åtkomsttoken och uppdaterad token tas emot av ditt program och bearbetas av *msal.js* och informationen i tokens cachelagras.
 
 ID-token innehåller grundläggande information om användaren, t. ex. visnings namnet. Om du planerar att använda data från ID-token *måste* din backend-server verifiera den för att garantera att token har utfärdats till en giltig användare för ditt program.
 
@@ -557,7 +558,7 @@ Det SPA du har skapat i den här självstudien anropar `acquireTokenSilent` och/
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Efter den första inloggningen ska appen inte be användarna att autentisera varje gång de behöver åtkomst till en skyddad resurs (det vill säga en token). Anropa för att förhindra sådana omautentiserings begär Anden `acquireTokenSilent` . Det finns dock vissa situationer där du kan behöva tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
+Efter den första inloggningen ska appen inte be användarna att autentisera varje gång de behöver åtkomst till en skyddad resurs (det vill säga en token). Anropa för att förhindra sådana omautentiserings begär Anden `acquireTokenSilent` . Det finns dock vissa situationer där du kan behöva tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Ett exempel:
 
 - Användarna måste ange sina autentiseringsuppgifter på nytt eftersom lösen ordet har upphört att gälla.
 - Ditt program begär åtkomst till en resurs och du behöver användarens medgivande.
@@ -617,25 +618,25 @@ Du har slutfört skapandet av programmet och är nu redo att starta Node.js webb
 
 ### <a name="sign-in-to-the-application"></a>Logga in på programmet
 
-När webbläsaren har läst in *index.html* -filen väljer du **Logga**in. Du uppmanas att logga in med Microsoft Identity Platform-slutpunkten:
+När webbläsaren har läst in *index.html* -filen väljer du **Logga** in. Du uppmanas att logga in med Microsoft Identity Platform-slutpunkten:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Diagram som visar auktoriserings kod flödet i ett program med en sida":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Webbläsare som visar dialog rutan för inloggning":::
 
 ### <a name="provide-consent-for-application-access"></a>Ge tillstånd för program åtkomst
 
 Första gången du loggar in på ditt program uppmanas du att ge den åtkomst till din profil och logga in dig:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diagram som visar auktoriserings kod flödet i ett program med en sida":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Dialog rutan innehåll visas i webbläsaren":::
 
 Om du godkänner de begärda behörigheterna visar webb programmen ditt användar namn, vilket indikerar en lyckad inloggning:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Diagram som visar auktoriserings kod flödet i ett program med en sida":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Resultatet av en lyckad inloggning i webbläsaren":::
 
 ### <a name="call-the-graph-api"></a>Anropa Graph API
 
 När du har loggat in väljer du **Se profil** för att Visa användar profil informationen som returneras i svaret från anropet till Microsoft Graph-API:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Diagram som visar auktoriserings kod flödet i ett program med en sida":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Profil information från Microsoft Graph som visas i webbläsaren":::
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mer information om omfattningar och delegerade behörigheter
 

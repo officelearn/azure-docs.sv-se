@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: c0e8743d78c8eeafb5bdeb6ade783d5e75991f91
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: b8f95e7e173dd6d1ad43301aab8ff3ec7cf78018
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330996"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981008"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps
 
@@ -30,7 +30,7 @@ Den här artikeln visar hur du använder begäran om utlösare och åtgärder s�
 
 Mer information om säkerhet finns i auktorisering och kryptering för inkommande samtal till din Logi Kap par, till exempel [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), visar din Logic-app med Azure API Management eller begränsar IP-adresserna som har inkommande anrop, se [säker åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto och prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -153,7 +153,7 @@ Din Logi Kap par ser till att en inkommande begäran endast öppnas under en [be
 
 1. Följ dessa steg om du vill kontrol lera att det inkommande samtalet har en begär ande text som matchar det angivna schemat:
 
-   1. I namn listen för begäran-utlösaren väljer du knappen ovaler ( **...** ).
+   1. I namn listen för begäran-utlösaren väljer du knappen ovaler (**...**).
 
    1. I utlösarens inställningar aktiverar du **schema validering** och väljer sedan **slutförd**.
 
@@ -190,9 +190,9 @@ Din Logi Kap par ser till att en inkommande begäran endast öppnas under en [be
    > [!NOTE]
    > Om du vill inkludera hash-eller pund symbolen ( **#** ) i URI: n när du gör ett anrop till utlösaren för begäran använder du den här kodade versionen i stället: `%25%23`
 
-1. Om du vill utlösa din Logic-App skickar du ett HTTP-inlägg till den genererade URL: en.
+1. Om du vill testa din Logic-App skickar du en HTTP-begäran till den genererade URL: en.
 
-   Du kan till exempel använda ett verktyg som [Postman](https://www.getpostman.com/) för att skicka http-inlägget. Mer information om utlösarens underliggande JSON-definition och hur du anropar den här utlösaren finns i följande avsnitt, [begär utlösnings typ](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) och [anrop, utlösare eller kapslade arbets flöden med http-slutpunkter i Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+   Du kan till exempel använda ett verktyg som [Postman](https://www.getpostman.com/) för att skicka HTTP-begäran. Mer information om utlösarens underliggande JSON-definition och hur du anropar den här utlösaren finns i följande avsnitt, [begär utlösnings typ](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) och [anrop, utlösare eller kapslade arbets flöden med http-slutpunkter i Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 Mer information om säkerhet finns i auktorisering och kryptering för inkommande samtal till din Logi Kap par, till exempel [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), visar din Logic-app med Azure API Management eller begränsar IP-adresserna som har inkommande anrop, se [säker åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 

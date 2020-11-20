@@ -504,14 +504,16 @@
                   href: ./spark/synapse-spark-sql-pool-import-export.md
 - name: Synapse Link
   items:
+    - name: Översikt
+      items:
+        - name: Synapse Link för Azure Cosmos DB
+          href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Snabbstarter
       items:
         - name: Ansluta till Synapse Link för Cosmos DB
           href: quickstart-connect-synapse-link-cosmos-db.md
     - name: Begrepp
       items:
-        - name: Synapse Link för Azure Cosmos DB
-          href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Analysarkiv – översikt
           href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Funktioner som stöds av Synapse Link
@@ -967,7 +969,7 @@
   items:
     - name: Översikt
       items:
-        - name: Vad är maskininlärning i Synapse Analytics?
+        - name: Vad är maskininlärning i Azure Synapse?
           href: machine-learning/what-is-machine-learning.md
     - name: Snabbstarter
       items:

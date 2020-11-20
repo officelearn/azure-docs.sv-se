@@ -16,12 +16,12 @@ ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4778ce5efcd6145447c194eaab34bc230bcbe34c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d74a243ab10d0fffca960dc5149999560a7b54cd
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371553"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980595"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Godkänn eller neka begär Anden för Azure AD-roller i Privileged Identity Management
 
@@ -38,9 +38,9 @@ Från och med november 2019 uppdateras Azure AD-roll delen av Privileged Identit
 
 Följ stegen i den här artikeln för att godkänna eller neka begär Anden för Azure AD-roller.
 
-# <a name="new-version"></a>[Ny version](#tab/new)
+## <a name="new-version"></a>[Ny version](#tab/new)
 
-## <a name="view-pending-requests"></a>Visa väntande begäranden
+### <a name="view-pending-requests"></a>Visa väntande begäranden
 
 Som en delegerad god kännare får du ett e-postmeddelande när en begäran om Azure AD-roll väntar på ditt godkännande. Du kan visa dessa väntande begär anden i Privileged Identity Management.
 
@@ -54,7 +54,7 @@ Som en delegerad god kännare får du ett e-postmeddelande när en begäran om A
 
     I avsnittet **begär Anden om roll aktiveringar** visas en lista över begär Anden som väntar på ditt godkännande.
 
-## <a name="approve-requests"></a>Godkänn förfrågningar
+### <a name="approve-requests"></a>Godkänn förfrågningar
 
 1. Sök efter och välj den begäran som du vill godkänna. Sidan Godkänn eller neka visas.
 
@@ -66,7 +66,7 @@ Som en delegerad god kännare får du ett e-postmeddelande när en begäran om A
 
     ![Godkänn meddelandet som visar att begäran har godkänts](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png))
 
-## <a name="deny-requests"></a>Neka förfrågningar
+### <a name="deny-requests"></a>Neka förfrågningar
 
 1. Sök efter och välj den begäran som du vill neka. Sidan Godkänn eller neka visas.
 
@@ -76,7 +76,7 @@ Som en delegerad god kännare får du ett e-postmeddelande när en begäran om A
 
 1. Välj **neka**. Ett meddelande visas med ditt avslag.
 
-## <a name="workflow-notifications"></a>Arbets flödes meddelanden
+### <a name="workflow-notifications"></a>Arbets flödes meddelanden
 
 Här är lite information om arbets flödes meddelanden:
 
@@ -88,9 +88,9 @@ Här är lite information om arbets flödes meddelanden:
 >[!NOTE]
 >En global administratör eller en privilegie rad roll administratör som anser att en godkänd användare inte ska vara aktiv kan ta bort den aktiva roll tilldelningen i Privileged Identity Management. Även om administratörer inte meddelas om väntande begär Anden om de inte är god kännare, kan de Visa och avbryta väntande begär Anden för alla användare genom att visa väntande begär anden i Privileged Identity Management.
 
-# <a name="previous-version"></a>[Tidigare version](#tab/previous)
+## <a name="previous-version"></a>[Tidigare version](#tab/previous)
 
-## <a name="view-pending-requests"></a>Visa väntande begäranden
+### <a name="view-pending-requests"></a>Visa väntande begäranden
 
 Som en delegerad god kännare får du ett e-postmeddelande när en begäran om Azure AD-roll väntar på ditt godkännande. Du kan visa dessa väntande begär anden i Privileged Identity Management.
 
@@ -106,7 +106,7 @@ Som en delegerad god kännare får du ett e-postmeddelande när en begäran om A
 
     Du ser en lista över begär Anden som väntar på ditt godkännande.
 
-## <a name="approve-requests"></a>Godkänn förfrågningar
+### <a name="approve-requests"></a>Godkänn förfrågningar
 
 1. Välj de begär Anden som du vill godkänna och klicka sedan på **Godkänn** för att öppna fönstret Godkänn valda begär Anden.
 
@@ -122,7 +122,7 @@ Som en delegerad god kännare får du ett e-postmeddelande när en begäran om A
 
     ![Rutan Godkänn valda begär Anden efter att en Godkänn-knapp har klickats](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
-## <a name="deny-requests"></a>Neka förfrågningar
+### <a name="deny-requests"></a>Neka förfrågningar
 
 1. Välj de begär Anden som du vill neka och klicka sedan på **neka** för att öppna fönstret neka valda begär Anden.
 

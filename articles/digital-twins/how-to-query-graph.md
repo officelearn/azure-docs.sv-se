@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperfq2
-ms.openlocfilehash: 6533cbde10dfc924bd982357def859229eb1714a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9aa1156da48ba39672d59858d0640619581329ee
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963172"
+ms.locfileid: "94981127"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
 
@@ -277,7 +277,7 @@ Du kan avsevärt minska antalet frågor som du behöver genom att skapa en matri
 
 Anta till exempel ett scenario där *byggnader* som innehåller *golv* och *golv* innehåller *rum*. Ett sätt att söka efter rum i en byggnad som är frekvent är att följa dessa steg.
 
-1. Hitta golv i byggnaden baserat på `contains` relation
+1. Hitta golv i byggnaden baserat på `contains` relationen.
 
     ```sql
     SELECT Floor

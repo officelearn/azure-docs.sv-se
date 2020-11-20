@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: ed29bfc099ce401288c07db863207a1d989a5e0d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 36e73ceddaa5e3f9cbbf4a41f76a4ba6d70eed0f
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168281"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979971"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda program ändrings analys (för hands version) i Azure Monitor
 
@@ -183,6 +183,7 @@ Om det är första gången du visar ändrings historik efter dess integrering me
     ```
 
 - **Det gick inte att registrera Microsoft. ChangeAnalysis Resource Provider**. Det här meddelandet innebär att något Miss lyckas omedelbart som UI skickat begäran om att registrera resurs leverantören, och det är inte relaterat till behörighets problem. Det kan förmodligen vara ett tillfälligt problem med Internet anslutningen. Försök att uppdatera sidan och kontrol lera din Internet anslutning. Om felet kvarstår kan du kontakta changeanalysishelp@microsoft.com
+- **Det gick inte att fråga Microsoft. ChangeAnalysis Resource Provider** med meddelande *Azure Lighthouse-prenumerationen stöds inte. ändringarna är bara tillgängliga i prenumerationens hem klient organisation*. Det finns en begränsning just nu för att kunna registrera Analysis Resource Provider via Azure Lighthouse-prenumerationen för användare som inte finns i hem klient organisationen. Vi förväntar sig att den här begränsningen ska åtgärdas inom en snar framtid. Om detta är ett blockerings problem finns det en lösning som inbegriper att skapa ett huvud namn för tjänsten och uttryckligen tilldela rollen för att tillåta åtkomst.  Kontakta changeanalysishelp@microsoft.com om du vill veta mer om det.
 
 - **Det tar längre tid än förväntat**. Det här meddelandet innebär att registreringen tar längre tid än två minuter. Detta är ovanligt, men det innebär inte nödvändigt vis något att något har gått fel. Du kan gå till **prenumerationer | Resurs leverantör** för att kontrol lera registrerings statusen för **Microsoft. ChangeAnalysis** Resource Provider. Du kan prova att använda användar gränssnittet för att avregistrera, registrera om eller uppdatera för att se om det hjälper. Kontakta supporten om problemet kvarstår changeanalysishelp@microsoft.com .
     ![Felsök RP-registreringen tar för lång tid](./media/change-analysis/troubleshoot-registration-taking-too-long.png)

@@ -12,12 +12,12 @@ metadata:
   ms.author: joflore
   ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 17775be39e534d0825596973452dabc13054ee8d
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+  ms.openlocfilehash: d484600da9be9d84b6af7ad31754ea86bf6b6873
+  ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91968233"
+  ms.lasthandoff: 11/18/2020
+  ms.locfileid: "94838059"
 landingContent:
 - title: Om autentisering
   linkLists:
@@ -51,21 +51,21 @@ landingContent:
       url: howto-sspr-deployment.md
     - text: Aktivera återställning av lösenord från Windows-inloggningsskärmen
       url: howto-sspr-windows.md
-- title: Aktivera Azure Multi-Factor Authentication
+- title: Aktivera Azure AD-multifaktorautentisering
   linkLists:
   - linkListType: concept
     links:
-    - text: Så fungerar Azure Multi-Factor Authentication
+    - text: Så fungerar Azure AD-multifaktorautentisering
       url: concept-mfa-howitworks.md
   - linkListType: tutorial
     links:
-    - text: Aktivera Azure Multi-Factor Authentication
+    - text: Aktivera Azure AD-multifaktorautentisering
       url: tutorial-enable-azure-mfa.md
-    - text: Aktivera riskbaserad Azure Multi-Factor Authentication
+    - text: Aktivera riskbaserad Azure AD-multifaktorautentisering
       url: tutorial-risk-based-sspr-mfa.md
   - linkListType: deploy
     links:
-    - text: Distributionsguide för Azure Multi-Factor Authentication
+    - text: Distributionsguide för Azure AD-multifaktorautentisering
       url: howto-mfa-getstarted.md
     - text: Använda NPS-tillägget för att integrera lokala program
       url: howto-mfa-nps-extension.md

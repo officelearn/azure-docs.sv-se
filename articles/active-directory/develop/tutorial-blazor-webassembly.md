@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: f967b10d729c9c5486bbca9b643f48aaf558687c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5489feeeec64c7b3d4b5fc28eddfe8b780308796
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628075"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979886"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Självstudie: Logga in användare och anropa ett skyddat API från en blixt WebAssembly-app
 
-Den här WASM-webbsammansättningen är ett program ramverk med en enda sida för att skapa interaktiva webbappar på klient sidan med .NET. I den här självstudien får du lära dig att implementera autentisering och hämta data från Microsoft Graph i en WASM-app med hjälp av Microsoft Identity Platform och registrera din app i Azure Active Directory (Azure AD).
+I den här självstudien skapar du en Blixts WebAssembly-app som loggar in användare och hämtar data från Microsoft Graph genom att använda Microsoft Identity Platform och registrera din app i Azure Active Directory (Azure AD).
 
 Vi har också en [själv studie kurs för](tutorial-blazor-server.md)den här guiden. 
 
-I de här självstudierna får du:
+I de här självstudierna har du
 
 > [!div class="checklist"]
 >
 > * Skapa en ny konfigurations program för Windows-webbsammansättning som kon figurer ATS för att använda Azure Active Directory (Azure AD) för [autentisering och auktorisering](authentication-vs-authorization.md) med hjälp av Microsoft Identity Platform
 > * Hämta data från ett skyddat webb-API, i det här fallet [Microsoft Graph](https://docs.microsoft.com/graph/overview)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [.NET Core 3,1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 * En Azure AD-klient där du kan registrera en app. Om du inte har åtkomst till en Azure AD-klient kan du skaffa en genom att registrera dig hos [Microsoft 365 Developer-programmet](https://developer.microsoft.com/microsoft-365/dev-program) eller genom att skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free).
@@ -40,7 +40,7 @@ Varje app som använder Azure Active Directory (Azure AD) för autentisering må
 - För **konto typer som stöds** väljer du **konton endast i den här organisations katalogen**.
 - Lämna List rutan **omdirigerings-URI** inställd på **webben** och ange `https://localhost:5001/authentication/login-callback` . Standard porten för en app som körs på Kestrel är 5001. Om appen är tillgänglig på en annan port anger du Port numret i stället för `5001` .
 
-När du har registrerat, i **autentisering**  >  **implicit beviljande** , markerar du kryss **Access tokens** rutorna för åtkomsttoken och **ID-token** och väljer sedan knappen **Spara** .
+När du har registrerat, i **autentisering**  >  **implicit beviljande**, markerar du kryss **Access tokens** rutorna för åtkomsttoken och **ID-token** och väljer sedan knappen **Spara** .
 
 ## <a name="create-the-app-using-the-net-core-cli"></a>Skapa appen med hjälp av .NET Core CLI
 
@@ -85,7 +85,7 @@ Nu ska du uppdatera appens registrering och kod för att hämta en användares e
 Lägg först till `Mail.Read` API-behörighet till appens registrering så att Azure AD är medveten om att appen kommer att begära åtkomst till användarnas e-post.
 
 1. I Azure Portal väljer du din app i **Appregistreringar**.
-1. Under **Hantera** , Välj **API-behörigheter**.
+1. Under **Hantera**, Välj **API-behörigheter**.
 1. Välj **Lägg till en behörighets**  >  **Microsoft Graph**.
 1. Välj **delegerade behörigheter** och Sök sedan efter och välj **e-post. Läs** behörighet.
 1. Välj **Lägg till behörigheter**.

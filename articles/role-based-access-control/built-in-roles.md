@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 11/03/2020
+ms.date: 11/18/2020
 ms.custom: generated
-ms.openlocfilehash: a48a13fa18025254ee31344868d10181ae87c65e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: e18dc7e16eb0b114bd279d53b7dcc895bd62f338
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685485"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980872"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda roller i Azure
 
@@ -237,6 +237,7 @@ Ger fullständig åtkomst för att hantera alla resurser, men tillåter inte att
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)-/elevateAccess/Action | Beviljar anroparen Användaråtkomst Administratörsåtkomst för klientomfånget |
 > | [Microsoft. skiss](resource-provider-operations.md#microsoftblueprint)-/blueprintAssignments/Write | Skapa eller uppdatera alla skiss uppgifter |
 > | [Microsoft. skiss](resource-provider-operations.md#microsoftblueprint)-/blueprintAssignments/Delete | Ta bort alla skiss uppgifter |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)-/Galleries/Share/Action | Delar ett galleri i olika omfång |
 > | **DataActions** |  |
 > | *inget* |  |
 > | **NotDataActions** |  |
@@ -260,7 +261,8 @@ Ger fullständig åtkomst för att hantera alla resurser, men tillåter inte att
         "Microsoft.Authorization/*/Write",
         "Microsoft.Authorization/elevateAccess/Action",
         "Microsoft.Blueprint/blueprintAssignments/write",
-        "Microsoft.Blueprint/blueprintAssignments/delete"
+        "Microsoft.Blueprint/blueprintAssignments/delete",
+        "Microsoft.Compute/galleries/share/action"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -3070,7 +3072,7 @@ Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till
 }
 ```
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Containrar
 
 
 ### <a name="acrdelete"></a>AcrDelete
@@ -4448,7 +4450,7 @@ Gör att du kan hantera SQL-servrar och databaser, men inte åtkomst till dem oc
 }
 ```
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analytics
 
 
 ### <a name="azure-event-hubs-data-owner"></a>Azure Event Hubs data ägare
@@ -6551,6 +6553,7 @@ Azure Sentinel Contributor [Lär dig mer](../sentinel/roles.md)
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/Query/*/Read |  |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/Read | Hämta data källor under en arbets yta. |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/Workbooks/* |  |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)-/myworkbooks/Read | Läs en privat arbets bok |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Läs roller och roll tilldelningar |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Skapa och hantera en klassisk måtta avisering |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Skapa och hantera en distribution |
@@ -6583,6 +6586,7 @@ Azure Sentinel Contributor [Lär dig mer](../sentinel/roles.md)
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.Insights/workbooks/*",
+        "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
@@ -6620,6 +6624,7 @@ Azure Sentinel Reader [Läs mer](../sentinel/roles.md)
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/Query/*/Read |  |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/Read | Hämta data källor under en arbets yta. |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)-/Workbooks/Read | Läs en arbets bok |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)-/myworkbooks/Read | Läs en privat arbets bok |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Läs roller och roll tilldelningar |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Skapa och hantera en klassisk måtta avisering |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Skapa och hantera en distribution |
@@ -6656,6 +6661,7 @@ Azure Sentinel Reader [Läs mer](../sentinel/roles.md)
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.Insights/workbooks/read",
+        "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
@@ -6699,13 +6705,15 @@ Azure Sentinel-svarare [Lär dig mer](../sentinel/roles.md)
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/Query/*/Read |  |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/Read | Hämta data källor under en arbets yta. |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)-/Workbooks/Read | Läs en arbets bok |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)-/myworkbooks/Read | Läs en privat arbets bok |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Läs roller och roll tilldelningar |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Skapa och hantera en klassisk måtta avisering |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Skapa och hantera en distribution |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
 > | **NotActions** |  |
-> | *inget* |  |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/Cases/*/Delete |  |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/incidents/*/Delete |  |
 > | **DataActions** |  |
 > | *inget* |  |
 > | **NotDataActions** |  |
@@ -6741,13 +6749,17 @@ Azure Sentinel-svarare [Lär dig mer](../sentinel/roles.md)
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.Insights/workbooks/read",
+        "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.SecurityInsights/cases/*/Delete",
+        "Microsoft.SecurityInsights/incidents/*/Delete"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
@@ -7004,8 +7016,8 @@ Läs metadata för nycklar och utför figursatta/unwrap-åtgärder. Fungerar bar
 > | *inget* |  |
 > | **DataActions** |  |
 > | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Read för nyckel valv | Lista nycklar i det angivna valvet, eller Läs egenskaper och offentligt material i en nyckel. För asymmetriska nycklar exponerar den här åtgärden offentliga nycklar och inkluderar möjlighet att utföra algoritmer för offentliga nycklar, till exempel kryptera och verifiera signatur. Privata nycklar och symmetriska nycklar exponeras aldrig. |
-> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/wrap/action för nyckel valv | Radbryt en symmetrisk nyckel med en Key Vault nyckel. Observera att om Key Vault nyckeln är asymmetrisk, kan den här åtgärden utföras med Läs behörighet. |
-> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/unwrap/action för nyckel valv | Packa upp symmetrisk nyckel med en Key Vault nyckel. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/wrap/action för nyckel valv | Radbryter en symmetrisk nyckel med en Key Vault nyckel. Observera att om Key Vault nyckeln är asymmetrisk, kan den här åtgärden utföras av huvud konton med Läs behörighet. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/unwrap/action för nyckel valv | Avbryter en symmetrisk nyckel med en Key Vault nyckel. |
 > | **NotDataActions** |  |
 > | *inget* |  |
 
@@ -7048,13 +7060,13 @@ Utföra kryptografiska åtgärder med hjälp av nycklar. Fungerar bara för nyck
 > | **DataActions** |  |
 > | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Read för nyckel valv | Lista nycklar i det angivna valvet, eller Läs egenskaper och offentligt material i en nyckel. För asymmetriska nycklar exponerar den här åtgärden offentliga nycklar och inkluderar möjlighet att utföra algoritmer för offentliga nycklar, till exempel kryptera och verifiera signatur. Privata nycklar och symmetriska nycklar exponeras aldrig. |
 > | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Update/action för nyckel valv | Uppdaterar angivna attribut som är associerade med den angivna nyckeln. |
-> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/backup/action för nyckel valv | Skapa säkerhets kopierings filen för en nyckel. Filen kan användas för att återställa nyckeln i en Key Vault av samma prenumeration. Begränsningar kan tillkomma. |
-> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Encrypt/action för nyckel valv | Kryptera klartext med en nyckel. Observera att om nyckeln är asymmetrisk kan den här åtgärden utföras av huvud konton med Läs behörighet. |
-> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Decrypt/action för nyckel valv | Dekryptera chiffertexten med en nyckel. |
-> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/wrap/action för nyckel valv | Radbryt en symmetrisk nyckel med en Key Vault nyckel. Observera att om Key Vault nyckeln är asymmetrisk, kan den här åtgärden utföras med Läs behörighet. |
-> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/unwrap/action för nyckel valv | Packa upp symmetrisk nyckel med en Key Vault nyckel. |
-> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Sign/action för nyckel valv | Signera en hash med en nyckel. |
-> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/verify/action för nyckel valv | Verifiera en hash. Observera att om nyckeln är asymmetrisk kan den här åtgärden utföras av huvud konton med Läs behörighet. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/backup/action för nyckel valv | Skapar säkerhets kopierings filen för en nyckel. Filen kan användas för att återställa nyckeln i en Key Vault av samma prenumeration. Begränsningar kan tillkomma. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Encrypt/action för nyckel valv | Krypterar klartext med en nyckel. Observera att om nyckeln är asymmetrisk kan den här åtgärden utföras av huvud konton med Läs behörighet. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Decrypt/action för nyckel valv | Dekrypterar chiffertexten med en nyckel. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/wrap/action för nyckel valv | Radbryter en symmetrisk nyckel med en Key Vault nyckel. Observera att om Key Vault nyckeln är asymmetrisk, kan den här åtgärden utföras av huvud konton med Läs behörighet. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/unwrap/action för nyckel valv | Avbryter en symmetrisk nyckel med en Key Vault nyckel. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Sign/action för nyckel valv | Signerar en meddelande sammandrag (hash) med en nyckel. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/verify/action för nyckel valv | Verifierar signaturen för en Message Digest (hash) med en nyckel. Observera att om nyckeln är asymmetrisk kan den här åtgärden utföras av huvud konton med Läs behörighet. |
 > | **NotDataActions** |  |
 > | *inget* |  |
 
@@ -7221,7 +7233,7 @@ Läsa hemligt innehåll. Fungerar bara för nyckel valv som använder behörighe
 > | **NotActions** |  |
 > | *inget* |  |
 > | **DataActions** |  |
-> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/getSecret/action för nyckel valv | Hämta värdet för en hemlighet. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/getSecret/action för nyckel valv | Hämtar värdet för en hemlighet. |
 > | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/readMetadata/action för nyckel valv | Visa eller visa egenskaperna för en hemlighet, men inte dess värde. |
 > | **NotDataActions** |  |
 > | *inget* |  |
@@ -7760,7 +7772,7 @@ Kan läsa alla övervaknings data och redigera övervaknings inställningar. Se 
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/sharedKeys/Action | Hämtar de delade nycklarna för arbets ytan. Dessa nycklar används för att ansluta Microsoft Operational Insights-agenter till arbets ytan. |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/storageinsightconfigs/* | Läsa/skriva/ta bort insikter för Log Analytics-lagring. |
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
-> | [Microsoft. WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/monitors/* | Hämta information om hälso Övervakare för virtuella gäst datorer.  |
+> | [Microsoft. WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/monitors/* | Hämta information om hälso Övervakare för virtuella gäst datorer. |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/actionRules/* |  |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartGroups/* |  |

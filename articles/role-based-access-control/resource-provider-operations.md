@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 11/03/2020
+ms.date: 11/18/2020
 ms.custom: generated
-ms.openlocfilehash: cf8c8e7d56f4eff351361edd148f91e81a07bfbb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ceb1aea1edcc4916fdd802673c3145b12de01801
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649151"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980923"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure Resource Provider-åtgärder
 
@@ -843,6 +843,7 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Read | Hämtar Azure Firewall-NetworkRuleCollection |
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Write | CreatesOrUpdates Azure Firewall NetworkRuleCollection |
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Delete | Tar bort Azure Firewall NetworkRuleCollection |
+> | Microsoft. Network/azureWebCategories/Read | Hämtar Azure webcategories |
 > | Microsoft. Network/bastionHosts/Read | Hämtar en skydds-värd |
 > | Microsoft. Network/bastionHosts/Write | Skapa eller uppdatera en skydds-värd |
 > | Microsoft. Network/bastionHosts/Delete | Tar bort en skydds-värd |
@@ -1242,6 +1243,8 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/virtualHubs/bgpConnections/Read | Hämtar en underordnad nätverks resurs för BGP-anslutning för virtuell hubb |
 > | Microsoft. Network/virtualHubs/bgpConnections/Write | Skapar eller uppdaterar en virtuell Hubbs resurs för BGP-anslutning för virtuell hubb |
 > | Microsoft. Network/virtualHubs/bgpConnections/Delete | Tar bort en nav för BGP-anslutningens underordnade resurs för virtuell hubb |
+> | Microsoft. Network/virtualHubs/bgpConnections/advertisedRoutes/Action | Hämtar virtualrouter annonserade vägar |
+> | Microsoft. Network/virtualHubs/bgpConnections/learnedRoutes/Action | Hämtar virtualrouter-inlärda vägar |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Read | Hämtar en underordnad resurs för en routningstabell för virtuell hubb |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Write | Skapar eller uppdaterar en underordnad resurs för en routningstabell för virtuell hubb |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Delete | Tar bort en underordnad resurs för en routningstabell för virtuell hubb |
@@ -1329,6 +1332,9 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/vpngateways/startpacketcapture/Action | Starta VPN gateway-paket avbildning med resurser i enlighet |
 > | Microsoft. Network/vpngateways/stoppacketcapture/Action | Stoppa paket fångst för VPN-gateway med sasURL |
 > | Microsoft. Network/vpngateways/listvpnconnectionshealth/Action | Hämtar anslutnings hälsa för alla eller en delmängd av anslutningar på en VpnGateway |
+> | Microsoft. Network/vpnGateways/natRules/Read | Hämtar en NAT-regel resurs |
+> | Microsoft. Network/vpnGateways/natRules/Write | Placerar en NAT-regel resurs |
+> | Microsoft. Network/vpnGateways/natRules/Delete | Tar bort en NAT-regel resurs |
 > | Microsoft. Network/vpnGateways/vpnConnections/Read | Hämtar en VpnConnection. |
 > | Microsoft. Network/vpnGateways/vpnConnections/Write | Placerar en VpnConnection. |
 > | Microsoft. Network/vpnGateways/vpnConnections/Delete | Tar bort en VpnConnection. |
@@ -1934,6 +1940,9 @@ Azure-tjänst: [Azure Maps](../azure-maps/index.yml)
 > | Microsoft. Maps/Accounts/Delete | Ta bort ett Maps-konto. |
 > | Microsoft. Maps/Accounts/Listnycklar/Action | Visar en lista över mappnings konto nycklar. |
 > | Microsoft. Maps/Accounts/regenerateKey/Action | Generera ny primär eller sekundär nyckel för Maps-konto. |
+> | Microsoft. Maps/Accounts/Creators/Write | Skapa eller uppdatera en skapare. |
+> | Microsoft. Maps/Accounts/Creators/Read | Hämta en skapare. |
+> | Microsoft. Maps/Accounts/Creators/Delete | Ta bort en skapare. |
 > | Microsoft. Maps/Accounts/eventGridFilters/Delete | Ta bort ett Event Grid filter. |
 > | Microsoft. Maps/Accounts/eventGridFilters/Read | Hämta ett Event Grid-filter |
 > | Microsoft. Maps/Accounts/eventGridFilters/Write | Skapa eller uppdatera ett Event Grid-filter. |
@@ -2103,6 +2112,7 @@ Azure-tjänst: [Azure SignalR service](../azure-signalr/index.yml)
 > | Microsoft. SignalRService/locations/checknameavailability/Action | Kontrollerar om ett namn är tillgängligt för användning med en ny signal tjänst |
 > | Microsoft. SignalRService/locations/operationresults/signalerer/Read | Fråga resultatet av en plats-baserad asynkron åtgärd |
 > | Microsoft. SignalRService/locations/operationStatuses/operationId/Read | Fråga efter status för en plats-baserad asynkron åtgärd |
+> | Microsoft. SignalRService/locations/operationStatuses/signalerer/Read | Fråga efter status för en plats-baserad asynkron åtgärd |
 > | Microsoft. SignalRService/platser/användning/läsa | Hämta kvot användningarna för Azure SignalR service |
 > | Microsoft. SignalRService/operationresults/Read | Fråga resultatet av en asynkron åtgärd på leverantörs nivå |
 > | Microsoft. SignalRService/Operations/Read | Visa en lista över åtgärder för Azure SignalR-tjänsten. |
@@ -2610,6 +2620,7 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | Microsoft. Web/staticSites/getuser/åtgärd | Hämta en användares information för en statisk plats |
 > | Microsoft. Web/staticSites/listsecrets/åtgärd | Visa en lista över hemligheterna för en statisk plats |
 > | Microsoft. Web/staticSites/resetapikey/åtgärd | Återställa API-nyckeln för en statisk plats |
+> | Microsoft. Web/staticSites/zipdeploy/åtgärd | Distribuera en statisk plats från zippat innehåll |
 > | Microsoft. Web/staticSites/authproviders/Listusers/åtgärd | Lista användare för en statisk plats |
 > | Microsoft. Web/staticSites/authproviders/Users/Delete | Ta bort en användare för en statisk plats |
 > | Microsoft. Web/staticSites/authproviders/Users/Write | Uppdatera en användare för en statisk plats |
@@ -2617,6 +2628,7 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | Microsoft. Web/staticSites/build/Delete | Ta bort en version för en statisk plats |
 > | Microsoft. Web/staticSites/builds/listfunctionappsettings/Action | Visa en lista med funktions program inställningar för en statisk plats version |
 > | Microsoft. Web/staticSites/builds/listappsettings/Action | Visa inställningar för appar för en statisk plats version |
+> | Microsoft. Web/staticSites/builds/zipdeploy/Action | Distribuera en statisk plats version från zippat innehåll |
 > | Microsoft. Web/staticSites/builds/config/Write | Skapa eller uppdatera appinställningar för en statisk plats version |
 > | Microsoft. Web/staticSites/config/Write | Skapa eller uppdatera appinställningar för en statisk plats |
 > | Microsoft. Web/staticSites/customdomains/Write | Skapa en anpassad domän för en statisk plats |
@@ -2625,7 +2637,7 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | Microsoft. Web/staticSites/customdomains/validate/Action | Verifiera att en anpassad domän kan läggas till på en statisk plats |
 > | Microsoft. Web/staticSites/Functions/Read | Visa en lista över funktioner för en statisk plats |
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Containrar
 
 ### <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -3931,6 +3943,8 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/locations/serverAdministratorOperationResults/Read | Åtgärds resultat för Server Azure Active Directory administratör |
 > | Microsoft. SQL/locations/serverKeyAzureAsyncOperation/Read | Hämtar pågående åtgärder på transparent data kryptering Server nycklar |
 > | Microsoft. SQL/locations/serverKeyOperationResults/Read | Hämtar pågående åtgärder på transparent data kryptering Server nycklar |
+> | Microsoft. SQL/locations/serverTrustGroupAzureAsyncOperation/Read | Hämta status för asynkron åtgärd för Server förtroende grupp |
+> | Microsoft. SQL/locations/serverTrustGroupOperationResults/Read | Hämta resultatet av grupp åtgärden för Server förtroende |
 > | Microsoft. SQL/locations/serverTrustGroups/Write | Skapar en server förtroende grupp med de angivna parametrarna |
 > | Microsoft. SQL/locations/serverTrustGroups/Delete | Tar bort den befintliga SQL Server förtroende gruppen |
 > | Microsoft. SQL/locations/serverTrustGroups/Read | Returnerar befintliga SQL Server förtroende grupper |
@@ -3946,12 +3960,12 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/locations/virtualNetworkRulesAzureAsyncOperation/Read | Returnerar information om de angivna virtuella nätverks reglerna Azure async operation  |
 > | Microsoft. SQL/locations/virtualNetworkRulesOperationResults/Read | Returnerar information om den angivna åtgärden för virtuella nätverks regler  |
 > | Microsoft. SQL/managedInstances/tdeCertificates/Action | Skapa/uppdatera TDE-certifikat |
-> | Microsoft. SQL/managedInstances/joinServerTrustGroup/Action | Avgöra om användaren tillåts ansluta till en server förtroende grupp |
+> | Microsoft. SQL/managedInstances/redundans/åtgärd | Kunden initierade redundans för hanterade instanser. |
+> | Microsoft. SQL/managedInstances/joinServerTrustGroup/Action | Avgöra om en användare får ansluta till en hanterad server till en server förtroende grupp |
 > | Microsoft. SQL/managedInstances/export/åtgärd | Exportera system databas och SMK-nyckel |
 > | Microsoft. SQL/managedInstances/Read | Returnera listan över hanterade instanser eller hämtar egenskaperna för den angivna hanterade instansen. |
 > | Microsoft. SQL/managedInstances/Write | Skapar en hanterad instans med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna hanterade instansen. |
 > | Microsoft. SQL/managedInstances/Delete | Tar bort en befintlig hanterad instans. |
-> | Microsoft. SQL/managedInstances/redundans/åtgärd | Kunden initierade redundans för hanterade instanser. |
 > | Microsoft. SQL/managedInstances/administrators/Read | Hämtar en lista över hanterade instans administratörer. |
 > | Microsoft. SQL/managedInstances/administrators/Write | Skapar eller uppdaterar hanterad instans administratör med de angivna parametrarna. |
 > | Microsoft. SQL/managedInstances/administrators/Delete | Tar bort en befintlig administratör för den hanterade instansen. |
@@ -4100,11 +4114,11 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/Servers/databaser/dataMaskingPolicies/Rules/Delete | Ta bort data mask princip regel för en specifik databas |
 > | Microsoft. SQL/Servers/databaser/dataWarehouseQueries/Read | Returnerar information om distributions frågan för data lagret för det valda fråge-ID: t |
 > | Microsoft. SQL/Servers/databases/dataWarehouseQueries/dataWarehouseQuerySteps/Read | Returnerar steg informationen för den distribuerade frågan för data lager frågan för valt steg-ID |
-> | Microsoft. SQL/Servers/databaser/dataWarehouseUserActivities/Read | Hämtar användar aktiviteter för en dedicerad SQL-pool i Azure Synapse Analytics, inklusive körnings-och inaktiverade frågor |
+> | Microsoft. SQL/Servers/databaser/dataWarehouseUserActivities/Read | Hämtar användar aktiviteter för en SQL Data Warehouse-instans som omfattar körnings-och inaktiverade frågor |
 > | Microsoft. SQL/Servers/databaser/extendedAuditingSettings/Read | Hämta information om den utökade blobb gransknings principen som kon figurer ATS för en viss databas |
 > | Microsoft. SQL/Servers/databaser/extendedAuditingSettings/Write | Ändra den utökade blobb gransknings principen för en viss databas |
-> | Microsoft. SQL/Servers/databaser/tillägg/läsa | Hämtar en samling tillägg för databasen. |
-> | Microsoft. SQL/Servers/databaser/tillägg/skriva | Ändra tillägget för en specifik databas |
+> | Microsoft. SQL/Servers/databaser/tillägg/skriva | Utför en databas tilläggs åtgärd. |
+> | Microsoft. SQL/Servers/databaser/tillägg/läsa | Åtgärden hämta databas tillägg. |
 > | Microsoft. SQL/Servers/databaser/tillägg/importExtensionOperationResults/Read | Hämtar pågående import åtgärder |
 > | Microsoft. SQL/Servers/databaser/geoBackupPolicies/Read | Hämta principer för geo-säkerhetskopiering för en specifik databas |
 > | Microsoft. SQL/Servers/databaser/geoBackupPolicies/Write | Skapa eller uppdatera en databas princip för säkerhets kopiering |
@@ -4306,7 +4320,7 @@ Azure-tjänst: [SQL Server på azure Virtual Machines](../azure-sql/virtual-mach
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Write | Skapa en ny eller ändra egenskaper för befintlig virtuell SQL-dator |
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Delete | Ta bort befintlig virtuell SQL-dator |
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analytics
 
 ### <a name="microsoftanalysisservices"></a>Microsoft. AnalysisServices
 
@@ -5140,6 +5154,7 @@ Azure-tjänst: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft. CognitiveServices/konton/TextAnalytics/entiteter/åtgärd | API: t returnerar en lista över kända entiteter och allmänna namngivna entiteter ( \" person \" , \" plats \" , \" organisation \" osv.) i ett visst dokument. |
 > | Microsoft. CognitiveServices/Accounts/TextAnalytics/-fras/åtgärd | API: et returnerar en lista med strängar som anger att nyckeln pratar i inmatad text. |
 > | Microsoft. CognitiveServices/Accounts/TextAnalytics/sentiment/Action | API:n returnerar en numerisk poäng mellan 0 och 1.<br>Poäng nära 1 visar en positiv attityd, medan en poäng nära 0 indikerar en negativ attityd.<br>Poängen på 0,5 anger att sentiment saknas (t. ex.<br>ett factoid-uttryck). |
+> | Microsoft. CognitiveServices/konton/TextAnalytics/analysera/åtgärd | Skicka in en samling text dokument för analys. Ange en eller flera unika aktiviteter som ska utföras. |
 > | Microsoft. CognitiveServices/Accounts/TextTranslation/detect/åtgärd | Identifierar språket för en del av texten. |
 > | Microsoft. CognitiveServices/Accounts/TextTranslation/breaksentence/Action | Anger placeringen av menings gränser i en text del. |
 > | Microsoft. CognitiveServices/Accounts/TextTranslation/Översätt/åtgärd | Översätter text. |
@@ -5501,24 +5516,24 @@ Azure-tjänst: [Notification Hubs](../notification-hubs/index.yml)
 > | Microsoft. NotificationHubs/namnrymder/CheckNotificationHubAvailability/åtgärd | Kontrollerar om ett angivet NotificationHub-namn är tillgängligt i ett namn område. |
 > | Microsoft. NotificationHubs/namnrymder/authorizationRules/Write | Skapa en auktoriseringsregel för namn områdes nivå och uppdatera dess egenskaper. Åtkomst behörighet för auktoriseringsregler, de primära och sekundära nycklarna kan uppdateras. |
 > | Microsoft. NotificationHubs/namnrymder/authorizationRules/Read | Hämta listan över Beskrivning av auktoriseringsregler för namn områden. |
-> | Microsoft. NotificationHubs/Namespaces/authorizationRules/Delete | Ta bort auktoriseringsregel för namnrymd. Det går inte att ta bort standard regeln för att tillåta namnrymd.  |
+> | Microsoft. NotificationHubs/Namespaces/authorizationRules/Delete | Ta bort auktoriseringsregel för namnrymd. Det går inte att ta bort standard regeln för att tillåta namnrymd. |
 > | Microsoft. NotificationHubs/Namespaces/authorizationRules/listnycklar/åtgärd | Hämta anslutnings strängen till namn området |
 > | Microsoft. NotificationHubs/Namespaces/authorizationRules/regenerateKeys/åtgärd | Auktoriseringsregel för namnrymd återskapa primär-SecondaryKey, ange den nyckel som måste återskapas |
-> | Microsoft. NotificationHubs/namnrymder/diagnosticSettings/Read | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
-> | Microsoft. NotificationHubs/namnrymder/diagnosticSettings/Write | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
-> | Microsoft. NotificationHubs/namnrymder/logDefinitions/Read | Hämta lista över namn rymds loggar resurs beskrivningar |
 > | Microsoft. NotificationHubs/namnrymder/NotificationHubs/Write | Skapa en Notification Hub och uppdatera dess egenskaper. Egenskaperna omfattar huvudsakligen PNS-autentiseringsuppgifter. Auktoriseringsregler och TTL |
 > | Microsoft. NotificationHubs/namnrymder/NotificationHubs/Read | Hämta lista över resurs beskrivningar för Notification Hub |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/Delete | Ta bort Notification Hub-resurs |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/authorizationRules/åtgärd | Hämta listan med auktoriseringsregler för Notification Hub |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/pnsCredentials/åtgärd | Hämta alla PNS-autentiseringsuppgifter för Notification Hub. Detta inkluderar, WNS, MPNS, APN, GCM och Baidu-autentiseringsuppgifter |
-> | Microsoft. NotificationHubs/Namespaces/NotificationHubs/debugSend/åtgärd | Skicka ett test-push-meddelande. |
+> | Microsoft. NotificationHubs/Namespaces/NotificationHubs/debugSend/åtgärd | Skicka ett test-push-meddelande till 10 matchade enheter. |
 > | Microsoft. NotificationHubs/namnrymder/NotificationHubs/authorizationRules/Write | Skapa auktoriseringsregler för Notification Hub och uppdatera dess egenskaper. Åtkomst behörighet för auktoriseringsregler, de primära och sekundära nycklarna kan uppdateras. |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/authorizationRules/Read | Hämta listan med auktoriseringsregler för Notification Hub |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/authorizationRules/Delete | Ta bort auktoriseringsregler för Notification Hub |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/authorizationRules/listnycklar/åtgärd | Hämta anslutnings strängen till Notification Hub |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/authorizationRules/regenerateKeys/åtgärd | Auktoriseringsregel för aviserings nav återskapa primär-SecondaryKey, ange den nyckel som måste återskapas |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/metricDefinitions/Read | Hämta lista över resurs beskrivningar för namn rymds mått |
+> | Microsoft. NotificationHubs/Namespaces/providers/Microsoft. Insights/diagnosticSettings/Read | Hämta diagnostiska inställningar för namn område |
+> | Microsoft. NotificationHubs/Namespaces/providers/Microsoft. Insights/diagnosticSettings/Write | Skapa eller uppdatera diagnostikinställningar för namn områden |
+> | Microsoft. NotificationHubs/Namespaces/providers/Microsoft. Insights/logDefinitions/Read | Hämtar de tillgängliga loggarna för namn området |
 > | Microsoft. NotificationHubs/operationResults/Read | Returnerar åtgärds resultat för Notification Hubs Provider |
 > | Microsoft. NotificationHubs/Operations/Read | Returnerar en lista med åtgärder som stöds för Notification Hubs Provider |
 
@@ -5566,7 +5581,25 @@ Azure-tjänst: [avstånd för Azure-ankare](../spatial-anchors/index.yml)
 > | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. MixedReality/register/åtgärd | Registrerar en prenumeration för resurs leverantören för Mixad verklighet. |
+> | Microsoft. MixedReality/avregistrera/åtgärd | Avregistrerar en prenumeration för resurs leverantören för Mixad verklighet. |
+> | Microsoft. MixedReality/locations/checknameavailability/Read | Söker efter namn tillgänglighet |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/Delete | Ta bort ett konto för objekt förståelse |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/listnycklar/Action | Visa en lista med ett konto för objekt förståelse |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/Read | Läs egenskaperna ett konto för objekt förståelse |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/regeneratekeys/Action | Återskapa nycklar för ett konto för objekt förståelse |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/Write | Uppdatera egenskaperna ett konto för objekt förståelse |
+> | Microsoft. MixedReality/Operations/Read | Lista tillgängliga åtgärder för Microsoft Mixed Reality |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/Delete | Ta bort ett konto för fjärrrendering |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/listnycklar/Action | Lista nycklar för ett konto för fjärrrendering |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/Read | Läsa egenskaperna för ett fjärrstyrt konto |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/regeneratekeys/Action | Återskapa nycklarna för ett fjärrrendering-konto |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/Write | Uppdatera egenskaperna för ett fjärrstyrt konto |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/Keys/Read | Läs nycklar för ett konto för fjärrrendering |
 > | Microsoft. MixedReality/remoteRenderingAccounts/providers/Microsoft. Insights/metricDefinitions/Read | Hämtar tillgängliga mått för Microsoft. MixedReality/remoteRenderingAccounts |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/listnycklar/Action | Lista nycklar för ett konto för spatial ankare |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/Read | Läs egenskaperna för ett konto för spatial ankare |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/regeneratekeys/Action | Återskapa nycklar för ett konto för spatial ankare |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/Keys/Read | Läs nycklar för ett konto för spatial ankare |
 > | Microsoft. MixedReality/spatialAnchorsAccounts/providers/Microsoft. Insights/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för Microsoft. MixedReality/spatialAnchorsAccounts |
 > | Microsoft. MixedReality/spatialAnchorsAccounts/providers/Microsoft. Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för Microsoft. MixedReality/spatialAnchorsAccounts |
 > | Microsoft. MixedReality/spatialAnchorsAccounts/providers/Microsoft. Insights/metricDefinitions/Read | Hämtar tillgängliga mått för Microsoft. MixedReality/spatialAnchorsAccounts |
@@ -5931,6 +5964,11 @@ Azure-tjänst: [Azure Stack Edge](../databox-online/azure-stack-edge-overview.md
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/Read | Visar eller hämtar roller |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/Write | Skapar eller uppdaterar roller |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/Delete | Tar bort rollerna |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/addon/Read | Visar eller hämtar ArmApiRes_addons |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/addon/Read | Visar eller hämtar ArmApiRes_addons |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/addons/Write | Skapar eller uppdaterar ArmApiRes_addons |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/addons/Delete | Tar bort ArmApiRes_addons |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/addons/operationResults/Read | Visar eller hämtar åtgärds resultatet |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/monitoringConfig/Write | Skapar eller uppdaterar övervaknings konfigurationen |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/monitoringConfig/Delete | Tar bort övervaknings konfigurationen |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/monitoringConfig/Read | Visar eller hämtar övervaknings konfigurationen |
@@ -6543,65 +6581,65 @@ Azure-tjänst: [Key Vault](../key-vault/index.yml)
 > | Microsoft. nyckel valv/managedHSMs/ta bort | Ta bort en hanterad HSM |
 > | Microsoft. nyckel valv/-åtgärder/Läs | Visar en lista över åtgärder som är tillgängliga på Microsoft. valv resurs leverantör |
 > | Microsoft. nyckel valv/valv/läsa | Visa egenskaperna för ett nyckel valv |
-> | Microsoft. nyckel valv/valv/Skriv | Skapa ett nytt nyckel valv eller uppdatera egenskaperna för ett befintligt nyckel valv |
-> | Microsoft. nyckel valv/valv/ta bort | Ta bort ett nyckelvalv |
+> | Microsoft. nyckel valv/valv/Skriv | Skapar ett nytt nyckel valv eller uppdaterar egenskaperna för ett befintligt nyckel valv. Vissa egenskaper kan kräva fler behörigheter. |
+> | Microsoft. nyckel valv/valv/ta bort | Tar bort ett nyckel valv |
 > | Microsoft. nyckel valv/valv/distribution/åtgärd | Ger åtkomst till hemligheter i ett nyckel valv när du distribuerar Azure-resurser |
-> | Microsoft. nyckel valv/valv/accessPolicies/skrivning | Uppdatera en befintlig åtkomst princip genom att slå samman eller ersätta eller lägga till en ny åtkomst princip i ett valv. |
+> | Microsoft. nyckel valv/valv/accessPolicies/skrivning | Uppdaterar en befintlig åtkomst princip genom att slå samman eller ersätta eller lägga till en ny åtkomst princip i nyckel valvet. |
 > | Microsoft. nyckel valv/valv/eventGridFilters/läsa | Meddelar Microsoft. Vault att en EventGrid-prenumeration för Key Vault visas |
 > | Microsoft. nyckel valv/valv/eventGridFilters/skrivning | Meddelar Microsoft. Vault att en ny EventGrid-prenumeration för Key Vault skapas |
 > | Microsoft. nyckel valv/valv/eventGridFilters/ta bort | Meddelar Microsoft. Vault att en EventGrid-prenumeration för Key Vault tas bort |
 > | Microsoft. nyckel valv/valv/nycklar/läsa | Visa en lista med nycklarna i ett angivet valv eller Läs den aktuella versionen av en specifik nyckel. |
-> | Microsoft. nyckel valv/valv/nycklar/Skriv | Skapa en ny nyckel eller uppdatera en befintlig nyckel. |
+> | Microsoft. nyckel valv/valv/nycklar/Skriv | Skapar den första versionen av en ny nyckel om den inte finns. Om det redan finns returneras den befintliga nyckeln utan någon ändring. Detta API skapar inte efterföljande versioner och uppdaterar inte befintliga nycklar. |
 > | Microsoft. nyckel valv/valv/nycklar/versioner/läsa | Lista de versioner av en angiven nyckel eller Läs den angivna versionen av en nyckel. |
 > | Microsoft. nyckel valv/valv/hemligheter/läsa | Visa egenskaperna för en hemlighet, men inte dess värde. |
-> | Microsoft. nyckel valv/valv/hemligheter/skriva | Skapa en ny hemlighet eller uppdatera värdet för en befintlig hemlighet. |
+> | Microsoft. nyckel valv/valv/hemligheter/skriva | Skapar en ny hemlighet eller uppdaterar värdet för en befintlig hemlighet. |
 > | **DataAction** | **Beskrivning** |
 > | Microsoft. nyckel valv/valv/certificatecas/ta bort | Ta bort certifikat utfärdare |
 > | Microsoft. nyckel valv/valv/certificatecas/läsa | Läsa certifikat utfärdare |
 > | Microsoft. nyckel valv/valv/certificatecas/skrivning | Skriv certifikat utfärdare |
 > | Microsoft. nyckel valv/valv/certificatecontacts/skrivning | Hantera certifikats kontakt |
-> | Microsoft. nyckel valv/valv/certifikat/ta bort | Ta bort ett certifikat. |
+> | Microsoft. nyckel valv/valv/certifikat/ta bort | Tar bort ett certifikat. Alla versioner har tagits bort. |
 > | Microsoft. nyckel valv/valv/certifikat/läsa | Lista certifikat i ett angivet nyckel valv eller hämta information om ett certifikat. |
-> | Microsoft. nyckel valv/valv/certifikat/säkerhets kopiering/åtgärd | Skapa säkerhets kopierings filen för ett certifikat. Filen kan användas för att återställa certifikatet i en Key Vault av samma prenumeration. Begränsningar kan tillkomma. |
+> | Microsoft. nyckel valv/valv/certifikat/säkerhets kopiering/åtgärd | Skapar säkerhets kopierings filen för ett certifikat. Filen kan användas för att återställa certifikatet i en Key Vault av samma prenumeration. Begränsningar kan tillkomma. |
 > | Microsoft. nyckel valv/valv/certifikat/rensning/åtgärd | Rensar ett certifikat, vilket gör det oåterkalleligt. |
 > | Microsoft. nyckel valv/valv/certifikat/uppdatering/åtgärd | Uppdaterar angivna attribut som är associerade med det angivna certifikatet. |
-> | Microsoft. nyckel valv/valv/certifikat/skapa/åtgärd | Skapar ett nytt certifikat. |
-> | Microsoft. nyckel valv/valv/certifikat/import/åtgärd | Importerar ett befintligt giltigt certifikat som innehåller en privat nyckel till Azure Key Vault. Certifikatet som ska importeras kan vara antingen i PFX-eller PEM-format. |
+> | Microsoft. nyckel valv/valv/certifikat/skapa/åtgärd | Skapar ett nytt certifikat. Om certifikatet inte finns skapas den första versionen. Annars skapas en ny version. |
+> | Microsoft. nyckel valv/valv/certifikat/import/åtgärd | Importerar ett befintligt giltigt certifikat som innehåller en privat nyckel.<br>Certifikatet som ska importeras kan vara antingen i PFX-eller PEM-format.<br>Om certifikatet inte finns i Key Vault skapas den första versionen med angivet innehåll.<br>Annars skapas en ny version med angivet innehåll. |
 > | Microsoft. nyckel valv/valv/certifikat/återställning/åtgärd | Återställer det borttagna certifikatet. Åtgärden utför återföringen av borttagnings åtgärden. Åtgärden kan användas i valv som är aktiverade för mjuk borttagning och måste utfärdas under kvarhållningsintervallet. |
-> | Microsoft. nyckel valv/valv/certifikat/återställning/åtgärd | Återställer ett säkerhetskopierat certifikat och alla dess versioner till ett valv. |
+> | Microsoft. nyckel valv/valv/certifikat/återställning/åtgärd | Återställer ett certifikat och alla dess versioner från en säkerhets kopia som genererats av Key Vault. |
 > | Microsoft. nyckel valv/valv/nycklar/läsa | Lista nycklar i det angivna valvet, eller Läs egenskaper och offentligt material i en nyckel.<br>För asymmetriska nycklar exponerar den här åtgärden offentliga nycklar och inkluderar möjlighet att utföra algoritmer för offentliga nycklar, till exempel kryptera och verifiera signatur.<br>Privata nycklar och symmetriska nycklar exponeras aldrig. |
 > | Microsoft. nyckel valv/valv/nycklar/uppdatering/åtgärd | Uppdaterar angivna attribut som är associerade med den angivna nyckeln. |
-> | Microsoft. nyckel valv/valv/nycklar/skapa/åtgärd | Skapar en ny nyckel. |
-> | Microsoft. nyckel valv/valv/nycklar/import/åtgärd | Importerar en externt skapad nyckel, lagrar den och returnerar nyckel parametrar och attribut till klienten. |
+> | Microsoft. nyckel valv/valv/nycklar/skapa/åtgärd | Skapar en ny nyckel. Om nyckeln inte finns skapas den första versionen. Annars skapas en ny version med det angivna värdet. |
+> | Microsoft. nyckel valv/valv/nycklar/import/åtgärd | Importerar en nyckel som skapats externt. Om nyckeln inte finns skapas den första versionen med det importerade materialet. Annars skapas en ny version med det importerade materialet. |
 > | Microsoft. nyckel valv/valv/nycklar/återställning/åtgärd | Återställer den borttagna nyckeln. Åtgärden utför återföringen av borttagnings åtgärden. Åtgärden kan användas i valv som är aktiverade för mjuk borttagning och måste utfärdas under kvarhållningsintervallet. |
-> | Microsoft. nyckel valv/valv/nycklar/återställning/åtgärd | Återställer en säkerhetskopierad nyckel och alla dess versioner till ett valv. |
-> | Microsoft. nyckel valv/valv/nycklar/ta bort | Ta bort en nyckel. |
-> | Microsoft. nyckel valv/valv/nycklar/säkerhets kopiering/åtgärd | Skapa säkerhets kopierings filen för en nyckel. Filen kan användas för att återställa nyckeln i en Key Vault av samma prenumeration. Begränsningar kan tillkomma. |
+> | Microsoft. nyckel valv/valv/nycklar/återställning/åtgärd | Återställer en nyckel och alla dess versioner från en säkerhets kopia som genererats av Key Vault. |
+> | Microsoft. nyckel valv/valv/nycklar/ta bort | Tar bort en nyckel. Alla versioner har tagits bort. |
+> | Microsoft. nyckel valv/valv/nycklar/säkerhets kopiering/åtgärd | Skapar säkerhets kopierings filen för en nyckel. Filen kan användas för att återställa nyckeln i en Key Vault av samma prenumeration. Begränsningar kan tillkomma. |
 > | Microsoft. nyckel valv/valv/nycklar/rensning/åtgärd | Rensar en nyckel, vilket gör att den inte kan återställas. |
-> | Microsoft. nyckel valv/valv/nycklar/kryptera/åtgärd | Kryptera klartext med en nyckel. Observera att om nyckeln är asymmetrisk kan den här åtgärden utföras av huvud konton med Läs behörighet. |
-> | Microsoft. nyckel valv/valv/nycklar/dekryptera/åtgärd | Dekryptera chiffertexten med en nyckel. |
-> | Microsoft. nyckel valv/valv/nycklar/Bryt/åtgärd | Radbryt en symmetrisk nyckel med en Key Vault nyckel. Observera att om Key Vault nyckeln är asymmetrisk, kan den här åtgärden utföras med Läs behörighet. |
-> | Microsoft. nyckel valv/valv/nycklar/unwrap/åtgärd | Packa upp symmetrisk nyckel med en Key Vault nyckel. |
-> | Microsoft. nyckel valv/valv/nycklar/signering/åtgärd | Signera en hash med en nyckel. |
-> | Microsoft. nyckel valv/valv/nycklar/verifiera/åtgärd | Verifiera en hash. Observera att om nyckeln är asymmetrisk kan den här åtgärden utföras av huvud konton med Läs behörighet. |
-> | Microsoft. nyckel valv/valv/hemligheter/ta bort | Ta bort en hemlighet. |
-> | Microsoft. nyckel valv/valv/hemligheter/säkerhets kopiering/åtgärd | Skapa säkerhets kopierings filen för en hemlighet. Filen kan användas för att återställa hemligheten i en Key Vault av samma prenumeration. Begränsningar kan tillkomma. |
+> | Microsoft. nyckel valv/valv/nycklar/kryptera/åtgärd | Krypterar klartext med en nyckel. Observera att om nyckeln är asymmetrisk kan den här åtgärden utföras av huvud konton med Läs behörighet. |
+> | Microsoft. nyckel valv/valv/nycklar/dekryptera/åtgärd | Dekrypterar chiffertexten med en nyckel. |
+> | Microsoft. nyckel valv/valv/nycklar/Bryt/åtgärd | Radbryter en symmetrisk nyckel med en Key Vault nyckel. Observera att om Key Vault nyckeln är asymmetrisk, kan den här åtgärden utföras av huvud konton med Läs behörighet. |
+> | Microsoft. nyckel valv/valv/nycklar/unwrap/åtgärd | Avbryter en symmetrisk nyckel med en Key Vault nyckel. |
+> | Microsoft. nyckel valv/valv/nycklar/signering/åtgärd | Signerar en meddelande sammandrag (hash) med en nyckel. |
+> | Microsoft. nyckel valv/valv/nycklar/verifiera/åtgärd | Verifierar signaturen för en Message Digest (hash) med en nyckel. Observera att om nyckeln är asymmetrisk kan den här åtgärden utföras av huvud konton med Läs behörighet. |
+> | Microsoft. nyckel valv/valv/hemligheter/ta bort | Tar bort en hemlighet. Alla versioner har tagits bort. |
+> | Microsoft. nyckel valv/valv/hemligheter/säkerhets kopiering/åtgärd | Skapar en säkerhets kopia av en hemlighet. Filen kan användas för att återställa hemligheten i en Key Vault av samma prenumeration. Begränsningar kan tillkomma. |
 > | Microsoft. nyckel valv/valv/hemligheter/rensning/åtgärd | Rensar en hemlighet som gör det oåterkalleligt. |
 > | Microsoft. nyckel valv/valv/hemligheter/uppdatering/åtgärd | Uppdaterar angivna attribut som är associerade med den angivna hemligheten. |
 > | Microsoft. nyckel valv/valv/hemligheter/återställning/åtgärd | Återställer den borttagna hemligheten. Åtgärden utför återföringen av borttagnings åtgärden. Åtgärden kan användas i valv som är aktiverade för mjuk borttagning och måste utfärdas under kvarhållningsintervallet. |
-> | Microsoft. nyckel valv/valv/hemligheter/återställning/åtgärd | Återställer en säkerhetskopierad hemlighet och alla dess versioner till ett valv. |
+> | Microsoft. nyckel valv/valv/hemligheter/återställning/åtgärd | Återställer en hemlighet och alla dess versioner från en säkerhets kopia som genererats av Key Vault. |
 > | Microsoft. nyckel valv/valv/hemligheter/readMetadata/åtgärd | Visa eller visa egenskaperna för en hemlighet, men inte dess värde. |
-> | Microsoft. nyckel valv/valv/hemligheter/getSecret/åtgärd | Hämta värdet för en hemlighet. |
-> | Microsoft. nyckel valv/valv/hemligheter/setSecret/åtgärd | Skapa ny hemlighet. |
+> | Microsoft. nyckel valv/valv/hemligheter/getSecret/åtgärd | Hämtar värdet för en hemlighet. |
+> | Microsoft. nyckel valv/valv/hemligheter/setSecret/åtgärd | Anger värdet för en hemlighet. Om hemligheten inte finns skapas den första versionen. Annars skapas en ny version med det angivna värdet. |
 > | Microsoft. nyckel valv/valv/storageaccounts/läsa | Läs definitionen av hanterade lagrings konton och SAS. |
-> | Microsoft. nyckel valv/valv/storageaccounts/ange/åtgärd | Skapa eller uppdatera definitionen för ett hanterat lagrings konto. |
+> | Microsoft. nyckel valv/valv/storageaccounts/ange/åtgärd | Skapar eller uppdaterar definitionen för ett hanterat lagrings konto. |
 > | Microsoft. nyckel valv/valv/storageaccounts/ta bort | Ta bort definitionen av ett hanterat lagrings konto. |
-> | Microsoft. nyckel valv/valv/storageaccounts/säkerhets kopiering/åtgärd | Skapa en säkerhets kopia av definitionen av ett hanterat lagrings konto och dess SAS (signatur för delad åtkomst). |
+> | Microsoft. nyckel valv/valv/storageaccounts/säkerhets kopiering/åtgärd | Skapar en säkerhets kopia av definitionen av ett hanterat lagrings konto och dess SAS (signatur för delad åtkomst). |
 > | Microsoft. nyckel valv/valv/storageaccounts/rensning/åtgärd | Rensa den mjuk borttagnings definition för ett hanterat lagrings konto eller SAS (signatur för delad åtkomst). |
 > | Microsoft. nyckel valv/valv/storageaccounts/regeneratekey/åtgärd | Återskapa åtkomst nyckeln för ett hanterat lagrings konto. |
 > | Microsoft. nyckel valv/valv/storageaccounts/återställning/åtgärd | Återställa den mjuk borttagnings definition för ett hanterat lagrings konto eller SAS (signatur för delad åtkomst). |
-> | Microsoft. nyckel valv/valv/storageaccounts/återställning/åtgärd | Återställer definitionen av ett hanterat lagrings konto och dess SAS (signatur för delad åtkomst). |
-> | Microsoft. nyckel valv/valv/storageaccounts/SAS/ange/åtgärd | Skapa eller uppdatera en SAS-definition (signatur för delad åtkomst) för ett hanterat lagrings konto. |
+> | Microsoft. nyckel valv/valv/storageaccounts/återställning/åtgärd | Återställer definitionen av ett hanterat lagrings konto och dess SAS (signatur för delad åtkomst) från en säkerhets kopia som genererats av Key Vault. |
+> | Microsoft. nyckel valv/valv/storageaccounts/SAS/ange/åtgärd | Skapar eller uppdaterar en SAS-definition (signatur för delad åtkomst) för ett hanterat lagrings konto. |
 > | Microsoft. nyckel valv/valv/storageaccounts/SAS/Delete | Ta bort den SAS-definition (signatur för delad åtkomst) för ett hanterat lagrings konto. |
 
 ### <a name="microsoftsecurity"></a>Microsoft. Security
@@ -6618,6 +6656,9 @@ Azure-tjänst: [Security Center](../security-center/index.yml)
 > | Microsoft. Security/advancedThreatProtectionSettings/Read | Hämtar inställningarna för avancerat skydd för resursen |
 > | Microsoft. Security/advancedThreatProtectionSettings/Write | Uppdaterar inställningarna för avancerat skydd för resursen |
 > | Microsoft. Security/Alerts/Read | Hämtar alla tillgängliga säkerhets aviseringar |
+> | Microsoft. Security/alertsSuppressionRules/Read | Hämtar all tillgänglig regel för att utelämna säkerhets varningar |
+> | Microsoft. Security/alertsSuppressionRules/Write | Skapar en ny regel för att utelämna säkerhets varningar eller uppdatera en befintlig regel |
+> | Microsoft. Security/alertsSuppressionRules/Delete | Ta bort en regel för att utelämna säkerhets varningar |
 > | Microsoft. Security/applicationWhitelistings/Read | Hämtar appens allowlistings |
 > | Microsoft. Security/applicationWhitelistings/Write | Skapar ett nytt program allowlisting eller uppdaterar ett befintligt |
 > | Microsoft. Security/assessmentMetadata/Read | Hämta tillgängliga metadata för säkerhets utvärdering i din prenumeration |
@@ -6651,6 +6692,8 @@ Azure-tjänst: [Security Center](../security-center/index.yml)
 > | Microsoft. Security/locations/Alerts/Read | Hämtar alla tillgängliga säkerhets aviseringar |
 > | Microsoft. Security/locations/Alerts/Stäng/åtgärd | Ignorera en säkerhets avisering |
 > | Microsoft. Security/locations/Alerts/Activate/åtgärd | Aktivera en säkerhets avisering |
+> | Microsoft. Security/locations/Alerts/resolve/Action | Lösa en säkerhets avisering |
+> | Microsoft. Security/locations/Alerts/simulera/åtgärd | Simulera en säkerhets avisering |
 > | Microsoft. Security/locations/jitNetworkAccessPolicies/Read | Hämtar just-in-Time-principer för nätverks åtkomst |
 > | Microsoft. Security/locations/jitNetworkAccessPolicies/Write | Skapar en ny princip för nätverks åtkomst just-in-Time eller uppdaterar en befintlig |
 > | Microsoft. Security/locations/jitNetworkAccessPolicies/Delete | Tar bort just-in-time-principen för nätverks åtkomst |
@@ -6665,6 +6708,10 @@ Azure-tjänst: [Security Center](../security-center/index.yml)
 > | Microsoft. Security/prissättning/läsa | Hämtar pris inställningarna för omfånget |
 > | Microsoft. Security/prissättning/Skriv | Uppdaterar pris inställningarna för omfånget |
 > | Microsoft. Security/prissättning/ta bort | Tar bort pris inställningarna för omfånget |
+> | Microsoft. Security/secureScoreControlDefinitions/Read | Hämta kontroll definition för säker Poäng |
+> | Microsoft. Security/secureScoreControls/Read | Hämta Beräknad säker Poäng kontroll för din prenumeration |
+> | Microsoft. Security/secureScores/Read | Hämta beräknade säkra Poäng för din prenumeration |
+> | Microsoft. Security/secureScores/secureScoreControls/Read | Hämta Beräknad säker Poäng kontroll för din säkra Poäng beräkning |
 > | Microsoft. Security/securityContacts/Read | Hämtar säkerhets kontakten |
 > | Microsoft. Security/securityContacts/Write | Uppdaterar säkerhets kontakten |
 > | Microsoft. Security/securityContacts/Delete | Tar bort säkerhets kontakten |
@@ -6676,6 +6723,12 @@ Azure-tjänst: [Security Center](../security-center/index.yml)
 > | Microsoft. Security/securityStatusesSummaries/Read | Hämtar säkerhets status sammanfattningar för omfattningen |
 > | Microsoft. Security/Settings/Read | Hämtar inställningarna för omfånget |
 > | Microsoft. Security/Settings/Write | Uppdaterar inställningarna för omfånget |
+> | Microsoft. Security/sqlVulnerabilityAssessments/baselineRules/Action | Lägg till en lista över regel resultat till bas linjen. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/baselineRules/Read | Returnera databasens bas linje (alla regler som har lagts till i bas linjen) eller hämta en regel bas linje resultat för det angivna regel-ID: t. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/baselineRules/Write | Ändra regelns bas linje resultat. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/baselineRules/Delete | Ta bort regel resultatet från bas linjen. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/Scans/Read | Returnera listan över skannings poster för sårbarhets bedömning eller hämta skannings posten för angivet skannings-ID. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/Scans/scanResults/Read | Returnera listan över resultat från regeln för sårbarhets bedömning eller hämta regel resultatet för angivet regel-ID. |
 > | Microsoft. Security/tasks/Read | Hämtar alla tillgängliga säkerhets rekommendationer |
 > | Microsoft. Security/webApplicationFirewalls/Read | Hämtar brand väggar för webb program |
 > | Microsoft. Security/webApplicationFirewalls/Write | Skapar en ny brand vägg för webbaserade program eller uppdaterar en befintlig |
@@ -6732,7 +6785,8 @@ Azure-tjänst: [Azure Sentinel](../sentinel/index.yml)
 > | Microsoft. SecurityInsights/dataConnectors/Write | Uppdaterar en data anslutning |
 > | Microsoft. SecurityInsights/dataConnectors/Delete | Tar bort en data koppling |
 > | Microsoft. SecurityInsights/entiteter/läsa | Hämtar grafen Sentinel-entiteter |
-> | Microsoft. SecurityInsights/entiteter/tids linje/åtgärd | Hämtar tids linje för enheten för ett angivet intervall |
+> | Microsoft. SecurityInsights/entiteter/gettimeline/åtgärd | Hämtar tids linje för enheten för ett angivet intervall |
+> | Microsoft. SecurityInsights/entiteter/getInsights/åtgärd | Hämtar entitets insikter för ett angivet intervall |
 > | Microsoft. SecurityInsights/entiteter/relationer/läsa | Hämtar en relation mellan entiteten och relaterade resurser |
 > | Microsoft. SecurityInsights/entiteter/relationer/Skriv | Uppdaterar en relation mellan entiteten och relaterade resurser |
 > | Microsoft. SecurityInsights/entiteter/relationer/ta bort | Tar bort en relation mellan entiteten och relaterade resurser |
@@ -7436,7 +7490,7 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/VMwareSites/vCenter/Read | Hämtar egenskaperna för en VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vCenter/Write | Skapar eller uppdaterar VMware vCenter |
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Övervaka
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
@@ -8699,6 +8753,7 @@ Azure-tjänst: [Cost Management + fakturering](../cost-management-billing/index.
 > | Microsoft. fakturering/billingAccounts/billingSubscriptions/Read |  |
 > | Microsoft. fakturering/billingAccounts/billingSubscriptions/Move/åtgärd |  |
 > | Microsoft. fakturering/billingAccounts/billingSubscriptions/validateMoveEligibility/åtgärd |  |
+> | Microsoft. fakturering/billingAccounts/billingSubscriptions/downloadDocuments/åtgärd | Ladda ned faktura med Hämta länk från lista |
 > | Microsoft. fakturering/billingAccounts/kunder/Läs |  |
 > | Microsoft. fakturering/billingAccounts/kunder/billingPermissions/Read |  |
 > | Microsoft. fakturering/billingAccounts/avdelningar/läsa |  |
@@ -8712,7 +8767,6 @@ Azure-tjänst: [Cost Management + fakturering](../cost-management-billing/index.
 > | Microsoft. fakturering/billingAccounts/produkter/flytta/åtgärd |  |
 > | Microsoft. fakturering/billingAccounts/produkter/validateMoveEligibility/åtgärd |  |
 > | Microsoft. fakturering/avdelningar/läsa |  |
-> | Microsoft. fakturering/fakturor/Hämta/åtgärd | Ladda ned faktura med Hämta länk från lista |
 > | Microsoft. fakturering/fakturor/Hämta/åtgärd | Ladda ned faktura med Hämta länk från lista |
 > | Microsoft. fakturering/åtgärder/Läs |  |
 
@@ -9338,69 +9392,76 @@ Azure-tjänst: [Site Recovery](../site-recovery/index.yml)
 > | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. RecoveryServices/register/åtgärd | Registrerar prenumeration för den aktuella resurs leverantören |
-> | Microsoft. RecoveryServices/locations/backupPreValidateProtection/Action |  |
-> | Microsoft. RecoveryServices/locations/backupStatus/Action | Kontrol lera säkerhets kopierings status för Recovery Services valv |
-> | Microsoft. RecoveryServices/locations/backupValidateFeatures/Action | Validera funktioner |
+> | Microsoft. recoveryservices/locations/backupPreValidateProtection/Action |  |
+> | Microsoft. recoveryservices/locations/backupStatus/Action | Kontrol lera säkerhets kopierings status för Recovery Services valv |
+> | Microsoft. recoveryservices/locations/backupValidateFeatures/Action | Validera funktioner |
 > | Microsoft. RecoveryServices/locations/Allocatedstamp/Action | Allocatedstamp är en intern åtgärd som används av tjänsten |
 > | Microsoft. RecoveryServices/locations/checkNameAvailability/Action | Kontrol lera resurs namns tillgänglighet är ett API för att kontrol lera om resurs namnet är tillgängligt |
 > | Microsoft. RecoveryServices/locations/allocatedStamp/Read | GetAllocatedStamp är en intern åtgärd som används av tjänsten |
-> | Microsoft. RecoveryServices/locations/backupProtectedItem/Write | Skapa ett säkerhetskopierat skyddat objekt |
-> | Microsoft. RecoveryServices/locations/backupProtectedItems/Read | Returnerar listan över alla skyddade objekt. |
+> | Microsoft. recoveryservices/locations/backupProtectedItem/Write | Skapa ett säkerhetskopierat skyddat objekt |
+> | Microsoft. recoveryservices/locations/backupProtectedItems/Read | Returnerar listan över alla skyddade objekt. |
 > | Microsoft. RecoveryServices/locations/operationStatus/Read | Hämtar åtgärds status för en specifik åtgärd |
 > | Microsoft. RecoveryServices/Operations/Read | Åtgärd returnerar listan över åtgärder för en resurs leverantör |
-> | Microsoft. RecoveryServices/valv/backupJobsExport/åtgärd | Exportera jobb |
-> | Microsoft. RecoveryServices/valv/backupSecurityPIN/åtgärd | Returnerar information om säkerhets kod för Recovery Services valv. |
-> | Microsoft. RecoveryServices/valv/backupValidateOperation/åtgärd | Verifiera åtgärd på skyddat objekt |
+> | Microsoft. recoveryservices/valv/backupCrossRegionRestore/åtgärd | Återställning av återställnings punkter mellan regioner för skyddade objekt. |
+> | Microsoft. recoveryservices/valv/backupCrrJob/åtgärd | Hämta information om återställnings jobb mellan regioner i den sekundära regionen för Recovery Services Vault. |
+> | Microsoft. recoveryservices/valv/backupCrrJobs/åtgärd | Lista över återställnings jobb mellan regioner i den sekundära regionen för Recovery Services Vault. |
+> | Microsoft. recoveryservices/valv/backupJobsExport/åtgärd | Exportera jobb |
+> | Microsoft. recoveryservices/valv/backupSecurityPIN/åtgärd | Returnerar information om säkerhets kod för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupValidateOperation/åtgärd | Verifiera åtgärd på skyddat objekt |
 > | Microsoft. RecoveryServices/valv/skriva | Skapa valv-åtgärd skapar en Azure-resurs av typen valv |
 > | Microsoft. RecoveryServices/valv/läsa | Med åtgärden Hämta valv hämtas ett objekt som representerar Azure-resursen av typen valv |
 > | Microsoft. RecoveryServices/valv/ta bort | Åtgärden ta bort valv tar bort den angivna Azure-resursen av typen valv |
-> | Microsoft. RecoveryServices/valv/backupconfig/läsa | Returnerar konfiguration för Recovery Services valv. |
-> | Microsoft. RecoveryServices/valv/backupconfig/Write | Uppdaterar konfigurationen för Recovery Services valv. |
-> | Microsoft. RecoveryServices/valv/backupEncryptionConfigs/läsa | Hämtar konfiguration av säkerhets kopierings resurs kryptering. |
-> | Microsoft. RecoveryServices/valv/backupEncryptionConfigs/Write | Uppdaterar konfiguration av säkerhets kopierings resurs kryptering |
-> | Microsoft. RecoveryServices/valv/backupEngines/läsa | Returnerar alla säkerhets kopierings hanterings servrar registrerade i valvet. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/refreshContainers/åtgärd | Uppdaterar behållar listan |
-> | Microsoft. RecoveryServices/valv/backupFabrics/backupProtectionIntent/Delete | Ta bort en säkerhets kopie rad skydds avsikt |
-> | Microsoft. RecoveryServices/valv/backupFabrics/backupProtectionIntent/Read | Få en säkerhets kopie rad skydds avsikt |
-> | Microsoft. RecoveryServices/valv/backupFabrics/backupProtectionIntent/Write | Skapa en säkerhets kopia av skydds avsikt |
-> | Microsoft. RecoveryServices/valv/backupFabrics/operationResults/Read | Returnerar status för åtgärden |
-> | Microsoft. RecoveryServices/valv/backupFabrics/operationsStatus/Read | Returnerar status för åtgärden |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectableContainers/Read | Hämta alla skydds bara behållare |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/Delete | Tar bort den registrerade behållaren |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/fråga/åtgärd | Gör förfrågan om arbets belastningar inom en behållare |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/Read | Returnerar alla registrerade behållare |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/Write | Skapar en registrerad behållare |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/objekt/läsa | Hämta alla objekt i en behållare |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/operationResults/Read | Hämtar resultat från utförd åtgärd på skydds behållare. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/operationsStatus/Read | Hämtar status för utförd åtgärd på skydds container. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/säkerhets kopiering/åtgärd | Utför säkerhets kopiering för skyddat objekt. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/Delete | Tar bort skyddat objekt |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/Read | Returnerar objekt information om det skyddade objektet |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/Write | Skapa ett säkerhetskopierat skyddat objekt |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/operationResults/Read | Hämtar resultat från utförd åtgärd på skyddade objekt. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/operationsStatus/Read | Returnerar statusen för den åtgärd som utförts på skyddade objekt. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/åtgärd | Etablera snabb objekts återställning för skyddat objekt |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Read | Hämta återställnings punkter för skyddade objekt. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Restore/Action | Återställa återställnings punkter för skyddade objekt. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/åtgärd | Återkalla direkt objekt återställning för skyddat objekt |
-> | Microsoft. RecoveryServices/valv/backupJobs/Avbryt/åtgärd | Avbryt jobbet |
-> | Microsoft. RecoveryServices/valv/backupJobs/läsa | Returnerar alla jobb objekt |
-> | Microsoft. RecoveryServices/valv/backupJobs/operationResults/Read | Returnerar resultatet av jobb åtgärden. |
-> | Microsoft. RecoveryServices/valv/backupJobs/operationsStatus/Read | Returnerar status för jobb åtgärd. |
-> | Microsoft. RecoveryServices/valv/backupOperationResults/läsa | Returnerar resultatet av säkerhets kopierings åtgärden för Recovery Services valvet. |
-> | Microsoft. RecoveryServices/valv/backupOperations/läsa | Returnerar säkerhets kopierings åtgärdens status för Recovery Services valv. |
-> | Microsoft. RecoveryServices/valv/backupPolicies/Delete | Ta bort en skydds princip |
-> | Microsoft. RecoveryServices/valv/backupPolicies/läsa | Returnerar alla skydds principer |
-> | Microsoft. RecoveryServices/valv/backupPolicies/Write | Skapar skydds princip |
-> | Microsoft. RecoveryServices/valv/backupPolicies/operationResults/Read | Hämta resultat från princip åtgärd. |
-> | Microsoft. RecoveryServices/valv/backupPolicies/åtgärder/Läs | Hämta status för princip åtgärd. |
-> | Microsoft. RecoveryServices/valv/backupProtectableItems/läsa | Returnerar lista över alla objekt som ska skyddas. |
-> | Microsoft. RecoveryServices/valv/backupProtectedItems/läsa | Returnerar listan över alla skyddade objekt. |
-> | Microsoft. RecoveryServices/valv/backupProtectionContainers/läsa | Returnerar alla behållare som hör till prenumerationen |
-> | Microsoft. RecoveryServices/valv/backupProtectionIntents/läsa | Lista alla säkerhets avsikter för säkerhets kopiering |
-> | Microsoft. RecoveryServices/valv/backupstorageconfig/läsa | Returnerar lagrings konfiguration för Recovery Services valv. |
-> | Microsoft. RecoveryServices/valv/backupstorageconfig/Write | Uppdaterar lagrings konfiguration för Recovery Services valv. |
-> | Microsoft. RecoveryServices/valv/backupUsageSummaries/läsa | Returnerar sammanfattningar för skyddade objekt och skyddade servrar för en Recovery Services. |
+> | Microsoft. recoveryservices/valv/backupAadProperties/läsa | Hämta AAD-egenskaper för autentisering i den tredje regionen för återställning mellan regioner. |
+> | Microsoft. recoveryservices/valv/backupconfig/läsa | Returnerar konfiguration för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupconfig/Write | Uppdaterar konfigurationen för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupCrrOperationResults/läsa | Returnerar CRR åtgärds resultat för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupCrrOperationsStatus/läsa | Returnerar CRR åtgärds status för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupEncryptionConfigs/läsa | Hämtar konfiguration av säkerhets kopierings resurs kryptering. |
+> | Microsoft. recoveryservices/valv/backupEncryptionConfigs/Write | Uppdaterar konfiguration av säkerhets kopierings resurs kryptering |
+> | Microsoft. recoveryservices/valv/backupEngines/läsa | Returnerar alla säkerhets kopierings hanterings servrar registrerade i valvet. |
+> | Microsoft. recoveryservices/valv/backupFabrics/refreshContainers/åtgärd | Uppdaterar behållar listan |
+> | Microsoft. recoveryservices/valv/backupFabrics/backupProtectionIntent/Delete | Ta bort en säkerhets kopie rad skydds avsikt |
+> | Microsoft. recoveryservices/valv/backupFabrics/backupProtectionIntent/Read | Få en säkerhets kopie rad skydds avsikt |
+> | Microsoft. recoveryservices/valv/backupFabrics/backupProtectionIntent/Write | Skapa en säkerhets kopia av skydds avsikt |
+> | Microsoft. recoveryservices/valv/backupFabrics/operationResults/Read | Returnerar status för åtgärden |
+> | Microsoft. recoveryservices/valv/backupFabrics/operationsStatus/Read | Returnerar status för åtgärden |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectableContainers/Read | Hämta alla skydds bara behållare |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/Delete | Tar bort den registrerade behållaren |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/fråga/åtgärd | Gör förfrågan om arbets belastningar inom en behållare |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/Read | Returnerar alla registrerade behållare |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/Write | Skapar en registrerad behållare |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/objekt/läsa | Hämta alla objekt i en behållare |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/operationResults/Read | Hämtar resultat från utförd åtgärd på skydds behållare. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/operationsStatus/Read | Hämtar status för utförd åtgärd på skydds container. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/säkerhets kopiering/åtgärd | Utför säkerhets kopiering för skyddat objekt. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/Delete | Tar bort skyddat objekt |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/Read | Returnerar objekt information om det skyddade objektet |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/Write | Skapa ett säkerhetskopierat skyddat objekt |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/operationResults/Read | Hämtar resultat från utförd åtgärd på skyddade objekt. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/operationsStatus/Read | Returnerar statusen för den åtgärd som utförts på skyddade objekt. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/åtgärd | Hämta AccessToken för återställning mellan regioner. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/åtgärd | Etablera snabb objekts återställning för skyddat objekt |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Read | Hämta återställnings punkter för skyddade objekt. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Restore/Action | Återställa återställnings punkter för skyddade objekt. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/åtgärd | Återkalla direkt objekt återställning för skyddat objekt |
+> | Microsoft. recoveryservices/valv/backupJobs/Avbryt/åtgärd | Avbryt jobbet |
+> | Microsoft. recoveryservices/valv/backupJobs/läsa | Returnerar alla jobb objekt |
+> | Microsoft. recoveryservices/valv/backupJobs/operationResults/Read | Returnerar resultatet av jobb åtgärden. |
+> | Microsoft. recoveryservices/valv/backupJobs/operationsStatus/Read | Returnerar status för jobb åtgärd. |
+> | Microsoft. recoveryservices/valv/backupOperationResults/läsa | Returnerar resultatet av säkerhets kopierings åtgärden för Recovery Services valvet. |
+> | Microsoft. recoveryservices/valv/backupOperations/läsa | Returnerar säkerhets kopierings åtgärdens status för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupPolicies/Delete | Ta bort en skydds princip |
+> | Microsoft. recoveryservices/valv/backupPolicies/läsa | Returnerar alla skydds principer |
+> | Microsoft. recoveryservices/valv/backupPolicies/Write | Skapar skydds princip |
+> | Microsoft. recoveryservices/valv/backupPolicies/operationResults/Read | Hämta resultat från princip åtgärd. |
+> | Microsoft. recoveryservices/valv/backupPolicies/åtgärder/Läs | Hämta status för princip åtgärd. |
+> | Microsoft. recoveryservices/valv/backupProtectableItems/läsa | Returnerar lista över alla objekt som ska skyddas. |
+> | Microsoft. recoveryservices/valv/backupProtectedItems/läsa | Returnerar listan över alla skyddade objekt. |
+> | Microsoft. recoveryservices/valv/backupProtectionContainers/läsa | Returnerar alla behållare som hör till prenumerationen |
+> | Microsoft. recoveryservices/valv/backupProtectionIntents/läsa | Lista alla säkerhets avsikter för säkerhets kopiering |
+> | Microsoft. recoveryservices/valv/backupstorageconfig/läsa | Returnerar lagrings konfiguration för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupstorageconfig/Write | Uppdaterar lagrings konfiguration för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupUsageSummaries/läsa | Returnerar sammanfattningar för skyddade objekt och skyddade servrar för en Recovery Services. |
 > | Microsoft. RecoveryServices/valv/certifikat/skriva | Med åtgärden Uppdatera resurs certifikat uppdateras certifikatet för resurs/valv-autentiseringsuppgifter. |
 > | Microsoft. RecoveryServices/valv/extendedInformation/läsa | Med åtgärden Hämta utökad information får du ett objekts utökade information som representerar Azure-resursen av typen? valv? |
 > | Microsoft. RecoveryServices/valv/extendedInformation/Write | Med åtgärden Hämta utökad information får du ett objekts utökade information som representerar Azure-resursen av typen? valv? |
@@ -9409,14 +9470,14 @@ Azure-tjänst: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft. RecoveryServices/valv/monitoringAlerts/Write | Löser aviseringen. |
 > | Microsoft. RecoveryServices/valv/monitoringConfigurations/läsa | Hämtar meddelande konfigurationen för Recovery Services-valvet. |
 > | Microsoft. RecoveryServices/valv/monitoringConfigurations/Write | Konfigurerar e-postaviseringar till Recovery Services-valvet. |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnectionProxies/Delete | Vänta några minuter och försök sedan igen. Kontakta Microsoft-supporten om problemet kvarstår. |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnectionProxies/läsa | Hämta alla skydds bara behållare |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnectionProxies/validate/åtgärd | Hämta alla skydds bara behållare |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnectionProxies/Write | Hämta alla skydds bara behållare |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnectionProxies/operationsStatus/Read | Hämta alla skydds bara behållare |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnections/Delete | Ta bort privata slut punkts begär Anden. Det här anropet görs av säkerhets kopierings administratören. |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnections/Write | Godkänn eller avvisa begär Anden om privata slut punkter. Det här anropet görs av säkerhets kopierings administratören. |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnections/operationsStatus/Read | Returnerar åtgärds statusen för en privat slut punkts anslutning. |
+> | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/Delete | Vänta några minuter och försök sedan igen. Kontakta Microsoft-supporten om problemet kvarstår. |
+> | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/läsa | Hämta alla skydds bara behållare |
+> | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/validate/åtgärd | Hämta alla skydds bara behållare |
+> | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/Write | Hämta alla skydds bara behållare |
+> | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/operationsStatus/Read | Hämta alla skydds bara behållare |
+> | Microsoft. recoveryservices/valv/privateEndpointConnections/Delete | Ta bort privata slut punkts begär Anden. Det här anropet görs av säkerhets kopierings administratören. |
+> | Microsoft. recoveryservices/valv/privateEndpointConnections/Write | Godkänn eller avvisa begär Anden om privata slut punkter. Det här anropet görs av säkerhets kopierings administratören. |
+> | Microsoft. recoveryservices/valv/privateEndpointConnections/operationsStatus/Read | Returnerar åtgärds statusen för en privat slut punkts anslutning. |
 > | Microsoft. RecoveryServices/valv/registeredIdentities/Write | Du kan använda åtgärden registrera tjänst behållare för att registrera en behållare med återställnings tjänsten. |
 > | Microsoft. RecoveryServices/valv/registeredIdentities/läsa | Med åtgärden Hämta behållare kan du hämta de behållare som är registrerade för en resurs. |
 > | Microsoft. RecoveryServices/valv/registeredIdentities/Delete | Du kan använda åtgärden avregistrera behållare för att avregistrera en behållare. |
@@ -9532,7 +9593,7 @@ Azure-tjänst: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft. RecoveryServices/valv/replicationVaultSettings/läsa | Läs alla  |
 > | Microsoft. RecoveryServices/valv/replicationVaultSettings/Write | Skapa eller uppdatera alla  |
 > | Microsoft. RecoveryServices/valv/replicationvCenters/läsa | Läs eventuella vCenter |
-> | Microsoft. RecoveryServices/valv/användning/läsning | Returnerar användnings information för ett Recovery Services-valv. |
+> | Microsoft. recoveryservices/valv/användning/läsning | Returnerar användnings information för ett Recovery Services-valv. |
 > | Microsoft. RecoveryServices/valv/användning/läsning | Läs alla valv användningar |
 > | Microsoft. RecoveryServices/valv/vaultTokens/läsa | Valv-token kan användas för att hämta valv-token för Server dels åtgärder på valvnivå. |
 

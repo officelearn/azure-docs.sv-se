@@ -191,6 +191,8 @@
           href: use-managed-identities-environments.md
         - name: Säkerhetsaviseringar för miljöer
           href: environment-security-alerts.md
+        - name: Skapar en programinriktad miljö
+          href: create-application-centric-environment.md
     - name: Hantera återanvändbara mallar
       items:
         - name: Anpassade avbildningar kontra formler

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 9ff43202bdace577024413c9cc177de2997a0ad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dad7add63102d462a2111f1ecf12ae43dae123c
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627966"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979920"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Självstudie: lägga till inloggning till Microsoft i en ASP.NET-webbapp
 
-Den här guiden visar hur du implementerar inloggning till Microsoft via en ASP.NET MVC-lösning med hjälp av ett traditionellt webbläsarbaserat program och OpenID Connect.
+I den här självstudien skapar du en ASP.NET MVC-webbapp som loggar in användare med hjälp av program varan Open Web interface for .NET (OWIN) och Microsoft Identity Platform.
 
 När du har slutfört den här guiden kommer ditt program att kunna godkänna inloggningar av personliga konton från outlook.com och live.com. Dessutom kommer arbets-och skol konton från alla företag eller organisationer som är integrerade med Microsoft Identity Platform att kunna logga in i din app.
 
@@ -65,11 +65,11 @@ I det här avsnittet beskrivs hur du installerar och konfigurerar en pipeline f�
 1. I Visual Studio: gå till **filen**  >  **nytt**  >  **projekt**.
 2. Under **Visual C#\Web** väljer du **ASP.NET-webbprogram (.NET Framework)**.
 3. Namnge ditt program och välj **OK**.
-4. Välj **Tom**och markera sedan kryss rutan för att lägga till **MVC** -referenser.
+4. Välj **Tom** och markera sedan kryss rutan för att lägga till **MVC** -referenser.
 
 ## <a name="add-authentication-components"></a>Lägga till autentiseringskomponenter
 
-1. I Visual Studio: gå till **verktyg**  >  **NuGet Package Manager**  >  **Package**Manager-konsolen.
+1. I Visual Studio: gå till **verktyg**  >  **NuGet Package Manager**  >  **Package** Manager-konsolen.
 2. Lägg till *NuGet-paket för OWIN-mellanprogram* genom att skriva följande i Package Manager-konsolfönstret:
 
     ```powershell
@@ -372,7 +372,7 @@ Du registrerar programmet och lägger till appens registreringsinformationen i l
 1. Öppna Visual Studio och gör sedan följande:
    1. i Solution Explorer väljer du projektet och visar Fönstret Egenskaper (om du inte ser någon Fönstret Egenskaper trycker du på F4).
    1. Ändra SSL till `True` .
-   1. Högerklicka på projektet i Visual Studio, Välj **Egenskaper**och välj sedan fliken **webb** . I avsnittet **servrar** ändrar du projekt- **URL** -inställningen till **SSL-URL: en**.
+   1. Högerklicka på projektet i Visual Studio, Välj **Egenskaper** och välj sedan fliken **webb** . I avsnittet **servrar** ändrar du projekt- **URL** -inställningen till **SSL-URL: en**.
    1. Kopiera SSL-URL: en. Du kommer att lägga till denna URL i listan över omdirigerings-URL: er i registrerings portalens lista över omdirigerings-URL: er i nästa steg.<br/><br/>![Projektegenskaper](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto, eller genom att använda en personlig Microsoft-konto.
 1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet och anger din portal-session till den Azure AD-klient som du vill använda.
@@ -380,8 +380,8 @@ Du registrerar programmet och lägger till appens registreringsinformationen i l
 1. Välj **ny registrering**.
 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
    1. I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användarna av appen, till exempel **ASPNET-självstudier**.
-   1. Lägg till SSL-URL: en som du kopierade från Visual Studio i steg 1 (till exempel `https://localhost:44368/` ) i **svars-URL**och välj **Registrera**.
-1. Välj menyn **autentisering** , Välj **ID-token** under **implicit beviljande**och välj sedan **Spara**.
+   1. Lägg till SSL-URL: en som du kopierade från Visual Studio i steg 1 (till exempel `https://localhost:44368/` ) i **svars-URL** och välj **Registrera**.
+1. Välj menyn **autentisering** , Välj **ID-token** under **implicit beviljande** och välj sedan **Spara**.
 1. Lägg till följande i web.config-filen, som finns i rotmappen i `configuration\appSettings` avsnittet:
 
     ```xml

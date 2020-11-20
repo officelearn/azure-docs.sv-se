@@ -33,13 +33,13 @@ Om sidan i webbläsaren låser sig provar du vart och ett av följande steg till
 - Använd privat surfläge för webbläsaren:
 
    - **Edge:** Öppna **Inställningar** (de tre punkterna bredvid din profilbild), välj **Nytt InPrivate-fönster** och gå sedan till och logga in på [Azure-portalen](https://portal.azure.com/) eller [Azure-kontocenter](https://account.azure.com/Subscriptions). 
-   - **Chrome:** Välj **Incognito** -läge.
-   - **Safari:** Välj **Arkiv** och sedan **Nytt privat fönster** .
+   - **Chrome:** Välj **Incognito**-läge.
+   - **Safari:** Välj **Arkiv** och sedan **Nytt privat fönster**.
 
 - Rensa cacheminnet och ta bort Internet-cookies:
 
-   - **Edge:** Öppna **Inställningar** och välj **Sekretess och tjänster** . Följ stegen under **Rensa webbdata** . Kontrollera att kryssrutorna för **Webbhistorik** , **Nedladdningshistorik** och **Cachelagrade bilder och filer** är markerade och välj sedan **Ta bort** .
-   - **Chrome:** Välj **Inställningar** och välj sedan **Rensa webbinformation** under **Sekretess och säkerhet** .
+   - **Edge:** Öppna **Inställningar** och välj **Sekretess och tjänster**. Följ stegen under **Rensa webbdata**. Kontrollera att kryssrutorna för **Webbhistorik**, **Nedladdningshistorik** och **Cachelagrade bilder och filer** är markerade och välj sedan **Ta bort**.
+   - **Chrome:** Välj **Inställningar** och välj sedan **Rensa webbinformation** under **Sekretess och säkerhet**.
 
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>Du loggas automatiskt in som en annan användare
 
@@ -49,13 +49,13 @@ Försök att lösa problemet på något av följande sätt:
 
 - Rensa cacheminnet och ta bort Internet-cookies.
 
-   - **Edge:** Öppna **Inställningar** och välj **Sekretess och tjänster** . Följ stegen under **Rensa webbdata** . Kontrollera att kryssrutorna för **Webbhistorik** , **Nedladdningshistorik** , **Cookies** och **Cachelagrade bilder och filer** är markerade och välj sedan **Ta bort** .
-   - **Chrome:** Välj **Inställningar** och välj sedan **Rensa webbinformation** under **Sekretess och säkerhet** .
+   - **Edge:** Öppna **Inställningar** och välj **Sekretess och tjänster**. Följ stegen under **Rensa webbdata**. Kontrollera att kryssrutorna för **Webbhistorik**, **Nedladdningshistorik**, **Cookies** och **Cachelagrade bilder och filer** är markerade och välj sedan **Ta bort**.
+   - **Chrome:** Välj **Inställningar** och välj sedan **Rensa webbinformation** under **Sekretess och säkerhet**.
 - Återställ webbläsarinställningarna till standardinställningarna.
 - Använd privat surfläge för webbläsaren. 
    - **Edge:** Öppna **Inställningar** (de tre punkterna bredvid din profilbild), välj **Nytt InPrivate-fönster** och gå sedan till och logga in på [Azure-portalen](https://portal.azure.com/) eller [Azure-kontocenter](https://account.azure.com/Subscriptions). 
-   - **Chrome:** Välj **Incognito** -läge.
-   - **Safari:** Välj **Arkiv** och sedan **Nytt privat fönster** .
+   - **Chrome:** Välj **Incognito**-läge.
+   - **Safari:** Välj **Arkiv** och sedan **Nytt privat fönster**.
 
 ## <a name="i-can-sign-in-but-i-see-the-error-no-subscriptions-found"></a>Jag kan logga in, men jag får ett felmeddelande om att inga prenumerationer hittades
 
@@ -73,8 +73,8 @@ Så här åtgärdar du problemet:
 Kontrollera om kontot du använder är en kontoadministratör. Så här kontrollerar du vem som är kontoadministratör:
 
 1.  Logga in i [vyn Prenumerationer i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1.  Välj den prenumeration som du vill använda och välj sedan **Inställningar** .
-1.  Välj **Egenskaper** . Prenumerationens kontoadministratör visas i rutan **Kontoadministratör** .
+1.  Välj den prenumeration som du vill använda och välj sedan **Inställningar**.
+1.  Välj **Egenskaper**. Prenumerationens kontoadministratör visas i rutan **Kontoadministratör**.
 
 ## <a name="additional-help-resources"></a>Fler hjälpresurser
 

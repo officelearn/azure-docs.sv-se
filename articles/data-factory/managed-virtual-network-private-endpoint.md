@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317066"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980386"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory hanterad Virtual Network (förhands granskning)
 
@@ -72,6 +72,11 @@ Om ägaren godkänner anslutningen upprättas den privata länken. Annars upprä
 ![Godkänn hanterad privat slut punkt](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
 
 Endast en hanterad privat slutpunkt i ett godkänt tillstånd kan skicka trafik till en specifik privat länk resurs.
+
+## <a name="interactive-authoring"></a>Interaktiv redigering
+Interaktiva redigerings funktioner används för funktioner som test anslutning, bläddra i Mapplista och tabell lista, Hämta schema och förhandsgranska data. Du kan aktivera interaktiv redigering när du skapar eller redigerar en Azure Integration Runtime som finns i ADF-hanterade virtuella nätverk. Backend-tjänsten kommer att allokera beräkning för interaktiva redigerings funktioner. Annars allokeras beräkningen varje gång en interaktiv åtgärd utförs som tar längre tid. TTL-värdet (Time to Live) för interaktiv redigering är 60 minuter, vilket innebär att det kommer att inaktive ras automatiskt efter 60 minuter efter den senaste interaktiva redigerings åtgärden.
+
+![Interaktiv redigering](./media/managed-vnet/interactive-authoring.png)
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 ### <a name="supported-data-sources"></a>Datakällor som stöds

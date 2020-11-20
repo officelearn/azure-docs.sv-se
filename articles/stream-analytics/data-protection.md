@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: e823322803958f092cee3b6d77e6a0ca7bc6e3f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 72566987068729efef4310ce145c30584c4895b0
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074258"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980515"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Data skydd i Azure Stream Analytics 
 
@@ -67,13 +67,13 @@ Använd följande steg för att konfigurera ditt lagrings konto för privata dat
 
 1. Fyll i sidan Stream Analytics jobb med nödvändig information, till exempel namn, region och skala. 
 
-1. Markera kryss rutan med texten *skydda alla privata data till gångar som krävs av det här jobbet i mitt lagrings konto* .
+1. Markera kryss rutan med texten *skydda alla privata data till gångar som krävs av det här jobbet i mitt lagrings konto*.
 
 1. Välj ett lagrings konto från din prenumeration. Observera att den här inställningen inte kan ändras under jobbets livs cykel. 
 
    ![Inställningar för lagrings konto för privata data](./media/data-protection/storage-account-create.png)
 
-## <a name="private-data-assets-that-are-stored"></a>Privata data till gångar som lagras
+## <a name="private-data-assets-that-are-stored-by-stream-analytics"></a>Privata data till gångar som lagras av Stream Analytics
 
 Alla privata data som måste behållas av Stream Analytics lagras i ditt lagrings konto. Exempel på privata data till gångar är: 
 

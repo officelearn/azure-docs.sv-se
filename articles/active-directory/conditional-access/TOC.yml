@@ -10,7 +10,7 @@
       href: require-tou.md
 - name: Självstudier
   items:
-    - name: Kräv Azure Multi-Factor Authentication
+    - name: Kräv Azure AD-multifaktorautentisering
       href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Begrepp
   expanded: false

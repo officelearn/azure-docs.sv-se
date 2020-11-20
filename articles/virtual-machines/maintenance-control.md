@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 4d126d1e6bb92d2079ac3c0d95f754cb9aab3c21
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4b9dec0fe684e002fadbac2db375c354db2b6d01
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978619"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981178"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Hantera plattforms uppdateringar med underhålls kontroll 
 
@@ -23,12 +23,13 @@ Med underhålls kontrollen kan du bestämma när du ska tillämpa uppdateringar 
 Med underhålls kontroll kan du:
 - Batch-uppdateringar till ett uppdaterings paket.
 - Vänta upp till 35 dagar för att installera uppdateringar. 
-- Automatisera plattforms uppdateringar för underhålls perioden med [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
+- Automatisera plattforms uppdateringar genom att konfigurera ett underhålls schema eller genom att använda [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 - Underhålls konfigurationer fungerar mellan prenumerationer och resurs grupper. 
 
 ## <a name="limitations"></a>Begränsningar
 
 - Virtuella datorer måste finnas på en [dedikerad värd](./dedicated-hosts.md)eller skapas med en [isolerad VM-storlek](isolation.md).
+- Om ett underhålls schema deklareras, måste det vara minst 2 timmar.
 - Efter 35 dagar tillämpas en uppdatering automatiskt.
 - Användaren måste ha åtkomst till **resurs deltagare** .
 

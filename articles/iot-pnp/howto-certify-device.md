@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b20dab7719e4c55c5868032db3178bb7baaddda0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7aa84336a3d71349c127ad15a90af98ffe2133fe
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748486"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980243"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Certifiera IoT Plug and Play-enheter
 
@@ -44,6 +44,10 @@ För att uppfylla certifierings kraven måste enheten:
 - Publicera modellen och alla nödvändiga gränssnitt, i [lagrings platsen för den offentliga Azure IoT-modellen](https://devicemodels.azureiotsolutions.com/)
 - Skicka modell-ID under [DPS-registreringen](concepts-developer-guide-device-csharp.md#dps-payload) i nytto lasten för DPS-etablering.
 - Meddela modell-ID: t under [MQTT-anslutningen](concepts-developer-guide-device-csharp.md#model-id-announcement).
+- Alla enhets modeller måste vara kompatibla med [Azure IoT Central](https://aka.ms/pnp-iotc-getstarted).
+
+> [!NOTE]
+> Azure IoT Central har för närvarande inte fullt stöd för **matrisen** och **geospatiala** data typerna DTDL.
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Testa med Azure IoT Extension CLI
 
@@ -182,7 +186,7 @@ Företags profil informationen används i enhets beskrivningen som visas i enhet
 
 Om du vill certifiera en enhet måste du först skapa ett nytt projekt.
 
-Navigera till [certifierings portalen](https://aka.ms/acdp). På sidan **projekt** väljer du *+ Skapa nytt projekt* . Ange ett namn för projektet, enhetens namn och välj en enhets klass.
+Navigera till [certifierings portalen](https://aka.ms/acdp). På sidan **projekt** väljer du *+ Skapa nytt projekt*. Ange ett namn för projektet, enhetens namn och välj en enhets klass.
 
 Den produkt information som du anger under certifierings processen hamnar i fyra kategorier:
 

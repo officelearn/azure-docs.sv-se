@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 3a11f77384c520bed9824841269be4ad998adba4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3348654a83b6d0930d10e1f58e07455623b5861d
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056208"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981093"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Reagera på plugin-programmet för Application Insights JavaScript SDK
 
@@ -32,15 +32,17 @@ npm install @microsoft/applicationinsights-react-js
 
 ## <a name="basic-usage"></a>Grundläggande användning
 
+Initiera en anslutning till Application Insights:
+
 ```javascript
-import React from 'react';
+// AppInsights.js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ReactPlugin, withAITracking } from '@microsoft/applicationinsights-react-js';
-import { createBrowserHistory } from "history";
+import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
+import { createBrowserHistory } from 'history';
 
 const browserHistory = createBrowserHistory({ basename: '' });
-var reactPlugin = new ReactPlugin();
-var appInsights = new ApplicationInsights({
+const reactPlugin = new ReactPlugin();
+const appInsights = new ApplicationInsights({
     config: {
         instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
         extensions: [reactPlugin],
@@ -50,6 +52,15 @@ var appInsights = new ApplicationInsights({
     }
 });
 appInsights.loadAppInsights();
+export { reactPlugin, appInsights };
+```
+
+Sätt upp komponenten med komponenten med högre ordning för att aktivera Application Insights:
+
+```javascript
+import React from 'react';
+import { withAITracking } from '@microsoft/applicationinsights-react-js';
+import { reactPlugin, appInsights } from './AppInsights';
 
 // To instrument various React components usage tracking, apply the `withAITracking` higher-order
 // component function.
@@ -58,13 +69,12 @@ class MyComponent extends React.Component {
     ...
 }
 
-export default withAITracking(reactPlugin,appInsights, MyComponent);
-
+export default withAITracking(reactPlugin, appInsights, MyComponent);
 ```
 
 ## <a name="configuration"></a>Konfiguration
 
-| Namn    | Default | Beskrivning                                                                                                    |
+| Namn    | Standardvärde | Beskrivning                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
 | historik | null    | Reagerar på routerkonfiguration. Mer information finns i [paket dokumentationen för reakta router](https://reactrouter.com/web/api/history). Information om hur du kommer åt historik-objektet utanför komponenterna finns i [vanliga frågor och svar om att reagera på routern](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components)    |
 
@@ -84,6 +94,127 @@ Du kan också köra anpassade frågor för att dela upp Application Insights dat
 
 > [!NOTE]
 > Det kan ta upp till 10 minuter innan nya anpassade mått visas i Azure-portalen.
+
+## <a name="using-react-hooks"></a>Använda reakta hookar
+
+[Reakta Hooks](https://reactjs.org/docs/hooks-reference.html) är en metod för tillstånds-och livs cykel hantering i ett reagerar program utan att behöva förlita sig på klassbaserade reakta-komponenter. Det Application Insights reagera-plugin-programmet ger ett antal Hook-integrationer som fungerar på samma sätt som den högre ordningens komponent metod.
+
+### <a name="using-react-context"></a>Använda reagera på kontext
+
+De reakta Hookarna för Application Insights är utformade för att använda en [Reaktad kontext](https://reactjs.org/docs/context.html) som innehåller aspekt för den. Om du vill använda kontext initierar du Application Insights som ovan och importerar sedan objektet context:
+
+```javascript
+import React from "react";
+import { AppInsightsContext } from "@microsoft/applicationinsights-react-js";
+import { reactPlugin } from "./AppInsights";
+
+const App = () => {
+    return (
+        <AppInsightsContext.Provider value={reactPlugin}>
+            /* your application here */
+        </AppInsightsContext.Provider>
+    );
+};
+```
+
+Den här kontext leverantören gör Application Insights tillgänglig som en `useContext` Hook i alla underordnade komponenter i den.
+
+```javascript
+import React from "react";
+import { useAppInsightsContext } from "@microsoft/applicationinsights-react-js";
+
+const MyComponent = () => {
+    const appInsights = useAppInsightsContext();
+    
+    appInsights.trackMetric("Component 'MyComponent' is in use");
+    
+    return (
+        <h1>My Component</h1>
+    );
+}
+export default MyComponent;
+```
+
+### `useTrackMetric`
+
+`useTrackMetric`Hooken replikerar funktionerna i den `withAITracking` högre order komponenten, utan att lägga till ytterligare en komponent i komponent strukturen. Hooken tar två argument, först är Application Insights-instansen (som kan hämtas från `useAppInsightsContext` hooken) och en identifierare för komponenten för spårning (till exempel dess namn).
+
+```javascript
+import React from "react";
+import { useAppInsightsContext, useTrackMetric } from "@microsoft/applicationinsights-react-js";
+
+const MyComponent = () => {
+    const appInsights = useAppInsightsContext();
+    const trackComponent = useTrackMetric(appInsights, "MyComponent");
+    
+    return (
+        <h1 onHover={trackComponent} onClick={trackComponent}>My Component</h1>
+    );
+}
+export default MyComponent;
+```
+
+Den fungerar som den högre beställnings komponenten, men svarar på hookar av livs cykel händelser i stället för en komponents livs cykel. Hooken måste uttryckligen anges för användar händelser om det finns behov av att köra vissa interaktioner.
+
+### `useTrackEvent`
+
+`useTrackEvent`Kroken används för att spåra eventuella anpassade händelser som ett program kan behöva spåra, till exempel en knapp eller något annat API-anrop. Det tar två argument, det första är Application Insights-instansen (som kan hämtas från `useAppInsightsContext` hooken) och ett namn för händelsen.
+
+```javascript
+import React, { useState, useEffect } from "react";
+import { useAppInsightsContext, useTrackEvent } from "@microsoft/applicationinsights-react-js";
+
+const ProductCart = () => {
+    const appInsights = useAppInsightsContext();
+    const trackCheckout = useTrackEvent(appInsights, "Checkout");
+    const trackCartUpdate = useTrackEvent(appInsights, "Cart Updated");
+    const [cart, setCart] = useState([]);
+    
+    useEffect(() => {
+        trackCartUpdate({ cartCount: cart.length });
+    }, [cart]);
+    
+    const performCheckout = () => {
+        trackCheckout();
+        // submit data
+    };
+    
+    return (
+        <div>
+            <ul>
+                <li>Product 1 <button onClick={() => setCart([...cart, "Product 1"])}>Add to Cart</button>
+                <li>Product 2 <button onClick={() => setCart([...cart, "Product 2"])}>Add to Cart</button>
+                <li>Product 3 <button onClick={() => setCart([...cart, "Product 3"])}>Add to Cart</button>
+                <li>Product 4 <button onClick={() => setCart([...cart, "Product 4"])}>Add to Cart</button>
+            </ul>
+            <button onClick={performCheckout}>Checkout</button>
+        </div>
+    );
+}
+export default MyComponent;
+```
+
+När hooken används kan en data nytto Last tillhandahållas för att lägga till ytterligare data till händelsen när den lagras i Application Insights.
+
+## <a name="react-error-boundaries"></a>Reagera på fel gränser
+
+[Fel gränser](https://reactjs.org/docs/error-boundaries.html) ger ett sätt att på ett smidigt sätt hantera ett undantag när det inträffar i ett reagerar program, och när det här felet inträffar är det troligt att undantaget måste loggas. Testplugin-programmet för Application Insights ger en fel avgränsnings komponent som automatiskt kommer att logga felet när det inträffar.
+
+```javascript
+import React from "react";
+import { reactPlugin } from "./AppInsights";
+import { AppInsightsErrorBoundary } from "@microsoft/applicationinsights-react-js";
+
+const App = () => {
+    return (
+        <AppInsightsErrorBoundary onError={() => <h1>I believe something went wrong</h1>} appInsights={reactPlugin}>
+            /* app here */
+        </AppInsightsErrorBoundary>
+    );
+};
+```
+
+`AppInsightsErrorBoundary`Två propor måste skickas till den, den `ReactPlugin` instans som skapas för programmet och en komponent som ska renderas när ett fel uppstår. När ett ohanterat fel inträffar `trackException` anropas med den information som angetts för fel gränser och `onError` komponenten visas.
 
 ## <a name="sample-app"></a>Exempelapp
 

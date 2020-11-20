@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ded54628a307f3cf4441e804f7f1025a0e943b51
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825914"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979954"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Självstudie: Logga in användare och anropa Microsoft Graph API från ett Java Script (Single-Side Application)
 
-I den här självstudien skapar du ett program med en enda sida (SPA) i Java Script som kan logga in användare med personliga Microsoft-konton eller arbets-och skol konton och sedan hämta en åtkomsttoken för att anropa API: et för Microsoft Graph.
+I den här självstudien skapar du ett Java Script-program med en enda sida (SPA) som loggar in användare och anropar Microsoft Graph med hjälp av det implicita flödet. Det SPA som du skapar använder Microsoft Authentication Library (MSAL) för Java Script v 1.0.
 
 I de här självstudierna har du
 
@@ -263,7 +263,7 @@ Nu har du en enkel server som kan hantera din SPA. Den avsedda mappstrukturen i 
 
 ## <a name="register-your-application"></a>Registrera ditt program
 
-Registrera ditt program på **Azure Active Directory**innan du fortsätter med autentiseringen.
+Registrera ditt program på **Azure Active Directory** innan du fortsätter med autentiseringen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Om ditt konto ger dig åtkomst till fler än en klient väljer du kontot längst upp till höger och anger sedan din portal-session till den Azure AD-klient som du vill använda.
@@ -317,13 +317,13 @@ Skapa en ny. js-fil med namnet `authConfig.js` , som innehåller dina konfigurat
   };
 ```
 
- Där:
+ Plats:
  - *\<Enter_the_Application_Id_Here>* är **program-ID: t (Client)** för det program som du har registrerat.
  - *\<Enter_the_Cloud_Instance_Id_Here>* är instansen av Azure-molnet. För det största eller globala Azure-molnet anger du bara *https://login.microsoftonline.com* . För **nationella** moln (till exempel Kina), se [nationella moln](./authentication-national-cloud.md).
  - *\<Enter_the_Tenant_info_here>* är inställt på något av följande alternativ:
-   - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com*).
-   - Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med **organisationer**.
-   - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med **konsumenter**.
+   - Om ditt program har stöd *för konton i den här organisations katalogen* ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com*).
+   - Om ditt program har stöd *för konton i en organisations katalog* ersätter du värdet med **organisationer**.
+   - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton* ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton* ersätter du värdet med **konsumenter**.
 
 
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Använd Microsoft Authentication Library (MSAL) för att logga in användaren
@@ -442,7 +442,7 @@ När du anropar *acquireTokenPopup* öppnas ett popup-fönster (eller *acquireTo
       };
    ```
 
-   Där:
+   Plats:
    - *\<Enter_the_Graph_Endpoint_Here>* är instansen av MS Graph API. För den globala MS Graph API-slutpunkten ersätter du bara den här strängen med `https://graph.microsoft.com` . För nationella moln distributioner, se Graph API- [dokumentationen](/graph/deployments).
 
 1. Skapa sedan en. js-fil med namnet `graph.js` , som kommer att göra ett rest-anrop till Microsoft Graph API och lägga till följande kod:
@@ -482,7 +482,7 @@ I det exempel program som skapats av den här guiden `callMSGraph()` används me
    ```
 1. I webbläsaren anger **http://localhost:3000** eller **http://localhost:{port}** , där *port* är den port som webb servern lyssnar på. Du bör se innehållet i *index.html* -filen och knappen **Logga in** .
 
-När webbläsaren har läst in *index.html* -filen väljer du **Logga**in. Du uppmanas att logga in med Microsoft Identity Platform-slutpunkten:
+När webbläsaren har läst in *index.html* -filen väljer du **Logga** in. Du uppmanas att logga in med Microsoft Identity Platform-slutpunkten:
 
 ![Inloggnings fönstret för Java scripts SPA-konto](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 
@@ -513,4 +513,3 @@ Gå djupare in i en Enkels Ides programs utveckling (SPA) på Microsofts identit
 
 > [!div class="nextstepaction"]
 > [Scenario: ett program med en sida](scenario-spa-overview.md)
-

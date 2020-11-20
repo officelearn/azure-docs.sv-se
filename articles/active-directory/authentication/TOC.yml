@@ -9,7 +9,7 @@
   items:
     - name: Aktivera lösenordsåterställning via självbetjäning
       href: tutorial-enable-sspr.md
-    - name: Aktivera Azure Multi-Factor Authentication
+    - name: Aktivera Azure AD-multifaktorautentisering
       href: tutorial-enable-azure-mfa.md
     - name: Aktivera tillbakaskrivning av lösenord för lokala
       href: tutorial-enable-sspr-writeback.md
@@ -80,7 +80,7 @@
           href: howto-sspr-authenticationdata.md
         - name: SSPR för Windows-klienter
           href: howto-sspr-windows.md
-    - name: Azure Multi-Factor Authentication
+    - name: Azure AD-multifaktorautentisering
       items:
         - name: Distributionsguide
           href: howto-mfa-getstarted.md
@@ -108,7 +108,7 @@
               href: howto-mfa-nps-extension.md
             - name: Avancerad konfiguration för NPS-tillägg
               href: howto-mfa-nps-extension-advanced.md
-            - name: Azure VPN och Azure MFA
+            - name: Azure VPN och Azure AD MFA
               href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
             - name: Gateway för fjärrskrivbord
               href: howto-mfa-nps-extension-rdg.md

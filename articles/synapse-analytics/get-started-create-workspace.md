@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: c15750a7a63293994ff7c6b68cb85a5066acee90
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592455"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981144"
 ---
 # <a name="creating-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
 I den här självstudien får du lära dig hur du skapar en Synapse-arbetsyta, en dedikerad SQL-pool och en server lös Apache Spark pool. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här själv studie kursen måste du ha åtkomst till en resurs grupp som du har tilldelats **ägar** rollen för. Skapa arbets ytan Synapse i den här resurs gruppen.
 
@@ -65,7 +65,7 @@ En dedikerad SQL-pool förbrukar fakturerbara resurser så länge den är aktiv.
 
 Spark-poolen meddelar Azure Synapse hur många Spark-resurser som ska användas. Du betalar bara för de resurser du använder. När du aktivt slutar använda poolen är resurserna automatiskt utgångna och återvinns.
 
-## <a name="the-serverless-sql-pool"></a>SQL-poolen utan Server
+## <a name="the-built-in-serverless-sql-pool"></a>Den inbyggda SQL-poolen utan Server
 
 Varje arbets yta levereras med en fördefinierad pool som kallas **inbyggd**. Det går inte att ta bort poolen. Med SQL-poolen utan server kan du arbeta med SQL utan att behöva skapa eller tänka på att hantera en server lös SQL-pool i Azure Synapse. Till skillnad från dedikerade SQL-pooler baseras faktureringen för en server lös SQL-pool på mängden data som genomsöks för att köra frågan, inte antalet resurser som används för att köra frågan.
 

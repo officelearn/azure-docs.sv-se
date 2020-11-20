@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: aaf716b4ac4c49f1d852e917ba818a10ecb541c4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d499a0e7d3ca7933632b52d5edbd8094a29dbcaa
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628041"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979903"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Självstudie: skapa en snabb server app som använder Microsoft Identity Platform för autentisering
 
-Med den här tjänsten kan du ha stöd för att vara värd för kniv-komponenter på servern i en ASP.NET Core app. I den här självstudien får du lära dig hur du implementerar autentisering och hämtar data från Microsoft Graph i en blixt Server-App med hjälp av Microsoft Identity Platform och registrerar din app i Azure Active Directory (Azure AD).
+I den här självstudien skapar du en snabb server app som loggar in användare och hämtar data från Microsoft Graph genom att använda Microsoft Identity Platform och registrera din app i Azure Active Directory (Azure AD).
 
 Vi har också en själv studie kurs om [blixt WASM](tutorial-blazor-webassembly.md).
 
-I den här guiden får du lära dig att:
+I de här självstudierna har du
 
 > [!div class="checklist"]
 > * Skapa en ny snabb server app som kon figurer ATS för att använda Azure Active Directory (Azure AD) för autentisering
 > * Hantera både autentisering och auktorisering med Microsoft. Identity. Web
 > * Hämta data från ett skyddat webb-API, Microsoft Graph
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [.NET Core 3,1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 - En Azure AD-klient där du kan registrera en app. Om du inte har åtkomst till en Azure AD-klient kan du skaffa en genom att registrera dig hos [Microsoft 365 Developer-programmet](https://developer.microsoft.com/microsoft-365/dev-program) eller genom att skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free).
@@ -93,7 +93,7 @@ Innan du börjar kan du logga ut från din app eftersom du kommer att göra änd
 Nu ska du uppdatera appens registrering och kod för att hämta en användares e-post och visa meddelandena i appen. För att åstadkomma detta måste du först utöka appens registrerings behörigheter i Azure AD för att ge åtkomst till e-postdata. Sedan kan du lägga till kod i den blixt appen för att hämta och visa dessa data på en av sidorna.
 
 1. I Azure Portal väljer du din app i **Appregistreringar**.
-1. Under **Hantera** , Välj **API-behörigheter**.
+1. Under **Hantera**, Välj **API-behörigheter**.
 1. Välj **Lägg till en behörighets**  >  **Microsoft Graph**.
 1. Välj **delegerade behörigheter** och Sök sedan efter och välj **e-post. Läs** behörighet.
 1. Välj **Lägg till behörigheter**.

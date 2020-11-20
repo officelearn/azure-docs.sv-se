@@ -5,13 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/27/2020
-ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/19/2020
+ms.openlocfilehash: b345168dad63b1846d46c12721587eaffb5f887e
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331982"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981212"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Anropa, utlösa eller kapsla Logi Kap par genom att använda HTTPS-slutpunkter i Azure Logic Apps
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du skapar en anropad slut punkt i din Logic app geno
 
 Mer information om säkerhet finns i auktorisering och kryptering för inkommande samtal till din Logi Kap par, till exempel [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), visar din Logic-app med Azure API Management eller begränsar IP-adresserna som har inkommande anrop, se [säker åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto och prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -104,7 +104,7 @@ Mer information om säkerhet finns i auktorisering och kryptering för inkommand
 
    * Till höger om rutan **http post URL** väljer du **Kopiera URL** (Kopiera fil ikon).
 
-   * Gör det här inlägget-anropet:
+   * Gör det här anropet med hjälp av metoden som utlösaren för begäran förväntar sig. I det här exemplet används `POST` metoden:
 
      `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
@@ -116,7 +116,7 @@ Mer information om säkerhet finns i auktorisering och kryptering för inkommand
 
         ![Hämta slut punkts-URL från Azure Portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
-     1. Under **återanrops-URL [post]** , kopierar du URL: en:
+     1. Under **återanrops-URL [post]**, kopierar du URL: en:
 
         ![Kopiera slut punkts-URL från Azure Portal](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
 
@@ -124,9 +124,9 @@ Mer information om säkerhet finns i auktorisering och kryptering för inkommand
 
 ## <a name="select-expected-request-method"></a>Välj förväntad metod för begäran
 
-Utlösaren förväntar sig som standard en POST-begäran. Du kan ange en annan metod för att förvänta, men bara en enda metod.
+Som standard förväntas utlösaren av begäran en `POST` begäran. Du kan dock ange en annan metod som Anroparen måste använda, men bara en enda metod.
 
-1. Öppna listan **Lägg till ny parameter** i begär ande utlösare och välj **metod** , som lägger till den här egenskapen i utlösaren.
+1. Öppna listan **Lägg till ny parameter** i begär ande utlösare och välj **metod**, som lägger till den här egenskapen i utlösaren.
 
    ![Lägg till egenskapen "metod" i utlösare](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
@@ -217,7 +217,7 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
 ### <a name="accept-values-through-a-relative-path"></a>Acceptera värden via en relativ sökväg
 
-1. Öppna listan **Lägg till ny parameter** i begär ande utlösare och välj **relativ sökväg** , som lägger till den här egenskapen i utlösaren.
+1. Öppna listan **Lägg till ny parameter** i begär ande utlösare och välj **relativ sökväg**, som lägger till den här egenskapen i utlösaren.
 
    ![Lägg till egenskapen "relativ sökväg" i utlösaren](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
@@ -262,7 +262,7 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Anropa Logic app via slut punkts-URL
 
-När du har skapat slut punkten kan du utlösa Logic-appen genom att skicka en HTTPS- `POST` begäran till slut punktens fullständiga URL. Logic Apps har inbyggt stöd för slut punkter för direkt åtkomst.
+När du har skapat slut punkten kan du utlösa Logic-appen genom att skicka en HTTPS-begäran till slut punktens fullständiga URL. Logic Apps har inbyggt stöd för slut punkter för direkt åtkomst.
 
 <a name="generated-tokens"></a>
 
@@ -353,7 +353,7 @@ I svars texten kan du inkludera flera huvuden och vilken typ av innehåll som he
 
 Svaren har följande egenskaper:
 
-| Egenskap (Visa) | Egenskap (JSON) | Description |
+| Egenskap (Visa) | Egenskap (JSON) | Beskrivning |
 |--------------------|-----------------|-------------|
 | **Status kod** | `statusCode` | HTTPS-statuskod som ska användas i svaret på inkommande begäran. Den här koden kan vara vilken giltig status kod som helst som börjar med 2xx, 4xx eller 5xx. 3xx status koder är dock inte tillåtna. |
 | **Sidhuvuden** | `headers` | En eller flera huvuden som ska inkluderas i svaret |
@@ -384,7 +384,7 @@ Om du vill visa JSON-definitionen för svars åtgärden och din Logic Apps fulls
 
 #### <a name="q-what-about-url-security"></a>F: vad gäller URL-säkerhet?
 
-**A** : Azure på ett säkert sätt skapar callback-URL: er för Logic app med hjälp av [signaturen för delad åtkomst (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Den här signaturen passerar som en frågeparameter och måste verifieras innan din Logi Kap par kan köras. Azure genererar signaturen med en unik kombination av en hemlig nyckel per Logic app, Utlösarens namn och åtgärden som utförs. Så om någon har åtkomst till den hemliga Logic app-nyckeln kan de inte generera en giltig signatur.
+**A**: Azure på ett säkert sätt skapar callback-URL: er för Logic app med hjälp av [signaturen för delad åtkomst (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Den här signaturen passerar som en frågeparameter och måste verifieras innan din Logi Kap par kan köras. Azure genererar signaturen med en unik kombination av en hemlig nyckel per Logic app, Utlösarens namn och åtgärden som utförs. Så om någon har åtkomst till den hemliga Logic app-nyckeln kan de inte generera en giltig signatur.
 
 > [!IMPORTANT]
 > För produktions-och högre säkerhets system rekommenderar vi starkt att du anropar din Logic-app direkt från webbläsaren av följande anledningar:
@@ -396,7 +396,7 @@ Mer information om säkerhet finns i auktorisering och kryptering för inkommand
 
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>F: kan jag konfigurera uppringnings bara slut punkter ytterligare?
 
-**A** : Ja, https-slutpunkter har stöd för mer avancerad konfiguration via [Azure API Management](../api-management/api-management-key-concepts.md). Den här tjänsten ger också möjlighet att hantera alla dina API: er på ett konsekvent sätt, inklusive Logic Apps, konfigurera anpassade domän namn, använda fler autentiseringsmetoder med mera, till exempel:
+**A**: Ja, https-slutpunkter har stöd för mer avancerad konfiguration via [Azure API Management](../api-management/api-management-key-concepts.md). Den här tjänsten ger också möjlighet att hantera alla dina API: er på ett konsekvent sätt, inklusive Logic Apps, konfigurera anpassade domän namn, använda fler autentiseringsmetoder med mera, till exempel:
 
 * [Ändra metoden för begäran](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Ändra URL-segmenten för begäran](../api-management/api-management-transformation-policies.md#RewriteURL)

@@ -116,8 +116,6 @@
           href: sample-scripts-azure-cli.md
         - name: Java-anslutningspool
           href: sample-scripts-java-connection-pooling.md
-        - name: Inbyggda Azure Policy-program
-          href: ./policy-reference.md
     - name: Begrepp
       items:
         - name: Servrar
@@ -156,6 +154,9 @@
               href: concepts-azure-ad-authentication.md
             - name: Dubbel infrastrukturkryptering
               href: concepts-infrastructure-double-encryption.md
+            - name: Säkerhetskontroller av Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Säkerhetsbaslinje
               href: security-baseline.md
         - name: Planerat underhåll
@@ -573,6 +574,9 @@
       href: /azure/templates/microsoft.dbformysql/allversions
     - name: Lagrade procedurer för hantering
       href: reference-stored-procedures.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Distributionsmallar

@@ -106,8 +106,6 @@
       items:
         - name: Azure CLI
           href: sample-scripts-azure-cli.md
-        - name: Inbyggda Azure Policy-program
-          href: ./policy-reference.md
     - name: Begrepp
       items:
         - name: Servrar
@@ -147,6 +145,9 @@
             - name: Dubbel infrastrukturkryptering
               href: concepts-infrastructure-double-encryption.md
               displayName: 'security, infrastructure encryption'
+            - name: Säkerhetskontroller av Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Säkerhetsbaslinje
               href: security-baseline.md
         - name: Nätverk
@@ -638,6 +639,9 @@
       href: /rest/api/postgresql
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

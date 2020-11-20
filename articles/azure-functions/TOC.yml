@@ -4,6 +4,8 @@
   items:
     - name: Om Azure Functions
       href: functions-overview.md
+    - name: Komma igång
+      href: functions-get-started.md
     - name: Bestående funktioner
       href: durable/durable-functions-overview.md
     - name: Jämförelse utan server
@@ -53,7 +55,7 @@
           href: functions-create-first-function-resource-manager.md
     - name: Ansluta till lagring
       items:
-        - name: Visual Studio Code
+        - name: Visual Studio-koden
           href: functions-add-output-binding-storage-queue-vs-code.md
         - name: Visual Studio
           href: functions-add-output-binding-storage-queue-vs.md
@@ -588,8 +590,6 @@
       href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Kvotinformation

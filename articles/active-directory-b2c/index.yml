@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   ms.date: 01/28/2020
-  ms.openlocfilehash: 3b1361646bb90677bf97d9666be361d3c439c8a7
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: c2ba84c640a8b6666d0829436b552f95289c3816
+  ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91728411"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94951612"
 landingContent:
 - title: Azure AD B2C
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
     - text: Vad är Azure AD B2C?
       url: overview.md
     - text: Jämför lösningar för externa identiteter
-      url: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/external-identities/compare-with-b2c.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
     - text: Kom igång med Azure AD B2C
       url: tutorial-create-tenant.md
     - text: Översikt över funktioner och teknik
@@ -38,15 +38,15 @@ landingContent:
   - linkListType: learn
     links:
     - text: Autentisering och auktorisering
-      url: https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/develop/authentication-vs-authorization.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
     - text: Token
-      url: https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/develop/security-tokens.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
     - text: Protokoll
-      url: https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/develop/v2-app-types.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
     - text: Autentiseringsbibliotek
-      url: https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/develop/msal-overview.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
     - text: 'Skapa en webbplats: HTML, CSS, JavaScript'
-      url: https://docs.microsoft.com/learn/modules/build-simple-website/
+      url: /learn/modules/build-simple-website/
 - title: Vanliga användarsituationer
   linkLists:
   - linkListType: how-to-guide
@@ -94,7 +94,7 @@ landingContent:
     - text: Ta reda på var användardata lagras
       url: data-residency.md
     - text: Föreskrifter
-      url: https://docs.microsoft.com/azure/compliance/
+      url: ../compliance/index.yml
     - text: Användaråtkomst och användningsvillkor
       url: manage-user-access.md
 - title: Åtgärder
@@ -106,7 +106,7 @@ landingContent:
     - text: Övervakning
       url: azure-monitor.md
     - text: Rollbaserad åtkomstkontroll för administratörer
-      url: https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles
+      url: ../active-directory/users-groups-roles/directory-assign-admin-roles.md
     - text: Användarhantering
       url: manage-user-accounts-graph-api.md
     - text: Felsökning

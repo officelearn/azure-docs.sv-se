@@ -57,8 +57,12 @@
       href: concept-security-alerts.md
     - name: Anpassningsbara säkerhetsaviseringar
       href: concept-customizable-security-alerts.md
-    - name: Säkerhetsrekommendationer
-      href: concept-recommendations.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsrekommendationer
+          href: concept-recommendations.md
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Baslinje
       href: concept-baseline.md
     - name: Händelsesammansättning

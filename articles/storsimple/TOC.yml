@@ -352,19 +352,19 @@
             - name: Uppdatering 1
               href: storsimple-update1-release-notes.md
             - name: Uppdatering 0.3
-              href: storsimple-february-2015-release-notes.md
+              href: ./index.yml
             - name: Uppdatering 0.2
-              href: storsimple-january-2015-release-notes.md
+              href: ./index.yml
             - name: Uppdatering 0.1
-              href: storsimple-october-2014-release-notes.md
+              href: ./index.yml
             - name: Version – GA
-              href: storsimple-july-2014-release-notes.md
+              href: ./index.yml
     - name: Referens
       items:
         - name: REST-API
-          href: 'https://docs.microsoft.com/rest/api/storsimple'
+          href: /rest/api/storsimple
         - name: Windows PowerShell för StorSimple cmdlets
-          href: 'https://technet.microsoft.com/library/dn688168.aspx'
+          href: /powershell/module/hcs/?viewFallbackFrom=winserverr2-ps
         - name: Resource Manager-mall
           href: /azure/templates/microsoft.storsimple/allversions
 - name: StorSimple Data Manager
@@ -398,7 +398,7 @@
     - name: Viktig information
       items:
         - name: Viktig information om StorSimple
-          href: 'https://aka.ms/storsimple-virtual-array-latest-relnote'
+          href: ./storsimple-virtual-array-update-04-release-notes.md
         - name: Viktig information om CSP
           href: 'https://partner.microsoft.com/Support/whats-new'
         - name: 'StorSimple för CSP: VANLIGA FRÅGOR OCH SVAR'
@@ -412,13 +412,13 @@
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Marknadsföringsblogg
-      href: 'https://blogs.technet.com/b/cis/'
+      href: /archive/blogs/cis/
     - name: Marknadsföring
       href: 'https://azure.microsoft.com/services/storsimple/'
     - name: StorSimple-supportalternativ
       href: storsimple-8000-support-options.md
     - name: Frågesida på Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-storsimple.html'
+      href: /answers/topics/azure-storsimple.html
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/storsimple/'
     - name: Priskalkylator
@@ -426,7 +426,7 @@
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=storsimple'
     - name: Supportblogg
-      href: 'https://docs.microsoft.com/archive/blogs/storsimple/'
+      href: /archive/blogs/storsimple/
     - name: Meddelanden från tredje part
       href: 'https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip'
     - name: Videoklipp

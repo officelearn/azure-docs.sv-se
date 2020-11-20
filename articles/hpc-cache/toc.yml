@@ -8,6 +8,10 @@
   items:
     - name: Planera det aggregerade namnområdet
       href: hpc-cache-namespace.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
 - name: Anvisningar
   items:
     - name: Krav

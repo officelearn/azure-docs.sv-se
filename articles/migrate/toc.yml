@@ -90,6 +90,10 @@
           href: migrate-appliance.md
         - name: Installationskrav för replikering
           href: migrate-replication-appliance.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Programarkitektur för Azure Migrate
       href: migrate-appliance-architecture.md
     - name: Hyper-V-migreringsarkitektur

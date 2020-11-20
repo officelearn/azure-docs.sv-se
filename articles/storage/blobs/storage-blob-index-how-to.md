@@ -3,18 +3,18 @@ title: Använd BLOB-taggar för att hantera och hitta data på Azure Blob Storag
 description: Se exempel på hur du använder BLOB-taggar för att kategorisera, hantera och fråga efter BLOB-objekt.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 159252cf850fd59f40d1b59e592153f50d7cb813
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2e3e16b71d52edd9ab4eaf55651567b95e334b84
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371978"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961795"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Använd BLOB-Taggar (för hands version) för att hantera och hitta data på Azure Blob Storage
 
@@ -56,13 +56,13 @@ När BLOB-indexet är i för hands version, släpps .NET Storage-paketet i NuGet
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>Ladda upp en ny BLOB med index-Taggar
 
-Överföring av en ny BLOB med index-taggar kan utföras av [ägaren av Storage BLOB-data](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Dessutom kan användare med `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [rollbaserad åtkomst kontroll](/azure/role-based-access-control/overview) behörighet utföra den här åtgärden.
+Den här uppgiften kan utföras av en [data ägare för en lagrings-BLOB](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) eller ett säkerhets objekt som har fått behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure Resource Provider-åtgärden](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du ditt lagrings konto 
 
-2. Navigera till alternativet **behållare** under **BLOB service**väljer du din behållare
+2. Navigera till alternativet **behållare** under **BLOB service** väljer du din behållare
 
 3. Välj knappen **överför** och bläddra i det lokala fil systemet för att hitta en fil som ska laddas upp som en Block-Blob.
 
@@ -114,9 +114,9 @@ static async Task BlobIndexTagsOnCreate()
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Hämta, ange och uppdatera BLOB-index Taggar
 
-Hämtning av BLOB-taggar kan utföras av [ägaren av Storage BLOB-data](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Dessutom kan användare med `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [rollbaserad åtkomst kontroll](/azure/role-based-access-control/overview) behörighet utföra den här åtgärden.
+Hämtning av BLOB-taggar kan utföras av en [data ägare för en lagrings-BLOB](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) eller ett säkerhets objekt som har fått behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [Azure Resource Provider-åtgärden](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll.
 
-Att ange och uppdatera BLOB-index taggar kan utföras av [ägaren till Storage BLOB-data](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Dessutom kan användare med `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [rollbaserad åtkomst kontroll](/azure/role-based-access-control/overview) behörighet utföra den här åtgärden.
+Att ange och uppdatera BLOB-index taggar kan utföras av en [data ägare för en lagrings-BLOB](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) eller ett säkerhets objekt som har fått behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure Resource Provider-åtgärden](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -132,7 +132,7 @@ Att ange och uppdatera BLOB-index taggar kan utföras av [ägaren till Storage B
 
 6. Välj knappen **Spara** för att bekräfta eventuella uppdateringar av din BLOB
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Skärm bild av Azure Portal som visar hur du laddar upp en blob med index-taggar.":::
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Skärm bild av Azure Portal som visar hur du hämtar, ställer in, uppdaterar och tar bort index etiketter på blobbar.":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -193,7 +193,7 @@ static async Task BlobIndexTagsExample()
 
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrera och hitta data med BLOB-Taggar
 
-Sökning och filtrering efter BLOB-taggar kan utföras av [ägaren av Storage BLOB-data](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Dessutom kan användare med `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [rollbaserad åtkomst kontroll](/azure/role-based-access-control/overview) behörighet utföra den här åtgärden.
+Den här uppgiften kan utföras av en [data ägare för en lagrings-BLOB](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) eller ett säkerhets objekt som har fått behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [Azure Resource Provider-åtgärden](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -201,7 +201,7 @@ I Azure Portal tillämpar filtret BLOB index taggar automatiskt `@container` par
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du ditt lagrings konto. 
 
-2. Navigera till alternativet **behållare** under **BLOB service**väljer du din behållare
+2. Navigera till alternativet **behållare** under **BLOB service** väljer du din behållare
 
 3. Välj **filter knappen BLOB index Taggar** för att filtrera i den valda behållaren
 
@@ -209,7 +209,7 @@ I Azure Portal tillämpar filtret BLOB index taggar automatiskt `@container` par
 
 5. Välj **filter knappen BLOB index Taggar** för att lägga till ytterligare tag filter (upp till 10)
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Skärm bild av Azure Portal som visar hur du laddar upp en blob med index-taggar.":::
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Skärm bild av Azure Portal som visar hur du filtrerar och hittar taggade blobbar med hjälp av index Taggar":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -303,11 +303,11 @@ static async Task FindBlobsByTagsExample()
 
 4. Välj **filter** uppsättning för att lägga till valfritt filter för prefix matchning och blob-index matchning
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Skärm bild av Azure Portal som visar hur du laddar upp en blob med index-taggar.":::
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Skärm bild av Azure Portal visar hur du lägger till index taggar för livs cykel hantering.":::
 
 5. Välj **Granska + Lägg** till för att granska regel inställningarna
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Skärm bild av Azure Portal som visar hur du laddar upp en blob med index-taggar.":::
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Skärm bild av Azure Portal som visar en hanterings regel för livs cykel med BLOB index Taggar filter exempel":::
 
 6. Välj **Lägg till** för att tillämpa den nya regeln i livs cykel hanterings principen
 

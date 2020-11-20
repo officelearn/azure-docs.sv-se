@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 156da7504a1a5e2a704e52a783fcd3e437a59867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2efd3e9c9ca97ea3d94b03bd5e440cd24d5da5da
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986276"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960629"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analysera säkerheten för virtuella datorer med vyn säkerhets grupp med REST API
 
@@ -27,7 +27,7 @@ ms.locfileid: "90986276"
 > - [REST-API](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
-> API: t för vyn säkerhets grupp underhålls inte längre och kommer snart att vara inaktuellt. Använd [funktionen gällande säkerhets regler](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) som ger samma funktioner. 
+> API: t för vyn säkerhets grupp underhålls inte längre och kommer snart att vara inaktuellt. Använd [funktionen gällande säkerhets regler](./network-watcher-security-group-view-overview.md) som ger samma funktioner. 
 
 Vyn säkerhets grupp returnerar konfigurerade och effektiva nätverks säkerhets regler som tillämpas på en virtuell dator. Den här funktionen är användbar för att granska och diagnostisera nätverks säkerhets grupper och regler som har kon figurer ATS på en virtuell dator för att säkerställa att trafiken är korrekt tillåten eller nekad. I den här artikeln visar vi hur du hämtar effektiva och tillämpade säkerhets regler på en virtuell dator med hjälp av REST API
 
@@ -115,7 +115,7 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 
 ## <a name="view-the-response"></a>Visa svaret
 
-Följande exempel är svaret som returnerades från föregående kommando. Resultaten visar alla effektiva och tillämpade säkerhets regler på den virtuella datorn, uppdelade i grupper av **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**och **EffectiveSecurityRules**.
+Följande exempel är svaret som returnerades från föregående kommando. Resultaten visar alla effektiva och tillämpade säkerhets regler på den virtuella datorn, uppdelade i grupper av **NetworkInterfaceSecurityRules**, **DefaultSecurityRules** och **EffectiveSecurityRules**.
 
 ```json
 
@@ -186,5 +186,3 @@ Följande exempel är svaret som returnerades från föregående kommando. Resul
 ## <a name="next-steps"></a>Nästa steg
 
 Besök [granskning av nätverks säkerhets grupper (NSG) med Network Watcher](network-watcher-security-group-view-powershell.md) för att lära dig hur du automatiserar validering av nätverks säkerhets grupper.
-
-

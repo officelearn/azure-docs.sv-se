@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: e34701640de24a4c3c13f8d10073b4392af2f28a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b18627d2806662d6d966af95d51873d5623b2393
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88183657"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961132"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Använda .NET SDK till att initiera dataomvandlingen
 
@@ -26,14 +26,14 @@ Du kan starta ett data omvandlings jobb på två sätt:
  
   Den här artikeln beskriver hur du skapar ett exempel på ett .NET-konsol program som initierar ett datatransformerings jobb och sedan spårar det för slut för ande. Om du vill veta mer om hur du initierar datatransformering via Automation går du till [använd Azure Automation Runbook för att utlösa data omvandlings jobb](storsimple-data-manager-job-using-automation.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrol lera att du har:
 *   En dator som kör:
 
     - Visual Studio 2012, 2013, 2015 eller 2017.
 
-    - Azure PowerShell. [Ladda ned Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+    - Azure PowerShell. [Ladda ned Azure PowerShell](/powershell/azure/).
 *   En korrekt konfigurerad jobb definition i StorSimple Data Manager inom en resurs grupp.
 *   Alla obligatoriska DLL-filer. Hämta DLL-filerna från [GitHub-lagringsplatsen](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
 *   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) skript från GitHub-lagringsplatsen.
@@ -74,12 +74,12 @@ Utför följande steg för att använda .NET för att starta ett data omvandling
 
 4. Nu ska du lägga till alla DLL-filer som finns i [mappen dll](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) -filer som **referenser** i projektet som du har skapat. Gör så här för att lägga till DLL-filerna:
 
-   1. Gå till **visa > Solution Explorer**i Visual Studio.
+   1. Gå till **visa > Solution Explorer** i Visual Studio.
    2. Klicka på pilen till vänster om data omvandling-exempelprojektet. Klicka på **referenser** och högerklicka för att **lägga till referens**.
     
        ![Lägg till dll 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
 
-   3. Bläddra till platsen för mappen packages, Välj alla DLL: er och klicka på **Lägg till**och sedan på **OK**.
+   3. Bläddra till platsen för mappen packages, Välj alla DLL: er och klicka på **Lägg till** och sedan på **OK**.
 
        ![Lägg till DLL 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 

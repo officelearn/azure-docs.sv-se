@@ -6,12 +6,12 @@ author: yunjchoi
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 03bb7b786280dfcbb64190adac51b8d001d59c18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d06ad2f740394a4959f3665c5d6311e71841241
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79126606"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960843"
 ---
 # <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Översikt över Azure Kubernetes service Diagnostics (för hands version)
 
@@ -82,5 +82,7 @@ Identitets-och säkerhets hantering identifierar autentiserings-och auktoriserin
 ## <a name="next-steps"></a>Nästa steg
 
 Samla in loggar för att hjälpa dig att felsöka kluster problem genom att använda [AKS Periscope](https://aka.ms/aksperiscope).
+
+Läs [avsnittet prioritering Practices](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices) i AKS Day-2 Operations Guide.
 
 Publicera dina frågor eller feedback på [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) genom att lägga till [diag] i rubriken.

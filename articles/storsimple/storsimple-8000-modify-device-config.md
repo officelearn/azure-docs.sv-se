@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: a08ddae1d10cc8b26f3aa7ee85e731c2cea15f93
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5eb5c351462279fe5c4f790e052f73201d211cfb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962895"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961183"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Använd tjänsten StorSimple Enhetshanteraren för att ändra StorSimple-enhetens konfiguration
 
@@ -65,7 +65,7 @@ Enheten måste synkronisera tid för att kunna autentisera med din moln lagrings
 
  Välj din tidszon i list rutan. Du kan ange upp till två NTP-servrar (Network Time Protocol):
 
- - **Primär NTP-server** – konfigurationen är obligatorisk och anges när du använder Windows PowerShell för StorSimple för att konfigurera enheten. Du kan ange standard- **Time.Windows.com** för Windows Server som NTP-server. Du kan visa den primära NTP-serverkonfigurationen via Azure Portal, men du måste använda Windows PowerShell-gränssnittet för att ändra det. Använd `Set-HcsNTPClientServerAddress` cmdleten för att ändra enhetens primära NTP-server. Mer information finns i syntax för cmdleten [set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) .
+ - **Primär NTP-server** – konfigurationen är obligatorisk och anges när du använder Windows PowerShell för StorSimple för att konfigurera enheten. Du kan ange standard- **Time.Windows.com** för Windows Server som NTP-server. Du kan visa den primära NTP-serverkonfigurationen via Azure Portal, men du måste använda Windows PowerShell-gränssnittet för att ändra det. Använd `Set-HcsNTPClientServerAddress` cmdleten för att ändra enhetens primära NTP-server. Mer information finns i syntax för cmdleten [set-HcsNTPClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) .
 
 - **Sekundär NTP-server** – konfigurationen är valfri. Du kan använda portalen för att konfigurera en sekundär NTP-server.
 
@@ -85,7 +85,7 @@ En DNS-server används när enheten försöker kommunicera med din moln lagrings
 
 För hög tillgänglighet måste du konfigurera både den primära och sekundära DNS-servern under den första distributionen av enheten.
 
-**Primär DNS-Server** – du använder Windows PowerShell för StorSimple för att först ange den primära DNS-servern under den första installationen. Du kan bara konfigurera om den primära DNS-servern via Windows PowerShell-gränssnittet. Använd `Set-HcsDNSClientServerAddress` cmdleten för att ändra enhetens primära DNS-server. Mer information finns i syntax för cmdleten [set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) .
+**Primär DNS-Server** – du använder Windows PowerShell för StorSimple för att först ange den primära DNS-servern under den första installationen. Du kan bara konfigurera om den primära DNS-servern via Windows PowerShell-gränssnittet. Använd `Set-HcsDNSClientServerAddress` cmdleten för att ändra enhetens primära DNS-server. Mer information finns i syntax för cmdleten [set-HcsDNSClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) .
 
 **Sekundär DNS-Server** – om du vill ändra den sekundära DNS-servern använder du `Set-HcsDNSClientServerAddress` cmdleten i Windows PowerShell-gränssnittet på bladet enhet eller **nätverks inställningar** i StorSimple-enheten i Azure Portal.
 
@@ -169,4 +169,3 @@ Utför följande steg för att byta ut eller omtilldela VIP för något av nätv
 
 * Lär dig hur du [konfigurerar MPIO för din StorSimple-enhet](storsimple-8000-configure-mpio-windows-server.md).
 * Lär dig hur du [använder tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
-

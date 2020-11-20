@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: e950e34a1965e309d226c42bf4b3128cbe3bf3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad02735228bb639981bf3f053a74f29d1944e5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291511"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961489"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Anpassade roller för SQL Server till Azure SQL Managed instance online-migreringar
 
@@ -32,7 +32,7 @@ Vi rekommenderar för närvarande att du skapar minst två anpassade roller för
 > [!NOTE]
 > Det senaste anpassade roll kravet kan komma att tas bort, eftersom ny SQL-hanterad instans kod distribueras till Azure.
 
-**Anpassad roll för app-ID**. Den här rollen krävs för att Azure Database Migration Service migrering på *resurs* -eller *resurs grupps* nivå (mer information om app-ID finns i artikeln [använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)).
+**Anpassad roll för app-ID**. Den här rollen krävs för att Azure Database Migration Service migrering på *resurs* -eller *resurs grupps* nivå (mer information om app-ID finns i artikeln [använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md)).
 
 ```json
 {
@@ -83,7 +83,7 @@ Vi rekommenderar för närvarande att du skapar minst två anpassade roller för
 
 JSON ovan måste lagras i tre textfiler och du kan använda antingen AzureRM, AZ PowerShell-cmdletar eller Azure CLI för att skapa roller med hjälp av antingen **New-AzureRmRoleDefinition (AzureRM)** eller **New-AzRoleDefinition (AZ)**.
 
-Mer information finns i artikeln Azure- [anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Mer information finns i artikeln Azure- [anpassade roller](../role-based-access-control/custom-roles.md).
 
 När du har skapat dessa anpassade roller måste du lägga till roll tilldelningar till användare och APP-ID: n till lämpliga resurser eller resurs grupper:
 
@@ -142,7 +142,7 @@ Om antalet anpassade roller i Azure Active Directory inte är ett problem, rekom
 
 Om du vill tilldela en roll till användare/APP-ID öppnar du Azure Portal och utför följande steg:
 
-1. Navigera till resurs gruppen eller resursen (förutom den roll som behöver beviljas för prenumerationen), går du till **Access Control**och bläddrar sedan för att hitta de anpassade roller som du nyss skapade.
+1. Navigera till resurs gruppen eller resursen (förutom den roll som behöver beviljas för prenumerationen), går du till **Access Control** och bläddrar sedan för att hitta de anpassade roller som du nyss skapade.
 
 2. Välj lämplig roll, Välj APP-ID och spara ändringarna.
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: a2d0ff6810326f7f375595e8dcebbe81b55055ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87505557653e70aab7f1392aeea8dbdf505327e0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330357"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962764"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migrera en SQL Server databas till Azure SQL Database med Azure PowerShell
 
@@ -31,31 +31,31 @@ I den här artikeln kan du se hur du:
 > * Skapa ett migreringsjobb i en Azure Database Migration Service-instans.
 > * Köra migreringen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra de här stegen:
 
 * [SQL Server 2016 eller senare](https://www.microsoft.com/sql-server/sql-server-downloads) (vilken utgåva som helst)
-* För att aktivera TCP/IP-protokollet, som är inaktiverat som standard med SQL Server Express installation. Aktivera TCP/IP-protokollet genom att följa artikeln [Aktivera eller inaktivera ett Server nätverks protokoll](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-* Konfigurera Windows- [brandväggen för åtkomst till databas motorn](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* En Azure SQL Database-instans. Du kan skapa en Azure SQL Database-instans genom att följa informationen i artikeln [skapa en databas i Azure SQL Database i Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* För att aktivera TCP/IP-protokollet, som är inaktiverat som standard med SQL Server Express installation. Aktivera TCP/IP-protokollet genom att följa artikeln [Aktivera eller inaktivera ett Server nätverks protokoll](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+* Konfigurera Windows- [brandväggen för åtkomst till databas motorn](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* En Azure SQL Database-instans. Du kan skapa en Azure SQL Database-instans genom att följa informationen i artikeln [skapa en databas i Azure SQL Database i Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v 3.3 eller senare.
-* För att skapa en Microsoft Azure Virtual Network med hjälp av Azure Resource Manager distributions modell, som förser Azure Database Migration Service med plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* För att slutföra utvärderingen av din lokala databas och schema migrering med hjälp av Data Migration Assistant som beskrivs i artikeln [utföra en utvärdering av SQL Server migrering](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
-* Hämta och installera modulen AZ. data migration från PowerShell-galleriet med hjälp av [PowerShell-cmdleten Install-module](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1); Se till att öppna PowerShell-Kommandotolken med kör som administratör.
-* För att säkerställa att autentiseringsuppgifterna som används för att ansluta till käll SQL Servers instansen har behörigheten [kontroll Server](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) .
+* För att skapa en Microsoft Azure Virtual Network med hjälp av Azure Resource Manager distributions modell, som förser Azure Database Migration Service med plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](../expressroute/expressroute-introduction.md) eller [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* För att slutföra utvärderingen av din lokala databas och schema migrering med hjälp av Data Migration Assistant som beskrivs i artikeln [utföra en utvärdering av SQL Server migrering](/sql/dma/dma-assesssqlonprem)
+* Hämta och installera modulen AZ. data migration från PowerShell-galleriet med hjälp av [PowerShell-cmdleten Install-module](/powershell/module/powershellget/Install-Module?view=powershell-5.1); Se till att öppna PowerShell-Kommandotolken med kör som administratör.
+* För att säkerställa att autentiseringsuppgifterna som används för att ansluta till käll SQL Servers instansen har behörigheten [kontroll Server](/sql/t-sql/statements/grant-server-permissions-transact-sql) .
 * För att säkerställa att de autentiseringsuppgifter som används för att ansluta till målet för Azure SQL DB-instansen har kontroll databasen behörighet för mål Azure SQL Database-databaser.
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Logga in på din Microsoft Azure prenumeration
 
-Använd anvisningarna i artikeln Logga in [med Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps) för att logga in på din Azure-prenumeration med hjälp av PowerShell.
+Använd anvisningarna i artikeln Logga in [med Azure PowerShell](/powershell/azure/authenticate-azureps) för att logga in på din Azure-prenumeration med hjälp av PowerShell.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en resurs grupp innan du kan skapa en virtuell dator.
 
-Skapa en resurs grupp med kommandot [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) .
+Skapa en resurs grupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) .
 
 I följande exempel skapas en resurs grupp med namnet *myResourceGroup* i regionen *östra* .
 
@@ -67,11 +67,11 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 
 Du kan skapa en ny instans av Azure Database Migration Service med hjälp av `New-AzDataMigrationService` cmdleten. Denna cmdlet förväntar sig följande obligatoriska parametrar:
 
-* *Namn på Azure-resurs gruppen*. Du kan använda kommandot [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) för att skapa en Azure-resurs grupp som tidigare visas och ange dess namn som en parameter.
+* *Namn på Azure-resurs gruppen*. Du kan använda kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) för att skapa en Azure-resurs grupp som tidigare visas och ange dess namn som en parameter.
 * *Tjänst namn*. Sträng som motsvarar det önskade unika tjänst namnet för Azure Database Migration Service 
 * *Plats*. Anger tjänstens plats. Ange en plats för Azure Data Center, t. ex. USA, västra eller Sydostasien
 * *SKU*. Den här parametern motsvarar DMS SKU-namnet. SKU-namnet som stöds för närvarande är *GeneralPurpose_4vCores*.
-* *ID för virtuell undernät*. Du kan använda cmdleten [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) för att skapa ett undernät. 
+* *ID för virtuell undernät*. Du kan använda cmdleten [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) för att skapa ett undernät. 
 
 I följande exempel skapas en tjänst med namnet *MyDMS* i resurs gruppen *MyDMSResourceGroup* som finns i regionen *USA, östra* med ett virtuellt nätverk med namnet *MyVNET* och undernät som kallas för *undernät*.
 
@@ -151,7 +151,7 @@ Slutligen skapar du och startar Azure Database migration-aktiviteten. För migre
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Skapa Credential-parametrar för källa och mål
 
-Anslutnings säkerhets referenser kan skapas som ett [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) -objekt.
+Anslutnings säkerhets referenser kan skapas som ett [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) -objekt.
 
 I följande exempel visas hur du skapar *PSCredential* -objekt för både käll-och mål anslutningar som ger lösen ord som String-variabler *$sourcePassword* och *$targetPassword*.
 
@@ -192,11 +192,11 @@ Använd `New-AzDataMigrationTask` cmdleten för att skapa och starta en migrerin
 * *Resurs grupps namn*. Namnet på den Azure-resurs grupp där aktiviteten ska skapas.
 * *ServiceName*. Azure Database Migration Service instans där du vill skapa uppgiften.
 * *ProjectName*. Namnet på Azure Database Migration Service projektet som uppgiften ska skapas i. 
-* *Aktivitets*namn. Namn på den uppgift som ska skapas. 
+* *Aktivitets* namn. Namn på den uppgift som ska skapas. 
 * *SourceConnection*. AzDmsConnInfo-objekt som representerar käll SQL Server anslutning.
 * *TargetConnection*. AzDmsConnInfo-objekt som representerar mål Azure SQL Database anslutning.
-* *SourceCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) -objekt för att ansluta till käll servern.
-* *TargetCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) -objekt för att ansluta till mål servern.
+* *SourceCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) -objekt för att ansluta till käll servern.
+* *TargetCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) -objekt för att ansluta till mål servern.
 * *SelectedDatabase*. AzDataMigrationSelectedDB-objekt som representerar käll-och mål databas mappning.
 * *SchemaValidation*. (valfritt, växel parameter) Efter migreringen utför en jämförelse av schema informationen mellan källa och mål.
 * *DataIntegrityValidation*. (valfritt, växel parameter) Efter migreringen utför en kontroll summa som baseras på data integritet mellan källa och mål.

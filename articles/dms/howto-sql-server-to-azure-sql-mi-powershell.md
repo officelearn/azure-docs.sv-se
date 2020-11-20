@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: c82acb66266fd36e5b7155adbfa5bd5ade1b765c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e1c45b99138a05ef78976b90f65f57304e676ff
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291995"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962781"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>Migrera SQL Server till SQL-hanterad instans med PowerShell & Azure Database Migration Service
 
@@ -35,35 +35,35 @@ I den här artikeln kan du se hur du:
 
 Den här artikeln innehåller information om hur du utför både online-och offline-migrering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra de här stegen:
 
 * [SQL Server 2016 eller senare](https://www.microsoft.com/sql-server/sql-server-downloads) (vilken utgåva som helst).
-* En lokal kopia av **AdventureWorks2016** -databasen som är tillgänglig för nedladdning [här](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017).
-* För att aktivera TCP/IP-protokollet, som är inaktiverat som standard med SQL Server Express installation. Aktivera TCP/IP-protokollet genom att följa artikeln [Aktivera eller inaktivera ett Server nätverks protokoll](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-* Konfigurera Windows- [brandväggen för åtkomst till databas motorn](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* En lokal kopia av **AdventureWorks2016** -databasen som är tillgänglig för nedladdning [här](/sql/samples/adventureworks-install-configure?view=sql-server-2017).
+* För att aktivera TCP/IP-protokollet, som är inaktiverat som standard med SQL Server Express installation. Aktivera TCP/IP-protokollet genom att följa artikeln [Aktivera eller inaktivera ett Server nätverks protokoll](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+* Konfigurera Windows- [brandväggen för åtkomst till databas motorn](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* En SQL-hanterad instans. Du kan skapa en SQL-hanterad instans genom att följa detalj i artikeln [skapa en ASQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
+* En SQL-hanterad instans. Du kan skapa en SQL-hanterad instans genom att följa detalj i artikeln [skapa en ASQL-hanterad instans](../azure-sql/managed-instance/instance-create-quickstart.md).
 * Hämta och installera [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v 3.3 eller senare.
-* En Microsoft Azure Virtual Network som skapats med hjälp av Azure Resource Manager distributions modell, som förser Azure Database Migration Service med plats-till-plats-anslutning till dina lokala käll servrar genom att antingen använda [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* En slutförd utvärdering av din lokala databas och schema-migrering med hjälp av Data Migration Assistant, enligt beskrivningen i artikeln [utföra en utvärdering av SQL Server migrering](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
-* Hämta och installera `Az.DataMigration` modulen (version 0.7.2 eller senare) från PowerShell-galleriet med hjälp av [PowerShell-cmdleten Install-module](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
-* För att säkerställa att autentiseringsuppgifterna som används för att ansluta till käll SQL Server instans har behörigheten [kontroll Server](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) .
+* En Microsoft Azure Virtual Network som skapats med hjälp av Azure Resource Manager distributions modell, som förser Azure Database Migration Service med plats-till-plats-anslutning till dina lokala käll servrar genom att antingen använda [ExpressRoute](../expressroute/expressroute-introduction.md) eller [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* En slutförd utvärdering av din lokala databas och schema-migrering med hjälp av Data Migration Assistant, enligt beskrivningen i artikeln [utföra en utvärdering av SQL Server migrering](/sql/dma/dma-assesssqlonprem).
+* Hämta och installera `Az.DataMigration` modulen (version 0.7.2 eller senare) från PowerShell-galleriet med hjälp av [PowerShell-cmdleten Install-module](/powershell/module/powershellget/Install-Module?view=powershell-5.1).
+* För att säkerställa att autentiseringsuppgifterna som används för att ansluta till käll SQL Server instans har behörigheten [kontroll Server](/sql/t-sql/statements/grant-server-permissions-transact-sql) .
 * För att säkerställa att de autentiseringsuppgifter som används för att ansluta till målets SQL-hanterade instans har behörigheten kontroll databas på SQL-hanterade instans databaser.
 
     > [!IMPORTANT]
-    > För online-migreringar måste du redan ha konfigurerat dina Azure Active Directory autentiseringsuppgifter. Mer information finns i artikeln [använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+    > För online-migreringar måste du redan ha konfigurerat dina Azure Active Directory autentiseringsuppgifter. Mer information finns i artikeln [använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Logga in på din Microsoft Azure prenumeration
 
-Logga in på din Azure-prenumeration med hjälp av PowerShell. Mer information finns i artikeln Logga in [med Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+Logga in på din Azure-prenumeration med hjälp av PowerShell. Mer information finns i artikeln Logga in [med Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 En Azure-resurs grupp är en logisk behållare där Azure-resurser distribueras och hanteras.
 
-Skapa en resurs grupp med hjälp av [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) kommandot.
+Skapa en resurs grupp med hjälp av [`New-AzResourceGroup`](/powershell/module/az.resources/new-azresourcegroup) kommandot.
 
 I följande exempel skapas en resurs grupp med namnet *myResourceGroup* i regionen *USA, östra* .
 
@@ -76,11 +76,11 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 Du kan skapa en ny instans av Azure Database Migration Service med hjälp av `New-AzDataMigrationService` cmdleten.
 Denna cmdlet förväntar sig följande obligatoriska parametrar:
 
-* *Namn på Azure-resurs gruppen*. Du kan använda [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) kommandot för att skapa en Azure-resurs grupp som tidigare visas och ange dess namn som en parameter.
+* *Namn på Azure-resurs gruppen*. Du kan använda [`New-AzResourceGroup`](/powershell/module/az.resources/new-azresourcegroup) kommandot för att skapa en Azure-resurs grupp som tidigare visas och ange dess namn som en parameter.
 * *Tjänst namn*. Sträng som motsvarar det önskade unika tjänst namnet för Azure Database Migration Service.
 * *Plats*. Anger tjänstens plats. Ange en plats för Azure Data Center, till exempel USA, västra eller Sydostasien.
 * *SKU*. Den här parametern motsvarar DMS SKU-namnet. SKU-namn som stöds för närvarande är *Basic_1vCore* *Basic_2vCores* *GeneralPurpose_4vCores*.
-* *ID för virtuell undernät*. Du kan använda cmdleten [`New-AzVirtualNetworkSubnetConfig`](https://docs.microsoft.com//powershell/module/az.network/new-azvirtualnetworksubnetconfig) för att skapa ett undernät.
+* *ID för virtuell undernät*. Du kan använda cmdleten [`New-AzVirtualNetworkSubnetConfig`](//powershell/module/az.network/new-azvirtualnetworksubnetconfig) för att skapa ett undernät.
 
 I följande exempel skapas en tjänst med namnet *MyDMS* i resurs gruppen *MyDMSResourceGroup* som finns i regionen *USA, östra* med ett virtuellt nätverk med namnet *MyVNET* och ett undernät med namnet *mitt undernät*.
 
@@ -161,7 +161,7 @@ Skapa och starta sedan en Azure Database Migration Service aktivitet. Den här u
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Skapa Credential-parametrar för källa och mål
 
-Skapa anslutnings säkerhets uppgifter som ett [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) -objekt.
+Skapa anslutnings säkerhets uppgifter som ett [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) -objekt.
 
 I följande exempel visas hur du skapar *PSCredential* -objekt för både käll-och mål anslutningar, vilket ger lösen ord som String-variabler *$sourcePassword* och *$targetPassword*.
 
@@ -226,7 +226,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 ```
 
 > [!NOTE]
-> Azure Database Migration Service stöder inte användning av en SAS-token på konto nivå. Du måste använda en SAS-URI för lagrings konto behållaren. [Lär dig hur du hämtar SAS-URI för blobbcontainer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).
+> Azure Database Migration Service stöder inte användning av en SAS-token på konto nivå. Du måste använda en SAS-URI för lagrings konto behållaren. [Lär dig hur du hämtar SAS-URI för blobbcontainer](../vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container).
 
 ### <a name="additional-configuration-requirements"></a>Ytterligare konfigurations krav
 
@@ -287,11 +287,11 @@ Oavsett om du utför en offline-eller online-migrering `New-AzDataMigrationTask`
 * *Resurs grupps namn*. Namnet på den Azure-resurs grupp där aktiviteten ska skapas.
 * *ServiceName*. Azure Database Migration Service instans där du vill skapa uppgiften.
 * *ProjectName*. Namnet på Azure Database Migration Service projektet som uppgiften ska skapas i. 
-* *Aktivitets*namn. Namn på den uppgift som ska skapas. 
+* *Aktivitets* namn. Namn på den uppgift som ska skapas. 
 * *SourceConnection*. AzDmsConnInfo-objekt som representerar käll SQL Server anslutning.
 * *TargetConnection*. AzDmsConnInfo-objekt som representerar en Azure SQL-hanterad instans anslutning.
-* *SourceCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) -objekt för att ansluta till käll servern.
-* *TargetCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) -objekt för att ansluta till mål servern.
+* *SourceCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) -objekt för att ansluta till käll servern.
+* *TargetCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) -objekt för att ansluta till mål servern.
 * *SelectedDatabase*. AzDataMigrationSelectedDB-objekt som representerar käll-och mål databas mappning.
 * *BackupFileShare*. FileShare-objekt som representerar den lokala nätverks resurs som Azure Database Migration Service kan ta säkerhets kopior av käll databasen till.
 * *BackupBlobSasUri*. SAS-URI: n som tillhandahåller Azure Database Migration Service med åtkomst till lagrings konto behållaren som tjänsten överför säkerhets kopiorna till. Lär dig hur du hämtar SAS-URI för blobbcontainer.
@@ -422,4 +422,4 @@ Information om ytterligare migrerings scenarier (käll-/mål par) finns i Micros
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om Azure Database Migration Service i artikeln [Vad är Azure Database migration service?](https://docs.microsoft.com/azure/dms/dms-overview).
+Lär dig mer om Azure Database Migration Service i artikeln [Vad är Azure Database migration service?](./dms-overview.md).

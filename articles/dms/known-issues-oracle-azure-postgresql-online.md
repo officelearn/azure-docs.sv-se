@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 05/20/2020
-ms.openlocfilehash: 2316e0314c9d8f36aee123d4a516f382f58e83e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b331f8e0af452937028c63fba123cb92f57a6b0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291664"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962424"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Kända problem/migrerings begränsningar med online-migreringar från Oracle till Azure DB för PostgreSQL-Single Server
 
@@ -34,7 +34,7 @@ Azure Database Migration Service stöder inte anslutning till behållar database
 
 ## <a name="postgresql-versions-supported-as-a-target-database"></a>PostgreSQL-versioner som stöds som mål databas
 
-Azure Database Migration Service stöder migrering till Azure Database för PostgreSQL-Single Server version 9,5, 9,6, 10 och 11. Se artikeln [PostgreSQL Database-versioner som stöds](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) för aktuell information om versions stöd i Azure database för PostgreSQL-Single Server.
+Azure Database Migration Service stöder migrering till Azure Database för PostgreSQL-Single Server version 9,5, 9,6, 10 och 11. Se artikeln [PostgreSQL Database-versioner som stöds](../postgresql/concepts-supported-versions.md) för aktuell information om versions stöd i Azure database för PostgreSQL-Single Server.
 
 ## <a name="datatype-limitations"></a>Begränsningar för data typer
 
@@ -48,7 +48,7 @@ Följande data typer **kommer inte** att migreras:
 - SDO_GEOMETRY
 - Kapslade tabeller
 - Användardefinierade data typer
-- Obs!
+- Kommentarer
 - Virtuella kolumner
 - Materialiserade vyer baserat på kolumnerna ROWID
 

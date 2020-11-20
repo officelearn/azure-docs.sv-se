@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: e5f9ba7ea4afd81d62cba7b970693f603b53ef9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f94c006de8914fe3ae27cdb8ac4d75a0ac49cc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316094"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963002"
 ---
 # <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Distribuera om SSIS-paket till Azure SQL Database med Azure Database Migration Service
 
 Om du använder SQL Server Integration Services (SSIS) och vill migrera dina SSIS-projekt/-paket från käll-SSISDB som är värd för SQL Server till målet SSISDB som är värdbaserade av Azure SQL Database kan du distribuera om dem med hjälp av distributions guiden för integrerings tjänster. Du kan starta guiden inifrån SQL Server Management Studio (SSMS).
 
-Om den version av SSIS som du använder är tidigare än 2012, innan du distribuerar om dina SSIS-projekt/-paket till projekt distributions modellen, måste du först konvertera dem med hjälp av konverterings guiden för integrerings tjänster, som också kan startas från SSMS. Mer information finns i artikeln [konvertera projekt till projekt distributions modellen](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert).
+Om den version av SSIS som du använder är tidigare än 2012, innan du distribuerar om dina SSIS-projekt/-paket till projekt distributions modellen, måste du först konvertera dem med hjälp av konverterings guiden för integrerings tjänster, som också kan startas från SSMS. Mer information finns i artikeln [konvertera projekt till projekt distributions modellen](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert).
 
 > [!NOTE]
 > Azure Database Migration Service (DMS) stöder för närvarande inte migrering av en käll-SSISDB till Azure SQL Database, men du kan distribuera om SSIS-projekt/-paketen med följande process.
@@ -34,13 +34,13 @@ I den här artikeln kan du se hur du:
 > * Utvärdera käll SSIS projekt/paket.
 > * Migrera SSIS-projekt/-paket till Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra de här stegen:
 
 * SSMS version 17,2 eller senare.
 * En instans av mål databas servern som ska vara värd för SSISDB. Om du inte redan har en, skapar du en [logisk SQL-Server](../azure-sql/database/logical-servers.md) (utan en databas) med hjälp av Azure Portal genom att gå till SQL Server (endast logisk server) [form](https://ms.portal.azure.com/#create/Microsoft.SQLServer).
-* SSIS måste etableras i Azure Data Factory (ADF) som innehåller Azure-SSIS Integration Runtime (IR) med den mål-SSISDB som är värd för SQL Database (enligt beskrivningen i artikeln [etablera Azure-SSIS integration runtime i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)).
+* SSIS måste etableras i Azure Data Factory (ADF) som innehåller Azure-SSIS Integration Runtime (IR) med den mål-SSISDB som är värd för SQL Database (enligt beskrivningen i artikeln [etablera Azure-SSIS integration runtime i Azure Data Factory](../data-factory/tutorial-deploy-ssis-packages-azure.md)).
 
 ## <a name="assess-source-ssis-projectspackages"></a>Utvärdera käll SSIS projekt/paket
 
@@ -56,13 +56,13 @@ Utför följande steg om du vill migrera SSIS-projekt/-paket till Azure SQL Data
 
     ![Fliken SSIS login](media/how-to-migrate-ssis-packages/dms-ssis-login-tab.png)
 
-3. På fliken **anslutnings egenskaper** i text rutan **Anslut till databas** väljer eller anger du **SSISDB**och väljer sedan **Anslut**.
+3. På fliken **anslutnings egenskaper** i text rutan **Anslut till databas** väljer eller anger du **SSISDB** och väljer sedan **Anslut**.
 
     ![SSIS-fliken Egenskaper för anslutning](media/how-to-migrate-ssis-packages/dms-ssis-conncetion-properties-tab.png)
 
-4. I SSMS Object Explorer expanderar du noden **Integration Services-kataloger** , expanderar **SSISDB**och om det inte finns några befintliga mappar, högerklickar du på **SSISDB** och skapar en ny mapp.
+4. I SSMS Object Explorer expanderar du noden **Integration Services-kataloger** , expanderar **SSISDB** och om det inte finns några befintliga mappar, högerklickar du på **SSISDB** och skapar en ny mapp.
 
-5. Under **SSISDB**, expanderar du en mapp, högerklickar på **projekt**och väljer sedan **distribuera projekt**.
+5. Under **SSISDB**, expanderar du en mapp, högerklickar på **projekt** och väljer sedan **distribuera projekt**.
 
     ![SSIS SSISDB-noden expanderad](media/how-to-migrate-ssis-packages/dms-ssis-ssisdb-node-expanded.png)
 
@@ -72,9 +72,9 @@ Utför följande steg om du vill migrera SSIS-projekt/-paket till Azure SQL Data
 
 7. På sidan **Välj källa** anger du det befintliga SSIS-projekt som du vill distribuera.
 
-    Om SSMS också är ansluten till SQL Server som är värd för käll-SSISDB väljer du **Integration Services-katalogen**och anger sedan Server namnet och projekt Sök vägen i katalogen för att distribuera projektet direkt.
+    Om SSMS också är ansluten till SQL Server som är värd för käll-SSISDB väljer du **Integration Services-katalogen** och anger sedan Server namnet och projekt Sök vägen i katalogen för att distribuera projektet direkt.
 
-    Alternativt väljer du **projekt distributions fil**och anger sedan sökvägen till en befintlig projekt distributions fil (. ispac) för att distribuera projektet.
+    Alternativt väljer du **projekt distributions fil** och anger sedan sökvägen till en befintlig projekt distributions fil (. ispac) för att distribuera projektet.
 
     ![Sidan Välj källa i distributions guiden](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-source-page.png)
  

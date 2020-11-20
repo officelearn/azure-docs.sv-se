@@ -6,19 +6,19 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 7ffb13912780edcf3d92093e672d1dae983e50a8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: de4cae90f2cc1223271672d9fc5ba5b42e4409e4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977416"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962441"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Använd tjänsten StorSimple Enhetshanteraren för att övervaka StorSimple-enheten
 
 ## <a name="overview"></a>Översikt
 Du kan använda tjänsten StorSimple Enhetshanteraren för att övervaka vissa enheter i din StorSimple-lösning. Du kan skapa anpassade diagram baserat på I/O-prestanda, kapacitets användning, nätverks data flöde och enhets prestanda mått och fästa dem på instrument panelen. Mer information finns i [anpassa portalens instrument panel](../azure-portal/azure-portal-dashboards.md).
 
-Om du vill visa övervaknings informationen för en speciell enhet går du till Azure Portal och väljer tjänsten StorSimple Enhetshanteraren. Välj enheten i listan med enheter och gå sedan till **övervaka**. Du kan sedan se diagram över **kapacitet**, **användning**och **prestanda** för den valda enheten.
+Om du vill visa övervaknings informationen för en speciell enhet går du till Azure Portal och väljer tjänsten StorSimple Enhetshanteraren. Välj enheten i listan med enheter och gå sedan till **övervaka**. Du kan sedan se diagram över **kapacitet**, **användning** och **prestanda** för den valda enheten.
 
 ## <a name="capacity"></a>Kapacitet
 **Kapaciteten** spårar det allokerade utrymmet och utrymmet som återstår på enheten. Den återstående kapaciteten visas sedan lokalt eller i nivå.
@@ -139,6 +139,5 @@ Om vi tittar på data diagrammets data flödes diagram, ett annat 1 GbE-nätverk
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du [använder instrument panelen för StorSimple-Enhetshanteraren](storsimple-device-dashboard.md).
-* Lär dig hur du [använder tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-manager-service-administration.md).
-
+* Lär dig hur du [använder instrument panelen för StorSimple-Enhetshanteraren](./storsimple-8000-device-dashboard.md).
+* Lär dig hur du [använder tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](./storsimple-8000-manager-service-administration.md).

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d0103857b6f759560129dbe8e693ec6c0d7291e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743615"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961217"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Använda Azure Automation till att utlösa ett jobb
 
@@ -22,11 +22,11 @@ Den här artikeln förklarar hur du kan använda funktionen datatransformering i
  
 Den här artikeln beskriver hur du skapar en Azure Automation Runbook och sedan använder den för att initiera ett data omvandlings jobb. Om du vill veta mer om hur du initierar datatransformering via .NET SDK går du till [använda .NET SDK för att utlösa data omvandlings jobb](storsimple-data-manager-dotnet-jobs.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrol lera att du har:
 
-*   Azure PowerShell installerat på klient datorn. [Ladda ned Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+*   Azure PowerShell installerat på klient datorn. [Ladda ned Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 *   En korrekt konfigurerad jobb definition i en StorSimple Data Manager tjänst inom en resurs grupp.
 *   Ladda ned  [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) filen från GitHub-lagringsplatsen. 
 *   Hämta [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) skriptet från GitHub-lagringsplatsen.
@@ -39,7 +39,7 @@ Innan du börjar ska du kontrol lera att du har:
 
     ![Skapa Kör som Automation-konto](./media/storsimple-data-manager-job-using-automation/search-automation-account1.png)
 
-2. Klicka på **+ Lägg**till för att lägga till ett nytt Automation-konto.
+2. Klicka på **+ Lägg** till för att lägga till ett nytt Automation-konto.
 
     ![Skapa Kör som Automation-konto 2](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
@@ -58,7 +58,7 @@ Innan du börjar ska du kontrol lera att du har:
     
       ![Meddelande om distribution av Automation-konto](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-      Mer information finns i [skapa ett Kör som-konto](../automation/automation-create-runas-account.md).
+      Mer information finns i [skapa ett Kör som-konto](../automation/manage-runas-account.md).
 
 3. I det nyligen skapade kontot går du till **delade resurser > moduler** och klickar på **+ Lägg till modul**.
 
@@ -84,7 +84,7 @@ Utför följande steg för att importera, publicera och köra runbooken för att
 
     ![Lägg till Runbook 1](./media/storsimple-data-manager-job-using-automation/add-runbook-1.png)
 
-2. I **Lägg till Runbook**klickar du på **Importera en befintlig Runbook**.
+2. I **Lägg till Runbook** klickar du på **Importera en befintlig Runbook**.
 
 3. Peka på Azure PowerShell skript filen `Trigger-DataTransformation-Job.ps1` för Runbook- **filen**. Runbook-typen väljs automatiskt. Ange ett namn och en valfri beskrivning för runbooken. Klicka på **Skapa**.
 
@@ -98,7 +98,7 @@ Utför följande steg för att importera, publicera och köra runbooken för att
 
     ![Lägg till Runbook 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
 
-6. Ange parametrarna, till exempel namnet på din StorSimple Data Manager-tjänst, den associerade resurs gruppen och jobb definitions namnet. **Starta** testet. Rapporten skapas när körningen har slutförts. Mer information finns i så här testar du [en Runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+6. Ange parametrarna, till exempel namnet på din StorSimple Data Manager-tjänst, den associerade resurs gruppen och jobb definitions namnet. **Starta** testet. Rapporten skapas när körningen har slutförts. Mer information finns i så här testar du [en Runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
 
     ![Lägg till Runbook 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
 
@@ -110,7 +110,7 @@ Utför följande steg för att importera, publicera och köra runbooken för att
 
     ![Lägg till Runbook 7](./media/storsimple-data-manager-job-using-automation/add-runbook-7.png)
 
-9. **Starta** runbooken. I **starta Runbook**anger du alla parametrar. Klicka på **OK** för att skicka och starta data omvandlings jobbet.
+9. **Starta** runbooken. I **starta Runbook** anger du alla parametrar. Klicka på **OK** för att skicka och starta data omvandlings jobbet.
 
 10. Om du vill övervaka jobb förloppet i Azure Portal går du till **jobb** i StorSimple Data Manager-tjänsten. Välj och klicka på jobbet för att visa jobb informationen.
 

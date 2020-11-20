@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a83d1a4bdc2496f874a963b8858192273260cc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91b7bd6d05ee0b992ee166b9acb13aff2e605a2c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89276277"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961013"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health åtgärder
 I det här avsnittet beskrivs de olika åtgärder som du kan utföra med hjälp av Azure Active Directory (Azure AD) Connect Health.
@@ -40,7 +40,7 @@ Du kan konfigurera Azure AD Connect Health tjänsten att skicka e-postaviseringa
 3. I växeln för e-postavisering väljer du **på**.
 4. Markera kryss rutan om du vill att alla globala administratörer ska kunna ta emot e-postaviseringar.
 5. Om du vill ta emot e-postaviseringar på andra e-postadresser anger du dem i rutan **ytterligare e-postmottagare** . Om du vill ta bort en e-postadress från listan högerklickar du på posten och väljer **ta bort**.
-6. Klicka på **Spara**om du vill slutföra ändringarna. Ändringarna börjar gälla först när du har sparat.
+6. Klicka på **Spara** om du vill slutföra ändringarna. Ändringarna börjar gälla först när du har sparat.
 
 >[!NOTE] 
 > När det finns problem med att bearbeta synkroniseringsproblem i vår server dels tjänst skickar den här tjänsten ett e-postmeddelande med information om felet till den administrativa kontaktens e-postadress (er) för din klient. Vi har hört feedback från kunder som i vissa fall är volymen av dessa meddelanden prohibitively stor så vi ändrar hur vi skickar dessa meddelanden. 
@@ -96,7 +96,7 @@ Tänk på följande när du tar bort en tjänst instans:
 
 #### <a name="to-delete-a-service-instance-from-the-azure-ad-connect-health-service"></a>Ta bort en tjänst instans från tjänsten Azure AD Connect Health
 1. Öppna bladet **tjänst** från bladet **tjänst lista** genom att välja tjänst-ID (Server grupp namn) som du vill ta bort. 
-2. Klicka på **ta bort**i åtgärds fältet på bladet **tjänst** . 
+2. Klicka på **ta bort** i åtgärds fältet på bladet **tjänst** . 
 ![Skärm bild av Azure AD Connect Health ta bort tjänst](./media/how-to-connect-health-operations/DeleteServer.png)
 3. Bekräfta genom att skriva tjänst namnet i bekräftelse rutan (till exempel: sts.contoso.com).
 4. Klicka på **Ta bort**.
@@ -137,7 +137,7 @@ Om du vill ge en användare åtkomst på nivån *Alla tjänste instanser* i Azur
 3. I fönstret **Välj en roll** väljer du en roll (till exempel **ägare**).<br>
    ![Skärm bild av Azure AD Connect Health och Azure RBAC-konfigurations meny](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Ange namnet eller identifieraren för mål användaren eller gruppen. Du kan välja en eller flera användare eller grupper samtidigt. Klicka på **Välj**.
-   ![Skärm bild av Azure AD Connect Health och Azure RBAC-roll lista](./media/how-to-connect-health-operations/RBAC_select_users.png)
+   ![Skärm bild av listan Azure AD Connect Health och Azure-roll](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. Välj **OK**.<br>
 6. När roll tilldelningen är klar visas användare och grupper i listan.<br>
    ![Skärm bild av Azure AD Connect Health och Azure RBAC och nya användare markerade](./media/how-to-connect-health-operations/RBAC_user_list.png)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 181f5433de6653c8b6a2cda085f04e21c64082b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 316b513f761aa422f87c83658e6c50efec25efb4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514661"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961149"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Alternativ för att migrera data från StorSimple 5000-7000-serien 
 
@@ -43,7 +43,7 @@ Mer information om hur du migrerar data med hjälp av en StorSimple 8000-serie f
 
 Det här nya migrerings alternativet gör att kunder kan lagra sin organisations fil resurser i Azure Files. Dessa fil resurser centraliseras sedan för lokal åtkomst med hjälp av Azure File Sync (AFS). AFS kan distribueras på en Windows Server-värd. Den faktiska datamigreringen utförs sedan som en värd kopia eller med migrations verktyget.
 
-Mer information om hur du migrerar data till Azure File Sync finns i [migrera data från StorSimple 5000-7000-serien till Azure File Sync](storsimple-5000-7000-afs-migration.md).
+Mer information om hur du migrerar data till Azure File Sync finns i [migrera data från StorSimple 5000-7000-serien till Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
 ### <a name="third-party-options"></a>Alternativ från tredje part
 
@@ -127,4 +127,4 @@ A. Slutet på support datumet för StorSimple 8000-serien publiceras [här](http
 
 ## <a name="next-steps"></a>Nästa steg
  - [Migrera data från en StorSimple 5000-7000-serie till en enhet med 8000-serien](storsimple-8000-migrate-from-5000-7000.md).
- - [Migrera data från en StorSimple 5000-7000-serie till Azure File Sync](storsimple-5000-7000-afs-migration.md)
+ - [Migrera data från en StorSimple 5000-7000-serie till Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md)

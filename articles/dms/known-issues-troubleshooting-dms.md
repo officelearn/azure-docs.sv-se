@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: f0ec9d2a3794ea910339b4d329bb28f23c5a76b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4baca7f261aa7544b54992a5e1ddf620794774f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297366"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962288"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Felsök vanliga Azure Database Migration Service problem och fel
 
@@ -54,7 +54,7 @@ När du migrerar från MySQL till Azure Database for MySQL med Azure Database Mi
 
 | Orsak         | Lösning |
 | ------------- | ------------- |
-| Det här felet kan inträffa när användaren som utför migreringen saknar ReplicationAdmin-roll och/eller behörighet för REPLIKERINGSTJÄNSTEN, replikering och SUPER (versioner som är äldre än MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Se till att de [nödvändiga behörigheterna](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) för användar kontot har kon figurer ATS korrekt på Azure Database for MySQL-instansen. Följande steg kan till exempel följas för att skapa en användare med namnet "MigrateUser" med de behörigheter som krävs:<br>1. skapa användar migrateuser@% som identifieras av Secret; <br>2. bevilja alla behörigheter för db_name. * till ' MigrateUser ' @ '% ' som identifieras av ' Secret '; Upprepa det här steget om du vill bevilja åtkomst för fler databaser <br>3. bevilja replikering slaven på *.* till ' MigrateUser ' @ '% ' identifieras av ' Secret ';<br>4. ge klient för replikering aktiverat *.* till ' MigrateUser ' @ '% ' identifieras av ' Secret ';<br>5. tömnings behörighet; |
+| Det här felet kan inträffa när användaren som utför migreringen saknar ReplicationAdmin-roll och/eller behörighet för REPLIKERINGSTJÄNSTEN, replikering och SUPER (versioner som är äldre än MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Se till att de [nödvändiga behörigheterna](./tutorial-mysql-azure-mysql-online.md#prerequisites) för användar kontot har kon figurer ATS korrekt på Azure Database for MySQL-instansen. Följande steg kan till exempel följas för att skapa en användare med namnet "MigrateUser" med de behörigheter som krävs:<br>1. skapa användar migrateuser@% som identifieras av Secret; <br>2. bevilja alla behörigheter för db_name. * till ' MigrateUser ' @ '% ' som identifieras av ' Secret '; Upprepa det här steget om du vill bevilja åtkomst för fler databaser <br>3. bevilja replikering slaven på *.* till ' MigrateUser ' @ '% ' identifieras av ' Secret ';<br>4. ge klient för replikering aktiverat *.* till ' MigrateUser ' @ '% ' identifieras av ' Secret ';<br>5. tömnings behörighet; |
 
 ## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Fel vid försök att stoppa Azure Database Migration Service
 
@@ -84,7 +84,7 @@ När du utför en online-migrering från SQL Server till en Azure SQL-hanterad i
 
 | Orsak         | Lösning    |
 | ------------- | ------------- |
-| Det här felet anger att det program objekt som används för online-migrering från SQL Server till SQL-hanterad instans inte har behörighet att delta i prenumerationen. Vissa API-anrop med hanterade instanser kräver den här behörigheten för prenumerationen för återställnings åtgärden. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Använd `Get-AzureADServicePrincipal` PowerShell-cmdleten som `-ObjectId` är tillgänglig i fel meddelandet för att Visa visnings namnet för det program-ID som används.<br><br> Verifiera behörigheterna för det här programmet och se till att det har [rollen deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) på prenumerations nivån. <br><br> Azure Database Migration Service teknik teamet arbetar för att begränsa den nödvändiga åtkomsten från den aktuella Contribute-rollen för prenumerationen. Om du har ett affärs krav som inte tillåter användning av Contribute-rollen kan du kontakta Azure-supporten om du vill ha mer hjälp. |
+| Det här felet anger att det program objekt som används för online-migrering från SQL Server till SQL-hanterad instans inte har behörighet att delta i prenumerationen. Vissa API-anrop med hanterade instanser kräver den här behörigheten för prenumerationen för återställnings åtgärden. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Använd `Get-AzureADServicePrincipal` PowerShell-cmdleten som `-ObjectId` är tillgänglig i fel meddelandet för att Visa visnings namnet för det program-ID som används.<br><br> Verifiera behörigheterna för det här programmet och se till att det har [rollen deltagare](../role-based-access-control/built-in-roles.md#contributor) på prenumerations nivån. <br><br> Azure Database Migration Service teknik teamet arbetar för att begränsa den nödvändiga åtkomsten från den aktuella Contribute-rollen för prenumerationen. Om du har ett affärs krav som inte tillåter användning av Contribute-rollen kan du kontakta Azure-supporten om du vill ha mer hjälp. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Fel vid borttagning av NIC som är associerat med Azure Database Migration Service
 
@@ -102,7 +102,7 @@ När du försöker ansluta till källan i guiden Azure Database Migration Servic
 
 | Orsak         | Lösning    |
 | ------------- | ------------- |
-| När du använder [ExpressRoute](https://azure.microsoft.com/services/expressroute/) [kräver](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) Azure Database migration service etablering av tre tjänst slut punkter i det Virtual Network undernät som är associerat med tjänsten:<br> --Service Bus slut punkt<br> --Lagrings slut punkt<br> --Slut punkt för mål databas (t. ex. SQL-slutpunkt, Cosmos DB slut punkt)<br><br><br><br><br> | [Aktivera](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) de tjänst slut punkter som krävs för ExpressRoute-anslutning mellan källa och Azure Database migration service. <br><br><br><br><br><br><br><br> |
+| När du använder [ExpressRoute](https://azure.microsoft.com/services/expressroute/) [kräver](./tutorial-sql-server-azure-sql-online.md) Azure Database migration service etablering av tre tjänst slut punkter i det Virtual Network undernät som är associerat med tjänsten:<br> --Service Bus slut punkt<br> --Lagrings slut punkt<br> --Slut punkt för mål databas (t. ex. SQL-slutpunkt, Cosmos DB slut punkt)<br><br><br><br><br> | [Aktivera](./tutorial-sql-server-azure-sql-online.md) de tjänst slut punkter som krävs för ExpressRoute-anslutning mellan källa och Azure Database migration service. <br><br><br><br><br><br><br><br> |
 
 ## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Timeout-fel vid låsning vid migrering av en MySQL-databas till Azure DB för MySQL
 
@@ -126,13 +126,13 @@ När du försöker ansluta Azure Database Migration Service till SQL Server käl
 
 ## <a name="additional-known-issues"></a>Ytterligare kända problem
 
-* [Kända problem/migrerings begränsningar med online-migreringar till Azure SQL Database](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
-* [Kända problem/migrerings begränsningar med online-migreringar till Azure Database for MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
-* [Kända problem/migrerings begränsningar med online-migreringar till Azure Database for PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
+* [Kända problem/migrerings begränsningar med online-migreringar till Azure SQL Database](./known-issues-azure-sql-online.md)
+* [Kända problem/migrerings begränsningar med online-migreringar till Azure Database for MySQL](./known-issues-azure-mysql-online.md)
+* [Kända problem/migrerings begränsningar med online-migreringar till Azure Database for PostgreSQL](./known-issues-azure-postgresql-online.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visa artikeln [Azure Database migration service PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
-* Se artikeln [så här konfigurerar du Server parametrar i Azure Database for MySQL med hjälp av Azure Portal](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
-* Se artikeln [Översikt över krav för att använda Azure Database migration service](https://docs.microsoft.com/azure/dms/pre-reqs).
-* Se [vanliga frågor och svar om hur du använder Azure Database migration service](https://docs.microsoft.com/azure/dms/faq).
+* Visa artikeln [Azure Database migration service PowerShell](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Se artikeln [så här konfigurerar du Server parametrar i Azure Database for MySQL med hjälp av Azure Portal](../mysql/howto-server-parameters.md).
+* Se artikeln [Översikt över krav för att använda Azure Database migration service](./pre-reqs.md).
+* Se [vanliga frågor och svar om hur du använder Azure Database migration service](./faq.md).

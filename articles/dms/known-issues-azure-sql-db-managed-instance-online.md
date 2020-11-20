@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 6393624cb4520ccd28dff41dd97746873bc13f59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d5c79a141dbe1310762dc90b447fe78848ac10d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330306"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962492"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Kända problem/migrerings begränsningar med online-migreringar till Azure SQL-hanterad instans
 
@@ -31,7 +31,7 @@ Kända problem och begränsningar som är associerade med online-migrering från
 
     Azure Database Migration Service använder säkerhets kopierings-och återställnings metoden för att migrera dina lokala databaser till SQL-hanterad instans. Azure Database Migration Service stöder endast säkerhets kopieringar som skapats med kontroll summa.
 
-    [Aktivera eller inaktivera kontroll summor för säkerhets kopiering under säkerhets kopiering eller återställning (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
+    [Aktivera eller inaktivera kontroll summor för säkerhets kopiering under säkerhets kopiering eller återställning (SQL Server)](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
 
     > [!NOTE]
     > Om du tar databas säkerhets kopior med komprimering, är kontroll summan ett standard beteende om det inte uttryckligen inaktive ras.

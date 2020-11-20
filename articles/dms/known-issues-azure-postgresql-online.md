@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 14722f46f06351504583da7231179d206f7a3c26
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: db2f6e95153610e0a1b79cf5d30cea3c917333d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893738"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962577"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Kända problem/migrerings begränsningar med online-migreringar från PostgreSQL till Azure DB för PostgreSQL
 
@@ -96,13 +96,13 @@ När du försöker utföra en online-migrering från AWS RDS PostgreSQL till Azu
 - **Fel**: Standardvärdet för kolumnen ”{column}” i tabellen ”{table}” i databasen ”{database}” är olika på käll- och målservrarna. Det har ”{value on source}” i källan och ”{value on target}” i målet.
 
   **Begränsning**: det här felet uppstår när standardvärdet i ett kolumn schema skiljer sig mellan käll-och mål databaserna.
-  **Lösning**: kontrol lera att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Lösning**: kontrol lera att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Fel**: Måldatabasen ”{database}” har ”{number of tables}” tabeller, medan källdatabasen ”{database}” har ”{number of tables}” tabeller. Antalet tabeller i käll- och måldatabaserna måste vara lika många.
 
   **Begränsning**: det här felet uppstår när antalet tabeller skiljer sig mellan käll-och mål databaserna.
 
-  **Lösning**: kontrol lera att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Lösning**: kontrol lera att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Fel:** Käll databasen {Database} är tom.
 
@@ -113,7 +113,7 @@ När du försöker utföra en online-migrering från AWS RDS PostgreSQL till Azu
 - **Fel:** Mål databasen {Database} är tom. Migrera schemat.
 
   **Begränsning**: det här felet uppstår när det inte finns något schema i mål databasen. Kontrol lera att schemat på målet matchar schemat på källan.
-  **Lösning**: kontrol lera att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Lösning**: kontrol lera att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 ## <a name="other-limitations"></a>Andra begränsningar
 

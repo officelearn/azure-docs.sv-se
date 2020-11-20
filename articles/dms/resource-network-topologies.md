@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: reference
 ms.date: 01/08/2020
-ms.openlocfilehash: 5839de1fde8e4a4d5e661d232ae91099a9483bcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae036b7d893eb268ea55026054bf364dad0b610e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291579"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961557"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Nätverkstopologier för migrering av Azure SQL-hanterade instanser med hjälp av Azure Database Migration Service
 
@@ -32,7 +32,7 @@ Använd den här topologin om din Azure SQL-hanterade instans är ansluten till 
 **Krav**
 
 - I det här scenariot skapas den SQL-hanterade instansen och Azure Database Migration Service-instansen i samma Microsoft Azure Virtual Network, men de använder olika undernät.  
-- Det virtuella nätverk som används i det här scenariot är också anslutet till det lokala nätverket med hjälp av antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Det virtuella nätverk som används i det här scenariot är också anslutet till det lokala nätverket med hjälp av antingen [ExpressRoute](../expressroute/expressroute-introduction.md) eller [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ## <a name="sql-managed-instance-isolated-from-the-on-premises-network"></a>SQL-hanterad instans isolerad från det lokala nätverket
 
@@ -46,8 +46,8 @@ Använd den här nätverks sto pol Ogin om din miljö kräver ett eller flera av
 
 **Krav**
 
-- Det virtuella nätverk som Azure Database Migration Service använder för det här scenariot måste också vara anslutet till det lokala nätverket med hjälp av antingen ( https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Konfigurera [VNet-nätverks-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) mellan det virtuella nätverk som används för SQL-hanterad instans och Azure Database migration service.
+- Det virtuella nätverk som Azure Database Migration Service använder för det här scenariot måste också vara anslutet till det lokala nätverket med hjälp av antingen ( https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- Konfigurera [VNet-nätverks-peering](../virtual-network/virtual-network-peering-overview.md) mellan det virtuella nätverk som används för SQL-hanterad instans och Azure Database migration service.
 
 ## <a name="cloud-to-cloud-migrations-shared-virtual-network"></a>Migrering från moln till moln: delat virtuellt nätverk
 
@@ -71,30 +71,30 @@ Använd den här nätverks sto pol Ogin om din miljö kräver ett eller flera av
 
 **Krav**
 
-- Konfigurera [VNet-nätverks-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) mellan det virtuella nätverk som används för SQL-hanterad instans och Azure Database migration service.
+- Konfigurera [VNet-nätverks-peering](../virtual-network/virtual-network-peering-overview.md) mellan det virtuella nätverk som används för SQL-hanterad instans och Azure Database migration service.
 
 ## <a name="inbound-security-rules"></a>Ingående säkerhetsregler
 
 | **NAMN**   | **LASTNING** | **PROTOKOLLHANTERARE** | **KÄLLICENSSERVERN** | **MÅL** | **TGÄRD** |
 |------------|----------|--------------|------------|-----------------|------------|
-| DMS_subnet | Alla      | Alla          | DMS-UNDERNÄT | Alla             | Tillåt      |
+| DMS_subnet | Valfri      | Valfri          | DMS-UNDERNÄT | Valfri             | Tillåt      |
 
 ## <a name="outbound-security-rules"></a>Säkerhetsregler för utgående trafik
 
 | **NAMN**                  | **LASTNING**                                              | **PROTOKOLLHANTERARE** | **KÄLLICENSSERVERN** | **MÅL**           | **TGÄRD** | **Orsak för regel**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| management                | 443, 9354                                              | TCP          | Alla        | Alla                       | Tillåt      | Hanterings Plans kommunikation via Service Bus och Azure Blob Storage. <br/>(Om Microsoft-peering har Aktiver ATS kanske du inte behöver den här regeln.)                                                             |
-| Diagnostik               | 12000                                                 | TCP          | Alla        | Alla                       | Tillåt      | DMS använder den här regeln för att samla in diagnostikinformation i fel söknings syfte.                                                                                                                      |
-| SQL-webbserver         | 1433 (eller TCP IP-port som SQL Server lyssnar på) | TCP          | Alla        | Lokalt adressutrymme | Tillåt      | SQL Server käll anslutning från DMS <br/>(Om du har plats-till-plats-anslutning kanske du inte behöver den här regeln.)                                                                                       |
-| SQL Server namngiven instans | 1434                                                  | UDP          | Alla        | Lokalt adressutrymme | Tillåt      | SQL Server namngiven instans källa anslutning från DMS <br/>(Om du har plats-till-plats-anslutning kanske du inte behöver den här regeln.)                                                                        |
-| SMB-resurs                 | 445                                                   | TCP          | Alla        | Lokalt adressutrymme | Tillåt      | SMB-nätverks resurs för DMS för lagring av säkerhetskopierade databasfiler för migrering till Azure SQL Database MI-och SQL-servrar på den virtuella Azure-datorn <br/>(Om du har plats-till-plats-anslutning kanske du inte behöver den här regeln). |
-| DMS_subnet                | Alla                                                   | Alla          | Alla        | DMS_Subnet                | Tillåt      |                                                                                                                                                                                                  |
+| management                | 443, 9354                                              | TCP          | Valfri        | Valfri                       | Tillåt      | Hanterings Plans kommunikation via Service Bus och Azure Blob Storage. <br/>(Om Microsoft-peering har Aktiver ATS kanske du inte behöver den här regeln.)                                                             |
+| Diagnostik               | 12000                                                 | TCP          | Valfri        | Valfri                       | Tillåt      | DMS använder den här regeln för att samla in diagnostikinformation i fel söknings syfte.                                                                                                                      |
+| SQL-webbserver         | 1433 (eller TCP IP-port som SQL Server lyssnar på) | TCP          | Valfri        | Lokalt adressutrymme | Tillåt      | SQL Server käll anslutning från DMS <br/>(Om du har plats-till-plats-anslutning kanske du inte behöver den här regeln.)                                                                                       |
+| SQL Server namngiven instans | 1434                                                  | UDP          | Valfri        | Lokalt adressutrymme | Tillåt      | SQL Server namngiven instans källa anslutning från DMS <br/>(Om du har plats-till-plats-anslutning kanske du inte behöver den här regeln.)                                                                        |
+| SMB-resurs                 | 445                                                   | TCP          | Valfri        | Lokalt adressutrymme | Tillåt      | SMB-nätverks resurs för DMS för lagring av säkerhetskopierade databasfiler för migrering till Azure SQL Database MI-och SQL-servrar på den virtuella Azure-datorn <br/>(Om du har plats-till-plats-anslutning kanske du inte behöver den här regeln). |
+| DMS_subnet                | Valfri                                                   | Valfri          | Valfri        | DMS_Subnet                | Tillåt      |                                                                                                                                                                                                  |
 
 ## <a name="see-also"></a>Se även
 
-- [Migrera SQL Server till SQL-hanterad instans](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
-- [Översikt över krav för att använda Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs)
-- [Skapa ett virtuellt nätverk med Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Migrera SQL Server till SQL-hanterad instans](./tutorial-sql-server-to-managed-instance.md)
+- [Översikt över krav för att använda Azure Database Migration Service](./pre-reqs.md)
+- [Skapa ett virtuellt nätverk med Azure Portal](../virtual-network/quick-create-portal.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 30ece529b141f3a50191c532d85265d8e9555b34
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3c8e18a3a216240a624b3b14f5e2e397d6c06012
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538605"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961336"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Ansluta till lagrings tjänster på Azure
 
@@ -28,7 +28,7 @@ Du kan skapa data lager från [dessa Azure Storage-lösningar](#matrix). **För 
 
 Information om var data lagret får plats i Azure Machine Learning det totala arbets flödet för data åtkomst finns i artikeln [säker åtkomst till data](concept-data.md#data-workflow) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver:
 - En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
@@ -180,7 +180,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 För en Azure Data Lake Storage generation 2 (ADLS gen 2) data lager använder du [register_azure_data_lake_gen2 ()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) för att registrera ett data lager för autentiseringsuppgifter som är anslutet till en Azure DataLake gen 2-lagring med [tjänstens huvud namn](../active-directory/develop/howto-create-service-principal-portal.md).  
 
-För att kunna använda tjänstens huvud namn måste du [Registrera ditt program](../active-directory/develop/app-objects-and-service-principals.md) och bevilja tjänstens huvud data åtkomst via antingen rollbaserad åtkomst kontroll (Azure RBAC) eller åtkomst kontrol listor (ACL). Lär dig mer om [åtkomst kontroll som har kon figurer ATS för ADLS gen 2](../storage/blobs/data-lake-storage-access-control-model.md). 
+För att kunna använda tjänstens huvud namn måste du [Registrera ditt program](../active-directory/develop/app-objects-and-service-principals.md) och bevilja tjänstens huvud data åtkomst via antingen Azure-rollbaserad åtkomst kontroll (Azure RBAC) eller åtkomst kontrol listor (ACL). Lär dig mer om [åtkomst kontroll som har kon figurer ATS för ADLS gen 2](../storage/blobs/data-lake-storage-access-control-model.md). 
 
 Följande kod skapar och registrerar `adlsgen2_datastore_name` data lagret på `ws` arbets ytan. Detta data lager har åtkomst till fil systemet `test` i `account_name` lagrings kontot med hjälp av de angivna autentiseringsuppgifterna för tjänstens huvud namn. Läs avsnittet [lagrings åtkomst & behörigheter](#storage-access-and-permissions) för vägledning om virtuella nätverks scenarier och var du hittar nödvändiga autentiseringsuppgifter för autentisering. 
 

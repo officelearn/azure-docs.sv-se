@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: b8f570c2cd5f3939bab0df0c4fefe1becc3c81da
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: bf6e61ef3dfb1c50166cf17168b4deeb21e958d7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893449"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962917"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Vanliga frågor om att använda Azure Database Migration Service
 
@@ -32,7 +32,7 @@ Azure Database Migration Service är en fullständigt hanterad tjänst som är u
 * Fortsatt investering i friktion – kostnads fria migreringar.
 
 **C. Vilka käll-/mål-par har Azure Database Migration Service för närvarande stöd för?**
-Tjänsten har stöd för en rad olika käll-/mål par, eller migrerings scenarier. En fullständig lista över statusen för varje tillgängligt migrerings scenario finns i artikeln [status för de migrerings scenarier som stöds av Azure Database migration service](https://docs.microsoft.com/azure/dms/resource-scenario-status).
+Tjänsten har stöd för en rad olika käll-/mål par, eller migrerings scenarier. En fullständig lista över statusen för varje tillgängligt migrerings scenario finns i artikeln [status för de migrerings scenarier som stöds av Azure Database migration service](./resource-scenario-status.md).
 
 Andra scenarier för migrering finns i för hands version och kräver att du skickar en utnämning via DMS Preview-webbplatsen. En fullständig lista över scenarierna i för hands versionen och för att registrera dig för att delta i något av dessa erbjudanden finns i [DMS Preview-webbplatsen](https://aka.ms/dms-preview/).
 
@@ -58,11 +58,11 @@ Det krävs flera krav för att säkerställa att Azure Database Migration Servic
 
 Azure Database Migration Service förutsättningar som är gemensamma för alla typer av migrering som stöds omfattar behovet av att:
 
-* Skapa en Microsoft Azure Virtual Network för Azure Database Migration Service med hjälp av Azure Resource Manager distributions modell, som tillhandahåller plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Se till att de virtuella nätverkets säkerhets grupp regler inte blockerar följande kommunikations portar 443, 53, 5671-5672, 9350-9354, 445, 12000. Mer information om NSG för trafik filtrering i virtuellt nätverk finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Skapa en Microsoft Azure Virtual Network för Azure Database Migration Service med hjälp av Azure Resource Manager distributions modell, som tillhandahåller plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](../expressroute/expressroute-introduction.md) eller [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* Se till att de virtuella nätverkets säkerhets grupp regler inte blockerar följande kommunikations portar 443, 53, 5671-5672, 9350-9354, 445, 12000. Mer information om NSG för trafik filtrering i virtuellt nätverk finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * När du använder en brand Väggs installation framför dina käll databaser, kan du behöva lägga till brand Väggs regler för att tillåta Azure Database Migration Service åtkomst till käll databaserna för migrering.
 
-En lista över alla krav som krävs för att konkurrera särskilda migrerings scenarier med hjälp av Azure Database Migration Service finns i de relaterade självstudierna i Azure Database Migration Service- [dokumentationen](https://docs.microsoft.com/azure/dms/dms-overview) på docs.Microsoft.com.
+En lista över alla krav som krävs för att konkurrera särskilda migrerings scenarier med hjälp av Azure Database Migration Service finns i de relaterade självstudierna i Azure Database Migration Service- [dokumentationen](./dms-overview.md) på docs.Microsoft.com.
 
 **C. Hur gör jag för att hitta IP-adressen för Azure Database Migration Service så att jag kan skapa en lista över tillåtna brand Väggs regler som används för att få åtkomst till min käll databas för migrering?**
 Du kan behöva lägga till brand Väggs regler som ger Azure Database Migration Service åtkomst till din käll databas för migrering. IP-adressen för tjänsten är dynamisk, men om du använder ExpressRoute är adressen privat tilldelad till företags nätverket. Det enklaste sättet att identifiera rätt IP-adress är att titta i samma resurs grupp som din etablerade Azure Database Migration Service resurs för att hitta det associerade nätverks gränssnittet. Normalt börjar namnet på nätverks gränssnitts resursen med NIC-prefixet och följt av ett unikt Character och en nummersekvens, till exempel NIC-jj6tnztnmarpsskr82rbndyp. Genom att välja den här nätverks gränssnitts resursen kan du se IP-adressen som måste tas med i listan över tillåtna på sidan resurs översikt Azure Portal.
@@ -86,7 +86,7 @@ Du kan också bestämma vilken port som SQL Server lyssnar genom att skicka frå
 ```
 
 **C. Hur gör jag för att skapa en Microsoft Azure Virtual Network?**
-Även om flera Microsoft-självstudier som kan hjälpa dig genom processen med att konfigurera ett virtuellt nätverk visas den officiella dokumentationen i artikeln [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Även om flera Microsoft-självstudier som kan hjälpa dig genom processen med att konfigurera ett virtuellt nätverk visas den officiella dokumentationen i artikeln [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 ## <a name="usage"></a>Användning
 
@@ -96,7 +96,7 @@ Under en vanlig, enkel databas-migrering, gör du följande:
 1. Skapa en eller flera mål databaser.
 2. Utvärdera dina käll databaser.
     * För homogena migreringar kan du utvärdera din eller dina befintliga databaser med hjälp av [DMA](https://www.microsoft.com/download/details.aspx?id=53595).
-    * För heterogena migreringar (från konkurrens kraftiga källor) kan du utvärdera dina befintliga databaser med [SSMA](https://aka.ms/get-ssma). Du kan också använda SSMA för att konvertera databas objekt och migrera schemat till din mål plattform.
+    * För heterogena migreringar (från konkurrens kraftiga källor) kan du utvärdera dina befintliga databaser med [SSMA](/sql/ssma/sql-server-migration-assistant). Du kan också använda SSMA för att konvertera databas objekt och migrera schemat till din mål plattform.
 3. Skapa en instans av Azure Database Migration Service.
 4. Skapa ett migreringsjobb som anger käll databas (er), mål databaser och de tabeller som ska migreras.
 5. Starta den fullständiga belastningen.

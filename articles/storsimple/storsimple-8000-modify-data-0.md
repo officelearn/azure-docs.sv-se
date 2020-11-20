@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 1d5d57cab9906c04c5c207fa7df2d2fae6f749e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85d7114f419266124d0d23368b24700af025758a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514604"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961047"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Ändra inställningarna för nätverks gränssnittet för DATA 0 på din StorSimple 8000-serie enhet
 
@@ -64,9 +64,8 @@ Ett annat sätt att konfigurera om DATA 0-nätverks gränssnittet är genom att 
    * Fast IPv4-adress för styrenhet 0
    * Fast IPv4-adress för styrenhet 1
      
-     Om du vill ha mer information om hur du använder denna cmdlet går du till [Windows PowerShell för StorSimple cmdlet-referens](https://technet.microsoft.com/library/dn688161.aspx).
+     Om du vill ha mer information om hur du använder denna cmdlet går du till [Windows PowerShell för StorSimple cmdlet-referens](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)).
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill konfigurera andra nätverks gränssnitt än DATA 0 kan du använda [Konfigurera nätverks inställningar i Azure Portal](storsimple-8000-modify-device-config.md). 
-* Om du får problem när du konfigurerar nätverks gränssnitten kan du läsa [Felsök distributions problem](storsimple-troubleshoot-deployment.md).
-
+* Om du får problem när du konfigurerar nätverks gränssnitten kan du läsa [Felsök distributions problem](./storsimple-8000-troubleshoot-deployment.md).

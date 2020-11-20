@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 3b9a94f7f9f64426374a5ea349b3653d837fc1ac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: a9ac4830d11aa3360a272ac1feb167eb20c26c9a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494447"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962628"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problem med online-migrering & begränsningar för Azure DB för MySQL med Azure Database Migration Service
 
@@ -66,7 +66,7 @@ Kända problem och begränsningar som är kopplade till online-migreringar från
 
 ## <a name="datatype-limitations"></a>Begränsningar för data typer
 
-- Begränsning: om det finns en JSON-datatype i käll databasen MySQL, kommer migreringen att Miss **fördubblas**under en kontinuerlig synkronisering.
+- Begränsning: om det finns en JSON-datatype i käll databasen MySQL, kommer migreringen att Miss **fördubblas** under en kontinuerlig synkronisering.
 
     **Lösning**: ändra JSON-datatype till medium text eller LONGTEXT i käll-MySQL-databasen.
 
@@ -118,7 +118,7 @@ När du försöker utföra en online-migrering från AWS RDS MySQL till att Azur
 
   **Begränsning**: det här felet uppstår när mål Azure Database for MySQL databasen inte har det schema som krävs. Schema migrering krävs för att kunna migrera data till målet.
 
-  **Lösning**: [migrera schemat](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) från käll databasen till mål databasen.
+  **Lösning**: [migrera schemat](./tutorial-mysql-azure-mysql-online.md#migrate-the-sample-schema) från käll databasen till mål databasen.
 
 ## <a name="other-limitations"></a>Andra begränsningar
 
@@ -136,7 +136,7 @@ När du försöker utföra en online-migrering från AWS RDS MySQL till att Azur
 
 - I Azure Database Migration Service är gränsen för databaser som ska migreras i en enda migrering fyra.
 
-- Azure DMS stöder inte referens åtgärden CASCADE, som hjälper dig att automatiskt ta bort eller uppdatera en matchande rad i den underordnade tabellen när en rad tas bort eller uppdateras i den överordnade tabellen. Mer information finns i avsnittet referens åtgärder i artikelns [begränsningar för sekundär nyckel](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). Azure DMS kräver att du släpper sekundär nyckel begränsningar i mål databas servern under den inledande data inläsningen och du kan inte använda referens åtgärder. Om din arbets belastning är beroende av att uppdatera en relaterad underordnad tabell via den här referens åtgärden, rekommenderar vi att du utför en [dumpning och återställning](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) i stället. 
+- Azure DMS stöder inte referens åtgärden CASCADE, som hjälper dig att automatiskt ta bort eller uppdatera en matchande rad i den underordnade tabellen när en rad tas bort eller uppdateras i den överordnade tabellen. Mer information finns i avsnittet referens åtgärder i artikelns [begränsningar för sekundär nyckel](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). Azure DMS kräver att du släpper sekundär nyckel begränsningar i mål databas servern under den inledande data inläsningen och du kan inte använda referens åtgärder. Om din arbets belastning är beroende av att uppdatera en relaterad underordnad tabell via den här referens åtgärden, rekommenderar vi att du utför en [dumpning och återställning](../mysql/concepts-migrate-dump-restore.md) i stället. 
 
 - **Fel:** Rad storleken är för stor (> 8126). Att ändra vissa kolumner till TEXT eller BLOB kan hjälpa dig. I aktuellt rad format lagras BLOB-prefixet 0 byte infogat.
 

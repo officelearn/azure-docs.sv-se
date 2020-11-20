@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6809e8a44120eddbae4965bff30f80b617bdd024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c308824afdcae5f5c04a316c199bad71ad84a429
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272169"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962016"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Skapa en Azure Network Watcher-instans
 
@@ -129,7 +129,7 @@ Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup Networ
 
 Nu när du har en instans av Network Watcher kan du läsa mer om tillgängliga funktioner:
 
-* [Topologi](network-watcher-topology-overview.md)
+* [Topologi](./view-network-topology.md)
 * [Paketfångst](network-watcher-packet-capture-overview.md)
 * [Kontrollera IP-flöde](network-watcher-ip-flow-verify-overview.md)
 * [Nästa hopp](network-watcher-next-hop-overview.md)

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c9feb1131f6d2d0eb75ac71e27dc46c226c52c1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707403"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961064"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuera en lokal StorSimple-enhet (Update 3 och senare)
 
@@ -166,7 +166,7 @@ Du har slutfört enhetskonfigurationen.
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Konfigurera ett nytt lagringskonto för tjänsten
 Det här är ett valfritt steg som du endast måste utföra om du inte har aktiverat automatiskt skapande av lagringskonton med din tjänst. Ett Microsoft Azure-lagringskonto krävs för att skapa en container för StorSimple-volymer.
 
-Om du behöver skapa ett Azure lagringskonto i en annan region finns stegvisa instruktioner i [Om Azure lagringskonton](../storage/common/storage-create-storage-account.md).
+Om du behöver skapa ett Azure lagringskonto i en annan region finns stegvisa instruktioner i [Om Azure lagringskonton](../storage/common/storage-account-create.md).
 
 Utför följande steg på sidan för **StorSimple Device Manager-tjänsten** på Azure Portal.
 
@@ -207,4 +207,3 @@ Toppen av stereouttaget anses vara PIN 3 RX, mitten är PIN 2 TX och basen är P
 ## <a name="next-steps"></a>Nästa steg
 * [Konfigurera en StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).
 * [Hantera en StorSimple-enhet med StorSimple Device Manager-tjänsten](storsimple-8000-manager-service-administration.md).
-

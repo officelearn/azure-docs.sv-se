@@ -11,19 +11,19 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: dd8eff01cd52f8d80eb56f3a1ebe924763c8b70c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6cd4bbec89e955c398f7cb6e37ba5c3dcc6427ea
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441707"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961234"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 
 I den här artikeln får du lära dig hur du hanterar åtkomst (auktorisering) till en Azure Machine Learning-arbetsyta. [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) används för att hantera åtkomst till Azure-resurser, till exempel möjligheten att skapa nya resurser eller använda befintliga. Användare i din Azure Active Directory (Azure AD) tilldelas särskilda roller som ger åtkomst till resurser. Azure tillhandahåller både inbyggda roller och möjligheten att skapa anpassade roller.
 
 > [!TIP]
-> Den här artikeln fokuserar på Azure Machine Learning, enskilda tjänster som Azure ML använder för att tillhandahålla egna RBAC-inställningar. Med hjälp av informationen i den här artikeln kan du till exempel konfigurera vem som kan skicka Poäng begär anden till en modell som distribueras som en webb tjänst i Azure Kubernetes-tjänsten. Men Azure Kubernetes-tjänsten tillhandahåller en egen uppsättning Azure RBAC-roller. Information om tjänstspecifika RBAC-information som kan vara användbar med Azure Machine Learning finns i följande länkar:
+> Den här artikeln fokuserar på Azure Machine Learning, enskilda tjänster som Azure ML använder för att tillhandahålla egna RBAC-inställningar. Med hjälp av informationen i den här artikeln kan du till exempel konfigurera vem som kan skicka Poäng begär anden till en modell som distribueras som en webb tjänst i Azure Kubernetes-tjänsten. Men Azure Kubernetes-tjänsten tillhandahåller en egen uppsättning Azure-roller. Information om tjänstspecifika RBAC-information som kan vara användbar med Azure Machine Learning finns i följande länkar:
 >
 > * [Styr åtkomsten till Azure Kubernetes-kluster resurser](../aks/azure-ad-rbac.md)
 > * [Använd Azure RBAC för Kubernetes-auktorisering](../aks/manage-azure-rbac.md)
@@ -209,7 +209,7 @@ Om du vill utföra MLflow åtgärder med din Azure Machine Learning-arbetsyta an
 
 ### <a name="data-scientist"></a>Dataexpert
 
-Gör att en data expert kan utföra alla åtgärder inom en arbets yta **förutom** :
+Gör att en data expert kan utföra alla åtgärder inom en arbets yta **förutom**:
 
 * Skapa beräkning
 * Distribuera modeller till ett AKS-kluster för produktion
@@ -247,7 +247,7 @@ Gör att en data expert kan utföra alla åtgärder inom en arbets yta **föruto
 
 ### <a name="data-scientist-restricted"></a>Data expert begränsad
 
-En mer begränsad roll definition utan jokertecken i tillåtna åtgärder. Den kan utföra alla åtgärder inom en arbets yta **förutom** :
+En mer begränsad roll definition utan jokertecken i tillåtna åtgärder. Den kan utföra alla åtgärder inom en arbets yta **förutom**:
 
 * Skapa beräkning
 * Distribuera modeller till ett AKS-kluster för produktion
@@ -310,7 +310,7 @@ En mer begränsad roll definition utan jokertecken i tillåtna åtgärder. Den k
      
 ### <a name="mlflow-data-scientist"></a>MLflow data expert
 
-Gör att en data expert kan utföra alla MLflow AzureML-åtgärder som stöds, **förutom** :
+Gör att en data expert kan utföra alla MLflow AzureML-åtgärder som stöds, **förutom**:
 
 * Skapa beräkning
 * Distribuera modeller till ett AKS-kluster för produktion
@@ -395,7 +395,7 @@ Gör att du kan tilldela en roll till ett huvud namn för tjänsten och använda
 
 ### <a name="workspace-admin"></a>Arbets ytans administratör
 
-Gör att du kan utföra alla åtgärder inom en arbets ytans omfång, **förutom** :
+Gör att du kan utföra alla åtgärder inom en arbets ytans omfång, **förutom**:
 
 * Skapa en ny arbets yta
 * Tilldelar kvoter för prenumerations-eller arbets ytans nivå

@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 78ac7e849a3a8f1742701006638a2cb72299bad7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4839f8211e678f5fc2fb3572c7eaa545fbee6c6c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055783"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961200"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Alternativ för att migrera data från StorSimple 8000-serien
 
@@ -31,7 +31,7 @@ Kunderna som använder StorSimple 8000-serien har alternativ för Azure eller tr
 
 Det här nya migrerings alternativet gör att kunder kan lagra sin organisations fil resurser i Azure Files. Dessa fil resurser centraliseras sedan för lokal åtkomst med hjälp av Azure File Sync (AFS). AFS kan distribueras på en Windows Server-värd. Den faktiska datamigreringen utförs sedan som en värd kopia eller med migrations verktyget.
 
-Mer information om hur du migrerar data till Azure File Sync finns i [StorSimple 8100 och 8600 migrering till Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000).
+Mer information om hur du migrerar data till Azure File Sync finns i [StorSimple 8100 och 8600 migrering till Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
 ### <a name="third-party-options"></a>Alternativ från tredje part
 
@@ -111,4 +111,4 @@ A. Hur lång tid det tar att migrera data beror på mängden data och uppgraderi
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Migrera data från en StorSimple 8000-serie till Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000)
+* [Migrera data från en StorSimple 8000-serie till Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md)

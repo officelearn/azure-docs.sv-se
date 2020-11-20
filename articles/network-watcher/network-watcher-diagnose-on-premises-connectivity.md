@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 632a1eb7b7ac53bd3d7df3f2722d6e53277c7926
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9014f24918013872ce102d094f62fd5703594ddc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738761"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961884"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostisera lokal anslutning via VPN-gatewayer
 
@@ -35,7 +35,7 @@ Du vill konfigurera en plats-till-plats-anslutning mellan Azure och lokalt med F
 
 1. Virtual Network Gateway – VPN Gateway på Azure
 1. Lokal nätverksgateway – den lokala Nätverksgatewayen [(Fortigate) VPN gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) representation i Azure-molnet
-1. Plats-till-plats-anslutning (Route-baserad) – [anslutning mellan VPN gateway och den lokala routern](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
+1. Plats-till-plats-anslutning (Route-baserad) – [anslutning mellan VPN gateway och den lokala routern](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection)
 1. [Konfigurera FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Detaljerade anvisningar för hur du konfigurerar en plats-till-plats-konfiguration finns på: [skapa ett VNet med en plats-till-plats-anslutning med hjälp av Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
@@ -87,9 +87,9 @@ Med Azure Network Watcher fel söknings funktionen kan du diagnostisera och fels
 | PlannedMaintenance |  Underhåll utförs på Gateway-instansen.  |Nej|
 | UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring. | Nej |
 | VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Detta inträffar när hälso avsökningen Miss lyckas. | Nej |
-| PlatformInActive | Det är något problem med plattformen. | Inga|
-| ServiceNotRunning | Den underliggande tjänsten körs inte. | Inga|
-| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Detta är endast en varning.| Inga|
+| PlatformInActive | Det är något problem med plattformen. | Nej|
+| ServiceNotRunning | Den underliggande tjänsten körs inte. | Nej|
+| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Detta är endast en varning.| Nej|
 | ConnectionsNotConnected | Ingen anslutning är ansluten. Detta är endast en varning.| Ja|
 | GatewayCPUUsageExceeded | CPU-användningen för aktuell gateway-användning är > 95%. | Ja |
 
@@ -101,9 +101,9 @@ Med Azure Network Watcher fel söknings funktionen kan du diagnostisera och fels
 | GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Nej|
 | PlannedMaintenance | Underhåll utförs på Gateway-instansen.  |Nej|
 | UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring.  | Nej |
-| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Det inträffar när hälso avsökningen Miss lyckas. | Inga |
-| ConnectionEntityNotFound | Anslutnings konfigurationen saknas. | Inga |
-| ConnectionIsMarkedDisconnected | Anslutningen är markerad som frånkopplad. |Inga|
+| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Det inträffar när hälso avsökningen Miss lyckas. | Nej |
+| ConnectionEntityNotFound | Anslutnings konfigurationen saknas. | Nej |
+| ConnectionIsMarkedDisconnected | Anslutningen är markerad som frånkopplad. |Nej|
 | ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Ja |
 | ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Ja|
 | Autentisering | Matchnings fel för i förväg delad nyckel. | Ja|

@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: d121430452e0ed445af19f9b1ac89cfdfccdcdae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 05bcb0aebd44dee60fa3f323e1f109e4c0761ec8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167329"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961965"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server
 
@@ -120,7 +121,7 @@ Du kan använda en av snabb starts mallarna på GitHub för att distribuera alla
    4. Administratörens användar namn och administratörs lösen ord  
       En ny användare skapas som kan användas för att logga in på datorn.
    5. Undernät-ID  
-      Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/** &lt; PRENUMERATIONS &gt; -ID**/ResourceGroups/** &lt; resurs grupp namn &gt; **/providers/Microsoft.Network/virtualNetworks/** &lt; virtuellt nätverks namn &gt; **/subnets/** &lt; under näts namn &gt; **
+      Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/**&lt; PRENUMERATIONS &gt; -ID**/ResourceGroups/**&lt; resurs grupp namn &gt;**/providers/Microsoft.Network/virtualNetworks/**&lt; virtuellt nätverks namn &gt;**/subnets/**&lt; under näts namn &gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuera Linux manuellt via Azure Portal
 
@@ -158,7 +159,7 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
          1. Port 61000 för NW1
             1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
             1. Ange namnet på den nya hälso avsökningen (till exempel **NW1 – HP**)
-            1. Välj TCP som protokoll, Port 610**00**, Behåll intervallet 5 och tröskelvärde 2
+            1. Välj TCP som protokoll, Port 610 **00**, Behåll intervallet 5 och tröskelvärde 2
             1. Klicka på OK
          1. Port 61001 för NW2
             * Upprepa stegen ovan för att skapa en hälso avsökning för NW2
@@ -192,7 +193,7 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
          1. Port 61000 för NW1
             1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
             1. Ange namnet på den nya hälso avsökningen (till exempel **NW1 – HP**)
-            1. Välj TCP som protokoll, Port 610**00**, Behåll intervallet 5 och tröskelvärde 2
+            1. Välj TCP som protokoll, Port 610 **00**, Behåll intervallet 5 och tröskelvärde 2
             1. Klicka på OK
          1. Port 61001 för NW2
             * Upprepa stegen ovan för att skapa en hälso avsökning för NW2

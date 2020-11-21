@@ -47,7 +47,7 @@
         - name: Distribuera i Kubernetes
           href: deploy-kubernetes.md
         - name: Distribuera med Azure Data Studio
-          href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=%252fazure%252fazure-sql-edge%252ftoc.json
+          href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=%2fazure%2fazure-sql-edge%2ftoc.json
     - name: Maskininlärning
       items:
         - name: Maskininlärning och AI med ONNX
@@ -91,9 +91,9 @@
         - name: DATE_BUCKET (Transact-SQL)
           href: date-bucket-tsql.md
         - name: FIRST_VALUE (Transact-SQL)
-          href: /sql/t-sql/functions/first-value-transact-sql?toc=%252fazure%252fazure-sql-edge%252ftoc.json
+          href: /sql/t-sql/functions/first-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: LAST_VALUE (Transact-SQL)
-          href: /sql/t-sql/functions/last-value-transact-sql?toc=%252fazure%252fazure-sql-edge%252ftoc.json
+          href: /sql/t-sql/functions/last-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: Datakvarhållning och rensning
           items:
             - name: Översikt över datakvarhållning
@@ -109,11 +109,11 @@
         - name: Säkerhetsöversikt
           href: security-overview.md
         - name: Säkerhetsfunktioner
-          href: /sql/linux/sql-server-linux-security-get-started?toc=%252fazure%252fazure-sql-edge%252ftoc.json
+          href: /sql/linux/sql-server-linux-security-get-started?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: Kryptera anslutningar
-          href: /sql/linux/sql-server-linux-encrypted-connections?toc=%252fazure%252fazure-sql-edge%252ftoc.json
+          href: /sql/linux/sql-server-linux-encrypted-connections?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: Azure Security Center för IoT
-          href: ../defender-for-iot/overview.md?bc=%252fazure%252fazure-sql-edge%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fazure-sql-edge%252ftoc.json
+          href: ../defender-for-iot/overview.md?bc=%2fazure%2fazure-sql-edge%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-sql-edge%2ftoc.json
 - name: Gör så här för att
   items:
     - name: Konfigurera SQL Edge

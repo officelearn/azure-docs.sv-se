@@ -259,7 +259,7 @@
         - name: LUIS-tjänst
           items:
             - name: LUIS-utvecklarresurser
-              href: 'https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource'
+              href: ../luis/developer-reference-resource.md
     - name: Resurser
       items:
         - name: Stöd för språk
@@ -275,7 +275,7 @@
     - name: Referens
       items:
         - name: REST-API för talarigenkänning
-          href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+          href: /rest/api/speakerrecognition/
 - name: Anpassade nyckelord
   items:
     - name: Anpassad nyckelordsöversikt
@@ -493,7 +493,7 @@
         - name: Översikt av Speech Studio
           href: 'https://speech.microsoft.com'
         - name: Skapa en app för anpassade kommandon med Speech Studio
-          href: quickstart-custom-speech-commands-create-new.md
+          href: ./quickstart-custom-commands-application.md
 - name: Distribuera
   items:
     - name: Aktivera loggning

@@ -1,5 +1,5 @@
 - name: Azure Synapse (förhandsversion av arbetsytor)
-  href: sql-data-warehouse/index.yml
+  href: overview-what-is.md
 - name: Växla till Azure Synapse (tidigare SQL DW)
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Översikt
@@ -7,10 +7,8 @@
     - name: Vad är Azure Synapse?
       href: overview-what-is.md
       displayName: overview
-    - name: Översiktsblad
-      href: overview-cheat-sheet.md
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: overview-faq.md
+    - name: Terminologi
+      href: overview-terminology.md
     - name: Viktig information
       href: release-notes.md
 - name: Snabbstarter

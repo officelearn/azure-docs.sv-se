@@ -11,16 +11,16 @@
 - name: Självstudier
   items:
     - name: Skapa en dynamisk grupp
-      href: ../enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Begrepp
   expanded: true
   items:
     - name: Delegera administratörsroller i Azure AD
       href: concept-delegation.md
     - name: Jämföra standardbehörigheter för användare
-      href: ../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Jämför roller i Azure och Azure AD
-      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Förstå administrativa enheter i Azure AD
       href: administrative-units.md
 - name: Anvisningar
@@ -29,15 +29,15 @@
     - name: Användare och roller
       items:
         - name: Tilldela användare administrativa roller
-          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Återkalla en användares åtkomst
-          href: ../enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Tilldela en roll till en gästanvändare
-          href: ../b2b/add-guest-to-role.md?context=azure/active-directory/roles/context/ugr-context
+          href: ../b2b/add-guest-to-role.md?context=%2fazure/active-directory/roles/context/ugr-context
         - name: Begränsa gästanvändares åtkomst
-          href: ../enterprise-users/users-restrict-guest-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../enterprise-users/users-restrict-guest-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Dynamiska grupper och gäster
-          href: ../b2b/use-dynamic-groups.md?context=azure/active-directory/roles/context/ugr-context
+          href: ../b2b/use-dynamic-groups.md?context=%2fazure/active-directory/roles/context/ugr-context
     - name: Roller och behörigheter
       expanded: true
       items:
@@ -57,7 +57,7 @@
         - name: Visa anpassade rolltilldelningar
           href: custom-view-assignments.md
         - name: Tilldela anpassade roller i Azure-portalen
-          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Tilldela anpassade roller i PowerShell
           href: custom-assign-powershell.md
         - name: Tilldela anpassade roller för företagsappar
@@ -111,7 +111,7 @@
     - name: Felsöka
       items:
         - name: Få support för Azure AD
-          href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Referens
   items:
     - name: Lägsta behörighetsroller efter uppgift
@@ -125,4 +125,4 @@
     - name: Azure AD PowerShell för Graph
       href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
     - name: Begränsningar för Azure AD-tjänsten
-      href: ../enterprise-users/directory-service-limits-restrictions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context

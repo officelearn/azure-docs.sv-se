@@ -19,7 +19,7 @@
 - name: Begrepp
   items:
     - name: Vad är hash-synkronisering av lösenord?
-      href: ../hybrid/whatis-phs.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
+      href: ../hybrid/whatis-phs.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
     - name: 'Förstå Azure AD-schemat, attribut och uttryck'
       href: concept-attributes.md
     - name: Skriva uttryck för attributmappningar i Azure Active Directory
@@ -63,10 +63,10 @@
 - name: Referens
   items:
     - name: Versionshistorik för agent för Azure AD Connect-molnetablering
-      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Vanliga frågor och svar om Azure AD Connect-molnetablering
       href: reference-cloud-provisioning-faq.md
     - name: Attribut som har synkroniserats
-      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Basic Active Directory och Azure AD-miljöer
       href: tutorial-basic-ad-azure.md

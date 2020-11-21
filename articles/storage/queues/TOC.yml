@@ -70,7 +70,7 @@
         - name: Auktorisera hanteringsåtgärder
           href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Inbyggda säkerhetskontroller
-          href: ../common/security-baseline.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json
+          href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Använda Azure privata slutpunkter
           href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Säkerhetskontroller av Azure Policy

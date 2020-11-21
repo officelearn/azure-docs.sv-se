@@ -7,9 +7,9 @@
 - name: Snabbstarter
   items:
     - name: Lägga till användare i Azure AD
-      href: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Tilldela licenser till användare
-      href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/enterprise-users/context/ugr-context
+      href: /azure/active-directory/fundamentals/license-users-groups?context=%2fazure/active-directory/enterprise-users/context/ugr-context
     - name: Ange utgångsdatum för grupper
       href: groups-quickstart-expiration.md
     - name: Ange namnpolicy för grupper
@@ -22,34 +22,34 @@
   expanded: true
   items:
     - name: Jämföra standardbehörigheter för användare
-      href: ../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Grunderna i gruppbaserad licensiering
-      href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Hantera åtkomst med grupper
-      href: ../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
 - name: Anvisningar
   expanded: true
   items:
     - name: Hantera användare
       items:
         - name: Skapa användare
-          href: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Masskapa användare
           href: users-bulk-add.md
         - name: Hantera användarprofiler
-          href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Hämta användarinformation
           href: users-bulk-download.md
         - name: Dela användarkonton
           href: users-sharing-accounts.md
         - name: Tilldela användare administrativa roller
-          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Förbättringar av användarhantering
           href: users-search-enhanced.md
         - name: Massborttag användare
           href: users-bulk-delete.md
         - name: Återställa en borttagen användare
-          href: ../fundamentals/active-directory-users-restore.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-users-restore.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Massåterställ användare
           href: users-bulk-restore.md
         - name: Återkalla en användares åtkomst
@@ -57,17 +57,17 @@
         - name: Stänga ett konto i en ohanterad katalog
           href: users-close-account.md
         - name: Lägga till gästanvändare
-          href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/enterprise-users/context/ugr-context
+          href: /azure/active-directory/b2b/what-is-b2b?context=%2fazure/active-directory/enterprise-users/context/ugr-context
         - name: Tilldela en roll till en gästanvändare
-          href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/enterprise-users/context/ugr-context
+          href: /azure/active-directory/b2b/add-guest-to-role?context=%2fazure/active-directory/enterprise-users/context/ugr-context
         - name: Begränsa gästanvändares åtkomst
           href: users-restrict-guest-permissions.md
         - name: Dynamiska grupper och gäster
-          href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/enterprise-users/context/ugr-context
+          href: /azure/active-directory/b2b/use-dynamic-groups?context=%2fazure/active-directory/enterprise-users/context/ugr-context
     - name: Hantera din organisation
       items:
         - name: Azure AD-organisationer
-          href: ../fundamentals/active-directory-whatis.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Hantera domännamn
           href: domains-manage.md
         - name: Verifiera underdomäner som hanterade
@@ -81,13 +81,13 @@
         - name: Ta över en katalog
           href: domains-admin-takeover.md
         - name: Azure AD Connect
-          href: ../hybrid/whatis-hybrid-identity.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../hybrid/whatis-hybrid-identity.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Hantera grupper
       items:
         - name: Hantera åtkomst med grupper
-          href: ../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Skapa en grupp (Azure-portalen)
-          href: ../fundamentals/active-directory-groups-create-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-groups-create-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Hantera grupper i PowerShell för Graph (v2)
           href: groups-settings-v2-cmdlets.md
         - name: Hantera grupper med PowerShell MSOnline
@@ -95,7 +95,7 @@
         - name: Söka grupp- och medlemslistor
           href: groups-members-owners-search.md
         - name: Lägga till eller ta bort gruppmedlemmar
-          href: ../fundamentals/active-directory-groups-members-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-groups-members-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Dynamiska grupper
           items:
             - name: Skapa en dynamisk grupp
@@ -117,11 +117,11 @@
         - name: Återställa borttagna grupper
           href: groups-restore-deleted.md
         - name: Hantera gruppinställningar
-          href: ../fundamentals/active-directory-groups-settings-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-groups-settings-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Hantera gruppägare
-          href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Hantera grupper i grupper
-          href: ../fundamentals/active-directory-groups-membership-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-groups-membership-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Hantera gruppåtkomst till SaaS-appar
           href: groups-saasapps.md
         - name: Ange namngivningsprincip för grupp
@@ -135,7 +135,7 @@
     - name: Tilldela licenser
       items:
         - name: Tilldela licenser till användare
-          href: ../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Tilldela licenser till en grupp
           href: licensing-groups-assign.md
         - name: Lösa problem med grupplicenser
@@ -153,7 +153,7 @@
     - name: Hantera inloggning
       items:
         - name: Anpassa varumärkesexponering
-          href: ../fundamentals/customize-branding.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/customize-branding.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Inloggningsalternativ
           href: signin-account-support.md
         - name: Upptäckt av hemsfär
@@ -167,7 +167,7 @@
     - name: Felsöka
       items:
         - name: Få support för Azure AD
-          href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Felsöka grupper
           href: groups-troubleshooting.md
         - name: Felsöka grupplicenser

@@ -32,24 +32,24 @@
               href: ../../site-recovery/azure-to-azure-quickstart.md
     - name: Självstudier
       items:
-        - name: Virtuella datorer
+        - name: Virtual Machines
           items:
             - name: Skapa och hantera en virtuell Windows-dator
               href: ../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Skapa och hantera virtuella Linux-datorer
               href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Jenkins CI/CD-pipeliner
-              href: /azure/developer/jenkins/pipeline-with-github-and-docker?toc=%252fazure%252fguides%252foperations%252ftoc.json
+              href: /azure/developer/jenkins/pipeline-with-github-and-docker?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Belastningsutjämna virtuella datorer
               href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Skapa Azure Resource Manager-mallar
-              href: ../../azure-resource-manager/templates/template-syntax.md?toc=%252fazure%252fguides%252foperations%252ftoc.json
+              href: ../../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Säkerhetskopiera virtuella datorer enligt skala
               href: ../../backup/tutorial-backup-vm-at-scale.md
     - name: Instruktionsguider
       items:
         - name: Ladda ned din Azure-faktura och information om den dagliga användningen
-          href: ../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md?toc=%252fazure%252fguides%252foperations%252ftoc.json
+          href: ../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
     - name: Resurser
       items:
         - name: Azure-produktkatalog

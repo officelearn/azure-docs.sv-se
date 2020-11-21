@@ -21,6 +21,10 @@
       href: work-remotely-support.md
     - name: Bastion- och VNet-peering
       href: vnet-peering.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
 - name: Anvisningar
   items:
     - name: Skapa en värd

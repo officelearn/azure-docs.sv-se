@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e861182ee57a0b49d3e62a858fc97dbf0890ea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48cde51ee9941f705aa848d121c419a8f0c9ad1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399711"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013704"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Självstudie: skapa en klient modell (förhands granskning)
 
@@ -40,7 +40,7 @@ Innan du kan distribuera din klient modell måste du vara registrerad i klient m
 
 1. Logga in på [Administrationscenter för Microsoft 365](https://admin.microsoft.com).
 
-1. Välj **Inställningar**i den vänstra rutan och välj sedan **Inställningar** på den kapslade menyn och välj sedan **Azure Speech Services** från huvud fönstret.
+1. Välj **Inställningar** i den vänstra rutan och välj sedan **Inställningar** på den kapslade menyn och välj sedan **Azure Speech Services** från huvud fönstret.
 
    ![Fönstret "tjänster & tillägg"](media/tenant-language-model/tenant-language-model-enrollment.png)
 
@@ -58,8 +58,8 @@ Om du vill använda din klient modell med tal-SDK behöver du en tal resurs och 
 
 1. Logga in på [Azure-portalen](https://aka.ms/azureportal).
 1. Välj **Skapa en resurs**.
-1. Skriv **tal**i rutan **Sök** .
-1. Välj **tal**i listan resultat och välj sedan **skapa**.
+1. Skriv **tal** i rutan **Sök** .
+1. Välj **tal** i listan resultat och välj sedan **skapa**.
 1. Följ anvisningarna på skärmen för att skapa din resurs. Se till att:
    * **Platsen** anges till antingen **öster** eller **väst**.
    * **Pris nivån** är inställd på **S0**.
@@ -105,7 +105,7 @@ När din klient modell instans är klar distribuerar du den genom att göra föl
 
 Nu när du har distribuerat din modell kan du använda den med talet SDK. I det här avsnittet använder du exempel kod för att anropa tal tjänsten med hjälp av Azure Active Directory (Azure AD)-autentisering.
 
-Nu ska vi titta på koden som du ska använda för att anropa talet SDK i C#. I det här exemplet ska du utföra tal igenkänning genom att använda din klient modell. Den här guiden förutsätter att din plattform redan har kon figurer ATS. Om du behöver installations hjälpen, se [snabb start: identifiera tal, C# (.net Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+Nu ska vi titta på koden som du ska använda för att anropa talet SDK i C#. I det här exemplet ska du utföra tal igenkänning genom att använda din klient modell. Den här guiden förutsätter att din plattform redan har kon figurer ATS. Om du behöver installations hjälpen, se [snabb start: identifiera tal, C# (.net Core)](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore).
 
 Kopiera den här koden till projektet:
 

@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7e41eb0f6a61f7b195e251739ae93207c731cac5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 5cc8a4508ceeda245fbc10a81e16f3ecf05284c7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535885"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013624"
 ---
 # <a name="detect-adult-content"></a>Identifiera vuxen innehåll
 
 Visuellt innehåll kan identifiera vuxna material i bilder så att utvecklare kan begränsa visningen av dessa bilder i program varan. Innehålls flaggor används med ett resultat mellan noll och en så att utvecklarna kan tolka resultaten enligt sina egna inställningar.
 
 > [!NOTE]
-> Mycket av den här funktionen erbjuds av [Azure Content moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) -tjänsten. Se det här alternativet för lösningar till fler rigorösa innehålls redigerings scenarier, till exempel text moderator och mänsklig gransknings arbets flöden.
+> Mycket av den här funktionen erbjuds av [Azure Content moderator](../content-moderator/overview.md) -tjänsten. Se det här alternativet för lösningar till fler rigorösa innehålls redigerings scenarier, till exempel text moderator och mänsklig gransknings arbets flöden.
 
 ## <a name="content-flag-definitions"></a>Definition av innehålls flagga
 
@@ -37,5 +37,5 @@ Inom klassificeringen "vuxen" är flera olika kategorier:
 
 Du kan identifiera innehåll för vuxna med API för att [analysera avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . När du lägger till värdet för `Adult` i **visualFeatures** -Frågeparametern returnerar API tre booleska egenskaper &mdash; `isAdultContent` , `isRacyContent` och `isGoryContent` &mdash; i dess JSON-svar. Metoden returnerar också motsvarande egenskaper &mdash; `adultScore` , `racyScore` och `goreScore` &mdash; som representerar förtroende poängen mellan noll och en för varje respektive kategori.
 
-- [Snabb start: analysera en avbildning (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+- [Snabb start: analysera en avbildning (.NET SDK)](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 - [Snabb start: analysera en avbildning (REST API)](./quickstarts/csharp-analyze.md)

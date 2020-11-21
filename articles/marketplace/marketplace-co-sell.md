@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/17/2020
-ms.openlocfilehash: 730178d974ba95db968332ac669f701486b513bd
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.date: 11/20/2020
+ms.openlocfilehash: 9d6970331024ea0cd08e890cc62507d9eb230678
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738534"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016341"
 ---
 # <a name="co-sell-partner-engagement"></a>Deltagande i partnersäljsamarbete
 
@@ -85,6 +85,13 @@ Starta din co-försäljnings resa direkt i Partner Center genom att följa stege
         :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="I den här bilden visas List rutan CED för att begära en granskning med medförsäljning.":::
 
     CED kommer att kontakta dig för att slutföra processen.
+
+## <a name="see-your-offers-co-sell-status"></a>Se ditt erbjudandes status för co-försäljning
+
+För erbjudanden med [alternativet medförsäljning i Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md)kan du se erbjudandet aktuella medförsäljnings status på sidan erbjudande översikt:
+
+ :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Den här bilden visar den aktuella medförsäljnings statusen för erbjudanden.":::
+
 
 ## <a name="next-steps"></a>Nästa steg
 

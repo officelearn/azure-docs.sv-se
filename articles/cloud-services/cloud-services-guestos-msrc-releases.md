@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.author: yohaddad
-ms.openlocfilehash: 5a5e448660583204d424358e571c4bfb74890e8d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: e84342bff0d2bbc3b034afc1b3c5e8a7dc4a9eb1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737837"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015535"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
@@ -29,10 +29,10 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
 | --- | --- | --- | --- | --- |
-|  Rel 20-11 |  [4586793]  |  Senaste kumulativa uppdateringen | 6,25 | Den 10 november 2020 |
+|  Rel 20-11 OOB |  [4594442]  |  Senaste kumulativa uppdateringen | 6,25 | 17 november 2020 |
+|  Rel 20-11 OOB |  [4594441]  |  Senaste kumulativa uppdateringen | 5,49 | Den 19 november 2020 |
 |  Rel 20-11 |  [4580325]  |  Uppdatera Flash | 3,91, 4,84, 5,49, 6,25 | 13 oktober 2020 |
 |  Rel 20-11 |  [4586768]  |  Kumulativ uppdatering för IE | 2,104, 3,91, 4,84 | Den 10 november 2020 |
-|  Rel 20-11 |  [4586830]  |  Senaste kumulativa uppdateringen | 5,49 | Den 10 november 2020 |
 |  Rel 20-11 |  [4578952]  |  .NET Framework 3,5 säkerhets-och kvalitets sammanslagning | 2,104 | Den 10 november 2020 |
 |  Rel 20-11 |  [4578955]  |  .NET Framework 4.5.2 säkerhet och kvalitet | 2,104 | Den 10 november 2020 |
 |  Rel 20-11 |  [4578953]  |  .NET Framework 3,5 säkerhets-och kvalitets sammanslagning | 4,84 | Den 10 november 2020 |
@@ -52,10 +52,10 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 |  Rel 20-11 |  [4494175]  |  Microcode | 5,49 | Sep 1, 2020 |
 |  Rel 20-11 |  [4494174]  |  Microcode | 6,25 | Sep 3, 2020 |
 
-[4586793]: https://support.microsoft.com/kb/4586793
+[4594442]: https://support.microsoft.com/kb/4594442
+[4594441]: https://support.microsoft.com/kb/4594441
 [4580325]: https://support.microsoft.com/kb/4580325
 [4586768]: https://support.microsoft.com/kb/4586768
-[4586830]: https://support.microsoft.com/kb/4586830
 [4578952]: https://support.microsoft.com/kb/4578952
 [4578955]: https://support.microsoft.com/kb/4578955
 [4578953]: https://support.microsoft.com/kb/4578953

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 695b0b0ac06e63912ca0a471be3d96c148458c29
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dc3d119479d2dce45b286463f3d6a76410220dd0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104248"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014228"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Standard kolumner i Azure Monitor loggar
 Data i Azure Monitor loggar [lagras som en uppsättning poster i antingen en Log Analytics arbets yta eller ett Application Insights program](./data-platform-logs.md), var och en med en viss datatyp som har en unik uppsättning kolumner. Många data typer kommer att ha standard kolumner som är gemensamma för flera typer. Den här artikeln beskriver de här kolumnerna och innehåller exempel på hur du kan använda dem i frågor.
@@ -48,7 +48,7 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-Kolumnen ** \_ TimeReceived** innehåller datum och tid då posten togs emot av Azure Monitor inmatnings punkt i Azure-molnet. Detta kan vara användbart för att identifiera svars tids problem mellan data källan och molnet. Ett exempel är ett nätverks problem som orsakar en fördröjning med data som skickas från en agent. Mer information finns i [inmatnings tiden för logg data i Azure Monitor](data-ingestion-time.md) .
+Kolumnen **\_ TimeReceived** innehåller datum och tid då posten togs emot av Azure Monitor inmatnings punkt i Azure-molnet. Detta kan vara användbart för att identifiera svars tids problem mellan data källan och molnet. Ett exempel är ett nätverks problem som orsakar en fördröjning med data som skickas från en agent. Mer information finns i [inmatnings tiden för logg data i Azure Monitor](data-ingestion-time.md) .
 
 Följande fråga ger den genomsnittliga svars tiden per timme för händelse poster från en agent. Detta inkluderar tiden från agenten till molnet och den totala tiden för posten som ska vara tillgänglig för logg frågor.
 
@@ -74,11 +74,11 @@ search *
 
 ```
 ## <a name="_itemid"></a>\_ItemId
-Kolumnen ** \_ Itemid** innehåller en unik identifierare för posten.
+Kolumnen **\_ Itemid** innehåller en unik identifierare för posten.
 
 
 ## <a name="_resourceid"></a>\_ResourceId
-Kolumnen ** \_ ResourceID** innehåller en unik identifierare för resursen som posten är associerad med. Detta ger dig en standard kolumn som du kan använda för att begränsa din fråga till endast poster från en viss resurs eller för att koppla samman relaterade data över flera tabeller.
+Kolumnen **\_ ResourceID** innehåller en unik identifierare för resursen som posten är associerad med. Detta ger dig en standard kolumn som du kan använda för att begränsa din fråga till endast poster från en viss resurs eller för att koppla samman relaterade data över flera tabeller.
 
 För Azure-resurser är värdet för **_ResourceId** [URL: en för Azure-resurs-ID](../../azure-resource-manager/templates/template-functions-resource.md). Kolumnen är för närvarande begränsad till Azure-resurser, men den kommer att utökas till resurser utanför Azure, till exempel lokala datorer.
 
@@ -124,7 +124,7 @@ union withsource = tt *
 Använd dessa `union withsource = tt *` frågor sparsamt eftersom det är dyrt att köra genomsökningar över data typer.
 
 ## <a name="_isbillable"></a>\_Fakturerbar
-Kolumnen ** \_ fakturerbar** anger om inmatade data är fakturerbara. Data med ** \_ fakturerbar** som är lika med `false` samlas in kostnads fritt och debiteras inte ditt Azure-konto.
+Kolumnen **\_ fakturerbar** anger om inmatade data är fakturerbara. Data med **\_ fakturerbar** som är lika med `false` samlas in kostnads fritt och debiteras inte ditt Azure-konto.
 
 ### <a name="examples"></a>Exempel
 Använd följande fråga om du vill hämta en lista över datorer som skickar fakturerings data typer:
@@ -151,7 +151,7 @@ union withsource = tt *
 ```
 
 ## <a name="_billedsize"></a>\_BilledSize
-Kolumnen ** \_ BilledSize** anger storleken i byte på data som ska faktureras till ditt Azure-konto om ** \_ fakturerbar** är sant.
+Kolumnen **\_ BilledSize** anger storleken i byte på data som ska faktureras till ditt Azure-konto om **\_ fakturerbar** är sant.
 
 
 ### <a name="examples"></a>Exempel
@@ -211,4 +211,4 @@ union withsource = tt *
 
 - Läs mer om hur [Azure Monitor loggdata lagras](../log-query/log-query-overview.md).
 - Få en lektion om att [skriva logg frågor](../log-query/get-started-queries.md).
-- Få en lektion om att [koppla tabeller i logg frågor](../log-query/joins.md).
+- Få en lektion om att [koppla tabeller i logg frågor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).

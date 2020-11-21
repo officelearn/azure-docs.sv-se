@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 7b430f16e96c6d59fe85c711d07e323bf848b069
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: dd6ca0de98bb44e070eeaaebf3f29f9e19b061cc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541257"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013851"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Använd en domänmodell med hjälp av REST API:et och Python i Visuellt innehåll
 
@@ -33,7 +33,7 @@ Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-antec
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Visuellt innehåll-tjänsten. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
-* [Skapa miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
+* [Skapa miljövariabler](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="create-and-run-the-landmarks-sample"></a>Skapa och köra exemplet med landmärken
 
@@ -41,9 +41,9 @@ Så här skapar du och kör exemplet med landmärken:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill identifiera landmärken i.
-1. Spara koden som en fil med tillägget `.py`. Ett exempel är `get-landmarks.py`.
+1. Spara koden som en fil med tillägget `.py`. Exempelvis `get-landmarks.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Ett exempel är `python get-landmarks.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python get-landmarks.py`.
 
 ```python
 import os
@@ -125,9 +125,9 @@ Så här skapar du och kör exemplet med landmärken:
     1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
     1. Ersätt värdet för `vision_base_url` med slutpunktens URL för resursen för Visuellt innehåll i den Azure-region där du fick dina prenumerationsnycklar, om så behövs.
     1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill identifiera kändisar i.
-1. Spara koden som en fil med tillägget `.py`. Ett exempel är `get-celebrities.py`.
+1. Spara koden som en fil med tillägget `.py`. Exempelvis `get-celebrities.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Ett exempel är `python get-celebrities.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python get-celebrities.py`.
 
 ```python
 import requests
@@ -210,6 +210,6 @@ Ta bort filerna för båda exemplen när de inte längre behövs.
 Nu ska du utforska ett python-program som använder Visuellt innehåll för att utföra optisk tecken igenkänning (OCR). Skapa Smart-beskurna miniatyrer; identifiera, kategorisera, tagga och beskriv visuella funktioner i bilder.
 
 > [!div class="nextstepaction"]
-> [Självstudie: API för visuellt innehåll med Python](../Tutorials/PythonTutorial.md)
+> [Självstudie: API för visuellt innehåll med Python](https://github.com/Microsoft/Cognitive-Vision-Python)
 
 * Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

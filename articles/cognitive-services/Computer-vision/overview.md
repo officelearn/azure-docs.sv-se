@@ -14,12 +14,12 @@ ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visuellt innehåll, program för visuellt innehåll, dator vision
-ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1603aa05d8bde6d4c3edba2d49120fa3545d3fd0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629758"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014653"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -64,7 +64,7 @@ Skapa en beskrivning av en hel bild i läsbart språk med fullständiga meningar
 
 ### <a name="detect-faces"></a>Identifiera ansikten
 
-Identifiera ansikten i en bild och ange information om varje identifierat ansikte. Visuellt innehåll returnerar koordinater, rektanglar, kön och ålder för varje identifierat ansikte.<br/>Visuellt innehåll tillhandahåller en delmängd av funktionerna för [ansikts](/azure/cognitive-services/face/) tjänster. Du kan använda ansikts tjänsten för mer detaljerad analys, t. ex. ansikts identifiering och identifiering. [Identifiera ansikten](concept-detecting-faces.md)
+Identifiera ansikten i en bild och ange information om varje identifierat ansikte. Visuellt innehåll returnerar koordinater, rektanglar, kön och ålder för varje identifierat ansikte.<br/>Visuellt innehåll tillhandahåller en delmängd av funktionerna för [ansikts](../face/index.yml) tjänster. Du kan använda ansikts tjänsten för mer detaljerad analys, t. ex. ansikts identifiering och identifiering. [Identifiera ansikten](concept-detecting-faces.md)
 
 ### <a name="detect-image-types"></a>Identifiera bildtyper
 

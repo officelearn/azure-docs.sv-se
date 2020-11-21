@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d399507499a320116ff1c732a1ffc0ad84b5731
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74110355"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015450"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Vanliga frågor och svar om röst assistenter
 
-Om du inte kan hitta svar på dina frågor i det här dokumentet kan du titta närmare på [andra support alternativ](support.md).
+Om du inte kan hitta svar på dina frågor i det här dokumentet kan du titta närmare på [andra support alternativ](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
 
 ## <a name="general"></a>Allmänt
 
@@ -35,9 +35,9 @@ S **:** [anpassade kommandon (förhands granskning)](custom-commands.md) är en 
 
 **A:** Det bästa sättet att börja med att skapa ett anpassat kommando (för hands version) eller ett Basic bot-program (Basic bot Framework).
 
-- [Skapa ett anpassat kommando (för hands version)](quickstart-custom-speech-commands-create-new.md)
-- [Skapa en grundläggande bot-robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-- [Anslut en robot till den direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Skapa ett anpassat kommando (för hands version)](./quickstart-custom-commands-application.md)
+- [Skapa en grundläggande bot-robot](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [Anslut en robot till den direkta linjens tal kanal](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Felsökning
 
@@ -62,7 +62,7 @@ En mer detaljerad guide finns i [avsnittet om självstudier](tutorial-voice-enab
 **A:** Det här felet indikerar ett kommunikations problem mellan din assistent och tjänsten röst assistent.
 
 - För anpassade kommandon (för hands version) ser du till att dina anpassade kommandon (för hands version) är publicerade
-- För direkt linje tal kontrollerar du att du har [anslutit din robot till den direkta rad igenkännings kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [lagt till stöd för strömnings protokoll](https://aka.ms/botframework/addstreamingprotocolsupport) i din robot (med relaterad WebSocket-support) och kontrollerar sedan att roboten svarar på inkommande begär Anden från kanalen.
+- För direkt linje tal kontrollerar du att du har [anslutit din robot till den direkta rad igenkännings kanalen](/azure/bot-service/bot-service-channel-connect-directlinespeech), [lagt till stöd för strömnings protokoll](/azure/bot-service/directline-speech-bot) i din robot (med relaterad WebSocket-support) och kontrollerar sedan att roboten svarar på inkommande begär Anden från kanalen.
 
 **F: den här koden fungerar fortfarande inte och/eller jag får ett annat fel meddelande när du använder en `DialogServiceConnector` . Vad ska jag göra?**
 
@@ -71,4 +71,4 @@ En mer detaljerad guide finns i [avsnittet om självstudier](tutorial-voice-enab
 ## <a name="next-steps"></a>Nästa steg
 
 - [Felsökning](troubleshooting.md)
-- [Versionsanmärkningar](releasenotes.md)
+- [Viktig information](releasenotes.md)

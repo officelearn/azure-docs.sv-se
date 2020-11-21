@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 18e90bcfe7238ae998ac677a9d7eebef0ffa8939
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a4848f5e8b542d80b382abe39f4882a26e0f534c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874261"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015688"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Felsöka certifikat fel
 
@@ -26,7 +26,7 @@ Följande tabell visar vanliga certifikat fel och detaljerad information om dess
 > [!NOTE]
 > Förekomster av &#8220;{0} , {1} ,..., {n} &#8221; anger positions parametrar. Positions parametrarna tar värden beroende på de certifikat som du använder.
 
-| Felkod | Beskrivning |
+| Felkod | Description |
 |---|---|
 | CertificateManagement_UntrustedCertificate | Certifikatet med ämnes namnet {0} har en certifikat kedja bruten. Ladda upp certifikatet för signerings kedjan innan du laddar upp det här certifikatet.|
 | CertificateManagement_DeviceNotRegistered| Enheten är inte aktive rad. Du kan bara överföra ett support certifikat efter aktiveringen.|
@@ -58,7 +58,6 @@ Följande tabell visar vanliga certifikat fel och detaljerad information om dess
 | CertificateImportFailure | Certifikatet med tumavtrycket {0} importerades inte på noden {1} . Kontakta Microsoft Support om problemet kvarstår. |
 | CertificateApplyFailure | Certifikatet med tumavtrycket {0} tillämpades inte på noden {1} . Kontakta Microsoft Support om problemet kvarstår.|
 | NodeNotReachable | Det gick inte att verifiera certifikatet på {0} . Kontrol lera systemets maskin-och program varu hälsa.|
-| HÄMTA FELKOD | Det går inte att komma åt den privata nyckeln för det här certifikatet. Kontrol lera att du använder ett certifikat som stöds. Endast Microsoft RSA/SChannel Cryptographic Provider stöds. |
 
 
 ## <a name="next-steps"></a>Nästa steg

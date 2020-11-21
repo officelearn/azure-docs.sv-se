@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: cf4b321425ccaae877c2ff5c9b54f429d95a3515
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b9966d4d9ab0a37f5484ec9eb9b7e2472a6b41dc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312310"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012910"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Förstärka inlärningen (för hands version) med Azure Machine Learning
 
@@ -52,7 +52,7 @@ Kör den här koden i någon av följande miljöer. Vi rekommenderar att du för
     - Installera [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
     - Installera [Azure Machine Learning HUVUDWEBBADRESS SDK](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Skapa en [konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
-    - Kör den virtuella [datorn för installation](https://aka.ms/azure-rl-env-setup) av virtuella nätverk för att öppna nätverks portar som används för distribuerad förstärknings inlärning.
+    - Kör det virtuella nätverket för att öppna nätverks portar som används för distribuerad förstärknings inlärning.
 
 
 ## <a name="how-to-train-a-pong-playing-agent"></a>Hur man tränar en pong-agent

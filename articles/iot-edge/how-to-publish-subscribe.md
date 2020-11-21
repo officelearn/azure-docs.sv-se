@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: ef92895374f07c79f8ba8d626a0aab3d89733f40
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1ace40098e1d53c6199accea755ffb6969781663
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629656"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015671"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicera och prenumerera med Azure IoT Edge
 
@@ -31,7 +31,7 @@ Du kan använda Azure IoT Edge MQTT Broker för att publicera och prenumerera p�
 - En **IoT Hub** SKU antingen F1, S1, S2 eller S3.
 - Ha en **IoT Edge-enhet med version 1,2 eller senare**. Eftersom IoT Edge MQTT-Broker för närvarande finns i en offentlig för hands version kan du ange följande miljövariabler som true på behållaren edgeHub för att aktivera MQTT-Broker:
 
-   | Namn | Värde |
+   | Name | Värde |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
@@ -209,7 +209,7 @@ Nu när du förstår hur du ansluter till den IoT Edge MQTT-Broker kan vi se hur
 
 ## <a name="publish-and-subscribe-on-user-defined-topics"></a>Publicera och prenumerera på användardefinierade ämnen
 
-I den här artikeln använder du en klient med namnet **sub_client** som prenumererar på ett ämne och en annan klient som heter **pub_client** som publiceras i ett ämne. Vi använder autentisering med [symmetrisk nyckel](how-to-authenticate-downstream-device.md#symmetric-key-authentication) men samma kan göras med självsignerad [x. 509-autentisering](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) eller självsignerad [x. 509-](./how-to-authenticate-downstream-device.md#x509-self-signed-authentication)autentisering.
+I den här artikeln använder du en klient med namnet **sub_client** som prenumererar på ett ämne och en annan klient som heter **pub_client** som publiceras i ett ämne. Vi använder autentisering med [symmetrisk nyckel](how-to-authenticate-downstream-device.md#symmetric-key-authentication) men samma kan göras med den [självsignerade 509](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) -autentiseringen i x. eller [x. 509](./how-to-authenticate-downstream-device.md#x509-ca-signed-authentication).
 
 ### <a name="create-publisher-and-subscriber-clients"></a>Skapa utgivare och prenumerant klienter
 

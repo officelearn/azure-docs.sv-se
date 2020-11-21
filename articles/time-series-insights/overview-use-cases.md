@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: b5b6233c0978f15aad94b7f66f8935c2d6f6f1c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8f13a20232fab61dc082c1b12b7ddaa11807554
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666967"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016198"
 ---
 # <a name="azure-time-series-insights-gen2-use-cases"></a>Azure Time Series Insights Gen2 användnings fall
 
@@ -52,13 +52,13 @@ Kunder kan dra nytta av hastigheten för att snabbt diagnostisera problem med ti
 
 Det finns tre huvudsakliga sätt att interagera med data som lagras i Azure Time Series Insights Gen2:
 
-* Det första och enklaste sättet att komma igång med Azure Time Series Insights Gen2 Explorer. Du kan använda den för att snabbt visualisera alla dina IoT-data på ett och samma ställe. Den innehåller verktyg som värme kartan för att hjälpa dig att upptäcka avvikelser i dina data. Den innehåller också en perspektivvy. Använd den för att jämföra upp till fyra vyer från en eller flera Azure Time Series Insights Gen2-miljöer på en enda instrument panel. På instrument panelen får du en översikt över dina tids serie data över alla dina platser. Läs mer om [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md). Läs [Azure Time Series Insights Gen2-planering](./time-series-insights-update-plan.md)för att planera ut din miljö.
+* Det första och enklaste sättet att komma igång med Azure Time Series Insights Gen2 Explorer. Du kan använda den för att snabbt visualisera alla dina IoT-data på ett och samma ställe. Den innehåller verktyg som värme kartan för att hjälpa dig att upptäcka avvikelser i dina data. Den innehåller också en perspektivvy. Använd den för att jämföra upp till fyra vyer från en eller flera Azure Time Series Insights Gen2-miljöer på en enda instrument panel. På instrument panelen får du en översikt över dina tids serie data över alla dina platser. Läs mer om [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md). Läs [Azure Time Series Insights Gen2-planering](./how-to-plan-your-environment.md)för att planera ut din miljö.
 
 * Det andra sättet att starta är att använda JavaScript SDK för att snabbt bädda in kraftfulla diagram och grafer i ditt webb program. Med bara några rader med kod kan du skapa kraftfulla frågor. Använd dem för att fylla i linje diagram, cirkel diagram, liggande diagram, värme kartor, data rutnät med mera. Alla dessa element finns kvar i rutan med hjälp av SDK. SDK sammanfattar också Azure Time Series Insights Gen2 fråge-API: er. Du kan använda dem för att skapa SQL-liknande predikat för att fråga de data som du vill visa på en instrument panel. För Hybrid lösningar för presentations lager erbjuder Azure Time Series Insights Gen2 URL: er. De ger sömlösa anslutnings punkter med Azure Time Series Insights Gen2 Explorer för djup dykningar i data.
 
   * Läs om [JS-klient biblioteket](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) och [exempel klient](https://github.com/Microsoft/tsiclient) dokumentationen om du vill veta mer om Java Script SDK.
 
-  * Lär dig mer om delnings-URL: er och det nya användar gränssnittet genom att granska [visualisera data i Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md).
+  * Lär dig mer om delnings-URL: er och det nya användar gränssnittet genom att granska [visualisera data i Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
 
 * Det tredje sättet att starta är att använda de kraftfulla API: erna för att fråga data som lagras i Azure Time Series Insights Gen2. Azure Time Series Insights Gen2 har temporala operatörer som `from` , `to` , `first` och `last` . Det innehåller agg regeringar och transformeringar som,,,,, `average` `sum` `min` `max` `time-weighted average` `time-weighted sum` osv. Den tillåter också filtrering, aritmetiska och booleska operatorer, skalära funktioner osv. Alla dessa operatörer gör det möjligt för underordnade program att snabbt hitta intressanta trender och mönster i dina data. Använd dem för att fylla i Homegrown-visualiseringar för att upptäcka avvikelser.
 
@@ -86,7 +86,7 @@ Azure Time Series Insights Gen2 erbjuder nära data utforskning i real tid och t
 
 Integrera med avancerade analys tjänster som Machine Learning och Azure Databricks. Azure Time Series Insights Gen2 ingress rå data från miljon tals enheter. Den lägger till sammanhangsbaserade data som kan förbrukas sömlöst av en serie Azure Analytics-tjänster.
 
-[![Analytics](media/v2-update-use-cases/advanced-analytics.png)](media/v2-update-use-cases/advanced-analytics.png#lightbox)
+[![Analys](media/v2-update-use-cases/advanced-analytics.png)](media/v2-update-use-cases/advanced-analytics.png#lightbox)
 
 Avancerad analys och maskin inlärning förbrukar och bearbetar stora mängder data. Dessa data används för att fatta data drivna beslut och utföra förutsägelse analyser. I IoT-användningsfall lär sig avancerade analys algoritmer från data som samlas in från miljon tals enheter. Dessa enheter överför data flera gånger varje sekund. Data som samlas in från IoT-enheter är RAW. Den saknar sammanhangsbaserad information, till exempel enhetens plats och enhetens enhets läsning. Det innebär att rå data är svåra att förbruka direkt för avancerad analys.
 
@@ -100,6 +100,6 @@ Azure Time Series Insights Gen2 broar klyftan mellan IoT-data och avancerad anal
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
-* Läs [Azure Time Series Insights Gen2 metod tips](./time-series-insights-update-plan.md) för att planera för din miljö.
+* Läs mer om [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
+* Läs [Azure Time Series Insights Gen2 metod tips](./how-to-plan-your-environment.md) för att planera för din miljö.
 * Läs dokumentationen om [exempel klienten](https://github.com/Microsoft/tsiclient) .

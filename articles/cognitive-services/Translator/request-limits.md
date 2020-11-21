@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: dff69f00833cc3f8004befd330d144f4da0e332d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8841c55d8f276f048db53a531bd2e9218e498b34
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566593"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016504"
 ---
 # <a name="request-limits-for-translator"></a>Begär ande begränsningar för översättare
 
@@ -52,17 +52,17 @@ Om du når eller överskrider de här gränserna eller skickar för stor del av 
 | S3/C3 | 120 000 000 tecken per timme |
 | S4/C4 | 200 000 000 tecken per timme |
 
-Begränsningar för [prenumerationer med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) är samma som i S1-nivån.
+Begränsningar för [prenumerationer med flera tjänster](./reference/v3-0-reference.md#authentication) är samma som i S1-nivån.
 
 Dessa gränser är begränsade till Microsofts standard översättnings modeller. Anpassade översättnings modeller som använder anpassad översättare är begränsade till 1 800 tecken per sekund.
 
 ## <a name="latency"></a>Svarstid
 
-Translator har en maximal fördröjning på 15 sekunder med standard modeller och 120 sekunder när du använder anpassade modeller. Vanligt vis returneras svar *för text på 100 tecken* i 150 millisekunder till 300 millisekunder. De anpassade översättnings modellerna har liknande svars tids krav för den varaktiga begär ande frekvensen och kan ha en högre latens när din begär ande frekvens är intermittent. Svars tiderna varierar beroende på storleken på begäran och språk paret. Om du inte får någon översättning eller ett [felsvar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) inom den tids ramen, kontrol lera din kod, din nätverks anslutning och försök igen. 
+Translator har en maximal fördröjning på 15 sekunder med standard modeller och 120 sekunder när du använder anpassade modeller. Vanligt vis returneras svar *för text på 100 tecken* i 150 millisekunder till 300 millisekunder. De anpassade översättnings modellerna har liknande svars tids krav för den varaktiga begär ande frekvensen och kan ha en högre latens när din begär ande frekvens är intermittent. Svars tiderna varierar beroende på storleken på begäran och språk paret. Om du inte får någon översättning eller ett [felsvar](./reference/v3-0-reference.md#errors) inom den tids ramen, kontrol lera din kod, din nätverks anslutning och försök igen. 
 
 ## <a name="sentence-length-limits"></a>Längd begränsningar för mening
 
-När du använder funktionen [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) är menings längden begränsad till 275 tecken. Det finns undantag för följande språk:
+När du använder funktionen [BreakSentence](./reference/v3-0-break-sentence.md) är menings längden begränsad till 275 tecken. Det finns undantag för följande språk:
 
 | Språk | Kod | Tecken gräns |
 |----------|------|-----------------|
@@ -81,4 +81,4 @@ När du använder funktionen [BreakSentence](https://docs.microsoft.com/azure/co
 
 * [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [Regional tillgänglighet](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-* [Referens för Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+* [Referens för Translator v3](./reference/v3-0-reference.md)

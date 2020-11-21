@@ -10,16 +10,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: dpalled
-ms.openlocfilehash: c3948a5bdfce583384992fb87bf40e9e7251974d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d02a6e3eb2aef4a02c90360b2016e64af579081
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346389"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014738"
 ---
 # <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Modellsynkronisering mellan Azure Digital Twins och Time Series Insights Gen2
 
-I den här artikeln beskrivs bästa praxis och verktyg som används för att översätta till gångs modellen i Azure Digitals ADT () till till gångs modell i Azure Time Series Insights (TSD).  Den här artikeln är den andra delen i en själv studie kurs serie i två delar som förklarar integreringen av Azure Digital-dubbla med Azure Time Series Insights. Integrering av Azure Digitals dubbla med Time Series Insights möjliggör arkivering och spårning av historiken för telemetrivärden och beräknade egenskaper för digitala dubbla. Den här serien med självstudier är avsedd för utvecklare som arbetar för att integrera Time Series Insights med digitala Azure-dubbla. Del 1 förklarar hur du  [upprättar datapipelinen som hämtar faktiska tids serie data från Azure Digitals till Time Series Insights](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights) och den andra delen av själv studie serien förklarar synkroniseringen av till gångs modeller mellan Azure Digitals och Time Series Insights. I den här självstudien beskrivs de bästa metoderna för att välja och upprätta namngivnings konvention för Time Series ID (TS-ID) och manuellt upprätta hierarkier i Time Series-modellen (TSM).
+I den här artikeln beskrivs bästa praxis och verktyg som används för att översätta till gångs modellen i Azure Digitals ADT () till till gångs modell i Azure Time Series Insights (TSD).  Den här artikeln är den andra delen i en själv studie kurs serie i två delar som förklarar integreringen av Azure Digital-dubbla med Azure Time Series Insights. Integrering av Azure Digitals dubbla med Time Series Insights möjliggör arkivering och spårning av historiken för telemetrivärden och beräknade egenskaper för digitala dubbla. Den här serien med självstudier är avsedd för utvecklare som arbetar för att integrera Time Series Insights med digitala Azure-dubbla. Del 1 förklarar hur du  [upprättar datapipelinen som hämtar faktiska tids serie data från Azure Digitals till Time Series Insights](../digital-twins/how-to-integrate-time-series-insights.md) och den andra delen av själv studie serien förklarar synkroniseringen av till gångs modeller mellan Azure Digitals och Time Series Insights. I den här självstudien beskrivs de bästa metoderna för att välja och upprätta namngivnings konvention för Time Series ID (TS-ID) och manuellt upprätta hierarkier i Time Series-modellen (TSM).
 
 ## <a name="choosing-a-time-series-id"></a>Välja ett Time Series-ID
 
@@ -29,7 +29,7 @@ Time Series ID är en unik identifierare som används för att identifiera till 
 
 ## <a name="contextualizing-time-series"></a>Sammanhangsbaserad tids serie
 
-Contextualization av data (främst spatialdata) i Time Series Insights uppnås genom till gångs hierarkier och samma används för enkel data navigering via en trädvy i Time Series Insights Explorer. Tids serie typer och hierarkier definieras med tids serie modellen (TSM) i Time Series Insights. Typer i TSM-hjälpen för att definiera variabler, medan hierarki nivåer och instans fält värden används för att skapa trädvyn i Time Series Insights Explorer. Mer information om TSM finns i Time Series Insights- [dokumentationen online](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview).
+Contextualization av data (främst spatialdata) i Time Series Insights uppnås genom till gångs hierarkier och samma används för enkel data navigering via en trädvy i Time Series Insights Explorer. Tids serie typer och hierarkier definieras med tids serie modellen (TSM) i Time Series Insights. Typer i TSM-hjälpen för att definiera variabler, medan hierarki nivåer och instans fält värden används för att skapa trädvyn i Time Series Insights Explorer. Mer information om TSM finns i Time Series Insights- [dokumentationen online](./concepts-model-overview.md).
 
 I Azure Digitals dubbla, uttrycks anslutning mellan till gångar med hjälp av dubbla relationer. Dubbla relationer är helt enkelt ett diagram över anslutna till gångar. Men i insikter i Time Series är relationer mellan till gångar hierarkiskt av typ. Det innebär att till gångar delar en överordnad-underordnad typ OD-relation och representeras med en träd struktur. För att översätta Relations information från digitala Azure-band till Time Series Insights-hierarkier, måste vi välja relevanta hierarkiska relationer från Azure Digitals flätar. Azure Digitals-enheter använder ett öppet standard-, modellerings språk som kallas Digital DTDL (Digital Definition Language). I DTDL-modeller beskrivs hur du använder en variant av JSON som kallas JSON-LD. Se [DTDL-dokumentationen](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) för fullständig information om specifikationen.
 
@@ -82,7 +82,7 @@ Kodfragmentet nedan visar hur klient programmet kunde navigera i den dubbla rela
 
 > [!Note]
 >
-> Det här kodfragmentet förutsätter att läsarna är bekant med [del 01](https://docs.microsoft.com/azure/digital-twins/tutorial-end-to-end#set-up-the-sample-function-app) i själv studie kursen och att den här kod ändringen gjordes i funktionen "ProcessHubToDTEvents".
+> Det här kodfragmentet förutsätter att läsarna är bekant med [del 01](../digital-twins/tutorial-end-to-end.md#set-up-the-sample-function-app) i själv studie kursen och att den här kod ändringen gjordes i funktionen "ProcessHubToDTEvents".
 
 ```csharp
 if (propertyPath.Equals("/Flow"))
@@ -114,7 +114,7 @@ relationship for " + twinId);
 
 ## <a name="updating-instance-fields-using-apis"></a>Uppdatera instans fält med hjälp av API: er
 
-Det här avsnittet av själv studie kursen förklarar hur du lyssnar på modell ändringar i Azure Digitals, till exempel skapande, borttagning av dubbla eller ändringar i relationer mellan dubbla och uppdaterade instans fält och hierarkier via programmering med Time Series Insights modell-API: er. Den här metoden för att uppdatera Time Series Insights modell uppnås vanligt vis via Azure Functions. I Azure Digitals, kan händelse meddelanden som till exempel dubbla tillägg eller borttagningar dirigeras till efterföljande tjänster, till exempel Event Hubs som i sin tur kan matas till Azure Functions. Mer information om händelse dirigering och filtrering beskrivs [här](https://docs.microsoft.com/azure/digital-twins/how-to-manage-routes-portal).  I resten av det här avsnittet beskrivs hur du använder Time Series Insights modell-API: er i Azure Functions för att uppdatera Time Series Insights modellen som svar på en extra (en typ av modell ändring) i Azure Digitals dubbla.
+Det här avsnittet av själv studie kursen förklarar hur du lyssnar på modell ändringar i Azure Digitals, till exempel skapande, borttagning av dubbla eller ändringar i relationer mellan dubbla och uppdaterade instans fält och hierarkier via programmering med Time Series Insights modell-API: er. Den här metoden för att uppdatera Time Series Insights modell uppnås vanligt vis via Azure Functions. I Azure Digitals, kan händelse meddelanden som till exempel dubbla tillägg eller borttagningar dirigeras till efterföljande tjänster, till exempel Event Hubs som i sin tur kan matas till Azure Functions. Mer information om händelse dirigering och filtrering beskrivs [här](../digital-twins/how-to-manage-routes-portal.md).  I resten av det här avsnittet beskrivs hur du använder Time Series Insights modell-API: er i Azure Functions för att uppdatera Time Series Insights modellen som svar på en extra (en typ av modell ändring) i Azure Digitals dubbla.
 
 ### <a name="receiving-and-identifying-twin-addition-event-notification"></a>Ta emot och identifiera dubbla tillägg för händelse meddelanden
 
@@ -227,4 +227,4 @@ private async Task<TimeSeriesInstance> AddHierarchyToInstanceAsync(TimeSeriesIns
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det tredje i serien med självstudier är att visa hur du frågar historiska data från digitala Azure-dubbla med Time Series Insights API: er. Det är ett pågående arbete och avsnittet uppdateras när du är klar. Under tiden uppmanas läsarna att referera till [Time Series Insights API-dokumentation för data frågor](https://docs.microsoft.com/azure/time-series-insights/concepts-query-overview).
+Det tredje i serien med självstudier är att visa hur du frågar historiska data från digitala Azure-dubbla med Time Series Insights API: er. Det är ett pågående arbete och avsnittet uppdateras när du är klar. Under tiden uppmanas läsarna att referera till [Time Series Insights API-dokumentation för data frågor](./concepts-query-overview.md).

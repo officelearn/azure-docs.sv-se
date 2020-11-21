@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 320d92ef0ad6d02dbe7c31b883eb7f73472378ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56a1d5aab2f665f9c5bd8f6fa322f35e55483c7b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667817"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016725"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Kommande ändringar av JSON-förenkling och undantags regler för nya miljöer
 
@@ -44,17 +44,17 @@ Objekts mat ris förenklas alltid och genererar flera händelser. | Om objekten 
 
 Alla nya distributioner måste matcha de nya inmatnings reglerna. Om ditt TS-ID t. ex. är måste `telemetry_tagId` du uppdatera Azure Resource Manager mallar eller automatiserade distributions skript för att konfigurera `telemetry.tagId` som TS-ID för miljön. Du behöver också denna ändring för händelse källans tidsstämplar i kapslad JSON.
 
-### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Om nytto lasten innehåller kapslad JSON eller specialtecken och du automatiserar redigering av [tids serie modell](.\time-series-insights-update-tsm.md) variabel uttryck
+### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Om nytto lasten innehåller kapslad JSON eller specialtecken och du automatiserar redigering av [tids serie modell](./concepts-model-overview.md) variabel uttryck
 
-Uppdatera din klient kod som kör [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) för att matcha de nya inmatnings reglerna. Du bör till exempel uppdatera ett tidigare [tids serie uttryck](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) på `"value": {"tsx": "$event.series_value.Double"}` något av följande alternativ:
+Uppdatera din klient kod som kör [TypesBatchPut](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) för att matcha de nya inmatnings reglerna. Du bör till exempel uppdatera ett tidigare [tids serie uttryck](/rest/api/time-series-insights/reference-time-series-expression-syntax) på `"value": {"tsx": "$event.series_value.Double"}` något av följande alternativ:
 
 * `"value": {"tsx": "$event.series.value.Double"}`
 * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [Azure Time Series Insights Gen2-lagring och ingress](./time-series-insights-update-storage-ingress.md).
+* Lär dig mer om [Azure Time Series Insights Gen2-lagring och ingress](./concepts-ingestion-overview.md).
 
 * Lär dig hur du frågar dina data med hjälp av [API: er för Time Series-frågor](./concepts-query-overview.md).
 
-* Läs mer om den [nya syntaxen för Time Series-uttryck](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+* Läs mer om den [nya syntaxen för Time Series-uttryck](/rest/api/time-series-insights/reference-time-series-expression-syntax).

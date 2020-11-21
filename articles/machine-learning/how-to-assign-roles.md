@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 6cd4bbec89e955c398f7cb6e37ba5c3dcc6427ea
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 90abd46e73ecb50b5e6de40218571d0ec899752e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961234"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012957"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig hur du hanterar åtkomst (auktorisering) t
 >
 > * [Styr åtkomsten till Azure Kubernetes-kluster resurser](../aks/azure-ad-rbac.md)
 > * [Använd Azure RBAC för Kubernetes-auktorisering](../aks/manage-azure-rbac.md)
-> * [Använda Azure RBAC för åtkomst till BLOB-data](/storage/common/storage-auth-aad-rbac-portal.md)
+> * [Använda Azure RBAC för åtkomst till BLOB-data](/azure/storage/common/storage-auth-aad-rbac-portal)
 
 > [!WARNING]
 > Att använda vissa roller kan begränsa GRÄNSSNITTs funktionerna i Azure Machine Learning Studio för andra användare. Om en användares roll till exempel inte kan skapa en beräknings instans, är alternativet för att skapa en beräknings instans inte tillgängligt i Studio. Det här beteendet förväntas och hindrar användaren från att försöka utföra åtgärder som returnerar ett nekat åtkomst fel.

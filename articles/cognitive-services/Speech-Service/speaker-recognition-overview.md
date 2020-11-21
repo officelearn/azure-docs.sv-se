@@ -12,12 +12,12 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: högtalar igenkänning, röst biometry
-ms.openlocfilehash: 5001ac166b37f3a3852bc14261a5b5d199d778cd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d07a9960c8a586fa137b4b717afbf91740c265d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844581"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015332"
 ---
 # <a name="what-is-speaker-recognition-preview"></a>Vad är Talarigenkänning (för hands version)?
 
@@ -70,10 +70,10 @@ Precis som med alla Cognitive Services-resurser måste utvecklare som använder 
 | Vilka ljudformat stöds? | Mono 16-bitars, 16kHz PCM-kodad WAV |
 | Att **acceptera** och **avvisa** svar är inte korrekt, Hur justerar du tröskelvärdet? | Eftersom det optimala tröskelvärdet varierar mycket med scenarier, bestämmer API: et om du vill acceptera eller avvisa genom att bara baseras på ett standard tröskelvärde på 0,5. Avancerade användare uppmanas att åsidosätta standard beslutet och finjustera resultatet baserat på ditt eget scenario. |
 | Kan du registrera en talare flera gånger? | Ja, för text beroende verifiering kan du registrera en högtalare upp till 50 gånger. För text oberoende verifiering eller högtalar identifiering kan du registrera dig med upp till 300 sekunders ljud. |
-| Vilka data lagras i Azure? | Ljud för registrering lagras i tjänsten tills röst profilen [tas bort](speaker-recognition-basics.md#deleting-voice-profile-enrollments). Igenkänning av ljud exempel behålls inte eller lagras inte. |
+| Vilka data lagras i Azure? | Ljud för registrering lagras i tjänsten tills röst profilen [tas bort](./get-started-speaker-recognition.md#deleting-voice-profile-enrollments). Igenkänning av ljud exempel behålls inte eller lagras inte. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> * I artikeln Talarigenkänning [grundläggande](speaker-recognition-basics.md) information hittar du en körning av vanliga design mönster som du kan använda i dina program.
+> * I artikeln Talarigenkänning [grundläggande](./get-started-speaker-recognition.md) information hittar du en körning av vanliga design mönster som du kan använda i dina program.
 > * Se [video självstudien](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) för verifiering av text oberoende högtalare.

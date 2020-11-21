@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: d3b16101cec242ad2cc470f90b37ab0f19848918
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 79d448def1a1970892f295741f1f16ceeaa6bb1d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542770"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014075"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-javascript"></a>Snabb start: extrahera utskriven text (OCR) med hjälp av Visuellt innehåll REST API och Java Script
 
 > [!NOTE]
-> Om du extraherar engelsk språk text bör du överväga att använda den nya [Läs åtgärden](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Det finns en [snabb start för Java Script](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/javascript-hand-text) .
+> Om du extraherar engelsk språk text bör du överväga att använda den nya [Läs åtgärden](../concept-recognizing-text.md). Det finns en [snabb start för Java Script](./javascript-hand-text.md) .
 
 I den här snabb starten ska du extrahera utskriven text med optisk tecken igenkänning (OCR) från en bild med hjälp av Visuellt innehåll REST API. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
 
@@ -36,7 +36,7 @@ I den här snabb starten ska du extrahera utskriven text med optisk tecken igenk
 
 Så här skapar du och kör exemplet:
 
-1. Skapa en fil med namnet _get-printed-text.html_ , öppna den i en text redigerare och kopiera följande kod till den.
+1. Skapa en fil med namnet _get-printed-text.html_, öppna den i en text redigerare och kopiera följande kod till den.
 1. Du kan också ersätta värdet för `value`-attributet för `inputImage`-kontrollen med webbadressen till en annan bild som du vill analysera.
 1. Öppna ett webbläsarfönster.
 1. Dra och släpp filen till webbläsarfönstret i webbläsaren.
@@ -248,6 +248,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan t
 Nu ska du utforska ett JavaScript-program som använder Visuellt innehåll för att utföra optisk tecken igenkänning (OCR). Skapa Smart-beskurna miniatyrer; identifiera, kategorisera, tagga och beskriv visuella funktioner i bilder. 
 
 > [!div class="nextstepaction"]
-> [Självstudie: API för visuellt innehåll med JavaScript](../Tutorials/javascript-tutorial.md)
+> [Självstudie: API för visuellt innehåll med JavaScript](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)
 
 * Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

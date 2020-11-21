@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
-ms.openlocfilehash: 00fdaf93553c97112c67caa66cb2246756b63c33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c59b5646e011afa6b8487e8145a1cb07e6e2a8ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207490"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015600"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk för att Azure Monitor logg fråga
 
@@ -33,7 +33,7 @@ I följande tabell jämförs begrepp och data strukturer mellan Splunk och Azure
  | Fråga och Sök  | sök | DocumentDB |  Begreppen är i stort sett samma mellan Azure Monitor och Splunk. |
  | Tid för händelse hämtning | System tid | ingestion_time() |  I Splunk hämtar varje händelse en tidsstämpel för systemet för den tidpunkt då händelsen indexerades. I Azure Monitor kan du definiera en princip som kallas ingestion_time som visar en system kolumn som kan refereras via funktionen ingestion_time (). |
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
 I följande tabell anges funktioner i Azure Monitor som motsvarar Splunk-funktioner.
 
@@ -65,7 +65,7 @@ I följande avsnitt får du exempel på hur du kan använda olika operatorer mel
 > [!NOTE]
 > I följande _exempel mappas_ Splunk-till en tabell i Azure Monitor och Splunk standard-tidsstämpeln mappas till kolumnen loggar Analytics _ingestion_time ()_ .
 
-### <a name="search"></a>Search
+### <a name="search"></a>Sök
 I Splunk kan du utelämna `search` nyckelordet och ange en sträng med citat tecken. I Azure Monitor måste du starta varje fråga med `find` , en icke-Citerad sträng är ett kolumn namn och uppslags värdet måste vara en sträng i citat tecken. 
 
 | | Operator | Exempel |
@@ -122,8 +122,8 @@ Splunk verkar inte ha en operator som liknar `project-away` . Du kan använda an
 | **Splunk** | **table** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
 | **Azure Monitor** | **projektfilerna**<br>**projekt bort** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 
-### <a name="aggregation"></a>Mängd
-Se [agg regeringar i Azure Monitor logg frågor](aggregations.md) för de olika agg regerings funktionerna.
+### <a name="aggregation"></a>Aggregering
+Se [agg regeringar i Azure Monitor logg frågor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations) för de olika agg regerings funktionerna.
 
 | | Operator | Exempel |
 |:---|:---|:---|

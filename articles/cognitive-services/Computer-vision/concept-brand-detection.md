@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 87cb0f93201b5111e4d5e954ee62451405436fa0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 46cead6f7b9362dc9b48fda15c0d04b13c2f989c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538738"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013667"
 ---
 # <a name="detect-popular-brands-in-images"></a>Identifiera populära varumärken i bilder
 
@@ -23,7 +23,7 @@ Varumärkes identifiering är ett specialiserat läge för [objekt identifiering
 
 Tjänsten Visuellt innehåll identifierar om det finns varumärkes logo typer i en specifik bild. i så fall returneras märkes namnet, en förtroende poäng och koordinaterna för en avgränsnings ruta runt logo typen.
 
-Den inbyggda logo typ databasen omfattar populära varumärken i konsument elektronik, kläder med mera. Om du upptäcker att det varumärke som du söker efter inte upptäcks av Visuellt innehålls tjänsten, kan du vara bättre på att skapa och träna din egen logo typ detektor med hjälp av tjänsten [Custom vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) .
+Den inbyggda logo typ databasen omfattar populära varumärken i konsument elektronik, kläder med mera. Om du upptäcker att det varumärke som du söker efter inte upptäcks av Visuellt innehålls tjänsten, kan du vara bättre på att skapa och träna din egen logo typ detektor med hjälp av tjänsten [Custom vision](../custom-vision-service/index.yml) .
 
 ## <a name="brand-detection-example"></a>Exempel på varumärkes identifiering
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 546c53334b7700ab73c22edb2d82b324bfad61a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0f1ea42aa2ba888b89dd652d3397a3a2163a3e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569441"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016215"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planera din Azure Time Series Insights gen1-miljö
 
@@ -67,7 +67,7 @@ Du kan justera kvarhållning och växla mellan de två lägena på miljöns konf
 
 1. I [Azure Portal](https://portal.azure.com)väljer du din Time Series Insights miljö.
 
-1. I fönstret **Time Series Insights miljö** under **Inställningar**väljer du **lagrings konfiguration**.
+1. I fönstret **Time Series Insights miljö** under **Inställningar** väljer du **lagrings konfiguration**.
 
 1. Ange ett värde mellan 1 och 400 i rutan **data lagrings tid (i dagar)** .
 
@@ -92,7 +92,7 @@ Begränsning och latens spelar en roll i per minut-kapacitet. Om du har en insam
 
 Om du till exempel har en enda S1-SKU intränger data med 720 händelser per minut och data hastigheterna i mindre än en timme till en hastighet av 1 440 händelser eller mindre, det finns ingen märkbar fördröjning i din miljö. Men om du överskrider 1 440 händelser per minut i mer än en timme, kommer du troligen att uppleva svars tid i data som visualiseras och är tillgängliga för frågor i din miljö.
 
-Du kanske inte vet i förväg hur mycket data du förväntar dig att skicka. I det här fallet kan du hitta datatelemetri för [azure IoT Hub](../iot-hub/iot-hub-metrics.md) och [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) i din Azure Portal prenumeration. Telemetrin kan hjälpa dig att avgöra hur du ska etablera din miljö. Använd fönstret **mått** i Azure Portal för respektive händelse källa för att visa dess telemetri. Om du förstår dina evenemangs käll mått kan du effektivare planera och etablera din Azure Time Series Insightss miljö.
+Du kanske inte vet i förväg hur mycket data du förväntar dig att skicka. I det här fallet kan du hitta datatelemetri för [azure IoT Hub](../iot-hub/monitor-iot-hub.md) och [Azure Event Hubs](/archive/blogs/cloud_solution_architect/using-the-azure-rest-apis-to-retrieve-event-hub-metrics) i din Azure Portal prenumeration. Telemetrin kan hjälpa dig att avgöra hur du ska etablera din miljö. Använd fönstret **mått** i Azure Portal för respektive händelse källa för att visa dess telemetri. Om du förstår dina evenemangs käll mått kan du effektivare planera och etablera din Azure Time Series Insightss miljö.
 
 ### <a name="calculate-ingress-requirements"></a>Beräkna ingress-krav
 
@@ -128,6 +128,6 @@ Om du vill veta mer om hur du skapar, överför och hanterar referens data i Azu
 
 - Kom igång genom [att skapa en ny Azure Time Series Insights miljö i Azure Portal](time-series-insights-get-started.md).
 
-- Lär dig hur du [lägger till en Event Hubs händelse källa](time-series-insights-how-to-add-an-event-source-eventhub.md) i Azure Time Series Insights.
+- Lär dig hur du [lägger till en Event Hubs händelse källa](./how-to-ingest-data-event-hub.md) i Azure Time Series Insights.
 
-- Läs om hur du [konfigurerar en händelse källa för IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md).
+- Läs om hur du [konfigurerar en händelse källa för IoT Hub](./how-to-ingest-data-iot-hub.md).

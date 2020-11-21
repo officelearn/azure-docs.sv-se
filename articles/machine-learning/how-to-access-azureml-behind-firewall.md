@@ -9,97 +9,180 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/17/2020
+ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 5ba1804630649044d29dd2919ef8375265a69a08
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cf89532fc41b10d6fbcba57963ebe30a361a2e6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320883"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012974"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Använd arbets ytan bakom en brand vägg för Azure Machine Learning
 
-I den här artikeln lär du dig hur du konfigurerar Azure-brandväggen för att kontrol lera åtkomsten till din Azure Machine Learning-arbetsyta och det offentliga Internet.   Mer information om hur du skyddar Azure Machine Learning finns i [företags säkerhet för Azure Machine Learning](concept-enterprise-security.md)
+I den här artikeln lär du dig hur du konfigurerar Azure-brandväggen för att kontrol lera åtkomsten till din Azure Machine Learning-arbetsyta och det offentliga Internet. Mer information om hur du skyddar Azure Machine Learning finns i [företags säkerhet för Azure Machine Learning](concept-enterprise-security.md)
 
-Informationen i det här dokumentet baseras på användningen av [Azure-brandväggen](../firewall/tutorial-firewall-deploy-portal.md), men du bör kunna använda den med andra brand Väggs produkter. Om du har frågor om hur du tillåter kommunikation via brand väggen kan du läsa dokumentationen för den brand vägg som du använder.
+## <a name="azure-firewall"></a>Azure Firewall
 
-## <a name="application-rules"></a>Programregler
+När du använder Azure Firewall använder du __mål Network Address Translation (DNAT)__ för att skapa NAT-regler för inkommande trafik. Skapa __nätverks__ -och/eller __program__ regler för utgående trafik. De här regel samlingarna beskrivs mer detaljerat i [Vad är vissa Azure Firewall-begrepp](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts).
 
-I brand väggen skapar du en _program regel_ som tillåter trafik till och från adresserna i den här artikeln.
+### <a name="inbound-configuration"></a>Inkommande konfiguration
 
-> [!TIP]
-> När du lägger till nätverks regeln ställer du in __protokollet__ på valfri, och portarna till `*` .
->
-> Mer information om hur du konfigurerar Azure-brandväggen finns i [distribuera och konfigurera Azure-brandväggen](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
+Om du använder en Azure Machine Learning __beräknings instans__ eller __beräknings kluster__, lägger du till en [användardefinierad routning (UDR)](../virtual-network/virtual-networks-udr-overview.md) för det undernät som innehåller Azure Machine Learning-resurserna. Den här vägen tvingar trafik __från__ IP-adresserna för- `BatchNodeManagement` och- `AzureMachineLearning` resurserna till den offentliga IP-adressen för din beräknings instans och beräknings kluster.
 
-## <a name="routes"></a>Vägar
+Dessa UDR gör att batch-tjänsten kan kommunicera med datornoder för schemaläggning av aktiviteter. Lägg också till IP-adressen för den Azure Machine Learning tjänst där resurserna finns, eftersom detta krävs för åtkomst till beräknings instanser. Använd någon av följande metoder för att hämta en lista över IP-adresser för batch-tjänsten och Azure Machine Learning tjänsten:
 
-När du konfigurerar den utgående vägen för under nätet som innehåller Azure Machine Learning resurser använder du rikt linjerna i avsnittet [Tvingad tunnel trafik](how-to-secure-training-vnet.md#forced-tunneling) för att skydda inlärnings miljön.
+* Hämta [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) och Sök efter `BatchNodeManagement.<region>` och `AzureMachineLearning.<region>` , där `<region>` är din Azure-region.
 
-## <a name="microsoft-hosts"></a>Microsoft-värdar
+* Använd [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) för att hämta informationen. I följande exempel hämtas IP-adress informationen och filtreras bort informationen för regionen USA, östra 2:
 
-Om konfigurationen inte är korrekt konfigurerad kan brand väggen orsaka problem med din arbets yta. Det finns flera olika värdnamn som används både i Azure Machine Learning-arbetsytan.
+    ```azurecli-interactive
+    az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
+    az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
+    ```
 
-Värdarna i det här avsnittet ägs av Microsoft och tillhandahåller tjänster som krävs för att din arbets yta ska fungera korrekt.
+    > [!TIP]
+    > Om du använder regionerna US-Virginia, US-Arizona regioner eller Kina – öst – 2, returnerar dessa kommandon inga IP-adresser. Använd i stället någon av följande länkar för att hämta en lista över IP-adresser:
+    >
+    > * [Azure IP-intervall och service märken för Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
+    > * [Azure IP-intervall och service märken för Azure Kina](https://www.microsoft.com//download/details.aspx?id=57062)
 
-| **Värdnamn** | **Syfte** |
-| ---- | ---- |
-| **login.microsoftonline.com** | Autentisering |
-| **management.azure.com** | Används för att hämta information om arbets ytan |
-| **\*. batchai.core.windows.net** | Tränings kluster |
-| **ml.azure.com** | Azure Machine Learning-studio |
-| **default.exp-tas.com** | Används av Azure Machine Learning Studio |
-| **\*. azureml.ms** | Används av Azure Machine Learning API: er |
-| **\*. experiments.azureml.net** | Används av experiment som körs i Azure Machine Learning |
-| **\*. modelmanagement.azureml.net** | Används för att registrera och distribuera modeller|
-| **mlworkspace.azure.ai** | Används av Azure Portal när du visar en arbets yta |
-| **\*. aether.ms** | Används när Azure Machine Learning pipeliner körs |
-| **\*. instances.azureml.net** | Azure Machine Learning beräknings instanser |
-| **\*. instances.azureml.ms** | Azure Machine Learning beräknings instanser när privat länk har Aktiver ATS för arbets ytan |
-| **windows.net** | Azure Blob Storage |
-| **vault.azure.net** | Azure Key Vault |
-| **azurecr.io** | Azure Container Registry |
-| **mcr.microsoft.com** | Microsoft Container Registry för Base Docker-avbildningar |
-| **your-acr-server-name.azurecr.io** | Krävs endast om din Azure Container Registry ligger bakom det virtuella nätverket. I den här konfigurationen skapas en privat länk från Microsoft-miljön till ACR-instansen i din prenumeration. Använd namnet på ACR-servern för din Azure Machine Learning-arbetsyta. |
-| **\*. notebooks.azure.net** | Krävs av antecknings böckerna i Azure Machine Learning Studio. |
-| **\*. file.core.windows.net** | Krävs av Utforskaren i Azure Machine Learning Studio. |
-| **\*. dfs.core.windows.net** | Krävs av Utforskaren i Azure Machine Learning Studio. |
-| **graph.windows.net** | Krävs för antecknings böcker |
+När du lägger till UDR definierar du vägen för varje relaterat batch-IP-adressprefix och anger __nästa hopp typ__ till __Internet__. Följande bild visar ett exempel på den här UDR i Azure Portal:
+
+![Exempel på en UDR för ett adressprefix](./media/how-to-enable-virtual-network/user-defined-route.png)
+
+> [!IMPORTANT]
+> IP-adresserna kan ändras med tiden.
+
+Mer information finns i [skapa en Azure Batch pool i ett virtuellt nätverk](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
+
+### <a name="outbound-configuration"></a>Utgående konfiguration
+
+1. Lägg till __nätverks regler__ som tillåter trafik __till__ och __från__ följande service märken:
+
+    * AzureActiveDirectory
+    * AzureMachineLearning
+    * AzureResourceManager
+    * Lagring. region
+    * Nyckel valv. region
+    * ContainerRegistry. region
+
+    Om du planerar att använda de standard Docker-avbildningar som tillhandahålls av Microsoft och aktiverar användar hanterade beroenden måste du också lägga till följande service märken:
+
+    * MicrosoftContainerRegistry. region
+    * AzureFrontDoor.FirstParty
+
+    För poster som innehåller `region` ersätter du med den Azure-region som du använder. Exempelvis `keyvault.westus`.
+
+    För __protokollet__ väljer du `TCP` . För käll-och mål __portarna__ väljer du `*` .
+
+1. Lägg till __program regler__ för följande värdar:
+
+    > [!NOTE]
+    > Det här är inte en fullständig lista över de värdar som krävs för alla python-resurser på Internet, bara de som används oftast. Om du till exempel behöver åtkomst till en GitHub-lagringsplats eller annan värd måste du identifiera och lägga till de värdar som krävs för det scenariot.
+
+    | **Värdnamn** | **Syfte** |
+    | ---- | ---- |
+    | **anaconda.com**</br>**\*. anaconda.com** | Används för att installera standard paket. |
+    | **\*. anaconda.org** | Används för att hämta lagrings platsen-data. |
+    | **pypi.org** | Används för att Visa beroenden från standard index, om det finns några, och indexet skrivs inte över av användar inställningarna. Om indexet skrivs över måste du också tillåta **\* . pythonhosted.org**. |
+    | **cloud.r-project.org** | Används vid installation av CRAN-paket för R-utveckling. |
+    | **\*pytorch.org** | Används i några exempel baserat på PyTorch. |
+    | **\*. tensorflow.org** | Används i några exempel baserat på Tensorflow. |
+
+    För __protokoll: port__ väljer du Använd __http, https__.
+
+    Mer information om hur du konfigurerar program regler finns i [distribuera och konfigurera Azure-brandvägg](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
+
+1. Information om hur du begränsar åtkomsten till modeller som distribueras till Azure Kubernetes service (AKS) finns i [begränsa utgående trafik i Azure Kubernetes-tjänsten](../aks/limit-egress-traffic.md).
+
+## <a name="other-firewalls"></a>Andra brand väggar
+
+Vägledningen i det här avsnittet är generisk, eftersom varje brand vägg har egna terminologier och specifika konfigurationer. Om du har frågor om hur du tillåter kommunikation via brand väggen kan du läsa dokumentationen för den brand vägg som du använder.
+
+Om konfigurationen inte är korrekt konfigurerad kan brand väggen orsaka problem med din arbets yta. Det finns flera olika värdnamn som används både i Azure Machine Learning-arbetsytan. I följande avsnitt listas värdar som krävs för Azure Machine Learning.
+
+### <a name="microsoft-hosts"></a>Microsoft-värdar
+
+Värdarna i det här avsnittet ägs av Microsoft och tillhandahåller tjänster som krävs för att din arbets yta ska fungera korrekt. I följande tabeller visas värd namnen för Azures offentliga, Azure Government och Azure Kina 21Vianet-regioner.
+
+**Allmänna Azure-värdar**
+
+| **Krävs för** | **Azure, offentlig** | **Azure Government** | **Azure Kina 21Vianet** |
+| ----- | ----- | ----- | ----- |
+| Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
+| Azure Portal | management.azure.com | management.azure.us | management.azure.cn |
+
+**Azure Machine Learning värdar**
+
+| **Krävs för** | **Azure, offentlig** | **Azure Government** | **Azure Kina 21Vianet** |
+| ----- | ----- | ----- | ----- |
+| Azure Machine Learning-studio | ml.azure.com | ml.azure.us | studio.ml.azure.cn |
+| API |\*. azureml.ms | \*. ml.azure.us | \*. ml.azure.cn |
+| Experimentering, historik, HyperDrive, etikettering | \*. experiments.azureml.net | \*. ml.azure.us | \*. ml.azure.cn |
+| Modellhantering | \*. modelmanagement.azureml.net | \*. ml.azure.us | \*. ml.azure.cn |
+| Pipeline | \*. aether.ms | \*. ml.azure.us | \*. ml.azure.cn |
+| Designer (Studio-tjänst) | \*. studioservice.azureml.com | \*. ml.azure.us | \*. ml.azure.cn |
+| Integrerad Notebook | \*. notebooks.azure.net | \*. notebooks.usgovcloudapi.net |\*. notebooks.chinacloudapi.cn |
+| Integrerad Notebook | \*. file.core.windows.net | \*. file.core.usgovcloudapi.net | \*. file.core.chinacloudapi.cn |
+| Integrerad Notebook | \*. dfs.core.windows.net | \*. dfs.core.usgovcloudapi.net | \*. dfs.core.chinacloudapi.cn |
+| Integrerad Notebook | \*.blob.core.windows.net | \*. blob.core.usgovcloudapi.net | \*. blob.core.chinacloudapi.cn |
+| Integrerad Notebook | graph.microsoft.com | graph.microsoft.us | graph.chinacloudapi.cn |
+| Integrerad Notebook | \*. aznbcontent.net |  | |
+
+**Azure Machine Learning beräknings instans och beräknings kluster värdar**
+
+| **Krävs för** | **Azure, offentlig** | **Azure Government** | **Azure Kina 21Vianet** |
+| ----- | ----- | ----- | ----- |
+| Beräknings kluster/instans | \*. batchai.core.windows.net | \*. batchai.core.usgovcloudapi.net |\*. batchai.ml.azure.cn |
+| Beräkninsinstans | \*. instances.azureml.net | \*. instances.azureml.us | \*. instances.azureml.cn |
+| Beräkninsinstans | \*. instances.azureml.ms |  |  |
+
+**Associerade resurser som används av Azure Machine Learning**
+
+| **Krävs för** | **Azure, offentlig** | **Azure Government** | **Azure Kina 21Vianet** |
+| ----- | ----- | ----- | ----- |
+| Azure Storage-konto | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
+| Azure Key Vault | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn |
+| Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
+| Microsoft Container Registry | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
+
 
 > [!TIP]
 > Om du planerar att använda federerade identiteter följer du [metod tips för att skydda Active Directory Federation Services (AD FS)](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) artikel.
 
-## <a name="python-hosts"></a>Python-värdar
+Använd också informationen i [Tvingad tunnel trafik](how-to-secure-training-vnet.md#forced-tunneling) för att lägga till IP-adresser för `BatchNodeManagement` och `AzureMachineLearning` .
+
+Information om hur du begränsar åtkomsten till modeller som distribueras till Azure Kubernetes service (AKS) finns i [begränsa utgående trafik i Azure Kubernetes-tjänsten](../aks/limit-egress-traffic.md).
+
+### <a name="python-hosts"></a>Python-värdar
 
 Värdarna i det här avsnittet används för att installera python-paket. De krävs vid utveckling, utbildning och distribution. 
+
+> [!NOTE]
+> Det här är inte en fullständig lista över de värdar som krävs för alla python-resurser på Internet, bara de som används oftast. Om du till exempel behöver åtkomst till en GitHub-lagringsplats eller annan värd måste du identifiera och lägga till de värdar som krävs för det scenariot.
 
 | **Värdnamn** | **Syfte** |
 | ---- | ---- |
 | **anaconda.com**</br>**\*. anaconda.com** | Används för att installera standard paket. |
 | **\*. anaconda.org** | Används för att hämta lagrings platsen-data. |
 | **pypi.org** | Används för att Visa beroenden från standard index, om det finns några, och indexet skrivs inte över av användar inställningarna. Om indexet skrivs över måste du också tillåta **\* . pythonhosted.org**. |
+| **\*pytorch.org** | Används i några exempel baserat på PyTorch. |
+| **\*. tensorflow.org** | Används i några exempel baserat på Tensorflow. |
 
-## <a name="r-hosts"></a>R-värdar
+### <a name="r-hosts"></a>R-värdar
 
 Värdarna i det här avsnittet används för att installera R-paket. De krävs vid utveckling, utbildning och distribution.
 
-> [!IMPORTANT]
-> R SDK för Azure Machine Learning använder python-paket internt. Så du måste också tillåta python-värdar genom brand väggen.
+> [!NOTE]
+> Det här är inte en fullständig lista över de värdar som krävs för alla R-resurser på Internet, bara de som används oftast. Om du till exempel behöver åtkomst till en GitHub-lagringsplats eller annan värd måste du identifiera och lägga till de värdar som krävs för det scenariot.
 
 | **Värdnamn** | **Syfte** |
 | ---- | ---- |
 | **cloud.r-project.org** | Används vid installation av CRAN-paket. |
 
-## <a name="azure-government-region"></a>Azure Government Region
-
-URL: er som krävs för Azure Government regionerna.
-
-| **Värdnamn** | **Syfte** |
-| ---- | ---- |
-| **usgovarizona.api.ml.azure.us** | US-Arizona region |
-| **usgovvirginia.api.ml.azure.us** | US-Virginia region |
-
+> [!IMPORTANT]
+> R SDK för Azure Machine Learning använder python-paket internt. Så du måste också tillåta python-värdar genom brand väggen.
 ## <a name="next-steps"></a>Nästa steg
 
 * [Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal](../firewall/tutorial-firewall-deploy-portal.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a80fe998c1ab241e35bee195b927846e264dec59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07f0e66888eaa909dfce14924e9186bcb9b876b4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972367"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014500"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten kvalitet i Azure IoT Central
 
@@ -32,7 +32,7 @@ I de här självstudierna får du lära dig att:
 > * Konfigurera jobb.
 > * Anpassa program anpassning med hjälp av vita etiketter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du har en Azure-prenumeration för att slutföra den här kursen. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
 
@@ -56,7 +56,7 @@ I det här avsnittet använder du mallen för övervakning av Azure IoT Central 
 
     * **Program namn**: som standard är program namnet övervakning av **vatten kvalitet** följt av en unik ID-sträng som Azure IoT Central genererar. Om du vill kan du ange ett visnings namn eller ändra program namnet senare.
     * **URL**: du kan ange valfri URL som du vill ha eller ändra URL-värdet senare.
-    * Om du har en Azure-prenumeration anger du värden för **katalog**, **Azure-prenumeration**och **region**. Om du inte har någon prenumeration kan du aktivera den **kostnads fria utvärderings versionen på sju dagar** och slutföra den nödvändiga kontakt informationen.
+    * Om du har en Azure-prenumeration anger du värden för **katalog**, **Azure-prenumeration** och **region**. Om du inte har någon prenumeration kan du aktivera den **kostnads fria utvärderings versionen på sju dagar** och slutföra den nödvändiga kontakt informationen.
 
     Mer information om kataloger och prenumerationer finns i snabb start för att [skapa ett program](../core/quick-deploy-iot-central.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) .
 
@@ -127,7 +127,7 @@ Programmet för övervakning av vatten kvalitet som du har skapat kommer att ha 
 Så här visar du enhets mal len:
 
 1. Välj **enhetsspecifika** i fönstret längst till vänster i ditt program i Azure IoT Central.
-1. Välj **övervakaren för vatten kvalitet**i listan med enhetsspecifika enheter. Enhets mal len öppnas.
+1. Välj **övervakaren för vatten kvalitet** i listan med enhetsspecifika enheter. Enhets mal len öppnas.
 
     ![Enhets mal len](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate.png)
 
@@ -188,7 +188,7 @@ På fliken **enheter** väljer du **+ ny** för att lägga till en ny enhet.
 
 ## <a name="explore-and-configure-rules"></a>Utforska och konfigurera regler
 
-I Azure IoT Central kan du skapa regler som automatiskt övervakar telemetri från enheten. Dessa regler utlöser en åtgärd när något av deras villkor är uppfyllt. En möjlig åtgärd är att skicka e-postaviseringar. Andra möjligheter är en Microsoft Flow åtgärd eller en webhook-åtgärd för att skicka data till andra tjänster.
+I Azure IoT Central kan du skapa regler som automatiskt övervakar telemetri från enheten. Dessa regler utlöser en åtgärd när något av deras villkor är uppfyllt. En möjlig åtgärd är att skicka e-postaviseringar. Andra möjligheter är en åtgärd för att automatisera en åtgärd eller en webhook-åtgärd för att skicka data till andra tjänster.
 
 Programmet för övervakning av vatten kvalitet som du skapade har två förkonfigurerade regler.
 
@@ -232,9 +232,9 @@ Med Azure IoT Central-jobb kan du utlösa uppdateringar till enhets-eller moln e
 Som verktyg kan du ändra flera inställningar för att anpassa användar upplevelsen i ditt program.
 
 1. Välj **Administration**  >  **Anpassa ditt program**.
-1. Under **program logo typ**väljer du **ändra** för att välja den bild som ska laddas upp som logo typ.
-1. Under **webb läsar ikon**väljer du **ändra** för att välja den bild som visas på flikar i webbläsaren.
-1. Under **webb läsar färger**kan du ersätta standardvärdena med HTML-hexadecimala färg koder.
+1. Under **program logo typ** väljer du **ändra** för att välja den bild som ska laddas upp som logo typ.
+1. Under **webb läsar ikon** väljer du **ändra** för att välja den bild som visas på flikar i webbläsaren.
+1. Under **webb läsar färger** kan du ersätta standardvärdena med HTML-hexadecimala färg koder.
 1. Välj **Inställningar** om du vill ändra värdet för **tema**.
 
    ![Anpassa ditt program](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application1.png)

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 8154ef7a90011da8c15f52870eebb6c80ebaebca
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: dd1b6d216f6225a13d86aa2435b5b1c807547ec3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496102"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014585"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetri och fel sökning
 
@@ -51,7 +51,7 @@ Tillför
 Utdata
 1. Azure Monitor
 
-Den angivna spatiala netympkvistar-modulen kommer att publicera alla telemetridata som genereras av behållaren för rums analys till Azure Monitor. Se [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för information om hur du lägger till Azure Monitor till din prenumeration.
+Den angivna spatiala netympkvistar-modulen kommer att publicera alla telemetridata som genereras av behållaren för rums analys till Azure Monitor. Se [Azure Monitor](../../azure-monitor/overview.md) för information om hur du lägger till Azure Monitor till din prenumeration.
 
 När du har konfigurerat Azure Monitor måste du skapa autentiseringsuppgifter som gör det möjligt för modulen att skicka telemetri. Du kan använda Azure Portal för att skapa ett nytt huvud namn för tjänsten eller använda Azure CLI-kommandot nedan för att skapa ett.
 
@@ -103,7 +103,7 @@ När modulen teleympkvistar har distribuerats kan de rapporterade måtten nås v
 
 ### <a name="system-health-events"></a>System hälso händelser
 
-| Händelsenamn | Beskrivning|
+| Händelsenamn | Description|
 |------|---------|
 |archon_exit    |Skickas när en användare ändrar status för spatial Analysis-modulen från att *köras* till *stoppad*.  |
 |archon_error   |Skickas när någon av processerna i behållarens krasch. Detta är ett kritiskt fel.  |
@@ -121,7 +121,7 @@ När modulen teleympkvistar har distribuerats kan de rapporterade måtten nås v
 
 ##  <a name="troubleshooting-an-iot-edge-device"></a>Felsöka en IoT Edge enhet
 
-Du kan använda `iotedge` kommando rads verktyget för att kontrol lera status och loggar för de moduler som körs. Exempel:
+Du kan använda `iotedge` kommando rads verktyget för att kontrol lera status och loggar för de moduler som körs. Ett exempel:
 * `iotedge list`: Rapporterar en lista över moduler som körs. 
   Du kan söka efter fel med `iotedge logs edgeAgent` . Om `iotedge` det har fastnat kan du prova att starta om den med `iotedge restart edgeAgent`
 * `iotedge logs <module-name>`
@@ -215,8 +215,8 @@ Från IoT Edge-portalen väljer du enheten och sedan **Diagnostics** -modulen. I
 Loggar överförs på begäran med `getRTCVLogs` metoden IoT Edge, i `diagnostics` modulen. 
 
 
-1. Gå till sidan IoT Hub Portal, Välj **gräns enheter**och välj sedan din enhet och diagnostik-modulen. 
-2. Gå till sidan information i modulen och klicka på fliken **_Direct metoden_*_.
+1. Gå till sidan IoT Hub Portal, Välj **gräns enheter** och välj sedan din enhet och diagnostik-modulen. 
+2. Gå till sidan information i modulen och klicka på fliken **_Direct metoden_* _.
 3. Ange `getRTCVLogs` metod namn och en JSON-format sträng i nytto lasten. Du kan ange `{}` , vilket är en tom nytto Last. 
 4. Ange timeout för anslutning och metod och klicka på _ * Invoke metod * *.
 5. Välj mål behållare och bygg en nytto Last-JSON-sträng med parametrarna som beskrivs i avsnittet **loggnings syntax** . Klicka på **anropa metod** för att utföra begäran.
@@ -224,7 +224,7 @@ Loggar överförs på begäran med `getRTCVLogs` metoden IoT Edge, i `diagnostic
 >[!NOTE]
 > `getRTCVLogs`Att anropa metoden med en tom nytto Last returnerar en lista över alla behållare som har distribuerats på enheten. Metod namnet är Skift läges känsligt. Du får ett 501-fel om ett felaktigt metod namn anges.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Azure Monitor telemetri-rapport":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Anropar metoden getRTCVLogs ":::
 ![Sidan getRTCVLogs Direct-metod](./media/spatial-analysis/direct-log-collection.png)
 
  
@@ -239,13 +239,13 @@ I tabellen nedan visas de parametrar som du kan använda när du frågar efter l
 | Hålla | Mål behållare för hämtning av loggar.| `null`, när det inte finns något container-ID. API: et returnerar all tillgänglig container information med ID: n.|
 | DoPost | Utför uppladdnings åtgärden. När detta är inställt på `false` , utför den begärda åtgärden och returnerar överförings storleken utan att göra överföringen. När det är inställt på `true` , kommer den asynkrona överföringen av de valda loggarna att initieras | `false`, Ladda inte upp.|
 | Begränsning | Ange hur många rader med loggar som ska överföras per batch | `1000`Använder du den här parametern för att justera post hastigheten. |
-| Filter | Filtrerar loggar som ska överföras | `null`kan filter anges som nyckel värdes par baserat på strukturen för rums analys loggar: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . Exempelvis: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
+| Filter | Filtrerar loggar som ska överföras | `null`kan filter anges som nyckel värdes par baserat på strukturen för rums analys loggar: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . Exempel: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
 
 I följande tabell visas attributen i svaret på frågan.
 
-| Följt | Beskrivning|
+| Följt | Description|
 |--|--|
-|DoPost| Antingen *Sant* eller *falskt*. Anger om loggarna har överförts eller inte. Om du väljer att inte överföra loggar returnerar API: n informationen ***synkront**_. När du väljer att ladda upp loggar returnerar API 200, om begäran är giltig och börjar ladda upp loggar _*_asynkront_*_.|
+|DoPost| Antingen *Sant* eller *falskt*. Anger om loggarna har överförts eller inte. Om du väljer att inte överföra loggar returnerar API: n informationen ***synkront** _. När du väljer att ladda upp loggar returnerar API 200, om begäran är giltig och börjar ladda upp loggar _*_asynkront_*_.|
 |TimeFilter| Tids filtret som används för loggarna.|
 |ValueFilters| Nyckelords filter som tillämpas på loggarna. |
 |TimeStamp| Start tid för metod körning. |
@@ -316,8 +316,8 @@ I följande avsnitt finns information om hur du felsöker och verifierar status 
 
 ### <a name="access-the-kubernetes-api-endpoint"></a>Få åtkomst till Kubernetes API-slutpunkten. 
 
-1. I enhetens lokala användar gränssnitt går du till sidan _*enheter**. 
-2. Under **enhets slut punkter**kopierar du Kubernetes API-tjänstens slut punkt. Den här slut punkten är en sträng i följande format: `https://compute..[device-IP-address]` .
+1. I enhetens lokala användar gränssnitt går du till sidan _ *enheter**. 
+2. Under **enhets slut punkter** kopierar du Kubernetes API-tjänstens slut punkt. Den här slut punkten är en sträng i följande format: `https://compute..[device-IP-address]` .
 3. Spara slut punkts strängen. Du kommer att använda detta senare när du konfigurerar `kubectl` för att få åtkomst till Kubernetes-klustret.
 
 ### <a name="connect-to-powershell-interface"></a>Ansluta till PowerShell-gränssnittet
@@ -326,12 +326,12 @@ Anslut via fjärr anslutning från en Windows-klient. När Kubernetes-klustret h
 
 > [!TIP]
 > * Innan du börjar kontrollerar du att Windows-klienten kör Windows PowerShell 5,0 eller senare.
-> * PowerShell är också [tillgängligt i Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux).
+> * PowerShell är också [tillgängligt i Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
 1. Kör en Windows PowerShell-session som administratör. 
     1. Kontrol lera att tjänsten Windows Remote Management körs på klienten. Skriv i kommando tolken `winrm quickconfig` .
 
-2. Tilldela en variabel för enhetens IP-adress. Till exempel `$ip = "<device-ip-address>"`.
+2. Tilldela en variabel för enhetens IP-adress. Exempelvis `$ip = "<device-ip-address>"`.
 
 3. Använd följande kommando för att lägga till IP-adressen för enheten i klientens lista över betrodda värdar. 
 

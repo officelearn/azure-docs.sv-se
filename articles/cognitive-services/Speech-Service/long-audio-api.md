@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: be38d3e78108a15c9f7875a15156e0eeba5a6211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a538deb3b7da19261e1bc2b7c0d29f35315f786
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167767"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015421"
 ---
 # <a name="long-audio-api-preview"></a>Långt ljud-API (för hands version)
 
@@ -27,7 +27,7 @@ Ytterligare fördelar med den långa ljud-API: et:
 * Du behöver inte distribuera en röst slut punkt när den syntetiserar röster i ingen real tids batch-läge.
 
 > [!NOTE]
-> API för långa ljud stöder nu både [offentliga neurala-röster](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) och [anpassade neurala-röster](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> API för långa ljud stöder nu både [offentliga neurala-röster](./language-support.md#neural-voices) och [anpassade neurala-röster](./how-to-custom-voice.md#custom-neural-voices).
 
 ## <a name="workflow"></a>Arbetsflöde
 
@@ -44,7 +44,7 @@ När du förbereder text filen måste du se till att den:
 * Är antingen oformaterad text (. txt) eller SSML text (. txt)
 * Kodas som [UTF-8 med byte ordnings tecken (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
 * Är en enskild fil, inte ett zip
-* Innehåller fler än 400 tecken för oformaterad text eller 400 [fakturerbara tecken](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) för SSML text och färre än 10 000 stycken
+* Innehåller fler än 400 tecken för oformaterad text eller 400 [fakturerbara tecken](./text-to-speech.md#pricing-note) för SSML text och färre än 10 000 stycken
   * För oformaterad text separeras varje stycke genom att trycka på **RETUR/retur** -Visa [text ingångs exempel](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * För SSML text betraktas varje SSML-enhet som ett stycke. SSML bitar separeras av olika stycken – Visa [SSML text ingångs exempel](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
 > [!NOTE]
@@ -107,14 +107,14 @@ Name: Microsoft Server Speech Text to Speech Voice (en-US, xxx), Description: xx
 Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xxx , Id: xxx, Locale: zh-CN, Gender: Female, PublicVoice: xxx, Created: 2019-08-26T04:55:39Z
 ```
 
-Om **PublicVoice** -parametern är **True**är rösten offentlig neurala röst. Annars är den anpassade neurala rösten.
+Om **PublicVoice** -parametern är **True** är rösten offentlig neurala röst. Annars är den anpassade neurala rösten.
 
 ### <a name="convert-text-to-speech"></a>Omvandla text till tal
 
 Förbered en textfil, antingen i oformaterad text eller SSML text, och Lägg sedan till följande kod i `voice_synthesis_client.py` :
 
 > [!NOTE]
-> ' concatenateResult ' är en valfri parameter. Om den här parametern inte anges genereras ljud utmatningarna per stycke. Du kan också sammanfoga ljuden till 1 utdata genom att ange parametern. Som standard är ljud uppspelningen inställd på riff-16khz-bitarsläge-mono-PCM. Mer information om ljud utdata som stöds finns i [format för ljud uppspelning](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
+> ' concatenateResult ' är en valfri parameter. Om den här parametern inte anges genereras ljud utmatningarna per stycke. Du kan också sammanfoga ljuden till 1 utdata genom att ange parametern. Som standard är ljud uppspelningen inställd på riff-16khz-bitarsläge-mono-PCM. Mer information om ljud utdata som stöds finns i [format för ljud uppspelning](#audio-output-formats).
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0e4a6d9180d2a9949cebc40cf30edffac73ef9d0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6c899b4f0dd7a3b91521c6d78b531d1c804ac105
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653546"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015315"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Vanliga frågor och svar om tjänsten för tal tjänst behållare
 
@@ -98,7 +98,7 @@ De underhålls kostnader som betalas ut till Microsoft beror på tjänst nivå o
 
 **Svar:** `speech_recognition_language=<YOUR_LANGUAGE>` Ska konfigureras explicit i begäran om de använder en kol-klient.
 
-Exempel:
+Ett exempel:
 
 ```python
 if not recognize_once(
@@ -290,7 +290,7 @@ Koldioxid som korrigeras detta i version 1,8.
 
 Kan du fylla i följande test mått, inklusive vilka funktioner som ska testas och hur du testar SDK och REST-API: er? Särskilt skillnader i "interaktiva" och "konversation", som jag inte ser från ett befintligt dokument/exempel.
 
-| Slutpunkt                                                | Funktionellt test                                                   | SDK | REST API |
+| Slutpunkt                                                | Funktionellt test                                                   | SDK | REST-API |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
 | `/speech/synthesize/cognitiveservices/v1`               | Syntetisera text (text till tal)                                  |     | Yes      |
 | `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services lokal Diktering v1 WebSocket-slutpunkt        | Ja | Inga       |
@@ -324,7 +324,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 <b>Vilket läge ska jag använda för olika ljudfiler?</b>
 </summary>
 
-**Svar:** Här är en [snabb start med python](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-python). Du kan hitta de andra språken som är länkade på webbplatsen för dokument.
+**Svar:** Här är en [snabb start med python](./get-started-speech-to-text.md?pivots=programming-language-python). Du kan hitta de andra språken som är länkade på webbplatsen för dokument.
 
 Bara för att klargöra för interaktiva, konversationer och diktering, Det här är ett avancerat sätt att ange på vilket sätt tjänsten ska hantera talfunktionerna. För lokal-behållare måste vi tyvärr ange hela URI (eftersom den innehåller en lokal dator), så den här informationen läcker från abstraktionen. Vi samarbetar med SDK-teamet för att göra detta mer användbart i framtiden.
 

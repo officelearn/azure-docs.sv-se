@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 6ebc1831b990b540bcb9a3856c380c28142af536
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2f03746a6a5afc388db2beeff84b3ab4cbd393b5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357121"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014602"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installera och kör behållaren för rums analys (förhands granskning)
 
@@ -34,7 +34,7 @@ Om du vill köra rums analys behållaren behöver du en beräknings enhet med en
 
 #### <a name="azure-stack-edge-device"></a>[Azure Stack Edge-enhet](#tab/azure-stack-edge)
 
-Azure Stack Edge är en maskinvaru-som-tjänst-lösning och en AI-aktiverad Edge-baserad data behandlings enhet med funktioner för nätverks data överföring. Detaljerade anvisningar för förberedelse och installation finns i [Azure Stack Edge-dokumentationen](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep).
+Azure Stack Edge är en maskinvaru-som-tjänst-lösning och en AI-aktiverad Edge-baserad data behandlings enhet med funktioner för nätverks data överföring. Detaljerade anvisningar för förberedelse och installation finns i [Azure Stack Edge-dokumentationen](../../databox-online/azure-stack-edge-deploy-prep.md).
 
 #### <a name="desktop-machine"></a>[Stationär dator](#tab/desktop-machine)
 
@@ -59,7 +59,7 @@ I den här artikeln ska du hämta och installera följande program varu paket. V
 * [NVIDIA grafik driv rutiner](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) och [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 * Konfigurationer för [NVIDIA MP](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf) (Multi-process service).
 * [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) och [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) 
-* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) Runtime.
+* [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) Runtime.
 
 ---
 
@@ -93,7 +93,7 @@ Vi rekommenderar att du använder en Azure Stack Edge-enhet för värddatorn. Kl
  
 Rums analys använder Compute-funktionerna i Azure Stack Edge för att köra en AI-lösning. Om du vill aktivera beräknings funktionerna ser du till att: 
 
-* Du har [anslutit och aktiverat](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate) din Azure Stack Edge-enhet. 
+* Du har [anslutit och aktiverat](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md) din Azure Stack Edge-enhet. 
 * Du har ett Windows-klientsystem som kör PowerShell 5,0 eller senare för att få åtkomst till enheten.  
 * Om du vill distribuera ett Kubernetes-kluster måste du konfigurera Azure Stack Edge-enheten via det **lokala användar gränssnittet** på [Azure Portal](https://portal.azure.com/): 
   1. Aktivera Compute-funktionen på Azure Stack Edge-enheten. Om du vill aktivera beräkning går du till **beräknings** sidan i webb gränssnittet för din enhet. 
@@ -117,7 +117,7 @@ När Edge-beräkningsrollen har konfigurerats på Edge-enheten så skapas två e
 
 > [!NOTE]
 > * För närvarande stöds endast Linux-plattformen för IoT Edge enheter. Information om hur du felsöker Azure Stack Edge-enheten finns i artikeln om [loggning och fel sökning](spatial-analysis-logging.md) .
-> * Mer information om hur du konfigurerar en IoT Edge-enhet för att kommunicera via en proxyserver finns i [Konfigurera en IoT Edge enhet för att kommunicera via en proxyserver](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal)
+> * Mer information om hur du konfigurerar en IoT Edge-enhet för att kommunicera via en proxyserver finns i [Konfigurera en IoT Edge enhet för att kommunicera via en proxyserver](../../iot-edge/how-to-configure-proxy-support.md#azure-portal)
 
 ###  <a name="enable-mps-on-azure-stack-edge"></a>Aktivera MPS på Azure Stack Edge 
 
@@ -129,7 +129,7 @@ När Edge-beräkningsrollen har konfigurerats på Edge-enheten så skapas två e
     winrm quickconfig
     ```
     
-    Om du ser varningar om ett brand Väggs undantag kontrollerar du nätverks anslutnings typen och läser [Windows Remote Management](https://docs.microsoft.com/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) -dokumentationen.
+    Om du ser varningar om ett brand Väggs undantag kontrollerar du nätverks anslutnings typen och läser [Windows Remote Management](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) -dokumentationen.
 
 3. Tilldela en variabel till enhetens IP-adress. 
     
@@ -246,7 +246,7 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## <a name="configure-azure-iot-edge-on-the-host-computer"></a>Konfigurera Azure IoT Edge på värddatorn
 
-Om du vill distribuera behållaren för rums analys på värddatorn skapar du en instans av en [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) -tjänst som använder standard pris nivån (S1) eller kostnads fri (F0). Om värddatorn är en Azure Stack Edge använder du samma prenumeration och resurs grupp som används av Azure Stack Edge-resursen.
+Om du vill distribuera behållaren för rums analys på värddatorn skapar du en instans av en [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) -tjänst som använder standard pris nivån (S1) eller kostnads fri (F0). Om värddatorn är en Azure Stack Edge använder du samma prenumeration och resurs grupp som används av Azure Stack Edge-resursen.
 
 Använd Azure CLI för att skapa en instans av Azure IoT Hub. Ersätt parametrarna där det är lämpligt. Du kan också skapa Azure-IoT Hub på [Azure Portal](https://portal.azure.com/).
 
@@ -261,7 +261,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Om värddatorn inte är en Azure Stack Edge-enhet måste du installera [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) version 1.0.9. Följ de här stegen för att ladda ned rätt version:
+Om värddatorn inte är en Azure Stack Edge-enhet måste du installera [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) version 1.0.9. Följ de här stegen för att ladda ned rätt version:
 
 Ubuntu Server 18,04:
 ```bash
@@ -292,7 +292,7 @@ Installera 1.0.9-versionen:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Registrera sedan värddatorn som en IoT Edge enhet i IoT Hub-instansen med hjälp av en [anslutnings sträng](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
+Registrera sedan värddatorn som en IoT Edge enhet i IoT Hub-instansen med hjälp av en [anslutnings sträng](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
 
 Du måste ansluta IoT Edge-enheten till Azure-IoT Hub. Du måste kopiera anslutnings strängen från den IoT Edge enhet som du skapade tidigare. Du kan också köra kommandot nedan i Azure CLI.
 
@@ -306,7 +306,7 @@ På värddatorn är öppen  `/etc/iotedge/config.yaml` för redigering. Ersätt 
 sudo systemctl restart iotedge
 ```
 
-Distribuera behållaren för rums analys som en IoT-modul på värddatorn, antingen från [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) eller [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli). Om du använder portalen ställer du in bild-URI: en till platsen för Azure Container Registry. 
+Distribuera behållaren för rums analys som en IoT-modul på värddatorn, antingen från [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) eller [Azure CLI](../../iot-edge/how-to-deploy-modules-cli.md). Om du använder portalen ställer du in bild-URI: en till platsen för Azure Container Registry. 
 
 Använd stegen nedan för att distribuera behållaren med hjälp av Azure CLI.
 
@@ -335,7 +335,7 @@ I följande tabell visas de olika miljövariabler som används av IoT Edge-modul
 > [!IMPORTANT]
 > `Eula`Alternativen, `Billing` och `ApiKey` måste anges för att köra behållaren, annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
 
-När du har uppdaterat distributions manifestet för [Azure Stack Edge-enheter](https://go.microsoft.com/fwlink/?linkid=2142179) eller [en stationär dator](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) med dina egna inställningar och val av åtgärder, kan du använda följande [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) -kommando för att distribuera behållaren på värddatorn som en IoT Edge modul.
+När du har uppdaterat distributions manifestet för [Azure Stack Edge-enheter](https://go.microsoft.com/fwlink/?linkid=2142179) eller [en stationär dator](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) med dina egna inställningar och val av åtgärder, kan du använda följande [Azure CLI](../../iot-edge/how-to-deploy-modules-cli.md) -kommando för att distribuera behållaren på värddatorn som en IoT Edge modul.
 
 ```azurecli
 az login
@@ -366,14 +366,14 @@ Du måste använda åtgärder för [spatial analys](spatial-analysis-operations.
 
 ## <a name="redeploy-or-delete-the-deployment"></a>Distribuera om eller ta bort distributionen
 
-Om du behöver uppdatera distributionen måste du kontrol lera att dina tidigare distributioner har distribuerats, eller så måste du ta bort IoT Edge enhets distributioner som inte har slutförts. Annars fortsätter de distributionerna att lämna systemet i ett felaktigt tillstånd. Du kan använda Azure Portal eller [Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
+Om du behöver uppdatera distributionen måste du kontrol lera att dina tidigare distributioner har distribuerats, eller så måste du ta bort IoT Edge enhets distributioner som inte har slutförts. Annars fortsätter de distributionerna att lämna systemet i ett felaktigt tillstånd. Du kan använda Azure Portal eller [Azure CLI](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Använd de utdata som genereras av behållaren
 
 Om du vill börja använda de utdata som genereras av behållaren kan du läsa följande artiklar:
 
-*   Använd Azure Event Hub SDK för ditt valda programmeringsspråk för att ansluta till Azure IoT Hub-slutpunkten och ta emot händelserna. Mer information finns i [läsa meddelanden från enhet till moln från den inbyggda slut punkten](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) . 
-*   Konfigurera meddelanderoutning på Azure-IoT Hub för att skicka händelserna till andra slut punkter eller spara händelserna till Azure Blob Storage osv. Mer information finns i [IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) meddelanderoutning. 
+*   Använd Azure Event Hub SDK för ditt valda programmeringsspråk för att ansluta till Azure IoT Hub-slutpunkten och ta emot händelserna. Mer information finns i [läsa meddelanden från enhet till moln från den inbyggda slut punkten](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) . 
+*   Konfigurera meddelanderoutning på Azure-IoT Hub för att skicka händelserna till andra slut punkter eller spara händelserna till Azure Blob Storage osv. Mer information finns i [IoT Hub](../../iot-hub/iot-hub-devguide-messages-d2c.md) meddelanderoutning. 
 
 ## <a name="running-spatial-analysis-with-a-recorded-video-file"></a>Köra rums analys med en inspelad videofil
 
@@ -381,7 +381,7 @@ Du kan använda rums analys med både inspelad eller live video. Om du vill anv�
     1. Ändra **säker överföring som krävs** för **inaktive rad**
     2. Ändra **Tillåt att BLOB offentlig åtkomst** har **Aktiver ATS**
 
-Navigera till **container** -avsnittet och skapa en ny behållare eller Använd en befintlig. Ladda sedan upp video filen till behållaren. Expandera fil inställningarna för den överförda filen och välj **generera SAS**. Se till att du ställer in **utgångs datumet** tillräckligt länge för att kunna ta del av test perioden. Ange **tillåtna protokoll** till *http* ( *https* stöds inte).
+Navigera till **container** -avsnittet och skapa en ny behållare eller Använd en befintlig. Ladda sedan upp video filen till behållaren. Expandera fil inställningarna för den överförda filen och välj **generera SAS**. Se till att du ställer in **utgångs datumet** tillräckligt länge för att kunna ta del av test perioden. Ange **tillåtna protokoll** till *http* (*https* stöds inte).
 
 Klicka på **skapa SAS-token och URL** och kopiera BLOB SAS-URL: en. Ersätt den `https` med `http` och testa webb adressen i en webbläsare som stöder videouppspelning.
 

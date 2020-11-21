@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 31219fda04095d48b55165f59c27f3dee85485a9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8c6d26de62364b6aca671d1e4283a01c1b78c397
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843646"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014840"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Skapande av innehavare och värddator i Windows Virtual Desktop (klassisk)
 
@@ -49,7 +49,7 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 **Orsak:** Medgivande beviljas inte till virtuellt Windows-skrivbord i Azure Active Directory-instansen.
 
-**KORRIGERA:** [Följ den här guiden](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) för att bevilja medgivande.
+**KORRIGERA:** [Följ den här guiden](./tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) för att bevilja medgivande.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fel: Användaren har inte behörighet att fråga hanteringstjänsten
 
@@ -140,9 +140,9 @@ Om din åtgärds mal len går över kvot gränsen kan du göra något av följan
 
 Följ dessa anvisningar för att felsöka misslyckade distributioner av Azure Resource Manager mallar och PowerShell DSC.
 
-1. Granska fel i distributionen med hjälp av [Visa distributions åtgärder med Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-operations.md).
-2. Om det inte finns några fel i distributionen granskar du fel i aktivitets loggen med [Visa aktivitets loggar för att granska åtgärder på resurser](../../azure-resource-manager/resource-group-audit.md).
-3. När felet har identifierats använder du fel meddelandet och resurserna i [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md) för att åtgärda problemet.
+1. Granska fel i distributionen med hjälp av [Visa distributions åtgärder med Azure Resource Manager](../../azure-resource-manager/templates/deployment-history.md).
+2. Om det inte finns några fel i distributionen granskar du fel i aktivitets loggen med [Visa aktivitets loggar för att granska åtgärder på resurser](../../azure-resource-manager/management/view-activity-logs.md).
+3. När felet har identifierats använder du fel meddelandet och resurserna i [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md) för att åtgärda problemet.
 4. Ta bort alla resurser som har skapats under den tidigare distributionen och försök att distribuera mallen igen.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Fel: distributionen misslyckades.... \<hostname> /JoinDomain

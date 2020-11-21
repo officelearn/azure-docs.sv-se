@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 35ed275419cc4319e7edfed608340853c986a927
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: d00ffb1cb9b9fd6231322d4ef5bfebfbe242eac7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515633"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014245"
 ---
 # <a name="azure-monitor-logs-overview"></a>Översikt över Azure Monitor loggar
 Azure Monitor loggar är en funktion i Azure Monitor som samlar in och ordnar logg-och prestanda data från [övervakade resurser](../monitor-reference.md). Data från olika källor, t. ex. [plattforms loggar](platform-logs-overview.md) från Azure-tjänster, logg-och prestanda data från [virtuella datorer agenter](agents-overview.md)och användnings-och prestanda data från [program](../app/app-insights-overview.md) kan konsol IDE ras till en enda arbets yta så att de kan analyseras tillsammans med ett avancerat frågespråk som kan snabbt analysera miljon tals poster. Du kan utföra en enkel fråga som bara hämtar en bestämd uppsättning poster eller utföra avancerad data analys för att identifiera kritiska mönster i dina övervaknings data. Arbeta med logg frågor och deras resultat interaktivt med Log Analytics, Använd dem i en varnings regel för att användaren ska kunna se ett proaktivt meddelande om problem eller visualisera resultatet i en arbets bok eller instrument panel.
@@ -75,8 +75,8 @@ Data hämtas från en Log Analytics arbets yta med en logg fråga som är en skr
 ## <a name="log-analytics"></a>Log Analytics
 Använd Log Analytics, som är ett verktyg i Azure Portal, för att redigera och köra logg frågor och analysera resultaten interaktivt. Du kan sedan använda de frågor som du skapar för att stödja andra funktioner i Azure Monitor till exempel aviseringar och arbets böcker för logg frågor. Åtkomst Log Analytics från alternativet **loggar** på Azure Monitor-menyn eller från de flesta andra tjänster i Azure Portal.
 
-- En beskrivning av Log Analytics finns [i Översikt över Log Analytics i Azure Monitor](/log-query/log-analytics-overview.md) . 
-- Se [Log Analytics själv studie kursen](/log-query/log-analytics-tutorial.md) för att gå igenom hur du använder Log Analytics funktioner för att skapa en enkel logg fråga och analysera resultatet.
+- En beskrivning av Log Analytics finns [i Översikt över Log Analytics i Azure Monitor](/azure/azure-monitor/log-query/log-analytics-overview) . 
+- Se [Log Analytics själv studie kursen](/azure/azure-monitor/log-query/log-analytics-tutorial) för att gå igenom hur du använder Log Analytics funktioner för att skapa en enkel logg fråga och analysera resultatet.
 
 
 

@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 2c415fc92d2d338c568c422b1db2579563527839
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f07efcc18f3eff7e40232941befb563cd236266b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442063"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013039"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig flera sätt att skapa en Azure Machine Lea
 
 Mer information finns i [distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -38,6 +38,10 @@ Mer information finns i [distribuera ett program med Azure Resource Manager-mall
     * __Azure Container Registry för arbetsytan bakom ditt virtuella nätverk__
 
     Mer information finns i [Hantera och öka kvoter](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+
+## <a name="limitations"></a>Begränsningar
+
+* När du skapar en ny arbets yta kan du antingen låta arbets ytan skapa de Azure-tjänster som krävs automatiskt eller tillhandahålla befintliga tjänster. När du tillhandahåller befintliga tjänster måste dessa tjänster alla finnas i samma Azure-prenumeration som arbets ytan.
 
 ## <a name="workspace-resource-manager-template"></a>Resource Manager-mall för arbets yta
 
@@ -59,7 +63,7 @@ Exempel mal len har två **obligatoriska** parametrar:
 
     Mallen kommer att använda den plats du väljer för de flesta resurser. Undantaget är Application Insights tjänst, som inte är tillgänglig på alla platser som de andra tjänsterna är. Om du väljer en plats där den inte är tillgänglig kommer tjänsten att skapas på platsen södra centrala USA.
 
-* **WorkspaceName** , som är det egna namnet på arbets ytan Azure Machine Learning.
+* **WorkspaceName**, som är det egna namnet på arbets ytan Azure Machine Learning.
 
     > [!NOTE]
     > Namnet på arbets ytan är Skift läges okänsligt.

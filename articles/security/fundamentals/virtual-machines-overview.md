@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: d22ce3941b00903be8532caaa36a9ce55e2f2c6f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 91dfb3cb07cca8ec89c77dea43f1cd075db11bbf
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409798"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014772"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Översikt över Azure Virtual Machines-säkerhet
 Den här artikeln innehåller en översikt över de centrala Azure-säkerhetsfunktioner som kan användas med virtuella datorer.
@@ -57,7 +57,7 @@ Lär dig mer om program mot skadlig kod för att hjälpa till att skydda dina vi
 
 Överväg att använda [Windows Defender Avancerat skydd](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection)för ännu mer kraftfullt skydd. Med Windows Defender ATP får du:
 
-* [Minskning av attack ytan](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
+* [Minska attackytan](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Nästa generations skydd](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Endpoint Protection och-svar](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Automatiserad undersökning och reparation](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
@@ -108,16 +108,16 @@ En viktig del av din organisations BCDR strategi är att ta reda på hur du hål
 
 Site Recovery:
 
-* **Fören klar din BCDR-strategi** : Site Recovery gör det enkelt att hantera replikering, redundans och återställning av flera arbets belastningar och appar från en enda plats. Site Recovery dirigerar replikering och redundans men fångar inte dina program data eller har ingen information om den.
-* **Ger flexibel replikering** : genom att använda Site Recovery kan du replikera arbets belastningar som körs på virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska Windows-och Linux-servrar.
-* **Stöder redundans och återställning** : Site Recovery tillhandahåller redundanstest som stöder haveri beredskap utan att påverka produktions miljöer. Du kan också köra planerade redundansväxlingar utan någon dataförlust för förväntade driftsavbrott, eller oplanerade redundansväxlingar med minimal dataförlust (beroende på replikeringsfrekvens) för oväntade haverier. Efter redundansväxlingen kan du växla tillbaka till dina primära platser. Site Recovery tillhandahåller återställningsplaner som kan innehålla skript och Azure Automation Runbook-rutiner så att du kan anpassa redundans och återställning av program med flera nivåer.
-* **Eliminerar sekundära Data Center** : du kan replikera till en sekundär lokal plats eller till Azure. Om du använder Azure som mål för haveri beredskap elimineras kostnaden och komplexiteten med att underhålla en sekundär plats. Replikerade data lagras i Azure Storage.
-* Är **integrerat med befintliga BCDR-tekniker** : Site Recovery partner med andra PROGRAMs BCDR-funktioner. Du kan till exempel använda Site Recovery för att skydda SQL Server backend-delen av företags arbets belastningar. Detta inkluderar inbyggt stöd för SQL Server Always on för att hantera redundans för tillgänglighets grupper.
+* **Fören klar din BCDR-strategi**: Site Recovery gör det enkelt att hantera replikering, redundans och återställning av flera arbets belastningar och appar från en enda plats. Site Recovery dirigerar replikering och redundans men fångar inte dina program data eller har ingen information om den.
+* **Ger flexibel replikering**: genom att använda Site Recovery kan du replikera arbets belastningar som körs på virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska Windows-och Linux-servrar.
+* **Stöder redundans och återställning**: Site Recovery tillhandahåller redundanstest som stöder haveri beredskap utan att påverka produktions miljöer. Du kan också köra planerade redundansväxlingar utan någon dataförlust för förväntade driftsavbrott, eller oplanerade redundansväxlingar med minimal dataförlust (beroende på replikeringsfrekvens) för oväntade haverier. Efter redundansväxlingen kan du växla tillbaka till dina primära platser. Site Recovery tillhandahåller återställningsplaner som kan innehålla skript och Azure Automation Runbook-rutiner så att du kan anpassa redundans och återställning av program med flera nivåer.
+* **Eliminerar sekundära Data Center**: du kan replikera till en sekundär lokal plats eller till Azure. Om du använder Azure som mål för haveri beredskap elimineras kostnaden och komplexiteten med att underhålla en sekundär plats. Replikerade data lagras i Azure Storage.
+* Är **integrerat med befintliga BCDR-tekniker**: Site Recovery partner med andra PROGRAMs BCDR-funktioner. Du kan till exempel använda Site Recovery för att skydda SQL Server backend-delen av företags arbets belastningar. Detta inkluderar inbyggt stöd för SQL Server Always on för att hantera redundans för tillgänglighets grupper.
 
 Läs mer:
 
 * [Vad är Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
-* [Hur fungerar Azure Site Recovery?](/azure/security/fundamentals/azure-to-azure-architecture)
+* [Hur fungerar Azure Site Recovery?](/azure/site-recovery/azure-to-azure-architecture)
 * [Vilka arbets belastningar skyddas av Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Virtuellt nätverk

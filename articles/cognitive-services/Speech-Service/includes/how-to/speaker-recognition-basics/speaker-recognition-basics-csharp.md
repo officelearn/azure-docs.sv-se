@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: 5be99ba09032020abf777c80307e347658a6e037
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 2b5a34e8f3e7132a16ad3683b846d57e9ece2cb6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470803"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015498"
 ---
 I den här snabb starten lär du dig grundläggande design mönster för Talarigenkänning med hjälp av tal-SDK, inklusive:
 
@@ -51,7 +51,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) . I det här exemplet skapar du en [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) med en prenumerations nyckel och en region. Du kan också skapa en grundläggande exempel kod som du kan använda för resten av den här artikeln, som du ändrar för olika anpassningar.
+Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet) . I det här exemplet skapar du en [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet) med en prenumerations nyckel och en region. Du kan också skapa en grundläggande exempel kod som du kan använda för resten av den här artikeln, som du ändrar för olika anpassningar.
 
 Observera att regionen är inställt på `westus` , eftersom det är den enda region som stöds för tjänsten.
 
@@ -70,7 +70,7 @@ public class Program
 
 ## <a name="text-dependent-verification"></a>Text beroende verifiering
 
-Talarverifiering är en bekräftelse på att en talare matchar en känd eller **registrerad** röst. Det första steget är att **Registrera** en röst profil, så att tjänsten har något att jämföra framtida röst exempel mot. I det här exemplet registrerar du profilen med en **text beroende** strategi, som kräver att en speciell pass fras används för både registrering och verifiering. En lista över de pass fraser som stöds finns i [referens dokumenten](https://docs.microsoft.com/rest/api/speakerrecognition/) .
+Talarverifiering är en bekräftelse på att en talare matchar en känd eller **registrerad** röst. Det första steget är att **Registrera** en röst profil, så att tjänsten har något att jämföra framtida röst exempel mot. I det här exemplet registrerar du profilen med en **text beroende** strategi, som kräver att en speciell pass fras används för både registrering och verifiering. En lista över de pass fraser som stöds finns i [referens dokumenten](/rest/api/speakerrecognition/) .
 
 Börja med att skapa följande funktion i din- `Program` klass för att registrera en röst profil.
 
@@ -232,7 +232,7 @@ Verified voice profile for speaker Your Name, score is 0.849409
 
 Talaridentifiering används för att bestämma **vem som** talar från en specifik grupp med registrerade röster. Processen liknar **text oberoende verifiering**, med den största skillnaden att kunna verifiera mot flera röst profiler samtidigt, i stället för att verifiera mot en enskild profil.
 
-Skapa en funktion `IdentificationEnroll` för att registrera flera röst profiler. Registrerings processen för varje profil är samma som registrerings processen för **text oberoende verifiering**och kräver 20 sekunders ljud för varje profil. Den här funktionen accepterar en lista med strängar `profileNames` och skapar en ny röst profil för varje namn i listan. Funktionen returnerar en lista med `VoiceProfile` objekt som du kan använda i nästa funktion för att identifiera en talare.
+Skapa en funktion `IdentificationEnroll` för att registrera flera röst profiler. Registrerings processen för varje profil är samma som registrerings processen för **text oberoende verifiering** och kräver 20 sekunders ljud för varje profil. Den här funktionen accepterar en lista med strängar `profileNames` och skapar en ny röst profil för varje namn i listan. Funktionen returnerar en lista med `VoiceProfile` objekt som du kan använda i nästa funktion för att identifiera en talare.
 
 ```csharp
 public static async Task<List<VoiceProfile>> IdentificationEnroll(SpeechConfig config, List<string> profileNames, Dictionary<string, string> profileMapping)

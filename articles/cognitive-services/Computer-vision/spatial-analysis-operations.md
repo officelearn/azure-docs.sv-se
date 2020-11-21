@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 80f0d29de6b3013ad02ed1a5d34bebdf81a8766b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d1b6e20bf2decfe051e79e073736f71181260fa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628221"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014551"
 ---
 # <a name="spatial-analysis-operations"></a>Åtgärder för rums analys
 
@@ -23,7 +23,7 @@ Med rumslig analys kan du analysera strömningsvideo i realtid från kameraenhet
 
 Behållaren för rums analys implementerar följande åtgärder:
 
-| Åtgärds identifierare| Beskrivning|
+| Åtgärds identifierare| Description|
 |---------|---------|
 | cognitiveservices. vision. spatialanalysis-personcount | Räknar personer i en angiven zon i kamerans visnings fält. <br> Utvärderar en inledande _personCountEvent_ -händelse och _personCountEvent_ händelser när antalet ändras.  |
 | cognitiveservices. vision. spatialanalysis-personcrossingline | Spårar när en person korsar en angiven linje i kamerans visnings fält. <br>Avger en _personLineEvent_ -händelse när personen korsar linjen och ger riktad information. 
@@ -32,18 +32,18 @@ Behållaren för rums analys implementerar följande åtgärder:
 
 Alla ovanstående åtgärder är också tillgängliga i `.debug` versionen, som har möjlighet att visualisera video bild rutorna när de bearbetas. Du måste köra `xhost +` på värddatorn för att aktivera visualiseringen av video bild rutor och händelser.
 
-| Åtgärds identifierare| Beskrivning|
+| Åtgärds identifierare| Description|
 |---------|---------|
 | cognitiveservices. vision. spatialanalysis-personcount. debug | Räknar personer i en angiven zon i kamerans visnings fält. <br> Utvärderar en inledande _personCountEvent_ -händelse och _personCountEvent_ händelser när antalet ändras.  |
 | cognitiveservices. vision. spatialanalysis-personcrossingline. debug | Spårar när en person korsar en angiven linje i kamerans visnings fält. <br>Avger en _personLineEvent_ -händelse när personen korsar linjen och ger riktad information. 
 | cognitiveservices. vision. spatialanalysis-personcrossingpolygon. debug | Spårar när en person korsar en angiven linje i kamerans visnings fält. <br> Genererar en _personLineEvent_ -händelse när personen korsar zonen och ger riktad information. |
 | cognitiveservices. vision. spatialanalysis-persondistance. debug | Spårar när personer bryter mot en avstånds regel. <br> Avger en _personDistanceEvent_ regelbundet med platsen för varje avstånds överträdelse. |
 
-Rums analys kan också köras med [Live Video Analytics](https://aka.ms/lva-spatial-analysis) som sin video AI-modul. 
+Rums analys kan också köras med [Live Video Analytics](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) som sin video AI-modul. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
-| Åtgärds identifierare| Beskrivning|
+| Åtgärds identifierare| Description|
 |---------|---------|
 | cognitiveservices. vision. spatialanalysis-personcount. livevideoanalytics | Räknar personer i en angiven zon i kamerans visnings fält. <br> Utvärderar en inledande _personCountEvent_ -händelse och _personCountEvent_ händelser när antalet ändras.  |
 | cognitiveservices. vision. spatialanalysis-personcrossingline. livevideoanalytics | Spårar när en person korsar en angiven linje i kamerans visnings fält. <br>Avger en _personLineEvent_ -händelse när personen korsar linjen och ger riktad information. 
@@ -57,7 +57,7 @@ Live Video Analytics-åtgärder är också tillgängliga i `.debug` versionen (t
 
 Dessa är de parametrar som krävs för var och en av dessa åtgärder för att utföra den här typen av
 
-| Åtgärdsparametrar| Beskrivning|
+| Åtgärdsparametrar| Description|
 |---------|---------|
 | Åtgärds-ID | Åtgärds identifieraren från tabellen ovan.|
 | enabled | Boolean: true eller false|
@@ -88,7 +88,7 @@ Dessa är de parametrar som krävs för var och en av dessa åtgärder för att 
 }
 ```
 
-| Namn | Typ| Beskrivning|
+| Namn | Typ| Description|
 |---------|---------|---------|
 | `zones` | lista| Lista över zoner. |
 | `name` | sträng| Eget namn för zonen.|
@@ -121,7 +121,7 @@ Detta är ett exempel på en JSON-ineffekt för den SPACEANALYTICS_CONFIG parame
 }
 ```
 
-| Namn | Typ| Beskrivning|
+| Namn | Typ| Description|
 |---------|---------|---------|
 | `lines` | lista| Lista med rader.|
 | `name` | sträng| Eget namn för den här raden.|
@@ -152,7 +152,7 @@ Detta är ett exempel på en JSON-ineffekt för den SPACEANALYTICS_CONFIG parame
 }
 ```
 
-| Namn | Typ| Beskrivning|
+| Namn | Typ| Description|
 |---------|---------|---------|
 | `zones` | lista| Lista över zoner. |
 | `name` | sträng| Eget namn för zonen.|
@@ -184,7 +184,7 @@ Detta är ett exempel på en JSON-ineffekt för SPACEANALYTICS_CONFIG-parametern
 }
 ```
 
-| Namn | Typ| Beskrivning|
+| Namn | Typ| Description|
 |---------|---------|---------|
 | `zones` | lista| Lista över zoner. |
 | `name` | sträng| Eget namn för zonen.|
@@ -328,7 +328,7 @@ Exempel-JSON för händelse utdata i den här åtgärden.
 | Fält namn för SourceInfo | Typ| Description|
 |---------|---------|---------|
 | `id` | sträng| Kamera-ID|
-| `timestamp` | date| UTC-datum när JSON-nyttolasten genererades|
+| `timestamp` | datum| UTC-datum när JSON-nyttolasten genererades|
 | `width` | int | Bredd på video RAM|
 | `height` | int | Video ramens höjd|
 | `frameId` | int | Ram-ID|
@@ -341,7 +341,7 @@ Exempel-JSON för händelse utdata i den här åtgärden.
 | Fält namn för SourceInfo | Typ| Description|
 |---------|---------|---------|
 | `id` | sträng| Kamera-ID|
-| `timestamp` | date| UTC-datum när JSON-nyttolasten genererades|
+| `timestamp` | datum| UTC-datum när JSON-nyttolasten genererades|
 | `width` | int | Bredd på video RAM|
 | `height` | int | Video ramens höjd|
 | `frameId` | int | Ram-ID|
@@ -421,7 +421,7 @@ Exempel-JSON för identifiering av utdata för den här åtgärden.
 | Fält namn för SourceInfo | Typ| Description|
 |---------|---------|---------|
 | `id` | sträng| Kamera-ID|
-| `timestamp` | date| UTC-datum när JSON-nyttolasten genererades|
+| `timestamp` | datum| UTC-datum när JSON-nyttolasten genererades|
 | `width` | int | Bredd på video RAM|
 | `height` | int | Video ramens höjd|
 | `frameId` | int | Ram-ID|
@@ -623,7 +623,7 @@ Exempel-JSON för identifiering av utdata för den här åtgärden.
 | Fält namn för SourceInfo | Typ| Description|
 |---------|---------|---------|
 | `id` | sträng| Kamera-ID|
-| `timestamp` | date| UTC-datum när JSON-nyttolasten genererades|
+| `timestamp` | datum| UTC-datum när JSON-nyttolasten genererades|
 | `width` | int | Bredd på video RAM|
 | `height` | int | Video ramens höjd|
 | `frameId` | int | Ram-ID|
@@ -638,8 +638,8 @@ Exempel-JSON för identifiering av utdata för den här åtgärden.
 
 Du kanske vill integrera identifiering eller händelser för rums analys i ditt program. Här följer några metoder att tänka på: 
 
-* Använd Azure Event Hub SDK för ditt valda programmeringsspråk för att ansluta till Azure IoT Hub-slutpunkten och ta emot händelserna. Mer information finns i [läsa meddelanden från enhet till moln från den inbyggda slut punkten](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) . 
-* Konfigurera **meddelanderoutning** på Azure-IoT Hub för att skicka händelserna till andra slut punkter eller spara händelserna i data lagringen. Mer information finns i [IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) meddelanderoutning. 
+* Använd Azure Event Hub SDK för ditt valda programmeringsspråk för att ansluta till Azure IoT Hub-slutpunkten och ta emot händelserna. Mer information finns i [läsa meddelanden från enhet till moln från den inbyggda slut punkten](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) . 
+* Konfigurera **meddelanderoutning** på Azure-IoT Hub för att skicka händelserna till andra slut punkter eller spara händelserna i data lagringen. Mer information finns i [IoT Hub](../../iot-hub/iot-hub-devguide-messages-d2c.md) meddelanderoutning. 
 * Konfigurera ett Azure Stream Analytics jobb för att bearbeta händelserna i real tid när de anländer och skapa visualiseringar. 
 
 ## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Distribuera åtgärder för rums analys i skala (flera kameror)
@@ -725,7 +725,7 @@ För att få bästa möjliga prestanda och användning av GPU: er kan du distrib
       }
   }
   ```
-| Namn | Typ| Beskrivning|
+| Namn | Typ| Description|
 |---------|---------|---------|
 | `batch_size` | int | Anger antalet kameror som ska användas i åtgärden. |
 

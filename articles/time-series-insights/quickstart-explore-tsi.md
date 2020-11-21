@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 10/02/2020
-ms.openlocfilehash: 9cd1a6059360c948229a1da00780cd6cb40b7f35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3956f8d91793367f7200d2f349a8713aff3d2f59
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91666542"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016232"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Snabb start: utforska Azure Time Series Insights Gen2 demo miljö
 
@@ -38,7 +38,7 @@ Azure Time Series Insights Gen2 Explorer visar historiska data och rotor Saks an
 
 ## <a name="work-with-historical-data"></a>Arbeta med historiska data
 
-1. I **contoso-anläggningar 1**tittar du på lindning turbin **W7**.  
+1. I **contoso-anläggningar 1** tittar du på lindning turbin **W7**.  
 
    1. Ändra visnings intervallet till **1/1/17 20:00:00.00 till 3/10/17 20:00:00.00 (UTC)**.
    1. Välj en sensor genom att välja **contoso planta 1**  >  **W7**  >  **Generator system**  >  **GeneratorSpeed**. Granska sedan värdena som visas.
@@ -102,7 +102,7 @@ Genom att använda Azure Time Series Insights Gen2 och sensor telemetri har vi u
 
 1. Andra sensor data punkter kan läggas till för att ge större kontext. De fler sensorer som vi visar, desto en fullständig förståelse för problemet är. Nu ska vi släppa en markör för att visa de faktiska värdena.
 
-    1. Välj **Generator system**och välj sedan tre sensorer: **GridVoltagePhase1**, **GridVoltagePhase2**och **GridVoltagePhase3**.
+    1. Välj **Generator system** och välj sedan tre sensorer: **GridVoltagePhase1**, **GridVoltagePhase2** och **GridVoltagePhase3**.
     1. Släpp en markör på den sista datapunkten i det synliga området.
 
        [![Släpp en markör](media/v2-update-quickstart/quick-start-drop-marker.png)](media/v2-update-quickstart/quick-start-drop-marker.png#lightbox)
@@ -119,7 +119,7 @@ Genom att använda Azure Time Series Insights Gen2 och sensor telemetri har vi u
 
 Nu när du har slutfört snabb starten rensar du de resurser som du har skapat:
 
-1. Välj **alla resurser**på den vänstra menyn i [Azure Portal](https://portal.azure.com)och leta upp resurs gruppen Azure Time Series Insights Gen2.
+1. Välj **alla resurser** på den vänstra menyn i [Azure Portal](https://portal.azure.com)och leta upp resurs gruppen Azure Time Series Insights Gen2.
 1. Ta antingen bort hela resurs gruppen (och alla resurser som ingår i den) genom att välja **ta bort** eller ta bort varje resurs individuellt.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -127,9 +127,9 @@ Nu när du har slutfört snabb starten rensar du de resurser som du har skapat:
 Du är redo att skapa din egen Azure Time Series Insights Gen2-miljö. Starta:
 
 > [!div class="nextstepaction"]
-> [Planera din Azure Time Series Insights Gen2-miljö](time-series-insights-update-plan.md)
+> [Planera din Azure Time Series Insights Gen2-miljö](./how-to-plan-your-environment.md)
 
 Lär dig att använda demonstrationen och dess funktioner:
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md)
+> [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md)

@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 7de78a52482b2f07cb4e5e036509e0f9e402a3f4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: aa85822b433e2d8128df9ae3664411ea3fcddec4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576282"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012933"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
 
@@ -29,6 +29,10 @@ I den här artikeln får du lära dig hur du skapar en Azure Machine Learning-ar
 * Om du vill använda CLI-kommandona i det här dokumentet från din **lokala miljö** behöver du [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
     Om du använder [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)kan CLI nås via webbläsaren och finns i molnet.
+
+## <a name="limitations"></a>Begränsningar
+
+* När du skapar en ny arbets yta kan du antingen låta arbets ytan skapa de Azure-tjänster som krävs automatiskt eller tillhandahålla befintliga tjänster. När du tillhandahåller befintliga tjänster måste dessa tjänster alla finnas i samma Azure-prenumeration som arbets ytan.
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Ansluta CLI till din Azure-prenumeration
 
@@ -71,7 +75,7 @@ Azure Machine Learning-arbetsytan är beroende av följande Azure-tjänster elle
 | Tjänst | Parameter för att ange en befintlig instans |
 | ---- | ---- |
 | **Azure-resurs grupp** | `-g <resource-group-name>`
-| **Azure Storage konto** | `--storage-account <service-id>` |
+| **Azure Storage-konto** | `--storage-account <service-id>` |
 | **Azure Application Insights** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
@@ -107,7 +111,7 @@ Mer information om hur du arbetar med resurs grupper finns i [AZ Group](/cli/azu
 
 ### <a name="automatically-create-required-resources"></a>Skapa nödvändiga resurser automatiskt
 
-Om du vill skapa en ny arbets yta där __tjänsterna skapas automatiskt__ , använder du följande kommando:
+Om du vill skapa en ny arbets yta där __tjänsterna skapas automatiskt__, använder du följande kommando:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
@@ -189,7 +193,7 @@ Om du vill skapa en arbets yta som använder befintliga resurser måste du ange 
 > [!IMPORTANT]
 > Du behöver inte ange alla befintliga resurser. Du kan ange en eller flera. Du kan till exempel ange ett befintligt lagrings konto så skapas de andra resurserna av arbets ytan.
 
-+ **Azure Storage konto** : `az storage account show --name <storage-account-name> --query "id"`
++ **Azure Storage konto**: `az storage account show --name <storage-account-name> --query "id"`
 
     Svaret från det här kommandot liknar följande text och är ID: t för ditt lagrings konto:
 
@@ -198,7 +202,7 @@ Om du vill skapa en arbets yta som använder befintliga resurser måste du ange 
     > [!IMPORTANT]
     > Om du vill använda ett befintligt Azure Storage-konto kan det inte vara ett Premium-konto (Premium_LRS och Premium_GRS). Det får inte heller ha ett hierarkiskt namn område (används med Azure Data Lake Storage Gen2). Varken Premium Storage eller hierarkiskt namn område stöds med arbets ytans _standard_ lagrings konto. Du kan använda Premium Storage eller hierarkiskt namnrymd med lagrings konton som _inte är standard_ .
 
-+ **Azure Application insikter** :
++ **Azure Application insikter**:
 
     1. Installera Application Insights-tillägget:
 
@@ -216,13 +220,13 @@ Om du vill skapa en arbets yta som använder befintliga resurser måste du ange 
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault** : `az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 
     Svaret från det här kommandot liknar följande text och är ID: t för nyckel valvet:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure Container Registry** : `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     Svaret från det här kommandot liknar följande text och är ID: t för behållar registret:
 

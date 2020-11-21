@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 14b4e7217b6e902023e5e82f8dbd404e43b36ef0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1616a0149ae56de8afe0e9ab485af4bf76326d86
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676165"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014619"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrera till Read v3. x OCR-behållare
 
@@ -35,7 +35,7 @@ Read v 3.1-behållaren använder version 3 av API för visuellt innehåll och ha
 * `/vision/v3.1-preview.2/read/analyze`
 * `/vision/v3.1-preview.2/read/syncAnalyze`
 
-Mer information om hur du uppdaterar dina program för att använda version 3 av molnbaserad Read API finns i [migreringsguiden för visuellt innehåll v3-REST API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions) . Den här informationen gäller även för behållaren. Observera att Sync-åtgärder endast stöds i behållare.
+Mer information om hur du uppdaterar dina program för att använda version 3 av molnbaserad Read API finns i [migreringsguiden för visuellt innehåll v3-REST API](./upgrade-api-versions.md) . Den här informationen gäller även för behållaren. Observera att Sync-åtgärder endast stöds i behållare.
 
 ## <a name="memory-requirements"></a>Minneskrav
 
@@ -67,7 +67,7 @@ I v3. x i behållaren stöds inte RabbitMQ för närvarande. De implementeringar
 |---------|---------|-------|
 | I minnet (standard) | Inga körnings argument krävs. | Utveckling och testning |
 | Azure Queues | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Produktion |
-| RabbitMQ    | Inte tillgänglig | Produktion |
+| RabbitMQ    | Ej tillgänglig | Produktion |
 
 För tillagd redundans använder Read v3. x-behållaren en Synlighets-timer för att se till att begär Anden kan bearbetas i händelse av en krasch när de körs i en konfiguration med flera behållare. 
 

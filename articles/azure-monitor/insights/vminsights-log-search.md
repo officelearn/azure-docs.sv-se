@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b3fdf052ce7f0d6a5c3497aa1ac971d9249546a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325193"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015603"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Så här frågar du efter loggar från Azure Monitor for VMs
 
@@ -112,7 +112,7 @@ Varje RemoteIp-egenskap i *VMConnection* -tabellen kontrol leras mot en uppsätt
 |:--|:--|
 |MaliciousIp |RemoteIp-adressen |
 |IndicatorThreadType |En hot indikator upptäcktes av följande värden: *botnät*, *C2*, *CryptoMining*, *Darknet*, *DDoS*, *MaliciousUrl*, *malware*, *phishing*, *proxy*, *oönskade program*, *visnings lista*.   |
-|Beskrivning |Beskrivning av det observerade hotet. |
+|Description |Beskrivning av det observerade hotet. |
 |TLPLevel |TLP-nivån (trafik ljus protokoll) är en av de definierade värdena, *vitt*, *grönt*, *gult*, *rött*. |
 |Konfidensbedömning |Värdena är *0 – 100*. |
 |Allvarlighetsgrad |Värdena är *0 – 5*, där *5* är det allvarligaste och *0* inte är allvarligt. Standardvärdet är *3*.  |
@@ -131,7 +131,7 @@ Varje post i VMBoundPort identifieras med följande fält:
 | Egenskap | Beskrivning |
 |:--|:--|
 |Process | Identitet för processen (eller grupper av processer) som porten är associerad med.|
-|Sökning | Portens IP-adress (kan vara IP *-adress*med jokertecken) |
+|Sökning | Portens IP-adress (kan vara IP *-adress* med jokertecken) |
 |Port |Port numret |
 |Protokoll | Protokollet.  Exempel: *TCP* eller *UDP* (endast *TCP* stöds för närvarande).|
  
@@ -230,10 +230,10 @@ Poster med en typ av *VMProcess* har inventerings data för TCP-anslutna process
 |ExecutableName | Namnet på den körbara processen | 
 |DisplayName | Processens visnings namn |
 |Roll | Process roll: *webserver*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
-|Group | Namn på process grupp. Processer i samma grupp är logiskt relaterade, t. ex. en del av samma produkt-eller system komponent. |
+|Grupp | Namn på process grupp. Processer i samma grupp är logiskt relaterade, t. ex. en del av samma produkt-eller system komponent. |
 |StartTime | Start tid för process bassäng |
 |FirstPid | Det första PID i lagringspoolen |
-|Beskrivning | Beskrivning av processen |
+|Description | Beskrivning av processen |
 |CompanyName | Företagets namn |
 |InternalName | Det interna namnet |
 |ProductName | Produktens namn |
@@ -442,7 +442,7 @@ Poster med en typ av *InsightsMetrics* har prestanda data från gäst operativ s
 |Dator | Datorns FQDN | 
 |Ursprung | *vm.azm.ms* |
 |Namnområde | Prestanda räknarens kategori | 
-|Namn | Namn på prestanda räknaren |
+|Name | Namn på prestanda räknaren |
 |Val | Insamlat värde | 
 |Taggar | Relaterad information om posten. Se tabellen nedan för taggar som används med olika post typer.  |
 |AgentId | Unik identifierare för varje dators agent |
@@ -451,7 +451,7 @@ Poster med en typ av *InsightsMetrics* har prestanda data från gäst operativ s
 
 De prestanda räknare som för närvarande samlas in i tabellen *InsightsMetrics* visas i följande tabell:
 
-| Namnområde | Namn | Beskrivning | Enhet | Taggar |
+| Namnområde | Name | Beskrivning | Enhet | Taggar |
 |:---|:---|:---|:---|:---|
 | Dator    | Pulsslag             | Datorns pulsslag                        | | |
 | Minne      | AvailableMB           | Tillgängliga byte för minne                    | Megabyte      | memorySizeMB – total minnes storlek|
@@ -475,5 +475,5 @@ De prestanda räknare som för närvarande samlas in i tabellen *InsightsMetrics
 
 * Om du inte har använt att skriva logg frågor i Azure Monitor kan du läsa om [hur du använder Log Analytics](../log-query/get-started-portal.md) i Azure Portal för att skriva logg frågor.
 
-* Lär dig mer om att [skriva Sök frågor](../log-query/search-queries.md).
+* Lär dig mer om att [skriva Sök frågor](/azure/azure-monitor/log-query/get-started-queries).
 

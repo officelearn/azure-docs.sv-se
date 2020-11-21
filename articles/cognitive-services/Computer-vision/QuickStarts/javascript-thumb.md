@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 64ec7bfa400edceb0f638b1862b9057d104c7904
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ccb82b141733910552fadd2fe9fb6402924265ce
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542753"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013968"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Snabb start: skapa en miniatyr med hjälp av Visuellt innehåll REST API och Java Script
 
@@ -33,7 +33,7 @@ I den här snabb starten ska du skapa en miniatyr bild från en avbildning med h
 
 Så här skapar du och kör exemplet:
 
-1. Skapa en fil med namnet _get-thumbnail.html_ , öppna den i en text redigerare och kopiera följande kod till den.
+1. Skapa en fil med namnet _get-thumbnail.html_, öppna den i en text redigerare och kopiera följande kod till den.
 1. Du kan också ersätta värdet på `value` attributet för `inputImage` kontrollen med URL: en för en annan bild som du vill analysera.
 1. Öppna ett webbläsarfönster.
 1. Dra och släpp filen till webbläsarfönstret i webbläsaren.
@@ -166,4 +166,4 @@ Ett lyckat svar returneras i form av binärdata som representerar bilddata för 
 Utforska ett JavaScript-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
 
 > [!div class="nextstepaction"]
-> [Självstudie: API för visuellt innehåll med JavaScript](../Tutorials/javascript-tutorial.md)
+> [Självstudie: API för visuellt innehåll med JavaScript](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)

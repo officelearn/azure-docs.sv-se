@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 0b0b2cbf3fc637d7ad53be911c0171f6bb971bc6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 31d833d1a6e9c7715ca13582c09f5f72564d683a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896131"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016147"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Skapa en virtuell Linux-dator med accelererat nätverk med Azure CLI
 
@@ -51,7 +51,7 @@ Följande distributioner stöds i rutan från Azure-galleriet:
 * **Debian "Sträck ut" med backports-kernel**
 * **Oracle Linux 7,4 och senare med Red Hat-kompatibel kernel (RHCK)**
 * **Oracle Linux 7,5 och senare med UEK version 5**
-* **FreeBSD 10,4, 11,1 & 12,0**
+* **FreeBSD 10,4, 11,1 & 12,0 eller senare**
 
 ## <a name="limitations-and-constraints"></a>Begränsningar och begränsningar
 
@@ -78,7 +78,7 @@ Virtuella datorer (klassisk) kan inte distribueras med accelererat nätverk.
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Skapa en virtuell Linux-dator med Azure-accelererat nätverk
 ## <a name="portal-creation"></a>Skapa Portal
-Även om den här artikeln innehåller steg för att skapa en virtuell dator med accelererat nätverk med hjälp av Azure CLI, kan du också [skapa en virtuell dator med accelererat nätverk med hjälp av Azure Portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du skapar en virtuell dator i portalen väljer du fliken **nätverk** i bladet **skapa en virtuell dator** .  På den här fliken finns ett alternativ för **accelererat nätverk** .  Om du har valt ett [operativ system som stöds](#supported-operating-systems) och storleken på den [virtuella datorn](#supported-vm-instances), fylls det här alternativet i automatiskt på "på".  Om inte, kommer den att fylla i alternativet "av" för accelererat nätverk och ge användaren en anledning till varför det inte är aktiverat.   
+Även om den här artikeln innehåller steg för att skapa en virtuell dator med accelererat nätverk med hjälp av Azure CLI, kan du också [skapa en virtuell dator med accelererat nätverk med hjälp av Azure Portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du skapar en virtuell dator i portalen väljer du fliken **nätverk** i bladet **skapa en virtuell dator** .  På den här fliken finns ett alternativ för **accelererat nätverk**.  Om du har valt ett [operativ system som stöds](#supported-operating-systems) och storleken på den [virtuella datorn](#supported-vm-instances), fylls det här alternativet i automatiskt på "på".  Om inte, kommer den att fylla i alternativet "av" för accelererat nätverk och ge användaren en anledning till varför det inte är aktiverat.   
 
 * *Obs:* Endast operativ system som stöds kan aktive ras via portalen.  Om du använder en anpassad avbildning och din avbildning har stöd för accelererat nätverk skapar du en virtuell dator med CLI eller PowerShell. 
 
@@ -87,7 +87,7 @@ När den virtuella datorn har skapats kan du bekräfta att accelererat nätverk 
 ## <a name="cli-creation"></a>Skapa CLI
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Installera den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli) och logga in på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index). Ersätt exempel parameter namn med dina egna värden i följande exempel. Exempel på parameter namn som ingår *myResourceGroup* , *myNic* och *myVm* .
+Installera den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli) och logga in på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index). Ersätt exempel parameter namn med dina egna värden i följande exempel. Exempel på parameter namn som ingår *myResourceGroup*, *myNic* och *myVm*.
 
 Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för den *centrala* platsen:
 
@@ -109,7 +109,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
-Skapa en nätverks säkerhets grupp med [AZ Network NSG Create](/cli/azure/network/nsg). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup* :
+Skapa en nätverks säkerhets grupp med [AZ Network NSG Create](/cli/azure/network/nsg). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -160,7 +160,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>Skapa en virtuell dator och koppla NÄTVERKSKORTet
 När du skapar den virtuella datorn anger du det nätverkskort som du skapade med `--nics` . Välj en storlek och distribution som visas i ett [snabbare nätverk i Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVM* med UbuntuLTS-avbildningen och en storlek som har stöd för accelererat nätverk ( *Standard_DS4_v2* ):
+Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVM* med UbuntuLTS-avbildningen och en storlek som har stöd för accelererat nätverk (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \
@@ -175,7 +175,7 @@ az vm create \
 
 En lista över alla storlekar och egenskaper för virtuella datorer finns i [storlekar för virtuella Linux-datorer](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-När den virtuella datorn har skapats returneras utdata som liknar följande exempel utdata. Anteckna **publicIpAddress** . Den här adressen används för att få åtkomst till den virtuella datorn i efterföljande steg.
+När den virtuella datorn har skapats returneras utdata som liknar följande exempel utdata. Anteckna **publicIpAddress**. Den här adressen används för att få åtkomst till den virtuella datorn i efterföljande steg.
 
 ```output
 {
@@ -200,10 +200,10 @@ ssh azureuser@<your-public-ip-address>
 
 Från bash-gränssnittet anger `uname -r` och bekräftar du att kernel-versionen är en av följande versioner eller större:
 
-* **Ubuntu 16,04** : 4.11.0-1013
-* **SLES SP3** : 4.4.92-6.18
-* **RHEL** : 7.4.2017120423
-* **CentOS** : 7.4.20171206
+* **Ubuntu 16,04**: 4.11.0-1013
+* **SLES SP3**: 4.4.92-6.18
+* **RHEL**: 7.4.2017120423
+* **CentOS**: 7.4.20171206
 
 
 Bekräfta att Mellanox VF-enheten exponeras för den virtuella datorn med `lspci` kommandot. De utdata som returneras liknar följande utdata:
@@ -230,7 +230,7 @@ Accelererat nätverk har nu Aktiver ATS för den virtuella datorn.
 
 ## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Hantera dynamisk bindning och återkallande av virtuell funktion 
 Programmen måste köras via det syntetiska NÄTVERKSKORTet som exponeras i den virtuella datorn. Om programmet körs direkt över VF-NÄTVERKSKORTet får det inte **alla** paket som är avsedda för den virtuella datorn, eftersom vissa paket visas över det syntetiska gränssnittet.
-Om du kör ett program över det syntetiska NÄTVERKSKORTet garanterar det att programmet tar emot **alla** paket som är avsedda för det. Det ser också till att programmet fortsätter att köras, även om VF-objektet återkallas när värden betjänas. Program bindningar till det syntetiska NÄTVERKSKORTet är ett **obligatoriskt** krav för alla program som drar nytta av **accelererat nätverk** .
+Om du kör ett program över det syntetiska NÄTVERKSKORTet garanterar det att programmet tar emot **alla** paket som är avsedda för det. Det ser också till att programmet fortsätter att köras, även om VF-objektet återkallas när värden betjänas. Program bindningar till det syntetiska NÄTVERKSKORTet är ett **obligatoriskt** krav för alla program som drar nytta av **accelererat nätverk**.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Aktivera accelererat nätverk på befintliga virtuella datorer
 Om du har skapat en virtuell dator utan accelererat nätverk är det möjligt att aktivera den här funktionen på en befintlig virtuell dator.  Den virtuella datorn måste ha stöd för accelererat nätverk genom att uppfylla följande krav som också beskrivs ovan:

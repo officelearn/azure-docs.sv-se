@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 539f6fe35a2d6eb0566871dbab4e9758a300e999
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c4df284b4f202c78969a16d118c3a20a41592343
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541886"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013593"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>Snabb start: extrahera utskriven text (OCR) med hjälp av Visuellt innehåll REST API och python
 
 > [!NOTE]
-> Om du extraherar engelsk språk text bör du överväga att använda den nya [Läs åtgärden](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). En [python-snabb start](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/python-hand-text) är tillgänglig. 
+> Om du extraherar engelsk språk text bör du överväga att använda den nya [Läs åtgärden](../concept-recognizing-text.md). En [python-snabb start](./python-hand-text.md) är tillgänglig. 
 
 I den här snabb starten ska du extrahera utskriven text med optisk tecken igenkänning (OCR) från en bild med hjälp av Visuellt innehåll REST API. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
 
@@ -37,7 +37,7 @@ Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-antec
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Visuellt innehåll-tjänsten. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
-* [Skapa miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
+* [Skapa miljövariabler](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
@@ -45,9 +45,9 @@ Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill extrahera tryckt text ur.
-1. Spara koden som en fil med tillägget `.py`. Ett exempel är `get-printed-text.py`.
+1. Spara koden som en fil med tillägget `.py`. Exempelvis `get-printed-text.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Ett exempel är `python get-printed-text.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python get-printed-text.py`.
 
 ```python
 import os
@@ -232,6 +232,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan t
 Nu ska du utforska ett python-program som använder Visuellt innehåll för att utföra optisk tecken igenkänning (OCR). Skapa Smart-beskurna miniatyrer; identifiera, kategorisera, tagga och beskriv visuella funktioner i bilder.
 
 > [!div class="nextstepaction"]
-> [Självstudie: API för visuellt innehåll med Python](../Tutorials/PythonTutorial.md)
+> [Självstudie: API för visuellt innehåll med Python](https://github.com/Microsoft/Cognitive-Vision-Python)
 
 * Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

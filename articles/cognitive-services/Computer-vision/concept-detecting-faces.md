@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 089c59c041110209e55cc3fb10b1c5adf54bd13e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 6d85498b0e76997a1f0f989f4ea0f30acc0e8443
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538282"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013726"
 ---
 # <a name="face-detection-with-computer-vision"></a>Ansikts igenkänning med Visuellt innehåll
 
 Visuellt innehåll kan identifiera mänskliga ansikten i en bild och generera ålder, kön och rektangeln för varje identifierad ansikte. 
 
 > [!NOTE]
-> Den här funktionen erbjuds även av Azure [Face](/azure/cognitive-services/face/) service. Se det här alternativet för mer detaljerad ansikts analys, inklusive identifiering av ansikte och identifiering. 
+> Den här funktionen erbjuds även av Azure [Face](../face/index.yml) service. Se det här alternativet för mer detaljerad ansikts analys, inklusive identifiering av ansikte och identifiering. 
 
 ## <a name="face-detection-examples"></a>Exempel på ansikts igenkänning
 

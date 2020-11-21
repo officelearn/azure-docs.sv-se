@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 79d9c0e4a1e820ca30e8434e87fd0e40622291d4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c9c4a96259f939e4732c182c690f47735bc0e3e8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542787"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013987"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll REST API och Java Script
 
@@ -38,7 +38,7 @@ Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet på `value` attributet för `inputImage` kontrollen med URL: en till en annan bild som du vill extrahera text från.
-1. Spara koden som en fil med tillägget `.html`. Ett exempel är `get-text.html`.
+1. Spara koden som en fil med tillägget `.html`. Exempelvis `get-text.html`.
 1. Öppna ett webbläsarfönster.
 1. När webb sidan visas i webbläsaren fyller du i de nödvändiga parametrarna och klickar på knappen **Läs avbildning** .
 
@@ -389,6 +389,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan t
 Utforska ett JavaScript-program som använder Visuellt innehåll för att utföra optisk tecken igenkänning (OCR). Skapa Smart-beskurna miniatyrer; identifiera, kategorisera, tagga och beskriv visuella funktioner i bilder. 
 
 > [!div class="nextstepaction"]
-> [Självstudie: API för visuellt innehåll med JavaScript](../Tutorials/javascript-tutorial.md)
+> [Självstudie: API för visuellt innehåll med JavaScript](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)
 
 * Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

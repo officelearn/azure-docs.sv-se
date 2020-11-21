@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-dotnet
-ms.openlocfilehash: ce75b5465d18f988d9dfd2b329c4157bab41ded9
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f61ca23157bd34669f4e7fa9ed1ead429e1d1674
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534525"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014177"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-20-rest-api-ocr-operation-and-c"></a>Snabb start: Extrahera text med Visuellt innehåll 2,0 REST API OCR-åtgärd och C #
 
 > [!IMPORTANT]
-> Om du extraherar text på engelska, nederländska, franska, tyska, italienska, portugisiska, spanska eller förenklad kinesiska (för hands version) rekommenderar vi att du använder den nyare [Läs åtgärden](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). En [snabb start för C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) är tillgänglig. 
+> Om du extraherar text på engelska, nederländska, franska, tyska, italienska, portugisiska, spanska eller förenklad kinesiska (för hands version) rekommenderar vi att du använder den nyare [Läs åtgärden](../concept-recognizing-text.md). En [snabb start för C#](./csharp-hand-text.md) är tillgänglig. 
 
 I den här snabb starten ska du extrahera utskriven text från en bild med hjälp av funktionen Visuellt innehåll REST API [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) -funktion. Med den här åtgärden kan du identifiera utskriven text i en bild och extrahera identifierade tecken i en maskin användbar tecken ström.
 
@@ -32,7 +32,7 @@ I den här snabb starten ska du extrahera utskriven text från en bild med hjäl
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Visuellt innehåll-tjänsten. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
-* [Skapa miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
+* [Skapa miljövariabler](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 

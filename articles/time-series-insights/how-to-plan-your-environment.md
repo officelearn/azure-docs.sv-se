@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8d96d7b5952c020493af278ee1ea8ad5ff46716
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598115"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016793"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planera din Azure Time Series Insights Gen2-miljö
 
@@ -45,7 +45,7 @@ Som en del av etablerings processen anger du om du vill aktivera ett varmt arkiv
 Frågor i varmt lager är kostnads fria, medan frågor om kall lagring ådrar sig kostnader. Det är viktigt att förstå dina fråge mönster och planera din varmt Store-konfiguration. Vi rekommenderar att interaktiva analyser på den senaste informationen finns i din varma lagrings-och mönster analys och långsiktiga trender finns i kall.
 
 > [!NOTE]
-> Läs [API-referensen](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters)om du vill veta mer om hur du frågar dina varma data.
+> Läs [API-referensen](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters)om du vill veta mer om hur du frågar dina varma data.
 
 För att starta måste du ha tre ytterligare objekt:
 
@@ -64,7 +64,7 @@ Om du vill skapa en ny Azure Time Series Insights miljö väljer du ett Time Ser
 > [!IMPORTANT]
 > Time Series-ID: n *kan inte ändras senare*. Verifiera var och en innan du väljer den sista och Använd den första.
 
-Du kan välja upp till tre nycklar för att unikt särskilja dina resurser. Mer information finns [i metod tips för att välja ett tids serie-ID](./time-series-insights-update-how-to-id.md) och inmatnings [regler](concepts-json-flattening-escaping-rules.md).
+Du kan välja upp till tre nycklar för att unikt särskilja dina resurser. Mer information finns [i metod tips för att välja ett tids serie-ID](./how-to-select-tsid.md) och inmatnings [regler](concepts-json-flattening-escaping-rules.md).
 
 Egenskapen **timestamp** är också viktig. Du kan ange den här egenskapen när du lägger till händelse källor. Varje händelse källa har en valfri tidstämpel egenskap som används för att spåra händelse källor över tid. Tidsstämplar-värden är Skift läges känsliga och måste formateras till den enskilda specifikationen för varje händelse källa.
 
@@ -74,7 +74,7 @@ När den lämnas tom används den tidpunkt då händelsen köade i IoT Hub eller
 
 Nu kan du konfigurera din Azure Time Series Insights Miljös tids serie modell. Den nya modellen gör det enkelt att hitta och analysera IoT-data. Det möjliggör hantering, underhåll och anrikning av tids serie data och hjälper till att förbereda konsument klara data uppsättningar. Modellen använder Time Series-ID: n, som mappar till en instans som associerar den unika resursen med variabler, som kallas typer och hierarkier. Läs mer om [tids serie modell](./concepts-model-overview.md) översikten.
 
-Modellen är dynamisk, så den kan skapas när som helst. Kom igång snabbt genom att skapa och ladda upp den innan du överför data till Azure Time Series Insights. Om du vill bygga din modell läser du [använda tids serie modellen](/azure/time-series-insights/concepts-model-overview).
+Modellen är dynamisk, så den kan skapas när som helst. Kom igång snabbt genom att skapa och ladda upp den innan du överför data till Azure Time Series Insights. Om du vill bygga din modell läser du [använda tids serie modellen](./concepts-model-overview.md).
 
 För många kunder mappas Time Series-modellen till en befintlig till gångs modell eller ERP-system redan på plats. Om du inte har en befintlig modell [tillhandahålls](https://github.com/Microsoft/tsiclient) en fördefinierad användar upplevelse för att snabbt komma igång. Om du vill Envision hur en modell kan hjälpa dig kan du Visa [exempel demonstrations miljön](https://insights.timeseries.azure.com/preview/demo).
 

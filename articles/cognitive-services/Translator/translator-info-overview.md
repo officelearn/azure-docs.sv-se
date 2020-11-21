@@ -12,26 +12,26 @@ ms.date: 09/11/2020
 ms.author: swmachan
 ms.custom: cog-serv-seo-aug-2020
 keywords: översättare, text översättning, maskin översättning, översättnings tjänst
-ms.openlocfilehash: 32ae7f75c1b953e8af7dfef83c1971c2f78b0b62
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8016c79cbe7f78bdaa18274f8873548e3982df2f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90530343"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016485"
 ---
 # <a name="what-is-the-translator-service"></a>Vad är tjänsten Translator?
 
-Translator är en molnbaserad maskin översättnings tjänst och ingår i [Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) -familjen av kognitiva API: er som används för att bygga smarta appar. Translator är enkelt att integrera i dina program, webbplatser, verktyg och lösningar. Det gör att du kan lägga till användar upplevelser med flera språk på [fler än 70 språk](languages.md)och kan användas på alla maskin varu plattformar med alla operativ system för text översättning.
+Translator är en molnbaserad maskin översättnings tjänst och ingår i [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) -familjen av kognitiva API: er som används för att bygga smarta appar. Translator är enkelt att integrera i dina program, webbplatser, verktyg och lösningar. Det gör att du kan lägga till användar upplevelser med flera språk på [fler än 70 språk](./language-support.md)och kan användas på alla maskin varu plattformar med alla operativ system för text översättning.
 
 ## <a name="about-microsoft-translator"></a>Om Microsoft Translator
 
 Translator har ett antal Microsoft-produkter och-tjänster och används av tusentals företag i hela världen i sina program och arbets flöden, vilket ger sitt innehåll möjlighet att komma åt en global publik.
 
-Tal översättning, som drivs av Translator, är också tillgängligt via [Azure Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Den kombinerar funktioner från Translator Speech API och Custom Speech Service till en enhetlig och helt anpassningsbar tjänst. 
+Tal översättning, som drivs av Translator, är också tillgängligt via [Azure Speech service](../speech-service/index.yml). Den kombinerar funktioner från Translator Speech API och Custom Speech Service till en enhetlig och helt anpassningsbar tjänst. 
 
 ## <a name="language-support"></a>Stöd för språk
 
-Translator ger stöd för flera språk för text översättning, transkriberingsspråk, språk identifiering och ord listor. Se [språkstöd](language-support.md) för en fullständig lista, eller kom åt listan programmatiskt med [REST API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
+Translator ger stöd för flera språk för text översättning, transkriberingsspråk, språk identifiering och ord listor. Se [språkstöd](language-support.md) för en fullständig lista, eller kom åt listan programmatiskt med [REST API](./reference/v3-0-languages.md).  
 
 ## <a name="microsoft-translator-neural-machine-translation"></a>Neural maskinöversättning med Microsoft Translator
 
@@ -49,11 +49,11 @@ Ett tillägg till tjänsten Translator, anpassad översättare kan användas til
 
 Med den anpassade översättningstjänsten kan du skapa översättningssystem som hanterar den terminologi som används inom företaget eller branschen. Det anpassade översättnings systemet integreras sedan enkelt i dina befintliga program, arbets flöden och webbplatser på flera olika typer av enheter, via den vanliga översättaren, med hjälp av parametern Category.
 
-Läs mer om [anpassad översättare](customization.md).
+Läs mer om [Custom Translator](customization.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Registrera dig](translator-text-how-to-signup.md) för en åtkomst nyckel.
+- [Registrera dig](./translator-how-to-signup.md) för en åtkomst nyckel.
 - Prova vår [snabb start](quickstart-translator.md) för att snabbt anropa tjänsten Translator.
-- [API-referensen](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) innehåller den tekniska dokumentationen för API:erna.
+- [API-referensen](./reference/v3-0-reference.md) innehåller den tekniska dokumentationen för API:erna.
 - [Prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

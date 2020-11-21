@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a7f5ec0231612a2cee2a9435144c886527c228e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972432"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014483"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Självstudie: skapa ett anslutet hanterings program för skräp hantering i IoT Central
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur man:
 > * Konfigurera jobb
 > * Anpassa din program anpassning med adresser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 -  En Azure-prenumeration rekommenderas. Du kan välja att använda en kostnads fri 7-dagars utvärderings version. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
@@ -92,18 +92,18 @@ Som ett verktyg kan du skapa och anpassa vyer på instrument panelen för operat
 
 Instrument panelen består av olika typer av paneler:
 
-* ***Bild panel för wide-verktyg för avfalls verktyg***: den första panelen på instrument panelen är en bild panel med ett fiktivt avinstallations verktyg "Wide World avfall". Du kan anpassa panelen och placera en egen avbildning eller ta bort den. 
+* ***Wide World-verktyget för avfalls verktyg** _: den första panelen på instrument panelen är en bild panel med ett fiktivt avinstallations verktyg "Wide World avfall". Du kan anpassa panelen och placera en egen avbildning eller ta bort den. 
 
-* ***Bild panel för avfalls fack***: du kan använda bild-och innehålls paneler för att skapa en visuell representation av enheten som övervakas tillsammans med en beskrivande text. 
+_ ***Avfalls lager bild panel** _: du kan använda bild-och innehålls paneler för att skapa en visuell representation av enheten som övervakas tillsammans med en beskrivande text. 
 
-* ***KPI-panel på fyllnings nivå***: panelen visar ett värde som rapporteras av en sensor för *fyllnads nivåer* på en pappers korg. *Fyllnings nivå* och andra sensorer som *odor-mätare* eller *vikt* på en avfalls lager plats kan fjärrövervakas. En operatör kan vidta åtgärder, t. ex. sändning av SOP insamlings Truck. 
+_ ***Indikator panel för fyllnings nivå** _: panelen visar ett värde som rapporteras av en _fill nivå * sensor på en avfalls plats. *Fyllnings nivå* och andra sensorer som *odor-mätare* eller *vikt* på en avfalls lager plats kan fjärrövervakas. En operatör kan vidta åtgärder, t. ex. sändning av SOP insamlings Truck. 
 
-*  ***Områdes karta för avfalls övervakning***: kartan använder Azure Maps, som du kan konfigurera direkt i Azure IoT Central. Kart panelen visar enhetens plats. Försök att hovra över kartan och testa kontrollerna över kartan, t. ex. Zooma in, zooma ut eller expandera.
+*  ***Områdes karta för avfalls övervakning** _: kartan använder Azure Maps, som du kan konfigurera direkt i Azure IoT Central. Kart panelen visar enhetens plats. Försök att hovra över kartan och testa kontrollerna över kartan, t. ex. Zooma in, zooma ut eller expandera.
 
      ![Översikt över ansluten instrument panel för avfalls hantering](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
 
-* ***Fyllning, odor, stapeldiagram för viktnivå**: du kan visualisera en eller flera telemetridata för enheter i ett stapeldiagram. Du kan också expandera stapeldiagrammet.  
+_ ***Fyllning, odor, stapeldiagram för viktnivå**: du kan visualisera en eller flera telemetridata för enheter i ett stapeldiagram. Du kan också expandera stapeldiagrammet.  
 
   ![Stapeldiagram för instrument panelen för anslutna avfalls hantering](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
 
@@ -135,7 +135,7 @@ Så här visar du enhets mal len:
 
 2. I listan mallar för enheter visas **anslutet avfall**. Öppna genom att klicka på namnet.
 
-3. Bekanta dig med funktionerna i enhets mal len. Du kan se att det definierar sensorer som *Fyllnings nivå*, *odor-mätare*, *vikt*, *plats*och andra.
+3. Bekanta dig med funktionerna i enhets mal len. Du kan se att det definierar sensorer som *Fyllnings nivå*, *odor-mätare*, *vikt*, *plats* och andra.
 
    ![Skärm bild som visar information om den anslutna enhets mal len för avfalls platser](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
@@ -197,7 +197,7 @@ I IoT Central kan du skapa simulerade enheter för att testa enhetens mall och p
 
 ## <a name="explore-and-configure-rules"></a>Utforska och konfigurera regler
 
-I Azure IoT Central kan du skapa regler för automatisk övervakning på enhetens telemetri och utlösa åtgärder när ett eller flera villkor uppfylls. Åtgärderna kan omfatta att skicka e-postmeddelanden, utlösa en Microsoft Flow åtgärd eller en webhook-åtgärd för att skicka data till andra tjänster.
+I Azure IoT Central kan du skapa regler för automatisk övervakning på enhetens telemetri och utlösa åtgärder när ett eller flera villkor uppfylls. Åtgärderna kan omfatta att skicka e-postmeddelanden, utlösa en åtgärd för automatisk åtgärd eller en webhook-åtgärd för att skicka data till andra tjänster.
 
 **Anslutet hanterings program för skräp hantering** har fyra exempel regler.
 

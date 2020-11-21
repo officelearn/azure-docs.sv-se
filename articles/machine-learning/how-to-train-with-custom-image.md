@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 4b4a1e601a5a0dbf5e56fc1d930e14150f27fee3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: a441d1d22f938e1d1e05aea547929fa3b315d406
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398240"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012895"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Träna en modell med hjälp av en anpassad Docker-avbildning
 
@@ -138,7 +138,7 @@ print(compute_target.get_status().serialize())
 
 ## <a name="configure-your-training-job"></a>Konfigurera ditt utbildnings jobb
 
-I den här självstudien använder du övnings skriptet *Train.py* på [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/train/fastai/pets-resnet34/train.py). I praktiken kan du göra ett anpassat utbildnings skript och köra det, precis som med Azure Machine Learning.
+I den här självstudien använder du övnings skriptet *Train.py* på [GitHub](https://github.com/Azure/azureml-examples/blob/main/workflows/train/fastai/pets/src/train.py). I praktiken kan du göra ett anpassat utbildnings skript och köra det, precis som med Azure Machine Learning.
 
 Skapa en `ScriptRunConfig` resurs för att konfigurera jobbet för att köras på önskat [beräknings mål](how-to-set-up-training-targets.md).
 

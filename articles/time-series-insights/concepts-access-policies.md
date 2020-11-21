@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3528ff790f16b5ec759989966ab35b8bad6565a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86b465d0b3c28c50a8aa85247a14e189d4586a47
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629462"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016283"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Bevilja data åtkomst till en miljö
 
@@ -32,7 +32,7 @@ I den här artikeln beskrivs de två typerna av Azure Time Series Insights åtko
 
 Följ dessa steg om du vill bevilja data åtkomst för ett huvud konto för användare.
 
-1. Välj **data åtkomst principer**och välj sedan **+ Lägg till**.
+1. Välj **data åtkomst principer** och välj sedan **+ Lägg till**.
 
     [![Välj och Lägg till en princip för data åtkomst](media/data-access/data-access-select-add-button.png)](media/data-access/data-access-select-add-button.png#lightbox)
 
@@ -60,7 +60,7 @@ Följ dessa steg om du vill bevilja data åtkomst för ett huvud konto för anv�
 
 ## <a name="provide-guest-access-from-another-azure-ad-tenant"></a>Ge gäst åtkomst från en annan Azure AD-klient
 
-`Guest`Rollen är inte en hanterings roll. Det är en term som används för ett konto som har bjudits in från en klient till en annan. När gäst kontot har bjudits in till klientens katalog kan samma åtkomst kontroll tillämpas på samma sätt som andra konton. Du kan bevilja hanterings åtkomst till en Azure Time Series Insights miljö genom att använda bladet Access Control (IAM). Du kan också bevilja åtkomst till data i miljön via bladet data åtkomst principer. Mer information om Azure Active Directory (Azure AD) gäst åtkomsten finns [i lägga till Azure Active Directory B2B-samarbets användare i Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+`Guest`Rollen är inte en hanterings roll. Det är en term som används för ett konto som har bjudits in från en klient till en annan. När gäst kontot har bjudits in till klientens katalog kan samma åtkomst kontroll tillämpas på samma sätt som andra konton. Du kan bevilja hanterings åtkomst till en Azure Time Series Insights miljö genom att använda bladet Access Control (IAM). Du kan också bevilja åtkomst till data i miljön via bladet data åtkomst principer. Mer information om Azure Active Directory (Azure AD) gäst åtkomsten finns [i lägga till Azure Active Directory B2B-samarbets användare i Azure Portal](../active-directory/external-identities/add-users-administrator.md).
 
 Följ dessa steg om du vill ge gäst åtkomst till en Azure Time Series Insights miljö till en Azure AD-användare från en annan klient.
 
@@ -100,7 +100,7 @@ Följ dessa steg om du vill ge gäst åtkomst till en Azure Time Series Insights
 
     [![Gäst väljer kom igång för att acceptera](media/data-access/data-access-email-invitation.png)](media/data-access/data-access-email-invitation.png#lightbox)
 
-1. När du **har valt kom igång**visas gäst användaren med en behörighets ruta som är kopplad till administratörens organisation. När du beviljar behörighet genom att välja **acceptera**loggas de in.
+1. När du **har valt kom igång** visas gäst användaren med en behörighets ruta som är kopplad till administratörens organisation. När du beviljar behörighet genom att välja **acceptera** loggas de in.
 
     [![Gästen granskar behörigheter och accepterar](media/data-access/data-access-grant-permission-sign-in.png)](media/data-access/data-access-grant-permission-sign-in.png#lightbox)
 
@@ -124,4 +124,4 @@ Följ dessa steg om du vill ge gäst åtkomst till en Azure Time Series Insights
 
 * Läs [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md) för Azure Active Directory registrerings steg för appar.
 
-* Visa [din miljö i Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md).
+* Visa [din miljö i Azure Time Series Insights Explorer](./concepts-ux-panels.md).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bb66d8a197a33d6d0ad46502b510662f43ea1ca
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 89e5fa180b011cbedebc25a5e5d555a2190805f8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988569"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015366"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
@@ -30,7 +30,7 @@ Tänk på följande innan du använder tal-till-text-REST API:
 Om det är ett krav för ditt program att skicka längre ljud bör du överväga att använda [talet SDK](speech-sdk.md) eller en filbaserad REST API, t. ex. [batch-avskriftering](batch-transcription.md).
 
 > [!TIP]
-> Se Azures myndighets [dokumentation](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) för FairFax-slutpunkter (myndigheter).
+> Se Azures myndighets [dokumentation](../../azure-government/compare-azure-government-global-azure.md) för FairFax-slutpunkter (myndigheter).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -307,5 +307,5 @@ Ett typiskt svar för igenkänning av uttal av uttal:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/cognitive-services/)
-- [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
-- [Anpassa språkmodeller](how-to-customize-language-model.md)
+- [Anpassa akustiska modeller](./how-to-custom-speech-train-model.md)
+- [Anpassa språkmodeller](./how-to-custom-speech-train-model.md)

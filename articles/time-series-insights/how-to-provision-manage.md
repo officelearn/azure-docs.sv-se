@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: e54e8e9de1df4c8a1c870285d36e4580daaa698a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c38c57a8480ef2addde494b94d70bd2eb679373
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667834"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016776"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-gen2"></a>Etablera och hantera Azure Time Series Insights Gen2
 
@@ -31,8 +31,8 @@ När du etablerar en Azure Time Series Insights Gen2-miljö skapar du följande 
 
 > [!TIP]
 >
-> * Lär dig [hur du planerar din miljö](./time-series-insights-update-plan.md).
-> * Läs om hur du [lägger till en Event Hub-källa](./time-series-insights-how-to-add-an-event-source-eventhub.md) eller hur du [lägger till en källa för IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+> * Lär dig [hur du planerar din miljö](./how-to-plan-your-environment.md).
+> * Läs om hur du [lägger till en Event Hub-källa](./how-to-ingest-data-event-hub.md) eller hur du [lägger till en källa för IoT Hub](./how-to-ingest-data-iot-hub.md).
 
 Du lär dig hur du:
 
@@ -59,16 +59,16 @@ Så här skapar du en Azure Time Series Insights gen 2-miljö:
     >
     > * Time Series-ID: t är Skift läges *känsligt* och *oföränderligt*. (Den kan inte ändras efter att den har angetts.)
     > * Time Series-ID: n kan vara upp till *tre* nycklar. Tänk på det som en primär nyckel i en databas som unikt representerar varje enhets sensor som skickar data till din miljö. Det kan vara en egenskap eller en kombination av upp till tre egenskaper.
-    > * Läs mer om [hur du väljer ett Time Series-ID](time-series-insights-update-how-to-id.md)
+    > * Läs mer om [hur du väljer ett Time Series-ID](./how-to-select-tsid.md)
 
-1. Skapa ett Azure Storage konto genom att välja ett lagrings konto namn, en konto typ och utse ett [replikeringsalternativ](https://docs.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal) . Om du gör det skapas ett Azure Storage-konto automatiskt. Som standard skapas [generell användning v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) -konto. Kontot skapas i samma region som den Azure Time Series Insights Gen2-miljö som du har valt tidigare.
+1. Skapa ett Azure Storage konto genom att välja ett lagrings konto namn, en konto typ och utse ett [replikeringsalternativ](../storage/common/redundancy-migration.md?tabs=portal) . Om du gör det skapas ett Azure Storage-konto automatiskt. Som standard skapas [generell användning v2](../storage/common/storage-account-overview.md) -konto. Kontot skapas i samma region som den Azure Time Series Insights Gen2-miljö som du har valt tidigare.
 Du kan också ta med din egen lagring (BYOS) genom [arm-mallen](./time-series-insights-manage-resources-using-azure-resource-manager-template.md) när du skapar en ny Azure Time Series Gen2-miljö.
 
 1. **(Valfritt)** Aktivera varmt lagrings utrymme för din miljö om du vill ha snabbare och obegränsade frågor över de senaste data i din miljö. Du kan också skapa eller ta bort ett varmt lager via alternativet **lagrings konfiguration** i det vänstra navigerings fönstret när du har skapat en Azure Time Series Insights Gen2-miljö.
 
 1. **(Valfritt)** Du kan lägga till en händelse källa nu. Du kan också vänta tills instansen har etablerats.
 
-   * Azure Time Series Insights stöder [azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) och [Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) som alternativ för händelse källan. Även om du bara kan lägga till en enskild händelse källa när du skapar miljön, kan du lägga till en annan händelse källa senare.
+   * Azure Time Series Insights stöder [azure IoT Hub](./how-to-ingest-data-iot-hub.md) och [Azure Event Hubs](./how-to-ingest-data-event-hub.md) som alternativ för händelse källan. Även om du bara kan lägga till en enskild händelse källa när du skapar miljön, kan du lägga till en annan händelse källa senare.
 
      Du kan välja en befintlig konsument grupp eller skapa en ny konsument grupp när du lägger till händelse källan. Observera att händelse källan kräver en unik konsument grupp för att din miljö ska kunna läsa data i den.
 
@@ -92,19 +92,19 @@ Du kan hantera din Azure Time Series Insights Gen2-miljö med hjälp av Azure Po
   * Kapaciteten tas bort eftersom den inte gäller för Gen2-miljöer.
   * Egenskapen **Time Series ID** har lagts till. Den avgör hur dina data partitioneras.
   * Referens data uppsättningar tas bort.
-  * Den URL som visas leder till [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md).
+  * Den URL som visas leder till [Azure Time Series Insights Explorer](./concepts-ux-panels.md).
   * Namnet på Azure Storages kontot visas.
 
 * Bladet **konfigurera** Azure Portal är borttaget eftersom skalnings enheter inte gäller för Azure Time Series Insights Gen2-miljöer. Du kan dock använda **Storage-konfiguration** för att konfigurera den nyligen lanserade butiken.
 
-* Bladet **referens data** för Azure Portal tas bort i Azure Time Series Insights Gen2 eftersom referens data koncept har ersatts av [Time Series-modellen (TSM)](/azure/time-series-insights/concepts-model-overview).
+* Bladet **referens data** för Azure Portal tas bort i Azure Time Series Insights Gen2 eftersom referens data koncept har ersatts av [Time Series-modellen (TSM)](./concepts-model-overview.md).
 
 [![Azure Time Series Insights Gen2-miljö i Azure Portal](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om Azure Time Series Insights allmänt tillgängliga miljöer och Gen2-miljöer genom att läsa [Planera din miljö](./time-series-insights-update-plan.md).
+* Läs mer om Azure Time Series Insights allmänt tillgängliga miljöer och Gen2-miljöer genom att läsa [Planera din miljö](./how-to-plan-your-environment.md).
 
-* Lär dig hur du [lägger till en Event Hub-källa](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+* Lär dig hur du [lägger till en Event Hub-källa](./how-to-ingest-data-event-hub.md).
 
-* Konfigurera en [IoT Hub-källa](./time-series-insights-how-to-add-an-event-source-iothub.md).
+* Konfigurera en [IoT Hub-källa](./how-to-ingest-data-iot-hub.md).

@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: b9b76b2eb5e9536561f73a92b6911a2f82122a1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0fe33dff0161767b74546aad49003d8fc70c16
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078103"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015264"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Tal tjänst kryptering av data i vila
 
@@ -33,11 +33,11 @@ När du använder Custom Speech och anpassad röst kan tal tjänsten lagra följ
 
 Som standard lagras dina data i Microsofts lagring och din prenumeration använder Microsoft-hanterade krypterings nycklar. Du kan också välja att förbereda ditt eget lagrings konto. Åtkomst till butiken hanteras av den hanterade identiteten och tal tjänsten kan inte direkt komma åt dina egna data, till exempel tal spårnings data, anpassnings tränings data och anpassade modeller.
 
-Mer information om hanterad identitet finns i [Vad är hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Mer information om hanterad identitet finns i [Vad är hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>Ta med din egen lagring (BYOS) för anpassning och loggning
 
-Om du vill begära åtkomst för att ta med din egen lagring kan du fylla i och skicka in tjänsten [Speech service – ta med din egen lagring (BYOS)](https://aka.ms/cogsvc-cmk). När du har godkänt måste du skapa ditt eget lagrings konto för att lagra de data som krävs för anpassning och loggning. När du lägger till ett lagrings konto aktiverar tal tjänst resursen en systemtilldelad hanterad identitet. När systemtilldelad hanterad identitet har Aktiver ATS kommer den här resursen att registreras med Azure Active Directory (AAD). När den hanterade identiteten har registrerats får den åtkomst till lagrings kontot. Du kan lära dig mer om hanterade identiteter här. Mer information om hanterad identitet finns i [Vad är hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Om du vill begära åtkomst för att ta med din egen lagring kan du fylla i och skicka in tjänsten [Speech service – ta med din egen lagring (BYOS)](https://aka.ms/cogsvc-cmk). När du har godkänt måste du skapa ditt eget lagrings konto för att lagra de data som krävs för anpassning och loggning. När du lägger till ett lagrings konto aktiverar tal tjänst resursen en systemtilldelad hanterad identitet. När systemtilldelad hanterad identitet har Aktiver ATS kommer den här resursen att registreras med Azure Active Directory (AAD). När den hanterade identiteten har registrerats får den åtkomst till lagrings kontot. Du kan lära dig mer om hanterade identiteter här. Mer information om hanterad identitet finns i [Vad är hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
 > Om du inaktiverar systemtilldelade hanterade identiteter kommer åtkomst till lagrings kontot att tas bort. Detta leder till att de delar av tal tjänsten som kräver åtkomst till lagrings kontot slutar fungera.  
@@ -50,4 +50,4 @@ Tal tjänsten har för närvarande inte stöd för Customer Lockbox. Kund inform
 ## <a name="next-steps"></a>Nästa steg
 
 * [Speech service – Hämta ditt eget lagrings formulär (BYOS)](https://aka.ms/cogsvc-cmk)
-* [Vad är hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+* [Vad är hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md).

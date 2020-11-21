@@ -6,20 +6,22 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f164418c29e9838928f3d03519342ebef40e16e7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77368302"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015705"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Skapa och Använd brand Väggs reglerna för webbaserade program v2 på Application Gateway
 
 Brand väggen för webbaserade program (WAF) V2 på Azure Application Gateway ger skydd för webb program. Det här skyddet tillhandahålls av OWASP (Open Web Application Security Project) Core regel set (DATORISERAt). I vissa fall kan du behöva skapa egna anpassade regler för att uppfylla dina specifika behov. Mer information om anpassade regler för WAF finns i [Översikt över anpassade brand Väggs regler för webb program](custom-waf-rules-overview.md).
 
 I den här artikeln visas några exempel på anpassade regler som du kan skapa och använda med din v2-WAF. Information om hur du distribuerar en WAF med en anpassad regel med hjälp av Azure PowerShell finns i [Konfigurera anpassade regler för brand vägg för webbaserade program med hjälp av Azure PowerShell](configure-waf-custom-rules.md).
+
+JSON-kodfragmenten som visas i den här artikeln härleds från en [ApplicationGatewayWebApplicationFirewallPolicies](/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) -resurs.
 
 >[!NOTE]
 > Om din Application Gateway inte använder WAF-nivån visas alternativet för att uppgradera programgatewayen till WAF-nivån i den högra rutan.
@@ -229,7 +231,7 @@ Motsvarande regel för boknings system: `SecRule REMOTE_ADDR "@ipMatch 192.168.5
 
 ## <a name="example-4"></a>Exempel 4
 
-I det här exemplet vill du blockera User-Agent *evilbot*och trafik i intervallet 192.168.5.0/24. För att åstadkomma detta kan du skapa två separata matchnings villkor och lägga dem både i samma regel. Detta säkerställer att om båda *evilbot* i User-Agent huvud- **och** IP-adresser från intervallet 192.168.5.0/24 matchas, blockeras begäran.
+I det här exemplet vill du blockera User-Agent *evilbot* och trafik i intervallet 192.168.5.0/24. För att åstadkomma detta kan du skapa två separata matchnings villkor och lägga dem både i samma regel. Detta säkerställer att om båda *evilbot* i User-Agent huvud- **och** IP-adresser från intervallet 192.168.5.0/24 matchas, blockeras begäran.
 
 Logik: p **och** q
 

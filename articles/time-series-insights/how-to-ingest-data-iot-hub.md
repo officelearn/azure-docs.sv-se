@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 28a1990155e1406bf9b79572b3e5307cadfb8076
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09ee98bf8bbe0067f9c79ce4767f3cf68b83fb43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665930"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016810"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Lägg till en händelse källa för IoT Hub i din Azure Time Series Insight-miljö
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du använder Azure Portal för att lägga till e
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Skapa en [Azure Time Series Insightss miljö](time-series-insights-update-create-environment.md).
+* Skapa en [Azure Time Series Insightss miljö](./tutorials-set-up-tsi-environment.md).
 * Skapa en [IoT-hubb med hjälp av Azure Portal](../iot-hub/iot-hub-create-through-portal.md).
 * IoT-hubben måste ha aktiva meddelande händelser som skickas i.
 * Skapa en dedikerad konsument grupp i IoT Hub för Azure Time Series Insight-miljön att använda. Varje händelse källa för Azure Time Series Insight måste ha en egen dedikerad konsument grupp som inte delas med någon annan konsument. Om flera läsare förbrukar händelser från samma konsument grupp, kommer alla läsare att kunna uppvisa problem. Mer information finns i [Azure IoT Hub Developer Guide](../iot-hub/iot-hub-devguide.md).
@@ -40,11 +40,11 @@ Så här lägger du till en ny konsument grupp i IoT Hub:
 
 1. Leta upp och öppna din IoT Hub i [Azure Portal](https://portal.azure.com).
 
-1. Under **Inställningar**väljer du **inbyggda slut punkter**och väljer sedan **händelse** slut punkten.
+1. Under **Inställningar** väljer du **inbyggda slut punkter** och väljer sedan **händelse** slut punkten.
 
    [![På sidan build-in-slutpunkter väljer du knappen händelser](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png#lightbox)
 
-1. Under **konsument grupper**anger du ett unikt namn på konsument gruppen. Använd samma namn i din Azure Time Series Insight-miljö när du skapar en ny händelse källa.
+1. Under **konsument grupper** anger du ett unikt namn på konsument gruppen. Använd samma namn i din Azure Time Series Insight-miljö när du skapar en ny händelse källa.
 
 1. Välj **Spara**.
 
@@ -54,13 +54,13 @@ Så här lägger du till en ny konsument grupp i IoT Hub:
 
 1. Välj **Alla resurser** i menyn till vänster. Välj din Azure Time Series Insight-miljö.
 
-1. Under **Inställningar**väljer du **händelse källor**och väljer sedan **Lägg till**.
+1. Under **Inställningar** väljer du **händelse källor** och väljer sedan **Lägg till**.
 
    [![Välj händelse källor och välj sedan knappen Lägg till](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png#lightbox)
 
 1. I fönstret **ny händelse källa** , för **händelse källans namn**, anger du ett namn som är unikt för den här Azure Time Series Insight-miljön. Ange till exempel **händelse-Stream**.
 
-1. För **källa**väljer du **IoT Hub**.
+1. För **källa** väljer du **IoT Hub**.
 
 1. Välj ett värde för **alternativet importera**:
 
@@ -107,7 +107,7 @@ Så här lägger du till en ny konsument grupp i IoT Hub:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Definiera data åtkomst principer](time-series-insights-data-access.md) för att skydda data.
+* [Definiera data åtkomst principer](./concepts-access-policies.md) för att skydda data.
 
 * [Skicka händelser](time-series-insights-send-events.md) till händelse källan.
 

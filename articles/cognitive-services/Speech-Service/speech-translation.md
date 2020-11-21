@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: tal Översättning
-ms.openlocfilehash: e54659b0d4504def272d3de40d5e953d98404a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c2943d7cd5ce2c5c7c4a8501dc0033aa8c9cbc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630078"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015213"
 ---
 # <a name="what-is-speech-translation"></a>Vad är talöversättning?
 
@@ -48,13 +48,13 @@ Exempel koden för talet SDK finns på GitHub. De här exemplen beskriver vanlig
 
 ## <a name="migration-guides"></a>Migreringsguider
 
-Om dina program, verktyg eller produkter använder [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview)har vi skapat guider som hjälper dig att migrera till tal tjänsten.
+Om dina program, verktyg eller produkter använder [Translator Speech API](./how-to-migrate-from-translator-speech-api.md)har vi skapat guider som hjälper dig att migrera till tal tjänsten.
 
 * [Migrera från Translator Speech API till tal tjänsten](how-to-migrate-from-translator-speech-api.md)
 
 ## <a name="reference-docs"></a>Referens dokument
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Speech SDK](./speech-sdk.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [REST API: tal till text](rest-speech-to-text.md)
 * [REST API: text till tal](rest-text-to-speech.md)

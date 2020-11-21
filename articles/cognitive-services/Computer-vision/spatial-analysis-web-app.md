@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 24d4dd4d0caa49b9514bf19f707ea87b0b071a79
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9b9390b498f28fc8f9029f1c11805b970aaca73d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357104"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014568"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Så här distribuerar du en användare som räknar webb program
 
@@ -31,7 +31,7 @@ I den här självstudien får du lära dig hur man
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
-* Grundläggande förståelse för Azure IoT Edge distributions konfiguration och en [Azure-IoT Hub](https://docs.microsoft.com/azure/iot-hub/)
+* Grundläggande förståelse för Azure IoT Edge distributions konfiguration och en [Azure-IoT Hub](../../iot-hub/index.yml)
 * En konfigurerad [värddator](spatial-analysis-container.md).
 
 ## <a name="deploy-the-spatial-analysis-container"></a>Distribuera behållaren för rums analys
@@ -65,7 +65,7 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 Distribuera behållaren för rums analys som en IoT-modul på värddatorn med hjälp av Azure CLI. Distributions processen kräver en distributions manifest fil som beskriver de obligatoriska behållarna, variablerna och konfigurationerna för distributionen. Du kan hitta ett exempel på [Azure Stack Edge-särskilt distributions manifest](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) och ett [icke-Azure Stack-särskilt distributions manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) på GitHub, som innehåller en grundläggande distributions konfiguration för behållaren för *spatial analys* . 
 
-Du kan också använda Azure IoT-tillägg för Visual Studio Code för att utföra åtgärder med IoT Hub. Gå till [distribuera Azure IoT Edge moduler från Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode) för mer information.
+Du kan också använda Azure IoT-tillägg för Visual Studio Code för att utföra åtgärder med IoT Hub. Gå till [distribuera Azure IoT Edge moduler från Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) för mer information.
 
 > [!NOTE] 
 > Behållarna *spatial-analys-teleympkvistar* och *spatial-analys – diagnostik* är valfria. Du kan välja att ta bort dem från *DeploymentManifest.jsi* filen. Mer information finns i artikeln om [telemetri och fel sökning](./spatial-analysis-logging.md) . Du kan hitta två exempel *DeploymentManifest.jspå* filer på GitHub, antingen för en [Azure Stack Edge-enhet](https://go.microsoft.com/fwlink/?linkid=2142179) eller en annan [stationär dator](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)

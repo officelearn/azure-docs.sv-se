@@ -4,12 +4,12 @@ description: Lär dig hur du anropar affärs processer från din App Service-app
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 5aa563e55c64893d57522dd1154a64c7e90a1690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8072a941cd89290af3e25cc63c4fccccce705df9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397444"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014670"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Självstudie: skicka e-post och anropa andra affärs processer från App Service
 
@@ -54,11 +54,11 @@ Distribuera en app med det språk ramverk som du väljer att App Service. Om du 
 
 ## <a name="create-the-logic-app"></a>Skapa Logic-appen
 
-1. I [Azure Portal](https://portal.azure.com)skapar du en tom Logic-app genom att följa anvisningarna i [skapa din Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app). När du ser **Logic Apps designer**går du tillbaka till den här självstudien.
+1. I [Azure Portal](https://portal.azure.com)skapar du en tom Logic-app genom att följa anvisningarna i [skapa din Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app). När du ser **Logic Apps designer** går du tillbaka till den här självstudien.
 1. På Välkomst sidan för Logic Apps designer väljer du **när en HTTP-begäran tas emot** under **starta med en gemensam utlösare**.
 
     ![Skärm bild som visar Välkomst sidan för Logic Apps designer med när en H-T-P-begäran tas emot.](./media/tutorial-send-email/receive-http-request.png)
-1. I dialog rutan **när en HTTP-begäran tas emot**väljer **du Använd exempel nytto last för att generera schemat**.
+1. I dialog rutan **när en HTTP-begäran tas emot** väljer **du Använd exempel nytto last för att generera schemat**.
 
     ![Skärm bild som visar dialog rutan när en H T T P P-begäran och den använda exempel nytto lasten för att generera schema opion har valts. ](./media/tutorial-send-email/generate-schema-with-payload.png)
 
@@ -73,7 +73,7 @@ Distribuera en app med det språk ramverk som du väljer att App Service. Om du 
     ```
 
     Schemat har nu skapats för de begärda data du vill ha. I praktiken kan du bara samla in de faktiska begär ande data som din program kod genererar och låta Azure generera JSON-schemat åt dig. 
-1. Välj **Spara**längst upp i Logic Apps designer. 
+1. Välj **Spara** längst upp i Logic Apps designer. 
 
     Nu kan du se URL: en för din utlösare för HTTP-begäran. Välj kopierings ikonen för att kopiera den för senare användning.
 
@@ -81,7 +81,7 @@ Distribuera en app med det språk ramverk som du väljer att App Service. Om du 
 
     Den här definitionen av HTTP-begäran är en utlösare för allt du vill göra i den här Logic-appen, vara Gmail eller något annat. Senare kommer du att anropa den här URL: en i din App Service-app. Mer information om begär ande utlösare finns i [referens för http-begäran/svar](../connectors/connectors-native-reqres.md).
 
-1. Klicka på **nytt steg**längst ned i designern, Skriv **Gmail** i sökrutan åtgärder och Sök och välj **skicka e-post (v2)**.
+1. Klicka på **nytt steg** längst ned i designern, Skriv **Gmail** i sökrutan åtgärder och Sök och välj **skicka e-post (v2)**.
     
     > [!TIP]
     > Du kan söka efter andra typer av integreringar, till exempel SendGrid, MailChimp, Microsoft 365 och SalesForce. Mer information finns i [Logic Apps-dokumentationen](../logic-apps/index.yml).
@@ -103,9 +103,9 @@ Distribuera en app med det språk ramverk som du väljer att App Service. Om du 
 
 1. I list rutan **Lägg till ny parameter** väljer du **ämne** och **brödtext**.
 
-1. Klicka i text rutan **ämne** och välj **uppgift**på samma sätt. Med markören kvar i rutan **ämne** skriver du *skapat*. 
+1. Klicka i text rutan **ämne** och välj **uppgift** på samma sätt. Med markören kvar i rutan **ämne** skriver du *skapat*. 
 
-1. Klicka i **bröd texten** **och välj sedan på på**samma sätt. Flytta markören till vänster om **förfallet** och skriv *det här arbetsobjektet är förfallet*.
+1. Klicka i **bröd texten** **och välj sedan på på** samma sätt. Flytta markören till vänster om **förfallet** och skriv *det här arbetsobjektet är förfallet*.
 
     > [!TIP]
     > Om du vill redigera HTML-innehåll direkt i e-postmeddelandets brödtext väljer du **kodvyn** överst i fönstret Logic Apps designer. Se bara till att du behåller koden för dynamiskt innehåll (till exempel `@{triggerBody()?['due']}` )
@@ -116,7 +116,7 @@ Distribuera en app med det språk ramverk som du väljer att App Service. Om du 
 
     ![Skärm bild som visar alternativet + signera och Lägg till ett parallellt gren alternativ markerat.](./media/tutorial-send-email/add-http-response.png)
 
-1. I sökrutan söker du efter **svar**och väljer sedan åtgärden **svar** .
+1. I sökrutan söker du efter **svar** och väljer sedan åtgärden **svar** .
 
     ![Skärm bild som visar den markerade Sök fältet och svars åtgärden.](./media/tutorial-send-email/choose-response-action.png)
 
@@ -153,7 +153,7 @@ Klicka på fliken föredraget språk/ramverk nedan om du vill se ett exempel.
 
 ### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
-I ASP.NET kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Exempel:
+I ASP.NET kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Ett exempel:
 
 ```csharp
 // requires using System.Net.Http;
@@ -178,7 +178,7 @@ Om du testar den här koden i exempel appen för [Självstudier: skapa en ASP.ne
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-I ASP.NET Core kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Exempel:
+I ASP.NET Core kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Ett exempel:
 
 ```csharp
 // requires using System.Net.Http;
@@ -206,7 +206,7 @@ Om du testar den här koden i exempel appen för [Självstudier: skapa en ASP.ne
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
-I Node.js kan du enkelt skicka HTTP-posten med ett NPM-paket som [Axios](https://www.npmjs.com/package/axios). Exempel:
+I Node.js kan du enkelt skicka HTTP-posten med ett NPM-paket som [Axios](https://www.npmjs.com/package/axios). Ett exempel:
 
 ```javascript
 // Requires npm install --save axios
@@ -233,7 +233,7 @@ Om du testar den här koden i exempel appen för [Självstudier: skapa en Node.j
 
 ### <a name="php"></a>[PHP](#tab/php)
 
-I PHP kan du enkelt skicka HTTP-posten med [guzzle](http://docs.guzzlephp.org/en/stable/index.html). Exempel:
+I PHP kan du enkelt skicka HTTP-posten med [guzzle](http://docs.guzzlephp.org/en/stable/index.html). Ett exempel:
 
 ```php
 // Requires composer require guzzlehttp/guzzle:~6.0
@@ -265,7 +265,7 @@ Om du testar den här koden i exempel appen för [Självstudier: bygga en php-oc
 
 ### <a name="python"></a>[Python](#tab/python)
 
-I python kan du enkelt skicka HTTP-posten med [begär Anden](https://pypi.org/project/requests/). Exempel:
+I python kan du enkelt skicka HTTP-posten med [begär Anden](https://pypi.org/project/requests/). Ett exempel:
 
 ```python
 # Requires pip install requests && pip freeze > requirements.txt
@@ -296,7 +296,7 @@ Om du testar den här koden i exempel appen för [Självstudier: köra en python
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
-I ruby kan du enkelt skicka HTTP-posten med [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). Exempel:
+I ruby kan du enkelt skicka HTTP-posten med JSONClient. Ett exempel:
 
 ```ruby
 clnt = JSONClient.new

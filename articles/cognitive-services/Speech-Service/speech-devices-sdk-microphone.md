@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 698a1d52af6c2472d6c025851ead1a0b6a6dff82
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86232533"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015349"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Tal enheter SDK mikrofon mat ris rekommendationer
 
@@ -97,7 +97,7 @@ Följande rikt linjer för arkitektur är nödvändiga vid integrering av mikrof
 | Samplings klocka      | Enhets ljud måste vara fritt från Darr och kombinations fall med låg belastning |
 | Post funktion   | Enheten måste kunna registrera enskilda kanals RAW-strömmar samtidigt |
 | USB                 | Alla USB-enheter för ljud inspelning måste ange beskrivningar enligt [rev3-specifikationen för USB-ljud enheter](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
-| Mikrofon geometri | Driv rutiner måste implementera [mikrofoner med mikrofon mat ris](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) korrekt |
+| Mikrofon geometri | Driv rutiner måste implementera [mikrofoner med mikrofon mat ris](/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) korrekt |
 | Identifierings möjligheten     | Enheter får inte ha någon avupptäcken maskin vara, inbyggd program vara eller program vara från tredje parts programvarubaserad, som inte är linjärt, till/från enheten |
 | Infångnings format      | Infångnings format måste ha en minsta samplings frekvens på 16 kHz och rekommenderat 24-bitars djup |
 

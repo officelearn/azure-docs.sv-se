@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: affbf57fcda5ff9fb56e148c2fa8769e7aa775e6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b8b3a0aa6d9790dbb5900eac2d79074f44a749d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555812"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025658"
 ---
-# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Utvärdera och förbättra Custom Speech exakthet
+# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Utvärdera och förbättra noggrannhet i Custom Speech
 
 I den här artikeln får du lära dig hur du kvantitativt mäter och förbättrar noggrannheten hos Microsofts tal till text-modeller eller dina egna anpassade modeller. Ljud + mänskligt avskrifts data krävs för att testa precisionen och 30 minuter till 5 timmar representativt ljud bör tillhandahållas.
 
@@ -62,7 +62,7 @@ När testet har skapats kan du jämföra resultatet sida vid sida.
 
 ### <a name="side-by-side-comparison"></a>Jämförelse sida vid sida
 
-När testet har slutförts, som anges av status ändringen till *lyckades* , hittar du ett WER-nummer för båda modellerna i testet. Klicka på test namnet för att Visa test informations sidan. Den här informations sidan visar en lista över alla yttranden i din data uppsättning, vilket anger tolknings resultatet för de två modellerna jämte avskriften från den skickade data mängden. För att kunna kontrol lera jämförelsen sida vid sida kan du växla mellan olika typer av fel, inklusive infogning, borttagning och ersättning. Genom att lyssna på ljudet och jämföra igenkännings resultaten i varje kolumn, som visar den mänskligt avskriften och resultaten för två tal till text-modeller, kan du bestämma vilken modell som uppfyller dina behov och var ytterligare utbildning och förbättringar krävs.
+När testet har slutförts, som anges av status ändringen till *lyckades*, hittar du ett WER-nummer för båda modellerna i testet. Klicka på test namnet för att Visa test informations sidan. Den här informations sidan visar en lista över alla yttranden i din data uppsättning, vilket anger tolknings resultatet för de två modellerna jämte avskriften från den skickade data mängden. För att kunna kontrol lera jämförelsen sida vid sida kan du växla mellan olika typer av fel, inklusive infogning, borttagning och ersättning. Genom att lyssna på ljudet och jämföra igenkännings resultaten i varje kolumn, som visar den mänskligt avskriften och resultaten för två tal till text-modeller, kan du bestämma vilken modell som uppfyller dina behov och var ytterligare utbildning och förbättringar krävs.
 
 ## <a name="improve-custom-speech-accuracy"></a>Förbättra noggrannhet i Custom Speech
 
@@ -114,7 +114,7 @@ Ljud med medmärkta avskrifter ger störst precisions förbättringar om ljudet 
 
 ### <a name="add-new-words-with-pronunciation"></a>Lägg till nya ord med uttal
 
-Ord som har skapats eller är mycket specialiserade kan ha unika uttal. Dessa ord kan identifieras om ordet kan brytas ned i mindre ord för att uttala det. Om du till exempel vill känna igen **Xbox** , uttala som **X Box**. Den här metoden kommer inte att öka den övergripande noggrannheten, men kan öka igenkänningen av dessa nyckelord.
+Ord som har skapats eller är mycket specialiserade kan ha unika uttal. Dessa ord kan identifieras om ordet kan brytas ned i mindre ord för att uttala det. Om du till exempel vill känna igen **Xbox**, uttala som **X Box**. Den här metoden kommer inte att öka den övergripande noggrannheten, men kan öka igenkänningen av dessa nyckelord.
 
 > [!NOTE]
 > Den här tekniken är bara tillgänglig för vissa språk för tillfället. Mer information finns i avsnittet anpassning av uttal i [tal-till-text-tabellen](language-support.md) .
@@ -136,5 +136,5 @@ I följande tabell visas scenarier för röst igenkänning och en lista över k�
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Förbered och testa dina data](how-to-custom-speech-test-data.md)
+* [Förbered och testa dina data](./how-to-custom-speech-test-and-train.md)
 * [Inspektera dina data](how-to-custom-speech-inspect-data.md)

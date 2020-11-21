@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 44a7a89740be3d6d502c5d22c79b46582034d88a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cda71c6e825ff27ba9b03e1306ccb287663e8613
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535974"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025967"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättrar förutsägelse noggrannhet
 Mönster är utformade för att förbättra precisionen när flera yttranden är mycket lika.  Ett mönster gör att du kan få bättre precision för en avsikt utan att tillhandahålla många fler yttranden.
@@ -48,7 +48,7 @@ Ett mönster är främst avsett att hjälpa till att förutsäga avsikter och ro
 Vänta inte att se förbättrad enhets förutsägelse om du komprimerar flera yttranden till ett enda mönster. För att enkla entiteter ska kunna startas måste du lägga till yttranden eller använda List entiteter, annars går det inte att starta mönstret.
 
 ## <a name="patterns-use-entity-roles"></a>Mönster använder entitets roller
-Om två eller flera entiteter i ett mönster är kontext bundna, använder mönster enhets [roller](luis-concept-roles.md) för att extrahera sammanhangsbaserad information om entiteter.
+Om två eller flera entiteter i ett mönster är kontext bundna, använder mönster enhets [roller](./luis-concept-entity-types.md) för att extrahera sammanhangsbaserad information om entiteter.
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Förutsägelse resultat med och utan mönster
 Med tillräckligt många exempel yttranden skulle LUIS kunna öka förutsägelse förtroendet utan mönster. Mönster ökar förtroende poängen utan att behöva ange så många yttranden.

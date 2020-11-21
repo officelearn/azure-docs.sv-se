@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
-ms.openlocfilehash: 155f27b9f04db74955640aad8f582fdf05539368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 678a6f0dc19d966f3d15e713008c19c8fbb96f5e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87511946"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024372"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Använda funktioner i Azure Monitor logg frågor
 
@@ -21,9 +21,9 @@ Om du vill använda en logg fråga med en annan fråga kan du spara den som en f
 
 Skapa en funktion med Log Analytics i Azure Portal genom att klicka på **Spara** och sedan ange informationen i följande tabell.
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:---|:---|
-| Namn           | Visnings namn för frågan i **query Explorer**. |
+| Name           | Visnings namn för frågan i **query Explorer**. |
 | Spara som        | Funktion |
 | Funktions Ali Aset | Kort namn för att använda funktionen i andra frågor. Får inte innehålla blank steg och måste vara unikt. |
 | Kategori       | En kategori för att organisera sparade frågor och funktioner i **query Explorer**. |
@@ -56,10 +56,10 @@ security_updates_last_day | where Title contains "SQL"
 ## <a name="next-steps"></a>Nästa steg
 Se andra lektioner för att skriva Azure Monitor logg frågor:
 
-- [Strängåtgärder](string-operations.md)
-- [Åtgärder för datum och tid](datetime-operations.md)
-- [Aggregeringsfunktioner](aggregations.md)
-- [Avancerade aggregeringar](advanced-aggregations.md)
-- [JSON och datastrukturer](json-data-structures.md)
-- [Kopplingar](joins.md)
-- [Diagram](charts.md)
+- [Strängåtgärder](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations)
+- [Åtgärder för datum och tid](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#date-and-time-operations)
+- [Aggregeringsfunktioner](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations)
+- [Avancerade aggregeringar](/azure/data-explorer/write-queries#advanced-aggregations)
+- [JSON och datastrukturer](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#json-and-data-structures)
+- [Kopplingar](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins)
+- [Hierarkidiagram](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#charts)

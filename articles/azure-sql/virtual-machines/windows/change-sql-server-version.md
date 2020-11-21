@@ -14,12 +14,12 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a0ecc36d78ffde002dac971a749889104ff10073
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b9223ffc564620804b36f6f0e71602b3888a9f42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556462"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025386"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Förändringar på plats av SQL Server version på virtuell Azure-dator
 
@@ -66,7 +66,7 @@ Om du vill uppgradera versionen av SQL Server hämtar du SQL Server installation
 
    :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="Val för uppgradering av versionen av SQL Server":::
 
-1. På sidan **produkt nyckel** väljer du ett alternativ för att ange om du uppgraderar till en kostnads fri version av SQL Server eller om du har en PID-nyckel för en produktions version av produkten. Mer information finns i [utgåvor och stödda funktioner i SQL Server 2019 (15. x)](/sql/sql-server/editions-and-components-of-sql-server-version-155) och [versioner som stöds och uppgraderingar av utgåvor (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades).
+1. På sidan **produkt nyckel** väljer du ett alternativ för att ange om du uppgraderar till en kostnads fri version av SQL Server eller om du har en PID-nyckel för en produktions version av produkten. Mer information finns i [utgåvor och stödda funktioner i SQL Server 2019 (15. x)](/sql/sql-server/editions-and-components-of-sql-server-version-15) och [versioner som stöds och uppgraderingar av utgåvor (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades).
 1. Välj **Nästa** tills du kommer till sidan **redo att uppgradera** och välj sedan **Uppgradera**. Installations fönstret kan sluta svara i flera minuter medan ändringen börjar att fungera. En **fullständig** sida bekräftar att uppgraderingen är klar. En steg-för-steg-procedur för att uppgradera finns i [hela proceduren](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup#procedure).
 
    :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Slutför Sidan":::

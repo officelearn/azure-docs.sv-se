@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4c1284c13d1516ac4061319287adb64ab7e14ff5
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 73902cf53d9995f7dfc1991e3b7ed7c7c469bf2a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579478"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026669"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -23,7 +23,7 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |------------------------------|----------|-------------|---------------|
-|[kundhanterad nyckel kryptering över indexerare, data källor och färdighetsuppsättningar](search-security-manage-encryption-keys.md) | Säkerhet | Detta tillägg utökar kundhanterad kryptering över hela det antal till gångar som skapas och hanteras av en Sök tjänst. Kom ihåg att CMK-support lägger till ett ytterligare krypterings lager ovanpå grundläggande kryptering som utförs och hanteras av Microsoft. | Allmänt tillgänglig med REST API-version = 2020-06-30 |  
+|[Kundhanterad nyckel kryptering över indexerare, data källor och färdighetsuppsättningar](search-security-manage-encryption-keys.md) | Säkerhet | Detta tillägg utökar kundhanterad kryptering över hela det antal till gångar som skapas och hanteras av en Sök tjänst. Kom ihåg att det Kundhanterade nyckel stödet lägger till ytterligare ett krypterings lager utöver grundläggande kryptering som utförs och hanteras av Microsoft. | Allmänt tillgänglig med REST API-version = 2020-06-30 |  
 
 ## <a name="september-2020"></a>September 2020
 
@@ -41,7 +41,7 @@ Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sed
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
-| [dubbel kryptering](search-security-overview.md#encryption) | Säkerhet | Aktivera Double Encryption på lagrings nivån genom att konfigurera CMK-kryptering (Customer Managed Key) för nya Sök tjänster. Skapa en ny tjänst, [Konfigurera och Använd Kundhanterade nycklar](search-security-manage-encryption-keys.md) för index eller synonyma kartor och dra nytta av dubbel kryptering över det innehållet. | Allmänt tillgänglig på alla Sök tjänster som skapats efter den 1 augusti 2020 i dessa regioner: västra USA 2, östra USA, södra centrala USA, US Gov, Virginia, US Gov, Arizona. Använd portalen, hanterings REST API: er eller SDK: er för att skapa tjänsten. |
+| [dubbel kryptering](search-security-overview.md#encryption) | Säkerhet | Aktivera dubbel kryptering på lagrings nivån genom att konfigurera kundhanterad nyckel kryptering på nya Sök tjänster. Skapa en ny tjänst, [Konfigurera och Använd Kundhanterade nycklar](search-security-manage-encryption-keys.md) för index eller synonyma kartor och dra nytta av dubbel kryptering över det innehållet. | Allmänt tillgänglig på alla Sök tjänster som skapats efter den 1 augusti 2020 i dessa regioner: västra USA 2, östra USA, södra centrala USA, US Gov, Virginia, US Gov, Arizona. Använd portalen, hanterings REST API: er eller SDK: er för att skapa tjänsten. |
 
 ## <a name="july-2020"></a>Juli 2020
 

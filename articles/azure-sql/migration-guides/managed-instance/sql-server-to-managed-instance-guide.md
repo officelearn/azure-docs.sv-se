@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 0aba809fd18dfd74a344a32b2335aba9426c9845
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5c20fbbe25b51160f42f233d30c39ccaec0f5cac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496991"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026069"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Migration guide: SQL Server till SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -99,7 +99,7 @@ Om du behöver jämföra arbets Belastningens prestanda på en SQL-hanterad inst
 
 ### <a name="create-sql-managed-instance"></a>Skapa hanterad SQL-instans 
 
-Baserat på informationen i fasen identifiering och utvärdering skapar du en lämplig storleks mål SQL-hanterad instans. Du kan göra detta med hjälp av mallen [Azure Portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)eller en [Azure Resource Manager (arm)](/../../managed-instance/create-template-quickstart.md). 
+Baserat på informationen i fasen identifiering och utvärdering skapar du en lämplig storleks mål SQL-hanterad instans. Du kan göra detta med hjälp av mallen [Azure Portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)eller en [Azure Resource Manager (arm)](/azure/azure-sql/managed-instance/create-template-quickstart). 
 
 
 ## <a name="migrate"></a>Migrera
@@ -142,16 +142,16 @@ Följande diagram ger en övergripande översikt över processen:
 
 Följ dessa steg om du vill migrera med säkerhets kopiering och återställning: 
 
-1. Säkerhetskopiera databasen till Azure Blob Storage. Använd till exempel [säkerhets kopiering till URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) i [SQL Server Management Studio](/ssms/download-sql-server-management-studio-ssms). Använd [Microsoft Azure-verktyget](https://go.microsoft.com/fwlink/?LinkID=324399) för att stödja databaser som är äldre än SQL Server 2012 SP1-CU2. 
+1. Säkerhetskopiera databasen till Azure Blob Storage. Använd till exempel [säkerhets kopiering till URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) i [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Använd [Microsoft Azure-verktyget](https://go.microsoft.com/fwlink/?LinkID=324399) för att stödja databaser som är äldre än SQL Server 2012 SP1-CU2. 
 1. Anslut till din Azure SQL-hanterade instans med hjälp av SQL Server Management Studio. 
-1. Skapa en autentiseringsuppgift med hjälp av en signatur för delad åtkomst för att komma åt ditt Azure Blob Storage-konto med dina databas säkerhets kopior. Exempel:
+1. Skapa en autentiseringsuppgift med hjälp av en signatur för delad åtkomst för att komma åt ditt Azure Blob Storage-konto med dina databas säkerhets kopior. Ett exempel:
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
    WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
    , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
-1. Återställ säkerhets kopian från BLOB-behållaren för Azure Storage. Exempel: 
+1. Återställ säkerhets kopian från BLOB-behållaren för Azure Storage. Ett exempel: 
 
     ```sql
    RESTORE DATABASE [TargetDatabaseName] FROM URL =
@@ -191,10 +191,10 @@ När data har migrerats till mål miljön måste alla program som tidigare förb
 
 Test metoden för migrering av databasen består av följande aktiviteter:
 
-1. **Utveckla verifieringstester** : om du vill testa migreringen av databasen måste du använda SQL-frågor. Du måste skapa verifierings frågorna som ska köras mot både käll-och mål databaserna. Dina verifierings frågor ska omfatta det definitions område som du har definierat.
-1. **Konfigurera test miljö** : test miljön bör innehålla en kopia av käll databasen och mål databasen. Se till att isolera test miljön.
-1. **Kör verifieringstester** : kör verifieringstester mot källan och målet och analysera sedan resultaten.
-1. **Kör prestandatester** : kör prestandatest mot källan och målet och analysera och jämför sedan resultaten.
+1. **Utveckla verifieringstester**: om du vill testa migreringen av databasen måste du använda SQL-frågor. Du måste skapa verifierings frågorna som ska köras mot både käll-och mål databaserna. Dina verifierings frågor ska omfatta det definitions område som du har definierat.
+1. **Konfigurera test miljö**: test miljön bör innehålla en kopia av käll databasen och mål databasen. Se till att isolera test miljön.
+1. **Kör verifieringstester**: kör verifieringstester mot källan och målet och analysera sedan resultaten.
+1. **Kör prestandatester**: kör prestandatest mot källan och målet och analysera och jämför sedan resultaten.
 
    > [!NOTE]
    > Om du behöver hjälp med att utveckla och köra verifierings test efter migrering bör du tänka på vilken data kvalitets lösning som är tillgänglig från partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 

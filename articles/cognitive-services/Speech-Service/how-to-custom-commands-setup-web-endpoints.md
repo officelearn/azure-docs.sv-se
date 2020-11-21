@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0e2406cd35fb2d4dd99da4f5139a9f0f80697912
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566256"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025899"
 ---
 # <a name="set-up-web-endpoints"></a>Konfigurera webbslutpunkter
 
@@ -49,18 +49,18 @@ I den här artikeln får du lära dig att ställa in webbslutpunkter i programme
    | Sidhuvuden | Nyckel: app, Värde: använd de första 8 siffrorna i ditt applicationId | De rubrikparametrar som ska ingå i begärandets rubrik.|
 
     > [!NOTE]
-    > - Exemplet på webbslutpunkten som skapades med [Azure Function](https://docs.microsoft.com/azure/azure-functions/), som kopplas ihop med databasen som sparar enhetens tillstånd för tv och fläkt
+    > - Exemplet på webbslutpunkten som skapades med [Azure Function](../../azure-functions/index.yml), som kopplas ihop med databasen som sparar enhetens tillstånd för tv och fläkt
     > - Den föreslagna rubriken behövs bara i slutpunktsexemplet
     > - För att värdet för rubriken ska vara unikt i slutpunktsexemplet, använder du de första 8 siffrorna i ditt applicationId
-    > - I verkligheten kan webbslutpunkten vara slutpunkten för [IoT-hubben](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) som hanterar dina enheter
+    > - I verkligheten kan webbslutpunkten vara slutpunkten för [IoT-hubben](../../iot-hub/about-iot-hub.md) som hanterar dina enheter
 
 1. Klicka på **Spara**.
 
 ## <a name="call-web-endpoints"></a>Anropa webbslutpunkter
 
-1. Gå till kommandot **TurnOnOff** , välj **ConfirmationResponse** under slutföranderegeln och välj sedan **Lägg till en åtgärd**.
+1. Gå till kommandot **TurnOnOff**, välj **ConfirmationResponse** under slutföranderegeln och välj sedan **Lägg till en åtgärd**.
 1. Under **Ny åtgärdstyp** väljer du **Anropa webbslutpunkt**
-1. I **Redigera åtgärd – Slutpunkter** väljer du **UpdateDeviceState** , som är webbslutpunkten vi skapade nyss.  
+1. I **Redigera åtgärd – Slutpunkter** väljer du **UpdateDeviceState**, som är webbslutpunkten vi skapade nyss.  
 1. I **Konfiguration** anger du följande värden: 
    > [!div class="mx-imgBorder"]
    > ![Anropa åtgärdsparametrar för webbslutpunkter](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)

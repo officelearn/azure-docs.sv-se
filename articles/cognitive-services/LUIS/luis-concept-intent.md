@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536111"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025916"
 ---
 # <a name="intents-in-your-luis-app"></a>Avsikter i din LUIS-app
 
@@ -32,7 +32,7 @@ Rese programs avsikter   |   Exempel på yttranden   |
 Alla program levereras med det fördefinierade syftet "[ingen](#none-intent)", vilket är återställnings avsikten.
 
 ## <a name="prebuilt-domains-provide-intents"></a>Fördefinierade domäner innehåller avsikter
-Förutom de som du definierar kan du använda färdiga syften från en av de [fördefinierade domänerna](luis-how-to-use-prebuilt-domains.md).
+Förutom de som du definierar kan du använda färdiga syften från en av de [fördefinierade domänerna](./howto-add-prebuilt-models.md).
 
 ## <a name="return-all-intents-scores"></a>Returnera alla avsikter
 Du tilldelar en uttryck till ett enda avsikt. När LUIS tar emot en uttryck på slut punkten returnerar den som standard den främsta avsikten för uttryck.
@@ -59,7 +59,7 @@ Skapa en avsikt när användarens _avsikt_ skulle utlösa en åtgärd i klient p
 
 ## <a name="prebuilt-domain-intents"></a>Fördefinierade domän avsikter
 
-[Fördefinierade domäner](luis-how-to-use-prebuilt-domains.md) innehåller metoder med yttranden.
+[Fördefinierade domäner](./howto-add-prebuilt-models.md) innehåller metoder med yttranden.
 
 ## <a name="none-intent"></a>Avsikten Ingen
 

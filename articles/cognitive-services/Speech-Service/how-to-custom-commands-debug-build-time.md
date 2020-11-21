@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aeb90e8e064c44f4d17f920261ed58310f0e55f0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023133"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025709"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Fel söknings fel vid redigering av ett program för anpassade kommandon
 
@@ -24,7 +24,7 @@ I den här artikeln beskrivs fel sökning när du ser fel meddelanden när du sk
 ## <a name="errors-when-creating-an-application"></a>Fel när du skapar ett program
 Anpassade kommandon skapar också ett program i [Luis](https://www.luis.ai/) när du skapar ett program för anpassade kommandon. 
 
-[Luis begränsar 500 program per redigering av resurs](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). Det gick inte att skapa LUIS-programmet om du använder en redigerings resurs som redan har 500-program. 
+[Luis begränsar 500 program per redigering av resurs](../luis/luis-limits.md). Det gick inte att skapa LUIS-programmet om du använder en redigerings resurs som redan har 500-program. 
 
 Se till att den valda LUIS Authoring-resursen har färre än 500 program. Om inte, kan du skapa en ny LUIS Authoring-resurs, byta till en annan eller försöka rensa dina LUIS-program.  
 
@@ -53,15 +53,15 @@ LUIS har inbyggda Ja/Nej-avsikter. Om du har exempel på meningar med endast "Ja
 
 | Följt | Variationer | 
 | ------- | --------- | 
-| Ja | Säker, OK |
-| Inga | Nej, inte | 
+| Yes | Säker, OK |
+| No | Nej, inte | 
 
 ### <a name="common-sample-sentences"></a>Vanliga exempel meningar
 Anpassade kommandon tillåter inte vanliga exempel meningar som delas mellan olika kommandon. Träningen av ett program kan sluta fungera om några exempel meningar i ett kommando redan har definierats i ett annat kommando. 
 
 Kontrol lera att du inte har några vanliga exempel meningar som delas mellan olika kommandon. 
 
-Bästa praxis för att balansera exempel meningar över olika kommandon finns i [bästa praxis för Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Bästa praxis för att balansera exempel meningar över olika kommandon finns i [bästa praxis för Luis](../luis/luis-concept-best-practices.md).
 
 ### <a name="empty-sample-sentences"></a>Tomma exempel meningar
 Du måste ha minst en exempel-sats för varje kommando.
@@ -82,7 +82,7 @@ Du kan till exempel definiera en parameter {vehikel} för exempel meningarna ned
 | Boka en flygning | Boka ett {vehikel} |
 | Boka en taxi | Boka ett {vehikel} |
 
-Bästa praxis för LUIS-utbildning finns i [metod](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)tips för Luis.
+Bästa praxis för LUIS-utbildning finns i [metod](../luis/luis-concept-best-practices.md)tips för Luis.
 
 ## <a name="cant-update-luis-key"></a>Det går inte att uppdatera LUIS-nyckeln
 ### <a name="reassign-to-e0-authoring-resource"></a>Tilldela om till E0 Authoring Resource

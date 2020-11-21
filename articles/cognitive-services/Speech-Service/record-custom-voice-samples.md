@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 2897fe2e0cc8aeb929b0a33f5cdaba9c60f2a244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae7b8e0485c1a2456b85e0910f60b2164d4e41c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261592"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026326"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Spela in röst exempel för att skapa en anpassad röst
 
@@ -104,7 +104,7 @@ Under upphovs rätts lagstiftning kan en aktörs läsning av upphovsrättsskydda
 
 Lyckligt vis är det möjligt att undvika dessa problem helt och hållet. Det finns många text källor som du kan använda utan behörighet eller licens.
 
-|Text källa|Beskrivning|
+|Text källa|Description|
 |-|-|
 |[CMU Arctic-sökkorpus](http://festvox.org/cmu_arctic/)|Om 1100 meningar som valts från frånvaro av upphovs rätts arbete som används i tal syntes projekt. En utmärkt start punkt.|
 |Fungerar inte längre<br>under Copyright|Vanligt vis publicerade Works före 1923. För engelska erbjuder [Project Gutenberg](https://www.gutenberg.org/) tusentals sådana arbeten. Du kanske vill fokusera på nyare arbeten, eftersom språket är närmare för modern engelska.|
@@ -211,7 +211,7 @@ Lyssna på varje fil noggrant. I det här skedet kan du redigera ut små oönska
 
 Konvertera varje fil till 16 bitar och en samplings frekvens på 16 kHz innan du sparar och, om du har spelat in Studio-Chatter, tar du bort den andra kanalen. Spara varje fil i WAV-format och namnge filerna med uttryck-numret från skriptet.
 
-Slutligen skapar du *avskriften* som associerar varje wav-fil med en text version av motsvarande uttryck. Att [skapa anpassade röst teckensnitt](how-to-customize-voice-font.md) innehåller information om det format som krävs. Du kan kopiera texten direkt från skriptet. Skapa sedan en zip-fil med WAV-filerna och text avskriften.
+Slutligen skapar du *avskriften* som associerar varje wav-fil med en text version av motsvarande uttryck. Att [skapa anpassade röst teckensnitt](./how-to-custom-voice-create-voice.md) innehåller information om det format som krävs. Du kan kopiera texten direkt från skriptet. Skapa sedan en zip-fil med WAV-filerna och text avskriften.
 
 Arkivera de ursprungliga inspelningarna på ett säkert ställe om du behöver dem senare. Behåll även ditt skript och dina kommentarer.
 
@@ -220,4 +220,4 @@ Arkivera de ursprungliga inspelningarna på ett säkert ställe om du behöver d
 Du är redo att ladda upp dina inspelningar och skapa din anpassade röst.
 
 > [!div class="nextstepaction"]
-> [Skapa anpassade röst teckensnitt](how-to-customize-voice-font.md)
+> [Skapa anpassade röst teckensnitt](./how-to-custom-voice-create-voice.md)

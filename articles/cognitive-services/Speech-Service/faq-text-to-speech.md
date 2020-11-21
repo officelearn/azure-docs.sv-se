@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: f06fda777cbebd8034ac4fd9254a4bd172d011a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ddbca7a216421aad7240890a697f861d14fd1f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661511"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026360"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Vanliga frågor och svar om Text till tal
 
-Om du inte kan hitta svar på dina frågor i dessa vanliga frågor och svar kan du titta närmare på [andra support alternativ](support.md).
+Om du inte kan hitta svar på dina frågor i dessa vanliga frågor och svar kan du titta närmare på [andra support alternativ](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
 
 ## <a name="general"></a>Allmänt
 
@@ -29,11 +29,11 @@ Om du inte kan hitta svar på dina frågor i dessa vanliga frågor och svar kan 
 
 **F: Hur börjar jag om jag vill använda en standard röst modell?**
 
-**A**: fler än 80 standard röst modeller på över 45-språk är tillgängliga via HTTP-begäranden. Börja med att hämta en [prenumerations nyckel](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Om du vill göra REST-anrop till de fördistribuerade röst modellerna går du till [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+**A**: fler än 80 standard röst modeller på över 45-språk är tillgängliga via HTTP-begäranden. Börja med att hämta en [prenumerations nyckel](./overview.md#try-the-speech-service-for-free). Om du vill göra REST-anrop till de fördistribuerade röst modellerna går du till [REST API](./overview.md#reference-docs).
 
 **F: är API: et detsamma som det som används för standard röster om jag vill använda en anpassad röst modell?**
 
-**A**: när en anpassad röst modell skapas och distribueras får du en unik slut punkt för din modell. Om du vill använda rösten för att tala i dina appar måste du ange slut punkten i dina HTTP-begäranden. Samma funktioner som är tillgängliga i REST API för tjänsten Text till tal är tillgänglig för din anpassade slut punkt. Lär dig hur du [skapar och använder din anpassade slut punkt](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint).
+**A**: när en anpassad röst modell skapas och distribueras får du en unik slut punkt för din modell. Om du vill använda rösten för att tala i dina appar måste du ange slut punkten i dina HTTP-begäranden. Samma funktioner som är tillgängliga i REST API för tjänsten Text till tal är tillgänglig för din anpassade slut punkt. Lär dig hur du [skapar och använder din anpassade slut punkt](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint).
 
 **F: behöver jag förbereda tränings data för att skapa anpassade röst modeller?**
 
@@ -41,7 +41,7 @@ Om du inte kan hitta svar på dina frågor i dessa vanliga frågor och svar kan 
 
 En samling tal data krävs för att skapa en anpassad röst modell. Den här samlingen består av en uppsättning ljudfiler med tal inspelningar och en text fil med avskriften för varje ljudfil. Resultatet av den digitala rösten är mycket beroende av kvaliteten på dina utbildnings data. För att skapa en bra text till tal-röst är det viktigt att inspelningarna görs i ett tyst rum med en hög kvalitet med hög kvalitet. Ett konsekvent volym-, tal-och inläsnings frekvens, och till och med konsekvens i lättfattliga programspecifika mannerisms av tal är viktigt för att skapa en bra digital röst. Vi rekommenderar starkt att du registrerar rösterna i en inspelning Studio.
 
-För närvarande ger vi inte support för online-inspelning eller har några rekommendationer för inspelning Studio. För format kravet, se [hur du förbereder inspelningar och avskrifter](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
+För närvarande ger vi inte support för online-inspelning eller har några rekommendationer för inspelning Studio. För format kravet, se [hur du förbereder inspelningar och avskrifter](./how-to-custom-voice-create-voice.md).
 
 **F: vilka skript ska jag använda för att registrera tal information för en anpassad röst träning?**
 
@@ -64,4 +64,4 @@ Vi tillhandahåller ytterligare tjänster som hjälper dig att förbereda skript
 ## <a name="next-steps"></a>Nästa steg
 
 - [Felsökning](troubleshooting.md)
-- [Versionsanmärkningar](releasenotes.md)
+- [Viktig information](releasenotes.md)

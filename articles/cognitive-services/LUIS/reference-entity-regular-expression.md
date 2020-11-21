@@ -5,18 +5,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.openlocfilehash: 0c8d4a5013f23a805c22dc5c44444de6b10ab369
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e44ec43e1169aa054e6e5b4591ccd8611a7f4d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316247"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025233"
 ---
 # <a name="regular-expression-entity"></a>Entitet för reguljära uttryck
 
 En entitet för reguljära uttryck extraherar en entitet baserat på ett mönster för reguljära uttryck som du anger.
 
-Ett reguljärt uttryck passar bäst för rå uttryck text. Det ignorerar Skift läge och ignorerar kulturell variant.  Matchning av reguljära uttryck används efter stavnings kontroll av ändringar på tecknen, inte på token-nivå. Om det reguljära uttrycket är för komplex, t. ex. genom att använda många hakparenteser, kan du inte lägga till uttrycket i modellen. Använder en del men inte alla [.net regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) -bibliotek.
+Ett reguljärt uttryck passar bäst för rå uttryck text. Det ignorerar Skift läge och ignorerar kulturell variant.  Matchning av reguljära uttryck används efter stavnings kontroll av ändringar på tecknen, inte på token-nivå. Om det reguljära uttrycket är för komplex, t. ex. genom att använda många hakparenteser, kan du inte lägga till uttrycket i modellen. Använder en del men inte alla [.net regex](/dotnet/standard/base-types/regular-expressions) -bibliotek.
 
 **Entiteten passar bra när:**
 

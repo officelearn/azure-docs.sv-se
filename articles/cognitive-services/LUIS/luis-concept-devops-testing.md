@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: c41e9fe1f197334bce27241ab9f28309c92f7e0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3017d0dec5acd3494600c42bef410ed346fead1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316553"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025951"
 ---
 # <a name="testing-for-luis-devops"></a>Testa för LUIS-DevOps
 
@@ -25,10 +25,10 @@ Tester är en viktig del av [CI/CD-arbetsflöden](luis-concept-devops-automation
 Det finns två olika typer av testning för en LUIS-app som du måste utföra i kontinuerliga integrations arbets flöden:
 
 - **Enhets test** – relativt enkla tester som verifierar de viktigaste funktionerna i din Luis-app. Ett enhets test skickas när den förväntade avsikten och förväntade entiteter returneras för en specifik test-uttryck. Alla enhets test måste klara för att test körningen ska slutföras.  
-Den här typen av testning liknar [interaktiv testning](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test) som du kan göra i Luis- [portalen](https://www.luis.ai/).
+Den här typen av testning liknar [interaktiv testning](./luis-concept-test.md) som du kan göra i Luis- [portalen](https://www.luis.ai/).
 
 - **Batch-test** – batch-testning är ett omfattande test på din aktuella tränade modell för att mäta dess prestanda. Till skillnad från enhets test är batch-testningen inte klar | det går inte att testa. Förväntat med batch-testning är att varje test returnerar den förväntade avsikten och förväntade entiteter. I stället kan du använda ett batch-test för att Visa precisionen för varje avsikt och enhet i din app och hjälpa dig att jämföra med tiden när du gör förbättringar.  
-Den här typen av testning är samma som [batch-testningen](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) som du kan utföra interaktivt i Luis-portalen.
+Den här typen av testning är samma som [batch-testningen](./luis-concept-batch-test.md) som du kan utföra interaktivt i Luis-portalen.
 
 Du kan använda enhets testning från början av ditt projekt. Batch-testning är bara faktiskt av värde när du har utvecklat schemat för din LUIS-app och du arbetar med att förbättra dess noggrannhet.
 
@@ -42,7 +42,7 @@ När du skriver en uppsättning tester måste du för varje test definiera:
 * Förväntad avsikt
 * Förväntade entiteter.
 
-Använd LUIS [batch File-syntax](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-syntax-template-for-intents-with-entities) för att definiera en grupp av tester i en JSON-formaterad fil. Exempel:
+Använd LUIS [batch File-syntax](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) för att definiera en grupp av tester i en JSON-formaterad fil. Ett exempel:
 
 ```JSON
 [
@@ -76,7 +76,7 @@ I varje enhets test, för en specifik test uttryck, kan du:
 
 * Testa att rätt avsikt returneras
 * Testa att "Key"-entiteter – de som är viktiga för din lösning-returneras.
-* Testa att [förutsägelse poängen](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score) för avsikt och entiteter överskrider ett tröskelvärde som du definierar. Du kan till exempel bestämma att du bara vill att ett test har godkänts om förutsägelse poängen för avsikten och dina nyckel enheter överskrider 0,75.
+* Testa att [förutsägelse poängen](./luis-concept-prediction-score.md) för avsikt och entiteter överskrider ett tröskelvärde som du definierar. Du kan till exempel bestämma att du bara vill att ett test har godkänts om förutsägelse poängen för avsikten och dina nyckel enheter överskrider 0,75.
 
 I enhets test är det en bra idé att testa att dina nyckel enheter har returnerats i förutsägelse svaret, men att ignorera falska positiva identifieringar. *Falska positiva identifieringar* är entiteter som finns i förutsägelse svaret men som inte har definierats i de förväntade resultaten för ditt test. Genom att ignorera falska positiva identifieringar gör det mindre betungande för att skapa enhets tester samtidigt som du kan fokusera på att testa att de data som är viktiga för din lösning returneras i ett förutsägelse svar.
 
@@ -85,15 +85,15 @@ I enhets test är det en bra idé att testa att dina nyckel enheter har returner
 
 #### <a name="designing-batch-tests"></a>Utforma batch-tester
 
-Batch-testuppsättningar ska innehålla ett stort antal testfall som är utformade för att testa alla syften och alla entiteter i din LUIS-app. Information om hur du definierar en batch-testuppsättning finns [i batch-testning i Luis-portalen](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) .
+Batch-testuppsättningar ska innehålla ett stort antal testfall som är utformade för att testa alla syften och alla entiteter i din LUIS-app. Information om hur du definierar en batch-testuppsättning finns [i batch-testning i Luis-portalen](./luis-concept-batch-test.md) .
 
 ### <a name="running-tests"></a>Köra tester
 
 LUIS-portalen erbjuder funktioner som hjälper dig med interaktiv testning:
 
-* Med [**interaktiv testning**](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test) kan du skicka in ett exempel på uttryck och få svar på Luis-identifierade avsikter och entiteter. Du verifierar att testet har genomförts genom visuell inspektion.
+* Med [**interaktiv testning**](./luis-concept-test.md) kan du skicka in ett exempel på uttryck och få svar på Luis-identifierade avsikter och entiteter. Du verifierar att testet har genomförts genom visuell inspektion.
 
-* [**Batch-testning**](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) använder en batch-testfil som indata för att verifiera din aktiva utbildade version för att mäta dess förutsägelse noggrannhet. Ett batch-test hjälper dig att Visa precisionen för varje avsikt och entitet i din aktiva version, vilket visar resultat med ett diagram.
+* [**Batch-testning**](./luis-concept-batch-test.md) använder en batch-testfil som indata för att verifiera din aktiva utbildade version för att mäta dess förutsägelse noggrannhet. Ett batch-test hjälper dig att Visa precisionen för varje avsikt och entitet i din aktiva version, vilket visar resultat med ett diagram.
 
 #### <a name="running-tests-in-an-automated-build-workflow"></a>Köra tester i ett automatiserat Bygg arbets flöde
 
@@ -109,7 +109,7 @@ Test funktionerna som är tillgängliga i LUIS-portalen kräver inte en publicer
 
 > [!TIP]
 > * Om du implementerar en egen test lösning och skriver kod för att skicka test-yttranden till en slut punkt, måste du komma ihåg att om du använder LUIS Authoring-nyckeln är den tillåtna transaktions taxan begränsad till 5TPS. Antingen begränsar du sändnings frekvensen eller använder en förutsägelse nyckel i stället.
-> * Kom ihåg att använda `log=false` i frågesträngen för din förutsägelse förfrågan när du skickar test frågor till en slut punkt. Detta säkerställer att din test-yttranden inte loggas av LUIS och slutar i gransknings listan för slut punkts yttranden som visas i den LUIS [aktiva inlärnings](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) funktionen. det innebär att de av misstag läggs till i övnings yttranden för appen.
+> * Kom ihåg att använda `log=false` i frågesträngen för din förutsägelse förfrågan när du skickar test frågor till en slut punkt. Detta säkerställer att din test-yttranden inte loggas av LUIS och slutar i gransknings listan för slut punkts yttranden som visas i den LUIS [aktiva inlärnings](./luis-concept-review-endpoint-utterances.md) funktionen. det innebär att de av misstag läggs till i övnings yttranden för appen.
 
 #### <a name="running-unit-tests-at-the-command-line-and-in-cicd-workflows"></a>Köra enhets tester på kommando raden och i CI/CD-arbetsflöden
 
@@ -123,13 +123,13 @@ Du kan använda [NLU. DevOps](https://github.com/microsoft/NLU.DevOps) -paket f�
 Du kan också använda NLU. DevOps-paket för att köra batch-test på kommando raden.
 
 * Använd NLU. DevOps [test kommando](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) för att skicka tester från en test fil till en slut punkt och för att avbilda faktiska förutsägelse resultat i en fil, samma som med enhets test.
-* Använd NLU. DevOps [Jämför kommando](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) i [prestanda test läge](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) för att mäta appens prestanda du kan också jämföra appens prestanda mot ett prestandatest, till exempel resultaten från den senaste incheckningen av Master eller den aktuella versionen. I test läge för prestanda `compare` genererar kommandot nunit test-utdata och [batch-test resulterar](https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#batch-test) i JSON-format.
+* Använd NLU. DevOps [Jämför kommando](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) i [prestanda test läge](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) för att mäta appens prestanda du kan också jämföra appens prestanda mot ett prestandatest, till exempel resultaten från den senaste incheckningen av Master eller den aktuella versionen. I test läge för prestanda `compare` genererar kommandot nunit test-utdata och [batch-test resulterar](./luis-glossary.md#batch-test) i JSON-format.
 
 ## <a name="luis-non-deterministic-training-and-the-effect-on-testing"></a>LUIS icke-deterministisk utbildning och påverkan på testning
 
 När LUIS är träna en modell, t. ex. en avsikt, behöver den både positiva data – den yttranden utbildning som du har angett för att träna appen för modell-och negativa data data som *inte* är giltiga exempel på användningen av modellen. Under utbildningen bygger LUIS negativa data från en modell från alla positiva data som du har angett för de andra modellerna, men i vissa fall kan en data obalans uppstå. För att undvika den här obalansen samplar LUIS en delmängd av de negativa data i ett icke-deterministiskt sätt för att optimera för en bättre balanserade inlärning, bättre modell prestanda och snabbare inlärnings tid.
 
-Resultatet av denna icke deterministiska utbildning är att du kan få ett något [annorlunda förutsägelse svar mellan olika utbildningar](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score), vanligt vis för intentor och/eller entiteter där [förutsägelse poängen](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score) inte är hög.
+Resultatet av denna icke deterministiska utbildning är att du kan få ett något [annorlunda förutsägelse svar mellan olika utbildningar](./luis-concept-prediction-score.md), vanligt vis för intentor och/eller entiteter där [förutsägelse poängen](./luis-concept-prediction-score.md) inte är hög.
 
 Om du vill inaktivera icke-deterministisk utbildning för de LUIS app-versioner som du skapar för test ändamål, använder du [API: et för versions inställningar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) med `UseAllTrainingData` inställningen inställd på `true` .
 

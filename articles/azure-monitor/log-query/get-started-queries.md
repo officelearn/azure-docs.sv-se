@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d43a72db385d282ee189c179254cfc270929dbbf
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8b3b6a41da6e3100739da920472d582711d1e9b1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207197"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024389"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Kom igång med loggfrågor i Azure Monitor
 
@@ -192,7 +192,7 @@ SecurityEvent
 ## <a name="summarize-aggregate-groups-of-rows"></a>Sammanfatta: aggregerade grupper av rader
 Använd **sammanfatta** för att identifiera grupper av poster, enligt en eller flera kolumner, och tillämpa agg regeringar för dem. Den vanligaste användningen av **Sammanfattning** är *Count*, som returnerar antalet resultat i varje grupp.
 
-Följande fråga granskar alla *perf* -poster från den senaste timmen, grupperar dem efter *ObjectName*och räknar posterna i varje grupp: 
+Följande fråga granskar alla *perf* -poster från den senaste timmen, grupperar dem efter *ObjectName* och räknar posterna i varje grupp: 
 ```Kusto
 Perf
 | where TimeGenerated > ago(1h)
@@ -244,7 +244,7 @@ Om du vill göra resultatet tydligare väljer du att visa det som ett tids diagr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om hur du använder sträng data i en logg fråga med att [arbeta med strängar i Azure Monitor logg frågor](string-operations.md).
-- Lär dig mer om att aggregera data i en logg fråga med [avancerade agg regeringar i Azure Monitor logg frågor](advanced-aggregations.md).
-- Lär dig hur du kopplar data från flera tabeller med [kopplingar i Azure Monitor logg frågor](joins.md).
+- Läs mer om hur du använder sträng data i en logg fråga med att [arbeta med strängar i Azure Monitor logg frågor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations).
+- Lär dig mer om att aggregera data i en logg fråga med [avancerade agg regeringar i Azure Monitor logg frågor](/azure/data-explorer/write-queries#advanced-aggregations).
+- Lär dig hur du kopplar data från flera tabeller med [kopplingar i Azure Monitor logg frågor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).
 - Hämta dokumentation om hela Kusto-frågespråket i [språk referens för KQL](/azure/kusto/query/).

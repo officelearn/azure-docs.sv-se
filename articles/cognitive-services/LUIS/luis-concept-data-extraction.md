@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 9bcc3d08fa29109cf4178f8eb0c3efe661323ef0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541789"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026001"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrahera data från uttryck text med avsikter och entiteter
 LUIS ger dig möjlighet att hämta information från en användares naturliga språk yttranden. Informationen extraheras på ett sätt som kan användas av ett program, program eller en chatt-robot för att vidta åtgärder. I följande avsnitt lär du dig vilka data som returneras från avsikter och entiteter med exempel på JSON.
@@ -193,7 +193,7 @@ Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 * * *
 
-|Domän|Data objekt|Datatyp|Dataplats|Värde|
+|Domain|Data objekt|Datatyp|Dataplats|Värde|
 |--|--|--|--|--|
 |Verktyg|Avsikt|Sträng|avsikter [0]. avsikt|"<b>Verktyg</b>. ShowNext"|
 |Kommunikation|Avsikt|Sträng|avsikter [1]. avsikt|<b>Kommunikation</b>. StartOver"|
@@ -232,9 +232,9 @@ Det är svårt att hämta namn från en uttryck eftersom ett namn kan vara prakt
 
 ### <a name="names-of-people"></a>Namn på personer
 
-Personens namn kan ha lite format beroende på språk och kultur. Använd antingen en fördefinierad **[personName](luis-reference-prebuilt-person.md)** -entitet eller en **[enkel entitet](luis-concept-entity-types.md#simple-entity)** med [roller](luis-concept-roles.md) för för-och efter namn.
+Personens namn kan ha lite format beroende på språk och kultur. Använd antingen en fördefinierad **[personName](luis-reference-prebuilt-person.md)** -entitet eller en **[enkel entitet](luis-concept-entity-types.md)** med roller för för-och efter namn.
 
-Om du använder den enkla entiteten ska du se till att ge exempel som använder det första och sista namnet i olika delar av uttryck, i yttranden med olika längd och yttranden i alla avsikter, inklusive ingen avsikt. [Granska](luis-how-to-review-endoint-utt.md) slut punkts yttranden regelbundet för att märka namn som inte har förutsägts korrekt.
+Om du använder den enkla entiteten ska du se till att ge exempel som använder det första och sista namnet i olika delar av uttryck, i yttranden med olika längd och yttranden i alla avsikter, inklusive ingen avsikt. [Granska](./luis-how-to-review-endpoint-utterances.md) slut punkts yttranden regelbundet för att märka namn som inte har förutsägts korrekt.
 
 ### <a name="names-of-places"></a>Namn på platser
 
@@ -242,17 +242,17 @@ Plats namn anges och är kända som städer, regioner, stater, provinser och lä
 
 ### <a name="new-and-emerging-names"></a>Nya och framväxande namn
 
-Vissa appar måste kunna hitta nya och nya namn, till exempel produkter eller företag. Dessa typer av namn är den svåraste typen av data extrahering. Börja med en **[enkel entitet](luis-concept-entity-types.md#simple-entity)** och Lägg till en [fras lista](luis-concept-feature.md). [Granska](luis-how-to-review-endoint-utt.md) slut punkts yttranden regelbundet för att märka namn som inte har förutsägts korrekt.
+Vissa appar måste kunna hitta nya och nya namn, till exempel produkter eller företag. Dessa typer av namn är den svåraste typen av data extrahering. Börja med en **[enkel entitet](luis-concept-entity-types.md#simple-entity)** och Lägg till en [fras lista](luis-concept-feature.md). [Granska](./luis-how-to-review-endpoint-utterances.md) slut punkts yttranden regelbundet för att märka namn som inte har förutsägts korrekt.
 
 ## <a name="patternany-entity-data"></a>Mönster. alla entitets data
 
 [Mönster.](reference-entity-pattern-any.md) det finns en plats hållare med variabel längd som bara används i ett mönsters mall uttryck för att markera var entiteten börjar och slutar. Entiteten som används i mönstret måste hittas för att mönstret ska kunna användas.
 
 ## <a name="sentiment-analysis"></a>Attitydanalys
-Om sentiment-analysen konfigureras vid [publiceringen](luis-how-to-publish-app.md#sentiment-analysis)innehåller Luis JSON-svaret sentiment analys. Läs mer om sentiment-analys i [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) -dokumentationen.
+Om sentiment-analysen konfigureras vid [publiceringen](luis-how-to-publish-app.md#sentiment-analysis)innehåller Luis JSON-svaret sentiment analys. Läs mer om sentiment-analys i [textanalys](../text-analytics/index.yml) -dokumentationen.
 
 ## <a name="key-phrase-extraction-entity-data"></a>Nyckel fras extrahering av enhets data
-[Extraherings enheten för nyckel fraser](luis-reference-prebuilt-keyphrase.md) returnerar nyckel fraser i uttryck, som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+[Extraherings enheten för nyckel fraser](luis-reference-prebuilt-keyphrase.md) returnerar nyckel fraser i uttryck, som tillhandahålls av [textanalys](../text-analytics/index.yml).
 
 ## <a name="data-matching-multiple-entities"></a>Data som matchar flera entiteter
 

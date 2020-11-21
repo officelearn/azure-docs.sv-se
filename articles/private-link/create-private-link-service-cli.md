@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 87fe02aed19ae7e5858715748a2b4c4da87a07b3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e0b9ac3f16a170bb14925b555e8894cb10080488
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658578"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026190"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Skapa en privat länk-tjänst med Azure CLI
 Den här artikeln visar hur du skapar en privat länk-tjänst i Azure med hjälp av Azure CLI.
@@ -79,7 +79,7 @@ En lastbalanseringsregel definierar klientdelens IP-konfiguration för inkommand
 ```
 ### <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
-I det här exemplet ska vi inte skapa en virtuell dator. Du kan följa stegen i [snabb start: skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer med Azure CLI](/load-balancer/quickstart-load-balancer-standard-internal-cli#create-backend-servers) för att skapa två virtuella datorer som ska användas som backend-servrar för belastningsutjämnaren. 
+I det här exemplet ska vi inte skapa en virtuell dator. Du kan följa stegen i [snabb start: skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer med Azure CLI](/azure/load-balancer/quickstart-load-balancer-standard-internal-cli) för att skapa två virtuella datorer som ska användas som backend-servrar för belastningsutjämnaren. 
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>Inaktivera nätverks principer för privata länkar i undernät 

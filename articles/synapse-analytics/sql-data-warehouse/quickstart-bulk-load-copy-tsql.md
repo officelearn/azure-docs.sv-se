@@ -7,20 +7,20 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
-ms.date: 06/18/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: f82bedc6ef638714b2641003e8274c2024a86c2e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 83b5804888379316b855c36f803f646cec102d9e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213014"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024593"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Snabb start: Mass inläsning av data med hjälp av KOPIERINGs instruktionen
 
-I den här snabb starten ska du samla in data i SQL-poolen med hjälp av den enkla och flexibla [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) för data inmatning med stora data flöden. KOPIERINGs instruktionen är det rekommenderade inläsnings verktyget, som du kan använda för att sömlöst och flexibelt läsa in data genom att tillhandahålla funktioner för att:
+I den här snabb starten ska du samla in data i den dedikerade SQL-poolen med hjälp av den enkla och flexibla [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) för data inmatning med stora data flöden. KOPIERINGs instruktionen är det rekommenderade inläsnings verktyget, som du kan använda för att sömlöst och flexibelt läsa in data genom att tillhandahålla funktioner för att:
 
 - Tillåt att lägre privilegierade användare läser in utan att du behöver strikt behörighet för data lagret
 - Använd endast ett enda T-SQL-uttryck utan att behöva skapa några ytterligare databas objekt
@@ -34,7 +34,7 @@ I den här snabb starten ska du samla in data i SQL-poolen med hjälp av den enk
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här snabb starten förutsätter att du redan har en SQL-pool. Om en SQL-pool inte har skapats använder du snabb starten [skapa och Anslut-portalen](create-data-warehouse-portal.md) .
+Den här snabb starten förutsätter att du redan har en särskild SQL-pool. Om en dedikerad SQL-pool inte har skapats använder du snabb starten [skapa och Anslut-portalen](create-data-warehouse-portal.md) .
 
 ## <a name="set-up-the-required-permissions"></a>Konfigurera de behörigheter som krävs
 

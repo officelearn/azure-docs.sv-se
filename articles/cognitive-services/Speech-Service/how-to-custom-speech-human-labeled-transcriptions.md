@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1d62d36d5cc48edc198e5d7bfc49f7f31b89a2c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74806070"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025624"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Så här skapar du medmärkade avskrifter
 
@@ -29,7 +29,7 @@ Välmärkta avskrifter för engelska ljud måste anges som oformaterad text, end
 
 Några exempel:
 
-| Tecken för att undvika | Ersättning | Obs! |
+| Tecken för att undvika | Ersättning | Kommentarer |
 | ------------------- | ------------ | ----- |
 | "Hello World" | "Hello world" | De inledande och avslutande citat tecknen har ersatts med lämpliga ASCII-tecken. |
 | John dag | John dag | Apostrofen har ersatts med lämpligt ASCII-tecken. |
@@ -84,7 +84,7 @@ Välmärkta avskrifter för ett mandariner kinesiskt ljud måste vara UTF-8-koda
 
 Några exempel:
 
-| Tecken för att undvika | Ersättning   | Obs! |
+| Tecken för att undvika | Ersättning   | Kommentarer |
 | ------------------- | -------------- | ----- |
 | "你好" | "你好" | De inledande och avslutande citat tecknen har ersatts av lämpliga tecken. |
 | 需要什么帮助? | 需要什么帮助？| Frågetecknet har ersatts av rätt tecken. |
@@ -164,7 +164,7 @@ Här följer några exempel på normalisering som utförs automatiskt på avskri
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förbered och testa dina data](how-to-custom-speech-test-data.md)
+- [Förbered och testa dina data](./how-to-custom-speech-test-and-train.md)
 - [Inspektera dina data](how-to-custom-speech-inspect-data.md)
 - [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
 - [Träna modellen](how-to-custom-speech-train-model.md)

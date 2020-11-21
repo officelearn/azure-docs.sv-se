@@ -6,12 +6,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3eb30662cae5f117942db6322b27491670abb1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 621a41f743b751a8c24bf6f6ad8497fb5c79775c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324849"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026018"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Ändra uttryck-data före eller under förutsägelse
 LUIS tillhandahåller sätt att ändra uttryck före eller under förutsägelsen. Detta inkluderar att [åtgärda stavnings](luis-tutorial-bing-spellcheck.md)-och åtgärda tids zons problem för färdiga [datetimeV2](luis-reference-prebuilt-datetimev2.md).
@@ -98,7 +98,7 @@ Ta bort 60 minuter:
 
 #### <a name="v2-prediction-c-code-determines-correct-value-of-parameter"></a>V2-förutsägelse C#-kod fastställer korrekt värde för parametern
 
-I följande C#-kod används [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) -klassens [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) -metod för att fastställa rätt förskjutnings värde baserat på system tid:
+I följande C#-kod används [TimeZoneInfo](/dotnet/api/system.timezoneinfo) -klassens [FindSystemTimeZoneById](/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) -metod för att fastställa rätt förskjutnings värde baserat på system tid:
 
 ```csharp
 // Get CST zone id

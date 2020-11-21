@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 09/02/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 242d131e79966ebdb286a20f75d20f91f5fa7406
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b4034f9b7a5a9ec856134e27b422736e2c98f04a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334658"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025199"
 ---
 # <a name="what-is-language-understanding-luis"></a>Vad är Language Understanding Intelligent Service (LUIS)?
 
@@ -33,7 +33,7 @@ När Azure LUIS-appen har publicerats skickar ett klient program yttranden (text
 
 ![Konceptuell bilder av LUIS fungerar med chatt-roboten för att förutsäga användar text med naturligt språk förståelse (NLP)](./media/luis-overview/LUIS-chat-bot-request-response.svg "Konceptuell bilder av LUIS fungerar med chatt-roboten för att förutsäga användar text med naturligt språk förståelse (NLP")
 
-|Steg|Åtgärd|
+|Steg|Action|
 |:--|:--|
 |1|Klientprogrammet skickar användarens _yttrande_ (text med användarens egna ord), "I want to call my HR rep." (”Jag vill ringa HR-personalen.”) till LUIS-slutpunkten som en HTTP-begäran.|
 |2|Med LUIS kan du utforma dina anpassade språk modeller för att lägga till information i ditt program. Datorns förkonfigurerade språk modeller tar användarens ostrukturerade indata och returnerar ett JSON-formaterat svar, med en topp avsikt `HRContact` . Det minsta JSON-slutpunktssvaret innehåller frågeyttrandet och avsikten med högsta poäng. Det kan också extrahera data, till exempel entiteten _kontakt typ_ .|
@@ -50,7 +50,7 @@ LUIS-appen tillhandahåller information så att klientprogrammet kan fatta smart
 
 LUIS-appen innehåller en domänbaserad naturlig språk modell. Du kan starta LUIS-appen med en fördefinierad domänmodell, bygga din egen modell eller blanda delar av en fördefinierad modell med egen anpassad information.
 
-* LUIS med**fördefinierad modell** har många fördefinierade domänmodeller som innehåller avsikter, yttranden och fördefinierade yttranden. Du kan använda de fördefinierade entiteterna utan att behöva använda den fördefinierade modellens avsikter och yttranden. [Fördefinierade domänmodeller](luis-how-to-use-prebuilt-domains.md "Färdiga domän modeller") innehåller hela designen för dig och är ett bra sätt att börja använda LUIS snabbt.
+* LUIS med **fördefinierad modell** har många fördefinierade domänmodeller som innehåller avsikter, yttranden och fördefinierade yttranden. Du kan använda de fördefinierade entiteterna utan att behöva använda den fördefinierade modellens avsikter och yttranden. [Fördefinierade domänmodeller](./howto-add-prebuilt-models.md "Färdiga domän modeller") innehåller hela designen för dig och är ett bra sätt att börja använda LUIS snabbt.
 
 * **Anpassad modell** LUIS ger dig flera olika sätt att identifiera dina egna anpassade modeller, inklusive avsikter och entiteter. Entiteter innehåller enheter för maskin inlärning, speciella eller litterala entiteter och en kombination av Machine-Learning och Literal.
 
@@ -116,7 +116,7 @@ Verktyg för att snabbt och enkelt använda LUIS med en robot:
 
 ## <a name="integrate-with-a-bot"></a>Integrera med en robot
 
-Använd [Azure bot-tjänsten](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0 "Azure bot-tjänst") med [Microsoft bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") för att bygga och distribuera en chatt-robot. Utforma och utveckla med det grafiska gränssnitts verktyget, [Composer](https://docs.microsoft.com/composer/ "Composer")eller [arbetsrobots exempel](https://github.com/microsoft/BotBuilder-Samples "fungerande robot exempel") som är utformade för de främsta bot scenarierna.
+Använd [Azure bot-tjänsten](/azure/bot-service/?view=azure-bot-service-4.0 "Azure bot-tjänst") med [Microsoft bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") för att bygga och distribuera en chatt-robot. Utforma och utveckla med det grafiska gränssnitts verktyget, [Composer](/composer/ "Composer")eller [arbetsrobots exempel](https://github.com/microsoft/BotBuilder-Samples "fungerande robot exempel") som är utformade för de främsta bot scenarierna.
 
 ## <a name="integrate-with-other-cognitive-services"></a>Integrera med andra Cognitive Services
 
@@ -138,8 +138,8 @@ Lär dig mer om LUIS med praktiska snabb starter med hjälp av [portalen](get-st
 * [Fråga efter förutsägelse slut punkten](luis-get-started-get-intent-from-browser.md "Fråga förutsägelse slut punkten").
 * [Utvecklings resurser](developer-reference-resource.md "Resurser för utvecklare") för Luis.
 
-[bot-framework]: https://docs.microsoft.com/bot-framework/
-[flow]: https://docs.microsoft.com/connectors/luis/
+[bot-framework]: /bot-framework/
+[flow]: /connectors/luis/
 [authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
 [endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

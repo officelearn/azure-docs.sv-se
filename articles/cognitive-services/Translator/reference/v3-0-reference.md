@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121025"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024508"
 ---
 # <a name="translator-v30"></a>Translator v 3.0
 
@@ -41,7 +41,7 @@ Begär anden till Microsoft Translator hanteras i de flesta fall av data centret
 
 Om du vill tvinga begäran att hanteras av ett visst Azure-geografi ändrar du den globala slut punkten i API-begäran till önskad regional slut punkt:
 
-|Beskrivning|Azure geografi|Grundläggande URL|
+|Description|Azure geografi|Grundläggande URL|
 |:--|:--|:--|
 |Azure|Global (icke-regional)|   api.cognitive.microsofttranslator.com|
 |Azure|USA|   api-nam.cognitive.microsofttranslator.com|
@@ -54,7 +54,7 @@ Prenumerera på Translator eller [Cognitive Services multi-service](https://azur
 
 Det finns tre huvuden som du kan använda för att autentisera din prenumeration. Den här tabellen beskriver hur var och en används:
 
-|Rubriker|Beskrivning|
+|Sidhuvuden|Description|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Använd med Cognitive Services prenumeration om du skickar den hemliga nyckeln*.<br/>Värdet är Azures hemliga nyckel för din prenumeration på Translator.|
 |Auktorisering|*Använd med Cognitive Services prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är Bearer-token: `Bearer <token>` .|
@@ -67,7 +67,7 @@ Det första alternativet är att autentisera med hjälp av- `Ocp-Apim-Subscripti
 
 När du använder en [Global Translator-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)måste du inkludera en rubrik för att anropa översättaren.
 
-|Rubriker|Beskrivning|
+|Sidhuvuden|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration på Translator.|
 
@@ -86,7 +86,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 När du använder en [lokal översättare-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
 Det finns två huvuden som du måste anropa Translator.
 
-|Rubriker|Beskrivning|
+|Sidhuvuden|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration på Translator.|
 |OCP-APIM-Subscription-region| Värdet är den region där Translator-resursen finns. |
@@ -108,7 +108,7 @@ När du använder en kognitiv tjänsts resurs för flera tjänster. På så sät
 
 När du använder en hemlig nyckel för flera tjänster måste du inkludera två autentiseringsscheman med din begäran. Det finns två huvuden som du måste anropa Translator.
 
-|Rubriker|Beskrivning|
+|Sidhuvuden|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din multi-service-resurs.|
 |OCP-APIM-Subscription-region| Värdet är regionen för flera tjänst resurser. |
@@ -147,13 +147,13 @@ En autentiseringstoken är giltig i 10 minuter. Token ska återanvändas när du
 
 ## <a name="virtual-network-support"></a>Stöd för virtuellt nätverk
 
-Translator-tjänsten är nu tillgänglig med Virtual Network-funktioner (VNET) i alla regioner i det offentliga Azure-molnet. Om du vill aktivera Virtual Network kan du läsa [Konfigurera Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Translator-tjänsten är nu tillgänglig med Virtual Network-funktioner (VNET) i alla regioner i det offentliga Azure-molnet. Om du vill aktivera Virtual Network kan du läsa [Konfigurera Azure Cognitive Services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal). 
 
 När du har aktiverat den här funktionen måste du använda den anpassade slut punkten för att anropa Translator. Du kan inte använda den globala Translator-slutpunkten ("api.cognitive.microsofttranslator.com") och du kan inte autentisera med en åtkomsttoken.
 
 Du hittar den anpassade slut punkten när du har skapat en [översättare-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) och tillåter åtkomst från valda nätverk och privata slut punkter.
 
-|Rubriker|Beskrivning|
+|Sidhuvuden|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration på Translator.|
 |OCP-APIM-Subscription-region| Värdet är den region där Translator-resursen finns. Det här värdet är valfritt om resursen är `global`|
@@ -188,7 +188,7 @@ Till exempel skulle en kund med en kostnads fri utvärderings prenumeration få 
 ```
 Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga fel koder är:
 
-| Kod | Beskrivning |
+| Kod | Description |
 |:----|:-----|
 | 400000| En av begärda indata är inte giltiga.|
 | 400001| Parametern "scope" är ogiltig.|
@@ -230,13 +230,13 @@ Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden 
 | 503000| Tjänsten är inte tillgänglig för tillfället. Försök igen. Om felet kvarstår rapporterar du det med datum/tid för felet, begärande-ID från svars huvudet X-RequestId och klient-ID: n från begär ande huvudet X-ClientTraceId.|
 
 ## <a name="metrics"></a>Mått 
-Med mått kan du Visa information om användning och tillgänglighet för översättare i Azure Portal under mått avsnittet som visas i skärm bilden nedan. Mer information finns i [data-och plattforms mått](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Med mått kan du Visa information om användning och tillgänglighet för översättare i Azure Portal under mått avsnittet som visas i skärm bilden nedan. Mer information finns i [data-och plattforms mått](../../../azure-monitor/platform/data-platform-metrics.md).
 
 ![Translator-mått](../media/translatormetrics.png)
 
 I den här tabellen listas tillgängliga mått med en beskrivning av hur de används för att övervaka API-anrop för översättning.
 
-| Mått | Beskrivning |
+| Mått | Description |
 |:----|:-----|
 | TotalCalls| Totalt antal API-anrop.|
 | TotalTokenCalls| Totalt antal API-anrop via token service med autentiseringstoken.|

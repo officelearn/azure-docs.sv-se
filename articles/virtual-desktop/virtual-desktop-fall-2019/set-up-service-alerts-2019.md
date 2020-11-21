@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3f2171d3271a4ffc4770dd0c9faea16c23e44d02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f4f52acaa5b461e2b058f112f26dafda86dcb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88005510"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025035"
 ---
 # <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>Självstudie: Konfigurera tjänst aviseringar för Windows Virtual Desktop (klassisk)
 
@@ -25,9 +25,9 @@ I den här självstudien får du lära dig att:
 > [!div class="checklist"]
 > * Skapa och konfigurera tjänst aviseringar.
 
-Mer information om Azure Service Health finns i [Azure Health-dokumentationen](https://docs.microsoft.com/azure/service-health/).
+Mer information om Azure Service Health finns i [Azure Health-dokumentationen](../../service-health/index.yml).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Självstudie: skapa en klient i Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
 - [Självstudie: skapa tjänstens huvud namn och roll tilldelningar med PowerShell](create-service-principal-role-powershell.md)
@@ -52,7 +52,7 @@ Konfigurera tjänst aviseringar:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **service Health.**
-3. Följ anvisningarna i [skapa aktivitets logg aviseringar på tjänst aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) för att konfigurera aviseringar och meddelanden.
+3. Följ anvisningarna i [skapa aktivitets logg aviseringar på tjänst aviseringar](../../service-health/alerts-activity-log-service-notifications-portal.md?toc=%2fazure%2fservice-health%2ftoc.json) för att konfigurera aviseringar och meddelanden.
 
 ## <a name="next-steps"></a>Nästa steg
 

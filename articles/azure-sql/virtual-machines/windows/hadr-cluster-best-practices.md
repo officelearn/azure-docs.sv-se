@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 446731e084084ca301b350f6fec0c4065485a40f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564573"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026632"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Metod tips för klusterkonfiguration (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ Använd ett enda nätverkskort per server (klusternod) och ett enda undernät. A
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Justera nätverks trösklar för redundanskluster
 
-När du kör Windows-redundanskluster i virtuella Azure-datorer med SQL Server AlwaysOn, rekommenderas att ändra kluster inställningen till ett mer avslappnad övervaknings tillstånd.  Detta gör klustret mycket mer stabilt och tillförlitligt.  Mer information om detta finns i [IaaS med SQL AlwaysOn-finjustera tröskelvärden för redundanskluster](/windows-server/troubleshoot/iaas-sql-failover-cluser).
+När du kör Windows-redundanskluster i virtuella Azure-datorer med SQL Server AlwaysOn, rekommenderas att ändra kluster inställningen till ett mer avslappnad övervaknings tillstånd.  Detta gör klustret mycket mer stabilt och tillförlitligt.  Mer information om detta finns i [IaaS med SQL AlwaysOn-finjustera tröskelvärden för redundanskluster](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 ## <a name="quorum"></a>Kvorum
 
@@ -60,7 +60,7 @@ Konfigurera en Azure-delad disk som disk vittne.
 Information om hur du kommer igång finns i [Konfigurera ett disk vittne](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Operativ system som stöds** : alla   
+**Operativ system som stöds**: alla   
 
 
 ### <a name="cloud-witness"></a>Molnvittne
@@ -70,7 +70,7 @@ Ett moln vittne är en typ av ett kvorum för redundanskluster som använder Mic
 Information om hur du kommer igång finns i [Konfigurera ett moln vittne](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
 
 
-**Operativ system som stöds** : Windows Server 2016 och senare   
+**Operativ system som stöds**: Windows Server 2016 och senare   
 
 
 ### <a name="file-share-witness"></a>Filresursvittne
@@ -82,9 +82,9 @@ Om du ska använda en Azure-filresurs kan du montera den med samma process som a
 Information om hur du kommer igång finns i [Konfigurera ett fil resurs vittne](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Operativ system som stöds** : Windows Server 2012 och senare   
+**Operativ system som stöds**: Windows Server 2012 och senare   
 
-## <a name="connectivity"></a>Anslutningar
+## <a name="connectivity"></a>Anslutning
 
 I en traditionell lokal nätverks miljö verkar en instans av en SQL Server-redundanskluster vara en enda instans av SQL Server som körs på en enda dator. Eftersom växlings kluster instansen växlar över från nod till nod, tillhandahåller det virtuella nätverks namnet (VNN) för instansen en enhetlig anslutnings punkt och gör det möjligt för program att ansluta till den SQL Server-instansen utan att veta vilken nod som för närvarande är aktiv. När en redundansväxling inträffar registreras det virtuella nätverks namnet på den nya aktiva noden när den har startats. Den här processen är transparent för den klient eller det program som ansluter till SQL Server, och detta minimerar stillestånds tiden som klienten eller program upplever vid ett haveri. På samma sätt använder tillgänglighets gruppens lyssnare en VNN för att dirigera trafik till lämplig replik. 
 
@@ -108,9 +108,9 @@ Det finns en liten växlings fördröjning när du använder belastningsutjämna
 
 För att komma igång, lär dig hur du konfigurerar Azure Load Balancer för [kluster instans för växling vid fel](failover-cluster-instance-vnn-azure-load-balancer-configure.md) eller en [tillgänglighets grupp](availability-group-vnn-azure-load-balancer-configure.md)
 
-**Operativ system som stöds** : alla   
-**SQL-version som stöds** : alla   
-**Hadr lösning som stöds** : kluster instans för växling vid fel och tillgänglighets grupp   
+**Operativ system som stöds**: alla   
+**SQL-version som stöds**: alla   
+**Hadr lösning som stöds**: kluster instans för växling vid fel och tillgänglighets grupp   
 
 
 ### <a name="distributed-network-name-dnn"></a>Namn på distribuerat nätverk (DNN)
@@ -128,9 +128,9 @@ De flesta SQL Server funktioner fungerar transparent med FCI och tillgänglighet
 
 För att komma igång, lär dig att konfigurera en distribuerad nätverks namn resurs för [en instans av ett redundanskluster](failover-cluster-instance-distributed-network-name-dnn-configure.md) eller en [tillgänglighets grupp](availability-group-distributed-network-name-dnn-listener-configure.md)
 
-**Operativ system som stöds** : Windows Server 2016 och senare   
-**SQL-version som stöds** : SQL Server 2019 CU2 (FCI) och SQL Server 2019 CU8 (AG)   
-**Hadr lösning som stöds** : kluster instans för växling vid fel och tillgänglighets grupp   
+**Operativ system som stöds**: Windows Server 2016 och senare   
+**SQL-version som stöds**: SQL Server 2019 CU2 (FCI) och SQL Server 2019 CU8 (AG)   
+**Hadr lösning som stöds**: kluster instans för växling vid fel och tillgänglighets grupp   
 
 
 ## <a name="limitations"></a>Begränsningar

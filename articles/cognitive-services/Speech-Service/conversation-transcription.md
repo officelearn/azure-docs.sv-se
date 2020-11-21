@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
-ms.openlocfilehash: 5d95525c7dfecd44758c86903ca4a96c2290df52
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487795"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025001"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>Vad är en konversations avskrift i möten (förhands granskning)?
 
@@ -54,7 +54,7 @@ Det här är en översikt på hög nivå över hur konversations avskrift funger
 
 ## <a name="expected-inputs"></a>Förväntade indata
 
-- **Ljud ström för flera kanaler** – information om specifikationer och design finns i [Microsoft Speech Device SDK-mikrofonen](https://aka.ms/cts/microphone). Läs mer eller köp ett utvecklings paket i [Hämta Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
+- **Ljud ström för flera kanaler** – information om specifikationer och design finns i [Microsoft Speech Device SDK-mikrofonen](./speech-devices-sdk-microphone.md). Läs mer eller köp ett utvecklings paket i [Hämta Microsoft Speech Device SDK](./get-speech-devices-sdk.md).
 - **Användar röst exempel** – konversations avskrift kräver användar profiler i förväg i konversationen. Du måste samla in ljud inspelningar från varje användare och sedan skicka inspelningarna till [tjänsten Signature generation](https://aka.ms/cts/signaturegenservice) för att verifiera ljudet och generera användar profiler.
 
 > [!NOTE]

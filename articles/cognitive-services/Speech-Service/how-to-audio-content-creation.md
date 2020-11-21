@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 5685a2553b95308a1c18c3e490737338f609b594
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330945"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024967"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Förbättra syntesen med verktyget för att skapa ljud innehåll
 
@@ -33,13 +33,13 @@ Att skapa ljud innehåll är ett kostnads fritt verktyg, men du betalar för Azu
 
 ### <a name="step-1---create-an-azure-account"></a>Steg 1 – Skapa ett Azure-konto
 
-Du måste ha ett [Microsoft-konto](https://account.microsoft.com/account) och ett [Azure-konto](https://azure.microsoft.com/free/ai/)för att kunna arbeta med att skapa ljud innehåll. Följ dessa instruktioner för att [Konfigurera kontot](get-started.md#new-resource). 
+Du måste ha ett [Microsoft-konto](https://account.microsoft.com/account) och ett [Azure-konto](https://azure.microsoft.com/free/ai/)för att kunna arbeta med att skapa ljud innehåll. Följ dessa instruktioner för att [Konfigurera kontot](./overview.md#try-the-speech-service-for-free). 
 
 [Azure Portal](https://portal.azure.com/) är den centraliserade plats där du kan hantera ditt Azure-konto. Du kan skapa tal resursen, hantera produkt åtkomsten och övervaka allt från enkla webbappar till komplexa moln distributioner. 
 
 ### <a name="step-2---create-a-speech-resource"></a>Steg 2 – Skapa en tal resurs
 
-När du har registrerat dig för Azure-kontot måste du skapa en tal resurs under ditt Azure-konto för att få åtkomst till tal tjänsterna. Visa instruktioner för [hur du skapar en tal resurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview#create-the-azure-resource). 
+När du har registrerat dig för Azure-kontot måste du skapa en tal resurs under ditt Azure-konto för att få åtkomst till tal tjänsterna. Visa instruktioner för [hur du skapar en tal resurs](./overview.md#create-the-azure-resource). 
 
 Det tar en stund att distribuera den nya tal resursen. När distributionen är klar kan du starta resan för att skapa ljud innehåll. 
 
@@ -63,7 +63,7 @@ Det här diagrammet visar de steg som krävs för att finjustera text till tal-u
 2. [Skapa en fil för ljud justering](#create-an-audio-tuning-file) med hjälp av oformaterad text eller SSML-skript. Skriv eller ladda upp innehållet i för att skapa ljud innehåll.
 3. Välj rösten och språket för ditt skript innehåll. Framställning av ljud innehåll innehåller alla [Microsofts text till tal-röster](language-support.md#text-to-speech). Du kan använda standard, neurala eller din egen anpassade röst.
    >[!NOTE]
-   > Gated Access är tillgängligt för anpassade neurala-röster, vilket gör att du kan skapa hög definitions röster som liknar naturliga ljud. Mer information finns i [Hantera process](https://aka.ms/ignite2019/speech/ethics).
+   > Gated Access är tillgängligt för anpassade neurala-röster, vilket gör att du kan skapa hög definitions röster som liknar naturliga ljud. Mer information finns i [Hantera process](./text-to-speech.md).
 
 4. Klicka på ikonen **spela upp** (en triangel) om du vill förhandsgranska standard syntes resultatet. Förbättra sedan utdata genom att justera uttal, Break, färgdjup, Rate, intonation, röst stil med mera. En fullständig lista över alternativ finns i [tal syntes märknings språk](speech-synthesis-markup.md). Här är en [video](https://www.youtube.com/watch?v=O1wIJ7mts_w) som visar hur du finjusterar tal resultatet med att skapa ljud innehåll. 
 5. Spara och [exportera det anpassade ljudet](#export-tuned-audio). När du sparar justerings spåret i systemet kan du fortsätta att arbeta och iterera på utdata. När du är nöjd med utdata kan du skapa en ljud skapande aktivitet med funktionen Exportera. Du kan se statusen för export uppgiften och hämta utdata för användning med dina appar och produkter.
@@ -160,7 +160,7 @@ Om du vill att en av användarna ska ge åtkomst till andra användare måste du
 
 ## <a name="see-also"></a>Se även
 
-* [Långt ljud-API](https://aka.ms/long-audio-api)
+* [Långt ljud-API](./long-audio-api.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

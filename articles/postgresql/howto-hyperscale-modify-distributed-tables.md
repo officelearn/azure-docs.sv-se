@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 628944f9763dc79148e0b64c97158064208412bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf9f9ca5b8690a38c6e5aa6f519378c0a2e3a4f2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88137056"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026445"
 ---
 # <a name="distribute-and-modify-tables"></a>Distribuera och ändra tabeller
 
@@ -140,11 +140,11 @@ När en ny tabell inte är relaterad till andra i en implicit samplacerings grup
 SELECT create_distributed_table('A', 'foo', colocate_with => 'none');
 ```
 
-Om du delar upp orelaterade tabeller i sina egna samplacerings grupper förbättras prestanda för [ombalansering av Shard](howto-hyperscale-scaling.md#rebalance-shards) , eftersom Shards i samma grupp måste flyttas tillsammans.
+Om du delar upp orelaterade tabeller i sina egna samplacerings grupper förbättras prestanda för [ombalansering av Shard](howto-hyperscale-scale-rebalance.md) , eftersom Shards i samma grupp måste flyttas tillsammans.
 
 När tabeller är relaterade (till exempel när de kommer att kopplas), kan det vara klokt att explicit hitta dem. Vinsterna för lämplig samplacering är viktigare än eventuella ombalanserings kostnader.
 
-Om du vill samplacera flera tabeller, distribuerar du en och lägger sedan till de andra i sin samplacerings grupp. Exempel:
+Om du vill samplacera flera tabeller, distribuerar du en och lägger sedan till de andra i sin samplacerings grupp. Ett exempel:
 
 ```postgresql
 -- distribute stores

@@ -4,13 +4,13 @@ description: Metoder och arbets flöden i Azure Container Registry för att hant
 author: dlepow
 ms.topic: article
 ms.author: danlep
-ms.date: 10/29/2020
-ms.openlocfilehash: def1c3a9b8a1086f453c7e71d766ab0dd89b0c2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 11/20/2020
+ms.openlocfilehash: 0c92899528d417f9c91f8f8930ca4932dc74e850
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347530"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024746"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Hantera offentligt innehåll med Azure Container Registry
 
@@ -26,6 +26,8 @@ Utan rätt kontroller kan du med beroenden av offentligt register innehåll läg
 ## <a name="authenticate-with-docker-hub"></a>Autentisera med Docker Hub
 
 Som ett första steg, om du för närvarande hämtar offentliga avbildningar från Docker Hub som en del av ett arbets flöde för bygge eller distribution, rekommenderar vi att du [autentiserar med ett Docker Hub-konto](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) i stället för att göra en anonym pull-begäran.
+
+När du gör vanliga anonyma pull-begäranden kan du se Docker-fel som liknar `ERROR: toomanyrequests: Too Many Requests.` eller `You have reached your pull rate limit.` autentiseras för Docker Hub för att förhindra dessa fel.
 
 > [!NOTE]
 > Från och med den 2 november 2020 gäller [nedladdnings hastighets gränserna](https://docs.docker.com/docker-hub/download-rate-limit) för anonyma och autentiserade begär anden till Docker Hub från Docker-fri Plans konton och tillämpas av IP-adress respektive Docker-ID. 
@@ -46,21 +48,21 @@ Flera Azure-tjänster, inklusive App Service och Azure Container Instances stöd
 
 **App Service**
 
-* **Avbildnings källa** : Docker Hub
-* **Åtkomst till lagrings plats** : privat
-* **Inloggning** : \<Docker Hub username>
-* **Lösen ord** : \<Docker Hub token>
+* **Avbildnings källa**: Docker Hub
+* **Åtkomst till lagrings plats**: privat
+* **Inloggning**: \<Docker Hub username>
+* **Lösen ord**: \<Docker Hub token>
 
 Mer information finns i [Docker Hub autentiserade hämtningar på App Service](https://azure.github.io/AppService/2020/10/15/Docker-Hub-authenticated-pulls-on-App-Service.html).
 
 **Azure Container Instances**
 
-* **Avbildnings källa** : Docker hubb eller annat register
-* **Avbildnings typ** : privat
-* **Inloggnings Server för avbildnings register** : Docker.io
-* **Användar namn för avbildnings register** : \<Docker Hub username>
-* **Lösen ord för avbildnings register** : \<Docker Hub token>
-* **Bild** : Docker.io/ \<repo name\> :\<tag>
+* **Avbildnings källa**: Docker hubb eller annat register
+* **Avbildnings typ**: privat
+* **Inloggnings Server för avbildnings register**: Docker.io
+* **Användar namn för avbildnings register**: \<Docker Hub username>
+* **Lösen ord för avbildnings register**: \<Docker Hub token>
+* **Bild**: Docker.io/ \<repo name\> :\<tag>
 
 ## <a name="import-images-to-an-azure-container-registry"></a>Importera avbildningar till ett Azure Container Registry
  

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa3a6d16b79800043bdcd3f183dd86fa278dd1a9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360131"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026035"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integrera med ett klient program med hjälp av tal-SDK
 
@@ -35,7 +35,7 @@ Du behöver också:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) eller senare. Den här guiden baseras på Visual Studio 2019.
 > * En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](overview.md#try-the-speech-service-for-free) eller skapa det på [Azure Portal](https://portal.azure.com)
-> * [Gör det möjligt för din enhet att utveckla](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
+> * [Gör det möjligt för din enhet att utveckla](/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Steg 1: publicera anpassade kommandon-program
 
@@ -43,7 +43,7 @@ Du behöver också:
 1. Gå till **Inställningar**, Välj **Luis-resurs**
 1. Om **förutsägelse resursen** inte är tilldelad väljer du en fråga förutsägelse nyckel eller skapar en ny
 
-    Frågans förutsägelse nyckel krävs alltid innan ett program publiceras. För mer information om LUIS-resurser, referera till [skapa Luis-resurs](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+    Frågans förutsägelse nyckel krävs alltid innan ett program publiceras. För mer information om LUIS-resurser, referera till [skapa Luis-resurs](../luis/luis-how-to-azure-subscription.md)
 
 1. Gå tillbaka till redigerings kommandon, Välj **publicera**
 
@@ -65,7 +65,7 @@ I det här steget lägger vi till XAML-koden som definierar programmets använda
 
 Skapa programmets användar gränssnitt genom att lägga till XAML-koden.
 
-1. I **Solution Explorer**öppnar du `MainPage.xaml`
+1. I **Solution Explorer** öppnar du `MainPage.xaml`
 
 1. I designerns XAML-vy ersätter du hela innehållet med följande kodfragment:
 
@@ -404,7 +404,7 @@ Lägg till koden bakom källan enligt följande:
 
 1. Välj **Arkiv**  >  **Spara alla** på Meny raden för att spara ändringarna
 
-## <a name="try-it-out"></a>Prova nu
+## <a name="try-it-out"></a>Prova
 
 1. Välj **bygge**  >  **build-lösning** i meny raden för att bygga programmet. Koden ska kompileras utan fel.
 
@@ -412,11 +412,11 @@ Lägg till koden bakom källan enligt följande:
 
    ![Exempel på UWP Virtual Assistant-program i C#-snabb start](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
-1. Välj **aktivera mikrofon**. Välj **Ja**om åtkomst behörighets förfrågan öppnas.
+1. Välj **aktivera mikrofon**. Välj **Ja** om åtkomst behörighets förfrågan öppnas.
 
    ![Åtkomst behörighets förfrågan för mikrofon](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Välj **prata**och tala en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till den direkta linjens tal kanal och skrivs till text, som visas i fönstret.
+1. Välj **prata** och tala en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till den direkta linjens tal kanal och skrivs till text, som visas i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 

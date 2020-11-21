@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 7e455565a0cd5e1fc96a6fe7d9e0502da3214fcf
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 73705434aef3ee438c02fbfd6502d30e7620b695
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909921"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026462"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Använd Azure Portal för att ställa in aviseringar för mått för Azure Database for PostgreSQL-storskalig skalning (citus)
 
@@ -41,13 +41,13 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
 
 4. Sidan **Skapa regel** öppnas som visas nedan. Fyll i nödvändig information:
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Välj aviserings regler":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Lägg till mått aviserings formulär":::
 
-5. I avsnittet **villkor** väljer du **Lägg till** .
+5. I avsnittet **villkor** väljer du **Lägg till**.
 
 6. Välj ett mått i listan över signaler att bli aviserad om. I det här exemplet väljer du "lagrings procent".
    
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Välj aviserings regler":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Skärm bild som visar sidan Konfigurera signal logik där du kan visa flera signaler.":::
 
 7. Konfigurera aviserings logiken:
 
@@ -58,17 +58,25 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
    
    Välj **klar** när du är klar.
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Välj aviserings regler" med ett namn, ett kort namn, en prenumeration och en resurs grupp.
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Skärm bild som visar fönstret där du kan konfigurera aviserings logik.":::
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Välj aviserings regler" om du vill skicka meddelanden till prenumerations ägare, deltagare och läsare.
+8. I avsnittet **Åtgärds grupper** väljer du **Skapa nytt** för att skapa en ny grupp för att ta emot meddelanden på aviseringen.
+
+9. Fyll i formuläret "Lägg till åtgärds grupp" med ett namn, ett kort namn, en prenumeration och en resurs grupp.
+
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Skärm bild som visar formuläret Lägg till åtgärds grupp där du kan ange de värden som beskrivs.":::
+
+10. Konfigurera en **e-post/SMS/push/röst** -åtgärds typ.
+    
+    Välj "e-Azure Resource Manager roll" om du vill skicka meddelanden till prenumerations ägare, deltagare och läsare.
    
     Välj **OK** när du är klar.
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Välj aviserings regler":::
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Skärm bild som visar fönstret e-post/S/push/Voice.":::
 
 11. Ange ett namn, en beskrivning och en allvarlighets grad för varnings regeln.
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Välj aviserings regler"::: 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Skärm bild som visar fönstret aviserings information."::: 
 
 12. Välj **skapa aviserings regel** för att skapa aviseringen.
 
@@ -93,8 +101,8 @@ Vi rekommenderar att du ställer in disk utrymmes aviseringar på varje nod i va
 När disken närmar sig utrymmes gränsen kan du prova dessa tekniker för att få mer ledigt utrymme:
 
 * Granska princip för data bevarande. Flytta äldre data till kall lagring om det är möjligt.
-* Överväg att [lägga till noder](howto-hyperscale-scaling.md#add-worker-nodes) i Server gruppen och balansera om Shards. Ombalansering distribuerar data mellan flera datorer.
-* Överväg att [växa kapaciteten](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) för arbetsnoder. Varje arbets tagare kan ha upp till 2 TiB lagrings utrymme. Du bör dock försöka lägga till noder innan du ändrar storlek på noder eftersom det är snabbare att lägga till noder.
+* Överväg att [lägga till noder](howto-hyperscale-scale-grow.md#add-worker-nodes) i Server gruppen och balansera om Shards. Ombalansering distribuerar data mellan flera datorer.
+* Överväg att [växa kapaciteten](howto-hyperscale-scale-grow.md#increase-or-decrease-vcores-on-nodes) för arbetsnoder. Varje arbets tagare kan ha upp till 2 TiB lagrings utrymme. Du bör dock försöka lägga till noder innan du ändrar storlek på noder eftersom det är snabbare att lägga till noder.
 
 ### <a name="cpu-usage"></a>CPU-användning
 

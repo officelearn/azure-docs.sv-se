@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f82ea154d5949f4d229ac76e7a7ce2a89d15ac13
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555829"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025675"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD för Custom Speech
 
 Implementera automatisk utbildning, testning och versions hantering för att möjliggöra kontinuerlig förbättring av Custom Speech modeller när du tillämpar uppdateringar av utbildning och testning av data. Genom effektiv implementering av CI/CD-arbetsflöden kan du se till att slut punkten för den bästa prestanda Custom Speechs modellen alltid är tillgänglig.
 
-[Kontinuerlig integrering](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) (CI) är den teknik som används ofta för att genomföra uppdateringar i en delad lagrings plats och utföra en automatiserad version av den. CI-arbetsflöden för Custom Speech träna en ny modell från sina data källor och utföra automatiserad testning av den nya modellen för att säkerställa att den fungerar bättre än den tidigare modellen.
+[Kontinuerlig integrering](/azure/devops/learn/what-is-continuous-integration) (CI) är den teknik som används ofta för att genomföra uppdateringar i en delad lagrings plats och utföra en automatiserad version av den. CI-arbetsflöden för Custom Speech träna en ny modell från sina data källor och utföra automatiserad testning av den nya modellen för att säkerställa att den fungerar bättre än den tidigare modellen.
 
-[Kontinuerlig leverans](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) (CD) tar modeller från CI-processen och skapar en slut punkt för varje förbättrad Custom Speech modell. CD gör slut punkterna lätt att integrera i lösningar.
+[Kontinuerlig leverans](/azure/devops/learn/what-is-continuous-delivery) (CD) tar modeller från CI-processen och skapar en slut punkt för varje förbättrad Custom Speech modell. CD gör slut punkterna lätt att integrera i lösningar.
 
 Anpassade CI/CD-lösningar är möjliga, men för en robust, förbyggd lösning använder du [DevOps-mallen](https://github.com/Azure-Samples/Speech-Service-DevOps-Template)för att köra CI/CD-arbetsflöden med GitHub-åtgärder.
 
@@ -73,7 +73,7 @@ De flesta team kräver en manuell gransknings-och godkännande process för dist
 
 Använd följande verktyg för automatiserings arbets flöden för CI/CD för Custom Speech:
 
-- [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) för att skapa en Azure-tjänstens huvud namns autentisering, fråga Azure-prenumerationer och lagra test resultat i Azure blob.
+- [Azure CLI](/cli/azure/?view=azure-cli-latest) för att skapa en Azure-tjänstens huvud namns autentisering, fråga Azure-prenumerationer och lagra test resultat i Azure blob.
 - [Azure tal CLI](spx-overview.md) för att interagera med tal tjänsten från kommando raden eller ett automatiserat arbets flöde.
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>DevOps-lösning för Custom Speech med GitHub-åtgärder
@@ -84,7 +84,7 @@ För en redan implementerad DevOps-lösning för Custom Speech går du till [Dev
 
 - Kopiera mallens lagrings plats till ditt GitHub-konto och skapa sedan Azure-resurser och ett [tjänst huvud namn](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) för GitHub-åtgärdens CI/CD-arbetsflöden.
 - Gå igenom "dev-den[inre slingan](https://mitchdenny.com/the-inner-loop/)". Uppdatera utbildning och testning av data från en funktions gren, testa ändringarna med en tillfällig utvecklings modell och generera en pull-begäran om att föreslå och granska ändringarna.
-- När tränings data uppdateras i en pull-begäran till *Master* , träna modeller med GitHub Actions CI-arbetsflöde.
+- När tränings data uppdateras i en pull-begäran till *Master*, träna modeller med GitHub Actions CI-arbetsflöde.
 - Utför automatiserad precisions testning för att upprätta en modells [ord fel frekvens](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER). Lagra test resultatet i Azure blob.
 - Kör ett CD-arbetsflöde för att skapa en slut punkt när WER förbättras.
 

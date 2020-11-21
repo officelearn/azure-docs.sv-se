@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 34c0703ee7c335ca904a21bcce6ed44abc6dc13f
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 9193da2f3841bb94aa395399c31d7fe826c395e0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555795"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025607"
 ---
-# <a name="train-and-deploy-a-custom-speech-model"></a>Träna och distribuera en Custom Speech modell
+# <a name="train-and-deploy-a-custom-speech-model"></a>Träna och distribuera en Custom Speech-modell
 
 I den här artikeln får du lära dig hur du tränar och distribuerar Custom Speech modeller. Träna en tal-till-text-modell kan förbättra igenkännings precisionen för Microsofts bas linje modell. En modell tränas med hjälp av välmärkta avskrifter och relaterad text. Dessa data uppsättningar tillsammans med tidigare överförda ljud data används för att förfina och träna tal-till-text-modellen.
 
@@ -33,7 +33,7 @@ Om du stöter på igenkännings problem med en bas modell kan du förbättra pre
 
 ## <a name="train-and-evaluate-a-model"></a>Träna och utvärdera en modell
 
-Det första steget för att träna en modell är att överföra tränings data. Använd [förbereda och testa dina data](how-to-custom-speech-test-data.md) för steg-för-steg-instruktioner för att förbereda medmärkta avskrifter och relaterad text (yttranden och uttal). När du har överfört tränings data följer du de här anvisningarna för att börja träna din modell:
+Det första steget för att träna en modell är att överföra tränings data. Använd [förbereda och testa dina data](./how-to-custom-speech-test-and-train.md) för steg-för-steg-instruktioner för att förbereda medmärkta avskrifter och relaterad text (yttranden och uttal). När du har överfört tränings data följer du de här anvisningarna för att börja träna din modell:
 
 1. Logga in på [Custom Speech Portal](https://speech.microsoft.com/customspeech).
 2. Navigera till **> för tal till text Custom Speech > [namn på projektet] > träning**.
@@ -61,7 +61,7 @@ Välj sedan **Lägg till slut punkt** och ange ett **namn** och en **Beskrivning
 > [!NOTE]
 > Glöm inte att acceptera villkoren för användning och pris information.
 
-Välj sedan **skapa**. Den här åtgärden återgår till **distributions** sidan. Tabellen innehåller nu en post som motsvarar din anpassade slut punkt. Slut punktens status visar dess aktuella tillstånd. Det kan ta upp till 30 minuter att instansiera en ny slut punkt med hjälp av dina anpassade modeller. När distributions statusen ändras till **slutförd** , är slut punkten redo att användas.
+Välj sedan **skapa**. Den här åtgärden återgår till **distributions** sidan. Tabellen innehåller nu en post som motsvarar din anpassade slut punkt. Slut punktens status visar dess aktuella tillstånd. Det kan ta upp till 30 minuter att instansiera en ny slut punkt med hjälp av dina anpassade modeller. När distributions statusen ändras till **slutförd**, är slut punkten redo att användas.
 
 När slut punkten har distribuerats visas slut punktens namn som en länk. Klicka på länken om du vill visa information som är speciell för din slut punkt, till exempel slut punkts nyckel, slut punkts-URL och exempel kod.
 
@@ -77,6 +77,6 @@ Loggnings data är tillgängliga för hämtning under **slut punkt > information
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Förbered och testa dina data](how-to-custom-speech-test-data.md)
+- [Förbered och testa dina data](./how-to-custom-speech-test-and-train.md)
 - [Inspektera dina data](how-to-custom-speech-inspect-data.md)
 - [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)

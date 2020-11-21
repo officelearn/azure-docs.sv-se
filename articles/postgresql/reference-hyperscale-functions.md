@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250339"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026241"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funktioner i den storskaliga (citus) SQL API
 
@@ -40,7 +40,7 @@ Den här funktionen ersätter användningen av Master \_ create \_ Distributed \
 
 **samplacera \_ med:** (valfritt) inkludera den aktuella tabellen i den samplacerings gruppen för en annan tabell. Som standard är tabeller samplacerade när de distribueras av kolumner av samma typ, har samma Shard antal och har samma replikeringsrelation. Möjliga värden för `colocate_with` är `default` , `none` för att starta en ny grupp för samplacering, eller namnet på en annan tabell som ska befinna sig i tabellen.  (Se [tabell-samplacering](concepts-hyperscale-colocation.md).)
 
-Tänk på att standardvärdet för är `colocate_with` implicit samplacering. [Samplacering](concepts-hyperscale-colocation.md) kan vara bra när tabellerna är relaterade eller kommer att anslutas.  Men när två tabeller inte är relaterade, men som ska använda samma data typ för sina distributions kolumner, kan det hända att de minskar prestandan vid [Shard ombalansering](howto-hyperscale-scaling.md#rebalance-shards).  Tabellen Shards kommer att flyttas samman i onödan i en \" överlappande.\"
+Tänk på att standardvärdet för är `colocate_with` implicit samplacering. [Samplacering](concepts-hyperscale-colocation.md) kan vara bra när tabellerna är relaterade eller kommer att anslutas.  Men när två tabeller inte är relaterade, men som ska använda samma data typ för sina distributions kolumner, kan det hända att de minskar prestandan vid [Shard ombalansering](howto-hyperscale-scale-rebalance.md).  Tabellen Shards kommer att flyttas samman i onödan i en \" överlappande.\"
 
 Om en ny distribuerad tabell inte är relaterad till andra tabeller, är det bäst att ange `colocate_with => 'none'` .
 
@@ -200,9 +200,9 @@ En tupel som innehåller följande information:
 
 **del \_ nyckel:** distributions kolumn för tabellen.
 
-** \_ antal del repliker \_ :** Aktuellt antal Shard-replikeringar.
+**\_ antal del repliker \_ :** Aktuellt antal Shard-replikeringar.
 
-** \_ Max \_ storlek för del:** aktuell maximal Shard storlek i byte.
+**\_ Max \_ storlek för del:** aktuell maximal Shard storlek i byte.
 
 **princip för del \_ placering \_ :** Shard placerings princip som används för att placera tabellens Shards. Kan vara 1 (lokal-nod-First) eller 2 (Round-Robin).
 
@@ -565,7 +565,7 @@ Mer information om dessa argument finns i motsvarande kolumn värden i `pg_dist_
 
 **Shard \_ Cost- \_ funktion:** identifierar den funktion som används för att fastställa \" kostnaden \" för varje Shard
 
-** \_ funktionen nod kapacitet \_ :** identifierar funktionen för att mäta nodens kapacitet
+**\_ funktionen nod kapacitet \_ :** identifierar funktionen för att mäta nodens kapacitet
 
 **Shard \_ tillåts \_ i \_ Node- \_ funktionen:** identifierar den funktion som avgör vilka Shards som kan placeras på vilka noder
 
@@ -713,7 +713,7 @@ Den här funktionen skapar en ny Shard som innehåller rader med ett visst enski
 
 **klient \_ -ID:** värdet för den distributions kolumn som ska tilldelas den nya Shard.
 
-** \_ alternativet kaskad:** (valfritt) när värdet är \" KASKAD, \" isolerar också en Shard från alla tabeller i den aktuella tabellens [samplacerings grupp](concepts-hyperscale-colocation.md).
+**\_ alternativet kaskad:** (valfritt) när värdet är \" KASKAD, \" isolerar också en Shard från alla tabeller i den aktuella tabellens [samplacerings grupp](concepts-hyperscale-colocation.md).
 
 #### <a name="return-value"></a>Returvärde
 

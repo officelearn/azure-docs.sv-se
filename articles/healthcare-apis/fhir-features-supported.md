@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 609bd01e8dcb0e9202d1d9dbe1d1fc1a01cac550
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 71097f13fffbbe5cb57a69c98fb0ab272e16af5c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368289"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026309"
 ---
 # <a name="features"></a>Funktioner
 
@@ -34,22 +34,22 @@ Tidigare versioner som också stöds är: `3.0.2`
 | update                         | Ja       | Ja       | Ja       |                                                     |
 | uppdatera med optimistisk låsning | Ja       | Ja       | Ja       |                                                     |
 | uppdatering (villkorligt)           | Ja       | Ja       | Ja       |                                                     |
-| 9.0a                          | Nej        | Nej        | Nej        |                                                     |
+| 9.0a                          | Inga        | Inga        | Inga        |                                                     |
 | delete                         | Ja       | Ja       | Ja       |                                                     |
-| ta bort (villkorligt)           | Nej        | Nej        | Nej        |                                                     |
+| ta bort (villkorligt)           | Inga        | Inga        | Inga        |                                                     |
 | historik                        | Ja       | Ja       | Ja       |                                                     |
 | skapa                         | Ja       | Ja       | Ja       | Stöd för både efter-och-placering                               |
 | Skapa (villkorlig)           | Ja       | Ja       | Ja       | Problem [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | sök                         | Delvis   | Delvis   | Delvis   | Se nedan                                           |
-| kedjad sökning                 | Nej        | Ja       | Nej        |                                           |
-| omvänd länkad sökning         | Nej        | Nej        | Nej        |                                            |
+| kedjad sökning                 | Inga        | Ja       | Inga        |                                           |
+| omvänd länkad sökning         | Inga        | Inga        | Inga        |                                            |
 | funktioner                   | Ja       | Ja       | Ja       |                                                     |
 | batch                          | Ja       | Ja       | Ja       |                                                     |
-| transaktionen                    | Nej        | Ja       | Nej        |                                                     |
+| transaktionen                    | Inga        | Ja       | Inga        |                                                     |
 | växlings                         | Delvis   | Delvis   | Delvis   | `self` och `next` stöds                     |
-| mellanhand                 | Nej        | Nej        | Nej        |                                                     |
+| mellanhand                 | Inga        | Inga        | Inga        |                                                     |
 
-## <a name="search"></a>Search
+## <a name="search"></a>Sök
 
 Alla typer av Sök parametrar stöds. 
 
@@ -61,9 +61,9 @@ Alla typer av Sök parametrar stöds.
 | Token                 | Ja       | Ja       | Ja       |         |
 | Referens             | Ja       | Ja       | Ja       |         |
 | Sammansatt             | Ja       | Ja       | Ja       |         |
-| Kvantitet              | Ja       | Ja       | Ja       |         |
+| Quantity              | Ja       | Ja       | Ja       |         |
 | URI                   | Ja       | Ja       | Ja       |         |
-| Speciella               | Nej        | Nej        | Nej        |         |
+| Speciella               | Inga        | Inga        | Inga        |         |
 
 
 | Modifierare             | Stöds – PaaS | Support – OSS (SQL) | Support – OSS (Cosmos DB) | Kommentar |
@@ -72,14 +72,14 @@ Alla typer av Sök parametrar stöds.
 |`:exact`               | Ja       | Ja       | Ja       |         |
 |`:contains`            | Ja       | Ja       | Ja       |         |
 |`:text`                | Ja       | Ja       | Ja       |         |
-|`:in` åtkomsttokenbegäran          | Nej        | Nej        | Nej        |         |
-|`:below` åtkomsttokenbegäran       | Nej        | Nej        | Nej        |         |
-|`:above` åtkomsttokenbegäran       | Nej        | Nej        | Nej        |         |
-|`:not-in` åtkomsttokenbegäran      | Nej        | Nej        | Nej        |         |
-|`:[type]` förhållande  | Nej        | Nej        | Nej        |         |
+|`:in` åtkomsttokenbegäran          | Inga        | Inga        | Inga        |         |
+|`:below` åtkomsttokenbegäran       | Inga        | Inga        | Inga        |         |
+|`:above` åtkomsttokenbegäran       | Inga        | Inga        | Inga        |         |
+|`:not-in` åtkomsttokenbegäran      | Inga        | Inga        | Inga        |         |
+|`:[type]` förhållande  | Inga        | Inga        | Inga        |         |
 |`:below` URI         | Ja       | Ja       | Ja       |         |
-|`:not`                 | Nej        | Nej        | Nej        |         |
-|`:above` URI         | Nej        | Nej        | Nej        | Problem [#158](https://github.com/Microsoft/fhir-server/issues/158) |
+|`:not`                 | Inga        | Inga        | Inga        |         |
+|`:above` URI         | Inga        | Inga        | Inga        | Problem [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Vanlig Sök parameter | Stöds – PaaS | Support – OSS (SQL) | Support – OSS (Cosmos DB) | Kommentar |
 |-------------------------| ----------| ----------| ----------|---------|
@@ -88,26 +88,26 @@ Alla typer av Sök parametrar stöds.
 | `_tag`                  | Ja       | Ja       | Ja       |         |
 | `_profile`              | Ja       | Ja       | Ja       |         |
 | `_security`             | Ja       | Ja       | Ja       |         |
-| `_text`                 | Nej        | Nej        | Nej        |         |
-| `_content`              | Nej        | Nej        | Nej        |         |
+| `_text`                 | Inga        | Inga        | Inga        |         |
+| `_content`              | Inga        | Inga        | Inga        |         |
 | `_list`                 | Ja       | Ja       | Ja       |         |
-| `_has`                  | Nej        | Nej        | Nej        |         |
+| `_has`                  | Inga        | Inga        | Inga        |         |
 | `_type`                 | Ja       | Ja       | Ja       |         |
-| `_query`                | Nej        | Nej        | Nej        |         |
-| `_filter`               | Nej        | Nej        | Nej        |         |
+| `_query`                | Inga        | Inga        | Inga        |         |
+| `_filter`               | Inga        | Inga        | Inga        |         |
 
 | Sök Resultat parametrar | Stöds – PaaS | Support – OSS (SQL) | Support – OSS (Cosmos DB) | Kommentar |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Delvis        | Delvis   | Delvis        |   `_sort=_lastUpdated` stöds       |
 | `_count`                | Ja       | Ja       | Ja       | `_count` är begränsat till 100 tecken. Om värdet är högre än 100 kommer endast 100 att returneras och en varning returneras i paketet. |
-| `_include`              | Nej        | Ja       | Nej        |         |
-| `_revinclude`           | Nej        | Ja       | Nej        | Inkluderade objekt är begränsade till 100. |
+| `_include`              | Ja       | Ja       | Ja       |Inkluderade objekt är begränsade till 100. Ta med på PaaS och OSS på Cosmos DB omfattar inte: stöd för iterering.|
+| `_revinclude`           | Ja       | Ja       | Ja       | Inkluderade objekt är begränsade till 100. Ta med på PaaS och OSS på Cosmos DB omfattar inte: stöd för iterering.|
 | `_summary`              | Delvis   | Delvis   | Delvis   | `_summary=count` stöds |
 | `_total`                | Delvis   | Delvis   | Delvis   | _total = icke och _total = korrekt      |
 | `_elements`             | Ja       | Ja       | Ja       |         |
-| `_contained`            | Nej        | Nej        | Nej        |         |
-| `containedType`         | Nej        | Nej        | Nej        |         |
-| `_score`                | Nej        | Nej        | Nej        |         |
+| `_contained`            | Inga        | Inga        | Inga        |         |
+| `containedType`         | Inga        | Inga        | Inga        |         |
+| `_score`                | Inga        | Inga        | Inga        |         |
 
 ## <a name="extended-operations"></a>Utökade åtgärder
 
@@ -132,6 +132,27 @@ Cosmos DB är en globalt distribuerad multi-Model-databas (SQL API, MongoDB API 
 FHIR-servern använder [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) för åtkomst kontroll. Mer specifikt är Role-Based Access Control (RBAC) framtvingas, om `FhirServer:Security:Enabled` konfigurations parametern har angetts till `true` och alla begär Anden (förutom `/metadata` ) till FHIR-servern måste ha `Authorization` begär ande huvud inställt på `Bearer <TOKEN>` . Token måste innehålla en eller flera roller som definieras i `roles` anspråket. En begäran kommer att tillåtas om token innehåller en roll som tillåter den angivna åtgärden på den angivna resursen.
 
 För närvarande tillämpas de tillåtna åtgärderna för en specifik roll *globalt* på API: et.
+
+## <a name="service-limits"></a>Tjänstbegränsningar
+
+* [**Ru: er (Request units)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) – du kan konfigurera upp till 10 000 ru: er i portalen för Azure API för FHIR. Du behöver minst 400 ru: er eller 10 ru: er/GB, beroende på vilket som är störst. Om du behöver mer än 10 000 ru: er kan du ställa in ett support ärende så att det ökar. Det högsta tillgängliga värdet är 1 000 000.
+
+* **Samtidiga anslutningar** och **instanser** – med dafault har du fem samtidiga anslutningar på två instanser i klustret (totalt 10 samtidiga förfrågningar). Om du tror att du behöver fler samtidiga förfrågningar kan du öppna ett support ärende med information om dina behov.
+
+* **Paket storlek** -varje paket är begränsat till 500 objekt.
+
+* **Data storlek** – data/dokument måste vara något mindre än 2 MB.
+
+## <a name="performance-expectations"></a>Prestanda förväntningar
+
+Systemets prestanda beror på antalet ru: er, samtidiga anslutningar och typen av åtgärder som du utför (placering, post osv.). Nedan visas några allmänna intervall av vad du kan förväntar dig baserat på konfigurerade ru: er. I allmänhet skalas prestanda linjärt med en ökning av ru: er:
+
+| antal ru: er | Resurser/SEK |
+|----------|---------------|
+| 400      | 5-10          |
+| 1 000    | 100-150       |
+| 10 000   | 225-400       |
+| 100 000  | 2500-4000   |
 
 ## <a name="next-steps"></a>Nästa steg
 

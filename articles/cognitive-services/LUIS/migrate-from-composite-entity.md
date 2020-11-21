@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5c3ac14af6eb863daa9eadd32727f4fb53d2185f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46e9ece70d9f980065c719ee1205eb46591b45c0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322865"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025250"
 ---
 # <a name="upgrade-composite-entity-to-machine-learning-entity"></a>Uppgradera sammansatt entitet till enhet för maskin inlärning
 
@@ -29,12 +29,12 @@ Uppgraderings processen:
     * Om den underordnade entiteten används i sammansatt form _och_ som en separat entitet (med etikett i exemplet yttranden), kommer den att läggas till i versionen som en entitet och som en underordnad enhet till den nya enheten för maskin inlärning.
     * Om den underordnade entiteten använder en roll, kommer varje roll att konverteras till en underordnad till en underordnad till samma namn.
     * Om den underordnade entiteten är en icke-arbetsentitet (reguljärt uttryck, listen het eller en fördefinierad entitet) skapas en ny underordnad enhet med samma namn och den nya underentiteten har en funktion som använder entiteten icke-maskin inlärning med den nödvändiga funktionen tillagd.
-* Namnen bevaras men måste vara unika på samma underentiteter/samma nivå. Referera till [unika namngivnings gränser](luis-boundaries.md#name-uniqueness).
+* Namnen bevaras men måste vara unika på samma underentiteter/samma nivå. Referera till [unika namngivnings gränser](./luis-limits.md#name-uniqueness).
 * Etiketter i exempel yttranden växlas till den nya enheten för maskin inlärning med underentiteter.
 
 Använd följande diagram för att förstå hur din modell ändras:
 
-|Gammalt objekt|Nytt objekt|Obs!|
+|Gammalt objekt|Nytt objekt|Kommentarer|
 |--|--|--|
 |Sammansatt entitet|enhet för maskin inlärning med struktur|Båda objekten är överordnade objekt.|
 |Sammansatt entitets underordnade entitet är **enkel entitet**|underentitet|Båda objekten är underordnade objekt.|

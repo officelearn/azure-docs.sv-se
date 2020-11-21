@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: text till tal
-ms.openlocfilehash: 5d60279a2e3cb6aa7226f518783d53a1a38ddaa8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0c9338cb9661402c3a76bab55f34b01304c7b6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357462"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024525"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text-till-tal?
 
@@ -31,7 +31,7 @@ I den här översikten får du lära dig om fördelarna och funktionerna i tjän
 
 ## <a name="core-features"></a>Kärn funktioner
 
-* Tal syntes – Använd [tal-SDK](quickstarts/text-to-speech-audio-file.md) eller [REST API](rest-text-to-speech.md) för att konvertera text till tal med hjälp av standard, neurala eller anpassade röster.
+* Tal syntes – Använd [tal-SDK](./get-started-text-to-speech.md) eller [REST API](rest-text-to-speech.md) för att konvertera text till tal med hjälp av standard, neurala eller anpassade röster.
 
 * Asynkron syntes av långt ljud – Använd den [långa ljud-API: n](long-audio-api.md) för att syntetisera text till tal-filer som är längre än 10 minuter (till exempel ljud böcker eller föreläsningar). Till skillnad från sammanfattningen som utfördes med hjälp av tal-SDK eller tal-till-text-REST API, returneras inte svar i real tid. Förväntat är att förfrågningar skickas asynkront, svaren avsökers för och att det syntetiserade ljudet hämtas när det görs tillgängligt från tjänsten. Endast anpassade neurala-röster stöds.
 

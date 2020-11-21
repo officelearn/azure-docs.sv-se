@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: c9f7168bc0524b483413ade9792af18ff9cfebfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40736764cf9cec6f652e0147eb25d83f15c5bee2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358550"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024950"
 ---
 # <a name="what-is-custom-commands"></a>Vad är anpassade kommandon?
 
@@ -28,7 +28,7 @@ Anpassade kommandon lämpar sig bäst för slut för ande av aktiviteter eller k
 > [!TIP]
 > Visa våra exempel demonstrationer på vår landnings sida på [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands) .
 
-Om du är intresse rad av att skapa komplexa konversationer, rekommenderar vi att du testar bot-ramverket med hjälp av den [virtuella assistent lösningen](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Du kan lägga till röst till all bot Framework-robot med direkt linje tal.
+Om du är intresse rad av att skapa komplexa konversationer, rekommenderar vi att du testar bot-ramverket med hjälp av den [virtuella assistent lösningen](/azure/bot-service/bot-builder-enterprise-template-overview). Du kan lägga till röst till all bot Framework-robot med direkt linje tal.
 
 Bra kandidater för anpassade kommandon har en fast ord lista med väldefinierade uppsättningar variabler. Till exempel är start automatiserings uppgifter, som att styra en termostat, idealiska.
 

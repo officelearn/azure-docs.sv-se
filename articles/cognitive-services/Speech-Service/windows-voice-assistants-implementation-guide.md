@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a529875536c2feafe05695e5d20daed0873a95e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0503e0bf2fe152296ca6890e14503d05bd3bbeef
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934454"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024780"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implementera röst assistenter i Windows
 
@@ -30,15 +30,15 @@ När du har konfigurerat [din miljö](how-to-windows-voice-assistants-get-starte
 
 #### <a name="ensure-that-the-microphone-is-available-and-accessible-then-monitor-its-state"></a>Se till att mikrofonen är tillgänglig och tillgänglig, och övervaka sedan dess tillstånd
 
-MVA kräver att en mikrofon är tillgänglig och kan användas för att identifiera en röst aktivering. Använd klasserna [AppCapability](https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [DeviceWatcher](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362)och [MediaCapture](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture?view=winrt-18362) för att kontrol lera om det finns någon åtkomst till mikrofonen, enhetens närvaro och enhets status (t. ex. volym och ljud av).
+MVA kräver att en mikrofon är tillgänglig och kan användas för att identifiera en röst aktivering. Använd klasserna [AppCapability](/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [DeviceWatcher](/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362)och [MediaCapture](/uwp/api/windows.media.capture.mediacapture?view=winrt-18362) för att kontrol lera om det finns någon åtkomst till mikrofonen, enhetens närvaro och enhets status (t. ex. volym och ljud av).
 
 ### <a name="register-the-application-with-the-background-service"></a>Registrera programmet med bakgrunds tjänsten
 
-För att MVA ska kunna starta programmet i bakgrunden måste programmet registreras med bakgrunds tjänsten. Se en fullständig guide för registrering av bakgrunds tjänster [här](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task).
+För att MVA ska kunna starta programmet i bakgrunden måste programmet registreras med bakgrunds tjänsten. Se en fullständig guide för registrering av bakgrunds tjänster [här](/windows/uwp/launch-resume/register-a-background-task).
 
 ### <a name="unlock-the-limited-access-feature"></a>Lås upp funktionen för begränsad åtkomst
 
-Använd din Microsoft-begränsade åtkomst funktions nyckel för att låsa upp funktionen röst assistent. Använd klassen [LimitedAccessFeature](https://docs.microsoft.com/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362) från Windows SDK för att göra detta.
+Använd din Microsoft-begränsade åtkomst funktions nyckel för att låsa upp funktionen röst assistent. Använd klassen [LimitedAccessFeature](/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362) från Windows SDK för att göra detta.
 
 ### <a name="register-the-keyword-for-the-application"></a>Registrera nyckelordet för programmet
 
@@ -86,7 +86,7 @@ När ett Voice agent-program har Aktiver ATS av Voice är nästa steg att kontro
 
 ### <a name="retrieve-activation-audio"></a>Hämta aktiverings ljud
 
-Skapa en [AudioGraph](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) och skicka den till `CreateAudioDeviceInputNodeAsync` `ConversationalAgentSession` . Det här läser in grafens ljudbuffert med ljudet som *börjar cirka 3 sekunder innan nyckelordet identifierades*. Detta extra ledande ljud ingår för att hantera en mängd olika nyckelords längder och högtalar hastigheter. Sedan hanterar du händelsen [QuantumStarted](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) från ljud diagrammet för att hämta ljuddata.
+Skapa en [AudioGraph](/uwp/api/windows.media.audio.audiograph) och skicka den till `CreateAudioDeviceInputNodeAsync` `ConversationalAgentSession` . Det här läser in grafens ljudbuffert med ljudet som *börjar cirka 3 sekunder innan nyckelordet identifierades*. Detta extra ledande ljud ingår för att hantera en mängd olika nyckelords längder och högtalar hastigheter. Sedan hanterar du händelsen [QuantumStarted](/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) från ljud diagrammet för att hämta ljuddata.
 
 ```csharp
 var inputNode = await agentSession.CreateAudioDeviceInputNodeAsync(audioGraph);
@@ -118,7 +118,7 @@ Följande steg beskriver kraven för att aktivera en röst assistent i Windows f
 
 Vägledning om hur du utformar ovan låsnings upplevelser finns i [Guide för bästa praxis](windows-voice-assistants-best-practices.md).
 
-När en app visar en vy över låset anses den vara i hel skärms läge. Mer information om hur du implementerar en app som använder hel skärms läge finns i [dokumentationen för hel skärms läge](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access).
+När en app visar en vy över låset anses den vara i hel skärms läge. Mer information om hur du implementerar en app som använder hel skärms läge finns i [dokumentationen för hel skärms läge](/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access).
 
 ### <a name="transitioning-above-lock"></a>Över gång över lås
 
@@ -149,7 +149,7 @@ Program posten på sidan Sekretess inställningar för röst aktivering har en v
 Om du vill stänga programmet program mässigt under eller under låset, använder du API: `WindowService.CloseWindow()` et. Detta utlöser alla UWP livs cykel metoder, inklusive OnSuspend, vilket gör att programmet kan ta bort sin `ConversationalAgentSession` instans innan den stängs.
 
 > [!NOTE]
-> Programmet kan stänga utan att stänga av [Lås instansen nedan](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-). I det här fallet måste den ovan skrivskyddade vyn bli "Rensa", vilket säkerställer att när skärmen har låsts upp, så finns det inga händelse hanterare eller uppgifter som försöker att ändra ovanstående lås vy.
+> Programmet kan stänga utan att stänga av [Lås instansen nedan](/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-). I det här fallet måste den ovan skrivskyddade vyn bli "Rensa", vilket säkerställer att när skärmen har låsts upp, så finns det inga händelse hanterare eller uppgifter som försöker att ändra ovanstående lås vy.
 
 ## <a name="next-steps"></a>Nästa steg
 

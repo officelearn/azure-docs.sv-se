@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: 5bbfca4d890440574ee6717ca910969226fc781a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e680bc601b7f230314c1063523a003e95a849c0a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987073"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024406"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuera Ethereum proof-of-Authority – Solution Template på Azure
 
@@ -48,7 +48,9 @@ Varje distribution av konsortiet ingår:
 * Azure Monitor för agg regering av loggar och prestanda statistik
 * VNet Gateway (valfritt) för att tillåta VPN-anslutningar över privata virtuella nätverk
 
-Som standard är RPC-och peering-slutpunkterna tillgängliga över offentlig IP för att möjliggöra förenklad anslutning mellan prenumerationer och moln. För åtkomst på program nivå kan du använda Paritetens godkännande avtal. Nätverk som distribueras bakom VPN, som utnyttjar VNet-gatewayer för anslutning mellan prenumerationer stöds. Eftersom VPN-och VNet-distributioner är mer komplexa kan du behöva börja med en offentlig IP-modell vid prototyp av en lösning.
+Som standard är RPC-och peering-slutpunkterna tillgängliga över offentlig IP för att möjliggöra förenklad anslutning i
+
+prenumerationer och moln. För åtkomst på program nivå kan du använda [paritetens godkännande avtal](https://openethereum.github.io/Permissioning.html). Nätverk som distribueras bakom VPN, som utnyttjar VNet-gatewayer för anslutning mellan prenumerationer stöds. Eftersom VPN-och VNet-distributioner är mer komplexa kan du behöva börja med en offentlig IP-modell vid prototyp av en lösning.
 
 Docker-behållare används för tillförlitlighet och modulärhet. Azure Container Registry används för att vara värd för och hantera versions avbildningar som en del av varje distribution. Behållar avbildningarna består av:
 
@@ -685,7 +687,7 @@ Nu när ditt smarta kontrakt har distribuerats kan du skicka en transaktion för
 
 ## <a name="webassembly-wasm-support"></a>WASM-stöd (WebAssembly)
 
-WebAssembly support har redan Aktiver ATS för dig i nyligen distribuerade PoA-nätverk. Det gör det möjligt att utveckla Smart-kontrakt på alla språk som instaplar i Web-Assembly (Rust, C, C++). Mer information finns i [självstudier från paritets teknik](https://github.com/paritytech/pwasm-tutorial).
+WebAssembly support har redan Aktiver ATS för dig i nyligen distribuerade PoA-nätverk. Det gör det möjligt att utveckla Smart-kontrakt på alla språk som instaplar i Web-Assembly (Rust, C, C++). Mer information finns i: [paritets översikt över WebAssembly](https://openethereum.github.io/WebAssembly-Home.html) och [självstudie från paritets teknik](https://github.com/paritytech/pwasm-tutorial)
 
 ## <a name="faq"></a>Vanliga frågor
 

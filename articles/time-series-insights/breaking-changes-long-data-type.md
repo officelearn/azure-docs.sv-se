@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: dpalled
-ms.openlocfilehash: 2cf86ed4fd4305a37d27bf7a88e8493821ef085c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3460cd8a88733ede041f6c0635ba40797675ed03
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629105"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025335"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Lägger till stöd för lång datatyp i Azure Time Series Insights Gen2
 
@@ -42,11 +42,11 @@ Beroende på din IoT-lösning och begränsningar kanske du inte har insyn i de d
 - Du kan förebyggande syfte göra de rekommenderade ändringarna för alla numeriska taggar.
 - Du kan tillfälligt dirigera en delmängd av händelser till lagring för att bättre förstå och utforska ditt schema.
 
-Om du vill lagra händelser aktiverar du [händelse fångst](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) för Azure Event Hubs eller [dirigerar](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) från din IoT Hub till Azure Blob Storage.
+Om du vill lagra händelser aktiverar du [händelse fångst](../event-hubs/event-hubs-capture-overview.md) för Azure Event Hubs eller [dirigerar](../iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint) från din IoT Hub till Azure Blob Storage.
 
-Data kan också observeras via [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)eller med hjälp av [händelse bearbetnings värden](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events).
+Data kan också observeras via [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)eller med hjälp av [händelse bearbetnings värden](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md#receive-events).
 
-Om du använder IoT Hub går du till [läsa "enhet till molnet"-meddelanden från den inbyggda slut punkten](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) för att få åtkomst till den inbyggda slut punkten.
+Om du använder IoT Hub går du till [läsa "enhet till molnet"-meddelanden från den inbyggda slut punkten](../iot-hub/iot-hub-devguide-messages-read-builtin.md) för att få åtkomst till den inbyggda slut punkten.
 
 > [!NOTE]
 > Du kan uppleva ett avbrott om du inte gör de rekommenderade ändringarna. Till exempel returnerar de påverkade Time Series Insights variablerna som nås via fråge-API: erna eller Time Series Insights Explorer **Null** (det vill säga inga data i Utforskaren).
@@ -66,7 +66,7 @@ Om du för närvarande skickar språktelemetri-data, delas dina data in i två k
 
 Dina heltals data skrivs till **propertyValue_long**. Tidigare inmatade numeriska data (och framtida inmatade) i **propertyValue_double** kopieras inte över.
 
-Om du vill fråga efter data över de här två kolumnerna för egenskapen **propertyValue** måste du använda den skalära funktionen **sammanslagning ()** i din TSX. Funktionen accepterar argument av samma **datatyp** och returnerar det första värdet som inte är null i argument listan. Mer information finns i [Azure Time Series Insights Gen2 Data Access Concepts](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
+Om du vill fråga efter data över de här två kolumnerna för egenskapen **propertyValue** måste du använda den skalära funktionen **sammanslagning ()** i din TSX. Funktionen accepterar argument av samma **datatyp** och returnerar det första värdet som inte är null i argument listan. Mer information finns i [Azure Time Series Insights Gen2 Data Access Concepts](/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
 
 #### <a name="variable-definition-in-tsx---numeric"></a>Variabel definition i TSX-numerisk
 
@@ -78,7 +78,7 @@ Om du vill fråga efter data över de här två kolumnerna för egenskapen **pro
 
 [![Skärm bild som visar dialog rutan Lägg till en ny variabel för PropertyValue-variabeln med ett anpassat värde, numeriskt.](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Infogad variabel definition med TSX-frågas-API: n-numeriskt
 
@@ -126,7 +126,7 @@ Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble
 }
 ```
 
-Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 > [!NOTE]
 > Vi rekommenderar att du uppdaterar dessa variabler på alla platser som de kan användas. Dessa platser omfattar tids serie modellen, sparade frågor och Power BI anslutnings frågor.
@@ -145,9 +145,9 @@ Om du för närvarande använder kategoriska-variabler som mappar heltals värde
 
 [![Skärm bild som visar dialog rutan Lägg till en ny variabel för PropertyValue-variabeln med ett anpassat värde, kategoriska.](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
-Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
-Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. **Data typen** för alla argument i **sammanslagning ()** måste vara av typen **Long** i det anpassade [tids serie uttrycket.](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)
+Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. **Data typen** för alla argument i **sammanslagning ()** måste vara av typen **Long** i det anpassade [tids serie uttrycket.](/rest/api/time-series-insights/reference-time-series-expression-syntax)
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Infogad variabel definition med TSX-fråge-API: er – kategoriska
 
@@ -227,7 +227,7 @@ Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. **D
 }
 ```
 
-Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. **Data typen** för alla argument i **sammanslagning ()** måste vara av typen **Long** i det anpassade [tids serie uttrycket](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. **Data typen** för alla argument i **sammanslagning ()** måste vara av typen **Long** i det anpassade [tids serie uttrycket](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 > [!NOTE]
 > Vi rekommenderar att du uppdaterar dessa variabler på alla platser som de kan användas. Dessa platser omfattar tids serie modellen, sparade frågor och Power BI anslutnings frågor.

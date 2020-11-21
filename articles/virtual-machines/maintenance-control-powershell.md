@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: f33cb7d4d005f15d0a5fcc70d56ebd4698f86694
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 2cc935e81e867609159b5c150b6ee7c346bb9f8e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988229"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026156"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Styra uppdateringar med underhålls kontroll och Azure PowerShell
 
-Med underhålls kontrollen kan du bestämma när du ska tillämpa uppdateringar på dina isolerade virtuella datorer och Azure-dedikerade värdar. I det här avsnittet beskrivs Azure PowerShell alternativ för underhålls kontroll. Mer information om fördelarna med att använda underhålls kontroll, dess begränsningar och andra hanterings alternativ finns i [Hantera plattforms uppdateringar med underhålls kontroll](maintenance-control.md).
+Med underhålls kontrollen kan du bestämma när du ska tillämpa plattforms uppdateringar på värd infrastrukturen för de isolerade virtuella datorerna och Azure-dedikerade värdar. I det här avsnittet beskrivs Azure PowerShell alternativ för underhålls kontroll. Mer information om fördelarna med att använda underhålls kontroll, dess begränsningar och andra hanterings alternativ finns i [Hantera plattforms uppdateringar med underhålls kontroll](maintenance-control.md).
  
 ## <a name="enable-the-powershell-module"></a>Aktivera PowerShell-modulen
 
@@ -86,9 +86,9 @@ $config = New-AzMaintenanceConfiguration `
 > Underhålls **tiden** måste vara *2 timmar* eller längre. **Upprepning** av underhåll måste anges till minst en gång i 35 dagar.
 
 **Upprepning** av underhåll kan uttryckas som varje dag, varje vecka eller varje månad. Några exempel är:
- - dagligen-"recurEvery: Day" **eller** "RecurEvery: 3Days" 
- - varje vecka – "recurEvery: 3Weeks" **eller** "RecurEvery: Week lördag, söndag" 
- - Monthly-"recurEvery: Month day23, day24" **eller** "RecurEvery: Month förra söndag" **eller** "RecurEvery: månad fjärde måndagen"  
+ - **dag**-RecurEvery "dag" **eller** "3Days" 
+ - **veckovis**-RecurEvery "3Weeks" **eller** "Week lördag, söndag" 
+ - **månatlig**-RecurEvery "månads day23, day24" **eller** "månads sista söndag" **eller** "månad fjärde måndagen"  
       
 
 ## <a name="assign-the-configuration"></a>Tilldela konfigurationen

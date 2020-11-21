@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: a74ad7b995f0112346e2212866655107f72c03e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 370dade1b74634649c9de44864a0fd9f5cac988f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324815"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025984"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Kontinuerlig integrering och kontinuerliga leverans arbets flöden för LUIS-DevOps
 
@@ -27,9 +27,9 @@ I ditt system för käll kods hantering (SCM) konfigurerar du automatiska Bygg p
 
 **CI/CD-arbetsflödet** kombinerar två kompletterande utvecklings processer:
 
-* [Kontinuerlig integrering](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) (CI) är den tekniska praxis som ofta utför kod i en delad lagrings plats och som gör en automatiserad version av den. En kontinuerlig integrering med en automatiserad [testnings](luis-concept-devops-testing.md) metod gör att vi kan verifiera att för varje uppdatering, LUDown-källan fortfarande är giltig och kan importeras till en Luis-app, men även att den skickar en grupp tester som kontrollerar att den tränade appen kan identifiera de intentor och entiteter som krävs för din lösning.
+* [Kontinuerlig integrering](/azure/devops/learn/what-is-continuous-integration) (CI) är den tekniska praxis som ofta utför kod i en delad lagrings plats och som gör en automatiserad version av den. En kontinuerlig integrering med en automatiserad [testnings](luis-concept-devops-testing.md) metod gör att vi kan verifiera att för varje uppdatering, LUDown-källan fortfarande är giltig och kan importeras till en Luis-app, men även att den skickar en grupp tester som kontrollerar att den tränade appen kan identifiera de intentor och entiteter som krävs för din lösning.
 
-* [Kontinuerlig leverans](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) (CD) använder det kontinuerliga integrerings konceptet för att automatiskt distribuera programmet till en miljö där du kan göra mer djupgående testning. CD gör det möjligt för oss att lära sig tidigt om eventuella oförutsedda problem som uppstår från våra ändringar så snabbt som möjligt och även för att lära sig om luckor i vår test omfattning.
+* [Kontinuerlig leverans](/azure/devops/learn/what-is-continuous-delivery) (CD) använder det kontinuerliga integrerings konceptet för att automatiskt distribuera programmet till en miljö där du kan göra mer djupgående testning. CD gör det möjligt för oss att lära sig tidigt om eventuella oförutsedda problem som uppstår från våra ändringar så snabbt som möjligt och även för att lära sig om luckor i vår test omfattning.
 
 Målet med kontinuerlig integrering och kontinuerlig leverans är att säkerställa att "befälhavaren alltid kan fraktas". För en LUIS-app innebär detta att vi kunde, om vi behövde, ta alla versioner från LUIS-appen för huvud kontoret och leverera dem på produktion.
 
@@ -41,7 +41,7 @@ Använd följande verktyg för att skapa Automation-arbetsflöden för LUIS:
 
 * [Bot Framework tools Luis CLI](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) för att fungera med Luis-appar och-versioner, träna, testa och publicera dem i Luis-tjänsten.
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) för att fråga Azure-prenumerationer, Hämta Luis-redigerings-och förutsägelse nycklar och för att skapa ett Azure [-tjänstens huvud namn](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) som används för Automation-autentisering.
+* [Azure CLI](/cli/azure/?view=azure-cli-latest) för att fråga Azure-prenumerationer, Hämta Luis-redigerings-och förutsägelse nycklar och för att skapa ett Azure [-tjänstens huvud namn](/cli/azure/ad/sp?view=azure-cli-latest) som används för Automation-autentisering.
 
 * [NLU. DevOps](https://github.com/microsoft/NLU.DevOps) -verktyg för att [testa en Luis-app](luis-concept-devops-testing.md) och analysera test resultaten.
 
@@ -70,7 +70,7 @@ Arbets flödet bör:
 * Träna och publicera LUIS-versionen av appen.
 
   > [!NOTE]
-  > Som förklaras i [köra tester i ett automatiserat Bygg arbets flöde](luis-concept-devops-testing.md#running-tests-in-an-automated-build-workflow) måste du publicera Luis-appen under test så att verktyg som NLU. DevOps har åtkomst till den. LUIS stöder endast två namngivna publicerings platser, *mellanlagring* och *produktion* för en Luis-app, men du kan också [publicera en version direkt](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) och [fråga efter version](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-api-v3#changes-by-slot-name-and-version-name). Använd direkt versions publicering i dina automatiserade arbets flöden för att undvika att använda de namngivna publicerings platserna.
+  > Som förklaras i [köra tester i ett automatiserat Bygg arbets flöde](luis-concept-devops-testing.md#running-tests-in-an-automated-build-workflow) måste du publicera Luis-appen under test så att verktyg som NLU. DevOps har åtkomst till den. LUIS stöder endast två namngivna publicerings platser, *mellanlagring* och *produktion* för en Luis-app, men du kan också [publicera en version direkt](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) och [fråga efter version](./luis-migration-api-v3.md#changes-by-slot-name-and-version-name). Använd direkt versions publicering i dina automatiserade arbets flöden för att undvika att använda de namngivna publicerings platserna.
 
 * Kör alla [enhets test](luis-concept-devops-testing.md).
 
@@ -84,13 +84,13 @@ Arbets flödet bör:
 
 CD-jobbet i ett CI/CD-arbetsflöde körs villkorligt på framgångs rik av testerna build och automatisk enhet. Sitt jobb är att automatiskt distribuera LUIS-programmet till en miljö där du kan utföra fler tester.
 
-Det finns ingen Rekommenderad lösning för hur du bäst distribuerar LUIS-appen och du måste implementera den process som är lämplig för ditt projekt. [Luis DevOps Template](https://github.com/Azure-Samples/LUIS-DevOps-Template) lagrings platsen implementerar en enkel lösning som är att [publicera den nya versionen av Luis-appen](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) till *produktions* publicerings platsen. Detta är bra för en enkel installation. Men om du behöver stöd för ett antal olika produktions miljöer samtidigt, till exempel *utveckling*, *mellanlagring* och *UAT*, blir gränsen för två namngivna publicerings fack per app otillräcklig.
+Det finns ingen Rekommenderad lösning för hur du bäst distribuerar LUIS-appen och du måste implementera den process som är lämplig för ditt projekt. [Luis DevOps Template](https://github.com/Azure-Samples/LUIS-DevOps-Template) lagrings platsen implementerar en enkel lösning som är att [publicera den nya versionen av Luis-appen](./luis-how-to-publish-app.md) till *produktions* publicerings platsen. Detta är bra för en enkel installation. Men om du behöver stöd för ett antal olika produktions miljöer samtidigt, till exempel *utveckling*, *mellanlagring* och *UAT*, blir gränsen för två namngivna publicerings fack per app otillräcklig.
 
 Andra alternativ för att distribuera en app-version är:
 
 * Lämna app-versionen publicerad till slut versionen av slut punkten och implementera en process för att konfigurera nedströms produktions miljöer med slut versions slut punkten vid behov.
 * Underhåll olika LUIS-appar för varje produktions miljö och skriv automatiserings steg för att importera `.lu` till en ny version i Luis-appen för mål produktions miljön, för att träna och publicera den.
-* Exportera den testade LUIS app-versionen till en [Luis Docker-behållare](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto?tabs=v3) och distribuera Luis-behållaren till Azure [container instances](https://docs.microsoft.com/azure/container-instances/).
+* Exportera den testade LUIS app-versionen till en [Luis Docker-behållare](./luis-container-howto.md?tabs=v3) och distribuera Luis-behållaren till Azure [container instances](../../container-instances/index.yml).
 
 ## <a name="release-management"></a>Versionshantering
 

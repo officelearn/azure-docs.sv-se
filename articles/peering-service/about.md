@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 03ece391b6f33b47f34705cec1c5907602ac7b23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 198ba23920179e71e095e498ee2173d7f0111d42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400187"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026737"
 ---
 # <a name="azure-peering-service-overview"></a>Översikt över Azure peering-tjänsten
 
@@ -45,7 +45,7 @@ Peering-tjänsten är:
 Peering-tjänsten är inte en privat anslutnings produkt som Azure ExpressRoute eller en VPN-produkt.
 
 > [!NOTE]
-> Mer information om ExpressRoute finns i [ExpressRoute-dokumentationen](https://docs.microsoft.com/azure/expressroute/).
+> Mer information om ExpressRoute finns i [ExpressRoute-dokumentationen](../expressroute/index.yml).
 >
 
 ## <a name="background"></a>Bakgrund
@@ -57,7 +57,7 @@ Microsoft-och partner tjänst leverantörer säkerställer att trafiken för de 
 ![Microsoft-nätverk och offentliga anslutningar](./media/peering-service-about/peering-service-background-final.png)
 
 > [!NOTE]
-> Mer information om Microsoft Global Network finns i [Microsofts globala nätverk](https://docs.microsoft.com/azure/networking/microsoft-global-network).
+> Mer information om Microsoft Global Network finns i [Microsofts globala nätverk](../networking/microsoft-global-network.md).
 >
 
 ## <a name="why-use-peering-service"></a>Varför ska du använda peering-tjänsten?
@@ -80,7 +80,7 @@ Peering-tjänsten använder två typer av redundans:
 
    Varje peering-plats är etablerad med redundanta och diverse peering-länkar.
 
-- **Geo-redundans**
+- **GEO-redundans**
 
    Microsoft har sammankopplat med tjänst leverantörer på flera platser i tunnel trafik så att trafiken dirigeras till och från Microsoft via alternativa platser om en av kant-noderna har försämrade prestanda. Microsoft dirigerar trafik i det globala nätverket med hjälp av SDN för optimala prestanda.
 

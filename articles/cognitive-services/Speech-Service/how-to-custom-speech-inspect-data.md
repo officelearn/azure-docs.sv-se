@@ -10,17 +10,17 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ff2a1f92cabb61f58d70b732738e613afa7cd9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319142"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025641"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspektera Custom Speech-data
 
 > [!NOTE]
-> På den här sidan förutsätter vi att du har läst [förbereda test data för Custom Speech](how-to-custom-speech-test-data.md) och har laddat upp en data uppsättning för inspektion.
+> På den här sidan förutsätter vi att du har läst [förbereda test data för Custom Speech](./how-to-custom-speech-test-and-train.md) och har laddat upp en data uppsättning för inspektion.
 
 Custom Speech innehåller verktyg som gör det möjligt att visuellt inspektera igenkännings kvaliteten för en modell genom att jämföra ljuddata med motsvarande igenkännings resultat. Från [Custom Speech-portalen](https://speech.microsoft.com/customspeech)kan du spela upp ljud som laddats upp och avgöra om det angivna igenkännings resultatet är korrekt. Med det här verktyget kan du kontrol lera kvaliteten på Microsofts grundläggande tal-till-text-modell, inspektera en utbildad anpassad modell eller jämföra avskrifter med två modeller.
 
@@ -43,7 +43,7 @@ När ett test har skapats kan du se hur en modell anger den ljud data uppsättni
 
 ## <a name="side-by-side-model-comparisons"></a>Jämförelser av modeller sida vid sida
 
-När test status är _klar_klickar du på test objekt namnet för att se information om testet. Den här informations sidan visar alla yttranden i din data uppsättning och visar igenkännings resultatet för de två modeller som du jämför.
+När test status är _klar_ klickar du på test objekt namnet för att se information om testet. Den här informations sidan visar alla yttranden i din data uppsättning och visar igenkännings resultatet för de två modeller som du jämför.
 
 För att kunna kontrol lera jämförelsen sida vid sida kan du växla mellan olika typer av fel, inklusive infogning, borttagning och ersättning. Genom att lyssna på ljudet och jämföra igenkännings resultaten i varje kolumn (med mänsklig avskrift och resultatet av två tal till text-modeller) kan du bestämma vilken modell som uppfyller dina behov och var förbättringar behövs.
 
@@ -104,4 +104,4 @@ De filer som exporteras till data används som en helt ny data uppsättning och 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Förbered test data för Custom Speech](how-to-custom-speech-test-data.md)
+- [Förbered test data för Custom Speech](./how-to-custom-speech-test-and-train.md)

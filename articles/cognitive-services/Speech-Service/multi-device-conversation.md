@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c2dbaf8f65208126c52617d4b89d901b3670dac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921426"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025182"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>Vad är en konversation med flera enheter (för hands version)?
 
 **Med en konversation med flera enheter** blir det enkelt att skapa en röst-eller textkonversation mellan flera klienter och koordinera meddelanden som skickas mellan dem.
 
-Med en **konversation med flera enheter**kan du:
+Med en **konversation med flera enheter** kan du:
 
 - Anslut flera klienter till samma konversation och hantera sändning och mottagning av meddelanden mellan dem.
 - Du kan enkelt skriva över ljud från varje klient och skicka avskriften till de andra, med valfri översättning.
@@ -72,7 +72,7 @@ Varje klient kan skicka ljud-eller snabb meddelanden. Tjänsten använder tal ig
 
 ## <a name="overview-of-conversation-host-and-participant"></a>Översikt över konversation, värd och deltagare
 
-En **konversation** är en session som en användare startar för att de andra deltagande användarna ska kunna ansluta. Alla klienter ansluter till konversationen med en **konversations kod**på fem bokstäver.
+En **konversation** är en session som en användare startar för att de andra deltagande användarna ska kunna ansluta. Alla klienter ansluter till konversationen med en **konversations kod** på fem bokstäver.
 
 Varje konversation skapar metadata som innehåller:
 -    Tidsstämpel för när konversationen startades och avslutades
@@ -105,7 +105,7 @@ När du skapar eller ansluter till en konversation måste varje användare välj
 Det finns två typer av språk: **tal till text** och **endast text**:
 - Om användaren väljer ett **tal-till-text-** språk som primärt språk kommer de att kunna använda både tal-och text indata i konversationen.
 
-- Om användaren väljer ett språk som **bara är text** , kommer de bara att kunna använda text indata och skicka snabb meddelanden i konversationen. Text språk är de språk som stöds för text översättning, men inte tal-till-text. Du kan se tillgängliga språk på sidan [språk stöd](supported-languages.md) .
+- Om användaren väljer ett språk som **bara är text** , kommer de bara att kunna använda text indata och skicka snabb meddelanden i konversationen. Text språk är de språk som stöds för text översättning, men inte tal-till-text. Du kan se tillgängliga språk på sidan [språk stöd](./language-support.md) .
 
 Förutom det primära språket kan varje deltagare också ange ytterligare språk för översättning av konversationen.
 
@@ -119,7 +119,7 @@ Nedan visas en sammanfattning av vad användaren kan göra i en konversation med
 | Översätt konversationen | ✔️ | ✔️ |
 
 > [!NOTE]
-> Listor över tillgängliga språk för tal till text och text översättning finns i språk som [stöds](supported-languages.md).
+> Listor över tillgängliga språk för tal till text och text översättning finns i språk som [stöds](./language-support.md).
 
 
 

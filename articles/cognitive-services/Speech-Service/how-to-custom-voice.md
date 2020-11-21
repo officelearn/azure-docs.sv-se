@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 272367d5311952b45c73febe0e05b1ec2d225261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ae164b1300119481e495e647dd491beafdd5241
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056694"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025086"
 ---
 # <a name="get-started-with-custom-voice"></a>Komma igång med Custom Voice
 
@@ -42,7 +42,7 @@ Diagrammet nedan visar stegen för att skapa en anpassad röst modell med hjälp
 Neurala röst anpassnings funktion finns för närvarande i offentlig för hands version, begränsad till utvalda kunder. Fyll i det här [program formuläret](https://go.microsoft.com/fwlink/?linkid=2108737) för att komma igång.
 
 > [!NOTE]
-> Som en del av Microsofts engagemang för att utforma ansvarig AI är avsikten att skydda enskilda personers och samhällets rättigheter, och att utveckla genomskinliga interaktioner på människor och datorer. Av den anledningen är anpassad neurala-röst inte allmänt tillgänglig för alla kunder. Du får bara till gång till tekniken när dina program har granskats och du har åtagit dig att använda det i rätthet med våra etik principer. Läs mer om vår [Application hantera-process](https://aka.ms/custom-neural-gating-overview).
+> Som en del av Microsofts engagemang för att utforma ansvarig AI är avsikten att skydda enskilda personers och samhällets rättigheter, och att utveckla genomskinliga interaktioner på människor och datorer. Av den anledningen är anpassad neurala-röst inte allmänt tillgänglig för alla kunder. Du får bara till gång till tekniken när dina program har granskats och du har åtagit dig att använda det i rätthet med våra etik principer. Läs mer om vår [Application hantera-process](./concepts-gating-overview.md).
 
 ## <a name="set-up-your-azure-account"></a>Konfigurera ditt Azure-konto
 
@@ -62,7 +62,7 @@ När du har skapat ett Azure-konto och en prenumeration på en röst tjänst må
 
 Innehåll som data, modeller, tester och slut punkter organiseras i **projekt** i den anpassade röst portalen. Varje projekt är specifika för ett land/språk och köns kön för den röst du vill skapa. Du kan till exempel skapa ett projekt för en hona röst för samtals centrets chatt-robotar som använder engelska i USA (en-US).
 
-Skapa ditt första projekt genom att välja fliken **text-till-tal/anpassad röst** och klicka på **nytt projekt**. Följ anvisningarna i guiden för att skapa projektet. När du har skapat ett projekt visas fyra flikar: **data**, **utbildning**, **testning**och **distribution**. Använd länkarna som beskrivs i [Nästa steg](#next-steps) för att lära dig hur du använder varje flik.
+Skapa ditt första projekt genom att välja fliken **text-till-tal/anpassad röst** och klicka på **nytt projekt**. Följ anvisningarna i guiden för att skapa projektet. När du har skapat ett projekt visas fyra flikar: **data**, **utbildning**, **testning** och **distribution**. Använd länkarna som beskrivs i [Nästa steg](#next-steps) för att lära dig hur du använder varje flik.
 
 > [!IMPORTANT]
 > Den [anpassade röst portalen](https://aka.ms/custom-voice) har nyligen uppdaterats! Om du har skapat tidigare data, modeller, tester och publicerade slut punkter i CRIS.ai-portalen eller med API: er, måste du skapa ett nytt projekt i den nya portalen för att ansluta till dessa gamla entiteter.

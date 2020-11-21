@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7cff2d8245095489fbba3b7af24b416885995e4d
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 55ec8be176dc7274a3b9a1feca53726d57eeb422
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637140"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024473"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Ansluta till arbets ytans resurser från ett begränsat nätverk
 
@@ -21,9 +21,9 @@ Anta att du är IT-administratör som hanterar organisationens begränsade nätv
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Azure-prenumeration** : om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure Synapse Analytics-arbetsyta** : du kan skapa en från Azure Synapse Analytics. Du behöver namnet på arbets ytan i steg 4.
-* **Ett begränsat nätverk** : IT-administratören hanterar det begränsade nätverket för organisationen och har behörighet att konfigurera nätverks principen. Du behöver det virtuella nätverks namnet och dess undernät i steg 3.
+* **Azure-prenumeration**: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* **Azure Synapse Analytics-arbetsyta**: du kan skapa en från Azure Synapse Analytics. Du behöver namnet på arbets ytan i steg 4.
+* **Ett begränsat nätverk**: IT-administratören hanterar det begränsade nätverket för organisationen och har behörighet att konfigurera nätverks principen. Du behöver det virtuella nätverks namnet och dess undernät i steg 3.
 
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>Steg 1: Lägg till nätverks utgående säkerhets regler i det begränsade nätverket
@@ -38,9 +38,9 @@ Följande skärm bild visar information om den Azure Resource Manager utgående 
 
 ![Skärm bild av Azure Resource Manager service tag-information.](./media/how-to-connect-to-workspace-from-restricted-network/arm-servicetag.png)
 
-När du skapar de andra tre reglerna ersätter du värdet för **mål service tag gen** med **AzureFrontDoor. frontend** , **AzureActiveDirectory** eller **AzureMonitor** från listan.
+När du skapar de andra tre reglerna ersätter du värdet för **mål service tag gen** med **AzureFrontDoor. frontend**, **AzureActiveDirectory** eller **AzureMonitor** från listan.
 
-Mer information finns i [Översikt över tjänst etiketter](/azure/virtual-network/service-tags-overview.md).
+Mer information finns i [Översikt över tjänst etiketter](/azure/virtual-network/service-tags-overview).
 
 ## <a name="step-2-create-private-link-hubs"></a>Steg 2: skapa privata länk hubbar
 
@@ -78,7 +78,7 @@ När den privata länk slut punkten har skapats kan du komma åt inloggnings sid
 Du måste skapa följande för att få åtkomst till resurserna i Azure Synapse Analytics Studio-arbetsytans resurs:
 
 - Minst en privat länk slut punkt med en **dev** -typ för **mål under resurs**.
-- Två andra valfria privata länk slut punkter med typer av **SQL** eller **SqlOnDemand** , beroende på vilka resurser i arbets ytan som du vill få åtkomst till.
+- Två andra valfria privata länk slut punkter med typer av **SQL** eller **SqlOnDemand**, beroende på vilka resurser i arbets ytan som du vill få åtkomst till.
 
 Att skapa dessa liknar hur du skapar slut punkten i föregående steg.  
 

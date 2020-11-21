@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 87832057e955f8408b369e2f55096a713780e965
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410784"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024797"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Speech service: Nyheter i dokument
 
@@ -38,17 +38,17 @@ Om du vill veta mer om uppdateringar av tal tjänsten, tal SDK, tal enheter SDK,
 
 * [Om API: t för tal SDK ljud inspelnings ström](how-to-use-audio-input-streams.md) – uppdaterade tillåtna exempel per sekund.
 * [Automatisk språk identifiering för](how-to-automatic-language-detection.md) mål-C-instruktioner som har lagts till i tal till text i dokumentationen.
-* [Välj ett tal igenkännings läge](how-to-choose-recognition-mode.md) – har lagt till JavaScript-instruktioner till dokumentationen.
+* [Välj ett tal igenkännings läge](./get-started-speech-to-text.md) – har lagt till JavaScript-instruktioner till dokumentationen.
 * [Konfigurera RHEL/CentOS 7 för tal-SDK](how-to-configure-rhel-centos-7.md) – förbättrade installations anvisningar.
-* [Fras listor för instruktioner för](how-to-phrase-lists.md) Java Script till text som har lagts till i dokumentationen.
-* [Snabb start: asynkron syntes för lång Forms ljud i python (för hands version)](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) – uppdaterad med stöd för offentliga neurala-röster och tillhör ande parametrar.
-* [Snabb start: identifiera tal från en ljudfil](quickstarts/speech-to-text-from-file.md) – har lagt till JavaScript-instruktioner i dokumentationen.
-* [Snabb start: identifiera tal från en mikrofon](quickstarts/speech-to-text-from-microphone.md ) som har lagts till i instruktioner till dokumentationen.
+* [Fras listor för instruktioner för](./get-started-speech-to-text.md) Java Script till text som har lagts till i dokumentationen.
+* [Snabb start: asynkron syntes för lång Forms ljud i python (för hands version)](./long-audio-api.md) – uppdaterad med stöd för offentliga neurala-röster och tillhör ande parametrar.
+* [Snabb start: identifiera tal från en ljudfil](./get-started-speech-to-text.md) – har lagt till JavaScript-instruktioner i dokumentationen.
+* [Snabb start: identifiera tal från en mikrofon](./get-started-speech-to-text.md) som har lagts till i instruktioner till dokumentationen.
 * [Snabb start: identifiera tal som lagras i Blob Storage](quickstarts/from-blob.md) – nya JavaScript-instruktioner till dokumentationen.
 * [Snabb start: identifiera tal, avsikter och entiteter med Language Understanding (LUIS)](quickstarts/intent-recognition.md)
 * [Snabb start: Konfigurera utvecklings miljö](quickstarts/setup-platform.md) – har lagt till JavaScript-instruktioner i dokumentationen.
-* [Snabb start: syntetisera tal i en ljudfil](quickstarts/text-to-speech-audio-file.md) som har lagt till JavaScript-instruktioner till dokumentationen.
-* [Snabb start: syntetisera tal till en talare](quickstarts/text-to-speech.md) -tillagda JavaScript-instruktioner i dokumentationen.
+* [Snabb start: syntetisera tal i en ljudfil](./get-started-text-to-speech.md) som har lagt till JavaScript-instruktioner till dokumentationen.
+* [Snabb start: syntetisera tal till en talare](./get-started-text-to-speech.md) -tillagda JavaScript-instruktioner i dokumentationen.
 * [Vad är ett nyckelord?](custom-keyword-overview.md) -Uppdaterat kom igång med innehåll och länkar.
 * [Ange käll språk för](how-to-specify-source-language.md) Java Script-och mål-C-instruktioner som har lagts till av tal till text i dokumentationen.
 

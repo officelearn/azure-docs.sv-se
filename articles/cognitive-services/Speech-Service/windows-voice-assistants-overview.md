@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: fbcb262fee6a2cc62bfe64e8a8589c92b4fe2b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e8b009ecc2181edfaad5da3d8d05ad0c1909051
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997451"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024763"
 ---
 # <a name="voice-assistants-on-windows"></a>Röst assistenter i Windows
 
@@ -37,7 +37,7 @@ När användaren pratar med ett nyckelord meddelar program-eller maskin varu nyc
 
 ### <a name="registration"></a>Registrering
 
-Första gången ett röst aktiverat program körs registreras dess app-ID och nyckelords information via ConversationalAgent-API: erna. AAR registrerar alla konfigurationer i den globala mappningen med spotter för maskinvaru-eller program varu nyckelord i systemet, så att de kan identifiera programmets nyckelord. Programmet registreras även [med bakgrunds tjänsten](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task).
+Första gången ett röst aktiverat program körs registreras dess app-ID och nyckelords information via ConversationalAgent-API: erna. AAR registrerar alla konfigurationer i den globala mappningen med spotter för maskinvaru-eller program varu nyckelord i systemet, så att de kan identifiera programmets nyckelord. Programmet registreras även [med bakgrunds tjänsten](/windows/uwp/launch-resume/register-a-background-task).
 
 Observera att det innebär att ett program inte kan aktive ras av Voice förrän det har körts en gång och registreringen har kunnat slutföras.
 

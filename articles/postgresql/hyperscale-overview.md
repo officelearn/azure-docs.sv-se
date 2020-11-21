@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
 ms.date: 09/01/2020
-ms.openlocfilehash: 90d3cb106fa93649f7d6dda5ab5755061d118f66
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1734128384d63749d3c777cf6315278fced9d140
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91268391"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025148"
 ---
 # <a name="what-is-azure-database-for-postgresql---hyperscale-citus"></a>Vad är Azure Database for PostgreSQL-Scale (citus)?
 
@@ -33,4 +33,4 @@ Program som skapats för PostgreSQL kan köra distribuerade frågor på citus (s
 
 - Kom igång genom [att skapa din första](./quickstart-create-hyperscale-portal.md) citus-Server grupp (Azure Database for PostgreSQL-Scale Scale).
 - Se [pris sidan](https://azure.microsoft.com/pricing/details/postgresql/) för kostnads jämförelser och räknare. Citus (Scale Restore Restore Restore Restore) finns även i avsnittet om pris sidor för [storskalig (citus)](concepts-hyperscale-reserved-pricing.md) för mer information.
-- Fastställ bästa [initial storlek](howto-hyperscale-scaling.md#picking-initial-size) för Server gruppen
+- Fastställ bästa [initial storlek](howto-hyperscale-scale-initial.md) för Server gruppen

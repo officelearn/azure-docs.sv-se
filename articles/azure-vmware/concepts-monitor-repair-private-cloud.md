@@ -2,13 +2,14 @@
 title: Koncept – övervaka och reparera privata moln i Azure VMware-lösningen
 description: Lär dig hur Azure VMware-lösningen övervakar och reparerar VMware ESXi-servrar i ett privat moln i Azure VMware-lösningar.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 11a3c53bff7ce7b67b677977eddb9829f336672d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.custom: contperfq2
+ms.date: 11/20/2020
+ms.openlocfilehash: 6c37ff6cc0715182453669f67306094af2f00cdf
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684703"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024355"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Övervaka och reparera privata moln i Azure VMware-lösningar
 

@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 2f7132ffa1fa55d1dfd8043677bf9695a589b7af
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 43b57d0b58c9268482ca27fd51040c7152ecdc25
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043022"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026060"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Skapa ett Azure Kubernetes service-kluster (AKS) som använder tillgänglighets zoner
 
@@ -30,12 +30,15 @@ AKS-kluster kan för närvarande skapas med tillgänglighets zoner i följande r
 
 * Australien, östra
 * Kanada, centrala
-* USA, centrala
+* Central US
+* East US 
 * USA, östra 2
-* East US
 * Frankrike, centrala
+* Tyskland, västra centrala
 * Japan, östra
 * Norra Europa
+* Sydafrika, norra
+* USA, södra centrala
 * Sydostasien
 * Storbritannien, södra
 * Europa, västra
@@ -60,7 +63,7 @@ Tillgänglighets zoner är ett erbjudande med hög tillgänglighet som skyddar d
 
 Mer information finns i [Vad är tillgänglighets zoner i Azure?][az-overview].
 
-AKS-kluster som distribueras med hjälp av tillgänglighets zoner kan distribuera noder över flera zoner inom en enda region. Ett kluster i regionen  *USA, östra 2*   kan till exempel skapa noder i alla tre tillgänglighets zoner i *USA, östra 2* . Den här distributionen av AKS kluster resurser ger bättre kluster tillgänglighet eftersom de är elastiska till fel i en speciell zon.
+AKS-kluster som distribueras med hjälp av tillgänglighets zoner kan distribuera noder över flera zoner inom en enda region. Ett kluster i regionen  *USA, östra 2*   kan till exempel skapa noder i alla tre tillgänglighets zoner i *USA, östra 2*. Den här distributionen av AKS kluster resurser ger bättre kluster tillgänglighet eftersom de är elastiska till fel i en speciell zon.
 
 ![AKS Node-fördelning över tillgänglighets zoner](media/availability-zones/aks-availability-zones.png)
 
@@ -72,7 +75,7 @@ När du skapar ett kluster med kommandot [AZ AKS Create][az-aks-create] `--zones
 
 Om du inte definierar några zoner för standard agenten när du skapar ett AKS-kluster, garanteras inte kontroll Plans komponenter att spridas över tillgänglighets zoner. Du kan lägga till ytterligare resurspooler med kommandot [AZ AKS nodepool Add][az-aks-nodepool-add] och ange `--zones` för nya noder, men det påverkar inte hur kontroll planet har spridits mellan zoner. Det går bara att definiera inställningar för tillgänglighets zonen i klustret eller i nodens skapande tid.
 
-I följande exempel skapas ett AKS-kluster med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup* . Totalt *3* noder skapas – en agent i zon *1* , en i *2* , och sedan en i *3* .
+I följande exempel skapas ett AKS-kluster med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup*. Totalt *3* noder skapas – en agent i zon *1*, en i *2*, och sedan en i *3*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2

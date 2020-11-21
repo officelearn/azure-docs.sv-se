@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4c5000adb2339d3fd0f828781a60f75c75894b5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168604"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024423"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -25,7 +25,7 @@ När antalet mått visas i portalen, är de omnormaliserade för att ta hänsyn 
 * Fast pris sampling är tillgängligt i de senaste versionerna av Application Insights SDK: er för ASP.NET, ASP.NET Core, Java (både agenten och SDK) och python.
 * Provtagnings samplingen fungerar på Application Insights tjänstens slut punkt. Den gäller endast när ingen annan sampling tillämpas. Om SDK-exemplen för telemetri inaktive ras inmatnings sampling.
 * För webb program, om du loggar anpassade händelser och måste se till att en uppsättning händelser behålls eller ignoreras tillsammans, måste händelserna ha samma `OperationId` värde.
-* Om du skriver analys frågor bör du [ta hänsyn till sampling](../log-query/aggregations.md). I stället för att helt enkelt räkna poster bör du använda `summarize sum(itemCount)` .
+* Om du skriver analys frågor bör du [ta hänsyn till sampling](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations). I stället för att helt enkelt räkna poster bör du använda `summarize sum(itemCount)` .
 * Vissa typer av telemetri, inklusive prestanda mått och anpassade mått, hålls alltid oavsett om sampling är aktiverat eller inte.
 
 I följande tabell sammanfattas de samplings typer som är tillgängliga för varje SDK och typ av program:
@@ -34,11 +34,11 @@ I följande tabell sammanfattas de samplings typer som är tillgängliga för va
 |-|-|-|-|
 | ASP.NET | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-aspnet-applications) | [Ja](#configuring-fixed-rate-sampling-for-aspnet-applications) | Endast om ingen annan sampling gäller |
 | ASP.NET Core | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Ja](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Endast om ingen annan sampling gäller |
-| Azure Functions | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-azure-functions) | Nej | Endast om ingen annan sampling gäller |
-| Java | Nej | [Ja](#configuring-fixed-rate-sampling-for-java-applications) | Endast om ingen annan sampling gäller |
-| Node.JS | Nej | [Ja](./nodejs.md#sampling) | Endast om ingen annan sampling gäller
-| Python | Nej | [Ja](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Endast om ingen annan sampling gäller |
-| Alla andra | Nej | Nej | [Ja](#ingestion-sampling) |
+| Azure Functions | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-azure-functions) | No | Endast om ingen annan sampling gäller |
+| Java | No | [Ja](#configuring-fixed-rate-sampling-for-java-applications) | Endast om ingen annan sampling gäller |
+| Node.JS | No | [Ja](./nodejs.md#sampling) | Endast om ingen annan sampling gäller
+| Python | No | [Ja](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Endast om ingen annan sampling gäller |
+| Alla andra | Inga | Inga | [Ja](#ingestion-sampling) |
 
 > [!NOTE]
 > Informationen på de flesta av den här sidan gäller för de aktuella versionerna av Application Insights SDK: er. Mer information om äldre versioner av SDK: er [finns i avsnittet nedan](#older-sdk-versions).

@@ -9,18 +9,18 @@ ms.date: 07/09/2019
 ms.topic: how-to
 manager: peterpr
 ms.custom: device-developer
-ms.openlocfilehash: fb6029a91714ed0229876bbaf6bb0790565be29c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fc8ea41e804344735cfa2400d5d763622d8811c8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427831"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026258"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Skapa IoT Central Device Bridge för att ansluta andra IoT-moln till IoT Central
 
 *Det här avsnittet gäller för administratörer.*
 
-IoT Central Device Bridge är en lösning med öppen källkod som ansluter dina Sigfox, partiklar, nätverk och andra moln till din IoT Central-app. Oavsett om du använder enheter för till gångs spårning som är anslutna till Sigfox i ett nätverk med låg energi kvalitet eller om du använder enheter för övervakning av luft kvalitet i partikel enhets molnet eller använder jord vatten övervaknings enheter på TTN kan du direkt utnyttja kraften hos IoT Central med hjälp av IoT Central enhets bryggan. Enhets bryggan ansluter andra IoT-moln med IoT Central genom att vidarebefordra de data som enheterna skickar till de andra molnen via till din IoT Central-app. I din IoT Central-app kan du skapa regler och köra analyser på dessa data, skapa arbets flöden i Microsoft Flow och Azure Logic Apps, exportera dessa data och mycket mer. Hämta [IoT Central enhets bryggan](https://aka.ms/iotcentralgithubdevicebridge) från GitHub
+IoT Central Device Bridge är en lösning med öppen källkod som ansluter dina Sigfox, partiklar, nätverk och andra moln till din IoT Central-app. Oavsett om du använder enheter för till gångs spårning som är anslutna till Sigfox i ett nätverk med låg energi kvalitet eller om du använder enheter för övervakning av luft kvalitet i partikel enhets molnet eller använder jord vatten övervaknings enheter på TTN kan du direkt utnyttja kraften hos IoT Central med hjälp av IoT Central enhets bryggan. Enhets bryggan ansluter andra IoT-moln med IoT Central genom att vidarebefordra de data som enheterna skickar till de andra molnen via till din IoT Central-app. I din IoT Central-app kan du skapa regler och köra analyser på dessa data, skapa arbets flöden i Power automatisera och Azure Logic Apps, exportera dessa data och mycket mer. Hämta [IoT Central enhets bryggan](https://aka.ms/iotcentralgithubdevicebridge) från GitHub
 
 ## <a name="what-is-it-and-how-does-it-work"></a>Vad är det och hur fungerar det?
 IoT Central Device Bridge är en lösning med öppen källkod i GitHub. Det är dags att börja med en "distribuera till Azure"-knapp som distribuerar en anpassad Azure Resource Manager-mall med flera Azure-resurser till din Azure-prenumeration. Resurserna omfattar:

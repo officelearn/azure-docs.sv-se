@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: 1f85ba0c64db23e156f384fadcc5ca7bf84a58d4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: aa2783abe86b90a907510dec8d7eb40162820ad5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130770"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025267"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Självstudie: extrahera strukturerade data från User uttryck med Machine Learning-entiteter i Language Understanding (LUIS)
 
@@ -18,7 +18,7 @@ I den här självstudien extraherar du strukturerade data från en uttryck med h
 
 Enheten för maskin inlärning stöder modellen för [modell nedbrytning](luis-concept-model.md#v3-authoring-model-decomposition) genom att tillhandahålla entiteter för entiteter med [funktioner](luis-concept-feature.md).
 
-**I de här självstudierna får du lära dig att**
+**I den här guiden får du lära dig att:**
 
 > [!div class="checklist"]
 > * Importera exempelappen
@@ -79,11 +79,11 @@ Om du vill extrahera information om en pizza-beställning skapar du en enhet på
     > [!NOTE]
     > En entitet är inte alltid hela uttryck. I det här fallet `pickup` anger hur ordningen ska tas emot. Från ett konceptuellt perspektiv `pickup` ska du vara en del av den märkta entiteten för ordern.
 
-1. I rutan **Välj typ av enhet** väljer du **Lägg till struktur** och sedan **Nästa** . Det krävs en struktur för att lägga till underentiteter som storlek och kvantitet.
+1. I rutan **Välj typ av enhet** väljer du **Lägg till struktur** och sedan **Nästa**. Det krävs en struktur för att lägga till underentiteter som storlek och kvantitet.
 
     ![Skärm bild som visar fönstret Välj typ av enhet med alternativet Lägg till struktur markerat.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
-1. I rutan **Lägg till underentiteter (valfritt)** väljer **+** du på `Order` raden och sedan Lägg till `Size` och `Quantity` som underentiteter och väljer sedan **skapa** .
+1. I rutan **Lägg till underentiteter (valfritt)** väljer **+** du på `Order` raden och sedan Lägg till `Size` och `Quantity` som underentiteter och väljer sedan **skapa**.
 
     > [!div class="mx-imgBorder"]
     > ![Skärm bild som visar fönstret Lägg till underentiteter (valfritt) med underentiteter markerade.](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
@@ -96,7 +96,7 @@ Föregående steg skapar entiteten och underentiteten. Lägg till funktioner i u
 
 1. Välj **entiteter** i den vänstra menyn och välj sedan **order** enhet.
 
-1. På fliken **schema och funktioner** väljer du underentiteten **storlek** och väljer sedan **+ Lägg till funktion** .
+1. På fliken **schema och funktioner** väljer du underentiteten **storlek** och väljer sedan **+ Lägg till funktion**.
 
 1. Välj **Skapa ny fras lista** på den nedrullningsbara menyn.
 
@@ -108,7 +108,7 @@ Föregående steg skapar entiteten och underentiteten. Lägg till funktioner i u
 
 Att lägga till en lista med kända storlekar som klient programmet känner av kan också hjälpa till att extrahera.
 
-1. Välj **entiteter** i den vänstra menyn och välj sedan **+ skapa** .
+1. Välj **entiteter** i den vänstra menyn och välj sedan **+ skapa**.
 
 1. Ange entitetsnamnet som `SizeListentity` och ange typen som **lista** så att det är enkelt att identifiera jämfört med det som `SizePhraselist` skapades i föregående avsnitt.
 
@@ -131,7 +131,7 @@ Att lägga till en lista med kända storlekar som klient programmet känner av k
 
 1. Välj **ordning** i listan över entiteter.
 
-1. På fliken **schema och funktioner** väljer du entiteten **storlek** och väljer sedan **+ Lägg till funktion** .
+1. På fliken **schema och funktioner** väljer du entiteten **storlek** och väljer sedan **+ Lägg till funktion**.
 
 1. Välj **@ SizeListentity** i list rutan.
 
@@ -141,9 +141,9 @@ Att lägga till en lista med kända storlekar som klient programmet känner av k
 
 Att lägga till en fördefinierad Number-entitet kommer också att hjälpa till att extrahera.
 
-1. Välj **entiteter** i den vänstra menyn och välj sedan **Lägg till fördefinierad entitet** .
+1. Välj **entiteter** i den vänstra menyn och välj sedan **Lägg till fördefinierad entitet**.
 
-1. Välj **nummer** i listan och välj sedan **färdig** .
+1. Välj **nummer** i listan och välj sedan **färdig**.
 
 1. Gå tillbaka till listan över entiteter genom att välja **entiteter** från vänster meny.
 
@@ -151,7 +151,7 @@ Att lägga till en fördefinierad Number-entitet kommer också att hjälpa till 
 
 1. Välj **ordning** i listan över entiteter.
 
-1. På fliken **schema och funktioner** väljer du entiteten **kvantitet** och väljer sedan **+ Lägg till funktion** .
+1. På fliken **schema och funktioner** väljer du entiteten **kvantitet** och väljer sedan **+ Lägg till funktion**.
 
 1. Välj **@-nummer** i list rutan.
 
@@ -236,12 +236,12 @@ För att få en LUIS-förutsägelse i en chattrobot eller i ett annat klientprog
 
     ![Skärm bild av LUIS publicera på slut punkts knapp i den övre högra menyn](./media/howto-publish/publish-button.png)
 
-1. Välj **produktions** platsen och välj sedan **ändra inställningar** , Välj **Attitydanalys** och välj sedan **Slutför** .
+1. Välj **produktions** platsen och välj sedan **ändra inställningar**, Välj **Attitydanalys** och välj sedan **Slutför**.
 
     > [!div class="mx-imgBorder"]
     > ![Skärm bild av LUIS publicera till slut punkt](./media/tutorial-machine-learned-entity/publish-with-sentiment-analysis.png)
 
-1. Välj länken **åtkomst till slut punkts-URL: er** i meddelandet för att gå till sidan **Azure-resurser** . Slut punkts-URL: erna visas som **exempel fråga** .
+1. Välj länken **åtkomst till slut punkts-URL: er** i meddelandet för att gå till sidan **Azure-resurser** . Slut punkts-URL: erna visas som **exempel fråga**.
 
 ## <a name="get-intent-and-entity-prediction-from-http-endpoint"></a>Hämta avsikts-och enhets förutsägelse från HTTP-slutpunkt
 
@@ -251,7 +251,7 @@ För att få en LUIS-förutsägelse i en chattrobot eller i ett annat klientprog
 
     `2 small cheese pizzas for pickup`
 
-    Den senaste QueryString-parametern är `query` , uttryck- **frågan** .
+    Den senaste QueryString-parametern är `query` , uttryck- **frågan**.
 
     ```json
     {
@@ -297,7 +297,7 @@ För att få en LUIS-förutsägelse i en chattrobot eller i ett annat klientprog
 
 ## <a name="related-information"></a>Relaterad information
 
-* [Självstudie – avsikter](luis-quickstart-intents-only.md)
+* [Självstudie – avsikter](./tutorial-intents-only.md)
 * [Begrepp – entiteter](luis-concept-entity-types.md) konceptuell information
 * [Begrepp – funktioner](luis-concept-feature.md) konceptuell information
 * [Så här tränar du](luis-how-to-train.md)
@@ -309,4 +309,4 @@ För att få en LUIS-förutsägelse i en chattrobot eller i ett annat klientprog
 I den här självstudien använder appen en enhet för maskin inlärning för att hitta avsikten med användarens uttryck och extrahera information från den uttryck. Med hjälp av enheten för maskin inlärning kan du dela upp information om entiteten.
 
 > [!div class="nextstepaction"]
-> [Lägg till en fördefinierad keyPhrase-entitet](luis-quickstart-intent-and-key-phrase.md)
+> [Lägg till en fördefinierad keyPhrase-entitet](./luis-reference-prebuilt-keyphrase.md)

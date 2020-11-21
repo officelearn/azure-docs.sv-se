@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91c7c19fddab2a4372f183c90532b24e774277d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24d27859aad7642392a5702ab7ddbb727b538d51
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008057"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025018"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Vanliga frågor och svar om flera sessioner för Windows 10 Enterprise
 
@@ -80,8 +80,8 @@ Detta beror på att du använder Windows 10 Enterprise multi-session med en prof
 De flesta virtualiserade miljöer konfigureras som standard för att hindra användare från att installera ytterligare appar till sina profiler. Om du vill vara säker på att en app inte försvinner när användaren loggar ut från det virtuella Windows-skrivbordet måste du etablera appen för alla användar profiler i din miljö. Mer information om hur du konfigurerar appar finns i följande resurser:
 
 - [Publicera inbyggda appar i Windows Virtual Desktop](publish-apps.md)
-- [Kommando rads alternativ för DISM-paket underhåll](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [Kommando rads alternativ för DISM-paket underhåll](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Add-AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
 
 ## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Hur gör jag för att se till att användarna inte laddar ned och installerar appar från Microsoft Store?
 
@@ -93,8 +93,8 @@ Så här inaktiverar du Store-appen:
 2. Välj **dator konfiguration**  >  **administrativa mallar**  >  **Windows-komponenter**.
 3. Välj **Arkiv**.
 4. Välj **Store-program**.
-5. Välj **inaktive rad**och välj sedan **OK**.
-6. Välj **Använd**.
+5. Välj **inaktive rad** och välj sedan **OK**.
+6. Välj **Tillämpa**.
 
 ## <a name="next-steps"></a>Nästa steg
 

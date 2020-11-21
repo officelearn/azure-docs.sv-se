@@ -5,18 +5,18 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/20/2020
+ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 67e33732574d2a6c173675d5adf0a7d1c2050688
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d94cd649df9da6b36ac484d4fc1e6acef7a21bb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528184"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026173"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Styra uppdateringar med underhålls kontroll och Azure CLI
 
-Med underhålls kontrollen kan du bestämma när du ska tillämpa uppdateringar på dina isolerade virtuella datorer och Azure-dedikerade värdar. Det här avsnittet beskriver Azure CLI-alternativen för underhålls kontroll. Mer information om fördelarna med att använda underhålls kontroll, dess begränsningar och andra hanterings alternativ finns i [Hantera plattforms uppdateringar med underhålls kontroll](maintenance-control.md).
+Med underhålls kontrollen kan du bestämma när du ska tillämpa plattforms uppdateringar på värd infrastrukturen för de isolerade virtuella datorerna och Azure-dedikerade värdar. Det här avsnittet beskriver Azure CLI-alternativen för underhålls kontroll. Mer information om fördelarna med att använda underhålls kontroll, dess begränsningar och andra hanterings alternativ finns i [Hantera plattforms uppdateringar med underhålls kontroll](maintenance-control.md).
 
 ## <a name="create-a-maintenance-configuration"></a>Skapa en underhållskonfiguration
 
@@ -28,14 +28,14 @@ az group create \
    --name myMaintenanceRG
 az maintenance configuration create \
    -g myMaintenanceRG \
-   --name myConfig \
-   --maintenanceScope host\
+   --resource-name myConfig \
+   --maintenance-scope host\
    --location eastus
 ```
 
 Kopiera konfigurations-ID: t från de utdata som ska användas senare.
 
-Med `--maintenanceScope host` ser du till att underhålls konfigurationen används för att styra uppdateringar av värden.
+Med `--maintenance-scope host` ser du till att underhålls konfigurationen används för att styra uppdateringar av värd infrastrukturen.
 
 Om du försöker skapa en konfiguration med samma namn, men på en annan plats, får du ett fel meddelande. Konfigurations namn måste vara unika för din resurs grupp.
 
@@ -44,6 +44,30 @@ Du kan fråga efter tillgängliga underhålls konfigurationer med `az maintenanc
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Skapa en underhålls konfiguration med schemalagt fönster
+Du kan också deklarera ett schemalagt fönster när Azure ska tillämpa uppdateringarna på dina resurser. I det här exemplet skapas en underhålls konfiguration med namnet config med ett schemalagt fönster på 5 timmar den fjärde måndagen i varje månad. När du har skapat en schemalagd period behöver du inte längre använda uppdateringarna manuellt.
+
+```azurecli-interactive
+az maintenance configuration create \
+   -g myMaintenanceRG \
+   --resource-name myConfig \
+   --maintenance-scope host \
+   --location eastus \
+   --maintenance-window-duration "05:00" \
+   --maintenance-window-recur-every "Month Fourth Monday" \
+   --maintenance-window-start-date-time "2020-12-30 08:00" \
+   --maintenance-window-time-zone "Pacific Standard Time"
+```
+
+> [!IMPORTANT]
+> Underhålls **tiden** måste vara *2 timmar* eller längre. **Upprepning** av underhåll måste anges till minst en gång i 35 dagar.
+
+Upprepning av underhåll kan uttryckas som varje dag, varje vecka eller varje månad. Några exempel är:
+- **dagligt** underhåll-Window-upprepa-var: "dag" **eller** "3Days"
+- **veckovis**-underhåll-Window-upprepa – var: "3Weeks" **eller** "Week lördag, söndag"
+- **månatligt** underhåll-Window-upprepa – var: "månad day23, day24" **eller** "månadens sista söndag" **eller** "månad fjärde måndagen"
+
 
 ## <a name="assign-the-configuration"></a>Tilldela konfigurationen
 
@@ -251,7 +275,7 @@ Används `az maintenance configuration delete` för att ta bort en underhålls k
 az maintenance configuration delete \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myResourceGroup \
-   --name myConfig
+   --resource-name myConfig
 ```
 
 ## <a name="next-steps"></a>Nästa steg

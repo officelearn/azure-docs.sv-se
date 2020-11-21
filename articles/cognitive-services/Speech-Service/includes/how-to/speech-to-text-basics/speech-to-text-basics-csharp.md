@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0619dc11ed16f100332c775a8683ca77cbea92b9
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 3ddd7b1139396a5952d1575ea72b00d5dfa14fab
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94482744"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097956"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
 
@@ -307,7 +307,7 @@ Det finns några sätt att förbättra igenkännings precisionen med talet SDK. 
 > [!IMPORTANT]
 > Funktionen fras lista är bara tillgänglig på engelska.
 
-Om du vill använda en fras lista måste du först skapa ett [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?preserve-view=true&view=azure-dotnet) objekt och sedan lägga till vissa ord och fraser med [`AddPhrase`](//dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase?preserve-view=true&view=azure-dotnet) .
+Om du vill använda en fras lista måste du först skapa ett [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?preserve-view=true&view=azure-dotnet) objekt och sedan lägga till vissa ord och fraser med [`AddPhrase`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase?preserve-view=true&view=azure-dotnet) .
 
 Eventuella ändringar [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?preserve-view=true&view=azure-dotnet) börjar gälla nästa igenkänning eller efter en åter anslutning till tal-tjänsten.
 

@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e2d43290946969643b10d2ecad2f076df208a5d0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea7ea08fc07a895bc038b27701d7038a5f76c26f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88925451"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096486"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Skapa en Azure tal-resurs](../../../../overview.md#try-the-speech-service-for-free)
 > * [Konfigurera utvecklings miljön och skapa ett tomt projekt](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
-> * Skapa en robot som är ansluten till den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Skapa en robot som är ansluten till den [direkta linjens tal kanal](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 > 
   > [!NOTE]
@@ -277,7 +277,7 @@ Vyn Design uppdateras för att Visa programmets användar gränssnitt.
    > Se [listan över regioner som stöds för röst assistenter](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) och se till att dina resurser distribueras i någon av dessa regioner.
 
    > [!NOTE]
-   > Information om hur du konfigurerar din bot finns i dokumentationen till bot Framework för [den direkta rad igenkännings kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Information om hur du konfigurerar din bot finns i dokumentationen till bot Framework för [den direkta rad igenkännings kanalen](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 1. Ersätt strängarna `YourSpeechSubscriptionKey` och `YourServiceRegion` med dina egna värden för din tal prenumeration och [region](~/articles/cognitive-services/speech-service/regions.md).
 
@@ -375,11 +375,11 @@ Nu är du redo att bygga din app och testa din anpassade röst assistent med hj�
 
    ![Exempel på UWP röst assistent program i C# – snabb start](~/articles/cognitive-services/Speech-Service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
-1. Välj **aktivera mikrofon**och när åtkomst behörighets förfrågan öppnas, Välj **Ja**.
+1. Välj **aktivera mikrofon** och när åtkomst behörighets förfrågan öppnas, Välj **Ja**.
 
    ![Åtkomst behörighets förfrågan för mikrofon](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Välj **prata med din robot**och tala om en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till den direkta linjens tal kanal och skrivs till text, som visas i fönstret.
+1. Välj **prata med din robot** och tala om en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till den direkta linjens tal kanal och skrivs till text, som visas i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 

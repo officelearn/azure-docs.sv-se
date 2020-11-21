@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: e415e0979e7f45531093993b0524a1bb556d339b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4eb92e499a1381516ae6bbc33383963155df371f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886762"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097494"
 ---
 <a name="HOLTop"></a>
 
@@ -25,10 +25,10 @@ ms.locfileid: "92886762"
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * Den senaste versionen av [Go](https://golang.org/dl/)
-* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs** .
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Visuellt innehåll-tjänsten. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
-* [Skapa miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
+* [Skapa miljövariabler](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="setting-up"></a>Konfigurera
 
@@ -87,7 +87,7 @@ Härnäst ska du börja lägga till kod för att utföra olika Visuellt innehål
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Visuellt innehåll go SDK.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 | [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | Den här klassen krävs för alla Visuellt innehåll funktioner, till exempel bild analys och text läsning. Du instansierar det med din prenumerations information och använder den för att utföra de flesta avbildnings åtgärder.|
 |[ImageAnalysis](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| Den här typen innehåller resultatet av ett **AnalyzeImage** -funktions anrop. Det finns liknande typer för var och en av de företagsspecifika funktionerna.|
@@ -105,7 +105,7 @@ De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehå
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
 > [!NOTE]
-> Det här steget förutsätter att du har [skapat miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din visuellt innehåll nyckel och slut punkt, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
+> Det här steget förutsätter att du har [skapat miljövariabler](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för din visuellt innehåll nyckel och slut punkt, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
 
 Skapa en `main` funktion och Lägg till följande kod i den för att instansiera en klient med din slut punkt och nyckel.
 
@@ -122,7 +122,7 @@ Spara först en referens till URL: en för den avbildning som du vill analysera.
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_url)]
 
 > [!TIP]
-> Du kan också analysera en lokal avbildning. Se [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) -metoderna, till exempel **DescribeImageInStream** . Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) för scenarier som involverar lokala avbildningar.
+> Du kan också analysera en lokal avbildning. Se [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) -metoderna, till exempel **DescribeImageInStream**. Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) för scenarier som involverar lokala avbildningar.
 
 ### <a name="specify-visual-features"></a>Ange visuella funktioner
 
@@ -211,7 +211,7 @@ Lägg till exempel bild referensen och funktions anropet i din `main` funktion.
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_readinmain)]
 
 > [!TIP]
-> Du kan också Extrahera text från en lokal avbildning. Se [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) -metoderna, till exempel **BatchReadFileInStream** . Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) för scenarier som involverar lokala avbildningar.
+> Du kan också Extrahera text från en lokal avbildning. Se [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) -metoderna, till exempel **BatchReadFileInStream**. Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) för scenarier som involverar lokala avbildningar.
 
 ### <a name="call-the-read-api"></a>Anropa Read API
 

@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: fbfc6bf9c50257c2683522913503bf9b29450d94
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bc27c73fbf9e827ce9a95c8aaaddc82ffb0aec53
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86226425"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95098312"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Skapa en Azure tal-resurs](../../../../overview.md#try-the-speech-service-for-free)
 > * [Konfigurera utvecklings miljön och skapa ett tomt projekt](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
-> * Skapa en robot som är ansluten till den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Skapa en robot som är ansluten till den [direkta linjens tal kanal](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
   > [!NOTE]
@@ -272,4 +272,3 @@ När programmet och dess aktivitet har startats klickar du på knappen för att 
 ## <a name="next-steps"></a>Nästa steg
 
 [!INCLUDE [footer](./footer.md)]
-

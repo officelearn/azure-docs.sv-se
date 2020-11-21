@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: b05e63dc549fdf1fec4485e27086bb32251b41d8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c37637ba1cb5154bbd56f7fd22bbbca62b8c3438
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136236"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096596"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -18,7 +18,7 @@ Innan du börjar:
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../overview.md#try-the-speech-service-for-free)
 > * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md)
-> * Skapa en robot som är ansluten till den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Skapa en robot som är ansluten till den [direkta linjens tal kanal](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 >
   > [!NOTE]
@@ -108,7 +108,7 @@ Ersätt `YOUR_SUBSCRIPTION_KEY` värdena och `YOUR_BOT_REGION` med faktiska vär
    > Se [listan över regioner som stöds för röst assistenter](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) och se till att dina resurser distribueras i någon av dessa regioner.
 
    > [!NOTE]
-   > Information om hur du konfigurerar din bot finns i dokumentationen till bot Framework för [den direkta rad igenkännings kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Information om hur du konfigurerar din bot finns i dokumentationen till bot Framework för [den direkta rad igenkännings kanalen](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="code-explanation"></a>Kod förklaring
 Tal prenumerations nyckeln och regionen krävs för att skapa ett tal konfigurations objekt. Konfigurationsobjektet krävs för att instansiera ett tal igenkännings objekt.

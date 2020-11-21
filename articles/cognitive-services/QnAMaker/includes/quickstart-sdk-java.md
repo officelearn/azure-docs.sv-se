@@ -8,12 +8,12 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
-ms.openlocfilehash: 01b8e32db50b8a1b75bb0d3ebeb6d2f4a3f901a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 59416d2e65f17dadfd9d92969319d1804fa308ac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90982762"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096540"
 ---
 Använd QnA Maker klient bibliotek för Java för att:
 
@@ -77,7 +77,7 @@ För omedelbara åtgärder returnerar en metod vanligt vis resultatet, om det fi
 
 ### <a name="qnamakerruntimeclient-object-model"></a>QnAMakerRuntimeClient-objektmodellen
 
-Körnings QnA Maker klienten är ett [QnAMakerRuntimeClient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/QnAMakerRuntimeClient.java) -objekt.
+Körnings QnA Maker klienten är ett [QnAMakerRuntimeClient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/QnAMakerClient.java) -objekt.
 
 När du har publicerat din kunskaps bas med redigerings klienten använder du körnings klientens [generateAnswer](https://github.com/Azure/azure-sdk-for-java/blob/b455a61f4c6daece13590a0f4136bab3c4f30546/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/Runtimes.java#L36) -Metod för att få ett svar från kunskaps basen.
 
@@ -93,10 +93,10 @@ Instansiera en klient med din redigerings slut punkt och prenumerations nyckel.
 
 En kunskaps bas lagrar fråge-och svars par för [CreateKbDTO](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/models/CreateKbDTO.java) -objektet från tre källor:
 
-* För **redaktionellt innehåll**använder du [QnADTO](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/models/QnADTO.java) -objektet.
+* För **redaktionellt innehåll** använder du [QnADTO](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/models/QnADTO.java) -objektet.
     * Om du vill använda metadata och Uppföljnings anvisningar använder du redigerings kontexten eftersom dessa data läggs till på den enskilda QnA-ihopparningen.
-* För **filer**använder du [FileDTO](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/models/FileDTO.java) -objektet. FileDTO innehåller fil namnet och den offentliga URL: en för att komma åt filen.
-* För **URL: er**använder du en lista med strängar som representerar offentliga tillgängliga URL: er.
+* För **filer** använder du [FileDTO](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/models/FileDTO.java) -objektet. FileDTO innehåller fil namnet och den offentliga URL: en för att komma åt filen.
+* För **URL: er** använder du en lista med strängar som representerar offentliga tillgängliga URL: er.
 
 Anropa metoden [create](https://github.com/Azure/azure-sdk-for-java/blob/b455a61f4c6daece13590a0f4136bab3c4f30546/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/Knowledgebases.java#L173) och skicka sedan `operationId` egenskapen för den returnerade åtgärden till [getDetails](#get-status-of-an-operation) -metoden för att söka efter status.
 

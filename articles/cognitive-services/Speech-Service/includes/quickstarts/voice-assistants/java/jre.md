@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 38e6bae69710dc9e1dbc8789ee9ccb636193c7f7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ee14b94977b3152e0aab853fa3919a739d0dfdd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80671643"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95098269"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Skapa en Azure tal-resurs](../../../../overview.md#try-the-speech-service-for-free)
 > * [Konfigurera utvecklings miljön och skapa ett tomt projekt](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
-> * Skapa en robot som är ansluten till den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Skapa en robot som är ansluten till den [direkta linjens tal kanal](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
   > [!NOTE]
@@ -115,7 +115,7 @@ Om du vill aktivera loggning ska du dessutom uppdatera _pom.xml_ -filen så att 
 
 1. I `main` -metoden konfigurerar du först `DialogServiceConfig` och använder den för att skapa en `DialogServiceConnector` instans. Den här instansen ansluter till den direkta linjens tal kanal för att interagera med din robot. En `AudioConfig` instans används också för att ange källan för ljud inspelning. I det här exemplet används standard mikrofonen med `AudioConfig.fromDefaultMicrophoneInput()` .
 
-   - Ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel, som du kan hämta från [den här webbplatsen](~/articles/cognitive-services/speech-service/get-started.md).
+   - Ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel, som du kan hämta från [den här webbplatsen](../../../../overview.md#try-the-speech-service-for-free).
    - Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/speech-service/regions.md) som är associerad med din prenumeration.
 
    > [!NOTE]

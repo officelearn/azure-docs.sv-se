@@ -8,18 +8,18 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 33efca9ab3c24ebd0a3d1c76924f2c1f4ee89581
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5ece29b7189f31654056ec357f522b59ccb16587
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91534664"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096591"
 ---
 [Referens dokumentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-model-with-rest/Model.java)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
+* [JDK SE](/azure/developer/java/fundamentals/java-jdk-long-term-support) (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) eller din favorit-IDE
 
 ## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
@@ -46,7 +46,7 @@ ms.locfileid: "91534664"
     |--|--|
     |`YOUR-APP-ID`| Ditt LUIS app-ID. |
     |`YOUR-AUTHORING-KEY`|Din redigerings nyckel för 32-tecknen.|
-    |`YOUR-AUTHORING-ENDPOINT`| URL-slutpunkten för redigering. Till exempel `https://replace-with-your-resource-name.api.cognitive.microsoft.com/`. Du anger resurs namnet när du skapade resursen.|
+    |`YOUR-AUTHORING-ENDPOINT`| URL-slutpunkten för redigering. Exempelvis `https://replace-with-your-resource-name.api.cognitive.microsoft.com/`. Du anger resurs namnet när du skapade resursen.|
 
     Tilldelade nycklar och resurser visas i LUIS-portalen i avsnittet hantera på sidan **Azure-resurser** . App-ID: t är tillgängligt i samma hantera-avsnitt på sidan **program inställningar** .
 

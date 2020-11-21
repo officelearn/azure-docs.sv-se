@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 346854d5990ac6861bd4eb93914bb1745b90bfa5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a7fc96127d4449cfe0333ba81532d3c5c4ec19fe
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321607"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097862"
 ---
-[Referens dokumentation](https://docs.microsoft.com/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18)  |  [Paket (maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
+[Referens dokumentation](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18)  |  [Paket (maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -80,7 +80,7 @@ Navigera till den nya **src/main/Java-** mappen och skapa en fil med namnet *Man
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-Lägg till en klass i *Management. java*och Lägg sedan till följande fält och deras värden i den. Fyll i sina värden med hjälp av tjänstens huvud namn som du skapade och annan information om Azure-kontot.
+Lägg till en klass i *Management. java* och Lägg sedan till följande fält och deras värden i den. Fyll i sina värden med hjälp av tjänstens huvud namn som du skapade och annan information om Azure-kontot.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_constants)]
 
@@ -126,7 +126,7 @@ Följande metod tar bort den angivna resursen från den angivna resurs gruppen.
 
 ## <a name="see-also"></a>Se även
 
-* [Dokumentation om Azure Management SDK-referens](https://docs.microsoft.com/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)
-* [Vad är Azure Cognitive Services?](../../Welcome.md)
+* [Dokumentation om Azure Management SDK-referens](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)
+* [Vad är Azure Cognitive Services?](../../what-are-cognitive-services.md)
 * [Autentisera begär anden till Azure Cognitive Services](../../authentication.md)
 * [Skapa en ny resurs med Azure Portal](../../cognitive-services-apis-create-account.md)

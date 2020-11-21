@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: fcfefb2b6cd5c23e9b77d7d27413d1ff6d775bfe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7b691dc408c65b2152c60276dbea826042ecb0d8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321627"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096140"
 ---
-[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices)  |  [Paket (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices)  |  [Exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
+[Referens dokumentation](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices)  |  [Paket (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices)  |  [Exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -118,7 +118,7 @@ node index.js
 
 ## <a name="see-also"></a>Se även
 
-* [Dokumentation om Azure Management SDK-referens](https://docs.microsoft.com/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
-* [Vad är Azure Cognitive Services?](../../Welcome.md)
+* [Dokumentation om Azure Management SDK-referens](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
+* [Vad är Azure Cognitive Services?](../../what-are-cognitive-services.md)
 * [Autentisera begär anden till Azure Cognitive Services](../../authentication.md)
 * [Skapa en ny resurs med Azure Portal](../../cognitive-services-apis-create-account.md)

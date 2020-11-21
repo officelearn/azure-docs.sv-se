@@ -5,18 +5,18 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 5766eb821800568b567350e1360ca4cf5403be6d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3c093539301f3f4e3309094f0b53a1f0e8393150
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136098"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097108"
 ---
-I den här snabb starten lär du dig att använda tal enheter SDK för Linux för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription-service.md) enhet för konversation. För närvarande stöds endast [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) .
+I den här snabb starten lär du dig att använda tal enheter SDK för Linux för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription.md) enhet för konversation. För närvarande stöds endast [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) .
 
 Programmet har skapats med tal-SDK-paketet och Sol förmörkelse Java IDE (v4) på 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 7/8, CentOS 7/8). Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
-Den här guiden kräver ett [Azure Cognitive Services](../get-started.md) -konto med en tjänst resurs för tal. 
+Den här guiden kräver ett [Azure Cognitive Services](../overview.md#try-the-speech-service-for-free) -konto med en tjänst resurs för tal. 
 
 Käll koden för [exempel programmet](https://aka.ms/sdsdk-download-JRE) ingår i tal enheter SDK. Det finns också [på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -28,7 +28,7 @@ För den här snabbstarten krävs:
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * Endast [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) .
-* En Azure-prenumerationsnyckel för tjänsten Speech. [Skaffa en kostnadsfritt](../get-started.md).
+* En Azure-prenumerationsnyckel för tjänsten Speech. [Skaffa en kostnadsfritt](../overview.md#try-the-speech-service-for-free).
 * Ladda ned den senaste versionen av [tal enheter SDK](https://aka.ms/sdsdk-download-JRE) för Java och extrahera zip-filen till din arbets katalog.
    > [!NOTE]
    > Den här snabb starten förutsätter att appen extraheras till/home/wcaltest/JRE-Sample-Release
@@ -62,25 +62,25 @@ Se till att dessa beroenden är installerade innan du startar Sol förmörkelse.
 
 Konversations avskrift är för närvarande endast tillgängligt för "en-US" och "zh-CN" i regionerna "Central" och "asienöstra". Du måste ha en tal nyckel i någon av dessa regioner för att kunna använda konversations avskrifter.
 
-Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Language Understanding service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) . Om du vill veta mer om LUIS och avsikts igenkänning läser du [känna igen tal avsikter med Luis, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). En [exempel modell för Luis](https://aka.ms/sdsdk-luis) är tillgänglig för den här appen.
+Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Language Understanding service)](../../luis/luis-how-to-azure-subscription.md) . Om du vill veta mer om LUIS och avsikts igenkänning läser du [känna igen tal avsikter med Luis, C#](../how-to-recognize-intents-from-speech-csharp.md). En [exempel modell för Luis](https://aka.ms/sdsdk-luis) är tillgänglig för den här appen.
 
 ## <a name="create-and-configure-the-project"></a>Skapa och konfigurera projektet
 
 1. Starta Eclipse.
 
-1. I fältet **arbets yta** i **sol förmörkelses IDE-start** , anger du namnet på en ny arbets ytans katalog. Välj sedan **Starta** .
+1. I fältet **arbets yta** i **sol förmörkelses IDE-start**, anger du namnet på en ny arbets ytans katalog. Välj sedan **Starta**.
 
    ![Skärm bild som visar Start programmet för Sol förmörkelse.](../media/speech-devices-sdk/eclipse-launcher-linux.png)
 
 1. Efter en liten stund visas huvudfönstret i Eclipse IDE. Stäng välkomstskärmen om en sådan visas.
 
-1. Skapa ett nytt projekt från meny raden för Sol förmörkelse genom att välja **Arkiv**  >  **nytt**  >  **Java-projekt** . Om det inte är tillgängligt väljer du **projekt** och sedan **Java-projekt** .
+1. Skapa ett nytt projekt från meny raden för Sol förmörkelse genom att välja **Arkiv**  >  **nytt**  >  **Java-projekt**. Om det inte är tillgängligt väljer du **projekt** och sedan **Java-projekt**.
 
-1. Guiden **nytt Java-projekt** startar. **Bläddra** efter exempel projektets plats. Välj **Slutför** .
+1. Guiden **nytt Java-projekt** startar. **Bläddra** efter exempel projektets plats. Välj **Slutför**.
 
    ![Skärmbild av guiden Nytt Java-projekt](../media/speech-devices-sdk/eclipse-new-java-project-linux.png)
 
-1. Högerklicka på ditt projekt i **Package Explorer** . Välj **Konfigurera**  >  **konvertera till Maven-projekt** från snabb menyn. Välj **Slutför** .
+1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Konfigurera**  >  **konvertera till Maven-projekt** från snabb menyn. Välj **Slutför**.
 
    ![Skärmbild av Paketutforskaren](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
@@ -105,15 +105,15 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
     </dependencies>
    ```
 
-1. Högerklicka på ditt projekt i **Package Explorer** . Välj **Egenskaper** och sedan **Kör/Felsök inställningar**  >  **ny...** > **Java-program** . 
+1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Egenskaper** och sedan **Kör/Felsök inställningar**  >  **ny...** > **Java-program**. 
 
-1. Fönstret **Redigera konfiguration** visas. I fältet **namn** anger du **main** och använder **Sök** efter **huvud klassen** för att hitta och välja **com. Microsoft. cognitiveservices. Speech. Samples. FunctionsList** .
+1. Fönstret **Redigera konfiguration** visas. I fältet **namn** anger du **main** och använder **Sök** efter **huvud klassen** för att hitta och välja **com. Microsoft. cognitiveservices. Speech. Samples. FunctionsList**.
 
    ![Skärm bild av redigera start konfiguration](../media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
 
 1. Kopiera ljud binärfilerna för mål arkitekturen från **Linux-arm** eller **linux-x64** till Java-projektets plats, t. ex. **/Home/wcaltest/JRE-Sample-release**
 
-1. I fönstret **Redigera konfiguration** väljer du också sidan **miljö** och **ny** . Fönstret **ny miljö variabel** visas. I fältet **namn** anger du **LD_LIBRARY_PATH** och i fältet **värde** anger du mappen som innehåller *. so-filer, till exempel **/Home/wcaltest/JRE-Sample-release**
+1. I fönstret **Redigera konfiguration** väljer du också sidan **miljö** och **ny**. Fönstret **ny miljö variabel** visas. I fältet **namn** anger du **LD_LIBRARY_PATH** och i fältet **värde** anger du mappen som innehåller *. so-filer, till exempel **/Home/wcaltest/JRE-Sample-release**
 
 1. Kopiera `kws.table` och `participants.properties` till Project-mappens **mål/klasser**
 
@@ -143,7 +143,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 1. Standard nyckelordet (Keyword) är "Computer". Du kan också prova något av de andra angivna nyckelorden, t. ex. "Machine" eller "Assistant". Resursfiler för dessa alternativa nyckelord finns i avsnittet om tal enheter SDK i mappen nyckelord. Innehåller till exempel `/home/wcaltest/JRE-Sample-Release/keyword/Computer` de filer som används för nyckelordet "dator".
 
    > [!TIP]
-   > Du kan också [skapa ett anpassat nyckelord](../speech-devices-sdk-create-kws.md).
+   > Du kan också [skapa ett anpassat nyckelord](../custom-keyword-basics.md).
 
     Om du vill använda ett nytt nyckelord uppdaterar du följande rad i `FunctionsList.java` och kopierar nyckelordet till din app. Om du till exempel vill använda nyckelordet "dator" från nyckelords paketet `machine.zip` :
 
@@ -163,18 +163,18 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
    ![Skärm bild som visar ett exempel på ett exempel på ett tal för exempel program och alternativ.](../media/speech-devices-sdk/java-sample-app-linux.png)
 
-1. Prova den nya demonstrationen av **konversations avskrift** . Börja skriva med **session**  >  **Start** . Som standard är alla gäst. Men om du har deltagares röst under skrifter kan de placeras `participants.properties` i i projektmappen i Project **-** mappen. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Prova den nya demonstrationen av **konversations avskrift** . Börja skriva med **session**  >  **Start**. Som standard är alla gäst. Men om du har deltagares röst under skrifter kan de placeras `participants.properties` i i projektmappen i Project **-** mappen. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](../how-to-use-conversation-transcription.md).
 
    ![Skärm bild som visar ett program för demo konversations avskrifter.](../media/speech-devices-sdk/cts-sample-app-linux.png)
 
 ## <a name="create-and-run-standalone-the-application"></a>Skapa och kör fristående program
 
-1. Högerklicka på ditt projekt i **Package Explorer** . Välj **Exportera** . 
-1. **Export** fönstret visas. Expandera **Java** och välj **körbara jar-fil** och välj sedan **Nästa** .
+1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Exportera**. 
+1. **Export** fönstret visas. Expandera **Java** och välj **körbara jar-fil** och välj sedan **Nästa**.
 
    ![Skärm bild som visar export fönstret.](../media/speech-devices-sdk/eclipse-export-linux.png) 
 
-1. **KÖRBARA jar File export** -fönstret visas. Välj ett **export mål** för programmet och välj sedan **Slutför** .
+1. **KÖRBARA jar File export** -fönstret visas. Välj ett **export mål** för programmet och välj sedan **Slutför**.
  
    ![Skärm bild som visar körbara JAR File export-fönstret.](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
 

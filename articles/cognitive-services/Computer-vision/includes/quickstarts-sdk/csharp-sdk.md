@@ -10,22 +10,22 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d48d0cbac4e0e8b366170d979be3bbc5dd3064ca
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f4f922ccf4cd33c5e72c3ebd9182eb9868008d0f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886763"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096788"
 ---
 <a name="HOLTop"></a>
 
-[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/)  |  [Exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Referens dokumentation](/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/)  |  [Exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) eller aktuell version av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
-* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs** .
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Visuellt innehåll-tjänsten. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 
@@ -39,11 +39,11 @@ Skapa ett nytt .NET Core-program med Visual Studio.
 
 ### <a name="install-the-client-library"></a>Installera klient biblioteket 
 
-När du har skapat ett nytt projekt installerar du klient biblioteket genom att högerklicka på projekt lösningen i **Solution Explorer** och välja **Hantera NuGet-paket** . I paket hanteraren som öppnas väljer du **Bläddra** , markerar **ta med för hands version** och söker efter `Microsoft.Azure.CognitiveServices.Vision.ComputerVision` . Välj version `6.0.0-preview.1` och **Installera** sedan. 
+När du har skapat ett nytt projekt installerar du klient biblioteket genom att högerklicka på projekt lösningen i **Solution Explorer** och välja **Hantera NuGet-paket**. I paket hanteraren som öppnas väljer du **Bläddra**, markerar **ta med för hands version** och söker efter `Microsoft.Azure.CognitiveServices.Vision.ComputerVision` . Välj version `6.0.0-preview.1` och **Installera** sedan. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
-I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet `computer-vision-quickstart` . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *ComputerVisionQuickstart.cs* .
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet `computer-vision-quickstart` . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *ComputerVisionQuickstart.cs*.
 
 ```console
 dotnet new console -n (product-name)-quickstart
@@ -87,9 +87,9 @@ I programmets **program** klass skapar du variabler för resursens Azure-slutpun
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_vars)]
 
 > [!IMPORTANT]
-> Gå till Azure-portalen. Om Visuellt innehåll resursen som du skapade i avsnittet **krav** har distribuerats, klickar du på knappen **gå till resurs** under **Nästa steg** . Du hittar din nyckel och slut punkt i resursens **nyckel och slut punkts** sida under **resurs hantering** . 
+> Gå till Azure-portalen. Om Visuellt innehåll resursen som du skapade i avsnittet **krav** har distribuerats, klickar du på knappen **gå till resurs** under **Nästa steg**. Du hittar din nyckel och slut punkt i resursens **nyckel och slut punkts** sida under **resurs hantering**. 
 >
-> Kom ihåg att ta bort nyckeln från koden när du är klar och publicera den aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Mer information finns i [säkerhets](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) artikeln Cognitive Services.
+> Kom ihåg att ta bort nyckeln från koden när du är klar och publicera den aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Mer information finns i [säkerhets](../../../cognitive-services-security.md) artikeln Cognitive Services.
 
 I programmets `Main` metod lägger du till anrop för de metoder som används i den här snabb starten. Du kommer att skapa dessa senare.
 
@@ -104,11 +104,11 @@ I programmets `Main` metod lägger du till anrop för de metoder som används i 
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Visuellt innehåll .NET SDK.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
-| [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) | Den här klassen krävs för alla Visuellt innehåll-funktioner. Du instansierar det med din prenumerations information och använder den för att utföra de flesta avbildnings åtgärder.|
-|[ComputerVisionClientExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions?view=azure-dotnet)| Den här klassen innehåller ytterligare metoder för **ComputerVisionClient** .|
-|[VisualFeatureTypes](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-dotnet)| Den här uppräkningen definierar de olika typerna av bild analys som kan göras i en standard analys åtgärd. Du anger en uppsättning VisualFeatureTypes-värden beroende på dina behov. |
+| [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) | Den här klassen krävs för alla Visuellt innehåll-funktioner. Du instansierar det med din prenumerations information och använder den för att utföra de flesta avbildnings åtgärder.|
+|[ComputerVisionClientExtensions](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions?view=azure-dotnet)| Den här klassen innehåller ytterligare metoder för **ComputerVisionClient**.|
+|[VisualFeatureTypes](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-dotnet)| Den här uppräkningen definierar de olika typerna av bild analys som kan göras i en standard analys åtgärd. Du anger en uppsättning VisualFeatureTypes-värden beroende på dina behov. |
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -121,9 +121,9 @@ De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehå
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
 > [!NOTE]
-> Den här snabb starten förutsätter att du har [skapat miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din visuellt innehåll nyckel och slut punkt, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
+> Den här snabb starten förutsätter att du har [skapat miljövariabler](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för din visuellt innehåll nyckel och slut punkt, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
 
-I en ny metod instansierar du en klient med din slut punkt och nyckel. Skapa ett **[ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials?view=azure-dotnet)** -objekt med din nyckel och Använd den med slut punkten för att skapa ett **[ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet)** -objekt.
+I en ny metod instansierar du en klient med din slut punkt och nyckel. Skapa ett **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials?view=azure-dotnet)** -objekt med din nyckel och Använd den med slut punkten för att skapa ett **[ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet)** -objekt.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
@@ -134,7 +134,7 @@ I en ny metod instansierar du en klient med din slut punkt och nyckel. Skapa ett
 Följande kod definierar en metod, `AnalyzeImageUrl` som använder klient objekt för att analysera en fjärravbildning och skriva ut resultaten. Metoden returnerar en text beskrivning, kategorisering, lista med taggar, identifierade ansikten, olämpliga innehålls flaggor, huvud färger och bildtyp.
 
 > [!TIP]
-> Du kan också analysera en lokal avbildning. Se [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) -metoderna, till exempel **AnalyzeImageInStreamAsync** . Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) för scenarier som involverar lokala avbildningar.
+> Du kan också analysera en lokal avbildning. Se [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) -metoderna, till exempel **AnalyzeImageInStreamAsync**. Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) för scenarier som involverar lokala avbildningar.
 
 ### <a name="set-up-test-image"></a>Konfigurera test avbildning
 
@@ -144,7 +144,7 @@ I **program** -klassen sparar du en referens till URL: en för den avbildning so
 
 ### <a name="specify-visual-features"></a>Ange visuella funktioner
 
-Definiera den nya metoden för bild analys. Lägg till koden nedan, som anger visuella funktioner som du vill extrahera i analysen. Se **[VisualFeatureTypes](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-dotnet)** -uppräkningen för en fullständig lista.
+Definiera den nya metoden för bild analys. Lägg till koden nedan, som anger visuella funktioner som du vill extrahera i analysen. Se **[VisualFeatureTypes](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-dotnet)** -uppräkningen för en fullständig lista.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_visualfeatures)]
 
@@ -233,7 +233,7 @@ Följande kod skriver ut information om typen av bild &mdash; oavsett om den är
 Visuellt innehåll kan läsa synlig text i en bild och konvertera den till en tecken ström. Mer information om text igenkänning finns i konceptuellt dokument för [OCR (optisk tecken läsning)](../../concept-recognizing-text.md#read-api) . Koden i det här avsnittet använder den senaste [visuellt innehåll SDK-versionen för Read 3,0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1) och definierar en metod, `BatchReadFileUrl` som använder klient objekt för att identifiera och extrahera text i avbildningen.
 
 > [!TIP]
-> Du kan också Extrahera text från en lokal avbildning. Se [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) -metoderna, till exempel **ReadInStreamAsync** . Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) för scenarier som involverar lokala avbildningar.
+> Du kan också Extrahera text från en lokal avbildning. Se [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) -metoderna, till exempel **ReadInStreamAsync**. Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) för scenarier som involverar lokala avbildningar.
 
 ### <a name="set-up-test-image"></a>Konfigurera test avbildning
 
@@ -285,7 +285,7 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
->[API för visuellt innehåll referens (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
+>[API för visuellt innehåll referens (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
 
 * [Vad är visuellt innehåll?](../../overview.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

@@ -5,16 +5,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 5e83650bc9861f982c4905e26fbb674abbd4de97
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c341ba20ece26e15255faf086e5bd2904fbaa797
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136242"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097859"
 ---
-I den här snabb starten lär du dig att använda tal enheter SDK för Android för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription-service.md) enhet för konversation.
+I den här snabb starten lär du dig att använda tal enheter SDK för Android för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription.md) enhet för konversation.
 
-Den här guiden kräver ett [Azure Cognitive Services](../get-started.md) -konto med en tjänst resurs för tal.
+Den här guiden kräver ett [Azure Cognitive Services](../overview.md#try-the-speech-service-for-free) -konto med en tjänst resurs för tal.
 
 Käll koden för exempel programmet ingår i tal enheter SDK. Det finns också [på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -24,18 +24,18 @@ Innan du börjar använda tal enheter SDK måste du:
 
 - Följ instruktionerna som medföljer ditt [utvecklings paket](../get-speech-devices-sdk.md) för att starta enheten.
 
-- Hämta den senaste versionen av [tal enheter SDK](https://aka.ms/sdsdk-download)och extrahera zip-filen till din arbets katalog.
+- Hämta den senaste versionen av [tal enheter SDK](../speech-devices-sdk.md)och extrahera zip-filen till din arbets katalog.
 
   > [!NOTE]
   > Den här snabb starten förutsätter att appen extraheras till C:\SDSDK\Android-Sample-Release
 
-- Så här hämtar du en [Azure-prenumerations nyckel för tal tjänsten](../get-started.md)
+- Så här hämtar du en [Azure-prenumerations nyckel för tal tjänsten](../overview.md#try-the-speech-service-for-free)
 
 - Om du planerar att använda svars avskriften måste du använda en [cirkulär mikrofon enhet](../get-speech-devices-sdk.md) och den här funktionen är för närvarande endast tillgänglig för "en-US" och "zh-cn" i regionerna, "Central" och "asienöstra". Du måste ha en tal nyckel i någon av dessa regioner för att kunna använda konversations avskrifter.
 
-- Om du planerar att använda tal tjänsten för att identifiera avsikter (eller åtgärder) från användarens yttranden behöver du en [Luis-prenumeration (Language Understanding service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) . Om du vill veta mer om LUIS och avsikts igenkänning läser du [känna igen tal avsikter med Luis, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
+- Om du planerar att använda tal tjänsten för att identifiera avsikter (eller åtgärder) från användarens yttranden behöver du en [Luis-prenumeration (Language Understanding service)](../../luis/luis-how-to-azure-subscription.md) . Om du vill veta mer om LUIS och avsikts igenkänning läser du [känna igen tal avsikter med Luis, C#](../how-to-recognize-intents-from-speech-csharp.md).
 
-  Du kan [skapa en enkel Luis-modell](https://docs.microsoft.com/azure/cognitive-services/luis/) eller använda exempel Luis-modellen LUIS-example.jspå. Exempel modellen för LUIS finns på [hämtnings platsen för tal enheter SDK](https://aka.ms/sdsdk-luis). Om du vill överföra modellens JSON-fil till [Luis-portalen](https://www.luis.ai/home)väljer du **Importera ny app** och väljer sedan JSON-filen.
+  Du kan [skapa en enkel Luis-modell](../../luis/index.yml) eller använda exempel Luis-modellen LUIS-example.jspå. Exempel modellen för LUIS finns på [hämtnings platsen för tal enheter SDK](https://aka.ms/sdsdk-luis). Om du vill överföra modellens JSON-fil till [Luis-portalen](https://www.luis.ai/home)väljer du **Importera ny app** och väljer sedan JSON-filen.
 
 - Installera [Android Studio](https://developer.android.com/studio/) och [VYSOR](https://vysor.io/download/) på din dator.
 
@@ -45,9 +45,9 @@ Innan du börjar använda tal enheter SDK måste du:
 
    ![Vysor](../media/speech-devices-sdk/qsg-3.png)
 
-1. Enheten ska visas under **Välj en enhet** . Välj knappen **Visa** bredvid enheten.
+1. Enheten ska visas under **Välj en enhet**. Välj knappen **Visa** bredvid enheten.
 
-1. Anslut till ditt trådlösa nätverk genom att välja mappikonen och välj sedan **Inställningar**  >  **WLAN** .
+1. Anslut till ditt trådlösa nätverk genom att välja mappikonen och välj sedan **Inställningar**  >  **WLAN**.
 
    ![Vysor WLAN](../media/speech-devices-sdk/qsg-4.png)
 
@@ -58,7 +58,7 @@ Innan du börjar använda tal enheter SDK måste du:
    >
    > ![Filmapp för Vysor](../media/speech-devices-sdk/qsg-10.png)
    >
-   > Välj **Inställningar** . Sök efter "Mac-adress" och välj sedan **MAC-adress**  >  **Advanced WLAN** . Skriv ned MAC-adressen som visas längst ned i dialog rutan.
+   > Välj **Inställningar**. Sök efter "Mac-adress" och välj sedan **MAC-adress**  >  **Advanced WLAN**. Skriv ned MAC-adressen som visas längst ned i dialog rutan.
    >
    > ![Vysor MAC-adress](../media/speech-devices-sdk/qsg-11.png)
    >
@@ -70,7 +70,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
 
 1. Starta Android Studio.
 
-1. Välja **Öppna ett befintligt Android Studio-projekt** .
+1. Välja **Öppna ett befintligt Android Studio-projekt**.
 
    ![Android Studio – öppna ett befintligt projekt](../media/speech-devices-sdk/qsg-5.png)
 
@@ -78,7 +78,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
 
 1. Konfigurera gradle för att referera till tal-SDK: n. Följande filer finns under **Gradle-skript** i Android Studio.
 
-    Uppdatera **build. gradle (projekt: exempel)** , allprojects-blocket måste matcha nedan, genom att lägga till maven-raderna.
+    Uppdatera **build. gradle (projekt: exempel)**, allprojects-blocket måste matcha nedan, genom att lägga till maven-raderna.
 
     ```xml
     allprojects {
@@ -122,7 +122,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
 1. Standard nyckelordet är "Computer". Du kan också prova något av de andra angivna nyckelorden, t. ex. "Machine" eller "Assistant". Resursfiler för dessa alternativa nyckelord finns i avsnittet om tal enheter SDK i mappen nyckelord. Till exempel innehåller C:\SDSDK\Android-Sample-Release\keyword\Computer de filer som används för nyckelordet "dator".
 
    > [!TIP]
-   > Du kan också [skapa ett anpassat nyckelord](../speech-devices-sdk-create-kws.md).
+   > Du kan också [skapa ett anpassat nyckelord](../custom-keyword-basics.md).
 
    Om du vill använda ett nytt nyckelord uppdaterar du följande två rader i `MainActivity.java` och kopierar nyckelords paketet till din app. Om du till exempel vill använda nyckelordet "dator" från nyckelords paketet kws-machine.zip:
 
@@ -162,7 +162,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
 
    ![Exempel program och alternativ för exempel på tal enheter SDK](../media/speech-devices-sdk/qsg-8.png)
 
-1. Prova den nya demonstrationen av konversations avskrift. Börja skriva med "Starta session". Som standard är alla gäst. Men om du har deltagares röst-signaturer kan de placeras i en fil `/video/participants.properties` på enheten. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Prova den nya demonstrationen av konversations avskrift. Börja skriva med "Starta session". Som standard är alla gäst. Men om du har deltagares röst-signaturer kan de placeras i en fil `/video/participants.properties` på enheten. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](../how-to-use-conversation-transcription.md).
 
    ![Avskrifts program för demo konversation](../media/speech-devices-sdk/qsg-15.png)
 

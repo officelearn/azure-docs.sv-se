@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023031"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021804"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Fel söknings fel vid körning av ett anpassat kommando program
 
@@ -86,13 +86,13 @@ Language Understanding (LUIS) har gränser för resursanvändning. Vanligen kan 
 
     Lägg till en förutsägelse resurs till dina anpassade kommandon-program: 
     1. Gå till **Inställningar**, Luis-resurs
-    1. Välj en förutsägelse resurs från **förutsägelse resurs**eller klicka på **Skapa ny resurs** 
+    1. Välj en förutsägelse resurs från **förutsägelse resurs** eller klicka på **Skapa ny resurs** 
 
 - Din LUIS förutsägelse resurs överskrider gränsen
 
     Om du använder en F0 förutsägelse resurs har den gränsen 10 000 per månad, 5 frågor/sekund.
 
-Mer information om LUIS resurs gränser finns Language Understanding resursanvändning [och gräns](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits#resource-usage-and-limits)
+Mer information om LUIS resurs gränser finns Language Understanding resursanvändning [och gräns](../luis/luis-limits.md#resource-usage-and-limits)
 
 ### <a name="connection-to-the-recognizer-failed"></a>Det gick inte att ansluta till tolken
 Det innebär vanligt vis att det tillfälliga anslutnings försöket till Language Understanding (LUIS) identifieras. Försök igen och problemet bör lösas.
@@ -123,7 +123,7 @@ Oväntade svar kan bero på flera saker. Några kontroller att börja med:
 
     LUISs igenkännings precisionen kan påverkas när två kommandon delar liknande intentor och exempel meningar. Du kan prova att göra kommandon och exempel meningar så distinkta som möjligt.
 
-    Bästa praxis för att förbättra igenkännings precisionen finns i [bästa praxis för Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+    Bästa praxis för att förbättra igenkännings precisionen finns i [bästa praxis för Luis](../luis/luis-concept-best-practices.md).
 
 - Dialog rutan har avbrutits
     

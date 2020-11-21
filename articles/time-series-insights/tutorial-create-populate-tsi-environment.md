@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: d504cbe9c2ac9046a34187d4a5576385b1f73bbe
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 982ca04237d16979d65260a040f5aed783822ac7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518117"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023232"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Självstudie: skapa en Azure Time Series Insights gen1-miljö
 
@@ -101,7 +101,7 @@ Skapa sedan en Azure Time Series Insights-miljö i din Azure-prenumeration.
 
    Parameter|Beskrivning
    ---|---
-   **Miljönamn** | Välj ett unikt namn för Azure Time Series Insightss miljön. Namnen används av Azure Time Series Insights Explorer och API: er för [frågor](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+   **Miljönamn** | Välj ett unikt namn för Azure Time Series Insightss miljön. Namnen används av Azure Time Series Insights Explorer och API: er för [frågor](/rest/api/time-series-insights/gen1-query).
    **Prenumeration** | Prenumerationer är containrar för Azure-resurser. Välj en prenumeration för att skapa Azure Time Series Insightss miljön.
    **Resursgrupp** | En resursgrupp är en container för Azure-resurser. Välj en befintlig resurs grupp eller skapa en ny för resursen Azure Time Series Insightss miljö.
    **Plats** | Välj en data Center region för din Azure Time Series Insightss miljö. Om du vill undvika ytterligare svars tid skapar du Azure Time Series Insightss miljön i samma region som andra IoT-resurser.
@@ -184,9 +184,9 @@ Den här självstudien skapar flera Azure-tjänster som körs för att stödja A
 
 Från menyn till vänster i Azure Portal:
 
-1. Välj **resurs grupps** ikonen. Välj sedan den resurs grupp som du skapade för Azure Time Series Insightss miljön. Välj **ta bort resurs grupp**längst upp på sidan, ange namnet på resurs gruppen och välj **ta bort**.
+1. Välj **resurs grupps** ikonen. Välj sedan den resurs grupp som du skapade för Azure Time Series Insightss miljön. Välj **ta bort resurs grupp** längst upp på sidan, ange namnet på resurs gruppen och välj **ta bort**.
 
-1. Välj **resurs grupps** ikonen. Välj sedan den resurs grupp som skapades av enhets simulerings lösnings Accelerator. Välj **ta bort resurs grupp**längst upp på sidan, ange namnet på resurs gruppen och välj **ta bort**.
+1. Välj **resurs grupps** ikonen. Välj sedan den resurs grupp som skapades av enhets simulerings lösnings Accelerator. Välj **ta bort resurs grupp** längst upp på sidan, ange namnet på resurs gruppen och välj **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,23 +14,23 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d632d078db55696dad7bb05e72368b13610b5978
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b016987162cc8202b7ad28d4dd8e5ab2953469d1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091427"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024253"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Aktivera transparent datakryptering (TDE) för Stretch Database på Azure
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-server-stretch-database-encryption-tde.md)
+> * [Azure-portalen](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
 >
 >
 
 Transparent datakryptering (TDE) skyddar mot hot mot skadlig aktivitet genom att utföra kryptering och dekryptering i real tid av databasen, tillhör ande säkerhets kopior och transaktionsloggfiler i vila utan att det krävs några ändringar i programmet.
 
-Transparent datakryptering (TDE) krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel kallad databaskrypteringsnyckeln. Databas krypterings nyckeln skyddas av ett inbyggt Server certifikat. Det inbyggda Server certifikatet är unikt för varje Azure-Server. Microsoft roterar dessa certifikat automatiskt minst var 90: e dag. En allmän beskrivning av TDE finns [Transparent datakryptering (TDE)].
+TDE krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel kallad databaskrypteringsnyckeln. Databas krypterings nyckeln skyddas av ett inbyggt Server certifikat. Det inbyggda Server certifikatet är unikt för varje Azure-Server. Microsoft roterar dessa certifikat automatiskt minst var 90: e dag. En allmän beskrivning av TDE finns [Transparent datakryptering (TDE)].
 
 ## <a name="enabling-encryption"></a>Aktivera kryptering
 Gör så här om du vill aktivera TDE för en Azure-databas som lagrar data som migrerats från en utsträckt SQL Server databas:
@@ -50,7 +50,7 @@ Om du vill inaktivera TDE för en Azure-databas som lagrar data som migrerats fr
 4. Välj **off** -inställningen och välj sedan **Spara**
 
 <!--Anchors-->
-[Transparent datakryptering (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Transparent datakryptering (TDE)]: /sql/relational-databases/security/encryption/transparent-data-encryption
 
 
 <!--Image references-->

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f89dd6b7926baf6c1c64cff81e8b613461a3e925
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b9ed43019e7af0cb810c3e0fc849281a458a43e1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345507"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023641"
 ---
 # <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
 
@@ -46,7 +46,7 @@ Precis som med alla funktioner i tal tjänsten skapar du en prenumerations nycke
 >[!NOTE]
 > En standard prenumeration (S0) för tal tjänst krävs för att använda batch-avskriftering. Kostnads fria prenumerations nycklar (F0) fungerar inte. Mer information finns i [priser och begränsningar](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Om du planerar att anpassa modeller följer du stegen i [akustisk anpassning](how-to-customize-acoustic-models.md) och [språk anpassning](how-to-customize-language-model.md). Om du vill använda de skapade modellerna i batch-avskriftering behöver du deras modell plats. Du kan hämta modell platsen när du har granskat informationen om modellen ( `self` egenskap). Det *behövs ingen* distribuerad anpassad slut punkt för batch-avskrifts tjänsten.
+Om du planerar att anpassa modeller följer du stegen i [akustisk anpassning](./how-to-custom-speech-train-model.md) och [språk anpassning](./how-to-custom-speech-train-model.md). Om du vill använda de skapade modellerna i batch-avskriftering behöver du deras modell plats. Du kan hämta modell platsen när du har granskat informationen om modellen ( `self` egenskap). Det *behövs ingen* distribuerad anpassad slut punkt för batch-avskrifts tjänsten.
 
 >[!NOTE]
 > Som en del av REST API har batch-avskriften en uppsättning [kvoter och begränsningar](speech-services-quotas-and-limits.md#batch-transcription)som vi uppmuntrar att granska. För att dra full nytta av batch-avskrifts möjligheten att effektivt skriva över ett stort antal ljudfiler rekommenderar vi att du alltid skickar flera filer per begäran eller pekar på en Blob Storage behållare med ljudfilerna som ska skrivas över. Tjänsten kommer att skriva över filerna samtidigt som den minskar tiden för leverans. Att använda flera filer i en enskild begäran är mycket enkelt och enkelt att se [konfigurations](#configuration) avsnittet. 
@@ -182,7 +182,7 @@ Använd dessa valfria egenskaper för att konfigurera avskrifter:
 
 ### <a name="storage"></a>Storage
 
-Batch-avskrifter kan läsa ljud från en offentlig och synlig Internet-URI och kan läsa ljud-eller Skriv avskrifter med en SAS-URI med [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+Batch-avskrifter kan läsa ljud från en offentlig och synlig Internet-URI och kan läsa ljud-eller Skriv avskrifter med en SAS-URI med [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md).
 
 ## <a name="batch-transcription-result"></a>Resultat av batch-avskrift
 

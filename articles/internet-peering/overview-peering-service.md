@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: overview
 ms.date: 5/22/2020
 ms.author: derekol
-ms.openlocfilehash: 3ffef24d459a2864ffd3f2271e6bca9e4bc638cc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 717a8c87c6a1c22d3f75cd4e3054bfdf0c4b5f9a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83849390"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023453"
 ---
 # <a name="internet-peering-vs-peering-service"></a>Internet-peering jämfört med Peering Service
 
@@ -48,10 +48,10 @@ I bilden ovan ansluter varje avdelnings kontor i ett globalt företag till den n
 * Partnern upprätthåller hög tillgänglighet, högt data flöde och Geo-redundant anslutning med Microsofts globala nätverk.
 * Partner kan använda sin befintliga peering för att stödja peering-tjänsten om den uppfyller kravet.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 Vanliga frågor och svar om vanliga frågor finns i [peering service – Vanliga frågor och svar](service-faqs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om kund förmåner med [peering-tjänsten](https://docs.microsoft.com/azure/peering-service/).
+* Lär dig mer om kund förmåner med [peering-tjänsten](../peering-service/index.yml).
 * Lär dig mer om steg för att aktivera en direkt peering för peering-tjänsten för peering [service partner genom gång](walkthrough-peering-service-all.md).

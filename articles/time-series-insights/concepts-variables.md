@@ -6,18 +6,18 @@ ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: dc03a74bfad5b1417eb9cc20b5f211718cc08646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1c394bb1a568d59e0821b61e7acfcf8f25290f7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653714"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020767"
 ---
 # <a name="time-series-model-variables"></a>Variabler för tids serie modell
 
 I den här artikeln beskrivs tids serie modellens variabler som anger formel-och beräknings regler för händelser.
 
-Varje variabel kan vara en av tre typer: *numeric*, *kategoriska*och *aggregation*.
+Varje variabel kan vara en av tre typer: *numeric*, *kategoriska* och *aggregation*.
 
 * **Numeriska** typer fungerar med kontinuerliga numeriska värden.
 * **Kategoriska** -typer fungerar med en definierad uppsättning diskreta värden.
@@ -29,12 +29,12 @@ I följande tabell visas vilka egenskaper som är relevanta för varje variabel 
 
 ## <a name="numeric-variables"></a>Numeriska variabler
 
-| Variabel egenskap | Beskrivning |
+| Variabel egenskap | Description |
 | --- | ---|
 | Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
 | Variabel värde | Telemetri värden som används för beräkning som kommer från enheten eller sensorer eller omvandlas med hjälp av Time Series-uttryck. Variabler av typen numerisk typ måste vara av typen *Double*.|
 | Variabel interpolation | Interpolation anger hur du återskapar en signal med hjälp av befintliga data. Alternativen för *steg* och *linjär* interpolation är tillgängliga för numeriska variabler. |
-| Variabel agg regering | Utför beräkningar genom de [agg regerings funktioner som stöds för numeriska variabel typer](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
+| Variabel agg regering | Utför beräkningar genom de [agg regerings funktioner som stöds för numeriska variabel typer](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
 Variabler följer följande JSON-exempel:
 
@@ -59,7 +59,7 @@ Variabler följer följande JSON-exempel:
 
 ## <a name="categorical-variables"></a>Kategoriska-variabler
 
-| Variabel egenskap | Beskrivning |
+| Variabel egenskap | Description |
 | --- | ---|
 | Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
 | Variabel värde | Telemetridata som används för beräkning som kommer från enheten eller sensorer. Kategoriska-variabler måste vara antingen *långa* eller *strängar*. |
@@ -99,10 +99,10 @@ Variabler följer följande JSON-exempel:
 
 ## <a name="aggregate-variables"></a>Aggregera variabler
 
-| Variabel egenskap | Beskrivning |
+| Variabel egenskap | Description |
 | --- | ---|
 | Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
-| Variabel agg regering | Utför beräkningar genom de [agg regerings funktioner som stöds för mängd varierande typer](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
+| Variabel agg regering | Utför beräkningar genom de [agg regerings funktioner som stöds för mängd varierande typer](/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
 
 Variabler följer följande JSON-exempel:
 

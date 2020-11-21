@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c0b399f84e793d9e762c89dbbd1901bb5a95f26
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397767"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024338"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga frågor och svar om tal till text
 
-Om du inte kan hitta svar på dina frågor i dessa vanliga frågor och svar kan du titta närmare på [andra support alternativ](support.md).
+Om du inte kan hitta svar på dina frågor i dessa vanliga frågor och svar kan du titta närmare på [andra support alternativ](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
 
 ## <a name="general"></a>Allmänt
 
@@ -29,7 +29,7 @@ Om du inte kan hitta svar på dina frågor i dessa vanliga frågor och svar kan 
 
 **F: Hur börjar jag om jag vill använda en bas linje modell?**
 
-**A**: börja med att hämta en [prenumerations nyckel](overview.md#try-the-speech-service-for-free). Om du vill göra REST-anrop till de fördistribuerade bas linje modellerna kan du läsa mer i [REST-API: erna](rest-apis.md). Om du vill använda WebSockets laddar du [ned SDK: n](speech-sdk.md).
+**A**: börja med att hämta en [prenumerations nyckel](overview.md#try-the-speech-service-for-free). Om du vill göra REST-anrop till de fördistribuerade bas linje modellerna kan du läsa mer i [REST-API: erna](./overview.md#reference-docs). Om du vill använda WebSockets laddar du [ned SDK: n](speech-sdk.md).
 
 **F: behöver jag alltid skapa en anpassad tal modell?**
 
@@ -43,7 +43,7 @@ Du kan distribuera bas linje och anpassade modeller i portalen och sedan köra t
 
 **F: kan jag skapa fler än en modell?**
 
-S **: det**finns ingen gräns för antalet modeller som du kan ha i din samling.
+S **: det** finns ingen gräns för antalet modeller som du kan ha i din samling.
 
 **F: Jag har gjort ett misstag. Hur gör jag för att vill du avbryta data import eller skapande av modell som pågår?**
 
@@ -110,7 +110,7 @@ Se [kvoter och begränsningar för tal tjänster](speech-services-quotas-and-lim
 
 **F: vilka data ska jag samla in?**
 
-S **: samla**in data som är så nära program scenariot och användnings fallet som möjligt. Data insamlingen bör matcha mål programmet och användare vad gäller enheter, enheter, miljöer och typer av högtalare. I allmänhet bör du samla in data från så många olika högtalare som möjligt.
+S **: samla** in data som är så nära program scenariot och användnings fallet som möjligt. Data insamlingen bör matcha mål programmet och användare vad gäller enheter, enheter, miljöer och typer av högtalare. I allmänhet bör du samla in data från så många olika högtalare som möjligt.
 
 **F: Hur ska jag samla in akustiska data?**
 
@@ -167,4 +167,4 @@ De tal upplevelser som är inbyggda i Microsoft 365, till exempel Diktering och 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Felsökning](troubleshooting.md)
-- [Versionsanmärkningar](releasenotes.md)
+- [Viktig information](releasenotes.md)

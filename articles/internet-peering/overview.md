@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: overview
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 576bc3e37711851acd7d6c7ac811a10e40080710
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34d340881e4f612544f4b3d68d3c1f3da598cab3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "75908922"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023436"
 ---
 # <a name="internet-peering-overview"></a>Översikt över Internet-peering
 
@@ -46,11 +46,11 @@ Om du redan har upprättat peer-kopplingar med Microsoft kallas de för **äldre
 ## <a name="peering-policy"></a>Peering-policy
 Microsoft har en selektiv, men ofta öppen peering-princip. Peer-datorer väljs utifrån prestanda, kapacitet och var de har ömsesidig nytta och omfattas av vissa tekniska, kommersiella och juridiska krav. Mer information finns i [peering-principen](policy.md).
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 Vanliga frågor och svar om peering finns i [Internet-peering – vanliga frågor och svar](faqs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Om du vill veta mer om hur du konfigurerar direkt peering med Microsoft följer du [genom gången av direkt peering](walkthrough-direct-all.md)
 * Om du vill veta mer om hur du konfigurerar Exchange-peering med Microsoft följer du [genom gången av Exchange-peering](walkthrough-exchange-all.md)
-* Lär dig mer om de andra viktiga [nätverksfunktionerna](https://docs.microsoft.com/azure/networking/networking-overview) i Azure.
+* Lär dig mer om de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.

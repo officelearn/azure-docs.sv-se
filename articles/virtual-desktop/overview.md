@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0fe9b3ddaee41802ced30e1898b46cefa2566771
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322061"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023198"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop?
 
@@ -71,7 +71,7 @@ Vi stöder följande operativ system, så se till att du har [lämpliga licenser
 
 Infrastrukturen behöver följande saker för att stödja Windows Virtual Desktop:
 
-* En [Azure Active Directory](/azure/active-directory/).
+* En [Azure Active Directory](../active-directory/index.yml).
 * En Windows Server-Active Directory som synkroniseras med Azure Active Directory. Du kan konfigurera detta med Azure AD Connect (för Hybrid organisationer) eller Azure AD Domain Services (för Hybrid-eller moln organisationer).
   * En Windows Server AD-synkronisering med Azure Active Directory. Användaren är inloggad från Windows Server AD och den virtuella Windows-datorn för virtuella datorer är ansluten till Windows Server AD-domän.
   * En Windows Server AD-synkronisering med Azure Active Directory. Användaren är inloggad från Windows Server AD och den virtuella Windows-datorn för virtuella datorer är ansluten till Azure AD Domain Services domän.
@@ -85,7 +85,7 @@ Användar krav för att ansluta till virtuella Windows-datorer:
 
 De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste vara:
 
-* [Standard domän ansluten](../active-directory-domain-services/active-directory-ds-comparison.md) eller [hybrid AD-ansluten](../active-directory/devices/hybrid-azuread-join-plan.md). Virtuella datorer kan inte vara Azure AD-anslutna.
+* [Standard domän ansluten](../active-directory-domain-services/compare-identity-solutions.md) eller [hybrid AD-ansluten](../active-directory/devices/hybrid-azuread-join-plan.md). Virtuella datorer kan inte vara Azure AD-anslutna.
 * Köra en av följande [OS-avbildningar som stöds](#supported-virtual-machine-os-images).
 
 >[!NOTE]
@@ -101,7 +101,7 @@ För bästa prestanda bör du kontrol lera att nätverket uppfyller följande kr
 * Nätverks trafiken kan flöda utanför lands-/region gränser när virtuella datorer som är värdar för Station ära datorer och appar ansluter till hanterings tjänsten.
 * För att optimera för nätverks prestanda rekommenderar vi att de virtuella datorerna i samordnad i samma Azure-region som hanterings tjänsten.
 
-Du kan se en typisk arkitektur inställning av Windows Virtual Desktop för företaget i vår [arkitektur enhetsplattformar](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
+Du kan se en typisk arkitektur inställning av Windows Virtual Desktop för företaget i vår [arkitektur enhetsplattformar](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
 ## <a name="supported-remote-desktop-clients"></a>Fjärr skrivbords klienter som stöds
 
@@ -138,12 +138,12 @@ Tillgängliga alternativ för Automation och distribution beror på vilket opera
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 10 Enterprise (multi-session), version 2004|Ja|Ja|Ja|Ja|
 |Windows 10 Enterprise (multi-session), version 1909|Ja|Ja|Ja|Ja|
-|Windows 10 Enterprise (multi-session), version 1903|Ja|Ja|Nej|Nej|
-|Windows 10 Enterprise (multi-session), version 1809|Ja|Ja|Nej|Nej|
-|Windows 7 Enterprise|Ja|Ja|Nej|Nej|
-|Windows Server 2019|Ja|Ja|Nej|Nej|
+|Windows 10 Enterprise (multi-session), version 1903|Ja|Ja|Inga|Inga|
+|Windows 10 Enterprise (multi-session), version 1809|Ja|Ja|Inga|Inga|
+|Windows 7 Enterprise|Ja|Ja|Inga|Inga|
+|Windows Server 2019|Ja|Ja|Inga|Inga|
 |Windows Server 2016|Ja|Ja|Ja|Ja|
-|Windows Server 2012 R2|Ja|Ja|Nej|Nej|
+|Windows Server 2012 R2|Ja|Ja|Inga|Nej|
 
 ## <a name="next-steps"></a>Nästa steg
 

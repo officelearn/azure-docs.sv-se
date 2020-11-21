@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: c4195ff1b81097a3620f68939f32147a26e16d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f547b353091cc81816f0974fced8d4dc836d22b2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391612"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023828"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Snabb start: Hämta en LUIS-slutpunkt-nyckel
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande saker innan du påbörjar den här självstudien:
 
@@ -37,7 +37,7 @@ LUIS använder tre typer av nycklar:
 |Starter|Gör att du kan testa ditt LUIS-program med enbart text|
 |Slutpunkt |Auktoriserar åtkomst till en viss LUIS-app|
 
-För den här självstudien behöver du slut punkts nyckel typen. I självstudien används exempel programmet Home Automation LUIS, som du kan skapa genom att följa snabb starten för [välbyggda hem automatiserings program](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Om du har skapat en LUIS app som du själv har skapat kan du använda den i stället.
+För den här självstudien behöver du slut punkts nyckel typen. I självstudien används exempel programmet Home Automation LUIS, som du kan skapa genom att följa snabb starten för [välbyggda hem automatiserings program](../../luis/luis-get-started-create-app.md) . Om du har skapat en LUIS app som du själv har skapat kan du använda den i stället.
 
 När du skapar en LUIS-app genererar LUIS automatiskt en start nyckel så att du kan testa appen med hjälp av text frågor. Den här nyckeln aktiverar inte röst tjänst integrering och fungerar inte med den här självstudien. Skapa en LUIS-resurs på Azure-instrumentpanelen och tilldela den till LUIS-appen. Du kan använda den kostnadsfria prenumerationsnivån för den här självstudiekursen.
 
@@ -50,9 +50,9 @@ På sidan **nycklar och inställningar för slut punkt** :
 1. Rulla ned till avsnittet **resurser och nycklar** och välj **tilldela resurs**.
 1. Gör följande ändringar i dialog rutan **tilldela en nyckel till din app** :
 
-   * Under **klient**väljer du **Microsoft**.
-   * Under **prenumerations namn**väljer du den Azure-prenumeration som innehåller den Luis-resurs som du vill använda.
-   * Under **nyckel**väljer du den Luis-resurs som du vill använda med appen.
+   * Under **klient** väljer du **Microsoft**.
+   * Under **prenumerations namn** väljer du den Azure-prenumeration som innehåller den Luis-resurs som du vill använda.
+   * Under **nyckel** väljer du den Luis-resurs som du vill använda med appen.
 
    Om en stund visas den nya prenumerationen i tabellen längst ned på sidan.
 

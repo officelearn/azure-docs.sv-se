@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40c5e3474d3992108ef61d34e745bc63c1f7a713
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85307960"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020954"
 ---
 # <a name="add-language-generation-templates-for-speech-responses"></a>Lägga till mallar för att skapa språk för talsvar
 
@@ -24,7 +24,7 @@ I den här artikeln får du lära dig hur du använder mallar för att skapa spr
 - Användning av mallar för språk skapande
 - Användning av anpassningsbara uttryck
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha slutfört stegen i följande artiklar:
 
@@ -34,7 +34,7 @@ Du måste ha slutfört stegen i följande artiklar:
 
 ## <a name="language-generation-templates-overview"></a>Översikt över mallar för språk generation
 
-Mallar för anpassade kommandon baseras på BotFramework: s [LG-mallar](https://aka.ms/speech/cc-lg-format). Eftersom anpassade kommandon skapar en ny LG-mall vid behov (det vill säga för tal svar i parametrar eller åtgärder) behöver du inte ange namnet på LG-mallen. Så i stället för att definiera mallen som:
+Mallar för anpassade kommandon baseras på BotFramework: s [LG-mallar](/azure/bot-service/file-format/bot-builder-lg-file-format#templates). Eftersom anpassade kommandon skapar en ny LG-mall vid behov (det vill säga för tal svar i parametrar eller åtgärder) behöver du inte ange namnet på LG-mallen. Så i stället för att definiera mallen som:
 
  ```
     # CompletionAction
@@ -51,7 +51,7 @@ Du behöver bara definiera bröd texten i mallen utan namnet, enligt följande.
 
 Den här ändringen introducerar variationer i de tal svar som skickas till klienten. För samma uttryck skulle det motsvarande tal svaret slumpmässigt plockas ut från de tillhandahållna alternativen.
 
-Genom att dra nytta av LG-mallar kan du också definiera komplexa tal svar för kommandon med hjälp av anpassade uttryck. Du kan läsa mer om [LG templates-formatet](https://aka.ms/speech/cc-lg-format) . Anpassade kommandon som standard har stöd för alla funktioner med följande mindre skillnader:
+Genom att dra nytta av LG-mallar kan du också definiera komplexa tal svar för kommandon med hjälp av anpassade uttryck. Du kan läsa mer om [LG templates-formatet](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) . Anpassade kommandon som standard har stöd för alla funktioner med följande mindre skillnader:
 
 * I entiteterna för LG-mallar visas som $ {entityName}. I anpassade kommandon använder vi inte entiteter, men parametrar kan användas som variabler med någon av dessa representationer $ {parameterName} eller {parameterName}
 * Mallens sammansättning och expansion stöds inte i anpassade kommandon. Detta beror på att du aldrig redigerar `.lg` filen direkt, utan bara svaren på automatiskt skapade mallar.
@@ -66,7 +66,7 @@ Genom att dra nytta av LG-mallar kan du också definiera komplexa tal svar för 
 | ------------------ | --------------------- | 
 | Name               | `SubjectContext`         | 
 | Är global          | avmarkerat             | 
-| Krävs           | avmarkerat               | 
+| Obligatorisk           | avmarkerat               | 
 | Typ               | Sträng                |
 | Standardvärde      | `all` |
 | Konfiguration      | Acceptera fördefinierade indatavärden från intern katalog | 
@@ -110,8 +110,8 @@ Ett annat sätt att anpassa anpassade kommando svar är att välja en anpassad r
 > ![Exempel på meningar med parametrar](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - För **offentliga röster**är **neurala-typer** bara tillgängliga för vissa regioner. För att kontrol lera tillgängligheten, se [standard-och neurala röster efter region/slut punkt](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
-> - För **anpassade röster**kan de skapas från sidan anpassat röst projekt. Se [Kom igång med anpassad röst](./how-to-custom-voice.md).
+> - För **offentliga röster** är **neurala-typer** bara tillgängliga för vissa regioner. För att kontrol lera tillgängligheten, se [standard-och neurala röster efter region/slut punkt](./regions.md#standard-and-neural-voices).
+> - För **anpassade röster** kan de skapas från sidan anpassat röst projekt. Se [Kom igång med anpassad röst](./how-to-custom-voice.md).
 
 Programmet kommer nu att svara i den valda rösten i stället för standard rösten.
 

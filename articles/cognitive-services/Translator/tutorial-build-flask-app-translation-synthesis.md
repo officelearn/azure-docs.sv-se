@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 41d7fe8e22b39d8755f86e5ee490aa6e7dff97fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cbe4d44f5e1c8b34a3d7bb9d05b9546f320b81c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330629"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023484"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Självstudie: Bygg en kolv-app med Azure Cognitive Services
 
@@ -45,7 +45,7 @@ För dem som vill ha djupet efter den här kursen är några användbara länkar
 * [Dokumentation om flaska](http://flask.pocoo.org/)
 * [Kolv för Dummies – en nybörjar guide till kolv](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi går igenom de program-och prenumerations nycklar som du behöver i den här kursen.
 
@@ -64,7 +64,7 @@ Som tidigare nämnts kommer du att behöva tre prenumerations nycklar för den h
 * Textanalys
 * Speech Services
 
-Använd [skapa ett Cognitive Services konto i Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för stegvisa instruktioner för att skapa resurser.
+Använd [skapa ett Cognitive Services konto i Azure Portal](../cognitive-services-apis-create-account.md) för stegvisa instruktioner för att skapa resurser.
 
 > [!IMPORTANT]
 > I den här självstudien skapar du dina resurser i regionen USA, västra. Om du använder en annan region måste du justera bas-URL: en i var och en av dina python-filer.
@@ -475,7 +475,7 @@ Tryck på **CTRL + c** för att avsluta appen och gå sedan till nästa avsnitt.
 
 ## <a name="analyze-sentiment"></a>Analysera sentiment
 
-[API för textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) kan användas för att utföra analys av sentiment, extrahera nyckel fraser från text eller identifiera käll språket. I den här appen ska vi använda sentiment analys för att avgöra om den tillhandahållna texten är positiv, neutral eller negativ. API:n returnerar en numerisk poäng mellan 0 och 1. Poängen nära 1 visar positiv sentiment och poängen nära 0 visar negativa sentiment.
+[API för textanalys](../text-analytics/overview.md) kan användas för att utföra analys av sentiment, extrahera nyckel fraser från text eller identifiera käll språket. I den här appen ska vi använda sentiment analys för att avgöra om den tillhandahållna texten är positiv, neutral eller negativ. API:n returnerar en numerisk poäng mellan 0 och 1. Poängen nära 1 visar positiv sentiment och poängen nära 0 visar negativa sentiment.
 
 I det här avsnittet ska du göra några saker:
 
@@ -659,7 +659,7 @@ Tryck på **CTRL + c** för att avsluta appen och gå sedan till nästa avsnitt.
 
 ## <a name="convert-text-to-speech"></a>Konvertera text-till-tal
 
-[Text till tal-API: et](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) gör det möjligt för din app att konvertera text till naturligt mänskligt syntetiskt tal. Tjänsten stöder standard-, neurala-och anpassade röster. Vår exempel app använder en fåtal av tillgängliga röster, för en fullständig lista, se [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech).
+[Text till tal-API: et](../speech-service/text-to-speech.md) gör det möjligt för din app att konvertera text till naturligt mänskligt syntetiskt tal. Tjänsten stöder standard-, neurala-och anpassade röster. Vår exempel app använder en fåtal av tillgängliga röster, för en fullständig lista, se [språk som stöds](../speech-service/language-support.md#text-to-speech).
 
 I det här avsnittet ska du göra några saker:
 
@@ -954,7 +954,7 @@ Navigera till den angivna Server adressen. Skriv text i Indatatyp, Välj ett spr
 > [!TIP]
 > Om ändringarna som du har gjort inte visas, eller om appen inte fungerar som förväntat, kan du försöka med att rensa cacheminnet eller öppna ett privat/Incognito-fönster.
 
-Det innebär att du har en fungerande app som utför översättningar, analyserar sentiment och syntetiskt tal. Tryck på **CTRL + c** för att avsluta appen. Se till att ta en titt på de andra [Azure-Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/).
+Det innebär att du har en fungerande app som utför översättningar, analyserar sentiment och syntetiskt tal. Tryck på **CTRL + c** för att avsluta appen. Se till att ta en titt på de andra [Azure-Cognitive Services](../index.yml).
 
 ## <a name="get-the-source-code"></a>Hämta källkoden
 
@@ -962,6 +962,6 @@ Käll koden för det här projektet är tillgänglig på [GitHub](https://github
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Translator-referens](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Translator-referens](./reference/v3-0-reference.md)
 * [API för textanalys – referens](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
-* [Referens för text till tal-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)
+* [Referens för text till tal-API](../speech-service/rest-text-to-speech.md)

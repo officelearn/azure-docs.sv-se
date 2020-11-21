@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: ee37ab90910058378172223a3435047346f5fe7c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6ffe631dc237e7efaf1d6bfd9ac79ab7431c7371
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701797"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023147"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>RDP-Shortpath för Windows Virtual Desktop (för hands version)
 
@@ -36,7 +36,7 @@ RDP-Shortpath utökar RDP multi-transport-funktionerna. Den ersätter inte omvä
 
 UDP-port 3390 används endast för inkommande Shortpath-trafik som autentiseras över omvänd Connect-transport. RDP Shortpath-lyssnare ignorerar alla anslutnings försök till lyssnaren om de inte matchar den omvända Connect-sessionen.
 
-RDP-Shortpath använder en TLS-anslutning mellan klienten och sessionens värd med hjälp av sessionens värddators certifikat. Som standard genereras certifikatet som används för RDP-kryptering självt av operativ systemet under distributionen. Om du vill kan kunderna distribuera centralt hanterade certifikat som utfärdats av utfärdaren av företags certifikat utfärdaren. Mer information om certifikat konfigurationer finns i [Windows Server-dokumentationen](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations.md).
+RDP-Shortpath använder en TLS-anslutning mellan klienten och sessionens värd med hjälp av sessionens värddators certifikat. Som standard genereras certifikatet som används för RDP-kryptering självt av operativ systemet under distributionen. Om du vill kan kunderna distribuera centralt hanterade certifikat som utfärdats av utfärdaren av företags certifikat utfärdaren. Mer information om certifikat konfigurationer finns i [Windows Server-dokumentationen](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 
 ## <a name="rdp-shortpath-connection-sequence"></a>RDP Shortpath-anslutnings ordning
 
@@ -187,7 +187,7 @@ Möjliga värden är:
 * **0** – användarens anslutning använder inte RDP-Shortpath
 * **1** – användarens anslutning använder RDP-Shortpath
   
-I följande lista med frågor kan du granska anslutnings information. Du kan köra den här frågan i [Log Analytics Frågeredigeraren](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries). Ersätt `userupn` med UPN för den användare som du vill söka efter varje fråga.
+I följande lista med frågor kan du granska anslutnings information. Du kan köra den här frågan i [Log Analytics Frågeredigeraren](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query). Ersätt `userupn` med UPN för den användare som du vill söka efter varje fråga.
 
 ```kusto
 let Events = WVDConnections | where UserName == "userupn" ;

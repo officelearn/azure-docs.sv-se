@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d02642b49951b4b116eaae6dbea490ef2720c15d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 126a8e48a8db1c41299a7cb7a34f172342110667
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084421"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023130"
 ---
 # <a name="host-pool-creation"></a>Skapa värdpool
 
@@ -57,9 +57,9 @@ KORRIGERA: du måste tilldela om användare till app-grupper.
 
 Följ dessa anvisningar för att felsöka misslyckade distributioner av Azure Resource Manager mallar och PowerShell DSC.
 
-1. Granska fel i distributionen med hjälp av [Visa distributions åtgärder med Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md).
-2. Om det inte finns några fel i distributionen granskar du fel i aktivitets loggen med [Visa aktivitets loggar för att granska åtgärder på resurser](../azure-resource-manager/resource-group-audit.md).
-3. När felet har identifierats använder du fel meddelandet och resurserna i [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) för att åtgärda problemet.
+1. Granska fel i distributionen med hjälp av [Visa distributions åtgärder med Azure Resource Manager](../azure-resource-manager/templates/deployment-history.md).
+2. Om det inte finns några fel i distributionen granskar du fel i aktivitets loggen med [Visa aktivitets loggar för att granska åtgärder på resurser](../azure-resource-manager/management/view-activity-logs.md).
+3. När felet har identifierats använder du fel meddelandet och resurserna i [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md) för att åtgärda problemet.
 4. Ta bort alla resurser som har skapats under den tidigare distributionen och försök att distribuera mallen igen.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Fel: distributionen misslyckades.... \<hostname> /JoinDomain

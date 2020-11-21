@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: 32d5c280e80b2f21b30bb34a182070da51e21026
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa7b80b021e00d25dea4f96432ae922c15474058
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008499"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023062"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-classic"></a>Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop (klassisk)
 
@@ -23,24 +23,24 @@ Följ anvisningarna i den här artikeln för att skapa en GPU-optimerad virtuell
 
 ## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>Välj en GPU-optimerad storlek på virtuell Azure-dator
 
-Azure erbjuder ett antal [GPU-optimerade storlekar på virtuella datorer](/azure/virtual-machines/windows/sizes-gpu). Det rätta valet för din värd pool är beroende av ett antal faktorer, inklusive dina specifika arbets belastningar för appar, önskad kvalitet på användar upplevelsen och kostnad. I allmänhet erbjuder större och mer kompatibla GPU: er en bättre användar upplevelse vid en specifik användar täthet.
+Azure erbjuder ett antal [GPU-optimerade storlekar på virtuella datorer](../../virtual-machines/sizes-gpu.md). Det rätta valet för din värd pool är beroende av ett antal faktorer, inklusive dina specifika arbets belastningar för appar, önskad kvalitet på användar upplevelsen och kostnad. I allmänhet erbjuder större och mer kompatibla GPU: er en bättre användar upplevelse vid en specifik användar täthet.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Skapa en värdbaserad pool, etablera den virtuella datorn och konfigurera en app-grupp
 
-Skapa en ny adresspool med en virtuell dator med den storlek som du har valt. Mer information finns i [Självstudier: skapa en värdbaserad pool med Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Skapa en ny adresspool med en virtuell dator med den storlek som du har valt. Mer information finns i [Självstudier: skapa en värdbaserad pool med Azure Marketplace](../create-host-pools-azure-marketplace.md).
 
 Windows Virtual Desktop stöder GPU-accelererad åter givning och kodning i följande operativ system:
 
 * Windows 10 version 1511 eller senare
 * Windows Server 2016 eller senare
 
-Du måste också konfigurera en app-grupp eller använda standard gruppen för Skriv bords appar (med namnet "Skriv bords grupp") som skapas automatiskt när du skapar en ny adresspool. Mer information finns i [Självstudier: hantera program grupper för Windows Virtual Desktop](/azure/virtual-desktop/manage-app-groups).
+Du måste också konfigurera en app-grupp eller använda standard gruppen för Skriv bords appar (med namnet "Skriv bords grupp") som skapas automatiskt när du skapar en ny adresspool. Mer information finns i [Självstudier: hantera program grupper för Windows Virtual Desktop](../manage-app-groups.md).
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installera grafik driv rutiner som stöds på den virtuella datorn
 
-Om du vill dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien i Windows Virtual Desktop måste du installera lämpliga grafik driv rutiner. Följ instruktionerna i [operativ system och driv rutiner som stöds](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) för att installera driv rutiner från rätt grafik leverantör, antingen manuellt eller med ett tillägg för Azure VM.
+Om du vill dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien i Windows Virtual Desktop måste du installera lämpliga grafik driv rutiner. Följ instruktionerna i [operativ system och driv rutiner som stöds](../../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) för att installera driv rutiner från rätt grafik leverantör, antingen manuellt eller med ett tillägg för Azure VM.
 
-Endast driv rutiner som distribueras med Azure stöds för Windows Virtual Desktop. För virtuella Azure-datorer med NVIDIA GPU: er finns det bara stöd för [NVIDIA Grid-drivrutiner](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) för virtuella Windows-datorer.
+Endast driv rutiner som distribueras med Azure stöds för Windows Virtual Desktop. För virtuella Azure-datorer med NVIDIA GPU: er finns det bara stöd för [NVIDIA Grid-drivrutiner](../../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers) för virtuella Windows-datorer.
 
 Efter installationen av driv rutinen krävs en omstart av datorn. Använd verifierings stegen i ovanstående instruktioner för att bekräfta att grafik driv rutinerna har installerats.
 
@@ -75,7 +75,7 @@ Fjärr skrivbord kodar alla bilder som återges av appar och skriv bord (oavsett
 
 Om du vill kontrol lera att appar använder GPU: n för rendering kan du prova något av följande:
 
-* För virtuella Azure-datorer med en NVIDIA-GPU använder du `nvidia-smi` verktyget enligt beskrivningen i [Verifiera driv rutins installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) för att kontrol lera GPU-belastningen när du kör dina appar.
+* För virtuella Azure-datorer med en NVIDIA-GPU använder du `nvidia-smi` verktyget enligt beskrivningen i [Verifiera driv rutins installation](../../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation) för att kontrol lera GPU-belastningen när du kör dina appar.
 * I operativ system versioner som stöds kan du använda aktivitets hanteraren för att kontrol lera GPU-användningen. Välj GPU på fliken "prestanda" för att se om appar använder GPU: n.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Kontrol lera att GPU-accelererad ram kodning
@@ -91,5 +91,5 @@ Verifiera att fjärr skrivbord använder GPU-accelererad kodning:
 
 Dessa instruktioner bör vara igång med GPU-acceleration på en sessions värd (en virtuell dator). Ytterligare överväganden för att aktivera GPU-acceleration i en större värddator:
 
-* Överväg att använda ett [VM-tillägg](/azure/virtual-machines/extensions/overview) för att förenkla installation och uppdateringar av driv rutiner på flera virtuella datorer. Använd [nVidia GPU-drivrutinens tillägg](/azure/virtual-machines/extensions/hpccompute-gpu-windows) för virtuella datorer med nVidia GPU: er och Använd AMD GPU-drivrutinens tillägg för virtuella datorer med AMD GPU: er.
-* Överväg att använda Active Directory grupprincip för att förenkla konfigureringen av grup principer på flera virtuella datorer. Information om hur du distribuerar grupprincip i Active Directory-domänen finns i [arbeta med Grupprincip objekt](https://go.microsoft.com/fwlink/p/?LinkId=620889).
+* Överväg att använda ett [VM-tillägg](../../virtual-machines/extensions/overview.md) för att förenkla installation och uppdateringar av driv rutiner på flera virtuella datorer. Använd [nVidia GPU-drivrutinens tillägg](../../virtual-machines/extensions/hpccompute-gpu-windows.md) för virtuella datorer med nVidia GPU: er och Använd AMD GPU-drivrutinens tillägg för virtuella datorer med AMD GPU: er.
+* Överväg att använda Active Directory grupprincip för att förenkla konfigureringen av grup principer på flera virtuella datorer. Information om hur du distribuerar grupprincip i Active Directory-domänen finns i [arbeta med Grupprincip objekt](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731212(v=ws.11)).

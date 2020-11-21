@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5810bea7920dbfe91a836814124cbe4c7f6f3bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edfbbdd1b30cba74cf4f63d6b5e84c2e616e1a0f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653799"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020988"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 
@@ -25,11 +25,11 @@ I den här artikeln beskrivs de olika funktionerna och alternativen som är till
 
 För att komma igång med Azure Time Series Insights Explorer måste du:
 
-* Ha en Azure Time Series Insights Gen2-miljö etablerad. Läs mer om hur du konfigurerar en instans genom att läsa självstudien om [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) .
-* [Ge data åtkomst](./time-series-insights-data-access.md) till den Azure Time Series Insights Gen2-miljö som du skapade för kontot. Du kan ge åtkomst till andra och dig själv.
+* Ha en Azure Time Series Insights Gen2-miljö etablerad. Läs mer om hur du konfigurerar en instans genom att läsa självstudien om [Azure Time Series Insights Gen2](./tutorials-set-up-tsi-environment.md) .
+* [Ge data åtkomst](./concepts-access-policies.md) till den Azure Time Series Insights Gen2-miljö som du skapade för kontot. Du kan ge åtkomst till andra och dig själv.
 * Lägg till en händelse källa i Azure Time Series Insights Gen2-miljön för att skicka data till miljön:
-  * Lär dig [hur du ansluter till en Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md)
-  * Lär dig [hur du ansluter till en IoT-hubb](./time-series-insights-how-to-add-an-event-source-iothub.md)
+  * Lär dig [hur du ansluter till en Event Hub](./how-to-ingest-data-event-hub.md)
+  * Lär dig [hur du ansluter till en IoT-hubb](./how-to-ingest-data-iot-hub.md)
 
 ## <a name="explore-the-azure-time-series-insights-explorer"></a>Utforska Azure Time Series Insights Explorer
 
@@ -133,7 +133,7 @@ Här följer ett exempel på ett **överlappande diagram** :
 
   [![Överlappande diagram alternativ](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
-Knappen **fler åtgärder** expanderar för att visa **hämtningen som CSV**, **ansluta till Power BI**, **Visa diagram data som en tabell**och utforska alternativ för **RAW-händelser** .
+Knappen **fler åtgärder** expanderar för att visa **hämtningen som CSV**, **ansluta till Power BI**, **Visa diagram data som en tabell** och utforska alternativ för **RAW-händelser** .
 
   [![Alternativ för fler åtgärder](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
@@ -160,7 +160,7 @@ Följande webb kontroller är tillgängliga i Azure Time Series Insights Gen2 f�
 
 1. **Skjutreglage för yttre datum intervall**: Använd slut punkts kontrollerna för att välja det yttre datum intervallet, som är tillgängligt för den interna datum intervalls kontrollen.
 
-1. **Skjutreglage för tidsintervall**: Använd den för att snabbt växla mellan förinställda tids markeringar, till exempel de senaste **30 minuterna**, de **senaste 12 timmarna**eller ett **anpassat intervall**. Om du ändrar det här värdet ändras även de tillgängliga intervall intervallen som diskuteras i skjutreglaget för intervall storlek.
+1. **Skjutreglage för tidsintervall**: Använd den för att snabbt växla mellan förinställda tids markeringar, till exempel de senaste **30 minuterna**, de **senaste 12 timmarna** eller ett **anpassat intervall**. Om du ändrar det här värdet ändras även de tillgängliga intervall intervallen som diskuteras i skjutreglaget för intervall storlek.
 
    [![Till och från markerings panelen](media/v2-update-explorer/to-and-from-element.png)](media/v2-update-explorer/to-and-from-element.png#lightbox)
 
@@ -214,14 +214,14 @@ Azure Time Series Insights Gen2 terms Editor-panelen tar följande parametrar:
 
 **Där**: Använd WHERE-satsen för att snabbt filtrera händelser med hjälp av en uppsättning operander som anges i följande tabell. Om du utför en sökning genom att välja en operand uppdateras predikatet automatiskt baserat på den sökningen. De operands typer som stöds är följande:
 
-| Åtgärd    | Typer som stöds    | Obs! |
+| Åtgärd    | Typer som stöds    | Kommentarer |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | Sträng, bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | Sträng, bool, Double, DateTime, TimeSpan, NULL | Alla operander ska vara av samma typ eller vara NULL-konstant. |
 | `HAS` | Sträng | Endast strängar med konstanta strängar är tillåtna på höger sida. En tom sträng och NULL är inte tillåtet. |
 
-Om du vill veta mer om frågor och data typer som stöds kan du läsa [tids serie uttryck (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Om du vill veta mer om frågor och data typer som stöds kan du läsa [tids serie uttryck (TSX)](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Exempel på WHERE-satser
 
@@ -245,4 +245,4 @@ Du kan visa och dölja element i diagram panelen genom att välja ikonen synlig,
 
 * Läs om [data modellering](./concepts-model-overview.md) i Azure Time Series Insights Gen2.
 
-* Lär dig [hur du diagnostiserar och felsöker](./time-series-insights-update-how-to-troubleshoot.md) din miljö.
+* Lär dig [hur du diagnostiserar och felsöker](./how-to-diagnose-troubleshoot.md) din miljö.

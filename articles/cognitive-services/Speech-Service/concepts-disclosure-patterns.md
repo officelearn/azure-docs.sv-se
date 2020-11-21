@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 7df082cd5044f142d8d5900ec1fff6c182262bd9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 348277d42c543bc45cf98bfeaf7ea8313afe8f6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425117"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021991"
 ---
 # <a name="disclosure-design-patterns"></a>Utlämnande av designmönster
 Nu när du&#39;ve fastställt rätt [nivå för utlämnande](concepts-disclosure-guidelines.md#disclosure-assessment) av den syntetiska röst upplevelsen,&#39;vi en lämplig tid att utforska potentiella design mönster.
@@ -241,17 +241,17 @@ Använd avslöjad som en möjlighet att fungera utan problem.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 - [Rikt linjer för Microsoft bot](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
-- [Design rikt linjer för Cortana](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
-- [Design rikt linjer för Microsoft Windows UWP tal](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
-- [Rikt linjer för röst kommando i Microsoft Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
+- [Design rikt linjer för Cortana](/cortana/voice-commands/voicecommand-design-guidelines)
+- [Design rikt linjer för Microsoft Windows UWP tal](/windows/uwp/design/input/speech-interactions)
+- [Rikt linjer för röst kommando i Microsoft Windows Mixed Reality](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
 ## <a name="reference-docs"></a>Referens dokument
 
-* [Utlämnande av röst personal](https://aka.ms/disclosure-voice-talent)
+* [Utlämnande av röst personal](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Rikt linjer för ansvarig distribution av syntetisk röst teknik](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Översikt över hantera](concepts-gating-overview.md)
 * [Lämna ut](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Utlämnande av röst personal](https://aka.ms/disclosure-voice-talent)
+* [Utlämnande av röst personal](/legal/cognitive-services/speech-service/disclosure-voice-talent)

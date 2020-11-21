@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: ae767905e24e2d7ddf3b8e12ec77b1efe782cf85
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b93bc4d1adfa2787f14106707b3848ebfe5c57bc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535613"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021209"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: använda PHP för att ansluta och fråga efter data i Azure Database for MySQL
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [PHP](https://secure.php.net/manual/intro-whatis.php)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen.
@@ -24,13 +24,13 @@ För den här snabb starten behöver du:
 - Skapa en Azure Database for MySQL enskild server med [Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> eller [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) om du inte har något.
 - Baserat på om du använder offentlig eller privat åtkomst utför du **en** av åtgärderna nedan för att aktivera anslutningen.
 
-    |Åtgärd| Anslutningsmetod|Instruktionsguide|
+    |Action| Anslutningsmetod|Instruktionsguide|
     |:--------- |:--------- |:--------- |
     | **Konfigurera brandväggsregler** | Offentliga | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
     | **Konfigurera tjänstens slut punkt** | Offentliga | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
-    | **Konfigurera privat länk** | Privata | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
+    | **Konfigurera privat länk** | Privat | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- [Skapa en databas och icke-administratörs användare](/howto-create-users?tabs=single-server)
+- [Skapa en databas och icke-administratörs användare](/azure/mysql/howto-create-users?tabs=single-server)
 - Installera den senaste PHP-versionen för ditt operativ system
     - [PHP på macOS](https://secure.php.net/manual/install.macosx.php)
     - [PHP på Linux](https://secure.php.net/manual/install.unix.php)
@@ -46,7 +46,7 @@ Du kan hämta anslutnings informationen för databas servern från Azure Portal 
 2. Gå till sidan Azure-databaser för MySQL. Du kan söka efter och välja **Azure Database for MySQL**.
 :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/find-azure-mysql-in-portal.png" alt-text="Hitta Azure Database for MySQL":::
 
-2. Välj MySQL-server (t. ex. **mydemoserver** ).
+2. Välj MySQL-server (t. ex. **mydemoserver**).
 3. På sidan **Översikt** kopierar du det fullständigt kvalificerade Server namnet bredvid **Server namn** och administratörs användar namnet bredvid **inloggnings namnet för Server administratören**. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
 
 > [!IMPORTANT]

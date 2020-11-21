@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: b2d111f22b8ef36b20b93b65ff1ea6f7b52ea8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ada9c06f0befbea4b9aa85f95651e96dec595b7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83584747"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021294"
 ---
 # <a name="translator-30-dictionary-lookup"></a>Translator 3,0: Sök efter ord
 
@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 Parametrarna för begäran som skickades till frågesträngen är:
 
-| Frågeparameter  | Beskrivning |
+| Frågeparameter  | Description |
 | ------ | ----------- |
 | api-version <img width=200/>   | **Obligatorisk parameter**.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0` |
 | Från | **Obligatorisk parameter**.<br/>Anger språket för inmatad text. Käll språket måste vara ett av de [språk som stöds](./v3-0-languages.md) som ingår i `dictionary` omfånget. |
@@ -42,9 +42,9 @@ Parametrarna för begäran som skickades till frågesträngen är:
 
 Begärandehuvuden innehåller:
 
-| Sidhuvuden  | Beskrivning |
+| Sidhuvuden  | Description |
 | ------ | ----------- |
-| Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
+| Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
 | Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json` . |
 | Innehålls längd   | **Begär ande huvud för begäran**.<br/>Längden på begär ande texten. |
 | X-ClientTraceId   | **Valfritt**.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID: t i frågesträngen med hjälp av en frågeparameter med namnet `ClientTraceId` . |
@@ -80,7 +80,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
 
     * `posTag`: En sträng som kopplar den här termen med en del av tal-taggen.
 
-        | Taggnamn | Beskrivning  |
+        | Taggnamn | Description  |
         |----------|--------------|
         | JUST      | Adjektiv   |
         | ADV      | Adverb      |

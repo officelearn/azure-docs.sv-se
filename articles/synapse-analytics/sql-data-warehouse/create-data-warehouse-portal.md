@@ -8,15 +8,15 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 05/28/2019
-ms.author: Kevin
+ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 878b272e2a1a0e1d5a00a9c2028a6803b6d95383
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 470892aa46d3f75ce8e17200f7d0549ae14b0e86
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91568967"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023794"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Snabb start: skapa och fråga en Synapse SQL-pool med hjälp av Azure Portal
 
@@ -33,7 +33,7 @@ Skapa och fråga snabbt en Synapse SQL-pool (data lager) i Azure Synapse Analyti
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-sql-pool"></a>Skapa en SQL-pool
 
@@ -60,13 +60,13 @@ Följ dessa steg om du vill skapa en SQL-pool som innehåller **AdventureWorksDW
 
    ![skapa grundläggande information om informations lagret](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
 
-4. Under **prestanda nivå**väljer du **Välj prestanda nivå** om du vill ändra konfigurationen genom att välja ett skjutreglage.
+4. Under **prestanda nivå** väljer du **Välj prestanda nivå** om du vill ändra konfigurationen genom att välja ett skjutreglage.
 
    ![ändra prestanda nivå för informations lager](./media/create-data-warehouse-portal/create-sql-pool-performance-level.png)  
 
    Mer information om prestanda nivåer finns i [Hantera beräkning i Azure Synapse Analytics](sql-data-warehouse-manage-compute-overview.md).
 
-5. Välj **ytterligare inställningar**. under **Använd befintliga data**väljer du **exempel** så att AdventureWorksDW skapas som exempel databas.
+5. Välj **ytterligare inställningar**. under **Använd befintliga data** väljer du **exempel** så att AdventureWorksDW skapas som exempel databas.
 
     ![Välj Använd befintliga data](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png) 
 
@@ -118,7 +118,7 @@ Nu kan du ansluta till servern och dess SQL-pooler med hjälp av den här IP-adr
 
 Hämta det fullständigt kvalificerade Server namnet för servern i Azure Portal. Du använder det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj **Azure Synapse Analytics** på menyn till vänster och välj sedan på **Azure Synapse Analytics** -sidan.
 
@@ -198,7 +198,7 @@ Följ dessa steg för att rensa resurser som du inte längre behöver.
 
 4. Om du vill ta bort den server som du har skapat väljer du **sqlpoolservername.Database.Windows.net** i föregående bild och väljer sedan **ta bort**. Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
 
-5. Om du vill ta bort resurs gruppen väljer du **myResourceGroup**och väljer sedan **ta bort resurs grupp**.
+5. Om du vill ta bort resurs gruppen väljer du **myResourceGroup** och väljer sedan **ta bort resurs grupp**.
 
 Vill du optimera och Spara på dina moln utgifter?
 

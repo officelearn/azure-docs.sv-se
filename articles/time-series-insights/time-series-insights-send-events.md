@@ -11,33 +11,33 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2b83433a135fec486701b4538793f0c3e0a6fa6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a9115b5400cc6d6c1ecc5740af796d831f5dee3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611834"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023266"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Skicka händelser till en Azure Time Series Insights gen1-miljö med hjälp av en Event Hub
 
 > [!CAUTION]
 > Det här är en gen1-artikel.
 
-Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure Event Hubs. Det beskriver också hur du kör ett exempel program för att push-överföra händelser till Azure Time Series Insights från Event Hubs. Om du har en befintlig händelsehubben med händelser i JSON-format, hoppar du över den här självstudien och visar din miljö i [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure Event Hubs. Det beskriver också hur du kör ett exempel program för att push-överföra händelser till Azure Time Series Insights från Event Hubs. Om du har en befintlig händelsehubben med händelser i JSON-format, hoppar du över den här självstudien och visar din miljö i [Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Skapa en Event Hub
 
-1. Information om hur du skapar en Event Hub finns i [Event Hubs-dokumentationen](https://docs.microsoft.com/azure/event-hubs/).
-1. Sök efter **Event Hubs**i sökrutan. I listan som returneras väljer du **Event Hubs**.
+1. Information om hur du skapar en Event Hub finns i [Event Hubs-dokumentationen](../event-hubs/index.yml).
+1. Sök efter **Event Hubs** i sökrutan. I listan som returneras väljer du **Event Hubs**.
 1. Välj händelsehubben.
 1. När du skapar en Event Hub skapar du ett namn område för Event Hub. Om du ännu inte har skapat en händelsehubben i namn området går du till menyn och skapar en händelsehubben under **entiteter**.  
 
     [![Lista över händelse nav](media/send-events/tsi-connect-event-hub-namespace.png)](media/send-events/tsi-connect-event-hub-namespace.png#lightbox)
 
 1. När du har skapat en Event Hub väljer du den i listan över händelse nav.
-1. På menyn under **entiteter**väljer du **Event Hubs**.
+1. På menyn under **entiteter** väljer du **Event Hubs**.
 1. Välj namnet på händelsehubben för att konfigurera det.
-1. Under **Översikt**väljer du **konsument grupper**och sedan **konsument grupp**.
+1. Under **Översikt** väljer du **konsument grupper** och sedan **konsument grupp**.
 
     [![Skapa en konsument grupp](media/send-events/add-event-hub-consumer-group.png)](media/send-events/add-event-hub-consumer-group.png#lightbox)
 
@@ -46,7 +46,7 @@ Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure 
     > [!IMPORTANT]
     > Se till att konsument gruppen inte används av någon annan tjänst, till exempel ett Azure Stream Analytics jobb eller någon annan Azure Time Series Insights miljö. Om konsument gruppen används av andra tjänster påverkas Läs åtgärder negativt både för den här miljön och för andra tjänster. Om du använder **$default** som konsument grupp kan andra läsare eventuellt återanvända din konsument grupp.
 
-1. Välj **principer för delad åtkomst**på menyn under **Inställningar**och välj sedan **Lägg till**.
+1. Välj **principer för delad åtkomst** på menyn under **Inställningar** och välj sedan **Lägg till**.
 
     [![Välj principer för delad åtkomst och välj sedan knappen Lägg till](media/send-events/add-shared-access-policy.png)](media/send-events/add-shared-access-policy.png#lightbox)
 
@@ -54,7 +54,7 @@ Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure 
 
     [![I rutan princip namn anger du MySendPolicy](media/send-events/configure-shared-access-policy-confirm.png)](media/send-events/configure-shared-access-policy-confirm.png#lightbox)
 
-1. Under **anspråk**markerar du kryss rutan **Skicka** .
+1. Under **anspråk** markerar du kryss rutan **Skicka** .
 
 ## <a name="add-an-azure-time-series-insights-instance"></a>Lägg till en Azure Time Series Insights-instans
 
@@ -62,13 +62,13 @@ I Azure Time Series Insights Gen2 kan du lägga till sammanhangsbaserade data ti
 
 ### <a name="create-an-azure-time-series-insights-event-source"></a>Skapa en händelse källa för Azure Time Series Insights
 
-1. Om du inte har skapat en händelse källa slutför du stegen för att [skapa en händelse källa](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+1. Om du inte har skapat en händelse källa slutför du stegen för att [skapa en händelse källa](./how-to-ingest-data-event-hub.md).
 
 1. Ange ett värde för `timeSeriesId` . Läs [tids serie modeller](./concepts-model-overview.md)för att lära dig mer om **Time Series ID**.
 
 ### <a name="push-events-to-windmills-sample"></a>Push-händelser till Windmills-exempel
 
-1. Sök efter **Event Hubs**i Sök fältet. I listan som returneras väljer du **Event Hubs**.
+1. Sök efter **Event Hubs** i Sök fältet. I listan som returneras väljer du **Event Hubs**.
 
 1. Välj Event Hub-instansen.
 
@@ -84,7 +84,7 @@ I Azure Time Series Insights Gen2 kan du lägga till sammanhangsbaserade data ti
 1. Välj **Klicka för att starta**.
 
     > [!TIP]
-    > Windmill-simulatorn skapar också JSON som du kan använda som en nytto last med [Azure Time Series Insights ga-fråge-API: er](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+    > Windmill-simulatorn skapar också JSON som du kan använda som en nytto last med [Azure Time Series Insights ga-fråge-API: er](/rest/api/time-series-insights/gen1-query).
 
     > [!NOTE]
     > Simulatorn fortsätter att skicka data tills fliken webbläsare stängs.
@@ -208,4 +208,4 @@ I Azure Time Series Insights Gen2 kan du lägga till sammanhangsbaserade data ti
 
 * [Visa din miljö](https://insights.timeseries.azure.com) i Azure Time Series Insights Explorer.
 
-* Läs mer om [IoT Hub enhets meddelanden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
+* Läs mer om [IoT Hub enhets meddelanden](../iot-hub/iot-hub-devguide-messages-construct.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dc39c1e43580c5cf302e85664783dba4509889af
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842642"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023164"
 ---
 # <a name="security-best-practices"></a>Metodtips för säkerhet
 
@@ -29,16 +29,16 @@ Här är de säkerhets behov som du är ansvarig för i distributionen av Window
 
 | Säkerhets behov | Är kunden ansvarig för detta? |
 |---------------|:-------------------------:|
-|Identitet|Ja|
-|Användar enheter (mobil och PC)|Ja|
-|App Security|Ja|
-|Sessionens värd operativ system|Ja|
-|Distributions konfiguration|Ja|
-|Nätverkskontroller|Ja|
-|Kontroll plan för nätverksvirtualisering|Nej|
-|Fysiska värdar|Nej|
-|Fysiskt nätverk|Nej|
-|Fysiskt Data Center|Nej|
+|Identitet|Yes|
+|Användar enheter (mobil och PC)|Yes|
+|App Security|Yes|
+|Sessionens värd operativ system|Yes|
+|Distributions konfiguration|Yes|
+|Nätverkskontroller|Yes|
+|Kontroll plan för nätverksvirtualisering|No|
+|Fysiska värdar|No|
+|Fysiskt nätverk|No|
+|Fysiskt Data Center|No|
 
 Säkerheten behöver kunden är inte ansvarig för hanteras av Microsoft.
 
@@ -62,7 +62,7 @@ Mer information finns i [publicera din Azure-prenumeration till Security Center 
 
 ### <a name="improve-your-secure-score"></a>Förbättra dina säkerhetspoäng
 
-Säkra poäng ger rekommendationer och metod tips för att förbättra den övergripande säkerheten. Dessa rekommendationer prioriteras för att hjälpa dig att välja vilka som är viktigast och snabb korrigerings alternativ hjälper dig att snabbt hantera potentiella sårbarheter. Dessa rekommendationer uppdateras också med tiden och du bör hålla dig uppdaterad om de bästa sätten att underhålla din miljös säkerhet. Mer information finns [i förbättra dina säkra poäng i Azure Security Center](../security-center/security-center-secure-score.md).
+Säkra poäng ger rekommendationer och metod tips för att förbättra den övergripande säkerheten. Dessa rekommendationer prioriteras för att hjälpa dig att välja vilka som är viktigast och snabb korrigerings alternativ hjälper dig att snabbt hantera potentiella sårbarheter. Dessa rekommendationer uppdateras också med tiden och du bör hålla dig uppdaterad om de bästa sätten att underhålla din miljös säkerhet. Mer information finns [i förbättra dina säkra poäng i Azure Security Center](../security-center/secure-score-security-controls.md).
 
 ## <a name="windows-virtual-desktop-security-best-practices"></a>Metod tips för Windows Virtual Desktop-säkerhet
 
@@ -74,13 +74,13 @@ Att kräva Multi-Factor Authentication för alla användare och administratörer
 
 ### <a name="enable-conditional-access"></a>Aktivera villkorlig åtkomst
 
-Genom att aktivera [villkorlig åtkomst](../active-directory/conditional-access/best-practices.md) kan du hantera risker innan du ger användarna åtkomst till din Windows-miljö för virtuella datorer. När du bestämmer vilka användare som ska bevilja åtkomst till rekommenderar vi att du även funderar på vem användaren är, hur de loggar in och vilken enhet de använder.
+Genom att aktivera [villkorlig åtkomst](../active-directory/conditional-access/overview.md) kan du hantera risker innan du ger användarna åtkomst till din Windows-miljö för virtuella datorer. När du bestämmer vilka användare som ska bevilja åtkomst till rekommenderar vi att du även funderar på vem användaren är, hur de loggar in och vilken enhet de använder.
 
 ### <a name="collect-audit-logs"></a>Samla in gransknings loggar
 
 Genom att aktivera Gransknings logg samling kan du Visa användar-och administratörs aktivitet som är relaterad till Windows Virtual Desktop. Några exempel på nyckel gransknings loggar är:
 
--   [Azure-aktivitetslogg](../azure-monitor/platform/activity-log-collect.md)
+-   [Azure-aktivitetslogg](../azure-monitor/platform/activity-log.md)
 -   [Azure Active Directory aktivitets logg](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Värdar för sessioner](../azure-monitor/platform/agent-windows.md)
@@ -93,7 +93,7 @@ När du väljer en distributions modell kan du antingen ge fjärran vändare åt
 
 ### <a name="monitor-usage-with-azure-monitor"></a>Övervaka användning med Azure Monitor
 
-Övervaka användning och tillgänglighet för Windows Virtual Desktop-tjänsten med [Azure Monitor](https://azure.microsoft.com/services/monitor/). Överväg att skapa [service Health-aviseringar](../service-health/alerts-activity-log-service-notifications.md) för Windows Virtual Desktop-tjänsten för att ta emot meddelanden när en händelse som rör tjänsten påverkas.
+Övervaka användning och tillgänglighet för Windows Virtual Desktop-tjänsten med [Azure Monitor](https://azure.microsoft.com/services/monitor/). Överväg att skapa [service Health-aviseringar](../service-health/alerts-activity-log-service-notifications-portal.md) för Windows Virtual Desktop-tjänsten för att ta emot meddelanden när en händelse som rör tjänsten påverkas.
 
 ## <a name="session-host-security-best-practices"></a>Rekommenderade säkerhets metoder för Session Host
 

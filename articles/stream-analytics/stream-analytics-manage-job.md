@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: fef949e9285264ef46fbaed05a4385a15b27e65e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 70acc696f1cb366d25299f616744e52491a54471
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354553"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024185"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Självstudie: analysera samtals data med Stream Analytics och visualisera resultat i Power BI instrument panel
 
@@ -86,7 +86,7 @@ Innan ett program kan skicka data till Azure Event Hubs måste händelsen ha en 
 
    `Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>;EntityPath=<Your event hub name>`
 
-   Lägg märke till att anslutningssträngen innehåller flera nyckel/värde-par som är separerade med semikolon: **Endpoint** , **SharedAccessKeyName** , **SharedAccessKey** och **EntityPath**.
+   Lägg märke till att anslutningssträngen innehåller flera nyckel/värde-par som är separerade med semikolon: **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey** och **EntityPath**.
 
 ## <a name="start-the-event-generator-application"></a>Starta händelsegeneratorprogrammet
 
@@ -110,7 +110,7 @@ Innan du startar appen TelcoGenerator ska du konfigurera den så att den skickar
    Kommandot stöder följande parametrar:
    * Antal samtalsdataposter per timme.
    * Procentandel för sannolikhet för bedrägeri, vilket är hur ofta appen ska simulera ett bedrägligt samtal. Värdet 0.2 betyder att cirka 20 % av anropsposterna ser bedrägliga ut.
-   * Längd i timmar, vilket är det antal timmar som appen ska köras. Du kan också stoppa appen när du vill genom att avsluta processen ( **CTRL + C** ) på kommando raden.
+   * Längd i timmar, vilket är det antal timmar som appen ska köras. Du kan också stoppa appen när du vill genom att avsluta processen (**CTRL + C**) på kommando raden.
 
    Efter några sekunder börjar appen visa telefonsamtalsposter på skärmen och skickar dem till en händelsehubb. Telefonsamtalsdata innehåller följande fält:
 
@@ -129,7 +129,7 @@ Nu nr du har en ström av anropshändelser kan du skapa ett Stream Analytics-job
 
 1. Du skapar du ett Stream Analytics-jobb genom att gå till [Azure-portalen](https://portal.azure.com/).
 
-2. Välj **skapa en resurs** och sök efter **Stream Analytics jobb**. Välj panelen **Stream Analytics jobb** och välj * Skapa * *.
+2. Välj **skapa en resurs** och sök efter **Stream Analytics jobb**. Välj panelen **Stream Analytics jobb** och välj **skapa**.
 
 3. Fyll i formuläret **ny Stream Analytics jobb** med följande värden:
 
@@ -180,7 +180,7 @@ Det sista steget är att definiera en utgående mottagare där jobbet kan skriva
 
 :::image type="content" source="media/stream-analytics-manage-job/authorize-power-bi.png" alt-text="knappen auktorisera för Power BI":::
 
-4. Fyll i formuläret utdata med följande information och välj **Spara** :
+4. Fyll i formuläret utdata med följande information och välj **Spara**:
 
    |**Inställning**  |**Föreslaget värde**  |
    |---------|---------|
@@ -217,9 +217,9 @@ I det här exemplet görs bedrägliga samtal från samma användare inom fem sek
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Om du vill söka efter bedrägliga samtal kan du upprätta en självkoppling för strömmande data baserat på värdet `CallRecTime`. Sedan kan du söka efter anrops poster där `CallingIMSI` värdet (det ursprungliga numret) är detsamma, men `SwitchNum` värdet (ursprungsland/region) är olika. När du använder en JOIN-åtgärd med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. Eftersom strömmande data är oändliga anges tidsgränserna för relationen inom **ON** -satsen för kopplingen med hjälp av funktionen [DATEDIFF](/stream-analytics-query/datediff-azure-stream-analytics).
+   Om du vill söka efter bedrägliga samtal kan du upprätta en självkoppling för strömmande data baserat på värdet `CallRecTime`. Sedan kan du söka efter anrops poster där `CallingIMSI` värdet (det ursprungliga numret) är detsamma, men `SwitchNum` värdet (ursprungsland/region) är olika. När du använder en JOIN-åtgärd med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. Eftersom strömmande data är oändliga anges tidsgränserna för relationen inom **ON**-satsen för kopplingen med hjälp av funktionen [DATEDIFF](/stream-analytics-query/datediff-azure-stream-analytics).
 
-   Frågan är som en vanlig SQL-koppling förutom funktionen **DATEDIFF**. Den **DATEDIFF** -funktion som används i den här frågan är specifik för Streaming Analytics och måste visas i `ON...BETWEEN`-satsen.
+   Frågan är som en vanlig SQL-koppling förutom funktionen **DATEDIFF**. Den **DATEDIFF**-funktion som används i den här frågan är specifik för Streaming Analytics och måste visas i `ON...BETWEEN`-satsen.
 
 4. **Spara** frågan.
 
@@ -241,7 +241,7 @@ Du kan testa en fråga från Frågeredigeraren. Kör följande steg för att tes
 
 2. Välj **Nu** som starttid för jobbutdata och välj **Start**. Du kan se dess status i meddelandefältet.
 
-3. När jobbet är klart går du till [Power BI](https://powerbi.com/) och loggar in med ditt arbets- eller skolkonto. Om Stream Analytics-jobbfrågan genererar resultat finns den *ASAdataset* -datamängd som du skapade under fliken **Datamängder**.
+3. När jobbet är klart går du till [Power BI](https://powerbi.com/) och loggar in med ditt arbets- eller skolkonto. Om Stream Analytics-jobbfrågan genererar resultat finns den *ASAdataset*-datamängd som du skapade under fliken **Datamängder**.
 
 4. Från din Power BI-arbetsyta väljer du **+ Skapa** för att skapa en new instrumentpanel med namnet *Fraudulent Calls* (Bedrägliga samtal).
 
@@ -266,7 +266,7 @@ I den här delen av självstudien använder du ett exempel på [ASP.net](https:/
 Om du vill konfigurera programmet går du till GitHub [-lagringsplatsen PowerBI-Developer-samples](https://github.com/Microsoft/PowerBI-Developer-Samples) och följer anvisningarna under avsnittet **användare äger data** (Använd URL: erna för omdirigering och start sidan under underavsnittet **integrera-Web-App** ). Eftersom vi använder exempel på instrument panelen använder du exempel koden **integrera-Web-App** som finns i [GitHub-lagringsplatsen](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/).
 När du har fått igång programmet i webbläsaren följer du anvisningarna för att bädda in instrumentpanelen du skapade tidigare på webbsidan:
 
-1. Välj **Logga in för att Power BI** , vilket ger programmet åtkomst till instrument panelerna i ditt Power BI-konto.
+1. Välj **Logga in för att Power BI**, vilket ger programmet åtkomst till instrument panelerna i ditt Power BI-konto.
 
 2. Välj knappen **Hämta instrumentpaneler** som visar kontots instrumentpaneler i en tabell. Leta reda på namnet på instrumentpanelen du skapade tidigare **powerbi-embedded-dashboard** och kopiera motsvarande **EmbedUrl**.
 

@@ -12,12 +12,12 @@ ms.date: 11/03/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: 2d15da55c0bab42571d2a9660156a780c5d27881
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49ac70b6881085f48c8bc3a12e31e4a1aa220c6a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305861"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021957"
 ---
 # <a name="get-started-with-custom-keyword"></a>Komma igång med Anpassat nyckelord
 
@@ -39,7 +39,7 @@ Innan du kan använda ett anpassat nyckelord måste du skapa ett nyckelord med h
 
 1. Skapa ett **nytt projekt** på sidan [anpassat nyckelord](https://aka.ms/sdsdk-wakewordportal) . 
 
-1. Ange ett **namn** , en valfri **Beskrivning** och välj språket. Du behöver ett projekt per språk och supporten är för närvarande begränsad till `en-US` språket.
+1. Ange ett **namn**, en valfri **Beskrivning** och välj språket. Du behöver ett projekt per språk och supporten är för närvarande begränsad till `en-US` språket.
 
     ![Beskriv ditt nyckelords projekt](media/custom-keyword/custom-kws-portal-new-project.png)
 
@@ -49,7 +49,7 @@ Innan du kan använda ett anpassat nyckelord måste du skapa ett nyckelord med h
 
 1. Om du vill skapa en ny nyckelords modell klickar du på **träna modell**.
 
-1. Ange ett **namn** för modellen, en valfri **Beskrivning** och valfritt **nyckelord** , och klicka sedan på **Nästa**. Se [rikt linjerna](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) för att välja ett effektivt nyckelord.
+1. Ange ett **namn** för modellen, en valfri **Beskrivning** och valfritt **nyckelord** , och klicka sedan på **Nästa**. Se [rikt linjerna](./custom-keyword-overview.md#choose-an-effective-keyword) för att välja ett effektivt nyckelord.
 
     ![Ange ditt nyckelord](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -79,4 +79,4 @@ Innan du kan använda ett anpassat nyckelord måste du skapa ett nyckelord med h
 
 ## <a name="next-steps"></a>Nästa steg
 
-Testa ditt anpassade nyckelord med [tal enheter SDK snabb start](https://aka.ms/sdsdk-quickstart).
+Testa ditt anpassade nyckelord med [tal enheter SDK snabb start](./speech-devices-sdk-quickstart.md?pivots=platform-android).

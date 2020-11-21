@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b512a80fcfc26efbe5c008884509aebfd86ed3e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460836"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020852"
 ---
 # <a name="data-storage"></a>Datalagring
 
@@ -27,7 +27,7 @@ När du skapar en Azure Time Series Insights Gen2-miljö har du följande altern
 
 * Kall data lagring:
   * Skapa en ny Azure Storage-resurs i den prenumeration och region som du har valt för din miljö.
-  * Bifoga ett redan befintligt Azure Storage-konto. Det här alternativet är endast tillgängligt genom att distribuera från en Azure Resource Manager- [mall](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)och inte visas i Azure Portal.
+  * Bifoga ett redan befintligt Azure Storage-konto. Det här alternativet är endast tillgängligt genom att distribuera från en Azure Resource Manager- [mall](/azure/templates/microsoft.timeseriesinsights/allversions)och inte visas i Azure Portal.
 * Varm data lagring:
   * Ett varmt arkiv är valfritt och kan aktive ras eller inaktive ras under eller efter etablerings tiden. Om du väljer att aktivera varmt Arkiv vid ett senare tillfälle och det redan finns data i ditt kall arkiv kan du [läsa avsnittet nedan](concepts-storage.md#warm-store-behavior) för att förstå det förväntade beteendet. Lagrings tiden för den varma lagrings platsen kan konfigureras för 7 till 31 dagar och detta kan också justeras efter behov.
 
@@ -40,14 +40,14 @@ När en händelse matas in, indexeras den i både varm lagring (om aktive rad) o
 
 ## <a name="data-availability"></a>Datatillgänglighet
 
-Azure Time Series Insights Gen2 partitioner och indexerar data för optimala prestanda för frågor. Data blir tillgängliga för frågor från både varm (om aktive rad) och kall lagring när den har indexerats. Mängden data som matas in och data flödes hastigheten per partition kan påverka tillgängligheten. Granska [begränsningarna för data flödet](./concepts-streaming-ingress-throughput-limits.md) för händelse källan och [bästa praxis](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) för bästa prestanda. Du kan också konfigurera en fördröjnings [avisering](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) för att bli meddelad om din miljö har problem med att bearbeta data.
+Azure Time Series Insights Gen2 partitioner och indexerar data för optimala prestanda för frågor. Data blir tillgängliga för frågor från både varm (om aktive rad) och kall lagring när den har indexerats. Mängden data som matas in och data flödes hastigheten per partition kan påverka tillgängligheten. Granska [begränsningarna för data flödet](./concepts-streaming-ingress-throughput-limits.md) för händelse källan och [bästa praxis](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) för bästa prestanda. Du kan också konfigurera en fördröjnings [avisering](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) för att bli meddelad om din miljö har problem med att bearbeta data.
 
 > [!IMPORTANT]
 > Du kan uppleva en period på upp till 60 sekunder innan data blir tillgängliga. Om du får en betydande fördröjning utöver 60 sekunder kan du skicka ett support ärende via Azure Portal.
 
 ## <a name="warm-store"></a>Varm lagring
 
-Data i det varmt arkivet är bara tillgängliga via [Time Series-API: er](./time-series-insights-update-tsq.md), [Azure Time Series Insights TSD-Utforskare](./time-series-insights-update-explorer.md)eller Power BI- [anslutningen](./how-to-connect-power-bi.md). Frågor om varma butiker är kostnads fria och det finns ingen kvot, men det finns en [gräns på 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) samtidiga begär Anden.
+Data i det varmt arkivet är bara tillgängliga via [Time Series-API: er](./concepts-query-overview.md), [Azure Time Series Insights TSD-Utforskare](./concepts-ux-panels.md)eller Power BI- [anslutningen](./how-to-connect-power-bi.md). Frågor om varma butiker är kostnads fria och det finns ingen kvot, men det finns en [gräns på 30](/rest/api/time-series-insights/reference-api-limits#query-apis---limits) samtidiga begär Anden.
 
 ### <a name="warm-store-behavior"></a>Varmt lagrings beteende
 
@@ -77,9 +77,9 @@ För att säkerställa frågornas prestanda och data tillgänglighet ska du inte
 
 #### <a name="accessing-cold-store-data"></a>Åtkomst till data för kall lagring
 
-Förutom att komma åt dina data från API: erna för [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md) och [Time Series](./time-series-insights-update-tsq.md), kanske du också vill komma åt dina data direkt från Parquet-filerna som lagras i kyl lagret. Du kan till exempel läsa, transformera och rensa data i en Jupyter Notebook och sedan använda den för att träna din Azure Machine Learning-modell i samma Spark-arbetsflöde.
+Förutom att komma åt dina data från API: erna för [Azure Time Series Insights Explorer](./concepts-ux-panels.md) och [Time Series](./concepts-query-overview.md), kanske du också vill komma åt dina data direkt från Parquet-filerna som lagras i kyl lagret. Du kan till exempel läsa, transformera och rensa data i en Jupyter Notebook och sedan använda den för att träna din Azure Machine Learning-modell i samma Spark-arbetsflöde.
 
-Om du vill komma åt data direkt från ditt Azure Storage-konto behöver du Läs behörighet till det konto som används för att lagra dina Azure Time Series Insights Gen2-data. Du kan sedan läsa valda data baserat på skapande tiden för den Parquet-fil som finns i `PT=Time` mappen som beskrivs nedan i avsnittet [fil format för Parquet](#parquet-file-format-and-folder-structure) .  Mer information om hur du aktiverar Läs åtkomst till ditt lagrings konto finns i [Hantera åtkomst till dina lagrings konto resurser](../storage/blobs/storage-manage-access-to-resources.md).
+Om du vill komma åt data direkt från ditt Azure Storage-konto behöver du Läs behörighet till det konto som används för att lagra dina Azure Time Series Insights Gen2-data. Du kan sedan läsa valda data baserat på skapande tiden för den Parquet-fil som finns i `PT=Time` mappen som beskrivs nedan i avsnittet [fil format för Parquet](#parquet-file-format-and-folder-structure) .  Mer information om hur du aktiverar Läs åtkomst till ditt lagrings konto finns i [Hantera åtkomst till dina lagrings konto resurser](../storage/blobs/anonymous-read-access-configure.md).
 
 #### <a name="data-deletion"></a>Borttagning av data
 
@@ -123,6 +123,6 @@ Azure Time Series Insights Gen2-händelser mappas till Parquet-filinnehållet p�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om [data modellering](./time-series-insights-update-tsm.md).
+* Läs om [data modellering](./concepts-model-overview.md).
 
-* Planera din [Azure Time Series Insights Gen2-miljö](./time-series-insights-update-plan.md).
+* Planera din [Azure Time Series Insights Gen2-miljö](./how-to-plan-your-environment.md).

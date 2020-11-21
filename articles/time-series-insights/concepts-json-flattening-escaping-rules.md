@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.openlocfilehash: a1f633548ed36320f40e485f540923c8e3045a99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0839d2c734418824952f37cb177490e56e1133c5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460874"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023317"
 ---
 # <a name="json-flattening-escaping-and-array-handling"></a>JSON-utplattning, undantag och matrishantering
 
@@ -22,18 +22,18 @@ Din Azure Time Series Insights Gen2-miljö skapar dynamiskt kolumner i dina varm
 
 > [!IMPORTANT]
 >
-> * Granska reglerna nedan innan du väljer en [Time Series ID-egenskap](time-series-insights-update-how-to-id.md) och/eller din händelse källans [tidstämpel](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). Om ditt TS-ID eller tidstämpel är inom ett kapslat objekt eller innehåller ett eller flera av specialtecknen nedan är det viktigt att du ser till att egenskaps namnet som du anger matchar kolumn namnet *när* inmatnings reglerna har tillämpats. Se exempel [B](concepts-json-flattening-escaping-rules.md#example-b) nedan.
+> * Granska reglerna nedan innan du väljer en [Time Series ID-egenskap](./how-to-select-tsid.md) och/eller din händelse källans [tidstämpel](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). Om ditt TS-ID eller tidstämpel är inom ett kapslat objekt eller innehåller ett eller flera av specialtecknen nedan är det viktigt att du ser till att egenskaps namnet som du anger matchar kolumn namnet *när* inmatnings reglerna har tillämpats. Se exempel [B](concepts-json-flattening-escaping-rules.md#example-b) nedan.
 
-| Regel | Exempel-JSON | [Syntax för Time Series-uttryck](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Egenskaps kolumn namn i Parquet
+| Regel | Exempel-JSON | [Syntax för Time Series-uttryck](/rest/api/time-series-insights/reference-time-series-expression-syntax) | Egenskaps kolumn namn i Parquet
 |---|---|---|---|
 | Data typen Azure Time Series Insights Gen2 läggs till i slutet av kolumn namnet som "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | `$event.type.String` |`type_string` |
 | [Egenskapen timestamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) för händelse källan sparas i Azure Time Series Insights Gen2 som "timestamp" i Storage och värdet som lagras i UTC. Du kan anpassa tids stämplings egenskapen för händelse källan så att den uppfyller lösningens behov, men kolumn namnet i varmt och kallt lagrings utrymme är "timestamp". Andra datetime JSON-egenskaper som inte är tids stämpling för händelse källan sparas med "_datetime" i kolumn namnet, som anges i regeln ovan.  | ```"ts": "2020-03-19 14:40:38.318"``` |  `$event.$ts` | `timestamp` |
 | JSON-egenskaps namn som innehåller specialtecknen. [\ och "föregås av [" och "]  |  ```"id.wasp": "6A3090FD337DE6B"``` |  `$event['id.wasp'].String` | `['id.wasp']_string` |
 | I ["och"] finns det ytterligare undantag av enkla citat tecken och omvänt snedstreck. Ett enkelt citat sätt skrivs som \ och ett omvänt snedstreck skrivs som \\\ | ```"Foo's Law Value": "17.139999389648"``` | `$event['Foo\'s Law Value'].Double` | `['Foo\'s Law Value']_double` |
 | Kapslade JSON-objekt förenklas med en punkt som avgränsare. Det finns stöd för att kapsla upp till 10 nivåer. |  ```"series": {"value" : 316 }``` | `$event.series.value.Long``$event['series']['value'].Long`eller`$event.series['value'].Long` |  `series.value_long` |
-| Matriser med primitiva typer lagras som dynamisk typ |  ```"values": [154, 149, 147]``` | Dynamiska typer kan bara hämtas via [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) -API: et | `values_dynamic` |
+| Matriser med primitiva typer lagras som dynamisk typ |  ```"values": [154, 149, 147]``` | Dynamiska typer kan bara hämtas via [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) -API: et | `values_dynamic` |
 | Matriser som innehåller objekt har två beteenden beroende på objektets innehåll: om något av de TS-ID: n eller timestamp-egenskaperna finns i objekten i en matris, kommer matrisen att avregistreras så att den inledande JSON-nyttolasten genererar flera händelser. På så sätt kan du gruppera flera händelser i en JSON-struktur. Alla toppnivå egenskaper som är peer-kopplade till matrisen kommer att sparas med varje objekt som inte har registrerats. Om dina TS-ID: n och tidstämpeln *inte* finns i matrisen, kommer de att sparas fullständigt som dynamisk typ. | Se exempel [A](concepts-json-flattening-escaping-rules.md#example-a), [B](concepts-json-flattening-escaping-rules.md#example-b)och [C](concepts-json-flattening-escaping-rules.md#example-c) nedan
-| Matriser som innehåller blandade element är inte förenklade. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Dynamiska typer kan bara hämtas via [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) -API: et | `values_dynamic` |
+| Matriser som innehåller blandade element är inte förenklade. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Dynamiska typer kan bara hämtas via [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) -API: et | `values_dynamic` |
 | 512 tecken är namn gränsen för JSON-egenskapen. Om namnet överskrider 512 tecken kommer det att trunkeras till 512 och ' _< ' hashkoden ' > ' läggs till. **Observera** att detta även gäller för egenskaps namn som har sammanfogats från utplattat objekt, vilket anger en kapslad objekt Sök väg. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## <a name="understanding-the-dual-behavior-for-arrays"></a>Förstå det dubbla beteendet för matriser
@@ -44,7 +44,7 @@ Men i vissa fall är matriser som innehåller objekt bara meningsfulla i sammanh
 
 ### <a name="how-to-know-if-my-array-of-objects-will-produce-multiple-events"></a>Så här vet du om min matris med objekt kommer att skapa flera händelser
 
-Om en eller flera av dina Time Series-ID: n är inkapslade i objekt i en matris, *eller* om din händelse källans tidstämpel egenskap är kapslad, kommer inmatnings motorn att dela upp den för att skapa flera händelser. De egenskaps namn som du har angett för dina TS-ID: n och/eller tidsstämpeln bör följa förenklings reglerna ovan och kommer därför att indikera formen på din JSON. Se exemplen nedan och kolla in guiden om hur du [väljer en Time Series ID-egenskap.](time-series-insights-update-how-to-id.md)
+Om en eller flera av dina Time Series-ID: n är inkapslade i objekt i en matris, *eller* om din händelse källans tidstämpel egenskap är kapslad, kommer inmatnings motorn att dela upp den för att skapa flera händelser. De egenskaps namn som du har angett för dina TS-ID: n och/eller tidsstämpeln bör följa förenklings reglerna ovan och kommer därför att indikera formen på din JSON. Se exemplen nedan och kolla in guiden om hur du [väljer en Time Series ID-egenskap.](./how-to-select-tsid.md)
 
 ### <a name="example-a"></a>Exempel A
 

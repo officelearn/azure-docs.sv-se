@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 105faf796583eb0f272eea7a316648993fdafd0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 680b3c5a9548fa06d0139bd441b5583c27427a77
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653782"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020784"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualisera data från Azure Time Series Insights i Power BI
 
@@ -32,7 +32,7 @@ Se till att du registrerar dig för en [kostnads fri Azure-prenumeration](https:
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Hämta och installera den senaste versionen av [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* Ha eller skapa en [Azure Time Series Insights Gen2-miljö](time-series-insights-update-how-to-manage.md)
+* Ha eller skapa en [Azure Time Series Insights Gen2-miljö](./how-to-provision-manage.md)
 
 > [!IMPORTANT]
 >
@@ -69,9 +69,9 @@ Så här kommer du igång:
        > [!NOTE]
        > Det finns en gräns för antal 250 000-händelser för rå data på händelse nivå.
 
-       [![Ansluta](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
+       [![Anslut](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
-   1. Om du inte har konfigurerat din Azure Time Series Insightss miljö med ett **varmt Arkiv**får du en varning.
+   1. Om du inte har konfigurerat din Azure Time Series Insightss miljö med ett **varmt Arkiv** får du en varning.
 
        [![Varning om varma lager](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
@@ -94,7 +94,7 @@ Så här kommer du igång:
 
     [![Välj Skapa anpassad fråga](media/how-to-connect-power-bi/confirm-the-connection.png)](media/how-to-connect-power-bi/confirm-the-connection.png#lightbox)
 
-1. I list menyn under **data källa**väljer du **Skapa anpassad fråga**. Klistra in från Urklipp i det valfria fältet **anpassad fråga (valfritt)** nedan och tryck sedan på **OK**.
+1. I list menyn under **data källa** väljer du **Skapa anpassad fråga**. Klistra in från Urklipp i det valfria fältet **anpassad fråga (valfritt)** nedan och tryck sedan på **OK**.
 
     [![Skicka i den anpassade frågan och välj OK](media/how-to-connect-power-bi/custom-query-load.png)](media/how-to-connect-power-bi/custom-query-load.png#lightbox)  
 
@@ -130,7 +130,7 @@ När du har skapat rapporten kan du publicera den till Power BI repor ting Servi
 
 ## <a name="advanced-editing"></a>Avancerad redigering
 
-Om du redan har läst in en data uppsättning i Power BI men vill ändra frågan (till exempel parametrarna för datum/tid eller miljö-ID), kan du göra detta via Avancerad redigerare-funktionerna i Power BI. Läs mer i [Power BI-dokumentationen](https://docs.microsoft.com/power-bi/desktop-query-overview) .
+Om du redan har läst in en data uppsättning i Power BI men vill ändra frågan (till exempel parametrarna för datum/tid eller miljö-ID), kan du göra detta via Avancerad redigerare-funktionerna i Power BI. Läs mer i [Power BI-dokumentationen](/power-bi/desktop-query-overview) .
 
 Som en översikt:
 
@@ -146,6 +146,6 @@ Gränssnittet visar nu de önskade ändringarna som du har använt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om [Power BI anslutnings begrepp](https://docs.microsoft.com/power-bi/desktop-query-overview) för Azure Time Series Insights.
+* Läs om [Power BI anslutnings begrepp](/power-bi/desktop-query-overview) för Azure Time Series Insights.
 
-* Läs mer om [Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Läs mer om [Power BI Desktop](/power-bi/desktop-query-overview).

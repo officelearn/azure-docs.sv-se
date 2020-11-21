@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: 1effb62619f9767cc90c99e037445e7a95981460
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3aedbef079ba62f42ea79afdcd9995d7ee23d9fa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078246"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020733"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrera till nya Azure Time Series Insights Gen2 API-versioner
 
@@ -24,9 +24,9 @@ ms.locfileid: "92078246"
 Om du har skapat en Azure Time Series Insights Gen2-miljö när den var i en offentlig för hands version (före den 16 juli 2020) kan du uppdatera din TSD-miljö för att använda de nya allmänt tillgängliga versionerna av API: er genom att följa stegen som beskrivs i den här artikeln. Den här ändringen påverkar inte användare som använder gen1-versionen av Azure Time Series Insights.
 
 > [!IMPORTANT]
-> Uppdateringarna som beskrivs i den här artikeln uppgraderar bara de API-versioner som används i TSD-miljön. Den här ändringen är inte relaterad till nya [JSON-förenklingar och undantags regler](https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules) som introduceras i Gen2-miljöer.
+> Uppdateringarna som beskrivs i den här artikeln uppgraderar bara de API-versioner som används i TSD-miljön. Den här ändringen är inte relaterad till nya [JSON-förenklingar och undantags regler](./concepts-json-flattening-escaping-rules.md) som introduceras i Gen2-miljöer.
 
-Den nya API-versionen är `2020-07-31` och använder en uppdaterad [syntax för Time Series-uttryck](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Den nya API-versionen är `2020-07-31` och använder en uppdaterad [syntax för Time Series-uttryck](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 Användare måste migrera sin Miljös [tids serie modell variabler](./concepts-variables.md), sparade frågor, Power BI frågor och eventuella anpassade verktyg som gör anrop till API-slutpunkterna. Om du har frågor eller problem med migreringsprocessen skickar du ett support ärende via Azure Portal och nämner det här dokumentet.
 
@@ -42,7 +42,7 @@ För att hjälpa användarna att migrera [tids serie modellens variabler](./conc
 
 1. Du uppmanas att uppdatera den syntax som används av dina tids serie modell variabler och sparade frågor i Explorer.
 
-    [![Fråga](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
+    [![Prompt](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
 
     Om du råkar stänga meddelandet av misstag kan du hitta det i meddelande panelen.
 
@@ -84,28 +84,28 @@ Om det anpassade programmet gör anrop till följande REST-slutpunkter, räcker 
 
 - API: er för Time Series-modellen
   - API: er för modell inställningar
-    - [Ta](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
-    - [Uppdatera](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
+    - [Ta](/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
+    - [Uppdatera](/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
   - Instans-API: er
-    - [Alla batch-åtgärder](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
-    - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
-    - [Sök](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
-    - [Föreslå](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
+    - [Alla batch-åtgärder](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
+    - [Lista](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
+    - [Sök](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
+    - [Föreslå](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
   - API: er för hierarki
-    - [Alla batch-åtgärder](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
-    - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list)
+    - [Alla batch-åtgärder](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
+    - [Lista](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list)
   - Typer av API: er
-    - [Ta bort, Hämta åtgärder](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
-    - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
+    - [Ta bort, Hämta åtgärder](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
+    - [Lista](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
-För följande REST-slutpunkter måste du uppdatera API-versionen till `2020-07-31` i URI: n och kontrol lera att alla förekomster av `tsx` egenskapen använder den uppdaterade [tids serie uttrycks syntaxen](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+För följande REST-slutpunkter måste du uppdatera API-versionen till `2020-07-31` i URI: n och kontrol lera att alla förekomster av `tsx` egenskapen använder den uppdaterade [tids serie uttrycks syntaxen](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 - Typer av API: er
-  - [Placerings åtgärd](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
+  - [Placerings åtgärd](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
 - API:er för frågor
-  - [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
-  - [GetSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
-  - [GetAggregateSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
+  - [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
+  - [GetSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
+  - [GetAggregateSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
 ### <a name="examples"></a>Exempel
 
@@ -358,7 +358,7 @@ Alternativt `value` kan även vara `coalesce($event['Temp'].Double, toDouble($ev
 
 #### <a name="invalidinput"></a>InvalidInput
 
-Om du ser följande fel använder du den nya API-versionen (), `2020-07-31` men TSX-syntaxen har inte uppdaterats. Kontrol lera [syntaxen för Time Series-uttryck](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) och migrering ovan. Se till att alla `tsx` Egenskaper uppdateras korrekt innan du skickar API-begäran igen.
+Om du ser följande fel använder du den nya API-versionen (), `2020-07-31` men TSX-syntaxen har inte uppdaterats. Kontrol lera [syntaxen för Time Series-uttryck](/rest/api/time-series-insights/reference-time-series-expression-syntax) och migrering ovan. Se till att alla `tsx` Egenskaper uppdateras korrekt innan du skickar API-begäran igen.
 
 ```JSON
 {
@@ -385,6 +385,6 @@ Om du ser följande fel använder du den nya API-versionen (), `2020-07-31` men 
 }
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Testa din miljö via [Azure Time Series Insights Explorer](./concepts-ux-panels.md) eller via ditt anpassade program.

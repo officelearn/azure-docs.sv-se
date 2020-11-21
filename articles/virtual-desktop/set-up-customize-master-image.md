@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e4cb4fe8a701600290d24c055e2be5187a711c5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433712"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023402"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -111,10 +111,10 @@ Omdirigering av tidszon kan verkställas på grupprincip nivå eftersom alla vir
 
 Omdirigera tids zoner:
 
-1. Öppna **konsolen Grupprinciphantering**på Active Directory-servern.
+1. Öppna **konsolen Grupprinciphantering** på Active Directory-servern.
 2. Expandera din domän och grupprincip objekt.
 3. Högerklicka på grupprincip- **objektet** som du skapade för grup princip inställningarna och välj **Redigera**.
-4. I **redigeraren Grupprinciphantering**navigerar du till **dator konfigurations**  >  **principer**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Fjärrskrivbordstjänster**  >  **värd**enhet för fjärrskrivbordssession  >  **och omdirigering av resurser**.
+4. I **redigeraren Grupprinciphantering** navigerar du till **dator konfigurations**  >  **principer**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Fjärrskrivbordstjänster**  >  **värd** enhet för fjärrskrivbordssession  >  **och omdirigering av resurser**.
 5. Aktivera inställningen **Tillåt omdirigering** av tidszon.
 
 Du kan också köra det här kommandot på huvud avbildningen för att omdirigera tids zoner:
@@ -189,7 +189,7 @@ Följande anvisningar visar hur du överför huvud avbildningen till ett Azure S
 
 1. Konvertera VM-avbildningen (VHD) till Fixed om du inte redan gjort det. Om du inte konverterar bilden till Fixed kan du inte skapa bilden.
 
-2. Ladda upp den virtuella hård disken till en BLOB-behållare i ditt lagrings konto. Du kan ladda upp snabbt med [Storage Explorer-verktyget](https://azure.microsoft.com/features/storage-explorer/). Mer information om Storage Explorer-verktyget finns i [den här artikeln](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+2. Ladda upp den virtuella hård disken till en BLOB-behållare i ditt lagrings konto. Du kan ladda upp snabbt med [Storage Explorer-verktyget](https://azure.microsoft.com/features/storage-explorer/). Mer information om Storage Explorer-verktyget finns i [den här artikeln](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows).
 
     > [!div class="mx-imgBorder"]
     > ![En skärm bild av Microsoft Azure Storage Explorer verktygs fönstret Sök. Kryss rutan "Ladda upp VHD-eller VHDX-filer som Page blobbar (rekommenderas)" är markerad.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)

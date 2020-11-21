@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6dcd2005971927de30ca96173cb2bdb063e46663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8578f8aef779ff80f3965fc21b24b785f11226d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397446"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024151"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Vidarebefordra jobbdata från Azure Automation till Azure Monitor-loggar
 
@@ -58,7 +58,7 @@ Om du har mer än ett Automation-konto eller en arbets yta i resultatet av före
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. I Azure Portal väljer du ditt Automation-konto på sidan **Automation-konton** .
-1. Välj **Egenskaper**under **konto inställningar**på sidan för det valda Automation-kontot.
+1. Välj **Egenskaper** under **konto inställningar** på sidan för det valda Automation-kontot.
 1. På sidan **Egenskaper** noterar du informationen som visas nedan.
 
     ![Egenskaper för Automation-konto](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
@@ -134,7 +134,7 @@ Följande steg visar hur du ställer in aviseringar i Azure Monitor för att med
 
 Om du vill skapa en varnings regel börjar du med att skapa en loggs ökning för de Runbook-jobb poster som ska anropa aviseringen. Klicka på knappen **avisering** om du vill skapa och konfigurera varnings regeln.
 
-1. Klicka på **Visa loggar**på översikts sidan för Log Analytics-arbetsyta.
+1. Klicka på **Visa loggar** på översikts sidan för Log Analytics-arbetsyta.
 
 2. Skapa en loggs öknings fråga för aviseringen genom att skriva följande sökning i fältet fråga: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>Du kan också gruppera efter Runbook-namnet genom att använda: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
@@ -146,7 +146,7 @@ Om du vill skapa en varnings regel börjar du med att skapa en loggs ökning fö
 
 Förutom aviseringar vid fel kan du hitta när ett Runbook-jobb har ett icke-avslutande fel. I dessa fall genererar PowerShell en fel ström, men de icke-avslutande felen orsakar inte att jobbet pausas eller kraschar.
 
-1. Klicka på **loggar**i arbets ytan Log Analytics.
+1. Klicka på **loggar** i arbets ytan Log Analytics.
 
 2. I fältet fråga skriver du `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g` .
 
@@ -177,7 +177,7 @@ AzureDiagnostics
 
 ### <a name="filter-job-status-output-converted-into-a-json-object"></a>Filtrera jobb status utdata som konverterats till ett JSON-objekt
 
-Nyligen ändrade vi beteendet för hur Automation-loggdata skrivs till `AzureDiagnostics` tabellen i Log Analytics-tjänsten, där den inte längre delar upp JSON-egenskaperna i separata fält. Om du har konfigurerat din Runbook för att formatera objekt i utdataströmmen i JSON-format som separata kolumner, är det nödvändigt att konfigurera om dina frågor för att parsa fältet till ett JSON-objekt för att få åtkomst till dessa egenskaper. Detta görs med hjälp av [parseJSON](../azure-monitor/log-query/json-data-structures.md#parsejson) för att komma åt ett visst JSON-element i en känd sökväg.
+Nyligen ändrade vi beteendet för hur Automation-loggdata skrivs till `AzureDiagnostics` tabellen i Log Analytics-tjänsten, där den inte längre delar upp JSON-egenskaperna i separata fält. Om du har konfigurerat din Runbook för att formatera objekt i utdataströmmen i JSON-format som separata kolumner, är det nödvändigt att konfigurera om dina frågor för att parsa fältet till ett JSON-objekt för att få åtkomst till dessa egenskaper. Detta görs med hjälp av [parseJSON](https://docs.microsoft.com/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#parsejson) för att komma åt ett visst JSON-element i en känd sökväg.
 
 En Runbook formaterar till exempel egenskapen *ResultDescription* i UTDATASTRÖMMEN i JSON-format med flera fält. Om du vill söka efter status för jobb som är i ett felaktigt tillstånd enligt vad som anges i ett fält med namnet **status**, använder du den här exempel frågan för att söka i *ResultDescription* med statusen **misslyckades**:
 

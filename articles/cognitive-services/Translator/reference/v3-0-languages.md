@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 1f4dfc4b80aff01e4b7fe7ebae4850b28cd6a498
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9abd1f305e47eca743dc9274e0ec1f0a950dd6a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83588606"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021277"
 ---
 # <a name="translator-30-languages"></a>Translator 3,0: språk
 
@@ -34,7 +34,7 @@ Parametrarna för begäran som skickades till frågesträngen är:
 
 <table width="100%">
   <th width="20%">Frågeparameter</th>
-  <th>Beskrivning</th>
+  <th>Description</th>
   <tr>
     <td>api-version</td>
     <td><em>Obligatorisk parameter</em>.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0` .</td>
@@ -49,7 +49,7 @@ Begärandehuvuden är:
 
 <table width="100%">
   <th width="20%">Sidhuvuden</th>
-  <th>Beskrivning</th>
+  <th>Description</th>
   <tr>
     <td>Accept-Language</td>
     <td>*Valfritt huvud för begäran*.<br/>Språket som ska användas för användargränssnittssträngar. Några av fälten i svaret är namn på språk eller namn på regioner. Använd den här parametern för att definiera språket som namnen returneras i. Språket anges genom att tillhandahålla en välformulerad BCP 47-språktagg. Använd exempelvis värdet `fr` för att begära namn på franska eller Använd värdet `zh-Hant` för att begära namn på traditionell kinesiska.<br/>Namn anges på det engelska språket när ett mål språk inte anges eller när lokalisering inte är tillgängligt.
@@ -230,7 +230,7 @@ Listan över språk som stöds kommer inte att ändras ofta. Om du vill spara n�
 
 <table width="100%">
   <th width="20%">Sidhuvuden</th>
-  <th>Beskrivning</th>
+  <th>Description</th>
   <tr>
     <td>ETag</td>
     <td>Aktuellt värde för enhets tag gen för de begärda språken som stöds. För att göra efterföljande begär Anden mer effektiva kan klienten skicka `ETag` värdet i ett `If-None-Match` rubrik fält.
@@ -248,7 +248,7 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
 
 <table width="100%">
   <th width="20%">Statuskod</th>
-  <th>Beskrivning</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Åtgärden lyckades.</td>
@@ -275,7 +275,7 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
   </tr>
 </table> 
 
-Om ett fel inträffar returnerar begäran även ett JSON-felsvar. Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga felkoder finns på [referens sidan för v3 Translator](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Om ett fel inträffar returnerar begäran även ett JSON-felsvar. Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga felkoder finns på [referens sidan för v3 Translator](./v3-0-reference.md#errors). 
 
 ## <a name="examples"></a>Exempel
 

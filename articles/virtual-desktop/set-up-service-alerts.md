@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0391102683ebafba63c429072c8afa9f24223955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66617afee11b02eae0ba5e36d9ff91cbdf21911f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009434"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023113"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Självstudie: Konfigurera tjänst aviseringar
 
@@ -25,7 +25,7 @@ I den här självstudien får du lära dig att:
 > [!div class="checklist"]
 > * Skapa och konfigurera tjänst aviseringar.
 
-Mer information om Azure Service Health finns i [Azure Health-dokumentationen](https://docs.microsoft.com/azure/service-health/).
+Mer information om Azure Service Health finns i [Azure Health-dokumentationen](../service-health/index.yml).
 
 ## <a name="create-service-alerts"></a>Skapa tjänst aviseringar
 
@@ -46,7 +46,7 @@ Konfigurera tjänst aviseringar:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **service Health.**
-3. Följ anvisningarna i [skapa aktivitets logg aviseringar på tjänst aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) för att konfigurera aviseringar och meddelanden.
+3. Följ anvisningarna i [skapa aktivitets logg aviseringar på tjänst aviseringar](../service-health/alerts-activity-log-service-notifications-portal.md?toc=%2fazure%2fservice-health%2ftoc.json) för att konfigurera aviseringar och meddelanden.
 
 ## <a name="next-steps"></a>Nästa steg
 

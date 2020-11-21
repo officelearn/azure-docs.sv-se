@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 729e22f8ad94d2119d0f3f3e9fc474cc83a493a8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691419"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023079"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Distribuera diagnostikverktyget för Windows Virtual Desktop (klassiskt)
 
@@ -94,10 +94,10 @@ Köra PowerShell-skriptet:
 2.  Gå till [RDS-templates GitHub-lagrings platsen](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) och kör **CreateLogAnalyticsWorkspaceforDiagnostics.ps1** -skriptet i PowerShell.
 3. Ange följande värden för parametrarna:
 
-    - För **ResourceGroupName**anger du namnet på resurs gruppen.
-    - För **LogAnalyticsWorkspaceName**anger du ett unikt namn för din Log Analytics-arbetsyta.
-    - För **plats**anger du den Azure-region som du använder.
-    - Ange **ID för Azure-prenumerationen**som du hittar i Azure Portal under **prenumerationer**.
+    - För **ResourceGroupName** anger du namnet på resurs gruppen.
+    - För **LogAnalyticsWorkspaceName** anger du ett unikt namn för din Log Analytics-arbetsyta.
+    - För **plats** anger du den Azure-region som du använder.
+    - Ange **ID för Azure-prenumerationen** som du hittar i Azure Portal under **prenumerationer**.
 
 4. Ange autentiseringsuppgifterna för en användare med delegerad administratörs åtkomst.
 5. Logga in på Azure Portal med samma användares autentiseringsuppgifter.
@@ -121,7 +121,7 @@ Så här konfigurerar du de rekommenderade prestanda räknarna manuellt:
     -   Processor information ( \* ) \\ processor tid
     -   Fördröjning för användarindata per session ( \* ) \\ Max fördröjning för indata
 
-Läs mer om prestanda räknare [i prestanda data källor för Windows och Linux i Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
+Läs mer om prestanda räknare [i prestanda data källor för Windows och Linux i Azure Monitor](../../azure-monitor/platform/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Eventuella ytterligare räknare som du konfigurerar visas inte i själva diagnostikverktyget. Om du vill att det ska visas i diagnostikverktyget måste du konfigurera verktygets konfigurations fil. Instruktioner för hur du gör detta med avancerad administration blir tillgängligt i GitHub vid ett senare tillfälle.
@@ -144,7 +144,7 @@ För att se till att din app-registrering har API-behörigheter:
 För att se till att din Log Analytics arbets yta har de förkonfigurerade Windows-prestandaräknare:
 
 1. Gå till **Log Analytics arbets ytor** i [Azure Portal](https://portal.azure.com/)och granska de konfigurerade Windows-prestandaräknare.
-2. Under **Inställningar**väljer du **Avancerade inställningar**.
+2. Under **Inställningar** väljer du **Avancerade inställningar**.
 3. Sedan går du till **data**  >  **Windows prestanda räknare**.
 4. Kontrol lera att följande räknare är förkonfigurerade:
 
@@ -191,7 +191,7 @@ Ange omdirigerings-URI: n:
 4.  I den vänstra panelen under avsnittet hantera väljer du **autentisering**.
 5.  Ange önskad omdirigerings-URI i text rutan **omdirigerings-URI** och välj sedan **Spara** i det övre vänstra hörnet på menyn.
 6. Välj **webbplats** under typ på den nedrullningsbara menyn.
-7. Ange URL: en från sidan Översikt över appen och Lägg till **/Security/signin-callback** i slutet av den. Exempel: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
+7. Ange URL: en från sidan Översikt över appen och Lägg till **/Security/signin-callback** i slutet av den. Till exempel: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    > [!div class="mx-imgBorder"]
    > ![Sidan omdirigerings-URI](../media/redirect-uri-page.png)
@@ -204,7 +204,7 @@ Ange omdirigerings-URI: n:
 
 Innan du gör diagnostikverktyget tillgängligt för dina användare måste du kontrol lera att de har följande behörigheter:
 
-- Användare behöver Läs behörighet för Log Analytics. Mer information finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
+- Användare behöver Läs behörighet för Log Analytics. Mer information finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
 -  Användare behöver också Läs behörighet för den virtuella Windows-klienten för fjärr skrivbord (RDS-läsar rollen). Mer information finns i [delegerad åtkomst i Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
 Du måste också ge användarna följande information:

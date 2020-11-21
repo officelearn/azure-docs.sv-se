@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 401d22ee68ba0652eb684b03b06fddf0b0fe3d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61af7922318514a7b86a349d1970c59d4d168d85
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569457"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023334"
 ---
 # <a name="create-a-new-azure-time-series-insights-gen1-environment-in-the-azure-portal"></a>Skapa en ny Azure Time Series Insights gen1-miljö i Azure Portal
 
@@ -68,9 +68,9 @@ Följ de här stegen för att skapa en miljö:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Definiera principer för data åtkomst](time-series-insights-data-access.md) för att skydda din miljö.
+* [Definiera principer för data åtkomst](./concepts-access-policies.md) för att skydda din miljö.
 
-* [Lägg till händelse källan för Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md) i Azure Time Series Insightss miljön.
+* [Lägg till händelse källan för Event Hub](./how-to-ingest-data-event-hub.md) i Azure Time Series Insightss miljön.
 
 * [Skicka händelser](time-series-insights-send-events.md) till händelse källan.
 

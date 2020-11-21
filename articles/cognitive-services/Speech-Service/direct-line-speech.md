@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 2b0bb997ecea55d25748152bab7bb6963d67657f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8c7e21b0784aacc85bd02e3c1702e1a710e76ab
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357649"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021889"
 ---
 # <a name="what-is-direct-line-speech"></a>Vad är Direct Line Speech?
 
@@ -37,9 +37,9 @@ Vi erbjuder också snabb starter som är utformade för att du ska kunna köra k
 
 | Snabbstart | Plattform | API-referens |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Bläddra](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Bläddra](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Bläddra](https://aka.ms/csspeech/javaref) |
+| C#, UWP | Windows | [Bläddra](/dotnet/api/microsoft.cognitiveservices.speech) |
+| Java | Windows, macOS, Linux | [Bläddra](/java/api/com.microsoft.cognitiveservices.speech) |
+| Java | Android | [Bläddra](/java/api/com.microsoft.cognitiveservices.speech) |
 
 ## <a name="sample-code"></a>Exempelkod
 
@@ -50,21 +50,21 @@ Exempel kod för att skapa en röst assistent finns på GitHub. Dessa exempel av
 
 ## <a name="customization"></a>Anpassning
 
-Röst assistenter som skapats med hjälp av tal tjänsten kan använda det fullständiga urvalet av anpassnings alternativ för [tal-till-text](speech-to-text.md), [text till tal](text-to-speech.md)och [anpassad val av nyckelord](speech-devices-sdk-create-kws.md).
+Röst assistenter som skapats med hjälp av tal tjänsten kan använda det fullständiga urvalet av anpassnings alternativ för [tal-till-text](speech-to-text.md), [text till tal](text-to-speech.md)och [anpassad val av nyckelord](./custom-keyword-basics.md).
 
 > [!NOTE]
-> Anpassnings alternativen varierar efter språk/språk (se [språk som stöds](supported-languages.md)).
+> Anpassnings alternativen varierar efter språk/språk (se [språk som stöds](./language-support.md)).
 
-Direkt linje tal och dess tillhör ande funktioner för röst assistenter är ett idealiskt tillägg till den [virtuella assistentens lösning och företags mal len](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Även om det direkta linje talet kan fungera med alla kompatibla bot, ger dessa resurser en åter användnings bar bas linje för konversationer med hög kvalitet samt vanliga support kunskaper och modeller för att komma igång snabbt.
+Direkt linje tal och dess tillhör ande funktioner för röst assistenter är ett idealiskt tillägg till den [virtuella assistentens lösning och företags mal len](/azure/bot-service/bot-builder-enterprise-template-overview). Även om det direkta linje talet kan fungera med alla kompatibla bot, ger dessa resurser en åter användnings bar bas linje för konversationer med hög kvalitet samt vanliga support kunskaper och modeller för att komma igång snabbt.
 
 ## <a name="reference-docs"></a>Referens dokument
 
-* [Speech SDK](speech-sdk-reference.md)
-* [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Speech SDK](./speech-sdk.md)
+* [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Hämta en prenumerations nyckel för Speech service kostnads fritt](overview.md#try-the-speech-service-for-free)
 * [Hämta tal-SDK](speech-sdk.md)
-* [Skapa och distribuera en grundläggande robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [Skapa och distribuera en grundläggande robot](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Hämta lösningen för virtuella assistenter och företags mallar](https://github.com/Microsoft/AI)

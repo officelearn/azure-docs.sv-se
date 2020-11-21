@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 81c4c26f252cdd9eb302a7f8f362c8bf52e48629
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b7950759914724234ec89e6eaee13b48e735ec9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825596"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024327"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrera från Taligenkänning i Bing till tal tjänsten
 
@@ -28,7 +28,7 @@ En prenumerations nyckel för en enskild röst tjänst ger åtkomst till följan
 * [Tal till text](speech-to-text.md)
 * [Anpassat tal till text](https://cris.ai)
 * [Text till tal](text-to-speech.md)
-* [Anpassad text till talade röster](how-to-customize-voice-font.md)
+* [Anpassad text till talade röster](./how-to-custom-voice-create-voice.md)
 * [Talöversättning](speech-translation.md) (omfattar inte [textöversättning](../translator/translator-info-overview.md))
 
 [Talet SDK](speech-sdk.md) är en funktionell ersättning för taligenkänning i Bing klient bibliotek, men använder ett annat API.
@@ -63,7 +63,7 @@ Tal tjänsten använder en tidsbaserad pris modell (i stället för en transakti
 
 Om du eller din organisation har program som är i utvecklings-eller produktions miljön som använder en API för Bing-taligenkänning bör du uppdatera dem så att de använder röst tjänsten så snart som möjligt. I [dokumentationen för tal tjänsten](index.yml) finns information om tillgängliga SDK: er, kod exempel och självstudier.
 
-Tal service [REST-API: er](rest-apis.md) är kompatibla med taligenkänning i Bing-API: er. Om du för närvarande använder Taligenkänning i Bing REST-API: er behöver du bara ändra REST-slutpunkten och byta till en prenumerations nyckel för röst tjänst.
+Tal service [REST-API: er](./overview.md#reference-docs) är kompatibla med taligenkänning i Bing-API: er. Om du för närvarande använder Taligenkänning i Bing REST-API: er behöver du bara ändra REST-slutpunkten och byta till en prenumerations nyckel för röst tjänst.
 
 Om du använder ett Taligenkänning i Bing klient bibliotek för ett särskilt programmeringsspråk, kräver migrering till tal- [SDK](speech-sdk.md) ändringar i programmet, eftersom API: et skiljer sig. Talet SDK kan göra din kod enklare, samtidigt som du ger dig till gång till nya funktioner. Talet SDK är tillgängligt i många olika programmeringsspråk. API: er på alla plattformar liknar varandra, med flera plattformar.
 
@@ -72,14 +72,14 @@ Tal tjänsten erbjuder inte en global slut punkt. Ta reda på om programmet fung
 Kom igång med talet SDK:
 
 1. Hämta [tal-SDK: n](speech-sdk.md).
-1. Arbeta via [Start guiderna](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) för tal service och [självstudier](how-to-recognize-intents-from-speech-csharp.md). Titta även på [kod exemplen](samples.md) för att få erfarenhet av de nya API: erna.
+1. Arbeta via [Start guiderna](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) för tal service och [självstudier](how-to-recognize-intents-from-speech-csharp.md). Titta även på [kod exemplen](./speech-sdk.md#sample-source-code) för att få erfarenhet av de nya API: erna.
 1. Uppdatera programmet för att använda tal tjänsten.
 
 ## <a name="support"></a>Support
 
 Taligenkänning i Bing kunder kontaktar kund support genom att öppna ett [support ärende](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Du kan också kontakta oss om support behovet kräver en [teknisk Support plan](https://azure.microsoft.com/support/plans/).
 
-För tal service, SDK och API-stöd går du till [support Sidan](support.md)för Speech service.
+För tal service, SDK och API-stöd går du till [support Sidan](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)för Speech service.
 
 ## <a name="next-steps"></a>Nästa steg
 

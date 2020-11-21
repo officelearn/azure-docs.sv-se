@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90db861a4ef4fc951844d3ae82a51d20cf9dc8c5
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3d19a60fd6a22eb9245722c6ff69d3b39c05d29e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875112"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023181"
 ---
 # <a name="safe-url-list"></a>Lista över säkra webbadresser
 
@@ -34,7 +34,7 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 |mrsglobalsteus2prod.blob.core.windows.net|443|Uppdateringar av agent-och SXS-stack|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Azure Portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | E.t. |
-| 168.63.129.16 | 80 | [Hälso övervakning av sessions värd](../virtual-network/security-overview.md#azure-platform-considerations) | E.t. |
+| 168.63.129.16 | 80 | [Hälso övervakning av sessions värd](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | E.t. |
 
 >[!IMPORTANT]
 >Windows Virtual Desktop stöder nu FQDN-taggen. Mer information finns i [använda Azure Firewall för att skydda fönster distributioner av virtuella skriv bord](../firewall/protect-windows-virtual-desktop.md).
@@ -56,14 +56,14 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 |mrsglobalstugviffx.core.usgovcloudapi.net|443|Uppdateringar av agent-och SXS-stack|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Azure Portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | E.t. |
-| 168.63.129.16 | 80 | [Hälso övervakning av sessions värd](../virtual-network/security-overview.md#azure-platform-considerations) | E.t. |
+| 168.63.129.16 | 80 | [Hälso övervakning av sessions värd](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | E.t. |
 
 I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha åtkomst till:
 
 |Adress|Utgående TCP-port|Syfte|Azure-gov|
 |---|---|---|---|
 |*.microsoftonline.com|443|Autentisering till Microsoft Online Services|login.microsoftonline.us|
-|*. events.data.microsoft.com|443|Telemetri-tjänst|Inget|
+|*. events.data.microsoft.com|443|Telemetry Service|Inget|
 |www.msftconnecttest.com|443|Identifierar om operativ systemet är anslutet till Internet|Inget|
 |*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Inget|
 |login.windows.net|443|Logga in på Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
@@ -78,7 +78,7 @@ I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha
 >Du måste använda jokertecknet (*) för URL: er som involverar tjänst trafiken. Om du inte vill använda * för agent-relaterad trafik så här hittar du URL: erna utan jokertecken:
 >
 >1. Registrera dina virtuella datorer på Windows-poolen för virtuella skriv bord.
->2. Öppna **logg boken**och gå sedan till **Windows loggar**  >  **Application**  >  **WVD-agent** och leta efter händelse-ID 3701.
+>2. Öppna **logg boken** och gå sedan till **Windows loggar**  >  **Application**  >  **WVD-agent** och leta efter händelse-ID 3701.
 >3. Avblockera de URL: er som du hittar under händelse-ID 3701. URL: erna under händelse-ID 3701 är landsspecifika. Du måste upprepa den avblockerande processen med relevanta URL: er för varje region som du vill distribuera dina virtuella datorer i.
 
 ## <a name="remote-desktop-clients"></a>Fjärrskrivbordsklienter

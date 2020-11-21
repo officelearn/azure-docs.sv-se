@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9fbf4eab55ec2cf8e4f0e27969ca4a22eb1f27ad
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 753c7ff48960711cbedbf6b5d8644a26502dd413
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578625"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023750"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Använda .NET för Apache Spark med Azure Synapse Analytics
 
@@ -74,9 +74,11 @@ Om du vill använda .NET för Apache Spark i din Azure Synapse Analytics-anteckn
 
 ### <a name="install-nuget-packages-in-notebooks"></a>Installera NuGet-paket i antecknings böcker
 
-Du kan installera NuGet-paket som du väljer i din bärbara dator med hjälp av `#r` symbolen före namnet på NuGet-paketet. Följande diagram visar ett exempel:
+Du kan installera NuGet-paket som du väljer i din bärbara dator genom att använda `#r nuget` kommandot Magic före namnet på NuGet-paketet. Följande diagram visar ett exempel:
 
 ![Skärm bild som visar hur du använder #r för att installera ett spark .NET Notebook NuGet-paket](./media/apache-spark-development-using-notebooks/synapse-spark-dotnet-notebook-nuget.png)
+
+Mer information om hur du arbetar med NuGet-paket i antecknings böcker finns i den [interaktiva dokumentationen för .net](https://github.com/dotnet/interactive/blob/main/docs/nuget-overview.md).
 
 ### <a name="net-for-apache-spark-c-kernel-features"></a>.NET för Apache Spark C# kernel-funktioner
 

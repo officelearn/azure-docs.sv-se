@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: bd1ab5110313380c90e71ed161935c7274a845b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dda50a443babca88a0a650fde60df0744d0a1d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839256"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021838"
 ---
 # <a name="continuous-deployment-with-azure-devops"></a>Kontinuerlig distribution med Azure DevOps
 
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du ställer in kontinuerlig distributi
 > [!div class = "checklist"]
 > * Ett anpassat kommando program för utveckling (DEV)
 > * Ett anpassat kommando program för produktion (PROD)
-> * Registrera dig för [Azure-pipeliner](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
+> * Registrera dig för [Azure-pipeliner](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
 
 ## <a name="exportimportpublish"></a>Exportera/importera/publicera
 
@@ -99,7 +99,7 @@ Skripten finns i [Cognitive Services röst assistenten-anpassade kommandon](http
 
 ## <a name="deploy-from-source-code"></a>Distribuera från käll kod
 
-Om du vill behålla definitionen av ditt program på en lagrings plats, tillhandahåller vi skript för distributioner från käll koden. Eftersom skripten är i bash måste du installera [Linux-undersystemet](https://docs.microsoft.com/windows/wsl/install-win10)om du använder Windows.
+Om du vill behålla definitionen av ditt program på en lagrings plats, tillhandahåller vi skript för distributioner från käll koden. Eftersom skripten är i bash måste du installera [Linux-undersystemet](/windows/wsl/install-win10)om du använder Windows.
 
 Skripten finns i [Cognitive Services röst assistenten-anpassade kommandon](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands). Klona skripten i bash-katalogen till din lagrings plats. Se till att du behåller samma sökväg.
 
@@ -110,7 +110,7 @@ Skripten finns i [Cognitive Services röst assistenten-anpassade kommandon](http
     ```BASH
     bash/export.sh -r <region> -s <subscriptionkey> -c en-us -a <appid> -f apps/myapp.json
     ```
-    | Argument | Beskrivning |
+    | Argument | Description |
     | ------- | --------------- | ----------- |
     | region | regionen för programmet, t. ex. westus2. |
     | subscriptionkey | prenumerations nyckel för din tal resurs. |

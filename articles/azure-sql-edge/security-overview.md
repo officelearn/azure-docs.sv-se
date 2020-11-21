@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: cb673efb3e5d14e72e945bcf8c23d57495823720
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 56d5eb981aa02d9da83973d49e8df79fcd9c7e9c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394959"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021022"
 ---
 # <a name="securing-azure-sql-edge"></a>Skydda Azure SQL Edge
 
@@ -34,14 +34,14 @@ Implementering av plattforms säkerhet börjar med att behålla obehöriga anvä
 - Ange och begränsa värd portar som använder för Azure SQL Edge
 - Se till att rätt åtkomst kontroll tillämpas på alla data volymer som är värdar för Azure SQL Edge-data. 
 
-Mer information om Azure SQL Edge nätverks protokoll och TDS-slutpunkter finns i [nätverks protokoll och TDS-slutpunkter](//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
+Mer information om Azure SQL Edge nätverks protokoll och TDS-slutpunkter finns i [nätverks protokoll och TDS-slutpunkter](/previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
 
 ## <a name="authentication-and-authorization"></a>Autentisering och auktorisering 
 
 ### <a name="authentication"></a>Autentisering  
 Autentisering är en process för att bevisa att användaren är den som han eller hon ansöker. Azure SQL Edge stöder för närvarande bara `SQL Authentication` mekanismen.
 
-- *SQL-autentisering* :
+- *SQL-autentisering*:
 
     SQL-autentisering syftar på autentiseringen av en användare när du ansluter till Azure SQL Edge med användar namn och lösen ord. Inloggnings lösen ordet för SQL **sa** måste anges vid SQL Edge-distribution. Efter det kan ytterligare SQL-inloggningar och användare skapas av Server administratören, vilket gör det möjligt för användare att ansluta med användar namn och lösen ord.
 

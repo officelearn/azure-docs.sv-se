@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15f2ff5aaa1d731c13125d0a3ab4ac32acb9276c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530144"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023283"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnostisera och lösa problem i din Azure Time Series Insights gen1-miljö
 
@@ -37,7 +37,7 @@ Om inga data visas i [Azure Time Series Insights Explorer](https://insights.time
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Orsak till: händelse källans data är inte i JSON-format
 
-Azure Time Series Insights stöder endast JSON-data. JSON-exempel finns i [JSON-former som stöds](./how-to-shape-query-json.md).
+Azure Time Series Insights stöder endast JSON-data. JSON-exempel finns i [JSON-former som stöds](./concepts-json-flattening-escaping-rules.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Orsak B: händelse käll nyckeln saknar en nödvändig behörighet
 
@@ -51,7 +51,7 @@ Azure Time Series Insights stöder endast JSON-data. JSON-exempel finns i [JSON-
 
 ### <a name="cause-c-the-provided-consumer-group-isnt-exclusive-to-azure-time-series-insights"></a>Orsak C: den angivna konsument gruppen är inte exklusiv för Azure Time Series Insights
 
-När du registrerar en IoT-hubb eller en händelsehubben är det viktigt att ange den konsument grupp som du vill använda för att läsa data. Det *går inte att dela*den här konsument gruppen. Om konsument gruppen delas, kommer den underliggande IoT-hubben eller händelsehubben att automatiskt koppla bort en av läsarna. Ange en unik konsument grupp för Azure Time Series Insights att läsa från.
+När du registrerar en IoT-hubb eller en händelsehubben är det viktigt att ange den konsument grupp som du vill använda för att läsa data. Det *går inte att dela* den här konsument gruppen. Om konsument gruppen delas, kommer den underliggande IoT-hubben eller händelsehubben att automatiskt koppla bort en av läsarna. Ange en unik konsument grupp för Azure Time Series Insights att läsa från.
 
 ### <a name="cause-d-the-environment-has-just-been-provisioned"></a>Orsak D: miljön har precis etablerats
 
@@ -85,7 +85,7 @@ Föreställ dig en miljö som matar in meddelanden från en händelsehubben. Den
 
 En S1 SKU-miljö som har en kapacitet på 3 kan bara intränga 2 100 händelser varje minut (1 000 000 händelser per dag = 700 händelser per minut vid tre enheter = 2 100 händelser per minut).
 
-Se [JSON-former som stöds](./how-to-shape-query-json.md)för att få en övergripande förståelse för hur förenkling av logik fungerar.
+Se [JSON-former som stöds](./concepts-json-flattening-escaping-rules.md)för att få en övergripande förståelse för hur förenkling av logik fungerar.
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Rekommenderade lösningar för överdriven begränsning
 
@@ -127,7 +127,7 @@ Tänk på att egenskaps namnet för tidsstämpeln är Skift läges känsligt.
 
 Det enklaste sättet att se till att namnet på Tidsstämpelns egenskap är infångat och fungerar korrekt är att använda Azure Time Series Insights Explorer. I Azure Time Series Insights Explorer, med hjälp av diagrammet, väljer du en tids period när du har angett namnet på Tidsstämpelns egenskap. Högerklicka på markeringen och välj sedan **utforska händelser**.
 
-Den första kolumn rubriken ska vara namnet på din timestamp-egenskap. Vid **tidsstämpeln**för Word visas **($TS)** .
+Den första kolumn rubriken ska vara namnet på din timestamp-egenskap. Vid **tidsstämpeln** för Word visas **($TS)** .
 
 Följande värden visas inte:
 

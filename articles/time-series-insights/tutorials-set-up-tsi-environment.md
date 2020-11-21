@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 58da5c73ea2674bbbd1536a163e163aa0ff31d96
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: eeb3de2fc3f0e3e0be9c98002f11e470eaf04f8c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521296"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020937"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Självstudie: Konfigurera en Azure Time Series Insights Gen2-miljö
 
@@ -84,15 +84,15 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights Gen2-m
 
 1. I fönstret **skapa Time Series Insights miljö** går du till fliken **grundläggande** och anger följande parametrar:
 
-    | Parameter | Åtgärd |
+    | Parameter | Action |
     | --- | ---|
     | **Miljönamn** | Ange ett unikt namn för Azure Time Series Insights Gen2-miljön. |
     | **Prenumeration** | Ange den prenumeration där du vill skapa Azure Time Series Insights Gen2-miljön. Ett bra tips är att använda samma prenumeration som resten av IoT-resurserna som skapas av enhets simulatorn. |
     | **Resursgrupp** | Välj en befintlig resurs grupp eller skapa en ny resurs grupp för resursen Azure Time Series Insights Gen2-miljö. En resursgrupp är en container för Azure-resurser. Ett bra tips är att använda samma resurs grupp som andra IoT-resurser som skapas av enhets simulatorn. |
     | **Plats** | Välj en data Center region för din Azure Time Series Insights Gen2-miljö. För att undvika ytterligare svars tid är det bäst att skapa din Azure Time Series Insights Gen2-miljö i samma region som din IoT-hubb som skapats av enhets simulatorn. |
     | **Nivå** |  Välj **Gen2 (L1)**. Detta är SKU: n för den Azure Time Series Insights Gen2-produkten. |
-    | **Egenskaps namn för Time Series ID** | Ange ett namn på en egenskap som innehåller värden som unikt identifierar tids serie instanserna. Det värde som du anger i rutan **egenskaps namn** som Time Series ID kan inte ändras senare. I den här självstudien anger du **_iothub-Connection-Device-ID_*_. Om du vill veta mer om Time Series ID inklusive sammansatt Time Series ID, Läs [metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md). |
-    | _*Lagrings konto namn** | Ange ett globalt unikt namn för ett nytt lagrings konto.|
+    | **Egenskaps namn för Time Series ID** | Ange ett namn på en egenskap som innehåller värden som unikt identifierar tids serie instanserna. Det värde som du anger i rutan **egenskaps namn** som Time Series ID kan inte ändras senare. I den här självstudien anger du **_iothub-Connection-Device-ID_* _. Om du vill veta mer om Time Series ID inklusive sammansatt Time Series ID, Läs [metod tips för att välja ett Time Series-ID](./how-to-select-tsid.md). |
+    | _ *Lagrings konto namn** | Ange ett globalt unikt namn för ett nytt lagrings konto.|
     | **Typ av lagrings konto** | Välj lagrings typ för ett nytt lagrings konto. Vi rekommenderar StorageV2|
     | **Replikering av lagrings konto** | Välj lagrings typ för ett nytt lagrings konto. Utifrån val av plats kan du välja mellan LRS, GRS och ZRS. I den här självstudien kan du välja LRS|
     | **Hierarkiskt namn område** |Det här alternativet kan väljas när du har valt den lagrings typ som ska StorageV2. Som standard är den inaktive rad. I den här självstudien kan du lämna den i *inaktiverat* standard läge|
@@ -107,7 +107,7 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights Gen2-m
 
 1. Ange följande parametrar på fliken **händelse källa** :
 
-   | Parameter | Åtgärd |
+   | Parameter | Action |
    | --- | --- |
    | **Vill du skapa en händelse källa?** | Välj **Ja**.|
    | **Namn** | Ange ett unikt värde för händelse källans namn. |
@@ -143,7 +143,7 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights Gen2-m
 
    1. Kontrol lera att dina autentiseringsuppgifter visas:
 
-      Om dina autentiseringsuppgifter inte finns med i listan måste du ge dig själv behörighet att komma åt miljön genom att välja Lägg till och söka efter dina autentiseringsuppgifter. Läs [Bevilja åtkomst till data](./time-series-insights-data-access.md) om du vill veta mer om hur du anger behörigheter.
+      Om dina autentiseringsuppgifter inte finns med i listan måste du ge dig själv behörighet att komma åt miljön genom att välja Lägg till och söka efter dina autentiseringsuppgifter. Läs [Bevilja åtkomst till data](./concepts-access-policies.md) om du vill veta mer om hur du anger behörigheter.
 
 ## <a name="stream-data"></a>Strömma data
 
@@ -161,7 +161,7 @@ Nu när du har distribuerat din Azure Time Series Insights Gen2-miljö börjar d
 
     1. Ange de parametrar som krävs efter att installations sidan för **simulering** har lästs in.
 
-        | Parameter | Åtgärd |
+        | Parameter | Action |
         | --- | --- |
         | **Namn** | Ange ett unikt namn för en simulator. |
         | **Beskrivning** | Ange en definition. |
@@ -177,7 +177,7 @@ Nu när du har distribuerat din Azure Time Series Insights Gen2-miljö börjar d
 
 ## <a name="analyze-data"></a>Analysera data
 
-I det här avsnittet ska du utföra grundläggande analyser av dina Time Series-data med hjälp av [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
+I det här avsnittet ska du utföra grundläggande analyser av dina Time Series-data med hjälp av [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
 
 1. Gå till Azure Time Series Insights Gen2 Explorer genom att välja URL: en från resurs sidan i [Azure Portal](https://portal.azure.com/).
 
@@ -217,7 +217,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
 1. Ange följande parametrar:
 
-    | Parameter | Åtgärd |
+    | Parameter | Action |
     | --- | ---|
     | **Namn** | Ange **hiss** |
     | **Beskrivning** | Ange **Detta är en typ definition för hissen** |
@@ -226,7 +226,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     1. Välj **+ Lägg till variabel** och fyll i följande värden för den första variabeln i hiss typen. Du kommer att skriva tre variabler totalt.
 
-        | Parameter | Åtgärd |
+        | Parameter | Action |
         | --- | --- |
         | **Namn** | Ange **Genomsnittlig temperatur**. |
         | **Typ** | Välj **numerisk** |
@@ -235,7 +235,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     1. Välj **Tillämpa**. Sedan, **+ Lägg till variabel** igen och ange följande värden:
 
-        | Parameter | Åtgärd |
+        | Parameter | Action |
         | --- | --- |
         | **Namn** | Ange **genomsnittlig vibration**. |
         | **Typ** | Välj **numerisk** |
@@ -244,7 +244,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     1. Välj **Tillämpa**. Sedan, **+ Lägg till variabel** igen och ange följande värden för den tredje och sista variabeln:
 
-        | Parameter | Åtgärd |
+        | Parameter | Action |
         | --- | --- |
         | **Namn** | Ange **basyta**. |
         | **Typ** | Välj **kategoriska** |
@@ -263,7 +263,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
    1. I fönstret **Redigera hierarki** anger du följande parametrar:
 
-        | Parameter | Åtgärd |
+        | Parameter | Action |
         | --- | ---|
         | **Namn** | Ange **Platshierarkin**. |
         |**Nivåer**| Ange **land** som namn på den första nivån <br /> Välj **+ Lägg till nivå** <br /> Ange **stad** för den andra nivån och välj sedan **+ Lägg till nivå** <br /> Ange **build** som namn på den tredje och den slutgiltiga nivån |
@@ -276,7 +276,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     1. Under **åtgärder** längst till höger, och välj Penn ikonen för att redigera den första instansen med följande värden:
 
-        | Parameter | Åtgärd |
+        | Parameter | Action |
         | --- | --- |
         | **Typ** | Välj **hiss**. |
         | **Namn** | Ange **hiss 1**|
@@ -284,11 +284,11 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     1. Navigera till **instans fälten** och ange följande värden:
 
-        | Parameter | Åtgärd |
+        | Parameter | Action |
         | --- | --- |
         | **Hierarkier** | Välj **platshierarki** |
-        | **Country** | Ange **USA** |
-        | **City** | Ange **Seattle** |
+        | **Land** | Ange **USA** |
+        | **Fax** | Ange **Seattle** |
         | **Skapa** | Ange **områdes nål** |
 
     1. Välj **Spara**.
@@ -297,26 +297,26 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     **För hiss 2:**
 
-    | Parameter | Åtgärd |
+    | Parameter | Action |
     | --- | --- |
     | **Typ** | Välj **hiss**. |
     | **Namn** | Ange **hiss 2**|
     | **Beskrivning** | Ange **instansen för hiss 2** |
     | **Hierarkier** | Välj **platshierarki** |
-    | **Country** | Ange **USA** |
-    | **City** | Ange **Seattle** |
+    | **Land** | Ange **USA** |
+    | **Fax** | Ange **Seattle** |
     | **Skapa** | Ange **Pacific Science Center** |
 
     **För hiss 3:**
 
-    | Parameter | Åtgärd |
+    | Parameter | Action |
     | --- | --- |
     | **Typ** | Välj **hiss**. |
     | **Namn** | Ange **hiss 3**|
     | **Beskrivning** | Ange **instansen för hiss 3** |
     | **Hierarkier** | Välj **platshierarki** |
-    | **Country** | Ange **USA** |
-    | **City** | Ange **New York** |
+    | **Land** | Ange **USA** |
+    | **Fax** | Ange **New York** |
     | **Skapa** | Ange **Empire-tillstånds byggnad** |
 
     [![Visa de uppdaterade instanserna.](media/v2-update-provision/iot-solution-accelerator-instances.png)](media/v2-update-provision/iot-solution-accelerator-instances.png#lightbox)
@@ -325,7 +325,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     [![Visa alla hierarkier i diagramvyn.](media/v2-update-provision/iot-solution-accelerator-view-hierarchies.png)](media/v2-update-provision/iot-solution-accelerator-view-hierarchies.png#lightbox)
 
-1. Under **Pacific Science Center**väljer du tids serie instansen **hiss 2**och väljer sedan **Visa medel temperatur**.
+1. Under **Pacific Science Center** väljer du tids serie instansen **hiss 2** och väljer sedan **Visa medel temperatur**.
 
 1. För samma instans, **hiss 2**, väljer du **Visa basyta**.
 
@@ -337,7 +337,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
 Nu när du har slutfört självstudien rensar du de resurser som du har skapat:
 
-1. Välj **alla resurser**på den vänstra menyn i [Azure Portal](https://portal.azure.com), leta upp resurs gruppen Azure Time Series Insights Gen2.
+1. Välj **alla resurser** på den vänstra menyn i [Azure Portal](https://portal.azure.com), leta upp resurs gruppen Azure Time Series Insights Gen2.
 1. Ta antingen bort hela resurs gruppen (och alla resurser som ingår i den) genom att välja **ta bort** eller ta bort varje resurs individuellt.
 
 ## <a name="next-steps"></a>Nästa steg

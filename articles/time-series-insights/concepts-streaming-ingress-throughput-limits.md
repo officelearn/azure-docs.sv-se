@@ -10,27 +10,27 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: e2f6cd943e381d53c36867ce960cd99552f3aea6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c8be18049e6ae74a198f5885a46b70df581e0cd7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746535"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020835"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Data flödes gränser för strömning
 
 Azure Time Series Insights Gen2 strömma data ingångs begränsningar beskrivs nedan.
 
 > [!TIP]
-> Läs [Planera din Azure Time Series Insights Gen2-miljö](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) för en omfattande lista över alla begränsningar.
+> Läs [Planera din Azure Time Series Insights Gen2-miljö](./how-to-plan-your-environment.md#review-azure-time-series-insights-gen2-limits) för en omfattande lista över alla begränsningar.
 
 ## <a name="per-environment-limitations"></a>Begränsningar per miljö
 
 I allmänhet visas ingångs priser som faktor för antalet enheter i din organisation, frekvens för händelse utsläpp och storleken på varje händelse:
 
-* **Antal enheter** × **händelse utsläpps frekvens** × **storlek på varje händelse** .
+* **Antal enheter** × **händelse utsläpps frekvens** × **storlek på varje händelse**.
 
-Som standard kan Azure Time Series Insights Gen2 mata in inkommande data med en hastighet på **upp till 1 megabyte per sekund (Mbit/s) per Azure Time Series Insights Gen2-miljö** . Det finns ytterligare begränsningar [per nav-partition](./concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits).
+Som standard kan Azure Time Series Insights Gen2 mata in inkommande data med en hastighet på **upp till 1 megabyte per sekund (Mbit/s) per Azure Time Series Insights Gen2-miljö**. Det finns ytterligare begränsningar [per nav-partition](./concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits).
 
 > [!TIP]
 >
@@ -41,7 +41,7 @@ Som standard kan Azure Time Series Insights Gen2 mata in inkommande data med en 
 
     Contoso-leverans har 100 000 enheter som genererar en händelse tre gånger per minut. Storleken på en händelse är 200 byte. De använder en IoT Hub med fyra partitioner som Azure Time Series Insights Gen2 händelse källa.
 
-  * Inmatnings takten för Azure Time Series Insights Gen2-miljön skulle vara: **100 000 enheter * 200 byte/event * (3/60 Event/s) = 1 Mbit/s** .
+  * Inmatnings takten för Azure Time Series Insights Gen2-miljön skulle vara: **100 000 enheter * 200 byte/event * (3/60 Event/s) = 1 Mbit/s**.
     * Om du antar balanserade partitioner blir inmatnings takten per partition 0,25 Mbit/s.
     * Contosos överförings takt skulle ligga inom skalnings begränsningarna.
 
@@ -49,7 +49,7 @@ Som standard kan Azure Time Series Insights Gen2 mata in inkommande data med en 
 
     Contoso flotta Analytics har 40 000 enheter som genererar en händelse varje sekund. De använder en Event Hub med ett antal partitioner på 2 som Azure Time Series Insights händelse källa för Gen2. Storleken på en händelse är 200 byte.
 
-  * Miljöns utmatnings frekvens skulle vara: **40 000 enheter * 200 byte/event * 1 händelse/SEK = 8 Mbit/s** .
+  * Miljöns utmatnings frekvens skulle vara: **40 000 enheter * 200 byte/event * 1 händelse/SEK = 8 Mbit/s**.
     * Om du antar balanserade partitioner, blir deras per partition 4 Mbit/s.
     * Contoso flottans analys "inmatnings takt är över miljön och partitionens gränser. De kan skicka en begäran om att Azure Time Series Insights Gen2 genom Azure Portal för att öka inmatnings takten för deras miljö, och skapa en Händelsehubben med fler partitioner som ligger inom gränserna.
 
@@ -59,14 +59,14 @@ När du planerar din Azure Time Series Insights Gen2-miljö är det viktigt att 
 
 En *partition* är en ordnad sekvens med händelser som lagras i en hubb. Antalet partitioner anges under fasen skapande av hubb och kan inte ändras.
 
-För Event Hubs partitionering bör du läsa mer om [hur många partitioner behöver jag?](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
+För Event Hubs partitionering bör du läsa mer om [hur många partitioner behöver jag?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
 
 > [!NOTE]
 > De flesta IoT-hubbar som används med Azure Time Series Insights Gen2 behöver bara fyra partitioner.
 
 Oavsett om du skapar en ny hubb för din Azure Time Series Insights Gen2-miljö eller om du använder en befintlig, måste du beräkna din användnings takt per partition för att avgöra om den ligger inom gränserna.
 
-Azure Time Series Insights Gen2 har för närvarande en **gräns för per partition på 0,5 Mbit/s** .
+Azure Time Series Insights Gen2 har för närvarande en **gräns för per partition på 0,5 Mbit/s**.
 
 ### <a name="iot-hub-specific-considerations"></a>IoT Hub-/regionsspecifika överväganden
 
@@ -74,7 +74,7 @@ När en enhet skapas i IoT Hub tilldelas den permanent till en partition. När d
 
 En fast tilldelning av partitioner påverkar också Azure Time Series Insights Gen2-instanser som matar in data som skickas från IoT Hub underordnade. När meddelanden från flera enheter vidarebefordras till hubben med samma Gateway-enhets-ID kan de komma i samma partition samtidigt som de kan överskrida gränserna för varje partition.
 
-**Påverkan** :
+**Påverkan**:
 
 * Om en enda partition får en varaktig takt med att mata in över gränsen, är det möjligt att Azure Time Series Insights Gen2 inte synkroniserar all telemetri innan IoT Hub data lagrings perioden har överskridits. Därför kan skickade data gå förlorade om inmatnings gränserna överskrids konsekvent.
 
@@ -92,9 +92,9 @@ För att minimera denna omständighet rekommenderar vi följande metod tips:
 
 Se följande resurser för att lära dig mer om hur du optimerar hubben och partitionerna:
 
-* [IoT Hub skala](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
-* [Event Hub-skala](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
-* [Event Hub-partitioner](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
+* [IoT Hub skala](../iot-hub/iot-hub-scaling.md)
+* [Event Hub-skala](../event-hubs/event-hubs-scalability.md#throughput-units)
+* [Event Hub-partitioner](../event-hubs/event-hubs-features.md#partitions)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630159"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021974"
 ---
 # <a name="speech-service-for-telephony-data"></a>Tal tjänst för telefoni data
 
@@ -60,7 +60,7 @@ Det är inte ovanligt för 35 procent av ett support samtal att vara vad vi kall
 
 ### <a name="translation"></a>Översättning
 
-Vissa företag experimenterar med att tillhandahålla översatta avskrifter från support samtal på främmande språk så att leverans ansvariga kan förstå den världs omfattande upplevelsen av sina kunder. Våra [översättnings](/azure/cognitive-services/speech-service/speech-translation) funktioner är inte överskridna. Vi kan översätta ljud till ljud eller ljud till text för ett stort antal språk.
+Vissa företag experimenterar med att tillhandahålla översatta avskrifter från support samtal på främmande språk så att leverans ansvariga kan förstå den världs omfattande upplevelsen av sina kunder. Våra [översättnings](./speech-translation.md) funktioner är inte överskridna. Vi kan översätta ljud till ljud eller ljud till text för ett stort antal språk.
 
 ### <a name="text-to-speech"></a>Text till tal
 
@@ -70,7 +70,7 @@ Vår svars tid från slut punkt till slut punkt är betydligt låg för de olika
 
 Våra nya röster är också särskiljbar från mänskliga röster. Du kan använda våra röster för att ge din robot sitt unika personlighet.
 
-### <a name="search"></a>Search
+### <a name="search"></a>Sök
 
 En annan häftklammer av analys är att identifiera interaktioner där en speciell händelse eller erfarenhet har inträffat. Detta görs vanligt vis med en av två metoder. antingen en ad hoc-sökning där användaren bara skriver en fras och systemet svarar eller en mer strukturerad fråga där en analytiker kan skapa en uppsättning logiska uttryck som identifierar ett scenario i ett anrop, och varje anrop kan indexeras mot den uppsättningen med frågor. Ett bra Sökexempel är allmänt förekommande Compliance "detta samtal skall registreras i kvalitets syfte... ". Många företag vill se till att deras agenter tillhandahåller denna fri skrivning till kunderna innan samtalet faktiskt registreras. De flesta analys system har möjlighet att kunna trenda beteenden som hittas av algoritmer för frågor/sökning, och den här rapporten över trender är i slut änden en av de viktigaste funktionerna i ett analys system. Med hjälp av [kognitiva tjänster-katalogen](https://azure.microsoft.com/services/cognitive-services/directory/search/) kan din end to end-lösning förbättras avsevärt med indexerings-och Sök funktioner.
 
@@ -94,7 +94,7 @@ En typisk lösning använder dessa tjänster:
 
 - Tal tjänsten används för att skriva av tal till text. En standard prenumeration (S0) för tal tjänsten krävs för att använda API: et för batch-avskriftering. Kostnads fria prenumerationer (F0) kommer inte att fungera.
 - [Azure Storage](https://azure.microsoft.com/services/storage/) används för att lagra telefoni data och avskrifterna som returneras av batch-avskrifts-API: et. Det här lagrings kontot bör använda aviseringar, särskilt när nya filer läggs till. Dessa meddelanden används för att utlösa avskrifts processen.
-- [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) används för att skapa en URL för signaturer för delad åtkomst (SAS) för varje inspelning och utlöser HTTP POST-begäran för att starta en avskrift. Dessutom används Azure Functions för att skapa begär Anden för att hämta och ta bort avskrifter med batch-avskrifts-API: et.
+- [Azure Functions](../../azure-functions/index.yml) används för att skapa en URL för signaturer för delad åtkomst (SAS) för varje inspelning och utlöser HTTP POST-begäran för att starta en avskrift. Dessutom används Azure Functions för att skapa begär Anden för att hämta och ta bort avskrifter med batch-avskrifts-API: et.
 
 Internt använder vi tekniken ovan för att stödja Microsofts kund samtal i batch-läge.
 :::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Tekniker som används för att stödja Microsofts kund samtal i batch-läge.":::
@@ -111,7 +111,7 @@ Internt använder vi teknikerna ovan för att analysera i real tids kund samtal 
 
 ## <a name="a-word-on-ivrs"></a>Ett ord på IVRs
 
-Röst tjänsten kan enkelt integreras i en lösning med hjälp av antingen [tal-SDK](speech-sdk.md) eller [REST API](rest-apis.md). Detta kan dock kräva ytterligare tekniker. Normalt krävs en anslutning mellan ett IVR-system och Azure. Även om vi inte erbjuder sådana komponenter, är här en beskrivning av vad en anslutning till en IVR finns i.
+Röst tjänsten kan enkelt integreras i en lösning med hjälp av antingen [tal-SDK](speech-sdk.md) eller [REST API](./overview.md#reference-docs). Detta kan dock kräva ytterligare tekniker. Normalt krävs en anslutning mellan ett IVR-system och Azure. Även om vi inte erbjuder sådana komponenter, är här en beskrivning av vad en anslutning till en IVR finns i.
 
 Flera IVR-eller telefoni tjänst produkter (till exempel Generning eller AudioCodes) erbjuder integrations funktioner som kan utnyttjas för att aktivera inkommande och utgående ljud genom strömning till en Azure-tjänst. I princip kan en anpassad Azure-tjänst tillhandahålla ett särskilt gränssnitt för att definiera telefonsamtal (till exempel anrops start-eller anrops slut) och tillhandahålla en WebSocket-API för att ta emot inkommande ström ljud som används med tal tjänsten. Utgående svar, till exempel konversations avskrift eller anslutningar med bot Framework, kan syntetiseras med Microsofts text till tal-tjänst och returneras till IVR för uppspelning.
 
@@ -121,12 +121,12 @@ Ett annat scenario är direkt integrering med session initierings protokollet (S
 
  Tal tjänsten fungerar bra med inbyggda modeller. Men du kanske vill anpassa och justera upplevelsen för din produkt eller miljö ytterligare. Anpassnings alternativ sträcker sig från akustisk modell justering till unika röst teckensnitt för ditt varumärke. När du har skapat en anpassad modell kan du använda den med någon av funktionerna i tal tjänsten i real tid eller batchläge.
 
-| Tjänst för taligenkänning | Modell | Beskrivning |
+| Tjänst för taligenkänning | Modell | Description |
 | -------------- | ----- | ----------- |
-| Tal till text | [Akustisk modell](how-to-customize-acoustic-models.md) | Skapa en anpassad akustisk modell för program, verktyg eller enheter som används i vissa miljöer som i en bil eller på en fabriks våning, var och en med särskilda registrerings villkor. Exempel är accenttecken, vissa bakgrunds brus eller med en speciell mikrofon för inspelning. |
-|                | [Språkmodell](how-to-customize-language-model.md) | Skapa en anpassad språk modell för att förbättra avskriften av branschspecifika vokabulär och grammatik, till exempel medicinsk terminologi eller IT-jargong. |
-|                | [Uttalsmodell](how-to-customize-pronunciation.md) | Med en anpassad uttal-modell kan du definiera det fonetiska formuläret och visa det för ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produkt namn eller akronymer. Allt du behöver för att komma igång är en uttal-fil som är en enkel `.txt` fil. |
-| Text till tal | [Rösttyp](how-to-customize-voice-font.md) | Med anpassade röst teckensnitt kan du skapa en igenkännings bara, en-av-en-röst för ditt varumärke. Det tar bara en liten mängd data att komma igång. Den mer information som du anger, desto mer naturlig och mänsklig som ditt röst teckensnitt kommer att ljud. |
+| Tal till text | [Akustisk modell](./how-to-custom-speech-train-model.md) | Skapa en anpassad akustisk modell för program, verktyg eller enheter som används i vissa miljöer som i en bil eller på en fabriks våning, var och en med särskilda registrerings villkor. Exempel är accenttecken, vissa bakgrunds brus eller med en speciell mikrofon för inspelning. |
+|                | [Språkmodell](./how-to-custom-speech-train-model.md) | Skapa en anpassad språk modell för att förbättra avskriften av branschspecifika vokabulär och grammatik, till exempel medicinsk terminologi eller IT-jargong. |
+|                | [Uttalsmodell](./how-to-custom-speech-train-model.md) | Med en anpassad uttal-modell kan du definiera det fonetiska formuläret och visa det för ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produkt namn eller akronymer. Allt du behöver för att komma igång är en uttal-fil som är en enkel `.txt` fil. |
+| Text till tal | [Rösttyp](./how-to-custom-voice-create-voice.md) | Med anpassade röst teckensnitt kan du skapa en igenkännings bara, en-av-en-röst för ditt varumärke. Det tar bara en liten mängd data att komma igång. Den mer information som du anger, desto mer naturlig och mänsklig som ditt röst teckensnitt kommer att ljud. |
 
 ## <a name="sample-code"></a>Exempelkod
 
@@ -138,7 +138,7 @@ Exempel kod finns på GitHub för var och en av funktionerna i tal tjänsten. De
 
 ## <a name="reference-docs"></a>Referens dokument
 
-- [Speech SDK](speech-sdk-reference.md)
+- [Speech SDK](./speech-sdk.md)
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [REST API: tal till text](rest-speech-to-text.md)
 - [REST API: text till tal](rest-text-to-speech.md)

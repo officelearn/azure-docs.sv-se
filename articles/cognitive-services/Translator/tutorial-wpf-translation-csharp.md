@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ef5384abd63dcd9aeb4789dc4955f4b80068d330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d239b89aaf0bc140916d38583f4263f7bf660f1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88921247"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023624"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Självstudie: skapa en översättnings app med WPF
 
-I den här självstudien skapar du en [WPF-app (Windows Presentation Foundation)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019) som använder Azure Cognitive Service för textöversättning, språkidentifiering och stavningskontroll med en enda prenumerationsnyckel. Mer specifikt kommer din app att anropa API: er från Translator och [stavningskontroll i Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+I den här självstudien skapar du en [WPF-app (Windows Presentation Foundation)](/visualstudio/designers/getting-started-with-wpf?view=vs-2019) som använder Azure Cognitive Service för textöversättning, språkidentifiering och stavningskontroll med en enda prenumerationsnyckel. Mer specifikt kommer din app att anropa API: er från Translator och [stavningskontroll i Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 Vad är WPF? Det är ett användargränssnittsramverk som skapar appar för skrivbordsklienter. WPF-utvecklingsplattformen har stöd för många olika funktioner för apputveckling, däribland en appmodell, resurser, kontroller, grafik, layout, databindning, dokument och säkerhet. Det är en delmängd av .NET Framework, så om du tidigare har skapat appar med .NET Framework med hjälp av ASP.NET eller Windows Forms bör programmeringen kännas bekant. WPF använder XAML (Extensible Application Markup Language) för att tillhandahålla en deklarativ modell för programmering av appar, vilket vi går igenom i kommande avsnitt.
 
@@ -40,16 +40,16 @@ Den här listan innehåller de Cognitive Services som används i den här själv
 
 | Tjänst | Funktion | Beskrivning |
 |---------|---------|-------------|
-| Översättare | [Hämta språk](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Hämta en fullständig lista över språk som stöds för textöversättning. |
-| Översättare | [Översätta](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Översätt text till fler än 70 språk. |
-| Översättare | [Identifiering](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Identifiera språket i indatatexten. Innehåller förtroendepoäng för identifiering. |
-| Stavningskontroll i Bing | [Stavningskontroll](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Förbättra översättningens noggrannhet genom att rätta stavfel. |
+| Översättare | [Hämta språk](./reference/v3-0-languages.md) | Hämta en fullständig lista över språk som stöds för textöversättning. |
+| Översättare | [Översätta](./reference/v3-0-translate.md) | Översätt text till fler än 70 språk. |
+| Översättare | [Identifiering](./reference/v3-0-detect.md) | Identifiera språket i indatatexten. Innehåller förtroendepoäng för identifiering. |
+| Stavningskontroll i Bing | [Stavningskontroll](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Förbättra översättningens noggrannhet genom att rätta stavfel. |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan vi fortsätter behöver du följande:
 
-* En Azure Cognitive Services-prenumeration. [Hämta en Cognitive Services-nyckel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#create-a-new-azure-cognitive-services-resource).
+* En Azure Cognitive Services-prenumeration. [Hämta en Cognitive Services-nyckel](../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).
 * En Windows-dator
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/) – community eller företag
 
@@ -61,8 +61,8 @@ Innan vi fortsätter behöver du följande:
 Det första vi behöver göra är att konfigurera projektet i Visual Studio.
 
 1. Öppna Visual Studio. Välj **skapa ett nytt projekt**.
-1. I **skapa ett nytt projekt**letar du reda på och väljer **WPF-appen (.NET Framework)**. Du kan välja C# från **språk** för att begränsa alternativen.
-1. Välj **Nästa**och namnge ditt projekt `MSTranslatorDemo` .
+1. I **skapa ett nytt projekt** letar du reda på och väljer **WPF-appen (.NET Framework)**. Du kan välja C# från **språk** för att begränsa alternativen.
+1. Välj **Nästa** och namnge ditt projekt `MSTranslatorDemo` .
 1. Ange Ramverks versionen till **.NET Framework 4.7.2** eller senare och välj **skapa**.
    ![Ange namn och Ramverks version i Visual Studio](media/name-wpf-project-visual-studio.png)
 
@@ -79,18 +79,18 @@ Projektet kräver ett antal .NET Framework-sammansättningar och NewtonSoft.Json
 
 Vi lägger till sammansättningar i projektet för att serialisera och deserialisera objekt och för att hantera HTTP-begäranden och -svar.
 
-1. Leta upp projektet i Visual Studios Solution Explorer. Högerklicka på projektet och välj sedan **Lägg till > referens**som öppnar **referens hanteraren**.
+1. Leta upp projektet i Visual Studios Solution Explorer. Högerklicka på projektet och välj sedan **Lägg till > referens** som öppnar **referens hanteraren**.
 1. Fliken **sammansättningar** visar alla .NET Framework sammansättningar som är tillgängliga för referens. Använd Sök fältet i det övre högra hörnet för att söka efter referenser.
    ![Lägga till sammansättningsreferenser](media/add-assemblies-2019.png)
 1. Välj följande referenser för ditt projekt:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Runtime.Serialization](/dotnet/api/system.runtime.serialization)
+   * [System.Web](/dotnet/api/system.web)
    * System.Web.Extensions
-   * [System. Windows](https://docs.microsoft.com/dotnet/api/system.windows)
+   * [System. Windows](/dotnet/api/system.windows)
 1. När du har lagt till dessa referenser i projektet kan du klicka på **OK** för att stänga **Reference Manager**.
 
 > [!NOTE]
-> Om du vill lära dig mer om sammansättnings referenser, se [så här gör du: Lägg till eller ta bort referens med referens hanteraren](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
+> Om du vill lära dig mer om sammansättnings referenser, se [så här gör du: Lägg till eller ta bort referens med referens hanteraren](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
 
 ### <a name="install-newtonsoftjson"></a>Installera NewtonSoft.Json
 
@@ -115,7 +115,7 @@ Vi tar en titt på vad vi skapar.
 
 Användar gränssnittet innehåller följande komponenter:
 
-| Namn | Typ | Beskrivning |
+| Namn | Typ | Description |
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox (Kombinationsruta) | Visar en lista över de språk som stöds av Microsoft Translator för textöversättning. Användaren väljer det språk som översättningen görs från. |
 | `ToLanguageComboBox` | ComboBox (Kombinationsruta) | Visar samma lista över språk som `FromComboBox` men används för att välja det språk som användaren översätter till. |
@@ -251,7 +251,7 @@ Hela projektet är inkapslat i klassen `MainWindow : Window`. Vi börjar med att
 
 I det här kodblocket har vi deklarerat två medlemsvariabler som innehåller information om tillgängliga språk för översättning:
 
-| Variabel | Typ | Beskrivning |
+| Variabel | Typ | Description |
 |----------|------|-------------|
 |`languageCodes` | Strängmatris |Cachelagrar språkkoderna. Translator-tjänsten använder korta koder som `en` för engelska, för att identifiera språk. |
 |`languageCodesAndTitles` | Sorterad ordlista | Mappar ”egna” namn i användargränssnittet tillbaka till de korta koderna som används i API:et. Sorteras alfabetiskt utan hänsyn till skiftläge. |
@@ -269,7 +269,7 @@ Translator stöder för närvarande över 70 språk. Eftersom det nya språk st�
 I det här avsnittet skapar vi en `GET`-begäran till Language-resursen som anger att vi vill ha en lista över språk som är tillgängliga för översättning.
 
 > [!NOTE]
-> Med Language-resursen kan du filtrera språkstöd med följande frågeparametrar: translitteration, ordlista och översättning. Mer information finns i [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Med Language-resursen kan du filtrera språkstöd med följande frågeparametrar: translitteration, ordlista och översättning. Mer information finns i [API-referens](./reference/v3-0-languages.md).
 
 Innan vi går vidare tittar vi på exempelutdata för ett anrop till Language-resursen:
 
@@ -581,4 +581,4 @@ Källkoden för det här projektet finns på GitHub.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Referens för Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+> [Referens för Microsoft Translator](./reference/v3-0-reference.md)

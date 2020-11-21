@@ -7,18 +7,17 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 0edcdbfec07c032f095cc03eb91be8cf0785b58a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 53884c2f6d9f2e8cbb5676e9ac10e8fb15ed919e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844854"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024287"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Använda krets brytarens instrument panel med Azure våren Cloud
 
 **Den här artikeln gäller för:** ✔️ Java
 
-::: zone pivot="programming-language-java"
 Våren [Cloud Netflix turbin](https://github.com/Netflix/Turbine) används ofta för att aggregera flera [hystrix](https://github.com/Netflix/Hystrix) -dataströmmar så att strömmar kan övervakas i en enda vy med hjälp av hystrix-instrumentpanelen. Den här självstudien visar hur du använder dem i Azure våren Cloud.
 > [!NOTE]
 > Netflix hystrix används ofta i många befintliga våren-molnappar, men är inte längre i aktiv utveckling. Om du utvecklar ett nytt projekt ska du använda i stället våren-implementeringar av moln krets brytare som [resilience4j](https://github.com/resilience4j/resilience4j). Annorlunda än den turbin som visas i den här självstudien, kombinerar det nya molnet för moln Kretss ramverk till micrometer. Vi arbetar fortfarande med stöd för micrometer i Azure våren-molnet och kommer därför inte att omfattas av den här självstudien.
@@ -84,4 +83,4 @@ Hystrix-instrumentpanelen bör fungera på som en webbapp `test-endpoint` . Om d
 ## <a name="next-steps"></a>Nästa steg
 * [Etablera en tjänst instans på Azure CLI](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
 * [Förbereda ett Java våren-program för distribution i Azure våren Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
-::: zone-end
+

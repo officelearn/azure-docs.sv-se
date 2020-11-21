@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec8e40c0908855cd06d647bdd9121106e3553c11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c0bd21f55fee4d8487826deae23093ede293c8c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918918"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021821"
 ---
 # <a name="test-your-custom-commands-application"></a>Testa dina anpassade kommandon-program
 
@@ -49,11 +49,10 @@ Konfigurera ett Universell Windows-plattform (UWP)-klient program med Speech SDK
 - [Gör så här: konfigurera webb slut punkter](./how-to-custom-commands-setup-web-endpoints.md)
 
 För andra programmeringsspråk och plattformar:
-- [Programmerings språk för tal SDK, plattformar, scenario kapacitet](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk)
+- [Programmerings språk för tal SDK, plattformar, scenario kapacitet](./speech-sdk.md)
 - [Exempel koder för röst assistenten](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Se exempel på GitHub](https://aka.ms/speech/cc-samples)
-

@@ -3,12 +3,12 @@ title: Registrera en kund i Azure Lighthouse
 description: Lär dig hur du kan publicera en kund i Azure Lighthouse, så att deras resurser kan nås och hanteras via din egen klient med Azure-delegerad resurs hantering.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: d80fef21e4b7cf1705b67df3c8d08f91bac589bf
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 43f28073c996167c82e241476020bdc341486b26
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042858"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024304"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Registrera en kund i Azure Lighthouse
 
@@ -38,7 +38,7 @@ Om du inte redan har dessa ID-värden kan du hämta dem på något av följande 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Du kan se ditt klient-ID genom att hovra över ditt konto namn längst upp till höger i Azure Portal, eller genom att välja **Växla katalog** . Om du vill välja och kopiera ditt klient-ID söker du efter "Azure Active Directory" i portalen och väljer sedan **Egenskaper** och kopierar värdet som visas i fältet **katalog-ID** . Om du vill hitta ID: t för en prenumeration i kund klienten söker du efter "prenumerationer" och väljer sedan lämpligt prenumerations-ID.
+Du kan se ditt klient-ID genom att hovra över ditt konto namn längst upp till höger i Azure Portal, eller genom att välja **Växla katalog**. Om du vill välja och kopiera ditt klient-ID söker du efter "Azure Active Directory" i portalen och väljer sedan **Egenskaper** och kopierar värdet som visas i fältet **katalog-ID** . Om du vill hitta ID: t för en prenumeration i kund klienten söker du efter "prenumerationer" och väljer sedan lämpligt prenumerations-ID.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -67,7 +67,7 @@ Som tjänst leverantör kanske du vill utföra flera uppgifter för en enskild k
 För att förenkla hanteringen rekommenderar vi att du använder Azure AD-användargrupper för varje roll. Detta ger dig flexibiliteten att lägga till eller ta bort enskilda användare i gruppen som har åtkomst, så att du inte behöver upprepa onboarding-processen för att göra ändringar i användaren. Du kan tilldela roller till ett huvud namn för tjänsten, vilket kan vara användbart för automatiserings scenarier.
 
 > [!IMPORTANT]
-> För att du ska kunna lägga till behörigheter för en Azure AD-grupp måste **grupp typen** anges till **säkerhet** . Det här alternativet väljs när gruppen skapas. Mer information finns i [Skapa en grundläggande grupp och lägga till medlemmar med hjälp av Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> För att du ska kunna lägga till behörigheter för en Azure AD-grupp måste **grupp typen** anges till **säkerhet**. Det här alternativet väljs när gruppen skapas. Mer information finns i [Skapa en grundläggande grupp och lägga till medlemmar med hjälp av Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 När du definierar dina auktoriseringar måste du kontrol lera att du följer principen om minsta behörighet så att användarna bara har de behörigheter som krävs för att utföra sitt jobb. Rikt linjer och information om vilka roller som stöds finns i [klienter, användare och roller i Azure Lighthouse-scenarier](../concepts/tenants-users-roles.md).
 
@@ -128,7 +128,7 @@ Onboarding-processen kräver en Azure Resource Manager-mall (tillhandahålls i v
 > [!IMPORTANT]
 > Processen som beskrivs här kräver en separat distribution för varje prenumeration som registreras, även om du registrerar prenumerationer i samma kund klient organisation. Separata distributioner krävs också om du registrerar flera resurs grupper inom olika prenumerationer i samma kund klient organisation. Att registrera flera resurs grupper i en enda prenumeration kan dock göras i en distribution.
 >
-> Separata distributioner krävs också för att flera erbjudanden ska tillämpas på samma prenumeration (eller resurs grupper inom en prenumeration). Varje erbjudande som tillämpas måste använda en annan **mspOfferName** .
+> Separata distributioner krävs också för att flera erbjudanden ska tillämpas på samma prenumeration (eller resurs grupper inom en prenumeration). Varje erbjudande som tillämpas måste använda en annan **mspOfferName**.
 
 Vilken mall du väljer beror på om du registrerar en hel prenumeration, en resurs grupp eller flera resurs grupper i en prenumeration. Vi tillhandahåller också en mall som kan användas för kunder som har köpt ett hanterat tjänst erbjudande som du har publicerat på Azure Marketplace, om du föredrar att publicera deras prenumerationer på det här sättet.
 
@@ -211,8 +211,8 @@ Distributionen kan göras i Azure Portal, med hjälp av PowerShell eller med hj�
 ### <a name="azure-portal"></a>Azure Portal
 
 1. I vår [GitHub-lagrings platsen](https://github.com/Azure/Azure-Lighthouse-samples/)väljer du knappen **distribuera till Azure** som visas bredvid den mall som du vill använda. Mallen öppnas på Azure-portalen.
-1. Ange dina värden för **namnet på MSP-erbjudandet** , en **Beskrivning av MSP-erbjudandet** , **hanteras av klient-ID** och **auktoriseringar** . Om du vill kan du välja **Redigera parametrar** för att ange värden för `mspOfferName` , `mspOfferDescription` , `managedbyTenantId` och `authorizations` direkt i parameter filen. Se till att uppdatera dessa värden i stället för att använda standardvärdena från mallen.
-1. Välj **Granska och skapa** och välj sedan **skapa** .
+1. Ange dina värden för **namnet på MSP-erbjudandet**, en **Beskrivning av MSP-erbjudandet**, **hanteras av klient-ID** och **auktoriseringar**. Om du vill kan du välja **Redigera parametrar** för att ange värden för `mspOfferName` , `mspOfferDescription` , `managedbyTenantId` och `authorizations` direkt i parameter filen. Se till att uppdatera dessa värden i stället för att använda standardvärdena från mallen.
+1. Välj **Granska och skapa** och välj sedan **skapa**.
 
 Efter några minuter bör du se ett meddelande om att distributionen har slutförts.
 
@@ -265,7 +265,7 @@ När en kund prenumeration har publicerats till Azure-Lighthouse kommer använda
 I tjänst leverantörens klient organisation:
 
 1. Gå till [sidan mina kunder](view-manage-customers.md).
-2. Välj **Kunder** .
+2. Välj **Kunder**.
 3. Bekräfta att du kan se prenumerationerna med det erbjudande namn som du angav i Resource Manager-mallen.
 
 > [!IMPORTANT]
@@ -274,7 +274,7 @@ I tjänst leverantörens klient organisation:
 I kundens klient organisation:
 
 1. Gå till [sidan tjänst leverantörer](view-manage-service-providers.md).
-2. Och sedan välja **Tjänstleverantörserbjudanden** .
+2. Och sedan välja **Tjänstleverantörserbjudanden**.
 3. Bekräfta att du kan se prenumerationerna med det erbjudande namn som du angav i Resource Manager-mallen.
 
 > [!NOTE]
@@ -286,6 +286,11 @@ I kundens klient organisation:
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
 Get-AzContext
+
+# Confirm successful onboarding for Azure Lighthouse
+
+Get-AzManagedServicesDefinition
+Get-AzManagedServicesAssignment
 ```
 
 ### <a name="azure-cli"></a>Azure CLI

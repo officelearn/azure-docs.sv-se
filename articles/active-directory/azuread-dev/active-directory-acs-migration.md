@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0f40c91672310d5963dab01180ea92633e970c5c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: eda648a4d00a0ab4a51c66510060ce16421972ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055382"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020018"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Gör så här: Migrera från Azure-Access Control Service
 
@@ -103,7 +103,7 @@ Följ stegen i det här avsnittet för att ta reda på vilka av dina appar som k
 
     Om ett av namn områdena till exempel är contoso-test går du till `https://contoso-test.accesscontrol.windows.net`
 
-2. Under **förtroende relationer**väljer du **förlitande part program** om du vill se en lista över appar som kommer att påverkas av ACS-pensionen.
+2. Under **förtroende relationer** väljer du **förlitande part program** om du vill se en lista över appar som kommer att påverkas av ACS-pensionen.
 3. Upprepa steg 1-2 för alla andra ACS-namnrymder som du har.
 
 ## <a name="retirement-schedule"></a>Schema för pensionering
@@ -187,7 +187,7 @@ I följande tabell jämförs funktionerna i Access Control som är relevanta fö
 
 På hög nivå *är Azure Active Directory förmodligen det bästa valet för din migrering om du låter användarna logga in enbart med sina arbets-eller skol konton i Microsoft*.
 
-| Funktion | Access Control support | Support för Azure AD |
+| Kapacitet | Access Control support | Support för Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Typer av konton** | | |
 | Microsoft arbets-eller skol konton | Stöds | Stöds |
@@ -238,7 +238,7 @@ Azure AD B2C stöder dock inte bredden på autentiseringsprotokoll och token-for
 
 I följande tabell jämförs funktionerna i Access Control som är relevanta för webb program med de som är tillgängliga i Azure AD B2C. På hög nivå *är Azure AD B2C förmodligen det rätta valet för din migrering om ditt program är kund riktat eller om det stöder många olika typer av konton.*
 
-| Funktion | Access Control support | Azure AD B2C support |
+| Kapacitet | Access Control support | Azure AD B2C support |
 | ---------- | ----------- | ---------------- |
 | **Typer av konton** | | |
 | Microsoft arbets-eller skol konton | Stöds | Stöds via anpassade principer  |
@@ -287,7 +287,7 @@ I dessa fall kanske du vill överväga att migrera ditt webb program till en ann
 
 ![Den här bilden visar ping identitet-logo typen](./media/active-directory-acs-migration/rsz-ping.png)
 
-[Ping Identity](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en moln identitets tjänst som stöder många av samma funktioner som ACS, och PingFederate är en liknande lokal identitets produkt som erbjuder mer flexibilitet. Mer information om hur du använder dessa produkter finns i [ping: s indragnings vägledning för ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) .
+[Ping Identity](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en moln identitets tjänst som stöder många av samma funktioner som ACS, och PingFederate är en liknande lokal identitets produkt som erbjuder mer flexibilitet. Mer information om hur du använder dessa produkter finns i [ping: s indragnings vägledning för ACS](https://www.pingidentity.com/en/company/blog/posts/2017/migrating-from-microsoft-acs-to-ping-identity.html) .
 
 Vårt mål att arbeta med ping Identity och Auth0 är att se till att alla Access Control kunder har en migrerings Sök väg för sina appar och tjänster som minimerar mängden arbete som krävs för att flytta från Access Control.
 
@@ -320,7 +320,7 @@ Vår rekommendation för den här typen av autentiseringspaket är att migrera t
 
 Du kan också använda Azure AD för server-till-Server-autentisering med hjälp av Azure AD-implementeringen av tilldelningen av OAuth-klientautentiseringsuppgifter. I följande tabell jämförs funktionerna i Access Control Server-till-Server-autentisering med de som är tillgängliga i Azure AD.
 
-| Funktion | Access Control support | Support för Azure AD |
+| Kapacitet | Access Control support | Support för Azure AD |
 | ---------- | ----------- | ---------------- |
 | Registrera en webb tjänst | Skapa en förlitande part i Access Control hanterings portalen | Skapa ett Azure AD-webbprogram i Azure Portal |
 | Registrera en klient | Skapa en tjänst identitet i Access Control hanterings Portal | Skapa ett annat Azure AD-webbprogram i Azure Portal |
@@ -351,7 +351,7 @@ I dessa fall kan du överväga att migrera ditt webb program till en annan molnb
 [Auth0](https://auth0.com/acs) är en flexibel moln identitets tjänst som har skapat [vägledning för migrering på hög nivå för kunder i Access Control](https://auth0.com/acs)och har stöd för nästan alla funktioner i ACS.
 
 ![Den här bilden visar ping identity-logo typens ](./media/active-directory-acs-migration/rsz-ping.png)
- [ping-identitet](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en moln identitets tjänst som stöder många av samma funktioner som ACS, och PingFederate är en liknande lokal identitets produkt som erbjuder mer flexibilitet. Mer information om hur du använder dessa produkter finns i [ping: s indragnings vägledning för ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) .
+ [ping-identitet](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en moln identitets tjänst som stöder många av samma funktioner som ACS, och PingFederate är en liknande lokal identitets produkt som erbjuder mer flexibilitet. Mer information om hur du använder dessa produkter finns i [ping: s indragnings vägledning för ACS](https://www.pingidentity.com/en/company/blog/posts/2017/migrating-from-microsoft-acs-to-ping-identity.html) .
 
 Vårt mål att arbeta med ping Identity och Auth0 är att se till att alla Access Control kunder har en migrerings Sök väg för sina appar och tjänster som minimerar mängden arbete som krävs för att flytta från Access Control.
 

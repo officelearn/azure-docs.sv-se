@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.openlocfilehash: a16267b0bc5d9b550c73dc4e1dafee8304ec0237
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc4475eb64744688e901d2b37e30632d044b0115
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541829"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019321"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Metod tips för att skapa en LUIS-app (Language förståelseing)
 Använd redigerings processen för appar för att skapa LUIS-appen:
@@ -87,7 +87,7 @@ Lär dig mer om de [inlärda enheterna på datorn](luis-concept-entity-types.md#
 
 ## <a name="do-build-your-app-iteratively-with-versions"></a>Skapa en app iterativt med versioner
 
-Varje redigerings cykel bör vara i en ny [version](luis-concept-version.md)som klonas från en befintlig version.
+Varje redigerings cykel bör vara i en ny [version](./luis-concept-app-iteration.md)som klonas från en befintlig version.
 
 ## <a name="do-build-for-model-decomposition"></a>Skapa modell sammansättning
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
-ms.openlocfilehash: fcc803e87b2efd3e94b90eb17258ab3bb156359f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dd06a7b4c8e6296cda747d17fd3d5be5db0af6b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541448"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018896"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Skapa en ny LUIS-app i LUIS-portalen
 Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i LUIS-portalen eller via LUIS redigerings- [API: er](developer-reference-resource.md).
@@ -24,7 +24,7 @@ Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i 
 Du kan skapa en ny app i portalen på flera sätt:
 
 * Börja med en tom app och skapa avsikter, yttranden och entiteter.
-* Börja med en tom app och Lägg till en [fördefinierad domän](luis-how-to-use-prebuilt-domains.md).
+* Börja med en tom app och Lägg till en [fördefinierad domän](./howto-add-prebuilt-models.md).
 * Importera en LUIS-app från en- `.lu` eller- `.json` fil som redan innehåller avsikter, yttranden och entiteter.
 
 ## <a name="using-the-authoring-apis"></a>Använda API: erna för redigering
@@ -43,7 +43,7 @@ Du kan skapa en ny app med API: erna för redigering på ett par olika sätt:
 
 ## <a name="create-new-app-in-luis"></a>Skapa en ny app i LUIS
 
-1. På sidan **Mina appar** väljer du din **prenumeration**och  **redigerar resurs** och sedan **skapa**. 
+1. På sidan **Mina appar** väljer du din **prenumeration** och  **redigerar resurs** och sedan **skapa**. 
 
 > [!div class="mx-imgBorder"]
 > ![Lista över LUIS-appar](./media/create-app-in-portal.png)
@@ -75,4 +75,4 @@ Verktygsfältet kontext innehåller andra åtgärder:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om din app-design innehåller identifiering av avsikter, [skapa nya avsikter](luis-how-to-add-intents.md)och Lägg till exempel yttranden. Om din app design bara är data extrahering, lägger du till exempel yttranden till none-avsikten och [skapar sedan entiteter](luis-how-to-add-example-utterances.md)och förser exempel yttranden med dessa entiteter.
+Om din app-design innehåller identifiering av avsikter, [skapa nya avsikter](luis-how-to-add-intents.md)och Lägg till exempel yttranden. Om din app design bara är data extrahering, lägger du till exempel yttranden till none-avsikten och [skapar sedan entiteter](./luis-how-to-add-entities.md)och förser exempel yttranden med dessa entiteter.

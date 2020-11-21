@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: d47abaade13958b4e28d3ad5f62b88e8a53e89a9
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: a910edfbbe1ad07dca806026396c506f7e90e6e7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917849"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019440"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Översikt över migrering: SQL Server till SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -75,7 +75,7 @@ Följande tabell innehåller information om den tillgängliga metoden för migre
 
 |**Metod** | **Lägsta käll version** | **Lägsta mål version** | **Storleks begränsning för käll säkerhets kopia** |  **Kommentarer** |
 | --- | --- | --- | --- | --- |
-| [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  Befintliga SQL Server som ska flyttas som-är till en instans av SQL Server på en virtuell Azure-dator. Kan skala arbets belastningar för migrering av upp till 35 000 virtuella datorer. <br /><br /> Käll servrar är fortfarande online-och etablerings begär Anden under synkroniseringen av Server data, vilket minimerar stillestånds tiden. <br /><br /> **Automation & skript**: [Azure Site Recovery skript](../../../migrate/how-to-migrate-at-scale.md) och [exempel på skalad migrering och planering för Azure](/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
+| [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  Befintliga SQL Server som ska flyttas som-är till en instans av SQL Server på en virtuell Azure-dator. Kan skala arbets belastningar för migrering av upp till 35 000 virtuella datorer. <br /><br /> Käll servrar är fortfarande online-och etablerings begär Anden under synkroniseringen av Server data, vilket minimerar stillestånds tiden. <br /><br /> **Automation & skript**: [Azure Site Recovery skript](../../../migrate/how-to-migrate-at-scale.md) och [exempel på skalad migrering och planering för Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
 ## <a name="migrate"></a>Migrera  
 

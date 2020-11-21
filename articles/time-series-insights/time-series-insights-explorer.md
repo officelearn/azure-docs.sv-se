@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 639f2ef12d190a56e04a9b48d96ea0a6537d243c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568637"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020120"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights gen1 Explorer
 
@@ -45,8 +45,8 @@ Azure Time Series Insights är en fullständigt hanterad tjänst för analys, la
 Innan du kan använda Azure Time Series Insights Explorer måste du:
 
 - Skapa en Azure Time Series Insightss miljö. Mer information finns [i så här kommer du igång med Azure Time Series Insights](./time-series-insights-get-started.md).
-- [Ge åtkomst](time-series-insights-data-access.md) till ditt konto i-miljön.
-- Lägg till en händelse källa för [IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md) eller [Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md) .
+- [Ge åtkomst](./concepts-access-policies.md) till ditt konto i-miljön.
+- Lägg till en händelse källa för [IoT Hub](./how-to-ingest-data-iot-hub.md) eller [Event Hub](./how-to-ingest-data-event-hub.md) .
 
 ## <a name="explore-and-query-data"></a>Utforska och fråga efter data
 
@@ -65,7 +65,7 @@ I minuter när du ansluter din händelse källa till din Azure Time Series Insig
 1. Sedan visas ett diagram som visar antalet händelser under det valda tidsintervallet. Här har du ett antal kontroller:
 
     - **Panelen villkors redigerare**: term området är den plats där du frågar din miljö. Den finns på vänster sida av skärmen:
-      - **Mått**: den här List rutan visar alla numeriska kolumner (**dubbla**tal).
+      - **Mått**: den här List rutan visar alla numeriska kolumner (**dubbla** tal).
       - **Dela efter**: den här List rutan visar kategoriska kolumner (**strängar**).
       - Du kan aktivera steg-interpolation, Visa minsta och högsta och justera y-axeln från kontroll panelen bredvid **mått**. Du kan också justera om data som visas är antal, medelvärde eller summan av data.
       - Du kan lägga till upp till fem villkor för att visa på samma x-axel. Välj **Lägg** till för att lägga till en ny term eller Använd knappen **klona den här termen** för att lägga till en kopia av en befintlig term.
@@ -74,7 +74,7 @@ I minuter när du ansluter din händelse källa till din Azure Time Series Insig
 
       - **Predikat**: Använd predikatet för att snabbt filtrera händelser med hjälp av en uppsättning operander som anges i följande tabell. Om du utför en sökning genom att välja eller klicka på, uppdateras predikatet automatiskt utifrån sökningen. Operands typer som stöds är:
 
-         |Åtgärd  |Typer som stöds  |Obs!  |
+         |Åtgärd  |Typer som stöds  |Kommentarer  |
          |---------|---------|---------|
          |**<**, **>**, **<=**, **>=**    |  **Double**, **datetime**, **TimeSpan**       |         |
          |**=**, **!=**, **<>**     | **Sträng**, **bool**, **Double**, **datetime**, **TimeSpan**, **Null**        |         |

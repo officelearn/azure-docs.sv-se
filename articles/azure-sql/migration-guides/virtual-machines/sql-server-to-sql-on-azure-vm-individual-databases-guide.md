@@ -10,17 +10,17 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: c7a62bb3ed07ffbd8cfef520e5d504c810d11e5a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 1558c396566b2fcfc098a749407d5e7a28316b6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497300"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019457"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guide för migrering: SQL Server till SQL Server på virtuella Azure-datorer 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
 
-Den här migreringsguiden lär dig att **identifiera** , **utvärdera** och **migrera** dina användar databaser från SQL Server till en SQL Server på Azure-Virtual Machines (VM) med hjälp av säkerhets kopierings-och återställnings-och logg leverans som använder [databasen Migration Assistant (DMA)](/sql/dma/dma-overview) för utvärdering. 
+Den här migreringsguiden lär dig att **identifiera**, **utvärdera** och **migrera** dina användar databaser från SQL Server till en SQL Server på Azure-Virtual Machines (VM) med hjälp av säkerhets kopierings-och återställnings-och logg leverans som använder [databasen Migration Assistant (DMA)](/sql/dma/dma-overview) för utvärdering. 
 
 Du kan migrera SQL Server som körs lokalt eller på:
 
@@ -40,7 +40,7 @@ Att migrera till SQL Server på virtuella Azure-datorer kräver följande:
 - [Databas Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 - Ett [Azure Migrate-projekt](/azure/migrate/create-manage-projects).
 - En för beredd mål [SQL Server på en virtuell Azure-dator](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) som är samma eller större än käll SQL Server.
-- [Anslutning mellan Azure och lokalt](/architecture/reference-architectures/hybrid-networking).
+- [Anslutning mellan Azure och lokalt](/azure/architecture/reference-architectures/hybrid-networking).
 - [Välja en lämplig migrations strategi](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate).
 
 ## <a name="pre-migration"></a>Före migrering
@@ -59,7 +59,7 @@ Ytterligare identifierings verktyg finns i [tjänster och verktyg](../../../dms/
 
 ### <a name="assess"></a>Utvärdera
 
-När du har identifierat alla data källor använder du [Data Migration Assistant (DMA)](/dma/dma-overview) för att utvärdera lokala SQL Server-instanser migreras till en instans av SQL Server på den virtuella Azure-datorn för att förstå luckorna mellan käll-och mål instanserna. 
+När du har identifierat alla data källor använder du [Data Migration Assistant (DMA)](/sql/dma/dma-overview) för att utvärdera lokala SQL Server-instanser migreras till en instans av SQL Server på den virtuella Azure-datorn för att förstå luckorna mellan käll-och mål instanserna. 
 
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Följ dessa steg om du vill utföra en standardmigrering med säkerhets kopierin
 1. Pausa/stoppa alla program som använder databaser som är avsedda för migrering. 
 1. Se till att användar databaserna är inaktiva med [ett enda användarläge](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
 1. Utför en fullständig säkerhets kopiering av databasen till en lokal plats.
-1. Kopiera dina lokala säkerhets kopierings filer till den virtuella datorn med hjälp av fjärr skrivbord, [Azure datautforskaren](/data-explorer/data-explorer-overview)eller [kommando rads verktyget AzCopy](../../../storage/common/storage-use-azcopy-v10.md) (> 2 TB säkerhets kopiering rekommenderas).
+1. Kopiera dina lokala säkerhets kopierings filer till den virtuella datorn med hjälp av fjärr skrivbord, [Azure datautforskaren](/azure/data-explorer/data-explorer-overview)eller [kommando rads verktyget AzCopy](../../../storage/common/storage-use-azcopy-v10.md) (> 2 TB säkerhets kopiering rekommenderas).
 1. Återställ fullständiga säkerhets kopieringar av databasen till SQL Server på den virtuella Azure-datorn.
 
 ### <a name="log-shipping--minimize-downtime"></a>Logg överföring (minimera stillestånds tid)
@@ -133,7 +133,7 @@ Följ dessa steg för att utföra en minimal nedtid-migrering med säkerhets kop
 1. Konfigurera anslutningen till att rikta SQL Server på virtuella Azure-datorer, baserat på dina krav. Se [ansluta till en SQL Server virtuell dator på Azure (Resource Manager)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Se till att lokala användar databaser som ska migreras finns i fullständig eller Mass återställnings modell.
 1. Utför en fullständig säkerhets kopiering av databasen till en lokal plats och ändra eventuella befintliga säkerhets kopierings jobb som ska användas [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) nyckelord för att bevara logg kedjan.
-1. Kopiera dina lokala säkerhets kopierings filer till den virtuella datorn med hjälp av fjärr skrivbord, [Azure datautforskaren](/data-explorer/data-explorer-overview)eller [kommando rads verktyget AzCopy](../../../storage/common/storage-use-azcopy-v10.md) (>1 TB säkerhets kopiering rekommenderas).
+1. Kopiera dina lokala säkerhets kopierings filer till den virtuella datorn med hjälp av fjärr skrivbord, [Azure datautforskaren](/azure/data-explorer/data-explorer-overview)eller [kommando rads verktyget AzCopy](../../../storage/common/storage-use-azcopy-v10.md) (>1 TB säkerhets kopiering rekommenderas).
 1. Återställ fullständiga säkerhets kopieringar av databaser på SQL Server på den virtuella Azure-datorn.
 1. Konfigurera [logg överföring](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) mellan lokala databaser och mål SQL Server på den virtuella Azure-datorn. Se till att du inte initierar om databaserna eftersom det redan har slutförts i föregående steg.
 1. **Klipp ut över** till mål servern. 

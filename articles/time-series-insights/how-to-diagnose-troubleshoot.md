@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: b994e8ce34319da4827d389b49e23ed6e5bcde95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d26a0ef86ab96940f3d5bb96d87340b77f1faca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653765"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016844"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnostisera och felsöka en Azure Time Series Insights Gen2-miljö
 
@@ -39,7 +39,7 @@ Det finns flera vanliga orsaker till varför dina data kanske inte visas i [Azur
 
 - Händelsens källdata är inte i JSON-format.
 
-    Time Series Insights stöder endast JSON-data. För JSON-exempel kan du läsa [JSON-former som stöds](./how-to-shape-query-json.md).
+    Time Series Insights stöder endast JSON-data. För JSON-exempel kan du läsa [JSON-former som stöds](./concepts-json-flattening-escaping-rules.md).
 
 - Din händelse käll nyckel saknar en nödvändig behörighet.
 
@@ -61,13 +61,13 @@ Det finns flera vanliga orsaker till varför dina data kanske inte visas i [Azur
 
 - Din Time Series ID-egenskap som angavs vid tidpunkten för etableringen är felaktig, saknas eller är null.
 
-    Det här problemet kan inträffa om egenskapen Time Series ID är felaktigt konfigurerad vid tidpunkten för etablering av miljön. Mer information finns [i metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md). För tillfället kan du inte uppdatera en befintlig Time Series Insights miljö för att använda ett annat tids serie-ID.
+    Det här problemet kan inträffa om egenskapen Time Series ID är felaktigt konfigurerad vid tidpunkten för etablering av miljön. Mer information finns [i metod tips för att välja ett Time Series-ID](./how-to-select-tsid.md). För tillfället kan du inte uppdatera en befintlig Time Series Insights miljö för att använda ett annat tids serie-ID.
 
 ## <a name="problem-some-data-shows-but-some-is-missing"></a>Problem: vissa data visas, men vissa saknas
 
 Du kan skicka data utan tids serie-ID.
 
-- Det här problemet kan uppstå när du skickar händelser utan fältet Time Series ID i nytto lasten. Mer information finns i [JSON-former som stöds](./how-to-shape-query-json.md).
+- Det här problemet kan uppstå när du skickar händelser utan fältet Time Series ID i nytto lasten. Mer information finns i [JSON-former som stöds](./concepts-json-flattening-escaping-rules.md).
 - Det här problemet kan bero på att din miljö är begränsad.
 
     > [!NOTE]
@@ -111,7 +111,7 @@ Om egenskapen timestamp inte uttryckligen anges används en händelses IoT Hub-e
 
 - Du kanske använder en Time Series Insights S1-eller S2-miljö.
 
-   Tids serie modeller stöds bara i "betala per användning"-miljöer. Mer information om hur du kommer åt din S1-eller S2-miljö från Time Series Insights Gen2 Explorer finns [i visualisera data i Utforskaren](./time-series-insights-update-explorer.md).
+   Tids serie modeller stöds bara i "betala per användning"-miljöer. Mer information om hur du kommer åt din S1-eller S2-miljö från Time Series Insights Gen2 Explorer finns [i visualisera data i Utforskaren](./concepts-ux-panels.md).
 
    [![Inga händelser i miljön.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
@@ -121,7 +121,7 @@ Om egenskapen timestamp inte uttryckligen anges används en händelses IoT Hub-e
 
 ## <a name="problem-all-my-instances-in-the-gen2-explorer-lack-a-parent"></a>Problem: alla mina instanser i Gen2 Explorer saknar överordnad
 
-Det här problemet kan inträffa om din miljö inte har en definierad tids serie modell hierarki. Mer information finns i hur du [arbetar med tids serie modeller](/azure/time-series-insights/time-series-insights-overview).
+Det här problemet kan inträffa om din miljö inte har en definierad tids serie modell hierarki. Mer information finns i hur du [arbetar med tids serie modeller](./time-series-insights-overview.md).
 
   [![För inöverordnade instanser visas en varning.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
@@ -135,8 +135,8 @@ Det här problemet kan inträffa om du inte använder den senaste versionen av P
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om hur du [arbetar med tids serie modeller](/azure/time-series-insights/time-series-insights-overview).
+- Läs om hur du [arbetar med tids serie modeller](./time-series-insights-overview.md).
 
-- Lär dig mer om [JSON-former som stöds](./how-to-shape-query-json.md).
+- Lär dig mer om [JSON-former som stöds](./concepts-json-flattening-escaping-rules.md).
 
-- Granska [planering och gränser](./time-series-insights-update-plan.md) i Azure Time Series Insights Gen2.
+- Granska [planering och gränser](./how-to-plan-your-environment.md) i Azure Time Series Insights Gen2.

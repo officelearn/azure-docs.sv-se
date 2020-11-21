@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 69f2048da0b4690d9de72e96e296edbd55c4cd9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66df23466694fe8b9caea4e56565cde6d8fd7416
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309463"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018964"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planera ditt LUIS-AppData med ämnes domän och data extrahering
 
@@ -21,7 +21,7 @@ Ett LUIS app-schema innehåller [intentor](luis-glossary.md#intent) och [entitet
 En LUIS-app är centrerad runt en ämnes domän. Du kan till exempel ha en rese-app som hanterar bokning av biljetter, flygningar, hotell och hyr bilar. En annan app kan ge innehåll som handlar om hur man utövar, spårar lämplighet och ställer in mål. Att identifiera domänen hjälper dig att hitta ord eller fraser som är relevanta för din domän.
 
 > [!TIP]
-> LUIS erbjuder [färdiga domäner](luis-how-to-use-prebuilt-domains.md) för många vanliga scenarier. Kontrol lera om du kan använda en fördefinierad domän som start punkt för din app.
+> LUIS erbjuder [färdiga domäner](./howto-add-prebuilt-models.md) för många vanliga scenarier. Kontrol lera om du kan använda en fördefinierad domän som start punkt för din app.
 
 ## <a name="identify-your-intents"></a>Identifiera dina avsikter
 
@@ -49,7 +49,7 @@ I exemplet yttranden identifierar du de entiteter som du vill extrahera. Om du v
 När du bestämmer vilka entiteter som ska användas i appen, Tänk på att det finns olika typer av entiteter för att fånga relationer mellan objekt typer. [Entiteter i Luis](luis-concept-entity-types.md) ger mer information om de olika typerna.
 
 > [!TIP]
-> LUIS erbjuder [färdiga entiteter](luis-prebuilt-entities.md) för vanliga scenarier med konversations användare. Överväg att använda färdiga entiteter som utgångs punkt för program utvecklingen.
+> LUIS erbjuder [färdiga entiteter](./howto-add-prebuilt-models.md) för vanliga scenarier med konversations användare. Överväg att använda färdiga entiteter som utgångs punkt för program utvecklingen.
 
 ## <a name="resolution-with-intent-or-entity"></a>Matchning med avsikt eller entitet?
 
@@ -79,4 +79,3 @@ För att hjälpa extraheringen lägga till funktioner i underentiteterna. Du vä
 
 > [!div class="nextstepaction"]
 > [Lär LUIS Development lifecylce](luis-concept-app-iteration.md)
-

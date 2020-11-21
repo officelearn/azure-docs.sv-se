@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: a591a8d0df751c071a17b1d77febdb3607a1b53d
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f7c6c3f9c3f468c7b55baf2b0cc45c094d693de5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555778"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018658"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Redigerings-och publicerings regioner och tillhör ande nycklar
 
@@ -27,7 +27,7 @@ Det finns tre LUIS redigerings portaler, baserat på region. Du måste skapa och
 |[au.luis.ai][au.luis.ai] |Australien| `australiaeast`|
 |[eu.luis.ai][eu.luis.ai] |Europa|`westeurope`|
 
-Redigerings regioner har [parat på växlings bara regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Redigerings regioner har [parat på växlings bara regioner](../../best-practices-availability-paired-regions.md).
 
 <a name="regions-and-azure-resources"></a>
 
@@ -102,7 +102,7 @@ Läs mer om hur du [skapar och förutsäger slut punkter](developer-reference-re
 
 Varje region har en sekundär region att redundansväxla till. Europa växlar över i Europa och Australien växlar över inom Australien.
 
-Redigerings regioner har [parat på växlings bara regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Redigerings regioner har [parat på växlings bara regioner](../../best-practices-availability-paired-regions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

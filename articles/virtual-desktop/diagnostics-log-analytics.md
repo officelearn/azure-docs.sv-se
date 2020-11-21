@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a3fccc934fafd8ff7db2cffbd6ba641329ba8de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d8b696b175c4ef841eef1a51f1d357d1781cba7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006813"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018298"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Använd Log Analytics för funktionen diagnostik
 
@@ -46,7 +46,7 @@ Med Azure Monitor kan du analysera Windows-data för virtuella skriv bord och gr
 Innan du kan använda Log Analytics måste du skapa en arbets yta. Det gör du genom att följa anvisningarna i någon av följande två artiklar:
 
 - Om du föredrar att använda Azure Portal, se [skapa en Log Analytics arbets yta i Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
-- Om du föredrar PowerShell, se [skapa en Log Analytics arbets yta med PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+- Om du föredrar PowerShell, se [skapa en Log Analytics arbets yta med PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
 
 När du har skapat arbets ytan följer du anvisningarna i [Anslut Windows-datorer till Azure Monitor](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) för att få följande information:
 
@@ -83,7 +83,7 @@ Så här konfigurerar du Log Analytics för ett nytt objekt:
 6. Välj **Spara**.
 
 >[!NOTE]
->Log Analytics ger dig möjlighet att strömma data till [Event Hubs](../event-hubs/event-hubs-about.md) eller arkivera dem i ett lagrings konto. Mer information om den här funktionen finns i [Stream Azure Monitoring data to a Event Hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) och [arkivera Azure-resurs loggar till lagrings kontot](../azure-monitor/platform/resource-logs-collect-storage.md).
+>Log Analytics ger dig möjlighet att strömma data till [Event Hubs](../event-hubs/event-hubs-about.md) eller arkivera dem i ett lagrings konto. Mer information om den här funktionen finns i [Stream Azure Monitoring data to a Event Hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) och [arkivera Azure-resurs loggar till lagrings kontot](../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 ## <a name="how-to-access-log-analytics"></a>Så här kommer du åt Log Analytics
 
@@ -91,7 +91,7 @@ Du kan komma åt Log Analytics arbets ytor på Azure Portal eller Azure Monitor.
 
 ### <a name="access-log-analytics-on-a-log-analytics-workspace"></a>Åtkomst Log Analytics på en Log Analytics arbets yta
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 
 2. Sök efter **Log Analytics-arbetsyta**.
 
@@ -114,7 +114,7 @@ Du kan komma åt Log Analytics arbets ytor på Azure Portal eller Azure Monitor.
 5. Du är redo att fråga diagnostik. Alla diagnostiska tabeller har prefixet "WVD".
 
 >[!NOTE]
->Mer detaljerad information om de tabeller som lagras i Azure Monitor loggar finns i [Azure Monitor data](https://docs.microsoft.com/azure/azure-monitor/reference/)återställningen. Alla tabeller som är relaterade till Windows Virtual Desktop kallas "WVD".
+>Mer detaljerad information om de tabeller som lagras i Azure Monitor loggar finns i [Azure Monitor data](/azure/azure-monitor/reference/)återställningen. Alla tabeller som är relaterade till Windows Virtual Desktop kallas "WVD".
 
 ## <a name="cadence-for-sending-diagnostic-events"></a>Takt för att skicka diagnostiska händelser
 
@@ -134,9 +134,9 @@ Till exempel frågor via Azure Monitor Log Analytics användar gränssnitt:
 1. Välj **virtuellt Windows-skrivbord** för att granska tillgängliga frågor.
 1. Välj **Kör** för att köra den valda frågan.
 
-Läs mer om exempel fråga-gränssnittet i [sparade frågor i Azure Monitor Log Analytics](../azure-monitor/log-query/saved-queries.md).
+Läs mer om exempel fråga-gränssnittet i [sparade frågor i Azure Monitor Log Analytics](../azure-monitor/log-query/example-queries.md).
 
-I följande lista med frågor kan du granska anslutnings information eller problem för en enskild användare. Du kan köra dessa frågor i [Log Analytics Frågeredigeraren](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries). Ersätt `userupn` med UPN för den användare som du vill söka efter varje fråga.
+I följande lista med frågor kan du granska anslutnings information eller problem för en enskild användare. Du kan köra dessa frågor i [Log Analytics Frågeredigeraren](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query). Ersätt `userupn` med UPN för den användare som du vill söka efter varje fråga.
 
 
 Så här söker du efter alla anslutningar för en enskild användare:

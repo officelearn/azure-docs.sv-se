@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 32755ea9dccd2a7d4a0e727c7a006491d5ea3521
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6642e59c2957b298d54bc587853752b9fce74686
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535891"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019151"
 ---
 # <a name="prebuilt-models"></a>Fördefinierade modeller
 
@@ -32,7 +32,7 @@ LUIS tillhandahåller tre typer av förinställda modeller. Varje modell kan nä
 
 ## <a name="prebuilt-domains"></a>Fördefinierade domäner
 
-Language Understanding (LUIS) ger färdiga *domäner*som är förtränade modeller av [avsikter](luis-how-to-add-intents.md) och [entiteter](luis-concept-entity-types.md) som fungerar tillsammans för domäner eller vanliga kategorier av klient program. 
+Language Understanding (LUIS) ger färdiga *domäner* som är förtränade modeller av [avsikter](luis-how-to-add-intents.md) och [entiteter](luis-concept-entity-types.md) som fungerar tillsammans för domäner eller vanliga kategorier av klient program. 
 
 De förinställda domänerna är utbildade och redo att läggas till i LUIS-appen. Avsikter och entiteter i en fördefinierad domän är helt anpassningsbara när du har lagt till dem i din app. 
 
@@ -61,4 +61,4 @@ När en fördefinierad entitet ingår i ditt program inkluderas dess förutsäge
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [lägger till fördefinierade entiteter](luis-prebuilt-entities.md) i din app.
+Lär dig hur du [lägger till fördefinierade entiteter](./howto-add-prebuilt-models.md) i din app.

@@ -11,12 +11,12 @@ ms.date: 9/25/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 60fb258fe2c6063b9b9a3ced0f4ba5f71ffd9d7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ead3393218255808eb67983251fcf9f2561c82c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449531"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020188"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Använda Azure Stream Analytics med Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ I den här artikeln får du lära dig hur du använder informations lagret som e
     2. Konfigurera och starta Event Generator-programmet
     3. Etablera ett Stream Analytics jobb
     4. Ange inmatade jobb och fråga
-* Azure Synapse SQL-pool för ditt informations lager – om du vill skapa ett nytt data lager följer du stegen i [snabb starten för att skapa ett nytt informations lager](create-data-warehouse-portal.md).
+* Synapse dedikerad SQL-pool för ditt informations lager – om du vill skapa ett nytt data lager följer du stegen i [snabb starten för att skapa ett nytt informations lager](create-data-warehouse-portal.md).
 
 ## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>Ange strömmande utdata så att de pekar på ditt informations lager
 
@@ -52,8 +52,8 @@ Ange följande värden:
 
 * *Alias för utdata*: Ange ett eget namn för jobbets utdata.
 * *Prenumeration*:
-  * Om informations lagret är i samma prenumeration som Stream Analytics jobbet klickar du på ***Välj Azure Synapse Analytics från dina prenumerationer***.
-  * Om informations lagret finns i en annan prenumeration klickar du på Ange inställningar för Azure Synapse Analytics manuellt.
+  * Om informations lagret finns i samma prenumeration som Stream Analytics jobbet klickar du på ***Välj Azure Synapse Analytics från dina prenumerationer** _.
+  _ Om ditt informations lager finns i en annan prenumeration klickar du på Ange inställningar för Azure Synapse Analytics manuellt.
 * *Databas*: Välj mål databas i list rutan.
 * *Användar namn*: Ange användar namnet för ett konto som har Skriv behörighet för databasen.
 * *Lösen ord*: Ange lösen ordet för det angivna användar kontot.
@@ -100,23 +100,23 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 ### <a name="step-5"></a>Steg 5
 
-Klicka på jobb namnet på Azure Portal för Stream Analytics jobb.  Klicka på knappen ***testa*** i fönstret ***utmatnings information*** .
+Klicka på jobb namnet på Azure Portal för Stream Analytics jobb.  Klicka på knappen **_test_* _ i fönstret _*_utdata_*_ .
 
 ![Test knapp på Outpout information ](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) när anslutningen till databasen lyckas visas ett meddelande i portalen.
 
 ### <a name="step-6"></a>Steg 6
 
-Klicka på menyn ***fråga*** under ***jobb sto pol Ogin*** och ändra frågan om du vill infoga data i Stream-utdata som du skapade.  Testa frågan genom att klicka på knappen ***testa vald fråga*** .  Klicka på knappen ***Spara fråga*** när du har lyckats testa frågan.
+Klicka på menyn _*_fråga_*_ under _*_jobb sto pol Ogin_*_ och ändra frågan om du vill infoga data i Stream-utdata som du skapade.  Testa frågan genom att klicka på knappen _*_testa vald fråga_*_ .  Klicka på knappen _*_Spara fråga_*_ när du har lyckats testa frågan.
 
 ![Spara fråga](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
 
 ### <a name="step-7"></a>Steg 7
 
-Starta Azure Stream Analytics jobbet.  Klicka på ***Start*** -knappen på ***översikts*** menyn.
+Starta Azure Stream Analytics jobbet.  Klicka på _*_Start_*_ -knappen på _*_översikts_*_ menyn.
 
 ![Starta Stream Analytics-jobb](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
 
-Klicka på ***Start*** -knappen i fönstret Starta jobb.
+Klicka på knappen _ *_Start_** i fönstret Starta jobb.
 
 ![Klicka på Start](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
 

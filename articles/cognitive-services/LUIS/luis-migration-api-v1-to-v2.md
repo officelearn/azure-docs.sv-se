@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.openlocfilehash: e1e9ac4ceef843712cc2e39f26ff0aca5341e201
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867ae2cc7567077786bb0840cd11c47b786be423
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541330"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018760"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 till v2 migration guide för LUIS-appar
 [Slut punkten](https://aka.ms/v1-endpoint-api-docs) för version 1 och [redigerings](https://aka.ms/v1-authoring-api-docs) -API: er är inaktuella. Använd den här guiden för att lära dig hur du migrerar till version 2 [Endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) och [redigerar](https://go.microsoft.com/fwlink/?linkid=2092087) API: er.
 
 ## <a name="new-azure-regions"></a>Nya Azure-regioner
-LUIS har nya [regioner](https://aka.ms/LUIS-regions) som finns för Luis-API: er. LUIS tillhandahåller en annan portal för region grupper. Programmet måste ha skapats i samma region som du förväntar dig att fråga. Program migrerar inte automatiskt regioner. Du exporterar appen från en region och importerar sedan till en annan för att den ska vara tillgänglig i en ny region.
+LUIS har nya [regioner](./luis-reference-regions.md) som finns för Luis-API: er. LUIS tillhandahåller en annan portal för region grupper. Programmet måste ha skapats i samma region som du förväntar dig att fråga. Program migrerar inte automatiskt regioner. Du exporterar appen från en region och importerar sedan till en annan för att den ska vara tillgänglig i en ny region.
 
 ## <a name="authoring-route-changes"></a>Redigera väg ändringar
 Redigerings-API-vägen har ändrats från att använda **PROG** -vägen för att använda **API** -vägen.
@@ -143,7 +143,7 @@ LUIS föreslår yttranden från befintliga [slut punkts yttranden](luis-how-to-r
 
 
 ## <a name="create-app-from-prebuilt-domains"></a>Skapa en app från fördefinierade domäner
-Fördefinierade [domäner](luis-how-to-use-prebuilt-domains.md) ger en fördefinierad domän modell. Med fördefinierade domäner kan du snabbt utveckla ditt LUIS-program för vanliga domäner. Med det här API: et kan du skapa en ny app baserat på en fördefinierad domän. Svaret är det nya appID.
+Fördefinierade [domäner](./howto-add-prebuilt-models.md) ger en fördefinierad domän modell. Med fördefinierade domäner kan du snabbt utveckla ditt LUIS-program för vanliga domäner. Med det här API: et kan du skapa en ny app baserat på en fördefinierad domän. Svaret är det nya appID.
 
 |v2-väg|verb|
 |--|--|
@@ -154,7 +154,7 @@ Fördefinierade [domäner](luis-how-to-use-prebuilt-domains.md) ger en fördefin
 Den exporterade 1. x-appens JSON har vissa områden som du måste ändra innan du importerar till [LUIS][LUIS] 2,0.
 
 ### <a name="prebuilt-entities"></a>Fördefinierade entiteter
-De [förinställda entiteterna](luis-prebuilt-entities.md) har ändrats. Kontrol lera att du använder de v2 färdiga entiteterna. Detta inkluderar användning av [datetimeV2](luis-reference-prebuilt-datetimev2.md), i stället för DateTime.
+De [förinställda entiteterna](./howto-add-prebuilt-models.md) har ändrats. Kontrol lera att du använder de v2 färdiga entiteterna. Detta inkluderar användning av [datetimeV2](luis-reference-prebuilt-datetimev2.md), i stället för DateTime.
 
 ### <a name="actions"></a>Åtgärder
 Egenskapen åtgärder är inte längre giltig. Det ska vara tomt
@@ -169,4 +169,4 @@ Se [Luis API-svars koder](luis-reference-response-codes.md).
 
 Använd API-dokumentationen v2 för att uppdatera befintliga REST-anrop till LUIS- [slutpunkt](https://go.microsoft.com/fwlink/?linkid=2092356) och [redigerings](https://go.microsoft.com/fwlink/?linkid=2092087) -API: er.
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[LUIS]: ./luis-reference-regions.md

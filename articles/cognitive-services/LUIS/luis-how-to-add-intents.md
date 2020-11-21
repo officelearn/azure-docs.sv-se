@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.service: cognitive-services
-ms.openlocfilehash: c2802f1b41ed2842e12c808a8c380ebd646ffa03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2401c032f0fc90024e0049fad5f696b8a184544
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540939"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018947"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Lägg till avsikter för att fastställa användar avsikt för yttranden
 
@@ -81,4 +81,4 @@ När du har lagt till, redigerat eller tagit bort avsikter kan du [träna](luis-
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om att lägga till [exempel yttranden](luis-how-to-add-example-utterances.md) med entiteter.
+Lär dig mer om att lägga till [exempel yttranden](./luis-how-to-add-entities.md) med entiteter.

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 12693fb11556380e62df277be093ce20c02ff372
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fd7499bd5e216f2a625d87ea13996da851a1889e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018040"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019219"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Data lagring och borttagning i Language Understanding (LUIS) Cognitive Services
 LUIS lagrar data som krypterats i ett Azure-datalager som motsvarar den region som anges av nyckeln. Dessa data lagras i 30 dagar. 
@@ -26,8 +26,8 @@ Användare har fullständig kontroll över att [Exportera](luis-how-to-start-new
 
 Yttranden kan lagras på två olika platser. 
 
-* Under **redigerings processen**skapas och lagras yttranden i avsikten. Yttranden i avsikter krävs för en lyckad LUIS-app. När appen har publicerats och tar emot frågor på slut punkten, bestämmer slut punktens begär ande QueryString, `log=false` om slut punktens uttryck är lagrad. Om slut punkten lagras blir den en del av den aktiva inlärnings-yttranden som finns i avsnittet **build** i portalen i avsnittet **Granska slut punkts yttranden** . 
-* När du **granskar slut punkts yttranden**och lägger till en uttryck till ett avsikts sätt, lagras uttryck inte längre som en del av slut punkten yttranden som ska granskas. Den läggs till i appens avsikter. 
+* Under **redigerings processen** skapas och lagras yttranden i avsikten. Yttranden i avsikter krävs för en lyckad LUIS-app. När appen har publicerats och tar emot frågor på slut punkten, bestämmer slut punktens begär ande QueryString, `log=false` om slut punktens uttryck är lagrad. Om slut punkten lagras blir den en del av den aktiva inlärnings-yttranden som finns i avsnittet **build** i portalen i avsnittet **Granska slut punkts yttranden** . 
+* När du **granskar slut punkts yttranden** och lägger till en uttryck till ett avsikts sätt, lagras uttryck inte längre som en del av slut punkten yttranden som ska granskas. Den läggs till i appens avsikter. 
 
 <a name="utterances-in-an-intent"></a>
 
@@ -55,7 +55,7 @@ Om du inte migreras kan du ta bort ditt konto så tas alla appar bort tillsamman
 Det går inte att ta bort kontot från sidan **Inställningar** . Välj ditt konto namn i det övre högra navigerings fältet för att komma till sidan **Inställningar** .
 
 ## <a name="delete-an-authoring-resource"></a>Ta bort en redigerings resurs
-Om du har [migrerat till en redigerings resurs](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring), tar borttagning av resursen från Azure Portal bort alla program som är associerade med den resursen, tillsammans med deras exempel yttranden och loggar. Data bevaras i 90 dagar innan de tas bort permanent.    
+Om du har [migrerat till en redigerings resurs](./luis-migration-authoring.md), tar borttagning av resursen från Azure Portal bort alla program som är associerade med den resursen, tillsammans med deras exempel yttranden och loggar. Data bevaras i 90 dagar innan de tas bort permanent.    
 
 Om du vill ta bort din resurs går du till [Azure Portal](https://ms.portal.azure.com/#home) och väljer din Luis Authoring-resurs. Gå till fliken **Översikt** och klicka på knappen **ta bort** högst upp på sidan. Bekräfta sedan att din resurs har tagits bort. 
 

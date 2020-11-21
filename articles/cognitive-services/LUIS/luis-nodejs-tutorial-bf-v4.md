@@ -6,16 +6,16 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 4d399dc9298c51906d62dabbc36650bf21f94af8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d070a03a81f70cdbf2c721cc67a3bc40c5d731fc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542838"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018743"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Självstudie: använda en Web App-robot som är aktive rad med Language Understanding i Node.js
 
-Använd Node.js för att bygga en chatt-robot integrerad med språk förståelse (LUIS). Roboten är byggd med Azure [Web App bot-](https://docs.microsoft.com/azure/bot-service/) resursen och [bot Framework version](https://github.com/Microsoft/botbuilder-dotnet) v4.
+Använd Node.js för att bygga en chatt-robot integrerad med språk förståelse (LUIS). Roboten är byggd med Azure [Web App bot-](/azure/bot-service/) resursen och [bot Framework version](https://github.com/Microsoft/botbuilder-dotnet) v4.
 
 **I den här guiden får du lära dig att:**
 
@@ -36,7 +36,7 @@ Använd Node.js för att bygga en chatt-robot integrerad med språk förståelse
 
 1. I sökrutan söker du efter och väljer **Web App Bot** (Webbappsrobot). Välj **Skapa**.
 
-1. Ange nödvändig information i **Robottjänst** :
+1. Ange nödvändig information i **Robottjänst**:
 
     |Inställning|Syfte|Rekommenderad inställning|
     |--|--|--|
@@ -377,7 +377,7 @@ Ställ en fråga på roboten för att ställa en fråga om bok flyg avsikten.
 
 1. Starta bot Framework-emulatorn och välj **Öppna bot**.
 1. Ange din robot-URL i dialog rutan **öppna en robot** -pop, till exempel `http://localhost:3978/api/messages` . `/api/messages`Vägen är webb adressen för bot.
-1. Ange **Microsoft app-ID** och **Microsoft app-lösenordet** , som finns i **. kuvert** -filen i roten av den robot kod som du laddade ned.
+1. Ange **Microsoft app-ID** och **Microsoft app-lösenordet**, som finns i **. kuvert** -filen i roten av den robot kod som du laddade ned.
 
 1. I bot Framework-emulatorn anger `Book a flight from Seattle to Berlin tomorrow` du och får samma svar för den grundläggande roboten som du fick i **testet i Web Chat**.
 
@@ -395,4 +395,4 @@ Ställ en fråga på roboten för att ställa en fråga om bok flyg avsikten.
 Se fler [exempel](https://github.com/microsoft/botframework-solutions) med konversationsrobotar.
 
 > [!div class="nextstepaction"]
-> [Bygg en Language Understanding-app med en anpassad ämnes domän](luis-quickstart-intents-only.md)
+> [Bygg en Language Understanding-app med en anpassad ämnes domän](./tutorial-intents-only.md)

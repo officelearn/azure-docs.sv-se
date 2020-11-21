@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bad9757bb62d5175e725bfe8e005155040dccf36
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9e0b438e0cfa729300099463086248780c69484c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458954"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019848"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Självstudie: Azure Active Directory integrering med Kontiki
 
@@ -30,7 +30,7 @@ Genom att integrera Kontiki med Azure AD får du följande fördelar:
 
 Mer information om program vara som en tjänst (SaaS) för att integrera appar med Azure AD finns i [enkel inloggning till program i Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Kontiki behöver du följande objekt:
 
@@ -50,7 +50,7 @@ Kontiki stöder följande funktioner:
 
 Om du vill integrera Kontiki med Azure AD måste du lägga till Kontiki i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. På den vänstra menyn väljer du **Azure Active Directory**.
 
@@ -60,11 +60,11 @@ Om du vill integrera Kontiki med Azure AD måste du lägga till Kontiki i listan
 
     ![Fönstret Företagsprogram](common/enterprise-applications.png)
 
-1. Välj **nytt program**om du vill lägga till ett program.
+1. Välj **nytt program** om du vill lägga till ett program.
 
     ![Alternativet nytt program](common/add-new-app.png)
 
-1. Skriv **Kontiki**i rutan Sök. I Sök resultaten väljer du **Kontiki**och väljer sedan **Lägg till**.
+1. Skriv **Kontiki** i rutan Sök. I Sök resultaten väljer du **Kontiki** och väljer sedan **Lägg till**.
 
     ![Kontiki i resultat listan](common/search-new-app.png)
 
@@ -104,7 +104,7 @@ I det här avsnittet konfigurerar du enkel inloggning med Azure AD med Kontiki i
     ![Information om enkel inloggning för Kontiki-domän och URL: er](common/sp-signonurl.png)
 
     > [!NOTE]
-    > Kontakta [Kontiki-klientens support team](https://customersupport.kontiki.com/enterprise/contactsupport.html) för att få rätt värde att använda. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Kontakta [Kontiki-klientens support team](https://kollective.com/support/) för att få rätt värde att använda. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. I avsnittet **Konfigurera enskilda Sign-On med SAML** , i avsnittet SAML- **signeringscertifikat** , väljer du **Hämta** bredvid **XML för federationsmetadata**. Välj ett nedladdnings alternativ baserat på dina krav. Spara certifikatet på datorn.
 
@@ -120,7 +120,7 @@ I det här avsnittet konfigurerar du enkel inloggning med Azure AD med Kontiki i
 
 ### <a name="configure-kontiki-single-sign-on"></a>Konfigurera Kontiki enkel inloggning
 
-Om du vill konfigurera enkel inloggning på Kontiki-sidan skickar du den hämtade XML-filen med federationsmetadata och de relevanta URL: er som du kopierade från Azure Portal till [support teamet för Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html). Support teamet för Kontiki använder den information som du skickar dem för att se till att den enkel inloggnings anslutningen för SAML är korrekt inställd på båda sidor.
+Om du vill konfigurera enkel inloggning på Kontiki-sidan skickar du den hämtade XML-filen med federationsmetadata och de relevanta URL: er som du kopierade från Azure Portal till [support teamet för Kontiki](https://kollective.com/support/). Support teamet för Kontiki använder den information som du skickar dem för att se till att den enkel inloggnings anslutningen för SAML är korrekt inställd på båda sidor.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -138,7 +138,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I rutan **användar namn** anger du **brittasimon \@ \<your-company-domain> . \<extension> **. Till exempel **brittasimon \@ contoso.com**.
+    1. I rutan **användar namn** anger du **brittasimon \@ \<your-company-domain> . \<extension>**. Till exempel **brittasimon \@ contoso.com**.
 
     1. Markera kryss rutan **Visa lösen ord** . Skriv ned värdet som visas i rutan **lösen ord** .
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/13/2020
-ms.openlocfilehash: 60151e97c64a3d61044e4b82299573ee59951d46
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128210"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019168"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda en färdig hemautomatiseringsapp
 
@@ -21,30 +21,30 @@ I den här snabbstarten skapar du en LUIS-app som använder den fördefinierade 
 [!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
 
 ## <a name="create-a-new-app"></a>Skapa en ny app
-Du kan skapa och hantera dina appar på **Mina appar** .
+Du kan skapa och hantera dina appar på **Mina appar**.
 
 ### <a name="create-an-application"></a>Skapa ett program
 
-Om du vill skapa ett program klickar du på  **+ ny app** . 
+Om du vill skapa ett program klickar du på  **+ ny app**. 
 
 I fönstret som visas anger du följande information:
 
-|Namn  |Beskrivning  |
+|Name  |Beskrivning  |
 |---------|---------|
 |AName     | Ett namn för din app. Till exempel "Start automatisering".        |
 |Kultur     | Det språk som din app förstår och pratar med.   |
-|Beskrivning | En beskrivning av din app.
+|Description | En beskrivning av din app.
 |Förutsägelse resurs | Den förutsägelse resurs som tar emot frågor. |
 
-Välj **Done** (Klar).
+Välj **Klar**.
 
 >[!NOTE]
 >Kulturen kan inte ändras när appen har skapats.
 
 ## <a name="add-prebuilt-domain"></a>Lägga till fördefinierad domän
 
-1. I det vänstra navigerings fältet väljer du **fördefinierade domäner** .
-1. Sök efter **HomeAutomation** .
+1. I det vänstra navigerings fältet väljer du **fördefinierade domäner**.
+1. Sök efter **HomeAutomation**.
 1. Välj **Lägg till domän** på HomeAutomation-kortet.
 
     > [!div class="mx-imgBorder"]
@@ -64,7 +64,7 @@ Välj **Done** (Klar).
     > [!div class="mx-imgBorder"]
     > [![Skärmbild av avsikten HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Skärmbild av avsikten HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
-1. Om du vill visa entiteternas entiteter väljer du **entiteter** . Om du klickar på en av entiteterna, till exempel **HomeAutomation. enhets** namn, visas en lista över värden som är kopplade till den. 
+1. Om du vill visa entiteternas entiteter väljer du **entiteter**. Om du klickar på en av entiteterna, till exempel **HomeAutomation. enhets** namn, visas en lista över värden som är kopplade till den. 
  
     :::image type="content" source="media/luis-quickstart-new-app/entities-page.png" alt-text="Alternativ text för bild" lightbox="media/luis-quickstart-new-app/entities-page.png":::
 
@@ -77,9 +77,9 @@ När du har tränat appen kan du testa den.
 
 1. Välj **test** i det övre högra navigerings fönstret.
 
-1. Skriv ett test-uttryck som `Turn off the lights` i det interaktiva test fönstret och tryck på RETUR. Stäng till exempel *ljuset* .
+1. Skriv ett test-uttryck som `Turn off the lights` i det interaktiva test fönstret och tryck på RETUR. Stäng till exempel *ljuset*.
 
-    I det här exemplet `Turn off the lights` identifieras korrekt som det främsta bedömnings syftet för **HomeAutomation. TurnOff** .
+    I det här exemplet `Turn off the lights` identifieras korrekt som det främsta bedömnings syftet för **HomeAutomation. TurnOff**.
 
     ![Skärmbild av testpanel med yttranden markerade](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
@@ -98,12 +98,12 @@ För att kunna ta emot en LUIS förutsägelse i en chatt-robot eller något anna
 
 1. Välj **publicera** i det övre högra hörnet i fönstret.
 
-1. Välj **produktions** plats och välj sedan **Slutför** .
+1. Välj **produktions** plats och välj sedan **Slutför**.
 
     > [!div class="mx-imgBorder"]
     > ![Skärm bild av LUIS publicera till slut punkt](media/howto-publish/publish-app-popup.png)
 
-1. Välj länken **åtkomst till slut punkts-URL: er** i meddelandet för att gå till sidan **Azure-resurser** . Slut punkts-URL: erna visas som **exempel fråga** .
+1. Välj länken **åtkomst till slut punkts-URL: er** i meddelandet för att gå till sidan **Azure-resurser** . Slut punkts-URL: erna visas som **exempel fråga**.
 
 <!-- [!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)] -->
 
@@ -223,4 +223,4 @@ För att kunna ta emot en LUIS förutsägelse i en chatt-robot eller något anna
 Du kan anropa slutpunkten via kod:
 
 > [!div class="nextstepaction"]
-> [Anropa en LUIS-slutpunkt med kod](luis-get-started-cs-get-intent.md)
+> [Anropa en LUIS-slutpunkt med kod](./luis-get-started-get-intent-from-rest.md)

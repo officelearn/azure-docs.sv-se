@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: d8c88883b839ff47ef57a17378f43918e9ecf7e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e2165b81c7cd634fe79ec4438a550ad365f5a30
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536128"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019185"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Företags strategier för en LUIS-app
 Granska dessa design strategier för företags appen.
@@ -29,7 +29,7 @@ Om din LUIS-app begär frekvens överskrider den tillåtna [kvoten](https://azur
 * Skapa och [tilldela flera nycklar](#assign-multiple-luis-keys-to-same-app) till appen. 
 
 ### <a name="use-multiple-apps-with-same-app-definition"></a>Använd flera appar med samma app-definition
-Exportera den ursprungliga LUIS-appen och importera sedan appen tillbaka till separata appar. Varje app har sitt eget app-ID. När du publicerar, i stället för att använda samma nyckel i alla appar, skapar du en separat nyckel för varje app. Utjämna belastningen över alla appar så att ingen enskild app blir överbelastad. Lägg till [Application Insights](luis-tutorial-bot-csharp-appinsights.md) för att övervaka användningen. 
+Exportera den ursprungliga LUIS-appen och importera sedan appen tillbaka till separata appar. Varje app har sitt eget app-ID. När du publicerar, i stället för att använda samma nyckel i alla appar, skapar du en separat nyckel för varje app. Utjämna belastningen över alla appar så att ingen enskild app blir överbelastad. Lägg till [Application Insights](./luis-csharp-tutorial-bf-v4.md) för att övervaka användningen. 
 
 För att få samma främsta avsikt mellan alla appar, se till att det är tillräckligt brett för att förutsäga att LUIS inte är tillräckligt bred, vilket ger olika resultat mellan appar för smärre variationer i yttranden. 
 
@@ -48,10 +48,10 @@ Om din app är avsedd att förutsäga en mängd olika användar yttranden bör d
 Schemalägg en regelbunden [granskning av slut punkts yttranden](luis-how-to-review-endpoint-utterances.md) för aktiv inlärning, till exempel varannan vecka, och sedan omträna och publicera igen. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>När du behöver fler än 500-avsikter
-Anta att du utvecklar en Office-assistent som har över 500-avsikter. Om 200-avsikter relaterar till schemaläggning av möten, 200 handlar om påminnelser, 200 för att få information om kollegor och 200 för att skicka e-post, grupp avsikter så att varje grupp finns i en enda app och skapa sedan en app på översta nivån som innehåller varje avsikt. Använd [sändnings modellen](#dispatch-tool-and-model) för att bygga appen på den översta nivån. Ändra sedan din robot till att använda det sammanhängande anropet, som du ser i [sändnings modellens självstudier](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs). 
+Anta att du utvecklar en Office-assistent som har över 500-avsikter. Om 200-avsikter relaterar till schemaläggning av möten, 200 handlar om påminnelser, 200 för att få information om kollegor och 200 för att skicka e-post, grupp avsikter så att varje grupp finns i en enda app och skapa sedan en app på översta nivån som innehåller varje avsikt. Använd [sändnings modellen](#dispatch-tool-and-model) för att bygga appen på den översta nivån. Ändra sedan din robot till att använda det sammanhängande anropet, som du ser i [sändnings modellens självstudier](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0). 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>När du behöver kombinera flera LUIS-och QnA Maker-appar
-Om du har flera LUIS-och QnA Maker-appar som behöver svara på en bot använder du [sändnings modellen](#dispatch-tool-and-model) för att skapa appen på den översta nivån.  Ändra sedan din robot till att använda det sammanhängande anropet, som du ser i [sändnings modellens självstudier](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs). 
+Om du har flera LUIS-och QnA Maker-appar som behöver svara på en bot använder du [sändnings modellen](#dispatch-tool-and-model) för att skapa appen på den översta nivån.  Ändra sedan din robot till att använda det sammanhängande anropet, som du ser i [sändnings modellens självstudier](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0). 
 
 ## <a name="dispatch-tool-and-model"></a>Leverans verktyg och-modell
 Använd kommando rads verktyget [Dispatch][dispatch-tool] som finns i [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) för att kombinera flera LUIS och/eller QNA Maker appar till en överordnad Luis-app. Med den här metoden kan du ha en överordnad domän, inklusive alla ämnen och olika underordnade ämnes domäner i separata appar. 
@@ -62,7 +62,7 @@ Den överordnade domänen anges i LUIS med en version som har angetts `Dispatch`
 
 Chatt-roboten tar emot uttryck och skickar sedan till den överordnade LUIS-appen för förutsägelse. Det mest förväntade syftet från den överordnade appen avgör vilken LUIS-underordnad app som anropas härnäst. Chatt-roboten skickar uttryck till den underordnade appen för en mer detaljerad förutsägelse.
 
-Förstå hur den här hierarkin av anrop görs från Bot Builder v4 [dispatcher-Application-självstudie](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs).  
+Förstå hur den här hierarkin av anrop görs från Bot Builder v4 [dispatcher-Application-självstudie](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0).  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Begränsningar för avsikt i sändnings modellen
 Ett sändnings program har 500 sändnings källor som motsvarar 500-intentor, som Max. 
@@ -70,7 +70,7 @@ Ett sändnings program har 500 sändnings källor som motsvarar 500-intentor, so
 ## <a name="more-information"></a>Mer information
 
 * [Robot Framework SDK](https://github.com/Microsoft/botframework)
-* [Själv studie kurs om sändnings modell](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)
+* [Själv studie kurs om sändnings modell](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0)
 * [Skicka CLI](https://github.com/Microsoft/botbuilder-tools)
 * Robot exempel för sändnings modell – [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
@@ -78,5 +78,5 @@ Ett sändnings program har 500 sändnings källor som motsvarar 500-intentor, so
 
 * Lär dig hur du [testar en batch](luis-how-to-batch-test.md)
 
-[dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
+[dispatcher-application-tutorial]: /azure/bot-service/bot-builder-tutorial-dispatch?branch=master
 [dispatch-tool]: https://aka.ms/dispatch-tool

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: f395f96dfa48567f95a1c50cf5403d3cbb427cb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cebe0e018b4483a9de1771fb3171effbbd5ca59c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91597819"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020069"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>Vad är Azure Time Series Insights gen1?
 
@@ -33,7 +33,7 @@ Azure Time Series Insights har fyra viktiga jobb:
 - Azure Time Series Insights ger direkt visualisering via Azure Time Series Insights Explorer.
 - Azure Time Series Insights tillhandahåller en Query-tjänst, både i Azure Time Series Insights Explorer och genom att använda API: er som är enkla att integrera för att bädda in tids serie data i anpassade program.
 
-Om du skapar ett program för intern förbrukning eller för externa kunder kan du använda Azure Time Series Insights som Server del. Du kan använda den för att indexera, lagra och sammanställa tids serie data. Om du vill bygga en anpassad visualisering och användar upplevelse överst använder du [klient-SDK: n](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Azure Time Series Insights är också utrustad med flera [API: er för frågor](how-to-shape-query-json.md) för att aktivera dessa anpassade scenarier.
+Om du skapar ett program för intern förbrukning eller för externa kunder kan du använda Azure Time Series Insights som Server del. Du kan använda den för att indexera, lagra och sammanställa tids serie data. Om du vill bygga en anpassad visualisering och användar upplevelse överst använder du [klient-SDK: n](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Azure Time Series Insights är också utrustad med flera [API: er för frågor](./concepts-json-flattening-escaping-rules.md) för att aktivera dessa anpassade scenarier.
 
 Tidsseriedata representerar ändringar i en tillgång eller en process över tid. Time Series-data indexeras av tidsstämplar och tiden är den mest meningsfulla axeln som dessa data är organiserade i. Time Series-data anländer vanligt vis i nummerordning, så det behandlas som en infogning i stället för en uppdatering av databasen.
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: a5760db2d6e453d631680d6154e6d9a03ce55cd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541347"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018795"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Förutsägelse slut punkt ändringar för v3
 
@@ -60,7 +60,7 @@ Om du vet att ingen av dina klient program eller-integrationer (bot Framework oc
 
 ### <a name="bing-spell-check"></a>Stavningskontroll i Bing
 
-Detta API stöds inte i v3 förutsägelse slut punkt – Fortsätt att använda v2 API förutsägelse slut punkt för stavnings korrigeringar. Om du behöver stavnings korrigering när du använder v3 API, måste klient programmet anropa [stavningskontroll i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) API och ändra texten till rätt stavning, innan texten skickas till Luis-API: et.
+Detta API stöds inte i v3 förutsägelse slut punkt – Fortsätt att använda v2 API förutsägelse slut punkt för stavnings korrigeringar. Om du behöver stavnings korrigering när du använder v3 API, måste klient programmet anropa [stavningskontroll i Bing](../bing-spell-check/overview.md) API och ändra texten till rätt stavning, innan texten skickas till Luis-API: et.
 
 ## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Bot Framework och Azure Bot Service klient program
 
@@ -103,13 +103,13 @@ Om du vill fråga efter version måste du först [publicera via API](https://wes
 }
 ```
 
-|Egenskap|Typ|Version|Default|Syfte|
+|Egenskap|Typ|Version|Standardvärde|Syfte|
 |--|--|--|--|--|
 |`dynamicLists`|matris|Endast v3|Krävs inte.|Med [dynamiska listor](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) kan du utöka en befintlig utbildad och publicerad List-entitet, redan i Luis-appen.|
 |`externalEntities`|matris|Endast v3|Krävs inte.|[Externa entiteter](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) ger din Luis-app möjlighet att identifiera och märka enheter under körning, som kan användas som funktioner till befintliga entiteter. |
 |`options.datetimeReference`|sträng|Endast v3|Ingen standard|Används för att fastställa [datetimeV2 offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Formatet för datetimeReference är [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|boolean|Endast v3|falskt|Anger om användarens [externa entitet (med samma namn som befintlig entitet)](schema-change-prediction-runtime.md#override-existing-model-predictions) används eller om den befintliga entiteten i modellen används för förutsägelse. |
-|`query`|sträng|Endast v3|Krävs.|**I v2**är uttryck som ska förutsägas i `q` parametern. <br><br>**I v3**skickas funktionerna i- `query` parametern.|
+|`query`|sträng|Endast v3|Krävs.|**I v2** är uttryck som ska förutsägas i `q` parametern. <br><br>**I v3** skickas funktionerna i- `query` parametern.|
 
 ## <a name="response-changes"></a>Svars ändringar
 
@@ -162,9 +162,9 @@ const score = intents[topIntentName];
 
 #### <a name="marking-placement-of-entities-in-utterances"></a>Markera placering av entiteter i yttranden
 
-**I v2**har en entitet marker ATS i en uttryck med `startIndex` och `endIndex` .
+**I v2** har en entitet marker ATS i en uttryck med `startIndex` och `endIndex` .
 
-**I v3**markeras entiteten med `startIndex` och `entityLength` .
+**I v3** markeras entiteten med `startIndex` och `entityLength` .
 
 #### <a name="access-instance-for-entity-metadata"></a>Åtkomst `$instance` för entitets-metadata
 

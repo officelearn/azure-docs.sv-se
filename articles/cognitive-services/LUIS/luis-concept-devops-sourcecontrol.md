@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: e49b713aca23c0373fa71d772ef7567372abe456
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 9e322ac89d8ecad93c2002aa302c155f895911f4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990575"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019202"
 ---
 # <a name="devops-practices-for-luis"></a>DevOps-metoder för LUIS
 
@@ -18,7 +18,7 @@ Program varu tekniker som utvecklar en Language Understanding-app (LUIS) kan til
 
 ## <a name="source-control-and-branch-strategies-for-luis"></a>Källkontroll och förgreningsstrategier för LUIS
 
-En av de viktigaste faktorer som DevOps är beroende av är [käll kontroll](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops). Ett käll kontroll system gör det möjligt för utvecklare att samar beta med kod och spåra ändringar. Med hjälp av grenar kan utvecklare växla mellan olika versioner av kodbasen och arbeta oberoende av andra medlemmar i teamet. När utvecklare höjer en [pull-begäran](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) för att föreslå uppdateringar från en gren till en annan, eller när ändringar slås samman, kan det vara utlösaren för [automatiserade versioner](luis-concept-devops-automation.md) för att bygga och kontinuerligt testa kod.
+En av de viktigaste faktorer som DevOps är beroende av är [käll kontroll](/azure/devops/user-guide/source-control?view=azure-devops). Ett käll kontroll system gör det möjligt för utvecklare att samar beta med kod och spåra ändringar. Med hjälp av grenar kan utvecklare växla mellan olika versioner av kodbasen och arbeta oberoende av andra medlemmar i teamet. När utvecklare höjer en [pull-begäran](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) för att föreslå uppdateringar från en gren till en annan, eller när ändringar slås samman, kan det vara utlösaren för [automatiserade versioner](luis-concept-devops-automation.md) för att bygga och kontinuerligt testa kod.
 
 Genom att använda koncepten och vägledningen som beskrivs i det här dokumentet kan du utveckla en LUIS-app när du spårar ändringar i ett käll kontroll system och följer dessa metod tips för program varu teknik:
 
@@ -42,13 +42,13 @@ Genom att använda koncepten och vägledningen som beskrivs i det här dokumente
 
 ## <a name="source-control"></a>Källkontroll
 
-Om du vill underhålla [appens schema definition](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) för en Luis-app i ett käll kods hanterings system använder du [LUDown format ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  åter givning av appen. `.lu` formatet är det bästa `.json` formatet eftersom det är läsligt, vilket gör det enklare att göra och granska ändringar i pull.
+Om du vill underhålla [appens schema definition](./app-schema-definition.md) för en Luis-app i ett käll kods hanterings system använder du [LUDown format ( `.lu` )](/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  åter givning av appen. `.lu` formatet är det bästa `.json` formatet eftersom det är läsligt, vilket gör det enklare att göra och granska ändringar i pull.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>Spara en LUIS-app med LUDown-formatet
 
 Så här sparar du en LUIS-app i `.lu` formatet och placerar den under käll kontroll:
 
-- ANTINGEN: [Exportera appens version](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#other-actions) `.lu` från Luis- [portalen](https://www.luis.ai/) och Lägg till den i din käll kontroll lagrings plats
+- ANTINGEN: [Exportera appens version](./luis-how-to-manage-versions.md#other-actions) `.lu` från Luis- [portalen](https://www.luis.ai/) och Lägg till den i din käll kontroll lagrings plats
 
 - ELLER: Använd en text redigerare för att skapa en `.lu` fil för en Luis-app och lägga till den i käll kontrollens lagrings plats
 
@@ -58,9 +58,9 @@ Så här sparar du en LUIS-app i `.lu` formatet och placerar den under käll kon
 
 ### <a name="build-the-luis-app-from-source"></a>Bygg LUIS-appen från källan
 
-För att en LUIS-app ska kunna *bygga från källan* innebär att du kan [skapa en ny version av Luis-appen genom att importera `.lu` källan](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) , för att [träna versionen](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) och [publicera den](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app). Du kan göra detta i LUIS-portalen eller på kommando raden:
+För att en LUIS-app ska kunna *bygga från källan* innebär att du kan [skapa en ny version av Luis-appen genom att importera `.lu` källan](./luis-how-to-manage-versions.md#import-version) , för att [träna versionen](./luis-how-to-train.md) och [publicera den](./luis-how-to-publish-app.md). Du kan göra detta i LUIS-portalen eller på kommando raden:
 
-- Använd LUIS-portalen för att importera appens [ `.lu` version](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) från käll kontroll och [träna](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) och [publicera](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) appen.
+- Använd LUIS-portalen för att importera appens [ `.lu` version](./luis-how-to-manage-versions.md#import-version) från käll kontroll och [träna](./luis-how-to-train.md) och [publicera](./luis-how-to-publish-app.md) appen.
 
 - Använd [kommando rads gränssnittet för bot Framework för Luis](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) på kommando raden eller i ett CI/CD-arbetsflöde för [import](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisversionimport) att importera `.lu` appens version från käll kontroll till ett Luis program och [träna](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luistrainrun) och [publicera](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) appen.
 
@@ -72,7 +72,7 @@ Följande typer av filer för ditt LUIS-program bör underhållas under käll ko
 
 - [Enhets test definitions filer](luis-concept-devops-testing.md#writing-tests) (yttranden och förväntade resultat)
 
-- [Batch-testfiler](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-file-format) (yttranden och förväntade resultat) som används för prestanda testning
+- [Batch-testfiler](./luis-concept-batch-test.md#batch-file-format) (yttranden och förväntade resultat) som används för prestanda testning
 
 ### <a name="credentials-and-keys-are-not-checked-in"></a>Autentiseringsuppgifter och nycklar är inte incheckade
 
@@ -81,7 +81,7 @@ Ta inte med prenumerations nycklar eller liknande konfidentiella värden i filer
 - LUIS-redigerings-och förutsägelse nycklar
 - LUIS-redigering och förutsägelse slut punkter
 - Prenumerations nycklar för Azure
-- Åtkomsttoken, till exempel token för ett Azure [-tjänstens huvud namn](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) som används för Automation-autentisering
+- Åtkomsttoken, till exempel token för ett Azure [-tjänstens huvud namn](/cli/azure/ad/sp?view=azure-cli-latest) som används för Automation-autentisering
 
 #### <a name="strategies-for-securely-managing-secrets"></a>Strategier för säker hantering av hemligheter
 
@@ -92,7 +92,7 @@ Strategier för säker hantering av hemligheter är:
 
 ## <a name="branching-and-merging"></a>Förgrening och sammanfogning
 
-System för distribuerad versions kontroll som git ger flexibilitet i hur grupp medlemmar publicerar, delar, granskar och itererar om kod ändringar via utvecklings grenar som delas med andra. Anta en [strategi för git-branchningslogik](https://docs.microsoft.com/azure/devops/repos/git/git-branching-guidance) som passar ditt team.
+System för distribuerad versions kontroll som git ger flexibilitet i hur grupp medlemmar publicerar, delar, granskar och itererar om kod ändringar via utvecklings grenar som delas med andra. Anta en [strategi för git-branchningslogik](/azure/devops/repos/git/git-branching-guidance) som passar ditt team.
 
 Vilken förgrenings strategi du antar är att grupp medlemmarna kan arbeta med lösningen i en *funktions gren* oberoende av det arbete som pågår i andra grenar.
 
@@ -110,7 +110,7 @@ Utvecklare kan arbeta med uppdateringar i en LUIS-app oberoende av andra grenar 
 
 1. Skapa en funktions gren från huvud grenen (beroende på din gren strategi, vanligt vis Master eller utveckla).
 
-1. [Skapa en ny Luis-app i Luis-portalen](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-start-new-app) ("*dev Branch app*") så att den endast stöder arbetet i funktions grenen.
+1. [Skapa en ny Luis-app i Luis-portalen](./luis-how-to-start-new-app.md) ("*dev Branch app*") så att den endast stöder arbetet i funktions grenen.
 
    * Om det `.lu` redan finns en källa för lösningen i din gren, eftersom den sparades efter det att jobbet gjort en annan gren tidigare i projektet, skapar du din Luis-app för dev Branch genom att importera `.lu` filen.
 
@@ -120,11 +120,11 @@ Utvecklare kan arbeta med uppdateringar i en LUIS-app oberoende av andra grenar 
 
 1. Testa uppdateringarna – se [test for Luis DevOps](luis-concept-devops-testing.md) för information om hur du testar din dev Branch-app.
 
-1. Exportera den aktiva versionen av din dev Branch-app som `.lu` från [listan versioner](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions).
+1. Exportera den aktiva versionen av din dev Branch-app som `.lu` från [listan versioner](./luis-how-to-manage-versions.md).
 
 1. Checka in dina uppdateringar och Bjud in peer-granskning av dina uppdateringar. Om du använder GitHub ska du öka en pull- [begäran](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
 
-1. När ändringarna har godkänts kan du slå samman uppdateringarna till huvud grenen. Nu ska du skapa en ny [version](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions) av huvudLUIS-appen med hjälp *av den uppdaterade* `.lu` i huvud servern. Se [versions hantering](#versioning) för att tänka på hur du anger versions namnet.
+1. När ändringarna har godkänts kan du slå samman uppdateringarna till huvud grenen. Nu ska du skapa en ny [version](./luis-how-to-manage-versions.md) av huvudLUIS-appen med hjälp *av den uppdaterade* `.lu` i huvud servern. Se [versions hantering](#versioning) för att tänka på hur du anger versions namnet.
 
 1. När funktions grenen tas bort är det en bra idé att ta bort LUIS-appen för dev Branch som du skapade för funktions gren arbetet.
 
@@ -144,9 +144,9 @@ Du kan ha stöd för flera utvecklare som arbetar med samma funktions gren på s
 
 - Om du följer mönstret som beskrivs ovan i [utvecklare kan arbeta från oberoende grenar](#developers-can-work-from-independent-branches), kommer den här grenen att använda ett unikt Luis-program för att stödja utvecklingen. LUIS-appen för dev Branch kommer att skapas av den första medlemmen i utvecklings teamet som börjar arbeta i funktions grenen.
 
-- [Lägg till team medlemmar som deltagare](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-collaborate) i dev Branch Luis-appen.
+- [Lägg till team medlemmar som deltagare](./luis-how-to-collaborate.md) i dev Branch Luis-appen.
 
-- När funktions grenen fungerar, exportera den aktiva versionen av dev Branch LUIS-appen som `.lu` från [listan versioner](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions), spara den uppdaterade `.lu` filen i lagrings platsen och checka in och ta en titt på ändringarna.
+- När funktions grenen fungerar, exportera den aktiva versionen av dev Branch LUIS-appen som `.lu` från [listan versioner](./luis-how-to-manage-versions.md), spara den uppdaterade `.lu` filen i lagrings platsen och checka in och ta en titt på ändringarna.
 
 ### <a name="incorporating-changes-from-one-branch-to-another-with-rebase-or-merge"></a>Införliva ändringar från en gren till en annan med hjälp av ombase eller sammanfoga
 
@@ -183,7 +183,7 @@ En LUIS-app i LUDown-format är läslig, som har stöd för kommunikation av än
 
 ## <a name="versioning"></a>Versionshantering
 
-Ett program består av flera komponenter som kan omfatta sådant som en robot som körs i [Azure bot service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QNA Maker](https://www.qnamaker.ai/), [röst tjänsten för Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)med mera. För att uppnå målet med löst kopplade program, använder du [versions kontroll](https://docs.microsoft.com/azure/devops/learn/git/what-is-version-control) så att varje komponent i ett program har versions hantering oberoende, så att utvecklare kan identifiera ändringar eller uppdateringar genom att titta på versions numret. Det är enklare att version av LUIS-appen oberoende av andra komponenter om du underhåller den i sin egen lagrings platsen.
+Ett program består av flera komponenter som kan omfatta sådant som en robot som körs i [Azure bot service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QNA Maker](https://www.qnamaker.ai/), [röst tjänsten för Azure](../speech-service/overview.md)med mera. För att uppnå målet med löst kopplade program, använder du [versions kontroll](/azure/devops/learn/git/what-is-version-control) så att varje komponent i ett program har versions hantering oberoende, så att utvecklare kan identifiera ändringar eller uppdateringar genom att titta på versions numret. Det är enklare att version av LUIS-appen oberoende av andra komponenter om du underhåller den i sin egen lagrings platsen.
 
 LUIS-appen för huvud grenen bör ha ett versions schema som tillämpas. När du sammanfogar uppdateringar av `.lu` för en Luis-app till Master, kommer du att importera den uppdaterade källan till en ny version i Luis-appen för huvud grenen.
 
@@ -195,7 +195,7 @@ Varje uppdatering ökar versions numret vid den sista siffran.
 
 Den större/lägre versionen kan användas för att ange omfånget för ändringarna i LUIS app-funktionen:
 
-* Huvud version: en betydande förändring, till exempel stöd för en ny [avsikts](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-intent) -eller [entitet](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-entity-types)
+* Huvud version: en betydande förändring, till exempel stöd för en ny [avsikts](./luis-concept-intent.md) -eller [entitet](./luis-concept-entity-types.md)
 * Lägre version: en baklänges-kompatibel mindre förändring, till exempel efter en betydande ny utbildning
 * Build: ingen funktions ändring, bara en annan version.
 

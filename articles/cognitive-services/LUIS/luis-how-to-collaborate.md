@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.openlocfilehash: 30b4256b37dc3329801a730192e25f7c24a45594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60b100e1100b8a4925a967f8b7265f1612e5beb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540921"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018913"
 ---
 # <a name="add-contributors-to-your-app"></a>Lägg till deltagare i din app
 
@@ -66,7 +66,7 @@ Om du lägger till deltagare/medarbetare i en LUIS-app, anger du den exakta e-po
 
 ### <a name="azure-active-directory-resources"></a>Azure Active Directory resurser
 
-Om du använder [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) i din organisation behöver language Understanding (Luis) behörighet till informationen om användarnas åtkomst när de vill använda Luis. De resurser som LUIS kräver är minimala.
+Om du använder [Azure Active Directory](../../active-directory/index.yml) (Azure AD) i din organisation behöver language Understanding (Luis) behörighet till informationen om användarnas åtkomst när de vill använda Luis. De resurser som LUIS kräver är minimala.
 
 Den detaljerade beskrivningen visas när du försöker registrera dig för ett konto som har administratörs medgivande eller som inte kräver administratörs medgivande, till exempel administratörs medgivande:
 
@@ -87,7 +87,7 @@ Klient organisationens administratör bör arbeta direkt med den användare som 
 
 Om klient administratören bara vill att vissa användare ska använda LUIS, finns det ett par möjliga lösningar:
 * Ge "administrativt medgivande" (medgivande till alla användare av Azure AD), men Ställ sedan in på "Ja" "användar tilldelning krävs" under egenskaper för företags program och tilldela/Lägg slutligen till de önskade användarna i programmet. Med den här metoden ger administratören fortfarande "administrativt medgivande" till appen, men det är möjligt att kontrol lera vilka användare som har åtkomst till den.
-* En andra lösning är att använda [API: et för identitets-och åtkomst hantering i Azure AD i Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) för att ge medgivande till varje enskild användare.
+* En andra lösning är att använda [API: et för identitets-och åtkomst hantering i Azure AD i Microsoft Graph](/graph/azuread-identity-access-management-concept-overview) för att ge medgivande till varje enskild användare.
 
 Lär dig mer om Azure Active Directory-användare och medgivande:
 * [Begränsa din app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) till en uppsättning användare

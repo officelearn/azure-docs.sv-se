@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: dc759bb9af852fab5313686ebaffefda9220f45a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d80d97a609aa3a464b9b114439fe7f4058e287c3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614248"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020154"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Skapa en referens data uppsättning för din Azure Time Series Insights gen1-miljö med hjälp av Azure Portal
 
@@ -41,7 +41,7 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
 
 1. Leta upp din befintliga Azure Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure Portal. Välj din Azure Time Series Insightss miljö.
 
-1. Välj sidan **Overview** (Översikt). Expandera avsnittet **Essentials** överst på sidan för att leta upp **URL: en för Time Series Insights Explorer** och öppna länken.  
+1. Välj sidan **Översikt**. Expandera avsnittet **Essentials** överst på sidan för att leta upp **URL: en för Time Series Insights Explorer** och öppna länken.  
 
    [![Avsnittet Visa Essentials](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
@@ -107,7 +107,7 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
     > [!WARNING]
     > Kolumner eller egenskaper som delas mellan referens data uppsättningar visar ett **duplicerat egenskaps namn** för överförings fel. Felet förhindrar inte lyckad uppladdning av referens data uppsättningar. Den kan tas bort genom att kombinera rader som delar det duplicerade egenskaps namnet.
 
-1. Välj **Lägg till en rad**, **Mass import rader**eller **Lägg till en kolumn** för att lägga till fler referens data värden efter behov.
+1. Välj **Lägg till en rad**, **Mass import rader** eller **Lägg till en kolumn** för att lägga till fler referens data värden efter behov.
 
     [![Lägg till en rad, Mass import rader eller Lägg till en kolumn.](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
 
@@ -121,4 +121,4 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
 
 - [Hantera referensdata](time-series-insights-manage-reference-data-csharp.md) programmässigt.
 
-- En fullständig API-referens finns i API-dokumentet Läs [referens data](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) .
+- En fullständig API-referens finns i API-dokumentet Läs [referens data](/rest/api/time-series-insights/gen1-reference-data-api) .

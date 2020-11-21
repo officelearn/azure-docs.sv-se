@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 650c239423db23bcd4329ab38080b82809fa4f09
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: cff5c68803d0930bbf3310a385ffa0132bcbb3b1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842183"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95017034"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -50,7 +50,7 @@ Månatlig/årlig säkerhets kopiering| Stöds inte vid säkerhets kopiering med 
 Automatisk klock justering | Stöds inte.<br/><br/> Azure Backup justeras inte automatiskt för sommar tids ändringar vid säkerhets kopiering av en virtuell dator.<br/><br/>  Ändra principen manuellt efter behov.
 [Säkerhetsfunktioner för Hybrid säkerhets kopiering](./backup-azure-security-feature.md) |Det finns inte stöd för att inaktivera säkerhetsfunktioner.
 Säkerhetskopiera den virtuella datorn vars dator tid ändras | Stöds inte.<br/><br/> Om dator tiden ändras till en framtida datum tid efter det att du har aktiverat säkerhets kopiering för den virtuella datorn, är det dock inte säkert att säkerhets kopieringen har slutförts, även om tids ändringen återställs.
-Virtuella Azure-datorer i [skalnings uppsättningar för virtuella datorer](../virtual-machine-scale-sets/overview.md) | Säkerhets kopiering och återställning stöds för virtuella datorer med [Orchestration-läge](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) inställt på 3. <br><br>Tillgänglighets uppsättningar stöds inte.
+Virtuella Azure-datorer i [skalnings uppsättningar för virtuella datorer](../virtual-machine-scale-sets/overview.md) |Tillgänglighets uppsättningar stöds inte.
 
 ## <a name="operating-system-support-windows"></a>Stöd för operativ system (Windows)
 
@@ -140,7 +140,7 @@ I följande tabell sammanfattas stödet för säkerhets kopiering under aktivite
 Storlek på virtuell dator |Valfri storlek på virtuella Azure-datorer med minst 2 processor kärnor och 1 GB RAM.<br/><br/> [Läs mer.](../virtual-machines/sizes.md)
 Säkerhetskopiera virtuella datorer i [tillgänglighets uppsättningar](../virtual-machines/availability.md#availability-sets) | Stöds.<br/><br/> Du kan inte återställa en virtuell dator i en tillgänglig uppsättning genom att använda alternativet för att snabbt skapa en virtuell dator. När du i stället återställer den virtuella datorn återställer du disken och använder den för att distribuera en virtuell dator, eller återställer en disk och använder den för att ersätta en befintlig disk.
 Säkerhetskopiera virtuella datorer som har distribuerats med [Hybrid Use Benefit (hubb)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Stöds.
-Säkerhetskopiera virtuella datorer som distribueras i en [skalnings uppsättning](../virtual-machine-scale-sets/overview.md) |Stöds. [Orchestration-läget](../virtual-machine-scale-sets/orchestration-modes.md) ska vara inställt på 2 för fel domän. Tillgänglighets uppsättningen stöds inte.
+Säkerhetskopiera virtuella datorer som distribueras i en [skalnings uppsättning](../virtual-machine-scale-sets/overview.md) |Stöds. Tillgänglighets uppsättningen stöds inte.
 Säkerhetskopiera virtuella datorer som distribueras från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicerat av Microsoft, tredje part) |Stöds.<br/><br/> Den virtuella datorn måste köra ett operativ system som stöds.<br/><br/> När du återställer filer på den virtuella datorn kan du bara återställa till ett kompatibelt operativ system (inte ett tidigare eller senare operativ system). Vi återställer inte virtuella Azure Marketplace-datorer som har säkerhetskopierats som virtuella datorer eftersom de behöver köpa information. De återställs bara som diskar.
 Säkerhetskopiera virtuella datorer som distribueras från en anpassad avbildning (tredje part) |Stöds.<br/><br/> Den virtuella datorn måste köra ett operativ system som stöds.<br/><br/> När du återställer filer på den virtuella datorn kan du bara återställa till ett kompatibelt operativ system (inte ett tidigare eller senare operativ system).
 Säkerhetskopiera virtuella datorer som migreras till Azure| Stöds.<br/><br/> För att säkerhetskopiera den virtuella datorn måste den virtuella dator agenten vara installerad på den migrerade datorn.

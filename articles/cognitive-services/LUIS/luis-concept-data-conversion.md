@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b305be693f59b65a62570f656a0132f4f03cf099
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42a9caff0433808734ee853cbad90a2088bf4e1e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541806"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019253"
 ---
 # <a name="convert-data-format-of-utterances"></a>Konvertera data formatet yttranden
 LUIS tillhandahåller följande konverteringar av en användar-uttryck innan du förutsäger "
@@ -26,7 +26,7 @@ LUIS tillhandahåller följande konverteringar av en användar-uttryck innan du 
 Tal till text tillhandahålls som en integrering med LUIS.
 
 ### <a name="intent-conversion-concepts"></a>Konverterings begrepp för avsikt
-Genom att konvertera tal till text i LUIS kan du skicka talade yttranden till en slut punkt och få ett LUIS förutsägelse svar. Processen är en integrering av [tal](https://docs.microsoft.com/azure/cognitive-services/Speech) tjänsten med Luis. Lär dig mer om tal till avsikt med en [själv studie kurs](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
+Genom att konvertera tal till text i LUIS kan du skicka talade yttranden till en slut punkt och få ett LUIS förutsägelse svar. Processen är en integrering av [tal](/azure/cognitive-services/Speech) tjänsten med Luis. Lär dig mer om tal till avsikt med en [själv studie kurs](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### <a name="key-requirements"></a>Viktiga krav
 Du behöver inte skapa en **API för Bing-taligenkänning** nyckel för den här integrationen. En **language Understanding** nyckel som skapats i Azure Portal fungerar för den här integrationen. Använd inte start nyckeln LUIS.
@@ -41,4 +41,3 @@ Se [viktiga begränsningar](luis-limits.md#key-limits) för information.
 
 > [!div class="nextstepaction"]
 > [Extrahera data](luis-concept-data-extraction.md)
-

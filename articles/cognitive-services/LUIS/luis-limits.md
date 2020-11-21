@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: 5ef681e335cf49a1759a096766b5ccd70545e60a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c855be6d31a1ee46434ecadbeae7a36dd6a3ff95
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324713"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018811"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Begränsningar för din LUIS-modell och nycklar
 LUIS har flera gräns områden. Den första är [modell gränsen](#model-limits), som styr avsikter, entiteter och funktioner i Luis. Det andra avsnittet är [kvot gränser](#key-limits) baserat på nyckel typ. Ett tredje begränsat utrymme är [tangentkombinationen](#keyboard-controls) för att kontrol lera Luis-webbplatsen. Ett fjärde område är [Mappning av världs regionen](luis-reference-regions.md) mellan Luis Authoring-webbplatsen och API: erna för Luis- [slutpunkt](luis-glossary.md#endpoint) .
@@ -32,16 +32,16 @@ Om din app överskrider LUIS-modellens gränser bör du överväga att använda 
 | [Lista entiteter](./luis-concept-entity-types.md) | Överordnad: 50, underordnad: 20 000 objekt. Kanoniskt namn är * standard tecknen max. Synonym värden har ingen längd begränsning. |
 | [enheter för maskin inlärning + roller](./luis-concept-entity-types.md):<br> sammansättning<br>gång<br>enhets roll|En gräns på antingen 100 överordnade entiteter eller 330 entiteter, beroende på vilken gräns användaren träffar först. En roll räknas som en entitet för den här begränsningen. Ett exempel är ett sammansatt objekt med en enkel entitet, som har två roller: 1 sammansatt + 1 enkla + 2 roller = 4 av 330-enheterna.<br>Underentiteter kan vara kapslade upp till 5 nivåer.|
 |Modell som en funktion| Det maximala antalet modeller som kan användas som en funktion för en speciell modell som är 10 modeller. Det maximala antalet fras listor som används som en funktion för en speciell modell som är 10 fras listor.|
-| [Förhands granskning-dynamiska List enheter](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listor med ~ 1 kB per förfrågan för förutsägelse slut punkt|
+| [Förhands granskning-dynamiska List enheter](./luis-migration-api-v3.md)|2 listor med ~ 1 kB per förfrågan för förutsägelse slut punkt|
 | [Mönster](luis-concept-patterns.md)|500 mönster per program.<br>Den maximala längden för mönstret är 400 tecken.<br>3 mönster. alla entiteter per mönster<br>Högst 2 kapslade valfria texter i mönstret|
 | [Mönster. alla](./luis-concept-entity-types.md)|100 per program, 3 mönster. alla entiteter per mönster |
 | [Fras lista][phrase-list]|500 fras listor. 10 global fras listor på grund av modellen som en funktions gräns. Listan över icke-utbytbara fraser har högst 5 000 fraser. Listan över utbytbara fraser har högst 50 000 fraser. Maximalt antal fraser per program 500 000-fraser.|
-| [Fördefinierade entiteter](./luis-prebuilt-entities.md) | ingen gräns|
+| [Fördefinierade entiteter](./howto-add-prebuilt-models.md) | ingen gräns|
 | [Lägga till entiteter för reguljära uttryck](./luis-concept-entity-types.md)|20 entiteter<br>500-Character max. per reguljärt uttryck enhets mönster|
-| [Roller](luis-concept-roles.md)|300 roller per program. 10 roller per entitet|
+| [Roller](./luis-concept-entity-types.md)|300 roller per program. 10 roller per entitet|
 | [Yttrande][utterances] | 500 tecken<br><br>Om du har text längre än den här tecken gränsen måste du segmentera uttryck innan indatamängden till LUIS och du får enskilda svar per segment. Det finns uppenbara raster som du kan arbeta med, till exempel skiljetecken och långa pauser i tal.|
 | [Uttryck-exempel][utterances] | 15 000 per program-det finns ingen gräns för antalet yttranden per avsikt<br><br>Om du behöver träna programmet med fler exempel kan du använda en metod för [sändnings](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) modellen. Du tränar enskilda LUIS-appar (kallade underordnade appar till den överordnade sändnings appen) med en eller flera avsikter och sedan tränar du en sändnings app som innehåller exempel från varje underordnad LUIS Apps yttranden för att dirigera förutsägelsen till rätt underordnad app. |
-| [Versioner](luis-concept-version.md)| 100-versioner per program |
+| [Versioner](./luis-concept-app-iteration.md)| 100-versioner per program |
 | [Versions namn][luis-how-to-manage-versions] | 128 tecken |
 
 * Standard tecken Max är 50 tecken.
@@ -108,7 +108,7 @@ Använd _typen_, `LUIS` när du filtrerar resurser i Azure Portal. Slut punkts r
 
 ## <a name="keyboard-controls"></a>Tangent bords kontroller
 
-|Tangent bords inmatare | Beskrivning |
+|Tangent bords inmatare | Description |
 |--|--|
 |Kontroll + E|växlar mellan token och entiteter i yttranden-listan|
 
@@ -116,12 +116,12 @@ Använd _typen_, `LUIS` när du filtrerar resurser i Azure Portal. Slut punkts r
 
 Din inloggnings åtkomst är i **60 minuter**. Efter den här tids perioden får du det här felet. Du måste logga in igen.
 
-[luis-get-started-create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app
-[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test#batch-testing
-[intents]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-intent
-[phrase-list]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature
-[utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-utterance
-[luis-how-to-manage-versions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions
+[luis-get-started-create-app]: ./luis-get-started-create-app.md
+[batch-testing]: ./luis-concept-test.md#batch-testing
+[intents]: ./luis-concept-intent.md
+[phrase-list]: ./luis-concept-feature.md
+[utterances]: ./luis-concept-utterance.md
+[luis-how-to-manage-versions]: ./luis-how-to-manage-versions.md
 [pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
 <!-- TBD: fix this link -->
 [speech-to-intent-pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/

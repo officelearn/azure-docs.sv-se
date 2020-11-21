@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: fb0c29fb68d0bcd2405cc031008c1c8e5035476f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6f0e5230fb3c59cab690620e837f476f3392a48
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569383"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020086"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>Hantera referens data för en Azure Time Series Insights gen 1-miljö med C Sharp
 
 > [!CAUTION]
 > Det här är en gen1-artikel.
 
-Den här artikeln visar hur du kombinerar C#-, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)-och Azure Active Directory för att göra API-begäranden i programmering till Azure Time Series Insights gen 1 [Reference datahantering API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api).
+Den här artikeln visar hur du kombinerar C#-, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)-och Azure Active Directory för att göra API-begäranden i programmering till Azure Time Series Insights gen 1 [Reference datahantering API](/rest/api/time-series-insights/gen1-reference-data-api).
 
 > [!TIP]
 > Visa GA C#-kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample) .
@@ -33,8 +33,8 @@ Den här artikeln visar hur du kombinerar C#-, [MSAL.net](https://github.com/Azu
 Exempel koden nedan visar följande funktioner:
 
 * Förvärva en åtkomsttoken med hjälp av [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
-* Sekventiella åtgärder för att skapa, läsa, uppdatera och ta bort mot den 1 [: e referens datahantering API: et](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api).
-* Vanliga svars koder, inklusive [vanliga felkoder](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling).
+* Sekventiella åtgärder för att skapa, läsa, uppdatera och ta bort mot den 1 [: e referens datahantering API: et](/rest/api/time-series-insights/gen1-reference-data-api).
+* Vanliga svars koder, inklusive [vanliga felkoder](/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling).
 
     Referens Datahanterings-API: n bearbetar varje objekt individuellt och ett fel med ett objekt förhindrar inte att andra slutförs. Om din begäran till exempel har 100 objekt och ett objekt har ett fel, så skrivs 99-objekt och ett avvisas.
 
@@ -42,7 +42,7 @@ Exempel koden nedan visar följande funktioner:
 
 Slutför följande steg innan du kompilerar och kör exempel koden:
 
-1. [Etablera en Azure Time Series Insightss miljö för gen 1](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+1. [Etablera en Azure Time Series Insightss miljö för gen 1](./time-series-insights-get-started.md
 ) .
 
 1. [Skapa en referens data uppsättning](time-series-insights-add-reference-data-set.md) i din miljö. Använd följande referens data schema:
@@ -313,4 +313,4 @@ namespace CsharpTsiMsalGaSample
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs referens dokumentationen för den här [datahantering API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) -referensen.
+* Läs referens dokumentationen för den här [datahantering API](/rest/api/time-series-insights/gen1-reference-data-api) -referensen.

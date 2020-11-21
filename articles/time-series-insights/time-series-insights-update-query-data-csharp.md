@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 99cde78f0944544941224927e84e117bd0e660d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81725a28102caf0d69a9fb303eaccdcf2151587d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667851"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020035"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>Fråga efter data från Azure Time Series Insights Gen2-miljön med hjälp av C Sharp
 
-Det här C#-exemplet visar hur du frågar efter data från [Gen2-API: er för data åtkomst](https://docs.microsoft.com/rest/api/time-series-insights/reference-data-access-overview) i Azure Time Series Insights Gen2-miljöer.
+Det här C#-exemplet visar hur du frågar efter data från [Gen2-API: er för data åtkomst](/rest/api/time-series-insights/reference-data-access-overview) i Azure Time Series Insights Gen2-miljöer.
 
 > [!TIP]
 > Visa Gen2 C#-kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) .
@@ -33,22 +33,22 @@ Exempel koden nedan visar följande funktioner:
 * Så här hämtar du en åtkomsttoken via Azure Active Directory med [Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 * Så här skickar du den hämtade åtkomsttoken i `Authorization` rubriken för efterföljande API-begäranden för data åtkomst.
 * Exemplet innehåller ett konsol gränssnitt som demonstrerar hur HTTP-begäranden görs till följande:
-  * [API för Gen2-miljöer](https://docs.microsoft.com/rest/api/time-series-insights/reference-environments-apis)
-    * [Hämta tillgänglighets-API för miljöer](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability) och [Hämta API för Event schema](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema)
-  * [API för Gen2-fråga](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis)
-    * [Hämta händelse-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents), [Hämta serie-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)och [Hämta API för sammanställd serie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
-  * [API: er för Time Series-modellen](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
-    * [Hämta hierarkier API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies) och [hierarkier batch-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
-    * [Hämta API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes) och [typer batch API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
-    * [Hämta instanser API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances) och [instanser batch-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
+  * [API för Gen2-miljöer](/rest/api/time-series-insights/reference-environments-apis)
+    * [Hämta tillgänglighets-API för miljöer](/rest/api/time-series-insights/dataaccessgen2/query/getavailability) och [Hämta API för Event schema](/rest/api/time-series-insights/dataaccessgen2/query/geteventschema)
+  * [API för Gen2-fråga](/rest/api/time-series-insights/reference-query-apis)
+    * [Hämta händelse-API](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents), [Hämta serie-API](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)och [Hämta API för sammanställd serie](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
+  * [API: er för Time Series-modellen](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
+    * [Hämta hierarkier API](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies) och [hierarkier batch-API](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
+    * [Hämta API](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes) och [typer batch API](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
+    * [Hämta instanser API](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances) och [instanser batch-API](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
 
-* Avancerade [Sök](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#search-features) -och [TSX](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) -funktioner.
+* Avancerade [Sök](/rest/api/time-series-insights/reference-model-apis#search-features) -och [TSX](/rest/api/time-series-insights/reference-time-series-expression-syntax) -funktioner.
 
 ## <a name="prerequisites-and-setup"></a>Krav och installation
 
 Slutför följande steg innan du kompilerar och kör exempel koden:
 
-1. [Etablera en Gen2 Azure Time Series Insightss](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment) miljö.
+1. [Etablera en Gen2 Azure Time Series Insightss](./how-to-provision-manage.md#create-the-environment) miljö.
 1. Konfigurera din Azure Time Series Insightss miljö för Azure Active Directory enligt beskrivningen i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md).
 1. Kör [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/GenerateCode.bat) som anges i [Readme.MD](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/Readme.md) för att generera Azure Time Series Insights Gen2 klient beroenden.
 1. Öppna `TSIPreviewDataPlaneclient.sln` lösningen och ange `DataPlaneClientSampleApp` som standard projekt i Visual Studio.
@@ -65,7 +65,7 @@ Exempel koden har flera obligatoriska beroenden som kan visas i [packages.config
 
 Ladda ned paketen i Visual Studio 2019 genom att välja alternativet **build**  >  **build-lösning** .
 
-Du kan också lägga till varje paket med [NuGet 2.12 +](https://www.nuget.org/). Exempel:
+Du kan också lägga till varje paket med [NuGet 2.12 +](https://www.nuget.org/). Ett exempel:
 
 * `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 4.5.1`
 
@@ -80,6 +80,6 @@ Se [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Seri
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om frågor i [API-referensen för frågor](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis).
+* Läs mer om frågor i [API-referensen för frågor](/rest/api/time-series-insights/reference-query-apis).
 
 * Läs hur du [ansluter en JavaScript-app med hjälp av klient-SDK](https://github.com/microsoft/tsiclient) för att Azure Time Series Insights.

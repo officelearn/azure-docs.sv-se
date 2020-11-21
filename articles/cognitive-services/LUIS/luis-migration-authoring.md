@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 926b79e672c14249ec7c2b053dba7eb3a31443a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 455c7d66748740ae6e2cc11c6a44bbf30c1cbced
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536059"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018845"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrera till en Azure-resurs redigerings nyckel
 
@@ -40,7 +40,7 @@ Migreringen måste göras från LUIS-portalen. Om du skapar redigerings nycklarn
 * Ägare uppmanas att skicka e-postmeddelanden till medarbetare för att informera om migreringen.
 * Program kommer inte att migreras med dig om du är en medarbetare i programmet.
 * Det finns inget sätt för en ägare att veta att medarbetare har migrerat.
-* Migrering samlar inte automatiskt in medarbetare och flyttar eller lägger till dem i Azure Authoring-resursen. Appens ägare är den som måste slutföra det här steget efter migreringen. Det här steget kräver [behörighet till Azure Authoring-resursen](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-collaborate).
+* Migrering samlar inte automatiskt in medarbetare och flyttar eller lägger till dem i Azure Authoring-resursen. Appens ägare är den som måste slutföra det här steget efter migreringen. Det här steget kräver [behörighet till Azure Authoring-resursen](./luis-how-to-collaborate.md).
 * När medarbetare har tilldelats till Azure-resursen måste de migrera till åtkomst till program. Annars har de ingen åtkomst till att redigera programmen.
 * Det går inte att lägga till en migrerad användare som en medarbetare för programmet.
 * Om du äger förutsägelse nycklar som tilldelas program som ägs av en annan användare blockerar detta migreringen för både ägare och medarbetare. Se rekommendationerna längre fram i den här artikeln.
@@ -114,7 +114,7 @@ Om du vill skapa en ny redigerings resurs väljer du **Skapa ny redigerings resu
 > [!div class="mx-imgBorder"]
 > ![Fönster för att skapa en redigerings resurs](./media/migrate-authoring-key/create-new-authoring-resource-2.png)
 
-* **Klient**organisations namn: klienten som din Azure-prenumeration är associerad med. Detta ställs in som standard till den klient som du använder just nu. Du kan växla mellan klienter genom att välja den högra avataren, som innehåller dina initialer.
+* **Klient** organisations namn: klienten som din Azure-prenumeration är associerad med. Detta ställs in som standard till den klient som du använder just nu. Du kan växla mellan klienter genom att välja den högra avataren, som innehåller dina initialer.
 * **Resurs namn**: ett eget namn som du väljer. Den används som en del av URL: en för din redigering och förutsägelse slut punkts frågor.
 * **Prenumerations namn**: den prenumeration som ska associeras med resursen. Om du har mer än en prenumeration som tillhör din klient väljer du den som du vill använda i list rutan.
 * **Namn på Azure-resurs grupp**: ett namn på en anpassad resurs grupp som du väljer i den nedrullningsbara listan. Med resurs grupper kan du gruppera Azure-resurser för åtkomst och hantering.
@@ -134,7 +134,7 @@ Om din prenumeration redan är kopplad till en LUIS som redigerar Azure-resurs, 
 > [!div class="mx-imgBorder"]
 >![Fönster för att ändra en befintlig redigerings resurs](./media/migrate-authoring-key/choose-existing-authoring-resource-2.png)
 
-* **Klient**organisations namn: klienten som din Azure-prenumeration är associerad med. Detta ställs in som standard till den klient som du använder just nu.
+* **Klient** organisations namn: klienten som din Azure-prenumeration är associerad med. Detta ställs in som standard till den klient som du använder just nu.
 * **Prenumerations namn**: den prenumeration som ska associeras med resursen. Om du har mer än en prenumeration som tillhör din klient väljer du den som du vill använda i list rutan.
 * **Resurs namn**: den redigerings resurs som du vill migrera till.
 
@@ -174,7 +174,7 @@ Om du planerar att redigera dina appar program mässigt behöver du redigera nyc
 
 Lär dig [hur du lägger till deltagare](luis-how-to-collaborate.md) på din redigerings resurs. Deltagare kommer att ha åtkomst till alla program i den resursen.
 
-Du kan lägga till deltagare till redigerings resursen från Azure Portal på sidan **Access Control (IAM)** för resursen. Mer information finns i [lägga till deltagar åtkomst](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource).
+Du kan lägga till deltagare till redigerings resursen från Azure Portal på sidan **Access Control (IAM)** för resursen. Mer information finns i [lägga till deltagare i din app](luis-how-to-collaborate.md).
 
 > [!Note]
 > Om ägaren av LUIS-appen migrerat och lagt till medarbetaren som deltagare på Azure-resursen, kommer medarbetaren fortfarande inte att ha åtkomst till appen om de också migrerar.
@@ -229,7 +229,7 @@ När du försöker migrera men inte kan hitta din Azure-prenumeration i list rut
 * Se till att du är i rätt klient som är associerad med din giltiga prenumeration. Du kan byta innehavare från avataren till vänster om dina initialer i det här verktygsfältet: ![ verktygsfält där du kan växla klienter](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 Om du har en befintlig redigerings resurs men inte kan hitta den när du väljer alternativet **Använd befintlig redigerings resurs** :
-* Resursen skapades förmodligen på en plats som skiljer sig från den portal där du är inloggad. Kontrol lera [Luis redigerings regioner och portaler](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions).
+* Resursen skapades förmodligen på en plats som skiljer sig från den portal där du är inloggad. Kontrol lera [Luis redigerings regioner och portaler](./luis-reference-regions.md#luis-authoring-regions).
 * Skapa en ny resurs från LUIS-portalen i stället.
 
 Om du väljer **resurs alternativet Skapa ny redigerare** och migreringen Miss lyckas med fel meddelandet "Det gick inte att hämta användarens Azure-information, försök igen senare":

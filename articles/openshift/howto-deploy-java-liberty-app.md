@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: Java, jakartaee, Java-part, mikroprofil, öppen-frihet, WebSphere-frihet, Aro, OpenShift, Red Hat
-ms.openlocfilehash: ee4baf8eed26a43728fa52289bce86108c9e8c4a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 41891b58942efbfd705747cc16219185f2a2daa2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414872"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018400"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Distribuera ett Java-program med öppen frihet/WebSphere-frihet på ett Azure Red Hat OpenShift 4-kluster
 
@@ -65,7 +65,7 @@ Observera dessa objekt när du slutför stegen för att aktivera det inbyggda be
 
 1. Logga in på webb konsolen OpenShift från webbläsaren med hjälp av `kubeadmin` autentiseringsuppgifterna.
 2. Navigera till **Administration**  >  **namn områden**  >  **skapa namnrymd**.
-3. Fyll i `open-liberty-demo` efter **namn** och välj **skapa** , som visas nästa.
+3. Fyll i `open-liberty-demo` efter **namn** och välj **skapa**, som visas nästa.
 
    ![Skapa namnrymd](./media/howto-deploy-java-liberty-app/create-namespace.png)
 
@@ -98,7 +98,7 @@ När du har skapat och anslutit till klustret installerar du operatorn Open frih
 2. Navigera till **operatorer**  >  **OperatorHub** och Sök efter **Open frihet-operator**.
 3. Välj **Open frihet-operator** från Sök resultatet.
 4. Välj **Installera**.
-5. I popup- **fönstret Skapa operatör** , kontrol **lera alla namn områden i klustret (standard)** för **installations läge** , **beta** för **uppdaterings kanal** och strategi för **Automatisk** **godkännande för godkännande** :
+5. I popup- **fönstret Skapa operatör**, kontrol **lera alla namn områden i klustret (standard)** för **installations läge**, **beta** för **uppdaterings kanal** och strategi för **Automatisk** **godkännande för godkännande**:
 
    ![Skapa operatörs prenumeration för Open frihet-operatör](./media/howto-deploy-java-liberty-app/install-operator.png)
 6. Välj **Prenumerera** och vänta en minut eller två tills den öppna frihets operatorn visas.
@@ -126,7 +126,7 @@ Om du vill köra programmet med öppen frihet måste du skapa en öppen frihets 
    [INFO] Source compilation was successful.
    ```
 
-1. Öppna [http://localhost:9080/](http://localhost:9080/) i webbläsaren för att gå till programmets start sida. Programmet kommer att se ut ungefär som på följande bild:
+1. Öppna `http://localhost:9080/` i webbläsaren för att gå till programmets start sida. Programmet kommer att se ut ungefär som på följande bild:
 
    ![Webb gränssnitt för Java-Cafe](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
 1. Tryck på **CTRL + C** för att stoppa programmet och öppna frihets servern.
@@ -164,7 +164,7 @@ Innan du distribuerar det behållar programmet till ett fjärrkluster kan du kö
 
 1. Kör `docker run -it --rm -p 9080:9080 javaee-cafe-simple:1.0.0` i konsolen.
 2. Vänta tills frihets servern har startats och att programmet har distribuerats.
-3. Öppna [http://localhost:9080/](http://localhost:9080/) i webbläsaren för att gå till programmets start sida.
+3. Öppna `http://localhost:9080/` i webbläsaren för att gå till programmets start sida.
 4. Tryck på **CTRL + C** för att stoppa programmet och frihets servern.
 
 ### <a name="push-the-image-to-the-container-image-registry"></a>Push-överför avbildningen till behållar avbildnings registret
@@ -230,10 +230,10 @@ Nu kan du distribuera exempel frihets programmet till det Azure Red Hat OpenShif
 
 ### <a name="deploy-the-application-from-the-web-console"></a>Distribuera programmet från webb konsolen
 
-Eftersom vi använder operatorn Open frihet för att hantera frihets program, måste vi skapa en instans av dess *anpassade resurs definition* , av typen "OpenLibertyApplication". Operatören kommer sedan att ta hand om alla aspekter av hanteringen av de OpenShift-resurser som krävs för distribution.
+Eftersom vi använder operatorn Open frihet för att hantera frihets program, måste vi skapa en instans av dess *anpassade resurs definition*, av typen "OpenLibertyApplication". Operatören kommer sedan att ta hand om alla aspekter av hanteringen av de OpenShift-resurser som krävs för distribution.
 
 1. Logga in på webb konsolen OpenShift från webbläsaren med autentiseringsuppgifterna för Azure AD-användaren.
-1. Expandera **Start** , Välj **Projects**  >  **Open-frihet-demo**.
+1. Expandera **Start**, Välj **Projects**  >  **Open-frihet-demo**.
 1. Navigera till **operatorer**  >  **installerade operatorer**.
 1. I mitten av sidan väljer du **öppen frihets operator**.
 1. I mitten av sidan väljer du **Öppna frihets program**.  Navigeringen mellan objekt i användar gränssnittet speglar den faktiska inne slutnings-hierarkin med tekniker som används.

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b60a6e53e8fecd71885204690231776ff69fc08f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328887"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018383"
 ---
 # <a name="configure-device-redirections"></a>Konfigurera omdirigering av enheter
 
@@ -19,11 +19,11 @@ Genom att konfigurera enhets omdirigeringar för Windows Virtual Desktop-miljön
 
 ## <a name="supported-device-redirections"></a>Enhets omdirigeringar som stöds
 
-Varje klient har stöd för olika enhets omdirigeringar. Kolla in [Jämför klienterna](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) med den fullständiga listan över enhets omdirigeringar som stöds för varje klient.
+Varje klient har stöd för olika enhets omdirigeringar. Kolla in [Jämför klienterna](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) med den fullständiga listan över enhets omdirigeringar som stöds för varje klient.
 
 ## <a name="customizing-rdp-properties-for-a-host-pool"></a>Anpassa RDP-egenskaperna för en värd pool
 
-Om du vill veta mer om hur du anpassar RDP-egenskaperna för en adresspool med PowerShell eller Azure Portal kan du läsa [RDP-egenskaperna](customize-rdp-properties.md). En fullständig lista över RDP-egenskaper som stöds finns i [Inställningar för RDP-filer som stöds](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context).
+Om du vill veta mer om hur du anpassar RDP-egenskaperna för en adresspool med PowerShell eller Azure Portal kan du läsa [RDP-egenskaperna](customize-rdp-properties.md). En fullständig lista över RDP-egenskaper som stöds finns i [Inställningar för RDP-filer som stöds](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext).
 
 ## <a name="setup-device-redirections"></a>Installations enhets omdirigeringar
 

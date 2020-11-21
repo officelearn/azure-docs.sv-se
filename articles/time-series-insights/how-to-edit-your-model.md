@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: cac4234d5bd93de8b059ea53a4697dae1bf5c64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89efc1d4f34b250d211f9fd7492588bd2896eb6e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667887"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016861"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-gen2"></a>Data modellering i Azure Time Series Insights Gen2
 
@@ -24,11 +24,11 @@ Den här artikeln beskriver hur du arbetar med tids serie modellen i Azure Time 
 > [!TIP]
 >
 > * Läs mer om [tids serie modellen](concepts-model-overview.md).
-> * Lär dig mer om att navigera i [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
+> * Lär dig mer om att navigera i [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
 
 ## <a name="instances"></a>Instanser
 
-Azure Time Series Insights Explorer stöder instans åtgärderna **skapa**, **läsa**, **Uppdatera**och **ta bort** i webbläsaren.
+Azure Time Series Insights Explorer stöder instans åtgärderna **skapa**, **läsa**, **Uppdatera** och **ta bort** i webbläsaren.
 
 Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series Insights Explorer.
 
@@ -76,7 +76,7 @@ Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series I
 
 ## <a name="hierarchies"></a>Hierarkier
 
-Azure Time Series Insights Explorer stöder hierarkier **skapa**, **läsa**, **Uppdatera**och **ta bort** åtgärder i webbläsaren.
+Azure Time Series Insights Explorer stöder hierarkier **skapa**, **läsa**, **Uppdatera** och **ta bort** åtgärder i webbläsaren.
 
 Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series Insights Explorer.
 
@@ -126,7 +126,7 @@ Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series I
 
 ## <a name="types"></a>Typer
 
-Azure Time Series Insights Explorer stöder åtgärder för att **skapa**, **läsa**, **Uppdatera**och **ta bort** i webbläsaren.
+Azure Time Series Insights Explorer stöder åtgärder för att **skapa**, **läsa**, **Uppdatera** och **ta bort** i webbläsaren.
 
 Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series Insights Explorer.
 
@@ -171,6 +171,6 @@ Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series I
 
 * Mer information om tids serie modellen finns i [data modellering](./concepts-model-overview.md).
 
-* Om du vill veta mer om Gen2 kan du läsa [visualisera data i Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
+* Om du vill veta mer om Gen2 kan du läsa [visualisera data i Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
 
 * Läs de [JSON-former som stöds](./time-series-insights-send-events.md#supported-json-shapes)för att lära dig mer om JSON-former som stöds.

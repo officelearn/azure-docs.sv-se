@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 3cf4ce5dc7061065ea501ae1c00cd5b9e5404770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b93e9fd4047ee3731ef6fe4652bb92ce5145987d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540871"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018828"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Använda versioner för att redigera och testa utan att påverka mellanlagrings-eller produktions program
 
-Med versioner kan du bygga och publicera olika modeller. En bra idé är att klona den aktuella aktiva modellen till en annan [version](luis-concept-version.md) av appen innan du gör ändringar i modellen.
+Med versioner kan du bygga och publicera olika modeller. En bra idé är att klona den aktuella aktiva modellen till en annan [version](./luis-concept-app-iteration.md) av appen innan du gör ändringar i modellen.
 
 Den aktiva versionen är den version som du redigerar i LUIS Portal **build** -avsnittet med avsikter, entiteter, funktioner och mönster. När du använder redigerings-API: erna behöver du inte ange den aktiva versionen eftersom de versions-/regionsspecifika REST API-anropen innehåller versionen i vägen.
 
@@ -66,4 +66,3 @@ Du kan importera en `.json` eller en `.lu` version av programmet.
 * Om du vill **ta bort** en version väljer du en version i listan och väljer sedan **ta bort** från verktygsfältet. Välj **OK**.
 * Om du vill **byta namn på** en version väljer du en version i listan och väljer sedan **Byt namn** från verktygsfältet. Ange ett nytt namn och välj sedan **OK**.
 * Om du vill **Exportera** en version väljer du en version i listan och väljer sedan **Exportera app** i verktygsfältet. Välj JSON eller LU för att exportera för en säkerhets kopia eller Spara i käll kontroll väljer du **Exportera för behållare** för att [använda den här appen i en Luis-behållare](luis-container-howto.md).
-

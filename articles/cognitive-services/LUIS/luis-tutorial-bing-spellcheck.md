@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.openlocfilehash: 120852c3e66594b1cf5cd28bb52ce06634211060
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d2a1702ea131e9b1b4bf5e586f4290db3aff7ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541108"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018777"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Korrigera felstavade ord med Stavningskontroll i Bing
 
@@ -26,7 +26,7 @@ Du kan integrera din LUIS-app med [API för stavningskontroll i Bing v7](https:/
 
 Följ dessa instruktioner om du vill skapa en Stavningskontroll i Bing resurs i Azure Portal:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Välj **skapa en resurs** i det övre vänstra hörnet.
 
@@ -97,4 +97,4 @@ Två lösningar:
 Kryss rutan **Aktivera Bing-stavnings kontroll har Aktiver** ATS på sidan [publicering](luis-how-to-publish-app.md) . Detta är en bekvämlighet att skapa nyckeln och förstå hur slut punktens URL ändras. Du måste fortfarande använda rätt slut punkts parametrar för att stavningen ska kunna korrigeras för varje uttryck.
 
 > [!div class="nextstepaction"]
-> [Läs mer om exempel yttranden](luis-how-to-add-example-utterances.md)
+> [Läs mer om exempel yttranden](./luis-how-to-add-entities.md)

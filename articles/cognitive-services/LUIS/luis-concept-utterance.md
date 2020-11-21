@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316400"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019083"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vilka bra yttranden är för din LUIS-app
 
@@ -29,7 +29,7 @@ Samla in yttranden som du tror att användarna kommer att ange. Ta med yttranden
 
 ## <a name="how-to-choose-varied-utterances"></a>Så här väljer du varierande yttranden
 
-När du först börjar med att [lägga till exempel yttranden](luis-how-to-add-example-utterances.md) i din Luis-modell finns det några principer som du bör tänka på.
+När du först börjar med att [lägga till exempel yttranden](./luis-how-to-add-entities.md) i din Luis-modell finns det några principer som du bör tänka på.
 
 ### <a name="utterances-arent-always-well-formed"></a>Yttranden är inte alltid korrekt utformade
 
@@ -147,5 +147,4 @@ Om du vill att en händelse entitet ska hitta alla händelse data kan du märka 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Se [Lägg till exempel yttranden](luis-how-to-add-example-utterances.md) för information om hur du tränar en Luis-app för att förstå användar yttranden.
-
+Se [Lägg till exempel yttranden](./luis-how-to-add-entities.md) för information om hur du tränar en Luis-app för att förstå användar yttranden.

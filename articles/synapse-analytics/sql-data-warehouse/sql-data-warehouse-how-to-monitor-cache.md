@@ -7,34 +7,34 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fa5025e0a2bd260adeb23b4ab7c4d5f8bd83a43a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 041751b5b23dbb3153f1ae638303579a860c0e5b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026810"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020171"
 ---
-# <a name="how-to-monitor-the-gen2-cache"></a>Så här övervakar du Gen2-cachen
+# <a name="how-to-monitor-the-adaptive-cache"></a>Så här övervakar du adaptiv cache
 
-I den här artikeln beskrivs hur du övervakar och felsöker långsamma frågeresultat genom att fastställa om din arbets belastning optimalt utnyttjar Gen2-cachen.
+Den här artikeln beskriver hur du övervakar och felsöker långsam frågans prestanda genom att fastställa om din arbets belastning optimalt utnyttjar den anpassade cachen för dedikerade SQL-pooler.
 
-Lagrings arkitekturen Gen2 använder automatiskt de mest efterfrågade columnstore-segmenten i en cache som finns på NVMe-baserade SSD som är utformade för Gen2 Data Warehouse. Bättre prestanda realiseras när dina frågor hämtar segment som finns i cacheminnet.
+Den dedikerade arkitekturen för SQL-poolens lagrings nivå lagrar automatiskt dina mest efterfrågade columnstore-segment i en cache som finns på NVMe-baserade SSD. Du får bättre prestanda när dina frågor hämtar segment som är bosatta i cacheminnet.
  
 ## <a name="troubleshoot-using-the-azure-portal"></a>Felsöka med hjälp av Azure Portal
 
-Du kan använda Azure Monitor för att Visa Gen2-cache-mått för att felsöka frågans prestanda. Gå först till Azure Portal och klicka på **övervakaren** , **mått** och **+ Välj ett omfång** :
+Du kan använda Azure Monitor för att visa mått för cachelagring för att felsöka frågans prestanda. Gå först till Azure Portal och klicka på **övervakaren**, **mått** och **+ Välj ett omfång**:
 
 ![Skärm bild som visar Välj ett omfång som valts från mått i Azure Portal.](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
 
-Använd Sök-och list fälten för att hitta ditt informations lager. Välj sedan Använd.
+Använd Sök-och list fälten för att hitta din dedikerade SQL-pool. Välj sedan Använd.
 
 ![Skärm bild som visar fönstret Välj ett omfång där du kan välja ditt informations lager.](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
 
-Nyckel måtten för fel sökning av Gen2-cachen är **cache träff procent** och **cache som används i procent** . Välj **procent andels träff i procent** och Använd sedan knappen **Lägg till mått** för att lägga till **cache-använt procent** . 
+Nyckel måtten för fel sökning **av cacheminnet är cacheträffar** och **cache som används i procent**. Välj **procent andels träff i procent** och Använd sedan knappen **Lägg till mått** för att lägga till **cache-använt procent**. 
 
 ![Cache-mått](./media/sql-data-warehouse-how-to-monitor-cache/cache-2.png)
 

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: fa0416db440e6433829b8077b6988eeaa6a596ad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8fdbb42d06f26849d14e093c340c6d2457ee6ec9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667069"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020103"
 ---
 # <a name="what-is-azure-time-series-insights-gen2"></a>Vad är Azure Time Series Insights Gen2
 
@@ -78,12 +78,12 @@ Azure Time Series Insights Gen2 ger en skalbar pris modell enligt principen beta
 
 Med introduktionen av dessa viktiga funktioner för industriella IoT kan Azure Time Series Insights Gen2 också tillhandahålla följande viktiga fördelar:  
 
-| Funktion | Fördelar |
+| Kapacitet | Fördelar |
 | ---| ---|
 | Lagring med flera lager för IoT-Scale Time Series-data | Med en data behandlings pipeline för delade data för att mata in data kan du mata in data i både varma och kalla butiker. Använd varmt Store för interaktiva frågor och kall lagring för lagring av stora mängder data. Om du vill veta mer om hur du kan dra nytta av högpresterande till gångs frågor, se [frågor](./concepts-query-overview.md). |
 | Tidsseriemodell för att kontextualisera råtelemetridata och härleda tillgångsbaserade insikter | Du kan använda Time Series-modellen för att skapa instanser, hierarkier, typer och variabler för dina Time Series-data. Mer information om tids serie modellen finns i [tids serie modell](./concepts-model-overview.md).  |
 | Jämn och kontinuerlig integrering med andra datalösningar | Data i Azure Time Series Insights Gen2 kall lagring [lagras](./concepts-storage.md) i Apache Parquet-filer med öppen källkod. Detta möjliggör data integrering med andra data lösningar, 1st eller tredje part, för scenarier som omfattar Business Intelligence, avancerad maskin inlärning och förutsägelse analys. |
-| Datagranskning i nära realtid | Användar upplevelsen för [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md) tillhandahåller visualisering för all data strömning genom inmatnings pipelinen. När du har anslutit en händelse källa kan du Visa, utforska och fråga händelse data. På så sätt kan du verifiera om en enhet genererar data som förväntat. Du kan också övervaka en IoT-tillgångs hälsotillstånd, produktivitet och övergripande effektivitet. |
+| Datagranskning i nära realtid | Användar upplevelsen för [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md) tillhandahåller visualisering för all data strömning genom inmatnings pipelinen. När du har anslutit en händelse källa kan du Visa, utforska och fråga händelse data. På så sätt kan du verifiera om en enhet genererar data som förväntat. Du kan också övervaka en IoT-tillgångs hälsotillstånd, produktivitet och övergripande effektivitet. |
 | Utökning och integrering | Integreringen med Power BI-anslutaren är tillgänglig direkt i Time Series Explorer-användar upplevelsen via **export** alternativet, så att kunderna kan exportera tids serie frågorna som de skapar i vår användar upplevelse direkt till Power BI Desktop och visa sina tids serie diagram tillsammans med andra bi-analyser. Detta öppnar dörren till en ny klass med scenarier för industriella IoT-företag som har investerat i Power BI genom att tillhandahålla ett enda fönster för analys från olika data källor, inklusive IoT Time Series. |
 | Anpassade program som bygger på Azure Time Series Insights Gen2-plattformen | Azure Time Series Insights Gen2 stöder [Java Script SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). SDK innehåller omfattande kontroller och förenklad åtkomst till frågor. Använd SDK: n för att bygga anpassade IoT-program ovanpå Azure Time Series Insights Gen2 som passar dina affärs behov. Du kan också använda [API: erna](./concepts-query-overview.md) för Azure Time Series Insights Gen2-frågor direkt för att köra data i anpassade IoT-program. |
 
@@ -92,9 +92,9 @@ Med introduktionen av dessa viktiga funktioner för industriella IoT kan Azure T
 Kom igång med Azure Time Series Insights Gen2:
 
 > [!div class="nextstepaction"]
-> [Snabbstartsguide](./time-series-insights-update-quickstart.md)
+> [Snabbstartsguide](./quickstart-explore-tsi.md)
 
 Läs mer om användarsituationer:
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights Gen2 användnings fall](./time-series-insights-update-use-cases.md)
+> [Azure Time Series Insights Gen2 användnings fall](./overview-use-cases.md)

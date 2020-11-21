@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 914ca77b18d0469c3ea926848be4c60aab04c9c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5e1cc5cdda921e63315c2904d560b7ad3939776
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539112"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018862"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Så här lägger du till mönster för att förbättra förutsägelse noggrannhet
-När en LUIS-app tar emot slut punkts yttranden använder du ett [mönster](luis-concept-patterns.md) för att förbättra förutsägelse noggrannheten för yttranden som visar ett mönster i Word-ordning och Word-val. Mönster använder en speciell [syntax](luis-concept-patterns.md#pattern-syntax) för att ange platsen för: [entiteter](luis-concept-entity-types.md), entitets [roller](luis-concept-roles.md)och valfri text.
+När en LUIS-app tar emot slut punkts yttranden använder du ett [mönster](luis-concept-patterns.md) för att förbättra förutsägelse noggrannheten för yttranden som visar ett mönster i Word-ordning och Word-val. Mönster använder en speciell [syntax](luis-concept-patterns.md#pattern-syntax) för att ange platsen för: [entiteter](luis-concept-entity-types.md), entitets [roller](./luis-concept-entity-types.md)och valfri text.
 
 > [!CAUTION]
 > Mönster inkluderar bara föräldrar med Machine Learning-entiteter, inte underentiteter.
@@ -35,7 +35,7 @@ När en LUIS-app tar emot slut punkts yttranden använder du ett [mönster](luis
     > [!div class="mx-imgBorder"]
     > ![Skärm bild av entiteten för mönster](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Om entiteten innehåller en [roll](luis-concept-roles.md), anger du rollen med ett enskilt kolon, `:` efter namnet på entiteten, till exempel `{Location:Origin}` . Listan över roller för entiteterna visas i en lista. Välj rollen och välj sedan Retur.
+    Om entiteten innehåller en [roll](./luis-concept-entity-types.md), anger du rollen med ett enskilt kolon, `:` efter namnet på entiteten, till exempel `{Location:Origin}` . Listan över roller för entiteterna visas i en lista. Välj rollen och välj sedan Retur.
 
     > [!div class="mx-imgBorder"]
     > ![Skärm bild av entitet med roll](./media/luis-how-to-model-intent-pattern/patterns-4.png)

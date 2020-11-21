@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
 ms.author: anwigley
-ms.openlocfilehash: 6df65040277ac61cca5fb4bf7fce5b5a7b2f3afe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b733e90b69be4e2bd458be5486564747ed4cca78
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84783765"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018879"
 ---
 # <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Använd DevOps-program för LUIS-utveckling med GitHub-åtgärder
 
@@ -27,9 +27,9 @@ Gå till [Luis DevOps Template lagrings platsen](https://github.com/Azure-Sample
 [Luis DevOps Template lagrings platsen](https://github.com/Azure-Samples/LUIS-DevOps-Template) går igenom hur man:
 
 * **Klona mallen lagrings platsen** – kopiera mallen till din egen GitHub-lagringsplats.
-* **Konfigurera Luis-resurser** – skapa [Luis-redigering och förutsägelse resurser i Azure](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-resources-in-azure-cli) som ska användas av arbets flödena för kontinuerlig integrering.
+* **Konfigurera Luis-resurser** – skapa [Luis-redigering och förutsägelse resurser i Azure](./luis-how-to-azure-subscription.md) som ska användas av arbets flödena för kontinuerlig integrering.
 * **Konfigurera CI/CD-arbetsflöden** – Konfigurera parametrar för CI/CD-arbetsflöden och lagra dem i [GitHub hemligheter](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
-* Går **igenom ["dev"-slingan "](https://mitchdenny.com/the-inner-loop/) ** – utvecklaren gör uppdateringar till en exempel Luis-app när du arbetar i en utvecklings gren, testar uppdateringarna och genererar sedan en pull-begäran om att föreslå ändringar och för att söka efter gransknings godkännande.
+* Går **igenom ["dev"-slingan "](https://mitchdenny.com/the-inner-loop/)** – utvecklaren gör uppdateringar till en exempel Luis-app när du arbetar i en utvecklings gren, testar uppdateringarna och genererar sedan en pull-begäran om att föreslå ändringar och för att söka efter gransknings godkännande.
 * **Kör CI/CD-arbetsflöden** – kör [arbets flöden för kontinuerlig integrering för att bygga och testa en Luis-app](luis-concept-devops-automation.md) med GitHub-åtgärder.
 * **Utföra automatiserad testning** – utföra [automatiserad batch-testning för en Luis-app](luis-concept-devops-testing.md) för att utvärdera appens kvalitet.
 * **Distribuera Luis-appen** – köra ett [jobb för kontinuerlig leverans (CD)](luis-concept-devops-automation.md#continuous-delivery-cd) för att publicera Luis-appen.

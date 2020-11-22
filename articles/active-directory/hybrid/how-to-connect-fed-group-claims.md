@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb828eeb408a170b93ffc73b58f14b3f7a883cc4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265477"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95247242"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Konfigurera grupp anspråk för program med Azure Active Directory
 
@@ -74,7 +74,7 @@ Det finns två steg för att konfigurera Azure Active Directory att generera gru
 
 ## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>Lägg till grupp anspråk till token för SAML-program med SSO-konfiguration
 
-Om du vill konfigurera grupp anspråk för ett galleri eller ett icke-Galleri SAML-program öppnar du **företags program**, klickar på programmet i listan, väljer **konfiguration för enkel inloggning**och väljer sedan användarattribut **& anspråk**.
+Om du vill konfigurera grupp anspråk för ett galleri eller ett icke-Galleri SAML-program öppnar du **företags program**, klickar på programmet i listan, väljer **konfiguration för enkel inloggning** och väljer sedan användarattribut **& anspråk**.
 
 Klicka på **Lägg till ett grupp anspråk**  
 
@@ -87,7 +87,7 @@ Använd alternativ knapparna för att välja vilka grupper som ska ingå i token
 | Urval | Beskrivning |
 |----------|-------------|
 | **Alla grupper** | Skapar säkerhets grupper och distributions listor och roller.  |
-| **Säkerhets grupper** | Genererar säkerhets grupper som användaren är medlem i i gruppen grupp anspråk |
+| **Säkerhetsgrupper** | Genererar säkerhets grupper som användaren är medlem i i gruppen grupp anspråk |
 | **Katalogroller** | Om användaren har tilldelats katalog roller genereras de som ett ' wids '-anspråk (grupp anspråk genereras inte) |
 | **Grupper som har tilldelats programmet** | Genererar bara de grupper som uttryckligen tilldelas till programmet och användaren är medlem i |
 
@@ -144,10 +144,11 @@ Giltiga värden är:
 |----------|-------------|
 | **Vissa** | Skapar säkerhets grupper, distributions listor och roller |
 | **"SecurityGroup"** | Genererar säkerhets grupper som användaren är medlem i i gruppen grupp anspråk |
-| **"DirectoryRole** | Om användaren har tilldelats katalog roller genereras de som ett ' wids '-anspråk (grupp anspråk genereras inte) |
-| **"Variabeln applicationgroup** | Genererar bara de grupper som uttryckligen tilldelas till programmet och användaren är medlem i |
+| **"DirectoryRole"** | Om användaren har tilldelats katalog roller genereras de som ett ' wids '-anspråk (grupp anspråk genereras inte) |
+| **Variabeln applicationgroup** | Genererar bara de grupper som uttryckligen tilldelas till programmet och användaren är medlem i |
+| **Alternativet** | Inga grupper returneras. (Det är inte sensetive att ingen fungerar som den ska, och det kan ställas in direkt i applikations manifestet.) |
 
-   Exempel:
+   Ett exempel:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"

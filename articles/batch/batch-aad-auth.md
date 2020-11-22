@@ -4,12 +4,12 @@ description: Batch stöder Azure AD för autentisering från batch-tjänsten. L�
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 685b84f1e628ea67689d3de8bf64c9641edba6fc
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 784e92eaa2cd672d511177066befcfd7effc7ca4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920516"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95252648"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera batch service-lösningar med Active Directory
 
@@ -144,7 +144,7 @@ Du kan använda en anpassad roll för att bevilja behörighet till en Azure AD-a
 - Microsoft.BatCH/batchAccounts/Read (för alla Läs åtgärder)
 - Microsoft.BatCH/batchAccounts/Listnycklar/Action (för alla åtgärder)
 
-Anpassade roller är för användare som autentiseras av Azure AD, inte för batch-kontots autentiseringsuppgifter (delad nyckel). Observera att autentiseringsuppgifterna för batch-kontot ger fullständig behörighet till batch-kontot. Observera också att jobb som använder autopoolen kräver behörigheter på grupp nivå.
+Anpassade roller är för användare som autentiseras av Azure AD, inte för batch-kontots autentiseringsuppgifter (delad nyckel). Observera att autentiseringsuppgifterna för batch-kontot ger fullständig behörighet till batch-kontot. Observera också att jobb som använder [autopoolen](nodes-and-pools.md#autopools) kräver behörigheter på grupp nivå.
 
 > [!NOTE]
 > Vissa roll tilldelningar måste anges i fältet åtgärd, medan andra måste anges i fältet DataAction. Mer information finns i [Azure Resource Provider-åtgärder](../role-based-access-control/resource-provider-operations.md#microsoftbatch).

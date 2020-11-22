@@ -12,18 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 03b7941385517fe694f0743194655a1b6a1c0e1e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591749"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253566"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicksbilder med hjälp av Azure NetApp Files
 
 Azure NetApp Files har stöd för att skapa ögonblicks bilder och använda ögonblicks bilder för att schemalägga automatisk skapande av ögonblicks bilder. Du kan också återställa en ögonblicks bild till en ny volym, återställa en enskild fil med hjälp av en klient eller återställa en befintlig volym med hjälp av en ögonblicks bild.
+
+> [!NOTE] 
+> Överväganden om ögonblicks bilds hantering i replikering över flera regioner finns i [krav och överväganden för att använda replikering över flera regioner](cross-region-replication-requirements-considerations.md).
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Skapa en ögonblicks bild på begäran för en volym
 
@@ -77,7 +80,7 @@ Med en ögonblicks bild princip kan du ange frekvensen för ögonblicks bild ska
 
 2.  I fönstret ögonblicks bild princip anger du princip tillstånd till **aktive rad**. 
 
-3.  Klicka på fliken varje **timme** , **varje dag** , **varje vecka** eller varje **månad** för att skapa dagliga, dagliga, vecko Visa eller månatliga ögonblicks bilds principer. Ange det **antal ögonblicks bilder som ska behållas**.  
+3.  Klicka på fliken varje **timme**, **varje dag**, **varje vecka** eller varje **månad** för att skapa dagliga, dagliga, vecko Visa eller månatliga ögonblicks bilds principer. Ange det **antal ögonblicks bilder som ska behållas**.  
 
     Se [resurs gränser för Azure NetApp Files](azure-netapp-files-resource-limits.md) om det maximala antalet ögonblicks bilder som tillåts för en volym. 
 
@@ -114,7 +117,7 @@ Du kan inte tillämpa en ögonblicks bild princip på en mål volym i replikerin
 
     ![Volymer på snabb menyn för volymer](../media/azure-netapp-files/volume-right-cick-menu.png) 
 
-2.  I redigerings fönstret, under **ögonblicks bild princip** , väljer du en princip som ska användas för volymen.  Klicka på **OK** för att tillämpa principen.  
+2.  I redigerings fönstret, under **ögonblicks bild princip**, väljer du en princip som ska användas för volymen.  Klicka på **OK** för att tillämpa principen.  
 
     ![Redigera ögonblicks redigerings princip](../media/azure-netapp-files/snapshot-policy-edit.png) 
 
@@ -190,7 +193,7 @@ Om du inte ser ögonblicks bilds katalogen kan den vara dold eftersom alternativ
 
 1. Använd `ls` Linux-kommandot för att visa en lista över filen som du vill återställa från `.snapshot` katalogen. 
 
-    Till exempel:
+    Ett exempel:
 
     `$ ls my.txt`   
     `ls: my.txt: No such file or directory`   
@@ -205,7 +208,7 @@ Om du inte ser ögonblicks bilds katalogen kan den vara dold eftersom alternativ
 
 2. Använd `cp` kommandot för att kopiera filen till den överordnade katalogen.  
 
-    Till exempel: 
+    Ett exempel: 
 
     `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
 
@@ -226,7 +229,7 @@ Om du inte ser ögonblicks bilds katalogen kan den vara dold eftersom alternativ
 
     ![Klistra in fil som ska återställas](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
 
-4. Du kan också högerklicka på den överordnade katalogen, välja **Egenskaper** , klicka på fliken **tidigare versioner** om du vill se en lista över ögonblicks bilder och välja **Återställ** för att återställa en fil.  
+4. Du kan också högerklicka på den överordnade katalogen, välja **Egenskaper**, klicka på fliken **tidigare versioner** om du vill se en lista över ögonblicks bilder och välja **Återställ** för att återställa en fil.  
 
     ![Egenskaper tidigare versioner](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
 

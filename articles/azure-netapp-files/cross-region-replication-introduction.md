@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: 4df96f1c508df22e98a9c611ed04fecf6734970a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1e8ce2e4fe9ae81bc2299ae70e9ff83941b5b4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278302"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95245882"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replikering mellan regioner av Azure NetApp Files volymer
 
@@ -111,10 +111,11 @@ Vanlig Azure NetApp Files lagrings kapacitet för månad 2 gäller för mål vol
 
 ## <a name="next-steps"></a>Nästa steg
 * [Krav och överväganden för att använda replikering över flera regioner](cross-region-replication-requirements-considerations.md)
-* [Skapa replikeringspeering](cross-region-replication-create-peering.md)
+* [Skapa volym replikering](cross-region-replication-create-peering.md)
 * [Visa hälsostatus för replikeringsrelation](cross-region-replication-display-health-status.md)
 * [Hantera haveriberedskap](cross-region-replication-manage-disaster-recovery.md)
 * [Mått för volym replikering](azure-netapp-files-metrics.md#replication)
+* [Ta bort volymer eller volymer](cross-region-replication-delete.md)
 * [Felsöka replikering mellan regioner](troubleshoot-cross-region-replication.md)
 
 

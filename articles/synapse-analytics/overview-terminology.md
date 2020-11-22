@@ -9,18 +9,18 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: e78c31b3e7c309c0c55895c764fa29589dd15dbd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 4d69c1d69de63dc0d4c3c8f8e46e73f9efc72933
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026849"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95244726"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Azure Synapse Analytics-terminologi
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-Den här terminologin i Azure Synapse Analytics vägleder dig genom grundläggande begrepp för tjänsten och viktiga kommandon. Den här artikeln är användbar för både nya elever och de som vill ha högdagrar om den grundläggande Azure Synapse-terminologin.
+Det här dokumentet vägleder dig genom de grundläggande begreppen i Azure Synapse Analytics.
 
 ## <a name="basics"></a>Grunder
 
@@ -28,16 +28,18 @@ En **Synapse-arbetsyta** är en skydds bara samarbets gränser för att utföra 
 
 I en arbets yta kan du utföra analyser med SQL och Apache Spark. Resurser som är tillgängliga för SQL och Spark Analytics är indelade i SQL-och Spark- **pooler**. 
 
+## <a name="linked-services"></a>Länkade tjänster
+
 En arbets yta kan innehålla valfritt antal **länkade tjänster**, i princip anslutnings strängar som definierar den anslutnings information som behövs för att arbets ytan ska kunna ansluta till externa resurser.
 
-## <a name="synapse-sql-terminology"></a>Synapse SQL-terminologi
+## <a name="synapse-sql"></a>Synapse SQL
 
 **SYNAPSE SQL** är möjligheten att utföra T-SQL-baserad analys i Synapse-arbetsytan. Synapse SQL har två förbruknings modeller: dedikerade och Server lös.  För den dedikerade modellen använder du **dedikerade SQL-pooler**. En arbets yta kan ha valfritt antal pooler. Använd Server lös **SQL-pooler** om du vill använda en server lös modell. Varje arbets yta har en av dessa pooler.
 
 * **SQL-begäran** – åtgärd som en fråga som körs via dedikerad SQL-pool eller SQL-pool utan server.
 * **SQL-skript** – uppsättning av SQL-kommandon som sparats i en fil. Ett SQL-skript kan innehålla ett eller flera SQL-uttryck. Den kan användas för att köra SQL-begäranden via dedikerad SQL-pool eller Server lös SQL-pool.
 
-## <a name="apache-spark-for-synapse-terminology"></a>Apache Spark terminologi för Synapse
+## <a name="apache-spark-for-synapse"></a>Apache Spark för Synapse
 
 Om du vill använda Spark Analytics skapar du och använder **Server lös Apache Spark pooler** på din Synapse-arbetsyta.
 
@@ -48,7 +50,7 @@ Om du vill använda Spark Analytics skapar du och använder **Server lös Apache
 * **Notebook** – interaktiv och reaktiv data vetenskap och teknik gränssnitt som stöder Scala, PySpark, C# och SparkSQL.
 * **Spark-jobb definition** – gränssnitt för att skicka ett Spark-jobb med hjälp av Assembly jar som innehåller koden och dess beroenden.
 
-## <a name="pipelines-terminology"></a>Terminologi för pipelines
+## <a name="pipelines"></a>Pipelines
 
 * **Data integrering** – ger möjlighet att mata in data mellan olika källor och dirigera aktiviteter som körs i en arbets yta eller utanför en arbets yta.
 * **Data flöde** – ger en helt visuell upplevelse utan kodning som krävs för att utföra stor data omvandling. All optimering och körning hanteras utan server.

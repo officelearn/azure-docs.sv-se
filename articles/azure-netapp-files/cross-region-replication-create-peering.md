@@ -1,5 +1,5 @@
 ---
-title: Skapa replikerings-peering för Azure NetApp Files | Microsoft Docs
+title: Skapa Volume-replikering för Azure NetApp Files | Microsoft Docs
 description: Beskriver hur du skapar replikering mellan flera regioner för att Azure NetApp Files att konfigurera replikering över flera regioner.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: df70f8a37a7223119068afd323583ea6126ca542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 412724a072bfc03a67bf1005173702f757c6fdf4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90709058"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249945"
 ---
-# <a name="create-replication-peering-for-azure-netapp-files"></a>Skapa replikerings-peering för Azure NetApp Files
+# <a name="create-volume-replication-for-azure-netapp-files"></a>Skapa Volume Replication för Azure NetApp Files
 
 > [!IMPORTANT]
 > Funktionen för replikering över flera regioner finns för närvarande i offentlig för hands version. Du måste skicka in en Waitlist-begäran för att få åtkomst till funktionen via [Azure NetApp Files över flera regioner Waitlist sändnings sida](https://aka.ms/anfcrrpreviewsignup). Vänta tills en officiell bekräftelse skickas från Azure NetApp Files-teamet innan du använder funktionen för replikering över flera regioner.
@@ -82,7 +82,7 @@ För NFS-protokollet ser du till att export policy reglerna uppfyller kraven fö
 
     ![Skapa volym replikering](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
 
-9. Klicka på **Granska + skapa**och klicka sedan på **skapa** för att skapa en datareplikerings volym.   
+9. Klicka på **Granska + skapa** och klicka sedan på **skapa** för att skapa en datareplikerings volym.   
 
     ![Granska och skapa replikering](../media/azure-netapp-files/cross-region-replication-review-create-replication.png)
 
@@ -113,5 +113,6 @@ Om du vill auktorisera replikeringen måste du hämta resurs-ID för replikering
 * [Visa hälsostatus för replikeringsrelation](cross-region-replication-display-health-status.md)
 * [Mått för volym replikering](azure-netapp-files-metrics.md#replication)
 * [Hantera haveriberedskap](cross-region-replication-manage-disaster-recovery.md)
+* [Ta bort volymer eller volymer](cross-region-replication-delete.md)
 * [Felsöka replikering mellan regioner](troubleshoot-cross-region-replication.md)
 

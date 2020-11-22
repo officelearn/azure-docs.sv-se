@@ -3,12 +3,12 @@ title: Mjuk borttagning för Azure Backup
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7998c7f9def6ce9965ded3b6ec700f7975891eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da473b1d886ec2fe95a7baae76b09aff38fb3cd7
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271553"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254057"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Mjuk borttagning för Azure Backup
 
@@ -37,7 +37,7 @@ Följ dessa steg om du vill inaktivera mjuk borttagning:
 
 1. Gå till ditt valv i Azure Portal och gå sedan till **Inställningar**  ->  **Egenskaper**.
 2. I fönstret Egenskaper väljer du **säkerhets inställningar**  ->  **Uppdatera**.  
-3. I rutan säkerhets inställningar under **mjuk borttagning**väljer du **inaktivera**.
+3. I rutan säkerhets inställningar under **mjuk borttagning** väljer du **inaktivera**.
 
 ![Inaktivera mjuk borttagning](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
 
@@ -73,7 +73,7 @@ Följ de här stegen:
 
 1. Följ stegen för att [inaktivera mjuk borttagning](#enabling-and-disabling-soft-delete).
 
-2. Gå till ditt valv i Azure Portal, gå till **säkerhets kopierings objekt**och välj det Soft borttagna objektet.
+2. Gå till ditt valv i Azure Portal, gå till **säkerhets kopierings objekt** och välj det Soft borttagna objektet.
 
    ![Välj Soft borttaget objekt](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -87,11 +87,11 @@ Följ de här stegen:
 
 5. Välj **ta bort säkerhetskopierade data** om du vill ta bort säkerhetskopierade data permanent.
 
-   ![Välj Ta bort säkerhets kopierings data](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Välj Ta bort säkerhets kopierings data](./media/backup-azure-manage-vms/delete-backup-button.png)
 
 6. Ange namnet på det säkerhetskopierade objektet för att bekräfta att du vill ta bort återställnings punkterna.
 
-   ![Ange namnet på det säkerhetskopierade objektet](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Ange namnet på det säkerhetskopierade objektet](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 7. Om du vill ta bort säkerhetskopierade data för objektet väljer du **ta bort**. Ett meddelande visas där du vet att säkerhets kopierings data har tagits bort.
 

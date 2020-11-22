@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: 55555d81eb531ae5a4d946fa3f661796b3294897
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6a7301fd878eb65e4c1dd540275611bcf9348afc
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365507"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241751"
 ---
 # <a name="what-is-custom-translator"></a>Vad är Custom Translator?
 
-[Custom Translator](https://portal.customtranslator.azure.ai) är en funktion i Microsoft Translator-tjänsten, där översättningsföretag, apputvecklare och leverantörer av språktjänster kan skapa anpassade NMT-system för neural maskinöversättning. De anpassade översättningssystemen integreras sömlöst i befintliga program, arbetsflöden och webbplatser. [Custom Translator](https://portal.customtranslator.azure.ai/) har liknande funktioner som [Microsoft Translator Hub](https://hub.microsofttranslator.com/) utför för statistisk maskinöversättning, men exklusivt för NMT-system för neural maskinöversättning.
+[Custom Translator](https://portal.customtranslator.azure.ai) är en funktion i Microsoft Translator-tjänsten, där översättningsföretag, apputvecklare och leverantörer av språktjänster kan skapa anpassade NMT-system för neural maskinöversättning. De anpassade översättningssystemen integreras sömlöst i befintliga program, arbetsflöden och webbplatser.
 
 Översättningssystem som skapats med [Custom Translator](https://portal.customtranslator.azure.ai) är tillgängliga genom samma molnbaserade, [säkra](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), högpresterande, mycket skalbara Microsoft Translator [Text API V3](../reference/v3-0-translate.md?tabs=curl) vars funktioner används av flera miljarder översättningar varje dag.
 

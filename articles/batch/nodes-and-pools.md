@@ -2,17 +2,17 @@
 title: Noder och pooler i Azure Batch
 description: Lär dig mer om Compute-noder och pooler och hur de används i ett Azure Batch arbets flöde från en utvecklings synpunkt.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 11/20/2020
+ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537619"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243077"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Noder och pooler i Azure Batch
 
-I ett Azure Batch arbets flöde är en *Compute-nod* (eller *nod* ) en virtuell dator som bearbetar en del av programmets arbets belastning. En *pool* är en samling av de noder som programmet ska köras på. Den här artikeln förklarar mer om noder och pooler, tillsammans med överväganden när du skapar och använder dem i ett Azure Batch-arbetsflöde.
+I ett Azure Batch arbets flöde är en *Compute-nod* (eller *nod*) en virtuell dator som bearbetar en del av programmets arbets belastning. En *pool* är en samling av de noder som programmet ska köras på. Den här artikeln förklarar mer om noder och pooler, tillsammans med överväganden när du skapar och använder dem i ett Azure Batch-arbetsflöde.
 
 ## <a name="nodes"></a>Noder
 
@@ -40,7 +40,7 @@ Varje nod som läggs till i en pool tilldelas ett unikt namn och en IP-adress. N
 
 En pool kan endast användas av det Batch-konto som den skapades under. Ett batch-konto kan skapa flera pooler som uppfyller resurs kraven för de program som ska köras.
 
-Poolen kan skapas manuellt eller automatiskt av batch-tjänsten när du anger vilket arbete som ska utföras. När du skapar en pool kan du ange följande attribut:
+Poolen kan skapas manuellt eller [automatiskt av batch-tjänsten](#autopools) när du anger vilket arbete som ska utföras. När du skapar en pool kan du ange följande attribut:
 
 - [Operativ system och version för noden](#operating-system-and-version)
 - [Nodtyp och mål antal noder](#node-type-and-target)
@@ -68,7 +68,7 @@ Det finns två typer av pool-konfigurationer som är tillgängliga i batch.
 
 Konfigurationen av den **virtuella datorn** anger att poolen består av virtuella Azure-datorer. Dessa virtuella datorer kan skapas från Linux- eller Windows-avbildningar.
 
-[Batch Node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) är ett program som körs på varje nod i poolen och tillhandahåller kommando-och-Control-gränssnittet mellan noden och batch-tjänsten. Det finns olika implementeringar av Node-agenten, som kallas SKU: er, för olika operativ system. När du skapar en pool med noder i en konfiguration av en virtuell dator måste du inte bara ange storleken på noderna och källan för avbildningarna som användes för att skapa dem, utan även **referensen till avbildningen av den virtuella datorn** och Batch- **nodagentens SKU** som ska installeras på noderna. Mer information om hur du anger dessa poolegenskaper finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md). Om du vill kan du koppla en eller flera tomma datadiskar till en pool med virtuella datorer som skapats av Microsoft Azure Marketplace-avbildningar. Alternativt kan du inkludera datadiskar i de anpassade avbildningar som används för att skapa de virtuella datorerna. När du inkluderar data diskar måste du montera och Formatera diskarna inifrån en virtuell dator för att använda dem.
+[Batch Node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) är ett program som körs på varje nod i poolen och tillhandahåller kommando-och-Control-gränssnittet mellan noden och batch-tjänsten. Det finns olika implementeringar av Node-agenten, som kallas SKU: er, för olika operativ system. När du skapar en pool med noder i en konfiguration av en virtuell dator måste du inte bara ange storleken på noderna och källan för avbildningarna som användes för att skapa dem, utan även **referensen till avbildningen av den virtuella datorn** och Batch-**nodagentens SKU** som ska installeras på noderna. Mer information om hur du anger dessa poolegenskaper finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md). Om du vill kan du koppla en eller flera tomma datadiskar till en pool med virtuella datorer som skapats av Microsoft Azure Marketplace-avbildningar. Alternativt kan du inkludera datadiskar i de anpassade avbildningar som används för att skapa de virtuella datorerna. När du inkluderar data diskar måste du montera och Formatera diskarna inifrån en virtuell dator för att använda dem.
 
 ### <a name="cloud-services-configuration"></a>Cloud Services konfiguration
 
@@ -80,7 +80,7 @@ Precis som med arbetsroller i Cloud Services kan du ange en *operativsystemversi
 
 ### <a name="node-agent-skus"></a>Node agent-SKU: er
 
-När du skapar en pool måste du välja lämplig **nodeAgentSkuId** , beroende på vilket operativsystem din VHD-basavbildning har. Du kan hämta en mappning av tillgängliga ID: n för Node-agenten till sina OS-avbildningar genom att anropa den [lista som stöds av Node agent-SKU: er](/rest/api/batchservice/list-supported-node-agent-skus) .
+När du skapar en pool måste du välja lämplig **nodeAgentSkuId**, beroende på vilket operativsystem din VHD-basavbildning har. Du kan hämta en mappning av tillgängliga ID: n för Node-agenten till sina OS-avbildningar genom att anropa den [lista som stöds av Node agent-SKU: er](/rest/api/batchservice/list-supported-node-agent-skus) .
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Anpassade avbildningar för virtuell datorpooler
 
@@ -142,7 +142,7 @@ Konfigurationsalternativet för [högsta antal aktiviteter per nod](batch-parall
 
 Standardkonfigurationen specificerar att en aktivitet i taget ska köras på en nod, men det finns scenarier där det kan vara bra om två eller fler aktiviteter kan köras samtidigt på en nod. Information om hur du kan dra fördel av flera aktiviteter per nod finns i [exempelscenariot](batch-parallel-node-tasks.md#example-scenario) i artikeln om [samtidiga nodaktiviteter](batch-parallel-node-tasks.md).
 
-Du kan också ange en *Fyllnings typ* , som bestämmer om batch sprider aktiviteterna jämnt över alla noder i en pool, eller paketerar varje nod med maximalt antal uppgifter innan aktiviteter tilldelas till en annan nod.
+Du kan också ange en *Fyllnings typ*, som bestämmer om batch sprider aktiviteterna jämnt över alla noder i en pool, eller paketerar varje nod med maximalt antal uppgifter innan aktiviteter tilldelas till en annan nod.
 
 ## <a name="communication-status"></a>Kommunikations status
 
@@ -184,6 +184,10 @@ Ett alternativ är att skapa en pool för varje jobb som du skickar och sedan ta
 Å andra sidan, om det är högsta prioritet att jobben startar direkt, kan en pool skapas i förväg och dess noder göras tillgängliga innan jobben skickas. I det här scenariot kan aktiviteterna starta direkt, men noderna kan vara inaktiva medan de väntar på att aktiviteter ska tilldelas.
 
 En kombinerad metod används vanligt vis för att hantera en variabel men kontinuerlig belastning. Du kan ha en pool där flera jobb skickas och skala antalet noder upp eller ned enligt jobb belastningen. Detta kan göras reaktivt baserat på den aktuella belastningen eller proaktivt om det går att förutse belastningen. Mer information finns i [princip för automatisk skalning](#automatic-scaling-policy).
+
+## <a name="autopools"></a>Autopooler
+
+En [autopool](/rest/api/batchservice/job/add#autopoolspecification) är en pool som skapas av batch-tjänsten när ett jobb skickas, i stället för att skapas före de jobb som ska köras i poolen. Batch-tjänsten hanterar livs längden för en autopool enligt de egenskaper som du anger. Oftast är dessa pooler också inställda att ta bort automatiskt när deras jobb har slutförts.
 
 ## <a name="security-with-certificates"></a>Säkerhet med certifikat
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 613cf7d9b68fe42c26f2c01cb1fb5dd1da1e1fb5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f67df45b6b663584e848983251031146cdf8df60
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947990"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95247701"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Översikt över Azure Stream Analytics kluster (förhands granskning)
 
@@ -69,7 +69,7 @@ Dina Stream Analytics-kluster debiteras baserat på den valda SU-kapaciteten. Kl
 
 ### <a name="which-inputs-and-outputs-can-i-privately-connect-to-from-my-stream-analytics-cluster"></a>Vilka indata och utdata kan jag ansluta privat till från Stream Analytics-klustret?
 
-Stream Analytics stöder olika typer av indata och utdata. Alla dessa tjänster som stöder Azures privata länkar kan ansluta till dina jobb privat. Du kan [skapa privata slut punkter](private-endpoints.md) i klustret som gör det möjligt för jobb att komma åt indata-och utmatnings resurser.
+Stream Analytics stöder olika typer av indata och utdata. Du kan [skapa privata slut punkter](private-endpoints.md) i klustret som gör det möjligt för jobb att komma åt indata-och utmatnings resurser. För närvarande Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub och Azure Service Bus tjänster som stöds och andra typer kommer snart att läggas till. 
 
 ## <a name="next-steps"></a>Nästa steg
 

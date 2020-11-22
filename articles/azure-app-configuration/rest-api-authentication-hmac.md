@@ -6,33 +6,33 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 236670cb59a98ee097baaeb35174489d66e6e786
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4171155f5a9f72ef0c021bd0e37fe4ec2f206646
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424414"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253363"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>HMAC-autentisering – REST API referens
 
-HTTP-begäranden kan autentiseras med hjälp av autentiseringsschemat för **HMAC-SHA256** . Dessa begär Anden måste överföras via TLS.
+Du kan autentisera HTTP-begäranden med hjälp av autentiseringsschemat HMAC-SHA256. (HMAC refererar till hash-baserad meddelande kod.) Dessa begär Anden måste överföras via TLS.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - **Certifiering** - \<Access Key ID\>
 - **Hemligt** Base64-kodat åtkomst nyckel värde. ``base64_decode(<Access Key Value>)``
 
-Värdena för Credential (kallas även "ID") och hemlighet (kallas även "värde") måste hämtas från Azure App konfigurations instansen, som kan göras med hjälp av [Azure Portal](https://portal.azure.com) eller [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
+Värdena för Credential (även kallat `id` ) och hemlighet (även kallade `value` ) måste hämtas från instansen av Azure App-konfigurationen. Du kan göra detta med hjälp av [Azure Portal](https://portal.azure.com) eller [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
 
 Ange varje begäran med alla HTTP-huvuden som krävs för autentisering. Minimi kravet är:
 
-|  Begärandehuvud | Description  |
+|  Begärandehuvud | Beskrivning  |
 | --------------- | ------------ |
-| **Värd** | Internet värd och port nummer. Se avsnitt  [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2) |
-| **Datum** | Datum och tid då begäran kom. Det får inte vara mer än 15 min från aktuellt GMT. Värdet är ett HTTP-datum enligt beskrivningen i avsnitt [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)
-| **x-MS-date** | Samma som ```Date``` ovan. Den kan användas i stället om agenten inte kan komma åt ```Date``` begär ande rubriken eller om en proxy ändrar den. Om ```x-ms-date``` och ```Date``` båda anges, ```x-ms-date``` prioriteras. |
+| **Värd** | Internet värd och port nummer. Mer information finns i avsnitt  [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2). |
+| **Datum** | Datum och tid då begäran kom. Den får inte vara mer än 15 minuter från den aktuella koordinerade universella tiden (Greenwich Mean Time). Värdet är ett HTTP-datum enligt beskrivningen i avsnitt [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1).
+| **x-MS-date** | Samma som ```Date``` ovan. Du kan använda den i stället när agenten inte kan komma åt ```Date``` begär ande huvudet direkt, eller om en proxy ändrar den. Om ```x-ms-date``` och ```Date``` båda anges, ```x-ms-date``` prioriteras. |
 | **x-MS-Content-SHA256** | Base64-kodad SHA256-hash för begär ande texten. Det måste anges även om det inte finns någon brödtext. ```base64_encode(SHA256(body))```|
-| **Auktorisering** | Autentiseringsinformation som krävs av **HMAC-SHA256-** schemat. Format och information beskrivs nedan. |
+| **Auktorisering** | Autentiseringsinformation som krävs av HMAC-SHA256-schemat. Format och information beskrivs senare i den här artikeln. |
 
 **Exempel:**
 
@@ -51,18 +51,18 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 |  Argument | Description  |
 | ------ | ------ |
-| **HMAC-SHA256** | Authorization Scheme _(obligatoriskt)_ |
+| **HMAC-SHA256** | Authorization-schema. _kunna_ |
 | **Autentiseringsuppgift** | ID för den åtkomst nyckel som används för att beräkna signaturen. _kunna_ |
 | **SignedHeaders** | HTTP-begärandehuvuden har lagts till i signaturen. _kunna_ |
-| **Signatur** | Base64-kodad HMACSHA256 för **sträng till tecken**. _kunna_|
+| **Signatur** | Base64-kodad HMACSHA256 för sträng till tecken. _kunna_|
 
 ### <a name="credential"></a>Autentiseringsuppgift
 
-ID för den åtkomst nyckel som används för att beräkna **signaturen**.
+ID för den åtkomst nyckel som används för att beräkna signaturen.
 
 ### <a name="signed-headers"></a>Signerade rubriker
 
-Semikolonavgränsade HTTP-begärans huvud namn krävs för att signera begäran. Dessa HTTP-huvuden måste också anges korrekt med begäran. **Använd inte blank steg**.
+Rubrik namn för HTTP-begäran, avgränsade med semikolon, som krävs för att signera begäran. Dessa HTTP-huvuden måste också anges korrekt med begäran. Använd inte blank steg.
 
 ### <a name="required-http-request-headers"></a>Obligatoriska HTTP-begärandehuvuden
 
@@ -76,7 +76,7 @@ x-MS-date; värd; x-MS-Content-SHA256; ```Content-Type``` ;```Accept```
 
 ### <a name="signature"></a>Signatur
 
-Base64-kodad HMACSHA256-hash för **strängen-till-Sign** med hjälp av åtkomst nyckeln som identifieras av `Credential` .
+Base64-kodad HMACSHA256-hash för strängen-till-Sign. Den använder åtkomst nyckeln som identifieras av `Credential` .
 ```base64_encode(HMACSHA256(String-To-Sign, Secret))```
 
 ### <a name="string-to-sign"></a>Sträng-till-tecken
@@ -89,9 +89,9 @@ _Sträng-till-tecken =_
 
 |  Argument | Description  |
 | ------ | ------ |
-| **HTTP_METHOD** | Versalt HTTP-metod namn som används med begäran. Se [avsnitt 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) |
-|**path_and_query** | Sammanfogning av begär ande absolut URI-sökväg och frågesträng. Se [avsnitt 3,3](https://tools.ietf.org/html/rfc3986#section-3.3).
-| **signed_headers_values** | Semikolonavgränsade värden för alla HTTP-begärandehuvuden som anges i **SignedHeaders**. Formatet följer **SignedHeaders** -semantik. |
+| **HTTP_METHOD** | Versaler HTTP-metod namn som används med begäran. Mer information finns i [avsnitt 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). |
+|**path_and_query** | Sammanfogning av begär ande absolut URI-sökväg och frågesträng. Mer information finns i [avsnitt 3,3](https://tools.ietf.org/html/rfc3986#section-3.3).
+| **signed_headers_values** | Semikolonavgränsade värden för alla HTTP-begärandehuvuden som anges i `SignedHeaders` . Formatet följer `SignedHeaders` semantik. |
 
 **Exempel:**
 
@@ -110,16 +110,18 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256, Bearer
 ```
 
-**Orsak:** Huvudet för auktoriseringsbegäran för begäran med HMAC-SHA256-schema har inte angetts.
-**Lösning:** Ange ett giltigt ```Authorization``` http-begär ande huvud
+**Orsak:** Huvud för auktoriseringsbegäran med HMAC-SHA256-schema har inte angetts.
+
+**Lösning:** Ange ett giltigt ```Authorization``` http-begär ande huvud.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="The access token has expired", Bearer
 ```
 
-**Orsak:** ```Date``` eller ```x-ms-date``` begär ande huvudet är över 15 minuter från den aktuella GMT-tiden.
-**Lösning:** Ange korrekt datum och tid
+**Orsak:** ```Date``` eller ```x-ms-date``` begär ande huvudet är över 15 minuter av från den aktuella koordinerade universella tiden (Greenwich Mean Time).
+
+**Lösning:** Ange korrekt datum och tid.
 
 
 ```http
@@ -127,22 +129,23 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid access token date", Bearer
 ```
 
-**Orsak:** Saknad eller ogiltig ```Date``` eller ```x-ms-date``` begär ande rubrik
+**Orsak:** Saknad eller ogiltig ```Date``` eller ```x-ms-date``` begär ande rubrik.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="[Credential][SignedHeaders][Signature] is required", Bearer
 ```
 
-**Orsak:** En obligatorisk parameter saknas i ```Authorization``` begär ande huvudet
+**Orsak:** En obligatorisk parameter saknas från ```Authorization``` begär ande huvudet.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid Credential", Bearer
 ```
 
-**Orsak:** Tillhandahöll [ ```Host``` ]/[åtkomst nyckel-ID] hittades inte.
-**Lösning:** Kontrol lera ```Credential``` parametern för ```Authorization``` begär ande huvudet och se till att det är ett giltigt åtkomst nyckel-ID. Se till att ```Host``` rubriken pekar på det registrerade kontot.
+**Orsak:** Det angivna [ ```Host``` ]/[åtkomst nyckel-ID: t] hittades inte.
+
+**Lösning:** Kontrol lera ```Credential``` parametern för ```Authorization``` begär ande huvudet. Se till att det är ett giltigt ID för åtkomst nyckel och se till att ```Host``` sidhuvudet pekar på det registrerade kontot.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -150,14 +153,16 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid S
 ```
 
 **Orsak:** Det ```Signature``` angivna är inte detsamma som servern förväntar sig.
-**Lösning:** Kontrol lera att ```String-To-Sign``` är korrekt. Kontrol lera att ```Secret``` är korrekt och korrekt använda (base64 avkodat innan du använder). Se avsnittet **exempel** .
+
+**Lösning:** Kontrol lera att ```String-To-Sign``` är korrekt. Kontrol lera att ```Secret``` är korrekt och korrekt använda (base64 avkodat innan du använder).
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Signed request header 'xxx' is not provided", Bearer
 ```
 
-**Orsak:** Begär ande huvudet som krävs av ```SignedHeaders``` parametern i ```Authorization``` rubriken saknas.
+**Orsak:** Begär ande huvudet som krävs av ```SignedHeaders``` parametern i  ```Authorization``` rubriken saknas.
+
 **Lösning:** Ange det obligatoriska huvudet med rätt värde.
 
 ```http
@@ -166,13 +171,14 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="XXX is re
 ```
 
 **Orsak:** Saknad parameter i ```SignedHeaders``` .
-**Lösning:** Kontrol lera minimi kraven för **signerade huvuden** .
+
+**Lösning:** Kontrol lera minimi kraven för signerade huvuden.
 
 ## <a name="code-snippets"></a>Kodfragment
 
 ### <a name="javascript"></a>JavaScript
 
-*Krav* : [kryptografi-JS](https://code.google.com/archive/p/crypto-js/)
+*Krav*: [kryptografi-JS](https://code.google.com/archive/p/crypto-js/)
 
 ```js
 function signRequest(host, 
@@ -362,7 +368,7 @@ import (
     "time"
 )
 
-//SignRequest Setup the auth header for accessing Azure AppConfiguration service
+//SignRequest Setup the auth header for accessing Azure App Configuration service
 func SignRequest(id string, secret string, req *http.Request) error {
     method := req.Method
     host := req.URL.Host
@@ -537,7 +543,7 @@ Invoke-RestMethod -Uri $uri -Method $method -Headers $headers -Body $body
 
 ### <a name="bash"></a>Bash
 
-*Krav* :
+*Krav*:
 
 | Förutsättning | Kommando | Testade versioner |
 | ------------ | ------- | --------------- |

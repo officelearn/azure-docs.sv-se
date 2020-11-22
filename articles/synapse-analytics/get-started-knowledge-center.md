@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 57213e228359fd6c201d501d3bb75f7267054277
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 0314f5e55a476cd1cd1f8a31bd918e0ebb64c75f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685434"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254246"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Utforska Synapse Knowledge Center
 
@@ -33,8 +33,8 @@ Välj någon av metoderna och öppna **kunskaps centret**.
 ## <a name="overview"></a>Översikt
 
 I **kunskaps centret** kan du göra tre saker:
-* **Använd exempel omedelbart**. Det här alternativet är optimerat för att du ska kunna se analyser i åtgärd så snabbt som möjligt. Välj det här alternativet om du vill ha ett snabbt exempel på hur Synapse fungerar.
-* **Tillgängligt exempel för webbläsare**. Med det här alternativet kan du länka exempel data uppsättningar och lägga till exempel kod i formatet SQL-skript, antecknings böcker och pipeliner.
+* **Använd exempel omedelbart**. Välj det här alternativet om du vill ha ett snabbt exempel på hur Synapse fungerar.
+* **Bläddra i galleriet**. Med det här alternativet kan du länka exempel data uppsättningar och lägga till exempel kod i formatet SQL-skript, antecknings böcker och pipeliner.
 * **Guidad visning Synapse Studio**. Det här alternativet tar dig en kort genom gång av de grundläggande delarna av Synapse Studio. Detta är användbart om du aldrig har använt Synapse Studio tidigare.
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Utforska Blob Storage med Server lös SQL-pool
@@ -47,7 +47,7 @@ I **kunskaps centret** kan du göra tre saker:
 1. Klicka på Kör. Den text som du har valt körs.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Läser in fler NYC taxi-data
-1. Gå till **kunskaps centret**, klicka på **Bläddra bland tillgängliga exempel** 
+1. Gå till **kunskaps centret**, klicka på **Bläddra i galleriet** 
 1. Välj fliken **SQL-skript** överst
 1. Välj **Läs in New York taxidata-datauppsättning**
 1. Under **indata** väljer du **Välj en befintlig pool** och väljer **SQLDB1**

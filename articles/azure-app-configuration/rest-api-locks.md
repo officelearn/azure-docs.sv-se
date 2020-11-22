@@ -6,32 +6,30 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4949db646c54d75f60d29d3c631d0f4ee8d7c26e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 7e63b48f2119c48cd43717acee7b13b1701e0032
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424513"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241275"
 ---
 # <a name="locks"></a>Lås
 
-API-version: 1,0
-
-Det här API: et tillhandahåller låsnings-/upplåsnings-semantik för nyckel värdes resursen. Den har stöd för följande åtgärder:
+Detta API (version 1,0) tillhandahåller låsnings-och upplåsnings-semantik för nyckel värdes resursen. Den har stöd för följande åtgärder:
 
 - Lås
 - Ta bort lås
 
-Om det finns `label` en sådan måste det vara ett explicit etikett värde ( **inte** ett jokertecken). För alla åtgärder är det en valfri parameter. Om detta utelämnas, betyder det ingen etikett.
+Om det finns `label` en sådan måste det vara ett explicit etikett värde (inte ett jokertecken). För alla åtgärder är det en valfri parameter. Om detta utelämnas, betyder det ingen etikett.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
-## <a name="lock-key-value"></a>Lås Key-Value
+## <a name="lock-key-value"></a>Lås nyckel – värde
 
-- **Krävs:** ``{key}`` , ``{api-version}``  
-- *Valfritt:*``label``
+- Krävs: ``{key}`` , ``{api-version}``  
+- Valfritt ``label``
 
 ```http
 PUT /locks/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -63,10 +61,10 @@ Om nyckel värdet inte finns returneras följande svar:
 HTTP/1.1 404 Not Found
 ```
 
-## <a name="unlock-key-value"></a>Lås upp Key-Value
+## <a name="unlock-key-value"></a>Lås upp nyckel värde
 
-- **Krävs:** ``{key}`` , ``{api-version}``  
-- *Valfritt:*``label``
+- Krävs: ``{key}`` , ``{api-version}``  
+- Valfritt ``label``
 
 ```http
 DELETE /locks/{key}?label={label}?api-version={api-version} HTTP/1.1
@@ -98,9 +96,9 @@ Om nyckel värdet inte finns returneras följande svar:
 HTTP/1.1 404 Not Found
 ```
 
-## <a name="conditional-lockunlock"></a>Villkorligt lås/Lås upp
+## <a name="conditional-lock-and-unlock"></a>Villkorligt lås och lås upp
 
-Använd `If-Match` eller begär huvuden för att förhindra tävlings förhållanden `If-None-Match` . `etag`Argumentet är en del av nyckel representationen. Om `If-Match` eller `If-None-Match` utelämnas blir åtgärden ovillkorlig.
+Använd `If-Match` eller begär huvuden för att förhindra tävlings förhållanden `If-None-Match` . `etag`Argumentet är en del av nyckel representationen. Om `If-Match` eller `If-None-Match` utelämnas är åtgärden ovillkorlig.
 
 Följande begäran tillämpar bara åtgärden om den aktuella nyckel värdes representationen matchar den angivna `etag` :
 

@@ -2,13 +2,13 @@
 title: Distribuera resurser till klient organisationen
 description: Beskriver hur du distribuerar resurser i klient omfånget i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/20/2020
+ms.openlocfilehash: 65a5e90616f8883b338d22fa31eee6932452b5fd
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668698"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95242670"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Klient distributioner med ARM-mallar
 
@@ -36,11 +36,19 @@ Använd följande för att skapa hanterings grupper:
 
 * [managementGroups](/azure/templates/microsoft.management/managementgroups)
 
+Använd följande för att skapa prenumerationer:
+
+* [alias](/azure/templates/microsoft.subscription/aliases)
+
 För att hantera kostnader använder du:
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
 * [problemlösning](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+
+Använd följande för att konfigurera portalen:
+
+* [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
 
 ## <a name="schema"></a>Schema
 
@@ -123,12 +131,12 @@ Mer detaljerad information om distributions kommandon och alternativ för att di
 
 ## <a name="deployment-scopes"></a>Distributions omfång
 
-När du distribuerar till en hanterings grupp kan du distribuera resurser för att:
+När du distribuerar till en klient kan du distribuera resurser för att:
 
 * klienten
 * hanterings grupper inom klienten
 * prenumerationer
-* resurs grupper (via två kapslade distributioner)
+* resursgrupper
 * [tilläggs resurser](scope-extension-resources.md) kan tillämpas på resurser
 
 Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
@@ -155,81 +163,33 @@ Om du vill rikta en prenumeration inom klienten använder du en kapslad distribu
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
 
+### <a name="scope-to-resource-group"></a>Omfång till resurs grupp
+
+Du kan också rikta resurs grupper inom klienten. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
+
+Om du vill rikta en resurs grupp inom klienten använder du en kapslad distribution. Ange `subscriptionId` egenskaperna och `resourceGroup` . Ange ingen plats för den kapslade distributionen eftersom den har distribuerats i resurs gruppens plats.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
+
 ## <a name="deployment-location-and-name"></a>Distributions plats och namn
 
 För distributioner på klient nivå måste du ange en plats för distributionen. Platsen för distributionen är separat från platsen för de resurser som du distribuerar. Distributions platsen anger var distributions data ska lagras.
 
-Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy** .
+Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy**.
 
 För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får fel koden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
 
 ## <a name="create-management-group"></a>Skapa en hanteringsgrupp
 
-[Följande mall](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) skapar en hanterings grupp.
+Följande mall skapar en hanterings grupp.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "mgName": {
-      "type": "string",
-      "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2019-11-01",
-      "name": "[parameters('mgName')]",
-      "properties": {
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
 
 ## <a name="assign-role"></a>Tilldela rollen
 
-[Följande mall](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) tilldelar en roll i klient omfånget.
+Följande mall tilldelar en roll i klient omfånget.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "principalId if the user that will be given contributor access to the resourceGroup"
-      }
-    },
-    "roleDefinitionId": {
-      "type": "string",
-      "defaultValue": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
-      "metadata": {
-        "description": "roleDefinition for the assignment - default is owner"
-      }
-    }
-  },
-  "variables": {
-    // This creates an idempotent guid for the role assignment
-    "roleAssignmentName": "[guid('/', parameters('principalId'), parameters('roleDefinitionId'))]"
-  },
-  "resources": [
-    {
-      "name": "[variables('roleAssignmentName')]",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2019-04-01-preview",
-      "properties": {
-        "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
-        "principalId": "[parameters('principalId')]",
-        "scope": "/"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/tenant-role-assignment/azuredeploy.json":::
 
 ## <a name="next-steps"></a>Nästa steg
 

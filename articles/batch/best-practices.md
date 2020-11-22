@@ -3,12 +3,12 @@ title: Bästa praxis
 description: Lär dig metod tips och användbara tips för att utveckla dina Azure Batch-lösningar.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: a799aa7de19b9d5b0b8e085252cb172efebd05dc
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916873"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254671"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
@@ -38,7 +38,7 @@ I den här artikeln beskrivs en samling med bästa praxis och användbara tips f
 
 ### <a name="pool-lifetime-and-billing"></a>Livstid för pool och fakturering
 
-Poolens livs längd kan variera beroende på vilken metod du vill tilldela och vilka alternativ som tillämpas på konfigurationen av poolen. Pooler kan ha en godtycklig livs längd och ett varierande antal data bearbetnings noder i poolen vid varje tidpunkt. Det är ditt ansvar att hantera Compute-noderna i poolen, antingen uttryckligen eller via funktioner som tillhandahålls av tjänsten (autoskalning eller autopool).
+Poolens livs längd kan variera beroende på vilken metod du vill tilldela och vilka alternativ som tillämpas på konfigurationen av poolen. Pooler kan ha en godtycklig livs längd och ett varierande antal data bearbetnings noder i poolen vid varje tidpunkt. Det är ditt ansvar att hantera Compute-noderna i poolen, antingen uttryckligen eller via funktioner som tillhandahålls av tjänsten ([autoskalning](nodes-and-pools.md#automatic-scaling-policy) eller [autopool](nodes-and-pools.md#autopools)).
 
 - **Se till att pooler är färska.**
     Ändra storlek på dina pooler till noll med några månader för att se till att du får de [senaste uppdateringarna för Node agent och fel korrigeringar](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Poolen tar inte emot uppdateringar för Node-agenten om den inte återskapas eller ändras till 0 datornoder. Innan du återskapar eller ändrar storlek på poolen rekommenderar vi att du hämtar eventuella noder för fel sökning enligt beskrivningen i avsnittet [Nodes](#nodes) .
@@ -93,7 +93,7 @@ Det finns ett [aktivt standard jobb och en kvot för jobb schema](batch-quota-li
 
 ### <a name="save-task-data"></a>Spara uppgifts data
 
-Compute-noder är av sin natur. Det finns många funktioner i batch, till exempel autopool och autoskalning som gör det enkelt för noder att försvinna. När noder lämnar poolen (på grund av en storleks ändring eller en pool borttagning) raderas även alla filer på noderna. Därför bör en aktivitet flytta utdatan från noden som den körs på och till en varaktig lagring innan den är klar. Om en aktivitet Miss lyckas bör den flytta de loggar som krävs för att diagnostisera misslyckandet till ett varaktigt lager.
+Compute-noder är av sin natur. Det finns många funktioner i batch, till exempel [autopool](nodes-and-pools.md#autopools) och [autoskalning](nodes-and-pools.md#automatic-scaling-policy) som kan göra det enkelt för noder att försvinna. När noder lämnar en pool (på grund av en storleks ändring eller en pool borttagning) raderas även alla filer på noderna. Därför bör en aktivitet flytta utdatan från noden som den körs på och till en varaktig lagring innan den är klar. Om en aktivitet Miss lyckas bör den flytta de loggar som krävs för att diagnostisera misslyckandet till ett varaktigt lager.
 
 Batch har integrerat stöd Azure Storage för att ladda upp data via [OutputFiles](batch-task-output-files.md), samt en rad olika delade fil system, eller så kan du utföra överföringen själv i dina uppgifter.
 

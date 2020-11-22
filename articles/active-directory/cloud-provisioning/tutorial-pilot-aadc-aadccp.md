@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77a8e6948b9912061801fefaa63d2f49611014aa
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6b510464145f434f761cc28ba4e1c1361f983f8b
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651710"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237399"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Styr molnetablering för en befintlig synkroniserad AD-skog 
 
@@ -126,7 +126,7 @@ Samma steg måste följas för alla typer av objekt (användare, grupp och konta
 
 4. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.
 5. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory administratörs konto.  Den här åtgärden lägger till din lokala katalog.  Klicka på **Nästa**.</br>
-![Skärm bild som visar skärmen "Anslut Active Directory" med ett katalog värde angivet.](media/how-to-install/install-3.png)</br>
+![Skärm bild som visar skärmen "Anslut Active Directory" med ett katalog värde angivet.](media/how-to-install/install-3a.png)</br>
 
 6. Klicka på **Bekräfta** på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
 ![Skärm bild som visar skärmen "konfigurationen är klar" med knappen "bekräfta" markerad.](media/how-to-install/install-4a.png)</br>

@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3610fa5ea442e5ccb15255d8a1ddcee211871aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be72c2152bdb8e1155d2dd29547f93ba3605d462
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84463951"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95251101"
 ---
 # <a name="how-to-investigate-risk"></a>Anvisningar: Undersöka risk
 
-Identitets skydd ger organisationer med tre rapporter som de kan använda för att undersöka identitets risker i sin miljö. Dessa rapporter är **riskfyllda användare**, **riskfyllda inloggningar**och **risk identifieringar**. Undersökningen av händelser är en nyckel för att bättre förstå och identifiera svaga punkter i din säkerhets strategi.
+Identitets skydd ger organisationer med tre rapporter som de kan använda för att undersöka identitets risker i sin miljö. Dessa rapporter är **riskfyllda användare**, **riskfyllda inloggningar** och **risk identifieringar**. Undersökningen av händelser är en nyckel för att bättre förstå och identifiera svaga punkter i din säkerhets strategi.
 
 I alla tre rapporter kan du hämta händelser i. CSV-format för ytterligare analys utanför Azure Portal. Rapporterna riskfyllda användare och riskfyllda inloggningar gör det möjligt att hämta de senaste 2500 posterna, medan rapporten risk identifieringar gör det möjligt att hämta de senaste 5000-posterna.
 
@@ -90,6 +90,10 @@ Med den information som tillhandahålls av rapporten risk identifiering kan admi
 - Länka till mer information från Microsoft Cloud App Security (MCAS).
 
 Administratörer kan sedan välja att återgå till användarens risk-eller inloggnings rapport för att vidta åtgärder baserat på insamlad information.
+
+> [!NOTE] 
+> Vårt system kan upptäcka att risk händelsen som bidragit till risk användar risk poängen var falska positiva eller att användar risken reparerades med hjälp av principen, t. ex. att utföra en MFA-prompt eller en säker lösen ords ändring. Därför kommer vårt system att ignorera risk läget och en risk information om "AI Confirmed Sign-in Safe"-ytan och den kommer inte längre att bidra till användarens risk. 
+
 
 ## <a name="next-steps"></a>Nästa steg
 

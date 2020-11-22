@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a0d474208f11c203ca65e9ac296fa381d8633a8b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 12c9fd43933f9f54e013752c5fe482ce31650536
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663748"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238402"
 ---
 # <a name="create-an-app-service-environment"></a>Skapa en App Service-miljön
 
@@ -48,7 +48,7 @@ ASEv3 erbjuds endast i SELECT-regioner. Fler regioner kommer att läggas till n�
 
 ## <a name="creating-an-ase-in-the-portal"></a>Skapa en ASE i portalen
 
-1. Om du vill skapa en ASEv3 söker du på Marketplace efter **App Service-miljön v3**.  
+1. Om du vill skapa en ASEv3 söker du på Marketplace efter **App Service-miljön (för hands version)**.  
 2. Grunder: Välj prenumerationen, Välj eller skapa resurs gruppen och ange namnet på din ASE.  ASE namn används också för domänsuffix för din ASE.  Om ditt ASE namn är *contoso* kommer domänsuffixet att vara *contoso.appserviceenvironment.net*.  Det här namnet anges automatiskt i Azure DNS privata zon som används av det virtuella nätverk som ASE distribueras till. 
 
     ![App Service-miljön skapa fliken grunder](./media/creation/creation-basics.png)

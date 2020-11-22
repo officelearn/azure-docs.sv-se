@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb322805ac3368dd6ed8e193875e083b27195e1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 5322e5ce1bb124387931eac666cf9e5510cb2463
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695290"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237652"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installera agenten för Azure AD Connect-molnetablering
 Det här dokumentet vägleder dig genom installations processen för den Azure Active Directory (Azure AD) Connect-programetablerings agenten och hur du konfigurerar den för första gången i Azure Portal.
@@ -25,38 +25,46 @@ Det här dokumentet vägleder dig genom installations processen för den Azure A
 >Följande installations anvisningar förutsätter att alla [krav](how-to-prerequisites.md) är uppfyllda.
 
 Att installera och konfigurera Azure AD Connect etablering sker i följande steg:
-    
+
+- [Grupphanterade tjänst konton](#group-managed-service-accounts) 
 - [Installera agenten](#install-the-agent)
 - [Verifiera agent installation](#verify-agent-installation)
+
+
+## <a name="group-managed-service-accounts"></a>Grupphanterade tjänstkonton
+Ett grupphanterat tjänst konto är ett hanterat domän konto som tillhandahåller automatisk lösen ords hantering, förenklad hantering av tjänst huvud namn (SPN), möjlighet att delegera hanteringen till andra administratörer och även utöka den här funktionaliteten över flera servrar.  Azure AD Connect Cloud Sync stöder och rekommenderar att ett grupphanterat tjänst konto används för att köra agenten.  Mer information om en gMSA finns i [gruppera hanterade tjänst konton](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+
+
+### <a name="upgrading-an-existing-agent-to-use-the-gmsa-account"></a>Uppgradera en befintlig agent för att använda gMSA-kontot
+Om du vill uppgradera en befintlig agent för att använda gMSA-kontot som skapades under installationen uppdaterar du bara Agent tjänsten till den senaste versionen genom att köra AADConnectProvisioningAgent.msi.  Då uppgraderas tjänsten till den senaste versionen.  Kör nu installations guiden igen och ange autentiseringsuppgifterna för att skapa kontot när du uppmanas till det.
+
 
 
 ## <a name="install-the-agent"></a>Installera agenten
 Följ dessa steg om du vill installera agenten.
 
-1. Logga in på den server som du ska använda med företags administratörens behörigheter.
-1. Logga in på Azure Portal och gå sedan till **Azure Active Directory**.
-1. På den vänstra menyn väljer du **Azure AD Connect**.
-1. Välj **Hantera etablering (för hands version)**  >  **Granska alla agenter**.
-1. Hämta Azure AD Connect etablerings agenten från Azure Portal.
-
+ 1. Logga in på den server som du ska använda med företags administratörens behörigheter.
+ 2. Logga in på Azure Portal och gå sedan till **Azure Active Directory**.
+ 3. På den vänstra menyn väljer du **Azure AD Connect**.
+ 4. Välj **Hantera etablering (för hands version)**  >  **Granska alla agenter**.
+ 5. Hämta Azure AD Connect etablerings agenten från Azure Portal.
    ![Hämta lokal agent](media/how-to-install/install-9.png)</br>
-1. Kör installations programmet för Azure AD Connect etablering (AADConnectProvisioningAgent. Installer).
-1. På skärmen **Microsoft Azure AD koppla etablerings agent paket** godkänner du licens villkoren och väljer **Installera**.
-
+ 6. Kör installations programmet för Azure AD Connect etablerings AADConnectProvisioningAgent.msi.
+ 7. På skärmen **Microsoft Azure AD koppla etablerings agent paket** godkänner du licens villkoren och väljer **Installera**.
    ![Skärmen Microsoft Azure AD koppla etablerings agent paket](media/how-to-install/install-1.png)</br>
-
-1. När den här åtgärden har slutförts startar konfigurations guiden. Logga in med ditt globala administratörs konto för Azure AD.
-1. På skärmen **anslut Active Directory** väljer du **Lägg till katalog**. Logga sedan in med ditt Active Directory administratörs konto. Den här åtgärden lägger till din lokala katalog. Välj **Nästa**.
-
-   ![Anslut Active Directory skärmen](media/how-to-install/install-3.png)</br>
-
-1. På skärmen **konfiguration avslutad** väljer du **Bekräfta**. Den här åtgärden registrerar och startar om agenten.
-
-   ![Skärmen konfiguration slutförd](media/how-to-install/install-4a.png)</br>
-
-1. När den här åtgärden har slutförts bör du se meddelandet att **agent konfigurationen har verifierats.** Välj **Avsluta**.
-
-   ![Knappen Avsluta](media/how-to-install/install-5.png)</br>
+ 8. När den här åtgärden har slutförts startar konfigurations guiden. Logga in med ditt globala administratörs konto för Azure AD.
+ 9. På **skärmen konfigurera tjänst konto** väljer du antingen **skapa gMSA** eller **Använd anpassade gMSA**.  Om du tillåter agenten att skapa kontot får den namnet provAgentgMSA $. Om du anger **Använd anpassade gMSA** uppmanas du att ange det här kontot.
+ 10. Ange autentiseringsuppgifter för domän administratören för att skapa det grupphanterade tjänst kontot som ska användas för att köra Agent tjänsten. Klicka på **Nästa**.  
+   ![Skapa gMSA](media/how-to-install/install-12.png)</br>
+ 11. På skärmen **anslut Active Directory** väljer du **Lägg till katalog**. Logga sedan in med ditt Active Directory administratörs konto. Den här åtgärden lägger till din lokala katalog. 
+ 12. Du kan också hantera inställningen för de domänkontrollanter som agenten ska använda genom att välja **Välj domänkontrollantens prioritet** och sortera listan över domänkontrollanter.   Klicka på **OK**.
+  ![Beställ domän controlllers](media/how-to-install/install-2a.png)</br>
+ 13. Välj **Nästa**.
+  ![Anslut Active Directory skärmen](media/how-to-install/install-3a.png)</br>
+ 14.  På skärmen **installations** skärm för Agent bekräftar du inställningar och kontot som ska skapas och klickar på **Bekräfta**.
+  ![Bekräfta settngs](media/how-to-install/install-11.png)</br>
+ 15. När den här åtgärden har slutförts bör du se **att Agent installationen är klar.** Välj **Avsluta**.
+  ![Skärmen konfiguration slutförd](media/how-to-install/install-4a.png)</br>
 1. Välj **Stäng** om du fortfarande ser det första **Microsoft Azure AD ansluta agenten för etablering av agent paket** .
 
 ## <a name="verify-agent-installation"></a>Verifiera agent installation
@@ -91,6 +99,7 @@ Kontrol lera att agenten körs genom att följa dessa steg.
 
 >[!IMPORTANT]
 >Agenten har installerats men måste konfigureras och aktive ras innan den kommer att starta synkronisering av användare. Information om hur du konfigurerar en ny agent finns i [skapa en ny konfiguration för Azure AD Connect molnbaserad etablering](how-to-configure.md).
+
 
 
 

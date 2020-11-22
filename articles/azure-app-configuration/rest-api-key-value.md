@@ -1,23 +1,23 @@
 ---
-title: Azure App konfiguration REST API-Key-Value
-description: Referens sidor för att arbeta med nyckel värden med Azure App konfigurations REST API
+title: Azure App konfiguration REST API-nyckel-värde
+description: Referens sidor för att arbeta med nyckel värden med hjälp av Azure App konfigurations REST API
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 50d97a330507e9361674776acf29d1007ee5bf58
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f89b3f2fa4805eeb2fd9f9d511c8f228b98139ac
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424384"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241037"
 ---
-# <a name="key-values"></a>Key-Values
+# <a name="key-values"></a>Nyckelvärden
 
-API-version: 1,0
+Ett nyckel värde är en resurs som identifieras av en unik kombination av `key`  +  `label` . `label` är valfritt. Om du explicit vill referera till ett nyckel värde utan en etikett använder du "\ 0" (URL kodad som ``%00`` ). Se information om varje åtgärd.
 
-Ett nyckel värde är en resurs som identifieras av en unik kombination av `key`  +  `label` . `label` är valfritt. Om du explicit vill referera till ett nyckel värde utan etiketten använder du "\ 0" (URL kodad som ``%00`` ). Se information om varje åtgärd.
+Den här artikeln gäller API version 1,0.
 
 ## <a name="operations"></a>Operations
 
@@ -45,10 +45,10 @@ Ett nyckel värde är en resurs som identifieras av en unik kombination av `key`
 }
 ```
 
-## <a name="get-key-value"></a>Hämta Key-Value
+## <a name="get-key-value"></a>Hämta nyckel värde
 
-**Krävs:** ``{key}`` , ``{api-version}``  
-*Valfritt:* ``label`` – Om det utelämnas används ett nyckel värde utan en etikett
+Krävs: ``{key}`` , ``{api-version}``  
+Valfritt: ``label`` (om det utelämnas betyder det ett nyckel värde utan etikett.)
 
 ```http
 GET /kv/{key}?label={label}&api-version={api-version}
@@ -87,7 +87,7 @@ HTTP/1.1 404 Not Found
 
 ## <a name="get-conditionally"></a>Hämta (villkorligt)
 
-Använd `If-Match` eller begär huvuden för att förbättra cachelagring av klienter `If-None-Match` . `etag`Argumentet är en del av nyckel representationen. Se [avsnitt 14,24 och 14,26](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+Använd `If-Match` eller begär huvuden för att förbättra cachelagring av klienter `If-None-Match` . `etag`Argumentet är en del av nyckel representationen. Mer information finns i [avsnitten 14,24 och 14,26](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 Följande begäran hämtar bara nyckel värde om den aktuella representationen inte matchar den angivna `etag` :
 
@@ -109,12 +109,9 @@ eller
 HTTP/1.1 200 OK
 ```
 
-## <a name="list-key-values"></a>Lista Key-Values
+## <a name="list-key-values"></a>Lista nyckel värden
 
-Se **filtrera** efter ytterligare alternativ
-
-*Valfritt:* ``key`` – om detta inte anges förutsätts det **någon** nyckel.
-*Valfritt:* ``label`` -om detta inte anges betyder det att det finns **en** etikett.
+Valfritt: ``key`` (om inget anges betyder det vilken nyckel som helst.) Valfritt: ``label`` (om inget annat anges betyder det vilken etikett som helst.)
 
 ```http
 GET /kv?label=*&api-version={api-version} HTTP/1.1
@@ -127,10 +124,12 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
 
+Ytterligare alternativ finns i avsnittet "filtrering" längre fram i den här artikeln.
+
 ## <a name="pagination"></a>Sidnumrering
 
 Resultatet blir en sid brytning om antalet returnerade objekt överskrider svars gränsen. Följ de valfria svarshuvuden `Link` och Använd `rel="next"` för navigering.
-Alternativt innehåller innehållet en nästa länk i form av `@nextLink` egenskapen. Den länkade URI: n innehåller `api-version` argumentet.
+Alternativt innehåller innehållet en nästa-länk i form av `@nextLink` egenskapen. Den länkade URI: n innehåller `api-version` argumentet.
 
 ```http
 GET /kv?api-version={api-version} HTTP/1.1
@@ -183,7 +182,7 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 
 `_`, `\`, `,`
 
-Om ett reserverat tecken ingår i värdet måste det föregås av `\{Reserved Character}` . Icke-reserverade tecken kan också undantas.
+Om ett reserverat tecken ingår i värdet måste det undantas med hjälp av `\{Reserved Character}` . Icke-reserverade tecken kan också undantas.
 
 ***Filter verifiering** _
 
@@ -212,7 +211,7 @@ _ *Exempel**
     GET /kv?api-version={api-version}
     ```
 
-- Nyckel namnet börjar med **ABC** och inkluderar alla etiketter
+- Nyckel namnet börjar med **ABC** och innehåller alla etiketter
 
     ```http
     GET /kv?key=abc*&label=*&api-version={api-version}
@@ -232,9 +231,9 @@ Använd den valfria frågesträngparametern `$select` och ange en kommaavgränsa
 GET /kv?$select=key,value&api-version={api-version} HTTP/1.1
 ```
 
-## <a name="time-based-access"></a>Time-Based åtkomst
+## <a name="time-based-access"></a>Tidsbaserad åtkomst
 
-Få en representation av resultatet som det var vid en tidigare tidpunkt. Se avsnitt [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1). Sid brytning stöds fortfarande enligt definitionen ovan.
+Få en representation av resultatet som det var vid en tidigare tidpunkt. Mer information finns i avsnittet [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1). Sid brytning stöds fortfarande som definieras tidigare i den här artikeln.
 
 ```http
 GET /kv?api-version={api-version} HTTP/1.1
@@ -260,8 +259,8 @@ Link: <{relative uri}>; rel="original"
 
 ## <a name="set-key"></a>Ange nyckel
 
-- **Krävs:**``{key}``
-- *Valfritt:* ``label`` -Om inget annat anges eller etikett = %00, betyder det KV utan etikett.
+- Kunna ``{key}``
+- Valfritt: ``label`` (om inget anges eller etikett = %00, betyder det nyckel värde utan en etikett.)
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -323,9 +322,9 @@ Content-Type: application/problem+json; charset="utf-8"
 ## <a name="set-key-conditionally"></a>Ange nyckel (villkorligt)
 
 Använd `If-Match` eller begär huvuden för att förhindra tävlings förhållanden `If-None-Match` . `etag`Argumentet är en del av nyckel representationen.
-Om `If-Match` eller `If-None-Match` utelämnas blir åtgärden ovillkorlig.
+Om `If-Match` eller `If-None-Match` utelämnas är åtgärden ovillkorlig.
 
-Följande svar uppdaterar värdet endast om den aktuella representationen matchar den angivna `etag`
+Följande svar uppdaterar värdet endast om den aktuella representationen matchar den angivna `etag` :
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -333,7 +332,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json
 If-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
 
-Följande svar uppdaterar värdet endast om den aktuella representationen *inte* matchar den angivna `etag`
+Följande svar uppdaterar värdet endast om den aktuella representationen inte matchar den angivna `etag` :
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -349,7 +348,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json;
 If-Match: "*"
 ```
 
-Följande begäran lägger till värdet endast om en representation *inte* redan finns:
+Följande begäran lägger till värdet endast om en representation inte redan finns:
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -373,8 +372,8 @@ HTTP/1.1 412 PreconditionFailed
 
 ## <a name="delete"></a>Ta bort
 
-- **Krävs:** `{key}` , `{api-version}`
-- *Valfritt:* `{label}` -Om inget annat anges eller etikett = %00, betyder det KV utan etikett.
+- Krävs: `{key}` , `{api-version}`
+- Valfritt: `{label}` (om inget anges eller etikett = %00, betyder det nyckel värde utan en etikett.)
 
 ```http
 DELETE /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -396,4 +395,4 @@ HTTP/1.1 204 No Content
 
 ## <a name="delete-key-conditionally"></a>Ta bort nyckel (villkorligt)
 
-Liknar **Ange nyckel (villkorligt)**
+Detta liknar avsnittet "Ange nyckel (villkorligt)" ovan i den här artikeln.

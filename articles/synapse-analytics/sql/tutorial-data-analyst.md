@@ -1,34 +1,26 @@
 ---
-title: 'Självstudie: Använd Server lös SQL-pool (för hands version) för att analysera Azure Open-datauppsättningar i Azure Synapse Studio (för hands version)'
-description: Den här självstudien visar hur du enkelt kan utföra analys av analys data som kombinerar olika Azure Open-datauppsättningar med hjälp av SQL-poolen utan server (för hands version) och visualisera resultatet i Azure Synapse Studio.
+title: 'Självstudie: utforska och analysera data sjöar med Server lös Synapse SQL'
+description: Den här självstudien visar hur du enkelt kan utföra analys av exempel data som kombinerar olika Azure Open-datauppsättningar med hjälp av SQL-poolen utan server (för hands version) och visualisera resultaten i Synapse Studio för Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 84fc49df2838a66969b449dee5b416c2a0f86f86
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: af6fc75b5de22fc77313932ca17ce695e889dad3
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685927"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238027"
 ---
-# <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Självstudie: Använd Server lös SQL-pool för att analysera Azure Open-datauppsättningar och visualisera resultaten i Azure Synapse Studio
+# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool-preview"></a>Självstudie: utforska och analysera data sjöar med SQL-pool utan server (för hands version)
 
-I den här självstudien får du lära dig hur du utför analys av exempel data genom att kombinera olika Azure Open-datauppsättningar med hjälp av SQL-poolen utan server och visualisera resultaten i Azure Synapse Studio.
+I den här självstudien får du lära dig hur du utför analys av exempel data. Du kan kombinera olika Azure Open-datauppsättningar med hjälp av SQL-poolen utan server. Sedan kan du visualisera resultaten i Synapse Studio för Azure Synapse Analytics.
 
-I synnerhet analyseras den [nya taxi-datauppsättningen Göteborg (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) som innehåller:
-
-- Upphämtnings-och utgångs datum och tidpunkter.
-- Hämta och släppa platser. 
-- Rese avstånd.
-- Specificerade priser.
-- Pris typer.
-- Betalnings typer. 
-- Driv rutin – rapporterade person antal.
+Funktionen OpenRowSet (Mass...) gör att du kan komma åt filer i Azure Storage. [OpenRowSet](develop-openrowset.md) -funktionen läser innehåll i en fjärrdatakälla (till exempel fil) och returnerar innehållet som en uppsättning rader.
 
 ## <a name="automatic-schema-inference"></a>Automatisk schema härledning
 
@@ -44,9 +36,15 @@ SELECT TOP 100 * FROM
     ) AS [nyc]
 ```
 
-Följande fragment visar resultatet för NYC taxi-data:
+[New York City (NYC) taxi data uppsättningen](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) innehåller:
 
-![NYC taxi data resultat-kodfragment](./media/tutorial-data-analyst/1.png)
+- Upphämtnings-och utgångs datum och tidpunkter.
+- Hämta och släppa platser. 
+- Rese avstånd.
+- Specificerade priser.
+- Pris typer.
+- Betalnings typer. 
+- Driv rutin – rapporterade person antal.
 
 På samma sätt kan du fråga den offentliga helgdags data uppsättningen med hjälp av följande fråga:
 
@@ -57,10 +55,6 @@ SELECT TOP 100 * FROM
         FORMAT='PARQUET'
     ) AS [holidays]
 ```
-
-Följande fragment visar resultatet för den offentliga helgdags data uppsättningen:
-
-![Resultat avsnitt för data uppsättning för offentliga helgdagar](./media/tutorial-data-analyst/2.png)
 
 Slutligen kan du även fråga data uppsättningen för väder data med hjälp av följande fråga:
 
@@ -74,11 +68,10 @@ FROM
     ) AS [weather]
 ```
 
-Följande kodfragment visar resultatet för data uppsättningen väder data:
-
-![Resultat avsnitt för data uppsättning för väder data](./media/tutorial-data-analyst/3.png)
-
-Du kan lära dig mer om innebörden av enskilda kolumner i beskrivningarna av [NYC taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/), [offentliga helgdagar](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/)och data uppsättningar för [väder data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) .
+Du kan lära dig mer om innebörden av enskilda kolumner i beskrivningarna av data uppsättningarna: 
+- [NYC taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)
+- [Offentliga helgdagar](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/)
+- [Väder data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 
 ## <a name="time-series-seasonality-and-outlier-analysis"></a>Tids serier, säsongs beroende och avvikare analys
 
@@ -100,13 +93,13 @@ ORDER BY 1 ASC
 
 Följande kodfragment visar resultatet för det årliga antalet taxi-åsidosättningar:
 
-![Årligt antal taxi-åsidosättningar resultat-kodfragment](./media/tutorial-data-analyst/4.png)
+![Årligt antal taxi-åsidosättningar resultat-kodfragment](./media/tutorial-data-analyst/yearly-taxi-rides.png)
 
 Data kan visualiseras i Synapse Studio genom att växla från **tabellen** till **diagramvyn** . Du kan välja bland olika diagram typer, till exempel **yt**-, **stapel**-, **kolumn**-, **linje**-, **cirkel**-och **punkt** diagram. I det här fallet ska du rita **stapeldiagrammet** med **kategori** kolumnen inställt på **current_year**:
 
-![Stapeldiagram med val per år](./media/tutorial-data-analyst/5.png)
+![Stapeldiagram med val per år](./media/tutorial-data-analyst/column-chart-rides-year.png)
 
-I den här visualiseringen kan en tendens av ett minskande antal över år visas tydligt. Den här minskningen beror förmodligen på den senaste ökande populariteten av delnings företag.
+I den här visualiseringen kan du se en trend för att minska antalet avslags nummer under åren. Den här minskningen beror förmodligen på den senaste ökande populariteten av delnings företag.
 
 > [!NOTE]
 > Vid tidpunkten för den här självstudien är data för 2019 ofullständiga. Det innebär att det är mycket viktigt att ta hänsyn till antalet åsidosättningar för det året.
@@ -129,15 +122,15 @@ ORDER BY 1 ASC
 
 Följande fragment visar resultatet för den här frågan:
 
-![Dagligt antal åsidosättningar för 2016 resultat-kodfragment](./media/tutorial-data-analyst/6.png)
+![Dagligt antal åsidosättningar för 2016 resultat-kodfragment](./media/tutorial-data-analyst/daily-rides.png)
 
 Återigen kan du enkelt visualisera data genom att rita **stapeldiagrammet** med **kategori** kolumn uppsättningen till **current_day** och kolumnen **förklaring (serie)** är inställd på **rides_per_day**.
 
-![Stapeldiagram som visar det dagliga antalet åsidosättningar för 2016](./media/tutorial-data-analyst/7.png)
+![Stapeldiagram som visar det dagliga antalet åsidosättningar för 2016](./media/tutorial-data-analyst/column-chart-daily-rides.png)
 
 I diagrammet kan du se att det finns ett vecko mönster, med lördagar som topp dag. Under sommaren månader finns det färre taxi-åsidosättningar på grund av semester. Lägg också märke till några betydande droppar i antalet taxi-åsidosättningar utan tydliga mönster för när och varför de inträffar.
 
-Nu ska vi se om det går att korrelera med offentliga helgdagar genom att ansluta till NYC taxi-uppsättningen med offentliga helgdagar:
+Nu ska vi se om minskningen i de här tilläggen motsvarar offentliga helgdagar. Vi kan se om det finns en korrelation genom att delta i NYC taxi-datauppsättningen med den offentliga helgdags data uppsättningen:
 
 ```sql
 WITH taxi_rides AS
@@ -172,11 +165,11 @@ LEFT OUTER JOIN public_holidays p on t.current_day = p.date
 ORDER BY current_day ASC
 ```
 
-![NYC taxi-uppsättningar och offentliga helgdagar data uppsättningar resultat visualisering](./media/tutorial-data-analyst/8.png)
+![NYC taxi-uppsättningar och offentliga helgdagar data uppsättningar resultat visualisering](./media/tutorial-data-analyst/rides-public-holidays.png)
 
 Den här gången vill vi belysa antalet taxi-ändringar under offentliga helgdagar. För det syftet väljer vi **ingen** för kolumnen **kategori** och **rides_per_day** och **helgdag** som **förklarings kolumner (serie)** .
 
-![Antal taxi-undantag under offentliga helgdagar diagram](./media/tutorial-data-analyst/9.png)
+![Antal taxi-undantag under offentliga helgdagar diagram](./media/tutorial-data-analyst/plot-chart-public-holidays.png)
 
 I diagrammet kan du se att antalet taxi-åsidosättningar är lägre under offentliga helgdagar. Det finns fortfarande en icke-förklarad stor minskning den 23 januari. Nu ska vi titta på väder i NYC den dagen genom att fråga data uppsättningen för väder data:
 
@@ -205,7 +198,7 @@ FROM
 WHERE countryorregion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND stationname = 'JOHN F KENNEDY INTERNATIONAL AIRPORT'
 ```
 
-![Resultat visualisering för data uppsättning för väder data](./media/tutorial-data-analyst/10.png)
+![Resultat visualisering för data uppsättning för väder data](./media/tutorial-data-analyst/weather-data-set-visualization.png)
 
 Resultatet av frågan tyder på att minskningen av antalet taxi-åsidosättningar inträffade på grund av följande:
 
@@ -218,4 +211,6 @@ Den här självstudien visar hur en dataanalytiker snabbt kan utföra analys av 
 ## <a name="next-steps"></a>Nästa steg
 
 Information om hur du ansluter en server lös SQL-pool för att Power BI Desktop och skapa rapporter finns i [ansluta Server lös SQL-pool till Power BI Desktop och skapa rapporter](tutorial-connect-power-bi-desktop.md).
+
+Information om hur du använder externa tabeller i SQL-pool utan Server finns i [använda externa tabeller med SYNAPSE SQL](develop-tables-external-tables.md?tabs=sql-pool)
  

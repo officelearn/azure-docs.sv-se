@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: b30ed0cca680013b85efe064d59fb7cb73d753d2
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745691"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95239558"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Felsöka replikering mellan regioner
 
@@ -50,6 +50,12 @@ I den här artikeln beskrivs fel meddelanden och lösningar som kan hjälpa dig 
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Kontrol lera att replikeringen har brutits eller inte är initierad och inaktiv (det gick inte att initiera).    |
 |     `Cannot delete   source replication`    |     Det är inte tillåtet att ta bort replikeringen från käll sidan. Se till att du tar bort replikeringen från mål sidan.    |
+
+## <a name="errors-deleting-volume"></a>Fel vid borttagning av volym
+
+|     Felmeddelande    |     Lösning    |
+|-|-|
+| `Volume is a member of an active volume replication relationship`  |  Ta bort replikeringen innan du tar bort volymen. Se [ta bort replikeringar](cross-region-replication-delete.md). Den här åtgärden kräver att du bryter peering innan du tar bort replikeringen för volymen. |
 | `Volume with replication cannot be deleted`  |  Ta bort replikeringen innan du tar bort volymen. Se [ta bort replikeringar](cross-region-replication-delete.md). Den här åtgärden kräver att du bryter peering innan du tar bort replikeringen för volymen. 
 
 ## <a name="errors-resyncing-volume"></a>Fel vid omsynkronisering av volym
@@ -69,7 +75,7 @@ I den här artikeln beskrivs fel meddelanden och lösningar som kan hjälpa dig 
 
 * [Replikering mellan regioner](cross-region-replication-introduction.md)
 * [Krav och överväganden för att använda replikering över flera regioner](cross-region-replication-requirements-considerations.md)
-* [Skapa replikeringspeering](cross-region-replication-create-peering.md)
+* [Skapa volym replikering](cross-region-replication-create-peering.md)
 * [Visa hälsostatus för replikeringsrelation](cross-region-replication-display-health-status.md)
 * [Hantera haveriberedskap](cross-region-replication-manage-disaster-recovery.md)
 * [Felsöka replikering mellan regioner](troubleshoot-cross-region-replication.md)

@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 21e0cfd56a37304d1ec333f8713894504282541f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 107806b6372360e501fe9cc0a21d25cff5cc35f9
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660669"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95248653"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Snabbstart: Registrera Azure Sentinel
 
@@ -41,7 +41,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
 
 ### <a name="geographical-availability-and-data-residency"></a>Geografisk tillgänglighet och data placering
 
-- Azure Sentinel kan köras på arbets ytor i alla [ga-regioner med Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) förutom regionerna Kina och Tyskland (suverän). 
+- Azure Sentinel kan köras på arbets ytor i de flesta [ga-regioner med Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) förutom regionerna Kina och Tyskland (suverän). Ibland kan det ta lite tid för nya Log Analytics regioner att publicera kontroll tjänsten. 
 
 - Data som genereras av Azure Sentinel, till exempel incidenter, bok märken och analys regler, kan innehålla viss kund information från kundens Log Analytics arbets ytor. Dessa Azure Sentinel-genererade data sparas i det geografiska området som anges i följande tabell, enligt det geografiska område där arbets ytan finns:
 

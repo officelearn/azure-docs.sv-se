@@ -1,5 +1,5 @@
 ---
-title: Ta bort replikeringar för Azure NetApp Files replikering över flera regioner | Microsoft Docs
+title: Ta bort volymer eller volymer för replikering Azure NetApp Files över flera regioner | Microsoft Docs
 description: Beskriver hur du tar bort en replikeringsanslutning som inte längre behövs mellan käll-och mål volymerna.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,23 +12,41 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: e08b69271ba9d115c26418bc5e421ee6c94b031d
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 5ce7a591acd8203775808457219b0ec392cd696e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695715"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249902"
 ---
-# <a name="delete-replications"></a>Ta bort replikeringar
+# <a name="delete-volume-replications-or-volumes"></a>Ta bort volymer eller volymer
 
-Du kan avsluta replikeringen mellan käll-och mål volymerna genom att ta bort volym replikering. Du kan utföra borttagnings åtgärden antingen från käll-eller mål volymen. Borttagnings åtgärden tar bara bort auktorisering för replikering. käll-eller mål volymen tas inte bort. 
+Den här artikeln beskriver hur du tar bort volym replikeringar. Det beskriver också hur du tar bort käll-eller mål volymen.
 
-## <a name="steps"></a>Steg
+## <a name="delete-volume-replications"></a>Ta bort volym replikeringar
 
-1. Kontrol lera att peering-replikeringen har brutits innan du tar bort en volym replikering.    
-    Se [Visa hälso status för replikeringsrelation](cross-region-replication-display-health-status.md) och [bryta peering-replikering](cross-region-replication-manage-disaster-recovery.md#break-replication-peering-to-activate-the-destination-volume).  
+Du kan avsluta replikeringen mellan käll-och mål volymerna genom att ta bort volym replikering. Du måste ta bort replikeringen från mål volymen. Borttagnings åtgärden tar bara bort auktorisering för replikering. käll-eller mål volymen tas inte bort. 
+
+1. Kontrol lera att peering-replikeringen har brutits innan du tar bort en volym replikering. Så här avbryter du replikeringens peering: 
+
+    1. Välj *mål* volym. Klicka på **replikering** under lagrings tjänst.  
+
+    2.  Kontrol lera följande fält innan du fortsätter:  
+        * Se till att speglings status visar ***speglade** _.   
+            Försök inte att avbryta replikerings-peering om speglings status visar _Uninitialized *.
+        * Se till att Relations status visar ***inaktiv** _.   
+            Försök inte att avbryta replikerings-peering om Relations status visar _Transferring *.   
+
+        Se [Visa hälso status för replikeringsrelation](cross-region-replication-display-health-status.md). 
+
+    3.  Klicka på **Bryt peering**.  
+
+    4.  Skriv **Ja** när du uppmanas till det och klicka på **Avbryt**. 
+
+        ![Bryt peering-replikering](../media/azure-netapp-files/cross-region-replication-break-replication-peering.png)
+
 
 1. Om du vill ta bort en volym replikering väljer du **replikering** från käll-eller mål volymen.  
 
@@ -37,6 +55,16 @@ Du kan avsluta replikeringen mellan käll-och mål volymerna genom att ta bort v
 3. Bekräfta borttagningen genom att skriva **Ja** och klicka på **ta bort**.   
 
     ![Ta bort replikering](../media/azure-netapp-files/cross-region-replication-delete-replication.png)
+
+## <a name="delete-source-or-destination-volumes"></a>Ta bort käll-eller mål volymer
+
+Om du vill ta bort käll-eller mål volymen måste du utföra följande steg i den beskrivna ordningen. Annars `Volume with replication cannot be deleted` uppstår felet.  
+
+1. [Ta bort volym replikeringen](#delete-volume-replications)från mål volymen.   
+
+2. Ta bort mål-eller käll volymen vid behov genom att högerklicka på volym namnet och välja **ta bort**.   
+
+    ![Skärm bild som visar snabb menyer på en volym.](../media/azure-netapp-files/cross-region-replication-delete-volume.png)
 
 ## <a name="next-steps"></a>Nästa steg  
 

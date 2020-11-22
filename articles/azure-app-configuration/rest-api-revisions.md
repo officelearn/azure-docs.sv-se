@@ -6,23 +6,22 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 7d1990d6bc524a69de2b22b4f7c5aeec88c3ce9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 668345da8bb89412f7b1dd36975c5bed6f229580
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424481"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95246392"
 ---
 # <a name="key-value-revisions"></a>Nyckel/värde-revisioner
 
-API-version: 1,0
+En *nyckel värdes revision* definierar den historiska representationen av en nyckel värdes resurs. Revisioner upphör att gälla efter 7 dagar för lagring på kostnads fri nivå, eller 30 dagar för lager på standard nivå. Revisioner stöder `List` åtgärden.
 
-En **nyckel värdes revision** definierar den historiska representationen av en nyckel värdes resurs. Revisioner upphör att gälla efter 7 dagar för lagring på kostnads fri nivå, eller 30 dagar för lager på standard nivå. Revisioner har stöd för följande åtgärder:
+För alla åtgärder ``key`` är en valfri parameter. Om det utelämnas, betyder det vilken nyckel som helst.
 
-- Lista
+För alla åtgärder ``label`` är en valfri parameter. Om den utelämnas, betyder det vilken etikett som helst.
 
-För alla åtgärder ``key`` är en valfri parameter. Om det utelämnas, betyder det vilken nyckel som **helst** .
-För alla åtgärder ``label`` är en valfri parameter. Om den utelämnas, betyder det vilken etikett som **helst** .
+Den här artikeln gäller API version 1,0.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -62,7 +61,7 @@ Accept-Ranges: items
 
 ## <a name="pagination"></a>Sidnumrering
 
-Resultatet blir en sid brytning om antalet returnerade objekt överskrider svars gränsen. Följ det valfria ``Link`` svars huvudet och Använd ``rel="next"`` för navigering.  Alternativt innehåller innehållet en nästa-länk i form av ``@nextLink`` egenskapen.
+Resultatet blir en sid brytning om antalet returnerade objekt överskrider svars gränsen. Följ det valfria ``Link`` svars huvudet och Använd ``rel="next"`` för navigering. Alternativt innehåller innehållet en nästa länk i form av ``@nextLink`` egenskapen.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -88,7 +87,7 @@ Link: <{relative uri}>; rel="next"
 
 ## <a name="list-subset-of-revisions"></a>Lista över del versioner av revisioner
 
-Använd `Range` rubriken för begäran. Svaret kommer att innehålla ett `Content-Range` sidhuvud. Om servern inte kan uppfylla det begärda intervallet kommer den att svara med HTTP `416` (RangeNotSatisfiable)
+Använd `Range` rubriken för begäran. Svaret innehåller ett `Content-Range`-huvud. Om servern inte kan uppfylla det begärda intervallet svarar den med HTTP `416` ( `RangeNotSatisfiable` ).
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -135,9 +134,11 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### <a name="reserved-characters"></a>Reserverade tecken
 
+De reserverade tecknen är:
+
 `*`, `\`, `,`
 
-Om ett reserverat tecken ingår i värdet måste det föregås av `\{Reserved Character}` . Icke-reserverade tecken kan också undantas.
+Om ett reserverat tecken ingår i värdet måste det undantas med hjälp av `\{Reserved Character}` . Icke-reserverade tecken kan också undantas.
 
 ### <a name="filter-validation"></a>Filter verifiering
 
@@ -160,19 +161,19 @@ Content-Type: application/problem+json; charset=utf-8
 
 ### <a name="examples"></a>Exempel
 
-- Alla
+- Vissa
 
     ```http
     GET /revisions
     ```
 
-- Objekt där nyckel namnet börjar med **ABC**
+- Objekt där nyckel namnet börjar med **ABC**:
 
     ```http
     GET /revisions?key=abc*&api-version={api-version}
     ```
 
-- Objekt där nyckel namnet är antingen **ABC** eller **XYZ** och etiketter innehåller **Prod**
+- Objekt där nyckel namnet antingen är **ABC** eller **XYZ**, och etiketter innehåller **Prod**:
 
     ```http
     GET /revisions?key=abc,xyz&label=*prod*&api-version={api-version}
@@ -186,9 +187,9 @@ Använd den valfria frågesträngparametern `$select` och ange en kommaavgränsa
 GET /revisions?$select=value,label,last_modified&api-version={api-version} HTTP/1.1
 ```
 
-## <a name="time-based-access"></a>Time-Based åtkomst
+## <a name="time-based-access"></a>Tidsbaserad åtkomst
 
-Få en representation av resultatet som det var vid en tidigare tidpunkt. Se del [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1)
+Få en representation av resultatet som det var vid en tidigare tidpunkt. Mer information finns i [http Framework för Time-Based åtkomst till resurs tillstånd--påminnelse](https://tools.ietf.org/html/rfc7089#section-2.1), section 2.1.1.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1

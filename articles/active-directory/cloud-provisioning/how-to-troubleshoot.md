@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 94cf1f34db590abeb084c5e95367781e50c85efc
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fa7292d423d8b716ffd75a1a20431fb5a79bbf96
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650125"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237348"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Fel sökning av moln etablering
 
@@ -124,40 +124,17 @@ Lös problemet genom att ändra körnings principerna för PowerShell på-server
 
 ### <a name="log-files"></a>Loggfiler
 
-Som standard avger agenten minimala felmeddelanden och stackspårningsinformation. Du hittar dessa spårnings loggar i mappen *C:\PROGRAMDATA\MICROSOFT\AZURE AD Connect-etablering Agent\Trace*.
+Som standard avger agenten minimala felmeddelanden och stackspårningsinformation. Du hittar dessa spårnings loggar i mappen **C:\PROGRAMDATA\MICROSOFT\AZURE AD Connect-etablering Agent\Trace**.
 
 Följ dessa steg om du vill samla in ytterligare information om fel sökning av Agent-relaterade problem.
 
-1. Stoppa tjänsten **Microsoft Azure AD ansluta etablerings agenten**.
-1. Skapa en kopia av den ursprungliga konfigurations filen: *C:\Program Files\Microsoft Azure AD Connect etablerings Agent\AADConnectProvisioningAgent.exe.config*.
-1. Ersätt det befintliga `<system.diagnostics>` avsnittet med följande och alla spårnings meddelanden skickas till filen *ProvAgentTrace. log*.
+1.  Installera AADCloudSyncTools PowerShell-modulen enligt beskrivningen [här](reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
+2. Använd `Export-AADCloudSyncToolsLogs` PowerShell-cmdleten för att samla in informationen.  Du kan använda följande växlar för att finjustera din data insamling.
+      - SkipVerboseTrace för att endast exportera aktuella loggar utan att samla in utförliga loggar (standard = falskt)
+      - TracingDurationMins för att ange en annan hämtnings tid (standard = 3 minuter)
+      - OutputPath för att ange en annan sökväg för utdata (standard = användarens dokument)
 
-   ```xml
-     <system.diagnostics>
-         <sources>
-         <source name="AAD Connect Provisioning Agent">
-             <listeners>
-             <add name="console"/>
-             <add name="etw"/>
-             <add name="textWriterListener"/>
-             </listeners>
-         </source>
-         </sources>
-         <sharedListeners>
-         <add name="console" type="System.Diagnostics.ConsoleTraceListener" initializeData="false"/>
-         <add name="etw" type="System.Diagnostics.EventLogTraceListener" initializeData="Azure AD Connect Provisioning Agent">
-             <filter type="System.Diagnostics.EventTypeFilter" initializeData="All"/>
-         </add>
-         <add name="textWriterListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log"/>
-         </sharedListeners>
-     </system.diagnostics>
-    
-   ```
-1. Starta tjänsten **Microsoft Azure AD ansluta etablerings agenten**.
-1. Använd följande kommando för att ange fil-och fel söknings problem. 
-    ```
-    Get-Content “C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log” -Wait
-    ```
+
 ## <a name="object-synchronization-problems"></a>Problem med synkronisering av objekt
 
 Följande avsnitt innehåller information om fel sökning av objekt synkronisering.
@@ -203,6 +180,22 @@ Genom att välja status kan du se ytterligare information om karantänen. Du kan
   Använd följande begäran:
  
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
+
+## <a name="repairing-the-the-cloud-sync-service-account"></a>Reparera kontot för Cloud Sync-tjänsten
+Om du behöver reparera Cloud Sync Service-kontot kan du använda `Repair-AADCloudSyncToolsAccount` .  
+
+
+   1.  Använd de installations steg som beskrivs [här](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) för att börja och fortsätt sedan med återstående steg.
+   2.  Från en Windows PowerShell-session med administratörs behörighet skriver eller kopierar och klistrar du in följande: 
+    ```
+    Connect-AADCloudSyncTools
+    ```  
+   3. Ange dina autentiseringsuppgifter för Global Azure AD-administratör
+   4. Skriv eller kopiera och klistra in följande: 
+    ```
+    Repair-AADCloudSyncToolsAccount
+    ```  
+   5. När detta är klart bör det stå att kontot har reparerats.
 
 ## <a name="next-steps"></a>Nästa steg 
 

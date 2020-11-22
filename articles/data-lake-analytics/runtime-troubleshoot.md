@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: c20333c83275edb90a266afec3ec3756ae1e0e7e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216274"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241615"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Lär dig hur du felsöker U-SQL runtime-fel på grund av körnings ändringar
 
@@ -33,7 +33,7 @@ Du kan se historiken för vilken runtime-version dina tidigare jobb har använt 
 
 1. I Azure Portal går du till ditt Data Lake Analytics-konto.
 2. Välj **Visa alla jobb**. En lista över alla aktiva och nyligen avslutade jobb i kontot visas.
-3. Du kan också klicka på **filter** för att hitta jobben efter **tidsintervall**, **jobb namn**och **författar** värden.
+3. Du kan också klicka på **filter** för att hitta jobben efter **tidsintervall**, **jobb namn** och **författar** värden.
 4. Du kan se körnings miljön som används i slutförda jobb.
 
 ![Visa körnings versionen av ett tidigare jobb](./media/runtime-troubleshoot/prior-job-usql-runtime-version-.png)
@@ -51,7 +51,21 @@ Det finns två möjliga problem med körnings versioner som du kan stöta på:
 
 1. Ett skript eller en viss användar kod ändrar beteendet från en version till nästa. Sådana överlappande ändringar förmedlas normalt i förväg med publiceringen av viktig information. Om du stöter på en sådan förändring kan du kontakta Microsoft Support för att rapportera det här problemet (om det inte har dokumenterats ännu) och skicka in dina jobb mot den äldre körnings versionen.
 
-2. Du har använt en icke-standardkörning, antingen explicit eller implicit när den har fästs på ditt konto, och att körningen har tagits bort efter en stund. Om du stöter på saknade körningar kan du uppgradera skripten så att de körs med den aktuella standard körningen. Kontakta Microsoft Support om du behöver ytterligare tid.
+2. Du har använt en icke-standardkörning, antingen explicit eller implicit när den har fästs på ditt konto, och att körningen har tagits bort efter en stund. Om du stöter på saknade körningar uppgraderar du skripten så att de körs med den aktuella standard körningen. Om du behöver ytterligare tid kontaktar du Microsoft Support
+
+## <a name="known-issues"></a>Kända problem
+
+* Om du refererar till Newtonsoft.Jspå fil version 12.0.3 eller senare i ett USQL-skript uppstår följande kompileringsfel:
+
+    *"Vi beklagar! jobb som körs i ditt Data Lake Analytics-konto körs förmodligen långsammare eller kan inte slutföras. Ett oväntat problem hindrar oss från att automatiskt återställa den här funktionen till ditt Azure Data Lake Analytics-konto. Azure Data Lake tekniker har kontakt ATS för att undersöka. "*  
+
+    Där anrops stacken ska innehålla:  
+    `System.IndexOutOfRangeException: Index was outside the bounds of the array.`  
+    `at Roslyn.Compilers.MetadataReader.PEFile.CustomAttributeTableReader.get_Item(UInt32 rowId)`  
+    `...`
+
+    **Lösning**: Använd Newtonsoft.Jspå fil v-12.0.2 eller lägre.
+
 
 ## <a name="see-also"></a>Se även
 

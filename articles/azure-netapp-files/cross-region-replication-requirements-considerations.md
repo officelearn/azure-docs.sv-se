@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: f2a50872fdb71419a0c3f068712ec67523a098e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b664dcd1cb12808960ffacf91c6d02d58632c4e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90709034"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243145"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Krav och överväganden för att använda replikering över flera regioner 
 
@@ -38,12 +38,14 @@ Observera följande krav och överväganden om hur [du använder replikeringen �
 * Det går inte att konfigurera volym replikering för käll volymer som skapats från ögonblicks bilder för tillfället.
 * När du har konfigurerat replikering mellan regioner skapar *SnapMirror ögonblicks bilder* för att tillhandahålla referenser mellan käll volymen och mål volymen. SnapMirror-ögonblicksbilder förflyttas automatiskt när en ny skapas för varje stegvis överföring. Det går inte att ta bort SnapMirror-ögonblicksbilder förrän replikeringsrelationen och volymen har tagits bort. 
 * Du kan ta bort manuella ögonblicks bilder på käll volymen för en replikeringsrelation när replikeringsrelationen är aktiv eller bruten, och även efter att replikeringsrelationen har tagits bort. Du kan inte ta bort manuella ögonblicks bilder för mål volymen förrän replikeringsrelationen är bruten.
+* Det går inte att återgå till en ögonblicks bild som togs innan mål volymen för replikering skapades.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa replikeringspeering](cross-region-replication-create-peering.md)
+* [Skapa volym replikering](cross-region-replication-create-peering.md)
 * [Visa hälsostatus för replikeringsrelation](cross-region-replication-display-health-status.md)
 * [Hantera haveriberedskap](cross-region-replication-manage-disaster-recovery.md)
 * [Mått för volym replikering](azure-netapp-files-metrics.md#replication)
+* [Ta bort volymer eller volymer](cross-region-replication-delete.md)
 * [Felsöka replikering mellan regioner](troubleshoot-cross-region-replication.md)
 
 

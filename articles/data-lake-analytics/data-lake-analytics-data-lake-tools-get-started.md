@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 08/30/2019
-ms.openlocfilehash: 83384dd24141cfeb7b03f388e6e3505fea8f496e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d3812cb27d2d9ea7a49038f566f8b4cc5d779172
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221085"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241700"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Utveckla U-SQL-skript med hjälp av Data Lake Tools för Visual Studio
 
@@ -51,11 +51,11 @@ För den här självstudien krävs att Data Lake Tools för Visual Studio har in
 
 1. Öppna Visual Studio.
 
-1. Öppna **Server Explorer** genom att välja **Visa**  >  **Server Explorer**.
+1. Öppna **data Lake Analytics Explorer** genom att välja **Visa**  >  **data Lake Analytics Explorer**.
 
-1. Högerklicka på **Azure**och välj sedan **Anslut till Microsoft Azure prenumeration**. Följ anvisningarna i **Logga in på ditt konto**.
+1. Högerklicka på **Azure** och välj sedan **Anslut till Microsoft Azure prenumeration**. Följ anvisningarna i **Logga in på ditt konto**.
 
-1. I **Server Explorer**väljer du **Azure**  >  **data Lake Analytics**. En lista över dina Data Lake Analytics-konton visas.
+1. I **Server Explorer** väljer du **Azure**  >  **data Lake Analytics**. En lista över dina Data Lake Analytics-konton visas.
 
 ## <a name="write-your-first-u-sql-script"></a>Skriv ditt första U-SQL-skript
 
@@ -80,15 +80,15 @@ OUTPUT @a
 
 1. I Visual Studio väljer du **fil**  >  **nytt**  >  **projekt**.
 
-1. Välj typen **U-SQL-projekt** och välj sedan **Nästa**. I **Konfigurera det nya projektet**väljer du **skapa**.
+1. Välj typen **U-SQL-projekt** och välj sedan **Nästa**. I **Konfigurera det nya projektet** väljer du **skapa**.
 
    Visual Studio skapar en lösning som innehåller en **script. usql** -fil.
 
 1. Klistra in skriptet från [Skriv ditt första U-SQL-skript](#write-your-first-u-sql-script) i fönstret **script. usql** .
 
-1. I **Solution Explorer**högerklickar du på **script. Usql**och väljer **Skicka skript**.
+1. I **Solution Explorer** högerklickar du på **script. Usql** och väljer **Skicka skript**.
 
-1. I **Skicka jobb**väljer du ditt data Lake Analytics konto och väljer **Skicka**.
+1. I **Skicka jobb** väljer du ditt data Lake Analytics konto och väljer **Skicka**.
 
    ![Skicka U-SQL Visual Studio-projekt](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-submit-job-vs2019.png)
 
@@ -108,7 +108,7 @@ Om du vill se senaste jobb status och uppdatera skärmen väljer du **Uppdatera*
 
 ## <a name="check-job-status"></a>Kontrollera jobbstatus
 
-1. I **Server Explorer**väljer du **Azure**  >  **data Lake Analytics**.
+1. I **Server Explorer** väljer du **Azure**  >  **data Lake Analytics**.
 
 1. Expandera Data Lake Analytics-kontonamnet.
 
@@ -118,7 +118,7 @@ Om du vill se senaste jobb status och uppdatera skärmen väljer du **Uppdatera*
 
 ## <a name="see-the-job-output"></a>Visa jobbutdata
 
-1. I **Server Explorer**bläddrar du till jobbet du skickade.
+1. I **Server Explorer** bläddrar du till jobbet du skickade.
 
 1. Klicka på fliken **Data**.
 

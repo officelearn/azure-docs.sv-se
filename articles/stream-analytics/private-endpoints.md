@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: b3ad0da1f910556c172c519faf953d4075647955
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 36d26195e78c74ed7b976cfdd48e1e965bca872b
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109059"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249792"
 ---
 # <a name="create-and-delete-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Skapa och ta bort privata slut punkter i ett Azure Stream Analytics kluster
 
 Du kan ansluta Azure Stream Analytics-jobb som körs i ett kluster för att mata in och mata ut resurser som finns bakom en brandvägg eller ett virtuellt Azure-nätverk (VNet). Först skapar du en privat slutpunkt för en resurs, till exempel Azure Event Hubs eller Azure SQL Database, i Stream Analytics-klustret. Godkänn sedan anslutningen till den privata slutpunkten från dina indata eller utdata.
 
-När du har godkänt anslutningen kan alla jobb som körs i ditt Stream Analytics-kluster komma åt resursen via den privata slut punkten. Den här artikeln beskriver hur du skapar och tar bort privata slutpunkter i ett Stream Analytics-kluster.
+När du har godkänt anslutningen kan alla jobb som körs i ditt Stream Analytics-kluster komma åt resursen via den privata slut punkten. Den här artikeln beskriver hur du skapar och tar bort privata slutpunkter i ett Stream Analytics-kluster. Du kan skapa privata slut punkter för Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub och Azure Service Bus. Privata slut punkter för andra tjänster kommer snart att läggas till. 
 
 ## <a name="create-private-endpoint-in-stream-analytics-cluster"></a>Skapa privat slut punkt i Stream Analytics kluster
 
@@ -27,7 +27,7 @@ I det här avsnittet får du lära dig hur du skapar en privat slut punkt i ett 
 
 1. Leta upp och välj ditt Stream Analytics-kluster i Azure Portal.
 
-1. Under **Inställningar**väljer du **privata slut punkter**.
+1. Under **Inställningar** väljer du **privata slut punkter**.
 
 1. Välj **Lägg till privat slut punkt** och ange följande information för att välja den resurs som du vill komma åt säkert via en privat slut punkt.
 
@@ -52,7 +52,7 @@ I det här avsnittet får du lära dig hur du skapar en privat slut punkt i ett 
 
 1. Leta upp och välj ditt Stream Analytics-kluster i Azure Portal.
 
-1. Under **Inställningar**väljer du **privata slut punkter**.
+1. Under **Inställningar** väljer du **privata slut punkter**.
 
 1. Välj den privata slut punkt som du vill ta bort och välj **ta bort**.
 

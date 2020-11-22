@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 66ad9f84985c7f35d410c6b1c3508efd33526c83
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0b2d18165bf2c5a4f70f1cbc555db79020ce988f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147732"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95250625"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob"></a>Skapa en tjänst-SAS för en behållare eller BLOB
 
@@ -32,7 +32,7 @@ I följande kod exempel skapas en SAS för en behållare. Om namnet på en befin
 
 En tjänst-SAS är signerad med konto åtkomst nyckeln. Använd [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) -klassen för att skapa de autentiseringsuppgifter som används för att signera SAS. Skapa sedan ett nytt [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) -objekt och anropa [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) för att hämta SAS-token-strängen.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetContainerSasUri":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForContainer":::
 
 ### <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
@@ -114,13 +114,13 @@ function getContainerSasUri(containerClient, sharedKeyCredential, storedPolicyNa
 
 I följande kod exempel skapas en SAS på en blob. Om namnet på en befintlig lagrad åtkomst princip anges, är den principen associerad med SAS. Om ingen lagrad åtkomst princip anges skapar koden en ad hoc SAS på blobben.
 
-### <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
 
 En tjänst-SAS är signerad med konto åtkomst nyckeln. Använd [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) -klassen för att skapa de autentiseringsuppgifter som används för att signera SAS. Skapa sedan ett nytt [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) -objekt och anropa [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) för att hämta SAS-token-strängen.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetBlobSasUri":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForBlob":::
 
-### <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
+# <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
 Om du vill skapa en tjänst-SAS för en BLOB anropar du metoden [CloudBlob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) .
 
@@ -203,6 +203,14 @@ function getBlobSasUri(containerClient, blobName, sharedKeyCredential, storedPol
 ```
 
 ---
+
+## <a name="create-a-service-sas-for-a-directory"></a>Skapa en tjänst-SAS för en katalog
+
+I ett lagrings konto med hierarkiskt namn område aktiverat kan du skapa en tjänst-SAS för en katalog. Om du vill skapa en tjänst-SAS kontrollerar du att du har installerat version 12.5.0 eller senare av paketet [Azure. Storage. files. DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) .
+
+I följande exempel visas hur du skapar en tjänst-SAS för en katalog med V12-klient biblioteket för .NET:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForDirectory":::
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

@@ -1,17 +1,17 @@
 ---
 title: Exempel på Resource Manager-mallar för agenter
-description: Exempel Azure Resource Manager mallar för att distribuera och konfigurera Log Analytics agent och diagnostiskt tillägg i Azure Monitor.
+description: Exempel Azure Resource Manager mallar för att distribuera och konfigurera virtuella dator agenter i Azure Monitor.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2020
-ms.openlocfilehash: 8b0673e534826acb5ff2d3747053f58fb39ff285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/17/2020
+ms.openlocfilehash: 00d6635b7bb322d28f0fe3df509ce0cb03e19f3d
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83854452"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95308672"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Exempel på Resource Manager-mallar för agenter i Azure Monitor
 Den här artikeln innehåller exempel [Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md) för att distribuera och konfigurera [Log Analytics agent](../platform/log-analytics-agent.md) och [diagnostiskt tillägg](../platform/diagnostics-extension-overview.md) för virtuella datorer i Azure Monitor. Varje exempel innehåller en mallfil och en parameter fil med exempel värden som du kan använda för mallen.
@@ -19,10 +19,218 @@ Den här artikeln innehåller exempel [Azure Resource Manager mallar](../../azur
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
-## <a name="windows-log-analytics-agent"></a>Windows Log Analytics-agent
+## <a name="azure-monitor-agent-preview"></a>Azure Monitor Agent (förhands granskning)
+Exemplen i det här avsnittet i Azure Monitor Agent (för hands version) på Windows-och Linux-agenter. Detta omfattar att installera agenten på virtuella datorer i Azure och även Azure Arc-aktiverade servrar. 
+
+### <a name="windows-azure-virtual-machine"></a>Virtuell Windows Azure-dator
+I följande exempel installeras Azure Monitor-agenten på en virtuell Windows Azure-dator.
+
+#### <a name="template-file"></a>Mallfil
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+          "type": "string"
+      },
+      "location": {
+          "type": "string"
+      }
+  },
+  "resources": [
+      {
+          "name": "[concat(parameters('vmName'),'/AzureMonitorWindowsAgent')]",
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2020-06-01",
+          "properties": {
+              "publisher": "Microsoft.Azure.Monitor",
+              "type": "AzureMonitorWindowsAgent",
+              "typeHandlerVersion": "1.0",
+              "autoUpgradeMinorVersion": true
+          }
+      }
+  ]
+}
+```
+
+#### <a name="parameter-file"></a>Parameter fil
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+        "value": "my-windows-vm"
+      },
+      "location": {
+        "value": "eastus"
+      }
+  }
+}
+```
+
+### <a name="linux-azure-virtual-machine"></a>Virtuell Linux Azure-dator
+I följande exempel installeras Azure Monitor-agenten på en virtuell Linux Azure-dator.
+
+#### <a name="template-file"></a>Mallfil
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+          "type": "string"
+      },
+      "location": {
+          "type": "string"
+      }
+  },
+  "resources": [
+      {
+          "name": "[concat(parameters('vmName'),'/AzureMonitorLinuxAgent')]",
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2020-06-01",
+          "properties": {
+              "publisher": "Microsoft.Azure.Monitor",
+              "type": "AzureMonitorLinuxAgent",
+              "typeHandlerVersion": "1.5",
+              "autoUpgradeMinorVersion": true
+          }
+      }
+  ]
+}
+```
+
+#### <a name="parameter-file"></a>Parameter fil
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+        "value": "my-linux-vm"
+      },
+      "location": {
+        "value": "eastus"
+      }
+  }
+}
+```
+
+### <a name="windows-azure-arc-enabled-server"></a>Windows Azure Arc-aktiverad server
+I följande exempel installeras Azure Monitor-agenten på en Windows Azure Arc-aktiverad server.
+
+#### <a name="template-file"></a>Mallfil
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+          "type": "string"
+      },
+      "location": {
+          "type": "string"
+      }
+  },
+  "resources": [
+      {
+          "name": "[concat(parameters('vmName'),'/AzureMonitorWindowsAgent')]",
+          "type": "Microsoft.HybridCompute/machines/extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2019-08-02-preview",
+          "properties": {
+              "publisher": "Microsoft.Azure.Monitor",
+              "type": "AzureMonitorWindowsAgent",
+              "autoUpgradeMinorVersion": true
+          }
+      }
+  ]
+}
+```
+
+#### <a name="parameter-file"></a>Parameter fil
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+        "value": "my-windows-vm"
+      },
+      "location": {
+        "value": "eastus"
+      }
+  }
+}
+```
+
+### <a name="linux-azure-arc-enabled-server"></a>Linux Azure Arc-aktiverad server
+I följande exempel installeras Azure Monitor-agenten på en Linux Azure Arc-aktiverad server.
+
+#### <a name="template-file"></a>Mallfil
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+          "type": "string"
+      },
+      "location": {
+          "type": "string"
+      }
+  },
+  "resources": [
+      {
+          "name": "[concat(parameters('vmName'),'/AzureMonitorLinuxAgent')]",
+          "type": "Microsoft.HybridCompute/machines/extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2019-08-02-preview",
+          "properties": {
+              "publisher": "Microsoft.Azure.Monitor",
+              "type": "AzureMonitorLinuxAgent",
+              "autoUpgradeMinorVersion": true
+          }
+      }
+  ]
+}
+```
+
+#### <a name="parameter-file"></a>Parameter fil
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+        "value": "my-linux-vm"
+      },
+      "location": {
+        "value": "eastus"
+      }
+  }
+}
+```
+
+## <a name="log-analytics-agent"></a>Log Analytics-agent
+Exemplen i det här avsnittet installerar Log Analytics agent på virtuella Windows-och Linux-datorer i Azure och ansluter den till en Log Analytics arbets yta.
+
+###  <a name="windows"></a>Windows
 I följande exempel installeras Log Analytics-agenten på en virtuell Windows Azure-dator. Detta görs genom att aktivera [tillägget Log Analytics virtuell dator för Windows](../../virtual-machines/extensions/oms-windows.md).
 
-### <a name="template-file"></a>Mallfil
+#### <a name="template-file"></a>Mallfil
 
 ```json
 {
@@ -90,7 +298,7 @@ I följande exempel installeras Log Analytics-agenten på en virtuell Windows Az
 
 ```
 
-### <a name="parameter-file"></a>Parameter fil
+#### <a name="parameter-file"></a>Parameter fil
 
 ```json
 {
@@ -114,10 +322,10 @@ I följande exempel installeras Log Analytics-agenten på en virtuell Windows Az
 ```
 
 
-## <a name="linux-log-analytics-agent"></a>Linux Log Analytics agent
+### <a name="linux"></a>Linux
 I följande exempel installeras Log Analytics-agenten på en virtuell Linux Azure-dator. Detta görs genom att aktivera [tillägget Log Analytics virtuell dator för Windows](../../virtual-machines/extensions/oms-linux.md).
 
-### <a name="template-file"></a>Mallfil
+#### <a name="template-file"></a>Mallfil
 
 ```json
 {
@@ -184,7 +392,7 @@ I följande exempel installeras Log Analytics-agenten på en virtuell Linux Azur
 }
 ```
 
-### <a name="parameter-file"></a>Parameter fil
+#### <a name="parameter-file"></a>Parameter fil
 
 ```json
 {
@@ -209,10 +417,13 @@ I följande exempel installeras Log Analytics-agenten på en virtuell Linux Azur
 
 
 
-## <a name="windows-diagnostic-extension"></a>Windows Diagnostic-tillägg
+## <a name="diagnostic-extension"></a>Diagnostiskt tillägg
+Exemplen i det här avsnittet installerar Diagnostic-tillägget på virtuella Windows-och Linux-datorer i Azure och konfigurerar det för data insamling.
+
+### <a name="windows"></a>Windows
 I följande exempel aktive ras och konfigureras diagnostiskt tillägg på en virtuell Windows Azure-dator. Mer information om konfigurationen finns i [Windows Diagnostics Extension schema](../platform/diagnostics-extension-schema-windows.md).
 
-### <a name="template-file"></a>Mallfil
+#### <a name="template-file"></a>Mallfil
 
 ```json
 {
@@ -345,7 +556,7 @@ I följande exempel aktive ras och konfigureras diagnostiskt tillägg på en vir
 }
 ```
 
-### <a name="parameter-file"></a>Parameter fil
+#### <a name="parameter-file"></a>Parameter fil
 
 ```json
 {
@@ -374,10 +585,10 @@ I följande exempel aktive ras och konfigureras diagnostiskt tillägg på en vir
 }
 ```
 
-## <a name="linux-diagnostic-setting"></a>Inställning av Linux-diagnostik
+### <a name="linux"></a>Linux
 I följande exempel aktive ras och konfigureras diagnostiskt tillägg på en virtuell Linux Azure-dator. Mer information om konfigurationen finns i [Windows Diagnostics Extension schema](../../virtual-machines/extensions/diagnostics-linux.md).
 
-### <a name="template-file"></a>Mallfil
+#### <a name="template-file"></a>Mallfil
 
 ```json
 {
@@ -565,7 +776,7 @@ I följande exempel aktive ras och konfigureras diagnostiskt tillägg på en vir
 }
 ```
 
-### <a name="parameter-file"></a>Parameter fil
+#### <a name="parameter-file"></a>Parameter fil
 
 ```json
 {

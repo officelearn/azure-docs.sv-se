@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/20/2020
-ms.openlocfilehash: 66d420a902cbfb56ece75646ee39bbba774b6208
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/21/2020
+ms.openlocfilehash: 30521e85feda0fc19329364dcb710d322ae8cfc1
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312415"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95323232"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Översikt över Azure Monitor agenter
 
@@ -34,20 +34,20 @@ Följande tabeller ger en snabb jämförelse mellan Azure Monitors agenter för 
 
 | | Azure Monitor Agent (förhands granskning) | Diagnostik<br>tillägg (WAD) | Log Analytics<br>agent | Beroende<br>agent |
 |:---|:---|:---|:---|:---|
-| **Miljöer som stöds** | Azure | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal | 
-| **Agent krav**  | Inget | Inget | Inget | Kräver Log Analytics agent |
+| **Miljöer som stöds** | Azure<br>Annat moln (Azure-båge)<br>Lokalt (Azure-båge)  | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokalt | 
+| **Agent krav**  | Inga | Inga | Inga | Kräver Log Analytics agent |
 | **Insamlade data** | Händelseloggar<br>Prestanda | Händelseloggar<br>ETW-händelser<br>Prestanda<br>Filbaserade loggar<br>IIS-loggar<br>.NET-app-loggar<br>Kraschdumpar<br>Loggar för agent-diagnostik | Händelseloggar<br>Prestanda<br>Filbaserade loggar<br>IIS-loggar<br>Insikter och lösningar<br>Övriga tjänster | Process beroenden<br>Mått för nätverks anslutning |
-| **Data som skickas till** | Azure Monitor-loggar<br>Azure Monitor mått | Azure Storage<br>Azure Monitor mått<br>Händelsehubb | Azure Monitor-loggar | Azure Monitor-loggar<br>(via Log Analytics agent) |
+| **Data som skickas till** | Azure Monitor-loggar<br>Azure Monitor-statistik | Azure Storage<br>Azure Monitor-statistik<br>Händelsehubb | Azure Monitor-loggar | Azure Monitor-loggar<br>(via Log Analytics agent) |
 | **Tjänster och**<br>**egenskaper**<br>**tillåtna** | Log Analytics<br>Måttutforskare | Måttutforskare | Azure Monitor för virtuella datorer<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | Azure Monitor för virtuella datorer<br>Tjänstkarta |
 
 ### <a name="linux-agents"></a>Linux-agenter
 
 | | Azure Monitor Agent (förhands granskning) | Diagnostik<br>tillägg (LAD) | Teleympkvistar<br>agent | Log Analytics<br>agent | Beroende<br>agent |
 |:---|:---|:---|:---|:---|:---|
-| **Miljöer som stöds** | Azure | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal |
-| **Agent krav**  | Inget | Inget | Inget | Inget | Kräver Log Analytics agent |
+| **Miljöer som stöds** | Azure<br>Annat moln (Azure-båge)<br>Lokalt (båg båge) | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokalt |
+| **Agent krav**  | Inga | Inga | Inga | Inga | Kräver Log Analytics agent |
 | **Insamlade data** | Syslog<br>Prestanda | Syslog<br>Prestanda | Prestanda | Syslog<br>Prestanda| Process beroenden<br>Mått för nätverks anslutning |
-| **Data som skickas till** | Azure Monitor-loggar<br>Azure Monitor mått | Azure Storage<br>Händelsehubb | Azure Monitor mått | Azure Monitor-loggar | Azure Monitor-loggar<br>(via Log Analytics agent) |
+| **Data som skickas till** | Azure Monitor-loggar<br>Azure Monitor-statistik | Azure Storage<br>Händelsehubb | Azure Monitor-statistik | Azure Monitor-loggar | Azure Monitor-loggar<br>(via Log Analytics agent) |
 | **Tjänster och**<br>**egenskaper**<br>**tillåtna** | Log Analytics<br>Måttutforskare | | Måttutforskare | Azure Monitor för virtuella datorer<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | Azure Monitor för virtuella datorer<br>Tjänstkarta |
 
 
@@ -56,7 +56,7 @@ Följande tabeller ger en snabb jämförelse mellan Azure Monitors agenter för 
 
 Använd Azure Monitor-agenten om du behöver:
 
-- Samla in gäst loggar och mått från alla virtuella datorer i Azure, i andra moln eller lokalt. (Endast Azure i för hands version.)
+- Samla in gäst loggar och mått från alla virtuella datorer i Azure, i andra moln eller lokalt. (Azure-båge krävs för virtuella datorer utanför Azure.) 
 - Skicka data till Azure Monitor loggar och Azure Monitor mått för analys med Azure Monitor. 
 - Skicka data till Azure Storage för arkivering.
 - Skicka data till tredje parts verktyg med [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
@@ -179,7 +179,7 @@ I följande tabeller visas de operativ system som stöds av Azure Monitors agent
 | SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 20,04 LTS                                         |   | X |   |   |
-| Ubuntu 18,04 LTS                                         | X | X | X | X |
+| Ubuntu 18.04 LTS                                         | X | X | X | X |
 | Ubuntu 16.04 LTS                                         | X | X | X | X |
 | Ubuntu 14,04 LTS                                         |   | X |   | X |
 
@@ -196,7 +196,7 @@ Eftersom beroende agenten fungerar på kernel-nivå är stödet också beroende 
 |                    | 6,9     | 2.6.32 – 696  |
 | CentOSPlus         | 6,10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
 |                    | 6,9     | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-| Ubuntu Server      | 18,04   | 5.3.0 – 1020<br>5,0 (inkluderar Azure-justerad kernel)<br>4,18* <br> 4,15* |
+| Ubuntu Server      | 18,04   | 5.3.0 – 1020<br>5,0 (inkluderar Azure-justerad kernel)<br>4,18 *<br> 4,15* |
 |                    | 16.04.3 | 4,15. * |
 |                    | 16,04   | 4,13.\*<br>4,11.\*<br>4,10.\*<br>4,8.\*<br>4,4.\* |
 | SUSE Linux 12 Enterprise Server | 12 SP4 | 4,12. * (innehåller Azure-justerad kernel) |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 64dfc7400380505c882979e68a3bf0adcb8942a0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 048068a74151bb986392b5cb27787385fc0f5363
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107971"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95315540"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Data insamlings regler i Azure Monitor (för hands version)
 Data insamlings regler (DCR) definierar data som kommer till Azure Monitor och anger var data ska skickas eller lagras. Den här artikeln innehåller en översikt över data insamlings regler, inklusive deras innehåll och struktur och hur du kan skapa och arbeta med dem.
@@ -40,7 +40,7 @@ Följande diagram visar komponenterna i en data insamlings regel och deras relat
 ### <a name="data-source-types"></a>Typer av datakälla
 Varje data källa har en typ av data källa. Varje typ definierar en unik uppsättning egenskaper som måste anges för varje data källa. De data käll typer som är tillgängliga visas i följande tabell.
 
-| Typ av data Källa | Beskrivning | 
+| Typ av data Källa | Description | 
 |:---|:---|
 | utöka | VM-baserad data Källa |
 | performanceCounters | Prestanda räknare för både Windows och Linux |
@@ -49,19 +49,7 @@ Varje data källa har en typ av data källa. Varje typ definierar en unik uppsä
 
 
 ## <a name="limits"></a>Gränser
-I följande tabell visas de gränser som för närvarande gäller för varje data insamlings regel.
-
-| Gräns | Värde |
-|:---|:---|
-| Maximalt antal data källor | 10 |
-| Högsta antal räknar identifierare i prestanda räknaren | 100 |
-| Maximalt antal funktions namn i syslog | 20 |
-| Maximalt antal XPath-frågor i händelse loggen | 100 |
-| Maximalt antal data flöden | 10 |
-| Maximalt antal data strömmar | 10 |
-| Maximalt antal tillägg | 10 |
-| Maximal storlek för tilläggs inställningar | 32 KB |
-| Maximalt antal Log Analytics-arbetsytor | 10 |
+Begränsningar som gäller för varje data insamlings regel finns i [Azure Monitor tjänst begränsningar](../service-limits.md#data-collection-rules).
 
 
 ## <a name="create-a-dcr"></a>Skapa en DCR

@@ -82,7 +82,7 @@ Om du vill beräkna kostnaderna för att säkerhetskopiera SQL-servrar som körs
 
 - Vilken är den förväntade komprimeringen av SQL-servrarnas säkerhetskopieringsdata?
 
-  - De flesta Azure Backup-kunder märker att säkerhetskopieringsdatan har en komprimering på 80 % jämfört med SQL-serverstorleken när SQL-komprimeringen är **aktiverad** .
+  - De flesta Azure Backup-kunder märker att säkerhetskopieringsdatan har en komprimering på 80 % jämfört med SQL-serverstorleken när SQL-komprimeringen är **aktiverad**.
 
   - Om du förväntar dig att se en annan komprimering, anger du siffran i det här fältet
 
@@ -137,8 +137,8 @@ Om du vill beräkna kostnaderna för att säkerhetskopiera SAP HANA-servrar som 
   - Om du känner till **omsättningens %** kan du använda alternativet **Ange egen %**
 - Välj säkerhetskopieringspolicy
   - Typ av säkerhetskopiering
-    - Den mest effektiva principen du kan välja är **Dagliga differentiella säkerhetskopior** med fullständiga säkerhetskopieringar **varje vecka/månad/år** . Azure Backup kan även återställas från differentiella säkerhetskopior med ett klick.
-    - Du kan också välja att ha en princip med fullständiga säkerhetskopieringar **varje dag/vecka/månad/år** . Det här alternativet förbrukar lite mer lagringsutrymme än det första alternativet.
+    - Den mest effektiva principen du kan välja är **Dagliga differentiella säkerhetskopior** med fullständiga säkerhetskopieringar **varje vecka/månad/år**. Azure Backup kan även återställas från differentiella säkerhetskopior med ett klick.
+    - Du kan också välja att ha en princip med fullständiga säkerhetskopieringar **varje dag/vecka/månad/år**. Det här alternativet förbrukar lite mer lagringsutrymme än det första alternativet.
   - Hur länge förväntar du dig att behålla ”logg”-säkerhetskopior? (i dagar) [7–35]
   - Hur länge förväntar du dig att behålla ”dagliga” säkerhetskopior? (i dagar)
   - Hur länge förväntar du dig att behålla ”veckovisa” säkerhetskopior? (i veckor)
@@ -155,7 +155,7 @@ Om du vill beräkna kostnaderna för att säkerhetskopiera SAP HANA-servrar som 
 
 Om du vill beräkna kostnaderna för att säkerhetskopiera Azure-filresurser med hjälp av en [ögonblicksbildbaserad säkerhetskopieringslösning](azure-file-share-backup-overview.md) i Azure Backup, behöver du följande parametrar:
 
-- Storlek ( **i GB** ) på de filresurser som du vill säkerhetskopiera.
+- Storlek (**i GB**) på de filresurser som du vill säkerhetskopiera.
 
 - Om du vill säkerhetskopiera filresurser som finns på flera lagringskonton, anger du hur många lagringskonton som innehåller filresurser med ovanstående storlek.
 

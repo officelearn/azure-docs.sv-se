@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95139c862b82a85dbf7f50aef021ad71c5c8210f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: cffa6b1200b7236b3c0a3e48b50c58275cf4c57b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629452"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95316628"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, vilket möjliggör synkronisering av flera platser och moln nivåer. En lokal server måste därför vara ansluten till Internet. En IT-administratör måste bestämma den bästa sökvägen för att servern ska kunna komma åt Azure Cloud Services.
@@ -100,6 +100,7 @@ I följande tabell beskrivs de domäner som krävs för kommunikation:
 | **Azure Storage** | &ast;. core.windows.net | &ast;. core.usgovcloudapi.net | När servern laddar ned en fil utför servern den data flyttningen mer effektivt när den pratar direkt till Azure-filresursen i lagrings kontot. Servern har en SAS-nyckel som endast tillåter åtkomst till riktad fil resurs. |
 | **Azure File Sync** | &ast;. one.microsoft.com<br>&ast;. afs.azure.net | &ast;. afs.azure.us | Efter den första server registreringen får servern en regional URL för den Azure File Sync tjänst instansen i den regionen. Servern kan använda URL: en för att kommunicera direkt och effektivt med den instans som hanterar synkroniseringen. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | När Azure File Sync-agenten har installerats används PKI-URL: en för att hämta mellanliggande certifikat som krävs för att kommunicera med Azure File Sync-tjänsten och Azure-filresursen. OCSP-URL: en används för att kontrol lera status för ett certifikat. |
+| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | När Azure File Sync-agenten har installerats används Microsoft Update URL: er för att ladda ned uppdateringar av Azure File Sync agenten. |
 
 > [!Important]
 > När trafik tillåts till &ast; . AFS.Azure.net är trafiken bara möjlig för synkroniseringstjänsten. Det finns inga andra Microsoft-tjänster som använder den här domänen.

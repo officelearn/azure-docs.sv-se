@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/27/2020
+ms.date: 11/21/2020
 ms.author: memildin
-ms.openlocfilehash: 79dcc645ecff00b3189dc90dcf34e042a78ed318
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9b715ea890c7c85161a9e360bc16f9a2a608d64b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949334"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95320993"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -39,6 +39,8 @@ Uppdateringarna i november omfattar:
 - [NIST SP 800 171 R2 har lagts till Security Center kontroll panelen för regelefterlevnad](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
 - [Listan rekommendationer innehåller nu filter](#recommendations-list-now-includes-filters)
 - [Förbättrad och utökad automatisk etablerings upplevelse](#auto-provisioning-experience-improved-and-expanded)
+- [Säkra poäng är nu tillgängligt i löpande export (förhands granskning)](#secure-score-is-now-available-in-continuous-export-preview)
+- [Rekommendationen "system uppdateringar bör installeras på dina datorer" innehåller nu under rekommendationer](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 Preview-rekommendationer har lagts till för att öka täckningen av Azures säkerhets benchmark
 
@@ -104,6 +106,41 @@ Nu kan du konfigurera automatisk etablering av:
 
 Läs mer i [automatiska etablerings agenter och tillägg från Azure Security Center](security-center-enable-data-collection.md).
 
+
+### <a name="secure-score-is-now-available-in-continuous-export-preview"></a>Säkra poäng är nu tillgängligt i löpande export (förhands granskning)
+
+Med kontinuerlig export av säkra Poäng kan du strömma ändringar i resultatet i real tid till Azure Event Hubs eller en Log Analytics arbets yta. Använd den här funktionen för att:
+
+- spåra dina säkra poäng över tid med dynamiska rapporter
+- Exportera säkra Poäng data till Azure Sentinel (eller någon annan SIEM)
+- integrera dessa data med alla processer som du kanske redan använder för att övervaka säkra poäng i din organisation
+
+Läs mer om hur du [exporterar Security Center data kontinuerligt](continuous-export.md).
+
+
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations"></a>Rekommendationen "system uppdateringar bör installeras på dina datorer" innehåller nu under rekommendationer
+
+**System uppdateringarna bör installeras på** dator rekommendationerna har förbättrats. Den nya versionen innehåller under rekommendationer för varje saknad uppdatering och ger följande förbättringar:
+
+- En omdesignad upplevelse på Azure Security Center sidor i Azure Portal. Rekommendations informations sidan för **System uppdateringar bör installeras på dina datorer** och innehåller en lista över de resultat som visas nedan. När du väljer en enskild sökning öppnas informations fönstret med en länk till reparations informationen och en lista över resurser som påverkas.
+
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Öppna en av under rekommendationerna i Portal upplevelsen för den uppdaterade rekommendationen":::
+
+- Omfattande data för rekommendationen från Azure Resource Graph (ARG). ARG är en Azure-tjänst som är utformad för att tillhandahålla effektiv resurs utforskning. Du kan använda ARG för att fråga i skala över en specifik uppsättning prenumerationer så att du effektivt kan styra din miljö. 
+
+    För Azure Security Center kan du använda ARG och [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) för att fråga efter en mängd säkerhets position data.
+
+    Om du tidigare har efterfrågat den här rekommendationen i ARG, var den enda tillgängliga informationen att rekommendationen måste åtgärdas på en dator. Följande fråga för den förbättrade versionen returnerar alla system uppdateringar som saknas grupperade efter dator.
+
+    ```kusto
+    securityresources
+    | where type =~ "microsoft.security/assessments/subassessments"
+    | where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
+    | where properties.status.code == "Unhealthy"
+    ```
+
+
+
 ## <a name="october-2020"></a>Oktober 2020
 
 Uppdateringar i oktober inkluderar:
@@ -164,7 +201,7 @@ Läs mer i [ta bort en standard från din instrument panel](update-regulatory-co
 
 Azure Resource Graph är en tjänst i Azure som är utformad för att tillhandahålla effektiv resurs utforskning med möjlighet att fråga i skala över en specifik uppsättning prenumerationer så att du effektivt kan styra din miljö. 
 
-För Azure Security Center kan du använda ARG och [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) för att fråga efter en mängd säkerhets position data. Exempel:
+För Azure Security Center kan du använda ARG och [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) för att fråga efter en mängd säkerhets position data. Ett exempel:
 
 - Till gångs lager använder (ARG)
 - Vi har dokumenterat en exempel-ARG-fråga för att [identifiera konton utan Multi-Factor Authentication (MFA) aktiverat](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 76f541a45c56669d17103f16997f3d036955b773
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: cf64deb17bea508637debb5612231d355d523fbb
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919699"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95315591"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Översikt över Azure Monitor Agent (för hands version)
 Azure Monitor agenten (AMA) samlar in övervaknings data från gäst operativ systemet på virtuella datorer och levererar det till Azure Monitor. Den här artikeln innehåller en översikt över Azure Monitor Agent, inklusive hur du installerar den och hur du konfigurerar data insamling.
@@ -54,7 +54,7 @@ Följande begränsningar gäller vid en offentlig för hands version av Azure Mo
 
 - Azure Monitor agenten har inte stöd för lösningar och insikter som Azure Monitor for VMs och Azure Security Center. Det enda scenario som stöds för närvarande är att samla in data med de data insamlings regler som du konfigurerar. 
 - Data insamlings regler måste skapas i samma region som en Log Analytics arbets yta som används som mål.
-- Endast virtuella Azure-datorer stöds för närvarande. Lokala virtuella datorer, skalnings uppsättningar för virtuella datorer, Arc för servrar, Azure Kubernetes-tjänster och andra beräknings resurs typer stöds inte för närvarande.
+- Virtuella Azure-datorer och Azure Arc-aktiverade servrar stöds för närvarande. Skalnings uppsättningar för virtuella datorer, Azure Kubernetes-tjänsten och andra beräknings resurs typer stöds inte för närvarande.
 - Den virtuella datorn måste ha åtkomst till följande HTTPS-slutpunkter:
   - *.ods.opinsights.azure.com
   - *. ingest.monitor.azure.com
@@ -76,7 +76,7 @@ I följande tabell visas de typer av data som du kan samla in med Azure Monitor-
 
 Azure Monitor Agent skickar data till Azure Monitor mått eller en Log Analytics arbets yta som stöder Azure Monitor loggar.
 
-| Datakälla | Mål | Beskrivning |
+| Datakälla | Mål | Description |
 |:---|:---|:---|
 | Prestanda        | Azure Monitor-statistik<br>Log Analytics-arbetsyta | Numeriska värden mäter prestanda för olika aspekter av operativ system och arbets belastningar. |
 | Händelse loggar i Windows | Log Analytics-arbetsyta | Information som skickas till händelse loggnings systemet i Windows. |
@@ -94,50 +94,8 @@ Den Azure Monitor agenten behöver inte några nycklar utan kräver istället en
 ## <a name="networking"></a>Nätverk
 Azure Monitor Agent har stöd för Azure Service-Taggar (både AzureMonitor-och AzureResourceManager-Taggar krävs) men fungerar ännu inte med Azure Monitor privata länk omfattningar eller direkta proxyservrar.
 
-## <a name="install-the-azure-monitor-agent"></a>Installera Azure Monitor Agent
-Azure Monitor agenten implementeras som ett [Azure VM-tillägg](../../virtual-machines/extensions/overview.md) med informationen i följande tabell. 
-
-| Egenskap | Windows | Linux |
-|:---|:---|:---|
-| Publisher | Microsoft. Azure. Monitor  | Microsoft. Azure. Monitor |
-| Typ      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1,0 | 1.5 |
-
-Installera Azure Monitor agenten med någon av metoderna för att installera virtuella dator agenter, inklusive följande med hjälp av PowerShell eller CLI. Alternativt kan du installera agenten och konfigurera data insamling på virtuella datorer i din Azure-prenumeration med hjälp av portalen med proceduren som beskrivs i [Konfigurera data insamling för Azure Monitor agenten (för hands version)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
-
-### <a name="windows"></a>Windows
-
-# <a name="cli"></a>[CLI](#tab/CLI1)
-
-```azurecli
-az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
-
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell1)
-
-```powershell
-Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
-```
----
-
-
-### <a name="linux"></a>Linux
-
-# <a name="cli"></a>[CLI](#tab/CLI2)
-
-```azurecli
-az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
-
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell2)
-
-```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus -TypeHandlerVersion 1.5
-```
----
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Installera Azure Monitor Agent](azure-monitor-agent-install.md) på virtuella Windows-och Linux-datorer.
 - [Skapa en data insamlings regel](data-collection-rule-azure-monitor-agent.md) för att samla in data från agenten och skicka den till Azure Monitor.

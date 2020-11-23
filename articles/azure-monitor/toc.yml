@@ -89,6 +89,8 @@
               href: samples/resource-manager-web-app.md
             - name: Azure Functions
               href: samples/resource-manager-function-app.md
+        - name: Regler för datainsamling
+          href: samples/resource-manager-data-collection-rules.md
         - name: Diagnostikinställningar
           href: samples/resource-manager-diagnostic-settings.md
         - name: Log Analytics-arbetsytor
@@ -164,6 +166,7 @@
         - name: Distribuera Azure Monitor
           href: deploy.md
         - name: Distribuera i stor skala
+          displayName: 'Azure Policy, Policy'
           href: deploy-scale.md
     - name: Hantera och konfigurera
       items:
@@ -351,6 +354,9 @@
             - name: Översikt
               displayname: Azure Monitor agent
               href: platform/azure-monitor-agent-overview.md
+            - name: Installera
+              displayname: Azure Monitor agent
+              href: platform/azure-monitor-agent-install.md
             - name: Datainsamling
               displayname: 'data collection rule,Azure Monitor agent'
               href: platform/data-collection-rule-azure-monitor-agent.md

@@ -2,23 +2,25 @@
 title: Översikt över AMQP 1,0 i Azure Service Bus
 description: Lär dig hur Azure Service Bus stöder Advanced Message Queueing Protocol (AMQP), ett öppet standard protokoll.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: c91c7965b94216f3f3bcb47e0cb652ce22a0217a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/20/2020
+ms.openlocfilehash: a643869d7d89b287e899b1eab89c5b9ec11856e5
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88066346"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95396815"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>AMQP 1,0-stöd i Service Bus
-Både Azure Service Bus moln tjänst och lokala [Service Bus för Windows Server (Service Bus 1,1)](/previous-versions/service-bus-archive/dn282144(v=azure.100)) stöder Advanced Message Queueing Protocol (AMQP) 1,0. Med AMQP kan du skapa hybrid program mellan plattformar med ett öppet standard protokoll. Du kan skapa program med hjälp av komponenter som har skapats med olika språk och ramverk och som körs på olika operativ system. Alla dessa komponenter kan ansluta till Service Bus och sömlöst utbyta strukturerade affärs meddelanden effektivt och med full kvalitet.
+Azure Service Bus moln tjänsten använder [Advanced Message Queueing Protocol (AMQP) 1,0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) som primärt kommunikations sätt. Microsoft har samarbetat med partner över hela branschen, både kunder och leverantörer av konkurrerande meddelande hanterare, för att utveckla och utveckla AMQP under de senaste tio åren, med nya tillägg som utvecklas i [Oasis AMQP tekniska kommittén](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1,0 är en ISO-och IEC standard ([iso 19464:20149](https://www.iso.org/standard/64955.html)). 
+
+AMQP gör att du kan skapa plattforms oberoende hybrid program med hjälp av ett icke-neutralt och implementerat, standard protokoll. Du kan skapa program med hjälp av komponenter som har skapats med olika språk och ramverk och som körs på olika operativ system. Alla dessa komponenter kan ansluta till Service Bus och sömlöst utbyta strukturerade affärs meddelanden effektivt och med full kvalitet.
 
 ## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>Introduktion: Vad är AMQP 1,0 och varför är det viktigt?
-Traditionellt förekommande, meddelanden mellan olika program varor har använt egna protokoll för kommunikation mellan klient program och-utjämnare. Det innebär att när du har valt en viss leverantörs meddelande Broker måste du använda leverantörens bibliotek för att ansluta dina klient program till denna Broker. Detta resulterar i en viss grad av beroenden av den leverantören, eftersom det krävs kod ändringar i alla anslutna program för att hamna på ett program till en annan produkt. 
+Traditionellt förekommande, meddelanden mellan olika program varor har använt egna protokoll för kommunikation mellan klient program och-utjämnare. Det innebär att när du har valt en viss leverantörs meddelande Broker måste du använda leverantörens bibliotek för att ansluta dina klient program till denna Broker. Detta resulterar i en viss grad av beroenden av den leverantören, eftersom det krävs kod ändringar i alla anslutna program för att hamna på ett program till en annan produkt. I Java-communityn har språkspecifika API-standarder som Java Message Service (JMS) och vårens sammanställningar förkortat så lite, men har en mycket begränsad funktions omfattning och utesluter utvecklare som använder andra språk.
 
-Dessutom är det svårt att ansluta meddelande utjämnare från olika leverantörer. Detta kräver vanligt vis att program nivå bryggningen flyttar meddelanden från ett system till ett annat och översätter mellan deras egna meddelande format. Detta är ett vanligt krav. till exempel när du måste ange ett nytt enhetligt gränssnitt till äldre system, eller integrera IT-system efter en sammanslagning.
+Dessutom är det svårt att ansluta meddelande utjämnare från olika leverantörer. Detta kräver vanligt vis att program nivå bryggningen flyttar meddelanden från ett system till ett annat och översätter mellan deras egna meddelande format. Detta är ett vanligt krav. till exempel när du måste ange ett nytt enhetligt gränssnitt till äldre system, eller integrera IT-system efter en sammanslagning. AMQP tillåter anslutning av anslutnings utjämning direkt, till exempel genom att använda routrar som [Apache qpid Dispatch router](https://qpid.apache.org/components/dispatch-router/index.html) eller Broker-Native "shovels" som en av [rabbitmq](service-bus-integrate-with-rabbitmq.md).
 
-Program varu branschen är en snabb och rörlig verksamhet. nya programmeringsspråk och program ramverk introduceras ibland bewildering takt. På samma sätt utvecklas kraven i IT-systemen över tid och utvecklare vill dra nytta av de senaste plattforms funktionerna. Men ibland stöder inte den valda meddelande leverantören dessa plattformar. Eftersom meddelande protokoll är tillverkarspecifika är det inte möjligt för andra att tillhandahålla bibliotek för de här nya plattformarna. Därför måste du använda metoder som att skapa gatewayer eller bryggor som gör att du kan fortsätta att använda meddelande produkten.
+Program varu branschen är en snabb och rörlig verksamhet. nya programmeringsspråk och program ramverk introduceras ibland bewildering takt. På samma sätt utvecklas kraven i IT-systemen över tid och utvecklare vill dra nytta av de senaste plattforms funktionerna. Men ibland stöder inte den valda meddelande leverantören dessa plattformar. Om meddelande protokollen är tillverkarspecifika är det inte möjligt för andra att tillhandahålla bibliotek för dessa nya plattformar. Därför måste du använda metoder som att skapa gatewayer eller bryggor som gör att du kan fortsätta att använda meddelande produkten.
 
 Utvecklingen av Advanced Message Queueing Protocol (AMQP) 1,0 motiverades av dessa problem. Den har sitt ursprung på JP-Morgan, som, till exempel de flesta finansiella tjänste företag, är stora användare av meddelanderoutning mellanprodukter. Målet var enkelt: om du vill skapa ett meddelande protokoll med öppen standard som gjorde det möjligt att skapa meddelandebaserade program med hjälp av komponenter som skapats med olika språk, ramverk och operativ system kan du använda de bästa komponenterna från ett utbud av leverantörer.
 
@@ -40,6 +42,8 @@ I oktober 2011 släpptes utvecklings arbetet över till en teknisk kommitté ino
 * **Teknik leverantörer**: Axway program vara, Huawei Technologies, IIT-programvara, INETCO-system, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, process program, Red Hat, Sita, program-AG, Solace-system, VMware, WSO2, Zenika.
 * **Användar företag**: bank i Amerika, kredit Suisse, tyska Boerse, Goldman Sachs, JPMorgan
 
+De aktuella stolarna i [OASIS AMQP Technical Committee] (( https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) representerar Red Hat och Microsoft.
+
 Några av de mest citerade fördelarna med öppna standarder är:
 
 * Mindre chans att låsa leverantören
@@ -50,7 +54,7 @@ Några av de mest citerade fördelarna med öppna standarder är:
 * Lägre och hanterbar risk
 
 ## <a name="amqp-10-and-service-bus"></a>AMQP 1,0 och Service Bus
-AMQP 1,0-stöd i Azure Service Bus innebär att du nu kan använda Service Bus köer och publicera/prenumerera på Service Broker-funktioner från en uppsättning plattformar med hjälp av ett effektivt binärt protokoll. Dessutom kan du skapa program som består av komponenter som skapats med en blandning av språk, ramverk och operativ system.
+AMQP 1,0-stöd i Azure Service Bus innebär att du kan utnyttja Service Bus kö-och publicera/prenumerera-hanterade meddelande funktioner från en uppsättning plattformar med hjälp av ett effektivt binärt protokoll. Dessutom kan du skapa program som består av komponenter som skapats med en blandning av språk, ramverk och operativ system.
 
 Följande bild illustrerar en exempel distribution där Java-klienter som körs på Linux, skrivet med hjälp av JMS-API: et (standard Java Message Service) och .NET-klienter som körs på Windows, Exchange-meddelanden via Service Bus med AMQP 1,0.
 
@@ -58,21 +62,31 @@ Följande bild illustrerar en exempel distribution där Java-klienter som körs 
 
 **Bild 1: exempel på distributions scenario som visar meddelanden över plattformar med hjälp av Service Bus och AMQP 1,0**
 
-Vid detta tillfälle är följande klient bibliotek kända för att fungera med Service Bus:
+Alla tillgängliga Service Bus klient bibliotek som stöds via Azure SDK använder AMQP 1,0.
+
+- [Azure Service Bus för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet&preserve-view=true)
+- [Azure Service Bus bibliotek för Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-stable&preserve-view=true)
+- [Azure Service Bus Provider för Java JMS 2,0](how-to-use-java-message-service-20.md)
+- [Azure Service Bus moduler för Java Script och TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
+- [Azure Service Bus bibliotek för python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
+
+Dessutom kan du använda Service Bus från valfri AMQP 1,0-kompatibel protokolls tack:
 
 | Språk | Bibliotek |
 | --- | --- |
-| Java |JMS-klient (Apache qpid Java Message Service)<br/>IIT program vara SwiftMQ Java client |
-| C |Apache qpid Proton-C |
-| PHP |Apache qpid Proton – PHP |
-| Python |Apache qpid-Proton-Python |
-| C# |AMQP .NET lite |
+| Java | [Apache qpid Proton-J](https://qpid.apache.org/proton/index.html) |
+| C/C++ |[Azure UAMQP C](https://github.com/azure/azure-uamqp-c/), [Apache qpid Proton-C](https://qpid.apache.org/proton/index.html) |
+| Python |[Azure-uAMQP för python](https://github.com/azure/azure-uamqp-python/), [Apache qpid Proton python](https://qpid.apache.org/releases/qpid-proton-0.32.0/proton/python/docs/overview.html) |
+| PHP | [Azure-uAMQP för PHP](https://github.com/vsouz4/azure-uamqp-php/) |
+| Ruby | [Apache qpid Proton ruby](https://github.com/apache/qpid-proton/tree/master/ruby) |
+| Go | [Azure go-AMQP](https://github.com/Azure/go-amqp), [Apache qpid Proton go](https://github.com/apache/qpid-proton/tree/master/go/examples)
+| C#/F #/VB | [AMQP .net lite](https://github.com/Azure/amqpnetlite), [Apache NMS AMQP](https://github.com/apache/activemq-nms-amqp)|
+| Java Script/Node | [Rhea](https://github.com/grs/rhea) |
 
 **Bild 2: tabell över AMQP 1,0-klient bibliotek**
 
 ## <a name="summary"></a>Sammanfattning
 * AMQP 1,0 är ett öppet, Reliable meddelande protokoll som du kan använda för att skapa hybrid program mellan plattformar. AMQP 1,0 är en OASIS-standard.
-* AMQP 1,0-support finns nu i Azure Service Bus och Service Bus för Windows Server (Service Bus 1,1). Priserna är samma som för de befintliga protokollen.
 
 ## <a name="next-steps"></a>Nästa steg
 Vill du lära dig mer? Besök följande länkar:
@@ -80,10 +94,8 @@ Vill du lära dig mer? Besök följande länkar:
 * [Använda Service Bus från .NET med AMQP]
 * [Använda Service Bus från Java med AMQP]
 * [Installera Apache qpid Proton-C på en virtuell Azure Linux-dator]
-* [AMQP i Service Bus för Windows Server]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Använda Service Bus från .NET med AMQP]: service-bus-amqp-dotnet.md
 [Använda Service Bus från Java med AMQP]: ./service-bus-java-how-to-use-jms-api-amqp.md
-[Installera Apache qpid Proton-C på en virtuell Azure Linux-dator]: 
-[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)
+[Installera Apache qpid Proton-C på en virtuell Azure Linux-dator]:: 

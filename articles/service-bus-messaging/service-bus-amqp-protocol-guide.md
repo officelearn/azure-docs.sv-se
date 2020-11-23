@@ -3,26 +3,26 @@ title: AMQP 1,0 i Azure Service Bus-och Event Hubss protokoll guide | Microsoft 
 description: Protokoll guide till uttryck och beskrivning av AMQP 1,0 i Azure Service Bus och Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32e71211ed1574cade0567f7944b154eea062b24
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064544"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95396883"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 i Azure Service Bus-och Event Hubs-protokoll guide
 
-Det avancerade meddelandekö-protokollet 1,0 är ett standardiserat ram-och överförings protokoll för asynkront, säkert och tillförlitligt överföring av meddelanden mellan två parter. Det är det primära protokollet för Azure Service Bus meddelande tjänst och Azure Event Hubs. Båda tjänsterna stöder även HTTPS. Det patentskyddade SBMP-protokollet som också stöds går ut i sin fördel med AMQP.
+Det avancerade meddelandekö-protokollet 1,0 är ett standardiserat ram-och överförings protokoll för asynkront, säkert och tillförlitligt överföring av meddelanden mellan två parter. Det är det primära protokollet för Azure Service Bus meddelande tjänst och Azure Event Hubs.  
 
-AMQP 1,0 är resultatet av ett brett samarbete mellan företag som samlats mellan leverantörer, till exempel Microsoft och Red Hat, med många meddelande funktioner mellan olika användare, till exempel JP Morgan-förbrukare som representerar finans Services-branschen. Det tekniska standardiserings forumet för AMQP-protokoll och tillägg är OASIS och har uppnått formell godkännande som internationell standard som ISO/IEC 19494.
+AMQP 1,0 är resultatet av ett brett samarbete mellan företag som samlats mellan leverantörer, till exempel Microsoft och Red Hat, med många meddelande funktioner mellan olika användare, till exempel JP Morgan-förbrukare som representerar finans Services-branschen. Det tekniska standardiserings forumet för AMQP-protokoll och tillägg är OASIS och har uppnått formell godkännande som internationell standard som ISO/IEC 19494:2014. 
 
 ## <a name="goals"></a>Mål
 
-Den här artikeln sammanfattar en kort beskrivning av kärn begreppen i AMQP 1,0-meddelande specifikationen tillsammans med en liten uppsättning tillägg för Draft-tillägg som för närvarande slutförs i OASIS AMQP tekniska kommitté och förklarar hur Azure Service Bus implementerar och bygger på dessa specifikationer.
+Den här artikeln sammanfattar huvud begreppen i AMQP 1,0-meddelande specifikationen tillsammans med tilläggs specifikationer som har utvecklats av [Oasis AMQP Technical Committee](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) och förklarar hur Azure Service Bus implementerar och bygger på dessa specifikationer.
 
 Målet är för alla utvecklare som använder en befintlig AMQP 1,0-klients tack på valfri plattform för att kunna interagera med Azure Service Bus via AMQP 1,0.
 
-Vanliga AMQP 1,0-stackar, till exempel Apache Proton eller AMQP.NET lite, har redan implementerat alla kärn AMQP 1,0-protokoll. Dessa grundläggande gester omsluts ibland med ett API på en högre nivå. Apache Proton erbjuder även två, det tvingande Messenger API och det omaktiva reaktor-API: et.
+Vanliga AMQP 1,0-stackar, till exempel [Apache qpid Proton](https://qpid.apache.org/proton/index.html) eller [AMQP.net lite](https://github.com/Azure/amqpnetlite), implementera alla Core AMQP 1,0-protokoll element som sessioner eller länkar. Dessa grundläggande element omsluts ibland med ett API på en högre nivå. Apache Proton erbjuder även två, det tvingande Messenger API och det omaktiva reaktor-API: et.
 
 I följande diskussion förutsätter vi att hanteringen av AMQP-anslutningar, sessioner och länkar samt hantering av ram överföringar och flödes kontroll hanteras av respektive stack (t. ex. apache Proton-C) och inte kräver mycket särskild uppmärksamhet från programutvecklare. Vi är abstrakta över förekomsten av några API-primitiver som möjligheten att ansluta, och för att skapa någon form av *avsändare* *och abstraktions* objekt, som sedan har någon form av respektive `send()` `receive()` verksamhet.
 
@@ -46,7 +46,7 @@ Den mest auktoritativa källan för att lära dig om hur AMQP fungerar är AMQP 
 
 ### <a name="connections-and-sessions"></a>Anslutningar och sessioner
 
-AMQP anropar *behållare*för program som kommunicerar. de innehåller *noder*, som är de kommunicerande enheterna inuti dessa behållare. En kö kan vara en sådan nod. AMQP tillåter multiplexering, så en enda anslutning kan användas för många kommunikations vägar mellan noderna. till exempel kan en program klient samtidigt tas emot från en kö och skickas till en annan kö över samma nätverks anslutning.
+AMQP anropar *behållare* för program som kommunicerar. de innehåller *noder*, som är de kommunicerande enheterna inuti dessa behållare. En kö kan vara en sådan nod. AMQP tillåter multiplexering, så en enda anslutning kan användas för många kommunikations vägar mellan noderna. till exempel kan en program klient samtidigt tas emot från en kö och skickas till en annan kö över samma nätverks anslutning.
 
 ![Diagram som visar sessioner och anslutningar mellan behållare.][1]
 
@@ -77,14 +77,14 @@ Klienter som använder AMQP-anslutningar via TCP kräver portarna 5671 och 5672 
 
 ![Lista över mål portar][4]
 
-En .NET-klient skulle Miss lyckas med en SocketException ("ett försök gjordes att få åtkomst till en socket på ett sätt som tillåts av dess åtkomst behörigheter") om dessa portar blockeras av brand väggen. Funktionen kan inaktive ras genom att ställa in `EnableAmqpLinkRedirect=false` i rapporteringstjänsten-strängen, som tvingar klienterna att kommunicera med fjärrtjänsten via port 5671.
+En .NET-klient skulle Miss lyckas med en SocketException ("ett försök gjordes att få åtkomst till en socket på ett sätt som tillåts av dess åtkomst behörigheter") om dessa portar blockeras av brand väggen. Funktionen kan inaktive ras genom att ställa in `EnableAmqpLinkRedirect=false` anslutnings strängen, som tvingar klienterna att kommunicera med fjärrtjänsten via port 5671.
 
 
 ### <a name="links"></a>Länkar
 
 AMQP överför meddelanden via länkar. En länk är en kommunikations Sök väg som skapats via en session som möjliggör överföring av meddelanden i en riktning. förhandlingen om överförings status är över länken och dubbelriktad mellan de anslutna parterna.
 
-![Skärm bild som visar en session carryign en länk anslutning mellan två behållare.][2]
+![Skärm bild som visar en session som driver en länk anslutning mellan två behållare.][2]
 
 Länkar kan skapas antingen av en behållare när som helst och över en befintlig session, vilket gör att AMQP skiljer sig från flera andra protokoll, inklusive HTTP och MQTT, där överföringen av överföring och överförings Sök väg är ett exklusivt privilegium hos parten som skapar socket-anslutningen.
 
@@ -120,7 +120,7 @@ För att kompensera för eventuella dubbla sändningar kan Service Bus stödja d
 
 Förutom den flödes kontroll modell på sessionshantering som tidigare diskuterats, har varje länk sin egen flödes kontroll modell. Flödes kontroll på sessions nivå skyddar behållaren från att behöva hantera för många ramar samtidigt, flödes kontroll på länknivå ger programmet en kostnad för hur många meddelanden den vill hantera från en länk och när.
 
-![Skärm bild av en logg som visar källa, mål, källport, målport och protokoll namn. På raden Fiest anges mål porten 10401 (0x28 A 1) i svart.][4]
+![Skärm bild av en logg som visar källa, mål, källport, målport och protokoll namn. På den första raden anges mål porten 10401 (0x28 A 1) i svart.][4]
 
 På en länk kan överföringar bara ske när avsändaren har tillräckligt med *länk kredit*. Länk kredit är en räknare som anges av mottagaren med hjälp av *Flow* -Performative, som är begränsad till en länk. När avsändaren tilldelas länk kredit försöker den använda krediten genom att leverera meddelanden. Varje meddelande leverans minskar den återstående länk krediten med 1. När länk krediten används, stoppas leveranser.
 
@@ -130,7 +130,7 @@ I avsändarens roll Service Bus skickar meddelanden för att använda en utestå
 
 Ett "ta emot"-anrop på API-nivå översätts till en *Flow* -Performative som skickas till Service Bus av klienten, och Service Bus använder den krediten genom att ta det första tillgängliga, olåsta meddelandet från kön, låsa det och överföra det. Om det inte finns något meddelande tillgängligt för leverans blir eventuell utestående kredit av en länk som upprättats med den specifika entiteten inloggad i den mottagande ordningen, och meddelanden låses och överförs när de blir tillgängliga, för att använda valfri utestående kredit.
 
-Låset på ett meddelande släpps när överföringen är uppdelad i något av Terminal-tillstånden *accepteras*, *avvisas*eller *släpps*. Meddelandet tas bort från Service Bus när Terminal-statusen *accepteras*. Den finns kvar i Service Bus och levereras till nästa mottagare när överföringen når något av de andra tillstånden. Service Bus flyttar automatiskt meddelandet till entitetens obeställbara meddelanden kön-kö när det når maximalt antal tillåtna leveranser för entiteten på grund av upprepade avslag eller uppdateringar.
+Låset på ett meddelande släpps när överföringen är uppdelad i något av Terminal-tillstånden *accepteras*, *avvisas* eller *släpps*. Meddelandet tas bort från Service Bus när Terminal-statusen *accepteras*. Den finns kvar i Service Bus och levereras till nästa mottagare när överföringen når något av de andra tillstånden. Service Bus flyttar automatiskt meddelandet till entitetens obeställbara meddelanden kön-kö när det når maximalt antal tillåtna leveranser för entiteten på grund av upprepade avslag eller uppdateringar.
 
 Även om Service Bus-API: er inte direkt exponerar ett sådant alternativ idag, kan en AMQP-protokoll på lägre nivå använda länk kredit modellen för att göra "pull-Style"-interaktionen att skicka en kredit enhet för varje Receive-begäran till en "push-Style"-modell genom att utfärda ett stort antal länk krediter och sedan ta emot meddelanden när de blir tillgängliga utan ytterligare interaktion Push-teknik stöds via egenskaps inställningarna [MessagingFactory. PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) eller [MessageReceiver. PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) . När de inte är noll använder AMQP-klienten den som länk kredit.
 
@@ -222,7 +222,7 @@ Alla egenskaper som programmet måste definiera ska mappas till AMQP- `applicati
 | --- | --- | --- |
 | meddelande-ID |Programdefinierad, fri format identifierare för det här meddelandet. Används för dubblettidentifiering. |[Meddelande](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | användar-id |Programdefinierad användar identifierare, tolkas inte av Service Bus. |Inte tillgänglig via Service Bus API. |
-| på |Programdefinierad mål identifierare, tolkas inte av Service Bus. |[Om du vill](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| på |Programdefinierad mål identifierare, tolkas inte av Service Bus. |[Att](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | motiv |Programdefinierad identifierare för meddelande syfte, tolkas inte av Service Bus. |[Etikett](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | svar till |Programdefinierad svars Sök vägs indikator, tolkas inte av Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | korrelations-id |Programdefinierad korrelations identifierare, tolkas inte av Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -319,7 +319,7 @@ I det här avsnittet beskrivs avancerade funktioner i Azure Service Bus som base
 
 ### <a name="amqp-management"></a>Hantering av AMQP
 
-Hanterings specifikationen för AMQP är den första av de utkast tillägg som beskrivs i den här artikeln. Den här specifikationen definierar en uppsättning protokoll som ligger ovanpå AMQP-protokollet som tillåter hantering av kommunikation med meddelande infrastrukturen över AMQP. Specifikationen definierar generiska åtgärder som att *skapa*, *läsa*, *Uppdatera*och *ta bort* för att hantera entiteter i en meddelande infrastruktur och en uppsättning frågor.
+Hanterings specifikationen för AMQP är den första av de utkast tillägg som beskrivs i den här artikeln. Den här specifikationen definierar en uppsättning protokoll som ligger ovanpå AMQP-protokollet som tillåter hantering av kommunikation med meddelande infrastrukturen över AMQP. Specifikationen definierar generiska åtgärder som att *skapa*, *läsa*, *Uppdatera* och *ta bort* för att hantera entiteter i en meddelande infrastruktur och en uppsättning frågor.
 
 Alla dessa gester kräver en förfrågan/svar-interaktion mellan klienten och meddelande infrastrukturen, och därför definierar specifikationen hur interaktions mönstret ska modelleras över AMQP: klienten ansluter till meddelande infrastrukturen, initierar en session och skapar sedan ett länkat länk. På en länk fungerar klienten som avsändare och på den andra fungerar den som mottagare, vilket skapar ett länk par som kan fungera som en dubbelriktad kanal.
 
@@ -351,7 +351,7 @@ AMQP SASL-integrering har två nack delar:
 
 AMQP CBS-specifikationen, som implementeras av Service Bus, aktiverar en elegant lösning för båda dessa problem: det gör att en klient kan koppla åtkomsttoken till varje nod och uppdatera dessa token innan de upphör att gälla, utan att avbryta meddelande flödet.
 
-CBS definierar en virtuell hanterings nod med namnet *$CBS*som ska tillhandahållas av meddelande infrastrukturen. Noden hantering accepterar tokens på uppdrag av andra noder i meddelande infrastrukturen.
+CBS definierar en virtuell hanterings nod med namnet *$CBS* som ska tillhandahållas av meddelande infrastrukturen. Noden hantering accepterar tokens på uppdrag av andra noder i meddelande infrastrukturen.
 
 Protokoll-gesten är ett fråge-/svars utbyte som definieras av hanterings specifikationen. Det innebär att klienten upprättar ett länk par med *$CBS* -noden och sedan skickar en begäran på den utgående länken och väntar sedan på svar på den inkommande länken.
 
@@ -359,14 +359,14 @@ Begär ande meddelandet har följande program egenskaper:
 
 | Tangent | Valfritt | Värdetyp | Värde innehåll |
 | --- | --- | --- | --- |
-| operation |Inga |sträng |**Skicka token** |
-| typ |Inga |sträng |Typ av token som ska beställas. |
-| name |Inga |sträng |Mål gruppen som token gäller. |
+| operation |Nej |sträng |**Skicka token** |
+| typ |Nej |sträng |Typ av token som ska beställas. |
+| name |Nej |sträng |Mål gruppen som token gäller. |
 | dag |Ja |timestamp |Utgångs tiden för token. |
 
 Egenskapen *Name* identifierar den entitet som token ska associeras med. I Service Bus är det sökvägen till kön, eller ämnet/prenumerationen. *Typ* egenskapen identifierar tokentypen:
 
-| Tokentyp | Beskrivning av token | Typ av brödtext | Obs! |
+| Tokentyp | Beskrivning av token | Typ av brödtext | Anteckningar |
 | --- | --- | --- | --- |
 | AMQP: JWT |JSON Web Token (JWT) |AMQP-värde (sträng) |Ännu inte tillgängligt. |
 | AMQP: SWT |Enkel webb-token (SWT) |AMQP-värde (sträng) |Stöds endast för SWT-token som utfärdats av AAD/ACS |
@@ -378,7 +378,7 @@ Svarsmeddelandet har följande *program egenskaps* värden
 
 | Tangent | Valfritt | Värdetyp | Värde innehåll |
 | --- | --- | --- | --- |
-| status kod |Inga |int |HTTP-svarskod **[RFC2616]**. |
+| status kod |Nej |int |HTTP-svarskod **[RFC2616]**. |
 | status-Beskrivning |Ja |sträng |Beskrivning av status. |
 
 Klienten kan anropa in *-token* upprepade gånger och för alla entiteter i meddelande infrastrukturen. Token är begränsade till den aktuella klienten och fästs på den aktuella anslutningen, vilket innebär att servern släpper alla kvarhållna token när anslutningen uppkommer.

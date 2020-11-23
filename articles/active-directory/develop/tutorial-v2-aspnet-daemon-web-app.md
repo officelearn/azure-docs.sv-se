@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 72b72959f7b5c89bfad4495c8534de5dfaaefe8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 031ee9a6d945d923279fd3025c32212c3ead98ed
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611103"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95406607"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Självstudie: utveckla en daemon för flera innehavare som använder Microsoft Identity Platform
 
-I den här självstudien får du lära dig hur du använder Microsoft Identity Platform för att få åtkomst till data från Microsoft Business-kunder i en tids krävande, icke-interaktiv process. I daemon-exemplet används [OAuth2-klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) för att hämta en åtkomsttoken. Daemon använder sedan token för att anropa [Microsoft Graph](https://graph.microsoft.io) och få åtkomst till organisationens data.
+I den här självstudien hämtar och kör du en ASP.NET daemon-webbapp som visar hur du använder OAuth 2,0-klientautentiseringsuppgifter för att hämta en åtkomsttoken för att anropa Microsoft Graph-API: et.
+
+I de här självstudierna har du
 
 > [!div class="checklist"]
 > * Integrera en daemon-app med Microsoft Identity Platform
@@ -31,7 +33,7 @@ I den här självstudien får du lära dig hur du använder Microsoft Identity P
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2017 eller 2019](https://visualstudio.microsoft.com/downloads/).
 - En Azure AD-klientorganisation. Mer information finns i [så här hämtar du en Azure AD-klient](quickstart-create-new-tenant.md).
@@ -111,12 +113,12 @@ Om du inte vill använda Automation följer du stegen i följande avsnitt.
 1. På sidan **Översikt** för appen letar du reda på **programmets (klient) ID-** värde och registrerar det för senare. Du behöver den för att konfigurera Visual Studio-konfigurationsfilen för projektet.
 1. I listan över sidor för appen väljer du **Autentisering**. Efter det:
    - I avsnittet **Avancerade inställningar** anger du **utloggnings-URL** till **https://localhost:44316/Account/EndSession** .
-   - I avsnittet **Avancerade inställningar**för  >  **implicit beviljande** väljer du **åtkomsttoken** och **ID-token**. Det här exemplet kräver att det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md) är aktiverat för att logga in användaren och anropa ett API.
+   - I avsnittet **Avancerade inställningar** för  >  **implicit beviljande** väljer du **åtkomsttoken** och **ID-token**. Det här exemplet kräver att det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md) är aktiverat för att logga in användaren och anropa ett API.
 1. Välj **Spara**.
-1. På sidan **certifikat & hemligheter** väljer du **ny klient hemlighet**i avsnittet **klient hemligheter** . Efter det:
+1. På sidan **certifikat & hemligheter** väljer du **ny klient hemlighet** i avsnittet **klient hemligheter** . Efter det:
 
    1. Ange en nyckel Beskrivning (till exempel **app Secret**),
-   1. Välj en nyckel varaktighet på **minst ett år**, **i två år**eller **upphör aldrig att gälla**.
+   1. Välj en nyckel varaktighet på **minst ett år**, **i två år** eller **upphör aldrig att gälla**.
    1. Välj knappen **Lägg till**.
    1. När nyckelvärdet visas kopierar du och sparar det på en säker plats. Du behöver den här nyckeln senare för att konfigurera projektet i Visual Studio. Den visas inte igen eller kan hämtas på annat sätt.
 1. I listan över sidor för appen väljer du API- **behörigheter**. Efter det:
@@ -186,15 +188,15 @@ Den relevanta koden för det här exemplet är i följande filer:
    1. Ta bort **. App_Start** från namn områdes namnet.
    1. Ersätt koden för **Start** klassen med koden från samma fil i exempel programmet.
    Se till att du tar hela klass definitionen. Definitionen ändras från en **offentlig klass som startar** till en **offentlig del klass.**
-1. I **startup.auth.cs**löser du de referenser som saknas genom att lägga till **using** -instruktioner som föreslås av Visual Studio IntelliSense.
-1. Högerklicka på projektet, Välj **Lägg till**och välj sedan **klass**.
-1. Skriv **OWIN**i rutan Sök. **Start klassen OWIN** visas som ett val. Markera det och ge klassen namnet **startup.cs**.
-1. I **startup.cs**ersätter du koden för **Start** klassen med koden från samma fil i exempel programmet. Observera återigen att definitions ändringarna från den **offentliga klassen startar** till en **offentlig, delvis klass start**.
-1. Lägg till en ny klass med namnet **MsGraphUser.cs**i mappen **modeller** . Ersätt implementeringen med innehållet i filen med samma namn från exemplet.
+1. I **startup.auth.cs** löser du de referenser som saknas genom att lägga till **using** -instruktioner som föreslås av Visual Studio IntelliSense.
+1. Högerklicka på projektet, Välj **Lägg till** och välj sedan **klass**.
+1. Skriv **OWIN** i rutan Sök. **Start klassen OWIN** visas som ett val. Markera det och ge klassen namnet **startup.cs**.
+1. I **startup.cs** ersätter du koden för **Start** klassen med koden från samma fil i exempel programmet. Observera återigen att definitions ändringarna från den **offentliga klassen startar** till en **offentlig, delvis klass start**.
+1. Lägg till en ny klass med namnet **MsGraphUser.cs** i mappen **modeller** . Ersätt implementeringen med innehållet i filen med samma namn från exemplet.
 1. Lägg till en ny **MVC 5-kontrollant – tom** instans med namnet **AccountController**. Ersätt implementeringen med innehållet i filen med samma namn från exemplet.
 1. Lägg till en ny **MVC 5-kontrollant – tom** instans med namnet **UserController**. Ersätt implementeringen med innehållet i filen med samma namn från exemplet.
 1. Lägg till en ny **Web API 2-kontrollant-tom** instans med namnet **SyncController**. Ersätt implementeringen med innehållet i filen med samma namn från exemplet.
-1. För användar gränssnittet, i mappen **Views\Account** , lägger du till tre **tomma (utan modell) vyer** av instanser med namnet **GrantPermissions**, **index**och **UserMismatch**. Lägg till och ett namngivet **index** i **Views\User** -mappen. Ersätt implementeringen med innehållet i filen med samma namn från exemplet.
+1. För användar gränssnittet, i mappen **Views\Account** , lägger du till tre **tomma (utan modell) vyer** av instanser med namnet **GrantPermissions**, **index** och **UserMismatch**. Lägg till och ett namngivet **index** i **Views\User** -mappen. Ersätt implementeringen med innehållet i filen med samma namn från exemplet.
 1. Uppdatera **delad \_ layout. cshtml** och **Home\Index.cshtml** för att länka ihop de olika vyerna på rätt sätt.
 
 ## <a name="deploy-the-sample-to-azure"></a>Distribuera exemplet till Azure
@@ -210,7 +212,7 @@ Det här projektet har Web App-och Web API-projekt. För att distribuera dem til
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **Skapa en resurs** i det övre vänstra hörnet.
 1. Välj **webb**  >  **-** webbapp och ge din webbplats ett namn. Du kan till exempel ge den namnet **dotNet-Web-daemon-v2-contoso.azurewebsites.net**.
-1. Välj information för **prenumeration**, **resurs grupp**och **App Service-plan och plats**. **OS** är **Windows**och **publicera** är **kod**.
+1. Välj information för **prenumeration**, **resurs grupp** och **App Service-plan och plats**. **OS** är **Windows** och **publicera** är **kod**.
 1. Välj **skapa** och vänta tills App Service har skapats.
 1. När du får ett meddelande om att **distributionen har slutförts** väljer du **gå till resurs** för att gå till den nyligen skapade app-tjänsten.
 1. När webbplatsen har skapats letar du reda på den på **instrument panelen** och väljer den för att öppna app Services **översikts** skärm.

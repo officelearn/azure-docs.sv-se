@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: cff5c68803d0930bbf3310a385ffa0132bcbb3b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2c38af9a2e1c4c71bb2d5661758f663efe13a946
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95017034"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95414087"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -160,7 +160,7 @@ Data disk storlek | Enskild disk storlek kan vara upp till 32 TB och högst 256 
 Lagringstyp | Standard HDD Standard SSD Premium SSD.
 Hanterade diskar | Stöds.
 Krypterade diskar | Stöds.<br/><br/> Virtuella Azure-datorer med Azure Disk Encryption kan säkerhets kopie ras (med eller utan Azure AD-appen).<br/><br/> Det går inte att återställa krypterade virtuella datorer på nivån fil/mapp. Du måste återställa hela den virtuella datorn.<br/><br/> Du kan aktivera kryptering på virtuella datorer som redan skyddas av Azure Backup.
-Diskar med Skrivningsaccelerator aktiverat | Stöds inte.<br/><br/> Azure Backup utesluter automatiskt diskarna med Skrivningsaccelerator (WA) aktiverade under säkerhets kopieringen. Eftersom de inte har säkerhetskopierats kan du inte återställa diskarna från återställnings punkter på den virtuella datorn. <br><br> **Viktigt meddelande**: virtuella datorer med WA-diskar behöver Internet anslutning för att det ska gå att säkerhetskopiera (även om diskarna exkluderas från säkerhets kopian.)
+Diskar med Skrivningsaccelerator aktiverat | Från och med den 23 november 2020 som stöds i regionerna Korea Central (KRC) och södra Afrika, norra (SAN).<br/><br/> Azure Backup kommer att säkerhetskopiera de virtuella datorerna med diskar som är skrivna med Accelarted (WA) aktiverade under säkerhets kopieringen.  
 Säkerhetskopiera & återställa deduplicerade virtuella datorer/diskar | Azure Backup har inte stöd för deduplicering. Mer information finns i den här [artikeln](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  -Azure Backup deduplicerar inte mellan virtuella datorer i Recovery Services-valvet <br/> <br/>  – Om det finns virtuella datorer i Deduplicerings tillstånd under återställningen kan filerna inte återställas eftersom valvet inte förstår formatet. Du kan dock utföra fullständig återställning av virtuella datorer.
 Lägg till disk i skyddad virtuell dator | Stöds.
 Ändra storlek på disk på skyddad virtuell dator | Stöds.

@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: b3ab711f6d324c6d49eda0dccd88a3f2ac939eb5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8710e0cdd6c930338009fb2b7f3bd98fafcfad3e
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461591"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411571"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Fråga exporterade data från Azure Monitor med Azure Datautforskaren (förhands granskning)
 Export av data från Azure Monitor till ett Azure Storage-konto möjliggör låg kostnads kvarhållning och möjlighet att omfördela loggar till olika regioner. Använd Azure-Datautforskaren för att fråga data som har exporter ATS från dina Log Analytics arbets ytor. När den har kon figurer ATS kommer de tabeller som stöds som skickas från dina arbets ytor till ett Azure Storage-konto att vara tillgängliga som data källa för Azure-Datautforskaren.
@@ -43,7 +43,7 @@ Använd [externa tabeller](/azure/data-explorer/kusto/query/schema-entities/exte
 
 Om du vill skapa en referens behöver du schemat för den exporterade tabellen. Använd [Get schema](/azure/data-explorer/kusto/query/getschemaoperator) -operatorn från Log Analytics för att hämta den här informationen som innehåller tabellens kolumner och deras data typer.
 
-:::image type="content" source="media\azure-data-explorer-query-storage\exported-data-map-schema.jpg" alt-text="Azure Datautforskaren exporterade data frågor om flöde.":::
+:::image type="content" source="media\azure-data-explorer-query-storage\exported-data-map-schema.jpg" alt-text="Log Analytics tabell schema.":::
 
 Du kan nu använda utdata för att skapa en Kusto-fråga för att skapa den externa tabellen.
 Följ rikt linjerna i [skapa och ändra externa tabeller i Azure Storage eller Azure Data Lake](/azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake), skapa en extern tabell i ett JSON-format och kör sedan frågan från Azure-datautforskaren-databasen.
@@ -56,12 +56,12 @@ Följande PowerShell-skript kommer att skapa [create](/azure/data-explorer/kusto
 ```powershell
 PARAM(
     $resourcegroupname, #The name of the Azure resource group
-    $TableName, # The log lanlyics table you wish to convert to external table
+    $TableName, # The Log Analytics table you wish to convert to external table
     $MapName, # The name of the map
     $subscriptionId, #The ID of the subscription
-    $WorkspaceId, # The log lanlyics WorkspaceId
-    $WorkspaceName, # The log lanlyics workspace name
-    $BlobURL, # The Blob URL where to save
+    $WorkspaceId, # The Log Analytics WorkspaceId
+    $WorkspaceName, # The Log Analytics workspace name
+    $BlobURL, # The Blob URL where the data is saved
     $ContainerAccessKey, # The blob container Access Key (Option to add a SAS url)
     $ExternalTableName = $null # The External Table name, null to use the same name
 )
@@ -116,12 +116,13 @@ Write-Host -ForegroundColor Green $createMapping
 
 Följande bild visar och exempel på utdata.
 
-:::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="Azure Datautforskaren exporterade data frågor om flöde.":::
+:::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="ExternalTable skapar kommandoutdata.":::
 
 [![Exempel på utdata](media/azure-data-explorer-query-storage/external-table-create-command-output.png)](media/azure-data-explorer-query-storage/external-table-create-command-output.png#lightbox)
 
 >[!TIP]
->Kopiera, klistra in och kör sedan utdata från skriptet i Azure Datautforskaren client-verktyget för att skapa tabellen och mappningen.
+>* Kopiera, klistra in och kör sedan utdata från skriptet i Azure Datautforskaren client-verktyget för att skapa tabellen och mappningen.
+>* Om du vill använda alla data i behållaren kan du ändra skriptet och ändra URL: en till " https://your.blob.core.windows.net/containername ; SecKey'
 
 ## <a name="query-the-exported-data-from-azure-data-explorer"></a>Fråga exporterade data från Azure Datautforskaren 
 

@@ -3,12 +3,12 @@ title: Felsöka fel vid säkerhets kopiering av SAP HANA databaser
 description: Beskriver hur du felsöker vanliga fel som kan uppstå när du använder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9fa73ee38e337a547816432212bc68d419f40bb
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377692"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411333"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
@@ -153,7 +153,7 @@ Uppgraderingar av operativ systemet, SDC versions ändring eller MDC versions ä
 - Se till att den nya versionen av OS, SDC eller MDC stöds för närvarande [av Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
 - [Stoppa skyddet med Behåll data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) för databasen
 - Genomför uppgraderingen eller uppdateringen
-- Kör skriptet för för registrering igen. Vanligt vis tar uppgraderings processen bort de nödvändiga rollerna. Genom att köra skriptet för för registrering kan du kontrol lera alla nödvändiga roller
+- Kör skriptet för för registrering igen. Uppgraderings processen kan ofta ta bort [de nödvändiga rollerna](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does). Genom att köra skriptet för för registrering kan du kontrol lera alla nödvändiga roller.
 - Återuppta skyddet av databasen igen
 
 ## <a name="sdc-to-mdc-upgrade-with-no-change-in-sid"></a>SDC till MDC-uppgradering utan ändring i SID
@@ -187,7 +187,7 @@ Uppgraderingar från SDC till MDC som orsakar en SID ändring kan hanteras på f
 Kontrol lera om det finns ett eller flera av följande symptom innan du utlöser omregistrerings åtgärden:
 
 - Alla åtgärder (till exempel säkerhets kopiering, återställning och konfigurations säkerhets kopiering) kan inte utföras på den virtuella datorn med någon av följande felkoder: **WorkloadExtensionNotReachable, UserErrorWorkloadExtensionNotInstalled, WorkloadExtensionNotPresent, WorkloadExtensionDidntDequeueMsg**.
-- Om **säkerhets kopierings status** fältet för det säkerhetskopierade objektet **visas kan du**utesluta alla andra orsaker som kan resultera i samma status:
+- Om **säkerhets kopierings status** fältet för det säkerhetskopierade objektet **visas kan du** utesluta alla andra orsaker som kan resultera i samma status:
 
   - Saknar behörighet att utföra säkerhetskopierade åtgärder på den virtuella datorn
   - Den virtuella datorn stängs av, så säkerhets kopieringen kan inte ske

@@ -2,13 +2,13 @@
 title: Översikt över Azure Service Bus-meddelanden | Microsoft Docs
 description: Den här artikeln innehåller en översikt på hög nivå av Azure Service Bus, en fullständigt hanterad Message Broker för företags integrering.
 ms.topic: overview
-ms.date: 06/23/2020
-ms.openlocfilehash: 478dd0debb5117e76cf8d0ab6599dcf363c12ab3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/20/2020
+ms.openlocfilehash: febb25474f84819b0afc9ab1f9af96e93489ab54
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87501482"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95415294"
 ---
 # <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
 
@@ -89,30 +89,47 @@ Vid borttagning vid inaktivitet kan du ange ett inaktivt intervall efter vilket 
 
 Ett fel kan orsaka att klienten tvekar om resultatet av en skicka-åtgärd. Dubblettidentifiering gör att avsändaren kan skicka samma meddelande igen. Ett annat alternativ är för kön eller ämnet att ignorera dubbletter av kopior. Mer information finns i [dubblettidentifiering](duplicate-detection.md).
 
-### <a name="security-protocols"></a>Säkerhets protokoll
-<a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
-
-Service Bus stöder säkerhets protokoll som [signaturer för delad åtkomst](service-bus-sas.md) (SAS), [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](authenticate-application.md) och [hanterade identiteter för Azure-resurser](service-bus-managed-service-identity.md).
-
 ### <a name="geo-disaster-recovery"></a>Geohaveriberedskap
 
-När Azure-regioner eller datacenter drabbas av driftstopp låter geohaveriberedskap databearbetningen fortsätta i en annan region eller datacenter. Mer information finns i [Azure Service Bus geo-Disaster Recovery](service-bus-geo-dr.md).
+När Azure-regioner eller data Center upplever drift stopp gör den geo-distribuerade haveri beredskap-funktionen att data bearbetningen fortsätter att fungera i en annan region eller data Center. Mer information finns i [Azure Service Bus geo-Disaster Recovery](service-bus-geo-dr.md).
 
 ### <a name="security"></a>Säkerhet
 
-Service Bus stöder standardprotokoll [AMQP 1.0](service-bus-amqp-overview.md) och [HTTP-REST](/rest/api/servicebus/).
+Service Bus stöder standard [AMQP 1,0](service-bus-amqp-overview.md) och [http/rest-](/rest/api/servicebus/) protokoll och deras respektive säkerhetsfunktioner, inklusive TLS (Transport Level Security). Klienter kan auktoriseras för åtkomst med hjälp av den Service Bus inbyggda signatur modellen för [delad åtkomst](service-bus-sas.md) eller med [Azure Active Directory](service-bus-authentication-and-authorization.md) rollbaserad säkerhet, antingen med hjälp av reguljära tjänst konton eller Azure Managed identiteter. 
+
+För skydd mot oönskad trafik tillhandahåller Service Bus en mängd [funktioner för nätverks säkerhet](network-security.md), inklusive en IP-filtrerings brand vägg och integrering med Azure och lokala virtuella nätverk.
 
 ## <a name="client-libraries"></a>Klientbibliotek
 
-Service Bus stöder klient bibliotek för [.net](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master)och [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
+Fullständigt stöd för Service Bus klient bibliotek är tillgängliga via Azure SDK.
+
+- [Azure Service Bus för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet&preserve-view=true)
+- [Azure Service Bus bibliotek för Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-stable&preserve-view=true)
+- [Azure Service Bus Provider för Java JMS 2,0](how-to-use-java-message-service-20.md)
+- [Azure Service Bus moduler för Java Script och TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
+- [Azure Service Bus bibliotek för python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
+
+[Azure Service Bus primärt protokoll är AMQP 1,0](service-bus-amqp-overview.md) och kan användas från valfri AMQP 1,0-kompatibel protokoll klient. Flera AMQP-klienter med öppen källkod har exempel som tydligt demonstrerar Service Bus samverkan. I [AMQP 1,0-protokoll guiden](service-bus-amqp-protocol-guide.md) hittar du information om hur du använder Service Bus-funktioner med AMQP 1,0-klienter direkt.
+
+| Språk | Bibliotek |
+| --- | --- |
+| Java | [Apache qpid Proton-J](https://qpid.apache.org/proton/index.html) |
+| C/C++ |[Azure UAMQP C](https://github.com/azure/azure-uamqp-c/), [Apache qpid Proton-C](https://qpid.apache.org/proton/index.html) |
+| Python |[Azure-uAMQP för python](https://github.com/azure/azure-uamqp-python/), [Apache qpid Proton python](https://qpid.apache.org/releases/qpid-proton-0.32.0/proton/python/docs/overview.html) |
+| PHP | [Azure-uAMQP för PHP](https://github.com/vsouz4/azure-uamqp-php/) |
+| Ruby | [Apache qpid Proton ruby](https://github.com/apache/qpid-proton/tree/master/ruby) |
+| Go | [Azure go-AMQP](https://github.com/Azure/go-amqp), [Apache qpid Proton go](https://github.com/apache/qpid-proton/tree/master/go/examples)
+| C#/F #/VB | [AMQP .net lite](https://github.com/Azure/amqpnetlite), [Apache NMS AMQP](https://github.com/apache/activemq-nms-amqp)|
+| Java Script/Node | [Rhea](https://github.com/grs/rhea) |
 
 ## <a name="integration"></a>Integrering
 
-Service Bus är helt integrerad med följande Azure-tjänster:
+Service Bus är fullständigt integrerat med många Microsoft-och Azure-tjänster, till exempel:
 
 * [Event Grid](https://azure.microsoft.com/services/event-grid/)
 * [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
+* [Power Platform](https://powerplatform.microsoft.com/)
 * [Dynamics 365](https://dynamics.microsoft.com)
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 

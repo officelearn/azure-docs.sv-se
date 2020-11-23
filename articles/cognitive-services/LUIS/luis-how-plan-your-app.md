@@ -69,7 +69,7 @@ I stället för att ha två separata intentor skapar du en enda avsikt med en `F
 `FlightAction`Entiteten är strukturerad i följande pseudo-schema för Machine Learning-entiteten och-underentiteter:
 
 * FlightAction
-    * Action
+    * Åtgärd
     * Ursprung
     * Mål
 

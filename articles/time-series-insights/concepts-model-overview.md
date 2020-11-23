@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: a61dd6c17ad4d11c6dd7294c9a4f96270748c16a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c201ce984a216a5cc62e221c0433f83a7eeabae
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630669"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021770"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Tids serie modell i Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ I den här artikeln beskrivs tids serie modellen, funktionerna och hur du börja
 > [!TIP]
 >
 > * Gå till [Contosos demonstrations](https://insights.timeseries.azure.com/preview/samples) miljö för en real tids serie modell exempel.
-> * Lär dig [hur du arbetar med tids serie modellen](/azure/time-series-insights/how-to-edit-your-model) med hjälp av Azure Time Series Insights Explorer.
+> * Lär dig [hur du arbetar med tids serie modellen](./how-to-edit-your-model.md) med hjälp av Azure Time Series Insights Explorer.
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -61,7 +61,7 @@ Med målet att göra det enkelt och enkelt att hantera Time Series-contextualiza
 
 * Redigera och hantera beräkningar eller formler som använder skalära funktioner, mängd åtgärder och så vidare.
 * Definiera överordnade och underordnade relationer för att aktivera navigering, sökning och referens.
-* Definiera egenskaper som är associerade med instanserna, definierade som *instans fält*och Använd dem för att skapa hierarkier.
+* Definiera egenskaper som är associerade med instanserna, definierade som *instans fält* och Använd dem för att skapa hierarkier.
 
 ### <a name="components"></a>Komponenter
 
@@ -75,7 +75,7 @@ Dessa komponenter kombineras för att ange en tids serie modell och organisera d
 
 [![Översikts diagram över tids serie modellen](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-En tids serie modell kan skapas och hanteras via [Azure Time Series Insights Explorer](/azure/time-series-insights/concepts-model-overview). Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
+En tids serie modell kan skapas och hanteras via [Azure Time Series Insights Explorer](). Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Tids serie modell instanser
 
@@ -95,14 +95,14 @@ När en händelse källa har kon figurer ATS för Azure Time Series Insights Gen
 
 ### <a name="instance-properties"></a>Instans egenskaper
 
-Instanser definieras av **timeSeriesId**, **typeId**, **Name**, **Description**, **hierarchyIds**och **instanceFields**. Varje instans mappar endast till en *typ*, och en eller flera *hierarkier*.
+Instanser definieras av **timeSeriesId**, **typeId**, **Name**, **Description**, **hierarchyIds** och **instanceFields**. Varje instans mappar endast till en *typ*, och en eller flera *hierarkier*.
 
 | Egenskap | Beskrivning |
 | --- | ---|
 | timeSeriesId | Unikt ID för tids serien som instansen är associerad med. I de flesta fall identifieras instanser unikt av en egenskap som deviceId eller assetId. I vissa fall kan ett mer särskilt sammansatt ID som kombinerar upp till 3 egenskaper användas. |
 | ID | Det Skift läges känsliga unika sträng-ID: t för den tids serie modell typ som instansen är associerad med. Som standard blir alla identifierade nya instanser kopplade till en standard typ.
-| name | Egenskapen **Name** är valfri och Skift läges känslig. Om **namnet** inte är tillgängligt används **timeSeriesId**som standard. Om ett namn anges är **timeSeriesId** fortfarande [tillgängligt.](time-series-insights-update-explorer.md#4-time-series-well) |
-| description | En text Beskrivning av instansen. |
+| name | Egenskapen **Name** är valfri och Skift läges känslig. Om **namnet** inte är tillgängligt används **timeSeriesId** som standard. Om ett namn anges är **timeSeriesId** fortfarande [tillgängligt.](./concepts-ux-panels.md#4-time-series-well) |
+| beskrivning | En text Beskrivning av instansen. |
 | hierarchyIds | Definierar vilka hierarkier som instansen tillhör. |
 | instanceFields | Egenskaperna för en instans och eventuella statiska data som definierar en instans. De definierar värden för hierarki-eller icke-hierarkiska egenskaper och stöder även indexering för att utföra Sök åtgärder. |
 
@@ -129,7 +129,7 @@ Instanserna har följande JSON-representation:
 ```
 
 > [!TIP]
-> Om du vill ha stöd för att skapa, läsa, uppdatera och ta bort (CRUD) kan du läsa artikeln om [data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [REST-API för instansen](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api)API.
+> Om du vill ha stöd för att skapa, läsa, uppdatera och ta bort (CRUD) kan du läsa artikeln om [data frågor](./concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [REST-API för instansen](/rest/api/time-series-insights/reference-model-apis#instances-api)API.
 
 ## <a name="time-series-model-hierarchies"></a>Hierarkier för tids serie modell
 
@@ -143,7 +143,7 @@ I [Contosos demo grupp demonstration](https://insights.timeseries.azure.com/prev
 
 ### <a name="hierarchy-definition"></a>Definition av hierarki
 
-Hierarkier definieras av hierarki **-ID**, **namn**och **källa**.
+Hierarkier definieras av hierarki **-ID**, **namn** och **källa**.
 
 | Egenskap | Beskrivning |
 | ---| ---|
@@ -186,7 +186,7 @@ I föregående JSON-exempel:
 * `ManufactureDate` definierar en hierarki med överordnad `year` och underordnad `month` . Varje `ManufactureDate` kan ha flera `years` , som i sin tur kan ha flera `months` .
 
 > [!TIP]
-> För hierarki-API skapa, läsa, uppdatera och ta bort (CRUD) support, Läs artikeln [data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [API rest-dokumentation för hierarkin](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
+> För hierarki-API skapa, läsa, uppdatera och ta bort (CRUD) support, Läs artikeln [data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [API rest-dokumentation för hierarkin](/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Exempel på hierarki
 
@@ -216,7 +216,7 @@ Utifrån de instans fält som används i den föregående definitionen och flera
 | ID4 | "skapa" = "1000", "golv" = "10"  |
 | ID5 | Ingen av "byggnad", "golv" eller "Room" har angetts. |
 
-Time Series- **id1** och **ID4** visas som en del av hierarkin **H1** i [Azure Time Series Insights Explorer](time-series-insights-update-explorer.md) eftersom de har fullständigt definierade och korrekt beställda parametrar för *bygge*, *golv*och *rum* .
+Time Series- **id1** och **ID4** visas som en del av hierarkin **H1** i [Azure Time Series Insights Explorer](./concepts-ux-panels.md) eftersom de har fullständigt definierade och korrekt beställda parametrar för *bygge*, *golv* och *rum* .
 
 De andra klassificeras under icke- *överordnade instanser* eftersom de inte överensstämmer med den angivna Datahierarkin.
 
@@ -224,24 +224,24 @@ De andra klassificeras under icke- *överordnade instanser* eftersom de inte öv
 
 Med modell *typer* för tids serier kan du definiera variabler eller formler för att utföra beräkningar. Typer är associerade med en angiven instans.
 
-En typ kan ha en eller flera variabler. En tids serie modell instans kan till exempel vara av typen *temperatur sensor*, som består av variablerna *medel temperatur*, *min temperatur*och *Maximal temperatur*.
+En typ kan ha en eller flera variabler. En tids serie modell instans kan till exempel vara av typen *temperatur sensor*, som består av variablerna *medel temperatur*, *min temperatur* och *Maximal temperatur*.
 
 [Contosos demo grupp demonstration](https://insights.timeseries.azure.com/preview/samples) visualiserar flera tids serie modell typer som är kopplade till sina respektive instanser.
 
 [![Exempel på tids serie modell typ](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> För typerna API: Create, läsa, uppdatera och ta bort (CRUD) kan du läsa artikeln om [data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för typ-API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#types-api).
+> För typerna API: Create, läsa, uppdatera och ta bort (CRUD) kan du läsa artikeln om [data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för typ-API](/rest/api/time-series-insights/reference-model-apis#types-api).
 
 ### <a name="type-properties"></a>Typ egenskaper
 
-Tids serie modell typer definieras av **ID**, **namn**, **Beskrivning**och **variabler**.
+Tids serie modell typer definieras av **ID**, **namn**, **Beskrivning** och **variabler**.
 
 | Egenskap | Beskrivning |
 | ---| ---|
 | id | Det Skift läges känsliga unika sträng-ID: t för typen. |
 | name | En sträng som används för att ange ett namn för typen. |
-| description | En sträng beskrivning för typen. |
+| beskrivning | En sträng beskrivning för typen. |
 | användarvariabler | Ange variabler som är associerade med typen. |
 
 Typerna följer följande JSON-exempel:
@@ -288,7 +288,7 @@ Tids serie modell typer kan ha många variabler som anger formel-och beräknings
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du redigerar modellen via API: er finns i referens dokumentationen för [Time Series-modellen](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) .
+* Mer information om hur du redigerar modellen via API: er finns i referens dokumentationen för [Time Series-modellen](/rest/api/time-series-insights/reference-model-apis) .
 
 * Utforska formler och beräkningar som du kan skapa med [tids serie modellens variabler](./concepts-variables.md)
 

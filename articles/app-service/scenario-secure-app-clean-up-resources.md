@@ -21,7 +21,7 @@ ms.locfileid: "95025369"
 
 Om du har slutfört alla steg i den här självstudien har du skapat en app service, en värd plan för app service och ett lagrings konto i en resurs grupp. Du skapade också en app-registrering i Azure Active Directory. När de inte längre behövs kan du ta bort dessa resurser och registrera registreringen så att du inte fortsätter att Periodisera avgifter.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >

@@ -2,13 +2,13 @@
 title: Distribuera resurser till klient organisationen
 description: Beskriver hur du distribuerar resurser i klient omfånget i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: 65a5e90616f8883b338d22fa31eee6932452b5fd
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.date: 11/24/2020
+ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95242670"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807640"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Klient distributioner med ARM-mallar
 
@@ -129,6 +129,14 @@ Mer detaljerad information om distributions kommandon och alternativ för att di
 * [Använd en distributions knapp för att distribuera mallar från GitHub-lagringsplatsen](deploy-to-azure-button.md)
 * [Distribuera ARM-mallar från Cloud Shell](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>Distributions plats och namn
+
+För distributioner på klient nivå måste du ange en plats för distributionen. Platsen för distributionen är separat från platsen för de resurser som du distribuerar. Distributions platsen anger var distributions data ska lagras. Distributioner av [prenumerationer](deploy-to-subscription.md) och [hanterings grupper](deploy-to-management-group.md) kräver också en plats. För [resurs grupps](deploy-to-resource-group.md) distributioner används resurs gruppens plats för att lagra distributions data.
+
+Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy**.
+
+För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du till exempel skapar en klient distribution med namnet **deployment1** i **centralen** kan du inte senare skapa en annan distribution med namnet **deployment1** men en plats med **väst**. Om du får fel koden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
+
 ## <a name="deployment-scopes"></a>Distributions omfång
 
 När du distribuerar till en klient kan du distribuera resurser för att:
@@ -153,7 +161,7 @@ De resurser som definieras i avsnittet resurser i mallen tillämpas på klienten
 
 Om du vill rikta en hanterings grupp inom klienten lägger du till en kapslad distribution och anger `scope` egenskapen.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,18,22":::
 
 ### <a name="scope-to-subscription"></a>Omfång till prenumeration
 
@@ -161,7 +169,7 @@ Du kan också rikta prenumerationer inom klienten. Användaren som distribuerar 
 
 Om du vill rikta en prenumeration inom klienten använder du en kapslad distribution och `subscriptionId` egenskapen.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="9,10,18":::
 
 ### <a name="scope-to-resource-group"></a>Omfång till resurs grupp
 
@@ -170,14 +178,6 @@ Du kan också rikta resurs grupper inom klienten. Användaren som distribuerar m
 Om du vill rikta en resurs grupp inom klienten använder du en kapslad distribution. Ange `subscriptionId` egenskaperna och `resourceGroup` . Ange ingen plats för den kapslade distributionen eftersom den har distribuerats i resurs gruppens plats.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
-
-## <a name="deployment-location-and-name"></a>Distributions plats och namn
-
-För distributioner på klient nivå måste du ange en plats för distributionen. Platsen för distributionen är separat från platsen för de resurser som du distribuerar. Distributions platsen anger var distributions data ska lagras.
-
-Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy**.
-
-För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får fel koden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
 
 ## <a name="create-management-group"></a>Skapa en hanteringsgrupp
 

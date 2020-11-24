@@ -3,12 +3,12 @@ title: Aktivera din Azure VMware-lösnings resurs
 description: Lär dig hur du skickar en support förfrågan för att aktivera din Azure VMware-lösnings resurs. Du kan också begära fler värdar i ditt befintliga Azure VMware-lösningar privata moln.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: cd58611f77c2f2fb1694597fc9ef049420093ccc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 68f8fe38c67ec5ddad7cf662a7996330ee2a1e73
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967371"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95794720"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Så här aktiverar du Azure VMware-lösnings resurser
 Lär dig hur du skickar en support förfrågan för att aktivera din [Azure VMware-lösnings](introduction.md) resurs. Du kan också begära fler värdar i ditt befintliga Azure VMware-lösningar privata moln.
@@ -64,7 +64,7 @@ Innan du skapar din Azure VMware-lösning måste du skicka in ett support ärend
 Kryptografiproviders måste använda [Microsoft Partner Center](https://partner.microsoft.com) för att aktivera Azure VMware-lösningen för sina kunder. 
 
    >[!IMPORTANT] 
-   >Azure VMware Solution service tillhandahåller inte en miljö för flera innehavare, och därför stöds inte partner partner ännu. 
+   >Azure VMware Solution service ger inget krav på flera innehavare. Det finns inte stöd för värd partner som kräver det. 
 
 1. I **partner Center** väljer du **CSP** för att få åtkomst till avsnittet **kunder** .
 
@@ -113,13 +113,16 @@ När du har konfigurerat Azure-planen och de nödvändiga vSphere RBAC-behörigh
    >[!IMPORTANT] 
    >Om du redan har en befintlig Azure VMware-lösning och du begär ytterligare värdar måste vi tänka på att vi behöver fem arbets dagar för att allokera värdarna. 
 
-1. När den har lagts till i Azure-planen och med kvoten aktive rad kan kunden eller partner administratören distribuera ett privat moln i Azure VMware-lösningen via Azure Portal. Innan du kan etablera dina värdar bör du kontrol lera att du registrerar resurs leverantören för **Microsoft. AVS** i Azure Portal.  
+1. Om prenumerationen hanteras av tjänste leverantören måste deras administrations team komma åt Azure Portal att använda **Administratörs processen på uppdrag av** (administrate) från Partner Center. En Azure Portal starta en [Cloud Shell](../cloud-shell/overview.md) instans och registrera **Microsoft. AVS** -Resurshanteraren och fortsätt med distributionen av det privata molnet Azure VMware-lösning.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
    ```
 
    Ytterligare sätt att registrera resurs leverantören finns i [Azure Resource providers och-typer](../azure-resource-manager/management/resource-providers-and-types.md).
+
+1. Om prenumerationen hanteras direkt av kunden måste registreringen av **Microsoft. AVS** -resurshanteraren göras av en användare med tillräcklig behörighet i prenumerationen, se [Azure-providers och typer](../azure-resource-manager/management/resource-providers-and-types.md) för mer information och sätt att registrera resurs leverantören. 
+
 
 ## <a name="next-steps"></a>Nästa steg
 

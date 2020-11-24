@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: dc3d119479d2dce45b286463f3d6a76410220dd0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2370f76bacb8645f1b343da4f056c8bcf06a26dd
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014228"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95796726"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Standard kolumner i Azure Monitor loggar
 Data i Azure Monitor loggar [lagras som en uppsättning poster i antingen en Log Analytics arbets yta eller ett Application Insights program](./data-platform-logs.md), var och en med en viss datatyp som har en unik uppsättning kolumner. Många data typer kommer att ha standard kolumner som är gemensamma för flera typer. Den här artikeln beskriver de här kolumnerna och innehåller exempel på hur du kan använda dem i frågor.
@@ -80,7 +80,7 @@ Kolumnen **\_ Itemid** innehåller en unik identifierare för posten.
 ## <a name="_resourceid"></a>\_ResourceId
 Kolumnen **\_ ResourceID** innehåller en unik identifierare för resursen som posten är associerad med. Detta ger dig en standard kolumn som du kan använda för att begränsa din fråga till endast poster från en viss resurs eller för att koppla samman relaterade data över flera tabeller.
 
-För Azure-resurser är värdet för **_ResourceId** [URL: en för Azure-resurs-ID](../../azure-resource-manager/templates/template-functions-resource.md). Kolumnen är för närvarande begränsad till Azure-resurser, men den kommer att utökas till resurser utanför Azure, till exempel lokala datorer.
+För Azure-resurser är värdet för **_ResourceId** [URL: en för Azure-resurs-ID](../../azure-resource-manager/templates/template-functions-resource.md). Kolumnen är begränsad till Azure-resurser, inklusive [Azure Arc](../../azure-arc/overview.md) -resurser, eller anpassade loggar som anger resurs-ID vid inmatning.
 
 > [!NOTE]
 > Vissa data typer har redan fält som innehåller Azure-resurs-ID eller minst delar av det som prenumerations-ID. Dessa fält bevaras för bakåtkompatibilitet, men vi rekommenderar att du använder _ResourceId för att utföra kors korrelation eftersom det blir mer konsekvent.
@@ -111,17 +111,47 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-Följande fråga analyserar **_ResourceId** och aggregerar fakturerade data volymer per Azure-prenumeration.
+Följande fråga analyserar **_ResourceId** och aggregerar fakturerings data volymer per Azure-resurs grupp.
 
 ```Kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by resourceGroup | sort by Bytes nulls last 
 ```
 
 Använd dessa `union withsource = tt *` frågor sparsamt eftersom det är dyrt att köra genomsökningar över data typer.
+
+Det är alltid mer effektivt att använda \_ SubscriptionId-kolumnen än att extrahera den genom att parsa \_ kolumnen ResourceID.
+
+## <a name="_substriptionid"></a>\_SubstriptionId
+**\_ SubscriptionId** -kolumnen innehåller prenumerations-ID för den resurs som posten är associerad med. Detta ger dig en standard kolumn som du kan använda för att begränsa din fråga till endast poster från en viss prenumeration, eller för att jämföra olika prenumerationer.
+
+För Azure-resurser är värdet för **__SubscriptionId** prenumerations delen av [URL: en för Azure-resurs-ID](../../azure-resource-manager/templates/template-functions-resource.md). Kolumnen är begränsad till Azure-resurser, inklusive [Azure Arc](../../azure-arc/overview.md) -resurser, eller anpassade loggar som anger resurs-ID vid inmatning.
+
+> [!NOTE]
+> Vissa data typer har redan fält som innehåller ID för Azure-prenumeration. Även om dessa fält bevaras för bakåtkompatibilitet, rekommenderar vi att du använder \_ SubscriptionId-kolumnen för att utföra kors korrelation eftersom det blir mer konsekvent.
+### <a name="examples"></a>Exempel
+Följande fråga undersöker prestanda data för datorer med en speciell prenumeration. 
+
+```Kusto
+Perf 
+| where TimeGenerated > ago(24h) and CounterName == "memoryAllocatableBytes"
+| where _SubscriptionId == "57366bcb3-7fde-4caf-8629-41dc15e3b352"
+| summarize avgMemoryAllocatableBytes = avg(CounterValue) by Computer
+```
+
+Följande fråga analyserar **_ResourceId** och aggregerar fakturerade data volymer per Azure-prenumeration.
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _SubscriptionId | sort by Bytes nulls last 
+```
+
+Använd dessa `union withsource = tt *` frågor sparsamt eftersom det är dyrt att köra genomsökningar över data typer.
+
 
 ## <a name="_isbillable"></a>\_Fakturerbar
 Kolumnen **\_ fakturerbar** anger om inmatade data är fakturerbara. Data med **\_ fakturerbar** som är lika med `false` samlas in kostnads fritt och debiteras inte ditt Azure-konto.
@@ -168,8 +198,7 @@ Om du vill se storleken på fakturerbara händelser per prenumeration använder 
 ```Kusto
 union withsource=table * 
 | where _IsBillable == true 
-| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId | sort by Bytes nulls last 
 ```
 
 Om du vill se storleken på fakturerbara händelser per resurs grupp använder du följande fråga:
@@ -178,7 +207,7 @@ Om du vill se storleken på fakturerbara händelser per resurs grupp använder d
 union withsource=table * 
 | where _IsBillable == true 
 | parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
 
 ```
 

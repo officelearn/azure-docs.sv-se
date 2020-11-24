@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4d69c1d69de63dc0d4c3c8f8e46e73f9efc72933
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 20e635d606676a526fac4c3720931525beb66876
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95244726"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95790413"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Azure Synapse Analytics-terminologi
 
@@ -22,7 +22,7 @@ ms.locfileid: "95244726"
 
 Det här dokumentet vägleder dig genom de grundläggande begreppen i Azure Synapse Analytics.
 
-## <a name="basics"></a>Grunder
+## <a name="basics"></a>Grundläggande inställningar
 
 En **Synapse-arbetsyta** är en skydds bara samarbets gränser för att utföra molnbaserad företags analys i Azure. En arbets yta distribueras i en angiven region och har ett associerat ADLS Gen2-konto och fil system (för lagring av temporära data). En arbets yta är under en resurs grupp.
 
@@ -43,12 +43,18 @@ En arbets yta kan innehålla valfritt antal **länkade tjänster**, i princip an
 
 Om du vill använda Spark Analytics skapar du och använder **Server lös Apache Spark pooler** på din Synapse-arbetsyta.
 
-* **Apache Spark för Synapse** -Spark-körning som används i en server lös Spark-pool. Den aktuella versionen som stöds är Spark 2,4 med python 3.6.1, Scala 2.11.12, .NET support för Apache Spark 0,5 och delta Lake 0,3.  
 * **Apache Spark pool** -0-till-N Spark-etablerade resurser med motsvarande databaser kan distribueras i en arbets yta. En spark-pool kan pausas automatiskt, återupptas och skalas.  
 * **Spark-program** – det består av en driv rutins process och en uppsättning utförar-processer. Ett Spark-program körs på en server lös Spark-pool.            
 * **Spark-session**– enhetlig start punkt för ett Spark-program. Det ger ett sätt att interagera med Spark: s olika funktioner och med ett mindre antal konstruktioner. Om du vill köra en antecknings bok måste du skapa en session. En session kan konfigureras för att köras på ett angivet antal körningar av en speciell storlek. Standard konfigurationen för en Notebook-session körs på 2 medel stora körningar.
 * **Notebook** – interaktiv och reaktiv data vetenskap och teknik gränssnitt som stöder Scala, PySpark, C# och SparkSQL.
 * **Spark-jobb definition** – gränssnitt för att skicka ett Spark-jobb med hjälp av Assembly jar som innehåller koden och dess beroenden.
+
+Versions stöd:
+* Spark 2,4
+* Python-3.6.1
+* Scala 2.11.12
+* .NET för Apache Spark 1,0
+* Delta Lake 0,3.  
 
 ## <a name="pipelines"></a>Pipelines
 

@@ -1,20 +1,19 @@
 ---
-title: SQLRuleAction syntax-referens i Azure Service Bus
-description: Den här artikeln innehåller en referens för SQLRuleAction-syntax. Åtgärderna skrivs i SQL-språkbaserad syntax som utförs mot ett Broker-meddelande.
+title: Syntax för SQL-åtgärd för Azure Service Bus prenumerations regel | Microsoft Docs
+description: Den här artikeln innehåller en referens för syntax för SQL-regel åtgärder. Åtgärderna skrivs i SQL-språkbaserad syntax som utförs mot ett meddelande.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: a156a9d8f18a7763f03c63b56681fa25ce6de289
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341583"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808852"
 ---
-# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referens för SQLRuleAction-syntax för Azure Service Bus
+# <a name="subscription-rule-sql-action-syntax"></a>SQL-Action-syntax för prenumerations regel
 
-En *SqlRuleAction* är en instans av klassen [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) och representerar en uppsättning åtgärder som skrivits i SQL-språkbaserad syntax som utförs mot en [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+En *SQL-åtgärd* används för att manipulera metadata för meddelanden när ett meddelande har marker ATS med ett filter för en prenumerations regel. Det är ett text uttryck som är Lean för en delmängd av SQL-92-standarden. Åtgärds uttryck används med `sqlExpression` elementet i egenskapen ' Action ' för en Service Bus `Rule` i en Azure Resource Manager- [mall](service-bus-resource-manager-namespace-topic-with-rule.md)eller Azure CLI- `az servicebus topic subscription rule create` kommandoets [`--action-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) argument och flera SDK-funktioner som tillåter hantering av prenumerations regler.
   
-Den här artikeln innehåller information om grammatik i SQL-regel.  
   
 ```  
 <statements> ::=
@@ -186,7 +185,7 @@ Booleska konstanter representeras av nyckelorden `TRUE` eller `FALSE` . Värdena
   
 Sträng konstanter omges av enkla citat tecken och innehåller alla giltiga Unicode-tecken. Ett enkelt citat tecken som är inbäddat i en strängkonstant representeras som två enkla citat tecken.  
   
-## <a name="function"></a>funktioner  
+## <a name="function"></a>-funktion  
   
 ```  
 <function> :=  
@@ -211,5 +210,9 @@ Sträng konstanter omges av enkla citat tecken och innehåller alla giltiga Unic
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [SQLRuleAction-klass](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [SQLFilter-klass](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLRuleAction-klass (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SQLRuleAction-klass (.NET standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
+- [SqlRuleAction-klass (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
+- [SqlRuleAction (Java Script)](/javascript/api/@azure/service-bus/sqlruleaction)
+- [prenumerations regel för AZ Service Bus-ämne](/cli/azure/servicebus/topic/subscription/rule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

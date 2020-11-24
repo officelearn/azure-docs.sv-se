@@ -1,22 +1,23 @@
 ---
-title: Referens för Azure Service Bus SQLFilter-syntax | Microsoft Docs
-description: Den här artikeln innehåller information om SQLFilter-grammatik. En SqlFilter stöder en delmängd av SQL-92-standarden.
+title: Azure Service Bus SQL filter-syntax för prenumerations regel | Microsoft Docs
+description: Den här artikeln innehåller information om grammatik i SQL-filter. Ett SQL-filter stöder en delmängd av SQL-92-standarden.
 ms.topic: article
-ms.date: 11/17/2020
-ms.openlocfilehash: 7f3c744b691e678ef18c8fa721ccfaecaee9c1e2
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.date: 11/24/2020
+ms.openlocfilehash: bd263e8177652165376d4f6fe9e231af71ebdcbe
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888478"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95805638"
 ---
-# <a name="sqlfilter-syntax"></a>SQLFilter-syntax
+# <a name="subscription-rule-sql-filter-syntax"></a>SQL filter-syntax för prenumerations regel
 
-Ett *SqlFilter* -objekt är en instans av [klassen SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)och representerar ett SQL-baserat filter uttryck som utvärderas mot ett [`BrokeredMessage`](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . En SqlFilter stöder en delmängd av SQL-92-standarden.  
+Ett *SQL-filter* är en av de tillgängliga filter typerna för Service Bus ämnes prenumerationer. Det är ett text uttryck som är Lean för en delmängd av SQL-92-standarden. Filter uttryck används med `sqlExpression` elementet i egenskapen "sqlFilter" för en Service Bus `Rule` i en [Azure Resource Manager mall](service-bus-resource-manager-namespace-topic-with-rule.md)eller Azure CLI- `az servicebus topic subscription rule create` kommandots [`--filter-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) argument och flera SDK-funktioner som tillåter hantering av prenumerations regler.
+
+Service Bus Premium stöder även [syntaxen för SQL-JMS för SQL-meddelanden](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) via JMS 2,0-API: et.
+
   
- Det här avsnittet innehåller information om SqlFilter-grammatik.  
-  
-```  
+``` 
 <predicate ::=  
       { NOT <predicate> }  
       | <predicate> AND <predicate>  
@@ -182,7 +183,7 @@ Booleska konstanter representeras av nyckelorden **True** eller **false**. Värd
 
 Sträng konstanter omges av enkla citat tecken och innehåller alla giltiga Unicode-tecken. Ett enkelt citat tecken som är inbäddat i en strängkonstant representeras som två enkla citat tecken.  
   
-## <a name="function"></a>funktioner  
+## <a name="function"></a>-funktion  
   
 ```  
 <function> :=  
@@ -324,4 +325,7 @@ Ett C#-exempel finns i [avsnittet Filtrera exempel på GitHub](https://github.co
 
 - [SQLFilter-klass (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [SQLFilter-klass (.NET standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
-- [SQLRuleAction-klass](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SqlFilter-klass (Java)](/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
+- [SqlRuleFilter (Java Script)](/javascript/api/@azure/service-bus/sqlrulefilter)
+- [prenumerations regel för AZ Service Bus-ämne](/cli/azure/servicebus/topic/subscription/rule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

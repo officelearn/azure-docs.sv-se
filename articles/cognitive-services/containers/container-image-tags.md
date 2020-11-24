@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: 90ac4891dbca34ff2d9bdb9653e27ad2a495b317
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 09a83c28d07540b8ecd813e7ab2f10ceee891d7a
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021260"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95792975"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Bild taggar för Azure Cognitive Services container och viktig information
 
@@ -31,14 +31,14 @@ Den här behållar avbildningen har följande Taggar tillgängliga. Du kan ocks�
 
 # <a name="latest-version"></a>[Senaste version](#tab/current)
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.013560003-amd64-preview` |      |
 
 # <a name="previous-versions"></a>[Tidigare versioner](#tab/previous)
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `1.1.012300001-amd64-preview` |       |
 
@@ -52,6 +52,17 @@ Den här behållar avbildningen har följande Taggar tillgängliga. Du kan ocks�
 
 # <a name="latest-version"></a>[Senaste version](#tab/current)
 
+Viktig information för `3.2-preview.1` :
+
+* Ny v 3.2-behållare
+
+| Bildtaggar                    | Anteckningar |
+|-------------------------------|:------|
+| `latest`                      |       |
+| `3.2-preview.1` |  |
+
+# <a name="previous-versions"></a>[Tidigare versioner](#tab/previous)
+
 Viktig information för `v2.0.013250001-amd64-preview` :
 
 * Öka minnes användningen ytterligare för container.
@@ -59,13 +70,6 @@ Viktig information för `v2.0.013250001-amd64-preview` :
 * Korrigerade saknade resultat när Redis cache har kon figurer ATS och `ResultExpirationPeriod` är inställt på 0.
 * Ta bort begär ande text storleks begränsning för 26MB. Container kan nu acceptera >26MB-filer.
 * Lägg till en tidstämpel och build-version till konsol loggning.
-
-| Bildtaggar                    | Kommentarer |
-|-------------------------------|:------|
-| `latest`                      |       |
-| `2.0.013250001-amd64-preview` |  |
-
-# <a name="previous-versions"></a>[Tidigare versioner](#tab/previous)
 
 Viktig information för `1.1.013050001-amd64-preview`
 
@@ -86,8 +90,9 @@ Viktig information för `1.1.013050001-amd64-preview`
     }
     ```
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
+| `2.0.013250001-amd64-preview` |       |
 | `1.1.013050001-amd64-preview` |       |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |
@@ -104,7 +109,7 @@ Den här behållar avbildningen har följande Taggar tillgängliga. Du kan ocks�
 
 # <a name="latest-version"></a>[Senaste version](#tab/current)
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -112,7 +117,7 @@ Den här behållar avbildningen har följande Taggar tillgängliga. Du kan ocks�
 
 # <a name="previous-versions"></a>[Tidigare versioner](#tab/previous)
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `1.1.008640001-amd64-preview` |       |
 | `1.1.008510001-amd64-preview` |       |
@@ -127,7 +132,7 @@ Den här behållar avbildningen har följande Taggar tillgängliga. Du kan ocks�
 
 # <a name="latest-version"></a>[Senaste version](#tab/current)
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.012280003-amd64-preview` |       |
@@ -135,7 +140,7 @@ Den här behållar avbildningen har följande Taggar tillgängliga. Du kan ocks�
 
 # <a name="previous-version"></a>[Tidigare version](#tab/previous)
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `1.1.012130003-amd64-preview` |       |
 
@@ -150,12 +155,12 @@ Du hittar en behållar avbildning från [Custom Speech till text][sp-cstt] i `mc
 
 Versions anmärkning för `2.7.0-amd64` :
 
-**Funktioner**
+**Egenskaper**
 * Interpunktion anges som standard som aktive rad.
 
 Observera att på grund av listan över inkluderade fraser har storleken på behållar avbildningen ökat.
 
-| Bildtaggar                    | Kommentarer | Sammandrag                                                                  |
+| Bildtaggar                    | Anteckningar | Sammandrag                                                                  |
 |-------------------------------|:------|:------------------------------------------------------------------------|
 | `latest`                      |       | `sha256:d1573c2543cb7afedb0122da0995f345767b02f9c5f181950acf1509ca65726` |
 | `2.7.0-amd64`                 |       | `sha256:d1573c2543cb7afedb0122da0995f345767b02f9c5f181950acf1509ca65726` |
@@ -164,7 +169,7 @@ Observera att på grund av listan över inkluderade fraser har storleken på beh
 # <a name="previous-version"></a>[Tidigare version](#tab/previous)
 Versions anmärkning för `2.6.0-amd64` :
 
-**Funktioner**
+**Egenskaper**
 * Stöd för phraselist v2 
 * Fras listorna stöds i följande språk:
     * en – au
@@ -185,14 +190,14 @@ Observera att på grund av listan över inkluderade fraser har storleken på beh
 
 Versions anmärkning för `2.5.0-amd64` :
 
-**Funktioner**
+**Egenskaper**
 * Stöd för anpassat uttal av anpassade modeller
 * Stöd för Azure och Azures Azures myndighets moln
 
 **Fixe**
 * Åtgärda kör som-problem som inte är rot användare i Diarization-läge
 
-| Bildtaggar                    | Kommentarer               |
+| Bildtaggar                    | Anteckningar               |
 |-------------------------------|:--------------------|
 | `2.6.0-amd64`                 |                     |
 | `2.5.0-amd64`                 |   första GA-versionen    |
@@ -210,7 +215,7 @@ Versions anmärkning för `1.9.0-amd64` :
 
 Vanlig månatlig utgåva
 
-| Bildtaggar                    | Kommentarer | Sammandrag                                                                  |
+| Bildtaggar                    | Anteckningar | Sammandrag                                                                  |
 |-------------------------------|:------|:------------------------------------------------------------------------|
 | `latest`                      |       | `sha256:e0397cf12d1367b13dd258f782bb513c93afcd5ee4b897794fe533205336355` |
 | `1.9.0-amd64`                 |       | `sha256:e0397cf12d1367b13dd258f782bb513c93afcd5ee4b897794fe533205336355` |
@@ -219,7 +224,7 @@ Vanlig månatlig utgåva
 # <a name="previous-version"></a>[Tidigare version](#tab/previous)
 Versions anmärkning för `1.8.0-amd64` :
 
-**Funktioner**
+**Egenskaper**
 * Fullständigt migrerat till .NET 3,1
 
 Versions anmärkning för `1.7.0-amd64` :
@@ -227,7 +232,7 @@ Versions anmärkning för `1.7.0-amd64` :
 **Funktion**
 * Delvis migrerad till .NET 3,1
 
-| Bildtaggar                    | Kommentarer               |
+| Bildtaggar                    | Anteckningar               |
 |-------------------------------|:--------------------|
 | `1.8.0-amd64`                 |                     |
 | `1.7.0-amd64`                 |   första GA-versionen    |
@@ -244,7 +249,7 @@ Eftersom tal-till-text v-2.5.0 stöds stöds bilder i regionen *USA, amerikanska
 
 Versions anmärkning för `2.7.0-amd64-<locale>` :
 
-**Funktioner**
+**Egenskaper**
 * Stöd för följande nya språk:
     * ar-BH, ar-sweetiq, ar-Jo, ar-LB, ar-om, ar-sy
     * bg-bg
@@ -265,14 +270,14 @@ Versions anmärkning för `2.7.0-amd64-<locale>` :
 
 Observera att på grund av listan över inkluderade fraser har storleken på behållar avbildningen ökat. 
 
-| Bildtaggar                    | Kommentarer                                                                                                |
+| Bildtaggar                    | Anteckningar                                                                                                |
 |-------------------------------|:-----------------------------------------------------------------------------------------------------|
 | `latest`                      | Behållar avbildning med `en-US` språkvarianten.                                                             |
 | `2.7.0-amd64-<locale>`        | Ersätt `<locale>` med något av de tillgängliga språken i listan nedan. Till exempel `2.7.0-amd64-en-us`. |
 
 Den här behållaren har följande tillgängliga språk.
 
-| Språk för v-2.7.0           | Kommentarer                                    | Sammandrag                                                                  |
+| Språk för v-2.7.0           | Anteckningar                                    | Sammandrag                                                                  |
 |-----------------------------|:-----------------------------------------|:------------------------------------------------------------------------|
 | `ar-ae`                     | Behållar avbildning med `ar-AE` språkvarianten. | `sha256:c8e99e71e6740cf671f3bf79de8b7dd890122cb674eedd2440e71e7cbc4c66b` |
 | `ar-bh`                     | Behållar avbildning med `ar-BH` språkvarianten. | `sha256:5a2c140661f50d0c95587121ec1ab8895289f4dda5b3ad14074413e869e6bd4` |
@@ -362,7 +367,7 @@ Den här behållaren har följande tillgängliga språk.
 
 Versions anmärkning för `2.6.0-amd64-<locale>` :
 
-**Funktioner**
+**Egenskaper**
 * Uppgraderas till de senaste modellerna och migreras fullständigt till .NET 3,1
 * Stöd för phraselist v2
 * Fras listorna stöds i följande språk:
@@ -383,13 +388,13 @@ Observera att på grund av listan över inkluderade fraser har storleken på beh
 
 Versions anmärkning för `2.5.0-amd64-<locale>` :
 
-**Funktioner**
+**Egenskaper**
 * Stöd för Azures moln för amerikanska myndigheter
 
 **Fixe**
 * Åtgärdar ett problem med att köra som en icke-rot användare i Diarization-läge
 
-| Bildtaggar                  | Kommentarer                                    |
+| Bildtaggar                  | Anteckningar                                    |
 |-----------------------------|:-----------------------------------------|
 | `2.6.0-amd64-<locale>`      | Ersätt `<locale>` med något av de tillgängliga språken i listan nedan. Till exempel `2.6.0-amd64-en-us`. |
 | `2.5.0-amd64-<locale>`      | Ersätt `<locale>` med något av de tillgängliga språken i listan nedan. Till exempel `2.5.0-amd64-en-us`. |
@@ -397,7 +402,7 @@ Versions anmärkning för `2.5.0-amd64-<locale>` :
 
 Den här behållaren har följande tillgängliga språk.
 
-| Språk för v-2.6.0           | Kommentarer                                    |
+| Språk för v-2.6.0           | Anteckningar                                    |
 |-----------------------------|:-----------------------------------------|
 | `ar-ae`                     | Behållar avbildning med `ar-AE` språkvarianten. |
 | `ar-eg`                     | Behållar avbildning med `ar-EG` språkvarianten. |
@@ -440,7 +445,7 @@ Den här behållaren har följande tillgängliga språk.
 | `zh-hk`                     | Behållar avbildning med `zh-HK` språkvarianten. |
 | `zh-tw`                     | Behållar avbildning med `zh-TW` språkvarianten. |
 
-| Språk för v-2.5.0           | Kommentarer                                    |
+| Språk för v-2.5.0           | Anteckningar                                    |
 |-----------------------------|:-----------------------------------------|
 | `ar-ae`                     | Behållar avbildning med `ar-AE` språkvarianten. |
 | `ar-eg`                     | Behållar avbildning med `ar-EG` språkvarianten. |
@@ -497,13 +502,13 @@ Versions anmärkning för `1.9.0-amd64-<locale-and-voice>` :
 
 * Vanlig månatlig utgåva
 
-| Bildtaggar                                  | Kommentarer                                                                                                         |
+| Bildtaggar                                  | Anteckningar                                                                                                         |
 |---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
 | `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-AriaRUS` rösten.                                            | 
 | `1.9.0-amd64-<locale-and-voice>`            | Ersätt `<locale>` med något av de tillgängliga språken i listan nedan. Till exempel `1.9.0-amd64-en-us-ariarus`.  |
 
 
-| Språk för v-1.9.0                          | Kommentarer                                                                      | Sammandrag                         |
+| Språk för v-1.9.0                          | Anteckningar                                                                      | Sammandrag                         |
 |---------------------------------------------|:---------------------------------------------------------------------------|:-------------------------------|
 | `ar-eg-hoda`                                | Behållar avbildning med `ar-EG` språket och `ar-EG-Hoda` rösten.            | `sha256:2b19cfd2212d6517b286aa18617d2f9d1dd1520078b559cbbf9240599270d10` | 
 | `ar-sa-naayf`                               | Behållar avbildning med `ar-SA` språket och `ar-SA-Naayf` rösten.           | `sha256:6063aae5fb15c62b234cf945220916516a06ca81354c5311dee02af4d8cb0d3` |
@@ -602,13 +607,13 @@ Versions anmärkning för `1.7.0-amd64-<locale-and-voice>` :
 
 * Uppgraderade komponenter till .NET 3,1
 
-| Bildtaggar                                  | Kommentarer                                                                                                         |
+| Bildtaggar                                  | Anteckningar                                                                                                         |
 |---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
 | `1.8.0-amd64-<locale-and-voice>`            | Ersätt `<locale>` med något av de tillgängliga språken i listan nedan. Till exempel `1.8.0-amd64-en-us-ariarus`.  |
 | `1.7.0-amd64-<locale-and-voice>`            | första GA-versionen. Ersätt `<locale>` med något av de tillgängliga språken i listan nedan. Till exempel `1.7.0-amd64-en-us-ariarus`.  |
 
 
-| Språk för v-1.8.0                          | Kommentarer                                                                      |
+| Språk för v-1.8.0                          | Anteckningar                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `ar-eg-hoda`                                | Behållar avbildning med `ar-EG` språket och `ar-EG-Hoda` rösten.            |
 | `ar-sa-naayf`                               | Behållar avbildning med `ar-SA` språket och `ar-SA-Naayf` rösten.           |
@@ -692,7 +697,7 @@ Versions anmärkning för `1.7.0-amd64-<locale-and-voice>` :
 | `zh-tw-yating-apollo`                       | Behållar avbildning med `zh-TW` språket och `zh-TW-Yating-Apollo` rösten.   |
 | `zh-tw-zhiwei-apollo`                       | Behållar avbildning med `zh-TW` språket och `zh-TW-Zhiwei-Apollo` rösten.   |
 
-| Språk för v-1.7.0                          | Kommentarer                                                                      |
+| Språk för v-1.7.0                          | Anteckningar                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `ar-eg-hoda`                                | Behållar avbildning med `ar-EG` språket och `ar-EG-Hoda` rösten.            |
 | `ar-sa-naayf`                               | Behållar avbildning med `ar-SA` språket och `ar-SA-Naayf` rösten.           |
@@ -790,13 +795,13 @@ Den här behållar avbildningen har följande Taggar tillgängliga. Du kan ocks�
 Viktig information för `v1.3.0` :
 * Neurala-behållaren för text till tal är nu allmänt tillgänglig. 
 
-| Bildtaggar                                  | Kommentarer                                                                      |
+| Bildtaggar                                  | Anteckningar                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-AriaNeural` rösten.      |
 | `1.3.0-amd64-<locale-and-voice>`    | Ersätt `<locale>` med något av de tillgängliga språken i listan nedan. Till exempel `1.3.0-amd64-en-us-arianeural`. |
 
 
-| v 1.3.0-språkområden och röster           | Kommentarer                                                                      |
+| v 1.3.0-språkområden och röster           | Anteckningar                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `de-de-katjaneural`                 | Behållar avbildning med `de-DE` språket och `de-DE-KatjaNeural` rösten.     |
 | `en-au-natashaneural`               | Behållar avbildning med `en-AU` språket och `en-AU-NatashaNeural` rösten.   |
@@ -817,13 +822,13 @@ Viktig information för `v1.3.0` :
 
 # <a name="previous-version"></a>[Tidigare version](#tab/previous)
 
-| Bildtaggar                                  | Kommentarer                                                                      |
+| Bildtaggar                                  | Anteckningar                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-AriaNeural` rösten.      |
 | `1.2.0-amd64-<locale-and-voice>-preview`    | Ersätt `<locale>` med något av de tillgängliga språken i listan nedan. Till exempel `1.2.0-amd64-en-us-arianeural-preview`. |
 
 
-| v-1.2.0 för hands versioner och röster           | Kommentarer                                                                      |
+| v-1.2.0 för hands versioner och röster           | Anteckningar                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-AriaNeural` rösten.      |
 | `de-de-katjaneural-preview`                 | Behållar avbildning med `de-DE` språket och `de-DE-KatjaNeural` rösten.     |
@@ -851,7 +856,7 @@ Behållar avbildningen av [tal språk identifiering][sp-lid] finns i `mcr.micros
 
 Den här behållar avbildningen har följande Taggar tillgängliga. Du kan också hitta en fullständig lista över [taggar i MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/language-detection/tags/list).
 
-| Bildtaggar                                  | Kommentarer                                                                      |
+| Bildtaggar                                  | Anteckningar                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                       |      |
 | `1.1.0-amd64-preview`                       |      |
@@ -865,14 +870,14 @@ Den här behållar avbildningen har följande Taggar tillgängliga. Du kan ocks�
 # <a name="latest-version"></a>[Senaste version](#tab/current)
 
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.013570001-amd64` |       |
 
 # <a name="previous-versions"></a>[Tidigare versioner](#tab/previous)
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `1.1.012840001-amd64` |       |
 | `1.1.012830001-amd64`    |       |
@@ -888,7 +893,7 @@ Den här behållar avbildningen har följande Taggar tillgängliga. Du kan ocks�
 
 # <a name="latest-versions"></a>[Senaste versionerna](#tab/current)
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.013570001-amd64` | |
@@ -897,7 +902,7 @@ Den här behållar avbildningen har följande Taggar tillgängliga. Du kan ocks�
 # <a name="previous-versions"></a>[Tidigare versioner](#tab/previous)
 
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.012840001-amd64` |   |
@@ -911,7 +916,7 @@ Den här behållar avbildningen har följande Taggar tillgängliga. Du kan ocks�
 
 Den här behållar avbildningen har följande Taggar tillgängliga. Du kan också hitta en fullständig lista över [taggar i MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/sentiment/tags/list).
 
-| Bildtaggar | Kommentarer                                         |
+| Bildtaggar | Anteckningar                                         |
 |------------|:----------------------------------------------|
 | `latest`   |                                               |
 | `3.0-en`   | Attitydanalys v3 (engelska)               |

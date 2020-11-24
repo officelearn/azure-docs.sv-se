@@ -5,31 +5,20 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 11/24/2020
 ms.author: victorh
-ms.openlocfilehash: 650cf1e9b0e9fbbadc5a783cad844898698bf017
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509748"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95802031"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Översikt över Azure Firewall Manager-principer
 
 Brand Väggs principen är en Azure-resurs som innehåller samlingar för NAT, nätverk och program regler och hot information-inställningar. Det är en global resurs som kan användas i flera Azure Firewall-instanser i säkra virtuella hubbar och virtuella hubb nätverk. Principer fungerar mellan regioner och prenumerationer.
 
 ![Azure Firewall Manager-princip](media/policy-overview/policy-overview.png)
-
-## <a name="availability"></a>Tillgänglighet
-
-Brand Väggs principen är en hög tillgänglig och automatiskt replikerad resurs. Om en sällsynt regional katastrof inträffar kan brand Väggs principer redundansväxla till Azure-kopplade regioner. Efter återställnings åtgärder redundansväxlas till den primära Azure-regionen för både synkrona och asynkrona åtgärder. 
-
-Kopplade regioner ger flera fördelar, inklusive:
-- fysisk isolering separerad med minst 300 mil
-- snabbare återställning från en katastrof
-- uppfylla data placering krav som bestäms av geografien
-
-Mer information om kopplade regioner finns i [verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner](../best-practices-availability-paired-regions.md).
 
 ## <a name="policy-creation-and-association"></a>Skapa och associera princip
 

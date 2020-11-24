@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: ea765ae5ff93625cc6a0ed36776a8925e5fce836
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: dcf34d896deafad77d16619f3883ddd103fc55d4
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311140"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95790718"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Skapa, utveckla och underhålla antecknings böcker för Synapse Studio (för hands version) i Azure Synapse Analytics
 
@@ -30,11 +30,29 @@ Med en Azure Synapse Studio-anteckningsbok kan du:
 
 Den här artikeln beskriver hur du använder antecknings böcker i Azure Synapse Studio.
 
+## <a name="preview-of-the-new-notebook-experience"></a>För hands versionen av den nya bärbara datorn
+Synapse-teamet har tilldelat den nya komponenten för bärbara datorer i Synapse Studio för att ge en enhetlig bärbar upplevelse för Microsoft-kunder och maximera identifiering, produktivitet, delning och samarbete. Den nya bärbara datorn är redo för för hands versionen. Markera knappen för **hands versions funktioner** i anteckningsbok-verktygsfältet för att aktivera den. I tabellen nedan samlas funktions jämförelser mellan befintliga antecknings böcker (så kallade "klassisk Notebook") med den nya för hands versionen.  
+
+|Funktion|Klassisk klassiskt Notebook|För hands version av Notebook|
+|--|--|--|
+|% kör| Stöds inte | &#9745;|
+|% historik| Stöds inte |&#9745;
+|% belastning| Stöds inte |&#9745;|
+|%% HTML| Stöds inte |&#9745;|
+|Dra och släpp för att flytta en cell| Stöds inte |&#9745;|
+|Beständig visning () utdata|&#9745;| Inte tillgängligt |
+|Avbryt alla| &#9745;| Inte tillgängligt|
+|Kör alla celler ovan|&#9745;| Inte tillgängligt |
+|Kör alla celler nedan|&#9745;| Inte tillgängligt |
+|Formatera en text cell med knappar i verktygsfältet|&#9745;| Inte tillgängligt |
+|Ångra cell åtgärd| &#9745;| Inte tillgängligt |
+
+
 ## <a name="create-a-notebook"></a>Skapa en notebook-fil
 
 Det finns två sätt att skapa en antecknings bok. Du kan skapa en ny antecknings bok eller importera en befintlig antecknings bok till en Azure Synapse-arbetsyta från **Object Explorer**. Bärbara Azure Synapse Studio-datorer kan känna igen standard Jupyter Notebook IPYNB-filer.
 
-![Skapa import-anteckningsbok](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
+![Skapa import-anteckningsbok](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook-2.png)
 
 ## <a name="develop-notebooks"></a>Utveckla notebook-filer
 
@@ -43,6 +61,8 @@ Antecknings böcker består av celler, som är enskilda kodblock eller text som 
 ### <a name="add-a-cell"></a>Lägg till en cell
 
 Det finns flera sätt att lägga till en ny cell i din bärbara dator.
+
+# <a name="classical-notebook"></a>[Klassisk klassiskt Notebook](#tab/classical)
 
 1. Expandera knappen uppe till vänster **+ cell** och välj **Lägg till kod cell** eller **Lägg till text cell**.
 
@@ -53,6 +73,19 @@ Det finns flera sätt att lägga till en ny cell i din bärbara dator.
     ![Lägg till cell-mellan-blank steg](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
 3. Använd [kortkommandon under kommando läge](#shortcut-keys-under-command-mode). Tryck på **a** för att infoga en cell ovanför den aktuella cellen. Tryck på **B** för att infoga en cell under den aktuella cellen.
+
+
+# <a name="preview-notebook"></a>[För hands version av Notebook](#tab/preview)
+
+1. Expandera den övre vänstra **+ cell** -knappen och välj sedan **kod cell** eller **markdown cell**.
+    ![Lägg till Azure-Notebook-cell-med-cell-knapp](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-1.png)
+2. Välj plus tecknet i början av en cell och välj **tecken cell** eller **markdown cell**.
+
+    ![Lägg till Azure-Notebook-cell-mellan-blank steg](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-2.png)
+
+3. Använd [aznb-kortkommandon under kommando läge](#shortcut-keys-under-command-mode). Tryck på **a** för att infoga en cell ovanför den aktuella cellen. Tryck på **B** för att infoga en cell under den aktuella cellen.
+
+---
 
 ### <a name="set-a-primary-language"></a>Ange ett primärt språk
 
@@ -123,16 +156,34 @@ IntelliSense-funktionerna finns på olika förfallo nivåer för olika språk. A
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Formatera en text cell med knappar i verktygsfältet
 
+# <a name="classical-notebook"></a>[Klassisk klassiskt Notebook](#tab/classical)
+
 Du kan använda format knapparna i verktygsfältet text celler för att utföra vanliga markdown-åtgärder. Den innehåller fet text, kursivering av text, infoga kodfragment, infoga osorterad lista, infoga sorterad lista och infoga bild från URL.
 
   ![Synapse text cells verktygsfält](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
+# <a name="preview-notebook"></a>[För hands version av Notebook](#tab/preview)
+
+Verktygsfältet format knapp är inte tillgängligt för för hands versionen av den bärbara datorn än. 
+
+---
+
 ### <a name="undo-cell-operations"></a>Ångra cell åtgärder
+
+# <a name="classical-notebook"></a>[Klassisk klassiskt Notebook](#tab/classical)
+
 Klicka på knappen **Ångra** eller tryck på **CTRL + Z** för att återkalla den senaste cell åtgärden. Nu kan du ångra upp till de senaste 20 historiska cell åtgärderna. 
 
    ![Synapse ångra celler](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
+# <a name="preview-notebook"></a>[För hands version av Notebook](#tab/preview)
+
+Åtgärden för att ångra en cell är inte tillgänglig för för hands versionen av Notebook. 
+
+---
 
 ### <a name="move-a-cell"></a>Flytta en cell
+
+# <a name="classical-notebook"></a>[Klassisk klassiskt Notebook](#tab/classical)
 
 Välj ellipserna (...) för att få åtkomst till menyn ytterligare cell åtgärder längst till höger. Välj sedan **Flytta cell uppåt** eller **Flytta cell nedåt** för att flytta den aktuella cellen. 
 
@@ -140,7 +191,16 @@ Du kan också använda [kortkommandon under kommando läge](#shortcut-keys-under
 
    ![flytta – a-cell](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
 
+# <a name="preview-notebook"></a>[För hands version av Notebook](#tab/preview)
+
+Klicka på den vänstra sidan i en cell och dra den till önskad position. 
+    ![Synapse flytta celler](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-drag-drop-cell.gif)
+
+---
+
 ### <a name="delete-a-cell"></a>Ta bort en cell
+
+# <a name="classical-notebook"></a>[Klassisk klassiskt Notebook](#tab/classical)
 
 Om du vill ta bort en cell väljer du ellipserna (...) för att komma åt menyn ytterligare cell åtgärder längst till höger och väljer sedan **ta bort cell**. 
 
@@ -148,16 +208,48 @@ Du kan också använda [kortkommandon under kommando läge](#shortcut-keys-under
   
    ![ta bort a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
 
+# <a name="preview-notebook"></a>[För hands version av Notebook](#tab/preview)
+
+Om du vill ta bort en cell väljer du knappen Ta bort till höger om cellen. 
+
+Du kan också använda [kortkommandon under kommando läge](#shortcut-keys-under-command-mode). Tryck på **SHIFT + D** för att ta bort den aktuella cellen. 
+
+   ![Azure-Notebook-Delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-delete-cell.png)
+
+---
+
 ### <a name="collapse-a-cell-input"></a>Komprimera en cell Indatatyp
+
+# <a name="classical-notebook"></a>[Klassisk klassiskt Notebook](#tab/classical)
+
 Välj pilknappen längst ned i den aktuella cellen för att dölja den. Om du vill expandera den väljer du pilknappen när cellen är komprimerad.
 
    ![Komprimera-cell-Indatatyp](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
 
+# <a name="preview-notebook"></a>[För hands version av Notebook](#tab/preview)
+
+Välj **fler kommandon** (...) i verktygsfältet cell och **inmatade** för att komprimera den aktuella cellens indatatyper. För att expandera den, väljer du **inmatad dold** när cellen är komprimerad.
+
+   ![Azure-Notebook-dold-cell-indatamängd](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-input.gif)
+
+---
+
 ### <a name="collapse-a-cell-output"></a>Komprimera cell utdata
+
+# <a name="classical-notebook"></a>[Klassisk klassiskt Notebook](#tab/classical)
 
 Klicka på knappen **Komprimera utdata** längst upp till vänster i den aktuella cellens utdata för att dölja den. För att expandera den, väljer du **Visa cellens utdata** medan cellens utdata är komprimerad.
 
    ![Komprimera-cell-utdata](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
+
+# <a name="preview-notebook"></a>[För hands version av Notebook](#tab/preview)
+
+Välj **fler kommandon** (...) i cell verktygsfältet och **Spara** för att komprimera den aktuella cellens utdata. Om du vill expandera den väljer du samma knapp medan cellens utdata är dold.
+
+   ![Azure-Notebook-komprimera-cell-utdata](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-output.gif)
+
+
+---
 
 ## <a name="run-notebooks"></a>Köra notebook-filer
 
@@ -170,23 +262,22 @@ Det finns flera sätt att köra koden i en cell.
 1. Hovra över den cell som du vill köra och välj knappen **Kör cell** eller tryck på **CTRL + RETUR**.
 
    ![Kör-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
+  
+2. Använd [kortkommandon under kommando läge](#shortcut-keys-under-command-mode). Tryck på **SKIFT + RETUR** för att köra den aktuella cellen och markera cellen nedan. Tryck på **Alt + Retur** för att köra den aktuella cellen och infoga en ny cell nedan.
 
-
-2. Om du vill komma åt menyn ytterligare cell åtgärder längst till höger väljer du ellipserna ( **...** ). Välj sedan **Kör cell**.
-
-   ![Kör-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
-   
-3. Använd [kortkommandon under kommando läge](#shortcut-keys-under-command-mode). Tryck på **SKIFT + RETUR** för att köra den aktuella cellen och markera cellen nedan. Tryck på **Alt + Retur** för att köra den aktuella cellen och infoga en ny cell nedan.
-
+---
 
 ### <a name="run-all-cells"></a>Kör alla celler
 Välj knappen **Kör alla** för att köra alla celler i den aktuella antecknings boken i följd.
 
    ![Kör alla – celler](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
+
+# <a name="classical-notebook"></a>[Klassisk klassiskt Notebook](#tab/classical)
+
 ### <a name="run-all-cells-above-or-below"></a>Kör alla celler ovanför eller under
 
-Om du vill komma åt menyn ytterligare cell åtgärder längst till höger väljer du ellipserna ( **...** ). Välj sedan **Kör celler ovan** för att köra alla celler ovanför den aktuella i sekvensen. Välj **Kör celler nedan** om du vill köra alla celler under den aktuella sekvensen.
+Om du vill komma åt menyn ytterligare cell åtgärder längst till höger väljer du ellipserna (**...**). Välj sedan **Kör celler ovan** för att köra alla celler ovanför den aktuella i sekvensen. Välj **Kör celler nedan** om du vill köra alla celler under den aktuella sekvensen.
 
    ![Run-cellernas över-eller-under](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
@@ -194,6 +285,27 @@ Om du vill komma åt menyn ytterligare cell åtgärder längst till höger välj
 ### <a name="cancel-all-running-cells"></a>Avbryt alla celler som körs
 Välj knappen **Avbryt alla** om du vill avbryta de celler eller celler som väntar i kön. 
    ![Avbryt – alla celler](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
+
+# <a name="preview-notebook"></a>[För hands version av Notebook](#tab/preview)
+
+Avbryt alla celler som körs är inte tillgängliga för för hands versionen av den bärbara datorn ännu. 
+
+---
+
+
+
+### <a name="reference-notebook"></a>Referens antecknings bok
+
+# <a name="classical-notebook"></a>[Klassisk klassiskt Notebook](#tab/classical)
+
+Stöds inte.
+
+# <a name="preview-notebook"></a>[För hands version av Notebook](#tab/preview)
+
+Du kan använda ```%run <notebook path>``` kommandot Magic för att referera till en annan antecknings bok i den aktuella Notebook-kontexten. Alla variabler som definieras i referens antecknings boken är tillgängliga i den aktuella antecknings boken. ```%run``` kommandot Magic stöder kapslade anrop men har inte stöd för rekursiva anrop. Du får ett undantag om utdrags djupet är större än fem. ```%run``` kommandot har för närvarande endast stöd för att skicka en Notebook-sökväg som parameter. 
+
+---
+
 
 ### <a name="cell-status-indicator"></a>Cell status indikator
 
@@ -213,11 +325,25 @@ Antalet aktiviteter per jobb eller steg hjälper dig att identifiera parallell n
 
 Du kan ange tids längd, antal och storlek på körningar för att ge den aktuella Spark-sessionen i **Konfigurera session**. Starta om Spark-sessionen för att konfigurations ändringarna ska börja gälla. Alla cachelagrade Notebook-variabler rensas.
 
-[![session-hantering](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
+[![session-hantering](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png#lightbox)
 
-En spark-sessionshantering är nu tillgänglig på konfigurations panelen för Spark-sessionen. Du kan välja en spark-pool direkt från konfigurations panelen för sessionen och se hur många noder som används och hur många återstående körningar som är tillgängliga. Den här informationen kan hjälpa dig att ange lämplig sessionsgräns i stället för att ändra den och tillbaka.
+#### <a name="spark-session-config-magic-command"></a>Kommandot Spark session config Magic
+Du kan också ange Spark-sessionsinställningar via ett magiskt kommando **%% Konfigurera**. Spark-sessionen måste startas om för att inställningen ska fungera. Vi rekommenderar att du kör **%%** i början av din antecknings bok. Här är ett exempel, se https://github.com/cloudera/livy#request-body för en fullständig lista över giltiga parametrar 
 
-![session – rekommendera](./media/apache-spark-development-using-notebooks/synapse-spark-session-recommender.png)
+```
+%%configure -f
+{
+    to config the session.
+    "driverMemory":"2g",
+    "driverCores":3,
+    "executorMemory":"2g",
+    "executorCores":2,
+    "jars":["myjar1.jar","myjar.jar"],
+    "conf":{
+        "spark.driver.maxResultSize":"10g"
+    }
+}
+```
 
 
 ## <a name="bring-data-to-a-notebook"></a>Hämta data till en bärbar dator
@@ -234,9 +360,6 @@ container_name = "Your container name"
 relative_path = "Your path"
 adls_path = 'abfss://%s@%s.dfs.core.windows.net/%s' % (container_name, account_name, relative_path)
 
-spark.conf.set("fs.azure.account.auth.type.%s.dfs.core.windows.net" %account_name, "SharedKey")
-spark.conf.set("fs.azure.account.key.%s.dfs.core.windows.net" %account_name ,"Your ADLSg2 Primary Key")
-
 df1 = spark.read.option('header', 'true') \
                 .option('delimiter', ',') \
                 .csv(adls_path + '/Testfile.csv')
@@ -248,21 +371,26 @@ df1 = spark.read.option('header', 'true') \
 ```python
 
 from pyspark.sql import SparkSession
-from pyspark.sql.types import *
 
-blob_account_name = "Your blob account name"
-blob_container_name = "Your blob container name"
-blob_relative_path = "Your blob relative path"
-blob_sas_token = "Your blob sas token"
+# Azure storage access info
+blob_account_name = 'Your account name' # replace with your blob name
+blob_container_name = 'Your container name' # replace with your container name
+blob_relative_path = 'Your path' # replace with your relative folder path
+linked_service_name = 'Your linked service name' # replace with your linked service name
 
-wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
+blob_sas_token = mssparkutils.credentials.getConnectionStringOrCreds(linked_service_name)
+
+# Allow SPARK to access from Blob remotely
+
+wasb_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
+
 spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name), blob_sas_token)
+print('Remote blob path: ' + wasb_path)
 
 df = spark.read.option("header", "true") \
             .option("delimiter","|") \
             .schema(schema) \
             .csv(wasbs_path)
-
 ```
 
 ### <a name="read-data-from-the-primary-storage-account"></a>Läs data från det primära lagrings kontot
@@ -294,7 +422,7 @@ Du kan använda <code>display(df, summary = True)</code> för att kontrol lera s
 
 ### <a name="render-html-or-interactive-libraries"></a>Återge HTML eller interaktiva bibliotek
 
-Du kan återge HTML-kod, inklusive Java Script, CSS, D3 eller interaktiva bibliotek, t. ex. **bokeh** , med hjälp av **displayHTML ()**.
+Du kan återge HTML-kod, inklusive Java Script, CSS, D3 eller interaktiva bibliotek, t. ex. **bokeh**, med hjälp av **displayHTML ()**.
 
 Följande bild är ett exempel på hur du ritar glyfer över en karta med **bokeh**.
 
@@ -352,10 +480,21 @@ I egenskaperna för antecknings boken kan du konfigurera om du vill ta med celle
 ## <a name="magic-commands"></a>Magic-kommandon
 Du kan använda välkända Jupyter Magic-kommandon i Azure Synapse Studio-anteckningsböcker. Granska följande lista som de aktuella tillgängliga Magic-kommandona. Berätta för oss [dina användnings fall på GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) så att vi kan fortsätta att bygga upp fler Magic-kommandon för att uppfylla dina behov.
 
-Tillgängliga rad Magic: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% tid](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
+# <a name="classical-notebook"></a>[Klassisk klassiskt Notebook](#tab/classical)
 
-Tillgängliga cell Magic: [%% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%% timeIt](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%% Capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%% WriteFile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%% SQL](#use-multiple-languages), [%% pyspark](#use-multiple-languages), [%% Spark](#use-multiple-languages), [%% csharp](#use-multiple-languages)
+Tillgängliga rad Magic: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeIt](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
+Tillgängliga cell Magic: [%% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%% timeIt](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%% Capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%% WriteFile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%% SQL](#use-multiple-languages), [%% pyspark](#use-multiple-languages), [%% Spark](#use-multiple-languages), [%% csharp](#use-multiple-languages),[%% Konfigurera](#spark-session-config-magic-command)
+
+
+
+# <a name="preview-notebook"></a>[För hands version av Notebook](#tab/preview)
+
+Tillgängliga rad Magic: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeIt](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [% History](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [% Kör](#reference-notebook), [% load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+
+Tillgängliga cell Magic: [%% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%% timeIt](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%% Capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%% WriteFile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%% SQL](#use-multiple-languages), [%% pyspark](#use-multiple-languages), [%% Spark](#use-multiple-languages), [%% csharp](#use-multiple-languages), [%% HTML](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%% Konfigurera](#spark-session-config-magic-command)
+
+--- 
 
 ## <a name="integrate-a-notebook"></a>Integrera en bärbar dator
 
@@ -367,11 +506,22 @@ Välj knappen **Lägg till i** det övre högra hörnet för att lägga till en 
 
 ### <a name="designate-a-parameters-cell"></a>Ange en parameter cell
 
+# <a name="classical-notebook"></a>[Klassisk klassiskt Notebook](#tab/classical)
+
 Om du vill Parameterisera din bärbara dator väljer du ellipserna (...) för att få åtkomst till menyn ytterligare cell åtgärder längst till höger. Välj sedan **Växla parameter cell** för att ange cellen som parameter cellen.
 
 ![Växla-parameter](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 
+# <a name="preview-notebook"></a>[För hands version av Notebook](#tab/preview)
+
+Om du vill Parameterisera din bärbara dator väljer du ellipserna (...) för att få åtkomst till **fler kommandon** i cell verktygsfältet. Välj sedan **Växla parameter cell** för att ange cellen som parameter cellen.
+
+![Azure-Notebook-växlings parameter](./media/apache-spark-development-using-notebooks/azure-notebook-toggle-parameter-cell.png)
+
+---
+
 Azure Data Factory letar efter parameter cellen och behandlar den här cellen som standard för de parametrar som skickas vid körningen. Körnings motorn lägger till en ny cell under parameter cellen med indataparametrar för att skriva över standardvärdena. När en parameter cell inte anges infogas den inmatade cellen längst upp i antecknings boken.
+
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>Tilldela parameter värden från en pipeline
 
@@ -397,9 +547,11 @@ I likhet med Jupyter-anteckningsböcker har Azure Synapse Studio-anteckningsboka
 
 ### <a name="shortcut-keys-under-command-mode"></a>Kortkommandon under kommando läge
 
+# <a name="classical-notebook"></a>[Klassisk klassiskt Notebook](#tab/classical)
+
 Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse Notebooks.
 
-| Action |Genvägar till Synapse Studio-anteckningsbok  |
+| Åtgärd |Genvägar till Synapse Studio-anteckningsbok  |
 |--|--|
 |Kör den aktuella cellen och välj nedan | SKIFT + RETUR |
 |Kör den aktuella cellen och infoga den nedan | ALT + RETUR |
@@ -414,11 +566,30 @@ Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse
 |Ta bort markerade celler| D, D |
 |Växla till redigerings läge| Ange |
 
+# <a name="preview-notebook"></a>[För hands version av Notebook](#tab/preview)
+
+| Åtgärd |Genvägar till Synapse Studio-anteckningsbok  |
+|--|--|
+|Kör den aktuella cellen och välj nedan | SKIFT + RETUR |
+|Kör den aktuella cellen och infoga den nedan | ALT + RETUR |
+|Kör aktuell cell| Ctrl+Retur |
+|Markera cell ovanför| Upp |
+|Markera cell under| Ned |
+|Markera föregående cell| K |
+|Markera nästa cell| J |
+|Infoga cell ovanför| A |
+|Infoga cell under| B |
+|Ta bort markerade celler| Skift + D |
+|Växla till redigerings läge| Ange |
+
+---
+
 ### <a name="shortcut-keys-under-edit-mode"></a>Kortkommandon under redigerings läge
+
 
 Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse Notebooks i redigerings läge.
 
-| Action |Genvägar till Synapse Studio-anteckningsbok  |
+| Åtgärd |Genvägar till Synapse Studio-anteckningsbok  |
 |--|--|
 |Flytta markören uppåt | Upp |
 |Flytta markören nedåt|Ned|
@@ -435,6 +606,8 @@ Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse
 |Uppgiften| Ctrl +]|
 |Dra ut|Ctrl + [|
 |Växla till kommando läge| Esc |
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 - [Kolla Synapse-exempel Notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)

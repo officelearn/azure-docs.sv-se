@@ -3,12 +3,12 @@ title: Support mat ris för VMware/fysisk haveri beredskap i Azure Site Recovery
 description: Sammanfattar stöd för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 5b511eeb99b70fd64a5366b7b54900166f06b4d7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e3130242e29b8d3886b585d56d33d0a9a2379ee3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369326"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95800280"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -93,7 +93,8 @@ SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://s
 Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, [7,6, 7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/)  <br/> Köra Red Hat-kompatibel kernel eller Enterprise kernel release 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Att köra på alla UEK-kerneler och RedHat kernel <= 3.10.0-1062. * stöds i [9,35](https://support.microsoft.com/help/4573888/) -stöd för rest av RedHat-kärnan finns i [9,36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
-> För var och en av Windows-versionerna stöder Azure Site Recovery endast [LTSC-versioner (långsiktig Servicing Channel)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  Det finns för närvarande inte stöd för de [halvårs tillgängliga Channel-](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) versionerna för tillfället.
+>- För var och en av Windows-versionerna stöder Azure Site Recovery endast [LTSC-versioner (långsiktig Servicing Channel)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  Det finns för närvarande inte stöd för de [halvårs tillgängliga Channel-](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) versionerna för tillfället.
+>- Se till att för Linux-versioner Azure Site Recovery inte stöder anpassade OS-avbildningar. Endast de lager kerneler som ingår i distributionens lägre versions version/uppdatering stöds.
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu kernel-versioner
 
@@ -150,7 +151,7 @@ SUSE Linux Enterprise Server 15 och 15 SP1 | [9,34](https://support.microsoft.co
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux-filsystem/gäst lagring
 
-**Komponent** | **Stöds**
+**Komponent** | **Tillåtna**
 --- | ---
 Filsystem | ext3, ext4, XFS, BTRFS (villkor som gäller enligt den här tabellen)
 Etablering av hantering av logiska volymer (LVM)| Tjock etablering – Ja <br></br> Tunn etablering – nej
@@ -177,7 +178,7 @@ Lägg till disk på replikerad virtuell dator | Stöds inte.<br/> Inaktivera rep
 
 ## <a name="network"></a>Nätverk
 
-**Komponent** | **Stöds**
+**Komponent** | **Tillåtna**
 --- | ---
 Värd nätverk NIC Teaming | Stöds för virtuella VMware-datorer. <br/><br/>Stöds inte för replikering av fysisk dator.
 Värd nätverkets VLAN | Ja.
@@ -194,7 +195,7 @@ Gäst-/Server nätverk flera nätverkskort | Ja.
 
 ## <a name="azure-vm-network-after-failover"></a>Azure VM-nätverk (efter redundans)
 
-**Komponent** | **Stöds**
+**Komponent** | **Tillåtna**
 --- | ---
 Azure ExpressRoute | Ja
 ILB | Ja
@@ -208,7 +209,7 @@ Tjänstslutpunkter för virtuellt nätverk i Azure<br/> | Ja
 Snabbare nätverk | Nej
 
 ## <a name="storage"></a>Storage
-**Komponent** | **Stöds**
+**Komponent** | **Tillåtna**
 --- | ---
 Dynamisk disk | OS-disken måste vara en standard disk. <br/><br/>Data diskar kan vara dynamiska diskar
 Konfiguration av Docker-disk | Nej
@@ -239,7 +240,7 @@ Gäst/Server-EFI/UEFI-start | – Stöds för alla [UEFI-operativ system för Az
 
 ## <a name="replication-channels"></a>Kanaler för replikering
 
-|**Typ av replikering**   |**Stöds**  |
+|**Typ av replikering**   |**Tillåtna**  |
 |---------|---------|
 |Avlästa data överföringar (ODX)    |       Nej  |
 |Seeding offline        |   Nej      |
@@ -247,7 +248,7 @@ Gäst/Server-EFI/UEFI-start | – Stöds för alla [UEFI-operativ system för Az
 
 ## <a name="azure-storage"></a>Azure-lagring
 
-**Komponent** | **Stöds**
+**Komponent** | **Tillåtna**
 --- | ---
 Lokalt redundant lagring | Ja
 Geo-redundant lagring | Ja
@@ -266,7 +267,7 @@ Allmänna-syfte v2-lagrings konton (frekventa och låg frekventa nivåer) | Ja (
 
 ## <a name="azure-compute"></a>Azure Compute
 
-**Funktion** | **Stöds**
+**Funktion** | **Tillåtna**
 --- | ---
 Tillgänglighetsuppsättningar | Ja
 Tillgänglighetszoner | Nej
@@ -323,7 +324,7 @@ Maximal dataomsättning per dag som stöds av en processerver | 2 TB
 
 ## <a name="vault-tasks"></a>Valv aktiviteter
 
-**Åtgärd** | **Stöds**
+**Åtgärd** | **Tillåtna**
 --- | ---
 Flytta valv över resurs grupper | Nej
 Flytta valvet inom och över prenumerationer | Nej

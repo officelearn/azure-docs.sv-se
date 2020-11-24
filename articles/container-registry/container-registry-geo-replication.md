@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: a26a3a0902b76359dc7441d97fa2516989ec7f0b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 636896edf8180052508f366bcc548efe13dec1e2
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486880"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95810053"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 
@@ -18,9 +18,9 @@ Företag som vill ha en lokal närvaro, eller en direkt säkerhetskopia, väljer
 
 Ett georeplikerat register ger följande fördelar:
 
-* Namn på register/avbildningar/taggar kan användas i flera regioner
-* Nätverksnära registeråtkomst från regionala distributioner
-* Inga ytterligare avgifter för utgående trafik eftersom avbildningarna hämtas från ett lokalt, replikerat register i samma region som containervärden
+* Enskilda register, avbildningar och taggnamn kan användas i flera regioner
+* Förbättra prestanda och tillförlitlighet i regionala distributioner med nätverks åtkomst till register
+* Minska kostnaderna för data överföring genom att dra bild lager från ett lokalt replikerat register i samma eller närliggande region som behållar värden
 * Enkel hantering av ett register i flera regioner
 
 > [!NOTE]
@@ -56,8 +56,9 @@ Typiska utmaningar med flera register är:
 Användning av funktionen för geo-replikering i Azure Container Registry ger följande fördelar:
 
 * Hantera ett enskilt register i alla regioner: `contoso.azurecr.io`
-* Hantera en enskild konfiguration av avbildningsdistributioner eftersom alla regioner använder samma avbildnings-URL: `contoso.azurecr.io/public/products/web:1.2`
-* Push-överför till ett enda register medan ACR hanterar geo-replikeringen. Du kan konfigurera regionala [webhookar](container-registry-webhook.md) för att meddela dig om händelser i vissa repliker.
+* Hantera en enda konfiguration av avbildnings distributioner som alla regioner använder samma bild-URL: `contoso.azurecr.io/public/products/web:1.2`
+* Push-överför till ett enda register medan ACR hanterar geo-replikeringen. ACR replikerar bara unika lager, vilket minskar data överföringen mellan regioner. 
+* Konfigurera regionala [webhookar](container-registry-webhook.md) som meddelar dig om händelser i vissa repliker.
 
 ## <a name="configure-geo-replication"></a>Konfigurera geo-replikering
 

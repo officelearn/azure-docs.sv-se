@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9b06024b7dc25f37f75c71b822f6aeea32c3e26a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 07c04274829530942bab0e3267200f6524c4ddc7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509056"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95793409"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera ett Linux-Hybrid Runbook Worker
 
@@ -40,15 +40,15 @@ Hybrid Runbook Worker-rollen kräver [Log Analytics-agenten](../azure-monitor/pl
 
 ### <a name="supported-linux-operating-systems"></a>Linux-operativsystem som stöds
 
-Funktionen Hybrid Runbook Worker stöder följande distributioner:
+Funktionen Hybrid Runbook Worker stöder följande distributioner. Alla operativ system antas vara x64. x86 stöds inte för något operativ system.
 
-* Amazon Linux 2012,09 till 2015,09 (x64)
-* CentOS Linux 5, 6 och 7 (x64)
-* Oracle Linux 5, 6 och 7 (x64)
-* Red Hat Enterprise Linux Server 5, 6 och 7 (x64)
-* Debian GNU/Linux 6, 7 och 8 (x64)
-* Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS och 18,04 (x64)
-* SUSE Linux Enterprise Server 12 (x64)
+* Amazon Linux 2012,09 till 2015,09
+* CentOS Linux 5, 6 och 7
+* Oracle Linux 5, 6 och 7
+* Red Hat Enterprise Linux Server 5, 6 och 7
+* Debian GNU/Linux 6, 7 och 8
+* Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS och 18,04 LTS
+* SUSE Linux Enterprise Server 12
 
 ### <a name="minimum-requirements"></a>Minimikrav
 

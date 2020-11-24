@@ -2,13 +2,13 @@
 title: Jobb och uppgifter i Azure Batch
 description: Lär dig mer om jobb och uppgifter och hur de används i ett Azure Batch arbets flöde från en utvecklings synpunkt.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/23/2020
+ms.openlocfilehash: e1ca721ec7527d9d042c129c22cf0266e57c32e9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955377"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808593"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Jobb och uppgifter i Azure Batch
 
@@ -18,15 +18,17 @@ I Azure Batch representerar en *uppgift* en beräknings enhet. Ett *jobb* är en
 
 Ett jobb är en samling aktiviteter. Det hanterar hur beräkningen utförs av dess aktiviteter på beräkningsnoderna i en pool.
 
-Ett jobb anger den [pool](nodes-and-pools.md#pools) där arbetet ska köras. Du kan skapa en ny pool för varje jobb eller använda en pool för många jobb. Du kan skapa en pool för varje jobb som associeras med ett jobbschema eller för alla jobb som associeras med ett jobbschema.
+Ett jobb anger den [pool](nodes-and-pools.md#pools) där arbetet ska köras. Du kan skapa en ny pool för varje jobb eller använda en pool för många jobb. Du kan skapa en pool för varje jobb som är associerat med ett [jobb schema](#scheduled-jobs)eller en pool för alla jobb som är associerade med ett jobb schema.
 
 ### <a name="job-priority"></a>Jobbprioritet
 
-Du kan tilldela en valfri jobb prioritet till jobb som du skapar. Batch-tjänsten använder prioritetsvärdet för jobbet för att fastställa ordningen för schemaläggningen av jobb inom ett konto (detta ska inte förväxlas med ett [schemalagt jobb](#scheduled-jobs)). Prioritetsvärdesintervallet är -1 000 till 1 000, där -1 000 är lägst prioritet och 1 000 högst. Om du vill uppdatera ett jobbs prioritet så anropa åtgärden [Uppdatera egenskaperna för ett jobb](/rest/api/batchservice/job/update) (Batch REST) eller ändra egenskapen [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (Batch .NET).
+Du kan tilldela en valfri jobb prioritet till jobb som du skapar. Batch-tjänsten använder prioritet svärdet för jobbet för att fastställa schemaläggnings ordningen (för alla aktiviteter i jobbet) wtihin varje pool.
 
-Inom samma konto har jobb med högre prioritet schemaläggningsprioritet framför jobb med lägre prioritet. Ett jobb med ett högre prioritetsvärde i ett konto har inte schemaläggningsprioritet över ett annat jobb med ett lägre prioritetsvärde i ett annat konto. Aktiviteter med lägre prioritet som redan körs avbryts inte.
+Om du vill uppdatera prioriteten för ett jobb anropar du [uppdateringen av egenskaperna för en jobb](/rest/api/batchservice/job/update) åtgärd (batch rest) eller ändrar [CloudJob. Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (batch .net). Prioritets värden sträcker sig från-1000 (lägsta prioritet) till 1000 (högsta prioritet).
 
-Schemaläggningen av jobb mellan pooler är oberoende av varandra. Mellan olika pooler är det inte säkert att ett jobb med högre prioritet schemaläggs först om dess associerade pool har ont om inaktiva noder. I samma pool har jobb med samma prioritetsnivå samma chans att schemaläggas.
+I samma pool har jobb med högre prioritet schemaläggnings prioritet framför jobb med lägre prioritet. Aktiviteter med jobb med lägre prioritet som redan körs avbryts inte av aktiviteter i ett jobb med högre prioritet. Jobb med samma prioritets nivå har samma chans att schemaläggas, och sortering av uppgifts körning har inte definierats.
+
+Ett jobb med hög prioritets värde som körs i en pool påverkar inte schemaläggningen av jobb som körs i en separat pool eller i ett annat batch-konto. Jobb prioritet gäller inte för [autopooler](nodes-and-pools.md#autopools), som skapas när jobbet skickas.
 
 ### <a name="job-constraints"></a>Jobb begränsningar
 
@@ -39,15 +41,15 @@ Du kan använda jobbegränsningar för att ange vissa begränsningar för dina j
 
 Klientprogrammet kan lägga till aktiviteter till ett jobb eller så kan du ange en [Job Manager-aktivitet](#job-manager-task). En Job Manager-aktivitet innehåller den information som krävs för att skapa de nödvändiga aktiviteterna för ett jobb, där Job Manager-aktiviteten körs på en av beräkningsnoderna i poolen. Job Manager-aktiviteten hanteras specifikt av batch; den placeras i kö så fort jobbet skapas och startas om om det Miss lyckas. En Job Manager-aktivitet krävs för jobb som skapas av ett [jobb schema](#scheduled-jobs), eftersom det är det enda sättet att definiera aktiviteterna innan jobbet instansieras.
 
-Som standard är jobben fortfarande i aktivt läge när alla aktiviteter i jobbet har slutförts. Du kan ändra det här beteendet så att jobbet avbryts automatiskt när alla aktiviteter i jobbet har slutförts. Ange jobbets **onAllTasksComplete**-egenskap ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) i Batch .NET) till *terminatejob* så att jobbet avbryts automatiskt när alla dess aktiviteter har slutförts.
+Som standard är jobben fortfarande i aktivt läge när alla aktiviteter i jobbet har slutförts. Du kan ändra det här beteendet så att jobbet avbryts automatiskt när alla aktiviteter i jobbet har slutförts. Ange jobbets egenskap **onAllTasksComplete** ([onAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) i batch .net) till `terminatejob` * ' för att automatiskt avsluta jobbet när alla dess aktiviteter är i slutfört tillstånd.
 
-Batch-tjänsten överväger ett jobb *utan aktiviteter för* att alla dess uppgifter ska slutföras. Därför används det här alternativet oftast med en [Job Manager-aktivitet](#job-manager-task). Om du vill avsluta jobben automatiskt utan en jobbhanterare börjar du med att ange **onAllTasksComplete**-egenskapen för ett nytt jobb till *noaction* och anger den sedan till *terminatejob* efter att du har lagt till aktiviteterna till jobbet.
+Batch-tjänsten överväger ett jobb *utan aktiviteter för* att alla dess uppgifter ska slutföras. Därför används det här alternativet oftast med en [Job Manager-aktivitet](#job-manager-task). Om du vill använda automatisk avslutning av jobb utan en jobb hanterare, måste du först ställa in det nya jobbets **onAllTasksComplete** -egenskap till `noaction` och sedan ställa in det på `terminatejob` * först när du har lagt till aktiviteter till jobbet.
 
 ### <a name="scheduled-jobs"></a>Schemalagda jobb
 
 Med [jobbscheman](/rest/api/batchservice/jobschedule) kan du skapa återkommande jobb i Batch-tjänsten. Ett jobbschema anger när jobb ska köras och innehåller specifikationerna för jobben som ska köras. Du kan ange Schemats varaktighet (hur länge och när schemat tillämpas) och hur ofta jobb skapas under den schemalagda perioden.
 
-## <a name="tasks"></a>Aktiviteter
+## <a name="tasks"></a>Uppgifter
 
 En aktivitet är en beräkningsenhet som associeras med ett jobb. Den körs på en nod. Aktiviteter tilldelas till en nod för körning eller placeras i kö tills en nod blir ledig. Enkelt beskrivet kör en aktivitet ett eller flera program eller skript på en beräkningsnod för att utföra det arbete som du vill ha gjort.
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 1616a0149ae56de8afe0e9ab485af4bf76326d86
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0ae7bb9acde3cc8552a23db12d208a82ba0fb2f3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014619"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95800864"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrera till Read v3. x OCR-behållare
 
@@ -29,11 +29,11 @@ Om du använder version 2 av Visuellt innehåll Read OCR-behållare använder du
 
 ## <a name="api-changes"></a>API-ändringar
 
-Read v 3.1-behållaren använder version 3 av API för visuellt innehåll och har följande slut punkter:
+Read v 3.2-behållaren använder version 3 av API för visuellt innehåll och har följande slut punkter:
 
-* `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
-* `/vision/v3.1-preview.2/read/analyze`
-* `/vision/v3.1-preview.2/read/syncAnalyze`
+* `/vision/v3.2-preview.1/read/analyzeResults/{operationId}`
+* `/vision/v3.2-preview.1/read/analyze`
+* `/vision/v3.2-preview.1/read/syncAnalyze`
 
 Mer information om hur du uppdaterar dina program för att använda version 3 av molnbaserad Read API finns i [migreringsguiden för visuellt innehåll v3-REST API](./upgrade-api-versions.md) . Den här informationen gäller även för behållaren. Observera att Sync-åtgärder endast stöds i behållare.
 
@@ -43,7 +43,7 @@ Kraven och rekommendationerna baseras på benchmarks med en enda begäran per se
 
 |Container  |Minimum | Rekommenderas  |
 |---------|---------|------|
-|Läs 3,1 – för hands version | 8 kärnor, 16 GB minne         | 8 kärnor, 24 GB minne |
+|Läs 3,2 – för hands version | 8 kärnor, 16 GB minne         | 8 kärnor, 24 GB minne |
 
 Varje kärna måste vara minst 2,6 gigahertz (GHz) eller snabbare.
 

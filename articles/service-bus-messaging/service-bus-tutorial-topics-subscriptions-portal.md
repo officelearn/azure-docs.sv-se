@@ -3,21 +3,21 @@ title: Uppdatera lagret med Azure-portalen och ämnen/prenumerationer
 description: I den här självstudien får du lära dig hur du skickar och tar emot meddelanden från ett ämne och en prenumeration och hur du lägger till och använder filterregler med .NET
 author: spelluru
 ms.author: spelluru
-ms.date: 06/23/2020
+ms.date: 10/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 811777fff28cf56d7732461924b14e9e4b619c0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2c8d107c6de4965472c3fb04ff626841fb1f6ea
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000183"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95810723"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Självstudie: Uppdatera lagret med Azure-portalen och ämnen/prenumerationer
 
 Azure Service Bus är en meddelandetjänst i molnet för flera klienter som skickar information mellan program och tjänst. Asynkrona åtgärder ger dig en flexibel, asynkron meddelandetjänst med funktioner för strukturerade meddelanden enligt FIFO-metoden (först-in-först-ut) och funktioner för publicering/prenumeration. Den här kursen visar hur du använder Service Bus-ämnen och prenumerationer i ett scenario med butikslager, med publicera/prenumerera kanaler med Azure-portalen och .NET.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Skapa ett Service Bus-ämne och en eller flera prenumerationer på det ämnet med Azure-portalen
 > * Lägg till ämnesfilter med .NET-kod
@@ -31,7 +31,7 @@ Ett exempel på det här scenariot är en uppdatering av lagersortimentet för f
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto][] innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
@@ -62,7 +62,7 @@ Om du vill köra koden gör du följande:
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Gå till exempelmappen `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
+2. Gå till exempelmappen `azure-service-bus\samples\DotNet\Azure.Messaging.ServiceBus\BasicSendReceiveTutorialwithFilters`.
 
 3. Hämta anslutningssträngen som du kopierade till Anteckningar i avsnittet Hämta autentiseringsuppgifter för hantering i den här självstudien. Du behöver också namnet på det ämne som du skapade i föregående avsnitt.
 
@@ -72,7 +72,7 @@ Om du vill köra koden gör du följande:
    dotnet build
    ```
 
-5. Gå till mappen `BasicSendReceiveTutorialwithFilters\bin\Debug\netcoreapp2.0`.
+5. Gå till mappen `BasicSendReceiveTutorialwithFilters\bin\Debug\netcoreapp3.1`.
 
 6. Skriv följande kommando för att köra programmet. Se till att ersätta `myConnectionString` med värdet som du tidigare fick och `myTopicName` med namnet på det ämne som du skapade:
 
@@ -175,12 +175,11 @@ private async Task RemoveDefaultFilters()
 
     try
     {
+        var client = new ServiceBusAdministrationClient(ServiceBusConnectionString);
         foreach (var subscription in Subscriptions)
         {
-            SubscriptionClient s = new SubscriptionClient(ServiceBusConnectionString, TopicName, subscription);
-            await s.RemoveRuleAsync(RuleDescription.DefaultRuleName);
+            await client.DeleteRuleAsync(TopicName, subscription, CreateRuleOptions.DefaultRuleName);
             Console.WriteLine($"Default filter for {subscription} has been removed.");
-            await s.CloseAsync();
         }
 
         Console.WriteLine("All default Rules have been removed.\n");
@@ -205,7 +204,7 @@ private async Task CreateCustomFilters()
     {
         for (int i = 0; i < Subscriptions.Length; i++)
         {
-            SubscriptionClient s = new SubscriptionClient(ServiceBusConnectionString, TopicName, Subscriptions[i]);
+            var client = new ServiceBusAdministrationClient(ServiceBusConnectionString);
             string[] filters = SubscriptionFilters[Subscriptions[i]];
             if (filters[0] != "")
             {
@@ -217,18 +216,18 @@ private async Task CreateCustomFilters()
                     string action = SubscriptionAction[Subscriptions[i]];
                     if (action != "")
                     {
-                        await s.AddRuleAsync(new RuleDescription
+                        await client.CreateRuleAsync(TopicName, Subscriptions[i], new CreateRuleOptions
                         {
-                            Filter = new SqlFilter(myFilter),
+                            Filter = new SqlRuleFilter(myFilter),
                             Action = new SqlRuleAction(action),
                             Name = $"MyRule{count}"
                         });
                     }
                     else
                     {
-                        await s.AddRuleAsync(new RuleDescription
+                        await client.CreateRuleAsync(TopicName, Subscriptions[i], new CreateRuleOptions
                         {
-                            Filter = new SqlFilter(myFilter),
+                            Filter = new SqlRuleFilter(myFilter),
                             Name = $"MyRule{count}"
                         });
                     }
@@ -260,14 +259,13 @@ private async Task CleanUpCustomFilters()
     {
         try
         {
-            SubscriptionClient s = new SubscriptionClient(ServiceBusConnectionString, TopicName, subscription);
-            IEnumerable<RuleDescription> rules = await s.GetRulesAsync();
-            foreach (RuleDescription r in rules)
+            var client = new ServiceBusAdministrationClient(ServiceBusConnectionString);
+            IAsyncEnumerator<RuleProperties> rules = client.GetRulesAsync(TopicName, subscription).GetAsyncEnumerator();
+            while (await rules.MoveNextAsync())
             {
-                await s.RemoveRuleAsync(r.Name);
-                Console.WriteLine($"Rule {r.Name} has been removed.");
+                await client.DeleteRuleAsync(TopicName, subscription, rules.Current.Name);
+                Console.WriteLine($"Rule {rules.Current.Name} has been removed.");
             }
-            await s.CloseAsync();
         }
         catch (Exception ex)
         {
@@ -289,16 +287,14 @@ public async Task SendMessages()
 {
     try
     {
-        TopicClient tc = new TopicClient(ServiceBusConnectionString, TopicName);
-
+        await using var client = new ServiceBusClient(ServiceBusConnectionString);
         var taskList = new List<Task>();
         for (int i = 0; i < Store.Length; i++)
         {
-            taskList.Add(SendItems(tc, Store[i]));
+            taskList.Add(SendItems(client, Store[i]));
         }
 
         await Task.WhenAll(taskList);
-        await tc.CloseAsync();
     }
     catch (Exception ex)
     {
@@ -307,23 +303,26 @@ public async Task SendMessages()
     Console.WriteLine("\nAll messages sent.\n");
 }
 
-private async Task SendItems(TopicClient tc, string store)
+private async Task SendItems(ServiceBusClient client, string store)
 {
+    // create the sender
+    ServiceBusSender tc = client.CreateSender(TopicName);
+
     for (int i = 0; i < NrOfMessagesPerStore; i++)
     {
         Random r = new Random();
         Item item = new Item(r.Next(5), r.Next(5), r.Next(5));
 
         // Note the extension class which is serializing an deserializing messages
-        Message message = item.AsMessage();
+        ServiceBusMessage message = item.AsMessage();
         message.To = store;
-        message.UserProperties.Add("StoreId", store);
-        message.UserProperties.Add("Price", item.getPrice().ToString());
-        message.UserProperties.Add("Color", item.getColor());
-        message.UserProperties.Add("Category", item.getItemCategory());
+        message.ApplicationProperties.Add("StoreId", store);
+        message.ApplicationProperties.Add("Price", item.GetPrice().ToString());
+        message.ApplicationProperties.Add("Color", item.GetColor());
+        message.ApplicationProperties.Add("Category", item.GetItemCategory());
 
-        await tc.SendAsync(message);
-        Console.WriteLine($"Sent item to Store {store}. Price={item.getPrice()}, Color={item.getColor()}, Category={item.getItemCategory()}"); ;
+        await tc.SendMessageAsync(message);
+        Console.WriteLine($"Sent item to Store {store}. Price={item.GetPrice()}, Color={item.GetColor()}, Category={item.GetItemCategory()}"); ;
     }
 }
 ```
@@ -346,34 +345,41 @@ public async Task Receive()
 
 private async Task ReceiveMessages(string subscription)
 {
-    var entityPath = EntityNameHelper.FormatSubscriptionPath(TopicName, subscription);
-    var receiver = new MessageReceiver(ServiceBusConnectionString, entityPath, ReceiveMode.PeekLock, RetryPolicy.Default, 100);
+    await using var client = new ServiceBusClient(ServiceBusConnectionString);
+    ServiceBusReceiver receiver = client.CreateReceiver(TopicName, subscription);
 
+    // In reality you would not break out of the loop like in this example but would keep looping. The receiver keeps the connection open
+    // to the broker for the specified amount of seconds and the broker returns messages as soon as they arrive. The client then initiates
+    // a new connection. So in reality you would not want to break out of the loop. 
+    // Also note that the code shows how to batch receive, which you would do for performance reasons. For convenience you can also always
+    // use the regular receive pump which we show in our Quick Start and in other github samples.
     while (true)
     {
         try
         {
-            IList<Message> messages = await receiver.ReceiveAsync(10, TimeSpan.FromSeconds(2));
+            //IList<Message> messages = await receiver.ReceiveAsync(10, TimeSpan.FromSeconds(2));
+            // Note the extension class which is serializing an deserializing messages and testing messages is null or 0.
+            // If you think you did not receive all messages, just press M and receive again via the menu.
+            IReadOnlyList<ServiceBusReceivedMessage> messages = await receiver.ReceiveMessagesAsync(maxMessages: 100);
+
             if (messages.Any())
             {
-                foreach (var message in messages)
+                foreach (ServiceBusReceivedMessage message in messages)
                 {
                     lock (Console.Out)
                     {
                         Item item = message.As<Item>();
-                        IDictionary<string, object> myUserProperties = message.UserProperties;
-                        Console.WriteLine($"StoreId={myUserProperties["StoreId"]}");
-
-                        if (message.Label != null)
+                        IReadOnlyDictionary<string, object> myApplicationProperties = message.ApplicationProperties;
+                        Console.WriteLine($"StoreId={myApplicationProperties["StoreId"]}");
+                        if (message.Subject != null)
                         {
-                            Console.WriteLine($"Label={message.Label}");
+                            Console.WriteLine($"Subject={message.Subject}");
                         }
-
                         Console.WriteLine(
-                            $"Item data: Price={item.getPrice()}, Color={item.getColor()}, Category={item.getItemCategory()}");
+                            $"Item data: Price={item.GetPrice()}, Color={item.GetColor()}, Category={item.GetItemCategory()}");
                     }
 
-                    await receiver.CompleteAsync(message.SystemProperties.LockToken);
+                    await receiver.CompleteMessageAsync(message);
                 }
             }
             else
@@ -386,8 +392,6 @@ private async Task ReceiveMessages(string subscription)
             Console.WriteLine(ex.ToString());
         }
     }
-
-    await receiver.CloseAsync();
 }
 ```
 

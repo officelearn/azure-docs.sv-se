@@ -9,17 +9,32 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/22/2020
-ms.openlocfilehash: 543a71bc2a77f0a31f8ddaa0de13135b93db48ec
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.date: 11/24/2020
+ms.openlocfilehash: bb0c176ee8c145e1268827d79b453628e6f1bc28
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395044"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808629"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Viktig information om Azure SQL Edge 
 
 I den här artikeln beskrivs vad som är nytt och vad som har ändrats med varje ny version av Azure SQL Edge.
+
+## <a name="azure-sql-edge---101"></a>Azure SQL Edge – 1.0.1
+
+### <a name="sql-engine-build-number---15020001553"></a>SQL-motor versions nummer – 15.0.2000.1553
+
+### <a name="whats-new"></a>Nyheter
+
+- Tillåt Datebucket-uttryck definierat i beräknade kolumner
+
+### <a name="fixes"></a>Korrigeringar
+
+- Princip korrigering för kvarhållning för att släppa en tabell med bevarande princip aktive rad med oändlig timeout
+- Stöd för DacFx-distribution för strömnings-och bevarande princip funktioner 
+- DacFx distributions korrigering för att aktivera distribution från kapslad mapp i SAS-URL 
+- FÖRUTSÄGELSE korrigering för att stödja långa kolumn namn i fel meddelanden
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge-1.0.0 (RTM)
 

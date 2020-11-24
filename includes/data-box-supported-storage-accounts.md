@@ -5,18 +5,18 @@ ms.subservice: pod
 ms.topic: include
 ms.date: 09/git14/2020
 ms.author: alkohli
-ms.openlocfilehash: 91f91b1260cc445f90c2608fc5259ad61acd37ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25c2ea04cd062554a975c63aae9b97846e646d68
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90533114"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561902"
 ---
-Här är en lista över de lagrings konton som stöds och lagrings typer för den Data Box-enhet enheten. En fullständig lista över alla typer av lagrings konton och deras fullständiga funktioner finns i [typer av lagrings konton](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+Här är en lista över de lagrings konton som stöds och lagrings typer för den Data Box-enhet enheten. En fullständig lista över alla typer av lagrings konton och deras fullständiga funktioner finns i [typer av lagrings konton](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 I följande tabell visas de lagrings konton som stöds för import order.
 
-| **Lagrings konto/lagrings typer som stöds** | **Blockblob** |**Sid-BLOB*** |**Azure Files** |**Kommentarer**|
+| **Lagrings konto/lagrings typer som stöds** | **Blockblob** |**Sid-BLOB** _ |_ *Azure Files** |**Kommentarer**|
 | --- | --- | -- | -- | -- |
 | Klassisk standard | J | J | J |
 | Generell användning v1-standard  | J | J | J | Både frekvent och låg frekvent stöds.|
@@ -29,7 +29,7 @@ I följande tabell visas de lagrings konton som stöds för import order.
 
 I följande tabell visas de lagrings konton som stöds för export order.
 
-| **Lagrings konto/lagrings typer som stöds** | **Blockblob** |**Sid-BLOB*** |**Azure Files** |**Åtkomst nivåer som stöds**|
+| **Lagrings konto/lagrings typer som stöds** | **Blockblob** |**Sid-BLOB** _ |_ *Azure Files** |**Åtkomst nivåer som stöds**|
 | --- | --- | -- | -- | -- |
 | Klassisk standard | J | J | J | |
 | Generell användning v1-standard  | J | J | J | Frekvent, låg frekvent|
@@ -47,5 +47,3 @@ I följande tabell visas de lagrings konton som stöds för export order.
 > - Data som överförs till sid-blobar måste vara 512 byte justerade, till exempel virtuella hård diskar.
 > - Högst 80 TB kan exporteras.
 > - Fil historik och blob-ögonblicksbilder exporteras inte.
-
-

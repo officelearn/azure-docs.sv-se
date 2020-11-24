@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: media-services
 author: Juliako
 ms.service: media-services
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 5ebbac39c8850737ea6f9ef333e45d305a520655
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1327ac49920af353d6adbbe592ab4189417e60e8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79461222"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560941"
 ---
 ## <a name="use-cli-shell"></a>Använd CLI-gränssnitt
 
-Vi rekommenderar att du använder [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) för att köra CLI-kommandon. **Cloud Shell** är ett kostnads fritt, interaktivt gränssnitt som du kan använda för att köra stegen i den här artikeln. Vanliga Azure-verktyg förinstalleras och konfigureras i Cloud Shell och kan användas med kontot. Den ger dig flexibilitet att välja den skalupplevelse som passar bäst för ditt sätt att arbeta. Linux-användare kan välja en Bash-upplevelse och Windows-användare kan välja PowerShell.
+Vi rekommenderar att du använder [Azure Cloud Shell](../articles/cloud-shell/overview.md?view=azure-cli-latest) för att köra CLI-kommandon. **Cloud Shell** är ett kostnads fritt, interaktivt gränssnitt som du kan använda för att köra stegen i den här artikeln. Vanliga Azure-verktyg förinstalleras och konfigureras i Cloud Shell och kan användas med kontot. Den ger dig flexibilitet att välja den skalupplevelse som passar bäst för ditt sätt att arbeta. Linux-användare kan välja en Bash-upplevelse och Windows-användare kan välja PowerShell.
 
-Du kan också installera CLI lokalt. Instruktioner för din plattform finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) .
+Du kan också installera CLI lokalt. Instruktioner för din plattform finns i [Installera Azure CLI](/cli/azure/install-azure-cli) .
 
 ### <a name="sign-in"></a>Logga in
 
@@ -29,7 +29,7 @@ Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida l�
 
 ### <a name="specify-location-of-files"></a>Ange plats för filer
 
-Med många Media Services CLI-kommandon kan du skicka en parameter med ett fil namn. Om du använder **Cloud Shell**kan du överföra filen till din clouddrive (med bash eller PowerShell). 
+Med många Media Services CLI-kommandon kan du skicka en parameter med ett fil namn. Om du använder **Cloud Shell** kan du överföra filen till din clouddrive (med bash eller PowerShell). 
 
 ![Ladda upp filer]
 

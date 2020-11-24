@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 489ee630deb56aef6c004067f29779053fbcd3e7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3fe622d2ff4f6f8aff546452db0f475cfd44eb1b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755434"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554385"
 ---
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -63,8 +63,8 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 
 Du kan också skapa ett nyckel valv med hjälp av [Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
-1. I mallen för Azure snabb start klickar **du på distribuera till Azure** .
-2. Välj prenumeration, resurs grupp, resurs grupp plats, Key Vault namn, objekt-ID, juridiska villkor och avtal och klicka sedan på **köp** . 
+1. I mallen för Azure snabb start klickar **du på distribuera till Azure**.
+2. Välj prenumeration, resurs grupp, resurs grupp plats, Key Vault namn, objekt-ID, juridiska villkor och avtal och klicka sedan på **köp**. 
 
 
 ##  <a name="set-key-vault-advanced-access-policies"></a>Ställa in avancerade åtkomstprinciper för nyckelvalvet
@@ -117,10 +117,10 @@ Använd [AZ-uppdateringen](/cli/azure/keyvault#az-keyvault-update) för att akti
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Välj ditt nyckel valv, gå till **åtkomst principer** och **Klicka om du vill visa avancerade åtkomst principer** .
-2. Markera rutan **ge till gång till Azure Disk Encryption för volym kryptering** .
-3. Välj **Aktivera åtkomst till Azure Virtual Machines för distribution** och/eller **aktivera åtkomst till Azure Resource Manager för mall distribution** , om det behövs. 
-4. Klicka på **Spara** .
+1. Välj ditt nyckel valv, gå till **åtkomst principer** och **Klicka om du vill visa avancerade åtkomst principer**.
+2. Markera rutan **ge till gång till Azure Disk Encryption för volym kryptering**.
+3. Välj **Aktivera åtkomst till Azure Virtual Machines för distribution** och/eller **aktivera åtkomst till Azure Resource Manager för mall distribution**, om det behövs. 
+4. Klicka på **Spara**.
 
     ![Avancerade åtkomst principer för Azure Key Vault](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
@@ -131,7 +131,7 @@ Om du vill använda en nyckel krypterings nyckel (KEK) för ett extra säkerhets
 
 Du kan generera en ny KEK med hjälp av kommandot för att skapa en Azure CLI- [AZ](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) , Azure PowerShell [Add-AzKeyVaultKey-](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet eller [Azure Portal](https://portal.azure.com/). Du måste generera en RSA-nyckel typ. Azure Disk Encryption har ännu inte stöd för att använda Elliptic kurv nycklar.
 
-Du kan istället importera en KEK från din lokala nyckel hanterings HSM. Mer information finns i [Key Vault-dokumentationen](/azure/key-vault/key-vault-hsm-protected-keys).
+Du kan istället importera en KEK från din lokala nyckel hanterings HSM. Mer information finns i [Key Vault-dokumentationen](../articles/key-vault/keys/hsm-protected-keys.md).
 
 KEK-URL: er för nyckel valvet måste ha versions hantering. Azure tillämpar den här begränsningen av versions hantering. Giltiga hemligheter och KEK-URL: er finns i följande exempel:
 

@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0c05eb88df27ba9e71c0f61bad75457d893a7ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187077"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558993"
 ---
 > [!NOTE]
 > De här exemplen gäller inte för S2S/ExpressRoute-konfigurationer.
@@ -25,7 +25,7 @@ När du lägger till en gateway till ett virtuellt nätverk med hjälp av den kl
 
 ### <a name="download-the-network-configuration-file"></a>Ladda ned nätverks konfigurations filen
 
-1. Hämta nätverks konfigurations filen med hjälp av stegen i artikeln [nätverks konfigurations fil](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) . Öppna filen med en text redigerare.
+1. Hämta nätverks konfigurations filen med hjälp av stegen i artikeln [nätverks konfigurations fil](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file) . Öppna filen med en text redigerare.
 2. Lägg till en lokal nätverks plats i filen. Du kan använda valfritt giltigt adressprefix. Du kan lägga till en giltig IP-adress för VPN-gatewayen. Adress värden i det här avsnittet används inte för ExpressRoute-åtgärder, men krävs för fil verifiering. I exemplet är "branch1" namnet på platsen. Du kan använda ett annat namn, men se till att använda samma värde i Gateway-avsnittet i filen.
 
    ```

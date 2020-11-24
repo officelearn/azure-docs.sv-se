@@ -4,15 +4,15 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
-ms.openlocfilehash: aec13c6beb8dbfcdd5f38e7f96b86bf03e42fa37
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5c2959a1bf6225c164f8538c3c437e464d834b96
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80986636"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554075"
 ---
 ## <a name="create-a-ruby-application"></a>Skapa ett ruby-program
-Instruktioner finns i [skapa ett ruby-program på Azure](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
+Instruktioner finns i [skapa ett ruby-program på Azure](/previous-versions/azure/virtual-machines/linux/classic/ruby-rails-web-app).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Konfigurera programmet så att det använder Service Bus
 Om du vill använda Service Bus laddar du ned och använder Azure ruby-paketet, som innehåller en uppsättning av bekvämlighets bibliotek som kommunicerar med lagrings REST tjänsterna.

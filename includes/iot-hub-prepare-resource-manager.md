@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 4eb794fa35164e3f86a5e3d6f67d446321f91f0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26c158145de6ce729d8a7060152b19fb14b63d58
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67133038"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562317"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Förbered för att autentisera Azure Resource Manager begär Anden
 Du måste autentisera alla åtgärder som du utför på resurser med hjälp av [Azure Resource Manager][lnk-authenticate-arm] med Azure Active Directory (AD). Det enklaste sättet att konfigurera detta är att använda PowerShell eller Azure CLI.
@@ -66,7 +66,7 @@ Nu har du skapat Azure AD-programmet som gör att du kan autentisera från ditt 
 * TenantId
 * SubscriptionId
 * ApplicationId
-* lösenordsinställning
+* Lösenord
 
-[lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
+[lnk-authenticate-arm]: /rest/api/
 [lnk-powershell-install]: /powershell/azure/install-az-ps

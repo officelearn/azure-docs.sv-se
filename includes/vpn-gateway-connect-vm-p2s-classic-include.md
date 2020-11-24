@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6d0737a7300b2a6025f776c1ed65a05cacf2141a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fc14083b0912cf18f98c229adcb297b89bc8971
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187209"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558077"
 ---
 Skapa en anslutning till fjärrskrivbord för att ansluta till en virtuell dator som distribueras till ditt VNet. Det bästa sättet att kontrollera att du kan ansluta till den virtuella datorn är via dess privata IP-adress i stället för datornamnet. På så sätt testar du om du kan ansluta, inte huruvida namnmatchningen är korrekt konfigurerad. 
 
@@ -32,4 +32,4 @@ Om du har problem med att ansluta till en virtuell dator via VPN-anslutningen fi
 - Om du kan ansluta till den virtuella datorn med hjälp av den privata IP-adressen, men inte med namnet på datorn, kontrollerar du att du har konfigurerat DNS korrekt. Mer information om hur namnmatchningen fungerar för virtuella datorer finns i [Namnmatchning för virtuella datorer](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 - Kontrollera att paketet för VPN-klientkonfiguration skapas efter att du anger IP-adresserna för DNS-server för det virtuella nätverket. Om du uppdaterar IP-adresserna för DNS-servern skapar och installerar du ett nytt paket för VPN-klientkonfiguration.
 
-Mer felsökningsinformation finns i [Felsöka fjärrskrivbordsanslutningar till en virtuell dator](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md).
+Mer felsökningsinformation finns i [Felsöka fjärrskrivbordsanslutningar till en virtuell dator](../articles/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).

@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: machine-learning
 author: sdgilley
 ms.service: machine-learning
@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 03/05/2020
-ms.openlocfilehash: ff449626ce528cfe0218a95330a567303c547e5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e7580abfd113a279e2223b9cc9665f6a0b86bc8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79485941"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557210"
 ---
-1. Följ anvisningarna på [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)  för att installera Azure Machine Learning SDK för python
+1. Följ anvisningarna på [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?view=azure-ml-py)  för att installera Azure Machine Learning SDK för python
 
 1. Skapa en [Azure Machine Learning-arbetsyta](../articles/machine-learning/how-to-manage-workspace.md).
 

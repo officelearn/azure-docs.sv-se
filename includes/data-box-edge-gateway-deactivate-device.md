@@ -4,18 +4,18 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 21c19027d21a87e199d74644cfc5c8f3cd52ba4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1b56cfb85595b8a17dc18f69a0b162d504c04ec
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79128873"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558527"
 ---
 Om du återställa enheten måste du på ett säkert sätt rensa alla data på datadisken och startdisken på enheten. 
 
 Använd `Reset-HcsAppliance` cmdleten för att rensa både data diskarna och start disken eller bara data diskarna. Med `ClearData` `BootDisk` växlarna och kan du rensa data diskarna och start disken.
 
-`BootDisk`Växeln rensar start disken och gör enheten oanvändbar. Den bör bara användas när enheten måste returneras till Microsoft. Mer information finns i [returnera enheten till Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
+`BootDisk`Växeln rensar start disken och gör enheten oanvändbar. Den bör bara användas när enheten måste returneras till Microsoft. Mer information finns i [returnera enheten till Microsoft](../articles/databox-online/azure-stack-edge-return-device.md).
 
 Om du använder enhetsåterställningen i det lokala webbgränssnittet rensas bara datadiskarna på ett säkert sätt, men startdisken hålls intakt. Startdisken innehåller enhetskonfigurationen.
 

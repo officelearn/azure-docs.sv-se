@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51dc04fbef8d09878f33d7fda6f15039d3afba3e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187298"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558342"
 ---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Konfigurera en DNS-etikett för den offentliga IP-adressen
 
@@ -34,7 +34,7 @@ För att skapa en DNS-etikett, väljer du först **Virtuella datorer** i portale
 
 ### <a name="connect-to-the-database-engine-from-another-computer"></a>Anslut till databasmotorn från en annan dator
 
-1. Öppna SQL Server Management Studio (SSMS) från en dator som är ansluten till Internet. Om du inte har SQL Server Management Studio kan du ladda ned den [här](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. Öppna SQL Server Management Studio (SSMS) från en dator som är ansluten till Internet. Om du inte har SQL Server Management Studio kan du ladda ned den [här](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. I dialogrutan **Anslut till server** eller **Anslut till databasmotor**, redigerar du värdet för **Servernamn**. Ange IP-adressen eller det fullständiga DNS-namnet för den virtuella datorn (bestäms i föregående åtgärd). Du kan också lägga till ett kommatecken och ange TCP-porten för SQL Server. Exempelvis `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
 

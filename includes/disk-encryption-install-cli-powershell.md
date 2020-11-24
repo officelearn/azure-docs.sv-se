@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: f2e95a53f7dd188e1103a47cba097716cfad9484
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1c1d438f0322942a1e68c0af74de8d5e2d77c77a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746215"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559870"
 ---
 Azure Disk Encryption kan aktive ras och hanteras via [Azure CLI](/cli/azure) och [Azure PowerShell](/powershell/azure/new-azureps-module-az). Om du vill göra det måste du installera verktygen lokalt och ansluta till din Azure-prenumeration.
 
@@ -43,7 +43,7 @@ az account set --subscription "<subscription name or ID>"
 Mer information finns i [Kom igång med Azure CLI 2,0](/cli/azure/get-started-with-azure-cli). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Modulen Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) innehåller en uppsättning cmdletar som använder [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) -modellen för att hantera dina Azure-resurser. Du kan använda den i din webbläsare med [Azure Cloud Shell](/azure/cloud-shell/overview), eller så kan du installera den på din lokala dator med hjälp av anvisningarna i [installera modulen Azure PowerShell](/powershell/azure/install-az-ps). 
+[Modulen Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) innehåller en uppsättning cmdletar som använder [Azure Resource Manager](../articles/azure-resource-manager/management/overview.md) -modellen för att hantera dina Azure-resurser. Du kan använda den i din webbläsare med [Azure Cloud Shell](../articles/cloud-shell/overview.md), eller så kan du installera den på din lokala dator med hjälp av anvisningarna i [installera modulen Azure PowerShell](/powershell/azure/install-az-ps). 
 
 Om du redan har installerat det lokalt kontrollerar du att du använder den senaste versionen av Azure PowerShell SDK-versionen för att konfigurera Azure Disk Encryption. Ladda ned den senaste versionen av [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)-versionen.
 
@@ -66,4 +66,4 @@ Om du vill bekräfta att Azure Disk Encryption-cmdletarna är installerade anvä
 ```powershell
 Get-command *diskencryption*
 ```
-Mer information finns i [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps). 
+Mer information finns i [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps).

@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 754a47b3692847957de7f3d666f4dc09dc309d25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6684c4269f14b91ded651dadff3f0a2e0878a4f2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91025228"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560177"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Stöds anpassade IPsec/IKE-principer på alla Azure VPN Gateway-SKU: er?
 Anpassad IPsec/IKE-princip stöds på alla Azure SKU: er förutom Basic SKU.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Hur många principer kan jag ställa in för en anslutning?
-Du kan bara ange ***en*** principkombination för en viss anslutning.
+Du kan bara ange ***en** _ princip kombination för en specifik anslutning.
 
 ### <a name="can-i-specify-a-partial-policy-on-a-connection-for-example-only-ike-algorithms-but-not-ipsec"></a>Kan jag ange en partiell princip på en anslutning? (till exempel endast IKE-algoritmer, men inte IPsec)
 Nej, du måste ange alla algoritmer och parametrar för både IKE (huvudläge) och IPsec (snabbläge). Partiell principspecifikationen tillåts inte.
@@ -27,7 +27,7 @@ Nej, du måste ange alla algoritmer och parametrar för både IKE (huvudläge) o
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>Vilka är de algoritmer och viktiga fördelar som stöds i den anpassade principen?
 Tabellen nedan innehåller de krypteringsalgoritmer och nyckellängder som stöds och som kan konfigureras av kunden. Du måste välja ett alternativ för varje fält.
 
-| **IPsec/IKEv2**  | **Alternativ**                                                                   |
+| _ *IPSec/IKEv2**  | **Alternativ**                                                                   |
 | ---              | ---                                                                           |
 | IKEv2-kryptering | AES256, AES192, AES128, DES3, DES                                             |
 | IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                     |
@@ -107,7 +107,7 @@ Standardvärdet för DPD är 45 sekunder. Du kan ange ett annat timeout-värde f
 Nej. IPSec-/ princip fungerar bara på S2S VPN- och VNet-till-VNet-anslutningar via Azure VPN-gatewayer.
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Hur gör jag för att skapa anslutningar med IKEv1-eller IKEv2-protokoll typ?
-IKEv1-anslutningar kan skapas på alla Routningsbaserad VPN-typer SKU: er, förutom Basic SKU, standard SKU och andra [äldre SKU: er](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku). Du kan ange en typ av anslutnings protokoll för IKEv1 eller IKEv2 när du skapar anslutningar. Om du inte anger någon typ av anslutnings protokoll används IKEv2 som standard alternativ i förekommande fall. Mer information finns i PowerShell- [cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) -dokumentationen. För SKU-typer och IKEv1/IKEv2-stöd, se [ansluta gatewayar till principbaserade VPN-enheter](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+IKEv1-anslutningar kan skapas på alla Routningsbaserad VPN-typer SKU: er, förutom Basic SKU, standard SKU och andra [äldre SKU: er](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#gwsku). Du kan ange en typ av anslutnings protokoll för IKEv1 eller IKEv2 när du skapar anslutningar. Om du inte anger någon typ av anslutnings protokoll används IKEv2 som standard alternativ i förekommande fall. Mer information finns i PowerShell- [cmdlet](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) -dokumentationen. För SKU-typer och IKEv1/IKEv2-stöd, se [ansluta gatewayar till principbaserade VPN-enheter](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>Tillåts överföring mellan IKEv1-och IKEv2-anslutningar?
 Ja. Överföring mellan IKEv1-och IKEv2-anslutningar stöds.

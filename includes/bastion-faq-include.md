@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5d14068f6be4717f74e4917d6fccf1082cd0efd3
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 48a7912b1a6375111b6f9af1496cbbd41966202c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331766"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554413"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Vilka regioner är tillgängliga?
 
@@ -61,9 +61,9 @@ Azure-skydds flyttar eller lagrar inte kund information från den region som den
 
 Följande roller krävs för att upprätta en anslutning:
 
-* Rollen läsare på den virtuella datorn
-* Rollen läsare på NÄTVERKSKORTet med den virtuella datorns privata IP-adress
-* Läsar roll på Azure skydds-resursen
+* Läsarroll på den virtuella datorn
+* Läsarroll på nätverkskortet med den virtuella datorns privata IP-adress
+* Läsarroll på Azure Bastion-resursen
 
 ### <a name="what-is-the-pricing"></a><a name="pricingpage"></a>Vad är prissättningen?
 
@@ -89,7 +89,7 @@ En session ska endast initieras från Azure Portal. Logga in på Azure Portal oc
 
 ### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>Hur gör jag för att hantera distributions problem?
 
-Granska eventuella fel meddelanden och [få en supportbegäran i Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) efter behov. Distributions felen kan bero på [begränsningar, kvoter och begränsningar för Azure-prenumerationen](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). Mer specifikt kan kunderna stöta på en gräns för antalet offentliga IP-adresser som tillåts per prenumeration och som gör att Azure skydds-distributionen Miss lyckas.
+Granska eventuella fel meddelanden och [få en supportbegäran i Azure Portal](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) efter behov. Distributions felen kan bero på [begränsningar, kvoter och begränsningar för Azure-prenumerationen](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). Mer specifikt kan kunderna stöta på en gräns för antalet offentliga IP-adresser som tillåts per prenumeration och som gör att Azure skydds-distributionen Miss lyckas.
 
 ### <a name="how-do-i-incorporate-azure-bastion-in-my-disaster-recovery-plan"></a><a name="dr"></a>Hur gör jag för att införliva Azure-skydds i min haveri beredskaps plan?
 

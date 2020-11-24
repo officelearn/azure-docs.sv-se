@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: eeda43b972e30c573743c8c59f75cfae61d7ee85
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 26a5537496d9e881ece135437c403baf4a4fd67c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413162"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561671"
 ---
 För närvarande har Ultra disks ytterligare begränsningar, de är följande:
 
@@ -67,7 +67,7 @@ Följande tabell beskriver regionerna Ultra disks finns i, samt motsvarande till
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Alla VM-storlekar är inte tillgängliga i alla regioner som stöds med Ultra disks.
 - Är bara tillgängliga som data diskar. 
-- Stöd för fysisk sektor storlek på 4K som standard. 512E sektor storlek är tillgänglig som ett allmänt tillgängligt erbjudande, men du måste [Registrera dig för den](https://aka.ms/ultradisk512e). De flesta program är kompatibla med storleken på 4K-sektorn men vissa kräver 512 byte sektor storlek. Ett exempel skulle vara Oracle Database, vilket kräver version 12,2 eller senare för att kunna stödja de 4K-inhemska diskarna. För äldre versioner av Oracle DB krävs en sektor storlek på 512 byte.
+- Stöd för fysisk sektor storlek på 4K som standard. 512E sektor storlek är tillgänglig som ett allmänt tillgängligt erbjudande (ingen registrering krävs), men det är för närvarande bara tillgängligt med CLI eller PowerShell. De flesta program är kompatibla med storleken på 4K-sektorn men vissa kräver 512 byte sektor storlek. Ett exempel skulle vara Oracle Database, vilket kräver version 12,2 eller senare för att kunna stödja de 4K-inhemska diskarna. För äldre versioner av Oracle DB krävs en sektor storlek på 512 byte.
 - Kan bara skapas som tomma diskar.
 - Stöder för närvarande inte disk ögonblicks bilder, VM-avbildningar, tillgänglighets uppsättningar, Azure-dedikerade värdar eller Azure Disk Encryption.
 - Stöder för närvarande inte integrering med Azure Backup eller Azure Site Recovery.

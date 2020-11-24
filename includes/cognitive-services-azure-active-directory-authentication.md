@@ -4,18 +4,18 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: 235b7946fbcfc2322878428cce72e77ecceb9cfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1085daca153431a28fdcc2583d0e31308214bf91
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88011005"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95553950"
 ---
-## <a name="authenticate-with-azure-active-directory"></a>Autentisera med hjälp av Azure Active Directory
+## <a name="authenticate-with-azure-active-directory"></a>Autentisering via Azure Active Directory
 
 > [!IMPORTANT]
 > 1. För närvarande är det **bara** API för visuellt innehåll, Ansikts-API, API för textanalys, fördjupad läsare, formulär igenkänning, avvikelse detektor och alla Bing-tjänster utom anpassad sökning i Bing stöd för autentisering med Azure Active Directory (AAD).
-> 2. AAD-autentisering måste alltid användas tillsammans med det anpassade under domän namnet för din Azure-resurs. [Regionala slut punkter](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) stöder inte AAD-autentisering.
+> 2. AAD-autentisering måste alltid användas tillsammans med det anpassade under domän namnet för din Azure-resurs. [Regionala slut punkter](../articles/cognitive-services/cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) stöder inte AAD-autentisering.
 
 I föregående avsnitt visade vi dig hur du autentiserar mot Azure Cognitive Services med en prenumerations nyckel för en enda tjänst eller flera tjänster. Även om dessa nycklar ger en snabb och enkel väg för att börja utveckla, är de korta i mer komplexa scenarier som kräver rollbaserad åtkomst kontroll i Azure (Azure RBAC). Låt oss ta en titt på vad som krävs för att autentisera med hjälp av Azure Active Directory (AAD).
 
@@ -23,15 +23,15 @@ I följande avsnitt använder du antingen Azure Cloud Shells miljön eller Azure
 
 ### <a name="create-a-resource-with-a-custom-subdomain"></a>Skapa en resurs med en anpassad under domän
 
-Det första steget är att skapa en anpassad under domän. Om du vill använda en befintlig Cognitive Services-resurs som inte har något anpassat under domän namn följer du anvisningarna i [Cognitive Services anpassade under domäner](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#how-does-this-impact-existing-resources) för att aktivera anpassad under domän för resursen.
+Det första steget är att skapa en anpassad under domän. Om du vill använda en befintlig Cognitive Services-resurs som inte har något anpassat under domän namn följer du anvisningarna i [Cognitive Services anpassade under domäner](../articles/cognitive-services/cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) för att aktivera anpassad under domän för resursen.
 
-1. Börja med att öppna Azure Cloud Shell. [Välj en prenumeration](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0):
+1. Börja med att öppna Azure Cloud Shell. [Välj en prenumeration](/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0):
 
    ```powershell-interactive
    Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
-2. Skapa sedan [en Cognitive Services-resurs](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) med en anpassad under domän. Under domän namnet måste vara globalt unikt och får inte innehålla specialtecken, till exempel: ".", "!", ",".
+2. Skapa sedan [en Cognitive Services-resurs](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) med en anpassad under domän. Under domän namnet måste vara globalt unikt och får inte innehålla specialtecken, till exempel: ".", "!", ",".
 
    ```powershell-interactive
    $account = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
@@ -47,7 +47,7 @@ Nu när du har en anpassad under domän som är kopplad till din resurs, kommer 
 > [!NOTE]
 > Tänk på att det kan ta upp till fem minuter för Azure Role-tilldelningar att spridas.
 
-1. Först ska vi registrera ett [AAD-program](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
+1. Först ska vi registrera ett [AAD-program](/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
 
    ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
@@ -57,7 +57,7 @@ Nu när du har en anpassad under domän som är kopplad till din resurs, kommer 
 
    Du kommer att behöva **ApplicationId** i nästa steg.
 
-2. Därefter måste du [skapa ett huvud namn för tjänsten](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) för AAD-programmet.
+2. Därefter måste du [skapa ett huvud namn för tjänsten](/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) för AAD-programmet.
 
    ```powershell-interactive
    New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
@@ -66,7 +66,7 @@ Nu när du har en anpassad under domän som är kopplad till din resurs, kommer 
    >[!NOTE]
    > Om du registrerar ett program i Azure Portal har det här steget slutförts.
 
-3. Det sista steget är att [tilldela rollen "Cognitive Services användare"](https://docs.microsoft.com/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) till tjänstens huvud namn (omfattas av resursen). Genom att tilldela en roll beviljar du tjänstens huvud namns åtkomst till den här resursen. Du kan ge samma tjänst huvud namn åtkomst till flera resurser i din prenumeration.
+3. Det sista steget är att [tilldela rollen "Cognitive Services användare"](/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) till tjänstens huvud namn (omfattas av resursen). Genom att tilldela en roll beviljar du tjänstens huvud namns åtkomst till den här resursen. Du kan ge samma tjänst huvud namn åtkomst till flera resurser i din prenumeration.
    >[!NOTE]
    > Objekt-ID: t för tjänstens huvud namn används, inte ObjectId för programmet.
    > ACCOUNT_ID är Azure-resurs-ID: t för det Cognitive Services konto som du har skapat. Du hittar Azure Resource ID från "egenskaper" för resursen i Azure Portal.
@@ -119,16 +119,16 @@ Alternativt kan tjänstens huvud namn autentiseras med ett certifikat. Förutom 
 
 ## <a name="authorize-access-to-managed-identities"></a>Ge åtkomst till hanterade identiteter
  
-Cognitive Services stöd Azure Active Directory (Azure AD)-autentisering med [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Hanterade identiteter för Azure-resurser kan ge åtkomst till Cognitive Services-resurser med hjälp av Azure AD-autentiseringsuppgifter från program som körs i Azure Virtual Machines (VM), Function-appar, skalnings uppsättningar för virtuella datorer och andra tjänster. Genom att använda hanterade identiteter för Azure-resurser tillsammans med Azure AD-autentisering kan du undvika att lagra autentiseringsuppgifter med dina program som körs i molnet.  
+Cognitive Services stöd Azure Active Directory (Azure AD)-autentisering med [hanterade identiteter för Azure-resurser](../articles/active-directory/managed-identities-azure-resources/overview.md). Hanterade identiteter för Azure-resurser kan ge åtkomst till Cognitive Services-resurser med hjälp av Azure AD-autentiseringsuppgifter från program som körs i Azure Virtual Machines (VM), Function-appar, skalnings uppsättningar för virtuella datorer och andra tjänster. Genom att använda hanterade identiteter för Azure-resurser tillsammans med Azure AD-autentisering kan du undvika att lagra autentiseringsuppgifter med dina program som körs i molnet.  
 
 ### <a name="enable-managed-identities-on-a-vm"></a>Aktivera hanterade identiteter på en virtuell dator
 
 Innan du kan använda hanterade identiteter för Azure-resurser för att ge åtkomst till Cognitive Services resurser från din virtuella dator måste du aktivera hanterade identiteter för Azure-resurser på den virtuella datorn. Information om hur du aktiverar hanterade identiteter för Azure-resurser finns i:
 
-- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
-- [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
-- [Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
-- [Azure Resource Manager-mall](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
-- [Azure Resource Manager klient bibliotek](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
+- [Azure Portal](../articles/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+- [Azure PowerShell](../articles/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure CLI](../articles/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Azure Resource Manager-mall](../articles/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure Resource Manager klient bibliotek](../articles/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-Mer information om hanterade identiteter finns i [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Mer information om hanterade identiteter finns i [hanterade identiteter för Azure-resurser](../articles/active-directory/managed-identities-azure-resources/overview.md).

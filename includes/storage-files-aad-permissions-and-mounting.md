@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: storage
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/26/2020
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: a168b9f721cd9c3d4ab0e8b6a56b764fec3b1fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4773446ec0007ffbed99bc01939d1f92f5823d99
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779269"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559660"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>Tilldela åtkomst behörigheter till en identitet
 
@@ -77,7 +77,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 
 När du har tilldelat behörigheter på resurs nivå med RBAC måste du tilldela rätt NTFS-behörighet på rot-, katalog-eller filnivå. Tänk på behörigheter på resurs nivå som den övergripande gatekeepern som avgör om en användare har åtkomst till resursen. NTFS-behörigheter fungerar på en mer detaljerad nivå för att avgöra vilka åtgärder användaren kan göra på katalog-eller filnivå.
 
-Azure Files stöder en fullständig uppsättning NTFS Basic-och Advanced-behörigheter. Du kan visa och konfigurera NTFS-behörigheter för kataloger och filer i en Azure-filresurs genom att montera resursen och sedan använda Utforskaren i Windows eller köra kommandot Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) eller [set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) . 
+Azure Files stöder en fullständig uppsättning NTFS Basic-och Advanced-behörigheter. Du kan visa och konfigurera NTFS-behörigheter för kataloger och filer i en Azure-filresurs genom att montera resursen och sedan använda Utforskaren i Windows eller köra kommandot Windows [icacls](/windows-server/administration/windows-commands/icacls) eller [set-ACL](/powershell/module/microsoft.powershell.security/set-acl) . 
 
 Om du vill konfigurera NTFS med behörigheter för superanvändare måste du montera resursen med hjälp av lagrings konto nyckeln från din domänanslutna VM. Följ anvisningarna i nästa avsnitt för att montera en Azure-filresurs från kommando tolken och konfigurera NTFS-behörigheter enligt detta.
 
@@ -108,7 +108,7 @@ else
 
 ```
 
-Om du får problem med att ansluta till Azure Files kan du läsa [fel söknings verktyget som vi publicerade för Azure Files monterings fel i Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Vi ger också [vägledning](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) för att lösa scenarier när port 445 är blockerad. 
+Om du får problem med att ansluta till Azure Files kan du läsa [fel söknings verktyget som vi publicerade för Azure Files monterings fel i Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Vi ger också [vägledning](../articles/storage/files/storage-files-faq.md#on-premises-access) för att lösa scenarier när port 445 är blockerad. 
 
 
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Konfigurera NTFS-behörigheter med Windows Utforskaren
@@ -122,7 +122,7 @@ Använd Utforskaren i Windows för att ge fullständig behörighet till alla kat
 5. I fönstret prompt för att lägga till nya användare anger du det mål användar namn som du vill ge behörighet i rutan **Ange de objekt namn som ska väljas** och väljer **kontrol lera namn** för att hitta det fullständiga UPN-namnet för mål användaren.
 7.    Välj **OK**.
 8.    På fliken **säkerhet** väljer du alla behörigheter som du vill ge den nya användaren.
-9.    Välj **Använd**.
+9.    Välj **Tillämpa**.
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>Konfigurera NTFS-behörigheter med icacls
 
@@ -132,7 +132,7 @@ Använd följande Windows-kommando för att ge fullständig behörighet till all
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-Mer information om hur du använder icacls för att ange NTFS-behörigheter och de olika typerna av behörigheter som stöds finns i [kommando rads referens för icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+Mer information om hur du använder icacls för att ange NTFS-behörigheter och de olika typerna av behörigheter som stöds finns i [kommando rads referens för icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>Montera en fil resurs från en domänansluten virtuell dator
 
@@ -142,7 +142,7 @@ Logga in på den virtuella datorn med hjälp av den Azure AD-identitet som du ha
 
 ![Skärm bild som visar inloggnings skärmen för Azure AD för användarautentisering](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Använd följande kommando för att montera Azure-filresursen. Kom ihåg att ersätta plats hållarnas värden med dina egna värden. Eftersom du har autentiserats behöver du inte ange lagrings konto nyckeln, lokala AD DS-autentiseringsuppgifter eller autentiseringsuppgifter för Azure AD DS. Enkel inloggning stöds för autentisering med antingen lokal AD DS eller Azure AD DS. Om du stöter på problem med att montera med AD DS-autentiseringsuppgifter läser du [felsöka Azure Files problem i Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) för vägledning.
+Använd följande kommando för att montera Azure-filresursen. Kom ihåg att ersätta plats hållarnas värden med dina egna värden. Eftersom du har autentiserats behöver du inte ange lagrings konto nyckeln, lokala AD DS-autentiseringsuppgifter eller autentiseringsuppgifter för Azure AD DS. Enkel inloggning stöds för autentisering med antingen lokal AD DS eller Azure AD DS. Om du stöter på problem med att montera med AD DS-autentiseringsuppgifter läser du [felsöka Azure Files problem i Windows](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md) för vägledning.
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445

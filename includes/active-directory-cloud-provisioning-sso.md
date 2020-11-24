@@ -5,12 +5,12 @@ ms.subservice: cloud-provisioning
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
-ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d95e40623f17a39145778a2fc067dccc68fd872
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79504323"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559896"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Steg för att aktivera enkel inloggning
 Moln etablering fungerar med enkel inloggning.  För närvarande finns det inget alternativ för att aktivera SSO när agenten har installerats, men du kan använda stegen nedan för att aktivera SSO och använda det. 
@@ -23,7 +23,7 @@ Moln etablering fungerar med enkel inloggning.  För närvarande finns det inget
 
 ### <a name="step-2-import-the-seamless-sso-powershell-module"></a>Steg 2: importera sömlös SSO PowerShell-modul
 
-1. Ladda ned och installera [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Ladda ned och installera [Azure AD PowerShell](/powershell/azure/active-directory/overview).
 2. Bläddra till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importera den sömlösa SSO PowerShell-modulen med hjälp av följande kommando: `Import-Module .\AzureADSSO.psd1` .
 

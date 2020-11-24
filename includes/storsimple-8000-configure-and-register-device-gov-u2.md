@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 7700f1c92aecab76dbc347814b7b161bc3d822a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 338332eb90fda9afe7655f9f2ad19ed726419b6c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187399"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554074"
 ---
 ### <a name="to-configure-and-register-the-device"></a>Konfigurera och registrera enheten
 1. Gå in i Windows PowerShell-gränssnittet på din StorSimple-enhets seriekonsol. Mer instruktioner finns i [Använd PuTTY för att ansluta till enhetens seriekonsol](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console). **Se till att följa proceduren exakt för att du ska få åtkomst till konsolen.**
@@ -43,7 +43,7 @@ ms.locfileid: "67187399"
    4. Du kan också konfigurera webbproxyservern.
       
       > [!IMPORTANT]
-      > Även om webbproxykonfigurationen är valfri, var medveten om att om du använder en webbproxy så kan du bara konfigurera den här. Mer information finns i [Konfigurera en webbproxy för din enhet](../articles/storsimple/storsimple-configure-web-proxy.md).
+      > Även om webbproxykonfigurationen är valfri, var medveten om att om du använder en webbproxy så kan du bara konfigurera den här. Mer information finns i [Konfigurera en webbproxy för din enhet](../articles/storsimple/storsimple-8000-configure-web-proxy.md).
      
 6. Tryck på CTRL + C om du vill avsluta installations guiden.
 8. Kör följande cmdlet för att peka enheten till Microsoft Azure Government portal (eftersom den pekar på den klassiska Azure-portalen som standard). Detta kommer att starta om båda styrenheterna. Vi rekommenderar att du använder två SparaTillFil-sessioner för att samtidigt ansluta till båda styrenheterna så att du kan se när varje kontroll enhet startas om.
@@ -86,4 +86,3 @@ ms.locfileid: "67187399"
         Om enheten fortfarande är offline efter några minuter, måste du kontrollera att ditt brandväggsnätverk har konfigurerats enligt beskrivningen i [nätverkskraven för din StorSimple-enhet](../articles/storsimple/storsimple-8000-system-requirements.md).
        
         Kontrollera att port 9354 är öppen för utgående kommunikation eftersom den används av Service Bus för kommunikation mellan StorSimple Device Manager-tjänsten och enheten.
-

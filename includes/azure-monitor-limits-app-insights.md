@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: eaf2c2e2c1954ae848c280adf4f1ae81ffc79ee8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 397011cfd862607932f671c1f2cacd25513bdeb2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779078"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95553995"
 ---
 Det finns vissa begränsningar för antalet mått och händelser per program, det vill säga per Instrumentation-nyckel. Gränserna beror på vilken [prisplan](https://azure.microsoft.com/pricing/details/application-insights/) du väljer.
 
-| Resurs | Gräns | Obs!
+| Resurs | Gräns | Anteckning
 | --- | --- | --- |
 | Totala data per dag | 100 GB | Du kan minska datamängden genom att ange ett tak. Om du behöver mer data kan du öka gränsen i portalen, upp till 1 000 GB. Skicka e-post till för kapaciteter som är större än 1 000 GB AIDataCap@microsoft.com .
 | Begränsning | 32 000 händelser/sekund | Gränser är mätt under en minut.
-| Datakvarhållning | 90 dagar | Den här resursen är för [Search](../articles/azure-monitor/app/diagnostic-search.md), [Analytics](../articles/azure-monitor/app/analytics.md) och [Metrics Explorer](../articles/azure-monitor/app/metrics-explorer.md).
+| Datakvarhållning | 90 dagar | Den här resursen är för [Search](../articles/azure-monitor/app/diagnostic-search.md), [Analytics](../articles/azure-monitor/log-query/log-query-overview.md) och [Metrics Explorer](../articles/azure-monitor/platform/metrics-charts.md).
 | [Flerstegstest för tillgänglighet](../articles/azure-monitor/app/availability-multistep.md) (kvarhållning av detaljerade resultat) | 90 dagar | Den här resursen innehåller detaljerade resultat för varje steg.
 | Maximal händelse storlek | 64 000 000 byte |
 | Namnlängd för egenskaper och mätvärden | 150 | Se [typ scheman](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond/).
@@ -29,6 +29,6 @@ Det finns vissa begränsningar för antalet mått och händelser per program, de
 | Längd för spårnings- och undantagsmeddelande | 32 768  | Se [typ scheman](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond/).
 | [Tillgänglighetstester](../articles/azure-monitor/app/monitor-web-app-availability.md) (antal per app) | 100 |
 | [Data](../articles/azure-monitor/app/profiler.md) kvarhållning för profilering | 5 dagar |
-| [Profilerade](../articles/azure-monitor/app/profiler.md) data har skickats per dag | 10 GB |
+| [Profilerade](../articles/azure-monitor/app/profiler.md) data har skickats per dag | 10 GB |
 
 Mer information finns i [Om priser och kvoter i Application Insights](../articles/azure-monitor/app/pricing.md).

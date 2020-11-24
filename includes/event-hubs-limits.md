@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 320fa542f2b786f0a256c22f2d2eb299c476dcae
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 1b5905046fdde4d5574fd4d39f40dce1bbf11e32
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94362772"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554622"
 ---
 Följande tabeller innehåller kvoter och begränsningar som är begränsade till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om Event Hubs priser finns i [Event Hubs prissättning](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## <a name="common-limits-for-all-tiers"></a>Vanliga gränser för alla nivåer
 Följande begränsningar är gemensamma för alla nivåer. 
 
-| Gräns |  Kommentarer | Värde |
+| Gräns |  Anteckningar | Värde |
 | --- |  --- | --- |
 | Antal Event Hubs namn rymder per prenumeration |- |100 |
 | Antal Event Hub per namnrymd | Efterföljande begär Anden om att skapa en ny händelsehubben avvisas. |10 |
@@ -36,18 +36,18 @@ Följande begränsningar är gemensamma för alla nivåer.
 ## <a name="basic-vs-standard-tiers"></a>Basic vs. standard-nivåer
 I följande tabell visas de gränser som kan vara olika för nivåerna Basic och standard. 
 
-| Gräns | Kommentarer | Basic | Standard |
+| Gräns | Anteckningar | Basic | Standard |
 |---|---|--|---|
 | Maximal storlek för Event Hubs händelse| &nbsp; | 256 kB | 1 MB |
 | Antal konsument grupper per Event-hubb | &nbsp; |1 |20 |
 | Antal AMQP-anslutningar per namnrymd | Efterföljande begär Anden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |100 |5 000|
 | Högsta kvarhållningsperiod för händelse data | &nbsp; |1 dag |1-7 dagar |
-| Maximalt antal data flödes enheter |Att överskrida den här gränsen gör att dina data begränsas och genererar en [Server upptagen undantag](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Om du vill begära ett större antal data flödes enheter för en standard-nivå kan du skicka en [support förfrågan](/azure/azure-portal/supportability/how-to-create-azure-support-request). [Ytterligare data flödes enheter](../articles/event-hubs/event-hubs-auto-inflate.md) är tillgängliga i block om 20 på ett dedikerat köp. |20 | 20 | 
+| Maximalt antal data flödes enheter |Att överskrida den här gränsen gör att dina data begränsas och genererar en [Server upptagen undantag](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Om du vill begära ett större antal data flödes enheter för en standard-nivå kan du skicka en [support förfrågan](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). [Ytterligare data flödes enheter](../articles/event-hubs/event-hubs-auto-inflate.md) är tillgängliga i block om 20 på ett dedikerat köp. |20 | 20 | 
 
 ## <a name="dedicated-tier-vs-standard-tier"></a>Dedikerad nivå kontra standard nivå
 Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst fyra timmars användning. Den dedikerade nivån innehåller alla funktioner i standard planen, men med kapacitet för företags skala och gränser för kunder med krävande arbets belastningar. 
 
-Läs det här [dokumentet](https://docs.microsoft.com/azure/event-hubs/event-hubs-dedicated-cluster-create-portal) om hur du skapar dedikerat Event Hubs kluster med Azure Portal.
+Läs det här [dokumentet](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md) om hur du skapar dedikerat Event Hubs kluster med Azure Portal.
 
 | Funktion | Standard | Dedikerad |
 | --- |:---|:---|
@@ -83,8 +83,3 @@ Läs det här [dokumentet](https://docs.microsoft.com/azure/event-hubs/event-hub
 | Storlek på schema registret (namnrymd) i megabyte | 25 |  1024 |
 | Antal schema grupper i ett schema register eller namnrymd | 1 – exklusive standard gruppen | 1000 |
 | Antal schema versioner i alla schema grupper | 25 | 10000 |
-
-
-
-
-

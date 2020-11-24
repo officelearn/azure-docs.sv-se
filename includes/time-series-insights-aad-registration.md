@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 ms.topic: include
 ms.custom: include file
 services: time-series-insights
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
-ms.openlocfilehash: 7de4dc21391f7dbd817c56ce51606a808cf9e3c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f203357d29d450f5b34593952f611f025b14ff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665827"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560878"
 ---
 1. I [Azure Portal](https://ms.portal.azure.com/)väljer du **Azure Active Directory**  >  **Appregistreringar**  >  **ny registrering**.
 
@@ -22,11 +22,11 @@ ms.locfileid: "91665827"
 
     Din app visas här när du har registrerat den.
 
-1. Ge programmet ett namn och välj **konton i den här organisations katalogen endast** för att ange de **konto typer som stöds** och som kan komma åt API: et. Om du skapar en [offentlig klient-app](https://docs.microsoft.com/azure/active-directory/develop/msal-client-application-configuration#redirect-uri)lägger du till en giltig omdirigerings-URI och **registrerar**sedan.
+1. Ge programmet ett namn och välj **konton i den här organisations katalogen endast** för att ange de **konto typer som stöds** och som kan komma åt API: et. Om du skapar en [offentlig klient-app](../articles/active-directory/develop/msal-client-application-configuration.md#redirect-uri)lägger du till en giltig omdirigerings-URI och **registrerar** sedan.
 
    [![Skapa programmet i Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 
-1. Viktig information om Azure Active Directory-appen visas i bladet **Översikt** för appen. Välj din app under **ägda program**och sedan på **Översikt**.
+1. Viktig information om Azure Active Directory-appen visas i bladet **Översikt** för appen. Välj din app under **ägda program** och sedan på **Översikt**.
 
    [![Kopiera program-ID](media/time-series-insights-aad-registration/active-directory-copy-application-id.png)](media/time-series-insights-aad-registration/active-directory-copy-application-id.png#lightbox)
 
@@ -55,7 +55,7 @@ ms.locfileid: "91665827"
 
     [![Skapa omdirigerings-URI: er](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png)](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png#lightbox)
 
-    Klicka på **Konfigurera**och sedan på **Spara**.
+    Klicka på **Konfigurera** och sedan på **Spara**.
 
 1. Välj **certifikat & hemligheter** och sedan **ny klient hemlighet** för att skapa ett program lösen ord som din klient program kan använda för att bevisa sin identitet.
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a442b5de7a256dd8bcf47da741bd41894709c3a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74085281"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559659"
 ---
 Att diagnostisera problem med en Microsoft Azure moln tjänst kräver att tjänstens loggfiler samlas in på virtuella datorer när det uppstår problem. Du kan använda AzureLogCollector-tillägget på begäran för att utföra en engångs insamling av loggar från en eller flera virtuella datorer i moln tjänsten (från både webb roller och arbets roller) och överföra de insamlade filerna till ett Azure Storage-konto – allt utan att fjärrlogga in på någon av de virtuella datorerna.
 
@@ -36,7 +36,7 @@ I båda samlings lägena kan ytterligare data insamlings mappar anges med hjälp
 * **SearchPattern**: mönstret för namnen på de filer som ska samlas in. Standardvärdet är " \* "
 * **Rekursiv**: om de filer som ska samlas in rekursivt under den angivna platsen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
@@ -44,11 +44,11 @@ I båda samlings lägena kan ytterligare data insamlings mappar anges med hjälp
 * Azure PowerShell. Installations anvisningar finns i [installera Azure PowerShell](/powershell/azure/install-az-ps)].
 
 ## <a name="add-the-extension"></a>Lägga till tillägget
-Du kan använda [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlets eller [Service Management REST-API: er](https://msdn.microsoft.com/library/ee460799.aspx) för att lägga till AzureLogCollector-tillägget.
+Du kan använda [Microsoft Azure PowerShell](/previous-versions/azure/dn495240(v=azure.100)) cmdlets eller [Service Management REST-API: er](/previous-versions/azure/ee460799(v=azure.100)) för att lägga till AzureLogCollector-tillägget.
 
-För Cloud Services kan den befintliga Azure PowerShell-cmdleten **set-AzureServiceExtension**användas för att aktivera tillägget på moln tjänst roll instanser. Varje gång det här tillägget aktive ras via denna cmdlet utlöses logg insamling på de valda roll instanserna för valda roller.
+För Cloud Services kan den befintliga Azure PowerShell-cmdleten **set-AzureServiceExtension** användas för att aktivera tillägget på moln tjänst roll instanser. Varje gång det här tillägget aktive ras via denna cmdlet utlöses logg insamling på de valda roll instanserna för valda roller.
 
-För Virtual Machines kan den befintliga Azure PowerShell-cmdleten **set-AzureVMExtension**användas för att aktivera tillägget på Virtual Machines. Varje gång det här tillägget aktive ras via cmdlets utlöses logg insamling på varje instans.
+För Virtual Machines kan den befintliga Azure PowerShell-cmdleten **set-AzureVMExtension** användas för att aktivera tillägget på Virtual Machines. Varje gång det här tillägget aktive ras via cmdlets utlöses logg insamling på varje instans.
 
 Det här tillägget använder internt JSON-baserade PublicConfiguration och PrivateConfiguration. Följande är layouten för ett exempel-JSON för offentlig och privat konfiguration.
 
@@ -528,4 +528,3 @@ else
 
 ## <a name="next-steps"></a>Nästa steg
 Nu kan du undersöka eller kopiera dina loggar från en enkel plats.
-

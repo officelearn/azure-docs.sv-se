@@ -1,19 +1,18 @@
 ---
-ms.openlocfilehash: 475a468977a976e2e7399c14df9329b31446d404
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c400856546142353a7294a03fce6bbff1c258cc0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135414"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555075"
 ---
-
-I Azure Active Directory (Azure AD), avser termen **app-etablering** att automatiskt skapa användar identiteter och roller i molnet ( [SaaS](https://azure.microsoft.com/overview/what-is-saas/)) som användarna behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](../articles/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../articles/active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../articles/active-directory/saas-apps/servicenow-provisioning-tutorial.md)och mycket annat.
+I Azure Active Directory (Azure AD), avser termen **app-etablering** att automatiskt skapa användar identiteter och roller i molnet ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) som användarna behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](../articles/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../articles/active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../articles/active-directory/saas-apps/servicenow-provisioning-tutorial.md)och mycket annat.
 
 ![Översikts diagram för etablering](./media/active-directory-app-provisioning/provisioning-overview.png)
 
 Med den här funktionen kan du:
 
-- **Automatisera etablering** : skapa automatiskt nya konton i rätt system för nya personer när de ansluter till ditt team eller din organisation.
+- **Automatisera etablering**: skapa automatiskt nya konton i rätt system för nya personer när de ansluter till ditt team eller din organisation.
 - **Automatisera avetablering:** Inaktivera konton automatiskt i rätt system när personer lämnar teamet eller organisationen.
 - **Synkronisera data mellan system:** Se till att identiteterna i dina appar och system hålls uppdaterade baserat på ändringar i katalogen eller personal systemet.
 - **Etablerings grupper:** Etablera grupper för program som stöder dem.
@@ -42,13 +41,13 @@ Användar etablering i Azure AD kan hjälpa dig att lösa dessa utmaningar. Om d
 
 Azure AD innehåller Förintegrerad support för många populära SaaS-appar och personal system, och allmänt stöd för appar som implementerar vissa delar av [SCIM 2,0-standarden](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
 
-* **Förintegrerade program (Galleri SaaS-appar)** . Du kan hitta alla program för vilka Azure AD har stöd för en förintegrerad etablerings koppling i [listan över program självstudier för användar etablering](../articles/active-directory/saas-apps/tutorial-list.md). De förintegrerade programmen som listas i galleriet använder vanligt vis SCIM 2,0-baserade användar hanterings-API: er för etablering. 
+* **Förintegrerade program (Galleri SaaS-appar)**. Du kan hitta alla program för vilka Azure AD har stöd för en förintegrerad etablerings koppling i [listan över program självstudier för användar etablering](../articles/active-directory/saas-apps/tutorial-list.md). De förintegrerade programmen som listas i galleriet använder vanligt vis SCIM 2,0-baserade användar hanterings-API: er för etablering. 
 
    ![Salesforce-logotyp](./media/active-directory-app-provisioning/gallery-app-logos.png)
 
-   Om du vill begära ett nytt program för etablering kan du [begära att ditt program är integrerat med vårt app-Galleri](../articles/active-directory/azuread-dev/howto-app-gallery-listing.md). För en användar etablerings förfrågan kräver vi att programmet har en SCIM-kompatibel slut punkt. Be program leverantören att följa SCIM-standarden så att vi kan publicera appen på vår plattform snabbt.
+   Om du vill begära ett nytt program för etablering kan du [begära att ditt program är integrerat med vårt app-Galleri](../articles/active-directory/develop/v2-howto-app-gallery-listing.md). För en användar etablerings förfrågan kräver vi att programmet har en SCIM-kompatibel slut punkt. Be program leverantören att följa SCIM-standarden så att vi kan publicera appen på vår plattform snabbt.
 
-* **Program som stöder SCIM 2,0** . Information om hur du kan ansluta program som implementerar SCIM 2,0-baserade API: er för användar hantering finns i [bygga en scim-slutpunkt och konfigurera användar etablering](../articles/active-directory/app-provisioning/use-scim-to-provision-users-and-groups.md).
+* **Program som stöder SCIM 2,0**. Information om hur du kan ansluta program som implementerar SCIM 2,0-baserade API: er för användar hantering finns i [bygga en scim-slutpunkt och konfigurera användar etablering](../articles/active-directory/app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ## <a name="what-is-system-for-cross-domain-identity-management-scim"></a>Vad är system för SCIM (Cross-Domain Identity Management)?
 
@@ -66,11 +65,11 @@ Program i Azure AD-galleriet stöder ett av två etablerings lägen:
 
 * **Automatisk** innebär att en Azure AD-etablerings anslutning har utvecklats för det här programmet. Du bör följa installations självstudien som är specifik för att konfigurera etablering för programmet. Själv studie kurser för appar finns i [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](../articles/active-directory/saas-apps/tutorial-list.md).
 
-I Azure AD-galleriet anges program som stöder automatisk etablering av en **etablerings** ikon. Växla till den nya Galleri förhands granskningen för att se dessa ikoner (i banderollen högst upp på **sidan Lägg till ett program** ) väljer du den länk som visas **Klicka här för att prova det nya och förbättrade app-galleriet** .
+I Azure AD-galleriet anges program som stöder automatisk etablering av en **etablerings** ikon. Växla till den nya Galleri förhands granskningen för att se dessa ikoner (i banderollen högst upp på **sidan Lägg till ett program**) väljer du den länk som visas **Klicka här för att prova det nya och förbättrade app-galleriet**.
 
 ![Etablerings ikon i program galleriet](./media/active-directory-app-provisioning/browse-gallery.png)
 
-Det etablerings läge som stöds av ett program visas också på fliken **etablering** när du har lagt till programmet i dina **företags program** .
+Det etablerings läge som stöds av ett program visas också på fliken **etablering** när du har lagt till programmet i dina **företags program**.
 
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Hur gör jag för att konfigurera automatisk etablering till ett program?
 

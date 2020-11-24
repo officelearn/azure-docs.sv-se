@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 56514f5dcf4bfe205ef46ee64dcf4dcf638d4f62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee92e145acd981bb8c84b43986b90306b994c262
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187548"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554013"
 ---
 #### <a name="to-configure-and-register-the-device"></a>Konfigurera och registrera enheten
 
@@ -98,7 +98,7 @@ ms.locfileid: "67187548"
 
     ```
 
-12. När enheten är registrerad visas en krypteringsnyckel för tjänstdata. Kopiera den här nyckeln och spara den på säker plats. **Den här nyckeln krävs tillsammans med tjänstregistreringsnyckeln för att registrera ytterligare enheter med StorSimple Device Manager-tjänsten.** Referera till [StorSimple-säkerhet](../articles/storsimple/storsimple-security.md) för ytterligare information om den här nyckeln.
+12. När enheten är registrerad visas en krypteringsnyckel för tjänstdata. Kopiera den här nyckeln och spara den på säker plats. **Den här nyckeln krävs tillsammans med tjänstregistreringsnyckeln för att registrera ytterligare enheter med StorSimple Device Manager-tjänsten.** Referera till [StorSimple-säkerhet](../articles/storsimple/storsimple-8000-security.md) för ytterligare information om den här nyckeln.
     
     ![StorSimple registrera enhet 7](./media/storsimple-8000-configure-and-register-device-u2/step3pssetup1.png)
     
@@ -117,4 +117,3 @@ ms.locfileid: "67187548"
         Du kan behöva vänta några minuter innan enhetens status ändras till **Redo för installation**.
        
         Om enheten inte visas i listan kontrollerar du att ditt brandväggsnätverk är konfigurerat enligt [nätverkskraven för din StorSimple-enhet](../articles/storsimple/storsimple-8000-system-requirements.md). Kontrollera att port 9354 är öppen för utgående kommunikation eftersom den används av Service Bus för kommunikation mellan StorSimple Device Manager-tjänsten och enheten.
-

@@ -6,16 +6,16 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 63b74675a9b0d3480c90c7414e82658705796e7c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5f604847faf01d1b267e6cbb73481d57ef397bd9
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92438502"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95561228"
 ---
 I den här snabb starten får du lära dig hur du startar ett samtal med Azure Communication Services som anropar klient bibliotek för iOS.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande förutsättningar:
 
@@ -32,22 +32,23 @@ I Xcode skapar du ett nytt iOS-projekt och väljer app-mallen för **enskild vy*
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Skärm bild som visar det nya projekt fönstret i Xcode.":::
 
-### <a name="install-the-package"></a>Installera paketet
+### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Installera paketet och beroenden med CocoaPods
 
-Lägg till Azure Communication Services som anropar klient biblioteket och dess beroenden (AzureCore. Framework och AzureCommunication. Framework) i projektet.
+1. Skapa en Podfile för ditt program, så här:
 
-> [!NOTE]
-> Med versionen av AzureCommunicationCalling SDK hittar du ett bash-skript `BuildAzurePackages.sh` . Skriptet vid körning `sh ./BuildAzurePackages.sh` ger dig sökvägen till de skapade Ramverks paket som måste importeras i exempel programmet i nästa steg. Observera att du måste konfigurera Xcode kommando rads verktyg om du inte har gjort det innan du kör skriptet: starta Xcode, välj "inställningar-> platser". Välj din Xcode-version för kommando rads verktygen. **BuildAzurePackages.sh-skript fungerar bara med Xcode 11,5 och senare**
+   ```
+   platform :ios, '13.0'
+   use_frameworks!
 
-1. [Ladda ned](https://github.com/Azure/Communication/releases) Azure Communication Services som anropar klient biblioteket för iOS.
-2. I Xcode klickar du på projekt filen till och väljer Bygg målet för att öppna redigeraren för projekt inställningar.
-3. Under fliken **Allmänt** bläddrar du till avsnittet **ramverk, bibliotek och inbäddat innehåll** och klickar på ikonen **"+"** .
-4. Längst ned till vänster i dialog rutan använder du List rutan Välj **Lägg till filer**, navigera till katalogen **AzureCommunicationCalling. Framework** i det zippade klient biblioteks paketet.
-    1. Upprepa det sista steget för att lägga till **AzureCore. Framework** och **AzureCommunication. Framework**.
-5. Öppna fliken **versions inställningar** i redigeraren för projekt inställningar och rulla till avsnittet **Sök sökvägar** . Lägg till en ny **sökväg för Sök vägar för ramverk** för katalogen som innehåller **AzureCommunicationCalling. Framework**.
-    1. Lägg till en annan sökväg Sök vägar i Framework som pekar på den mapp som innehåller beroenden.
+   target 'AzureCommunicationCallingSample' do
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.5'
+     pod 'AzureCommunication', '~> 1.0.0-beta.5'
+     pod 'AzureCore', '~> 1.0.0-beta.5'
+   end
+   ```
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Skärm bild som visar det nya projekt fönstret i Xcode.":::
+2. Kör `pod install`.
+3. Öppna `.xcworkspace` med Xcode.
 
 ### <a name="request-access-to-the-microphone"></a>Begär åtkomst till mikrofonen
 
@@ -74,9 +75,9 @@ Ersätt implementeringen av `ContentView` struct med vissa enkla UI-kontroller s
 ```swift
 struct ContentView: View {
     @State var callee: String = ""
-    @State var callClient: ACSCallClient?
-    @State var callAgent: ACSCallAgent?
-    @State var call: ACSCall?
+    @State var callClient: CallClient?
+    @State var callAgent: CallAgent?
+    @State var call: Call?
 
     var body: some View {
         NavigationView {
@@ -136,7 +137,7 @@ do {
     return
 }
 
-self.callClient = ACSCallClient()
+self.callClient = CallClient()
 
 // Creates the call agent
 self.callClient?.createCallAgent(userCredential) { (agent, error) in
@@ -165,13 +166,13 @@ func startCall()
         if granted {
             // start call logic
             let callees:[CommunicationIdentifier] = [CommunicationUser(identifier: self.callee)]
-            self.call = self.callAgent?.call(callees, options: ACSStartCallOptions())
+            self.call = self.callAgent?.call(callees, options: StartCallOptions())
         }
     }
 }
 ```
 
-Du kan också använda egenskaperna i `ACSStartCallOptions` för att ange inledande alternativ för anropet (d.v.s. det tillåter att anropet startar med mikrofonen avstängd).
+Du kan också använda egenskaperna i `StartCallOptions` för att ange inledande alternativ för anropet (d.v.s. det tillåter att anropet startar med mikrofonen avstängd).
 
 ## <a name="end-a-call"></a>Avsluta ett anrop
 
@@ -180,7 +181,7 @@ Implementera `endCall` metoden för att avsluta det aktuella anropet när knappe
 ```swift
 func endCall()
 {    
-    self.call!.hangup(ACSHangupOptions()) { (error) in
+    self.call!.hangup(HangupOptions()) { (error) in
         if (error != nil) {
             print("ERROR: It was not possible to hangup the call.")
         }
@@ -192,7 +193,7 @@ func endCall()
 
 Du kan skapa och köra din app på iOS-simulatorn genom att välja **produkt**  >  **körning** eller genom att använda kortkommandot (&#8984;-R).
 
-:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Skärm bild som visar det nya projekt fönstret i Xcode.":::
+:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Det slutliga utseendet och känslan av snabb starts appen":::
 
 Du kan göra ett utgående VOIP-anrop genom att ange ett användar-ID i fältet text och sedan trycka på knappen **starta samtal** . `8:echo123`Genom att anropa ansluter du med en eko robot är det bra för att komma igång och kontrol lera att ljud enheterna fungerar. 
 

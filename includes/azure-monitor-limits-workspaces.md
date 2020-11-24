@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: e206c12a85cfbaed3297f2a44bf0a5d694c2d170
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2ed5cbc8c855d2f81986964c93009d75ed28fb8e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92325324"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561616"
 ---
 **Data insamlings volym och kvarhållning** 
 
@@ -73,4 +73,4 @@ När du skickar data till en arbets yta med en volym hastighet som är högre ä
 Se [övervaka hälsan för Log Analytics arbets ytan i Azure Monitor](../articles/azure-monitor/platform/monitor-workspace.md) för att skapa varnings regler som ska meddelas proaktivt när du når eventuella inmatnings gränser.
 
 >[!NOTE]
->Beroende på hur länge du har använt Log Analytics kan du ha åtkomst till äldre pris nivåer. Läs mer om [Log Analytics äldre pris nivåer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 
+>Beroende på hur länge du har använt Log Analytics kan du ha åtkomst till äldre pris nivåer. Läs mer om [Log Analytics äldre pris nivåer](../articles/azure-monitor/platform/manage-cost-storage.md#legacy-pricing-tiers).

@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 06/30/2020
 ms.topic: include
-ms.openlocfilehash: 1b650fa5a0e9ba2f7019e6e67690d9d1fd65e72a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 051cd8646718c17c288b06a535d35e1eed5e9259
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894919"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557171"
 ---
 Security Center tillhandahåller hot skydd i real tid för dina behållares miljöer och genererar aviseringar för misstänkta aktiviteter. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina containrar.
 
@@ -20,7 +20,7 @@ Security Center ger hot skydd på olika nivåer:
     >[!IMPORTANT]
     > Om du väljer att inte installera agenterna på dina värdar får du bara en del av fördelarna med skydd mot hot och säkerhets aviseringar. Du får fortfarande aviseringar om nätverks analyser och kommunikation med skadliga servrar.
 
-    En lista över AKS-aviseringar om värd nivå finns i [referens tabellen för aviseringar](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost).
+    En lista över AKS-aviseringar om värd nivå finns i [referens tabellen för aviseringar](../articles/security-center/alerts-reference.md#alerts-containerhost).
 
 
 * **AKS-kluster nivå (tillhandahålls av Azure Defender för Kubernetes)** – på kluster nivå baseras skydd mot hot på analys av Kubernetes gransknings loggar. Aktivera Azure Defender om du vill aktivera övervakning utan **agent** . Om du vill generera aviseringar på den här nivån övervakar Security Center dina AKS-hanterade tjänster med hjälp av de loggar som hämtats av AKS. Exempel på händelser på den här nivån är exponerade Kubernetes-instrumentpaneler, skapande av hög privilegierade roller och skapande av känsliga monteringar.
@@ -28,7 +28,7 @@ Security Center ger hot skydd på olika nivåer:
     >[!NOTE]
     > Security Center genererar säkerhets aviseringar för Azure Kubernetes service-åtgärder och distributioner som inträffar när alternativet Kubernetes har Aktiver ATS i prenumerations inställningarna. 
 
-    En lista över AKS-aviseringar på kluster nivå finns i [referens tabellen för aviseringar](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster).
+    En lista över AKS-aviseringar på kluster nivå finns i [referens tabellen för aviseringar](../articles/security-center/alerts-reference.md#alerts-akscluster).
 
 Dessutom övervakar vårt globala team av säkerhets forskare det hot landskapet. De lägger till maskinvaruspecifika aviseringar och sårbarheter när de upptäcks.
 

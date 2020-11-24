@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 89ad3dfffa82f062ef8bc808da19440adfa32f05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc42c22579346c272ee5a6f41147e6b5b09643ba
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050231"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561785"
 ---
 #### <a name="to-download-hotfixes"></a>Ladda ned snabbkorrigerar
 
@@ -101,7 +101,7 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
    * `HcsSoftwareVersion: 6.3.9600.17820`
    
-     Om versionsnumret inte ändras efter att uppdateringen har tillämpats indikerar det att snabbkorrigeringen har misslyckats. Kontakta [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) för ytterligare hjälp om du ser det här.
+     Om versionsnumret inte ändras efter att uppdateringen har tillämpats indikerar det att snabbkorrigeringen har misslyckats. Kontakta [Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) för ytterligare hjälp om du ser det här.
      
      > [!IMPORTANT]
      > Du måste starta om den aktiva styrenheten via `Restart-HcsController` cmdleten innan du använder nästa uppdatering.
@@ -169,7 +169,7 @@ Följ anvisningarna nedan om du vill installera uppdateringarna för den inbyggd
     ```
 
 3. Övervaka installationsförloppet med `Get-HcsUpdateStatus`-kommandot. Uppdateringen är slutförd när `RunInProgress` ändras till `False`.
-4. När installationen är färdig startas styrenheten som snabbkorrigeringen i underhållsläge installerades på om. Logga in som alternativ 1, **Logga in med fullständig åtkomst**och kontrol lera den inbyggda diskens version. Ange:
+4. När installationen är färdig startas styrenheten som snabbkorrigeringen i underhållsläge installerades på om. Logga in som alternativ 1, **Logga in med fullständig åtkomst** och kontrol lera den inbyggda diskens version. Ange:
    
    `Get-HcsFirmwareVersion`
    
@@ -267,4 +267,3 @@ Följ anvisningarna nedan om du vill installera uppdateringarna för den inbyggd
    `Exit-HcsMaintenanceMode`
 
 5. Styrenheterna startas om när du avslutar underhållsläget. Efter att uppdateringarna för den inbyggda programvaran för disken har tillämpats och enheten har avslutat underhållsläget kan du gå tillbaka till den klassiska Azure-portalen. Observera att portalen kanske inte visar att du har installerat uppdateringarna i underhållsläge på 24 timmar.
-

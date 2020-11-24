@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e8e3df77df53b887c4367e46b05d8a7ea4eed2f6
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 946ff043828034340ae3273fc0629e32de755540
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93061661"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561280"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Skapa ett självsignerat rot certifikat
 
-Använd New-SelfSignedCertificate-cmdlet för att skapa ett självsignerat rot certifikat. Mer parameter information finns i [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Använd New-SelfSignedCertificate-cmdlet för att skapa ett självsignerat rot certifikat. Mer parameter information finns i [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate).
 
 1. Från en dator som kör Windows 10 eller Windows Server 2016 öppnar du en Windows PowerShell-konsol med utökade privilegier. Dessa exempel fungerar inte i Azure Cloud Shell "testa". Du måste köra dessa exempel lokalt.
-1. Använd följande exempel för att skapa det självsignerade rot certifikatet. I följande exempel skapas ett självsignerat rot certifikat med namnet ' P2SRootCert ' som installeras automatiskt i ' certificates-Current User\Personal\Certificates '. Du kan visa certifikatet genom att öppna *certmgr. msc* eller *hantera användar certifikat* .
+1. Använd följande exempel för att skapa det självsignerade rot certifikatet. I följande exempel skapas ett självsignerat rot certifikat med namnet ' P2SRootCert ' som installeras automatiskt i ' certificates-Current User\Personal\Certificates '. Du kan visa certifikatet genom att öppna *certmgr. msc* eller *hantera användar certifikat*.
 
    Logga in med `Connect-AzAccount` cmdleten. Kör sedan följande exempel med eventuella nödvändiga ändringar.
 
@@ -39,7 +39,7 @@ Varje klientdator som ansluter till ett virtuellt nätverk med punkt-till-plats 
 
 Följande steg beskriver hur du skapar ett klient certifikat från ett självsignerat rot certifikat. Du kan generera flera klient certifikat från samma rot certifikat. När du genererar klient certifikat med stegen nedan installeras klient certifikatet automatiskt på den dator som du använde för att generera certifikatet. Om du vill installera ett klient certifikat på en annan klient dator kan du exportera certifikatet.
 
-Exemplen använder New-SelfSignedCertificate-cmdleten för att generera ett klient certifikat som upphör att gälla om ett år. För ytterligare parameter information, till exempel att ange ett annat förfallo värde för klient certifikatet, se [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Exemplen använder New-SelfSignedCertificate-cmdleten för att generera ett klient certifikat som upphör att gälla om ett år. För ytterligare parameter information, till exempel att ange ett annat förfallo värde för klient certifikatet, se [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate).
 
 ### <a name="example-1---powershell-console-session-still-open"></a>Exempel 1 – PowerShell-konsolsessionen är fortfarande öppen
 

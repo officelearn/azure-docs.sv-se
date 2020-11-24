@@ -4,16 +4,16 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1522bb133c7d8f877a334e47bf7929c533ea3465
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b827a80059cecadd7b76263f13dd4a0d141fc7a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376112"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555917"
 ---
 #### <a name="to-create-a-cloud-appliance"></a>Så här skapar du en molninstallation
 
-1. Gå till **StorSimple Device Manager** -tjänsten på Azure Portal.
+1. Gå till **StorSimple Device Manager**-tjänsten på Azure Portal.
 2. Gå till bladet **Enheter**. Klicka på **Skapa molninstallation** från kommandofältet på sammanfattningsbladet för tjänsten.
     ![Skapa StorSimple-molninstallation](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. Ange följande information på bladet **Skapa molninstallation**.
@@ -33,8 +33,7 @@ ms.locfileid: "93376112"
    7. Markera kryssrutan för att bekräfta att du förstår att data som lagras i molninstallationen finns på ett Microsoft-datacenter.
        * När du bara använder en fysisk enhet så sparas krypteringsnyckeln med din enhet. Microsoft kan därmed inte dekryptera den.
 
-       * När du använder en molninstallation lagras både krypteringsnyckeln och dekrypteringsnyckeln i Microsoft Azure. Mer information finns i [Säkerhetsöverväganden vid användning av en molninstallation](../articles/storsimple/storsimple-security.md).
+       * När du använder en molninstallation lagras både krypteringsnyckeln och dekrypteringsnyckeln i Microsoft Azure. Mer information finns i [Säkerhetsöverväganden vid användning av en molninstallation](../articles/storsimple/storsimple-8000-security.md).
    8. Etablera molninstallationen genom att klicka på **Skapa**. Enheten kan ta runt 30 minuter för att etableras. Du får ett meddelande när molninstallationen har skapats. Gå till bladet Enheter så uppdateras enhetslistan med molninstallationen. Installationens status är **Redo för installation**.
       
       ![StorSimple-molninstallation som är redo att installeras](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
-

@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: iot-suite
 author: dominicbetts
 ms.service: iot-suite
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4b93685160250a5abe7c050db89978ae8ceb1a9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187779"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555603"
 ---
 > [!div class="op_single_selector"]
 > * [C i Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -21,7 +21,7 @@ ms.locfileid: "67187779"
 > * [C på Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 > * [Node.js (generisk)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
 > * [Node.js på Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
-> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
+> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md)
 
 I den här självstudien implementerar du en **kyl** enhet som skickar följande telemetri till lösningen för fjärr styrnings [lösning](../articles/iot-accelerators/about-iot-accelerators.md):
 
@@ -54,13 +54,13 @@ När distributions processen för fjärr styrnings lösningen har slutförts kli
 ### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Lägg till din enhet i lösningen för fjärrövervakning
 
 > [!NOTE]
-> Om du redan har lagt till en enhet i lösningen kan du hoppa över det här steget. Nästa steg kräver dock enhets anslutnings strängen. Du kan hämta en enhets anslutnings sträng från [Azure Portal](https://portal.azure.com) eller använda IoT CLI-verktyget [AZ](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) .
+> Om du redan har lagt till en enhet i lösningen kan du hoppa över det här steget. Nästa steg kräver dock enhets anslutnings strängen. Du kan hämta en enhets anslutnings sträng från [Azure Portal](https://portal.azure.com) eller använda IoT CLI-verktyget [AZ](/cli/azure/iot?view=azure-cli-latest) .
 
 För att en enhet ska kunna ansluta till Solution Accelerator måste den identifiera sig för att IoT Hub använda giltiga autentiseringsuppgifter. Du har möjlighet att spara enhets anslutnings strängen som innehåller dessa autentiseringsuppgifter när du lägger till enheten i lösningen. Du tar med enhets anslutnings strängen i klient programmet senare i den här självstudien.
 
 Om du vill lägga till en enhet i lösningen för fjärrövervakning utför du följande steg på sidan **Device Explorer** i lösningen:
 
-1. Välj **+ ny enhet**och välj sedan **verklig** som **enhets typ**:
+1. Välj **+ ny enhet** och välj sedan **verklig** som **enhets typ**:
 
     ![Lägga till en riktig enhet](media/iot-suite-selector-connecting/devicesprovision.png)
 
@@ -68,7 +68,7 @@ Om du vill lägga till en enhet i lösningen för fjärrövervakning utför du f
 
     ![Välj enhets alternativ](media/iot-suite-selector-connecting/devicesoptions.png)
 
-1. Välj **Använd**. Anteckna värdena för **enhets-ID**, **primär nyckel**och **primär nyckel för anslutnings strängen** :
+1. Välj **Använd**. Anteckna värdena för **enhets-ID**, **primär nyckel** och **primär nyckel för anslutnings strängen** :
 
     ![Hämta autentiseringsuppgifter](media/iot-suite-selector-connecting/credentials.png)
 
@@ -78,4 +78,4 @@ Klient programmet implementerar den inbyggda **kyl** enhets modellen. En enhets 
 
 * De egenskaper enheten rapporterar till lösningen. En **kyl** enhet rapporterar till exempel information om den inbyggda program varan och platsen.
 * De typer av telemetri som enheten skickar till lösningen. En **kyl** enhet skickar till exempel värdena temperatur, fuktighet och tryck.
-* De metoder du kan schemalägga från lösningen som ska köras på enheten. Till exempel måste en **kyl** enhet implementera metoderna **reboot**, **FirmwareUpdate**, **EmergencyValveRelease**och **IncreasePressure** .
+* De metoder du kan schemalägga från lösningen som ska köras på enheten. Till exempel måste en **kyl** enhet implementera metoderna **reboot**, **FirmwareUpdate**, **EmergencyValveRelease** och **IncreasePressure** .

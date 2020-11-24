@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: 37a61e270f95ffdc420536046e0ce1eda1e489b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 826fccad043b067ce86d5f56eaebc6ee48b532d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391506"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557793"
 ---
 | Resurs |[Förbrukningsplan](../articles/azure-functions/functions-scale.md#consumption-plan)|[Premiumplan](../articles/azure-functions/functions-scale.md#premium-plan)|[Dedikerad plan](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
@@ -19,13 +19,13 @@ ms.locfileid: "85391506"
 | Maximal begär ande storlek (MB)<sup>3</sup> | 100 | 100 | 100 | 100 | Är beroende av kluster |
 | Max. frågesträngs längd<sup>3</sup> | 4096 | 4096 | 4096 | 4096 | Är beroende av kluster |
 | Max. URL-längd för begäran<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | Är beroende av kluster |
-|[ACU](../articles/virtual-machines/windows/acu.md) per instans | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [AKS-priser](https://azure.microsoft.com/pricing/details/container-service/) |
+|[ACU](../articles/virtual-machines/acu.md) per instans | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [AKS-priser](https://azure.microsoft.com/pricing/details/container-service/) |
 | Maximalt minne (GB per instans) | 1.5 | 3.5-14 | 1,75-14 | 3,5 – 14 | Alla noder stöds |
 | Function-appar per plan |100 |100 |obegränsat<sup>4</sup> | unbounded | unbounded |
 | [App Service-planer](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resurs grupp |100 per resurs grupp | - | - |
-| Lagring<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | Saknas |
-| Anpassade domäner per app</a> |500<sup>6</sup> |500 |500 | 500 | Saknas |
-| Stöd för anpassad domän- [SSL](../articles/app-service/configure-ssl-bindings.md) |en obunden SNI SSL anslutning ingår | obegränsade SNI SSL och 1 IP SSL anslutningar ingår |obegränsade SNI SSL och 1 IP SSL anslutningar ingår | obegränsade SNI SSL och 1 IP SSL anslutningar ingår | Saknas |
+| Lagring<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | saknas |
+| Anpassade domäner per app</a> |500<sup>6</sup> |500 |500 | 500 | saknas |
+| Stöd för anpassad domän- [SSL](../articles/app-service/configure-ssl-bindings.md) |en obunden SNI SSL anslutning ingår | obegränsade SNI SSL och 1 IP SSL anslutningar ingår |obegränsade SNI SSL och 1 IP SSL anslutningar ingår | obegränsade SNI SSL och 1 IP SSL anslutningar ingår | saknas |
 
 <sup>1</sup> som standard är tids gränsen för funktioner 1. x-körningsmiljön i en app service plan obegränsad.  
 <sup>2</sup> kräver att App Service plan anges till [Always on](../articles/azure-functions/functions-scale.md#always-on). Betala enligt [standardpriser](https://azure.microsoft.com/pricing/details/app-service/).  

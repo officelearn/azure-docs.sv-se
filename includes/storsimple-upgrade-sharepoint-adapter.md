@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3467a5d5daa300f82c7b81641ab7e262259d9285
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187386"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560825"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Uppgradera SharePoint 2010 till SharePoint 2013 och installera StorSomple adapter för SharePoint
 > [!IMPORTANT]
@@ -20,7 +20,7 @@ ms.locfileid: "67187386"
 #### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>Uppgradera SharePoint 2010 till SharePoint 2013 och installera sedan kortet
 1. I SharePoint 2010-servergruppen noterar du BLOB Store-sökvägen för de externa BLOBBARna och innehålls databaserna som RBS är aktiverat för. 
 2. Installera och konfigurera den nya SharePoint 2013-gruppen. 
-3. Flytta databaser, program och webbplats samlingar från SharePoint 2010-gruppen till den nya SharePoint 2013-servergruppen. Anvisningar finns i [Översikt över uppgraderings processen till SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
+3. Flytta databaser, program och webbplats samlingar från SharePoint 2010-gruppen till den nya SharePoint 2013-servergruppen. Anvisningar finns i [Översikt över uppgraderings processen till SharePoint 2013](/SharePoint/upgrade-and-update/overview-of-the-upgrade-process).
 4. Installera StorSimple Adapter för SharePoint på den nya server gruppen. Gå till [Installera StorSimple Adapter för SharePoint](#install-the-storsimple-adapter-for-sharepoint) för procedurer.
 5. Med hjälp av informationen som du antecknade i steg 1 aktiverar du RBS för samma uppsättning innehålls databaser och anger samma BLOB Store-sökväg som användes i SharePoint 2010-installationen. Gå till [Konfigurera RBS](#configure-rbs) för procedurer. När du har slutfört det här steget bör tidigare utgångna filer vara tillgängliga från den nya server gruppen. 
 
@@ -29,7 +29,7 @@ ms.locfileid: "67187386"
 > Du bör schemalägga att uppgraderingen ska ske under ett planerat underhålls fönster av följande orsaker:
 > 
 > * Tidigare externt innehåll kommer inte att vara tillgängligt förrän kortet har installerats om.
-> * Allt innehåll som laddas upp till platsen efter att du har avinstallerat den tidigare versionen av StorSimple Adapter för SharePoint, men innan du installerar den nya versionen kommer att lagras i innehålls databasen. Du måste flytta innehållet till StorSimple-enheten när du har installerat det nya kortet. Du kan använda Microsoft `RBS Migrate()` PowerShell-cmdleten som ingår i SharePoint för att migrera innehållet. Mer information finns i [Migrera innehåll till eller från RBS](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Allt innehåll som laddas upp till platsen efter att du har avinstallerat den tidigare versionen av StorSimple Adapter för SharePoint, men innan du installerar den nya versionen kommer att lagras i innehålls databasen. Du måste flytta innehållet till StorSimple-enheten när du har installerat det nya kortet. Du kan använda Microsoft `RBS Migrate()` PowerShell-cmdleten som ingår i SharePoint för att migrera innehållet. Mer information finns i [Migrera innehåll till eller från RBS](/previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)). 
 > 
 > 
 
@@ -41,4 +41,3 @@ ms.locfileid: "67187386"
    > 
    > 
 2. Installera det nya StorSimple-kortet för SharePoint. Det nya kortet identifierar automatiskt de innehålls databaser som tidigare har Aktiver ATS eller inaktiverats för RBS och kommer att använda de tidigare inställningarna.
-

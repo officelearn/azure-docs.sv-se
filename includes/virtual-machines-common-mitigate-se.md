@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8594ce713a8675505e0ee3051018b05992b160a9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73935891"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562071"
 ---
 **Senaste dokument uppdatering**: 12 November 2019 10:00 PST.
 
@@ -21,9 +21,9 @@ Utlämnande av en [ny klass av processor sårbarheter](https://portal.msrc.micro
 
 Microsoft har distribuerat åtgärder i alla våra moln tjänster. Den infrastruktur som kör Azure och isolerar kund arbets belastningar från varandra är skyddade. Det innebär att en potentiell angripare som använder samma infrastruktur inte kan attackera ditt program med hjälp av dessa sårbarheter.
 
-Azure använder [underhåll av minnes](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) bevaran när det är möjligt, för att minimera kund påverkan och eliminera behovet av omstarter. Azure fortsätter att använda dessa metoder när du gör systemomfattande uppdateringar av värden och skyddar våra kunder.
+Azure använder [underhåll av minnes](../articles/virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#maintenance-that-doesnt-require-a-reboot) bevaran när det är möjligt, för att minimera kund påverkan och eliminera behovet av omstarter. Azure fortsätter att använda dessa metoder när du gör systemomfattande uppdateringar av värden och skyddar våra kunder.
 
-Mer information om hur säkerheten integreras i varje aspekt av Azure finns på webbplatsen för [Azure Security Documentation](https://docs.microsoft.com/azure/security/) . 
+Mer information om hur säkerheten integreras i varje aspekt av Azure finns på webbplatsen för [Azure Security Documentation](../articles/security/index.yml) . 
 
 > [!NOTE] 
 > Eftersom det här dokumentet först publicerades har flera varianter av denna sårbarhets klass lämnats. Microsoft fortsätter att vara mycket investering i att skydda våra kunder och tillhandahålla vägledning. Den här sidan kommer att uppdateras när vi fortsätter att publicera ytterligare korrigeringar. 
@@ -43,7 +43,7 @@ Mer information om hur säkerheten integreras i varje aspekt av Azure finns på 
 
 | Erbjudande | Rekommenderad åtgärd  |
 |----------|---------------------|
-| Azure Cloud Services  | Aktivera [Automatisk uppdatering](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) eller se till att du kör det senaste gäst operativ systemet. |
+| Azure Cloud Services  | Aktivera [Automatisk uppdatering](../articles/cloud-services/cloud-services-how-to-configure-portal.md) eller se till att du kör det senaste gäst operativ systemet. |
 | Azure-Virtuella Linux-datorer | Installera uppdateringar från operativ system leverantören. Mer information finns i [Linux](#linux) senare i det här dokumentet. |
 | Azure-Virtuella Windows-datorer  | Installera den senaste säkerhets uppdateringen.
 | Andra Azure PaaS-tjänster | Det krävs ingen åtgärd för kunder som använder dessa tjänster. Azure håller automatiskt dina OS-versioner uppdaterade. |
@@ -72,7 +72,7 @@ Du kan aktivera ytterligare säkerhetsfunktioner i den virtuella datorn eller mo
 Ditt mål operativ system måste vara uppdaterat för att aktivera dessa ytterligare säkerhetsfunktioner. Även om många åtgärder för spekulativ körnings sidans kanal är aktiverade som standard, måste de ytterligare funktioner som beskrivs här vara aktiverade manuellt och kan orsaka en prestanda påverkan. 
 
 
-**Steg 1: Inaktivera Hyper-Threading på den virtuella datorn** – kunder som kör ej betrodd kod på en virtuell dator med Hyper-Threading måste inaktivera Hyper-Threading eller flytta till en virtuell dator som inte är en Hyper-Thread. Referera till [det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/windows/acu) om du vill ha en lista över virtuella datorer i Hyper-Threading (där förhållandet mellan VCPU och Core är 2:1). Om du vill kontrol lera om den virtuella datorn har aktiverat Hyper-Threading kan du läsa skriptet nedan med hjälp av kommando raden i Windows från den virtuella datorn.
+**Steg 1: Inaktivera Hyper-Threading på den virtuella datorn** – kunder som kör ej betrodd kod på en virtuell dator med Hyper-Threading måste inaktivera Hyper-Threading eller flytta till en virtuell dator som inte är en Hyper-Thread. Referera till [det här dokumentet](../articles/virtual-machines/acu.md) om du vill ha en lista över virtuella datorer i Hyper-Threading (där förhållandet mellan VCPU och Core är 2:1). Om du vill kontrol lera om den virtuella datorn har aktiverat Hyper-Threading kan du läsa skriptet nedan med hjälp av kommando raden i Windows från den virtuella datorn.
 
 Skriv `wmic` för att ange det interaktiva gränssnittet. Skriv sedan nedan för att visa mängden fysiska och logiska processorer på den virtuella datorn.
 
@@ -108,10 +108,10 @@ Om utdata visas `MDS mitigation is enabled: False` [kontaktar du Azure-supporten
 **Steg 3**: Aktivera stöd för virtuella KVAS-och bti-operativsystem genom att följa anvisningarna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) för att aktivera skydd med hjälp av `Session Manager` register nycklarna. En omstart krävs.
 
 
-**Steg 4**: för distributioner som använder [kapslad virtualisering](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 och E3): de här instruktionerna gäller i den virtuella datorn som du använder som Hyper-V-värd.
+**Steg 4**: för distributioner som använder [kapslad virtualisering](../articles/virtual-machines/windows/nested-virtualization.md) (D3 och E3): de här instruktionerna gäller i den virtuella datorn som du använder som Hyper-V-värd.
 
 1.  Följ anvisningarna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) för att aktivera skydd med hjälp av `MinVmVersionForCpuBasedMitigations` register nycklarna.
-2.  Ange hypervisor-typen hypervisor-typ `Core` genom att följa anvisningarna [här](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+2.  Ange hypervisor-typen hypervisor-typ `Core` genom att följa anvisningarna [här](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
@@ -119,7 +119,7 @@ Om utdata visas `MDS mitigation is enabled: False` [kontaktar du Azure-supporten
 <a name="linux"></a>Att aktivera en uppsättning ytterligare säkerhetsfunktioner i kräver att mål operativ systemet är helt uppdaterat. Vissa åtgärder kommer att aktive ras som standard. I följande avsnitt beskrivs de funktioner som är av som standard och/eller som kan vara beroende av maskin varu support (mikrokod). Att aktivera dessa funktioner kan orsaka en prestanda påverkan. Mer information finns i dokumentationen för operativ system leverantören
 
 
-**Steg 1: Inaktivera Hyper-Threading på den virtuella datorn** – kunder som kör obetrodd kod på en virtuell dator med Hyper-Threading måste inaktivera Hyper-Threading eller flytta till en icke-Hyper-THREADAD virtuell dator.  Referera till [det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/linux/acu) om du vill ha en lista över virtuella datorer i Hyper-Threading (där förhållandet mellan VCPU och Core är 2:1). Om du vill kontrol lera om du kör en virtuell dator med Hyper-Threading kör du `lscpu` kommandot i den virtuella Linux-datorn. 
+**Steg 1: Inaktivera Hyper-Threading på den virtuella datorn** – kunder som kör obetrodd kod på en virtuell dator med Hyper-Threading måste inaktivera Hyper-Threading eller flytta till en icke-Hyper-THREADAD virtuell dator.  Referera till [det här dokumentet](../articles/virtual-machines/acu.md) om du vill ha en lista över virtuella datorer i Hyper-Threading (där förhållandet mellan VCPU och Core är 2:1). Om du vill kontrol lera om du kör en virtuell dator med Hyper-Threading kör du `lscpu` kommandot i den virtuella Linux-datorn. 
 
 Om `Thread(s) per core = 2` har Hyper-Threading Aktiver ATS. 
 
@@ -179,11 +179,3 @@ Den här artikeln ger vägledning för följande spekulativa körnings kanals at
 
 Överföring av transaktions tillägg (Intel® TSX) asynkront avbrott:  
 - [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – TSX transaktion asynkront avbrott (TAA)
-
-
-
-
-
-
-
-

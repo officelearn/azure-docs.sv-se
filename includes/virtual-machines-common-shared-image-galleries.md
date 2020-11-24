@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 29cbb2f6a7f0faf91852e520f15b779b3fe229c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897757"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556670"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina avbildningar. Delade avbildnings gallerier ger:
 
@@ -45,7 +45,7 @@ Funktionen för delad bild galleri har flera resurs typer:
 
 Bild definitioner är en logisk gruppering för versioner av en bild. Bild definitionen innehåller information om varför avbildningen skapades, vilket operativ system den är för och annan information om hur du använder avbildningen. En bild definition är som en plan för all information om hur du skapar en speciell avbildning. Du distribuerar inte en virtuell dator från en avbildnings definition, men från avbildnings versionerna som skapas från definitionen.
 
-Det finns tre parametrar för varje avbildnings definition som används i kombinations **utgivare** , **erbjudande** och **SKU** . Dessa används för att hitta en bestämd avbildnings definition. Du kan ha avbildnings versioner som delar en eller två, men inte alla tre värden.  Här är till exempel tre bild definitioner och deras värden:
+Det finns tre parametrar för varje avbildnings definition som används i kombinations **utgivare**, **erbjudande** och **SKU**. Dessa används för att hitta en bestämd avbildnings definition. Du kan ha avbildnings versioner som delar en eller två, men inte alla tre värden.  Här är till exempel tre bild definitioner och deras värden:
 
 |Bilddefinition|Publisher|Erbjudande|Sku|
 |---|---|---|---|
@@ -71,7 +71,7 @@ Följande är andra parametrar som kan ställas in på din avbildnings definitio
 - Tagg – du kan lägga till taggar när du skapar din avbildnings definition. Mer information om taggar finns i [använda taggar för att organisera resurser](../articles/azure-resource-manager/management/tag-resources.md)
 - Lägsta och högsta vCPU och minnes rekommendationer – om avbildningen har vCPU och minnes rekommendationer kan du koppla informationen till din avbildnings definition.
 - Otillåtna disk typer – du kan ange information om lagrings behoven för den virtuella datorn. Om bilden till exempel inte är lämplig för standard diskar för hård diskar lägger du till dem i listan Tillåt inte.
-- Information om inköps plan för Marketplace-avbildningar – `-PurchasePlanPublisher` , `-PurchasePlanName` och `-PurchasePlanProduct` . Mer information om inköps Plans information finns i [hitta avbildningar på Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) och [leverera information om inköps plan för Azure Marketplace när du skapar avbildningar](../articles/virtual-machines/marketplace-images.md).
+- Information om inköps plan för Marketplace-avbildningar – `-PurchasePlanPublisher` , `-PurchasePlanName` och `-PurchasePlanProduct` . Mer information om inköps Plans information finns i [hitta avbildningar på Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) och [leverera information om inköps plan för Azure Marketplace när du skapar avbildningar](../articles/virtual-machines/marketplace-images.md).
 
 
 ## <a name="image-versions"></a>Avbildnings versioner
@@ -101,7 +101,7 @@ Specialiserade virtuella datorer har inte genomgått någon process för att ta 
 
 Alla offentliga regioner kan vara mål regioner, men för att replikera till Australien, centrala och Australien, Central 2 måste din prenumeration läggas till i listan över tillåtna. Om du vill begära att en prenumeration läggs till i listan över tillåtna går du till: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-## <a name="limits"></a>Begränsningar 
+## <a name="limits"></a>Gränser 
 
 Det finns gränser per prenumeration för att distribuera resurser med hjälp av delade avbildnings gallerier:
 - 100 delade avbildnings gallerier, per prenumeration, per region
@@ -110,7 +110,7 @@ Det finns gränser per prenumeration för att distribuera resurser med hjälp av
 - 10 avbildnings versions repliker, per prenumeration, per region
 - Alla diskar som är anslutna till avbildningen måste vara mindre än eller lika med 1 TB i storlek
 
-Mer information finns i [kontrol lera resursanvändningen mot begränsningar](https://docs.microsoft.com/azure/networking/check-usage-against-limits) för att se hur du använder den aktuella användningen.
+Mer information finns i [kontrol lera resursanvändningen mot begränsningar](../articles/networking/check-usage-against-limits.md) för att se hur du använder den aktuella användningen.
  
 ## <a name="scaling"></a>Skalning
 Med det delade bild galleriet kan du ange antalet repliker som du vill att Azure ska behålla avbildningarna. Detta bidrar till distributions scenarier med flera virtuella datorer eftersom distributioner av virtuella datorer kan spridas till olika repliker, vilket minskar risken för bearbetning av instans skapande begränsas på grund av överbelastning av en enskild replik.
@@ -128,7 +128,7 @@ Vi rekommenderar alltid att du överetablerar antalet repliker på grund av fakt
 
 [ZRS (Azure Zone redundant Storage)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) tillhandahåller återhämtning mot ett problem med en tillgänglighets zon i regionen. Med den allmänna tillgängligheten för delade avbildnings galleriet kan du välja att lagra dina avbildningar i ZRS-konton i regioner med Tillgänglighetszoner. 
 
-Du kan också välja konto typen för varje mål region. Standard typen av lagrings konto är Standard_LRS, men du kan välja Standard_ZRS för regioner med Tillgänglighetszoner. Kontrol lera den regionala tillgängligheten för ZRS [här](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
+Du kan också välja konto typen för varje mål region. Standard typen av lagrings konto är Standard_LRS, men du kan välja Standard_ZRS för regioner med Tillgänglighetszoner. Kontrol lera den regionala tillgängligheten för ZRS [här](../articles/storage/common/storage-redundancy.md).
 
 ![Bild som visar ZRS](./media/shared-image-galleries/zrs.png)
 
@@ -139,7 +139,7 @@ De regioner som en delad avbildnings version replikeras till kan uppdateras efte
 
 ![Bild som visar hur du kan replikera bilder](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Åtkomst
+## <a name="access"></a>Access
 
 När galleriet för delad avbildning, bild definition och avbildnings version är alla resurser kan de delas med de inbyggda inbyggda Azure RBAC-kontrollerna. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvud namn och grupper. Du kan även dela åtkomst till personer utanför den klient organisation de skapades i. När en användare har åtkomst till den delade avbildnings versionen kan de distribuera en virtuell dator eller en skalnings uppsättning för virtuella datorer.  Här är en delnings mat ris som hjälper dig att förstå vad användaren får åtkomst till:
 
@@ -183,11 +183,11 @@ Avbildnings version:
 
 Följande SDK: er har stöd för att skapa delade avbildnings gallerier:
 
-- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
-- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
-- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Kör](https://docs.microsoft.com/azure/go/)
+- [.NET](/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](/java/azure/?view=azure-java-stable)
+- [Node.js](/javascript/api/@azure/arm-compute)
+- [Python](/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Kör](/azure/go/)
 
 ## <a name="templates"></a>Mallar
 
@@ -222,9 +222,9 @@ Du kan skapa en resurs för delade avbildnings galleri med hjälp av mallar. Det
 Om du vill visa en lista över alla delade avbildnings Galleri resurser över prenumerationer som du har åtkomst till på Azure Portal följer du stegen nedan:
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
-1. Rulla ned på sidan och välj **alla resurser** .
+1. Rulla ned på sidan och välj **alla resurser**.
 1. Välj alla prenumerationer som du vill lista alla resurser under.
-1. Sök efter resurser av typen **delade avbildnings Galleri** .
+1. Sök efter resurser av typen **delade avbildnings Galleri**.
   
 Om du vill visa en lista över alla delade avbildnings Galleri resurser över prenumerationer som du har behörighet till använder du följande kommando i Azure CLI:
 
@@ -244,8 +244,8 @@ Ja. Det finns tre scenarier baserat på de typer av avbildningar som du kan ha.
 
  Scenario 3: om du har en virtuell hård disk i det lokala fil systemet måste du ladda upp den virtuella hård disken till en hanterad avbildning. sedan kan du skapa en avbildnings definition och avbildnings version från den.
 
-- Om den virtuella hård disken är en virtuell Windows-dator kan du läsa [Ladda upp en virtuell hård disk](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-- Om den virtuella hård disken är för en virtuell Linux-dator läser du [Ladda upp en virtuell hård disk](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+- Om den virtuella hård disken är en virtuell Windows-dator kan du läsa [Ladda upp en virtuell hård disk](../articles/virtual-machines/windows/upload-generalized-managed.md).
+- Om den virtuella hård disken är för en virtuell Linux-dator läser du [Ladda upp en virtuell hård disk](../articles/virtual-machines/linux/upload-vhd.md#option-1-upload-a-vhd)
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Kan jag skapa en avbildnings version från en specialiserad disk?
 
@@ -310,4 +310,4 @@ För virtuella datorer och distributioner av skalnings uppsättningar för virtu
 
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>Kan jag uppdatera min skalnings uppsättning för virtuella datorer som skapats med hanterad avbildning för att använda delade avbildnings Galleri avbildningar?
 
-Ja, du kan uppdatera skalnings uppsättningens bild referens från en hanterad avbildning till en bild för en delad avbildning, så länge operativ systemets typ, Hyper-V-generering och datadisk-layouten matchar avbildningarna. 
+Ja, du kan uppdatera skalnings uppsättningens bild referens från en hanterad avbildning till en bild för en delad avbildning, så länge operativ systemets typ, Hyper-V-generering och datadisk-layouten matchar avbildningarna.

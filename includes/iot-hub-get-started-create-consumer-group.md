@@ -4,16 +4,16 @@ manager: philmea
 ms.author: robinsh
 ms.topic: include
 ms.date: 05/20/2019
-ms.openlocfilehash: c164433efc6a34a3a06676a3145feb18d3de80b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbb4e53e0047b9768a70c01aecfb7f31ae213b3f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "66249049"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554972"
 ---
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Lägga till en konsument grupp i IoT Hub
 
-[Konsument grupper](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) tillhandahåller oberoende vyer i händelse strömmen som gör det möjligt för appar och Azure-tjänster att oberoende använda data från samma Event Hub-slutpunkt. I det här avsnittet lägger du till en konsument grupp i IoT Hub: s inbyggda slut punkt som används senare i den här självstudien för att hämta data från slut punkten.
+[Konsument grupper](../articles/event-hubs/event-hubs-features.md#event-consumers) tillhandahåller oberoende vyer i händelse strömmen som gör det möjligt för appar och Azure-tjänster att oberoende använda data från samma Event Hub-slutpunkt. I det här avsnittet lägger du till en konsument grupp i IoT Hub: s inbyggda slut punkt som används senare i den här självstudien för att hämta data från slut punkten.
 
 Följ dessa steg om du vill lägga till en konsument grupp i IoT Hub:
 

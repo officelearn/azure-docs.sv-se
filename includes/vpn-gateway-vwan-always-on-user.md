@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b68fce603801c7bc1aee2af871df257b5f69197
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79500197"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560136"
 ---
 1. Installera klient certifikat på Windows 10-klienten, som du ser i den här artikeln [punkt-till-plats-VPN-klient](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . Certifikatet måste finnas i det aktuella användar arkivet.
 
-1. Konfigurera Always on VPN-klienten via PowerShell, Configuration Manager eller Intune genom att följa anvisningarna i [Konfigurera Windows 10-klienten alltid på VPN-anslutningar](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+1. Konfigurera Always on VPN-klienten via PowerShell, Configuration Manager eller Intune genom att följa anvisningarna i [Konfigurera Windows 10-klienten alltid på VPN-anslutningar](/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
 ### <a name="example-configuration-for-the-user-tunnel"></a>Exempel på konfiguration av användar tunneln
 
@@ -128,6 +128,6 @@ När du har konfigurerat den virtuella Nätverksgatewayen och installerat klient
    ```
    
    ![MachineCertTest](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
-1. Leta upp posten **UserTest** under **VPN-inställningar**och välj sedan **Anslut**.
+1. Leta upp posten **UserTest** under **VPN-inställningar** och välj sedan **Anslut**.
 
 1. Om anslutningen lyckas har du konfigurerat en användar tunnel som Always.

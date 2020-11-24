@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 4f7ec9bbf7877d8067b3d8b1566a5cd2c2075281
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 234407e6973657ba3ad0d78189e7cb1d363c15e2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050241"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555242"
 ---
 Sakernas Internet (IoT) utgör unika utmaningar för säkerhet, sekretess och efterlevnad för företag över hela världen. Till skillnad från traditionell cyberhot-teknik där problemen kretsar kring program vara och hur de implementeras, berör IoT vad som händer när cyberhot och det fysiska världar konvergerar. Att skydda IoT-lösningar kräver säker etablering av enheter, säker anslutning mellan enheterna och molnet och skyddar data skyddet i molnet under bearbetning och lagring. Att arbeta med sådana funktioner är dock resurs begränsade enheter, geografisk distribution av distributioner och ett stort antal enheter inom en lösning.
 
@@ -39,11 +39,11 @@ Med hänsyn till säkerhet, sekretess, transparens och efterlevnad kan du välja
 
 Microsoft Azure erbjuder en komplett moln lösning, en som kombinerar en ständigt växande samling integrerade moln tjänster – analys, maskin inlärning, lagring, säkerhet, nätverk och webb – med ett branschledande engagemang för skyddet och sekretessen för dina data. Microsofts strategi för att komma till [överträdelse](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) använder ett dedikerat *rött team* av program varu säkerhets experter som simulerar attacker, testar förmågan hos Azure att upptäcka, skydda mot nya hot och återställa mot överträdelser. Microsofts [globala incident](https://www.microsoft.com/en-us/TrustCenter/Security/DesignOpSecurity) hanterings team arbetar dygnet runt för att minimera effekterna av attacker och skadlig aktivitet. Teamet följer etablerade procedurer för incident hantering, kommunikation och återställning, och använder sig av identifierbara och förutsägbara gränssnitt med interna och externa partner.
 
-Microsofts system ger kontinuerlig intrångs identifiering och förebyggande, skydd av tjänst attacker, testning av vanliga inläsningar och kriminal tekniska verktyg som hjälper dig att identifiera och åtgärda hot. [Multi-Factor Authentication](../articles/active-directory/authentication/multi-factor-authentication.md) ger ett extra säkerhets lager som slutanvändarna kan använda för att få åtkomst till nätverket. Och för program-och värd leverantören erbjuder Microsoft åtkomst kontroll, övervakning, skydd mot skadlig kod, sårbarhets sökning, korrigeringar och konfigurations hantering.
+Microsofts system ger kontinuerlig intrångs identifiering och förebyggande, skydd av tjänst attacker, testning av vanliga inläsningar och kriminal tekniska verktyg som hjälper dig att identifiera och åtgärda hot. [Multi-Factor Authentication](../articles/active-directory/authentication/concept-mfa-howitworks.md) ger ett extra säkerhets lager som slutanvändarna kan använda för att få åtkomst till nätverket. Och för program-och värd leverantören erbjuder Microsoft åtkomst kontroll, övervakning, skydd mot skadlig kod, sårbarhets sökning, korrigeringar och konfigurations hantering.
 
 Lösnings acceleratorerna drar nytta av den säkerhet och sekretess som är inbyggd i Azure-plattformen tillsammans med SDL-och OSA-processerna för säker utveckling och drift av all Microsoft-programvara. Dessa procedurer ger infrastruktur skydd, nätverks skydd och identitets-och hanterings funktioner som är grundläggande för säkerheten för alla lösningar.
 
-[Azure-IoT Hub](../articles/iot-hub/about-iot-hub.md) i [IoT Solution Accelerators](../articles/iot-fundamentals/iot-introduction.md) erbjuder en fullständigt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan IoT-enheter och Azure-tjänster, till exempel [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) och [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) med hjälp av säkerhets referenser för varje enhet och åtkomst kontroll.
+[Azure-IoT Hub](../articles/iot-hub/about-iot-hub.md) i [IoT Solution Accelerators](../articles/iot-fundamentals/iot-introduction.md) erbjuder en fullständigt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan IoT-enheter och Azure-tjänster, till exempel [Azure Machine Learning](../articles/machine-learning/classic/index.yml) och [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) med hjälp av säkerhets referenser för varje enhet och åtkomst kontroll.
 
 Om du vill kommunicera med de säkerhets-och sekretessfunktioner som är inbyggda i Azure IoT Solution-acceleratorerna, delar vi upp sviten i de tre primära säkerhets områdena.
 
@@ -89,7 +89,7 @@ Med hjälp av Azure Active Directory (AAD) för användarautentisering och aukto
 
 När data finns i molnet kan de bearbetas och lagras i ett användardefinierat arbets flöde. Åtkomst till varje del av data kontrol leras med Azure Active Directory, beroende på vilken lagrings tjänst som används.
 
-Alla nycklar som används av IoT-infrastrukturen lagras i molnet i säkert lagrings utrymme, med möjlighet att gå över i fall då nycklar måste reserveras. Data kan lagras i [Azure Cosmos DB](../articles/cosmos-db/introduction.md) eller i [SQL Database](../articles/sql-database/sql-database-faq.md), vilket gör det möjligt att definiera vilken säkerhets nivå som önskas. Dessutom ger Azure ett sätt att övervaka och granska all åtkomst till dina data för att varna dig om intrång eller obehörig åtkomst.
+Alla nycklar som används av IoT-infrastrukturen lagras i molnet i säkert lagrings utrymme, med möjlighet att gå över i fall då nycklar måste reserveras. Data kan lagras i [Azure Cosmos DB](../articles/cosmos-db/introduction.md) eller i [SQL Database](../articles/azure-sql/database/sql-database-paas-overview.md), vilket gör det möjligt att definiera vilken säkerhets nivå som önskas. Dessutom ger Azure ett sätt att övervaka och granska all åtkomst till dina data för att varna dig om intrång eller obehörig åtkomst.
 
 ## <a name="conclusion"></a>Slutsats
 

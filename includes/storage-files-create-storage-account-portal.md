@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: a0db3ee9f32be35e62accc5df7b92697a883df20
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ad9f3a115ed226b492a08dae29db61029d9098eb
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83778215"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561487"
 ---
 Ett lagringskonto är en delad lagringspool i vilken du kan distribuera en Azure-filresurs eller andra lagringsresurser, t.ex. blobar eller köer. Ett lagringskonto kan innehålla ett obegränsat antal resurser. En resurs kan lagra ett obegränsat antal filer, upp till kapacitetsbegränsningen för lagringskontot.
 
@@ -24,13 +24,13 @@ Skapa ett lagringskonto:
     ![En skärmbild av hur lagringskontoposten bör se ut i dialogrutan för resurssökning](../articles/storage/files/media/storage-how-to-use-files-portal/create-storage-account-1.png)
 
 1. Skriv *mystorageacct* i **Namn**, följt av några slumptal tills du ser en grön bockmarkering som indikerar att det är ett unikt namn. Ett lagringskontonamn får bara bestå av gemener och måste vara globalt unikt. Anteckna namnet på ditt lagringskonto. Du ska använda det senare. 
-1. I **distributions modell**lämnar du standardvärdet **Resource Manager**. Mer information om skillnaderna mellan Azure Resource Manager och den klassiska distributionsmodellen finns i [Understand deployment models and the state of your resources](../articles/azure-resource-manager/management/deployment-models.md) (Distributionsmodeller och dina resursers tillstånd).
-1. Behåll standardvärdet som **standard**i **prestanda**.
+1. I **distributions modell** lämnar du standardvärdet **Resource Manager**. Mer information om skillnaderna mellan Azure Resource Manager och den klassiska distributionsmodellen finns i [Understand deployment models and the state of your resources](../articles/azure-resource-manager/management/deployment-models.md) (Distributionsmodeller och dina resursers tillstånd).
+1. Behåll standardvärdet som **standard** i **prestanda**.
     
     > [!NOTE]
     > Den här snabb starten skapar en standard fil resurs, men om du vill använda Premium fil resurser väljer du **Premium** i stället.
 
-1. Välj **StorageV2** i **Kontotyp**. Mer information om de olika typerna av lagringskonton finns i [Alternativ för Azure Storage-konton](../articles/storage/common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. Välj **StorageV2** i **Kontotyp**. Mer information om de olika typerna av lagringskonton finns i [Alternativ för Azure Storage-konton](../articles/storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
     > [!NOTE]
     > Den här snabb starten skapar ett allmänt-Purpose v2-konto. Om du vill använda Premium fil resurser väljer du **FileStorage** i stället.

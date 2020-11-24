@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines-windows
 author: rothja
 manager: craigg
@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 66a3ecd82ab61f25c99fd1268d9ce7567b057d66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3509185baa3a9d7be90c1fa4bd8000da4a8a6fe5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050309"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557498"
 ---
 ## <a name="prepare-for-akv-integration"></a>Förbered för AKV-integrering
 För att kunna använda Azure Key Vault-integrering för att konfigurera SQL Server VM finns det flera krav: 
@@ -38,7 +38,7 @@ Kontrol lera att du har installerat den senaste Azure PowerShell-modulen. Mer in
 
 Först måste du ha en [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) i din prenumeration. På så sätt kan du med många fördelar ge dig behörighet till ditt nyckel valv för vissa användare och program.
 
-Registrera sedan ett program med AAD. Detta ger dig ett tjänst huvud konto som har åtkomst till ditt nyckel valv, som den virtuella datorn kommer att behöva. I Azure Key Vault artikeln kan du hitta de här stegen i avsnittet [Registrera ett program med Azure Active Directory](../articles/key-vault/key-vault-manage-with-cli2.md#registering-an-application-with-azure-active-directory) , eller så kan du se stegen med skärm bilder i **avsnittet hämta en identitet för programmet** i [det här blogg inlägget](https://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Innan du slutför de här stegen måste du samla in följande information under registreringen som behövs senare när du aktiverar Azure Key Vault-integrering på den virtuella SQL-datorn.
+Registrera sedan ett program med AAD. Detta ger dig ett tjänst huvud konto som har åtkomst till ditt nyckel valv, som den virtuella datorn kommer att behöva. I Azure Key Vault artikeln kan du hitta de här stegen i avsnittet [Registrera ett program med Azure Active Directory](../articles/key-vault/general/manage-with-cli2.md#registering-an-application-with-azure-active-directory) , eller så kan du se stegen med skärm bilder i **avsnittet hämta en identitet för programmet** i [det här blogg inlägget](/archive/blogs/kv/azure-key-vault-step-by-step). Innan du slutför de här stegen måste du samla in följande information under registreringen som behövs senare när du aktiverar Azure Key Vault-integrering på den virtuella SQL-datorn.
 
 * När programmet har lagts till hittar du **program-ID: t** (även kallat AAD-ClientID eller AppID) på bladet **registrerad app** .
     Program-ID: t tilldelas senare till **$spName** -parametern (tjänstens huvud namn) i PowerShell-skriptet för att aktivera Azure Key Vault-integrering.
@@ -51,10 +51,10 @@ Registrera sedan ett program med AAD. Detta ger dig ett tjänst huvud konto som 
 
 * Program-ID: t och hemligheten kommer också att användas för att skapa en autentiseringsuppgift i SQL Server.
 
-* Du måste godkänna att det här nya program-ID: t (eller klient-ID: t) har följande åtkomst behörigheter: **Get**, **wrapKey**, **unwrapKey**. Detta görs med cmdleten [set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) . Mer information finns i [Azure Key Vault översikt](../articles/key-vault/key-vault-overview.md).
+* Du måste godkänna att det här nya program-ID: t (eller klient-ID: t) har följande åtkomst behörigheter: **Get**, **wrapKey**, **unwrapKey**. Detta görs med cmdleten [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) . Mer information finns i [Azure Key Vault översikt](../articles/key-vault/general/overview.md).
 
 ### <a name="create-a-key-vault"></a><a id="createkeyvault"></a> Skapa ett nyckel valv
-För att kunna använda Azure Key Vault för att lagra de nycklar som ska användas för kryptering i din virtuella dator måste du ha åtkomst till ett nyckel valv. Om du inte redan har konfigurerat nyckel valvet skapar du ett genom att följa stegen i artikeln [komma igång med Azure Key Vault](../articles/key-vault/key-vault-overview.md) . Innan du utför de här stegen finns det information som du behöver samla in under den här konfigurationen som behövs senare när du aktiverar Azure Key Vault-integrering på den virtuella SQL-datorn.
+För att kunna använda Azure Key Vault för att lagra de nycklar som ska användas för kryptering i din virtuella dator måste du ha åtkomst till ett nyckel valv. Om du inte redan har konfigurerat nyckel valvet skapar du ett genom att följa stegen i artikeln [komma igång med Azure Key Vault](../articles/key-vault/general/overview.md) . Innan du utför de här stegen finns det information som du behöver samla in under den här konfigurationen som behövs senare när du aktiverar Azure Key Vault-integrering på den virtuella SQL-datorn.
 
 ```azurepowershell
 New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'

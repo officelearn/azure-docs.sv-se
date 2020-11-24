@@ -5,12 +5,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.date: 07/09/2020
-ms.openlocfilehash: de5d3f8f32e928c77ffd6028ec764793ab7229ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f25c335c568c112c05f81df51d69e83aeff423e2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86495353"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556464"
 ---
 ## <a name="business-disaster-recovery"></a>Katastrof återställning för företag
 
@@ -22,10 +22,10 @@ Som Azure-tjänst tillhandahåller Azure Time Series Insights vissa funktioner f
 
 Ytterligare funktioner med hög tillgänglighet tillhandahålls via Azure (och även tillgängligt för valfri Azure Time Series Insights instans):
 
-- **Redundans**: Azure tillhandahåller [geo-replikering och belastnings utjämning](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
-- **Data återställning** och **lagrings återställning**: Azure tillhandahåller [flera alternativ för att bevara och återställa data](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
-- **Azure Site Recovery**: Azure tillhandahåller Site Recovery-funktioner via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
-- **Azure Backup**: [Azure Backup](https://docs.microsoft.com/azure/backup/backup-architecture) stöder både lokal och molnad säkerhets kopiering av virtuella Azure-datorer.
+- **Redundans**: Azure tillhandahåller [geo-replikering och belastnings utjämning](/azure/architecture/resiliency/recovery-loss-azure-region).
+- **Data återställning** och **lagrings återställning**: Azure tillhandahåller [flera alternativ för att bevara och återställa data](/azure/architecture/resiliency/recovery-data-corruption).
+- **Azure Site Recovery**: Azure tillhandahåller Site Recovery-funktioner via [Azure Site Recovery](../articles/site-recovery/index.yml).
+- **Azure Backup**: [Azure Backup](../articles/backup/backup-architecture.md) stöder både lokal och molnad säkerhets kopiering av virtuella Azure-datorer.
 
 Se till att du aktiverar de relevanta Azure-funktionerna för att tillhandahålla global tillgänglighet över flera regioner för dina enheter och användare.
 
@@ -36,9 +36,9 @@ Se till att du aktiverar de relevanta Azure-funktionerna för att tillhandahåll
 
 Vissa Azure IoT-tjänster omfattar även inbyggda funktioner för verksamhets haveri beredskap:
 
-- [Azure IoT Hub haveri beredskap med hög tillgänglighet](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), vilket omfattar redundans inom regioner
-- [Azure Event Hubs-principer](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
-- [Azure Storage redundans](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Azure IoT Hub haveri beredskap med hög tillgänglighet](../articles/iot-hub/iot-hub-ha-dr.md), vilket omfattar redundans inom regioner
+- [Azure Event Hubs-principer](../articles/event-hubs/event-hubs-geo-dr.md)
+- [Redundans i Azure Storage](../articles/storage/common/storage-redundancy.md)
 
 Att integrera Azure Time Series Insights med de andra tjänsterna ger ytterligare möjligheter till haveri beredskap. Till exempel kan telemetri som skickas till händelsehubben vara bestående av en säkerhets kopia av Azure Blob Storage-databasen.
 
@@ -55,10 +55,10 @@ I allmänhet är det bästa sättet att duplicera en Azure Time Series Insights 
 
 Så här skapar du en duplicerad miljö:
 
-1. Skapa en miljö i en andra region. Mer information finns [i skapa en ny Azure Time Series Insights-miljö i Azure Portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. Skapa en miljö i en andra region. Mer information finns [i skapa en ny Azure Time Series Insights-miljö i Azure Portal](../articles/time-series-insights/time-series-insights-get-started.md).
 1. Skapa en andra dedikerad konsument grupp för din händelse källa.
 1. Anslut händelse källan till den nya miljön. Se till att du anger den andra dedikerade konsument gruppen.
-1. Läs dokumentationen om Azure Time Series Insights [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) och [Event Hubs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) .
+1. Läs dokumentationen om Azure Time Series Insights [IoT Hub](../articles/time-series-insights/how-to-ingest-data-iot-hub.md) och [Event Hubs](../articles/time-series-insights/concepts-access-policies.md) .
 
 Om en händelse inträffar:
 
@@ -71,5 +71,4 @@ Om en händelse inträffar:
 > * En fördröjning kan också uppstå.
 > * En tillfällig insamling i meddelande bearbetningen kan inträffa, eftersom åtgärder dirigeras om.
 > 
-> Mer information finns i avsnittet [minska svars tiden i Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
-
+> Mer information finns i avsnittet [minska svars tiden i Azure Time Series Insights](../articles/time-series-insights/time-series-insights-environment-mitigate-latency.md).

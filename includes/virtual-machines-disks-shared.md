@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7831eaaa478a3f28ff158d5c9599abaf8a107c15
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 74c77356df4f35461a8b9f1459712cdcf7f77cbf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684440"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558893"
 ---
 Azure delade diskar är en ny funktion för Azure Managed disks som gör att du kan ansluta en hanterad disk till flera virtuella datorer samtidigt. Genom att ansluta en hanterad disk till flera virtuella datorer kan du antingen distribuera nya eller migrera befintliga klustrade program till Azure.
 
@@ -41,7 +41,7 @@ Delade diskar har stöd för flera operativ system. Se avsnittet [Windows](#wind
 
 ### <a name="windows"></a>Windows
 
-Azure delade diskar stöds på Windows Server 2008 och senare. De flesta Windows-baserade klustring bygger på WSFC, som hanterar alla kärn infrastrukturer för kommunikation i kluster noder, vilket gör att dina program kan dra nytta av parallella åtkomst mönster. WSFC möjliggör både CSV- och icke-CSV-baserade alternativ, beroende på vilken version av Windows Server du använder. Mer information finns i [Create a failover cluster](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster) (Skapa ett redundanskluster).
+Azure delade diskar stöds på Windows Server 2008 och senare. De flesta Windows-baserade klustring bygger på WSFC, som hanterar alla kärn infrastrukturer för kommunikation i kluster noder, vilket gör att dina program kan dra nytta av parallella åtkomst mönster. WSFC möjliggör både CSV- och icke-CSV-baserade alternativ, beroende på vilken version av Windows Server du använder. Mer information finns i [Create a failover cluster](/windows-server/failover-clustering/create-failover-cluster) (Skapa ett redundanskluster).
 
 Några populära program som körs på WSFC är:
 

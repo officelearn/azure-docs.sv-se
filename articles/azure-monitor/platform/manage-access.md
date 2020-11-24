@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 7acd287964d25cc7e98c11ec1986c73d8ae265da
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 79e5b1ddde0ff5f0d09dc1c20e3b20ec4de3d925
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104146"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536684"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till loggdata och arbetsytor i Azure Monitor
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver hur du hanterar åtkomst till loggar och administrer
 * Användare som behöver åtkomst till loggdata från vissa resurser med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC) – även kallat [resurs kontext](design-logs-deployment.md#access-mode)
 * Användare som behöver åtkomst till loggdata i en speciell tabell i arbets ytan med hjälp av Azure RBAC.
 
-Om du vill lära dig begrepp som rör RBAC-och åtkomst strategier läser du [utforma Azure Monitor loggar distribution](design-logs-deployment.md)
+Om du vill lära dig begrepp som rör Azure RBAC-och åtkomst strategier läser du [utforma Azure Monitor loggar distribution](design-logs-deployment.md)
 
 ## <a name="configure-access-control-mode"></a>Konfigurera åtkomst kontrol läge
 
@@ -106,7 +106,7 @@ Varje arbets yta kan ha flera associerade konton, och varje konto kan ha åtkoms
 
 Följande aktiviteter kräver även Azure-behörigheter:
 
-|Åtgärd |Azure-behörigheter krävs |Kommentarer |
+|Åtgärd |Azure-behörigheter krävs |Anteckningar |
 |-------|-------------------------|------|
 | Lägga till och ta bort övervaknings lösningar | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Behörigheterna måste beviljas på resursgrupp- eller prenumerationsnivå. |
 | Ändra prisnivån | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -194,9 +194,9 @@ När användarna frågar efter loggar från en arbets yta med resurs kontext åt
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exempel:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Möjlighet att visa alla logg data för resursen.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Möjlighet att konfigurera diagnostikinställningar för att tillåta konfiguration av loggar för den här resursen. |
 
-`/read`behörighet beviljas vanligt vis från en roll som innehåller _ \* /Read eller_ _\*_ behörigheter som de inbyggda rollerna [läsare](../../role-based-access-control/built-in-roles.md#reader) och [deltagare](../../role-based-access-control/built-in-roles.md#contributor) . Anpassade roller som innehåller särskilda åtgärder eller dedikerade inbyggda roller kanske inte innehåller den här behörigheten.
+`/read`behörighet beviljas vanligt vis från en roll som innehåller _\* /Read eller_ _\*_ behörigheter som de inbyggda rollerna [läsare](../../role-based-access-control/built-in-roles.md#reader) och [deltagare](../../role-based-access-control/built-in-roles.md#contributor) . Anpassade roller som innehåller särskilda åtgärder eller dedikerade inbyggda roller kanske inte innehåller den här behörigheten.
 
-Se [definiera åtkomst kontroll per tabell](#table-level-rbac) nedan om du vill skapa en annan åtkomst kontroll för olika tabeller.
+Se [definiera åtkomst kontroll per tabell](#table-level-azure-rbac) nedan om du vill skapa en annan åtkomst kontroll för olika tabeller.
 
 ## <a name="custom-role-examples"></a>Exempel på anpassade roller
 
@@ -239,15 +239,15 @@ Se [definiera åtkomst kontroll per tabell](#table-level-rbac) nedan om du vill 
 
     * Ge användarna följande behörigheter till resurserna: `*/read` , tilldelade till rollen läsare eller `Microsoft.Insights/logs/*/read` . 
 
-## <a name="table-level-rbac"></a>RBAC för tabell nivå
+## <a name="table-level-azure-rbac"></a>Tabell nivå Azure RBAC
 
-Med **RBAC-tabellnivå** kan du definiera mer detaljerad kontroll för data i en Log Analytics arbets yta förutom de andra behörigheterna. Med den här kontrollen kan du definiera vissa data typer som endast är tillgängliga för en speciell uppsättning användare.
+Med **tabell nivån Azure RBAC** kan du definiera mer detaljerad kontroll för data i en Log Analytics arbets yta förutom de andra behörigheterna. Med den här kontrollen kan du definiera vissa data typer som endast är tillgängliga för en speciell uppsättning användare.
 
 Du implementerar en tabell åtkomst kontroll med [Azures anpassade roller](../../role-based-access-control/custom-roles.md) för att bevilja åtkomst till vissa [tabeller](./data-platform-logs.md) i arbets ytan. Dessa roller tillämpas på arbets ytor med antingen arbets ytans kontext eller resurs kontextens [åtkomst kontroll lägen](design-logs-deployment.md#access-control-mode) oavsett användarens [åtkomst läge](design-logs-deployment.md#access-mode).
 
 Skapa en [anpassad roll](../../role-based-access-control/custom-roles.md) med följande åtgärder för att definiera åtkomst till tabell åtkomst kontroll.
 
-* Om du vill bevilja åtkomst till en tabell inkluderar du den i avsnittet **åtgärder** i roll definitionen. Ta bort åtkomsten från de tillåtna **åtgärderna**genom att ta med den i **NotActions** -avsnittet.
+* Om du vill bevilja åtkomst till en tabell inkluderar du den i avsnittet **åtgärder** i roll definitionen. Ta bort åtkomsten från de tillåtna **åtgärderna** genom att ta med den i **NotActions** -avsnittet.
 * Använd Microsoft. OperationalInsights/arbets ytor/fråga/* för att ange alla tabeller.
 
 Om du till exempel vill skapa en roll med åtkomst till _pulsslags_ -och _AzureActivity_ -tabellerna skapar du en anpassad roll med följande åtgärder:
@@ -302,7 +302,7 @@ Ibland kommer anpassade loggar från källor som inte är direkt kopplade till e
 
 ### <a name="considerations"></a>Överväganden
 
-* Om en användare beviljas global Läs behörighet med standard läsare eller deltagar roller som innehåller _ \* /Read_ -åtgärden, åsidosätter den åtkomst kontrollen per tabell och ger dem åtkomst till alla loggdata.
+* Om en användare beviljas global Läs behörighet med standard läsare eller deltagar roller som innehåller _\* /Read_ -åtgärden, åsidosätter den åtkomst kontrollen per tabell och ger dem åtkomst till alla loggdata.
 * Om en användare beviljas åtkomst per tabell men inga andra behörigheter, skulle de kunna komma åt loggdata från API: et, men inte från Azure Portal. Om du vill ge åtkomst från Azure Portal använder du Log Analytics Reader som bas roll.
 * Administratörer och ägare av prenumerationen kommer att ha åtkomst till alla data typer oavsett andra behörighets inställningar.
 * Arbets ytans ägare behandlas som alla andra användare för åtkomst kontroll per tabell.

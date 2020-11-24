@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d231de8e262194cd7dda2462a3f54d7d531eb63c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540798"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542090"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Övervaka data referens för Azure Machine Learning
 
@@ -26,7 +26,7 @@ I det här avsnittet visas alla automatiskt insamlade plattforms mått som samla
 
 **Modell**
 
-| Mått | Enhet | Beskrivning |
+| Metric | Enhet | Beskrivning |
 | ----- | ----- | ----- |
 | Modell distributionen misslyckades | Antal | Antalet modell distributioner som misslyckades. |
 | Modell distribution har startat | Antal | Antalet modell distributioner som har startats. |
@@ -38,7 +38,7 @@ I det här avsnittet visas alla automatiskt insamlade plattforms mått som samla
 
 Kvot information gäller endast för Azure Machine Learning beräkning.
 
-| Mått | Enhet | Beskrivning |
+| Metric | Enhet | Beskrivning |
 | ----- | ----- | ----- |
 | Aktiva kärnor | Antal | Antalet aktiva beräknings kärnor. |
 | Aktiva noder | Antal | Antalet aktiva noder. |
@@ -56,7 +56,7 @@ Kvot information gäller endast för Azure Machine Learning beräkning.
 
 **Resurs**
 
-| Mått | Enhet | Beskrivning |
+| Metric | Enhet | Beskrivning |
 | ----- | ----- | ----- |
 | CpuUtilization | Procent | Hur mycket processor användnings procent som används för en viss nod under en körning/ett jobb. Det här måttet publiceras bara när ett jobb körs på en nod. Ett jobb kan använda en eller flera noder. Det här måttet publiceras per nod. |
 | GpuUtilization | Procent | Hur mycket GPU-minne som utnyttjades för en viss nod under en körning/ett jobb. En nod kan ha en eller flera GPU: er. Det här måttet publiceras per GPU per nod. |
@@ -65,7 +65,7 @@ Kvot information gäller endast för Azure Machine Learning beräkning.
 
 Information om utbildning körs.
 
-| Mått | Enhet | Beskrivning |
+| Metric | Enhet | Beskrivning |
 | ----- | ----- | ----- |
 | Slutförda körningar | Antal | Antalet slutförda körningar. |
 | Misslyckade körningar | Antal | Antalet misslyckade körningar. |
@@ -79,7 +79,7 @@ Azure Machine Learning har följande dimensioner kopplade till sina mått.
 
 | Dimension | Beskrivning |
 | ---- | ---- |
-| Klusternamn | Namnet på beräknings instansen. Tillgängligt för alla kvot mått. |
+| Klusternamn | Namnet på beräknings kluster resursen. Tillgängligt för alla kvot mått. |
 | Namn på virtuell dator familj | Namnet på den VM-serie som används av klustret. Tillgängligt för kvot användning i procent. |
 | VM-prioritet | Den virtuella datorns prioritet. Tillgängligt för kvot användning i procent.
 | CreatedTime | Endast tillgängligt för CpuUtilization och GpuUtilization. |

@@ -12,12 +12,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 19372b30a5e56738230216777897c08b07a0a86a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49203195bf7746d0bff1b9543d1641f69ab23359
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86170708"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542685"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Använda Twilio för röst-och SMS-funktioner i ruby
 Den här guiden visar hur du utför vanliga programmerings åtgärder med Twilio API-tjänsten på Azure. Scenarierna som ingår är att ringa ett telefonsamtal och skicka ett SMS-meddelande (Short Message Service). Mer information om Twilio och hur du använder röst-och SMS i dina program finns i avsnittet [Nästa steg](#NextSteps) .
@@ -48,20 +48,20 @@ Följande TwiML skulle till exempel konvertera texten **Hello World** till tal.
 Alla TwiML-dokument har `<Response>` samma rot element. Därifrån använder du Twilio-verb för att definiera appens beteende.
 
 ### <a name="twiml-verbs"></a><a id="Verbs"></a>TwiML-verb
-Twilio-verb är XML-taggar som talar om för Twilio vad som ska **utföras**. Exempelvis instruerar verbet Twilio till audibly att leverera ett meddelande på ett samtal. ** &lt; &gt; ** 
+Twilio-verb är XML-taggar som talar om för Twilio vad som ska **utföras**. Exempelvis instruerar verbet Twilio till audibly att leverera ett meddelande på ett samtal. **&lt; &gt;** 
 
 Följande är en lista över Twilio-verb.
 
-* ** &lt; Dial &gt; **: ansluter anroparen till en annan telefon.
-* ** &lt; Samla &gt; **in: samlar in numeriska siffror som anges på telefon tangent bordet.
-* Koppla: avslutar ett anrop. ** &lt; &gt; **
-* ** &lt; Play &gt; **: spelar upp en ljudfil.
-* ** &lt; Paus &gt; **: väntar i tyst läge under ett angivet antal sekunder.
-* ** &lt; Post &gt; **: registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
-* ** &lt; Omdirigera &gt; **: överför kontroll av ett anrop eller SMS till TWIML på en annan URL.
-* ** &lt; Avvisa &gt; **: avvisar ett inkommande samtal till ditt Twilio-nummer utan fakturering
-* ** &lt; Säg &gt; **: konverterar text till tal som görs i ett samtal.
-* ** &lt; SMS &gt; **: skickar ett SMS-meddelande.
+* **&lt; Dial &gt;**: ansluter anroparen till en annan telefon.
+* **&lt; Samla &gt;** in: samlar in numeriska siffror som anges på telefon tangent bordet.
+* Koppla: avslutar ett anrop. **&lt; &gt;**
+* **&lt; Play &gt;**: spelar upp en ljudfil.
+* **&lt; Paus &gt;**: väntar i tyst läge under ett angivet antal sekunder.
+* **&lt; Post &gt;**: registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
+* **&lt; Omdirigera &gt;**: överför kontroll av ett anrop eller SMS till TWIML på en annan URL.
+* **&lt; Avvisa &gt;**: avvisar ett inkommande samtal till ditt Twilio-nummer utan fakturering
+* **&lt; Säg &gt;**: konverterar text till tal som görs i ett samtal.
+* **&lt; SMS &gt;**: skickar ett SMS-meddelande.
 
 Mer information om Twilio-verb, deras attribut och TwiML finns i [TwiML][twiml]. Mer information om Twilio-API: et finns i [Twilio-API][twilio_api].
 
@@ -206,4 +206,4 @@ Nu när du har lärt dig grunderna i Twilio-tjänsten kan du följa dessa länka
 [twilio_support]: https://www.twilio.com/help/contact
 [twilio_quickstarts]: https://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: https://docs.microsoft.com/azure/virtual-machines/linux/classic/ruby-rails-web-app
+[azure_vm_setup]: /previous-versions/azure/virtual-machines/linux/classic/ruby-rails-web-app

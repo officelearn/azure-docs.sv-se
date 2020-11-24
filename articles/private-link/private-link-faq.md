@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 6ee6d88b5247209d5628c7f85f1985507d53811d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 2e5edb0ccf20ab0dba14864487f2b2ddef7d57e7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913729"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544215"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Private Link
 
@@ -20,8 +20,8 @@ ms.locfileid: "92913729"
 
 ### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>Vad är Azure Private-slutpunkt och Azure Private Link service?
 
-- **[Privat Azure-slutpunkt](private-endpoint-overview.md)** : Azure Private-slutpunkt är ett nätverks gränssnitt som ansluter dig privat och säkert till en tjänst som drivs av en privat Azure-länk. Du kan använda privata slut punkter för att ansluta till en Azure PaaS-tjänst som stöder privat länk eller till en egen privat länk tjänst.
-- **[Azure Private Link-tjänsten](private-link-service-overview.md)** : Azure Private Link service är en tjänst som skapats av en tjänst leverantör. För närvarande kan en privat länk tjänst kopplas till klient delens IP-konfiguration för en Standard Load Balancer. 
+- **[Privat Azure-slutpunkt](private-endpoint-overview.md)**: Azure Private-slutpunkt är ett nätverks gränssnitt som ansluter dig privat och säkert till en tjänst som drivs av en privat Azure-länk. Du kan använda privata slut punkter för att ansluta till en Azure PaaS-tjänst som stöder privat länk eller till en egen privat länk tjänst.
+- **[Azure Private Link-tjänsten](private-link-service-overview.md)**: Azure Private Link service är en tjänst som skapats av en tjänst leverantör. För närvarande kan en privat länk tjänst kopplas till klient delens IP-konfiguration för en Standard Load Balancer. 
 
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Hur skickas trafik när du använder en privat länk?
 Trafiken skickas privat med Microsoft stamnätet. Den passerar inte Internet. Azures privata länk lagrar inte kund information.
@@ -69,8 +69,8 @@ Ja. En privat länk-tjänst kan ta emot anslutningar från flera privata slut pu
 ### <a name="how-should-i-control-the-exposure-of-my-private-link-service"></a>Hur styr jag exponeringen för min privata länk tjänst?
 Du kan styra exponeringen med hjälp av Synlighets konfigurationen i Private Link-tjänsten. Synligheten stöder tre inställningar:
 
-- **Ingen** – endast prenumerationer med RBAC-åtkomst kan hitta tjänsten. 
-- Endast **begränsade** prenumerationer som godkänns och RBAC-åtkomst kan hitta tjänsten. 
+- **Inga** prenumerationer med Azure RBAC-åtkomst kan hitta tjänsten. 
+- Endast **begränsade** prenumerationer som godkänns och med Azure RBAC-åtkomst kan hitta tjänsten. 
 - **Alla** – alla kan hitta tjänsten. 
  
 ### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Kan jag skapa en privat länk-tjänst med Basic Load Balancer? 

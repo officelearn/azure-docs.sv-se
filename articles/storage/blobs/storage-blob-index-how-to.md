@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e3e16b71d52edd9ab4eaf55651567b95e334b84
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 411815ca2f947c47b8dfb0d2e5d61f8ea18f3545
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961795"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95541257"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Använd BLOB-Taggar (för hands version) för att hantera och hitta data på Azure Blob Storage
 
@@ -23,7 +23,7 @@ BLOB index-Taggar kategoriserar data i ditt lagrings konto med hjälp av attribu
 > [!NOTE]
 > BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada**, **östra**, Australien, **centrala** och **Frankrike, södra** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta Azure blob-data med BLOB-Taggar (för hands version)](storage-manage-find-blobs.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -38,7 +38,7 @@ När BLOB-indexet är i för hands version, släpps .NET Storage-paketet i NuGet
 
 2. I NuGet Package Manager letar du upp paketet **Azure. Storage. blobs** och installerar version **12.7.0 – Preview. 1** eller senare i projektet. Du kan också köra PowerShell-kommandot: `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
 
-   Mer information finns i [hitta och installera ett paket](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
+   Mer information finns i [hitta och installera ett paket](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 3. Lägg till följande using-uttryck högst upp i din kod fil.
 
@@ -56,7 +56,7 @@ När BLOB-indexet är i för hands version, släpps .NET Storage-paketet i NuGet
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>Ladda upp en ny BLOB med index-Taggar
 
-Den här uppgiften kan utföras av en [data ägare för en lagrings-BLOB](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) eller ett säkerhets objekt som har fått behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure Resource Provider-åtgärden](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll.
+Den här uppgiften kan utföras av en [data ägare för en lagrings-BLOB](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) eller ett säkerhets objekt som har fått behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure Resource Provider-åtgärden](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -114,9 +114,9 @@ static async Task BlobIndexTagsOnCreate()
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Hämta, ange och uppdatera BLOB-index Taggar
 
-Hämtning av BLOB-taggar kan utföras av en [data ägare för en lagrings-BLOB](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) eller ett säkerhets objekt som har fått behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [Azure Resource Provider-åtgärden](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll.
+Hämtning av BLOB-taggar kan utföras av en [data ägare för en lagrings-BLOB](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) eller ett säkerhets objekt som har fått behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [Azure Resource Provider-åtgärden](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll.
 
-Att ange och uppdatera BLOB-index taggar kan utföras av en [data ägare för en lagrings-BLOB](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) eller ett säkerhets objekt som har fått behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure Resource Provider-åtgärden](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll.
+Att ange och uppdatera BLOB-index taggar kan utföras av en [data ägare för en lagrings-BLOB](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) eller ett säkerhets objekt som har fått behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure Resource Provider-åtgärden](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -193,7 +193,7 @@ static async Task BlobIndexTagsExample()
 
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrera och hitta data med BLOB-Taggar
 
-Den här uppgiften kan utföras av en [data ägare för en lagrings-BLOB](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) eller ett säkerhets objekt som har fått behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [Azure Resource Provider-åtgärden](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll.
+Den här uppgiften kan utföras av en [data ägare för en lagrings-BLOB](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) eller ett säkerhets objekt som har fått behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [Azure Resource Provider-åtgärden](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

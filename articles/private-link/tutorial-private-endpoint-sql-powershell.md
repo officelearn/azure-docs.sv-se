@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: allensu
-ms.openlocfilehash: 36b952131c2050230de89064adc586c5a2851b65
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7448e003771bea1e235d4e0776ebce3cb1beae17
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146459"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544096"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-powershell"></a>Självstudie – ansluta till en Azure SQL-Server med en privat Azure-slutpunkt – Azure PowerShell
 
@@ -268,11 +268,11 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
  
 2. Välj **resurs grupper** i det vänstra navigerings fönstret.
 
-3. Välj **CreateSQLEndpointTutorial-RG** .
+3. Välj **CreateSQLEndpointTutorial-RG**.
 
-4. Välj **myVM** .
+4. Välj **myVM**.
 
-5. På sidan Översikt för **myVM** väljer du **Anslut** sedan **skydds** .
+5. På sidan Översikt för **myVM** väljer du **Anslut** sedan **skydds**.
 
 6. Välj knappen blå **användnings skydds** .
 
@@ -295,37 +295,37 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
     En privat IP-adress för **10.0.0.5** returneras för SQL Server-namnet.  Adressen finns i under nätet för det virtuella nätverk som du skapade tidigare.
 
 
-10. Installera [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) på **myVM** .
+10. Installera [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) på **myVM**.
 
-11. Öppna **SQL Server Management Studio** .
+11. Öppna **SQL Server Management Studio**.
 
 12. I **Anslut till Server** anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Servertyp | Välj **Databasmotor** .|
+    | Servertyp | Välj **Databasmotor**.|
     | Servernamn | Ange **\<sql-server-name> . Database.Windows.net** |
-    | Autentisering | Välj **SQL Server-autentisering** . |
+    | Autentisering | Välj **SQL Server-autentisering**. |
     | Användarnamn | Ange det användar namn som du angav när servern skapades |
     | Lösenord | Ange lösen ordet som du angav när servern skapades |
-    | Kom ihåg lösenordet | Välj **Ja** . |
+    | Kom ihåg lösenordet | Välj **Ja**. |
 
-13. Välj **Anslut** .
+13. Välj **Anslut**.
 
 14. Bläddra bland databaser på den vänstra menyn.
 
-15. Du kan också Skapa eller fråga efter information från **mysqldatabase** .
+15. Du kan också Skapa eller fråga efter information från **mysqldatabase**.
 
-16. Stäng skydds-anslutningen till **myVM** . 
+16. Stäng skydds-anslutningen till **myVM**. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 När du är klar med den privata slut punkten, SQL Server och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller: 
 
 1. Ange **CreateSQLEndpointTutorial-RG** i rutan **Sök** högst upp i portalen och välj **CreateSQLEndpointTutorial-RG** från Sök resultaten. 
 
-2. Välj **Ta bort resursgrupp** . 
+2. Välj **Ta bort resursgrupp**. 
 
-3. Ange **CreateSQLEndpointTutorial-RG** för **Skriv resurs gruppens namn** och välj **ta bort** .
+3. Ange **CreateSQLEndpointTutorial-RG** för **Skriv resurs gruppens namn** och välj **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,52 +2,92 @@
 title: Skapa och hantera Azure Migrate-projekt
 description: Hitta, skapa, hantera och ta bort projekt i Azure Migrate.
 ms.topic: how-to
-ms.date: 07/23/2020
-ms.openlocfilehash: d60868f9d0d4c60291cfd92a9e8d11fd3f9a42b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/23/2020
+ms.openlocfilehash: 95f123188f7906cbd5c7a209c9fd01be006e9a7e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87071801"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534931"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Skapa och hantera Azure Migrate-projekt
 
 Den här artikeln beskriver hur du skapar, hanterar och tar bort [Azure Migrate](migrate-services-overview.md) projekt.
 
+Ett Azure Migrate-projekt används för att lagra identifierings-, utvärderings-och migrerings-metadata som samlas in från den miljö som du bedömer eller migrerar. I ett projekt kan du spåra identifierade till gångar, skapa utvärderingar och dirigera migreringar till Azure.  
+
+## <a name="verify-permissions"></a>Kontrollera behörigheter
+
+Kontrol lera att du har rätt behörighet för att skapa ett Azure Migrate-projekt:
+
+1. Öppna den relevanta prenumerationen i Azure Portal och välj **åtkomst kontroll (IAM)**.
+2. Leta upp det relevanta kontot i **kontrol lera åtkomst** och välj Visa behörigheter. Du bör ha behörighet som *deltagare* eller *ägare* . 
+
 
 ## <a name="create-a-project-for-the-first-time"></a>Skapa ett projekt för första gången
 
-Första gången du ställer in Azure Migrate skapar du ett projekt och lägger till ett verktyg för bedömning eller migrering. [Följ de här anvisningarna](how-to-add-tool-first-time.md) för att konfigurera för första gången.
+Skapa ett nytt Azure Migrate-projekt i en Azure-prenumeration.
+
+1. Sök efter *Azure Migrate* i Azure Portal.
+2. I **tjänster** väljer du **Azure Migrate**.
+3. I **översikten** väljer du **Utvärdera och migrera servrar**.
+
+    ![Alternativ i Översikt för att utvärdera och migrera servrar](./media/create-manage-projects/assess-migrate-servers.png)
+
+4. I **servrar** väljer du **skapa projekt**.
+
+    ![För att börja skapa projekt](./media/create-manage-projects/create-project.png)
+
+5. I **skapa projekt** väljer du Azure-prenumeration och resurs grupp. Skapa en resurs grupp om du inte har någon.
+6. I **projekt information** anger du projekt namnet och geografin som du vill skapa projektet i.
+    - Geografin används bara för att lagra metadata som samlats in från lokala datorer. Du kan välja valfri mål region för migrering. 
+    - Granska stödda geografiska områden för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [offentliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
+
+8. Välj **Skapa**.
+
+   ![Sida för att mata in projekt inställningar](./media/create-manage-projects/project-details.png)
+
+
+Vänta några minuter tills Azure Migrate-projektet har distribuerats.
+
+## <a name="create-a-project-in-a-specific-region"></a>Skapa ett projekt i en angiven region
+
+I portalen kan du välja det geografiskt område där du vill skapa projektet. Om du vill skapa projektet i en angiven Azure-region, använder du följande API-kommando för att skapa projektet.
+
+```rest
+PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"
+``````
+
 
 ## <a name="create-additional-projects"></a>Skapa ytterligare projekt
 
 Om du redan har ett Azure Migrate projekt och vill skapa ett nytt projekt gör du följande:  
 
-1. Sök efter **Azure Migrate**i [Azures offentliga Portal](https://portal.azure.com) eller [Azure Government](https://portal.azure.us).
-2. På Azure Migrate instrument panelens >- **servrar**väljer du **ändra** i det övre högra hörnet.
+1. Sök efter **Azure Migrate** i [Azures offentliga Portal](https://portal.azure.com) eller [Azure Government](https://portal.azure.us).
+2. På Azure Migrate instrument panelens >- **servrar** väljer du **ändra** i det övre högra hörnet.
 
    ![Ändra Azure Migrate projekt](./media/create-manage-projects/switch-project.png)
 
 3. Om du vill skapa ett nytt projekt väljer du **Klicka här**.
-
-   ![Skapa ett andra Azure Migrate-projekt](./media/create-manage-projects/create-new-project.png)
 
 
 ## <a name="find-a-project"></a>Hitta ett projekt
 
 Sök efter ett projekt enligt följande:
 
-1. Sök efter **Azure Migrate**i [Azure Portal](https://portal.azure.com).
-2. I Azure Migrate instrument panelens >- **servrar**väljer du **ändra** i det övre högra hörnet.
+1. Sök efter *Azure Migrate* i [Azure Portal](https://portal.azure.com).
+2. I Azure Migrate instrument panelens >- **servrar** väljer du **ändra** i det övre högra hörnet.
 
     ![Växla till ett befintligt Azure Migrate-projekt](./media/create-manage-projects/switch-project.png)
 
 3. Välj lämplig prenumeration och Azure Migrate projekt.
 
 
+### <a name="find-a-legacy-project"></a>Hitta ett äldre projekt
+
 Om du har skapat projektet i den [tidigare versionen](migrate-services-overview.md#azure-migrate-versions) av Azure Migrate kan du söka efter det på följande sätt:
 
-1. Sök efter **Azure Migrate**i [Azure Portal](https://portal.azure.com).
+1. Sök efter *Azure Migrate* i [Azure Portal](https://portal.azure.com).
 2. Om du har skapat ett projekt i den tidigare versionen av Azure Migrate instrument panelen visas en banderoll som refererar till äldre projekt. Välj banderollen.
 
     ![Komma åt befintliga projekt](./media/create-manage-projects/access-existing-projects.png)

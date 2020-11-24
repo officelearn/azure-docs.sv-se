@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 3174dbd36d9bb39ce606ec12f88397f795e91526
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4f84c3c2f6fc671a8cb6ac70313361540e3dd815
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832440"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523288"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Hantera och hitta Azure blob-data med blobb index Taggar (för hands version)
 
@@ -51,7 +51,7 @@ Dessa blobbar separeras med hjälp av ett prefix för *behållare/virtuell mapp/
 Blobb index taggar är nyckel värdes attribut som kan tillämpas på nya eller befintliga objekt i ditt lagrings konto. Du kan ange index Taggar under uppladdnings processen med hjälp av funktionen för att [lägga till BLOB](/rest/api/storageservices/put-blob), [Ange blockeringslistan](/rest/api/storageservices/put-block-list)eller [Kopiera BLOB](/rest/api/storageservices/copy-blob) -åtgärder och valfri `x-ms-tags` rubrik. Om du redan har blobbar i ditt lagrings konto kan du anropa [set BLOB-taggarna](/rest/api/storageservices/set-blob-tags) och skicka ett formaterat XML-dokument med index taggarna i bröd texten i begäran.
 
 > [!IMPORTANT]
-> Att ange BLOB-taggar kan utföras av [ägaren till lagrings-BLOB-data](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) och av alla med en signatur för delad åtkomst som har behörighet att komma åt blobens Taggar ( `t` SAS-behörighet).
+> Att ange BLOB-taggar kan utföras av [ägaren till lagrings-BLOB-data](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) och av alla med en signatur för delad åtkomst som har behörighet att komma åt blobens Taggar ( `t` SAS-behörighet).
 >
 > Dessutom kan RBAC-användare med `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` behörigheten utföra den här åtgärden.
 
@@ -87,7 +87,7 @@ Följande begränsningar gäller för BLOB-index Taggar:
 BLOB index-Taggar lagras som en under resurs tillsammans med BLOB-data och kan hämtas oberoende av det underliggande BLOB-datainnehållet. Blobb index taggar för en enskild BLOB kan hämtas med åtgärden [Hämta BLOB-Taggar](/rest/api/storageservices/get-blob-tags) . [List blobs](/rest/api/storageservices/list-blobs) -åtgärden med `include:tags` parametern returnerar även alla blobbar i en behållare tillsammans med deras BLOB-index-taggar.
 
 > [!IMPORTANT]
-> Hämtning och registrering av BLOB-taggar kan utföras av [ägaren till lagrings-BLOB-data](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) och av alla med en signatur för delad åtkomst som har behörighet att komma åt blobens Taggar ( `t` SAS-behörighet).
+> Hämtning och registrering av BLOB-taggar kan utföras av [ägaren till lagrings-BLOB-data](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) och av alla med en signatur för delad åtkomst som har behörighet att komma åt blobens Taggar ( `t` SAS-behörighet).
 >
 > Dessutom kan RBAC-användare med `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` behörigheten utföra den här åtgärden.
 
@@ -100,7 +100,7 @@ Indexerings motorn visar dina nyckel värdes attribut i ett flerdimensionellt in
 [Med åtgärden hitta blobbar per tagg](/rest/api/storageservices/find-blobs-by-tags) kan du hämta en filtrerad uppsättning blobbar vars index taggar matchar ett angivet frågeuttryck. `Find Blobs by Tags` stöder filtrering över alla behållare i ditt lagrings konto eller så kan du begränsa filtreringen till bara en enda behållare. Eftersom alla index tag gen nycklar och värden är strängar, använder Relations operatorer en lexikografisk-sortering.
 
 > [!IMPORTANT]
-> Att söka efter data med hjälp av BLOB-taggar kan utföras av [ägaren av Storage BLOB-data](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) och av alla med en signatur för delad åtkomst som har behörighet att hitta blobbar med taggar ( `f` SAS-behörighet).
+> Att söka efter data med hjälp av BLOB-taggar kan utföras av [ägaren av Storage BLOB-data](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) och av alla med en signatur för delad åtkomst som har behörighet att hitta blobbar med taggar ( `f` SAS-behörighet).
 >
 > Dessutom kan RBAC-användare med `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` behörigheten utföra den här åtgärden.
 
@@ -235,7 +235,7 @@ Anropare som använder en [Azure AD-identitet](../common/storage-auth-aad.md) ka
 | [Hämta BLOB-Taggar](/rest/api/storageservices/get-blob-tags)           | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Taggar/läsa     |
 | [Hitta blobbar efter Taggar](/rest/api/storageservices/find-blobs-by-tags) | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/filter/åtgärd |
 
-Ytterligare behörigheter, åtskilda från underliggande BLOB-data, krävs för index tag-åtgärder. Rollen som [data ägare för Storage BLOB](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) beviljas behörigheter för alla tre BLOB index tag-åtgärder. [Storage BLOB data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) beviljas bara behörigheter för och- `Find Blobs by Tags` `Get Blob Tags` åtgärder.
+Ytterligare behörigheter, åtskilda från underliggande BLOB-data, krävs för index tag-åtgärder. Rollen som [data ägare för Storage BLOB](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) beviljas behörigheter för alla tre BLOB index tag-åtgärder. [Storage BLOB data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) beviljas bara behörigheter för och- `Find Blobs by Tags` `Get Blob Tags` åtgärder.
 
 ### <a name="sas-permissions"></a>SAS-behörigheter
 
@@ -334,7 +334,7 @@ I det här avsnittet beskrivs kända problem och villkor i den offentliga för h
 - `Copy Blob` (Asynkron kopia) från ett annat lagrings konto med tillämpade taggar på mål-bloben gör att BLOB-index motorn inte returnerar blobben och dess Taggar i filter uppsättningen. Använd `Copy Blob` från URL (synkronisera kopia).
 - Taggarna sparas när ögonblicks bilder skapas. Att befordra en ögonblicks bild stöds dock inte och kan resultera i en tom tag-uppsättning.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Kan du använda BLOB-index för att filtrera och fråga efter innehåll i mina blobbar?**
 

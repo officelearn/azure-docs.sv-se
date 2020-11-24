@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 315ea9b683ccd583f5c29c7527013f0d924336f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88006fb354af2673496c6476090d7f73c8a005e6
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061892"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543008"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>Flytta virtuella Azure-datorer till en tillgänglighets zon i en annan region
 
@@ -35,7 +35,7 @@ I den här artikeln lär du dig hur du flyttar virtuella Azure-datorer (och rela
 - *Ägar* åtkomst till den prenumeration där resurser som du vill flytta finns.
     - Första gången du lägger till en resurs för en viss käll-och mål mappning i en Azure-prenumeration skapar resurs förflyttningen en [systemtilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (tidigare känd som hanterad tjänst identifiering (MSI)) som är betrodd av prenumerationen.
     - Om du vill skapa identiteten och tilldela den rollen som krävs (deltagare eller administratör för användar åtkomst i käll prenumerationen) måste kontot som du använder för att lägga till resurser ha *ägar* behörigheter för prenumerationen. [Lär dig mer](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) om Azure-roller.
-- Prenumerationen måste ha tillräckligt med kvot för att skapa käll resurserna i mål regionen. Om den inte gör det kan du begära ytterligare begränsningar. [Läs mer](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- Prenumerationen måste ha tillräckligt med kvot för att skapa käll resurserna i mål regionen. Om den inte gör det kan du begära ytterligare begränsningar. [Läs mer](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Kontrol lera priser och avgifter som är kopplade till den mål region som du flyttar virtuella datorer till. Använd [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att hjälpa dig.
     
 
@@ -62,28 +62,28 @@ Välj de resurser som du vill flytta.
 - Du kan välja vilken resurs typ som helst som stöds över resurs grupper i den käll region som du väljer.
 - Du flyttar resurser till en mål region i käll regions prenumerationen. Om du vill ändra prenumerationen kan du göra det när resurserna har flyttats.
 
-1. Sök efter resurs förflyttning i Azure Portal. Under **tjänster**väljer du sedan **Azure Resource förflyttning**.
+1. Sök efter resurs förflyttning i Azure Portal. Under **tjänster** väljer du sedan **Azure Resource förflyttning**.
 
     ![Sök efter resurs förflyttning](./media/move-region-availability-zone/search.png)
 
-2. I **Översikt**väljer du **Kom igång**.
+2. I **Översikt** väljer du **Kom igång**.
 
     ![Knappen för att komma igång](./media/move-region-availability-zone/get-started.png)
 
-3. I **Flytta resurser**  >  **källa + mål**väljer du käll prenumeration och region.
-4. I **mål**väljer du den region som du vill flytta de virtuella datorerna till. Klicka på **Nästa**.
+3. I **Flytta resurser**  >  **källa + mål** väljer du käll prenumeration och region.
+4. I **mål** väljer du den region som du vill flytta de virtuella datorerna till. Klicka på **Nästa**.
 
      ![Sida att fylla i käll-och mål prenumeration/-region](./media/move-region-availability-zone/source-target.png)
 
-6. I **resurser att flytta klickar du**på **Välj resurser**.
-7. I **Välj resurser**väljer du den virtuella datorn. Du kan bara lägga till resurser som stöds för flytt. Klicka sedan på **färdig**. I **resurser att flytta klickar du**på **Nästa**.
+6. I **resurser att flytta klickar du** på **Välj resurser**.
+7. I **Välj resurser** väljer du den virtuella datorn. Du kan bara lägga till resurser som stöds för flytt. Klicka sedan på **färdig**. I **resurser att flytta klickar du** på **Nästa**.
 
     ![Sidan för att välja de virtuella datorer som ska flyttas](./media/move-region-availability-zone/select-vm.png)
 8. Kontrol lera käll-och mål inställningarna i **Granska + Lägg till**.
 
     ![Sida för att granska inställningar och fortsätta med flytten](./media/move-region-availability-zone/review.png)
 
-9. Klicka på **Fortsätt**för att börja lägga till resurserna.
+9. Klicka på **Fortsätt** för att börja lägga till resurserna.
 10. När processen har slutförts klickar du på Lägg **till resurser för flytta** i meddelande ikonen.
 
     ![Meddelande i meddelanden](./media/move-region-availability-zone/notification.png)
@@ -98,7 +98,7 @@ När du har klickat på meddelandet visas resurser på sidan **över regioner**
 
 1. Om resurser visar ett *verifierings beroende* meddelande i kolumnen **problem** klickar du på knappen **Verifiera beroenden** . Verifierings processen.
 2. Om det finns beroenden klickar du på **Lägg till beroenden**. 
-3. I **Lägg till beroenden**väljer du de beroende resurserna > **lägga till beroenden**. Övervaka förloppet i aviseringarna.
+3. I **Lägg till beroenden** väljer du de beroende resurserna > **lägga till beroenden**. Övervaka förloppet i aviseringarna.
 
     ![Knapp för att lägga till beroenden](./media/move-region-availability-zone/add-dependencies.png)
 
@@ -114,12 +114,12 @@ När du har klickat på meddelandet visas resurser på sidan **över regioner**
 
 Innan du kan förbereda och flytta virtuella datorer måste käll resurs gruppen finnas i mål regionen. 
 
-### <a name="prepare-to-move-the-source-resource-group"></a>Förbered för att flytta käll resurs gruppen
+### <a name="prepare-to-move-the-source-resource-group"></a>Förbereda flytt av källresursgruppen
 
 Förbered enligt följande:
 
-1. I **flera regioner**väljer du käll resurs gruppen > **Förbered**.
-2. I **Förbered resurser**klickar du på **Förbered**.
+1. I **flera regioner** väljer du käll resurs gruppen > **Förbered**.
+2. I **Förbered resurser** klickar du på **Förbered**.
 
     ![För att förbereda käll resurs gruppen](./media/move-region-availability-zone/prepare-resource-group.png)
 
@@ -134,7 +134,7 @@ Förbered enligt följande:
 
 Starta flyttningen enligt följande:
 
-1. I **flera regioner**väljer du resurs grupp > **initiera flytt**
+1. I **flera regioner** väljer du resurs grupp > **initiera flytt**
 2. ra **Flytta resurser**, klicka på **initiera flytta**. Resurs gruppen flyttas till en *initierings status som börjar* gälla.
 3. När flytten har påbörjats skapas mål resurs gruppen baserat på den genererade ARM-mallen. Käll resurs gruppen flyttas till ett *förväntat flyttnings* tillstånd.
 
@@ -142,7 +142,7 @@ Starta flyttningen enligt följande:
 
 För att genomföra och slutföra flytt processen:
 
-1. I **flera regioner**väljer du resurs gruppen > **genomför flytt**
+1. I **flera regioner** väljer du resurs gruppen > **genomför flytt**
 2. ra **Flytta resurser**, klicka på **genomför**.
 
 > [!NOTE]
@@ -157,16 +157,16 @@ Innan vi flyttar resten av resurserna, ställer vi in en mål tillgänglighets z
 
     ![Egenskaper för virtuell dator](./media/move-region-availability-zone/select-vm-settings.png)
 
-3. I **konfigurations inställningar**anger du inställningen för den virtuella mål datorn. Du kan konfigurera en virtuell dator i mål regionen enligt följande:
+3. I **konfigurations inställningar** anger du inställningen för den virtuella mål datorn. Du kan konfigurera en virtuell dator i mål regionen enligt följande:
     -  Skapa en ny motsvarande resurs i mål regionen. Förutom de inställningar du anger skapas mål resursen med samma inställningar som källan.
     - Välj en befintlig virtuell dator i mål regionen. 
 
-4. I **zoner**väljer du den zon där du vill placera den virtuella datorn när den flyttas.
+4. I **zoner** väljer du den zon där du vill placera den virtuella datorn när den flyttas.
 
     Ändringar görs bara för den resurs som du redigerar. Du måste uppdatera alla beroende resurser separat.
 
-5. I **SKU**anger du den [Azure-nivå](..//virtual-machines/sizes.md) som du vill tilldela den virtuella mål datorn.
-6. I **tillgänglighets uppsättning**väljer du en tillgänglighets uppsättning om du vill att den virtuella mål datorn ska köras inom en tillgänglighets uppsättning i tillgänglighets zonen.
+5. I **SKU** anger du den [Azure-nivå](..//virtual-machines/sizes.md) som du vill tilldela den virtuella mål datorn.
+6. I **tillgänglighets uppsättning** väljer du en tillgänglighets uppsättning om du vill att den virtuella mål datorn ska köras inom en tillgänglighets uppsättning i tillgänglighets zonen.
 7. Välj **Spara ändringar**.
 
     ![Inställningar för virtuell dator](./media/move-region-availability-zone/vm-settings.png)
@@ -176,7 +176,7 @@ Innan vi flyttar resten av resurserna, ställer vi in en mål tillgänglighets z
 
 Nu när käll resurs gruppen flyttas kan du förbereda för att flytta de andra resurserna.
 
-1. I **flera regioner**väljer du de resurser som du vill förbereda. 
+1. I **flera regioner** väljer du de resurser som du vill förbereda. 
 
     ![Sidan för att välja Förbered för andra resurser](./media/move-region-availability-zone/prepare-other.png)
 
@@ -194,8 +194,8 @@ Nu när käll resurs gruppen flyttas kan du förbereda för att flytta de andra 
 
 När resurserna har förberetts kan du nu initiera flytten. 
 
-1. I **flera regioner**väljer du resurser med tillstånds *initieringen väntar*. Klicka sedan på **påbörja flyttning**
-2. I **Flytta resurser**klickar du på **påbörja flyttning**.
+1. I **flera regioner** väljer du resurser med tillstånds *initieringen väntar*. Klicka sedan på **påbörja flyttning**
+2. I **Flytta resurser** klickar du på **påbörja flyttning**.
 
     ![Sida för att initiera flytt av resurser](./media/move-region-availability-zone/initiate-move.png)
 
@@ -221,8 +221,8 @@ Efter den första flyttningen kan du bestämma om du vill att flyttningen ska ut
 
 Du kan ta bort flytten på följande sätt:
 
-1. I **flera regioner**väljer du resurser med status *commit flytta väntar*och klickar på **ta bort flyttning**.
-2. I **ta bort flyttning**klickar du på **Ignorera**.
+1. I **flera regioner** väljer du resurser med status *commit flytta väntar* och klickar på **ta bort flyttning**.
+2. I **ta bort flyttning** klickar du på **Ignorera**.
 3. Spåra flyttnings förlopp i meddelande fältet.
  
 
@@ -233,8 +233,8 @@ Du kan ta bort flytten på följande sätt:
 
 Spara flyttningen om du vill slutföra flyttnings processen. 
 
-1. I **flera regioner**väljer du resurser med status *bekräftelse flytt väntar*och klickar på **genomför flyttning**.
-2. I **genomför resurser**klickar du på **genomför**.
+1. I **flera regioner** väljer du resurser med status *bekräftelse flytt väntar* och klickar på **genomför flyttning**.
+2. I **genomför resurser** klickar du på **genomför**.
 
     ![Sida för att allokera resurser för att slutföra flytten](./media/move-region-availability-zone/commit-resources.png)
 
@@ -256,7 +256,7 @@ Mobilitets tjänsten avinstalleras inte automatiskt från virtuella datorer. Avi
 
 Efter flytten kan du välja att ta bort resurser i käll regionen.
 
-1. I **flera regioner**klickar du på namnet på varje käll resurs som du vill ta bort.
+1. I **flera regioner** klickar du på namnet på varje käll resurs som du vill ta bort.
 2. På sidan Egenskaper för varje resurs väljer du **ta bort**.
 
 ## <a name="delete-additional-resources-created-for-move"></a>Ta bort ytterligare resurser som har skapats för flytt

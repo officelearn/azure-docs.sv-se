@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: b52cc38c40d8b6a39961ab28d9f0600ea7ee2201
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 391d9562bc73265a10976f485c78e3966aa4fe83
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841911"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536293"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -412,7 +412,7 @@ Unika anpassningar som ofta behöver återskapas manuellt eller uppdateras för 
 - Återskapa anpassade instrument paneler och arbets böcker. 
 - Återskapa eller uppdatera omfånget för eventuella anpassade logg-/mått varningar. 
 - Återskapa tillgänglighets aviseringar.
-- Återskapa eventuella anpassade inställningar för Role-Based Access Control (RBAC) som krävs för att användarna ska kunna komma åt den nya resursen. 
+- Återskapa eventuella anpassade inställningar för Azure-rollbaserad åtkomst kontroll (Azure RBAC) som krävs för att användarna ska kunna komma åt den nya resursen. 
 - Replikera inställningar som omfattar provtagning, data kvarhållning, dagligt tak och anpassad mått aktivering. De här inställningarna styrs via fönstret **användning och uppskattade kostnader** .
 - All integrering som förlitar sig på API-nycklar som [versions anteckningar](/azure/azure-monitor/app/annotations), [real tids mått skydda kontroll kanal](app/live-stream.md#secure-the-control-channel) osv. Du måste generera nya API-nycklar och uppdatera associerad integrering. 
 - Kontinuerlig export i klassiska resurser måste konfigureras igen.
@@ -680,9 +680,9 @@ Tabellen ContainerInventory innehåller information om både stoppade och pågå
 
 Om du får ett fel meddelande om att **prenumerations registrering saknas för Microsoft. OperationsManagement** kan du lösa det genom att registrera resurs leverantören **Microsoft. OperationsManagement** i prenumerationen där arbets ytan definieras. Dokumentationen för hur du kan göra detta finns [här](../azure-resource-manager/templates/error-register-resource-provider.md).
 
-### <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>Finns det stöd för RBAC-aktiverade AKS-kluster?
+### <a name="is-there-support-for-kubernetes-rbac-enabled-aks-clusters"></a>Finns det stöd för Kubernetes RBAC-aktiverade AKS-kluster?
 
-Lösningen för övervakning av behållare stöder inte RBAC, men den stöds med Azure Monitor för behållare. Sidan lösnings information visar kanske inte rätt information i bladet som visar data för de här klustren.
+Lösningen för övervakning av behållare stöder inte Kubernetes RBAC, men stöds med Azure Monitor för behållare. Sidan lösnings information visar kanske inte rätt information i bladet som visar data för de här klustren.
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Hur gör jag för att aktivera logg insamling för behållare i namn området Kube-system via Helm?
 

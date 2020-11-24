@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45a7a146dd929408b50a0045fe2598726ee05505
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77539475"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544317"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Felsöka anslutningsproblem för Azure Private Link
 
@@ -37,7 +37,7 @@ Här är de anslutnings scenarier som är tillgängliga med privat länk:
 
 ## <a name="deployment-troubleshooting"></a>Distributions fel sökning
 
-Läs informationen om hur du [inaktiverar nätverks principer i tjänsten för privata länkar](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) för fel söknings fall där du inte kan välja käll-IP-adress från det undernät du väljer för din privata länk tjänst.
+Läs informationen om hur du [inaktiverar nätverks principer i tjänsten för privata länkar](./disable-private-link-service-network-policy.md) för fel söknings fall där du inte kan välja käll-IP-adress från det undernät du väljer för din privata länk tjänst.
 
 Kontrol lera att inställningen **privateLinkServiceNetworkPolicies** är inaktive rad för under nätet som du väljer käll-IP-adressen från.
 
@@ -59,7 +59,7 @@ Om du får anslutnings problem med konfigurationen av den privata länken kan du
 
     d. Granska de privata slut punkts anslutningarna.
      - Se till att den privata slut punkten som du letar efter anslutning från visas med ett **godkänt** anslutnings tillstånd.
-     - Om statusen är **väntande**väljer du den och godkänner den.
+     - Om statusen är **väntande** väljer du den och godkänner den.
 
        ![Anslutningar för privata slut punkter](./media/private-link-tsg/pls-private-endpoint-connections.png)
 
@@ -99,9 +99,9 @@ Om du får anslutnings problem med konfigurationen av den privata länken kan du
        - Om anslutningen gör den till backend-poolen enligt reglerna för belastnings utjämning, fungerar belastningsutjämnaren.
        - Du kan också granska belastnings Utjämnings måttet genom Azure Monitor för att se om data flödar genom belastningsutjämnaren.
 
-1. Använd [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för att se om data flödar.
+1. Använd [Azure Monitor](../azure-monitor/overview.md) för att se om data flödar.
 
-    a. Välj **mått**i resursen för privata länk tjänster.
+    a. Välj **mått** i resursen för privata länk tjänster.
      - Välj **byte in** eller **byte ut**.
      - Se om data flödar när du försöker ansluta till den privata länk tjänsten. Vänta en fördröjning på ungefär 10 minuter.
 
@@ -111,5 +111,5 @@ Om du får anslutnings problem med konfigurationen av den privata länken kan du
 
 ## <a name="next-steps"></a>Nästa steg
 
- * [Skapa en privat länk tjänst (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
+ * [Skapa en privat länk tjänst (CLI)](./create-private-link-service-cli.md)
  * [Fel söknings guide för Azure privat slut punkt](troubleshoot-private-endpoint-connectivity.md)

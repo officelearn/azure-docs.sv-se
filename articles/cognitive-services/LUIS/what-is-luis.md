@@ -5,14 +5,14 @@ keywords: Azure, artificiell intelligens, AI, naturlig språk bearbetning, NLP, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 11/23/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: b4034f9b7a5a9ec856134e27b422736e2c98f04a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: fb36ab8a86a89d6383f93ad58c23956472841de2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025199"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95539268"
 ---
 # <a name="what-is-language-understanding-luis"></a>Vad är Language Understanding Intelligent Service (LUIS)?
 
@@ -33,7 +33,7 @@ När Azure LUIS-appen har publicerats skickar ett klient program yttranden (text
 
 ![Konceptuell bilder av LUIS fungerar med chatt-roboten för att förutsäga användar text med naturligt språk förståelse (NLP)](./media/luis-overview/LUIS-chat-bot-request-response.svg "Konceptuell bilder av LUIS fungerar med chatt-roboten för att förutsäga användar text med naturligt språk förståelse (NLP")
 
-|Steg|Action|
+|Steg|Åtgärd|
 |:--|:--|
 |1|Klientprogrammet skickar användarens _yttrande_ (text med användarens egna ord), "I want to call my HR rep." (”Jag vill ringa HR-personalen.”) till LUIS-slutpunkten som en HTTP-begäran.|
 |2|Med LUIS kan du utforma dina anpassade språk modeller för att lägga till information i ditt program. Datorns förkonfigurerade språk modeller tar användarens ostrukturerade indata och returnerar ett JSON-formaterat svar, med en topp avsikt `HRContact` . Det minsta JSON-slutpunktssvaret innehåller frågeyttrandet och avsikten med högsta poäng. Det kan också extrahera data, till exempel entiteten _kontakt typ_ .|
@@ -116,7 +116,7 @@ Verktyg för att snabbt och enkelt använda LUIS med en robot:
 
 ## <a name="integrate-with-a-bot"></a>Integrera med en robot
 
-Använd [Azure bot-tjänsten](/azure/bot-service/?view=azure-bot-service-4.0 "Azure bot-tjänst") med [Microsoft bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") för att bygga och distribuera en chatt-robot. Utforma och utveckla med det grafiska gränssnitts verktyget, [Composer](/composer/ "Composer")eller [arbetsrobots exempel](https://github.com/microsoft/BotBuilder-Samples "fungerande robot exempel") som är utformade för de främsta bot scenarierna.
+Använd [Azure bot-tjänsten](/azure/bot-service/ "Azure bot-tjänst") med [Microsoft bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") för att bygga och distribuera en chatt-robot. Utforma och utveckla med det grafiska gränssnitts verktyget, [Composer](/composer/ "Composer")eller [arbetsrobots exempel](https://github.com/microsoft/BotBuilder-Samples "fungerande robot exempel") som är utformade för de främsta bot scenarierna.
 
 ## <a name="integrate-with-other-cognitive-services"></a>Integrera med andra Cognitive Services
 
@@ -130,6 +130,10 @@ LUIS tillhandahåller funktioner från Textanalys som en del av dina befintliga 
 
 Lär dig mer om LUIS med praktiska snabb starter med hjälp av [portalen](get-started-portal-build-app.md "portal") och [klient biblioteken för SDK](azure-sdk-quickstart.md "Bibliotek för SDK-klient").
 
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Distribuera lokalt med Docker-behållare
+
+[Använd Luis-behållare](luis-container-howto.md) för att distribuera API-funktioner lokalt. Med dessa Docker-behållare kan du ta tjänsten närmare dina data för efterlevnad, säkerhet eller andra drift orsaker.
 
 ## <a name="next-steps"></a>Nästa steg
 

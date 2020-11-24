@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf0e868e9ee746da1dfe1b03403d21f7edb3bd5e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "68726464"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544657"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Go
 
@@ -108,7 +108,7 @@ Det första du ska göra är att skapa referenser till ContainerURL- och BlobURL
 När du har ContainerURL kan du instansiera **BlobURL**-objektet som pekar på en blob och vidta åtgärder som uppladdning, nedladdning och kopiering.
 
 > [!IMPORTANT]
-> Containernamn måste använda gemener. Mer information om containrar och blobnamn finns i [Namngivning och referens av containrar, blobar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Containernamn måste använda gemener. Mer information om containrar och blobnamn finns i [Namngivning och referens av containrar, blobar och metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 I det här avsnittet skapar du en ny container. Containern heter **quickstartblobs-[random string]**. 
 
@@ -149,9 +149,9 @@ Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar är
 
 Om du vill ladda upp en fil till en blob öppnar du filen med **os.Open**. Du kan därefter ladda upp filen till den angivna sökvägen med någon av REST API:erna: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
-SDK:erna erbjuder även [högnivå-API:er](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) som är skapade ovanpå lågnivå-REST API:erna. Som ett exempel på detta använder funktionen ***UploadFileToBlockBlob*** StageBlock (PutBlock)-åtgärder för att ladda upp en fil i segment för att optimera dataflödet samtidigt. Om filen är mindre än 256 MB använder den Upload (PutBlob) i stället för att slutföra överföringen i en enda transaktion.
+SDK:erna erbjuder även [högnivå-API:er](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) som är skapade ovanpå lågnivå-REST API:erna. Exempel: **_UploadFileToBlockBlob_* _ Function använder StageBlock (PutBlock)-åtgärder för att samtidigt Ladda upp en fil i segment för att optimera data flödet. Om filen är mindre än 256 MB använder den Upload (PutBlob) i stället för att slutföra överföringen i en enda transaktion.
 
-I följande exempel överförs filen till containern med namnet **quickstartblobs-[randomstring]**.
+I följande exempel överförs filen till behållaren med namnet _ * quickstartblobs-[randomstring] * *.
 
 ```go
 // Create a file to test the upload and download.

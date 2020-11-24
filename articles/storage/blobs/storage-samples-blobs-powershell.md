@@ -7,12 +7,12 @@ ms.date: 11/07/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
-ms.openlocfilehash: 05f02fe5bd6d106e7187eea7600ffe0c7fc7e955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cb866fbe7b6cbebd07d565df22d489a716143ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87828174"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543559"
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Azure PowerShell-exempel för Azure Blob Storage
 
@@ -22,7 +22,7 @@ Följande tabell innehåller länkar till PowerShell-skriptexempel som skapar oc
 |---|---|
 |**Lagringskonton**||
 | [Skapa ett lagringskonto och hämta/rotera åtkomstnycklarna](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Storage-konto och hämtar och roterar en av dess åtkomstnycklar. |
-| [Migrera blobar mellan lagringskonton med hjälp av AzCopy i Windows](../scripts/storage-common-transfer-between-storage-accounts.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Migrera blobar mellan Azure Storage-konton med hjälp av AzCopy i Windows. |
+| [Migrera blobar mellan lagringskonton med hjälp av AzCopy i Windows](/previous-versions/azure/storage/storage-common-transfer-between-storage-accounts?toc=%252fpowershell%252fmodule%252ftoc.json)| Migrera blobar mellan Azure Storage-konton med hjälp av AzCopy i Windows. |
 |**Blob Storage**||
 | [Beräkna den totala storleken på en container för bloblagring](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Beräknar den totala storleken för alla blobar i en container. |
 | [Beräkna storleken på en Blob Storage-container för faktureringsändamål](../scripts/storage-blobs-container-calculate-billing-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Beräknar storleken på en container i Blob Storage för att ge en uppskattning av kostnaderna. |

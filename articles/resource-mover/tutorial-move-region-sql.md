@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fe43125c83436f89bf93cbe975317efec2beb46
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061620"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542821"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Självstudie: flytta Azure SQL Database resurser till en annan region
 
@@ -22,7 +22,7 @@ I den här självstudien lär du dig att flytta Azure SQL-databaser och elastisk
 > [!NOTE]
 > Azure Resource-arbetskraften är för närvarande en för hands version.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Kontrol lera krav och krav.
@@ -36,29 +36,29 @@ I den här guiden får du lära dig att:
 > [!NOTE]
 > Självstudier visar den snabbaste sökvägen för att testa ett scenario och använda standard alternativ. 
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar. Logga sedan in på [Azure Portal](https://portal.azure.com).
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar. Logga sedan in på [Azure Portal](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 -  Kontrol lera att du har *ägar* åtkomst till prenumerationen som innehåller de resurser som du vill flytta.
     - Första gången du lägger till en resurs för ett visst käll-och mål par i en Azure-prenumeration skapar resurs förflyttningen en [systemtilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (tidigare känd som hanterad tjänst identifiering (MSI)) som är betrodd av prenumerationen.
     - Om du vill skapa identiteten och tilldela den rollen som krävs (deltagare eller administratör för användar åtkomst i käll prenumerationen) måste kontot som du använder för att lägga till resurser ha *ägar* behörigheter för prenumerationen. [Lär dig mer](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) om Azure-roller.
-- Prenumerationen måste ha tillräckligt med kvot för att skapa de resurser som du flyttar i mål regionen. Om den inte har någon kvot [begär du ytterligare begränsningar](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- Prenumerationen måste ha tillräckligt med kvot för att skapa de resurser som du flyttar i mål regionen. Om den inte har någon kvot [begär du ytterligare begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Kontrol lera priser och avgifter som är kopplade till mål regionen som du flyttar resurser till. Använd [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att hjälpa dig.
     
 
 ## <a name="check-sql-requirements"></a>Kontrol lera SQL-krav
 
 1. [Kontrol lera](support-matrix-move-region-sql.md) vilken databas/Elastic pool funktioner som stöds för att flytta till en annan region.
-2. I mål regionen skapar du en mål server för varje käll Server. [Läs mer](/azure/azure-sql/database/active-geo-replication-security-configure#how-to-configure-logins-and-users).
+2. I mål regionen skapar du en mål server för varje käll Server. [Läs mer](../azure-sql/database/active-geo-replication-security-configure.md#how-to-configure-logins-and-users).
 4. Om databaserna är krypterade med transparent data kryptering (TDE) och du använder din egen krypterings nyckel i Azure Key Vault, [lär du dig att](../key-vault/general/move-region.md) flytta nyckel valv till en annan region.
 5. Om SQL Data Sync är aktiverat stöds flyttning av medlems databaser. När du har flyttat måste du konfigurera SQL Data Sync till den nya mål databasen.
-6. Ta bort avancerade data säkerhets inställningar innan du flyttar. Efter flyttningen [konfigurerar du inställningarna](/azure/sql-database/sql-database-advanced-data-security) på SQL Server nivå i mål regionen.
-7. Om granskning har Aktiver ATS återställs principerna till standard efter flytten. [Konfigurera granskning](/azure/sql-database/sql-database-auditing) igen, efter flytten.
-7. Principer för säkerhets kopiering av käll databasen överförs till mål databasen. [Läs mer](/azure/sql-database/sql-database-long-term-backup-retention-configure ) om att ändra inställningarna efter flytten.
-8. Ta bort brand Väggs regler på server nivå innan du flyttar. Brand Väggs regler på databas nivå kopieras från käll servern till mål servern under flytten. Efter flyttningen [ställer du in brand Väggs regler](/azure/sql-database/sql-database-server-level-firewall-rule) för SQL Server i mål regionen.
-9. Ta bort inställningarna för autojustering före flytten. [Konfigurera autojusteringen ](/azure/sql-database/sql-database-automatic-tuning-enable) igen efter flytt.
-10. Ta bort varnings inställningarna för databasen innan du flyttar. [Återställ](/azure/sql-database/sql-database-insights-alerts-portal) efter flytt.
+6. Ta bort avancerade data säkerhets inställningar innan du flyttar. Efter flyttningen [konfigurerar du inställningarna](../azure-sql/database/azure-defender-for-sql.md) på SQL Server nivå i mål regionen.
+7. Om granskning har Aktiver ATS återställs principerna till standard efter flytten. [Konfigurera granskning](../azure-sql/database/auditing-overview.md) igen, efter flytten.
+7. Principer för säkerhets kopiering av käll databasen överförs till mål databasen. [Läs mer](../azure-sql/database/long-term-backup-retention-configure.md) om att ändra inställningarna efter flytten.
+8. Ta bort brand Väggs regler på server nivå innan du flyttar. Brand Väggs regler på databas nivå kopieras från käll servern till mål servern under flytten. Efter flyttningen [ställer du in brand Väggs regler](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) för SQL Server i mål regionen.
+9. Ta bort inställningarna för autojustering före flytten. [Konfigurera autojusteringen ](../azure-sql/database/automatic-tuning-enable.md) igen efter flytt.
+10. Ta bort varnings inställningarna för databasen innan du flyttar. [Återställ](../azure-sql/database/alerts-insights-configure-portal.md) efter flytt.
     
 ## <a name="select-resources"></a>Välj resurser
 
@@ -67,32 +67,32 @@ Välj de resurser som du vill flytta.
 - Du kan välja vilken resurs typ som helst som stöds i alla resurs grupper i den valda käll regionen.
 - Du flyttar resurser till en mål region i samma prenumeration som käll regionen. Om du vill ändra prenumerationen kan du göra det när resurserna har flyttats.
 
-1. Sök efter *resurs förflyttning*i Azure Portal. Under **tjänster**väljer du sedan **Azure Resource förflyttning**.
+1. Sök efter *resurs förflyttning* i Azure Portal. Under **tjänster** väljer du sedan **Azure Resource förflyttning**.
 
      ![Sök Resultat för resurs förflyttning i Azure Portal](./media/tutorial-move-region-sql/search.png)
 
-2. I **Översikt**klickar du på **Kom igång**.
+2. I **Översikt** klickar du på **Kom igång**.
 
     ![För att lägga till resurser som ska flyttas till en annan region](./media/tutorial-move-region-sql/get-started.png)
 
-3. I **Flytta resurser**  >  **källa + mål**väljer du käll prenumeration och region.
-4. I **mål**väljer du den region som du vill flytta resurserna till. Klicka på **Nästa**.
+3. I **Flytta resurser**  >  **källa + mål** väljer du käll prenumeration och region.
+4. I **mål** väljer du den region som du vill flytta resurserna till. Klicka på **Nästa**.
 
     ![Sidan för att välja käll-och mål region](./media/tutorial-move-region-sql/source-target.png)
 
-6. I **resurser att flytta klickar du**på **Välj resurser**.
-7. I **Välj resurser**väljer du resurserna. Du kan bara lägga till resurser som stöds för flytt. Klicka sedan på **färdig**.
+6. I **resurser att flytta klickar du** på **Välj resurser**.
+7. I **Välj resurser** väljer du resurserna. Du kan bara lägga till resurser som stöds för flytt. Klicka sedan på **färdig**.
 
     ![Sidan för att välja de SQL-resurser som ska flyttas](./media/tutorial-move-region-sql/select-resources.png)
 
-8. I **resurser att flytta klickar du**på **Nästa**.
+8. I **resurser att flytta klickar du** på **Nästa**.
 
 9. Kontrol lera käll-och mål inställningarna i **Granska + Lägg till**. Kontrol lera att du förstår att metadata om flyttningen kommer att lagras i en resurs grupp som skapats för det här syftet i metadata-regionen.
 
 
     ![Sida för att granska inställningar och fortsätta med flytten](./media/tutorial-move-region-sql/review.png)
 
-10. Klicka på **Fortsätt**för att börja lägga till resurserna.
+10. Klicka på **Fortsätt** för att börja lägga till resurserna.
 11. När processen har slutförts klickar du på Lägg **till resurser för flytta** i meddelande ikonen.
 12. När du har klickat på meddelandet granskar du resurserna på sidan **över flera regioner** .
 
@@ -111,7 +111,7 @@ Välj de resurser som du vill flytta.
 
     ![Knapp för att lägga till beroenden](./media/tutorial-move-region-sql/add-dependencies.png)
    
-3. I **Lägg till beroenden**väljer du de beroende resurserna > **lägga till beroenden**. Övervaka förloppet i aviseringarna.
+3. I **Lägg till beroenden** väljer du de beroende resurserna > **lägga till beroenden**. Övervaka förloppet i aviseringarna.
 
 4. Lägg till ytterligare beroenden om det behövs och verifiera beroenden igen. 
 
@@ -127,7 +127,7 @@ Tilldela en mål SQL Server i mål regionen och genomför flyttningen.
 
 ### <a name="assign-a-target-sql-server"></a>Tilldela ett mål SQL Server
 
-1. Klicka på **resurs inte tilldelad**i kolumnen **mål konfiguration** i **flera regioner**för SQL Server resursen.
+1. Klicka på **resurs inte tilldelad** i kolumnen **mål konfiguration** i **flera regioner** för SQL Server resursen.
 2. Välj en befintlig SQL Server-resurs i mål regionen. 
     
     ![Post som visar SQL Server status som bekräftelse väntar](./media/tutorial-move-region-sql/sql-server-commit-move-pending.png) 
@@ -138,8 +138,8 @@ Tilldela en mål SQL Server i mål regionen och genomför flyttningen.
 
 ### <a name="commit-the-sql-server-move"></a>Genomför SQL Server flytta
 
-1. I **flera regioner**väljer du SQL Server och klickar sedan på **genomför flyttning**.
-2. I **genomför resurser**klickar du på **genomför**.
+1. I **flera regioner** väljer du SQL Server och klickar sedan på **genomför flyttning**.
+2. I **genomför resurser** klickar du på **genomför**.
 
     ![För att bekräfta SQL Server flytta](./media/tutorial-move-region-sql/commit-sql-server.png)
 
@@ -155,11 +155,11 @@ När käll SQL Server flyttas kan du förbereda dig för att flytta de andra res
 
 ## <a name="prepare-an-elastic-pool"></a>Förbereda en elastisk pool
 
-1. I **flera regioner**väljer du den elastiska källan för den elastiska poolen (demo-TEST1-elasticpool i vår genom gång) och klickar sedan på **Förbered**.
+1. I **flera regioner** väljer du den elastiska källan för den elastiska poolen (demo-TEST1-elasticpool i vår genom gång) och klickar sedan på **Förbered**.
 
     ![Knapp för att förbereda resurser](./media/tutorial-move-region-sql/prepare-elastic.png)
 
-2. I **Förbered resurser**klickar du på **Förbered**.
+2. I **Förbered resurser** klickar du på **Förbered**.
 3. När aviseringar visar att förberedelse processen har slutförts klickar du på **Uppdatera**.
 
 > [!NOTE]
@@ -167,11 +167,11 @@ När käll SQL Server flyttas kan du förbereda dig för att flytta de andra res
 
 ## <a name="prepare-a-single-database"></a>Förbered en enskild databas
 
-1. I **flera regioner**väljer du den enkla databasen (inte i en elastisk pool) och klickar sedan på **Förbered**.
+1. I **flera regioner** väljer du den enkla databasen (inte i en elastisk pool) och klickar sedan på **Förbered**.
 
     ![För att förbereda valda resurser](./media/tutorial-move-region-sql/prepare-db.png)
 
-2. I **Förbered resurser**klickar du på **Förbered**.
+2. I **Förbered resurser** klickar du på **Förbered**.
 3. När aviseringar visar att förberedelse processen har slutförts klickar du på **Uppdatera**.
 
 > [!NOTE]
@@ -184,8 +184,8 @@ För att förbereda databaser i en elastisk pool måste den elastiska poolen var
 
 #### <a name="initiate-move---elastic-pool"></a>Initiera Move-elastisk pool
 
-1. I **flera regioner**väljer du den elastiska källan (demo-TEST1-elasticpool i vår genom gång) och klickar sedan på **Starta flyttning**.
-2. I **Flytta resurser**klickar du på **påbörja flyttning**.
+1. I **flera regioner** väljer du den elastiska källan (demo-TEST1-elasticpool i vår genom gång) och klickar sedan på **Starta flyttning**.
+2. I **Flytta resurser** klickar du på **påbörja flyttning**.
 
     
     ![Knapp för att initiera flyttning av elastisk pool](./media/tutorial-move-region-sql/initiate-elastic.png)
@@ -198,8 +198,8 @@ För att förbereda databaser i en elastisk pool måste den elastiska poolen var
 
 #### <a name="prepare-database"></a>Förbered databas
 
-1. I **flera regioner**väljer du databasen (demo-TEST2-SQLDB i vår genom gång) och klickar sedan på **Förbered**.
-2. I **Förbered resurser**klickar du på **Förbered**.
+1. I **flera regioner** väljer du databasen (demo-TEST2-SQLDB i vår genom gång) och klickar sedan på **Förbered**.
+2. I **Förbered resurser** klickar du på **Förbered**.
 
     ![Knapp för att förbereda databasen i elastisk pool](./media/tutorial-move-region-sql/prepare-database-elastic.png) 
 
@@ -210,8 +210,8 @@ Under förberedelsen skapas mål databasen i mål regionen och datareplikeringen
 ## <a name="move-databases"></a>Flytta databaser
 
 Börja flytta databaserna.
-1. I **flera regioner**väljer du resurser med tillstånds **initieringen väntar**. Klicka sedan på **Starta flyttning**.
-2. I **Flytta resurser**klickar du på **påbörja flyttning**.
+1. I **flera regioner** väljer du resurser med tillstånds **initieringen väntar**. Klicka sedan på **Starta flyttning**.
+2. I **Flytta resurser** klickar du på **påbörja flyttning**.
 
     ![Sida för att initiera flytt](./media/tutorial-move-region-sql/initiate-move.png)
 
@@ -233,8 +233,8 @@ Efter den första flyttningen kan du bestämma om du vill att flyttningen ska ut
 
 Du kan ta bort flytten på följande sätt:
 
-1. I **flera regioner**väljer du resurser med status **commit flytta väntar**och klickar på **ta bort flyttning**.
-2. I **ta bort flyttning**klickar du på **Ignorera**.
+1. I **flera regioner** väljer du resurser med status **commit flytta väntar** och klickar på **ta bort flyttning**.
+2. I **ta bort flyttning** klickar du på **Ignorera**.
 3. Spåra flyttnings förlopp i meddelande fältet.
 
 
@@ -254,8 +254,8 @@ Avslutar flyttningen av databaser och elastiska pooler enligt följande:
 
 1. Kontrol lera att den SQL Server är ett *väntande tillstånd för borttagnings källan* .
 2. Uppdatera databas anslutnings strängarna till mål regionen innan du genomför.
-3. I **flera regioner**väljer du SQL-resurser och klickar sedan på **genomför flyttning**.
-4. I **genomför resurser**klickar du på **genomför**.
+3. I **flera regioner** väljer du SQL-resurser och klickar sedan på **genomför flyttning**.
+4. I **genomför resurser** klickar du på **genomför**.
 
     ![Genomför flytt](./media/tutorial-move-region-sql/commit-sql-resources.png)
 
@@ -272,7 +272,7 @@ Avslutar flyttningen av databaser och elastiska pooler enligt följande:
 
 Efter flytten kan du välja att ta bort resurser i käll regionen. 
 
-1. I **flera regioner**klickar du på namnet på varje käll resurs som du vill ta bort.
+1. I **flera regioner** klickar du på namnet på varje käll resurs som du vill ta bort.
 2. På sidan Egenskaper för varje resurs väljer du **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg

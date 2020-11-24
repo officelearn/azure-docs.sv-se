@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714817"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544759"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Check lista för prestanda och skalbarhet för Blob Storage
 
@@ -59,7 +59,7 @@ Den här artikeln ordnar beprövade metoder för prestanda i en check lista som 
 
 Om ditt program närmar sig eller överskrider något av skalbarhets målen kan det uppstå ökad transaktions fördröjning eller begränsning. När Azure Storage begränsar ditt program börjar tjänsten returnera 503 (servern är upptagen) eller 500 (åtgärds tids gräns) fel koder. Att undvika dessa fel genom att ligga kvar i gränserna för skalbarhets målen är en viktig del i att förbättra programmets prestanda.
 
-Mer information om skalbarhets mål för Kötjänst finns i [Azure Storage skalbarhets-och prestanda mål](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Mer information om skalbarhets mål för Kötjänst finns i [Azure Storage skalbarhets-och prestanda mål](../queues/scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Maximalt antal lagrings konton
 
@@ -100,7 +100,7 @@ Att förstå hur Azure Storage partitioner dina BLOB-data är användbara för a
 
 Blob Storage använder ett intervall beroende partitionerings schema för skalning och belastnings utjämning. Varje Blob har en partitionsnyckel som består av det fullständiga BLOB-namnet (konto + container + BLOB). Partitionsnyckel används för att partitionera BLOB-data i intervall. Intervallen är sedan belastningsutjämnade i Blob Storage.
 
-Intervallbaserade partitionering innebär att namngivnings konventioner som använder lexikal sortering (till exempel *dislöneering*, *prestanda*, mina *anställda*osv.) eller tidsstämplar (*log20160101*, *log20160102*, *log20160102*osv.) är mer sannolika i att partitionerna är samplacerade på samma partitions Server. , tills den ökade belastningen kräver att de delas upp i mindre intervall. Att samplacera blobbar på samma partition Server ger bättre prestanda, så en viktig del av prestanda förbättringen innebär namngivning av blobbar på ett sätt som organiserar dem effektivt.
+Intervallbaserade partitionering innebär att namngivnings konventioner som använder lexikal sortering (till exempel *dislöneering*, *prestanda*, mina *anställda* osv.) eller tidsstämplar (*log20160101*, *log20160102*, *log20160102* osv.) är mer sannolika i att partitionerna är samplacerade på samma partitions Server. , tills den ökade belastningen kräver att de delas upp i mindre intervall. Att samplacera blobbar på samma partition Server ger bättre prestanda, så en viktig del av prestanda förbättringen innebär namngivning av blobbar på ett sätt som organiserar dem effektivt.
 
 Till exempel kan alla blobbar i en behållare hanteras av en enda server tills belastningen på dessa blobbar kräver ytterligare ombalansering av partitionens intervall. På samma sätt kan en grupp med lätt inlästa konton med namn ordnade i lexikal ordning hanteras av en enda server tills belastningen på ett eller alla dessa konton kräver att de delas upp på flera partitioner.
 
@@ -195,7 +195,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 För andra programmeringsspråk, se dokumentationen för att avgöra hur du anger anslutnings gränsen.  
 
-Mer information finns i blogg inlägget [webb tjänster: samtidiga anslutningar](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Mer information finns i blogg inlägget [webb tjänster: samtidiga anslutningar](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Öka det minsta antalet trådar
 
@@ -213,7 +213,7 @@ Parallellitet kan vara bra för prestanda, var noga med att använda obegränsad
 
 ## <a name="client-libraries-and-tools"></a>Klient bibliotek och verktyg
 
-Använd alltid de senaste klient biblioteken och verktygen från Microsoft för bästa prestanda. Azure Storage klient bibliotek är tillgängliga för flera olika språk. Azure Storage stöder också PowerShell och Azure CLI. Microsoft utvecklar aktivt dessa klient bibliotek och verktyg med prestanda i åtanke, håller dem uppdaterade med de senaste service versionerna och ser till att de hanterar många av de beprövade prestanda metoderna internt. Mer information finns i [referens dokumentationen för Azure Storage](/azure/storage/#reference).
+Använd alltid de senaste klient biblioteken och verktygen från Microsoft för bästa prestanda. Azure Storage klient bibliotek är tillgängliga för flera olika språk. Azure Storage stöder också PowerShell och Azure CLI. Microsoft utvecklar aktivt dessa klient bibliotek och verktyg med prestanda i åtanke, håller dem uppdaterade med de senaste service versionerna och ser till att de hanterar många av de beprövade prestanda metoderna internt.
 
 ## <a name="handle-service-errors"></a>Hantera tjänst fel
 
@@ -243,11 +243,11 @@ Använd åtgärden [Kopiera BLOB](/rest/api/storageservices/Copy-Blob) för att 
 
 ### <a name="use-azcopy"></a>Använda AzCopy
 
-Kommando rads verktyget AzCopy är ett enkelt och effektivt alternativ för Mass överföring av blobbar till, från och över lagrings konton. AzCopy är optimerat för det här scenariot och kan uppnå höga överföringshastigheter. AzCopy version 10 använder `Put Block From URL` åtgärden för att kopiera BLOB-data mellan lagrings konton. Mer information finns i [Kopiera eller flytta data till Azure Storage med hjälp av AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
+Kommando rads verktyget AzCopy är ett enkelt och effektivt alternativ för Mass överföring av blobbar till, från och över lagrings konton. AzCopy är optimerat för det här scenariot och kan uppnå höga överföringshastigheter. AzCopy version 10 använder `Put Block From URL` åtgärden för att kopiera BLOB-data mellan lagrings konton. Mer information finns i [Kopiera eller flytta data till Azure Storage med hjälp av AzCopy v10](../common/storage-use-azcopy-v10.md).  
 
 ### <a name="use-azure-data-box"></a>Använd Azure Data Box
 
-För att importera stora mängder data till Blob Storage bör du överväga att använda Azure Data Box-serien för offline-överföringar. Microsoft-tillhandahållna Data Box-enhet enheter är ett bra alternativ för att flytta stora mängder data till Azure när du är begränsad till tid, nätverks tillgänglighet eller kostnader. Mer information finns i dokumentationen för [Azure Data](/azure/databox/)Center.
+För att importera stora mängder data till Blob Storage bör du överväga att använda Azure Data Box-serien för offline-överföringar. Microsoft-tillhandahållna Data Box-enhet enheter är ett bra alternativ för att flytta stora mängder data till Azure när du är begränsad till tid, nätverks tillgänglighet eller kostnader. Mer information finns i dokumentationen för [Azure Data](../../databox/index.yml)Center.
 
 ## <a name="content-distribution"></a>Innehålls distribution
 

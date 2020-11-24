@@ -3,12 +3,12 @@ title: Ändra kluster inställningar för Azure Service Fabric
 description: I den här artikeln beskrivs de infrastruktur inställningar och de uppgraderings principer för infrastruktur resurser som du kan anpassa.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: a83d24b4badd78750756a3cb4564b1e53fd30593
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648233"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542651"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric-klusterinställningar
 I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera *ClusterConfig.jspå* filen och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -141,6 +141,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |IsEnabled|bool, standard är falskt|Statisk|Aktiverar/inaktiverar DNS service. DNS service är inaktiverat som standard och denna konfiguration måste anges för att aktivera det. |
 |PartitionPrefix|sträng, standard är "--"|Statisk|Styr strängvärdet för partitions-prefixet i DNS-frågor om partitionerade tjänster. Värdet: <ul><li>Bör vara RFC-kompatibel eftersom den kommer att ingå i en DNS-fråga.</li><li>Får inte innehålla en punkt, ".", eftersom punkten stör beteendet för DNS-suffix.</li><li>Får inte vara längre än 5 tecken.</li><li>Kan inte vara en tom sträng.</li><li>Om PartitionPrefix-inställningen åsidosätts måste PartitionSuffix åsidosättas och vice versa.</li></ul>Mer information finns i [Service Fabric DNS-tjänsten.](service-fabric-dnsservice.md).|
 |PartitionSuffix|sträng, standard är ""|Statisk|Kontrollerar strängvärdet partition suffix i DNS-frågor om partitionerade tjänster. Värdet: <ul><li>Bör vara RFC-kompatibel eftersom den kommer att ingå i en DNS-fråga.</li><li>Får inte innehålla en punkt, ".", eftersom punkten stör beteendet för DNS-suffix.</li><li>Får inte vara längre än 5 tecken.</li><li>Om PartitionPrefix-inställningen åsidosätts måste PartitionSuffix åsidosättas och vice versa.</li></ul>Mer information finns i [Service Fabric DNS-tjänsten.](service-fabric-dnsservice.md). |
+|RetryTransientFabricErrors|Bool, standard är sant|Statisk|Inställningen styr möjligheterna för återförsök vid anrop Service Fabric-API: er från DNS service. När den är aktive rad försöker den igen upp till tre gånger om ett tillfälligt fel inträffar.|
 
 ## <a name="eventstoreservice"></a>EventStoreService
 
@@ -423,7 +424,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |AzureStorageMaxConnections | Int, standard är 5000 |Dynamisk|Maximalt antal samtidiga anslutningar till Azure Storage. |
 |AzureStorageMaxWorkerThreads | Int, standard är 25 |Dynamisk|Det maximala antalet arbets trådar parallellt. |
 |AzureStorageOperationTimeout | Tid i sekunder, standard är 6000 |Dynamisk|Ange TimeSpan i sekunder. Tids gränsen för xstore-åtgärden slutfördes. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, standard är falskt |Dynamisk|Aktiverar eller inaktiverar automatisk rensning av programpaketet vid lyckad etablering.<br/> *Bästa praxis är att använda `true` .*
+|CleanupApplicationPackageOnProvisionSuccess|bool, standard är sant |Dynamisk|Aktiverar eller inaktiverar automatisk rensning av programpaketet vid lyckad etablering.
 |CleanupUnusedApplicationTypes|Bool, standard är falskt |Dynamisk|Den här konfigurationen om den är aktive rad, tillåter att automatiskt avregistrera oanvända program typ versioner som hoppar över de senaste tre oanvända versionerna, vilket frigör det disk utrymme som upptas av avbildnings arkivet. Den automatiska rensningen aktive ras i slutet av lyckad etablering för den specifika typen av app och körs regelbundet en gång per dag för alla program typer. Antalet oanvända versioner att hoppa över kan konfigureras med parametern "MaxUnusedAppTypeVersionsToKeep". <br/> *Bästa praxis är att använda `true` .*
 |DisableChecksumValidation | Bool, standard är falskt |Statisk| Med den här konfigurationen kan vi aktivera eller inaktivera verifiering av kontroll Summa under applikations etablering. |
 |DisableServerSideCopy | Bool, standard är falskt |Statisk|Den här konfigurationen aktiverar eller inaktiverar kopia av programpaket på Server sidan på avbildnings Arkiv under applikations etablering. |
@@ -520,6 +521,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |AutoDetectAvailableResources|bool, standard är sant|Statisk|Den här konfigurationen utlöser automatisk identifiering av tillgängliga resurser på noden (processor och minne) när den här konfigurationen är inställd på Sant – vi kommer att läsa verkliga kapaciteter och korrigera dem om användaren har angett felaktig funktions kapacitet eller inte definierar dem alls om den här konfigurationen är inställd på falskt – vi kommer att spåra en varning om att användaren har angett Felaktiga noder. men vi kommer inte att åtgärda dem. Det innebär att användaren vill ha den kapacitet som anges som > än vad som är i själva verket eller om kapaciteten är odefinierad. Det kommer att anta obegränsad kapacitet |
 |BalancingDelayAfterNewNode | Tid i sekunder, standard är 120 |Dynamisk|Ange TimeSpan i sekunder. Starta inte balansering av aktiviteter inom den här perioden efter att du har lagt till en ny nod. |
 |BalancingDelayAfterNodeDown | Tid i sekunder, standard är 120 |Dynamisk|Ange TimeSpan i sekunder. Starta inte balansering av aktiviteter inom den här perioden efter en nod ned-händelse. |
+|BlockNodeInUpgradeConstraintPriority | Int, standardvärdet är 0 |Dynamisk|Anger prioriteten för kapacitets begränsning: 0: hårt; 1: mjuk; negativt: ignorera  |
 |CapacityConstraintPriority | Int, standardvärdet är 0 | Dynamisk|Anger prioriteten för kapacitets begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, standard är 20 | Dynamisk|Definierar antalet gånger i rad som ResourceBalancer-utfärdade rörelser tas bort innan diagnostiken utförs och hälso varningar genereras. Negativt: inga varningar har spridits i det här tillståndet. |
 |ConstraintFixPartialDelayAfterNewNode | Tid i sekunder, standard är 120 |Dynamisk| Ange TimeSpan i sekunder. DDo inte Faulydomain och UpgradeDomain begränsnings överträdelser inom den här perioden efter att en ny nod har lagts till. |
@@ -758,7 +760,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |PropertyWriteBatch |sträng, standardvärdet är "admin" |Dynamisk|Säkerhetskonfigurationer för namngivning av egenskaps Skriv åtgärder. |
 |ProvisionApplicationType |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för etablering av program typ. |
 |ProvisionFabric |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för MSI och/eller kluster manifest etablering. |
-|Söka i data |sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för frågor. |
+|Fråga |sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för frågor. |
 |RecoverPartition |sträng, standardvärdet är "admin" | Dynamisk|Säkerhets konfiguration för återställning av en partition. |
 |RecoverPartitions |sträng, standardvärdet är "admin" | Dynamisk|Säkerhets konfiguration för återställning av partitioner. |
 |RecoverServicePartitions |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för återställning av tjänst partitioner. |

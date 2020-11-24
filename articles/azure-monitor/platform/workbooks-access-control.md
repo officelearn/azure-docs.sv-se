@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 92ac1887aca8f30c551419ef9149073d79f333a5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7d3bc13dc373cda510153099859cf4cd61b3dd69
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143840"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534542"
 ---
 # <a name="access-control"></a>Åtkomstkontroll
 
@@ -32,7 +32,7 @@ ms.locfileid: "92143840"
 "Arbets bok deltagare" lägger till "arbets böcker/Skriv"-behörigheter till ett objekt för att spara delade arbets böcker.
 Inga särskilda behörigheter krävs för att användare ska kunna spara privata arbets böcker som bara de kan se.
 
-För anpassad rollbaserad åtkomst kontroll:
+För anpassade roller:
 
 Lägg till `microsoft.insights/workbooks/write` för att spara delade arbets böcker. Mer information finns i [arbets bokens deltagar](../../role-based-access-control/built-in-roles.md#monitoring-contributor) roll.
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: bb1f4b5e37cecc33cef115f26c44ad6375c7e327
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d682495cb7add446adf1634de6e9ed6756d1468e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734386"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544385"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>DNS-konfiguration för privat slutpunkt i Azure
 
@@ -125,7 +125,7 @@ Den här modellen kan utökas till flera peer-kopplade virtuella nätverk som ä
 > [!IMPORTANT]
 > Om du använder en privat slut punkt i en nav-och-eker-modell från en annan prenumeration återanvänder du samma privata DNS-zon på hubben.
 
-I det här scenariot finns en topologi för [nav och ekrar](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) med ekrar som delar en gemensam privat slut punkt och alla eker-virtuella nätverk är länkade till samma privata DNS-zon. 
+I det här scenariot finns en topologi för [nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) med ekrar som delar en gemensam privat slut punkt och alla eker-virtuella nätverk är länkade till samma privata DNS-zon. 
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hubb och eker med Azure-tillhandahållen DNS":::
 
@@ -141,7 +141,7 @@ Följande scenario är lämpligt för ett lokalt nätverk som har en DNS-vidareb
 För att konfigurera korrekt behöver du följande resurser:
 
 - Lokalt nätverk
-- Virtuellt nätverk [som är anslutet till lokalt](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Virtuellt nätverk [som är anslutet till lokalt](/azure/architecture/reference-architectures/hybrid-networking/)
 - DNS-vidarebefordrare distribuerad i Azure 
 - Privat DNS zoner [privatelink.Database.Windows.net](../dns/private-dns-privatednszone.md) med [typen A Record](../dns/dns-zones-records.md#record-types)
 - Information om privat slut punkt (FQDN-postnamn och privat IP-adress)
@@ -158,7 +158,7 @@ Den här konfigurationen kan utökas för ett lokalt nätverk som redan har en D
 För att konfigurera korrekt behöver du följande resurser:
 
 - Lokalt nätverk med en anpassad DNS-lösning på plats 
-- Virtuellt nätverk [som är anslutet till lokalt](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Virtuellt nätverk [som är anslutet till lokalt](/azure/architecture/reference-architectures/hybrid-networking/)
 - DNS-vidarebefordrare distribuerad i Azure
 - Privat DNS zoner [privatelink.Database.Windows.net](../dns/private-dns-privatednszone.md)  med [typen A Record](../dns/dns-zones-records.md#record-types)
 - Information om privat slut punkt (FQDN-postnamn och privat IP-adress)
@@ -187,7 +187,7 @@ Den här DNS-vidarebefordraren ansvarar för att matcha alla DNS-frågor via en 
 För att konfigurera korrekt behöver du följande resurser:
 
 - Lokalt nätverk
-- Virtuellt nätverk [som är anslutet till lokalt](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Virtuellt nätverk [som är anslutet till lokalt](/azure/architecture/reference-architectures/hybrid-networking/)
 - [Peer-kopplat virtuellt nätverk](../virtual-network/virtual-network-peering-overview.md) 
 - DNS-vidarebefordrare distribuerad i Azure
 - Privat DNS zoner [privatelink.Database.Windows.net](../dns/private-dns-privatednszone.md)  med [typen A Record](../dns/dns-zones-records.md#record-types)

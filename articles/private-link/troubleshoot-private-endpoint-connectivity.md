@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: fcc482e6231bbd925fd500a37989052765dede58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f861f9efa6ecc1886647ed6c460b6718ff97e8a1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77538542"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522336"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Felsöka anslutningsproblem för privata slutpunkter i Azure
 
@@ -56,9 +56,9 @@ Granska de här stegen för att se till att alla vanliga konfigurationer är de 
     
        ![Virtuellt nätverk och DNS-konfiguration](./media/private-endpoint-tsg/vnet-dns-configuration.png)
     
-1. Använd [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för att se om data flödar.
+1. Använd [Azure Monitor](../azure-monitor/overview.md) för att se om data flödar.
 
-    a. Välj **övervaka**på den privata slut punkts resursen.
+    a. Välj **övervaka** på den privata slut punkts resursen.
      - Välj **data i** eller **ut data**. 
      - Se om data flödar när du försöker ansluta till den privata slut punkten. Vänta en fördröjning på ungefär 10 minuter.
     
@@ -68,7 +68,7 @@ Granska de här stegen för att se till att alla vanliga konfigurationer är de 
 
     a. Välj den virtuella klient datorn.
 
-    b. Välj **fel sökning av anslutning**och välj sedan fliken **utgående anslutningar** .
+    b. Välj **fel sökning av anslutning** och välj sedan fliken **utgående anslutningar** .
     
       ![Network Watcher-testa utgående anslutningar](./media/private-endpoint-tsg/network-watcher-outbound-connection.png)
     
@@ -80,7 +80,7 @@ Granska de här stegen för att se till att alla vanliga konfigurationer är de 
      - Klistra in det fullständiga domän namnet från resursen för den privata slut punkten.
      - Ange en port. Använd vanligt vis 443 för Azure Storage eller Azure Cosmos DB och 1336 för SQL.
 
-    e. Välj **test**och verifiera test resultaten.
+    e. Välj **test** och verifiera test resultaten.
     
       ![Network Watcher-test resultat](./media/private-endpoint-tsg/network-watcher-test-results.png)
     
@@ -93,7 +93,7 @@ Granska de här stegen för att se till att alla vanliga konfigurationer är de 
        - Kontrol lera att det finns en privat DNS-zon post. Om den inte finns skapar du den.
      - Om du använder anpassad DNS:
        - Granska dina anpassade DNS-inställningar och kontrol lera att DNS-konfigurationen är korrekt.
-       Vägledning finns i [Översikt över privat slut punkt: DNS-konfiguration](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+       Vägledning finns i [Översikt över privat slut punkt: DNS-konfiguration](./private-endpoint-overview.md#dns-configuration).
 
     b. Om anslutningen inte fungerar på grund av nätverks säkerhets grupper (NSG: er) eller användardefinierade vägar:
      - Granska utgående regler för NSG och skapa lämpliga utgående regler som tillåter trafik.
@@ -107,5 +107,5 @@ Granska de här stegen för att se till att alla vanliga konfigurationer är de 
 
 ## <a name="next-steps"></a>Nästa steg
 
- * [Skapa en privat slut punkt på det uppdaterade under nätet (Azure Portal)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
+ * [Skapa en privat slut punkt på det uppdaterade under nätet (Azure Portal)](./create-private-endpoint-portal.md)
  * [Fel söknings guide för Azure privat länk](troubleshoot-private-link-connectivity.md)

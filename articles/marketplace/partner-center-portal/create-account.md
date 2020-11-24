@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: e15937797077e3fa46a12e726a3ce690c3979cbd
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628789"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542294"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Skapa ett kommersiellt marknads plats konto i Partner Center
 
@@ -67,7 +67,7 @@ Din utgivar profil innehåller ditt företags namn och ditt MPN-ID. Om du inte r
 
     När du har registrerat dig går du till översikts sidan för den kommersiella Marketplace. Kontot för kommersiell marknads plats visas i den vänstra rutan.
 
-1. För att kontrol lera att det kommersiella Marketplace-kontot visas som registrerat väljer du **Inställningar** (kugg hjuls ikon) i det övre högra hörnet > program för **Inställningar för utvecklare**  >  **Programs**.
+1. För att kontrol lera att det kommersiella Marketplace-kontot visas som registrerat väljer du **Inställningar** (kugg hjuls ikon) i det övre högra hörnet > **konto inställnings**  >  **program**.
 
 Nu har du skapat ett kommersiellt marknads plats konto i Partner Center. Fortsätt att [lägga till nya utgivare på den kommersiella marknads platsen](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -91,7 +91,7 @@ När du använder ditt Microsoft Partner Network-konto länkar det företagets j
 > Du måste ha en **konto administratör** eller en **Global administratörs** roll för att kunna logga in på Microsoft Partner Network.
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/) med ditt Microsoft Partner Network-konto.
-1. Välj **Inställningar** inställningar för  >  **utvecklare**  >  **Programs**  >  **Kom igång**.
+1. Välj **Inställningar**  >  **konto inställnings**  >  **program**  >  **Kom igång**.
 
    Microsoft Partner Network identifierar din prenumeration och visar fönstret **utgivar profil** .
 
@@ -103,7 +103,7 @@ När du använder ditt Microsoft Partner Network-konto länkar det företagets j
 
     När du har registrerat dig går du till översikts sidan för den kommersiella Marketplace. Kontot för kommersiell marknads plats visas i den vänstra rutan.
 
-1. För att kontrol lera att det kommersiella Marketplace-kontot visas som registrerat väljer du **Inställningar inställningar** för program varu  >  **utvecklare**  >  **Programs**.
+1. För att kontrol lera att det kommersiella Marketplace-kontot visas som registrerat väljer du **Inställningar**  >  **konto inställningar**  >  **program**.
 
 Nu har du skapat ett kommersiellt marknads plats konto i Partner Center. Fortsätt att [lägga till nya utgivare på den kommersiella marknads platsen](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -119,7 +119,7 @@ Nu har du skapat ett kommersiellt marknads plats konto i Partner Center. Fortsä
 När du registrerar dig för programmet för kommersiella marknads platser med samma konto som Developer-programmet kan du se alla befintliga program registreringar i det vänstra fönstret i Partner Center.
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/) med ditt befintliga konto.
-1. Välj **Inställningar** inställningar för  >  **utvecklare**  >  **Programs**  >  **Kom igång** och ange din e-postadress till arbetet.
+1. Välj **Inställningar**  >  **konto inställnings**  >  **program**  >  **Kom igång** och ange din e-postadress till arbetet.
 1. Slutför informationen på **utgivarens profil** sida.
 2. Läs igenom villkoren i [Microsoft Publisher-avtalet](https://go.microsoft.com/fwlink/?LinkID=699560)och välj sedan **Godkänn och fortsätt** för att slutföra registreringen.
 
@@ -128,7 +128,7 @@ När du registrerar dig för programmet för kommersiella marknads platser med s
 
     När du har registrerat dig går du till översikts sidan för den kommersiella Marketplace. Kontot för kommersiell marknads plats visas i den vänstra rutan.
 
-1. För att kontrol lera att det kommersiella Marketplace-kontot visas som registrerat väljer du **Inställningar inställningar** för program varu  >  **utvecklare**  >  **Programs**.
+1. För att kontrol lera att det kommersiella Marketplace-kontot visas som registrerat väljer du **Inställningar**  >  **konto inställningar**  >  **program**.
 
 Nu har du skapat ett kommersiellt marknads plats konto i Partner Center. Om du vill ha hjälp med att lägga till utgivare fortsätter du att [lägga till nya utgivare på den kommersiella marknads platsen](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -142,7 +142,7 @@ Publicerings avtalet och företags profil informationen övergår till ditt nya 
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Lägga till nya utgivare i programmet för kommersiella marknads platser
 
-En organisation kan ha flera utgivare som är kopplade till ett kommersiellt marknads plats konto. En befintlig användare kan lägga till fler utgivare efter att ha loggat in på Partner Center genom att välja **Inställningar inställningar** för  >  **utvecklare**  >  **Publisher**  >  **Lägg till utgivare**.
+En organisation kan ha flera utgivare som är kopplade till ett kommersiellt marknads plats konto. En befintlig användare kan lägga till fler utgivare efter att ha loggat in på Partner Center genom att välja **Inställningar**  >  **konto inställningar**  >  **organisation profil**  >  **identifierare**  >  **Lägg till utgivare**.
 
 >[!NOTE]
 >Innan du lägger till en ny utgivare granskar du listan över befintliga utgivare genom att logga in på Partner Center och välja **konto inställnings**  >  **utgivare**.
@@ -155,9 +155,9 @@ Ytterligare användare från samma Azure Active Directory-klient kan använda f�
 4. Välj det MPN-ID som du vill koppla till utgivaren.
 5. Uppdatera **utgivar informationen** i formuläret.
 
-   * **Utgivar namn** : det namn som visas i den kommersiella marknads platsen med erbjudandet.  
-   * **PublisherID** : en identifierare som används av Partner Center för att identifiera utgivaren unikt. Standardvärdet för det här fältet mappar till ett befintligt och unikt utgivar-ID i systemet. Eftersom utgivar-ID: t inte kan återanvändas måste det här fältet uppdateras.  
-   * **Kontakt information** : uppdatera kontakt uppgifterna när det behövs.
+   * **Utgivar namn**: det namn som visas i den kommersiella marknads platsen med erbjudandet.  
+   * **PublisherID**: en identifierare som används av Partner Center för att identifiera utgivaren unikt. Standardvärdet för det här fältet mappar till ett befintligt och unikt utgivar-ID i systemet. Eftersom utgivar-ID: t inte kan återanvändas måste det här fältet uppdateras.  
+   * **Kontakt information**: uppdatera kontakt uppgifterna när det behövs.
 
 När den här processen har slutförts går du till det kommersiella Marketplace-kontot som visas i den vänstra rutan för att hantera den nya utgivaren. Om du inte ser det kommersiella Marketplace-kontot uppdaterar du sidan. Den nya utgivaren visas i listan **utgivare** .
 

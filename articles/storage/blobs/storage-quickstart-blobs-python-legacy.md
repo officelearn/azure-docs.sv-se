@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: a01b6e644ce3afda451d94d3e00eda278a645adf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34205caf03d2f2d7255f75ea6203c5572c4c429b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87851332"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523315"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Snabb start: hantera blobbar med python v 2.1 SDK
 
@@ -137,7 +137,7 @@ Först skapar du referenser till objekten som används för att komma åt och ha
 När du har molnblobcontainern kan du instansiera objektet **CloudBlockBlob** som pekar mot den specifika blob du är intresserad av. Du kan sedan ladda upp, hämta och kopiera bloben efter behov.
 
 > [!IMPORTANT]
-> Containernamn måste använda gemener. Mer information om behållare och blob-namn finns i [namngivning och referens av behållare, blobbar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Containernamn måste använda gemener. Mer information om behållare och blob-namn finns i [namngivning och referens av behållare, blobbar och metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ### <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i containern
 
@@ -216,7 +216,7 @@ Mer information om python-utveckling med Blob Storage finns i följande ytterlig
 
 ### <a name="client-library-reference-and-samples"></a>Referens och exempel för klientbiblioteket
 
-- Mer information om python-klient biblioteket finns i [Azure Storage bibliotek för python](https://docs.microsoft.com/python/api/overview/azure/storage).
+- Mer information om python-klient biblioteket finns i [Azure Storage bibliotek för python](/python/api/overview/azure/storage).
 - Utforska [Bloblagringsexempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) som skrivits med Python-klientbiblioteket.
 
 ## <a name="next-steps"></a>Nästa steg

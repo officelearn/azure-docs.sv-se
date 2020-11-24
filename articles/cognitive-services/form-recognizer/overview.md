@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: automatisk data bearbetning, dokument bearbetning, automatisk data inmatning, formulär bearbetning
-ms.openlocfilehash: 8b790da9eaa17cbb0fbdcbcc49682786deb319a0
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 05024b8d7f4cf76024d71a79cb1fce489d58ee70
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95492169"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519531"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
@@ -30,9 +30,9 @@ Formulär tolken består av följande tjänster:
 * **[Layout-API](#layout-api)** – Extrahera text, markerings märken och tabeller strukturer, tillsammans med deras gränser för avgränsnings rutor från dokument.
 * **[Anpassade modeller](#custom-models)** – Extrahera text, nyckel/värde-par, markerings märken och tabell data från formulär. De här modellerna tränas med dina egna data, så de skräddarsys efter dina formulär.
 * **[Färdiga modeller](#prebuilt-models)** – extrahera data från unika formulär typer med hjälp av förinställda modeller. För närvarande finns följande färdiga modeller
-    * [Fakturor](./concept-invoices.md) 
+    * [Fakturor](./concept-invoices.md)
     * [Försäljnings kvitton](./concept-receipts.md)
-    * [Visitkort](./concept-business-cards.md) 
+    * [Visitkort](./concept-business-cards.md)
 
 
 ## <a name="try-it-out"></a>Prova
@@ -50,7 +50,7 @@ Om du vill prova formulär igenkännings tjänsten går du till verktyget online
 
 ---
 
-Du behöver en Azure-prenumeration ([skapa en kostnads fri](https://azure.microsoft.com/free/cognitive-services)) och en resurs slut punkt för [formulär igenkänning](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) och en nyckel för att testa formulär igenkännings tjänsten. 
+Du behöver en Azure-prenumeration ([skapa en kostnads fri](https://azure.microsoft.com/free/cognitive-services)) och en resurs slut punkt för [formulär igenkänning](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) och en nyckel för att testa formulär igenkännings tjänsten.
 
 ## <a name="layout-api"></a>Layout-API
 
@@ -125,8 +125,6 @@ Använd [exempel verktyget igenkännings verktyg](https://fott.azurewebsites.net
     * [Extrahera kvitto data – python](quickstarts/python-receipts.md)
   * Extrahera data från visitkort
     * [Extrahera visitkorts data – python](quickstarts/python-business-cards.md)
- 
-
 
 ### <a name="review-the-rest-apis"></a>Granska REST-API: erna
 
@@ -153,6 +151,10 @@ Mer information får du genom att utforska [REST API referens dokumentationen](h
 ## <a name="input-requirements"></a>Krav för indatamängd
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Distribuera lokalt med Docker-behållare
+
+[Använd formulär igenkännings behållare (för hands version)](form-recognizer-container-howto.md) för att distribuera API-funktioner lokalt. Med den här Docker-behållaren kan du ta tjänsten närmare dina data för efterlevnad, säkerhet eller andra drift orsaker.
 
 ## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
 

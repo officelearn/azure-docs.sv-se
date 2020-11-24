@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ac69b442b06864fd45561b26909e1247674611a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc9dbf77c04ea95e5b873c45de4c0df109514c7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458390"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544453"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Självstudie – kryptera och dekryptera blobbar med Azure Key Vault
 
@@ -28,7 +28,7 @@ Den här självstudien beskriver hur du använder lagrings kryptering på klient
 
 Översikts information om kryptering på klient sidan för Azure Storage finns i [kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
@@ -232,12 +232,12 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     CancellationToken.None).GetAwaiter().GetResult();
 ```
 
-Och sedan är du klar. Ha det så kul!
+Klart! Ha det så kul!
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder Microsoft Azure Storage med C# finns i [Microsoft Azure Storage klient bibliotek för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Mer information om hur du använder Microsoft Azure Storage med C# finns i [Microsoft Azure Storage klient bibliotek för .net](/previous-versions/azure/dn261237(v=azure.100)).
 
-Mer information om BLOB-REST API finns i [BLOB Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).
+Mer information om BLOB-REST API finns i [BLOB Service REST API](/rest/api/storageservices/Blob-Service-REST-API).
 
-Den senaste informationen om Microsoft Azure Storage finns i [Microsoft Azure Storage teamets blogg](https://docs.microsoft.com/archive/blogs/windowsazurestorage/).
+Den senaste informationen om Microsoft Azure Storage finns i [Microsoft Azure Storage teamets blogg](/archive/blogs/windowsazurestorage/).

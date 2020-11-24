@@ -4,12 +4,12 @@ description: 'Mått och autoskalning av klassiska API: er, även kallade Azure S
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8900d238e7542864e3dc53f9d192e579e2c96d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317390"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536701"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor pensionering av klassiska API: er för distributions modeller för mått och autoskalning
 
@@ -53,7 +53,7 @@ Om du är osäker på om din kod eller anpassade verktyg anropar de klassiska AP
 
 Alla befintliga funktioner för autoskalning och mått kommer att fortsätta att fungera via de nya API: erna.  
 
-Migrering över till nyare API: er levereras med Resource Manager-baserade funktioner, till exempel stöd för konsekventa Role-Based Access Control (RBAC) i alla övervaknings tjänster. Du får också ytterligare funktioner för mått: 
+Migrering över till nyare API: er levereras med Resource Manager-baserade funktioner, till exempel stöd för konsekvent Azure-rollbaserad åtkomst kontroll (Azure RBAC) i alla övervaknings tjänster. Du får också ytterligare funktioner för mått: 
 
 - stöd för dimensioner
 - konsekvent 1-minuters Metric-kornig het i alla tjänster 

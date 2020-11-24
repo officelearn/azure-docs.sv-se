@@ -1,19 +1,19 @@
 ---
-title: StylesObject för dynamiska Azure Maps
-description: Referens guide till JSON-schemat och syntaxen för den StylesObject som används för att skapa i dynamiska Azure Maps.
+title: StylesObject schema referens guide för dynamiska Azure Maps
+description: Referens guide till det dynamiska Azure Maps StylesObject schema och syntax.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/19/2020
+ms.date: 11/20/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4284956138002d209ab0934cdd052748ef8aab78
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f6bc4c62febf24dee790ac6136b1661426d4d619
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966283"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536956"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>StylesObject schema referens guide för dynamiska kartor
 
@@ -21,9 +21,15 @@ ms.locfileid: "94966283"
 
 ## <a name="styleobject"></a>StyleObject
 
-A `StyleObject` är antingen en [`BooleanTypeStyleRule`](#booleantypestylerule) eller en [`NumericTypeStyleRule`](#numerictypestylerule) .
+A `StyleObject` är en av följande stil regler:
 
-I JSON nedan visas ett `BooleanTypeStyleRule` namngivet `occupied` och ett `NumericTypeStyleRule` namngivet `temperature` .
+ * [`BooleanTypeStyleRule`](#booleantypestylerule)
+ * [`NumericTypeStyleRule`](#numerictypestylerule)
+ * [`StringTypeStyleRule`](#stringtypestylerule)
+
+I JSON nedan visas exempel användning av var och en av de tre stil typerna.  `BooleanTypeStyleRule`Används för att fastställa det dynamiska formatet för funktioner vars `occupied` egenskap är true och false.  `NumericTypeStyleRule`Används för att fastställa formatet för funktioner vars `temperature` egenskap ligger inom ett visst intervall. Slutligen används den `StringTypeStyleRule` för att matcha vissa format till `meetingType` .
+
+
 
 ```json
  "styles": [
@@ -56,6 +62,18 @@ I JSON nedan visas ett `BooleanTypeStyleRule` namngivet `occupied` och ett `Nume
               "color": "#eba834"
             }
         ]
+    },
+    {
+      "keyname": "meetingType",
+      "type": "string",
+      "rules": [
+        {
+          "private": "#FF0000",
+          "confidential": "#FF00AA",
+          "allHands": "#00FF00",
+          "brownBag": "#964B00"
+        }
+      ]
     }
 ]
 ```
@@ -108,7 +126,7 @@ I följande JSON-exempel behåller båda intervallen sant när värdet för *til
 
 ### <a name="rangeobject"></a>RangeObject
 
-`RangeObject`Definierar ett numeriskt intervall värde för en [`NumberRuleObject`](#numberruleobject) . För att *State* -värdet ska ligga inom intervallet måste alla definierade villkor innehålla True. 
+`RangeObject`Definierar ett numeriskt intervall värde för en [`NumberRuleObject`](#numberruleobject) . För att *State* -värdet ska ligga inom intervallet måste alla definierade villkor innehålla True.
 
 | Egenskap | Typ | Beskrivning | Krävs |
 |-----------|----------|-------------|-------------|
@@ -144,13 +162,55 @@ Följande JSON visar ett `NumericTypeStyleRule` *tillstånd* med namnet `tempera
 }
 ```
 
+## <a name="stringtypestylerule"></a>StringTypeStyleRule
+
+En `StringTypeStyleRule` är en [`StyleObject`](#styleobject) och består av följande egenskaper:
+
+| Egenskap | Typ | Beskrivning | Krävs |
+|-----------|----------|-------------|-------------|
+| `keyName` | sträng |  *Tillstånd* eller dynamiskt egenskaps namn.  En `keyName` ska vara unik i  `StyleObject` matrisen.| Ja |
+| `type` | sträng |Värdet är "String". | Ja |
+| `rules` | [`StringRuleObject`](#stringruleobject)[]| En matris med N antal *tillstånds* värden.| Ja |
+
+### <a name="stringruleobject"></a>StringRuleObject
+
+En `StringRuleObject` består av upp till N antal tillstånds värden som är de möjliga sträng värdena för en egenskap i en funktion. Om funktionens egenskaps värde inte matchar något av de definierade status värdena, så har den funktionen inget dynamiskt format. Om duplicerade tillstånds värden anges prioriteras det första.
+
+Sträng värdes matchningen är Skift läges känslig.
+
+| Egenskap | Typ | Beskrivning | Krävs |
+|-----------|----------|-------------|-------------|
+| `stateValue1` | sträng | Färg när värde strängen är stateValue1. | Nej |
+| `stateValue2` | sträng | Färg när värde strängen är stateValue. | Nej |
+| `stateValueN` | sträng | Färg när värde strängen är stateValueN. | Nej |
+
+### <a name="example-of-stringtypestylerule"></a>Exempel på StringTypeStyleRule
+
+Följande JSON visar en `StringTypeStyleRule` som definierar format kopplade till vissa Mötes typer.
+
+```json
+    {
+      "keyname": "meetingType",
+      "type": "string",
+      "rules": [
+        {
+          "private": "#FF0000",
+          "confidential": "#FF00AA",
+          "allHands": "#00FF00",
+          "brownBag": "#964B00"
+        }
+      ]
+    }
+
+```
+
 ## <a name="booleantypestylerule"></a>BooleanTypeStyleRule
 
 En `BooleanTypeStyleRule` är en [`StyleObject`](#styleobject) och består av följande egenskaper:
 
 | Egenskap | Typ | Beskrivning | Krävs |
 |-----------|----------|-------------|-------------|
-| `keyName` | sträng |  *Tillstånd* eller dynamiskt egenskaps namn.  En `keyName` ska vara unik inuti format mat ris.| Ja |
+| `keyName` | sträng |  *Tillstånd* eller dynamiskt egenskaps namn.  En `keyName` ska vara unik i `StyleObject`  matrisen.| Ja |
 | `type` | sträng |Värdet är "Boolean". | Ja |
 | `rules` | [`BooleanRuleObject`](#booleanruleobject)81.1| Ett booleskt par med färger för `true` och `false` *tillstånds* värden.| Ja |
 

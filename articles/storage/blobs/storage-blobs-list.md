@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ddd19c90c8c47016497e2c3b00e04595a94e7715
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701321"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543076"
 ---
 # <a name="list-blobs-with-net"></a>Lista blobbar med .NET
 
@@ -61,7 +61,7 @@ Om du vill filtrera listan över blobbar anger du en sträng för `prefix` param
 
 Du kan returnera BLOB-metadata med resultaten.
 
-- Om du använder .NET V12 SDK anger du **metadata** -värdet för [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) -uppräkningen.
+- Om du använder .NET V12 SDK anger du **metadata** -värdet för [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) -uppräkningen.
 
 - Om du använder .NET V11 SDK anger du **metadata** -värdet för [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) -uppräkningen. Azure Storage innehåller metadata med varje blob som returneras, så du behöver inte anropa någon av **FetchAttributes** -metoderna i den här kontexten för att hämta BLOB-metadata.
 

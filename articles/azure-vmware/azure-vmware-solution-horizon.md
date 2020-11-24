@@ -3,12 +3,12 @@ title: Distribuera Horisont på Azure VMware-lösning
 description: Lär dig hur du distribuerar VMware-Horisont på Azure VMware-lösningen.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: fb5e5b4c5f5da4c140f8d3575b963545f3a57db8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6d5d8e12e358e2289128af9840660be18f5f217a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423126"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537449"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Distribuera Horisont på Azure VMware-lösning 
 
@@ -139,22 +139,6 @@ Tabellerna visar vanliga arbets belastningar för inloggning VSI och arbets bela
 #### <a name="power-worker-workloads"></a>Arbets belastningar för arbets kraft
 
 :::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Tabell med vanliga VDI-profiler för VMware-horisont för inloggning VSI avancerade arbets belastningar" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
-
-### <a name="azure-vmware-solution-host-instance"></a>Azure VMware-lösning, värd instans
-
-* PowerEdge R640-Server – DSS-begränsad
-
-* 36 kärnor \@ 2,3 GHz
-
-* 576 GB RAM-MINNE
-
-* HBA330 12 Gbit/s SAS HBA-styrenhet (icke-RAID)
-
-* 1,92 TB SSD SATA mix Använd 6 Gbit/s 512 2.5 i hot-plug AG-enhet, 3 DWPD, 10512 TBW
-
-* Intel 1,6 TB, NVMe, blandade use Express Flash, 2,5 SFF-enhet, U. 2, P4600 med operatör
-
-* 2 virtuellt San disk grupper: 1,6 x 4 (1.92 TB)
 
 ### <a name="horizon-sizing-inputs"></a>Data för Horisont storlek
 

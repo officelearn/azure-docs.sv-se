@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: e75b5a265ba85813581e39a548d897ea57a33da6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef0642b26898249d78f5103e8a8f80198887bed9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080566"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542532"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Ringa ett telefonsamtal med Twilio i ett PHP-program på Azure
 I följande exempel visas hur du kan använda Twilio för att ringa ett samtal från en PHP-webbsida som finns i Azure. Det resulterande programmet kommer att uppmana användaren att ange Telefonsamtals värden, som du ser i följande skärm bild.
@@ -29,7 +29,7 @@ Du måste göra följande för att använda koden i det här avsnittet:
 1. Hämta ett Twilio-konto och autentiseringstoken från [Twilio-konsolen][twilio_console]. Kom igång med Twilio genom att utvärdera priserna på [https://www.twilio.com/pricing][twilio_pricing] . Du kan registrera dig för ett utvärderings konto på [https://www.twilio.com/try-twilio][try_twilio] .
 2. Hämta [Twilio-biblioteket för php](https://github.com/twilio/twilio-php) eller installera det som ett päron paket. Mer information finns i Readme- [filen](https://github.com/twilio/twilio-php/blob/master/README.md).
 3. Installera Azure SDK för PHP. 
-<!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](app-service-web/web-sites-php-mysql-deploy-use-git.md) -->
+<!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](./app-service/quickstart-php.md) -->
 
 ## <a name="create-a-web-form-for-making-a-call"></a>Skapa ett webb formulär för att ringa ett samtal
 Följande HTML-kod visar hur du skapar en webb sida (**callform.html**) som hämtar användar data för att ringa:
@@ -129,8 +129,8 @@ Mer information om Twilio finns i [https://www.twilio.com/docs][twilio_docs] .
 [twilio_api_service]: https://api.twilio.com
 [build_php_azure_app]: http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application
 [howto_twilio_voice_sms_php]: partner-twilio-php-how-to-use-voice-sms.md
-[howto_blob_storage_php]: https://azure.microsoft.com/documentation/articles/storage-php-how-to-use-blobs/
-[howto_sql_azure_php]: https://azure.microsoft.com/documentation/articles/sql-database-php-how-to-use/
+[howto_blob_storage_php]: ./storage/blobs/storage-quickstart-blobs-php.md
+[howto_sql_azure_php]: ./azure-sql/database/connect-query-content-reference-guide.md
 [twilio_call_properties]: https://www.twilio.com/docs/api/rest/call#instance-properties
 [twilio_docs_security]: https://www.twilio.com/docs/security
 [twilio_docs]: https://www.twilio.com/docs

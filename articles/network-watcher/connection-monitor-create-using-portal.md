@@ -1,5 +1,5 @@
 ---
-title: Skapa anslutnings övervakare (för hands version) – Azure Portal
+title: Skapa anslutnings övervakare – Azure Portal
 titleSuffix: Azure Network Watcher
 description: I den här artikeln beskrivs hur du skapar en övervakare i anslutnings övervakaren med hjälp av Azure Portal.
 services: network-watcher
@@ -10,22 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: f1ba23d53d79587c9d75c1d840c1d3857725d8dd
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a6ba9c02b384c1b30977d962659983d600c7b2ac
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984387"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545728"
 ---
-# <a name="create-a-monitor-in-connection-monitor-preview-by-using-the-azure-portal"></a>Skapa en övervakare i anslutnings övervakaren (för hands version) med hjälp av Azure Portal
+# <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Skapa en övervakare i anslutnings övervakaren med hjälp av Azure Portal
 
 Lär dig hur du använder anslutnings övervakaren för att övervaka kommunikationen mellan dina resurser. I den här artikeln beskrivs hur du skapar en övervakare med hjälp av Azure Portal. Anslutnings övervakaren stöder hybrid-och Azure Cloud-distributioner.
 
-> [!IMPORTANT]
-> Anslutnings övervakaren är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 

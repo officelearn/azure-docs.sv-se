@@ -1,5 +1,5 @@
 ---
-title: Skapa anslutnings övervakare (för hands version) – PowerShell
+title: Skapa anslutnings övervakare – PowerShell
 titleSuffix: Azure Network Watcher
 description: Lär dig hur du skapar anslutnings övervakare med hjälp av PowerShell.
 services: network-watcher
@@ -10,22 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: b1ffce75d5c38177c70db3ec1fc024a01821d3ab
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a554177bf7084b9a7f4c413dbe82271b3ab6b3a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984251"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545541"
 ---
-# <a name="create-a-connection-monitor-preview-using-powershell"></a>Skapa en anslutnings övervakare (för hands version) med PowerShell
+# <a name="create-a-connection-monitor-using-powershell"></a>Skapa en anslutnings övervakare med PowerShell
 
 Lär dig hur du skapar anslutnings övervakaren för att övervaka kommunikationen mellan dina resurser med hjälp av PowerShell.
 
-> [!IMPORTANT]
-> Anslutnings övervakaren är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 

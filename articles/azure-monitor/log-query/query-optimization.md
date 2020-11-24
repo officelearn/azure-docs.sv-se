@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 7e1deb11eb8ae754198cae5be7ecf7150262a61e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: a817c12a367d7c14f693389920e49b368a35cc06
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411396"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522880"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
 Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det några fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
@@ -131,7 +131,7 @@ SecurityEvent
 
 Vissa agg regerings kommandon som [Max ()](/azure/kusto/query/max-aggfunction), [Sum ()](/azure/kusto/query/sum-aggfunction), [Count ()](/azure/kusto/query/count-aggfunction)och [AVG ()](/azure/kusto/query/avg-aggfunction) har låg processor påverkan på grund av deras logik, andra är mer komplexa och innehåller heuristik och uppskattningar som gör att de kan köras effektivt. Till exempel använder [DCount ()](/azure/kusto/query/dcount-aggfunction) HyperLogLog-algoritmen för att ge en nära bedömning av distinkta mängder av stora data uppsättningar utan att faktiskt räkna varje värde. percentils funktionerna gör liknande uppskattningar med hjälp av den närmaste rang-algoritmen. Flera av kommandona är valfria parametrar för att minska deras påverkan. Funktionen [makeset ()](/azure/kusto/query/makeset-aggfunction) har till exempel en valfri parameter för att definiera maximal uppsättnings storlek, vilket avsevärt påverkar processor och minne.
 
-[Sammanfognings](/azure/kusto/query/joinoperator?pivots=azuremonitor) -och [sammanfattnings](/azure/kusto/query/summarizeoperator) kommandon kan orsaka hög processor användning när de bearbetar en stor uppsättning data. Deras komplexitet är direkt relaterad till antalet möjliga värden, som kallas *kardinalitet* , för de kolumner som används som `by` i sammanfatta eller som kopplings attribut. Förklaring och optimering av sammanfogning och sammanfattning finns i dokumentations artiklar och optimerings tips.
+[Sammanfognings](/azure/kusto/query/joinoperator?pivots=azuremonitor) -och [sammanfattnings](/azure/kusto/query/summarizeoperator) kommandon kan orsaka hög processor användning när de bearbetar en stor uppsättning data. Deras komplexitet är direkt relaterad till antalet möjliga värden, som kallas *kardinalitet*, för de kolumner som används som `by` i sammanfatta eller som kopplings attribut. Förklaring och optimering av sammanfogning och sammanfattning finns i dokumentations artiklar och optimerings tips.
 
 Följande frågor ger till exempel exakt samma resultat eftersom **CounterPath** alltid är en-till-en-mappad till **CounterName** och **ObjectName**. Den andra är mer effektiv eftersom agg regerings dimensionen är mindre:
 
@@ -342,7 +342,7 @@ Perf
 ) on Computer
 ```
 
-Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Till exempel:
+Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Exempel:
 
 ```Kusto
 Perf
@@ -463,7 +463,7 @@ Fråge beteenden som kan minska parallellitet är:
 - Användning av serialisering och fönster funktioner, till exempel [serializer-operatorn](/azure/kusto/query/serializeoperator), [Next ()](/azure/kusto/query/nextfunction), [föreg ()](/azure/kusto/query/prevfunction)och [rad](/azure/kusto/query/rowcumsumfunction) funktionerna. Tids serier och användar analys funktioner kan användas i vissa av dessa fall. Ineffektiv serialisering kan också inträffa om följande operatorer inte används i slutet av frågan: [Range](/azure/kusto/query/rangeoperator), [sort](/azure/kusto/query/sortoperator), [order](/azure/kusto/query/orderoperator), [Top](/azure/kusto/query/topoperator), [Top-Hitters](/azure/kusto/query/tophittersoperator), [Get schema](/azure/kusto/query/getschemaoperator).
 -    Användning av funktionen [DAntal ()](/azure/kusto/query/dcount-aggfunction) agg regering tvingar systemet att ha en central kopia av de distinkta värdena. När data skalan är hög kan du överväga att använda DAntal-funktionen valfria parametrar för att minska noggrannheten.
 -    I många fall sänker [kopplings](/azure/kusto/query/joinoperator?pivots=azuremonitor) operatorn den övergripande parallellitet. Undersök blanda koppling som ett alternativ när prestanda är problematisk.
--    I resurs omfattnings frågor kan de förköra RBAC-kontrollerna Linger i situationer där det är mycket stort antal roll tilldelningar i Azure. Detta kan leda till längre kontroller som leder till lägre parallellitet. En fråga körs till exempel på en prenumeration där det finns tusentals resurser och varje resurs har många roll tilldelningar på resurs nivå, inte på prenumerationen eller resurs gruppen.
+-    I resurs omfattnings frågor kan Kubernetes RBAC-eller Azure RBAC-kontroller Linger i situationer där det är mycket stort antal roll tilldelningar i Azure. Detta kan leda till längre kontroller som leder till lägre parallellitet. En fråga körs till exempel på en prenumeration där det finns tusentals resurser och varje resurs har många roll tilldelningar på resurs nivå, inte på prenumerationen eller resurs gruppen.
 -    Om en fråga bearbetar små mängder data, kommer dess parallellitet att vara låg eftersom systemet inte sprider det över flera datornoder.
 
 

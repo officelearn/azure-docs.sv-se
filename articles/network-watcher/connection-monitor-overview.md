@@ -1,5 +1,5 @@
 ---
-title: Anslutnings övervakare (för hands version) i Azure | Microsoft Docs
+title: Anslutnings övervakare i Azure | Microsoft Docs
 description: Lär dig hur du använder anslutnings övervakaren för att övervaka nätverkskommunikation i en distribuerad miljö.
 services: network-watcher
 documentationcenter: na
@@ -12,24 +12,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2020
+ms.date: 11/23/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: cb24cc55844d7c42d68e75d6f6ef947b1315a306
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: c5c3f8dedad47a819ce3648a0b81ffa3e65a1a1e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984370"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544895"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Övervakning av nätverks anslutning med anslutnings övervakare (för hands version)
+# <a name="network-connectivity-monitoring-with-connection-monitor"></a>Övervakning av nätverks anslutning med anslutnings övervakaren
 
 Anslutnings övervakaren tillhandahåller enhetlig anslutnings övervakning från slut punkt till slut punkt i Azure Network Watcher. Funktionen anslutnings övervakare stöder hybrid-och Azure Cloud-distributioner. Network Watcher innehåller verktyg för att övervaka, diagnostisera och Visa anslutnings relaterade mått för dina Azure-distributioner.
 
-> [!IMPORTANT]
-> Anslutnings övervakaren är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Här är några användnings fall för anslutnings övervakaren:
+Här är några användnings fall för anslutnings övervakaren:
 
 - Din frontend-webbserver för webb servern kommunicerar med en virtuell databas Server-dator i ett program med flera nivåer. Du vill kontrol lera nätverks anslutningen mellan de två virtuella datorerna.
 - Du vill att virtuella datorer i regionen USA, östra, ska pinga virtuella datorer i den centrala regionen och du vill jämföra nätverks fördröjningar i flera regioner.
@@ -274,7 +271,7 @@ I anslutnings Övervakare som skapades före anslutnings övervakaren, är alla 
 
 När du använder mått anger du resurs typen som Microsoft. Network/networkWatchers/connectionMonitors
 
-| Mått | Visningsnamn | Enhet | Sammansättningstyp | Description | Dimensioner |
+| Metric | Visningsnamn | Enhet | Sammansättningstyp | Beskrivning | Dimensioner |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % Avsökningar misslyckades | Procent | Genomsnitt | Procent av anslutnings övervaknings avsökningarna misslyckades. | Inga dimensioner |
 | AverageRoundtripMs | Genomsnittlig tid för fördröjning (MS) | Millisekunder | Genomsnitt | Genomsnittlig för inblandning av nätverks belastning för anslutnings övervaknings avsökningar skickas mellan källa och mål. |             Inga dimensioner |

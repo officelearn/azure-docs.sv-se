@@ -4,12 +4,12 @@ description: Översikt över aviseringar i Azure. Aviseringar, klassiska aviseri
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e71f048a0a96323552b426663a235ed66fa2ef87
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b8d24eab79bdf16e4d883549be00431bd5372af8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108804"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536055"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -80,7 +80,7 @@ Följande aviserings tillstånd stöds.
 |:---|:---|
 | Ny | Problemet har upptäckts och ännu inte granskats. |
 | Bekräftad | En administratör har granskat aviseringen och börjat arbeta med den. |
-| Stängda | Problemet har åtgärd ATS. När en avisering har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
+| Stängd | Problemet har åtgärd ATS. När en avisering har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
 
 *Aviserings tillståndet* är annorlunda och oberoende av *övervaknings villkoret*. Aviserings tillstånd anges av användaren. Övervaknings villkoret anges av systemet. När en varning utlöses är övervaknings villkoret för aviseringen inställt på *"utlöst"*, och när det underliggande villkoret som orsakade aviseringen rensas, anges övervaknings villkoret till *"löst"*. 
 
@@ -173,9 +173,9 @@ Sidan aviserings information innehåller följande avsnitt:
 | Historik | Visar en lista över varje åtgärd som vidtas av aviseringen och eventuella ändringar som gjorts i aviseringen. För närvarande begränsad till tillstånds ändringar. |
 | Diagnostik | Information om den smarta grupp som aviseringen ingår i. Antalet *aviseringar* avser antalet aviseringar som ingår i den smarta gruppen. Innehåller andra aviseringar i samma smarta grupp som skapades under de senaste 30 dagarna, oavsett tids filter på sidan aviserings lista. Välj en avisering om du vill visa information om den. |
 
-## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Rollbaserad åtkomst kontroll (RBAC) för dina aviserings instanser
+## <a name="azure-role-based-access-control-azure-rbac-for-your-alert-instances"></a>Rollbaserad åtkomst kontroll i Azure (Azure RBAC) för dina aviserings instanser
 
-Användningen och hanteringen av varnings instanser kräver att användaren har de inbyggda Azure-rollerna för övervakning av [deltagare](../../role-based-access-control/built-in-roles.md#monitoring-contributor) eller [övervaknings läsare](../../role-based-access-control/built-in-roles.md#monitoring-reader). De här rollerna stöds på alla Azure Resource Managers omfång, från prenumerations nivån till detaljerade tilldelningar på en resurs nivå. Om en användare till exempel bara har övervaknings deltagar åtkomst för den virtuella datorn `ContosoVM1` kan användaren använda och hantera enbart aviseringar som genereras `ContosoVM1` .
+Användningen och hanteringen av varnings instanser kräver att användaren har de inbyggda Azure-rollerna för övervakning av [deltagare](../../role-based-access-control/built-in-roles.md#monitoring-contributor) eller [övervaknings läsare](../../role-based-access-control/built-in-roles.md#monitoring-reader). De här rollerna stöds i alla Azure Resource Manager-omfång, från prenumerationsnivå till detaljerade tilldelningar på resursnivå. Om en användare till exempel bara har övervaknings deltagar åtkomst för den virtuella datorn `ContosoVM1` kan användaren använda och hantera enbart aviseringar som genereras `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Hantera aviserings instanser program mässigt
 

@@ -7,18 +7,18 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.openlocfilehash: d28a3a304a42ec82ff18ad7f5e72518e2b77ec29
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 8cfe44b9433ee1daac028253aa45c97804c88ae5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280878"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544113"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Självstudie – ansluta till en Azure SQL-Server med en privat Azure-slutpunkt – Azure CLI
 
 Den privata Azure-slutpunkten är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, till exempel virtuella datorer, att kommunicera med privata länk resurser privat.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt nätverk och en skydds-värd.
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 > * Skapa en Azure SQL-Server och en privat slut punkt.
 > * Testa anslutningen till den privata SQL Server-slutpunkten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Logga in på Azure Portal och kontrol lera att din prenumeration är aktiv genom att köra `az login` .
@@ -285,19 +285,19 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
     En privat IP-adress för **10.0.0.5** returneras för SQL Server-namnet.  Adressen finns i under nätet för det virtuella nätverk som du skapade tidigare.
 
 
-10. Installera [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) på **myVM**.
+10. Installera [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) på **myVM**.
 
 11. Öppna **SQL Server Management Studio**.
 
 12. I **Anslut till Server** anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Servertyp | Välj **Databasmotor**.|
     | Servernamn | Ange **\<sql-server-name> . Database.Windows.net** |
     | Autentisering | Välj **SQL Server-autentisering**. |
     | Användarnamn | Ange det användar namn som du angav när servern skapades |
-    | lösenordsinställning | Ange lösen ordet som du angav när servern skapades |
+    | Lösenord | Ange lösen ordet som du angav när servern skapades |
     | Kom ihåg lösenordet | Välj **Ja**. |
 
 13. Välj **Anslut**.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: barbkess
 ms.custom: references_regions
-ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d42eabe3afeb738b0cbb011881678839fe0ba2d7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194323"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95539064"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Affärskontinuitet och haveriberedskap (BCDR): Länkade Azure-regioner
 
@@ -43,7 +43,7 @@ Nej. Även om en specifik Azure-tjänst kan vara beroende av ett regionalt par k
 
 ## <a name="must-i-use-azure-regional-pairs"></a>Måste jag använda Azures regionala par?
 
-Nej. Kunder kan använda Azure-tjänster för att skapa en elastisk tjänst utan att behöva lita på Azures regionala par.  Vi rekommenderar dock att du konfigurerar haveri beredskap för affärs kontinuitet (BCDR) i regionala par för att dra nytta av att [isolera](./security/fundamentals/isolation-choices.md) och förbättra [tillgängligheten](./availability-zones/az-overview.md). För program med stöd för flera aktiva regioner rekommenderar vi att du använder båda regionerna i ett regionpar där det är möjligt. Detta säkerställer optimal tillgänglighet för program och minimerad återställnings tid i händelse av en katastrof. När det är möjligt kan du utforma ditt program för [maximal återhämtnings kapacitet](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) och enkel [haveri beredskap](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery).
+Nej. Kunder kan använda Azure-tjänster för att skapa en elastisk tjänst utan att behöva lita på Azures regionala par.  Vi rekommenderar dock att du konfigurerar haveri beredskap för affärs kontinuitet (BCDR) i regionala par för att dra nytta av att [isolera](./security/fundamentals/isolation-choices.md) och förbättra [tillgängligheten](./availability-zones/az-overview.md). För program med stöd för flera aktiva regioner rekommenderar vi att du använder båda regionerna i ett regionpar där det är möjligt. Detta säkerställer optimal tillgänglighet för program och minimerad återställnings tid i händelse av en katastrof. När det är möjligt kan du utforma ditt program för [maximal återhämtnings kapacitet](/azure/architecture/framework/resiliency/overview) och enkel [haveri beredskap](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 ## <a name="azure-regional-pairs"></a>Regionala Azure-par
 
@@ -56,7 +56,7 @@ Nej. Kunder kan använda Azure-tjänster för att skapa en elastisk tjänst utan
 | Kanada |Kanada, centrala |Kanada, östra |
 | Kina |Kina, norra |Kina, östra|
 | Kina |Kina, norra 2 |Kina, östra 2|
-| Europa |Nord Europa (Irland) |Västeuropa (Nederländerna) |
+| Europa |Europa, norra (Irland) |Europa, västra (Nederländerna) |
 | Frankrike |Frankrike, centrala|Frankrike, södra|
 | Tyskland |Tyskland, centrala |Tyskland, nordöstra |
 | Indien |Indien, centrala |Indien, södra |
@@ -94,9 +94,9 @@ Som det hänvisas till i bild 2.
 
 1. **Azure Compute (IaaS)** – du måste etablera ytterligare beräknings resurser i förväg för att säkerställa att resurserna är tillgängliga i en annan region under en katastrof. Mer information finns i [teknisk vägledning för Azure-återhämtning](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md). 
 
-2. **Azure Storage** – om du använder hanterade diskar kan du läsa mer om [säkerhets kopiering över flera regioner](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) med Azure Backup och [Replikera virtuella datorer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) från en region till en annan med Azure Site Recovery. Om du använder lagrings konton konfigureras Geo-redundant lagring (GRS) som standard när ett Azure Storage-konto skapas. Med GRS replikeras dina data automatiskt tre gånger inom den primära regionen och tre gånger i den kopplade regionen. Mer information finns i [Azure Storage alternativ för redundans](storage/common/storage-redundancy.md).
+2. **Azure Storage** – om du använder hanterade diskar kan du läsa mer om [säkerhets kopiering över flera regioner](/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) med Azure Backup och [Replikera virtuella datorer](./site-recovery/azure-to-azure-tutorial-enable-replication.md) från en region till en annan med Azure Site Recovery. Om du använder lagrings konton konfigureras Geo-redundant lagring (GRS) som standard när ett Azure Storage-konto skapas. Med GRS replikeras dina data automatiskt tre gånger inom den primära regionen och tre gånger i den kopplade regionen. Mer information finns i [Azure Storage alternativ för redundans](storage/common/storage-redundancy.md).
 
-3. **Azure SQL Database** – med Azure SQL Database geo-replikering kan du konfigurera asynkron replikering av transaktioner till vilken region som helst i världen. Vi rekommenderar dock att du distribuerar dessa resurser i en kopplad region för de flesta katastrof återställnings scenarier. Mer information finns i [geo-replikering i Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
+3. **Azure SQL Database** – med Azure SQL Database geo-replikering kan du konfigurera asynkron replikering av transaktioner till vilken region som helst i världen. Vi rekommenderar dock att du distribuerar dessa resurser i en kopplad region för de flesta katastrof återställnings scenarier. Mer information finns i [geo-replikering i Azure SQL Database](./azure-sql/database/auto-failover-group-overview.md).
 
 4. **Azure Resource Manager** – i Resource Manager isoleras komponenter logiskt mellan olika regioner automatiskt. Det innebär att logiska försök i en region är mindre sannolika att påverka ett annat.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 297595c6c4a9c82c3d0293f2cea2db66ea9ca54a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0de8d8d5ff0f14d0268dbcca743f4d06ed877903
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89180413"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544402"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Montera Blob Storage som ett fil system med blobfuse
 
@@ -23,12 +23,12 @@ ms.locfileid: "89180413"
 Den här guiden visar hur du använder blobfuse och monterar en Blob Storage-behållare på Linux och åtkomst till data. Läs mer om blobfuse i informationen i [blobfuse-lagringsplatsen](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
-> Blobfuse garanterar inte 100% POSIX-kompatibilitet eftersom det bara översätter begär anden till [BLOB REST-API: er](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Till exempel är Rename-åtgärder atomiska i POSIX, men inte i blobfuse.
+> Blobfuse garanterar inte 100% POSIX-kompatibilitet eftersom det bara översätter begär anden till [BLOB REST-API: er](/rest/api/storageservices/blob-service-rest-api). Till exempel är Rename-åtgärder atomiska i POSIX, men inte i blobfuse.
 > En fullständig lista över skillnaderna mellan ett ursprungligt fil system och blobfuse finns [i käll kods lagret för blobfuse](https://github.com/azure/azure-storage-fuse).
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Installera blobfuse på Linux
-Blobfuse-binärfiler finns tillgängliga i [Microsofts program varu databaser för Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) för Ubuntu-och RHEL-distributioner. Om du vill installera blobfuse på dessa distributioner konfigurerar du en av databaserna från listan. Du kan också bygga binärfilerna från käll koden efter [Azure Storage installations steg](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) om det inte finns några binärfiler tillgängliga för din distribution.
+Blobfuse-binärfiler finns tillgängliga i [Microsofts program varu databaser för Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) för Ubuntu-och RHEL-distributioner. Om du vill installera blobfuse på dessa distributioner konfigurerar du en av databaserna från listan. Du kan också bygga binärfilerna från käll koden efter [Azure Storage installations steg](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) om det inte finns några binärfiler tillgängliga för din distribution.
 
 Blobfuse stöder installation på Ubuntu 14,04, 16,04 och 18,04. Kör det här kommandot för att kontrol lera att du har någon av dessa versioner distribuerade:
 ```
@@ -36,7 +36,7 @@ lsb_release -a
 ```
 
 ### <a name="configure-the-microsoft-package-repository"></a>Konfigurera Microsoft Package-lagringsplatsen
-Konfigurera [Linux-paketets lagrings plats för Microsoft-produkter](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
+Konfigurera [Linux-paketets lagrings plats för Microsoft-produkter](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
 Som exempel i en Enterprise Linux 6-distribution:
 ```bash
@@ -144,5 +144,4 @@ echo "hello world" > test/blob.txt
 ## <a name="next-steps"></a>Nästa steg
 
 * [Start sida för Blobfuse](https://github.com/Azure/azure-storage-fuse#blobfuse)
-* [Rapportera blobfuse-problem](https://github.com/Azure/azure-storage-fuse/issues) 
-
+* [Rapportera blobfuse-problem](https://github.com/Azure/azure-storage-fuse/issues)

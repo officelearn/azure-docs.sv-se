@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 8c24c5f043d17b5f0e54ca1c2c6cf41a0d3fe9bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0bde1b7be15d49d82818f26d07c2ec633dc4526c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "68726358"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523271"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Ruby
 
@@ -25,7 +25,7 @@ I den här snabbstarten får du lära dig att använda Ruby för att ladda upp, 
 Kontrollera att du har följande ytterligare krav installerade:
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
-* [Azure Storage-biblioteket för Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage) med hjälp av rubygem-paketet: 
+* [Azure Storage-biblioteket för Ruby]() med hjälp av rubygem-paketet: 
 
     ```
     gem install azure-storage-blob
@@ -90,7 +90,7 @@ Det första du ska göra är att skapa referenser till objekten som används fö
 När du har Cloud Blob-containern kan du skapa blobobjektet **Block** som pekar mot den specifika blob du är intresserad av, och utföra åtgärder som att ladda upp, ladda ned och kopiera.
 
 > [!IMPORTANT]
-> Containernamn måste använda gemener. Mer information om containrar och blobnamn finns i [Namngivning och referens av containrar, blobar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Containernamn måste använda gemener. Mer information om containrar och blobnamn finns i [Namngivning och referens av containrar, blobar och metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 I det här avsnittet skapar du en instans av Azure Storage-klienten samt av blobtjänstobjektet, skapar en ny container och anger sedan behörigheter för containern så att blobarna är offentliga. Containern heter **quickstartblobs**. 
 
@@ -189,7 +189,7 @@ Se följande ytterligare resurser för Ruby-utveckling med blobblagring:
 I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med Ruby. Om du vill veta mer om att arbeta med Blob Storage kan du gå vidare till anvisningarna om Blob Storage.
 
 > [!div class="nextstepaction"]
-> [Anvisningar för Blob Storage-åtgärder](./storage-ruby-how-to-use-blob-storage.md)
+> [Anvisningar för Blob Storage-åtgärder]()
 
 
 Mer information om Storage Explorer och blobar finns i [Hantera Azure Blob Storage-resurser med Storage Explorer ](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

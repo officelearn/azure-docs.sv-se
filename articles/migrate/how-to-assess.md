@@ -2,62 +2,82 @@
 title: Lägg till utvärderings verktyg i Azure Migrate
 description: Lär dig hur du lägger till bedömnings verktyg i Azure Migrate.
 ms.topic: how-to
-ms.date: 04/26/2020
-ms.openlocfilehash: 5dee9ec2210bf6e04255b07cf641ced6807c8b5a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/23/2020
+ms.openlocfilehash: 17113d167476c62a97031721b73183d0b0da18af
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317370"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95535038"
 ---
 # <a name="add-assessment-tools"></a>Lägga till utvärderingsverktyg
 
 Den här artikeln beskriver hur du lägger till bedömnings verktyg i [Azure Migrate](./migrate-services-overview.md). 
 
-- Om du vill lägga till ett bedömnings verktyg och du ännu inte har ett Azure Migrate projekt, följer du den här [artikeln](how-to-add-tool-first-time.md).
+- Om du vill lägga till ett utvärderings verktyg och du inte har ett Azure Migrate projekt, följer du den här [artikeln](create-manage-projects.md).
 - Om du har lagt till ett ISV-verktyg, eller om du vill ha en kontroll, [följer du stegen](prepare-isv-movere.md)för att förbereda arbetet med verktyget.
 
 ## <a name="select-an-assessment-scenario"></a>Välj ett utvärderings scenario
 
-1. Klicka på **Översikt**i Azure Migrate projektet.
-2. Välj det utvärderings scenario du vill använda:
+1. Klicka på **Översikt** i Azure Migrate projektet.
+2. Välj utvärderings scenario:
 
-    - Välj **utvärdera och migrera servrar**för att identifiera och utvärdera datorer och arbets belastningar för migrering till Azure.
-    - Välj **utvärdera och migrera databaser**för att utvärdera lokala SQL Server databaser.
-    - Om du vill utvärdera lokala webbappar väljer du **utvärdera och migrera webbappar**.
+    - Välj **utvärdera och migrera servrar** för att identifiera och utvärdera datorer och arbets belastningar för migrering till Azure.
+    - Välj **utvärdera och migrera databaser** för att utvärdera lokala SQL Server databaser.
+    - Om du vill utvärdera eller migrera lokala webbappar väljer du **utforska fler**  >  **Web Apps**.
+    - Om du vill utvärdera din infrastruktur för virtuella skriv bord väljer du **utforska mer**  >  **virtuell Skriv bords infrastruktur**.
 
-    ![Bedömnings scenario](./media/how-to-assess/assess-scenario.png)
+    ![Alternativ för att välja ett utvärderings scenario](./media/how-to-assess/assess-scenario.png)
 
 ## <a name="select-a-server-assessment-tool"></a>Välj ett Server bedömnings verktyg 
 
-1. Klicka på **utvärdera och migrera servrar**.
-2. Om du inte har lagt till ett utvärderings verktyg under **utvärderings verktyg**i **Azure Migrate-servrar**, väljer du **Klicka här för att lägga till ett utvärderings verktyg**. Om du redan har lagt till bedömnings verktyg, i **Lägg till fler utvärderings verktyg**, väljer du **ändra**.
 
-    > [!NOTE]
-    > Om du behöver navigera till ett annat projekt, i **Azure Migrate-servrar**, bredvid **se information om ett annat migrerat projekt**klickar du **på Klicka här**.
+1. Lägg till ett verktyg:
 
-3. I **Azure Migrate**väljer du det utvärderings verktyg som du vill använda.
+    - Om du har skapat ett Azure Migrate-projekt med hjälp av alternativet **utvärdera och migrera servrar** i portalen läggs verktyget Azure Migrate Server Assessment automatiskt till i projektet. Om du vill lägga till ytterligare utvärderings verktyg väljer du **Lägg till fler verktyg** i **servrar** bredvid **utvärderings verktyg**.
+    
+         ![Knapp för att lägga till ytterligare utvärderings verktyg](./media/how-to-assess/add-assessment-tool.png)
 
-    - Om du använder Azure Migrate Server utvärdering kan du ställa in, köra och Visa utvärderingar direkt i Azure Migrate projektet.
-    - Om du använder ett annat utvärderings verktyg navigerar du till den länk som tillhandahölls för platsen och kör utvärderingen enligt de instruktioner som de tillhandahåller.
+    - Om du har skapat ett projekt med ett annat alternativ och ännu inte har några utvärderings verktyg, i verktyg för **Server**  >  **utvärdering**, väljer du **Klicka här**.
+
+        ![Knapp för att lägga till första bedömnings verktyget](./media/how-to-assess/no-assessment-tool.png)
+
+2. I **Azure Migrate**  >  **Lägg till verktyg** väljer du de verktyg som du vill lägga till. Välj sedan **Lägg till verktyg**.
+
+    ![Välj utvärderings verktyg från listan](./media/how-to-assess/select-assessment-tool.png)
+
 
 
 ## <a name="select-a-database-assessment-tool"></a>Välj ett verktyg för databas bedömning
 
-1. Klicka på **utvärdera och migrera databaser**
-2. I **databaser**klickar du på **Lägg till verktyg**.
-3. I Lägg till ett verktyg > **Välj bedömnings verktyg**väljer du det verktyg som du vill använda för att utvärdera din databas.
+1. Lägg till ett verktyg:
+
+    - Om du har skapat ett Azure Migrate-projekt med hjälp av alternativet **utvärdera och migrera databas** i portalen läggs verktyget för databas bedömning automatiskt till i projektet. Om du vill lägga till ytterligare utvärderings verktyg väljer du **Lägg till fler verktyg** i **databaser** bredvid **bedömnings verktyg**.
+
+    - Om du har skapat ett projekt med ett annat alternativ och ännu inte har några verktyg för databas utvärdering, i verktyg för utvärdering av **databaser**  >  **Assessment tools**, väljer du **Klicka här**.
+
+2. I **Azure Migrate**  >  **Lägg till verktyg** väljer du de verktyg som du vill lägga till. Välj sedan **Lägg till verktyg**.
+
+    ![Välj verktyg för databas utvärdering från listan](./media/how-to-assess/select-database-assessment-tool.png)
+
 
 ## <a name="select-a-web-app-assessment-tool"></a>Välj ett verktyg för bedömning av webb program
 
-1. Klicka på **utvärdera och migrera webbappar**.
-2. Följ länken till migrations verktyget för Azure App Service. Använd Migreringsverktyget för att:
+Om du har skapat ett Azure Migrate-projekt med hjälp av alternativet **utforska fler**  >  **webapps** i portalen läggs verktyget för webbappens bedömning automatiskt till i projektet. 
 
-    - **Utvärdera appar online**: du kan utvärdera appar med en offentlig URL online med hjälp av Azure App Service Migration Assistant.
-    - **.Net/php**: för interna .net-och php-appar kan du hämta och köra Migration Assistant.
 
+1. Om verktyget Web App Assessment inte finns i projektet **Web Apps**  >  väljer du **Klicka här** i Web Apps **utvärderings verktyg**.
+    
+    ![Lägg till verktyg för webb program utvärdering](./media/how-to-assess/no-web-app-assessment-tool.png)
+
+
+2. I **Azure Migrate**  >  **Lägg till verktyg** väljer du verktyget för webbapp. Välj sedan **Lägg till verktyg**.
+
+    ![Välj Migreringsverktyget för databas från listan](./media/how-to-assess/select-web-app-assessment-tool.png)
+
+ 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova en utvärdering med hjälp av Azure Migrate Server utvärdering för virtuella [VMware](./tutorial-discover-vmware.md) -datorer, [Hyper-V](./tutorial-discover-hyper-v.md)eller [fysiska servrar](./tutorial-discover-physical.md)
+Identifiera lokala datorer för utvärdering med verktyget Azure Migrate Server Assessment för virtuella [VMware](./tutorial-discover-vmware.md) -datorer, [Hyper-V](./tutorial-discover-hyper-v.md)eller [fysiska servrar](./tutorial-discover-physical.md)

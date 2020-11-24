@@ -3,12 +3,12 @@ title: Hur du utformar din Application Insights-distribution – en vs många re
 description: Dirigera telemetri till olika resurser för utveckling, testning och produktions märken.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258722"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536361"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Hur många Application Insights-resurser ska jag distribuera
 
@@ -26,7 +26,7 @@ Varje Application Insights resurs levereras med mått som är tillgängliga dire
 
 -   För program komponenter som distribueras tillsammans. Utvecklas vanligt vis av ett enda team, som hanteras av samma uppsättning DevOps/ITOps-användare.
 -   Om det är klokt att aggregera nyckeltal (KPI: er), till exempel svars tider, frekvenser för haverier på instrument panelen osv., över alla dessa som standard (du kan välja att segmentera efter roll namn i Metrics Explorers upplevelsen).
--   Om du inte behöver hantera rollbaserad Access Control (RBAC) på ett annat sätt mellan program komponenterna.
+-   Om du inte behöver hantera rollbaserad åtkomst kontroll i Azure (Azure RBAC) på ett annat sätt mellan program komponenterna.
 -   Om du inte behöver några mått på aviserings villkor som skiljer sig mellan komponenterna.
 -   Om du inte behöver hantera kontinuerliga exporter på olika sätt mellan komponenterna.
 -   Om du inte behöver hantera fakturering/kvoter på ett annat sätt mellan komponenterna.

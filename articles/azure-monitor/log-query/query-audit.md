@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: 1c0247c5adfe60dc2436c832cf3d561882ae3a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ce0aea6bb257f0a52a843ce53cc904ed0a775dd
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760169"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536208"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Gransknings frågor i Azure Monitor loggar (förhands granskning)
 Logg läsar gransknings loggar ger telemetri om logg frågor som körs i Azure Monitor. Detta omfattar information som när en fråga kördes, vem som körde den, vilket verktyg som användes, frågetexten och prestanda statistik som beskriver frågans körning.
@@ -23,7 +23,7 @@ Granskning av frågor aktive ras med en [diagnostisk inställning](../platform/d
 ### <a name="azure-portal"></a>Azure Portal
 Få åtkomst till diagnostikinställningar för en Log Analytics arbets yta i Azure Portal på någon av följande platser:
 
-- Från **Azure Monitor** -menyn väljer du **diagnostikinställningar**och letar upp och väljer arbets ytan.
+- Från **Azure Monitor** -menyn väljer du **diagnostikinställningar** och letar upp och väljer arbets ytan.
 
     [![Diagnostikinställningar Azure Monitor ](media/log-query-audit/diagnostic-setting-monitor.png)](media/log-query-audit/diagnostic-setting-monitor.png#lightbox) 
 
@@ -37,7 +37,7 @@ Du kan hämta en exempel Resource Manager-mall från [diagnostikinställningar f
 ## <a name="audit-data"></a>Granska data
 En gransknings post skapas varje gång en fråga körs. Om du skickar data till en Log Analytics arbets yta lagras den i en tabell med namnet *LAQueryLogs*. I följande tabell beskrivs egenskaperna i varje post i gransknings data.
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 |:---|:---|
 | TimeGenerated         | UTC-tid när frågan skickades. |
 | CorrelationId         | Unikt ID för att identifiera frågan. Kan användas i fel söknings scenarier när du kontaktar Microsoft för att få hjälp. |
@@ -66,7 +66,7 @@ En gransknings post skapas varje gång en fråga körs. Om du skickar data till 
 
 - Frågor loggas bara när de körs i en användar kontext. Ingen service-till-tjänst i Azure kommer att loggas. De två primära uppsättningarna med frågor denna undantags kompass är fakturerings beräkningar och automatiserade aviserings körningar. I händelse av aviseringar kommer bara den schemalagda varnings frågan inte att loggas. den första körningen av aviseringen på skärmen för att skapa aviseringar körs i en användar kontext och är tillgänglig i gransknings syfte. 
 - Prestanda statistik är inte tillgänglig för frågor som kommer från Azure Datautforskaren proxy. Alla andra data för dessa frågor kommer fortfarande att fyllas i.
-- *H* -tipset på strängar som [obfuscates sträng litteraler](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) kommer inte att påverka gransknings loggarna. Frågorna samlas in exakt som de skickas utan strängen som fördunklade. Du bör se till att endast användare som har behörighet att se dessa data kan göra detta med hjälp av de olika RBAC-lägen som är tillgängliga i Log Analytics-arbetsytor.
+- *H* -tipset på strängar som [obfuscates sträng litteraler](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) kommer inte att påverka gransknings loggarna. Frågorna samlas in exakt som de skickas utan strängen som fördunklade. Du bör se till att endast användare som har behörighet att se dessa data kan göra detta med de olika Kubernetes RBAC-eller Azure RBAC-lägen som är tillgängliga i Log Analytics-arbetsytor.
 - För frågor som innehåller data från flera arbets ytor, kommer frågan bara att fångas in på de arbets ytor som användaren har åtkomst till.
 
 ## <a name="costs"></a>Kostnader  

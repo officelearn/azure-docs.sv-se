@@ -1,6 +1,6 @@
 ---
-title: Ändra storlek på en OS-disk som har en GPT-partition | Microsoft Docs
-description: Den här artikeln innehåller anvisningar om hur du ändrar storlek på en OS-disk som har en GPT-partition.
+title: Ändra storlek på en OS-disk som har en GPT-partition
+description: Den här artikeln innehåller anvisningar om hur du ändrar storlek på en OS-disk som har en GPT-partition (GUID Partition Table) i Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: kailashmsft
@@ -14,17 +14,17 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 99b723322ce7636edce3ae5b59a69b96e288ca24
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 3565b165c669af3566667d9bdfa401d15fcce101
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392698"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544164"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Ändra storlek på en OS-disk som har en GPT-partition
 
 > [!NOTE]
-> Det här scenariot gäller endast för OS-diskar som har GPT-partitioner (GUID Partition Table).
+> Den här artikeln gäller bara för OS-diskar som har en GPT-partition (GUID Partition Table).
 
 Den här artikeln beskriver hur du ökar storleken på en OS-disk som har en GPT-partition i Linux. 
 
@@ -50,7 +50,7 @@ Number  Start   End     Size    Type     File system  Flags
 
 ### <a name="gpt-partition"></a>GPT-partition
 
-I följande utdata visar **partitionstabellen** ett **GPT** -värde. Det här värdet identifierar en GPT-partition.
+I följande utdata visar **partitionstabellen** ett **GPT**-värde. Det här värdet identifierar en GPT-partition.
 
 ```
 [user@myvm ~]# parted -l /dev/sda
@@ -78,14 +78,14 @@ Följande instruktioner gäller för Linux-godkända distributioner.
 
 ### <a name="ubuntu"></a>Ubuntu
 
-Öka storleken på operativ system disken i Ubuntu 16. x och 18. x:
+För att öka storleken på operativ system disken i Ubuntu 16. *x* och 18. *x*:
 
 1. Stoppa den virtuella datorn.
 1. Öka storleken på operativ system disken från portalen.
 1. Starta om den virtuella datorn och logga sedan in på den virtuella datorn som en **rot** användare.
 1. Kontrol lera att operativ system disken nu visar en större fil system storlek.
 
-Som du ser i följande exempel har OS-disken ändrat storlek från portalen till 100 GB. **/Dev/sda1** -filsystemet som är monterat **/** nu visar 97 GB.
+I följande exempel har OS-disken ändrat storlek från portalen till 100 GB. **/Dev/sda1** -filsystemet som är monterat **/** nu visar 97 GB.
 
 ```
 user@myvm:~# df -Th
@@ -110,21 +110,21 @@ För att öka storleken på operativ system disken i SUSE 12 SP4, SUSE SLES 12 f
 1. Öka storleken på operativ system disken från portalen.
 1. Starta om den virtuella datorn.
 
-Utför följande steg när den virtuella datorn har startats om:
+När den virtuella datorn har startats om utför du följande steg:
 
-1. Få åtkomst till den virtuella datorn som en **rot** användare med hjälp av följande kommando:
+1. Få åtkomst till den virtuella datorn som en **rot** användare med hjälp av det här kommandot:
 
    ```
    # sudo -i
    ```
 
-1. Använd följande kommando för att installera **growpart** -paketet som ska användas för att ändra storlek på partitionen:
+1. Använd följande kommando för att installera **growpart** -paketet som du ska använda för att ändra storlek på partitionen:
 
    ```
    # zypper install growpart
    ```
 
-1. Använd `lsblk` kommandot för att hitta partitionen som är monterad i fil roten ("/"). I det här fallet ser vi att partition 4 av enhets SDA är monterad på/:
+1. Använd `lsblk` kommandot för att hitta partitionen som är monterad i roten för fil systemet ( **/** ). I det här fallet ser vi att partition 4 av enhets **SDA** är monterad på **/** :
 
    ```
    # lsblk
@@ -138,7 +138,7 @@ Utför följande steg när den virtuella datorn har startats om:
    └─sdb1   8:17   0    4G  0 part /mnt/resource
    ```
 
-1. Ändra storlek på den nödvändiga partitionen med `growpart` kommandot med hjälp av partitionsnumret som finns i föregående steg.
+1. Ändra storlek på den nödvändiga partitionen genom att använda `growpart` kommandot och partitionsnumret som fastställs i föregående steg:
 
    ```
    # growpart /dev/sda 4
@@ -177,7 +177,7 @@ Utför följande steg när den virtuella datorn har startats om:
 
 1. Använd lämpliga kommandon för att ändra storlek på fil systemet baserat på typ av fil system.
    
-   Använd följande kommando för **xfs** :
+   För **xfs** använder du följande kommando:
    
    ```
    #xfs_growfs /
@@ -200,13 +200,13 @@ Utför följande steg när den virtuella datorn har startats om:
    data blocks changed from 7470331 to 12188923
    ```
    
-   Använd följande kommando för **ext4** :
+   För **ext4** använder du följande kommando:
    
    ```
    #resize2fs /dev/sda4
    ```
    
-1. Kontrol lera den ökade fil system storleken för **DF** genom att använda följande kommando:
+1. Verifiera den ökade fil system storleken för **DF** genom att använda det här kommandot:
    
    ```
    #df -Thl
@@ -233,13 +233,13 @@ Utför följande steg när den virtuella datorn har startats om:
 
 ### <a name="rhel-with-lvm"></a>RHEL med LVM
 
-1. Få åtkomst till den virtuella datorn som en **rot** användare med hjälp av följande kommando:
+1. Få åtkomst till den virtuella datorn som en **rot** användare med hjälp av det här kommandot:
 
    ```bash
    [root@dd-rhel7vm ~]# sudo -i
    ```
 
-1. Använd `lsblk` kommandot för att ta reda på vilken logisk volym (LV) som är monterad i roten för fil systemet ("/"). I det här fallet ser vi att **_rootvg-rootlv_*_ är monterad på _* /**.  Om ett annat fil system önskas byter du ut LV-och monterings punkten genom det här dokumentet.
+1. Använd `lsblk` kommandot för att avgöra vilken logisk volym (LV) som är monterad i roten för fil systemet ( **/** ). I det här fallet ser vi att **rootvg-rootlv** är monterad på **/** . Om du vill ha ett annat fil system ersätter du LV och monterings punkt i den här artikeln.
 
    ```shell
    [root@dd-rhel7vm ~]# lsblk -f
@@ -258,7 +258,7 @@ Utför följande steg när den virtuella datorn har startats om:
       └─rootvg-rootlv     xfs                 4f3e6f40-61bf-4866-a7ae-5c6a94675193   /
    ```
 
-1. Kontrol lera om det finns ledigt utrymme i LVM-volym gruppen som innehåller rot-partitionen.  Om det finns ledigt utrymme går du vidare till steg **12**
+1. Kontrol lera om det finns ledigt utrymme i den LVM volym grupp (VG) som innehåller rot partitionen. Om det finns ledigt utrymme går du vidare till steg 12.
 
    ```bash
    [root@dd-rhel7vm ~]# vgdisplay rootvg
@@ -284,17 +284,15 @@ Utför följande steg när den virtuella datorn har startats om:
    VG UUID               lPUfnV-3aYT-zDJJ-JaPX-L2d7-n8sL-A9AgJb
    ```
 
-   I det här exemplet anger den **kostnads fria PE/storleken** att det finns 38.02 GB ledigt utrymme i volym gruppen.  Det krävs ingen storleks ändring för disken innan du lägger till utrymme i volym gruppen
+   I det här exemplet visar den **kostnads fria PE/storleken** att det finns 38,02 GB ledigt utrymme i volym gruppen. Du behöver inte ändra storlek på disken innan du lägger till utrymme i volym gruppen.
 
-1. Öka storleken på operativ system disken i RHEL 7. x med LVM:
+1. För att öka storleken på operativ system disken i RHEL 7. *x* med LVM:
 
    1. Stoppa den virtuella datorn.
    1. Öka storleken på operativ system disken från portalen.
    1. Starta den virtuella datorn.
 
-1. Utför följande steg när den virtuella datorn har startats om:
-
-   1. Installera paketet **Cloud-utils-growpart** för att tillhandahålla kommandot **growpart** , vilket krävs för att öka storleken på operativ system disken.
+1. När den virtuella datorn har startats om installerar du paketet **Cloud-utils-growpart** för att hämta `growpart` kommandot, vilket du behöver för att öka storleken på operativ system disken.
 
       Det här paketet är förinstallerat på de flesta Azure Marketplace-avbildningar.
 
@@ -302,14 +300,14 @@ Utför följande steg när den virtuella datorn har startats om:
       [root@dd-rhel7vm ~]# yum install cloud-utils-growpart
       ```
 
-1. Bestäm vilken disk och partition som innehåller LVM fysiska volymer (PV) i volym gruppen (VG) med namnet rootvg med **pvscan** -kommandot.  Anteckna storleken och det lediga utrymmet som anges mellan hakparenteserna **[]**.
+1. Bestäm vilken disk och partition som innehåller LVM fysiska volymer eller volymer (PV) i volym gruppen med namnet **rootvg** med hjälp av `pvscan` kommandot. Observera storlek och ledigt utrymme som anges mellan hakparenteserna (**[** och **]**).
 
    ```bash
    [root@dd-rhel7vm ~]# pvscan
      PV /dev/sda4   VG rootvg          lvm2 [<63.02 GiB / <38.02 GiB free]
    ```
 
-1. Kontrol lera storleken på partitionen med **lsblk**.  Titta på 
+1. Kontrol lera partitionens storlek med hjälp av `lsblk` . 
 
    ```bash
    [root@dd-rhel7vm ~]# lsblk /dev/sda4
@@ -323,14 +321,14 @@ Utför följande steg när den virtuella datorn har startats om:
    └─rootvg-rootlv 253:6    0   2G  0 lvm  /
    ```
 
-1. Expandera partitionen som innehåller detta PV med **growpart** , enhets namnet och partitionsnumret.  Detta utökar den angivna partitionen så att hela det fria sammanhängande utrymmet på enheten används.
+1. Expandera partitionen som innehåller detta PV genom att använda `growpart` , enhets namnet och partitionens nummer. Om du gör det expanderas den angivna partitionen så att allt ledigt utrymme på enheten används.
 
    ```bash
    [root@dd-rhel7vm ~]# growpart /dev/sda 4
    CHANGED: partition=4 start=2054144 old: size=132161536 end=134215680 new: size=199272414 end=201326558
    ```
 
-1. Kontrol lera att partitionen har ändrat storlek till den förväntade storleken med kommandot **lsblk** igen.  Observera att i exemplet sda4 har ändrats från 63G till 95G.
+1. Kontrol lera att partitionen har ändrat storlek till den förväntade storleken genom att använda `lsblk` kommandot igen. Observera att i exemplet **sda4** har ändrats från 63 GB till 95 GB.
 
    ```bash
    [root@dd-rhel7vm ~]# lsblk /dev/sda4
@@ -344,7 +342,7 @@ Utför följande steg när den virtuella datorn har startats om:
    └─rootvg-rootlv 253:6    0   2G  0 lvm  /
    ```
 
-1. Expandera NUVÄRDEt för att använda resten av den nya expanderade partitionen
+1. Expandera NUVÄRDEt för att använda resten av den nya expanderade partitionen:
 
    ```bash
    [root@dd-rhel7vm ~]# pvresize /dev/sda4
@@ -352,14 +350,14 @@ Utför följande steg när den virtuella datorn har startats om:
    1 physical volume(s) resized or updated / 0 physical volume(s) not resized
    ```
 
-1. Kontrol lera att den nya storleken på PV är den förväntade storleken, jämfört med ursprungliga **[storlek/free]-** värden.
+1. Kontrol lera att den nya storleken på PV är den förväntade storleken, och jämför det med de ursprungliga **[storlek/lediga]** värdena:
 
    ```bash
    [root@dd-rhel7vm ~]# pvscan
    PV /dev/sda4   VG rootvg          lvm2 [<95.02 GiB / <70.02 GiB free]
    ```
 
-1. Expandera önskad logisk volym (LV) enligt önskad mängd, vilket inte behöver vara allt ledigt utrymme i volym gruppen.  I följande exempel ändras storleken på **/dev/mapper/rootvg-rootlv** från 2 GB till 12 GB (en ökning på 10 GB) genom följande kommando. Det här kommandot ändrar även storlek på fil systemet.
+1. Expandera önskad logisk volym (LV) med den mängd som du vill ha. Mängden behöver inte vara allt ledigt utrymme i volym gruppen. I följande exempel ändrar **/dev/mapper/rootvg-rootlv** storlek från 2 GB till 12 GB (en ökning på 10 GB). Det här kommandot ändrar även storlek på fil systemet.
 
    ```bash
    [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
@@ -383,7 +381,7 @@ Utför följande steg när den virtuella datorn har startats om:
    data blocks changed from 524288 to 3145728
    ```
 
-1. Kommandot lvresize anropar automatiskt rätt ändrings kommando för fil systemet på LV. Kontrol lera om **/dev/mapper/rootvg-rootlv** , som är monterad på **/** har en större fil system storlek, genom att använda följande kommando:
+1. `lvresize`Kommandot anropar automatiskt rätt storleks ändrings kommando för fil systemet på LV. Kontrol lera om **/dev/mapper/rootvg-rootlv**, som är monterat på **/** , har en större fil system storlek med hjälp av det här kommandot:
 
    ```shell
    [root@dd-rhel7vm ~]# df -Th /
@@ -399,100 +397,102 @@ Utför följande steg när den virtuella datorn har startats om:
    ```
 
 > [!NOTE]
-> Om du vill använda samma procedur för att ändra storlek på en annan logisk volym ändrar du namnet på **LV** i steg **12**.
+> Om du vill använda samma procedur för att ändra storlek på en annan logisk volym ändrar du namnet på LV i steg 12.
 
 ### <a name="rhel-raw"></a>RHEL RAW
 >[!NOTE]
 >Ta alltid en ögonblicks bild av den virtuella datorn innan du ökar storleken på operativ system disken.
 
-Öka storleken på operativ system disken i RHEL med RAW-partition:
+För att öka storleken på operativ system disken i en RHEL RAW-partition:
 
-Stoppa den virtuella datorn.
-Öka storleken på operativ system disken från portalen.
-Starta den virtuella datorn.
-Utför följande steg när den virtuella datorn har startats om:
+1. Stoppa den virtuella datorn.
+1. Öka storleken på operativ system disken från portalen.
+1. Starta den virtuella datorn.
 
-1. Få åtkomst till den virtuella datorn som en **rot** användare med hjälp av följande kommando:
+När den virtuella datorn har startats om utför du följande steg:
+
+1. Få åtkomst till den virtuella datorn som en **rot** användare med hjälp av det här kommandot:
  
    ```
    sudo su
    ```
 
-1. Installera **gptfdisk** -paketet, vilket krävs för att öka storleken på operativ system disken.
+1. Installera **gptfdisk** -paketet som du behöver för att öka storleken på operativ system disken:
 
    ```
    yum install gdisk -y
    ```
 
-1.  Kör följande kommando för att se alla sektorer som är tillgängliga på disken:
+1.  Kör det här kommandot om du vill se alla sektorer som är tillgängliga på disken:
     ```
     gdisk -l /dev/sda
     ```
 
-1. Du kommer att se informationen som informerar partitionstypen. Se till att det är GPT. Identifiera rotnoden. Ändra inte eller ta bort startpartitionen (BIOS-startpartitionen) och systempartitionen (EFI system partition)
+1. Du ser informationen som informerar partitionstypen. Kontrol lera att det är GPT. Identifiera rotnoden. Ändra inte eller ta bort startpartitionen (BIOS boot partition) eller systempartitionen (EFI system partition).
 
-1. Använd följande kommando för att starta partitionering för första gången. 
+1. Använd det här kommandot för att starta partitionering för första gången: 
     ```
     gdisk /dev/sda
     ```
 
-1. Nu ska du se ett meddelande som frågar efter nästa kommando ("kommando:? för hjälp "). 
+1. Ett meddelande visas där du uppmanas att ange nästa kommando: `Command: ? for help` . Välj **m** -nyckeln:
 
    ```
    w
    ```
 
-1. Du får en varning om att "varning! Sekundärt huvud har placerats för tidigt på disken! Vill du korrigera det här problemet? (J/N): ". Du måste trycka på "Y"
+1. Du får det här meddelandet: `Warning! Secondary header is placed too early on the disk! Do you want to
+correct this problem? (Y/N)` . Välj **Y** -tangenten: 
 
    ```
    Y
    ```
 
-1. Du bör se ett meddelande som talar om att de slutliga kontrollerna har slutförts och att du uppmanas att bekräfta. Tryck på "Y"
+1. Du bör se ett meddelande om att de slutliga kontrollerna har slutförts och att du uppmanas att bekräfta. Välj **Y** -tangenten:
 
    ```
    Y
    ```
 
-1. Kontrol lera om allt hände korrekt med kommandot partprobe
+1. Använd `partprobe` kommandot för att kontrol lera om allt hände korrekt:
 
    ```
    partprobe
    ```
 
-1. Ovanstående steg har säkerställt att det sekundära GPT-huvudet placeras i slutet. Nästa steg är att starta processen med att ändra storlek genom att använda verktyget gdisk igen. Använd följande kommando.
+1. Du har slutfört de föregående stegen för att se till att det sekundära GPT-huvudet placeras i slutet. Börja med att starta processen med att ändra storlek genom att använda `gdisk` verktyget igen. Ange följande kommando:
 
    ```
    gdisk /dev/sda
    ```
-1. I menyn kommando trycker du på "p" för att se en lista över partitioner. Identifiera rotnoden (i stegen är sda2 betraktas som rotnod) och startpartitionen (i stegen är sda3 betraktas som startpartition) 
+1. I menyn kommando väljer du **p** -nyckeln för att se en lista över partitioner. Identifiera rotnoden. (I de här stegen anses **sda2** vara rot-partitionen.) Identifiera startpartitionen. (I de här stegen anses **sda3** vara startpartitionen.) 
 
    ```
    p
    ```
-    ![Rotnod och startpartition](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+    ![Skärm bild som visar rotnoden och startpartitionen.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
 
-1. Tryck på "d" för att ta bort partitionen och välj det partitionsnummer som är tilldelat till Start (i det här exemplet är det "3")
+1. Välj **d** -tangenten för att ta bort partitionen. Välj sedan det partitionsnummer som är tilldelat startpartitionen. (I det här exemplet är det **3**.)
    ```
    d
    3
    ```
-1. Tryck på "d" för att ta bort partitionen och välj det partitionsnummer som är tilldelat till Start (i det här exemplet är det ' 2 ')
+1. Välj **d** -tangenten för att ta bort partitionen. Välj det partitions nummer som har tilldelats till startpartitionen. (I det här exemplet är det **2**.)
    ```
    d
    2
    ```
-    ![Ta bort rotnod och startpartition](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+    ![Skärm bild som visar stegen för att ta bort rot-och startpartitionerna.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
 
-1. Om du vill skapa en ny rotnod med större storlek trycker du på "n", anger det partitionsnummer som du tog bort tidigare för roten ("2" i det här exemplet) och väljer den första sektorn som standardvärde, sista sektorn som sista sektor värde – start storleks sektor (' 4096 i det här fallet motsvarar 2 MB start) och hex-kod som "8300"
+1. Om du vill återskapa rot partitionen med ökad storlek väljer du **n** -nyckeln och anger sedan det partitionsnummer som du tog bort tidigare för roten (**2** i det här exemplet). Välj `Default Value` för den första sektorn. Välj `Last sector value -  boot size sector` för den sista sektorn ( `4096` i det här fallet som motsvarar 2 MB start). Välj `8300` den hexadecimala koden.
    ```
    n
    2
    (Enter default)
-   (Calculateed value of Last sector value - 4096)
+   (Calculated value of Last sector value - 4096)
    8300
    ```
-1. Om du vill återskapa startpartitionen trycker du på "n", anger det partitionsnummer som du tog bort tidigare för start ("3" i det här exemplet) och väljer den första sektorn som standardvärdet, den sista sektorn som standardvärde och hex-kod som "EF02"
+1. Skapa startpartitionen igen genom att välja **n** -nyckeln och ange sedan det partitionsnummer som du tog bort tidigare för start (**3** i det här exemplet). Välj `Default Value` för den första sektorn och den sista sektorn. Välj `EF02` den hexadecimala koden.
    ```
    n
    3
@@ -501,28 +501,28 @@ Utför följande steg när den virtuella datorn har startats om:
    EF02
    ```
 
-1. Skriv ändringarna med kommandot "w" och tryck på "Y" för att bekräfta
+1. Skriv ändringarna genom att använda `w` kommandot och välj sedan `Y` för att bekräfta ändringarna:
    ```
    w
    Y
    ```
-1. Kör kommandot ' partprobe ' för att kontrol lera disk stabiliteten
+1. Kör `partprobe` kommandot för att kontrol lera disk stabiliteten:
    ```
    partprobe
    ```
-1. Starta om den virtuella datorn och rot partitionens storlek skulle ha ökat
+1. Starta om den virtuella datorn. Rotens partition storlek bör ökas.
    ```
    reboot
    ```
 
-   ![Ny rotnod och startpartition](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+   ![Skärm bild som visar stegen för att återskapa startpartitionen.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
 
-1. Kör kommandot xfs_growfs på partitionen för att ändra storlek på det
+1. Kör `xfs_growfs` kommandot på partitionen för att ändra storlek på den:
    ```
    xfs_growfs /dev/sda2
    ```
 
-   ![XFS-tillväxt FS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
+   ![Skärm bild som visar resultatet av att köra xfs_growfs.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

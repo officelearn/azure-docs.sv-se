@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 517de5c4003655c5fea2f2e7949fb513b1a3c381
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 950fcdc5cd6a5bbf3fa61ebd5e23be89691c4370
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842438"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95535800"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Skapa diagnostikinställningar för att skicka plattformsloggar och mått till olika målplatser
 [Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. [Plattforms mått](data-platform-metrics.md) samlas in som standard och lagras vanligt vis i Azure Monitor Metrics-databasen. Den här artikeln innehåller information om hur du skapar och konfigurerar diagnostikinställningar för att skicka plattforms mått och plattforms loggar till olika mål.
@@ -52,7 +52,7 @@ Plattforms loggar och-mått kan skickas till målen i följande tabell.
 
 ### <a name="destination-requirements"></a>Mål krav
 
-Du måste skapa alla destinationer för den diagnostiska inställningen innan du skapar diagnostikinställningar. Målet behöver inte finnas i samma prenumeration som resursen som skickar loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna. Följande tabell innehåller unika krav för varje mål, inklusive eventuella regionala begränsningar.
+Du måste skapa alla destinationer för den diagnostiska inställningen innan du skapar diagnostikinställningar. Målet behöver inte finnas i samma prenumeration som resursen som skickar loggar så länge som den användare som konfigurerar inställningen har lämplig Azure RBAC-åtkomst till båda prenumerationerna. Följande tabell innehåller unika krav för varje mål, inklusive eventuella regionala begränsningar.
 
 | Mål | Krav |
 |:---|:---|

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: f2f30230418637b53826bd314e395e760db7087f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 053c120b7a1a6c50c16ff419a9e64666d83dc59a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87306022"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542498"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Använda Twilio för röst-och SMS-funktioner i Java
 Den här guiden visar hur du utför vanliga programmerings åtgärder med Twilio API-tjänsten på Azure. Scenarierna som ingår är att ringa ett telefonsamtal och skicka ett SMS-meddelande (Short Message Service). Mer information om Twilio och hur du använder röst-och SMS i dina program finns i avsnittet [Nästa steg](#NextSteps) .
@@ -37,21 +37,21 @@ Twilio-API: et är ett RESTful-API som tillhandahåller röst-och SMS-funktioner
 Viktiga aspekter av Twilio-API: et är Twilio-verb och Twilio Markup Language (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Twilio-verb
-API: et använder Twilio-verb. exempelvis instruerar verbet Twilio till audibly att leverera ett meddelande på ett samtal. ** &lt; &gt; **
+API: et använder Twilio-verb. exempelvis instruerar verbet Twilio till audibly att leverera ett meddelande på ett samtal. **&lt; &gt;**
 
 Följande är en lista över Twilio-verb.
 
-* ** &lt; Dial &gt; **: ansluter anroparen till en annan telefon.
-* ** &lt; Samla &gt; **in: samlar in numeriska siffror som anges på telefon tangent bordet.
-* Koppla: avslutar ett anrop. ** &lt; &gt; **
-* ** &lt; Play &gt; **: spelar upp en ljudfil.
-* ** &lt; Kö &gt; **: Lägg till i en kö med anropare.
-* ** &lt; Paus &gt; **: väntar i tyst läge under ett angivet antal sekunder.
-* ** &lt; Post &gt; **: registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
-* ** &lt; Omdirigera &gt; **: överför kontroll av ett anrop eller SMS till TWIML på en annan URL.
-* ** &lt; Avvisa &gt; **: avvisar ett inkommande samtal till ditt Twilio-nummer utan fakturering.
-* ** &lt; Säg &gt; **: konverterar text till tal som görs i ett samtal.
-* ** &lt; SMS &gt; **: skickar ett SMS-meddelande.
+* **&lt; Dial &gt;**: ansluter anroparen till en annan telefon.
+* **&lt; Samla &gt;** in: samlar in numeriska siffror som anges på telefon tangent bordet.
+* Koppla: avslutar ett anrop. **&lt; &gt;**
+* **&lt; Play &gt;**: spelar upp en ljudfil.
+* **&lt; Kö &gt;**: Lägg till i en kö med anropare.
+* **&lt; Paus &gt;**: väntar i tyst läge under ett angivet antal sekunder.
+* **&lt; Post &gt;**: registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
+* **&lt; Omdirigera &gt;**: överför kontroll av ett anrop eller SMS till TWIML på en annan URL.
+* **&lt; Avvisa &gt;**: avvisar ett inkommande samtal till ditt Twilio-nummer utan fakturering.
+* **&lt; Säg &gt;**: konverterar text till tal som görs i ett samtal.
+* **&lt; SMS &gt;**: skickar ett SMS-meddelande.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML är en uppsättning XML-baserade instruktioner som baseras på Twilio-verb som informerar Twilio om hur man bearbetar ett anrop eller SMS.
@@ -133,7 +133,7 @@ Mer information om de parametrar som skickas till metoden **Call. Creator** finn
 Som nämnts använder den här koden en Twilio plats för att returnera TwiML-svaret. Du kan i stället använda din egen webbplats för att tillhandahålla TwiML-svaret. Mer information finns i [så här ger du TwiML svar i ett Java-program på Azure](#howto_provide_twiml_responses).
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>Gör så här: Skicka ett SMS-meddelande
-Följande visar hur du skickar ett SMS-meddelande med hjälp av **meddelande** klassen. **From** Number **4155992671**tillhandahålls av Twilio för utvärderings konton för att skicka SMS-meddelanden. **Till** -numret måste kontrol leras för ditt Twilio-konto innan koden körs.
+Följande visar hur du skickar ett SMS-meddelande med hjälp av **meddelande** klassen. **From** Number **4155992671** tillhandahålls av Twilio för utvärderings konton för att skicka SMS-meddelanden. **Till** -numret måste kontrol leras för ditt Twilio-konto innan koden körs.
 
 ```java
     // Use your account SID and authentication token instead
@@ -157,7 +157,7 @@ Följande visar hur du skickar ett SMS-meddelande med hjälp av **meddelande** k
 Mer information om de parametrar som skickas till metoden **Message. Creator** finns i [https://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms] .
 
 ## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>Gör så här: Tillhandahåll TwiML svar från din egen webbplats
-När ditt program initierar ett anrop till Twilio-API: t, till exempel via metoden **CallCreator. Create** , skickar Twilio din begäran till en URL som förväntas returnera ett TwiML-svar. Exemplet ovan använder Twilio-URL: en [https://twimlets.com/message][twimlet_message_url] . (Även om TwiML har utformats för användning av webb tjänster kan du Visa TwiML i webbläsaren. Klicka till exempel på [https://twimlets.com/message][twimlet_message_url] om du vill se ett tomt ** &lt; &gt; svars** element, som ett annat exempel: klicka [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world] om du vill se ett ** &lt; svars &gt; ** element som innehåller ett ** &lt; Säg &gt; ** -element.)
+När ditt program initierar ett anrop till Twilio-API: t, till exempel via metoden **CallCreator. Create** , skickar Twilio din begäran till en URL som förväntas returnera ett TwiML-svar. Exemplet ovan använder Twilio-URL: en [https://twimlets.com/message][twimlet_message_url] . (Även om TwiML har utformats för användning av webb tjänster kan du Visa TwiML i webbläsaren. Klicka till exempel på [https://twimlets.com/message][twimlet_message_url] om du vill se ett tomt **&lt; &gt; svars** element, som ett annat exempel: klicka [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world] om du vill se ett **&lt; svars &gt;** element som innehåller ett **&lt; Säg &gt;** -element.)
 
 I stället för att förlita dig på Twilio-URL: en kan du skapa en egen URL-plats som returnerar HTTP-svar. Du kan skapa webbplatsen på valfritt språk som returnerar HTTP-svar. Det här avsnittet förutsätter att du är värd för URL: en på en JSP-sida.
 
@@ -217,9 +217,9 @@ Nu när du har lärt dig grunderna i Twilio-tjänsten kan du följa dessa länka
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: java-add-certificate-ca-store.md
+[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
 [howto_phonecall_java]: partner-twilio-java-phone-call-example.md
-[misc_role_config_settings]: https://msdn.microsoft.com/library/windowsazure/hh690945.aspx
+[misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message
 [twimlet_message_url_hello_world]: https://twimlets.com/message?Message%5B0%5D=Hello%20World%21
 [twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls

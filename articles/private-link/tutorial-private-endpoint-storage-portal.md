@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 64856d0c9a06f57eb25a0cbc9279d1c09992f0d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 97795b2a693b68d1bd73a00f7b3e5ee3d4679545
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147598"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522132"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Självstudie: Anslut till ett lagrings konto med hjälp av en privat Azure-slutpunkt
 
@@ -44,13 +44,13 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
 
 1. Välj **Skapa en resurs > Nätverk > Virtuellt nätverk** eller sök efter **virtuellt nätverk** i sökrutan på den övre vänstra sidan på skärmen.
 
-2. I **Skapa virtuellt nätverk**anger eller väljer du den här informationen på fliken **grundläggande** :
+2. I **Skapa virtuellt nätverk** anger eller väljer du den här informationen på fliken **grundläggande** :
 
     | **Inställning**          | **Värde**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Projekt information**  |                                                                 |
     | Prenumeration     | Välj din Azure-prenumeration                                  |
-    | Resource Group   | Välj **myResourceGroup** |
+    | Resursgrupp   | Välj **myResourceGroup** |
     | **Instansinformation** |                                                                 |
     | Name             | Ange **myVNet**                                    |
     | Region           | Välj **USA, östra** |
@@ -63,9 +63,9 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
     |--------------------|----------------------------|
     | IPv4-adressutrymme | Ange **10.1.0.0/16** |
 
-5. Under **under näts namn**väljer du ordet **standard**.
+5. Under **under näts namn** väljer du ordet **standard**.
 
-6. I **Redigera undernät**anger du den här informationen:
+6. I **Redigera undernät** anger du den här informationen:
 
     | Inställning            | Värde                      |
     |--------------------|----------------------------|
@@ -76,13 +76,13 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
 
 8. Välj fliken **säkerhet** .
 
-9. Under **BastionHost**väljer du **Aktivera**. Ange den här informationen:
+9. Under **BastionHost** väljer du **Aktivera**. Ange den här informationen:
 
     | Inställning            | Värde                      |
     |--------------------|----------------------------|
     | Skydds namn | Ange **myBastionHost** |
     | AzureBastionSubnet-adressutrymme | Ange **10.1.1.0/24** |
-    | Offentlig IP-adress | Välj **Skapa ny**. </br> Som **namn**anger du **myBastionIP**. </br> Välj **OK**. |
+    | Offentlig IP-adress | Välj **Skapa ny**. </br> Som **namn** anger du **myBastionIP**. </br> Välj **OK**. |
 
 
 8. Välj fliken **Granska + skapa** eller Välj knappen **Granska + skapa** .
@@ -96,13 +96,13 @@ I det här avsnittet ska du skapa en virtuell dator som ska användas för att t
 
 1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **beräkning**  >  **virtuell dator** eller Sök efter **virtuell dator** i sökrutan.
    
-2. I **skapa en virtuell dator**skriver eller väljer du värdena på fliken **grundläggande** :
+2. I **skapa en virtuell dator** skriver eller väljer du värdena på fliken **grundläggande** :
 
     | Inställning | Värde                                          |
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
-    | Resource Group | Välj **myResourceGroup** |
+    | Resursgrupp | Välj **myResourceGroup** |
     | **Instansinformation** |  |
     | Namn på virtuell dator | Ange **myVM** |
     | Region | Välj **USA, östra** |
@@ -136,7 +136,7 @@ I det här avsnittet ska du skapa en virtuell dator som ska användas för att t
 
 I det här avsnittet ska du skapa ett lagrings konto och konfigurera den privata slut punkten.
 
-1. På den vänstra menyn väljer du **skapa ett resurs**  >  **lagrings**  >  **lagrings konto**eller Sök efter **lagrings konto** i sökrutan.
+1. På den vänstra menyn väljer du **skapa ett resurs**  >  **lagrings**  >  **lagrings konto** eller Sök efter **lagrings konto** i sökrutan.
 
 2. På fliken **grundläggande** i **skapa lagrings konto** anger eller väljer du följande information:
 
@@ -144,7 +144,7 @@ I det här avsnittet ska du skapa ett lagrings konto och konfigurera den privata
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
-    | Resource Group | Välj **myResourceGroup** |
+    | Resursgrupp | Välj **myResourceGroup** |
     | **Instansinformation** |  |
     | Namn på lagringskonto | Ange **mystorageaccount**. Om namnet inte är tillgängligt anger du ett unikt namn. |
     | Plats | Välj **USA, östra** |
@@ -156,16 +156,16 @@ I det här avsnittet ska du skapa ett lagrings konto och konfigurera den privata
 
 4. På fliken **nätverk** under **anslutnings metod** väljer du **privat slut punkt**.
 
-5. I **privat slut punkt**väljer du **+ Lägg till**.
+5. I **privat slut punkt** väljer du **+ Lägg till**.
 
 6. I **skapa privat slut punkt** anger eller väljer du följande information:
 
     | Inställning | Värde                                          |
     |-----------------------|----------------------------------|
     | Prenumeration | Välj din Azure-prenumeration |
-    | Resource Group | Välj **myResourceGroup** |
+    | Resursgrupp | Välj **myResourceGroup** |
     | Plats | Välj **USA, östra** |
-    | Namn | Ange **myPrivateEndpoint** |
+    | Name | Ange **myPrivateEndpoint** |
     | Lagrings under resurs | Lämna standard- **bloben** |
     | **Nätverk** |  |
     | Virtuellt nätverk | Välj **myVNet** |
@@ -200,7 +200,7 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
 
 3. Välj **myVM**.
 
-4. På sidan Översikt för **myVM**väljer du **Anslut** sedan **skydds**.
+4. På sidan Översikt för **myVM** väljer du **Anslut** sedan **skydds**.
 
 5. Välj knappen blå **användnings skydds** .
 
@@ -222,17 +222,17 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
 
     En privat IP-adress för **10.1.0.5** returneras för lagrings kontots namn.  Adressen finns i under nätet för det virtuella nätverk som du skapade tidigare.
 
-9. Installera [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows) på den virtuella datorn.
+9. Installera [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%252fazure%252fstorage%252fblobs%252ftoc.json) på den virtuella datorn.
 
 10. Välj **Slutför** när **Microsoft Azure Storage Explorer** har installerats.  Låt rutan vara markerad om du vill öppna programmet.
 
-11. Välj **Använd en anslutnings sträng**på skärmen **Anslut till Azure Storage** .
+11. Välj **Använd en anslutnings sträng** på skärmen **Anslut till Azure Storage** .
 
 12. Välj **Nästa**.
 
 13. Ange ditt lagrings konto namn från föregående steg i **visnings namn**.
 
-14. I rutan under **anslutnings sträng**klistrar du in anslutnings strängen från det lagrings konto som du kopierade i föregående steg.
+14. I rutan under **anslutnings sträng** klistrar du in anslutnings strängen från det lagrings konto som du kopierade i föregående steg.
 
 15. Välj **Nästa**.
 
@@ -246,7 +246,7 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
 
 Om du inte kommer att fortsätta använda det här programmet tar du bort det virtuella nätverket, den virtuella datorn och lagrings kontot med följande steg:
 
-1. Välj **resurs grupper**på den vänstra menyn.
+1. Välj **resurs grupper** på den vänstra menyn.
 
 2. Välj **myResourceGroup**.
 

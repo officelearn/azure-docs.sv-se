@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a5d685e49d941d7b6febbc220cdbfbcb631c4496
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 17e01844463b6d18bd7d2c3b56ee86d938682b8e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94746371"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536327"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -149,6 +149,10 @@ Du kan ha ett begränsat antal ITSM-åtgärder i en åtgärds grupp.
 Du kan ha ett begränsat antal Logic app-åtgärder i en åtgärds grupp.
 
 ### <a name="secure-webhook"></a>Säker webhook
+
+> [!NOTE]
+> Att använda webhook-åtgärden kräver att mål-webhook-slutpunkten antingen inte behöver information om aviseringen för att fungera korrekt eller kan parsa den aviserings kontext information som tillhandahålls som en del av POST-åtgärden. Om webhook-slutpunkten inte kan hantera aviserings kontext informationen på egen hand kan du använda en lösning som en [logisk app-åtgärd](./action-groups-logic-app.md) för en anpassad manipulering av aviserings kontext informationen som matchar webhookens förväntade data format.
+
 Med åtgärden åtgärds grupper webhook kan du dra nytta av Azure Active Directory för att skydda anslutningen mellan din åtgärds grupp och din skyddade webb-API (webhook-slutpunkt). Det övergripande arbets flödet för att dra nytta av den här funktionen beskrivs nedan. En översikt över Azure AD-program och tjänst huvud namn finns i [Översikt över Microsoft Identity Platform (v 2.0)](../../active-directory/develop/v2-overview.md).
 
 1. Skapa ett Azure AD-program för ditt skyddade webb-API. Se [Protected Web API: app Registration](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
@@ -259,6 +263,10 @@ Du kan ha ett begränsat antal röst åtgärder i en åtgärds grupp.
 Priser för länder/regioner som stöds finns på [sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>Webhook
+
+> [!NOTE]
+> Att använda webhook-åtgärden kräver att mål-webhook-slutpunkten antingen inte behöver information om aviseringen för att fungera korrekt eller kan parsa den aviserings kontext information som tillhandahålls som en del av POST-åtgärden. Om webhook-slutpunkten inte kan hantera aviserings kontext informationen på egen hand kan du använda en lösning som en [logisk app-åtgärd](./action-groups-logic-app.md) för en anpassad manipulering av aviserings kontext informationen som matchar webhookens förväntade data format.
+
 Webhooks bearbetas med följande regler
 - Ett webhook-anrop görs maximalt 3 gånger.
 - Ett nytt anrop görs om ett svar inte tas emot inom tids perioden eller om en av följande HTTP-statuskod returneras: 408, 429, 503 eller 504.

@@ -3,12 +3,12 @@ title: Miljövariabler för uppgiftens körtid
 description: Vägledning för aktivitetens körnings miljö och referens för Azure Batch analys.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 6b8ade312146802ede6e12181a082a8fcd3842fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2cab5011eb04586dc361bf1cec9c1f162d70117
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85960919"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95538537"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variabler för Azure Batch körnings miljö
 
@@ -24,7 +24,7 @@ Om du vill hämta det aktuella värdet för en miljö variabel startar du `cmd.e
 
 `cmd /c set <ENV_VARIABLE_NAME>`
 
-`/bin/sh printenv <ENV_VARIABLE_NAME>`
+`/bin/sh -c "printenv <ENV_VARIABLE_NAME>"`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>Kommando rads expansion av miljövariabler
 
@@ -32,7 +32,7 @@ Kommando raderna som körs av aktiviteter på datornoderna körs inte under ett 
 
 `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
-`/bin/sh -c MyTaskApplication $MY_ENV_VAR`
+`/bin/sh -c "MyTaskApplication $MY_ENV_VAR"`
 
 ## <a name="environment-variables"></a>Miljövariabler
 

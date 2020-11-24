@@ -1,5 +1,5 @@
 ---
-title: Migrera till anslutnings övervakaren (förhands granskning) från anslutnings övervakaren
+title: Migrera till anslutnings övervakaren från anslutnings övervakaren
 titleSuffix: Azure Network Watcher
 description: Lär dig hur du migrerar till anslutnings övervakaren från anslutnings övervakaren.
 services: network-watcher
@@ -10,22 +10,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: d785ecd48816150cd33d8e2f5fcce2ff36f1603f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: eed68ff7e6b002e7a5985b336686b646a1a9acee
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985798"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522964"
 ---
-# <a name="migrate-to-connection-monitor-preview-from-connection-monitor-classic"></a>Migrera till anslutnings övervakaren (förhands granskning) från anslutnings övervakaren (klassisk)
+# <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrera till anslutnings övervakaren från anslutnings övervakaren (klassisk)
 
-Du kan migrera befintliga anslutnings övervakare till ny, förbättrad anslutnings övervakare (för hands version) med bara några klick och utan avbrott. Läs mer om fördelarna i [anslutnings övervakaren](./connection-monitor-overview.md).
-
-> [!IMPORTANT]
-> Anslutnings övervakaren är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Du kan migrera befintliga anslutnings övervakare till ny, förbättrad anslutnings övervakare med bara några klick och utan stillestånds tid. Läs mer om fördelarna i [anslutnings övervakaren](./connection-monitor-overview.md).
 
 ## <a name="key-points-to-note"></a>Viktiga punkter att Observera
 
@@ -33,7 +29,7 @@ Migreringen hjälper till att producera följande resultat:
 
 * Agenter och brand Väggs inställningar fungerar som de är. Inga ändringar krävs. 
 * Befintliga anslutnings övervakare mappas till anslutnings övervakaren > test grupp > test format. Genom att välja **Redigera** kan du Visa och ändra egenskaperna för den nya anslutnings övervakaren, hämta en mall för att göra ändringar i anslutnings övervakaren och skicka den via Azure Resource Manager. 
-* Virtuella Azure-datorer med Network Watcher-tillägget skickar data till både arbets ytan och måtten. Anslutnings övervakaren gör data tillgängliga via de nya måtten (ChecksFailedPercent [Preview] och RoundTripTimeMs [Preview]) i stället för de gamla måtten (ProbesFailedPercent och AverageRoundtripMs). 
+* Virtuella Azure-datorer med Network Watcher-tillägget skickar data till både arbets ytan och måtten. Anslutnings övervakaren gör data tillgängliga via de nya måtten (ChecksFailedPercent och RoundTripTimeMs) i stället för de gamla måtten (ProbesFailedPercent och AverageRoundtripMs). 
 * Data övervakning:
    * **Aviseringar**: migreras automatiskt till de nya måtten.
    * **Instrument paneler och integreringar**: Kräv manuell redigering av de angivna måtten. 

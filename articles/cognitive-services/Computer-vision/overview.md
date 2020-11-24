@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 11/13/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visuellt innehåll, program för visuellt innehåll, dator vision
-ms.openlocfilehash: 1603aa05d8bde6d4c3edba2d49120fa3545d3fd0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b4768781c45733590639b4a382fecfdb02adf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014653"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532298"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -90,13 +90,12 @@ Analysera innehållet i en bild för att returnera koordinaterna för *intresseo
 
 Du kan använda Visuellt innehåll för att [identifiera vuxna innehåll](concept-detecting-adult-content.md) i en bild och returnera konfidensts resultat för olika klassificeringar. Tröskelvärdet för flaggat innehåll kan ställas in på en rörlig skala för att passa dina inställningar.
 
-## <a name="use-containers"></a>Använda containrar
+## <a name="deploy-on-premises-using-docker-containers"></a>Distribuera lokalt med Docker-behållare
 
-Använd Visuellt innehåll Docker-behållare för att använda tjänsten lokalt. Det finns för närvarande två tillgängliga behållare:
+Använd Visuellt innehåll behållare för att distribuera API-funktioner lokalt. Med dessa Docker-behållare kan du ta tjänsten närmare dina data för efterlevnad, säkerhet eller andra drift orsaker. Visuellt innehåll erbjuder följande behållare:
 
-* Med [visuellt innehåll Läs container](computer-vision-how-to-install-containers.md) kan du identifiera skriven och handskriven text i bilder.
-
-* Med den [visuellt innehåll rums analysens behållare](spatial-analysis-container.md) kan du analysera real tids strömnings video för att förstå spatiala relationer mellan människor och deras rörelse genom fysiska miljöer.
+* I [visuellt innehåll Read OCR container (för hands version)](computer-vision-how-to-install-containers.md) kan du identifiera skriven och handskriven text i bilder.
+* Med [visuellt innehåll rums analys behållare (för hands version)](spatial-analysis-container.md) kan du analysera real tids strömnings video för att förstå spatiala relationer mellan människor och deras rörelse genom fysiska miljöer.
 
 ## <a name="image-requirements"></a>Avbildningskrav
 

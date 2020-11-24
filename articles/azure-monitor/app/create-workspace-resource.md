@@ -3,18 +3,18 @@ title: Skapa en ny Azure Monitor Application Insights arbets ytans baserade resu
 description: Lär dig mer om de steg som krävs för att aktivera de nya Azure Monitor Application Insights arbets ytans baserade resurser.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ecbac02bcb4d9b4f0db36eab854a91366c774d6c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945421"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536922"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Arbets yta-baserade Application Insights resurser
 
 Arbets ytans resurser stöder fullständig integrering mellan Application Insights och Log Analytics. Nu kan du välja att skicka din Application Insights telemetri till en gemensam Log Analytics arbets yta, vilket ger dig fullständig åtkomst till alla funktioner i Log Analytics samtidigt som du behåller program-, infrastruktur-och plattforms loggar på en enda konsol IDE rad plats.
 
-Detta möjliggör även vanliga Role-Based Access Control (RBAC) i dina resurser och eliminerar behovet av frågor över flera appar/arbets ytor.
+Detta möjliggör även vanlig rollbaserad åtkomst kontroll i Azure (Azure RBAC) i dina resurser och eliminerar behovet av frågor mellan appar/arbets ytor.
 
 > [!NOTE]
 > Data inmatning och kvarhållning för arbets ytans baserade Application Insights resurser faktureras via arbets ytan Log Analytics där data finns. [Läs mer]( ./pricing.md#workspace-based-application-insights) om fakturering för arbets ytans baserade Application Insights-resurser.
@@ -207,7 +207,7 @@ I fönstret Application Insights resurs väljer du **Egenskaper**  >  **ändra a
 
 > [!NOTE]
 > Det finns för närvarande inga ytterligare avgifter för exporten av telemetri. Pris information för den här funktionen kommer att finnas på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/).  Innan faktureringen kommer att skickas meddelanden. Om du väljer att fortsätta använda <feature name> efter meddelande perioden debiteras du enligt tillämplig taxa. 
- 
+ 
 
 ## <a name="next-steps"></a>Nästa steg
 

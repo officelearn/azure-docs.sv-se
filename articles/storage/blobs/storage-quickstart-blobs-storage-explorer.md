@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: f920a937f4b9b51f9babd03ed0fb42dd3c7775d8
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2477107105b6dbcab96db8d44ac982554dc0c48d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217797"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543178"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Snabb start: använda Azure Storage Explorer för att skapa en BLOB
 
@@ -78,7 +78,7 @@ Ladda ned blobar med hjälp av **Azure Storage Explorer** genom att markera en b
 
 ## <a name="manage-snapshots"></a>Hantera ögonblicksbilder
 
-I Azure Storage Explorer kan du ta och hantera [ögonblicksbilder](storage-blob-snapshots.md) av dina blobar. Om du vill ta en ögonblicksbild av en blob högerklickar du på bloben och väljer **Skapa ögonblicksbild**. Visa en ögonblickbild av en blob genom att högerklicka på den och välja **Manage Snapshots** (Hantera ögonblicksbilder). En lista över ögonblicksbilder för bloben visas på den aktuella fliken.
+I Azure Storage Explorer kan du ta och hantera [ögonblicksbilder](./snapshots-overview.md) av dina blobar. Om du vill ta en ögonblicksbild av en blob högerklickar du på bloben och väljer **Skapa ögonblicksbild**. Visa en ögonblickbild av en blob genom att högerklicka på den och välja **Manage Snapshots** (Hantera ögonblicksbilder). En lista över ögonblicksbilder för bloben visas på den aktuella fliken.
 
 ![Skärm bild som visar en lista över blobbar i Microsoft Azure Storage Explorer.](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
@@ -99,4 +99,4 @@ Signaturer för delad åtkomst (SAS) kan hämtas via Storage Explorer. Högerkli
 I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med **Azure Storage Explorer**. Om du vill veta mer om att arbeta med Blob Storage kan du fortsätta till anvisningarna om Blob Storage.
 
 > [!div class="nextstepaction"]
-> [Anvisningar för Blob Storage-åtgärder](storage-how-to-use-blobs-powershell.md)
+> [Anvisningar för Blob Storage-åtgärder](./storage-quickstart-blobs-powershell.md)

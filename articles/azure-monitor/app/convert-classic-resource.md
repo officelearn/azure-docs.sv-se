@@ -3,18 +3,18 @@ title: Migrera en Azure Monitor Application Insights klassisk resurs till en arb
 description: Lär dig mer om de steg som krävs för att uppgradera din Azure Monitor Application Insights Classic-resurs till den nya arbets ytans-baserade modellen.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 0d2c7d1b9ee57e6d201205c04557e1b5f5623eb0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 709cff1326bb6393a14c594ea434a6c16fb80860
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930586"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536531"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrera till arbets ytans baserade Application Insights resurser
 
 Den här guiden vägleder dig genom processen att migrera en klassisk Application Insights-resurs till en arbets yta-baserad resurs. Arbets ytans resurser stöder fullständig integrering mellan Application Insights och Log Analytics. Arbets ytans resurser skickar Application Insights telemetri till en gemensam Log Analytics arbets yta, vilket ger dig till gång till [de senaste funktionerna i Azure Monitor](#new-capabilities) samtidigt som program-, infrastruktur-och plattforms loggar hålls på en enda konsol IDE rad plats.
 
-Arbets ytans resurser möjliggör vanliga Role-Based Access Control (RBAC) i dina resurser och eliminerar behovet av frågor över flera appar/arbets ytor.
+Arbets ytans resurser möjliggör gemensam Azure-rollbaserad åtkomst kontroll (Azure RBAC) i dina resurser och eliminerar behovet av frågor mellan appar/arbets ytor.
 
 **Arbets ytans baserade resurser är för närvarande tillgängliga i alla kommersiella regioner och Azure amerikanska myndigheter**
 

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 3236e0a95c6a4b4f57ac38ed067011c3d6848b5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 176f12a0a06a5bcae601463e30189bc139d3531f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89670798"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543858"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>Flytta resurser mellan regioner i PowerShell
 
@@ -25,7 +25,7 @@ Lär dig hur du flyttar Azure-resurser till en annan region med PowerShell i Azu
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-- Din Azure-prenumeration bör ha åtkomst till resurs förflyttning, och du bör ha behörighet som [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) eller [administratör för användar åtkomst](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) för prenumerationen.
+- Din Azure-prenumeration bör ha åtkomst till resurs förflyttning, och du bör ha behörighet som [ägare](../role-based-access-control/built-in-roles.md#owner) eller [administratör för användar åtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) för prenumerationen.
 - Resurs förflyttning spårar inte ändringar och uppgraderingar, så gör nödvändiga ändringar i resurser innan du börjar flytta dem.
 - När du flyttar resurser med PowerShell kan du för närvarande inte redigera några mål regions inställningar. Ändra inställningarna direkt i portalen.
 - När du lägger till resurser i en flytt samling, i förberedelser för att flytta dem till en annan region, lagras metadata om flytten i en resurs grupp som skapats för syftet. För närvarande kan den här resurs gruppen finnas i regionerna USA, östra 2 och Europa, norra. Azure-resurser kan flyttas mellan alla offentliga regioner med hjälp av metadata som finns i någon av dessa regioner.

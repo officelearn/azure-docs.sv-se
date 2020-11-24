@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: b59bc33698be516ec5a2e289b52dafcb9e9efcbe
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 4da707ab698599c8ea5dd8e1ea8647f543eb2a68
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341866"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524257"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Stöd för att flytta virtuella Azure-datorer mellan Azure-regioner
 
@@ -121,11 +121,11 @@ Den här tabellen sammanfattade stödet för den virtuella Azure OS-disken, data
 
 **Komponent** | **Support** | **Detaljer**
 --- | --- | ---
-Maximal storlek för OS-disk | 2048 GB | [Läs mer](../virtual-machines/windows/managed-disks-overview.md) om VM-diskar.
-Tillfällig disk | Stöds inte | Den tillfälliga disken är alltid exkluderad från förberedelse processen.<br/><br/> Lagra inte beständiga data på den temporära disken. [Läs mer](../virtual-machines/windows/managed-disks-overview.md#temporary-disk).
+Maximal storlek för OS-disk | 2048 GB | [Läs mer](../virtual-machines/managed-disks-overview.md) om VM-diskar.
+Tillfällig disk | Stöds inte | Den tillfälliga disken är alltid exkluderad från förberedelse processen.<br/><br/> Lagra inte beständiga data på den temporära disken. [Läs mer](../virtual-machines/managed-disks-overview.md#temporary-disk).
 Maximal storlek för data disk | 8192 GB för Managed disks
 Minsta storlek för data disk |  2 GB för hanterade diskar |
-Högsta antal data diskar | Upp till 64, i enlighet med stöd för en speciell storlek på virtuell Azure-dator | [Läs mer](../virtual-machines/windows/sizes.md) om storlekar på virtuella datorer.
+Högsta antal data diskar | Upp till 64, i enlighet med stöd för en speciell storlek på virtuell Azure-dator | [Läs mer](../virtual-machines/sizes.md) om storlekar på virtuella datorer.
 Ändrings takt för data disk | Högst 10 MBps per disk för Premium Storage. Högst 2 Mbit/s per disk för standard lagring. | Om genomsnitts data ändrings takten på disken kontinuerligt är högre än det högsta antalet kommer förberedelsen inte att fångas upp.<br/><br/>  Men om det maximala värdet överskrids, kan förberedelsen fångas upp, men du kan se något fördröjda återställnings punkter.
 Data disk (standard lagrings konto) | Stöds inte. | Ändra lagrings typen till den hanterade disken och försök sedan att flytta den virtuella datorn.
 Data disk (Premium Storage-konto) | Stöds inte | Ändra lagrings typen till den hanterade disken och försök sedan att flytta den virtuella datorn.

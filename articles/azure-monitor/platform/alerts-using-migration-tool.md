@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7bcf3e5c0b50d3d6eb8f71dc70f0ff064ff3465
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358669"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536038"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Använd verktyget för frivillig migrering för att migrera dina klassiska aviserings regler
 
@@ -45,7 +45,7 @@ Följ dessa steg om du vill utlösa migreringen av dina klassiska varnings regle
 
 1. I [Azure Portal](https://portal.azure.com)väljer du **övervaka**.
 
-1. Välj **aviseringar**och välj sedan **Hantera aviserings regler** eller **Visa klassiska aviseringar**.
+1. Välj **aviseringar** och välj sedan **Hantera aviserings regler** eller **Visa klassiska aviseringar**.
 
 1. Välj **migrera till nya regler** för att gå till landnings sidan för migrering. Den här sidan visar en lista över alla dina prenumerationer och deras migrerings status:
 
@@ -83,7 +83,7 @@ När en prenumeration blir klar för migrering får prenumerations ägaren ett e
 
 ### <a name="who-can-trigger-the-migration"></a>Vem kan utlösa migreringen?
 
-Användare som har rollen övervaknings deltagare tilldelad till dem på prenumerations nivå kan utlösa migreringen. [Läs mer om Role-Based Access Control för migreringsprocessen](alerts-understand-migration.md#who-can-trigger-the-migration).
+Användare som har rollen övervaknings deltagare tilldelad till dem på prenumerations nivå kan utlösa migreringen. [Lär dig mer om rollbaserad åtkomst kontroll i Azure för migreringsprocessen](alerts-understand-migration.md#who-can-trigger-the-migration).
 
 ### <a name="how-long-will-the-migration-take"></a>Hur lång tid tar migreringen?
 
@@ -95,5 +95,5 @@ I [fel söknings guiden](alerts-understand-migration.md#common-problems-and-reme
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förbereda för migreringen](alerts-prepare-migration.md)
+- [Förbereda för migrering](alerts-prepare-migration.md)
 - [Förstå hur migreringsverktyget fungerar](alerts-understand-migration.md)

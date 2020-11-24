@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 7/14/2020
-ms.openlocfilehash: 653e6aad7f57b4d683f2f71ed22e402ed5d1fca8
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 11/19/2020
+ms.openlocfilehash: a20c495553dfe9a16c34a2972575d21cc95eef44
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630302"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537143"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Introduktionsguide för Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 
@@ -38,7 +38,7 @@ Deltagande i det här programmet kräver att du granskar och godkänner [Busines
 > Det här steget kräver en *ägare* eller *chefs* roll i Partner Center för att ditt konto ska kunna signera juridiska avtal.
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard).
-1. Välj **Inställningar** (kugg hjuls ikon) och sedan **Inställningar för utvecklare**.
+1. Välj **Inställningar** (kugg hjuls ikon) > **konto inställningar**.
 1. Välj **avtal**.
 1. Välj versions länken och Visa avtalet.
 1. Om du vill godkänna och godkänna avtalet väljer du **Godkänn avtal**.
@@ -51,8 +51,8 @@ Konfigurera fakturerings information för Business Applications ISV Connect-prog
 > Det här steget kräver en *ägare* eller *chefs* roll i Partner Center för att ditt konto ska kunna uppdatera fakturerings information.
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard).
-1. Välj **Inställningar** (kugg hjuls ikon) och sedan **Inställningar för utvecklare**.
-1. Under **konto inställningar** väljer du **fakturerings profil**.
+1. Välj **Inställningar** (kugg hjuls ikon) > **konto inställningar**.
+1. Under **organisations profil** väljer du **fakturerings profil** och sedan fliken **utvecklare** .
 1. Granska den primära kontakt-och fakturerings informationen som är ifylld från din juridiska organisation.
 1. Välj **Uppdatera** om du vill göra ändringar.
 1. Ange inställningar för skatte-ID/moms-ID i tillämpliga fall.

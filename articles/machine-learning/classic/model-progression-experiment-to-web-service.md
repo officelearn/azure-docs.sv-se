@@ -9,19 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: cb5e73d81d6c66dd4e605b16cc025f3ea30a9424
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c92f8c74da76b2ac938892e27f3d6be9c70c3238
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309205"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95507257"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Hur en Machine Learning Studio (klassisk) modell går från ett experiment till en webb tjänst
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**gäller för:** ![ Detta är en bock markering, vilket innebär att den här artikeln gäller Machine Learning Studio (klassisk). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ Detta är ett X, vilket innebär att den här artikeln gäller för Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
-
-Azure Machine Learning Studio (klassisk) tillhandahåller en interaktiv arbets yta som gör att du kan utveckla, köra, testa och iterera ett * *_experiment_* _ som representerar en förutsägelse analys modell. Det finns en mängd olika moduler som kan:
+Azure Machine Learning Studio (klassisk) tillhandahåller en interaktiv arbets yta som gör att du kan utveckla, köra, testa och iterera ett **_experiment_* _ som representerar en förutsägelse analys modell. Det finns en mängd olika moduler som kan:
 
 _ Mata in data i experimentet
 * Ändra data
@@ -30,7 +29,7 @@ _ Mata in data i experimentet
 * Utvärdera resultatet
 * Utgående slutgiltiga värden
 
-När du är nöjd med experimentet kan du distribuera det som en * **klassisk Azure Machine Learning-webbtjänst** _ eller en _*_ny Azure Machine Learning webb tjänst_*_ så att användarna kan skicka nya data och få tillbaka resultatet.
+När du är nöjd med experimentet kan du distribuera det som en ***klassisk Azure Machine Learning-webbtjänst** _ eller en _*_ny Azure Machine Learning webb tjänst_*_ så att användarna kan skicka nya data och få tillbaka resultatet.
 
 I den här artikeln ger vi en översikt över Mechanics för hur din Machine Learning modell fortlöper från ett utvecklings experiment till en drifts webb tjänst.
 
@@ -49,10 +48,10 @@ Här följer de steg som en typisk lösning följer när du utvecklar och distri
 *Figur 1 – faser i en typisk förutsägelse analys modell*
 
 ### <a name="the-training-experiment"></a>Utbildnings experimentet
-* **Övnings experimentet** _ är den inledande fasen i att utveckla din webb tjänst i Machine Learning Studio (klassisk). Syftet med övnings experimentet är att ge dig en plats för att utveckla, testa, iterera och slutligen träna en maskin inlärnings modell. Du kan till och med träna flera modeller samtidigt när du söker efter den bästa lösningen, men när du är klar med experimentet väljer du en enda utbildad modell och tar bort resten från experimentet. Ett exempel på att utveckla ett förutsägelse analys experiment finns i [utveckla en förutsägelse analys lösning för kredit riskbedömning i Azure Machine Learning Studio (klassisk)](tutorial-part1-credit-risk.md).
+***Övnings experimentet** _ är den inledande fasen i att utveckla din webb tjänst i Machine Learning Studio (klassisk). Syftet med övnings experimentet är att ge dig en plats för att utveckla, testa, iterera och slutligen träna en maskin inlärnings modell. Du kan till och med träna flera modeller samtidigt när du söker efter den bästa lösningen, men när du är klar med experimentet väljer du en enda utbildad modell och tar bort resten från experimentet. Ett exempel på att utveckla ett förutsägelse analys experiment finns i [utveckla en förutsägelse analys lösning för kredit riskbedömning i Azure Machine Learning Studio (klassisk)](tutorial-part1-credit-risk.md).
 
 ### <a name="the-predictive-experiment"></a>Förutsägande experiment
-När du har en tränad modell i ditt utbildnings experiment klickar du på _*Konfigurera webb tjänst* * och väljer **förutsägbar webb tjänst** i Machine Learning Studio (klassisk) för att starta processen med att konvertera ditt utbildnings experiment till ett * *_förutsägande experiment_*_. Syftet med förutsägande experiment är att använda din tränade modell för att ta fram nya data, med målet att bli drifts dugligd som en Azure-webbtjänst.
+När du har en tränad modell i ditt utbildnings experiment klickar du på _*Konfigurera webb tjänst** och väljer **förutsägbar webb tjänst** i Machine Learning Studio (klassisk) för att starta processen med att konvertera ditt utbildnings experiment till ett **_förutsägande experiment_*_. Syftet med förutsägande experiment är att använda din tränade modell för att ta fram nya data, med målet att bli drifts dugligd som en Azure-webbtjänst.
 
 Den här omvandlingen görs med hjälp av följande steg:
 
@@ -99,7 +98,7 @@ Här är ett exempel: Antag att ditt förutsägelse experiment returnerar hela r
 Om du vill behålla din Machine Learning-modell, men du vill träna den med nya data, har du två alternativ:
 
 1. **Träna om modellen medan webb tjänsten körs** – om du vill träna modellen medan den förutsägbara webb tjänsten körs, kan du göra detta genom att göra några ändringar i övnings experimentet och göra det till en **_omskolning av experimentet_*_. sedan kan du distribuera det som en _*_retraining-_ webbtjänst**. Instruktioner för hur du gör detta finns i [omträna Machine Learning modeller program mässigt](./retrain-machine-learning-model.md).
-2. **Gå tillbaka till det ursprungliga inlärnings experimentet och Använd olika tränings data för att utveckla din modell** – ditt förutsägelse experiment är länkat till webb tjänsten, men utbildnings experimentet är inte direkt länkat på det här sättet. Om du ändrar det ursprungliga inlärnings experimentet och klickar på **Konfigurera webb tjänsten** , kommer det att skapa ett *nytt*     förutsägelse experiment som, när det distribueras, kommer att skapa en *ny* webb tjänst. Den ursprungliga webb tjänsten uppdateras inte bara.
+2. **Gå tillbaka till det ursprungliga inlärnings experimentet och Använd olika tränings data för att utveckla din modell** – ditt förutsägelse experiment är länkat till webb tjänsten, men utbildnings experimentet är inte direkt länkat på det här sättet. Om du ändrar det ursprungliga inlärnings experimentet och klickar på **Konfigurera webb tjänsten**, kommer det att skapa ett *nytt*     förutsägelse experiment som, när det distribueras, kommer att skapa en *ny* webb tjänst. Den ursprungliga webb tjänsten uppdateras inte bara.
 
    Om du behöver ändra inlärnings experimentet öppnar du det och klickar på **Spara som** för att göra en kopia. Detta lämnar det ursprungliga inlärnings experimentet, förebyggande experimentet och webb tjänsten. Nu kan du skapa en ny webb tjänst med dina ändringar. När du har distribuerat den nya webb tjänsten kan du bestämma om du vill stoppa den tidigare webb tjänsten eller låta den köras bredvid den nya.
 

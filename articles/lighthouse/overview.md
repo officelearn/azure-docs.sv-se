@@ -1,14 +1,14 @@
 ---
 title: Vad är Azure Lighthouse?
 description: Med Azure Lighthouse kan tjänst leverantörer leverera hanterade tjänster för sina kunder med högre automatisering och effektivitet i stor skala.
-ms.date: 10/19/2020
+ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: a76606ff48a09c0c31584882e3d2aa164ec97325
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a8fd796218804a79c82a5723c0e5851af359cdea
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203797"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528830"
 ---
 # <a name="what-is-azure-lighthouse"></a>Vad är Azure Lighthouse?
 
@@ -33,9 +33,12 @@ Det finns inga ytterligare kostnader för att använda Azure-Lighthouse för att
 Azure Lighthouse innehåller flera sätt att effektivisera engagemang och hantering:
 
 - **Azure-delegerad resurs hantering**: [Hantera dina kunders Azure-resurser på ett säkert sätt i din klient](concepts/azure-delegated-resource-management.md), utan att behöva byta kontext-och kontroll plan. Kund prenumerationer och resurs grupper kan delegeras till angivna användare och roller i hanterings klienten, med möjlighet att ta bort åtkomst vid behov.
-- **Nya Azure Portal upplevelser**: Visa information om flera innehavare på sidan [ **Mina kunder** ](how-to/view-manage-customers.md) i Azure Portal. På sidan [ **tjänst leverantörer** ](how-to/view-manage-service-providers.md) kan kunder se och hantera sin tjänst leverantörs åtkomst.
+- **Nya Azure Portal upplevelser**: Visa information om flera innehavare på sidan [ **Mina kunder**](how-to/view-manage-customers.md) i Azure Portal. På sidan [ **tjänst leverantörer**](how-to/view-manage-service-providers.md) kan kunder se och hantera sin tjänst leverantörs åtkomst.
 - **Azure Resource Manager mallar**: Använd arm-mallar för att [publicera delegerade kund resurser](how-to/onboard-customer.md) och [utföra hanterings uppgifter för flera innehavare](samples/index.md).
 - **Hanterade tjänst erbjudanden i Azure Marketplace**: [erbjud dina tjänster till kunder](concepts/managed-services-offers.md) via privata eller offentliga erbjudanden och publicera dem automatiskt till Azure-Lighthouse.
+
+> [!TIP]
+> Ett liknande erbjudande, [Microsoft 365 Lighthouse](https://techcommunity.microsoft.com/t5/small-and-medium-business-blog/announcing-microsoft-365-lighthouse-for-managed-service/ba-p/1698181), hjälper IT-partner att registrera sig, övervaka och hantera sina Microsoft 365 kunder i stor skala. Microsoft 365 Lighthouse finns för närvarande i privat för hands version.
 
 ## <a name="next-steps"></a>Nästa steg
 

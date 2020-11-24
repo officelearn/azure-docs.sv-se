@@ -1,17 +1,17 @@
 ---
 title: Azure Red Hat OpenShift 4-kluster stöd princip
-description: Förstå support policy krav för Red Hat OpenShift 4.
+description: Förstå support policy krav för Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: e396cfa032a3030467b2e2318d61393713894cd4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 11/23/2020
+ms.openlocfilehash: c8d52609043f173e896668eadeb8c59493739859
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628228"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521146"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Support policy för Azure Red Hat OpenShift
 
@@ -23,7 +23,7 @@ Vissa konfigurationer för Azure Red Hat OpenShift 4-kluster kan påverka klustr
 ## <a name="cluster-configuration-requirements"></a>Krav för kluster konfiguration
 
 * Alla kluster operatörer för OpenShift måste vara i ett hanterat tillstånd. Listan över kluster operatörer kan returneras genom att köra `oc get clusteroperators` .
-* Klustret måste ha minst en arbets nod. Skala inte kluster arbetarna till noll.
+* Klustret måste ha minst två arbetsnoder. Skala inte kluster arbetarna till noll eller försök med en korrekt kluster avstängning.
 * Ta inte bort eller ändra klustrets Prometheus-och Alertmanager-tjänster.
 * Ta inte bort Alertmanager-regler för tjänsten.
 * Ta inte bort eller ändra Azure Red Hat OpenShift service Logging (mdsd poddar).

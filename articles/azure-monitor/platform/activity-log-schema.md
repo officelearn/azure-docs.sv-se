@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bda92667cfc3afb44a55adf3f3c12798a734ddc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612769"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522727"
 ---
 # <a name="azure-activity-log-event-schema"></a>Händelse schema för Azure aktivitets logg
 [Azure aktivitets loggen](platform-logs-overview.md) ger inblick i alla händelser på prenumerations nivå som har inträffat i Azure. I den här artikeln beskrivs aktivitets logg kategorier och schemat för var och en. 
@@ -40,9 +40,9 @@ Varje händelse i aktivitets loggen har en viss kategori som beskrivs i följand
 
 | Kategori | Beskrivning |
 |:---|:---|
-| [Administrativ](#administrative-category) | Innehåller posten över alla åtgärder för att skapa, uppdatera, ta bort och åtgärd som utförs via Resource Manager. Exempel på administrativa händelser är att _skapa en virtuell dator_ och _ta bort nätverks säkerhets grupp_.<br><br>Varje åtgärd som utförs av en användare eller ett program som använder Resource Manager är modellerad som en åtgärd på en viss resurs typ. Om åtgärds typen är _Skriv_, _ta bort_eller _åtgärd_registreras posterna för både start och lyckad eller misslyckad åtgärd i den administrativa kategorin. Administrativa händelser inkluderar även eventuella ändringar av rollbaserad åtkomst kontroll i en prenumeration. |
-| [Tjänsthälsa](#service-health-category) | Innehåller posten för eventuella service Health-incidenter som har inträffat i Azure. Ett exempel på en Service Health händelse _SQL Azure i östra USA drabbas av drift stopp_. <br><br>Service Health-händelser finns på sex sorter: _åtgärd krävs_, _stöd för återställning_, _incident_, _Underhåll_, _information_eller _säkerhet_. Dessa händelser skapas endast om du har en resurs i prenumerationen som skulle påverkas av händelsen.
-| [Resource Health](#resource-health-category) | Innehåller posten för eventuella resurs hälso händelser som har inträffat på dina Azure-resurser. Ett exempel på en Resource Health-händelse är _hälso statusen för den virtuella datorn har ändrats till otillgänglig_.<br><br>Resource Health händelser kan representera en av fyra hälso status: _tillgänglig_, otillgänglig _,_ _degraderad_och _okänd_. Dessutom kan Resource Health händelser kategoriseras som plattform som _initieras_ eller _användaren initieras_. |
+| [Administrativ](#administrative-category) | Innehåller posten över alla åtgärder för att skapa, uppdatera, ta bort och åtgärd som utförs via Resource Manager. Exempel på administrativa händelser är att _skapa en virtuell dator_ och _ta bort nätverks säkerhets grupp_.<br><br>Varje åtgärd som utförs av en användare eller ett program som använder Resource Manager är modellerad som en åtgärd på en viss resurs typ. Om åtgärds typen är _Skriv_, _ta bort_ eller _åtgärd_ registreras posterna för både start och lyckad eller misslyckad åtgärd i den administrativa kategorin. Administrativa händelser inkluderar även eventuella ändringar i Azure rollbaserad åtkomst kontroll i en prenumeration. |
+| [Tjänsthälsa](#service-health-category) | Innehåller posten för eventuella service Health-incidenter som har inträffat i Azure. Ett exempel på en Service Health händelse _SQL Azure i östra USA drabbas av drift stopp_. <br><br>Service Health-händelser finns på sex sorter: _åtgärd krävs_, _stöd för återställning_, _incident_, _Underhåll_, _information_ eller _säkerhet_. Dessa händelser skapas endast om du har en resurs i prenumerationen som skulle påverkas av händelsen.
+| [Resource Health](#resource-health-category) | Innehåller posten för eventuella resurs hälso händelser som har inträffat på dina Azure-resurser. Ett exempel på en Resource Health-händelse är _hälso statusen för den virtuella datorn har ändrats till otillgänglig_.<br><br>Resource Health händelser kan representera en av fyra hälso status: _tillgänglig_, otillgänglig _,_ _degraderad_ och _okänd_. Dessutom kan Resource Health händelser kategoriseras som plattform som _initieras_ eller _användaren initieras_. |
 | [Varning](#alert-category) | Innehåller posten för aktiveringar för Azure-aviseringar. Ett exempel på en varnings händelse är _CPU% på myVM har varit över 80 under de senaste 5 minuterna_.|
 | [Automatisk skalning](#autoscale-category) | Innehåller posten för alla händelser som rör driften av autoskalning-motorn baserat på de inställningar för autoskalning som du har definierat i din prenumeration. Ett exempel på en autoskalning-händelse är autoskalning- _åtgärden misslyckades_. |
 | [Rekommendation](#recommendation-category) | Innehåller rekommendations händelser från Azure Advisor. |
@@ -50,7 +50,7 @@ Varje händelse i aktivitets loggen har en viss kategori som beskrivs i följand
 | [Princip](#policy-category) | Innehåller poster med åtgärder som utförs av alla åtgärder som utförs av Azure Policy. Exempel på princip händelser är _granskning_ och _neka_. Varje åtgärd som utförs av principen är modellerad som en åtgärd på en resurs. |
 
 ## <a name="administrative-category"></a>Administrativ kategori
-Den här kategorin innehåller posten över alla åtgärder för att skapa, uppdatera, ta bort och utföra åtgärder som utförs via Resource Manager. Exempel på typer av händelser som visas i den här kategorin är "Skapa virtuell dator" och "ta bort nätverks säkerhets grupp" varje åtgärd som vidtas av en användare eller ett program som använder Resource Manager är modellerad som en åtgärd på en viss resurs typ. Om åtgärds typen är Skriv, ta bort eller åtgärd registreras posterna för både start och lyckad eller misslyckad åtgärd i den administrativa kategorin. Den administrativa kategorin inkluderar även ändringar av rollbaserad åtkomst kontroll i en prenumeration.
+Den här kategorin innehåller posten över alla åtgärder för att skapa, uppdatera, ta bort och utföra åtgärder som utförs via Resource Manager. Exempel på typer av händelser som visas i den här kategorin är "Skapa virtuell dator" och "ta bort nätverks säkerhets grupp" varje åtgärd som vidtas av en användare eller ett program som använder Resource Manager är modellerad som en åtgärd på en viss resurs typ. Om åtgärds typen är Skriv, ta bort eller åtgärd registreras posterna för både start och lyckad eller misslyckad åtgärd i den administrativa kategorin. Den administrativa kategorin inkluderar även ändringar i Azure rollbaserad åtkomst kontroll i en prenumeration.
 
 ### <a name="sample-event"></a>Exempel händelse
 ```json
@@ -143,12 +143,12 @@ Den här kategorin innehåller posten över alla åtgärder för att skapa, uppd
 ### <a name="property-descriptions"></a>Egenskaps beskrivningar
 | Elementnamn | Beskrivning |
 | --- | --- |
-| auktorisering |BLOB för RBAC-egenskaper för händelsen. Innehåller vanligt vis egenskaperna "Action", "roll" och "omfattning". |
+| auktorisering |BLOB för Azure RBAC-egenskaper för händelsen. Innehåller vanligt vis egenskaperna "Action", "roll" och "omfattning". |
 | anroparen |E-postadressen till den användare som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. |
 | kanal |Ett av följande värden: "admin", "åtgärd" |
 | gällande |JWT-token som används av Active Directory för att autentisera användaren eller programmet för att utföra den här åtgärden i Resource Manager. |
 | correlationId |Vanligt vis ett GUID i sträng formatet. Händelser som delar ett correlationId tillhör samma Uber-åtgärd. |
-| description |Statisk text Beskrivning av en händelse. |
+| beskrivning |Statisk text Beskrivning av en händelse. |
 | eventDataId |Unikt ID för en händelse. |
 | eventName | Eget namn på den administrativa händelsen. |
 | category | Alltid "administrativ" |
@@ -292,7 +292,7 @@ Den här kategorin innehåller posten för eventuella resurs hälso händelser s
 | --- | --- |
 | kanal | Always "admin, operation" |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av aviserings händelsen. |
+| beskrivning |Statisk text Beskrivning av aviserings händelsen. |
 | eventDataId |Unikt ID för aviserings händelsen. |
 | category | Always "ResourceHealth" |
 | eventTimestamp |Tidsstämpel när händelsen genererades av Azure-tjänsten som bearbetar begäran som motsvarar händelsen. |
@@ -387,7 +387,7 @@ Den här kategorin innehåller posten över alla aktiveringar av klassiska Azure
 | kanal | Always "admin, operation" |
 | gällande | JSON-BLOB med SPN (tjänstens huvud namn) eller resurs typ för aviserings motorn. |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av aviserings händelsen. |
+| beskrivning |Statisk text Beskrivning av aviserings händelsen. |
 | eventDataId |Unikt ID för aviserings händelsen. |
 | category | Alltid "varning" |
 | nivå |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
@@ -497,7 +497,7 @@ Den här kategorin innehåller posten för alla händelser som rör driften av a
 | kanal | Always "admin, operation" |
 | gällande | JSON-BLOB med SPN (tjänstens huvud namn) eller resurs typ för den automatiska skalnings motorn. |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av händelsen autoskalning. |
+| beskrivning |Statisk text Beskrivning av händelsen autoskalning. |
 | eventDataId |Unikt ID för autoskalning-händelsen. |
 | nivå |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
 | resourceGroupName |Namnet på resurs gruppen för den automatiska skalnings inställningen. |
@@ -585,7 +585,7 @@ Den här kategorin innehåller de aviseringar som genererats av Azure Security C
 | --- | --- |
 | kanal | Always "operation" |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av säkerhets händelsen. |
+| beskrivning |Statisk text Beskrivning av säkerhets händelsen. |
 | eventDataId |Unik identifierare för säkerhets händelsen. |
 | eventName |Eget namn på säkerhets händelsen. |
 | category | Alltid "säkerhet" |
@@ -666,7 +666,7 @@ Den här kategorin innehåller posten för eventuella nya rekommendationer som g
 | --- | --- |
 | kanal | Always "operation" |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av rekommendations händelsen |
+| beskrivning |Statisk text Beskrivning av rekommendations händelsen |
 | eventDataId | Unikt ID för rekommendations händelsen. |
 | category | Alltid "rekommendation" |
 | ID |Unikt resurs-ID för rekommendations händelsen. |
@@ -774,12 +774,12 @@ Den här kategorin innehåller poster med åtgärder som utförs av alla åtgär
 
 | Elementnamn | Beskrivning |
 | --- | --- |
-| auktorisering | Matris med RBAC-egenskaper för händelsen. För nya resurser är detta åtgärd och omfattning för den begäran som utlöste utvärderingen. För befintliga resurser är åtgärden "Microsoft. Resources/checkPolicyCompliance/Read". |
+| auktorisering | Matris med Azure RBAC-egenskaper för händelsen. För nya resurser är detta åtgärd och omfattning för den begäran som utlöste utvärderingen. För befintliga resurser är åtgärden "Microsoft. Resources/checkPolicyCompliance/Read". |
 | anroparen | För nya resurser är identiteten som initierade en distribution. För befintliga resurser är GUID för Microsoft Azure policyn för insikter RP. |
 | kanal | Princip händelser använder bara kanalen "åtgärd". |
 | gällande | JWT-token som används av Active Directory för att autentisera användaren eller programmet för att utföra den här åtgärden i Resource Manager. |
 | correlationId | Vanligt vis ett GUID i sträng formatet. Händelser som delar ett correlationId tillhör samma Uber-åtgärd. |
-| description | Det här fältet är tomt för princip händelser. |
+| beskrivning | Det här fältet är tomt för princip händelser. |
 | eventDataId | Unikt ID för en händelse. |
 | eventName | Antingen "BeginRequest" eller "EndRequest". "BeginRequest" används för fördröjda auditIfNotExists-och deployIfNotExists-utvärderingar och när en deployIfNotExists-påverkan startar en mall-distribution. Alla andra åtgärder returnerar "EndRequest". |
 | category | Deklarerar aktivitets logg händelsen som tillhöra "princip". |
@@ -810,7 +810,7 @@ När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händ
 > Formatet på de aktivitets logg data som skrivs till ett lagrings konto har ändrats till JSON-linjer på nov. 1st, 2018. Se [förbereda för format ändring till Azure Monitor resurs loggar arkiverade på ett lagrings konto](./resource-logs-blob-format.md) för information om det här formatet.
 
 
-| Schema egenskap för resurs loggar | Aktivitets logg REST API schema egenskap | Obs! |
+| Schema egenskap för resurs loggar | Aktivitets logg REST API schema egenskap | Anteckningar |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType, resourceGroupName är härledda från resourceId. |
@@ -818,13 +818,13 @@ När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händ
 | category | Del av åtgärds namn | Grupp av åtgärds typen-"Skriv"/"ta bort"/"åtgärd" |
 | resultType | status. Value | |
 | resultSignature | under status. värde | |
-| resultDescription | description |  |
-| durationMs | E.t. | Alltid 0 |
+| resultDescription | beskrivning |  |
+| durationMs | Ej tillämpligt | Alltid 0 |
 | callerIpAddress | httpRequest. clientIpAddress |  |
 | correlationId | correlationId |  |
 | identity | anspråk och egenskaper för auktorisering |  |
 | Nivå | Nivå |  |
-| location | E.t. | Platsen där händelsen bearbetades. *Detta är inte platsen för resursen, utan i stället där händelsen bearbetades. Den här egenskapen tas bort i en framtida uppdatering.* |
+| location | Ej tillämpligt | Platsen där händelsen bearbetades. *Detta är inte platsen för resursen, utan i stället där händelsen bearbetades. Den här egenskapen tas bort i en framtida uppdatering.* |
 | Egenskaper | egenskaper. eventProperties |  |
 | egenskaper. eventCategory | category | Om Properties. eventCategory inte finns är kategorin "administrativ" |
 | egenskaper. eventName | eventName |  |

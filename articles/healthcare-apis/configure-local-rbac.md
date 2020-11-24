@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
-ms.openlocfilehash: c62593251cb0e19c91d1c4877d1b33fe407ebd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096e4e3ecbcedaec674e074a2baccbb336e03c94
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847014"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524206"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Konfigurera lokal RBAC för FHIR 
 
@@ -23,7 +23,7 @@ Den här artikeln förklarar hur du konfigurerar Azure-API: et för FHIR att anv
 
 ## <a name="add-service-principal"></a>Lägg till tjänstens huvudnamn
 
-Lokalt RBAC gör att du kan använda en extern Azure Active Directory-klient med din FHIR-Server. För att att RBAC-systemet ska kunna kontrol lera grupp medlemskap i den här klienten måste Azure API för FHIR ha ett huvud namn för tjänsten i klient organisationen. Tjänstens huvud namn skapas automatiskt i klienter som är kopplade till prenumerationer som har distribuerat Azure API för FHIR, men om klienten inte har någon prenumeration kopplad till sig måste en innehavaradministratör skapa tjänstens huvud namn med något av följande kommandon:
+Lokalt RBAC gör att du kan använda en extern Azure Active Directory-klient med din FHIR-Server. För att tillåta att det lokala RBAC-systemet kontrollerar grupp medlemskap i den här klienten, måste Azure API för FHIR ha ett huvud namn för tjänsten i klient organisationen. Tjänstens huvud namn skapas automatiskt i klienter som är kopplade till prenumerationer som har distribuerat Azure API för FHIR, men om klienten inte har någon prenumeration kopplad till sig måste en innehavaradministratör skapa tjänstens huvud namn med något av följande kommandon:
 
 Använda `Az` PowerShell-modulen:
 

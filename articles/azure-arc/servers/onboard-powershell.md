@@ -3,12 +3,12 @@ title: Ansluta hybrid datorer till Azure med hjälp av PowerShell
 description: I den här artikeln får du lära dig hur du installerar agenten och ansluter en dator till Azure med hjälp av Azure Arc-aktiverade servrar. Du kan göra detta med PowerShell.
 ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: f85e2564b2e5b194d306ef4bad2269982331a7d4
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0218235179e1a8a883360d0061e685c04079cbf4
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422781"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95492949"
 ---
 # <a name="connect-hybrid-machines-to-azure-by-using-powershell"></a>Ansluta hybrid datorer till Azure med hjälp av PowerShell
 
@@ -45,13 +45,13 @@ När installationen är klar visas följande meddelande:
     * Kör följande om du vill installera den anslutna dator agenten på mål datorn som kan kommunicera direkt med Azure:
 
         ```azurepowershell
-        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region>
         ```
     
     * Om du vill installera den anslutna dator agenten på mål datorn som kommunicerar via en proxyserver kör du:
         
         ```azurepowershell
-        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -Proxy http://<proxyURL>:<proxyport>
         ```
 
 Om agenten inte startar efter att installationen har slutförts, kontrollerar du i loggarna om det finns detaljerad fel information. I Windows kontrollerar du den här filen: *%programdata%\AzureConnectedMachineAgent\Log\himds.log*. I Linux kontrollerar du den här filen: */var/opt/azcmagent/log/himds.log*.
@@ -64,20 +64,20 @@ Så här konfigurerar du en eller flera Windows-servrar med servrar aktiverade m
 
 2. Logga in på Azure genom att köra kommandot `Connect-AzAccount` .
 
-3. Om du vill installera den anslutna dator agenten använder `Connect-AzConnectedMachine` du med `-Name` `-ResourceGroupName` parametrarna,, och `-Location` . Använd `-SubscriptionId` parametern för att åsidosätta standard prenumerationen som ett resultat av Azure-kontexten som skapats efter inloggning.
+3. Om du vill installera den anslutna dator agenten använder `Connect-AzConnectedMachine` du med `-ResourceGroupName` parametrarna, och `-Location` . Azure-resursens namn kommer automatiskt att använda värd namnet för varje server. Använd `-SubscriptionId` parametern för att åsidosätta standard prenumerationen som ett resultat av Azure-kontexten som skapats efter inloggning.
 
     * Kör följande kommando för att installera den anslutna dator agenten på mål datorn som kan kommunicera direkt med Azure:
     
         ```azurepowershell
-        $session = Connect-PSSession -ComputerName myMachineName
-        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        $sessions = New-PSSession -ComputerName myMachineName
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Location <region> -PSSession $sessions
         ```
     
     * Om du vill installera den anslutna dator agenten på flera fjärrdatorer samtidigt lägger du till en lista över fjärrdatornamn, varje avgränsade med kommatecken.
 
         ```azurepowershell
-        $session = Connect-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
-        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        $sessions = New-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Location <region> -PSSession $sessions
         ```
 
     I följande exempel visas resultatet av kommandot som riktar sig mot en enskild dator:

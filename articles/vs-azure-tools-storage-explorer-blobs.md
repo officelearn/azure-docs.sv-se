@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: 07652f2ac88475664f30e8189204b5649f966d16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f00d964a87790b8d8c9b1d8eceaed26d15199e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033622"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531975"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Hantera Azure Blob Storage-resurser med Storage Explorer
 
 ## <a name="overview"></a>Översikt
 
-[Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) är en tjänst för att lagra stora mängder ostrukturerade data, till exempel text eller binära data, som kan nås från var som helst i världen via http eller https.
+[Azure Blob Storage](./storage/blobs/storage-quickstart-blobs-dotnet.md) är en tjänst för att lagra stora mängder ostrukturerade data, till exempel text eller binära data, som kan nås från var som helst i världen via http eller https.
 Du kan använda Blob Storage för att exponera data offentligt eller lagra programdata privat. I den här artikeln får du lära dig hur du använder Storage Explorer för att arbeta med BLOB-behållare och blobbar.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -43,7 +43,7 @@ Följande steg visar hur du skapar en BLOB-behållare i Storage Explorer.
 
 1. Öppna Storage Explorer.
 2. I den vänstra fönsterrutan expanderar du det lagringskonto där du vill skapa blob-containern.
-3. Högerklicka på **BLOB-behållare**och välj **skapa BLOB-behållare**från snabb menyn.
+3. Högerklicka på **BLOB-behållare** och välj **skapa BLOB-behållare** från snabb menyn.
 
    ![Snabbmeny för att skapa blob-containrar][0]
 4. En text ruta visas under mappen **BLOB containers** . Ange namnet på blob-containern. Se [skapa en behållare](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) för information om regler och begränsningar för namngivning av BLOB-behållare.
@@ -62,7 +62,7 @@ Följande steg illustrerar hur du visar innehållet i en BLOB-behållare i Stora
 1. Öppna Storage Explorer.
 2. I den vänstra rutan expanderar du det lagrings konto som innehåller den BLOB-behållare som du vill visa.
 3. Expandera lagrings kontots **BLOB-behållare**.
-4. Högerklicka på den BLOB-behållare som du vill visa och välj **Öppna BLOB container Editor**på snabb menyn.
+4. Högerklicka på den BLOB-behållare som du vill visa och välj **Öppna BLOB container Editor** på snabb menyn.
    Du kan också dubbelklicka på den BLOB-behållare som du vill visa.
 
    ![Snabb meny för öppna BLOB container Editor][19]
@@ -79,7 +79,7 @@ Följande steg illustrerar hur du tar bort en BLOB-behållare i Storage Explorer
 1. Öppna Storage Explorer.
 2. I den vänstra rutan expanderar du det lagrings konto som innehåller den BLOB-behållare som du vill visa.
 3. Expandera lagrings kontots **BLOB-behållare**.
-4. Högerklicka på den BLOB-behållare som du vill ta bort och – välj **ta bort**från snabb menyn.
+4. Högerklicka på den BLOB-behållare som du vill ta bort och – välj **ta bort** från snabb menyn.
    Du kan också trycka på **ta bort** för att ta bort den valda BLOB-behållaren.
 
    ![Ta bort snabb menyn för BLOB-behållare][4]
@@ -96,16 +96,16 @@ Följande steg illustrerar hur du kopierar en BLOB-behållare från ett lagrings
 1. Öppna Storage Explorer.
 2. I den vänstra rutan expanderar du det lagrings konto som innehåller den BLOB-behållare som du vill kopiera.
 3. Expandera lagrings kontots **BLOB-behållare**.
-4. Högerklicka på den BLOB-behållare som du vill kopiera och välj **Kopiera BLOB-behållare**på snabb menyn.
+4. Högerklicka på den BLOB-behållare som du vill kopiera och välj **Kopiera BLOB-behållare** på snabb menyn.
 
    ![Snabb meny för kopiering av BLOB-behållare][6]
-5. Högerklicka på det önskade "mål" lagrings kontot där du vill klistra in BLOB-behållaren och – välj **Klistra in BLOB-behållare**på snabb menyn.
+5. Högerklicka på det önskade "mål" lagrings kontot där du vill klistra in BLOB-behållaren och – välj **Klistra in BLOB-behållare** på snabb menyn.
 
    ![Snabb meny för att klistra in BLOB-behållare][7]
 
 ## <a name="get-the-sas-for-a-blob-container"></a>Hämta SAS för en blobcontainer
 
-En [signatur för delad åtkomst (Shared Access Signature, SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) ger delegerad åtkomst till resurser på ditt lagringskonto.
+En [signatur för delad åtkomst (Shared Access Signature, SAS)](./storage/common/storage-sas-overview.md) ger delegerad åtkomst till resurser på ditt lagringskonto.
 Det innebär att du kan ge en klient begränsad behörighet till objekt på ditt lagringskonto under en angiven tidsperiod och med en angiven uppsättning behörigheter, utan att behöva dela nycklarna för åtkomst till ditt konto.
 
 Följande steg visar hur du skapar en SAS för en BLOB-behållare:
@@ -113,7 +113,7 @@ Följande steg visar hur du skapar en SAS för en BLOB-behållare:
 1. Öppna Storage Explorer.
 2. I den vänstra rutan expanderar du det lagrings konto som innehåller den BLOB-behållare som du vill hämta en SAS för.
 3. Expandera lagrings kontots **BLOB-behållare**.
-4. Högerklicka på önskad BLOB-behållare och välj **Hämta signatur för delad åtkomst**på snabb menyn.
+4. Högerklicka på önskad BLOB-behållare och välj **Hämta signatur för delad åtkomst** på snabb menyn.
 
    ![Hämta SAS-snabb menyn][8]
 5. I dialogrutan **Signatur för delad åtkomst** anger du princip, start- och förfallodatum, tidszon och åtkomstnivåer som du vill använda för resursen.
@@ -133,7 +133,7 @@ Följande steg visar hur du hanterar (lägger till och tar bort) åtkomst princi
 1. Öppna Storage Explorer.
 2. I det vänstra fönstret expanderar du lagrings kontot som innehåller BLOB-behållaren vars åtkomst principer du vill hantera.
 3. Expandera lagrings kontots **BLOB-behållare**.
-4. Välj önskad BLOB-behållare och välj **Hantera åtkomst principer**på snabb menyn.
+4. Välj önskad BLOB-behållare och välj **Hantera åtkomst principer** på snabb menyn.
 
    ![Snabbmeny för hantering av åtkomstprinciper][11]
 5. Dialog rutan **åtkomst principer** visar en lista över alla åtkomst principer som redan har skapats för den valda BLOB-behållaren.
@@ -160,7 +160,7 @@ Följande steg illustrerar hur du anger en offentlig åtkomst nivå för en BLOB
 5. I dialog rutan **Ange offentlig åtkomst nivå för behållare** anger du önskad åtkomst nivå.
 
    ![Ange alternativ för offentlig åtkomst nivå][14]
-6. Välj **Använd**.
+6. Välj **Tillämpa**.
 
 ## <a name="managing-blobs-in-a-blob-container"></a>Hantera blobbar i en BLOB-behållare
 
@@ -183,7 +183,7 @@ Följande steg illustrerar hur du hanterar blobbar (och mappar) i en BLOB-behål
      1. Gå till verktygsfältet i huvudfönstret och välj **Överför**, och sedan **Överför filer** i den nedrullningsbara menyn.
 
         ![Menyn Ladda upp filer][15]
-     2. I dialogen **Överför filer** dialogrutan klickar du på knappen med tre punkter (**... **) på höger sida av textrutan **Filer** och markerar den eller de filer du vill överföra.
+     2. I dialogen **Överför filer** dialogrutan klickar du på knappen med tre punkter (**...**) på höger sida av textrutan **Filer** och markerar den eller de filer du vill överföra.
 
         ![Alternativ för att ladda upp filer][16]
      3. Ange typ av **Blob-typ**. Mer information finns i [skapa en behållare](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) .
@@ -194,7 +194,7 @@ Följande steg illustrerar hur du hanterar blobbar (och mappar) i en BLOB-behål
      1. Gå till verktygsfältet i huvudfönstret och klicka på **Överför**, och sedan på **Överför mapp** i den nedrullningsbara menyn.
 
         ![Menyn för mappöverföring][17]
-     2. I dialogen **Överför mapp** klickar du på knappen med tre punkter (**... **) på höger sida av textrutan **Mapp** och väljer den mapp vars innehåll du vill överföra.
+     2. I dialogen **Överför mapp** klickar du på knappen med tre punkter (**...**) på höger sida av textrutan **Mapp** och väljer den mapp vars innehåll du vill överföra.
 
         ![Överför Mappalternativ][18]
      3. Ange typ av **Blob-typ**. Mer information finns i [skapa en behållare](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) .

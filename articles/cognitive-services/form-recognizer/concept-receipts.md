@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913202"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95492218"
 ---
 # <a name="receipt-concepts"></a>Koncept för kvitton
 
@@ -57,6 +57,13 @@ Kvitto-API: t returnerar även följande information:
 * OCR RAW-text (OCR-extraherade textutdata för hela kvittot)
 * Avgränsnings ruta för varje värde, rad och ord
 
+## <a name="try-it-out"></a>Prova
+
+Om du vill prova formulär tolkens mottagnings tjänst går du till verktyget online-exempel UI:
+
+> [!div class="nextstepaction"]
+> [Prova färdiga modeller](https://fott-preview.azurewebsites.net/)
+
 ## <a name="input-requirements"></a>Krav för indatamängd
 
 [!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
@@ -64,7 +71,7 @@ Kvitto-API: t returnerar även följande information:
 ## <a name="supported-locales"></a>Språk som stöds 
 
 * **Förbyggd kvitto v 2.0** (ga) stöder försäljnings kvitton i en-US-språkvariant
-* **Förskapad kvitto v 2.1 – för hands version. 1** (offentlig för hands version) lägger till ytterligare stöd för följande inleverans-språk: 
+* **Förskapad kvitto v 2.1 – för hands version. 2** (offentlig för hands version) lägger till ytterligare stöd för följande inleverans-språk: 
   * EN – AU 
   * EN-CA 
   * EN-GB 
@@ -73,12 +80,12 @@ Kvitto-API: t returnerar även följande information:
   > [!NOTE]
   > Språk information 
   >
-  > Förbyggd kvitto v 2.1 – för hands version. 1 har en valfri begäran-parameter för att ange ett kvitto språk från ytterligare engelska marknader. För försäljnings kvitton på engelska från Australien (EN-AU), Kanada (EN-CA), Storbritannien (EN-GB) och Indien (EN-i) kan du ange språkvarianten för att få bättre resultat. Om ingen språkvariant anges i v 2.1 – för hands version. 1, kommer modellen att standardvärdet för EN-US-modell.
+  > Förbyggd kvitto v 2.1 – för hands version. 2 har en valfri begäran-parameter för att ange ett kvitto språk från ytterligare engelska marknader. För försäljnings kvitton på engelska från Australien (EN-AU), Kanada (EN-CA), Storbritannien (EN-GB) och Indien (EN-i) kan du ange språkvarianten för att få bättre resultat. Om ingen nationell inställning anges i v 2.1 – för hands version. 2 kommer modellen att standardvärdet för EN-US-modell.
 
 
 ## <a name="the-analyze-receipt-operation"></a>Åtgärden analysera inleverans
 
-I det här dokumentet [analyseras](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) en bild eller en PDF av ett kvitto som indata och det går att extrahera värdena för ränta och text. Anropet returnerar ett svars huvud fält som kallas `Operation-Location` . `Operation-Location`Värdet är en URL som innehåller det resultat-ID som ska användas i nästa steg.
+I det här dokumentet [analyseras](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) en bild eller en PDF av ett kvitto som indata och det går att extrahera värdena för ränta och text. Anropet returnerar ett svars huvud fält som kallas `Operation-Location` . `Operation-Location`Värdet är en URL som innehåller det resultat-ID som ska användas i nästa steg.
 
 |Svars huvud| Resultat-URL |
 |:-----|:----|
@@ -86,7 +93,7 @@ I det här dokumentet [analyseras](https://westcentralus.dev.cognitive.microsoft
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>Resultat åtgärden för att analysera kvittot
 
-Det andra steget är att anropa åtgärden för att [analysera mottagnings resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) . Den här åtgärden tar inmatat till det resultat-ID som skapades av åtgärden för att analysera kvittot. Den returnerar ett JSON-svar som innehåller ett **status** fält med följande möjliga värden. Du anropar den här åtgärden iterativt tills den returnerar värdet **lyckades** . Använd ett intervall på 3 till 5 sekunder för att undvika att överskrida antalet begär Anden per sekund (RPS).
+Det andra steget är att anropa åtgärden för att [analysera mottagnings resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) . Den här åtgärden tar inmatat till det resultat-ID som skapades av åtgärden för att analysera kvittot. Den returnerar ett JSON-svar som innehåller ett **status** fält med följande möjliga värden. Du anropar den här åtgärden iterativt tills den returnerar värdet **lyckades** . Använd ett intervall på 3 till 5 sekunder för att undvika att överskrida antalet begär Anden per sekund (RPS).
 
 |Fält| Typ | Möjliga värden |
 |:-----|:----:|:----|

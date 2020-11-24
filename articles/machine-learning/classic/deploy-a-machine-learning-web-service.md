@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5a588195f2095b2d0cb261e1573eeb9ec881f2fd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f77c0fb09dddd884335d31d630904ea6aeafeaf5
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322836"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495210"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuera en Azure Machine Learning Studio (klassisk)-webb tjänst
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**gäller för:** ![ Detta är en bock markering, vilket innebär att den här artikeln gäller Machine Learning Studio (klassisk). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ Detta är ett X, vilket innebär att den här artikeln gäller för Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Azure Machine Learning Studio (klassisk) gör det möjligt att bygga och testa en förutsägelse analys lösning. Sedan kan du distribuera lösningen som en webb tjänst.
@@ -93,7 +93,7 @@ När du konverterar det här inlärnings experimentet till ett förutsägelse ex
 
 * **Score** – i det här exemplet används modulen [dela data][split] för att dela upp data strömmen i test data och tränings data. I det förutsägande experimentet har vi inte längre utbildning, så [delade data][split] kan tas bort. På samma sätt används den andra [Poäng modell][score-model] modulen och modulen [utvärdera modell][evaluate-model] för att jämföra resultat från test data, så dessa moduler behövs inte i förutsägelse experimentet. Den återstående [poängen modell][score-model] -modulen behövs dock för att returnera ett resultat resultat via webb tjänsten.
 
-Så här ser vårt exempel ut efter att du har klickat på **Konfigurera webb tjänsten** :
+Så här ser vårt exempel ut efter att du har klickat på **Konfigurera webb tjänsten**:
 
 ![Konverterat förutsägelse experiment](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
@@ -250,7 +250,7 @@ Om du vill testa batch-körningen klickar du på **testa** för hands versions l
 
 På sidan **konfiguration** kan du ändra visnings namnet för tjänsten och ge den en beskrivning. Namnet och beskrivningen visas i [Azure Portal](https://portal.azure.com/) där du hanterar dina webb tjänster.
 
-Du kan ange en beskrivning av dina indata, utdata och webb tjänst parametrar genom att ange en sträng för varje kolumn under **inmatnings schema** , **utdata schema** och **webb tjänst parameter**. Dessa beskrivningar används i den exempel kod dokumentation som tillhandahålls för webb tjänsten.
+Du kan ange en beskrivning av dina indata, utdata och webb tjänst parametrar genom att ange en sträng för varje kolumn under **inmatnings schema**, **utdata schema** och **webb tjänst parameter**. Dessa beskrivningar används i den exempel kod dokumentation som tillhandahålls för webb tjänsten.
 
 Du kan aktivera loggning för att diagnostisera eventuella fel som du ser när din webb tjänst nås. Mer information finns i [Aktivera loggning för Machine Learning Studio (klassiska) webb tjänster](web-services-logging.md).
 

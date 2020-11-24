@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 11/13/2020
 ms.author: matjazl
-ms.openlocfilehash: 3bb168cf3f642d22096c54b3f35c7833afaff769
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 386003d7dae80e086f523b2cebe61aa0eee7b89e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635151"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527827"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>Vad är Azure API för FHIR &reg; ?
 
@@ -24,7 +24,7 @@ Med Azure API för FHIR kan du snabbt utbyta data genom att använda API: er fö
 - Hög prestanda, låg latens
 - Säker hantering av skyddade hälso data (PHI) i en kompatibel moln miljö
 - SMART på FHIR för mobil-och webb implementeringar
-- Kontrol lera dina egna data i skala med Role-Based Access Control (RBAC)
+- Kontrol lera dina egna data i skala med rollbaserad åtkomst kontroll (RBAC)
 - Gransknings logg spårning för åtkomst, skapande, ändring och läsningar i varje data lager
 
 Med Azure API för FHIR kan du skapa och distribuera en FHIR-tjänst på bara några minuter för att utnyttja molnets elastiska skala.  Du betalar bara för det data flöde och den lagring du behöver. De Azure-tjänster som Power Azure API för FHIR är utformade för att få snabba prestanda oavsett vilken storlek data uppsättningar som du hanterar.
@@ -53,7 +53,7 @@ Med hjälp av Azure API för FHIR kan du ansluta till alla system som utnyttjar 
 
 ### <a name="control-data-access-at-scale"></a>Kontrol lera data åtkomst i skala
 
-Du styr dina data. Med Role-Based Access Control (RBAC) kan du hantera hur dina data lagras och nås.  Genom att tillhandahålla ökad säkerhet och minska den administrativa belastningen kan du bestämma vem som har åtkomst till de data uppsättningar som du skapar, baserat på de roll definitioner som du skapar för din miljö.  
+Du styr dina data. Med rollbaserad åtkomst kontroll (RBAC) kan du hantera hur dina data lagras och nås.  Genom att tillhandahålla ökad säkerhet och minska den administrativa belastningen kan du bestämma vem som har åtkomst till de data uppsättningar som du skapar, baserat på de roll definitioner som du skapar för din miljö.  
 
 ### <a name="audit-logs-and-tracking"></a>Gransknings loggar och spårning 
 

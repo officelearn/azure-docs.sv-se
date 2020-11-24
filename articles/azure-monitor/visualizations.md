@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983600"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522676"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en översikt över tillgängliga metoder för att visualisera logg-och mått data som lagras i Azure Monitor.
@@ -49,7 +49,7 @@ Här är en video genom gång av hur du skapar instrument paneler.
 - Djupgående integrering i Azure. Visualiseringar kan fästas på instrument paneler från flera Azure-sidor, inklusive Metrics Explorer, Log Analytics och Application Insights.
 - Stöder både mått och loggar.
 - Kombinera data från flera källor, inklusive utdata från [mått Utforskaren](platform/metrics-charts.md), [logg frågor](log-query/log-query-overview.md)och [kartor](app/app-map.md) och tillgänglighet i Application Insights.
-- Alternativ för personliga eller delade instrument paneler. Integrerad med Azure [Role-baserad autentisering (RBAC)](../role-based-access-control/overview.md).
+- Alternativ för personliga eller delade instrument paneler. Integrerad med [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md).
 - Automatisk uppdatering. Mått uppdateringen är beroende av tidsintervallet med minst fem minuter. Loggar uppdateras varje timme med ett manuellt uppdaterings alternativ på begäran genom att klicka på ikonen "uppdatera" i en specifik visualisering, eller genom att uppdatera hela instrument panelen.
 - Parametrized Mät instrument paneler med tidsstämpel och anpassade parametrar.
 - Alternativ för flexibel layout.

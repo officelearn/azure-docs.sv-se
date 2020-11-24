@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: 16fd15a5939cc6c268a80e88401f05042a206075
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ea55762aa40360d8eea94223a030f08aad504206
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516823"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95485400"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>Självstudie: bygga en app för att chatta med en blixt Server
 
@@ -39,7 +39,7 @@ Från Visual Studio 2019 version 16.2.0 är Azure Signaling-tjänsten att public
    
    I Visual Studio väljer du skapa en ny projekt-> blixt app-> (namnge appen och välja en mapp) – > program vara för blixt Server. Kontrol lera att du redan har installerat .NET Core SDK 3.0 + för att Visual Studio ska kunna identifiera mål ramverket korrekt.
 
-   [![blixt-chatt-skapa ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png#lightbox)
+   [![I skapa ett nytt projekt väljs de nya apparna i mappen. ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png#lightbox)
    
    Eller kör cmd
    ```dotnetcli
@@ -355,7 +355,7 @@ Från Visual Studio 2019 version 16.2.0 är Azure Signaling-tjänsten att public
 
 1. Klicka på <kbd>F5</kbd> för att köra appen. Du kan chatta som nedan.
 
-   [![blixt-chatt ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif#lightbox)
+   [![En animerad chatt mellan Robert och Alice visas. Alice står Hej, Bob står Hej. ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif#lightbox)
    
 [Har du problem? Berätta för oss.](https://aka.ms/asrs/qsblazor)
 
@@ -375,13 +375,13 @@ Från Visual Studio 2019 version 16.2.0 är Azure Signaling-tjänsten att public
    * Specifika mål: alla typer av **Azure App Service** stöds.
    * App Service: skapa en ny eller Välj en befintlig app service.
 
-   [![blixtens Chat-profil ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif#lightbox)
+   [![Animeringen visar valet av Azure som mål och Azure App Service som ett särskilt mål. ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif#lightbox)
 
 1. Lägg till tjänst beroende för Azure SignalR
 
    När publicerings profilen har skapats kan du se ett rekommenderat meddelande under **tjänst beroenden**. Klicka på **Konfigurera** för att skapa en ny eller Välj en befintlig Azure SignalR-tjänst i panelen.
 
-   [![blixt-chatt-beroende ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png#lightbox)
+   [![Vid publicering markeras länken som ska konfigureras. ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png#lightbox)
 
    Tjänst beroendet gör saker nedan för att aktivera appen automatiskt till Azure SignalR-tjänsten när den körs på Azure.
 
@@ -391,7 +391,7 @@ Från Visual Studio 2019 version 16.2.0 är Azure Signaling-tjänsten att public
    * Att konfigurera hemligheter lagras beror på ditt val.
    * Lägg till `appsettings` konfiguration för att göra din app Target vald som Azure SignalR-tjänst.
 
-   [![blixt-Chat-beroende-Sammanfattning ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png#lightbox)
+   [![Vid Sammanfattning av ändringar används kryss rutorna för att markera alla beroenden. ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png#lightbox)
 
 1. Publicera appen
 
@@ -400,7 +400,7 @@ Från Visual Studio 2019 version 16.2.0 är Azure Signaling-tjänsten att public
    > Det kan hända att den inte fungerar direkt på sidan för första gången på grund av Azure App Service fördröjning för distributions start och försök att uppdatera sidan för att ge en fördröjning.
    > Utöver detta kan du använda webbläsarens fel söknings läge med <kbd>F12</kbd> för att verifiera att trafiken redan har omdirigerats till Azure SignalR-tjänsten.
 
-   [![blixt-chatt – Azure ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png#lightbox)
+   [![Chat-exemplet i blixt SignalR har en text ruta för ditt namn och en chat!-knapp för att starta en chatt. ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png#lightbox)
    
 [Har du problem? Berätta för oss.](https://aka.ms/asrs/qsblazor)
 

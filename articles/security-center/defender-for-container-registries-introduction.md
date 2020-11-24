@@ -7,18 +7,20 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145828"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95529996"
 ---
-# <a name="introduction-to-azure-defender-for-container-registries"></a>Introduktion till Azure Defender för behållar register
+# <a name="introduction-to-azure-defender-for-container-registries"></a>Introduktion till Azure Defender för containerregister
 
 Azure Container Registry (ACR) är en hanterad privat Docker-registerpost som lagrar och hanterar behållar avbildningar för Azure-distributioner i ett centralt register. Den är baserad på Docker-registret 2,0 med öppen källkod.
 
 Om du vill skydda alla Azure Resource Manager-baserade register i din prenumeration aktiverar du **Azure Defender för behållar register** på prenumerations nivå. Security Center genomsöker sedan bilder som skickas till registret, importeras till registret eller alla avbildningar som hämtas under de senaste 30 dagarna. Den här funktionen debiteras per avbildning.
+
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>Vilka är fördelarna med Azure Defender för behållar register?
 
@@ -71,7 +73,7 @@ Avbildningen hämtas från registret. Den körs sedan i en isolerad sandbox med 
 Security Center filtrerar och klassificerar resultat från skannern. När en bild är felfri, Security Center Markera den som sådan. Security Center skapar endast säkerhets rekommendationer för avbildningar som har problem att lösa. Genom att meddela om det uppstår problem kan Security Center minska risken för oönskade informations aviseringar.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Kan jag få Sök resultatet via REST API?
-Ja. Resultaten är under [Underbedömningar REST API](/rest/api/securitycenter/subassessments/list/). Du kan också använda Azure Resource Graph (ARG), Kusto API för alla resurser: en fråga kan hämta en speciell sökning.
+Ja. Resultaten finns i [REST API för underutvärderingar](/rest/api/securitycenter/subassessments/list/). Du kan också använda Azure Resource Graph (ARG), Kusto API för alla resurser: en fråga kan hämta en speciell sökning.
 
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Vilka register typer genomsöks? Vilka typer faktureras?
 En lista över de typer av behållar register som stöds av Azure Defender för behållar register finns i [tillgänglighet](defender-for-container-registries-usage.md#availability).

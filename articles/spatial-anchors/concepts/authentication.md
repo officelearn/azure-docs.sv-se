@@ -1,20 +1,20 @@
 ---
 title: Autentisering och auktorisering
 description: Lär dig mer om de olika sätt som en app eller tjänst kan autentisera till Azure spatiala ankare och de kontroll nivåer som du måste använda för att få åtkomst till spatiala ankare.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 10/08/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3d88c8d5d42e3dec2142df1ede7a9ee50898e92
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 0166a3b6031f9e1d364a37db99be5bc5a65267df
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242355"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95484618"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autentisering och auktorisering till Azure spatiala ankare
 
@@ -118,7 +118,7 @@ För program som riktar Azure Active Directory användare rekommenderar vi att d
         1.    Om ditt program **endast stöder min organisation** ersätter du värdet med **klient-ID** eller **klient namn**. Till exempel contoso.microsoft.com.
         2.    Om ditt program har stöd **för konton i en organisations katalog** ersätter du värdet med **organisationer**.
         3.    Om programmet har stöd för **alla Microsoft-konto användare ersätter du** det här värdet med **vanligt**.
-3.    På din Tokenbegäran anger du **omfånget** till **" `https://sts.<account-domain>//.default` "** , där `<account-domain>` ersätts med **konto domänen** för ditt Azure-konto för spatialdata. Ett exempel på ett Azure-konto för spatial ankare i kontot för USA, östra 2 konto domänen är **" `https://sts.mixedreality.azure.com//.default` "**. Det här omfånget indikerar till Azure AD att ditt program begär en token för tjänsten Mixed Reality säkerhetstokentjänst (STS).
+3.    På din Tokenbegäran anger du **omfånget** till **" `https://sts.<account-domain>//.default` "**, där `<account-domain>` ersätts med **konto domänen** för ditt Azure-konto för spatialdata. Ett exempel på ett Azure-konto för spatial ankare i kontot för USA, östra 2 konto domänen är **" `https://sts.mixedreality.azure.com//.default` "**. Det här omfånget indikerar till Azure AD att ditt program begär en token för tjänsten Mixed Reality säkerhetstokentjänst (STS).
 
 När du har slutfört de här stegen bör programmet kunna hämta från MSAL till en Azure AD-token. Du kan ange att Azure AD-token som `authenticationToken` i konfigurations objekt för moln sessionen:
 
@@ -195,9 +195,9 @@ Azure AD-åtkomsttoken hämtas via [MSAL](../../active-directory/develop/msal-ov
 >[!NOTE]
 > Du kan använda tjänst exemplet som finns på GitHub.
 
-1.    Se till att använda program-ID, program hemlighet och omdirigerings-URI för ditt eget Azure AD-program som **klient-ID** , **hemligheter** och **RedirectUri** -parametrar i MSAL.
+1.    Se till att använda program-ID, program hemlighet och omdirigerings-URI för ditt eget Azure AD-program som **klient-ID**, **hemligheter** och **RedirectUri** -parametrar i MSAL.
 2.    Ange klient-ID: t till ditt egen Azure AD-klient-ID i **auktoritets** parametern i MSAL.
-3.    På din Tokenbegäran anger du **omfånget** till **" `https://sts.<account-domain>//.default` "** , där `<account-domain>` ersätts med **konto domänen** för ditt Azure-konto för spatialdata. Ett exempel på ett Azure-konto för spatial ankare i kontot för USA, östra 2 konto domänen är **" `https://sts.mixedreality.azure.com//.default` "**.
+3.    På din Tokenbegäran anger du **omfånget** till **" `https://sts.<account-domain>//.default` "**, där `<account-domain>` ersätts med **konto domänen** för ditt Azure-konto för spatialdata. Ett exempel på ett Azure-konto för spatial ankare i kontot för USA, östra 2 konto domänen är **" `https://sts.mixedreality.azure.com//.default` "**.
 
 När du har slutfört de här stegen kan Server dels tjänsten hämta en Azure AD-token. Den kan sedan utväxla den för en MR-token som den kommer tillbaka till klienten. Att använda en Azure AD-token för att hämta en MR-token görs via ett REST-anrop. Här är ett exempel på ett anrop:
 

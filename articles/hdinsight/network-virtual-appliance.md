@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: c831e099eca3cd6e6da20f55ad19980ae8e9ddc5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 557f0a6a37747d3a461ced8de16fd1fcf0d1abab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545930"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524121"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Konfigurera virtuell nätverks installation i Azure HDInsight
 
@@ -41,7 +41,7 @@ Du kan välja att aktivera en eller flera av följande tjänst slut punkter, vil
 
 | **Slutpunkt** | **Detaljer** |
 |---|---|
-| IP-adresser publicerade [här](hdinsight-management-ip-addresses.md) | De här IP-adresserna är för HDInsight-resurs leverantör och bör ingå i UDR för att undvika asymmetrisk routning. Den här regeln behövs bara om ResourceProviderConnection är inställt på *inkommande* . Om ResourceProviderConnection är inställt på *utgående* behövs inte dessa IP-adresser i UDR.  |
+| IP-adresser publicerade [här](hdinsight-management-ip-addresses.md) | De här IP-adresserna är för HDInsight-resurs leverantör och bör ingå i UDR för att undvika asymmetrisk routning. Den här regeln behövs bara om ResourceProviderConnection är inställt på *inkommande*. Om ResourceProviderConnection är inställt på *utgående* behövs inte dessa IP-adresser i UDR.  |
 | AAD – DS privata IP-adresser | Krävs endast för ESP-kluster, om virtuella nätverk inte är peer-datorer.|
 
 
@@ -57,6 +57,7 @@ Listan nedan innehåller bara några fullständiga domän namn som kan behövas 
 | security.ubuntu.com:80                                                |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
+| microsoft.com/pki/mscorp/cps/default.htm:443                                      |
 | microsoft.com:80                                                      |
 |login.windows.net:443                                                  |
 |login.microsoftonline.com:443                                          |

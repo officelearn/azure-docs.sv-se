@@ -2,33 +2,38 @@
 title: Nätverks segment för VMware HCX
 description: Det krävs fyra nätverk för VMware-HCX.
 ms.topic: include
-ms.date: 09/28/2020
-ms.openlocfilehash: 8137b4383d2a243d53db317db6f5a78b3bc68e67
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.date: 11/23/2020
+ms.openlocfilehash: 48894c532c97b70cde1473fb8b81f406ded70343
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173622"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95529744"
 ---
 <!-- Used in avs-production-ready-deployment.md and tutorial-deploy-vmware-hcx.md -->
 
 Fyra nätverk behövs för VMware-HCX:
 
-- **Hanterings nätverk:** Vanligt vis är det samma hanterings nätverk som används i vSphere-klustret. Identifiera minst två IP-adresser på det här nätverks segmentet för VMware HCX. (Du kan behöva större siffror, beroende på din distribution.)
+- **Hanterings nätverk:** Vanligt vis är det samma hanterings nätverk som används i vSphere-klustret. Identifiera minst två IP-adresser på det här nätverks segmentet för VMware HCX. Du kan behöva större siffror, beroende på din distribution.
 
-- **vMotion nätverk:** Normalt är det samma nätverk som används för vMotion på vSphere-klustret.  Identifiera minst två IP-adresser på det här nätverks segmentet för VMware HCX. (Du kan behöva större siffror, beroende på din distribution.)  
+   > [!NOTE]
+   > Metoden vi rekommenderar är att skapa ett/26-nätverk. I ett/26-nätverk kan du använda upp till 10 service nät och 60 nätverks Extender (-1 per service nät). Du kan sträcka ut åtta nätverk per nätverks Extender med hjälp av privata moln i Azure VMware-lösningen.
+   >
+   
+- **vMotion nätverk:** Normalt är det samma nätverk som används för vMotion på vSphere-klustret.  Identifiera minst två IP-adresser på det här nätverks segmentet för VMware HCX. Du kan behöva större siffror, beroende på din distribution.  
 
    VMotion-nätverket måste exponeras på en distribuerad virtuell växel eller vSwitch0. Om det inte är det ändrar du miljön.
 
    > [!NOTE]
-   > Om det här nätverket inte dirigeras (privat) är det OK.
+   > Det här nätverket kan vara privat (inte dirigerat).
 
-- **Överordnat nätverk:** Du vill skapa ett nytt nätverk för VMware HCX-överordnad länk och utöka det till ditt vSphere-kluster via en port grupp. Identifiera minst två IP-adresser på det här nätverks segmentet för VMware HCX. (Du kan behöva större siffror, beroende på din distribution.)  
-
-   > [!NOTE]
-   > Den rekommenderade metoden är att skapa ett/29-nätverk, men nätverks storleken kommer att göras.
-
-- **Nätverk för replikering:** Du vill skapa ett nytt nätverk för VMware HCX-replikering och utöka det nätverket till ditt vSphere-kluster via en port grupp. Identifiera minst två IP-adresser på det här nätverks segmentet för VMware HCX. (Du kan behöva större siffror, beroende på din distribution.)
+- **Överordnat nätverk:** Du vill skapa ett nytt nätverk för VMware HCX-överordnad länk och utöka det till ditt vSphere-kluster via en port grupp. Identifiera minst två IP-adresser på det här nätverks segmentet för VMware HCX. Du kan behöva större siffror, beroende på din distribution.  
 
    > [!NOTE]
-   > Den rekommenderade metoden är att skapa ett/29-nätverk, men nätverks storleken kommer att göras.
+   > Metoden vi rekommenderar är att skapa ett/26-nätverk. I ett/26-nätverk kan du använda upp till 10 service nät och 60 nätverks Extender (-1 per service nät). Du kan sträcka ut åtta nätverk per nätverks Extender med hjälp av privata moln i Azure VMware-lösningen.
+   >
+   
+- **Nätverk för replikering:** Detta är valfritt. Du vill skapa ett nytt nätverk för VMware HCX-replikering och utöka det nätverket till ditt vSphere-kluster via en port grupp. Identifiera minst två IP-adresser på det här nätverks segmentet för VMware HCX. Du kan behöva större siffror, beroende på din distribution.
+
+   > [!NOTE]
+   > Den här konfigurationen är bara möjlig när lokala kluster värdar använder ett dedikerat VMkernel nätverk.  Om ditt lokala kluster inte har ett dedikerat VMkernel nätverk definierat, behöver du inte skapa det här nätverket.

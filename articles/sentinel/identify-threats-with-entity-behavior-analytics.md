@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a0a677342534cd92d5530199076e3d2e7084134d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658799"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95494785"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identifiera avancerade hot med användar-och enhets beteende analys (UEBA) i Azure Sentinel
 
@@ -205,7 +205,7 @@ Du kan använda den [bärbara datorn Jupyter](https://github.com/Azure/Azure-Sen
 
 Med behörighets analys kan du ta reda på den potentiella effekten av en organisations till gångs intrång av en angripare. Den här effekten kallas även för till gångens "Mas radie". Säkerhets analytiker kan använda den här informationen för att prioritera undersökningar och incident hantering.
 
-Azure Sentinel avgör de direkta och transitiva åtkomst rättigheter som innehas av en specifik användare till Azure-resurser genom att utvärdera de Azure-prenumerationer som användaren kan komma åt direkt eller via grupper eller tjänstens huvud namn. Den här informationen, samt den fullständiga listan över användarens medlemskap i Azure AD-säkerhetsgruppen, lagras sedan i **UserAccessAnalytics** -tabellen. Skärm bilden nedan visar en exempel rad i UserAccessAnalytics-tabellen för användaren Alex Johnson. **Källentiteten** är användarens eller tjänstens huvud konto och **målentiteten** är den resurs som käll enheten har åtkomst till. Värdena för **åtkomst nivå** och **åtkomst typ** beror på åtkomst kontrollens modell för målentiteten. Du kan se att Alex har deltagar åtkomst till Azure-prenumerationen *contoso hotell-klient*. Åtkomst kontroll modellen för prenumerationen är RBAC.   
+Azure Sentinel avgör de direkta och transitiva åtkomst rättigheter som innehas av en specifik användare till Azure-resurser genom att utvärdera de Azure-prenumerationer som användaren kan komma åt direkt eller via grupper eller tjänstens huvud namn. Den här informationen, samt den fullständiga listan över användarens medlemskap i Azure AD-säkerhetsgruppen, lagras sedan i **UserAccessAnalytics** -tabellen. Skärm bilden nedan visar en exempel rad i UserAccessAnalytics-tabellen för användaren Alex Johnson. **Källentiteten** är användarens eller tjänstens huvud konto och **målentiteten** är den resurs som käll enheten har åtkomst till. Värdena för **åtkomst nivå** och **åtkomst typ** beror på åtkomst kontrollens modell för målentiteten. Du kan se att Alex har deltagar åtkomst till Azure-prenumerationen *contoso hotell-klient*. Åtkomst kontroll modellen för prenumerationen är Azure RBAC.   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Skärm bild som visar användar åtkomst Analytics-tabellen":::
 

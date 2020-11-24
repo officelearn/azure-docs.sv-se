@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 4fd7a24edffbfb63adc830ddb83b45997743ad42
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: d6cba4bcb76094ed156ef35b1ea76cea7001c372
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421642"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486304"
 ---
 # <a name="what-is-iot-plug-and-play"></a>Vad är IoT Plug and Play?
 
@@ -72,5 +72,5 @@ Som enhets byggare kan du utveckla en IoT-maskinvara som stöder IoT Plug and Pl
 
 Nu när du har en översikt över IoT Plug and Play är det föreslagna nästa steg att prova en av snabb starterna:
 
-- [Anslut en enhet till IoT Hub (C)](./quickstart-connect-device-c.md)
-- [Interagera med en enhet från din lösning (Node.js)](./quickstart-service-node.md)
+- [Ansluta en enhet till IoT Hub](./quickstart-connect-device.md)
+- [Interagera med en enhet från din lösning](./quickstart-service.md)

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79cf0ef059d96ac66f5918605e999d3936d589d2
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718823"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486525"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Säkerhetskopiera och återställa formulär igenkännings modeller
 
@@ -41,7 +41,7 @@ Processen för att kopiera en anpassad modell består av följande steg:
 1. Du ska använda dina käll resurs uppgifter för att ställa frågor till förlopps-URL tills åtgärden har slutförts. Du kan också fråga det nya modell-ID: t i mål resursen för att hämta statusen för den nya modellen.
 
 > [!CAUTION]
-> Kopierings-API: t stöder för närvarande inte modell-ID: n för [sammansatta anpassade modeller](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose). Modell sammanställning är en förhands gransknings funktion i v 2.1 – för hands version. 1 för hands version. 
+> Kopierings-API: t stöder för närvarande inte modell-ID: n för [sammansatta anpassade modeller](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose). Modell sammanställning är en förhands gransknings funktion i v 2.1 – för hands version. 2 för hands version. 
 
 ## <a name="generate-copy-authorization-request"></a>Skapa begäran om Copy-auktorisering
 

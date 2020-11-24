@@ -1,19 +1,19 @@
 ---
 title: Installera Azure spatiala ankare för enhets enhet
 description: Konfigurera ett Unity-projekt för att använda Azures ankare för spatialdata
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 09/29/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: da983719dc66656aa28cab4aea0bae558c2a7162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2330310b0bf4e165af71208477db128650a787cf
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530432"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95496959"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Konfigurera Azure spatiala ankare i ett Unity-projekt
 
@@ -55,7 +55,7 @@ Azure spatiala ankare för Unity är för närvarande distribuerade med UPM-pake
 #### <a name="android-only-configure-the-maintemplategradle-file"></a>Endast Android: Konfigurera filen mainTemplate. gradle
 
 1. Gå till **Redigera**  >  **projekt inställnings**  >  **spelare**.
-2. I **panelen kontrollant** för **Player-inställningar**väljer du **Android** -ikonen.
+2. I **panelen kontrollant** för **Player-inställningar** väljer du **Android** -ikonen.
 3. Under avsnittet **skapa** markerar du kryss rutan **anpassad mall för huvud Gradle** för att generera en anpassad Gradle-mall på `Assets\Plugins\Android\mainTemplate.gradle` .
 4. Öppna `mainTemplate.gradle` filen i en text redigerare.
 5. I `dependencies` avsnittet klistrar du in följande beroenden:

@@ -7,18 +7,18 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: dc86340026ec7b85afc9e5208ea8ef8c32d8bac6
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9ac616ddf1c3475f2ca3b3e8097bb74da72faa77
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421472"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95500279"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Självstudie: ansluta en IoT Plug and Play-modul (C#)
 
 Den här självstudien visar hur du ansluter en allmän IoT Plug and Play- [modul](../iot-hub/iot-hub-devguide-module-twins.md).
 
-En enhet är en IoT Plug and Play-enhet om den publicerar sitt modell-ID när den ansluter till en IoT-hubb och implementerar de egenskaper och metoder som beskrivs i DTDL-modellen (Digital-definitions språk) som identifieras av modell-ID: t. Mer information om hur enheter använder ett DTDL och modell-ID finns i [IoT plug and Play Developer Guide](./concepts-developer-guide-device-csharp.md). Moduler använder modell-ID: n och DTDL modeller på samma sätt.
+En enhet är en IoT Plug and Play-enhet om den publicerar sitt modell-ID när den ansluter till en IoT-hubb och implementerar de egenskaper och metoder som beskrivs i DTDL-modellen (Digital-definitions språk) som identifieras av modell-ID: t. Mer information om hur enheter använder ett DTDL och modell-ID finns i [IoT plug and Play Developer Guide](./concepts-developer-guide-device.md). Moduler använder modell-ID: n och DTDL modeller på samma sätt.
 
 För att demonstrera hur du implementerar en IoT Plug and Play-modul visar den här självstudien hur du konverterar termostat C#-enhets exemplet till en allmän modul.
 
@@ -33,7 +33,7 @@ Om du vill slutföra den här självstudien i Windows installerar du följande p
 
 Använd Azure IoT Explorer-verktyget för att lägga till en ny enhet som kallas **min-module-enhet** i IoT Hub.
 
-Lägg till en modul som kallas **My-module** i **min-modul-Device** :
+Lägg till en modul som kallas **My-module** i **min-modul-Device**:
 
 1. I Azure IoT Explorer-verktyget, navigerar du till enheten för **min-modul-enhet** .
 
@@ -238,4 +238,4 @@ Du kan använda Azure IoT Explorer-verktyget för att se:
 I den här självstudien har du lärt dig hur du ansluter en IoT Plug and Play-enhet med moduler till en IoT-hubb. Mer information om IoT Plug and Play enhets modeller finns i:
 
 > [!div class="nextstepaction"]
-> [IoT Plug and Play Modeling Developer Guide](./concepts-developer-guide-device-csharp.md)
+> [IoT Plug and Play Modeling Developer Guide](./concepts-developer-guide-device.md)

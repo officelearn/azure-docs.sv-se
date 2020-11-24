@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/04/2016
 ms.author: mimckitt
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 536a28801193cdbb4204ca1432892abdc7fb297e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22e0a19c0e2f5b29b35ebf43a3f250959c9b636d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268493"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521129"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Ringa ett telefonsamtal med Twilio i en webbroll på Azure
 Den här guiden visar hur du använder Twilio för att ringa ett samtal från en webb sida som finns i Azure. Det resulterande programmet uppmanas användaren att ringa ett samtal med det angivna antalet och meddelandet, som visas i följande skärm bild.
@@ -41,7 +41,7 @@ Du bör vara bekant med att skapa en grundläggande [webb roll på Azure][azure_
 2. Högerklicka på **referenser**.
 3. Klicka på **Hantera NuGet-paket**.
 4. Klicka på **online**.
-5. Skriv *Twilio*i rutan Sök online.
+5. Skriv *Twilio* i rutan Sök online.
 6. Klicka på **Installera** på Twilio-paketet.
 
 Följande kod visar hur du skapar ett webb formulär för att hämta användar data för att ringa ett samtal. I det här exemplet skapas en ASP.NET-webbroll med namnet **TwilioCloud** .
@@ -186,5 +186,5 @@ Den här koden angavs för att visa grundläggande funktioner med Twilio i en AS
 [twilio_say]: https://www.twilio.com/docs/api/twiml/say
 
 
-[azure_runtime_ref_dotnet]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
-[azure_webroles_get_started]: https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-get-started
+[azure_runtime_ref_dotnet]: /previous-versions/azure/reference/ee741722(v=azure.100)
+[azure_webroles_get_started]: ./cloud-services/cloud-services-dotnet-get-started.md

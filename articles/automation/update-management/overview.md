@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09bd82225fb7d8a6eefe84b5a70660e4553a3070
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: abcc2b60fd796a80342fe48c3c9027388660476a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360793"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488155"
 ---
 # <a name="update-management-overview"></a>Översikt över Uppdateringshantering
 
@@ -72,7 +72,7 @@ I följande tabell visas de operativ system som stöds för uppdaterings bedömn
 > [!NOTE]
 > Uppdaterings utvärdering av Linux-datorer stöds bara i vissa regioner enligt listan i Automation-kontot och Log Analytics [mappnings tabellen](../how-to/region-mappings.md#supported-mappings)för arbets ytan.
 
-|Operativsystem  |Kommentarer  |
+|Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows Server 2019 (Data Center/Data Center Core/standard)<br><br>Windows Server 2016 (Data Center/Data Center Core/standard)<br><br>Windows Server 2012 R2 (Data Center/standard)<br><br>Windows Server 2012 ||
 |Windows Server 2008 R2 (RTM och SP1 standard)| Uppdateringshantering stöder utvärderingar och korrigeringar för det här operativ systemet. [Hybrid Runbook Worker](../automation-windows-hrw-install.md) stöds för Windows Server 2008 R2. |
@@ -88,7 +88,7 @@ I följande tabell visas de operativ system som stöds för uppdaterings bedömn
 
 I följande tabell visas operativ system som inte stöds:
 
-|Operativsystem  |Kommentarer  |
+|Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.<br> Den rekommenderade metoden för Azure Windows Virtual Desktop (WVD)<br> för att hantera uppdateringar är [Microsoft Endpoint Configuration Manager](../../virtual-desktop/configure-automatic-updates.md) för hantering av klient datorer för Windows 10. |
 |Windows Server 2016 Nano Server     | Stöds inte.       |
@@ -132,7 +132,7 @@ Uppdateringshantering använder resurserna som beskrivs i det här avsnittet. De
 
 När du har aktiverat Uppdateringshantering konfigureras en Windows-dator som är direkt ansluten till din Log Analytics arbets yta automatiskt som en Hybrid Runbook Worker för att stödja Runbooks som stöder Uppdateringshantering.
 
-Varje Windows-dator som hanteras av Uppdateringshantering visas i rutan hybrid Worker-grupper som en system hybrid Worker-grupp för Automation-kontot. I grupperna används `Hostname FQDN_GUID` namngivnings konventionen. Du kan inte rikta de här grupperna med Runbooks i ditt konto. Om du försöker, Miss lyckas försöket. De här grupperna är endast avsedda att stödja Uppdateringshantering. Mer information om hur du visar listan över Windows-datorer som kon figurer ATS som en Hybrid Runbook Worker finns i [Visa hybrid Runbook Worker](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers).
+Varje Windows-dator som hanteras av Uppdateringshantering visas i rutan hybrid Worker-grupper som en system hybrid Worker-grupp för Automation-kontot. I grupperna används `Hostname FQDN_GUID` namngivnings konventionen. Du kan inte rikta de här grupperna med Runbooks i ditt konto. Om du försöker, Miss lyckas försöket. De här grupperna är endast avsedda att stödja Uppdateringshantering. Mer information om hur du visar listan över Windows-datorer som kon figurer ATS som en Hybrid Runbook Worker finns i [Visa hybrid Runbook Worker](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers).
 
 Du kan lägga till Windows-datorn i en Hybrid Runbook Worker grupp i ditt Automation-konto för att stödja Automation-runbooks om du använder samma konto för Uppdateringshantering och medlemskapet i Hybrid Runbook Worker gruppen. Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.
 

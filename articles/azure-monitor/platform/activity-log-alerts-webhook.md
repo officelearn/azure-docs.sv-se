@@ -4,12 +4,12 @@ description: Lär dig mer om schemat för JSON som publiceras i en webhook-URL n
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 0ebaf7f0cc52ac131573226dfff5516581745c67
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 026613c3f5710137fb110153b34f9ed74bbf8a7b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104282"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522795"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhookar för Azure aktivitets logg aviseringar
 Som en del av definitionen av en åtgärds grupp kan du konfigurera webhook-slutpunkter för att ta emot aviseringar om aktivitets logg aviseringar. Med Webhooks kan du dirigera dessa meddelanden till andra system för efter bearbetning eller anpassade åtgärder. Den här artikeln visar vad nytto lasten för HTTP-inlägget till en webhook ser ut.
@@ -262,14 +262,14 @@ Information om en detaljerad schema information om logg aviseringar för tjänst
 | conditionType |Always "event." |
 | name |Aviserings regelns namn. |
 | id |Resurs-ID för aviseringen. |
-| description |Aviserings beskrivning som anges när aviseringen skapas. |
+| beskrivning |Aviserings beskrivning som anges när aviseringen skapas. |
 | subscriptionId |ID för Azure-prenumeration. |
 | timestamp |Tiden då händelsen genererades av den Azure-tjänst som bearbetade begäran. |
 | resourceId |Resurs-ID för den påverkade resursen. |
 | resourceGroupName |Namnet på resurs gruppen för den påverkade resursen. |
 | properties |Uppsättning `<Key, Value>` par (det vill säga `Dictionary<String, String>` ) som innehåller information om händelsen. |
 | händelse |Element som innehåller metadata om händelsen. |
-| auktorisering |Händelsens Role-Based Access Control egenskaper. Dessa egenskaper omfattar vanligt vis åtgärden, rollen och omfånget. |
+| auktorisering |Azures rollbaserade egenskaper för åtkomst kontroll för händelsen. Dessa egenskaper omfattar vanligt vis åtgärden, rollen och omfånget. |
 | category |Händelsens kategori. De värden som stöds är administration, avisering, säkerhet, ServiceHealth och rekommendation. |
 | anroparen |E-postadressen till den användare som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. Kan vara null för vissa system anrop. |
 | correlationId |Vanligt vis ett GUID i sträng format. Händelser med correlationId tillhör samma större åtgärd och delar vanligt vis ett correlationId. |

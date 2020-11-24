@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: fc405c56538ab305d6e0b8a22c1095458cb1264e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eacc7adae16785049022cd05f04904d97b0b3a6d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309886"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486134"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Dela och identifiera resurser i Azure AI Gallery
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**gäller för:** ![ Detta är en bock markering, vilket innebär att den här artikeln gäller Machine Learning Studio (klassisk). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ Detta är ett X, vilket innebär att den här artikeln gäller för Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 
@@ -48,12 +48,12 @@ Du kan till och med dela en resurs av intresse med vänner eller kollegor med hj
 
 När du loggar in blir du medlem i Galleri gruppen. På så sätt kan du hämta resurser eller bidra med dina egna Galleri objekt så att andra kan dra nytta av de lösningar du har identifierat.
 
-Du kan hämta **experiment** , **anpassade moduler** som du kan använda när du utvecklar egna analys lösningar.
-Du kan bidra med **experiment** , **självstudier** och **samlingar** i galleriet.
+Du kan hämta **experiment**, **anpassade moduler** som du kan använda när du utvecklar egna analys lösningar.
+Du kan bidra med **experiment**, **självstudier** och **samlingar** i galleriet.
 
 ## <a name="download-experiments-modules"></a>Hämta experiment, moduler
 
-Du kan hämta **experiment** , **anpassade moduler** till din egen Machine Learning Studio (klassisk) arbets yta som du kan använda när du utvecklar dina egna lösningar.
+Du kan hämta **experiment**, **anpassade moduler** till din egen Machine Learning Studio (klassisk) arbets yta som du kan använda när du utvecklar dina egna lösningar.
 
 Så här hämtar du en resurs i AI-galleriet:
 
@@ -65,7 +65,7 @@ Så här hämtar du en resurs i AI-galleriet:
 Så här hämtar du en resurs inifrån Studio (klassisk):
 
 1. I Studio (klassisk) väljer du **ny**.
-1. Välj **modul** , **experiment** eller **antecknings bok**.
+1. Välj **modul**, **experiment** eller **antecknings bok**.
 1. Bläddra eller Sök efter en Galleri resurs.
 1. Peka på musen på resursen och välj sedan **Öppna i Studio**.
     ![Öppna Galleri experiment inifrån Machine Learning Studio (klassisk)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
@@ -108,7 +108,7 @@ Och du kan logga in med ett diskussions verktyg som Disqus för att få meddelan
 
 1. På sidan **avbildnings val** väljer du en miniatyr bild för experimentet. Miniatyr bilden visas överst på sidan med experiment information och i experiment panelen. Andra användare ser miniatyr bilden när de bläddrar i galleriet. Du kan ladda upp en bild från datorn eller välja en börs bild från galleriet.
 
-1. På sidan **Inställningar** under **synlighet** väljer du om du vill publicera ditt innehåll offentligt ( **offentligt** ) eller om du vill att det endast ska vara tillgängligt för personer som har en länk till sidan (inte **listad** ).
+1. På sidan **Inställningar** under **synlighet** väljer du om du vill publicera ditt innehåll offentligt (**offentligt**) eller om du vill att det endast ska vara tillgängligt för personer som har en länk till sidan (inte **listad**).
 
    > [!TIP]
    > Om du vill vara säker på att dokumentationen ser korrekt ut innan du släpper den offentligt, kan du börja med att publicera experimentet som inte **visas**. Senare kan du ändra Synlighets inställningen till **offentlig** på sidan experiment information. Observera att när du har angett ett experiment som är **offentligt** kan du inte senare ändra det till **Unlisted**.
@@ -125,13 +125,13 @@ Du kan ändra någon av följande uppgifter för experimentet direkt i galleriet
 * Sammanfattning eller beskrivning
 * Taggar
 * Bild
-* Synlighets inställning ( **offentlig** eller inte **listad** )
+* Synlighets inställning (**offentlig** eller inte **listad**)
 
 Du kan också ta bort experimentet från galleriet.
 
 Du kan göra dessa ändringar eller ta bort experimentet från sidan med experiment information eller från din profil sida i galleriet.
 
-* På sidan experiment information, för att ändra information om experimentet, väljer du **Redigera**. Informations sidan går in i redigerings läge. Om du vill göra ändringar väljer du **Redigera** bredvid experimentets namn, Sammanfattning eller taggar. När du är klar med ändringarna väljer du **klar**. Om du vill ändra Synlighets inställningarna för experimentet ( **offentligt** eller ej **listat** ) eller ta bort experimentet från galleriet väljer du ikonen **Inställningar** .
+* På sidan experiment information, för att ändra information om experimentet, väljer du **Redigera**. Informations sidan går in i redigerings läge. Om du vill göra ändringar väljer du **Redigera** bredvid experimentets namn, Sammanfattning eller taggar. När du är klar med ändringarna väljer du **klar**. Om du vill ändra Synlighets inställningarna för experimentet (**offentligt** eller ej **listat**) eller ta bort experimentet från galleriet väljer du ikonen **Inställningar** .
 
 * På din profil sida väljer du nedåtpilen för experimentet och väljer sedan **Redigera**. Då går du till informations sidan för ditt experiment i redigerings läge. När du har gjort ändringarna väljer du **klar**. Om du vill ta bort experimentet från galleriet väljer du **ta bort**.
 
@@ -156,7 +156,7 @@ Du kan hjälpa andra genom att skriva en **själv studie kurs** i galleriet som 
 
 1. På sidan **avbildnings val** väljer du en bild som visas med ditt bidrag. Du kan ladda upp en egen avbildnings fil eller välja en börs bild. Välj en bild som kan hjälpa användarna att identifiera innehållet och syftet med ditt bidrag. Klicka på **Nästa**.
 
-1. På sidan **Inställningar** , för **synlighet** , väljer du om ditt bidrag är **offentligt** (vem som helst kan se det **) eller inte** (endast personer med en direkt länk kan visa det).
+1. På sidan **Inställningar** , för **synlighet**, väljer du om ditt bidrag är **offentligt** (vem som helst kan se det **) eller inte** (endast personer med en direkt länk kan visa det).
 
    > [!TIP]
    > Om du vill vara säker på att dokumentationen ser korrekt ut innan du släpper den offentligt, kan du börja med att publicera experimentet som inte **visas**. Senare kan du ändra Synlighets inställningen till **offentlig** på sidan experiment information. Observera att när du har angett ett experiment som är **offentligt** kan du inte senare ändra det till **Unlisted**.
@@ -202,6 +202,6 @@ När du har angett en tagg kan du ange en annan tagg genom att trycka på TABB-t
 
 Vi vill att galleriet ska drivas av våra användare och för våra användare. Använd glad till höger för att berätta för oss vad du älskar eller hat om galleriet.  
 
-![Feedback](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![I ett feedback-fönster kan du skicka ett leende, skicka en bister min eller ange text. Det finns en Skicka-knapp.](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[TA MIG TILL GALLERIET >>](https://gallery.azure.ai)**

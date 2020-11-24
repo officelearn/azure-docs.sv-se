@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27e7c899f0d22789c10541fc98a0d2c63a7843ec
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604486"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533063"
 ---
 # <a name="modify-target-settings"></a>Ändra målinställningar
 
@@ -41,8 +41,8 @@ Konfigurations inställningar som du kan ändra sammanfattas i tabellen.
 **VM-SKU** | Den [VM-typ](https://azure.microsoft.com/pricing/details/virtual-machines/series/) (tillgänglig i mål regionen) som ska användas för den virtuella mål datorn.<br/><br/> Den valda virtuella mål datorn får inte vara mindre än den virtuella käll datorn.
 **Nätverks resurser** | Alternativ för virtuella nätverk (virtuella nätverk)/Network säkerhets grupper/nätverks gränssnitt:<br/><br/> -Skapa en ny resurs med samma namn i mål regionen.<br/><br/> -Skapa en ny resurs med ett annat namn i mål regionen.<br/><br/> – Använd en befintlig nätverks resurs i mål regionen.<br/><br/> Om du skapar en ny mål resurs, med undantag för de inställningar som du ändrar, tilldelas samma inställningar som käll resursen.
 **Namn på offentlig IP-adress** | Ange namnet.
-**SKU för offentlig IP-adress** | Ange [SKU: n](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
-**Offentlig IP-adress zon** | Ange [zonen](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) för offentliga standard-IP-adresser.<br/><br/> Om du vill att det ska vara en zon redundant, anger du **zonen är redundant**.
+**SKU för offentlig IP-adress** | Ange [SKU: n](../virtual-network/public-ip-addresses.md#sku).
+**Offentlig IP-adress zon** | Ange [zonen](../virtual-network/public-ip-addresses.md#standard) för offentliga standard-IP-adresser.<br/><br/> Om du vill att det ska vara en zon redundant, anger du **zonen är redundant**.
 **Lastbalanserarens namn** | Ange namnet.
 **SKU för belastnings utjämning** | Basic eller standard. Vi rekommenderar att du använder standard.
 **Belastnings Utjämnings zon** | Ange en zon för belastningsutjämnaren. <br/><br/> Om du vill att det ska vara en zon redundant, anger du **zonen är redundant**.
@@ -62,7 +62,7 @@ Du ändrar mål inställningarna för en resurs med hjälp av **mål konfigurati
 Ändra en inställning: 
 
 1. Klicka på länken för resurs posten på sidan **över regioner** > **mål konfiguration** .
-2. I **konfigurations inställningar**kan du skapa en ny virtuell dator i mål regionen.
+2. I **konfigurations inställningar** kan du skapa en ny virtuell dator i mål regionen.
 3. Tilldela en ny tillgänglighets zon, tillgänglighets uppsättning eller SKU till den virtuella mål datorn. **Tillgänglighets zon** och **SKU**.
 
 Ändringar görs bara för den resurs som du redigerar. Du måste uppdatera alla beroende resurser separat.
@@ -91,7 +91,7 @@ När du flyttar Azure SQL Database-resurser kan du ändra mål inställningarna 
 Du ändrar mål inställningarna för en Azure SQL Database resurs på följande sätt: 
 
 1. Klicka på **mål konfigurations** posten för den resurs som du vill ändra i **flera regioner**.
-2. I **konfigurations inställningar**anger du de mål inställningar som sammanfattas i tabellen ovan.
+2. I **konfigurations inställningar** anger du de mål inställningar som sammanfattas i tabellen ovan.
 
 ## <a name="next-steps"></a>Nästa steg
 

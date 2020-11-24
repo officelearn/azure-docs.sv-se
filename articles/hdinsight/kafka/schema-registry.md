@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 7e17cdca508db81551d988c795bd1235fa729e82
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bb46bc18469638416ff76f84516498e0076c85fd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636868"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95500330"
 ---
 # <a name="apache-kafka-with-confluent-schema-registry-in-azure-hdinsight"></a>Apache Kafka med ett samsigs schema register i Azure HDInsight
 
@@ -34,7 +34,7 @@ I det här avsnittet distribuerar vi ett HDInsight-hanterat Kafka-kluster med en
 
 1. Klicka på knappen **distribuera till Azure** nedan för att logga in på Azure och öppna Resource Manager-mallen.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json" target="_blank">:::image type="icon" source="media/schema-registry/hdi-deploy-to-azure1.png":::</a>
+    [![Distribuera till Azure](./media/schema-registry/hdi-deploy-to-azure1.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json)
 
 1. Fyll i fälten enligt beskrivningen nedan i mallen för anpassad distribution:
 
@@ -113,7 +113,7 @@ Schema registret måste känna till Zookeeper-tjänsten kan interagera med HDIns
     debug=true
     ```
 
-1. Om du vill spara filen använder du **CTRL + X** , **Y** och **anger** sedan.
+1. Om du vill spara filen använder du **CTRL + X**, **Y** och **anger** sedan.
 
 1. Starta schema registret och peka det för att använda den uppdaterade schema register egenskaps filen. Kör följande kommandon:
 
@@ -215,7 +215,7 @@ I det här avsnittet ska vi läsa data från standar din data och skriva den til
     }
     ```
 
-    Använd kommandot nedan för att starta **Kafka Avro-konsolens tillverkare** :
+    Använd kommandot nedan för att starta **Kafka Avro-konsolens tillverkare**:
 
     ```bash
     /usr/bin/kafka-avro-console-producer     --broker-list $KAFKABROKERS     --topic agkafkaschemareg     --property parse.key=true --property key.schema='{"type" : "int", "name" : "id"}'     --property value.schema='{ "type" : "record", "name" : "example_schema", "namespace" : "com.example", "fields" : [ { "name" : "cust_id", "type" : "int", "doc" : "Id of the customer account" }, { "name" : "year", "type" : "int", "doc" : "year of expense" }, { "name" : "expenses", "type" : {"type": "array", "items": "float"}, "doc" : "Expenses for the year" } ], "doc:" : "A basic schema for storing messages" }'

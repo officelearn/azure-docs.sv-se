@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 08/19/2020
-ms.openlocfilehash: 1aadf1fe59c5300a4f16ea96b1e1d7a5fbcbdd6d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0a18f9adb8c3723619b44b30bfa334edf4300c0d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325730"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95509480"
 ---
 # <a name="what-can-i-do-with-machine-learning-studio-classic"></a>Vad kan jag göra med Machine Learning Studio (klassisk)?
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**gäller för:** ![ Detta är en bock markering, vilket innebär att den här artikeln gäller Machine Learning Studio (klassisk). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ Detta är ett X, vilket innebär att den här artikeln gäller för Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -30,14 +30,14 @@ Machine Learning Studio (klassisk) är ett dra-och-släpp-verktyg som du kan anv
 
 För att utveckla en förutsägelse analys modell använder du vanligt vis data från en eller flera källor, transformerar och analyserar dessa data via olika data manipulations-och statistik funktioner och genererar en uppsättning resultat. Att utveckla en modell som den här är en process som är baserad på upprepningar (iteration). När du ändrar de olika funktionerna och deras parametrar kommer resultaten att konvergera tills du är nöjd och säker på att du har en tränad, effektiv modell.
 
-Machine Learning Studio (klassisk) ger dig en interaktiv, visuell arbets yta som enkelt kan bygga, testa och iterera på en förutsägelse analys modell. Du drar och släpper * *_data uppsättningar_* _ och Analysis- _*_moduler_*_ till en interaktiv arbets yta och ansluter dem till ett _*_experiment_*_ , som du kör i Machine Learning Studio (klassisk). Om du vill köra en iteration med modelldesignen, redigerar du experimentet, sparar en kopia om du så önskar och sedan kör du försöket igen. När du är klar kan du konvertera ditt _*_utbildnings experiment_*_ till ett _*_förutsägelse experiment_*_ och sedan publicera det som en _*_webb tjänst_*_ så att din modell kan användas av andra.
+Machine Learning Studio (klassisk) ger dig en interaktiv, visuell arbets yta som enkelt kan bygga, testa och iterera på en förutsägelse analys modell. Du drar och släpper **_data uppsättningar_* _ och Analysis- _*_moduler_*_ till en interaktiv arbets yta och ansluter dem till ett _*_experiment_*_, som du kör i Machine Learning Studio (klassisk). Om du vill köra en iteration med modelldesignen, redigerar du experimentet, sparar en kopia om du så önskar och sedan kör du försöket igen. När du är klar kan du konvertera ditt _*_utbildnings experiment_*_ till ett _*_förutsägelse experiment_*_ och sedan publicera det som en _*_webb tjänst_*_ så att din modell kan användas av andra.
 
 Ingen programmering krävs, visuellt ansluta data uppsättningar och moduler för att skapa en förutsägelse analys modell.
 
 ![Machine Learning Studio-diagram (klassiskt): Skapa experiment, läsa data för många källor, skriva Poäng data, skriva modeller.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 ## <a name="download-the-ml-studio-classic-overview-diagram"></a>Ladda ned översikts diagrammet för ML Studio (klassisk)
-Ladda ned *Översikt över funktioner i Microsoft ml Studio (klassisk)* * diagram och få en överblick på hög nivå av funktionerna i Machine Learning Studio (klassisk). Om du vill ha det nära tillhands kan du skriva ut det i tabloidformat (280 x 385 mm).
+Ladda ned *Översikt över funktioner i Microsoft ml Studio (klassisk)** diagram och få en överblick på hög nivå av funktionerna i Machine Learning Studio (klassisk). Om du vill ha det nära tillhands kan du skriva ut det i tabloidformat (280 x 385 mm).
 
 **Hämta diagrammet här: [Översikt över](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)** 
  ![ funktioner i Microsoft Machine Learning Studio (klassisk) Översikt över funktioner i Microsoft Machine Learning Studio (klassisk)](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)

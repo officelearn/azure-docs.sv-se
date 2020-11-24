@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 keywords: text utvinning, sentiment-analys, text analys
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: a91be0798dc67bfb751807b385d638343b89562b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 14dfa6111bbda8750b175c8c9b2a96321e1af2c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957052"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519412"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Vad är API för textanalys?
 
@@ -47,9 +47,14 @@ Språk identifiering kan [identifiera språket som en inmatad text är skriven i
 
 Med den namngivna enhets igenkänningen (NER) kan du [identifiera och kategorisera entiteter](how-tos/text-analytics-how-to-entity-linking.md) i din text som personer, platser, organisationer, kvantiteter och välkända entiteter också känns igen och länkas till mer information på webben.
 
-## <a name="use-containers"></a>Använda containrar
+## <a name="deploy-on-premises-using-docker-containers"></a>Distribuera lokalt med Docker-behållare
 
-[Använd textanalys behållare](how-tos/text-analytics-how-to-install-containers.md) som en lokal lösning för utvinnings text och använda API: et. Med dessa Docker-behållare kan du extrahera nyckel fraser, identifiera språk och analysera sentiment närmare dina data.
+[Använd textanalys behållare](how-tos/text-analytics-how-to-install-containers.md) för att distribuera API-funktioner lokalt. Med dessa Docker-behållare kan du ta tjänsten närmare dina data för efterlevnad, säkerhet eller andra drift orsaker. Textanalys erbjuder följande behållare:
+
+* sentiment-analys
+* extrahering av nyckel fraser (för hands version)
+* språk identifiering (för hands version)
+* Textanalys för hälsa (för hands version)
 
 ## <a name="asynchronous-operations"></a>Asynkrona åtgärder
 

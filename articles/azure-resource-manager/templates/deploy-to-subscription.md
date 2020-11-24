@@ -2,13 +2,13 @@
 title: Distribuera resurser till prenumerationen
 description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/23/2020
+ms.openlocfilehash: c87f6fa590e1f769816fb0ee3cba3aad1997de15
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668885"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519871"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Prenumerations distribution med ARM-mallar
 
@@ -104,7 +104,7 @@ az deployment sub create \
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-För kommandot PowerShell-distribution använder du [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) eller **New-AzSubscriptionDeployment** . I följande exempel distribueras en mall för att skapa en resurs grupp:
+För kommandot PowerShell-distribution använder du [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) eller **New-AzSubscriptionDeployment**. I följande exempel distribueras en mall för att skapa en resurs grupp:
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -131,20 +131,28 @@ Mer detaljerad information om distributions kommandon och alternativ för att di
 När du distribuerar till en prenumeration kan du distribuera resurser för att:
 
 * mål prenumerationen från åtgärden
-* resurs grupper i prenumerationen
+* alla prenumerationer i klient organisationen
+* resurs grupper inom prenumerationen eller andra prenumerationer
+* Prenumerationens klient organisation
 * [tilläggs resurser](scope-extension-resources.md) kan tillämpas på resurser
 
-Du kan inte distribuera till en annan prenumeration än mål prenumerationen. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
+Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
 
 I det här avsnittet visas hur du anger olika omfång. Du kan kombinera dessa olika omfång i en enda mall.
 
-### <a name="scope-to-subscription"></a>Omfång till prenumeration
+### <a name="scope-to-target-subscription"></a>Omfång till mål prenumeration
 
 Om du vill distribuera resurser till mål prenumerationen lägger du till resurserna i avsnittet resurser i mallen.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
 
 Exempel på hur du distribuerar till prenumerationen finns i [skapa resurs grupper](#create-resource-groups) och [tilldela princip definition](#assign-policy-definition).
+
+### <a name="scope-to-other-subscription"></a>Omfång till annan prenumeration
+
+Om du vill distribuera resurser till en annan prenumeration än prenumerationen från åtgärden lägger du till en kapslad distribution. Ange `subscriptionId` egenskapen till ID: t för den prenumeration som du vill distribuera till. Ange `location` egenskapen för den kapslade distributionen.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
 
 ### <a name="scope-to-resource-group"></a>Omfång till resurs grupp
 
@@ -154,11 +162,23 @@ Om du vill distribuera resurser till en resurs grupp i prenumerationen lägger d
 
 Ett exempel på hur du distribuerar till en resurs grupp finns i [skapa resurs grupper och resurser](#create-resource-group-and-resources).
 
+### <a name="scope-to-tenant"></a>Scope till klient organisation
+
+Du kan skapa resurser på klient organisationen genom att ange `scope` värdet `/` . Användaren som distribuerar mallen måste ha den [åtkomst som krävs för att distribuera på klienten](deploy-to-tenant.md#required-access).
+
+Du kan använda en kapslad distribution med `scope` och `location` Ange.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+
+Eller så kan du ange omfånget till `/` för vissa resurs typer, t. ex. hanterings grupper.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
+
 ## <a name="deployment-location-and-name"></a>Distributions plats och namn
 
 För distributioner på prenumerations nivå måste du ange en plats för distributionen. Platsen för distributionen är separat från platsen för de resurser som du distribuerar. Distributions platsen anger var distributions data ska lagras.
 
-Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy** .
+Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy**.
 
 För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får fel koden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
 
@@ -433,7 +453,7 @@ New-AzSubscriptionDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
 ```
 
-## <a name="azure-blueprints"></a>Azure Blueprint
+## <a name="azure-blueprints"></a>Azure Blueprints
 
 ### <a name="create-blueprint-definition"></a>Skapa skiss definition
 

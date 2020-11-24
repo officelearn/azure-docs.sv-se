@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 404999cfac5037702eb61fdf74b2c5245ce9eb30
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74270229"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95526127"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Prestandanivåer för blockbloblagring
 
@@ -83,6 +83,6 @@ Du kan inte flytta data som lagras i ett Premium Block-Blob Storage-konto mellan
 Utvärdera frekvent, låg frekvent och Arkiv lag ring i GPv2-och Blob Storage-konton.
 
 - [Lär dig mer om återuppväcks BLOB-data från Arkiv lag rings nivån](storage-blob-rehydration.md)
-- [Utvärdera användningen av dina aktuella lagringskonton genom att aktivera mätvärden i Azure Storage.](../common/storage-enable-and-view-metrics.md)
+- [Utvärdera användningen av dina aktuella lagringskonton genom att aktivera mätvärden i Azure Storage.](./monitor-blob-storage.md)
 - [Kontrollera priser för frekvent/lågfrekvent lagring och arkivlagring i Blob Storage-/GPv2-konton efter region](https://azure.microsoft.com/pricing/details/storage/)
 - [Se priser för dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/)

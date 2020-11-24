@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 11/18/2020
 ms.author: victorh
-ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f7aa61d3bfb3c712320bbf138160a7ff8197c7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087551"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95502188"
 ---
 # <a name="configure-azure-firewall-rules"></a>Konfigurera Azures brand Väggs regler
 Du kan konfigurera NAT-regler, nätverks regler och program regler på Azure-brandväggen. Regel samlingar bearbetas enligt regel typen i prioritetsordning, lägre siffror till högre tal från 100 till 65 000. Ett namn på en regel samling får bara innehålla bokstäver, siffror, under streck, punkter eller bindestreck. Det måste börja med en bokstav eller en siffra, och sluta med en bokstav, en siffra eller ett under streck. Den maximala namn längden är 80 tecken.
@@ -26,7 +26,13 @@ Det är bäst att först få plats med prioritets numren för regel samlingen i 
 
 ### <a name="network-rules-and-applications-rules"></a>Regler för nätverks regler och program
 
-Om du konfigurerar nätverks regler och program regler tillämpas nätverks regler i prioritetsordning före program regler. Reglerna avslutas. Så om en matchning hittas i en nätverks regel bearbetas inga andra regler.  Om det inte finns någon nätverks regel matchning, och om protokollet är HTTP, HTTPS eller MSSQL utvärderas paketet av program reglerna i prioritetsordning. Om ingen matchning hittas utvärderas paketet mot [regel samlingen för infrastrukturen](infrastructure-fqdns.md). Om det fortfarande inte finns någon matchning nekas paketet som standard.
+Om du konfigurerar nätverks regler och program regler tillämpas nätverks regler i prioritetsordning före program regler. Reglerna avslutas. Så om en matchning hittas i en nätverks regel bearbetas inga andra regler.  Om det inte finns någon nätverks regel matchning, och om protokollet är HTTP, HTTPS eller MSSQL utvärderas paketet av program reglerna i prioritetsordning. Om ingen matchning hittas utvärderas paketet mot [regel samlingen för infrastrukturen](infrastructure-fqdns.md). Om det fortfarande inte finns någon matchning, nekas paketet som standard.
+
+#### <a name="network-rule-protocol"></a>Nätverks regel protokoll
+
+Nätverks regler kan konfigureras för **TCP**-, **UDP**-, ICMP **-och IP-** protokoll. **ICMP** Alla IP-protokoll innehåller alla IP-protokoll som definieras i dokumentet med [IANA-protokollnummer (Internet Assigned Numbers Authority)](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) . Om en mål Port är explicit konfigurerad, översätts regeln till en TCP + UDP-regel.
+
+Före den 9 november 2020 **alla** avsedda **TCP**, eller **UDP** eller **ICMP**. Därför kan du ha konfigurerat en regel före det datumet med protokollet = any, och mål portarna = "*". Om du inte tänker tillåta något IP-protokoll som det är definierat, ändrar du sedan regeln till att uttryckligen konfigurera de protokoll som du vill använda (TCP, UDP eller ICMP).
 
 ## <a name="inbound-connectivity"></a>Inkommande anslutning
 
@@ -57,7 +63,7 @@ Anslutning till google.com tillåts på grund av en matchande nätverks regel.
 
 - Åtgärd: Deny
 
-|name  |Källtyp  |Källa  |Protokoll: port|Mål-FQDN|
+|name  |Källtyp  |Källa  |Protokoll:Port|Mål-FQDN|
 |---------|---------|---------|---------|----------|----------|
 |Neka – Google     |IP-adress|*|http: 80, https: 443|google.com
 

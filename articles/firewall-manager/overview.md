@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: victorh
-ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 84ecea7764ddf48d68c983eaa5bccbac5f332d9b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596683"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95489702"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Vad är Azure Firewall Manager?
 
@@ -89,7 +89,8 @@ Azure Firewall Manager har följande kända problem:
 |Det går inte att köra program regler i ett säkert nav med konfigurerat anpassad DNS (för hands version).|Anpassad DNS (för hands version) fungerar inte i skyddade Hubbs distributioner och hubbar för virtuella nätverk i hubben där Tvingad tunnel trafik är aktive rad.|Korrigera under undersökning.|
 |DDoS Protection standard stöds inte med skyddade virtuella hubbar|DDoS Protection standard är inte integrerat med vWANs.|Undersöker|
 |Aktivitets loggar stöds inte fullt ut|Brand Väggs principen stöder för närvarande inte aktivitets loggar.|Undersöker|
-|Konfigurera privata IP-adressintervall för SNAT|[Inställningar för privat IP-intervall](../firewall/snat-private-range.md) ignoreras om Azure Firewall-principen har kon figurer ATS. Standard beteendet för Azure-brandväggen används, där det inte är SNAT-nätverks regler när mål-IP-adressen är i ett privat IP-adressintervall per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Undersöker
+|Konfigurera privata IP-adressintervall för SNAT|[Inställningar för privat IP-intervall](../firewall/snat-private-range.md) ignoreras om Azure Firewall-principen har kon figurer ATS. Standard beteendet för Azure-brandväggen används, där det inte är SNAT-nätverks regler när mål-IP-adressen är i ett privat IP-adressintervall per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Undersöker|
+|Vissa brand Väggs inställningar migreras inte när brand väggen migreras för att använda brand Väggs principen|Tillgänglighetszoner-och SNAT-privata adresser migreras inte när du migrerar till Azure brand Väggs princip.|Undersöker| 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: a7bdc1ee22d3672160122cad65b18de99f743cc7
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d3bedfae88544d0b0ebd07868438559305279fed
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747697"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95530122"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Konfigurera Log Analytics arbets yta för Azure Monitor for VMs
 Azure Monitor for VMs samlar in data från en eller flera Log Analytics arbets ytor i Azure Monitor. Innan du onboarding agents måste du skapa och konfigurera en arbets yta. I den här artikeln beskrivs kraven för arbets ytan och för att konfigurera den för Azure Monitor for VMs.
@@ -68,7 +68,7 @@ Azure Monitor for VMs stöder Log Analytics arbets ytor i följande regioner, ä
 - Australien, östra
 - Australien, sydöstra
 
-## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
+## <a name="azure-role-based-access-control"></a>Rollbaserad Azure-åtkomstkontroll
 Om du vill aktivera och komma åt funktionerna i Azure Monitor for VMs måste du ha [rollen Log Analytics Contributor](../platform/manage-access.md#manage-access-using-azure-permissions) i arbets ytan. Om du vill visa prestanda-, hälso-och kart data måste du ha [rollen övervaknings läsare](../platform/roles-permissions-security.md#built-in-monitoring-roles) för den virtuella Azure-datorn. Mer information om hur du styr åtkomsten till en Log Analytics arbets yta finns i [hantera arbets ytor](../platform/manage-access.md).
 
 ## <a name="add-vminsights-solution-to-workspace"></a>Lägg till VMInsights-lösning till arbets ytan

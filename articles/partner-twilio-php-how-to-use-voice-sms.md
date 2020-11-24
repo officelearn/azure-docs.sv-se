@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 2ce0e34032d8f0d07af3a7dcd3c47558814be7bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf1ab01b39d594002bc5e677ffe6c3049fbb91ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826816"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521027"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Använda Twilio för röst-och SMS-funktioner i PHP
 Den här guiden visar hur du utför vanliga programmerings åtgärder med Twilio API-tjänsten på Azure. Scenarierna som ingår är att ringa ett telefonsamtal och skicka ett SMS-meddelande (Short Message Service). Mer information om Twilio och hur du använder röst-och SMS i dina program finns i avsnittet [Nästa steg](#NextSteps) .
@@ -38,20 +38,20 @@ Twilio-API: et är ett RESTful-API som tillhandahåller röst-och SMS-funktioner
 Viktiga aspekter av Twilio-API: et är Twilio-verb och Twilio Markup Language (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Twilio-verb
-API: et använder Twilio-verb. exempelvis instruerar verbet Twilio till audibly att leverera ett meddelande på ett samtal. ** &lt; &gt; **
+API: et använder Twilio-verb. exempelvis instruerar verbet Twilio till audibly att leverera ett meddelande på ett samtal. **&lt; &gt;**
 
 Följande är en lista över Twilio-verb. Lär dig mer om andra verb och funktioner via [Twilio Markup Language-dokumentation](https://www.twilio.com/docs/api/twiml).
 
-* ** &lt; Dial &gt; **: ansluter anroparen till en annan telefon.
-* ** &lt; Samla &gt; **in: samlar in numeriska siffror som anges på telefon tangent bordet.
-* Koppla: avslutar ett anrop. ** &lt; &gt; **
-* ** &lt; Play &gt; **: spelar upp en ljudfil.
-* ** &lt; Paus &gt; **: väntar i tyst läge under ett angivet antal sekunder.
-* ** &lt; Post &gt; **: registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
-* ** &lt; Omdirigera &gt; **: överför kontroll av ett anrop eller SMS till TWIML på en annan URL.
-* ** &lt; Avvisa &gt; **: avvisar ett inkommande samtal till ditt Twilio-nummer utan fakturering
-* ** &lt; Säg &gt; **: konverterar text till tal som görs i ett samtal.
-* ** &lt; SMS &gt; **: skickar ett SMS-meddelande.
+* **&lt; Dial &gt;**: ansluter anroparen till en annan telefon.
+* **&lt; Samla &gt;** in: samlar in numeriska siffror som anges på telefon tangent bordet.
+* Koppla: avslutar ett anrop. **&lt; &gt;**
+* **&lt; Play &gt;**: spelar upp en ljudfil.
+* **&lt; Paus &gt;**: väntar i tyst läge under ett angivet antal sekunder.
+* **&lt; Post &gt;**: registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
+* **&lt; Omdirigera &gt;**: överför kontroll av ett anrop eller SMS till TWIML på en annan URL.
+* **&lt; Avvisa &gt;**: avvisar ett inkommande samtal till ditt Twilio-nummer utan fakturering
+* **&lt; Säg &gt;**: konverterar text till tal som görs i ett samtal.
+* **&lt; SMS &gt;**: skickar ett SMS-meddelande.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML är en uppsättning XML-baserade instruktioner som baseras på Twilio-verb som informerar Twilio om hur man bearbetar ett anrop eller SMS.
@@ -262,7 +262,7 @@ Nu när du har lärt dig grunderna i Twilio-tjänsten kan du följa dessa länka
 [howto_phonecall_php]: partner-twilio-php-make-phone-call.md
 [twilio_voice_request]: https://www.twilio.com/docs/api/twiml/twilio_request
 [twilio_sms_request]: https://www.twilio.com/docs/api/twiml/sms/twilio_request
-[misc_role_config_settings]: https://msdn.microsoft.com/library/windowsazure/hh690945.aspx
+[misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message
 [twimlet_message_url_hello_world]: https://twimlets.com/message?Message%5B0%5D=Hello%20World
 [twiml_reference]: https://www.twilio.com/docs/api/twiml

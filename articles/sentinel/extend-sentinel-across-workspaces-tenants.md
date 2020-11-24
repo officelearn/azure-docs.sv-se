@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: d13f401fab126f57d07d405ab5d6ce461c26e139
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 60e86c7c849bf09b3a5577453a6935466ab447f6
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658952"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95483921"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Utöka Azure Sentinel för arbetsytor och klientorganisationer
 
@@ -34,7 +34,7 @@ Du kan få den fullständiga fördelen av Azure Sentinel-upplevelsen när du anv
 | Efterlevnad och efterlevnad | En arbetsyta är kopplad till en specifik region. Om data måste behållas i olika [Azure-geografiska](https://azure.microsoft.com/global-infrastructure/geographies/) områden för att uppfylla myndighets krav, måste de delas upp i separata arbets ytor. |  |
 | Dataägarskap | Gränserna för data ägarskap, till exempel av dotter bolag eller dotter bolag, är bättre avgränsade med separata arbets ytor. |  |
 | Flera Azure-klienter | Azure Sentinel stöder data insamling från Microsoft-och Azure SaaS-resurser inom en egen Azure Active Directory (Azure AD)-klient gränsen. Därför kräver varje Azure AD-klientorganisation en separat arbetsyta. |  |
-| Detaljerad åtkomstkontroll för data | En organisation kan behöva tillåta olika grupper i eller utanför organisationen för att få åtkomst till vissa av de data som samlas in av Azure Sentinel. Exempel:<br><ul><li>Resurs ägarens åtkomst till data som rör sina resurser</li><li>Regional eller dotter SOCs ' till gång till data som är relevanta för deras delar av organisationen</li></ul> | Använd RBAC-eller [tabell nivå RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) för [resurs](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) |
+| Detaljerad åtkomstkontroll för data | En organisation kan behöva tillåta olika grupper i eller utanför organisationen för att få åtkomst till vissa av de data som samlas in av Azure Sentinel. Exempel:<br><ul><li>Resurs ägarens åtkomst till data som rör sina resurser</li><li>Regional eller dotter SOCs ' till gång till data som är relevanta för deras delar av organisationen</li></ul> | Använd [resurs Azure RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) eller [tabell nivå Azure RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
 | Detaljerade inställningar för kvarhållning | Tidigare var flera arbets ytor det enda sättet att ange olika bevarande perioder för olika data typer. Detta behövs inte längre i många fall, tack vare införandet av inställningar för kvarhållning av tabell nivå. | Använd [Inställningar för kvarhållning av tabell nivå](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) eller automatisera [borttagning av data](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Dela fakturering | Genom att placera arbets ytor i separata prenumerationer kan de faktureras till olika parter. | Användningsrapportering och korsdebitering |
 | Äldre arkitektur | Användningen av flera arbets ytor kan leda till en historisk design som har tagit hänsyn till begränsningar eller bästa praxis som inte är längre än sant. Det kan även vara ett godtyckligt designval som kan ändras för att bättre tillgodose Azure Sentinel.<br><br>Exempel:<br><ul><li>Använda en standard arbets yta per prenumeration när du distribuerar Azure Security Center</li><li>Behovet av detaljerad åtkomst kontroll eller inställningar för kvarhållning, vilka lösningar som är relativt nya</li></ul> | Omarbeta arkitekturen för arbetsytor |

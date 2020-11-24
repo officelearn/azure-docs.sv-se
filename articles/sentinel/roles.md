@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 0704f076ef7c5d1a39af67d3ec6ec2baece1fda5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9c100ca82b751a050e74cce85e1794701a789288
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517309"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95498477"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Behörigheter i Azure Sentinel
 
@@ -54,11 +54,11 @@ Användare med särskilda jobb krav kan behöva tilldelas ytterligare roller ell
 
 - Arbeta med spel böcker för att automatisera svar på hot
 
-    Azure Sentinel använder **spel böcker** för automatiserat hot svar. Spel böcker bygger på **Azure Logic Apps**och är en separat Azure-resurs. Du kanske vill tilldela till vissa medlemmar i säkerhets åtgärds teamet möjligheten att använda Logic Apps för åtgärder för säkerhets dirigering, automation och Response (SOAR). Du kan använda [Logic app Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) -rollen eller [Logic app-operatören](../role-based-access-control/built-in-roles.md#logic-app-operator) för att tilldela uttrycklig behörighet för att använda spel böcker.
+    Azure Sentinel använder **spel böcker** för automatiserat hot svar. Spel böcker bygger på **Azure Logic Apps** och är en separat Azure-resurs. Du kanske vill tilldela till vissa medlemmar i säkerhets åtgärds teamet möjligheten att använda Logic Apps för åtgärder för säkerhets dirigering, automation och Response (SOAR). Du kan använda [Logic app Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) -rollen eller [Logic app-operatören](../role-based-access-control/built-in-roles.md#logic-app-operator) för att tilldela uttrycklig behörighet för att använda spel böcker.
 
 - Ansluta data källor till Azure Sentinel
 
-    För att en användare ska kunna lägga till **data anslutningar**måste du tilldela användaren Skriv behörighet på Azure Sentinel-arbetsytan. Observera också de ytterligare behörigheter som krävs för varje koppling, enligt listan på relevant anslutnings sida.
+    För att en användare ska kunna lägga till **data anslutningar** måste du tilldela användaren Skriv behörighet på Azure Sentinel-arbetsytan. Observera också de ytterligare behörigheter som krävs för varje koppling, enligt listan på relevant anslutnings sida.
 
 - Gäst användare som tilldelar incidenter
 
@@ -80,7 +80,7 @@ Till exempel kan en användare som har tilldelats rollen **Azure Sentinel Reader
 
 I följande tabell sammanfattas roller och tillåtna åtgärder i Azure Sentinel. 
 
-| Role | Skapa och köra spelböcker| Skapa och redigera arbetsböcker, analysregler och andra Azure Sentinel-resurser | Hantera incidenter (Stäng, tilldela osv.) | Visa data, incidenter, arbets böcker och andra Azure Sentinel-resurser |
+| Roll | Skapa och köra spelböcker| Skapa och redigera arbetsböcker, analysregler och andra Azure Sentinel-resurser | Hantera incidenter (Stäng, tilldela osv.) | Visa data, incidenter, arbets böcker och andra Azure Sentinel-resurser |
 |---|---|---|---|---|
 | Azure Sentinel-läsare | -- | -- | -- | &#10003; |
 | Azure Sentinel-svarare | -- | -- | &#10003; | &#10003; |
@@ -91,7 +91,7 @@ I följande tabell sammanfattas roller och tillåtna åtgärder i Azure Sentinel
 
 - Förutom, eller i stället för, med hjälp av inbyggda Azure-roller kan du skapa Azure-anpassade roller för Azure Sentinel. Azures anpassade roller för Azure Sentinel skapas på samma sätt som du skapar andra [Azure-anpassade roller](../role-based-access-control/custom-roles-rest.md#create-a-custom-role), baserat på [vissa behörigheter för Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) och [Azure Log Analytics-resurser](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Du kan använda Log Analytics avancerad rollbaserad åtkomst kontroll över data i Azure Sentinel-arbetsytan. Detta inkluderar både datatyp-baserad Azure RBAC och resurs-koncentrisk Azure RBAC. Mer information om Log Analytics-roller finns [i hantera loggdata och arbets ytor i Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- Du kan använda Log Analytics avancerad Azure rollbaserad åtkomst kontroll över data i Azure Sentinel-arbetsytan. Detta inkluderar både datatyp-baserad Azure RBAC och resurs-koncentrisk Azure RBAC. Mer information om Log Analytics-roller finns [i hantera loggdata och arbets ytor i Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Nästa steg
 

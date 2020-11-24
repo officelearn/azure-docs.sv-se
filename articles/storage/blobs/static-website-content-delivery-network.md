@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e458f98d82c910ec845ebf951b7f6470b6aba10d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465226"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527334"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrera en statisk webbplats med Azure CDN
 
@@ -47,7 +47,7 @@ Du kan aktivera Azure CDN för din statiska webbplats direkt från ditt lagrings
 
    ![Skärm bild som visar exempel på CDN-slutpunkts konfiguration](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
-1. Välj **skapa**och vänta sedan på att CDN ska etableras. När slutpunkten har skapats visas den i listan med slutpunkter. (Om du har fel i formuläret visas ett utrops tecken bredvid fältet.)
+1. Välj **skapa** och vänta sedan på att CDN ska etableras. När slutpunkten har skapats visas den i listan med slutpunkter. (Om du har fel i formuläret visas ett utrops tecken bredvid fältet.)
 
 1. Kontrol lera att CDN-slutpunkten är korrekt konfigurerad genom att klicka på slut punkten för att navigera till dess inställningar. Från CDN-översikten för ditt lagrings konto letar du reda på slut punktens värdnamn och navigerar till slut punkten, som du ser i följande bild. Formatet på CDN-slutpunkten ser ut ungefär så här `https://staticwebsitesamples.azureedge.net` .
 
@@ -63,7 +63,7 @@ Du kan aktivera Azure CDN för din statiska webbplats direkt från ditt lagrings
 
 Om du inte längre vill cachelagra ett objekt i Azure CDN kan du vidta något av följande steg:
 
-* Gör containern privat i stället för offentlig. Mer information finns i [Hantera anonym Läs behörighet till behållare och blobbar](storage-manage-access-to-resources.md).
+* Gör containern privat i stället för offentlig. Mer information finns i [Hantera anonym Läs behörighet till behållare och blobbar](./anonymous-read-access-configure.md).
 * Inaktivera eller ta bort CDN-slutpunkten med hjälp av Azure Portal.
 * Ändra din värdbaserade tjänst så att den inte längre svarar på förfrågningar för objektet.
 

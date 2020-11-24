@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 6fd20cd9e3172d6ce80d2c18c2cfa41fcc044929
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8021d659c144bfb68c2714f1680b6ad27a51b56a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92508037"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522353"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -24,11 +24,11 @@ Azure Private Endpoint är ett nätverksgränssnitt som ger dig en privat och s�
 
 |Egenskap  |Beskrivning |
 |---------|---------|
-|Namn    |    Ett unikt namn inom resurs gruppen.      |
+|Name    |    Ett unikt namn inom resurs gruppen.      |
 |Undernät    |  Under nätet för att distribuera och allokera privata IP-adresser från ett virtuellt nätverk. För under näts krav, se avsnittet begränsningar i den här artikeln.         |
 |Privat länk resurs    |   Den privata länk resursen för att ansluta med resurs-ID eller alias i listan över tillgängliga typer. Ett unikt nätverks-ID skapas för all trafik som skickas till den här resursen.       |
 |Mål under resurs   |      Den under resurs som ska anslutas. Varje privat länk resurs typ har olika alternativ för att välja baserat på preferens.    |
-|Metod för godkännande av anslutning    |  Automatisk eller manuell. Utifrån rollbaserad åtkomst kontroll (RBAC) behörigheter kan din privata slut punkt godkännas automatiskt. Om du försöker ansluta till en privat länk resurs utan RBAC använder du den manuella metoden för att tillåta resursens ägare att godkänna anslutningen.        |
+|Metod för godkännande av anslutning    |  Automatisk eller manuell. Den privata slut punkten kan godkännas automatiskt baserat på Azures rollbaserad åtkomst kontroll (Azure RBAC). Om du försöker ansluta till en privat länk resurs utan Aure RBAC, använder du den manuella metoden för att tillåta resursens ägare att godkänna anslutningen.        |
 |Begär ande meddelande     |  Du kan ange ett meddelande för begärda anslutningar som ska godkännas manuellt. Det här meddelandet kan användas för att identifiera en speciell begäran.        |
 |Anslutningsstatus   |   En skrivskyddad egenskap som anger om den privata slut punkten är aktiv. Endast privata slut punkter i ett godkänt tillstånd kan användas för att skicka trafik. Ytterligare tillstånd är tillgängliga: <br>-**Godkänd**: anslutning har automatiskt eller manuellt godkänts och är redo att användas.</br><br>-**Väntar**: anslutningen skapades manuellt och väntar på att godkännas av ägaren till den privata länk resursen.</br><br>-**Avvisad**: anslutningen avvisades av ägaren till den privata länk resursen.</br><br>-**Frånkopplad**: anslutningen har tagits bort av den privata länkens resurs ägare. Den privata slut punkten blir informativ och bör tas bort för rensning. </br>|
 
@@ -45,9 +45,9 @@ Här följer några viktiga uppgifter om privata slut punkter:
  
 - Flera privata slut punkter kan skapas med samma privata länk resurs. Den rekommenderade metoden är att använda en enda privat slut punkt för en viss privat länk resurs för att undvika dubbla poster eller konflikter i DNS-matchning för ett enda nätverk som använder en gemensam DNS-serverkonfiguration. 
  
-- Flera privata slut punkter kan skapas i samma eller olika undernät i samma virtuella nätverk. Det finns gränser för antalet privata slut punkter som du kan skapa i en prenumeration. Mer information finns i [Azure-gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Flera privata slut punkter kan skapas i samma eller olika undernät i samma virtuella nätverk. Det finns gränser för antalet privata slut punkter som du kan skapa i en prenumeration. Mer information finns i [Azure-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-- Prenumerationen från den privata länk resursen måste också registreras med Micosoft. Network Resource Provider. Mer information finns i [Azure Resource providers](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+- Prenumerationen från den privata länk resursen måste också registreras med Micosoft. Network Resource Provider. Mer information finns i [Azure Resource providers](../azure-resource-manager/management/resource-providers-and-types.md).
 
  
 ## <a name="private-link-resource"></a>Privat länk resurs 
@@ -136,7 +136,7 @@ Följande tabell innehåller en lista med kända begränsningar när du använde
 - [Skapa en privat slut punkt för SQL Database med hjälp av portalen](create-private-endpoint-portal.md)
 - [Skapa en privat slut punkt för SQL Database med PowerShell](create-private-endpoint-powershell.md)
 - [Skapa en privat slut punkt för SQL Database med CLI](create-private-endpoint-cli.md)
-- [Skapa en privat slut punkt för lagrings kontot med hjälp av portalen](create-private-endpoint-storage-portal.md)
+- [Skapa en privat slut punkt för lagrings kontot med hjälp av portalen](./tutorial-private-endpoint-storage-portal.md)
 - [Skapa en privat slut punkt för Azure Cosmos-konto med hjälp av portalen](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Skapa en egen privat länk-tjänst med hjälp av Azure PowerShell](create-private-link-service-powershell.md)
 - [Skapa en egen privat länk för Azure Database for PostgreSQL-en server med hjälp av portalen](../postgresql/howto-configure-privatelink-portal.md)

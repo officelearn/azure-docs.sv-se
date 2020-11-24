@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 71114b6663d010437e5778d288eacf4e120b3da5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d36a2804519e5728dd068cc6c06ad005244e8c95
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91395982"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524104"
 ---
 # <a name="multitenant-applications-in-azure"></a>Program med flera klienter i Azure
 Ett program för flera klient organisationer är en delad resurs som tillåter "användare i separata klienter" att visa programmet som om det var ett eget. Ett typiskt scenario som lånar sig själv till ett program med flera innehavare är ett där alla användare av programmet från olika klienter kanske vill anpassa användar upplevelsen, men på annat sätt har samma grundläggande affärs krav. Exempel på stora program med flera klient organisationer är Microsoft 365, Outlook.com och visualstudio.com.
@@ -43,7 +43,7 @@ Ett korrekt implementerat program med flera klienter ger användarna följande f
 
 Kort, men det finns många saker som du måste tänka på för att tillhandahålla en mycket skalbar tjänst, men det finns också ett antal mål och krav som är gemensamma för många program med flera klienter. Vissa är kanske inte relevanta i vissa scenarier, och vikten av enskilda mål och krav kan skilja sig åt i varje scenario. Som leverantör av program för flera innehavare har du också mål och krav, till exempel för att uppfylla klientens mål och krav, lönsamhet, fakturering, flera tjänste nivåer, etablering, övervakning av övervakning och automatisering.
 
-Mer information om ytterligare design aspekter av ett program med flera klienter finns i hantera [ett program för flera innehavare på Azure][Hosting a Multi-Tenant Application on Azure]. Information om vanliga mönster för dataarkitekturen i SaaS-databasprogram (Software-as-a-Service) med flera klienter finns i [Designmönster för SaaS-program med flera klienter i Azure SQL Database](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
+Mer information om ytterligare design aspekter av ett program med flera klienter finns i hantera [ett program för flera innehavare på Azure][Hosting a Multi-Tenant Application on Azure]. Information om vanliga mönster för dataarkitekturen i SaaS-databasprogram (Software-as-a-Service) med flera klienter finns i [Designmönster för SaaS-program med flera klienter i Azure SQL Database](./azure-sql/database/saas-tenancy-app-design-patterns.md). 
 
 Azure innehåller många funktioner som gör att du kan åtgärda de viktiga problem som uppstår när du utformar ett system med flera innehavare.
 
@@ -92,5 +92,5 @@ Azure erbjuder ett antal olika sätt att etablera nya klienter för programmet. 
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Azure]: https://msdn.microsoft.com/library/hh534480.aspx
+[Hosting a Multi-Tenant Application on Azure]: /previous-versions/msp-n-p/hh534480(v=pandp.10)
 [Designing Multitenant Applications on Azure]: https://msdn.microsoft.com/library/windowsazure/hh689716

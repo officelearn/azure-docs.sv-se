@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 282f13c89c527b096573b67b5d539de821e89032
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 82297b81ebe99301574e99ef438cc81c711dbeff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900808"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533692"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Apache-komponenter och versioner som är tillgängliga för Azure HDInsight
 
@@ -32,7 +32,7 @@ De komponent versioner som är associerade med HDInsight-kluster versioner visas
 |------------------------|---------------|-----------------------------|
 | Apache Hadoop och garn | 3.1.1         | 2.7.3                       |
 | Apache Tez             | 0.9.1         | 0.7.0                       |
-| Apache gris             | 0.16.0        | 0.16.0                      |
+| Apache gris             | 0.16.1        | 0.16.0                      |
 | Apache Hive            | 3.1.0         | 1.2.1 (2.1.0 på en interaktiv ESP-fråga) |
 | Apache Tez-Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
@@ -119,7 +119,7 @@ I den här tabellen listas de versioner av HDInsight som inte är tillgängliga 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Service nivå avtal för HDInsight-kluster versioner
 
-Service nivå avtalet definieras som ett _support fönster_ . Ett support fönster är den tids period som en HDInsight-version stöds av Microsofts kund tjänst och support. Om versionen har passerat _Supportens förfallo datum_ är HDInsight-klustret utanför support fönstret. Stöd för förfallo datum för HDInsight version X (när en senare version av X + 1 är tillgänglig) är senare av:
+Service nivå avtalet definieras som ett _support fönster_. Ett support fönster är den tids period som en HDInsight-version stöds av Microsofts kund tjänst och support. Om versionen har passerat _Supportens förfallo datum_ är HDInsight-klustret utanför support fönstret. Stöd för förfallo datum för HDInsight version X (när en senare version av X + 1 är tillgänglig) är senare av:
 
 - **Formel 1:** Lägg till 180 dagar till det datum då HDInsight-klustrets version X släpptes.
 - **Formel 2:** Lägg till 90 dagar till det datum då HDInsight-klustrets version X + 1 görs tillgänglig i Azure Portal.

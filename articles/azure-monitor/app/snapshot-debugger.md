@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: b439dcfc755f0113ffabf792850a2bd0fbcf322e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: cbbec71ff8ab762ea0da764a7db9459123850271
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996522"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95530241"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Ögonblicksbilder för felsökning av undantag i .NET-appar
 När ett undantag inträffar kan du automatiskt samla in en fel söknings ögonblicks bild från Live-webbappen. I ögonblicks bilden visas statusen för käll koden och variablerna vid det tillfälle då undantaget uppstod. Snapshot Debugger i [Azure Application Insights](./app-insights-overview.md) övervakar undantags telemetri från din webbapp. Den samlar in ögonblicks bilder i de övergivna undantagen så att du har den information du behöver för att diagnostisera problem i produktionen. Ta med [Snapshot Collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och konfigurera sedan samlings parametrar i [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Ögonblicks bilder visas på [undantag](./asp-net-exceptions.md) i Application Insights portalen.
@@ -39,7 +39,7 @@ Om du har aktiverat Snapshot Debugger men inte ser ögonblicks bilder, se vår [
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
-Åtkomsten till ögonblicksbilder skyddas av rollbaserad åtkomstkontroll (RBAC). För att kunna se en ögonblicksbild måste en prenumerationsägare först lägga till dig i den roll som krävs.
+Åtkomst till ögonblicks bilder skyddas av rollbaserad åtkomst kontroll i Azure (Azure RBAC). För att kunna se en ögonblicksbild måste en prenumerationsägare först lägga till dig i den roll som krävs.
 
 > [!NOTE]
 > Ägare och deltagare har inte den här rollen automatiskt. Om de vill visa ögonblicks bilder måste de lägga till sig själva i rollen.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 61bff59114d25b2f3167a34100ec2f742036bb90
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663712"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503180"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Rubrik-baserad enkel inloggning för lokala appar med Azure AD App proxy (för hands version)
 
@@ -85,7 +85,7 @@ Innan du börjar med enkel inloggning för huvudbaserade program bör du redan h
 ## <a name="test-your-app"></a>Testa din app 
 
 När du har slutfört alla de här stegen ska appen köras och vara tillgänglig. Så här testar du appen: 
-1. Öppna en webbläsare och navigera till den **externa URL:** en   från inställningarna för programproxyn. 
+1. Öppna en ny webbläsare eller ett privat webbläsarfönster för att se till att tidigare cachelagrade rubriker är rensade. Gå sedan till den **externa URL:** en   från inställningarna för programproxyn.
 2. Logga in med det test konto som du har tilldelat till appen. Om du kan läsa in och logga in i programmet med hjälp av SSO är du nöjd! 
 
 

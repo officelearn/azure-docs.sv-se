@@ -9,17 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: b7c442aaf6484e8e47bd6d00c91023fba43af75d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bca2f0229a15f44ff8f3589a9c1e80032036b97c
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325029"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95507207"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Kom igång med Azure Machine Learning Studio (klassisk) i R
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
-
+**gäller för:** ![ Detta är en bock markering, vilket innebär att den här artikeln gäller Machine Learning Studio (klassisk). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ Detta är ett X, vilket innebär att den här artikeln gäller för Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 <!-- Stephen F Elston, Ph.D. -->
 I den här självstudien får du lära dig hur du använder Azure Machine Learning Studio (klassisk) för att skapa, testa och köra R-kod. I slutet har du en fullständig prognos lösning.
@@ -122,9 +121,9 @@ Om du inte förstår den sista raden i koden för tillfället läser du vidare. 
 
 RStudio är en mycket Använd IDE för R. Vi använder RStudio för att redigera, testa och felsöka en del av R-koden som används i den här guiden. När R-koden har testats och är klar kan du klippa ut och klistra in från RStudio-redigeraren i en Machine Learning Studio (klassisk) [köra R-skript][execute-r-script] -modulen.
 
-Om du inte har installerat R-programmeringsspråket på den station ära datorn gör du det nu. Kostnads fria hämtningar av R-språket med öppen källkod är tillgängliga på det [omfattande r Archive-nätverket (cran)](https://www.r-project.org/). Hämtningar är tillgängliga för Windows, Mac OS och Linux/UNIX. Välj en närliggande spegling och följ anvisningarna för hämtning. Dessutom innehåller CRAN många användbara analys-och data manipulations paket.
+Om du inte har installerat R-programmeringsspråket på den station ära datorn gör du det nu. Kostnads fria hämtningar av R-språket med öppen källkod är tillgängliga på det [omfattande r Archive-nätverket (cran)](https://www.r-project.org/). Hämtningar är tillgängliga för Windows, macOS och Linux/UNIX. Välj en närliggande spegling och följ anvisningarna för hämtning. Dessutom innehåller CRAN många användbara analys-och data manipulations paket.
 
-Om du inte har använt RStudio bör du ladda ned och installera Skriv bords versionen. Du hittar RStudio-nedladdningar för Windows, Mac OS och Linux/UNIX på [RStudio](http://www.rstudio.com/products/RStudio/). Följ anvisningarna för att installera RStudio på din station ära dator.
+Om du inte har använt RStudio bör du ladda ned och installera Skriv bords versionen. Du kan hitta RStudio-nedladdningar för Windows, macOS och Linux/UNIX på [RStudio](http://www.rstudio.com/products/RStudio/). Följ anvisningarna för att installera RStudio på din station ära dator.
 
 En själv studie kurs introduktion till RStudio finns i [använda RSTUDIO IDE](https://support.rstudio.com/hc/sections/200107586-Using-RStudio).
 
@@ -159,7 +158,7 @@ Nu när vi har några data i Machine Learning Studio (klassisk) måste vi skapa 
 1. Dra **csdairydata.csv data uppsättning** till experimentet.
 1. I rutan **Sök efter experiment objekt** längst upp i det vänstra fönstret anger du [Kör R-skript][execute-r-script]. Modulen visas i Sök listan.
 1. Dra modulen [Kör R-skript][execute-r-script] till din lastpall.
-1. Anslut utdata från **csdairydata.csv data uppsättning** till den vänstra inmatningen ( **Dataset1** ) för [execute R-skriptet][execute-r-script].
+1. Anslut utdata från **csdairydata.csv data uppsättning** till den vänstra inmatningen (**Dataset1**) för [execute R-skriptet][execute-r-script].
 1. Välj **Spara**.
 
 I det här läget bör experimentet se ut ungefär som det här exemplet.
@@ -1276,11 +1275,11 @@ Från dessa resultat ser vi att det minskar RMS-felet avsevärt om du lägger ti
 
 RStudio är väl dokumenterad. Här följer några länkar till de viktigaste avsnitten i RStudio-dokumentationen för att komma igång.
 
-* **Skapa projekt** : du kan organisera och hantera din R-kod i projekt med hjälp av RStudio. Mer information finns i [using Projects](https://support.rstudio.com/hc/articles/200526207-Using-Projects). Följ dessa anvisningar och skapa ett projekt för R-kod exemplen i den här artikeln.
-* **Redigera och kör r-kod** : RStudio tillhandahåller en integrerad miljö för att redigera och köra r-kod. Mer information finns i [Redigera och köra kod](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
-* **Felsök** : RStudio innehåller kraftfulla fel söknings funktioner. Mer information om dessa funktioner finns i [fel sökning med RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Information om fel söknings funktioner för Bryt punkter finns i [fel sökning av Bryt punkter](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
+* **Skapa projekt**: du kan organisera och hantera din R-kod i projekt med hjälp av RStudio. Mer information finns i [using Projects](https://support.rstudio.com/hc/articles/200526207-Using-Projects). Följ dessa anvisningar och skapa ett projekt för R-kod exemplen i den här artikeln.
+* **Redigera och kör r-kod**: RStudio tillhandahåller en integrerad miljö för att redigera och köra r-kod. Mer information finns i [Redigera och köra kod](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
+* **Felsök**: RStudio innehåller kraftfulla fel söknings funktioner. Mer information om dessa funktioner finns i [fel sökning med RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Information om fel söknings funktioner för Bryt punkter finns i [fel sökning av Bryt punkter](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
 
-## <a name="further-reading"></a><a id="appendixb"></a>Mer information
+## <a name="further-reading"></a><a id="appendixb"></a>Mer läsning
 
 Den här själv studie kursen beskriver grunderna om vad du behöver för att använda R-språket med Machine Learning Studio (klassisk). Om du inte är bekant med R finns två introduktioner på CRAN:
 

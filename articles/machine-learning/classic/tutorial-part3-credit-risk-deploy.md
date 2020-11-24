@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 2d723a18bfe764b4e1459f72b00fa81db716dcdb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3afcf87c360651ac314450910fbf5ab72afd289a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325646"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503906"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Självstudie 3: Distribuera kredit risk modell – Azure Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
-
+**gäller för:** ![ Detta är en bock markering, vilket innebär att den här artikeln gäller Machine Learning Studio (klassisk). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ Detta är ett X, vilket innebär att den här artikeln gäller för Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 I den här självstudien tittar vi närmare på hur du utvecklar en lösning för förutsägelseanalys. Du utvecklar en enkel modell i Machine Learning Studio (klassisk).  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Den här självstudien är **del tre i en själv studie serie i tre delar**.
 
@@ -49,7 +48,7 @@ Slutför [del två av självstudien](tutorial-part2-credit-risk-train.md).
 ## <a name="prepare-for-deployment"></a>Förbereda för distribution
 För att ge andra chansen att använda den förutsägande modell som du utvecklade i självstudien, måste du distribuera den som en webbtjänst i Azure.
 
-Hittills har du experimenterat med att träna vår modell. Men den distribuerade tjänsten kommer inte längre att tränas – den kommer att generera nya förutsägelser genom bedömning av användarindata baserat på vår modell. Vi planerar att göra några förberedelser för att konvertera det här experimentet från en *- **utbildning** , men experimenterar med ett _*_förutsägelse_*_ experiment. 
+Hittills har du experimenterat med att träna vår modell. Men den distribuerade tjänsten kommer inte längre att tränas – den kommer att generera nya förutsägelser genom bedömning av användarindata baserat på vår modell. Vi planerar att göra några förberedelser för att konvertera det här experimentet från en *-**utbildning**, men experimenterar med ett _*_förutsägelse_*_ experiment. 
 
 Att förbereda distributionen är en process i tre steg:  
 
@@ -130,7 +129,7 @@ Kör experimentet en sista gången (klicka på **Kör**.) Om du vill kontrol ler
 Du kan distribuera experimentet som antingen en klassisk webbtjänst eller som en ny webbtjänst som baseras på Azure Resource Manager.
 
 ### <a name="deploy-as-a-classic-web-service"></a>Distribuera som en klassisk webbtjänst
-Om du vill distribuera en klassisk webbtjänst som härletts från vårt experiment, klickar du på **Distribuera webbtjänst** under arbetsytan och väljer **Distribuera webbtjänst [klassisk]**. Machine Learning Studio (klassisk) distribuerar experimentet som en webb tjänst och tar dig till instrument panelen för webb tjänsten. Från den här sidan kan du återgå till experimentet ( **Visa ögonblicksbild** eller **Visa senaste** ) och köra ett enkelt test av webbtjänsten (finns i **Testa webbtjänsten** nedan). Det finns även information här för att skapa program som har åtkomst till webbtjänsten (mer information finns i nästa steg i den här självstudien).
+Om du vill distribuera en klassisk webbtjänst som härletts från vårt experiment, klickar du på **Distribuera webbtjänst** under arbetsytan och väljer **Distribuera webbtjänst [klassisk]**. Machine Learning Studio (klassisk) distribuerar experimentet som en webb tjänst och tar dig till instrument panelen för webb tjänsten. Från den här sidan kan du återgå till experimentet (**Visa ögonblicksbild** eller **Visa senaste**) och köra ett enkelt test av webbtjänsten (finns i **Testa webbtjänsten** nedan). Det finns även information här för att skapa program som har åtkomst till webbtjänsten (mer information finns i nästa steg i den här självstudien).
 
 ![Instrumentpanel för webbtjänsten](./media/tutorial-part3-credit-risk-deploy/publish6.png)
 
@@ -162,7 +161,7 @@ Du kan konfigurera tjänsten genom att klicka på fliken **Konfigurera** . Här 
 Om du vill testa webbtjänsten klickar du på fliken **Testa** (se **Testa webbtjänsten** nedan). Om du vill ha mer information om hur du skapar program med åtkomst till webbtjänsten, klickar du på fliken **Förbruka** (nästa steg i den här självstudien beskriver detta mer detaljerat).
 
 > [!TIP]
-> Du kan uppdatera webbtjänsten efter att du har distribuerat den. Om du till exempel vill ändra modell kan du redigera träningsexperimentet, justera modellparametrarna och klicka på **Distribuera webbtjänst** , välja **Distribuera webbtjänst [klassisk]** eller **Distribuera webbtjänst [nytt]**. När du distribuerar experimentet igen ersätts webbtjänsten med den uppdaterade modellen.  
+> Du kan uppdatera webbtjänsten efter att du har distribuerat den. Om du till exempel vill ändra modell kan du redigera träningsexperimentet, justera modellparametrarna och klicka på **Distribuera webbtjänst**, välja **Distribuera webbtjänst [klassisk]** eller **Distribuera webbtjänst [nytt]**. När du distribuerar experimentet igen ersätts webbtjänsten med den uppdaterade modellen.  
 > 
 > 
 
@@ -180,7 +179,7 @@ Du kan testa en klassisk webb tjänst antingen i **Machine Learning Studio (klas
 Du kan bara testa en ny webb tjänst i **Machine Learning Web Services-** portalen.
 
 > [!TIP]
-> När du testar i Azure Machine Learning-portalen för webbtjänster kan du låta portalen skapa exempeldata som du kan använda för att testa tjänsten med begäran–svar. På sidan **Konfigurera** väljer du ”Ja” i **Sample Data Enabled** (Aktivera exempeldata?). När du öppnar fliken Begäran–svar på sidan **Test** , fyller portalen i exempeldata som hämtas från den ursprungliga kreditriskdatamängden.
+> När du testar i Azure Machine Learning-portalen för webbtjänster kan du låta portalen skapa exempeldata som du kan använda för att testa tjänsten med begäran–svar. På sidan **Konfigurera** väljer du ”Ja” i **Sample Data Enabled** (Aktivera exempeldata?). När du öppnar fliken Begäran–svar på sidan **Test**, fyller portalen i exempeldata som hämtas från den ursprungliga kreditriskdatamängden.
 
 ### <a name="test-a-classic-web-service"></a>Testa en klassisk webbtjänst
 

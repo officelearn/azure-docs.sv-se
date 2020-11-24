@@ -12,12 +12,12 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
-ms.openlocfilehash: ced4e920936ad94c3d4140d51d5e7d4e867ee848
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cecb3a150de8c19d390cafbd163f287520c3a91d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84196075"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519046"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Vanliga frågor och svar om ClearDB MySql-databaser med Azure App Service
 Vanliga frågor och svar om att använda och köpa ClearDB MySQL-databaser för Azure Web Apps.
@@ -33,7 +33,7 @@ Se [ClearDB](https://w2.cleardb.net/) för den senaste informationen om tjänste
 Du har flera andra alternativ för att vara värd för MySQL i Azure:
 * [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)
 * [MySQL-kluster som körs på en virtuell Azure-dator](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
-* [En enda instans av MySQL som körs på en virtuell Azure-dator](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [En enda instans av MySQL som körs på en virtuell Azure-dator](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json)
 
 
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>Behöver jag ett kredit kort för Web App + MySQL-mallen på Azure Marketplace?
@@ -41,14 +41,14 @@ Detta beror på vilken typ av prenumeration du använder. Här följer några va
 
 * [Betala per](https://azure.microsoft.com/offers/ms-azr-0003p/)användning: kräver ett kredit kort och när du köper en betald MySQL-databas debiteras ditt kredit kort.
 * [Kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/): innehåller krediter för användning med Microsoft Azure tjänster, men tillåter inte köp av resurser från tredje part. Om du vill köpa tjänster från tredje part eller en betald MySQL-databas måste du använda en kredit korts aktive rad prenumeration. För Web Apps kan du skapa en kostnads fri ClearDB MySQL-databas.
-* [MSDN-prenumeration](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) och **MSDN dev-test betala per**användning: på en MSDN-prenumeration måste du ha ett kredit kort för att köpa en betald MySQL-lösning från ClearDB.
+* [MSDN-prenumeration](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) och **MSDN dev-test betala per** användning: på en MSDN-prenumeration måste du ha ett kredit kort för att köpa en betald MySQL-lösning från ClearDB.
 * [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA-kunder debiteras mot deras EA varje kvartal för alla sina Azure Marketplace-inköp (tredje part) på en separat, konsol IDE rad faktura. Du debiteras utanför det affärsmässiga åtagandet för alla marknads inköp. Observera att för närvarande är Azure Store inte tillgängligt för kunder som har registrerats i Azerbajdzjan, Kroatien, Norge och Puerto Rico. 
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Varför debiterades jag $3,50 för en webbapp + MySQL från Azure Marketplace?
 Standard databas alternativet är Titan, som är $3,50. Vi visar inte kostnaden när databasen skapas och du kan av misstag köpa en databas som du inte avsåg. Vi försöker hitta ett sätt att förbättra upplevelsen, men tills måste du kontrol lera alla valda pris nivåer för webbapp och databas innan du klickar på **skapa** och starta distributionen av resurserna.
 
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Jag kör MySQL på min egen virtuella Azure-dator. Kan jag ansluta min Azure-webbapp till min databas?
-Ja. Du kan ansluta din webbapp till databasen så länge din virtuella Azure-dator har fått fjärråtkomst till din webbapp. Mer information finns i [Installera MySQL på en virtuell dator](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Ja. Du kan ansluta din webbapp till databasen så länge din virtuella Azure-dator har fått fjärråtkomst till din webbapp. Mer information finns i [Installera MySQL på en virtuell dator](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json).
 
 ## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>I vilka länder/regioner är ClearDB Premium MySQL-kluster som stöds?
 ClearDB Premium MySQL-kluster är tillgängliga i alla Azure-regioner över hela världen med undantag för Indien, Australien, södra Brasilien och Kina.
@@ -108,4 +108,3 @@ Kontakta [företagets kund support](https://aka.ms/AzureEntSupport) med avseende
 
 ## <a name="more-information"></a>Mer information
 [Vanliga frågor och svar om Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)
-

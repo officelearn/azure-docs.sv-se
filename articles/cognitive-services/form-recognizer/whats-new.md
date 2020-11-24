@@ -9,16 +9,42 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: c9287e9661172480292a2214b231e7e5dac9c32f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 92eda77d03e547e814cac85f5ac8bb03b552d135
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912251"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95506555"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
 Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artikeln för att hålla dig uppdaterad med funktions förbättringar, korrigeringar och dokumentations uppdateringar.
+
+## <a name="november-2020"></a>November 2020
+
+### <a name="new-features"></a>Nya funktioner
+
+- **Ny fördefinierad faktura modell** – den nya inbyggda faktura modellen gör det möjligt för kunder att ta fakturor i en rad olika format och returnera strukturerade data för att automatisera faktura bearbetningen. Den kombinerar vår kraftfulla OCR-kapacitet (optisk tecken läsning) med faktura om djup inlärnings modeller för att extrahera viktig information från fakturor på engelska. Den extraherar text, tabeller och information, till exempel kund, leverantör, faktura-ID, förfallo datum för faktura, totalt, förfallet belopp, moms belopp, leverera till, fakturera till och mycket annat.
+
+  > [Läs mer om den färdiga faktura modellen](concept-invoices.md)
+
+  :::image type="content" source="./media/invoice-example.jpg" alt-text="faktura exempel" lightbox="./media/invoice-example.jpg":::
+
+- **Förbättrad** tabell extrahering – formulär igenkänning ger nu förbättrad tabell extrahering, som kombinerar vår kraftfulla OCR-kapacitet (optisk tecken läsning) med en djup inlärnings tabell extraherings modell. Formulär tolken kan extrahera data från tabeller, inklusive komplexa tabeller med sammanfogade kolumner, rader, utan kant linjer och mer. 
+ 
+  :::image type="content" source="./media/tables-example.jpg" alt-text="tabell exempel" lightbox="./media/tables-example.jpg":::
+
+ 
+  > [Lär dig mer om extrahering av layout](concept-layout.md)
+
+- **Nytt språk som stöds: japanska** – följande nya språk stöds nu: for `AnalyzeLayout` och `AnalyzeCustomForm` : Japanese ( `ja` ). [Stöd för språk](language-support.md)
+- **Text linje formats indikering (handskriven/Skriv ut) (endast latinska språk)** – formulär tolken `appearance` visar nu ett objekt som klassificerar om varje text linje är handskriven eller inte, tillsammans med ett säkerhets resultat. Den här funktionen stöds bara för latinska språk.
+- **Kvalitets förbättringar** – extraherings förbättringar, inklusive förbättringar av en enda siffer extrahering.
+- **Ny funktion för try-inaktivitet i formulär tolkens exempel på etikett verktyg** – möjlighet att testa färdiga fakturor, inbetalnings-och visitkorts modeller och layout-API med hjälp av formulär tolkens exempel etikett verktyg. Se hur dina data extraheras utan att du behöver skriva någon kod.
+
+  > [Prova verktyget formulär igenkännings exempel](https://fott-preview.azurewebsites.net/)
+
+  ![FOTT-exempel](./media/fott-preview.jpg)
 
 ## <a name="august-2020"></a>Augusti 2020
 
@@ -28,13 +54,13 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 
 - **REST API referens är tillgänglig** – Visa [v 2.1 – för hands version. 1 referens](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
-- **Nya språk som stöds utöver engelska** , följande [språk](language-support.md) stöds nu: for `Layout` och `Train Custom Model` : engelska ( `en` ), kinesiska (förenklad) ( `zh-Hans` ), nederländska () `nl` , franska (), tyska (), `fr` italienska (), portugisiska ( `de` `it` `pt` ) och spanska ( `es` ).
+- **Nya språk som stöds utöver engelska**, följande [språk](language-support.md) stöds nu: for `Layout` och `Train Custom Model` : engelska ( `en` ), kinesiska (förenklad) ( `zh-Hans` ), nederländska () `nl` , franska (), tyska (), `fr` italienska (), portugisiska ( `de` `it` `pt` ) och spanska ( `es` ).
 - **Kryss ruta och identifiering av markerings märke** – formulär tolken stöder identifiering och extrahering av markerings märken som kryss rutor och alternativ knappar. Markerings markeringar extraheras i `Layout` och du kan nu också märka och träna i `Train Custom Model`  -  _träna med etiketter_ för att extrahera nyckel värde par för markerings märken. 
-- Med **modellens Skriv** möjlighet kan flera modeller skapas och anropas med ett enda modell-ID. När ett dokument skickas för att analyseras med ett sammansatt modell-ID utförs ett klassificerings steg först för att dirigera det till rätt anpassad modell. Modellens Skriv sätt är tillgängligt för `Train Custom Model`  -  _träna med etiketter_ .
-- **Modell namn** Lägg till ett eget namn i dina anpassade modeller för enklare hantering och spårning.
+- **Modell sammanställning** – tillåter att flera modeller skapas och anropas med ett enda modell-ID. När ett dokument skickas för att analyseras med ett sammansatt modell-ID utförs ett klassificerings steg först för att dirigera det till rätt anpassad modell. Modellens Skriv sätt är tillgängligt för `Train Custom Model`  -  _träna med etiketter_.
+- **Modell namn** – Lägg till ett eget namn i dina anpassade modeller för enklare hantering och spårning.
 - Ny fördefinierad **[modell för visitkort](concept-business-cards.md)** som används för att extrahera vanliga fält på engelska, språk visitkort.
 - **[Nya språk för förbyggda kvitton](concept-receipts.md)** , förutom en-US, support är nu tillgängligt för en-au, en-ca, en-GB, en-i
-- **Kvalitets förbättringar** för `Layout` , `Train Custom Model`  -  _träna utan etiketter_ och _träna med etiketter_ .
+- **Kvalitets förbättringar** för `Layout` , `Train Custom Model`  -  _träna utan etiketter_ och _träna med etiketter_.
 
 
 **v 2.0** innehåller följande uppdatering:
@@ -45,7 +71,7 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 **Nya exempel** finns på GitHub. 
 - [Recepten för kunskaps extrahering – formulär Spelbok](https://github.com/microsoft/knowledge-extraction-recipes-forms) samlar in bästa praxis från riktiga formulär som kund engagemang och ger användbara kod exempel, check listor och exempel på pipelines som används för att utveckla dessa projekt. 
 - [Verktyget för samplings etiketter](https://github.com/microsoft/OCR-Form-Tools) har uppdaterats för att stödja de nya v 2.1-funktionerna. Se den här [snabb](quickstarts/label-tool.md) starten för att komma igång med verktyget. 
-- Formulär tolks exemplet i [intelligent kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) visar hur du integrerar `Analyze Receipt` och `Train Custom Model`  -  _tränar utan etiketter_ .
+- Formulär tolks exemplet i [intelligent kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) visar hur du integrerar `Analyze Receipt` och `Train Custom Model`  -  _tränar utan etiketter_.
 
 
 
@@ -53,22 +79,22 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 ### <a name="new-features"></a>Nya funktioner
 
-* **v 2.0-referensen är tillgänglig** Visa [v 2.0 API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) och de uppdaterade SDK: erna för [.net](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [python](/python/api/overview/azure/?view=azure-python), [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)och [Java Script](/javascript/api/overview/azure/?view=azure-node-latest).
-* Förbättringar av **tabell förbättringar och extraktioner** omfattar precisions förbättringar och förbättringar av tabell extrahering, särskilt möjligheten att lära tabell rubriker och strukturer i _anpassade tåg utan etiketter_ . 
+* **v 2.0-referensen är tillgänglig** – Visa [v 2.0 API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) och uppdaterade SDK: er för [.net](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [python](/python/api/overview/azure/?view=azure-python), [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)och [Java Script](/javascript/api/overview/azure/?view=azure-node-latest).
+* Förbättringar av **tabell förbättringar och extrahering av utdrag** – innehåller precisions förbättringar och förbättringar av tabell extrahering, särskilt möjligheten att lära sig tabell rubriker och strukturer i _anpassade tåg utan etiketter_. 
 
-* **Valuta stöd** Identifiering och extrahering av globala valuta symboler.
-* **Azure-gov** Formulär igenkänning är nu också tillgängligt i Azure gov.
-* **Förbättrade säkerhetsfunktioner** : 
-   * **Ta med din egen nyckel**  Formulär tolken krypterar dina data automatiskt när de sparas i molnet för att skydda dem och hjälpa dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Som standard använder din prenumeration krypteringsnycklar som hanteras av Microsoft. Du kan nu även hantera din prenumeration med dina egna krypterings nycklar. [Kundhanterade nycklar (CMK), som även kallas för att ta med din egen nyckel (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina data.  
+* **Valuta support** – identifiering och extrahering av globala valuta symboler.
+* **Azure gov** -tolken är nu också tillgänglig i Azure gov.
+* **Förbättrade säkerhetsfunktioner**: 
+   * **Ta med din egen nyckel** igenkännings funktion krypterar dina data automatiskt när de behålls i molnet för att skydda dem och hjälpa dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Som standard använder din prenumeration krypteringsnycklar som hanteras av Microsoft. Du kan nu även hantera din prenumeration med dina egna krypterings nycklar. [Kundhanterade nycklar (CMK), som även kallas för att ta med din egen nyckel (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina data.  
    * **Privata slut punkter** – gör att du på ett virtuellt nätverk (VNet) kan [komma åt data på ett säkert sätt via en privat länk.](../../private-link/private-link-overview.md)
 
 
 ## <a name="june-2020"></a>Juni 2020
 
 ### <a name="new-features"></a>Nya funktioner
-* **CopyModel-API har lagts till i klient-SDK: er** Du kan nu använda klient-SDK: er för att kopiera modeller från en prenumeration till en annan. Se [säkerhetskopiera och återställa modeller](./disaster-recovery.md) för allmän information om den här funktionen.
-* **Azure Active Directory-integrering** Du kan nu använda dina autentiseringsuppgifter för Azure AD för att autentisera ditt formulärs igenkännings klient objekt i SDK: erna.
-* **SDK-/regionsspecifika ändringar** Detta inkluderar både mindre funktions tillägg och avbrytande ändringar. Se SDK-ChangeLogs för mer information.
+* **CopyModel-API har lagts till i klient-SDK** : er kan du nu använda klient-SDK: er för att kopiera modeller från en prenumeration till en annan. Se [säkerhetskopiera och återställa modeller](./disaster-recovery.md) för allmän information om den här funktionen.
+* **Azure Active Directory integration** – nu kan du använda dina autentiseringsuppgifter för Azure AD för att autentisera dina klient objekt i SDK: er för formulär igenkänning.
+* **SDK-/regionsspecifika ändringar** – det här inkluderar både mindre funktions tillägg och avbrytande ändringar. Se SDK-ChangeLogs för mer information.
   * [C# SDK Preview 3 ändringsloggen](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
   * [Python SDK Preview 3 ändringsloggen](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
   * [Java SDK Preview 3 ändringsloggen](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
@@ -77,7 +103,7 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 ## <a name="april-2020"></a>April 2020
 
 ### <a name="new-features"></a>Nya funktioner
-* **SDK-stöd för Forms IGENKÄNNING API v 2.0 offentlig för hands version** Den här månaden utökade vi vår tjänst support för att inkludera en för hands versions-SDK för formulär igenkännings versionen v 2.0 (för hands version). Använd länkarna nedan för att komma igång med ditt val av språk: 
+* **SDK-stöd för Forms IGENKÄNNING API v 2.0 offentlig för hands version** – den här månaden expanderade vi tjänst supporten för att inkludera en för hands versions-SDK för formulär igenkänning v 2.0 (för hands version). Använd länkarna nedan för att komma igång med ditt val av språk: 
    * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
    * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
    * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
@@ -91,7 +117,7 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 ### <a name="security-improvements"></a>Förbättringar av säkerhet
 
-* Kundhanterade nycklar är nu tillgängliga för FormRecognizer. Mer information finns i [data kryptering i vila för formulär igenkänning](./form-recognizer-encryption-of-data-at-rest.md).
+* Customer-Managed nycklar är nu tillgängliga för FormRecognizer. Mer information finns i [data kryptering i vila för formulär igenkänning](./form-recognizer-encryption-of-data-at-rest.md).
 * Använd hanterade identiteter för åtkomst till Azure-resurser med Azure Active Directory. Mer information finns i [ge åtkomst till hanterade identiteter](../authentication.md#authorize-access-to-managed-identities).
 
 ## <a name="march-2020"></a>Mars 2020 
@@ -111,9 +137,9 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
   Mer information om hur du använder den här funktionen finns i guiden [exempel etikett verktyg](./quickstarts/label-tool.md#specify-tag-value-types) .
 
 
-* **Tabell visualisering** Verktyget för att märka exempel visar nu tabeller som har identifierats i dokumentet. På så sätt kan du Visa tabellerna som har identifierats och extraherats från dokumentet innan du märker och analyserar. Den här funktionen kan växlas på/av med alternativet lager.
+* **Tabell visualisering** Verktyget för att märka exempel visar nu tabeller som har identifierats i dokumentet. Med den här funktionen kan du visa tabeller som har identifierats och extraherats från dokumentet, innan du märker och analyserar. Den här funktionen kan växlas på/av med alternativet lager.
 
-  Detta är ett exempel på hur tabeller identifieras och extraheras:
+  Följande bild är ett exempel på hur tabeller identifieras och extraheras:
 
   > [!div class="mx-imgBorder"]
   > ![Tabell visualisering med verktyget för exempel etiketter](./media/whats-new/formre-table-viz.png)
@@ -144,7 +170,7 @@ I den här versionen introduceras formulär tolken 2,0 (för hands version). I a
 ### <a name="new-features"></a>Nya funktioner
 
 * **Anpassad modell**
-  * **Träna med etiketter** Nu kan du träna en anpassad modell med manuellt märkta data. Detta resulterar i bättre modeller och kan skapa modeller som fungerar med komplexa formulär eller formulär som innehåller värden utan nycklar.
+  * **Träna med etiketter** Nu kan du träna en anpassad modell med manuellt märkta data. Den här metoden resulterar i bättre modeller och kan skapa modeller som fungerar med komplexa formulär eller formulär som innehåller värden utan nycklar.
   * **Asynkront API** Du kan använda asynkrona API-anrop för att träna med och analysera stora data uppsättningar och filer.
   * **Stöd för TIFF-fil** Nu kan du träna med och extrahera data från TIFF-dokument.
   * **Förbättringar av extraherings precision**

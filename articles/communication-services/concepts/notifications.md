@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f4de7268f3384f86b7090dfe18576347311e048e
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 9cf503f374cd2fd1ca04aad6650b2c07abebbc46
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888682"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519361"
 ---
 # <a name="communication-services-notifications"></a>Meddelanden om kommunikations tjänster
 
@@ -77,7 +77,8 @@ I portalen navigerar du till din Azure Communication Services-resurs. I resursen
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Skärm bild som visar inställningarna för push-meddelanden i Azure Portal.":::
 
 > [!NOTE]
-> Om Azure Notification Hub-anslutningssträngen har uppdaterats måste kommunikations tjänst resursen också uppdateras.
+> Om Azure Notification Hub-anslutningssträngen har uppdaterats måste kommunikations tjänst resursen också uppdateras.  
+Alla ändringar på hur hubben länkas visas i data planet (d.v.s. När du skickar ett meddelande) inom en period på högst ``10`` minuter. Detta gäller även när navet är länkat för första gången **om** det fanns meddelanden som skickats tidigare.
 
 #### <a name="device-registration"></a>Enhetsregistrering 
 

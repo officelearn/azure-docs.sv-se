@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 06/22/2020
-ms.openlocfilehash: fb81405e85d6e2653e0cf6c007c363493992161a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3417b59d0be9e285f8793ef598abb7f98bda7549
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87419979"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527997"
 ---
 # <a name="networking-in-azure-red-hat-on-openshift-4"></a>Nätverk i Azure Red Hat på OpenShift 4
 
@@ -98,7 +98,7 @@ Följande nätverks inställningar är tillgängliga i Azure Red Hat OpenShift 4
     * "Offentlig" – API-servern kan nås av externa nätverk.
     * "Privat"-API-servern har tilldelats en privat IP-adress från huvud under nätet, endast tillgängligt med anslutna nätverk (peer-kopplade virtuella nätverk, andra undernät i klustret). En privat DNS-zon kommer att skapas för kundens räkning.
 * **Ingress-synlighet** – Ange API-synlighet när du kör [kommandot AZ Aro Create](tutorial-create-cluster.md#create-the-cluster).
-    * "Offentliga" vägar kommer att standardvärdet för offentliga Azure-Standard Load Balancer (detta kan ändras).
+    * "Offentliga" vägar är som standard en offentlig Standard Load Balancer (detta kan ändras).
     * "Privata" vägar kommer att användas som standard till intern belastningsutjämnare (detta kan ändras).
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper

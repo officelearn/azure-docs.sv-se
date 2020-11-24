@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 716928761d23c2cf04ebcc72e253ad7884408065
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34064fe3fe88a34b0dd2430d7adec3ebcb17ebcc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061858"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528235"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Flytta resurser mellan regioner (från resurs grupp)
 
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig hur du flyttar resurser i en särskild res
 - Du behöver *ägar* åtkomst till den prenumeration där resurser som du vill flytta finns.
     - Första gången du lägger till en resurs för en viss käll-och mål mappning i en Azure-prenumeration skapar resurs förflyttningen en [systemtilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (tidigare känd som hanterad tjänst identifiering (MSI)) som är betrodd av prenumerationen.
     - Om du vill skapa identiteten och tilldela den rollen som krävs (deltagare eller administratör för användar åtkomst i käll prenumerationen) måste kontot som du använder för att lägga till resurser ha *ägar* behörigheter för prenumerationen. [Lär dig mer](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) om Azure-roller.
-- Prenumerationen måste ha tillräckligt med kvot för att skapa käll resurserna i mål regionen. Om den inte gör det kan du begära ytterligare begränsningar. [Läs mer](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- Prenumerationen måste ha tillräckligt med kvot för att skapa käll resurserna i mål regionen. Om den inte gör det kan du begära ytterligare begränsningar. [Läs mer](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Kontrol lera priser och avgifter som är kopplade till den mål region som du flyttar virtuella datorer till. Använd [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att hjälpa dig.
 - Kontrol lera att de resurser som du vill flytta stöds av resurs förflyttningen:
     - Virtuella Azure-datorer och tillhör ande diskar
@@ -64,15 +64,15 @@ Välj de resurser som du vill flytta. Du flyttar resurser till en mål region i 
 
     ![Val för att flytta resurser till en annan region](./media/move-region-within-resource-group/select-move-region.png)
     
-4. I **källa + mål**väljer du den mål region dit du vill flytta resurserna. Välj **Nästa**.
+4. I **källa + mål** väljer du den mål region dit du vill flytta resurserna. Välj sedan **Nästa**.
 
 
     ![Sidan källa och mål för att välja mål region](./media/move-region-within-resource-group/source-target.png)
 
 
 7. I **resurser som ska flyttas väljer du** **Nästa**.  
-8. I **Välj resurser**väljer du den resurs som du vill flytta. Du kan bara lägga till resurser som stöds för flytt. Välj sedan **Done** (Klar).
-9. I **Flytta resurser**väljer du **Nästa**. 
+8. I **Välj resurser** väljer du den resurs som du vill flytta. Du kan bara lägga till resurser som stöds för flytt. Välj sedan **Done** (Klar).
+9. I **Flytta resurser** väljer du **Nästa**. 
 10. I **Granska + Lägg till**, kontrol lera käll-och mål information.
 11. Bekräfta att du förstår att metadata om de resurser som flyttas kommer att lagras i en resurs grupp som skapats för detta ändamål, och att du tillåter resurs förflyttning för att skapa en Systemhanterad identitet för att få åtkomst till prenumerations resurserna.
 1. Välj **Fortsätt** om du vill börja lägga till resurserna.
@@ -96,7 +96,7 @@ De resurser som du flyttar visas på sidan **över regioner** i ett *förberedel
     ![Knapp för att verifiera beroenden](./media/move-region-within-resource-group/validate-dependencies.png)
 
 2. Om det finns beroenden väljer du **Lägg till beroenden**. 
-3. I **Lägg till beroenden**väljer du de beroende resurserna > **lägga till beroenden**. Övervaka förloppet i aviseringarna.
+3. I **Lägg till beroenden** väljer du de beroende resurserna > **lägga till beroenden**. Övervaka förloppet i aviseringarna.
 
     ![Knapp för att lägga till beroenden](./media/move-region-within-resource-group/add-dependencies.png)
 
@@ -110,12 +110,12 @@ De resurser som du flyttar visas på sidan **över regioner** i ett *förberedel
 
 Innan du kan förbereda och flytta resurser måste käll resurs gruppen finnas i mål regionen. 
 
-### <a name="prepare-to-move-the-source-resource-group"></a>Förbered för att flytta käll resurs gruppen
+### <a name="prepare-to-move-the-source-resource-group"></a>Förbereda flytt av källresursgruppen
 
 Förbered enligt följande:
 
-1. I **flera regioner**väljer du käll resurs gruppen > **Förbered**.
-2. I **Förbered resurser**väljer du **Förbered**.
+1. I **flera regioner** väljer du käll resurs gruppen > **Förbered**.
+2. I **Förbered resurser** väljer du **Förbered**.
 1. 
     ![För att förbereda käll resurs gruppen](./media/move-region-within-resource-group/prepare-source-resource-group.png)
 
@@ -130,7 +130,7 @@ Förbered enligt följande:
 
 Starta flyttningen enligt följande:
 
-1. I **flera regioner**väljer du resurs grupp > **initiera flytt**
+1. I **flera regioner** väljer du resurs grupp > **initiera flytt**
 2. ra **Flytta resurser**, Välj **initiera flytt**. Resurs gruppen flyttas till en *initierings status som börjar* gälla.
 3. När flytten har påbörjats skapas mål resurs gruppen baserat på den genererade ARM-mallen. Käll resurs gruppen flyttas till ett *förväntat flyttnings* tillstånd.
 
@@ -138,7 +138,7 @@ Starta flyttningen enligt följande:
 
 För att genomföra och slutföra flytt processen:
 
-1. I **flera regioner**väljer du resurs gruppen > **genomför flytt**
+1. I **flera regioner** väljer du resurs gruppen > **genomför flytt**
 2. ra **Flytta resurser**, Välj **genomför**.
 
 > [!NOTE]
@@ -164,7 +164,7 @@ De exakta inställningarna som du ändrar beror på resurs typen. [Läs mer](mod
 
 Nu när käll resurs gruppen flyttas kan du förbereda för att flytta de andra resurserna.
 
-1. I **flera regioner**väljer du de resurser som du vill förbereda. 
+1. I **flera regioner** väljer du de resurser som du vill förbereda. 
 
     ![Sidan för att välja Förbered för andra resurser](./media/move-region-availability-zone/prepare-other.png)
 
@@ -182,8 +182,8 @@ Nu när käll resurs gruppen flyttas kan du förbereda för att flytta de andra 
 
 När resurserna har förberetts kan du nu initiera flytten.
 
-1. I **flera regioner**väljer du resurser med tillstånds *initieringen väntar*. Välj sedan **initiera flytt**.
-2. I **Flytta resurser**väljer du **initiera flytta**.
+1. I **flera regioner** väljer du resurser med tillstånds *initieringen väntar*. Välj sedan **initiera flytt**.
+2. I **Flytta resurser** väljer du **initiera flytta**.
 
     ![Välj för knappen initiera flyttning](./media/move-region-within-resource-group/initiate-move.png)
 
@@ -210,8 +210,8 @@ Efter den första flyttningen kan du bestämma om du vill att flyttningen ska ut
 
 Du kan ta bort flytten på följande sätt:
 
-1. I **flera regioner**väljer du resurser med status *bekräftelse flytt väntar*och väljer **ta bort flyttning**.
-2. I **ta bort flyttning**väljer du **Ignorera**.
+1. I **flera regioner** väljer du resurser med status *bekräftelse flytt väntar* och väljer **ta bort flyttning**.
+2. I **ta bort flyttning** väljer du **Ignorera**.
 3. Spåra flyttnings förlopp i meddelande fältet.
 4. När meddelandena visar att flyttningen lyckades väljer du **Uppdatera**. 
 
@@ -223,8 +223,8 @@ Du kan ta bort flytten på följande sätt:
 Spara flyttningen om du vill slutföra flyttnings processen. 
 
 
-1. I **flera regioner**väljer du resurser med status *bekräftelse flytt väntar*och väljer **genomför flyttning**.
-2. I **genomför resurser**väljer du **genomför**.
+1. I **flera regioner** väljer du resurser med status *bekräftelse flytt väntar* och väljer **genomför flyttning**.
+2. I **genomför resurser** väljer du **genomför**.
 
     ![Sida för att allokera resurser för att slutföra flytten](./media/move-region-within-resource-group/commit-resources.png)
 
@@ -244,7 +244,7 @@ Spara flyttningen om du vill slutföra flyttnings processen.
 
 Efter flytten kan du välja att ta bort resurser i käll regionen. 
 
-1. I **flera regioner**väljer du namnet på varje käll resurs som du vill ta bort.
+1. I **flera regioner** väljer du namnet på varje käll resurs som du vill ta bort.
 2. På sidan Egenskaper för varje resurs väljer du **ta bort**.
 
 ## <a name="delete-additional-resources-created-for-move"></a>Ta bort ytterligare resurser som har skapats för flytt

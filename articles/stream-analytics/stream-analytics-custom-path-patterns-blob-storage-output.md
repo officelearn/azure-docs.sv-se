@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72718285ff83a23acd21a5e29001ea96e1f061c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317862"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531363"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics partitionering av anpassad BLOB-utdata
 
@@ -25,11 +25,11 @@ Anpassade fält eller indatavärden förbättrar underordnade data bearbetnings-
 
 ### <a name="partition-key-options"></a>Partitionsalternativ
 
-Partitionsnyckel eller kolumn namn som används för att partitionera indata kan innehålla alfanumeriska tecken med bindestreck, under streck och blank steg. Det går inte att använda kapslade fält som partitionsnyckel om de inte används tillsammans med alias. Partitionsnyckel måste vara NVARCHAR (MAX).
+Partitionsnyckel eller kolumn namn som används för att partitionera indata kan innehålla alfanumeriska tecken med bindestreck, under streck och blank steg. Det går inte att använda kapslade fält som partitionsnyckel om de inte används tillsammans med alias. Partitionsnyckel måste vara NVARCHAR (MAX), BIGINT, FLOAT eller BIT (1,2 kompatibilitetsnivå eller högre). Mer information finns i [Azure Stream Analytics data typer](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Exempel
 
-Anta att ett jobb tar indata från Live User-sessioner som är anslutna till en extern video spel tjänst där inmatade data innehåller en kolumn **client_id** för att identifiera sessionerna. Om du vill partitionera data med **client_id**anger du i fältet blobb Sök vägs mönster att innehåller en partitions-token **{client_id}** i egenskaper för BLOB-utdata när du skapar ett jobb. Som data med olika **client_id** värden flödar genom Stream Analytics jobbet, sparas utdata i separata mappar baserat på ett enda **client_id** värde per mapp.
+Anta att ett jobb tar indata från Live User-sessioner som är anslutna till en extern video spel tjänst där inmatade data innehåller en kolumn **client_id** för att identifiera sessionerna. Om du vill partitionera data med **client_id** anger du i fältet blobb Sök vägs mönster att innehåller en partitions-token **{client_id}** i egenskaper för BLOB-utdata när du skapar ett jobb. Som data med olika **client_id** värden flödar genom Stream Analytics jobbet, sparas utdata i separata mappar baserat på ett enda **client_id** värde per mapp.
 
 ![Sök vägs mönster med klient-ID](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
 
@@ -62,6 +62,8 @@ Observera att varje post i blobben har en **client_id** kolumn som matchar mappn
 2. Partitionsnyckel är Skift läges okänsliga, så att partitionstyper som "John" och "John" är likvärdiga. Det går inte heller att använda uttryck som partitionsnyckel. Till exempel fungerar inte **{Columna + columnB}** .  
 
 3. När en indataströmmen består av poster med en partitionsnyckel i 8000, läggs posterna till i befintliga blobbar och skapar bara nya blobbar vid behov. Om kardinalitet är över 8000, finns det ingen garanti för att befintliga blobar ska skrivas till och nya blobbar skapas inte för ett godtyckligt antal poster med samma partitionsnyckel.
+
+4. Om BLOB-utdata har [kon figurer ATS som oföränderliga](../storage/blobs/storage-blob-immutable-storage.md)skapar Stream Analytics en ny BLOB varje gång data skickas.
 
 ## <a name="custom-datetime-path-patterns"></a>Anpassade mönster för DateTime-sökväg
 

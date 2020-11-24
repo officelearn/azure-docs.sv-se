@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
-ms.date: 10/28/2020
-ms.openlocfilehash: 0d7f455e748a52595839cc509720bf7ad5b9b617
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: mvc, devx-track-azurecli, contperfq2
+ms.date: 11/23/2020
+ms.openlocfilehash: f5b8497772a14e9613977c9cdc22025e8e58b92c
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099070"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95509463"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Snabb start: skapa och hantera Logic Apps med Azure CLI
 
 Den här snabb starten visar hur du skapar och hanterar Logi Kap par med hjälp av [Azure CLI Logic Apps-tillägget](/cli/azure/ext/logic/logic) ( `az logic` ). Från kommando raden kan du skapa en Logic-app med hjälp av JSON-filen för en logisk app Workflow-definition. Sedan kan du hantera din Logic app genom att köra åtgärder som `list` , `show` ( `get` ), `update` och `delete` från kommando raden.
 
 > [!WARNING]
-> Azure CLI Logic Apps-tillägget är för närvarande *experimentellt* och *omfattas inte av kund support* . Använd det här CLI-tillägget med försiktighet, särskilt om du väljer att använda tillägget i produktions miljöer.
+> Azure CLI Logic Apps-tillägget är för närvarande *experimentellt* och *omfattas inte av kund support*. Använd det här CLI-tillägget med försiktighet, särskilt om du väljer att använda tillägget i produktions miljöer.
 
 Om du inte har använt Logic Apps kan du också lära dig hur du skapar dina första Logi Kap par [via Azure Portal](quickstart-create-first-logic-app-workflow.md), [i Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)och [i Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md).
 
@@ -63,7 +63,7 @@ Utdata visar `provisioningState` som `Succeeded` när resurs gruppen har skapats
 
 ## <a name="workflow-definition"></a>Arbetsflödesdefinition
 
-Innan du [skapar en ny Logic-app](#create-logic-apps-from-cli) eller [uppdaterar en befintlig Logic-app](#update-logic-apps-from-cli) med hjälp av Azure CLI behöver du en arbets flödes definition för din Logic app. I Azure Portal kan du Visa din Logic Apps-underliggande arbets flödes definition i JSON-format genom att **Växla från designvyn** till **kodvyn** .
+Innan du [skapar en ny Logic-app](#create-logic-apps-from-cli) eller [uppdaterar en befintlig Logic-app](#update-logic-apps-from-cli) med hjälp av Azure CLI behöver du en arbets flödes definition för din Logic app. I Azure Portal kan du Visa din Logic Apps-underliggande arbets flödes definition i JSON-format genom att **Växla från designvyn** till **kodvyn**.
 
 När du kör kommandona för att skapa eller uppdatera din Logic-app laddas din arbets flödes definition in som en obligatorisk parameter ( `--definition` ). Du måste skapa en arbets flödes definition som en JSON-fil som följer [språk schemat för arbets flödes definitionen](./logic-apps-workflow-definition-language.md).
 
@@ -92,7 +92,7 @@ Kommandot måste innehålla följande [obligatoriska parametrar](/cli/azure/ext/
 | --------- | ----- | ----------- |
 | Arbetsflödesdefinition | `--definition` | En JSON-fil med din Logic Apps [arbets flödes definition](#workflow-definition). |
 | Plats | `--location -l` | Den Azure-region där din Logic app finns. |
-| Namn | `--name -n` | Namnet på din Logic app. Namnet får bara innehålla bokstäver, siffror, bindestreck ( `-` ), under streck ( `_` ), parenteser ( `()` ) och punkter ( `.` ). Namnet måste också vara unikt i flera regioner. |
+| Name | `--name -n` | Namnet på din Logic app. Namnet får bara innehålla bokstäver, siffror, bindestreck ( `-` ), under streck ( `_` ), parenteser ( `()` ) och punkter ( `.` ). Namnet måste också vara unikt i flera regioner. |
 | Namn på resursgrupp | `--resource-group -g` | Den [Azure-resurs grupp](../azure-resource-manager/management/overview.md) som du vill skapa din Logic app i. [Skapa en resurs grupp](#example---create-resource-group) innan du börjar om du inte redan har en för din Logic app. |
 
 Du kan också ta med ytterligare [valfria parametrar](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-optional-parameters) för att konfigurera din Logi Kap par åtkomst kontroller, slut punkter, integrations konto, integrerings tjänst miljö, tillstånd och resurs etiketter.
@@ -150,7 +150,7 @@ Kommandot måste innehålla följande [obligatoriska parametrar](/cli/azure/ext/
 
 | Parameter | Värde | Beskrivning |
 | --------- | ----- | ----------- |
-| Namn | `--name -n` | Namnet på din Logic app. |
+| Name | `--name -n` | Namnet på din Logic app. |
 | Namn på resursgrupp | `-resource-group -g` | Resurs gruppen där din Logic app finns. |
 
 Du kan också ta med en [valfri parameter](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete-optional-parameters) för att hoppa över bekräftelse meddelanden, `--yes -y` .
@@ -200,7 +200,7 @@ Kommandot måste innehålla följande [obligatoriska parametrar](/cli/azure/ext/
 
 | Parameter | Värde | Beskrivning |
 | --------- | ----- | ----------- |
-| Namn | `--name -n` | Namnet på din Logic app. |
+| Name | `--name -n` | Namnet på din Logic app. |
 | Namn på resursgrupp | `--resource-group -g` | Namnet på resurs gruppen där din Logic app finns. |
 
 ### <a name="example---get-logic-app"></a>Exempel – hämta Logic app
@@ -272,7 +272,7 @@ Du kan använda följande valfria globala Azure CLI-parametrar med dina `az logi
 | Verbose | `--verbose` | Visa utförliga loggar. |
 | Felsökning | `--debug` | Visar alla fel söknings loggar. |
 | Hjälp meddelande | `--help -h` | Visa hjälp dialog ruta. |
-| Söka i data | `--query` | Ange en JMESPath-frågesträng för JSON-utdata. |
+| Fråga | `--query` | Ange en JMESPath-frågesträng för JSON-utdata. |
 
 ## <a name="next-steps"></a>Nästa steg
 

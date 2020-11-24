@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 3e87e3d59fec354ca3590a79accb45a74172793b
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1b76413bb78baa211fee3aebe37075188ec8c69e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167890"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531958"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Använd Storage Explorer med Azure File Storage
 
@@ -31,7 +31,7 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 
 - [Hämta och installera Storage Explorer](https://www.storageexplorer.com/)
 
-- [Ansluta till ett Azure Storage-konto eller-tjänst](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Ansluta till ett Azure Storage-konto eller-tjänst](//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>Skapa en filresurs
 
@@ -47,7 +47,7 @@ Följande steg visar hur du skapar en filresurs i Storage Explorer.
 
     ![Skapa en filresurs](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. En textruta visas nedanför mappen **Filresurser**. Ange namnet på filresursen. Se avsnittet om [regler för namngivning av resurser](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs) där det finns en lista över regler och begränsningar för namngivning av filresurser.
+1. En textruta visas nedanför mappen **Filresurser**. Ange namnet på filresursen. Se avsnittet om [regler för namngivning av resurser](//azure/storage/storage-dotnet-how-to-use-blobs) där det finns en lista över regler och begränsningar för namngivning av filresurser.
 
     ![Namnge resursen](media/vs-azure-tools-storage-explorer-files/image2.png)
 
@@ -77,7 +77,7 @@ Följande steg illustrerar hur du kan visa innehållet i en filresurs i Storage 
 
 ## <a name="delete-a-file-share"></a>Ta bort en filresurs
 
-Filresurser kan enkelt skapas och tas bort efter behov. (Information om hur du tar bort enskilda filer finns i avsnittet [Hantera filer i en filresurs](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+Filresurser kan enkelt skapas och tas bort efter behov. (Information om hur du tar bort enskilda filer finns i avsnittet [Hantera filer i en filresurs](//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
 
 Följande steg visar hur du raderar en filresurs i Storage Explorer:
 
@@ -97,7 +97,7 @@ Följande steg visar hur du raderar en filresurs i Storage Explorer:
 
 ## <a name="copy-a-file-share"></a>Kopiera en filresurs
 
-Med Storage Explorer kan du kopiera en filresurs till Urklipp och klistra in filresursen på ett annat lagringskonto. (Information om hur du kopierar enskilda filer finns i avsnittet [Hantera filer i en filresurs](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+Med Storage Explorer kan du kopiera en filresurs till Urklipp och klistra in filresursen på ett annat lagringskonto. (Information om hur du kopierar enskilda filer finns i avsnittet [Hantera filer i en filresurs](//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
 
 Följande steg illustrerar hur du kopierar en filresurs från ett lagringskonto till ett annat.
 
@@ -117,7 +117,7 @@ Följande steg illustrerar hur du kopierar en filresurs från ett lagringskonto 
 
 ## <a name="get-the-sas-for-a-file-share"></a>Hämta SAS:en för en filresurs
 
-En [signatur för delad åtkomst (Shared Access Signature, SAS)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) ger delegerad åtkomst till resurser på ditt lagringskonto. Det innebär att du kan ge en klient begränsad behörighet till objekt på ditt lagringskonto under en angiven tidsperiod och med en angiven uppsättning behörigheter, utan att behöva dela nycklarna för åtkomst till ditt konto.
+En [signatur för delad åtkomst (Shared Access Signature, SAS)](//azure/storage/storage-dotnet-shared-access-signature-part-1) ger delegerad åtkomst till resurser på ditt lagringskonto. Det innebär att du kan ge en klient begränsad behörighet till objekt på ditt lagringskonto under en angiven tidsperiod och med en angiven uppsättning behörigheter, utan att behöva dela nycklarna för åtkomst till ditt konto.
 
 Följande steg visar hur du skapar en SAS för en filresurs: +
 
@@ -203,7 +203,7 @@ Följande steg illustrerar hur du hanterar filer (och mappar) i en filresurs.
 
         ![Ladda upp filer](media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        b. I dialogen **Överför filer** dialogrutan klickar du på knappen med tre punkter (**... **) på höger sida av textrutan **Filer** och markerar den eller de filer du vill överföra.
+        b. I dialogen **Överför filer** dialogrutan klickar du på knappen med tre punkter (**...**) på höger sida av textrutan **Filer** och markerar den eller de filer du vill överföra.
 
         ![Lägga till filer](media/vs-azure-tools-storage-explorer-files/image19.png)
 
@@ -215,7 +215,7 @@ Följande steg illustrerar hur du hanterar filer (och mappar) i en filresurs.
 
         ![Menyn för mappöverföring](media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        b. I dialogen **Överför mapp** klickar du på knappen med tre punkter (**... **) på höger sida av textrutan **Mapp** och väljer den mapp vars innehåll du vill överföra.
+        b. I dialogen **Överför mapp** klickar du på knappen med tre punkter (**...**) på höger sida av textrutan **Mapp** och väljer den mapp vars innehåll du vill överföra.
 
         c. Du kan även ange en målmapp som den markerade mappens innehåll ska överföras till. Om målmappen inte finns skapas den.
 

@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 18f9f62ba28595289d37975200352c26788e69cc
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: c8afc4f15f421a7b60b95d09b954e7742c24c66e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040040"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519684"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Distribuera din första app till Cloud Foundry på Microsoft Azure
 
@@ -64,7 +64,7 @@ cf target -o testorg -s dev
 Nu när du distribuerar ett program skapas det automatiskt i det nya org och utrymmet. För att bekräfta att det inte finns några appar i det nya org/utrymmet, skriver du `cf apps` igen.
 
 > [!NOTE] 
-> Mer information om organisationer och blank steg och hur de kan användas för rollbaserad åtkomst kontroll (RBAC) finns i [Cloud Foundry-dokumentationen][cf-orgs-spaces-docs].
+> Mer information om organisationer och blank steg och hur de kan användas för Cloud Foundry rollbaserad åtkomst kontroll (Cloud Foundry RBAC) finns i [Cloud Foundry-dokumentationen][cf-orgs-spaces-docs].
 
 ## <a name="deploy-an-application"></a>Distribuera ett program
 
@@ -95,7 +95,7 @@ Du kan distribuera de flesta program till Cloud Foundry med hjälp av `push` kom
 cf push
 ```
 
-När du *push* -överför ett program identifierar Cloud Foundry program typen (i det här fallet en Java-app) och identifierar dess beroenden (i det här fallet våren-ramverket). Sedan paketeras allt som krävs för att köra din kod i en fristående behållar avbildning som kallas *droplet* . Slutligen Cloud Foundry schemalägger programmet på någon av de tillgängliga datorerna i din miljö och skapar en URL där du kan komma åt den, vilket är tillgängligt i kommandots utdata.
+När du *push* -överför ett program identifierar Cloud Foundry program typen (i det här fallet en Java-app) och identifierar dess beroenden (i det här fallet våren-ramverket). Sedan paketeras allt som krävs för att köra din kod i en fristående behållar avbildning som kallas *droplet*. Slutligen Cloud Foundry schemalägger programmet på någon av de tillgängliga datorerna i din miljö och skapar en URL där du kan komma åt den, vilket är tillgängligt i kommandots utdata.
 
 ![Utdata från CF push-kommando][cf-push-output]
 
@@ -114,7 +114,7 @@ Du kan använda Cloud Foundry CLI för att visa loggar för ett program med hjä
 cf logs hello-spring-cloud
 ```
 
-Som standard använder loggar kommandot *pilslut* , som visar nya loggar när de skrivs. Om du vill se nya loggar visas uppdaterar du appen Hello-våren-Cloud i webbläsaren.
+Som standard använder loggar kommandot *pilslut*, som visar nya loggar när de skrivs. Om du vill se nya loggar visas uppdaterar du appen Hello-våren-Cloud i webbläsaren.
 
 Om du vill visa loggar som redan har skrivits lägger du till `recent` växeln:
 

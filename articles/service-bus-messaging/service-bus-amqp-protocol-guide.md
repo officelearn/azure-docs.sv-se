@@ -3,12 +3,12 @@ title: AMQP 1,0 i Azure Service Bus-och Event Hubss protokoll guide | Microsoft 
 description: Protokoll guide till uttryck och beskrivning av AMQP 1,0 i Azure Service Bus och Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 32e71211ed1574cade0567f7944b154eea062b24
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95396883"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736722"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 i Azure Service Bus-och Event Hubs-protokoll guide
 
@@ -42,7 +42,7 @@ AMQP 1,0-protokollet är utformat för att kunna utökas, vilket möjliggör ytt
 
 I det här avsnittet beskrivs den grundläggande användningen av AMQP 1,0 med Azure Service Bus, vilket innefattar att skapa anslutningar, sessioner och länkar och överföra meddelanden till och från Service Bus entiteter, till exempel köer, ämnen och prenumerationer.
 
-Den mest auktoritativa källan för att lära dig om hur AMQP fungerar är AMQP 1,0-specifikationen, men specifikationen skrevs till en exakt guide och inte att lära sig protokollet. Det här avsnittet fokuserar på att introducera så mycket terminologi som behövs för att beskriva hur Service Bus använder AMQP 1,0. För en mer omfattande introduktion till AMQP, samt en bredare diskussion av AMQP 1,0, kan du läsa [den här video kursen][this video course].
+Den mest auktoritativa källan för att lära dig om hur AMQP fungerar är [AMQP 1,0-specifikationen](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html), men specifikationen skrevs till en exakt guide och inte att lära sig protokollet. Det här avsnittet fokuserar på att introducera så mycket terminologi som behövs för att beskriva hur Service Bus använder AMQP 1,0. För en mer omfattande introduktion till AMQP, samt en bredare diskussion av AMQP 1,0, kan du läsa [den här video kursen][this video course].
 
 ### <a name="connections-and-sessions"></a>Anslutningar och sessioner
 
@@ -67,7 +67,7 @@ Sessioner har en Window-baserad flödes kontroll modell; När en session skapas,
 
 Den här Window-baserade modellen är ungefär densamma som TCP-konceptet för Window-baserad flödes kontroll, men på sessions nivån i socketen. Protokollets koncept för att tillåta flera samtidiga sessioner finns så att hög prioritets trafik kan leda till att trafiken går förbi tidigare begränsad trafik, t. ex. på en väg Express-Lane.
 
-Azure Service Bus använder för närvarande exakt en session för varje anslutning. Service Bus största ram storleken är 262 144 byte (256-K byte) för Service Bus standard och Event Hubs. Det är 1 048 576 (1 MB) för Service Bus Premium. Service Bus tillhandahåller inte några begränsade Windows-begränsningar, men återställer fönstret regelbundet som en del av flödes kontrollen på länk nivå (se [Nästa avsnitt](#links)).
+Azure Service Bus använder för närvarande exakt en session för varje anslutning. Den Service Bus maximala ram storleken är 262 144 byte (256-K byte) för Service Bus standard. Det är 1 048 576 (1 MB) för Service Bus Premium och Event Hubs. Service Bus tillhandahåller inte några begränsade Windows-begränsningar, men återställer fönstret regelbundet som en del av flödes kontrollen på länk nivå (se [Nästa avsnitt](#links)).
 
 Anslutningar, kanaler och sessioner är tillfälliga. Om den underliggande anslutningen komprimeras, anslutningar, TLS-tunnel, SASL-auktoriseringsarkiv och sessioner måste återupprättas.
 

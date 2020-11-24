@@ -71,6 +71,16 @@
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
         - name: Dokumentation om containrar för Cognitive Services
           href: ../containers/index.yml
+- name: Djupdykningsscenarier
+  items:
+    - name: Registrering till Ansiktsigenkänning
+      items:
+        - name: Översikt
+          href: enrollment-overview.md
+        - name: Anvisningar
+          items:
+            - name: Bygga en registreringsapp med React
+              href: build-enrollment-app.md
 - name: Referens
   items:
     - name: Ansikts-API

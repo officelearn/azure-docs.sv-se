@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 92eda77d03e547e814cac85f5ac8bb03b552d135
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ed6d3b927254d44863b7fd0a597528813be791cf
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95506555"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736619"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
@@ -38,13 +38,13 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
   > [Lär dig mer om extrahering av layout](concept-layout.md)
 
 - **Nytt språk som stöds: japanska** – följande nya språk stöds nu: for `AnalyzeLayout` och `AnalyzeCustomForm` : Japanese ( `ja` ). [Stöd för språk](language-support.md)
-- **Text linje formats indikering (handskriven/Skriv ut) (endast latinska språk)** – formulär tolken `appearance` visar nu ett objekt som klassificerar om varje text linje är handskriven eller inte, tillsammans med ett säkerhets resultat. Den här funktionen stöds bara för latinska språk.
+- **Text linje formats indikering (handskriven/övrigt) (endast latinska språk)** – formulär tolken visar nu ett `appearance` objekt som klassificerar om varje textrad är handskriven eller inte, tillsammans med ett säkerhets resultat. Den här funktionen stöds bara för latinska språk.
 - **Kvalitets förbättringar** – extraherings förbättringar, inklusive förbättringar av en enda siffer extrahering.
 - **Ny funktion för try-inaktivitet i formulär tolkens exempel på etikett verktyg** – möjlighet att testa färdiga fakturor, inbetalnings-och visitkorts modeller och layout-API med hjälp av formulär tolkens exempel etikett verktyg. Se hur dina data extraheras utan att du behöver skriva någon kod.
 
   > [Prova verktyget formulär igenkännings exempel](https://fott-preview.azurewebsites.net/)
 
-  ![FOTT-exempel](./media/fott-preview.jpg)
+  ![FOTT-exempel](./media/ui-preview.jpg)
 
 ## <a name="august-2020"></a>Augusti 2020
 
@@ -85,7 +85,7 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 * **Valuta support** – identifiering och extrahering av globala valuta symboler.
 * **Azure gov** -tolken är nu också tillgänglig i Azure gov.
 * **Förbättrade säkerhetsfunktioner**: 
-   * **Ta med din egen nyckel** igenkännings funktion krypterar dina data automatiskt när de behålls i molnet för att skydda dem och hjälpa dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Som standard använder din prenumeration krypteringsnycklar som hanteras av Microsoft. Du kan nu även hantera din prenumeration med dina egna krypterings nycklar. [Kundhanterade nycklar (CMK), som även kallas för att ta med din egen nyckel (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina data.  
+   * **Ta med din egen nyckel** igenkännings funktion krypterar dina data automatiskt när de behålls i molnet för att skydda dem och hjälpa dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Som standard använder din prenumeration krypteringsnycklar som hanteras av Microsoft. Du kan nu även hantera din prenumeration med dina egna krypterings nycklar. [Kundhanterade nycklar, som även kallas för att ta med din egen nyckel (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina data.  
    * **Privata slut punkter** – gör att du på ett virtuellt nätverk (VNet) kan [komma åt data på ett säkert sätt via en privat länk.](../../private-link/private-link-overview.md)
 
 

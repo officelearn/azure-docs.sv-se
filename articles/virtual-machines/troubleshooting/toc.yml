@@ -260,6 +260,8 @@
       href: install-vm-agent-offline.md
     - name: Felsöka VM-agent för Windows
       href: windows-azure-guest-agent.md
+    - name: Felsökning av Linux VM-agent
+      href: linux-azure-guest-agent.md
 - name: Säkerhetskopiering och återställning
   items:
     - name: Felsök problem med säkerhetskopior på virtuella Azure-datorer

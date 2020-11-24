@@ -32,10 +32,12 @@
           href: tutorial-discover-gcp.md
     - name: Utvärdera
       items:
-        - name: Utvärdera virtuella VMware-datorer för migrering till virtuella Azure-datorer
-          href: tutorial-assess-vmware-azure-vm.md
-        - name: Utvärdera virtuella VMware-datorer för migrering till AVS
-          href: tutorial-assess-vmware-azure-vmware-solution.md
+        - name: Utvärdera virtuella VMware-datorer
+          items:
+            - name: Utvärdera virtuella VMware-datorer för migrering till virtuella Azure-datorer
+              href: tutorial-assess-vmware-azure-vm.md
+            - name: Utvärdera virtuella VMware-datorer för migrering till AVS
+              href: tutorial-assess-vmware-azure-vmware-solution.md
         - name: Utvärdera virtuella Hyper-V-datorer för migrering till Azure
           href: tutorial-assess-hyper-v.md
         - name: Utvärdera fysiska servrar för migrering till Azure
@@ -44,19 +46,19 @@
           href: tutorial-assess-aws.md
         - name: Utvärdera GCP-instanser för migrering till Azure
           href: tutorial-assess-gcp.md
-        - name: Utvärdera importerade servrar
+        - name: Utvärdera importerade servrar för migrering till Azure
           href: tutorial-discover-import.md
     - name: Migrera
       items:
         - name: Migrera virtuella VMware-datorer
           items:
-            - name: Om migreringsalternativ för virtuella VMware-datorer
+            - name: Migreringsalternativ för virtuella VMware-datorer
               href: server-migrate-overview.md
-            - name: Migrera virtuella VMware-datorer med agentfri migrering – Azure-portalen
+            - name: Migrera med agentlös migrering (portal)
               href: tutorial-migrate-vmware.md
-            - name: Migrera virtuella VMware-datorer med agentbaserad migrering
+            - name: Migrera med agentbaserad migrering
               href: tutorial-migrate-vmware-agent.md
-            - name: Migrera virtuella VMware-datorer med agentfri migrering – PowerShell
+            - name: Migrera med agentlös migrering (PowerShell)
               href: tutorial-migrate-vmware-powershell.md
         - name: Migrera virtuella Hyper-V-datorer
           href: tutorial-migrate-hyper-v.md
@@ -68,128 +70,150 @@
           href: tutorial-migrate-gcp-virtual-machines.md
 - name: Begrepp
   items:
-    - name: Skapa en migreringsplan
-      href: concepts-migration-planning.md
-    - name: Stödmatriser
+    - name: Allmänt
       items:
-        - name: Allmänt stöd
+        - name: Azure Migrate-support
           href: migrate-support-matrix.md
-        - name: Utvärderingsstöd för VMware
+        - name: Säkerhetsbaslinje för Azure Migrate
+          href: security-baseline.md
+    - name: Identifiera
+      items:
+        - name: Stöd för VMware-identifiering
           href: migrate-support-matrix-vmware.md
-        - name: Migreringsstöd för VMWare
-          href: migrate-support-matrix-vmware-migration.md
-        - name: Utvärderingsstöd för Hyper-V
+        - name: Stöd för Hyper-V-identifiering
           href: migrate-support-matrix-hyper-v.md
-        - name: Migreringsstöd för Hyper-V
-          href: migrate-support-matrix-hyper-v-migration.md
-        - name: Utvärderingsstöd för fysisk server
+        - name: Stöd för identifiering av fysisk server
           href: migrate-support-matrix-physical.md
-        - name: Migreringsstöd för fysisk server
-          href: migrate-support-matrix-physical-migration.md
         - name: Installationskrav för Azure Migrate
           href: migrate-appliance.md
+        - name: Programarkitektur för Azure Migrate
+          href: migrate-appliance-architecture.md
+        - name: Översikt av beroendeanalys
+          href: concepts-dependency-visualization.md
+    - name: Utvärdera
+      items:
+        - name: Översikt av utvärderingar (migrera till virtuella Azure-datorer)
+          href: concepts-assessment-calculation.md
+        - name: Översikt över utvärdering (migrera till AVS)
+          href: concepts-azure-vmware-solution-assessment-calculation.md
+        - name: Bästa praxis för utvärdering
+          href: best-practices-assessment.md
+    - name: Migrera
+      items:
+        - name: Skapa en migreringsplan
+          href: concepts-migration-planning.md
+        - name: Migreringsstöd för VMWare
+          href: migrate-support-matrix-vmware-migration.md
+        - name: Migreringsstöd för Hyper-V
+          href: migrate-support-matrix-hyper-v-migration.md
+        - name: Migreringsstöd för fysisk server
+          href: migrate-support-matrix-physical-migration.md
         - name: Installationskrav för replikering
           href: migrate-replication-appliance.md
-    - name: Säkerhet
-      items:
-        - name: Säkerhetsbaslinje
-          href: security-baseline.md
-    - name: Programarkitektur för Azure Migrate
-      href: migrate-appliance-architecture.md
-    - name: Hyper-V-migreringsarkitektur
-      href: hyper-v-migration-architecture.md
-    - name: VMware-agentbaserad migreringsarkitektur
-      href: agent-based-migration-architecture.md
-    - name: Översikt över utvärdering (migrera till virtuella Azure-datorer)
-      href: concepts-assessment-calculation.md
-    - name: Översikt över utvärdering (migrera till AVS)
-      href: concepts-azure-vmware-solution-assessment-calculation.md
-    - name: Metodtips för utvärderingar
-      href: best-practices-assessment.md
-    - name: Översikt av beroendeanalys
-      href: concepts-dependency-visualization.md
+        - name: Hyper-V-migreringsarkitektur
+          href: hyper-v-migration-architecture.md
+        - name: VMware-agentbaserad migreringsarkitektur
+          href: agent-based-migration-architecture.md
 - name: Anvisningar
   items:
     - name: Skapa och hantera Azure Migrate-projekt
       href: create-manage-projects.md
-    - name: Lägga till ett verktyg för första gången
-      href: how-to-add-tool-first-time.md
     - name: Förbereda för att arbeta med ISV-verktyg/Movere
       href: prepare-isv-movere.md
-    - name: Lägga till utvärderingsverktyg
-      href: how-to-assess.md
-    - name: Distribuera Azure Migrate-installation
+    - name: Identifiera
       items:
-        - name: Distribuera apparat med mall (VMware)
-          href: how-to-set-up-appliance-vmware.md
-        - name: Distribuera apparat med mall (Hyper-V)
-          href: how-to-set-up-appliance-hyper-v.md
-        - name: Distribuera apparat med skript (VMware/Hyper-V)
-          href: deploy-appliance-script.md
-        - name: Distribuera installation för fysiska servrar
-          href: how-to-set-up-appliance-physical.md
-        - name: Distribuera apparat i Azure Government
-          href: deploy-appliance-script-government.md
-    - name: Begränsa identifieringsomfång för virtuella VMware-datorer
-      href: set-discovery-scope.md
-    - name: Identifiera program/roller/funktioner
-      href: how-to-discover-applications.md
-    - name: Gruppera datorer för utvärdering
-      href: how-to-create-a-group.md
-    - name: Analysera datorberoenden (agentbaserade)
-      href: how-to-create-group-machine-dependencies.md
-    - name: Analysera datorberoenden (agentlösa)
-      href: how-to-create-group-machine-dependencies-agentless.md
-    - name: Skapa en Azure VM-utvärdering
-      href: how-to-create-assessment.md
-    - name: Skapa en AVS-utvärdering
-      href: how-to-create-azure-vmware-solution-assessment.md
-    - name: Utvärdera en SQL Server-databas
-      href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
-    - name: Anpassa en utvärdering
-      href: how-to-modify-assessment.md
-    - name: Lägga till migreringsverktyg
-      href: how-to-migrate.md
-    - name: Migrera virtuella VMware-datorer till virtuella Azure-datorer som har krypterats med SSE och CMK
-      href: how-to-migrate-vmware-vms-with-cmk-disks.md
-    - name: Förbereda Windows 2003-servrar för migrering
-      href: prepare-windows-server-2003-migration.md
-    - name: Förbereda datorer för migrering
-      href: prepare-for-migration.md
-    - name: Ta bort ett Azure Migrate-projekt
-      href: how-to-delete-project.md
-    - name: Arbeta med en tidigare version
-      href: migrate-v1.md
-    - name: Utvärdera och migrera i stor skala
+        - name: Distribuera Azure Migrate-apparaten
+          items:
+            - name: Distribuera apparat med mall (VMware)
+              href: how-to-set-up-appliance-vmware.md
+            - name: Distribuera apparat med mall (Hyper-V)
+              href: how-to-set-up-appliance-hyper-v.md
+            - name: Distribuera apparat med skript (VMware/Hyper-V)
+              href: deploy-appliance-script.md
+            - name: Distribuera installation för fysiska servrar
+              href: how-to-set-up-appliance-physical.md
+            - name: Distribuera apparat i Azure Government
+              href: deploy-appliance-script-government.md
+        - name: Begränsa identifieringsomfång för virtuella VMware-datorer
+          href: set-discovery-scope.md
+        - name: Identifiera program/roller/funktioner
+          href: how-to-discover-applications.md
+        - name: Analysera datorberoenden (agentbaserade)
+          href: how-to-create-group-machine-dependencies.md
+        - name: Analysera datorberoenden (agentlösa)
+          href: how-to-create-group-machine-dependencies-agentless.md
+    - name: Utvärdera
       items:
-        - name: Utvärdera ett stort antal virtuella VMware-datorer
-          href: scale-vmware-assessment.md
-        - name: Utvärdera ett stort antal Hyper-V-datorer
-          href: scale-hyper-v-assessment.md
-        - name: Utvärdera ett stort antal fysiska servrar
-          href: scale-physical-assessment.md
-        - name: Automatisera migrering av ett stort antal virtuella datorer
-          href: how-to-migrate-at-scale.md
-        - name: Så automatiserar du VMware-migrering
-          href: how-to-automate-migration.md
-        - name: Migreringsexempel (Contoso-serien)
-          href: contoso-migration-overview.md
+        - name: Lägga till utvärderingsverktyg
+          href: how-to-assess.md
+        - name: Gruppera datorer för utvärdering
+          href: how-to-create-a-group.md
+        - name: Skapa en Azure VM-utvärdering
+          href: how-to-create-assessment.md
+        - name: Skapa en AVS-utvärdering
+          href: how-to-create-azure-vmware-solution-assessment.md
+        - name: Utvärdera en SQL Server-databas
+          href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
+        - name: Anpassa en utvärdering
+          href: how-to-modify-assessment.md
+        - name: Skala utvärdering
+          items:
+            - name: Utvärdera ett stort antal virtuella VMware-datorer
+              href: scale-vmware-assessment.md
+            - name: Utvärdera ett stort antal Hyper-V-datorer
+              href: scale-hyper-v-assessment.md
+            - name: Utvärdera ett stort antal fysiska servrar
+              href: scale-physical-assessment.md
+    - name: Migrera
+      items:
+        - name: Lägga till migreringsverktyg
+          href: how-to-migrate.md
+        - name: Förbereda datorer för migrering
+          href: prepare-for-migration.md
+        - name: Migrera virtuella VMware-datorer
+          items:
+            - name: Migrera virtuella VMware-datorer till krypterade virtuella Azure-datorer
+              href: how-to-migrate-vmware-vms-with-cmk-disks.md
+            - name: Förbereda Windows 2003-servrar för migrering
+              href: prepare-windows-server-2003-migration.md
+        - name: Skala migrering
+          items:
+            - name: Automatisera migrering av ett stort antal virtuella datorer
+              href: how-to-migrate-at-scale.md
+            - name: Så automatiserar du VMware-migrering
+              href: how-to-automate-migration.md
+    - name: Hantera
+      items:
+        - name: Ta bort ett Azure Migrate-projekt
+          href: how-to-delete-project.md
+        - name: Arbeta med en tidigare version av Azure Migrate
+          href: migrate-v1.md
 - name: Felsöka
   items:
-    - name: Felsöka Azure Migrate
-      href: troubleshoot-general.md
-    - name: Felsöka Azure Migrate-projekt
-      href: troubleshoot-project.md
-    - name: Felsöka Azure Migrate-installation/identifiering
-      href: troubleshoot-appliance-discovery.md
-    - name: Felsöka utvärdering/beroendevisualisering
-      href: troubleshoot-assessment.md
-    - name: Felsöka replikeringsfel i VMware-migrering utan agent
-      href: troubleshoot-changed-block-tracking-replication.md
+    - name: Allmänt
+      items:
+        - name: Felsöka Azure Migrate
+          href: troubleshoot-general.md
+        - name: Felsöka Azure Migrate-projekt
+          href: troubleshoot-project.md
+    - name: Identifiera
+      items:
+        - name: Felsöka Azure Migrate-installation/identifiering
+          href: troubleshoot-appliance-discovery.md
+    - name: Utvärdera
+      items:
+        - name: Felsöka utvärdering/beroendevisualisering
+          href: troubleshoot-assessment.md
+    - name: Migrera
+      items:
+        - name: Felsöka replikeringsfel i VMware-migrering utan agent
+          href: troubleshoot-changed-block-tracking-replication.md
 - name: Resurser
   items:
     - name: Molnmigrering i Cloud Adoption Framework
       href: /azure/cloud-adoption-framework/migrate/
+    - name: Contoso-migreringsexempel
+      href: /azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-overview
     - name: REST-API
       href: /rest/api/migrate/
     - name: Resource Manager-mall

@@ -4,6 +4,8 @@
   items:
     - name: Översikt över Azure Backup
       href: backup-overview.md
+    - name: Nyheter i Azure Backup
+      href: whats-new.md
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/backup/'
 - name: Snabbstarter

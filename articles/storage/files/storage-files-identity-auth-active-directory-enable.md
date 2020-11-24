@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 9dc6433170144635ad05033d110f448cf314179b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 2214dbc9dcbd4ba7728065ee45471e9f94b9e513
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628857"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95740003"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Översikt – lokal Active Directory Domain Services autentisering över SMB för Azure-filresurser
 
@@ -24,7 +24,7 @@ Om du är nybörjare på Azure-filresurser rekommenderar vi att du läser vår [
 
 - AD DS-identiteter som används för Azure Files lokal AD DS-autentisering måste synkroniseras med Azure AD. Hash-synkronisering av lösen ord är valfritt. 
 - Stöder Azure-filresurser som hanteras av Azure File Sync.
-- Stöder Kerberos-autentisering med AD med RC4-HMAC och [AES 256-kryptering](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). AES 128 Kerberos-kryptering stöds inte ännu.
+- Stöder Kerberos-autentisering med AD med RC4-HMAC och [AES 256-kryptering](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). Krypterings stöd för AES 256 är för närvarande begränsat till lagrings konton med namn <= 15 tecken långt. Kerberos-kryptering med AES 128 stöds inte ännu.
 - Stöder enkel inloggning.
 - Stöds endast på klienter som kör på OS-versioner som är nyare än Windows 7 eller Windows Server 2008 R2.
 - Stöds endast mot den AD-skog som lagrings kontot är registrerat på. Du kan bara komma åt Azure-filresurser med AD DS-autentiseringsuppgifter från en enda skog som standard. Om du behöver åtkomst till Azure-filresursen från en annan skog kontrollerar du att rätt skogs förtroende har kon figurer ATS. mer information finns i [vanliga frågor och svar](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) .

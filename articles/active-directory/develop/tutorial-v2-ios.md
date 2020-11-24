@@ -13,16 +13,16 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 70194c7adc55a00c5cb65928daac184499eb124d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aff89d49dec9bafedb3c9a5a76abdeb803740a12
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611120"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746735"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Självstudie: Logga in användare och anropa Microsoft Graph från en iOS-eller macOS-app
 
-I den här självstudien får du lära dig hur du integrerar en iOS-eller macOS-app med Microsoft Identity Platform. Appen loggar in en användare, får en åtkomsttoken för att anropa Microsoft Graph-API: et och gör en begäran till Microsoft Graph API.
+I den här självstudien skapar du en iOS-eller macOS-app som integreras med Microsoft Identity Platform för att signera användare och hämta en åtkomsttoken för att anropa Microsoft Graph-API: et.
 
 När du har slutfört guiden kommer ditt program att godkänna inloggningar med personliga Microsoft-konton (inklusive outlook.com, live.com och andra) och arbets-eller skol konton från alla företag eller organisationer som använder Azure Active Directory. Den här självstudien gäller för både iOS-och macOS-appar. Vissa steg skiljer sig mellan de två plattformarna.
 
@@ -35,7 +35,7 @@ I de här självstudierna har du
 > * Lägg till kod för att anropa API: et för Microsoft Graph
 > * Testa appen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Xcode 11. x +](https://developer.apple.com/xcode/)
 
@@ -80,7 +80,7 @@ Om du vill ladda ned en slutförd version av appen som du skapar i den här sjä
 
 7. Välj **prova den nya upplevelsen** längst upp på skärmen för att öppna den nya appens registrerings upplevelse och välj sedan **+ ny registrering**  >  **+ Lägg till en plattforms**  >  **-iOS/MacOS**.
     - Ange ditt projekts paket-ID. Om du har hämtat koden är detta `com.microsoft.identitysample.MSALiOS` . Om du skapar ett eget projekt väljer du ditt projekt i Xcode och öppnar fliken **Allmänt** . Paket-ID visas i avsnittet **identitet** .
-8. Välj `Configure` och spara **MSAL-konfigurationen** som visas på sidan **MSAL konfiguration** så att du kan ange den när du konfigurerar appen senare. Välj **Done** (Klar).
+8. Välj `Configure` och spara **MSAL-konfigurationen** som visas på sidan **MSAL konfiguration** så att du kan ange den när du konfigurerar appen senare. Välj **Klar**.
 
 ## <a name="add-msal"></a>Lägg till MSAL
 
@@ -424,7 +424,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 ```
 
-**Om du använder Xcode 11**bör du placera MSAL-motanrop i `SceneDelegate.swift` stället.
+**Om du använder Xcode 11** bör du placera MSAL-motanrop i `SceneDelegate.swift` stället.
 Om du har stöd för både UISceneDelegate och UIApplicationDelegate för kompatibilitet med äldre iOS måste MSAL-återanropet placeras i båda filerna.
 
 ```swift

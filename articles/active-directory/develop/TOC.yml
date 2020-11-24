@@ -539,6 +539,8 @@
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: Hantera ITP i Safari
           href: reference-third-party-cookies-spas.md
+        - name: 'Använda API:er för kontinuerlig tillgänglighetskontroll'
+          href: app-resilience-continuous-access-evaluation.md
     - name: Tillämpningskonfiguration
       displayName: App configuration
       items:

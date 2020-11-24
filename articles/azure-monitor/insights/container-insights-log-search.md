@@ -3,12 +3,12 @@ title: Så här frågar du efter loggar från Azure Monitor för behållare | Mi
 description: Azure Monitor för behållare samlar in Mät värden och loggdata och den här artikeln beskriver posterna och innehåller exempel frågor.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: a540ae828b14f231b3b327b714876550cc744a7e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 08c42fab84cb5180497f8da4f077b9bd82283ad4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994021"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95747687"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Så här frågar du efter loggar från Azure Monitor för behållare
 
@@ -16,7 +16,7 @@ Azure Monitor för behållare samlar in prestanda statistik, inventerings data o
 
 ## <a name="container-records"></a>Container poster
 
-I följande tabell finns information om de poster som samlats in av Azure Monitor for containers. 
+I följande tabell finns information om poster som samlats in av Azure Monitor for containers. En lista över kolumn beskrivningar finns i referensen för tabellerna [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) och [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) .
 
 | Data | Datakälla | Datatyp | Fält |
 |------|-------------|-----------|--------|
@@ -47,7 +47,7 @@ Behållaren loggar utdata som vidarebefordras till din arbets yta är STDOUT och
 
 Det är ofta användbart att skapa frågor som börjar med ett exempel eller två och sedan ändra dem så att de passar dina behov. För att hjälpa till att bygga mer avancerade frågor kan du experimentera med följande exempel frågor:
 
-| Söka i data | Beskrivning | 
+| Fråga | Beskrivning | 
 |-------|-------------|
 | ContainerInventory<br> &#124; projekt dator, namn, bild, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; återge tabell | Lista all information om livs cykeln för en behållare| 
 | KubeEvents_CL<br> &#124; där inte (IsEmpty (Namespace_s))<br> &#124; sortera efter TimeGenerated DESC<br> &#124; återge tabell | Kubernetes-händelser|

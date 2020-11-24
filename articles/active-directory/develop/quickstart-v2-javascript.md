@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: f2a01c4e4d364494d271fa676bca5bfac2677395
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: f27822e5edd772b9f2c50f2e98a4804bf994881c
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592761"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95743267"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA
 
-I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett Java Script-program (Single-Side Application) kan logga in användare och anropa Microsoft Graph. Kod exemplet visar också hur du hämtar en åtkomsttoken för att anropa Microsoft Graph API eller något webb-API.
+I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett Java Script-program (Single-Side Application) kan logga in användare och anropa Microsoft Graph. Kod exemplet visar också hur du får en åtkomsttoken för att anropa Microsoft Graph API eller något webb-API.
 
 Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
@@ -110,16 +110,16 @@ Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
 > [!div renderon="docs"]
 >
-> Där:
+> Plats:
 > - *\<Enter_the_Application_Id_Here>* är **program-ID: t (Client)** för det program som du har registrerat.
 > - *\<Enter_the_Cloud_Instance_Id_Here>* är instansen av Azure-molnet. För det största eller globala Azure-molnet anger du bara *https://login.microsoftonline.com* . För **nationella** moln (till exempel Kina), se [nationella moln](./authentication-national-cloud.md).
 > - *\<Enter_the_Tenant_info_here>* är inställt på något av följande alternativ:
->    - Om ditt program har stöd *för konton i den här organisations katalogen* ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com* ).
+>    - Om ditt program har stöd *för konton i den här organisations katalogen* ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com*).
 >    - Om ditt program har stöd *för konton i en organisations katalog* ersätter du värdet med **organisationer**.
 >    - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton* ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton* ersätter du värdet med **konsumenter**.
 >
 > > [!TIP]
-> > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
+> > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: appen har kon figurer ATS och är redo att köras
@@ -144,7 +144,7 @@ Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
 > [!div renderon="docs"]
 >
-> Där:
+> Plats:
 > - *\<Enter_the_Graph_Endpoint_Here>* är slut punkten som API-anrop görs mot. För huvud-eller global Microsoft Graph API-tjänsten anger du bara `https://graph.microsoft.com` . Mer information finns i [nationell moln distribution](/graph/deployments)
 >
 > #### <a name="step-4-run-the-project"></a>Steg 4: kör projektet
@@ -269,7 +269,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Till exempel:
+Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
 * Användare kan behöva ange sina autentiseringsuppgifter på grund av att deras lösen ord har upphört att gälla.
 * Ditt program begär åtkomst till ytterligare resurs omfattningar som användaren behöver godkänna.
 * Tvåfaktorautentisering krävs.

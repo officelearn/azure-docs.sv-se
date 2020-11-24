@@ -8,47 +8,45 @@
 - name: Självstudier
   expanded: true
   items:
-    - name: 1 – Skapa ett Azure Red Hat OpenShift 4-kluster
+    - name: 1 – Skapa ett ARO-kluster
       href: tutorial-create-cluster.md
-    - name: 2 – Ansluta till ett Azure Red Hat OpenShift 4-kluster
+    - name: 2 – Ansluta till ett ARO-kluster
       href: tutorial-connect-cluster.md
-    - name: 3 – Ta bort ett Azure Red Hat OpenShift 4-kluster
+    - name: 3 – Ta bort ett ARO-kluster
       href: tutorial-delete-cluster.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
-    - name: Skapa ett privat Azure Red Hat OpenShift 4-kluster
-      href: howto-create-private-cluster-4x.md
-    - name: Skapa en Azure Files StorageClass på Azure Red Hat OpenShift 4
-      href: howto-create-a-storageclass.md
-    - name: Uppdatera pull-hemlighet för ett Azure Red Hat OpenShift 4-kluster
-      href: howto-add-update-pull-secret.md
-    - name: Konfigurera DNS-vidarebefordring för ett Azure Red Hat OpenShift 4-kluster
-      href: dns-forwarding.md
-    - name: Konfigurera inbyggt containerregister för Azure Red Hat OpenShift 4
-      href: built-in-container-registry.md
-    - name: Konfigurera Azure Active Directory-autentisering för ett Azure Red Hat OpenShift 4-kuster
+    - name: Nätverk
+      items:
+        - name: Skapa ett privat ARO-kluster
+          href: howto-create-private-cluster-4x.md
+        - name: Konfigurera DNS-vidarebefordring
+          href: dns-forwarding.md
+    - name: Säkerhet och autentisering
       items:
         - name: Konfigurera Azure Active Directory-autentisering (CLI)
           href: configure-azure-ad-cli.md
         - name: Konfigurera Azure Active Directory-autentisering (portalen)
           href: configure-azure-ad-ui.md
-    - name: Skapa en säkerhetskopia och återställa ett program med Velero
+        - name: Uppdatera pull-hemlighet för ett ARO-kluster
+          href: howto-add-update-pull-secret.md
+    - name: Säkerhetskopiering och återställning
       items:
         - name: Skapa en säkerhetskopia av ett klusterprogram med Velero
           href: howto-create-a-backup.md
         - name: Skapa en återställning av ett klusterprogram med Velero
           href: howto-create-a-restore.md
-    - name: Övervakning och loggning för Azure Red Hat OpenShift 4
+    - name: Övervakning och loggning
       items:
-        - name: Azure Monitor för containrar i Azure Red Hat OpenShift 4 (förhandsversion)
+        - name: Azure Monitor för containrar
           items:
-            - name: Konfigurera Azure Monitor för containrar för Azure Red Hat OpenShift 4 (förhandsversion)
+            - name: Konfigurera Azure Monitor för containrar för ARO 4 (förhandsversion)
               href: ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
-            - name: Inaktivera Azure Monitor för containrar i Azure Red Hat OpenShift 3.11 (förhandsversion)
+            - name: Inaktivera Azure Monitor för containrar i ARO 4 (förhandsversion)
               href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
-    - name: Open Liberty/WebSphere Liberty på Azure Red Hat OpenShift 4-kluster
+    - name: Utveckla och köra program
       items:
-        - name: Distribuera en Open Liberty-/WebSphere Liberty-app på ett Azure Red Hat OpenShift 4-kluster
+        - name: Distribuera en Open Liberty-/WebSphere Liberty-app
           href: howto-deploy-java-liberty-app.md
     - name: Azure Red Hat OpenShift 3.11
       items:
@@ -85,9 +83,9 @@
               href: cluster-administration-security-context-constraints.md
 - name: Begrepp
   items:
-    - name: Nätverk i Azure Red Hat OpenShift 4-kluster
+    - name: Nätverk
       href: concepts-networking.md
-    - name: Migrera från Azure Red Hat OpenShift 3.11 till Azure Red Hat OpenShift 4
+    - name: Migrera från ARO 3.11 till ARO 4
       href: migration.md
 - name: Referens
   items:
@@ -101,17 +99,15 @@
       href: openshift-faq.md
     - name: Felsökning
       href: troubleshoot.md
-    - name: Resurser som stöds för Azure Red Hat OpenShift 3.11
-      href: supported-resources.md
-    - name: Resurser som stöds för Azure Red Hat OpenShift 4.3
+    - name: Supportprinciper för ARO 4
       href: support-policies-v4.md
-    - name: Supportlivscykel för Azure Red Hat OpenShift 4
+    - name: Supportlivscykel för ARO 4
       href: support-lifecycle.md
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Dokumentation om Azure Red Hat OpenShift 4.3
+    - name: Dokumentation om Red Hat OpenShift 4
       href: 'https://docs.openshift.com/aro/4/welcome/index.html'
-    - name: Dokumentation om Azure Red Hat OpenShift 3.11
-      href: 'https://docs.openshift.com/aro/3/welcome/index.html'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: ARO-översikt
+      href: 'https://github.com/Azure/OpenShift/projects/1'

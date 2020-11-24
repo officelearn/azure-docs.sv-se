@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 3c2e691d673b385d597957cf5a4ce3c3f18ba466
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: b489964e5ef8ea483cbe203be1ff665078a6d66a
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511549"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95741737"
 ---
 # <a name="form-recognizer-layout-service"></a>Formulär tolkens layout-tjänst
 
@@ -86,11 +86,10 @@ Layout extraherar tabeller från dokument (PDF, TIFF) och bilder (jpg, PNG, BMP)
 
 Layout extraherar också markerings märken från dokument. Extraherade markerings markeringar inkluderar markerings ruta, förtroende och tillstånd (markerat/omarkerat). Information om markerings märken extraheras i `"readResults"` avsnittet i JSON-utdata. 
 
-Exempel på <<< Lägg till markerings märken>>>
-
 ## <a name="next-steps"></a>Nästa steg
 
 - Prova din egen extrahering av layouten med hjälp av [formulär tolkens exempel gränssnitt](https://fott-preview.azurewebsites.net/)
+- Slutför snabb starten för [formulär tolkens klient bibliotek](quickstarts/client-library.md) för att komma igång med att extrahera layouter på valfritt språk.
 - Du kan också följa snabb starten för [extrahering av data](./QuickStarts/python-layout.md) för att implementera dataextrahering med Python och REST API.
 
 ## <a name="see-also"></a>Se även

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 4252e3a7f8c3ff9d0ec782a2a9222553c063463c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 88774450fb196da5de24bcad047ecdb8c424f653
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533284"
+ms.locfileid: "95736546"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurera ett AKS-kluster
 
@@ -276,7 +276,7 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 ```
 
 > [!IMPORTANT]
-> Med ett tillfälligt operativ system kan du distribuera VM-och instans avbildningar upp till storleken på VM-cachen. I AKS-fallet använder standardnodens operativ system disk konfiguration 100GiB, vilket innebär att du behöver en VM-storlek som har ett cacheminne som är större än 100 GiB. Standard Standard_DS2_v2 har cache-storleken 86 GiB, vilket inte är tillräckligt stort. Standard_DS3_v2 har cache-storleken 172 GiB, vilket är tillräckligt stort. Du kan också minska standard storleken på OS-disken med hjälp av `--node-osdisk-size` . Den minsta storleken för AKS-avbildningar är 30GiB. 
+> Med ett tillfälligt operativ system kan du distribuera VM-och instans avbildningar upp till storleken på VM-cachen. I AKS-fallet använder standardnodens operativ system disk konfiguration 128 GB, vilket innebär att du behöver en VM-storlek som har ett cacheminne som är större än 128 GB. Standard Standard_DS2_v2 har en cachestorlek på 86GB, vilket inte är tillräckligt stort. Standard_DS3_v2 har en cachestorlek på 172GB, vilket är tillräckligt stort. Du kan också minska standard storleken på OS-disken med hjälp av `--node-osdisk-size` . Den minsta storleken för AKS-avbildningar är 30 GB. 
 
 Om du vill skapa Node-pooler med nätverksanslutna OS-diskar kan du göra det genom att ange `--node-osdisk-type Managed` .
 

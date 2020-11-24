@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
-ms.openlocfilehash: 0765c05e08dda782c084775fb83b22a52558fa0d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 9e8aecfe8b16d8af755d3f4c3c71b875d4e8ec40
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491621"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751257"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Detaljerad konfiguration för värdbaserade test enheter
 
@@ -29,7 +29,7 @@ I den här artikeln beskrivs hur du konfigurerar en värdbaserad test enhet för
 
     - **Typ av test enhet** – Välj **Microsoft värdbaserad (Dynamics 365 för kund engagemang & PowerApps)**. Detta anger att Microsoft ska vara värd för och underhålla den tjänst som utför den användar etablering och avetableringen av test enheten.
 
-5. Bevilja Microsoft AppSource behörighet att etablera och avetablera användare av test enheter i din klient med hjälp av [dessa instruktioner](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). I det här steget ska du generera **Azure AD App-ID: t** och **Azure AD App nyckel** värden som anges nedan.
+5. Bevilja Microsoft AppSource behörighet att etablera och avetablera användare av test enheter i din klient med hjälp av [dessa instruktioner](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup). I det här steget ska du generera **Azure AD App-ID: t** och **Azure AD App nyckel** värden som anges nedan.
 6. Fyll i fälten på sidan **teknisk konfiguration för test enhet** .
 
     [![Sidan teknisk konfiguration för test enhet.](media/test-drive/technical-config-details.png)](media/test-drive/technical-config-details.png#lightbox)

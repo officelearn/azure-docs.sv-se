@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1648bd9a073bca696299e9ed703536db745e7edb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: ad689c746a0f4d7232e7f61982fb8c4f735cbe34
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912845"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95737810"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Självstudie: Moderering av video och avskrift
 
@@ -35,7 +35,7 @@ I den här självstudiekursen lär du dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Registrera dig för webbplatsen för [Content moderator gransknings verktyg](https://contentmoderator.cognitive.microsoft.com/) och skapa anpassade taggar. Se [använda Taggar](./review-tool-user-guide/configure.md#tags) om du behöver hjälp med det här steget.
+- Registrera dig för webbplatsen för [Content moderator granska verktyg](https://contentmoderator.cognitive.microsoft.com/) och skapa anpassade taggar för de funktioner som du vill identifiera. Se [använda Taggar](./review-tool-user-guide/configure.md#tags) om du behöver hjälp med det här steget.
 
     ![skärm bild av anpassade taggar för video moderator](images/video-tutorial-custom-tags.png)
 - Om du vill köra exempel programmet behöver du ett Azure-konto, en Azure Media Services resurs, en Azure Content Moderator-resurs och Azure Active Directory autentiseringsuppgifter. Instruktioner för hur du hämtar dessa resurser finns i API-guiden för [Videokontrollanter](video-moderation-api.md) .
@@ -45,7 +45,7 @@ I den här självstudiekursen lär du dig att:
 
 Redigera `App.config` filen och Lägg till Active Directory klient namn, tjänst slut punkter och prenumerations nycklar som anges av `#####` . Du behöver följande information:
 
-|Nyckel|Beskrivning|
+|Tangent|Beskrivning|
 |-|-|
 |`AzureMediaServiceRestApiEndpoint`|Slutpunkt för API:n till Azure Media Services (AMS)|
 |`ClientSecret`|Prenumerationsnyckel för Azure Media Services|
@@ -57,7 +57,7 @@ Redigera `App.config` filen och Lägg till Active Directory klient namn, tjänst
 
 ## <a name="examine-the-main-code"></a>Granska huvud koden
 
-Klassen `Program` i `Program.cs` är den främsta startpunkten till videoändringsprogrammet.
+Klass **programmet** i _program.cs_ är den huvudsakliga start punkten för video redigerings programmet.
 
 ### <a name="methods-of-program-class"></a>Metoder för program klass
 
@@ -116,7 +116,7 @@ I följande avsnitt beskrivs i detalj några av de enskilda processer som anropa
 För att minimera nätverkstrafiken konverterar programmet videofiler till H.264-format (MPEG-4 AVC) och skalar dem till en maximal bredd på 640 bildpunkter. En H.264-codec rekommenderas tack vare dess höga effektivitet (komprimeringsgrad). Komprimeringen görs med hjälp av det kostnadsfria `ffmpeg`-kommandoradsverktyget, som finns i mappen `Lib` i Visual Studio-lösningen. Indatafilerna kan ha de format som stöds av `ffmpeg`, inklusive vanliga videofilformat och codecs.
 
 > [!NOTE]
-> När programmet startas med kommandoradsalternativen, anger du en katalog som innehåller de videofiler som ska skickas för moderering. Alla filer i den här katalogen som har filnamnstillägget `.mp4` bearbetas. Om du vill bearbeta andra filnamnstillägg uppdaterar du `Main()`-metoden i `Program.cs` och inkluderar önskade tillägg.
+> När programmet startas med kommandoradsalternativen, anger du en katalog som innehåller de videofiler som ska skickas för moderering. Alla filer i den här katalogen som har filnamnstillägget `.mp4` bearbetas. Om du vill bearbeta andra fil namns tillägg uppdaterar du `Main()` metoden i _program.cs_ för att inkludera önskade tillägg.
 
 Koden som komprimerar en enskild videofil finns i `AmsComponent`-klassen i `AMSComponent.cs`. Metoden som ansvarar för den här funktionen är `CompressVideo()`, vilket visas här.
 
@@ -138,7 +138,7 @@ Metoden returnerar filnamnet på den komprimerade utdatafilen.
 
 ## <a name="upload-and-moderate-the-video"></a>Ladda upp och måttlig videon
 
-Videon måste lagras i Azure Media Services innan den kan bearbetas av innehållsändringstjänsten. `Program`-klassen i `Program.cs` har en kort metod för `CreateVideoStreamingRequest()`. Den returnerar ett objekt som representerar den strömmande begäran som användes för att ladda upp videon.
+Videon måste lagras i Azure Media Services innan den kan bearbetas av innehållsändringstjänsten. **Program** klassen i _program.cs_ har en kort metod `CreateVideoStreamingRequest()` som returnerar ett objekt som representerar den strömmande begäran som används för att ladda upp videon.
 
 [!code-csharp[CreateVideoStreamingRequest](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/Program.cs?range=120-133)]
 
@@ -228,7 +228,7 @@ En avskrift av ljudet från videon genereras också när `GenerateVTT`-flaggan h
 
 ## <a name="create-a-human-review"></a>Skapa en mänsklig granskning
 
-Modereringsprocessen returnerar en lista med nyckelbildrutor från videon, tillsammans med avskrifter av dess ljudspår. Nästa steg är att skapa en granskning i Content Moderator gransknings verktyg för mänskliga moderatorer. När du går tillbaka till `ProcessVideo()`-metoden i `Program.cs`, ser du anropet till `CreateVideoReviewInContentModerator()`-metoden. Den här metoden finns i `videoReviewApi`-klassen, som är i `VideoReviewAPI.cs`, och visas här.
+Modereringsprocessen returnerar en lista med nyckelbildrutor från videon, tillsammans med avskrifter av dess ljudspår. Nästa steg är att skapa en granskning i Content Moderator gransknings verktyg för mänskliga moderatorer. Om du går tillbaka till `ProcessVideo()` -metoden i _program.cs_ visas anropet till- `CreateVideoReviewInContentModerator()` metoden. Den här metoden finns i `videoReviewApi`-klassen, som är i `VideoReviewAPI.cs`, och visas här.
 
 [!code-csharp[CreateVideoReviewInContentModerator](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=42-69)]
 

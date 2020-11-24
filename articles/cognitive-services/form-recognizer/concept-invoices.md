@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 366826e591ed131ca63dc94eae994773217438d1
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: af3935bab5cd4d6a2aa4a9e3250f6beec19a8ea4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511568"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736687"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Fördefinierad faktura modell för formulär tolken
 
@@ -107,7 +107,8 @@ Faktura tjänsten kommer att extrahera fälten text, tabeller och 26 fakturor. N
 ## <a name="next-steps"></a>Nästa steg
 
 - Testa dina egna fakturor och exempel i [formulär tolkens exempel gränssnitt](https://fott-preview.azurewebsites.net/).
-- Du kan också följa snabb starten för att [Hämta faktura data](./QuickStarts/python-invoices.md) och implementera faktura data extrahering med Python och REST API.
+- Slutför snabb starten för [formulär tolkens klient bibliotek](quickstarts/client-library.md) för att komma igång med att skriva en app för faktura bearbetning med formulär tolken på valfritt språk.
+- Du kan också följa snabb starten för att [Hämta faktura data](./quickstarts/python-invoices.md) och implementera faktura data extrahering med Python och REST API.
 ## <a name="see-also"></a>Se även
 
 * [Vad är formigenkänning?](./overview.md)

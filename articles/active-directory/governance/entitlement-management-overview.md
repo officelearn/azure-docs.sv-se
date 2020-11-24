@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: ecc25af19694c0befdd24b041807e2067db4f13b
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 163947268d79a0297eef3f3f6e97187a0aef6994
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886948"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95738150"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Vad är berättigandehantering i Azure AD?
 
@@ -144,10 +144,10 @@ Specialiserade moln, till exempel Azure Tyskland och Azure Kina, är för närva
 Se till att katalogen har minst så många Azure AD Premium P2-licenser som du har:
 
 - Medlems användare som **kan** begära ett åtkomst paket.
-- Medlem och gäst användare som <u>begär</u> ett åtkomst paket.
-- Medlem och gäst användare som <u>godkänner begär Anden</u> för ett Access-paket.
+- Medlems användare som <u>begär</u> ett åtkomst paket.
+- Medlems användare som <u>godkänner begär Anden</u> för ett Access-paket.
 - Medlems användare som <u>granskar tilldelningar</u> för ett Access-paket. 
-- Medlem och gäst användare som har en <u>direkt tilldelning</u> till ett Access-paket.
+- Medlems användare som har en <u>direkt tilldelning</u> till ett Access-paket.
 
 För gäst användare beror licensierings behovet på den [licensierings modell](../external-identities/external-identities-pricing.md) som du använder. Följande gäst användares aktiviteter betraktas dock som Azure AD Premium P2-användning:
 - Gäst användare som <u>begär</u> ett Access-paket. 

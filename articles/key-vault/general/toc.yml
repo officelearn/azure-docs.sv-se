@@ -23,6 +23,10 @@
           href: tutorial-net-virtual-machine.md
         - name: Använda Azure Key Vault med en virtuell dator i Python
           href: tutorial-python-virtual-machine.md
+    - name: Azure App Service
+      items:
+        - name: Använda Azure Key Vault med en webbapp i .NET
+          href: tutorial-net-create-vault-azure-web-app.md
     - name: Azure Kubernetes Service
       items:
         - name: Integrera Azure Key Vault med Kubernetes
@@ -31,8 +35,6 @@
       items:
         - name: Få åtkomst till Azure Blob Storage med Azure Databricks och Azure Key Vault
           href: integrate-databricks-blob-storage.md
-    - name: Ansluta Key Vault till en webbapp med en hanterad identitet och .NET
-      href: tutorial-net-create-vault-azure-web-app.md
 - name: Exempel
   items:
     - name: Kodexempel för Key Vault

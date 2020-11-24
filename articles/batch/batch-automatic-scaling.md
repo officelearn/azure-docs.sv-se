@@ -2,14 +2,14 @@
 title: Automatisk skalning av compute-noder i en Azure Batch-pool
 description: Aktivera automatisk skalning i en molnbaserad pool för att dynamiskt justera antalet datornoder i poolen.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5774acbfc035ab61267dddb31b01b0e82689f690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849800"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95737300"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en automatisk formel för skalning av Compute-noder i en batch-pool
 
@@ -98,7 +98,7 @@ Du kan hämta och ange värdena för de här tjänstedefinierade variablerna fö
 | --- | --- |
 | $TargetDedicatedNodes |Mål antalet dedikerade datornoder för poolen. Detta anges som ett mål eftersom en pool kanske inte alltid uppnår önskat antal noder. Om till exempel mål antalet dedikerade noder ändras med en utvärdering av autoskalning innan poolen har nått det första målet, kanske poolen inte når målet. <br /><br /> En pool i ett konto som har skapats i batch service mode kanske inte når målet om målet överskrider en nod för batch-konto eller kärn kvot. En pool i ett konto som skapats i användar prenumerations läge kanske inte når målet om målet överskrider den delade kärn kvoten för prenumerationen.|
 | $TargetLowPriorityNodes |Mål antalet Compute-noder med låg prioritet för poolen. Detta anges som ett mål eftersom en pool kanske inte alltid uppnår önskat antal noder. Om till exempel mål antalet noder med låg prioritet ändras genom en utvärdering av autoskalning innan poolen har nått det första målet, kanske poolen inte når målet. En pool kan inte heller uppnå målet om målet överskrider en nod för batch-konto eller kärn kvot. <br /><br /> Mer information om Compute-noder med låg prioritet finns i [använda virtuella datorer med låg prioritet med batch](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |Den åtgärd som inträffar när Compute-noder tas bort från en pool. Möjliga värden:<ul><li>**köa**om: standardvärdet. Avslutar uppgifter direkt och placerar dem i jobbkön igen, så att de omplaneras. Den här åtgärden säkerställer att mål antalet noder uppnås så snabbt som möjligt. Det kan dock vara mindre effektivt eftersom alla pågående aktiviteter avbryts och måste startas om helt och hållet. <li>**Avsluta**: avslutar aktiviteter direkt och tar bort dem från jobbkön.<li>**taskcompletion**: väntar på att pågående aktiviteter ska slutföras och tar sedan bort noden från poolen. Använd det här alternativet för att undvika att aktiviteter avbryts och köas, vilket gör att det arbete som uppgiften har gjort avbryts.<li>**retaineddata**: väntar på att alla lokala uppgifter som kvarhålls på noden ska rensas innan noden tas bort från poolen.</ul> |
+| $NodeDeallocationOption |Den åtgärd som inträffar när Compute-noder tas bort från en pool. Möjliga värden:<ul><li>**köa** om: standardvärdet. Avslutar uppgifter direkt och placerar dem i jobbkön igen, så att de omplaneras. Den här åtgärden säkerställer att mål antalet noder uppnås så snabbt som möjligt. Det kan dock vara mindre effektivt eftersom alla pågående aktiviteter avbryts och måste startas om helt och hållet. <li>**Avsluta**: avslutar aktiviteter direkt och tar bort dem från jobbkön.<li>**taskcompletion**: väntar på att pågående aktiviteter ska slutföras och tar sedan bort noden från poolen. Använd det här alternativet för att undvika att aktiviteter avbryts och köas, vilket gör att det arbete som uppgiften har gjort avbryts.<li>**retaineddata**: väntar på att alla lokala uppgifter som kvarhålls på noden ska rensas innan noden tas bort från poolen.</ul> |
 
 > [!NOTE]
 > `$TargetDedicatedNodes`Variabeln kan också anges med aliaset `$TargetDedicated` . På samma sätt `$TargetLowPriorityNodes` kan variabeln anges med hjälp av alias `$TargetLowPriority` . Om både den fullständigt namngivna variabeln och dess alias anges av formeln, prioriteras värdet som är kopplat till den fullständigt namngivna variabeln.
@@ -134,6 +134,9 @@ Du kan hämta värdet för de här tjänstedefinierade variablerna för att gör
 
 > [!TIP]
 > Dessa skrivskyddade användardefinierade variabler är *objekt* som tillhandahåller olika metoder för att komma åt data som är kopplade till dem. Mer information finns i [Hämta exempel data](#obtain-sample-data) senare i den här artikeln.
+
+> [!NOTE]
+> Används `$RunningTasks` vid skalning baserat på antalet aktiviteter som körs vid en tidpunkt och `$ActiveTasks` vid skalning baserat på antalet aktiviteter som är köade till att köras.
 
 ## <a name="types"></a>Typer
 
@@ -186,7 +189,7 @@ De här åtgärderna tillåts för de typer som anges i föregående avsnitt.
 | TimeInterval- *operatör* TimeInterval |<, <=, = =, >=, >,! = |double |
 | dubbel *operator* dubbel |&&  &#124;&#124; |double |
 
-När du testar ett dubbelt värde med en ternär operator ( `double ? statement1 : statement2` ), är noll **Sant**och noll är **falskt**.
+När du testar ett dubbelt värde med en ternär operator ( `double ? statement1 : statement2` ), är noll **Sant** och noll är **falskt**.
 
 ## <a name="functions"></a>Functions
 
@@ -226,7 +229,7 @@ Du kan använda både resurs-och aktivitets mått när du definierar en formel. 
 
 <table>
   <tr>
-    <th>Mått</th>
+    <th>Metric</th>
     <th>Beskrivning</th>
   </tr>
   <tr>
@@ -381,7 +384,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> Om du väljer till kan du inkludera både kommentarer och rad brytningar i formel strängar.
+> Om du väljer till kan du inkludera både kommentarer och rad brytningar i formel strängar. Tänk också på att saknade semikolon kan resultera i utvärderings fel.
 
 ## <a name="automatic-scaling-interval"></a>Intervall för automatisk skalning
 

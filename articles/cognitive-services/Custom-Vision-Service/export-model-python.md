@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: ee9f49463e8e6749d29c810afaf7337cc99a98e8
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: a47475ad55c5e6262dc8ba1a384d89b9721fd2e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616050"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736433"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Självstudie: Köra en TensorFlow-modell i Python
 
@@ -34,7 +34,7 @@ I självstudiekursen måste du göra följande:
 
 Sedan måste du installera följande paket:
 
-```
+```bash
 pip install tensorflow
 pip install pillow
 pip install numpy
@@ -43,7 +43,7 @@ pip install opencv-python
 
 ## <a name="load-your-model-and-tags"></a>Läsa in din modell och dina taggar
 
-Den nedladdade zip-filen innehåller en model.pb och en labels.txt. De här filerna representerar den tränade modellen och klassificeringsetiketterna. Det första steget är att läsa in modellen i projektet.
+Den hämtade ZIP-filen innehåller en _modell. PB_ och en _labels.txt_ fil. De här filerna representerar den tränade modellen och klassificeringsetiketterna. Det första steget är att läsa in modellen i projektet. Lägg till följande kod i ett nytt Python-skript.
 
 ```Python
 import tensorflow as tf
@@ -126,6 +126,8 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 
 ```
 
+### <a name="add-helper-functions"></a>Lägga till hjälp funktioner
+
 Stegen ovan använder följande hjälpfunktioner:
 
 ```Python
@@ -191,7 +193,7 @@ with tf.compat.v1.Session() as sess:
         exit(-1)
 ```
 
-## <a name="view-the-results"></a>Visa resultatet
+## <a name="display-the-results"></a>Visa resultaten
 
 Resultatet av körningen av bildtensorn genom modellen behöver sedan mappas tillbaka till etiketterna.
 

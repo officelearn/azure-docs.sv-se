@@ -7,24 +7,24 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/04/2020
-ms.openlocfilehash: c52fabcfc2ff22df2de6dd93f2543d625310baef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/30/2020
+ms.openlocfilehash: 83c575aa40b80d9a8e39263e89a5e7860c8f8774
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484349"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95741669"
 ---
-# <a name="publishing-guide-for-container-offers"></a>Publicerings guide för container erbjudanden
+# <a name="publishing-guide-for-azure-container-offers"></a>Publicerings guide för Azure Container-erbjudanden
 
-Med container får du hjälp att publicera behållar avbildningen på Azure Marketplace. Använd den här guiden för att förstå kraven för det här erbjudandet. 
+Med Azure Container får du hjälp att publicera behållar avbildningen på Azure Marketplace. Använd den här guiden för att förstå kraven för den här erbjudande typen.
 
-Container erbjudanden är transaktions erbjudanden som distribueras och faktureras via Azure Marketplace. Det List alternativ som en användare ser är "Hämta nu".
+Azure Container-erbjudanden är transaktions erbjudanden som distribueras och debiteras via Azure Marketplace. Det List alternativ som en användare ser är "Hämta nu".
 
-Använd *behållarens* erbjudande typ när din lösning är en Docker-behållar avbildning som har kon figurer ATS som en Kubernetes-baserad Azure Container Service-instans. 
+Använd Azure containers erbjudande typ när din lösning är en Docker-behållar avbildning som har kon figurer ATS som en Kubernetes-baserad Azure Container instance.
 
 > [!NOTE]
-> Exempel på Kubernetes-baserade Azure Container Service-instanser är Azure Kubernetes service eller Azure Container Instances, valet av Azure-kunder för en Kubernetes-baserad container körning.  
+> En Azure Container instance är en Docker-instans av körnings tid som ger det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva hantera några virtuella datorer och utan att behöva använda en tjänst på högre nivå. Container instances kan distribueras direkt till Azure eller dirigeras av Azure Kubernetes Services eller Azure Kubernetes service Engine.  
 
 Microsoft har för närvarande stöd för kostnads fria och BYOL-licensierings modeller.
 
@@ -39,9 +39,6 @@ Microsoft har för närvarande stöd för kostnads fria och BYOL-licensierings m
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan har gjort det, lär du dig hur du kan [Utöka din moln verksamhet med Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- Information om hur du förbereder tekniska till gångar för ett behållar erbjudande finns i [Skapa Azure Container Technical-tillgångar](create-azure-container-technical-assets.md).
 
-Registrera dig och börja arbeta i Partner Center:
-
-- [Logga in på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa eller slutföra ditt erbjudande.
-- Mer information finns i [skapa ett erbjudande för Azure-behållare](./partner-center-portal/create-azure-container-offer.md) .
+- Information om hur du skapar ett erbjudande för Azure-behållare finns [i skapa ett erbjudande för Azure-behållare på Azure Marketplace](create-azure-container-offer.md) för mer information.

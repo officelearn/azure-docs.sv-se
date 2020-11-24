@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 3f52b8d4e56ec854f93940ea77f09c3dff1d362e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 423a879889402d5d3df70a7fadae6451c8418238
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096010"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95743165"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD-åtkomstgranskningar?
 
@@ -74,10 +74,18 @@ Beroende på vad du vill granska kommer du att skapa din åtkomst granskning i A
 
 Katalogen kräver minst så många Azure AD Premium P2-licenser som antalet anställda som utför följande aktiviteter:
 
-- Medlem och gäst användare som tilldelas som granskare
-- Medlem och gäst användare som utför en själv granskning
-- Grupp ägare som utför en åtkomst granskning
-- Program ägare som utför en åtkomst granskning
+-   Medlems användare som har tilldelats som granskare
+-   Medlems användare som utför en själv granskning
+-   Medlems användare som grupp ägare som utför en åtkomst granskning
+-   Medlems användare som program ägare som utför en åtkomst granskning
+
+För gäst användare beror licensierings behovet på den licensierings modell som du använder. Följande gäst användares aktiviteter betraktas dock som Azure AD Premium P2-användning:
+
+-   Gäst användare som tilldelats som granskare
+-   Gäst användare som utför en själv granskning
+-   Gäst användare som grupp ägare som utför en åtkomst granskning
+-   Gäst användare som program ägare som utför en åtkomst granskning
+
 
 Azure AD Premium P2-licenser krävs **inte** för användare med rollerna global administratör eller användar administratör som konfigurerar åtkomst granskningar, konfigurerar inställningar eller tillämpar besluten från granskningarna.
 

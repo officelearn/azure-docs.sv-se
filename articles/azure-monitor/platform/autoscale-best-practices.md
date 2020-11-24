@@ -4,12 +4,12 @@ description: Autoskalning av mönster i Azure för Web Apps, skalnings uppsättn
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fdb3588833dd9bcf989e020cd1dd861c6e28f37
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327063"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95745324"
 ---
 # <a name="best-practices-for-autoscale"></a>Bästa metoder för autoskalning
 Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)-, [Cloud Services](https://azure.microsoft.com/services/cloud-services/)-, [App Service-Web Apps-](https://azure.microsoft.com/services/app-service/web/)och [API Management-tjänster](../../api-management/api-management-key-concepts.md).
@@ -74,6 +74,9 @@ I det här fallet
 4. Skalnings regeln för autoskalning beräknar det slutliga läget om det var för att skala in. Till exempel, 60 x 3 (Aktuellt antal instanser) = 180/2 (slutligt antal instanser vid skalning) = 90. Det innebär att autoskalning inte skalas eftersom det skulle behöva skalas igen omedelbart. I stället hoppar det över skalning.
 5. Nästa gång den automatiska skalningen utförs fortsätter processorn att falla till 50. Den beräknar igen – 50 x 3 instans = 150/2 instanser = 75, vilket ligger under tröskelvärdet på 80, så att den skalas upp till 2 instanser.
 
+> [!NOTE]
+> Om den automatiska skalnings motorn upptäcker att växlar kan uppstå till följd av skalning till mål antalet instanser, försöker den också skala till ett annat antal instanser mellan det aktuella antalet och antalet mål. Om växlar inte sker inom det här intervallet fortsätter skalnings åtgärden med det nya målet automatiskt.
+
 ### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Att tänka på vid skalning av tröskelvärden för särskilda mått
  För särskilda mått som lagring eller Service Bus Kölängd, är tröskelvärdet det genomsnittliga antalet meddelanden som är tillgängliga per Aktuellt antal instanser. Välj ett värde för det här måttets tröskelvärde noggrant.
 
@@ -115,8 +118,8 @@ När autoskalning växlar tillbaka till standard profilen kontrollerar den förs
 
 Det finns fall där du kan behöva ange flera regler i en profil. Följande regler för autoskalning används av autoskalning-motorn när flera regler är inställda.
 
-Vid *utskalning*körs autoskalning om en regel uppfylls.
-Vid *skalbarhet*kräver autoskalning att alla regler är uppfyllda.
+Vid *utskalning* körs autoskalning om en regel uppfylls.
+Vid *skalbarhet* kräver autoskalning att alla regler är uppfyllda.
 
 För att illustrera, förutsätter vi att du har följande fyra regler för autoskalning:
 
@@ -143,6 +146,8 @@ Autoskalning skickas till aktivitets loggen om något av följande villkor intr�
 * Det går inte att utföra en skalnings åtgärd för AutoScale-tjänsten.
 * Mått är inte tillgängliga för AutoScale-tjänsten för att fatta ett skalnings beslut.
 * Mått är tillgängliga (återställning) igen för att fatta ett skalnings beslut.
+* Autoskalning identifierar växlar och avbryter skalnings försöket. En logg typ visas `Flapping` i den här situationen. Om du ser detta bör du överväga om tröskelvärdena är för smala.
+* Autoskalning identifierar växlar men kan fortfarande skalas. En logg typ visas `FlappingOccurred` i den här situationen. Om du ser detta har motorn för autoskalning försökt skala (t. ex. från 4 instanser till 2), men har fastställt att detta skulle orsaka växlar. I stället har den automatiska skalnings motorn skalats till ett annat antal instanser (t. ex. med 3 instanser i stället för 2), vilket inte längre orsakar växlar, så den har skalats till det här antalet instanser.
 
 Du kan också använda en aktivitets logg avisering för att övervaka den automatiska skalnings motorns hälso tillstånd. Här följer exempel på hur du [skapar en aktivitets logg avisering för att övervaka alla åtgärder för autoskalning av motorn i din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) eller för att [skapa en aktivitets logg avisering för att övervaka alla misslyckade skalnings åtgärder för autoskalning i/skala ut i din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 

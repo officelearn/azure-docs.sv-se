@@ -67,6 +67,8 @@
           href: ./ag/application-gateway-waf-faq.md
     - name: Front Door
       items:
+        - name: Finjustering
+          href: ./afds/waf-front-door-tuning.md
         - name: Anpassade regler
           href: ./afds/waf-front-door-custom-rules.md
         - name: Undantagslista

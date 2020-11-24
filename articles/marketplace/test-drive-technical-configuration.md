@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: f628c2a4c2f8eb474bbc34ef2d3fd2f03f668992
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: de85e4eb553f623790b472e79f8f97487ba96b48
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629911"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751121"
 ---
 # <a name="test-drive-technical-configuration"></a>Teknisk konfiguration för provkörning
 
@@ -34,11 +34,13 @@ Microsoft kan ta bort komplexiteten för att konfigurera en testen het genom att
 
 - **Instans-URL** (obligatorisk) – URL: en där kunden kommer att påbörja sin test-enhet. Normalt är URL: en för din Dynamics 365-instans som kör appen med exempel data installerat (till exempel `https://testdrive.crm.dynamics.com` ).
 
-- **URL för instans webb-API** (krävs) – Hämta URL: en för webb-API för din Dynamics 365-instans genom att logga in på ditt Microsoft 365-konto och navigera till **Inställningar**  >  **anpassning** av  >  **utvecklare resurser**  >  **instans webb-API (tjänstens rot-URL)** , kopiera webb adressen som finns här (till exempel `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
+- **URL för instans webb-API** (krävs) – Hämta URL: en för webb-API för din Dynamics 365-instans genom att logga in på ditt Microsoft 365-konto och navigera till **Inställningar**  >  **anpassning** av  >  **utvecklare resurser**  >  **instans webb-API (tjänstens rot-URL)**, kopiera webb adressen som finns här (till exempel `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
 
 - **Rollnamn** (obligatoriskt) – Ange namnet på den säkerhets roll som du har definierat i din anpassade Dynamics 365-testenhet, som kommer att tilldelas användaren under deras test enhet (till exempel Test-Drive-roll).
 
-Om du behöver hjälp med att konfigurera din Dynamics 365-miljö för Test Drive och bevilja AppSource-behörighet för att etablera och avetablera användare av test enheter i din klient, följer du [dessa anvisningar](https://github.com/Microsoft/AppSource/blob/patch-1/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md).
+Om du behöver hjälp med att konfigurera din Dynamics 365-miljö för Test Drive och bevilja AppSource-behörighet för att etablera och avetablera användare av test enheter i din klient, följer du [dessa anvisningar](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup).
+
+Steg för steg-instruktioner om hur du registrerar och konfigurerar den värdbaserade test enheten finns på sidan [detaljerad konfiguration för den värdbaserade test enheten](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) .
 
 ## <a name="logic-app-test-drive"></a>Test enhet för Logic app
 
@@ -74,7 +76,7 @@ Om du vill att Microsoft ska kunna distribuera test enheten åt dig skapar du oc
 
 - **ID för Azure AD-App** (krävs) – ange ditt Azure Active Directory (AD) [program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Appregistreringar** och letar sedan efter det **program-ID-** nummer som anges (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Azure AD-appens klient hemlighet** (krävs) – Ange din Azure AD-program [klient hemlighet](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)). Du hittar det här värdet genom att logga in på [Azure Portal](https://portal.azure.com/). Välj fliken **Azure Active Directory** på den vänstra menyn, Välj **Appregistreringar** och välj sedan appen Test Drive. Välj sedan **certifikat och hemligheter** , Välj **ny klient hemlighet** , ange en beskrivning, Välj **aldrig** under **upphör ande** och välj **Lägg till**. Glöm inte att kopiera värdet. Du behöver inte gå bort från sidan innan du kopierar värdet.
+- **Azure AD-appens klient hemlighet** (krävs) – Ange din Azure AD-program [klient hemlighet](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)). Du hittar det här värdet genom att logga in på [Azure Portal](https://portal.azure.com/). Välj fliken **Azure Active Directory** på den vänstra menyn, Välj **Appregistreringar** och välj sedan appen Test Drive. Välj sedan **certifikat och hemligheter**, Välj **ny klient hemlighet**, ange en beskrivning, Välj **aldrig** under **upphör ande** och välj **Lägg till**. Glöm inte att kopiera värdet. Du behöver inte gå bort från sidan innan du kopierar värdet.
 
 ## <a name="test-drive-listings"></a>Testa enhets listor
 
@@ -92,6 +94,8 @@ Alternativet **test enhets listor** på fliken **testenhet** i Partner Center vi
   - **Miniatyr** bild (533 x 324 bild punkter) – bilden måste vara i PNG-format.
 
 Om du för närvarande skapar test enheten i Partner Center väljer du **Spara utkast** innan du fortsätter.
+
+Steg för steg-instruktioner om hur du registrerar och konfigurerar den värdbaserade test enheten finns på sidan [detaljerad konfiguration för den värdbaserade test enheten](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) .
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

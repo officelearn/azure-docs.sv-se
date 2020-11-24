@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6864502a9d338a786e1e77dbf9888a7818bb94e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444171"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95748656"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Daemon-app som anropar webb-API: er – kod konfiguration
 
@@ -36,9 +36,9 @@ Dessa Microsoft-bibliotek stöder daemon-appar:
 
 Daemon-program använder program behörigheter i stället för delegerade behörigheter. Deras konto typer som stöds får inte vara ett konto i någon organisations katalog eller någon personlig Microsoft-konto (till exempel Skype, Xbox, Outlook.com). Det finns ingen innehavaradministratör för att bevilja medgivande till ett daemon-program för ett personligt Microsoft-konto. Du måste välja *konton i min organisation* eller *konton i alla organisationer*.
 
-Den auktoritet som anges i program konfigurationen ska därför vara klient organisation (som anger ett klient-ID eller ett domän namn som är kopplat till din organisation).
+Den auktoritet som anges i program konfigurationen ska vara klient organisation (som anger ett klient-ID eller ett domän namn som är kopplat till din organisation).
 
-Om du är en ISV och vill tillhandahålla ett verktyg för flera innehavare kan du använda `organizations` . Men tänk på att du även måste förklara för kunderna hur de ska bevilja administrativt medgivande. Mer information finns i [begära medgivande för en hel klient](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Det finns också en begränsning i MSAL: `organizations` tillåts bara när klientautentiseringsuppgifterna är en program hemlighet (inte ett certifikat).
+Även om du vill tillhandahålla ett verktyg för flera innehavare bör du använda ett klient-ID eller domän namn, **inte** `common` eller `organizations` med det här flödet, eftersom tjänsten inte kan härleda vilken klient som ska användas.
 
 ## <a name="configure-and-instantiate-the-application"></a>Konfigurera och instansiera programmet
 

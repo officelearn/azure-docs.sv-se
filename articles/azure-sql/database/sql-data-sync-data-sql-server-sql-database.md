@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 01c5d4395eb584631efb9b3b956b9a987e46b0db
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c77001707eda7c208ad19a014a1f0cff2b85b25d
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540628"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736484"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -81,7 +81,7 @@ Datasynkronisering är inte den bästa lösningen i följande scenarier:
 | | Datasynkronisering | Transaktionsreplikering |
 |---|---|---|
 | **Fördelar** | – Stöd för aktiv-aktiv<br/>– Dubbelriktad mellan lokala och Azure SQL Database | -Nedre latens<br/>– Transaktionell konsekvens<br/>-Återanvänd befintlig topologi efter migrering <br/>– Stöd för Azure SQL Managed instance |
-| **Nackdelar** | – 5 min minsta frekvens mellan synkroniseringar<br/>– Ingen transaktionell konsekvens<br/>-Högre prestanda påverkan | -Det går inte att publicera från Azure SQL Database <br/>– Kostnad för hög underhåll |
+| **Nackdelar** | – Ingen transaktionell konsekvens<br/>-Högre prestanda påverkan | -Det går inte att publicera från Azure SQL Database <br/>– Kostnad för hög underhåll |
 
 ## <a name="get-started"></a>Kom igång 
 
@@ -166,7 +166,6 @@ Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade ko
 | Tabeller i en Sync-grupp                                          | 500                    | Skapa flera Sync-grupper |
 | Kolumner i en tabell i en Sync-grupp                              | 1000                   |                             |
 | Data rad storlek för en tabell                                        | 24 MB                  |                             |
-| Lägsta frekvens intervall för synkronisering (sedan tidigare synkronisering startades)     | 5 minuter              |                             |
 
 > [!NOTE]
 > Det kan finnas upp till 30 slut punkter i en enda Sync-grupp om det bara finns en Sync-grupp. Om det finns fler än en Sync-grupp får det totala antalet slut punkter i alla Sync-grupper inte överstiga 30. Om en databas tillhör flera Sync-grupper räknas den som flera slut punkter, inte en.
@@ -176,7 +175,7 @@ Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade ko
 När Sync-gruppen har upprättats måste data Sync-tjänsten ansluta till Hub-databasen. När du upprättar Sync-gruppen måste Azure SQL-servern ha följande konfiguration i dess `Firewalls and virtual networks` inställningar:
 
  * *Neka offentlig nätverks åtkomst* måste anges till *av*.
- * *Tillåt att Azure-tjänster och-resurser får åtkomst till den här servern* måste anges till *Ja* , eller så måste du skapa IP-regler för de [IP-adresser som används av tjänsten Data Sync](network-access-controls-overview.md#data-sync).
+ * *Tillåt att Azure-tjänster och-resurser får åtkomst till den här servern* måste anges till *Ja*, eller så måste du skapa IP-regler för de [IP-adresser som används av tjänsten Data Sync](network-access-controls-overview.md#data-sync).
 
 När Sync-gruppen har skapats och kon figureras kan du inaktivera dessa inställningar. Sync-agenten ansluter direkt till NAV databasen och du kan använda serverns [IP-regler för brand väggen](firewall-configure.md) eller [privata slut punkter](private-endpoint-overview.md) för att ge agenten åtkomst till nav servern.
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 643e3bcd50258e2b5e7f52646f231485f950d677
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 72d9aefcdda5d224b256c6e969b7a75259a97005
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515553"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95750781"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett angulande Enkels Ides program
 
@@ -100,12 +100,12 @@ I den här snabb starten laddar du ned och kör ett kod exempel som visar hur et
 >|---------|---------|
 >|Enter_the_Application_Id_Here|På sidan **Översikt** i program registreringen är det här ditt **program (klient) ID-** värde. |
 >|Enter_the_Cloud_Instance_Id_Here|Detta är instansen av Azure-molnet. För huvud-eller globala Azure-molnet anger du **https://login.microsoftonline.com** . För nationella moln (till exempel Kina), se [nationella moln](./authentication-national-cloud.md).|
->|Enter_the_Tenant_Info_Here| Ange ett av följande alternativ: om programmet har stöd *för konton i den här organisations katalogen* ersätter du det här värdet med katalogen (klient) ID: t eller klient namnet (till exempel **contoso.Microsoft.com** ). Om ditt program har stöd *för konton i en organisations katalog* ersätter du värdet med **organisationer**. Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton* ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton* ersätter du värdet med **konsumenter**. |
+>|Enter_the_Tenant_Info_Here| Ange ett av följande alternativ: om programmet har stöd *för konton i den här organisations katalogen* ersätter du det här värdet med katalogen (klient) ID: t eller klient namnet (till exempel **contoso.Microsoft.com**). Om ditt program har stöd *för konton i en organisations katalog* ersätter du värdet med **organisationer**. Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton* ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton* ersätter du värdet med **konsumenter**. |
 >|Enter_the_Redirect_Uri_Here|Ersätt med **http://localhost:4200** .|
 >|cacheLocation  | Valfritt Ange webb läsar lagring för autentiseringens tillstånd. Standardvärdet är **SessionStorage**.   |
 >|storeAuthStateInCookie  | Valfritt Identifiera biblioteket som lagrar status för autentiseringsbegäran. Detta tillstånd krävs för att validera autentiserings flöden i webbläsarens cookies. Den här cookien är inställd för Internet Explorer och Edge för att hantera dessa två webbläsare. Mer information finns i [kända problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
 > > [!TIP]
-> > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
+> > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
 
 Mer information om tillgängliga konfigurerbara alternativ finns i [initiera klient program](msal-js-initializing-client-applications.md).
 

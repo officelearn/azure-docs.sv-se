@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b85b2d9b81e84ec6c6e09fef16c66a919aa30cd7
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: e5e344aa84bfc6912266720083f0cd15f575883c
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616764"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95740258"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudie: identifiera Azure-tjänstens logo typer i kamera bilder
 
@@ -56,7 +56,7 @@ När du har laddat upp träningsbilderna väljer du den första på skärmen. Ta
 
 ![Logotyptaggning på Custom Vision-webbplatsen](media/azure-logo-tutorial/tag-logos.png)
 
-Appen är konfigurerad för att fungera med specifika taggsträngar. Definitionerna finns i filen *Source\VisualProvision\Services\Recognition\RecognitionService.cs* :
+Appen är konfigurerad för att fungera med specifika taggsträngar. Definitionerna finns i filen *Source\VisualProvision\Services\Recognition\RecognitionService.cs*:
 
 [!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
@@ -84,7 +84,7 @@ Kopiera slut punkts **-** URL: en och resultatvärdet till lämpliga fält i *So
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
-Resultatet får formen av en **PredictionResult** -instans, som innehåller en lista över **förutsägelseinstanser**. En **förutsägelse** innehåller en identifierad tagg och dess avgränsningsfältsplats i bilden.
+Resultatet får formen av en **PredictionResult**-instans, som innehåller en lista över **förutsägelseinstanser**. En **förutsägelse** innehåller en identifierad tagg och dess avgränsningsfältsplats i bilden.
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
@@ -154,7 +154,7 @@ Följ dessa steg om du vill köra appen:
 1. På den första skärmen anger du klient-ID för tjänstens huvudnamn, klientorganisations-ID och lösenord. Välj knappen **Logga in**.
 
     > [!NOTE]
-    > På vissa emulatorer har knappen **Logga in** kanske inte aktiverats i det här steget. Om det här händer stoppar du appen, öppnar filen *Source/VisualProvision/Pages/LoginPage.xaml* , letar rätt på det `Button`-element som är märkt **LOGIN BUTTON** (Inloggningsknapp), tar bort följande rad och kör sedan appen igen.
+    > På vissa emulatorer har knappen **Logga in** kanske inte aktiverats i det här steget. Om det här händer stoppar du appen, öppnar filen *Source/VisualProvision/Pages/LoginPage.xaml*, letar rätt på det `Button`-element som är märkt **LOGIN BUTTON** (Inloggningsknapp), tar bort följande rad och kör sedan appen igen.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```

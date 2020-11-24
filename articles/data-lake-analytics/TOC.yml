@@ -139,7 +139,7 @@
           href: understand-spark-code-concepts.md
     - name: Felsöka U-SQL-jobb
       items:
-        - name: Felsöka körningsfel i U-SQL
+        - name: Felsöka körningsfel och kända problem med U-SQL
           href: runtime-troubleshoot.md
         - name: Felsöka en .NET-uppgradering
           href: dotnet-upgrade-troubleshoot.md

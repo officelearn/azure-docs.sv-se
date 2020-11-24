@@ -603,8 +603,14 @@
           href: reference-hyperscale-metadata.md
     - name: Anvisningar
       items:
-        - name: Skala en servergrupp
-          href: howto-hyperscale-scaling.md
+        - name: Servergruppstorlek
+          items:
+            - name: Välja ursprunglig storlek
+              href: howto-hyperscale-scale-initial.md
+            - name: Skala servergrupp
+              href: howto-hyperscale-scale-grow.md
+            - name: Balansera om shards
+              href: howto-hyperscale-scale-rebalance.md
         - name: Brandväggsregler
           items:
             - name: Azure Portal

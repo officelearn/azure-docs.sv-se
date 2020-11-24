@@ -97,13 +97,13 @@
       href: dynamic-change-volume-service-level.md
     - name: Hantera replikering mellan regioner
       items:
-        - name: Skapa replikeringspeering
+        - name: Skapa volymreplikering
           href: cross-region-replication-create-peering.md
         - name: Visa hälsostatus för replikeringsrelation
           href: cross-region-replication-display-health-status.md
         - name: Hantera haveriberedskap
           href: cross-region-replication-manage-disaster-recovery.md
-        - name: Ta bort replikeringar
+        - name: Ta bort volymreplikeringar eller volymer
           href: cross-region-replication-delete.md
     - name: Utveckla
       items:

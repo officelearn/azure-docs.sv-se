@@ -270,9 +270,13 @@
     - name: Skapa transformeringar och jobb
       items:
         - name: Skapa transformeringar
-          href: cli-create-transform.md
+          href: how-to-create-transform.md
         - name: Skapa en grundläggande ljudomvandling med REST
           href: how-to-create-basic-audio-transform.md
+        - name: Skapa en copyAllBitrateNonInterleaved-transformering med REST
+          href: how-to-create-copyallbitratenoninterleaved-transform.md
+        - name: Kopiera videor utan kodning med REST
+          href: how-to-create-copy-video-audio-transform.md
         - name: Skapa jobb
           href: cli-create-jobs.md
         - name: Skapa jobbindata med en lokal fil och .NET

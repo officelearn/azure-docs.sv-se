@@ -51,6 +51,8 @@
           href: tutorial-connect-device-nodejs.md
         - name: Ansluta en enhet (Python)
           href: tutorial-connect-device-python.md
+        - name: Ansluta en enhet (Java)
+          href: tutorial-connect-device-java.md
         - name: Mall för att skapa en gateway-enhet
           href: tutorial-define-gateway-device-type.md
         - name: Ansluta en IoT Edge-enhet

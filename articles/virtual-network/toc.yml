@@ -95,8 +95,10 @@
           href: public-ip-security-baseline.md
     - name: Säkerhet
       items:
-        - name: Säkerhetsbaslinje
+        - name: Säkerhetsbaslinje för virtuellt nätverk
           href: security-baseline.md
+        - name: Säkerhetsbaslinje för Virtual Network NAT
+          href: nat-security-baseline.md
         - name: Nätverkssäkerhetsgrupper
           items:
             - name: Översikt

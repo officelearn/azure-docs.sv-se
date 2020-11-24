@@ -51,6 +51,8 @@
       href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
     - name: Ansluta en enhetsmodul
       href: tutorial-migrate-device-to-module.md
+    - name: Förhandsversion – Anslut och analysera data med Time Series Insights Gen2
+      href: tutorial-configure-tsi.md
 - name: Begrepp
   items:
     - name: Arkitektur

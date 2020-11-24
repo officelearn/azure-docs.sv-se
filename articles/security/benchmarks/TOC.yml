@@ -69,8 +69,12 @@
       href: ../../automation/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Advisor
       href: ../../advisor/security-baseline.md
+    - name: Säkerhetsbaslinje för Azure App Configuration
+      href: ../../azure-app-configuration/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Backup
       href: ../../backup/security-baseline.md
+    - name: Säkerhetsbaslinje för Azure Bastion
+      href: ../../bastion/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Cognitive Search
@@ -201,5 +205,7 @@
       href: ../../virtual-machines/windows/security-baseline.md
     - name: Säkerhetsbaslinje för Virtual Network
       href: ../../virtual-network/security-baseline.md
+    - name: Säkerhetsbaslinje för Virtual Network NAT
+      href: ../../virtual-network/nat-security-baseline.md
     - name: Säkerhetsbaslinje för VPN Gateway
       href: ../../vpn-gateway/security-baseline.md

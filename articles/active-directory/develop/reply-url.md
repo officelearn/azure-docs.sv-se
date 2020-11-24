@@ -5,18 +5,18 @@ description: En beskrivning av begränsningarna och begränsningarna i formatet 
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/29/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 30ea74b249937544a0bf9811cad60f02c1ca45c7
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331863"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95752802"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Begränsningar och begränsningar för omdirigerings-URI (svars-URL)
 
@@ -32,7 +32,7 @@ En omdirigerings-URI eller svars-URL är den plats där auktoriseringsservern sk
 
 Den här tabellen visar det maximala antalet omdirigerings-URI: er som du kan lägga till i en app-registrering i Microsoft Identity Platform.
 
-| Konton som är inloggade | Maximalt antal omdirigerings-URI: er | Description |
+| Konton som är inloggade | Maximalt antal omdirigerings-URI: er | Beskrivning |
 |--------------------------|---------------------------------|-------------|
 | Microsoft arbets-eller skol konton i en organisations Azure Active Directory-klient (Azure AD) | 256 | `signInAudience` fältet i applikations manifestet har angetts till antingen *AzureADMyOrg* eller *AzureADMultipleOrgs* |
 | Personliga Microsoft-konton och arbets-och skol konton | 100 | `signInAudience` fältet i applikations manifestet har angetts till *AzureADandPersonalMicrosoftAccount* |
@@ -51,25 +51,32 @@ Om du vill lägga till omdirigerings-URI: er med ett HTTP-schema till app-regist
 
 Enligt [RFC 8252 avsnitt 8,3](https://tools.ietf.org/html/rfc8252#section-8.3) och [7,3](https://tools.ietf.org/html/rfc8252#section-7.3), omdirigerings-URI: er för "loopback" eller "localhost" har två särskilda överväganden:
 
-1. `http` URI-scheman är acceptabla eftersom omdirigeringen aldrig lämnar enheten. Detta gör att båda dessa är acceptabla:
-    - `http://127.0.0.1/myApp`
-    - `https://127.0.0.1/myApp`
-1. På grund av tillfälliga port intervall som ofta krävs av interna program, ignoreras port komponenten (till exempel `:5001` eller `:443` ) i syfte att matcha en omdirigerings-URI. Detta innebär att alla dessa betraktas som likvärdiga:
-    - `http://127.0.0.1/MyApp`
-    - `http://127.0.0.1:1234/MyApp`
-    - `http://127.0.0.1:5000/MyApp`
-    - `http://127.0.0.1:8080/MyApp`
+1. `http` URI-scheman är acceptabla eftersom omdirigeringen aldrig lämnar enheten. Därför är båda dessa URI: er acceptabla:
+    - `http://localhost/myApp`
+    - `https://localhost/myApp`
+1. På grund av tillfälliga port intervall som ofta krävs av interna program, ignoreras port komponenten (till exempel `:5001` eller `:443` ) i syfte att matcha en omdirigerings-URI. Därför anses alla dessa URI: er vara likvärdiga:
+    - `http://localhost/MyApp`
+    - `http://localhost:1234/MyApp`
+    - `http://localhost:5000/MyApp`
+    - `http://localhost:8080/MyApp`
 
 I en utvecklings synpunkt innebär detta några saker:
 
 * Registrera inte flera omdirigerings-URI: er där bara porten är annorlunda. Inloggnings servern väljer en godtyckligt och använder beteendet som är kopplat till denna omdirigerings-URI (till exempel om det är en `web` -, `native` -eller `spa` -Skriv-omdirigering).
 
     Detta är särskilt viktigt när du vill använda olika autentiserings flöden i samma program registrering, till exempel både auktoriseringskod och implicit flöde. För att associera rätt svars beteende med varje omdirigerings-URI måste inloggnings servern kunna skilja mellan omdirigerings-URI: erna och kan inte göra det när bara porten är annorlunda.
-* Om du behöver registrera flera omdirigerings-URI: er på localhost för att testa olika flöden under utvecklingen kan du skilja dem åt med hjälp av *Sök vägs* komponenten i URI: n. Matchar till exempel `http://127.0.0.1/MyWebApp` inte `http://127.0.0.1/MyNativeApp` .
+* Om du behöver registrera flera omdirigerings-URI: er på localhost för att testa olika flöden under utvecklingen kan du skilja dem åt med hjälp av *Sök vägs* komponenten i URI: n. Matchar till exempel `http://localhost/MyWebApp` inte `http://localhost/MyNativeApp` .
 * IPv6 loopback-adressen ( `[::1]` ) stöds inte för närvarande.
-* För att förhindra att appen bryts av felkonfigurerade brand väggar eller byter namn på nätverks gränssnitt, använder du IP-literal loopback-adress `127.0.0.1` i omdirigerings-URI i stället för `localhost` .
 
-    Om du vill använda `http` schemat med loopback-adressen för IP-literal `127.0.0.1` måste du för närvarande ändra attributet [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) i [applikations manifestet](reference-app-manifest.md).
+#### <a name="prefer-127001-over-localhost"></a>Föredra till 127.0.0.1 över localhost
+
+För att förhindra att appen bryts av felkonfigurerade brand väggar eller byter namn på nätverks gränssnitt, använder du IP-literal loopback-adress `127.0.0.1` i omdirigerings-URI i stället för `localhost` . Exempelvis `https://127.0.0.1`.
+
+Du kan dock inte använda text rutan **omdirigerings-URI: er** i Azure Portal för att lägga till en loopback-baserad omdirigerings-URI som använder `http` schemat:
+
+:::image type="content" source="media/reply-url/portal-01-no-http-loopback-redirect-uri.png" alt-text="Fel dialog ruta i Azure Portal visar otillåten http-baserad loopback omdirigerings-URI":::
+
+Om du vill lägga till en omdirigerings-URI som använder `http` schemat med `127.0.0.1` loopback-adressen måste du för närvarande ändra attributet [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) i [applikations manifestet](reference-app-manifest.md).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Begränsningar för jokertecken i omdirigerings-URI: er
 

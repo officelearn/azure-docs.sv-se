@@ -13,16 +13,16 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 2aa786f78d3e730bb351d1fa84b0c7fbb32d6786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 981d3a0c5d01d70625fc0d022318c5bc866f23a0
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611239"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95756408"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Självstudie: Använd läget delad enhet i din Android-app
 
-I den här självstudien får du vägledning för både utvecklare och innehavaradministratörer i att konfigurera och stödja delad enhets läge för en Android-app.
+I den här självstudien får du lära sig att Android-utvecklare och Azure Active Directory (Azure AD)-klient administratörer lär sig om koden, Authenticator-appen och klient inställningarna som krävs för att aktivera läget delad enhet för en Android-app.
 
 I de här självstudierna har du
 
@@ -35,7 +35,7 @@ I de här självstudierna har du
 > * Konfigurera en Android-enhet i delat enhets läge
 > * Kör exempelappen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -226,7 +226,7 @@ Information om hur du gör detta finns i [Registrera ditt program](./tutorial-v2
 
 Välj **gör den här ändringen för mig** och ange sedan de värden som snabb starten frågar efter i Azure Portal. När det är färdigt kommer vi att generera alla konfigurationsfiler som du behöver.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="Sidan konfigurera din Android-app i Azure Portal snabb start":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="Konfigurera din projekt sida i Azure Portal snabb start":::
 
 ## <a name="set-up-a-tenant"></a>Konfigurera en klient
 
@@ -242,25 +242,25 @@ Hämta Microsoft Authenticator-appen från Google Play-butiken. Om du redan har 
 
 Starta Authenticator-appen och gå till huvud konto sidan. När du ser sidan **Lägg till konto** är du redo att göra enheten delad.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-add-account.png" alt-text="Sidan konfigurera din Android-app i Azure Portal snabb start":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-add-account.png" alt-text="Skärmen Lägg till konto för autentiserare":::
 
 Gå till fönstret **Inställningar** med hjälp av den högra meny raden. Välj **enhets registrering** under **arbets & skol konton**.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-settings.png" alt-text="Sidan konfigurera din Android-app i Azure Portal snabb start":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-settings.png" alt-text="Skärm för verifierings inställningar":::
 
 När du klickar på den här knappen uppmanas du att ge åtkomst till enhets kontakter. Detta beror på Android: s konto integrering på enheten. Välj **Tillåt**.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png" alt-text="Sidan konfigurera din Android-app i Azure Portal snabb start":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png" alt-text="Skärmen Tillåt åtkomst bekräftelse för autentiseraren":::
 
 Moln enhets administratören bör ange sin organisations e-postadress under **eller registrera sig som en delad enhet**. Klicka sedan på knappen **Registrera som delad enhet** och ange deras autentiseringsuppgifter.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/register-device.png" alt-text="Sidan konfigurera din Android-app i Azure Portal snabb start":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/register-device.png" alt-text="Enhets registrerings skärmen i appen":::
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/sign-in.png" alt-text="Sidan konfigurera din Android-app i Azure Portal snabb start":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/sign-in.png" alt-text="App-skärm bild som visar Microsoft inloggnings sida":::
 
 Enheten är nu i delat läge.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png" alt-text="Sidan konfigurera din Android-app i Azure Portal snabb start":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png" alt-text="App skärm som visar delat enhets läge aktiverat":::
 
  Alla inloggningar och inloggningar på enheten är globala, vilket innebär att de gäller för alla appar som är integrerade med MSAL och Microsoft Authenticator på enheten. Nu kan du distribuera program till enheten som använder funktioner för delad enhets läge.
 
@@ -268,13 +268,13 @@ Enheten är nu i delat läge.
 
 När du har satt en enhet i delat läge, blir den känd för din organisation och spåras i din organisations klient. Du kan visa dina delade enheter genom att titta på **kopplings typen** i Azure Active Directory bladet i Azure Portal.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/registered-device-screen.png" alt-text="Sidan konfigurera din Android-app i Azure Portal snabb start":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/registered-device-screen.png" alt-text="Fönstret alla enheter visas i Azure Portal":::
 
 ## <a name="running-the-sample-app"></a>Köra exempel appen
 
 Exempel programmet är en enkel app som anropar Graph API i din organisation. Vid första körningen uppmanas du att godkänna att programmet är nytt för ditt medarbetar konto.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png" alt-text="Sidan konfigurera din Android-app i Azure Portal snabb start":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png" alt-text="Skärmen information om program konfiguration":::
 
 ## <a name="next-steps"></a>Nästa steg
 

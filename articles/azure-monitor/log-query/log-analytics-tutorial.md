@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: bd6ba091b3715741af929613600a59511e7cdb0b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 16292999bf8c01615a9125ffaa9f93fc4b2a8ec2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94498379"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95756221"
 ---
 # <a name="log-analytics-tutorial"></a>Log Analytics-självstudie
 Log Analytics är ett verktyg i Azure Portal för att redigera och köra logg frågor från data som samlas in av Azure Monitor loggar och interaktivt analysera resultaten. Du kan använda Log Analytics frågor för att hämta poster som matchar vissa villkor, identifiera trender, analysera mönster och tillhandahålla en mängd olika insikter om dina data. 
@@ -23,7 +23,7 @@ Den här självstudien vägleder dig genom Log Analytics-gränssnittet, hjälper
 > * Skriv och kör enkla frågor och ändra tidsintervallet för frågor
 > * Filtrera, sortera och gruppera frågeresultat
 > * Visa, ändra och dela visuella objekt av frågeresultat
-> * Spara, läsa in, exportera och kopiera frågor och resultat
+> * Läs in, exportera och kopiera frågor och resultat
 
 > [!IMPORTANT]
 > I den här självstudien används funktioner i Log Analytics för att skapa och köra en fråga i stället för att arbeta med själva frågan. Du utnyttjar Log Analytics funktioner för att bygga en fråga och använder en annan exempel fråga. När du är redo att lära dig syntaxen för frågor och börja redigera själva frågan, går du igenom [självstudien om Kusto-frågespråket](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor). Den här självstudien vägleder dig genom flera exempel frågor som du kan redigera och köra i Log Analytics, med flera av de funktioner som du lär dig i den här självstudien.
@@ -59,7 +59,7 @@ Det här är den enklaste frågan som vi kan skriva. Det returnerar bara alla po
 
 Du kan se att vi har resultat. Antalet poster som returneras av frågan visas i det nedre högra hörnet. 
 
-## <a name="filter"></a>Filtrera
+## <a name="filter"></a>Filter
 
 Vi lägger till ett filter i frågan för att minska antalet poster som returneras. Välj fliken **filter** i det vänstra fönstret. Detta visar olika kolumner i frågeresultaten som du kan använda för att filtrera resultaten. De översta värdena i dessa kolumner visas med antalet poster med det värdet. Klicka på **administrativ** under **CategoryValue** och **Använd & kör**. 
 

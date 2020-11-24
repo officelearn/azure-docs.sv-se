@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.openlocfilehash: bb4b69902f73a22cbd2b0fd5ad97c547ceb76a5c
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3ba08f11fb52fc0ffe3acda5e81e21b7e7629628
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912335"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95757428"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Självstudie: skapa en app för bearbetning av formulär med AI Builder
 
@@ -40,10 +40,10 @@ I de här självstudierna får du lära dig att
 ## <a name="create-a-form-processing-project"></a>Skapa ett formulär bearbetnings projekt
 
 1. Gå till [Power Apps](https://make.powerapps.com/) eller [Power](https://flow.microsoft.com/signin)Apps och logga in med ditt organisations konto.
-1. I den vänstra rutan väljer du **AI Builder**  >  **build** .
+1. I den vänstra rutan väljer du **AI Builder**  >  **build**.
 1. Välj **bearbetnings** kort för formuläret.
 1. Ange ett namn för din modell.
-1. Välj **Skapa** .
+1. Välj **Skapa**.
 
 ## <a name="upload-and-analyze-documents"></a>Ladda upp och analysera dokument
 
@@ -61,9 +61,9 @@ På sidan **Lägg till dokument** måste du tillhandahålla exempel dokument fö
 
 ### <a name="upload-your-documents"></a>Ladda upp dina dokument
 
-1. Välj **Lägg till dokument** , välj minst fem dokument och välj sedan **Ladda upp** .
-1. När uppladdningen är klar väljer du **Stäng** .
-1. Välj sedan **analysera** .
+1. Välj **Lägg till dokument**, välj minst fem dokument och välj sedan **Ladda upp**.
+1. När uppladdningen är klar väljer du **Stäng**.
+1. Välj sedan **analysera**.
 
 > [!NOTE] 
 > När du har laddat upp dessa dokument kan du fortfarande ta bort några av dokumenten eller ladda upp fler.
@@ -89,8 +89,8 @@ På sidan Val av fält väljer du de fält som är viktiga för dig:
 
     När du klickar på ett identifierat fält visas följande information:
 
-    - **Fält namn** : namnet på etiketten för det identifierade fältet.
-    - **Fält värde** : värdet för det identifierade fältet.
+    - **Fält namn**: namnet på etiketten för det identifierade fältet.
+    - **Fält värde**: värdet för det identifierade fältet.
 
 > [!div class="mx-imgBorder"]
 > ![taggnings sida](./media/tutorial-ai-builder/select-fields-page.png)
@@ -105,12 +105,12 @@ Om fältet som du vill använda etiketten inte identifierades automatiskt av mod
 
     > [!div class="mx-imgBorder"]
     > ![Sidan utbildning](./media/tutorial-ai-builder/summary-train-page.png)
-1. När inlärningen är klar väljer du **Gå till informationssidan** i på skärmen **Träningen är klar** .
+1. När inlärningen är klar väljer du **Gå till informationssidan** i på skärmen **Träningen är klar**.
 ## <a name="quick-test-your-model"></a>Snabbtesta din modell
 
 På informationssidan kan du testa din modell innan du publicerar eller använder den:
 
-1. På informationssidan väljer du **Snabbtest** .
+1. På informationssidan väljer du **Snabbtest**.
 2. Du kan antingen dra och släppa ett dokument eller välja **Ladda upp från min enhet** för att ladda upp test filen. Snabbtestet bör bara ta några sekunder innan resultatet visas.
 3. Du kan välja **börja** om för att köra ett annat test eller **stänga** om du är klar.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 40929a165e7a3afbbc92a472c352172723745040
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 18b62e34ab57d1d7e937eb21b9ed2a7feffa758c
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533199"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95758956"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA med auth Code Flow
 
@@ -114,7 +114,7 @@ I den här snabb starten används MSAL.js 2,0 med Authorization Code Flow. En li
 > - `Enter_the_Application_Id_Here` är **program-ID: t (Client)** för det program som du har registrerat.
 > - `Enter_the_Cloud_Instance_Id_Here` är instansen av Azure-molnet. För huvud-eller globala Azure-molnet anger du `https://login.microsoftonline.com/` . För **nationella** moln (till exempel Kina), se [nationella moln](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` är inställt på något av följande:
->   - Om ditt program har stöd *för konton i den här organisations katalogen* ersätter du värdet med **klient-ID** eller **klient namn**. Ett exempel är `contoso.microsoft.com`.
+>   - Om ditt program har stöd *för konton i den här organisations katalogen* ersätter du värdet med **klient-ID** eller **klient namn**. Exempelvis `contoso.microsoft.com`.
 >   - Om ditt program har stöd *för konton i en organisations katalog* ersätter du värdet med `organizations` .
 >   - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton* ersätter du värdet med `common` . **I den här snabb** starten använder du `common` .
 >   - Om du bara vill begränsa stödet till *personliga Microsoft-konton* ersätter du värdet med `consumers` .
@@ -127,7 +127,7 @@ I den här snabb starten används MSAL.js 2,0 med Authorization Code Flow. En li
 > ```
 >
 > > [!TIP]
-> > Om du vill hitta värdena för **program-ID** , **katalog (klient)-ID** och **konto typer som stöds** , går du till registrerings sidan för **Overview** app-registrering i Azure Portal.
+> > Om du vill hitta värdena för **program-ID**, **katalog (klient)-ID** och **konto typer som stöds**, går du till registrerings sidan för **Overview** app-registrering i Azure Portal.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: appen har kon figurer ATS och är redo att köras

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 2ce048ea8c9a4414b1c9f049569251c39d931c9a
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 0858d448cf768dbe6ea48f07247725fac30da860
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174155"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95758921"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Ta bort och återställa Azure Log Analytics-arbetsytan
 
@@ -41,14 +41,16 @@ Borttagnings åtgärden för arbets ytan tar bort resurs hanterarens Resource Ma
 > [!NOTE] 
 > Installerade lösningar och länkade tjänster som ditt Azure Automation-konto tas bort permanent från arbets ytan vid borttagnings tillfället och kan inte återställas. Dessa bör konfigureras om efter återställnings åtgärden för att flytta arbets ytan till det tidigare konfigurerade läget.
 
-Du kan ta bort en arbets yta med [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](/rest/api/loganalytics/workspaces/delete)eller i [Azure Portal](https://portal.azure.com).
+Du kan ta bort en arbets yta med [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0&preserve-view=true), [REST API](/rest/api/loganalytics/workspaces/delete)eller i [Azure Portal](https://portal.azure.com).
 
 ### <a name="azure-portal"></a>Azure Portal
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
 3. I listan över Log Analytics arbets ytor väljer du en arbets yta och klickar sedan på **ta bort**  längst upp i mitten av fönstret.
-4. En bekräftelse sida visas som visar data inmatningen till arbets ytan under den senaste veckan. Skriv in namnet på arbets ytan som ska bekräftas och klicka sedan på **ta bort**.
+4. En bekräftelse sida visas som visar data inmatningen till arbets ytan under den senaste veckan. 
+5. Om du vill ta bort arbets ytan permanent genom att ta bort alternativet om du vill återställa det senare markerar du kryss rutan **ta bort arbets ytan permanent** .
+6. Skriv in namnet på arbets ytan som ska bekräftas och klicka sedan på **ta bort**.
 
    ![Bekräfta borttagning av arbets yta](media/delete-workspace/workspace-delete.png)
 
@@ -60,11 +62,12 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 ## <a name="permanent-workspace-delete"></a>Permanent borttagning av arbets yta
 Metoden mjuk borttagning får inte plats i vissa scenarier som utveckling och testning, där du måste upprepa en distribution med samma inställningar och arbets ytans namn. I sådana fall kan du ta bort arbets ytan permanent och "åsidosätta" den mjuka borttagnings perioden. Borttagnings åtgärden för permanent arbets yta frigör arbets ytans namn och du kan skapa en ny arbets yta med samma namn.
 
-
 > [!IMPORTANT]
 > Använd permanent borttagnings åtgärd för arbets ytor med försiktighet eftersom den inte kan återställas och att du inte kan återställa din arbets yta och dess data.
 
-Lägg till taggen-ForceDelete för att ta bort arbets ytan permanent. Alternativet-ForceDelete är för närvarande tillgängligt med AZ. OperationalInsights 2.3.0 eller högre. 
+Om du vill ta bort en arbets yta permanent med Azure Portal markerar du kryss rutan **ta bort arbets ytan permanent** innan du klickar på knappen **ta bort** .
+
+Om du vill ta bort en arbets yta permanent med PowerShell lägger du till taggen-ForceDelete för att ta bort arbets ytan permanent. Alternativet-ForceDelete är för närvarande tillgängligt med AZ. OperationalInsights 2.3.0 eller högre. 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
@@ -115,6 +118,6 @@ Du måste ha minst *Log Analytics deltagar* behörighet för att kunna ta bort e
     1. [Återställ](#recover-workspace) din arbets yta.
     2. [Ta bort](#permanent-workspace-delete) arbets ytan permanent.
     3. Skapa en ny arbets yta med samma arbets ytans namn.
-* Om du ser en 204-svarskod som visar att *resursen inte hittas*kan orsaken vara i följd försök att använda åtgärden ta bort arbets yta. 204 är ett tomt svar, vilket vanligt vis innebär att resursen inte finns, så borttagningen slutfördes utan att göra något.
+* Om du ser en 204-svarskod som visar att *resursen inte hittas* kan orsaken vara i följd försök att använda åtgärden ta bort arbets yta. 204 är ett tomt svar, vilket vanligt vis innebär att resursen inte finns, så borttagningen slutfördes utan att göra något.
   När borttagnings anropet har slutförts på Server sidan kan du återställa arbets ytan och slutföra den permanenta borttagnings åtgärden i någon av de metoder som föreslås tidigare.
 

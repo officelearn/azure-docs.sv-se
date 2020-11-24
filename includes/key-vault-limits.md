@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 04/21/2020
 ms.author: jroth
-ms.openlocfilehash: 01b3c9584f3ecddbcdcc6938f5eb469510a47a4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4abbeadb0d30911d99fff57c0e99a3e427a6d8d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85839053"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563200"
 ---
 ### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Nyckel transaktioner (maximalt antal transaktioner som tillåts om 10 sekunder, per valv per region<sup>1</sup>):
 
@@ -40,7 +40,7 @@ ms.locfileid: "85839053"
 | --- | --- |
 | Alla transaktioner |2 000 |
 
-Information om hur du hanterar begränsning när gränserna överskrids finns i [Azure Key Vault begränsnings vägledning](../articles/key-vault/key-vault-ovw-throttling.md).
+Information om hur du hanterar begränsning när gränserna överskrids finns i [Azure Key Vault begränsnings vägledning](../articles/key-vault/general/overview-throttling.md).
 
 <sup>1</sup> en begränsning för hela prenumerationen för alla transaktions typer är fem gånger per begränsning för nyckel valvet. Till exempel är HSM-andra transaktioner per prenumeration begränsad till 5 000 transaktioner på 10 sekunder per prenumeration.
 

@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 5b60082db53b458adc53ac23d98731ad1c97b52b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 5c2763112b1aa2d58f5dc57cea72a3d0bdea961e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563655"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545677"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Vanliga frågor och svar om Azure Web Application-brandvägg i Azure-tjänsten för front dörr
 
@@ -57,6 +57,17 @@ Du kan konfigurera IP-Access Control listan i din server del så att den endast 
 
 Det finns två alternativ när du tillämpar WAF-principer i Azure. WAF med Azures frontend är en globalt distribuerad lösning för Edge-säkerhet. WAF med Application Gateway är en regional, dedikerad lösning. Vi rekommenderar att du väljer en lösning som baseras på dina övergripande prestanda-och säkerhets krav. Mer information finns i [belastnings utjämning med Azures program leverans Suite](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
 
+## <a name="whats-the-recommended-approach-to-enabling-waf-on-front-door"></a>Vad är den rekommenderade metoden för att aktivera WAF på en front dörr?
+
+När du aktiverar WAF för ett befintligt program är det vanligt att ha falskt positiva identifieringar där WAF-reglerna identifierar legitim trafik som ett hot. Vi rekommenderar följande process för att minimera risken för att användarna påverkas:
+
+* Aktivera WAF i [ **identifierings** läge](./waf-front-door-create-portal.md#change-mode) för att säkerställa att WAF inte blockerar förfrågningar när du arbetar med den här processen.
+  > [!IMPORTANT]
+  > I den här processen beskrivs hur du aktiverar WAF på en ny eller befintlig lösning när din prioritet är att minimera störningar för programmets användare. Om du befinner dig under angrepp eller överhäng ande hot kanske du i stället vill distribuera WAF i **förebyggande** läge direkt och använda justerings processen för att övervaka och finjustera WAF över tid. Detta innebär förmodligen att en del av din legitima trafik blockeras, vilket är anledningen till att vi bara rekommenderar att du gör det när du befinner dig på ett hot.
+* Följ våra [rikt linjer för att justera WAF](./waf-front-door-tuning.md). Den här processen kräver att du aktiverar diagnostisk loggning, granskar loggarna regelbundet och lägger till regel undantag och andra åtgärder.
+* Upprepa hela processen, kontrol lera loggarna regelbundet, tills du är nöjd med att ingen giltig trafik blockeras. Hela processen kan ta flera veckor. Vi rekommenderar att du ser färre falska positiva identifieringar efter varje justerings ändring du gör.
+* Slutligen aktiverar du WAF i **skydds läge**.
+* Även när du har kört WAF i produktion bör du fortsätta att övervaka loggarna för att identifiera andra falska positiva identifieringar. Genom att regelbundet granska loggarna kan du också identifiera eventuella faktiska angrepp som har blockerats.
 
 ## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Stöder du samma WAF-funktioner på alla integrerade plattformar?
 

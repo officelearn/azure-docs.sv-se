@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5558a57812414f6f1bb1be053a089af98533155a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 39c1972eba84f4f1990c87112c5801c386849640
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288329"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545966"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Översikt över Azure Page blobbar
 
@@ -31,7 +31,7 @@ Page blobbar kan bara använda **frekvent åtkomst nivå** , de kan inte använd
 
 ## <a name="sample-use-cases"></a>Exempel på användningsfall
 
-Låt oss diskutera några användnings fall för sid-blobar som börjar med Azure IaaS-diskar. Azure Page blobbar är stamnätet för Virtual disks-plattformen för Azure IaaS. Både Azure OS och data diskar implementeras som virtuella diskar där data varaktigt bevaras i Azure Storage-plattformen och sedan levereras till de virtuella datorerna för högsta prestanda. Azure-diskar sparas i [VHD-format](https://technet.microsoft.com/library/dd979539.aspx) för Hyper-V och lagras som en [sid-BLOB](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) i Azure Storage. Förutom att använda virtuella diskar för virtuella Azure IaaS-datorer, aktiverar Page blobbar också PaaS-och DBaaS-scenarier som Azure SQL DB-tjänsten, som för närvarande använder Page blobbar för att lagra SQL-data, vilket möjliggör snabba, slumpmässiga Läs-och skriv åtgärder för-databasen. Ett annat exempel är om du har en PaaS-tjänst för delad medie åtkomst för samverkande video redigerings program, kan du använda Page blobbar för snabb åtkomst till slumpmässiga platser i mediet. Det ger också snabb och effektiv redigering och sammanfogning av samma media av flera användare. 
+Låt oss diskutera några användnings fall för sid-blobar som börjar med Azure IaaS-diskar. Azure Page blobbar är stamnätet för Virtual disks-plattformen för Azure IaaS. Både Azure OS och data diskar implementeras som virtuella diskar där data varaktigt bevaras i Azure Storage-plattformen och sedan levereras till de virtuella datorerna för högsta prestanda. Azure-diskar sparas i [VHD-format](/previous-versions/windows/it-pro/windows-7/dd979539(v=ws.10)) för Hyper-V och lagras som en [sid-BLOB](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) i Azure Storage. Förutom att använda virtuella diskar för virtuella Azure IaaS-datorer, aktiverar Page blobbar också PaaS-och DBaaS-scenarier som Azure SQL DB-tjänsten, som för närvarande använder Page blobbar för att lagra SQL-data, vilket möjliggör snabba, slumpmässiga Läs-och skriv åtgärder för-databasen. Ett annat exempel är om du har en PaaS-tjänst för delad medie åtkomst för samverkande video redigerings program, kan du använda Page blobbar för snabb åtkomst till slumpmässiga platser i mediet. Det ger också snabb och effektiv redigering och sammanfogning av samma media av flera användare. 
 
 Första parts Microsoft-tjänster som Azure Site Recovery, Azure Backup, och många utvecklare av tredje part har implementerat branschledande innovationer med hjälp av Page blobs REST-gränssnitt. Här följer några av de unika scenarier som implementeras i Azure: 
 
@@ -47,7 +47,7 @@ Båda typerna av lagring som erbjuds med Page blobbar har sin egen pris modell. 
 
 ### <a name="rest-api"></a>REST-API
 
-Se följande dokument för att komma igång med att [utveckla med hjälp av Page blobbar](storage-dotnet-how-to-use-blobs.md). Du kan till exempel titta på hur du kommer åt sid-blobbar med lagrings klient bibliotek för .NET. 
+Se följande dokument för att komma igång med att [utveckla med hjälp av Page blobbar](./storage-quickstart-blobs-dotnet.md). Du kan till exempel titta på hur du kommer åt sid-blobbar med lagrings klient bibliotek för .NET. 
 
 Följande diagram beskriver de övergripande relationerna mellan konto, behållare och sid-blobbar.
 
@@ -63,7 +63,7 @@ Börja med att hämta en referens till en behållare. Om du vill skapa en sid-BL
 
 # <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
-För att skapa en Page BLOB skapar vi först ett **CloudBlobClient** -objekt med bas-URI: n för att komma åt Blob Storage för ditt lagrings konto ( *pbaccount* i bild 1) tillsammans med **StorageCredentialsAccountAndKey** -objektet, som du ser i följande exempel. Exemplet visar sedan hur du skapar en referens till ett **CloudBlobContainer** -objekt och sedan skapar behållaren ( *testvhds* ) om den inte redan finns. Sedan använder du **CloudBlobContainer** -objektet och skapar en referens till ett **CloudPageBlob** -objekt genom att ange det sid-BLOB-namn (OS4. VHD) som ska användas. Om du vill skapa en sid-BLOB anropar du [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), och skickar den maximala storleken för blobben att skapa. *BlobSize* måste vara en multipel av 512 byte.
+För att skapa en Page BLOB skapar vi först ett **CloudBlobClient** -objekt med bas-URI: n för att komma åt Blob Storage för ditt lagrings konto (*pbaccount* i bild 1) tillsammans med **StorageCredentialsAccountAndKey** -objektet, som du ser i följande exempel. Exemplet visar sedan hur du skapar en referens till ett **CloudBlobContainer** -objekt och sedan skapar behållaren (*testvhds*) om den inte redan finns. Sedan använder du **CloudBlobContainer** -objektet och skapar en referens till ett **CloudPageBlob** -objekt genom att ange det sid-BLOB-namn (OS4. VHD) som ska användas. Om du vill skapa en sid-BLOB anropar du [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), och skickar den maximala storleken för blobben att skapa. *BlobSize* måste vara en multipel av 512 byte.
 
 ```csharp
 using Microsoft.Azure;

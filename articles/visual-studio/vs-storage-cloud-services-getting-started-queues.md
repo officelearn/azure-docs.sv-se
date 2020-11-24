@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 9f0a3c3a96a73bd71a9b0c769a3ceff85ae428f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94f248edfebd6c6fedb78a54eee220c0ef38b4ab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017625"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545877"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Komma igång med Azure Queue Storage och Visual Studio Connected Services (Cloud Services-projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "89017625"
 ## <a name="overview"></a>Översikt
 Den här artikeln beskriver hur du kommer igång med Azure Queue Storage i Visual Studio när du har skapat eller refererat till ett Azure Storage-konto i ett Cloud Services-projekt med hjälp av dialog rutan **Lägg till anslutna tjänster** i Visual Studio.
 
-Vi visar dig hur du skapar en kö i kod. Vi visar också hur du utför grundläggande åtgärder för köer, till exempel att lägga till, ändra, läsa och ta bort Kömeddelanden. Exemplen är skrivna i C#-kod och använder [Microsoft Azure Storage klient bibliotek för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Vi visar dig hur du skapar en kö i kod. Vi visar också hur du utför grundläggande åtgärder för köer, till exempel att lägga till, ändra, läsa och ta bort Kömeddelanden. Exemplen är skrivna i C#-kod och använder [Microsoft Azure Storage klient bibliotek för .net](/previous-versions/azure/dn261237(v=azure.100)).
 
 Åtgärden **Lägg till anslutna tjänster** installerar rätt NuGet-paket för att komma åt Azure Storage i projektet och lägger till anslutnings strängen för lagrings kontot i dina projekt konfigurationsfiler.
 
@@ -150,7 +150,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Använd Async-Await mönster med vanliga Azure Queue-API: er
-Det här exemplet visar hur du använder Async-Await-mönstret med vanliga Azure Queue-API: er. Exemplet anropar den asynkrona versionen av var och en av de metoder som anges. Detta kan ses av den **asynkrona** efter korrigeringen av varje metod. När en async-metod används pausar async-await-mönstret den lokala körningen tills anropet har slutförts. Med det här beteendet kan den aktuella tråden utföra annat arbete som hjälper till att undvika prestanda Flask halsar och förbättra programmets övergripande svars tid. Mer information om hur du använder Async-Await-mönstret i .NET finns i [Async och Await (C# och Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+Det här exemplet visar hur du använder Async-Await-mönstret med vanliga Azure Queue-API: er. Exemplet anropar den asynkrona versionen av var och en av de metoder som anges. Detta kan ses av den **asynkrona** efter korrigeringen av varje metod. När en async-metod används pausar async-await-mönstret den lokala körningen tills anropet har slutförts. Med det här beteendet kan den aktuella tråden utföra annat arbete som hjälper till att undvika prestanda Flask halsar och förbättra programmets övergripande svars tid. Mer information om hur du använder Async-Await-mönstret i .NET finns i [Async och Await (C# och Visual Basic)](/previous-versions/hh191443(v=vs.140))
 
 ```csharp
 // Create a message to put in the queue
@@ -179,4 +179,3 @@ messageQueue.Delete();
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
-

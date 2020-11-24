@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 8579efcee45e08fec3331df8f55b61618edb4f4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e687b172b49fec5f77615e332d0a2204162c43
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000421"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545792"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Komma igång med Azure Table Storage och anslutna Visual Studio-tjänster (Cloud Services-projekt)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -28,11 +28,11 @@ Den här artikeln beskriver hur du kommer igång med Azure Table Storage i Visua
 
 Med tjänsten Azure Table Storage kan du lagra stora mängder strukturerade data. Tjänsten är ett NoSQL-datalager som accepterar autentiserade anrop inifrån och utanför Azure-molnet. Azure-tabeller passar utmärkt för att lagra strukturerade, icke-relationella data.
 
-För att komma igång måste du först skapa en tabell i ditt lagrings konto. Vi visar dig hur du skapar en Azure-tabell i kod och hur du utför grundläggande tabell-och entitets åtgärder, till exempel att lägga till, ändra, läsa och läsa tabell enheter. Exemplen skrivs i C- \# kod och använder [Microsoft Azure Storage klient bibliotek för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+För att komma igång måste du först skapa en tabell i ditt lagrings konto. Vi visar dig hur du skapar en Azure-tabell i kod och hur du utför grundläggande tabell-och entitets åtgärder, till exempel att lägga till, ändra, läsa och läsa tabell enheter. Exemplen skrivs i C- \# kod och använder [Microsoft Azure Storage klient bibliotek för .net](/previous-versions/azure/dn261237(v=azure.100)).
 
-**Obs:** Några av de API: er som utför anrop till Azure Storage är asynkrona. Se [asynkron programmering med async och await](https://msdn.microsoft.com/library/hh191443.aspx) för mer information. Koden nedan förutsätter att asynkrona programmerings metoder används.
+**Obs:** Några av de API: er som utför anrop till Azure Storage är asynkrona. Se [asynkron programmering med async och await](/previous-versions/hh191443(v=vs.140)) för mer information. Koden nedan förutsätter att asynkrona programmerings metoder används.
 
-* Se [Kom igång med Azure Table Storage med hjälp av .net](../storage/storage-dotnet-how-to-use-tables.md) om du vill ha mer information om program mässigt manipulera tabeller.
+* Se [Kom igång med Azure Table Storage med hjälp av .net](../cosmos-db/tutorial-develop-table-dotnet.md) om du vill ha mer information om program mässigt manipulera tabeller.
 * Se [lagrings dokumentation](https://azure.microsoft.com/documentation/services/storage/) för allmän information om Azure Storage.
 * Se [Cloud Services dokumentation](https://azure.microsoft.com/documentation/services/cloud-services/) för allmän information om Azure Cloud Services.
 * Mer information om programmering av ASP.NET-program finns i [ASP.net](https://www.asp.net) .
@@ -215,4 +215,3 @@ else
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
-

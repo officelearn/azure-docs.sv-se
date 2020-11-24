@@ -4,19 +4,18 @@ ms.service: storage
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
-ms.openlocfilehash: aff0ac5f2b761047a3e365e8e6702909a673e464
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d587a69e6d9ead7802b76965d61d31b4d4d9f8a8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187239"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545789"
 ---
 Nu när du har lärt dig grunderna i Azure Table Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter.
 
-* Visa tabell tjänst referens dokumentationen i [Azure Storage klient bibliotek för .net](https://go.microsoft.com/fwlink/?LinkID=390731) -referens för fullständig information om tillgängliga API: er.
+* Visa tabell tjänst referens dokumentationen i [Azure Storage klient bibliotek för .net](/dotnet/api/overview/azure/storage) -referens för fullständig information om tillgängliga API: er.
 * Om du vill lära dig hur du fören klar koden som du skriver för att arbeta med Azure Storage, se [Vad är Azure WEBJOBS SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
-  * Information om hur du arbetar med Azure Storage blobbar finns i [komma igång med Azure Blob Storage med hjälp av .net](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md).
+  * Information om hur du arbetar med Azure Storage blobbar finns i [komma igång med Azure Blob Storage med hjälp av .net](../articles/storage/blobs/storage-quickstart-blobs-dotnet.md).
   * [Kom igång med Azure Queue Storage med hjälp av .net](../articles/storage/queues/storage-dotnet-how-to-use-queues.md)om du vill arbeta med Azure Storage köer.
-  * Information om hur du lagrar Relations data finns i [Anslut till SQL Database med hjälp av .net (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
-
+  * Information om hur du lagrar Relations data finns i [Anslut till SQL Database med hjälp av .net (C#)](../articles/azure-sql/database/connect-query-dotnet-visual-studio.md).

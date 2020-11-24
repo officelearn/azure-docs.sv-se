@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: azure-policy
 author: craigshoemaker
 ms.service: azure-policy
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 137aca7c6c857ee6e833c359b710e1c1848d15ed
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187556"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555705"
 ---
 ## <a name="deleting-personal-information"></a>Ta bort personlig information
 
@@ -27,7 +27,7 @@ Personlig information är relevant för import/export-tjänsten (via portalen oc
 - Gatuadress
 - City
 - Postnummer
-- Tillstånd
+- Stat
 - Land/region
 - Enhets-ID
 - Transportföretagets kontonummer
@@ -37,7 +37,7 @@ När ett import/export-jobb skapas, ger användarna kontakt information och en l
 
 Personlig kontakt information kan tas bort på följande sätt:
 
-- Data som sparas med jobbet tas bort med jobbet. Användare kan ta bort jobb manuellt och slutförda jobb tas automatiskt bort efter 90 dagar. Du kan manuellt ta bort jobben via REST API eller Azure Portal. Om du vill ta bort jobbet i Azure Portal går du till import/export-jobbet och klickar på *ta bort* från kommando fältet. Mer information om hur du tar bort ett import/export-jobb via REST API finns i [ta bort ett import/export-jobb](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
+- Data som sparas med jobbet tas bort med jobbet. Användare kan ta bort jobb manuellt och slutförda jobb tas automatiskt bort efter 90 dagar. Du kan manuellt ta bort jobben via REST API eller Azure Portal. Om du vill ta bort jobbet i Azure Portal går du till import/export-jobbet och klickar på *ta bort* från kommando fältet. Mer information om hur du tar bort ett import/export-jobb via REST API finns i [ta bort ett import/export-jobb](/previous-versions/azure/storage/common/storage-import-export-cancelling-and-deleting-jobs).
 
 - Kontakt information som sparas i Portal inställningarna kan tas bort genom att du tar bort Portal inställningarna. Du kan ta bort Portal inställningar genom att följa dessa steg:
   - Logga in på [Azure-portalen](https://portal.azure.com).

@@ -9,19 +9,19 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: a416c22c5b8e09104b20a17bc5042302fa56d8ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f74d4ffdd724039354a311234317dac889cd7cfe
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035152"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545945"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Dehydratisera BLOB-data från Arkiv lag rings nivå
 
 När en BLOB finns i Arkiv åtkomst nivån anses den vara offline och kan inte läsas eller ändras. BLOB-metadata är online och tillgängliga, så att du kan lista bloben och dess egenskaper. Läsning och ändring av BLOB-data är bara tillgängligt med online-nivåer som frekvent eller låg frekvent. Det finns två alternativ för att hämta och komma åt data som lagras i Arkiv åtkomst nivån.
 
-1. [Dehydratiserar en arkiverad blob till en online-nivå](#rehydrate-an-archived-blob-to-an-online-tier) – reserverar en Arkiv-blob till frekvent eller låg frekvent genom att ändra dess nivå med hjälp av åtgärden [Ange BLOB-nivå](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) .
-2. [Kopiera en arkiverad blob till en online-nivå](#copy-an-archived-blob-to-an-online-tier) – skapa en ny kopia av en Arkiv-BLOB med hjälp av åtgärden [Kopiera BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) . Ange ett annat BLOB-namn och en mål nivå för frekvent eller låg frekvent.
+1. [Dehydratiserar en arkiverad blob till en online-nivå](#rehydrate-an-archived-blob-to-an-online-tier) – reserverar en Arkiv-blob till frekvent eller låg frekvent genom att ändra dess nivå med hjälp av åtgärden [Ange BLOB-nivå](/rest/api/storageservices/set-blob-tier) .
+2. [Kopiera en arkiverad blob till en online-nivå](#copy-an-archived-blob-to-an-online-tier) – skapa en ny kopia av en Arkiv-BLOB med hjälp av åtgärden [Kopiera BLOB](/rest/api/storageservices/copy-blob) . Ange ett annat BLOB-namn och en mål nivå för frekvent eller låg frekvent.
 
  Mer information om nivåer finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](storage-blob-storage-tiers.md)lag rings nivåer.
 
@@ -31,7 +31,7 @@ När en BLOB finns i Arkiv åtkomst nivån anses den vara offline och kan inte l
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Kopiera en arkiverad blob till onlinenivå
 
-Om du inte vill skapa en nytorkad Arkiv-BLOB kan du välja att göra en [kopierings-BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) -åtgärd. Den ursprungliga blobben förblir oförändrad i arkivet medan en ny BLOB skapas på låg frekvent eller låg frekvent nivå så att du kan arbeta med. I åtgärden Kopiera BLOB kan du också ange den valfria egenskapen *x-MS-rehydratiserat-Priority* till standard eller hög för att ange den prioritet som du vill att din BLOB-kopia ska skapas i.
+Om du inte vill skapa en nytorkad Arkiv-BLOB kan du välja att göra en [kopierings-BLOB](/rest/api/storageservices/copy-blob) -åtgärd. Den ursprungliga blobben förblir oförändrad i arkivet medan en ny BLOB skapas på låg frekvent eller låg frekvent nivå så att du kan arbeta med. I åtgärden Kopiera BLOB kan du också ange den valfria egenskapen *x-MS-rehydratiserat-Priority* till standard eller hög för att ange den prioritet som du vill att din BLOB-kopia ska skapas i.
 
 Det kan ta flera timmar att kopiera en BLOB från arkivet, beroende på vilken rehydratiserad prioritet som har valts. I bakgrunden läser **kopierings-BLOB** -åtgärden din Arkiv käll-BLOB för att skapa en ny online-BLOB på den valda mål nivån. Den nya blobben kan vara synlig när du listar blobbar, men data är inte tillgängliga förrän läsningen från källans Arkiv-BLOB har slutförts och data skrivs till den nya online-målcachen. Den nya blobben är som en oberoende kopia och eventuella ändringar eller borttagningar av den påverkar inte källans Arkiv-blob.
 
@@ -63,13 +63,13 @@ Blobbar i Arkiv lag rings nivån lagras i minst 180 dagar. Om du tar bort eller 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Sök efter och välj **alla resurser**i Azure Portal.
+1. Sök efter och välj **alla resurser** i Azure Portal.
 
 1. Välj ditt lagringskonto.
 
 1. Välj din behållare och välj sedan din BLOB.
 
-1. I **BLOB-egenskaperna**väljer du **ändra nivå**.
+1. I **BLOB-egenskaperna** väljer du **ändra nivå**.
 
 1. Välj frekvent **eller** låg **frekvent åtkomst nivå** . 
 

@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996387"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95985551"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Skapa interaktiva rapporter i Azure Monitor for VMs med arbetsböcker
 
@@ -26,7 +26,7 @@ Arbets böcker är användbara för scenarier som:
 
 I följande tabell sammanfattas de arbets böcker som Azure Monitor for VMs innehåller för att komma igång.
 
-| Arbetsbok | Beskrivning | Omfång |
+| Arbetsbok | Description | Omfång |
 |----------|-------------|-------|
 | Prestanda | Innehåller en anpassningsbar version av vår översta N-lista och diagram-vy i en enda arbets bok som utnyttjar alla Log Analytics prestanda räknare som du har aktiverat.| I skala |
 | Prestandaräknare | En översta N-diagramvy över en stor uppsättning prestanda räknare. | I skala |
@@ -52,7 +52,7 @@ En arbets bok består av avsnitt som består av oberoende redigerbara diagram, t
 
 4. På sidan virtuell dator i avsnittet **övervakning** väljer du **insikter**.
 
-5. Välj fliken **prestanda** eller **kartor** på sidan VM Insights och välj sedan **Visa arbets böcker** från länken på sidan. Välj **gå till Galleri**i list rutan.
+5. Välj fliken **prestanda** eller **kartor** på sidan VM Insights och välj sedan **Visa arbets böcker** från länken på sidan. Välj **gå till Galleri** i list rutan.
 
     ![Skärm bild av list rutan för arbets boken](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
 
@@ -64,7 +64,7 @@ En arbets bok består av avsnitt som består av oberoende redigerbara diagram, t
 
 ## <a name="editing-workbook-sections"></a>Redigera avsnitt i arbetsbok
 
-Arbets böcker har två lägen: **redigerings läge**och **läsläge**. När en ny arbets bok startas öppnas den i **redigerings läge**. Det visar allt innehåll i arbets boken, inklusive alla steg och parametrar som annars är dolda. **Läsläge** visar en förenklad vy för rapport format. Med läsläge kan du sammanställa komplexiteten som ingick i att skapa en rapport samtidigt som den underliggande Mechanics bara har några klickningar borta när det behövs för att ändra.
+Arbets böcker har två lägen: **redigerings läge** och **läsläge**. När en ny arbets bok startas öppnas den i **redigerings läge**. Det visar allt innehåll i arbets boken, inklusive alla steg och parametrar som annars är dolda. **Läsläge** visar en förenklad vy för rapport format. Med läsläge kan du sammanställa komplexiteten som ingick i att skapa en rapport samtidigt som den underliggande Mechanics bara har några klickningar borta när det behövs för att ändra.
 
 ![Skärm bild av avsnittet Virtual Machines arbets bok i Azure Monitor visar en ny arbets bok i redigerings läge med redigerings kontroller markerade.](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
@@ -114,7 +114,7 @@ Varje avsnitt har sina egna avancerade inställningar, som är tillgängliga via
 
 De flesta av dessa inställningar är ganska intuitiva, men för att förstå **export av en parameter** är det bättre att granska en arbets bok som använder den här funktionen.
 
-En av de färdiga arbets böckerna – **TCP-trafik**ger information om anslutnings mått från en virtuell dator.
+En av de färdiga arbets böckerna – **TCP-trafik** ger information om anslutnings mått från en virtuell dator.
 
 Det första avsnittet i arbets boken baseras på data från logg frågor. Det andra avsnittet baseras också på data från loggdata, men om du markerar en rad i den första tabellen uppdateras diagrammets innehåll interaktivt:
 

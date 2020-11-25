@@ -35,6 +35,8 @@
           href: claim-sets.md
     - name: Arbetsflöde
       href: workflow.md
+    - name: Visa granskningsloggar
+      href: audit-logs.md
 - name: Referenser
   items:
     - name: VANLIGA FRÅGOR OCH SVAR

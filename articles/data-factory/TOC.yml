@@ -752,6 +752,8 @@
           href: connector-troubleshoot-guide.md
         - name: Dataflöden
           href: data-flow-troubleshoot-guide.md
+        - name: Säkerhet och åtkomstkontroll
+          href: security-and-access-control-troubleshoot-guide.md
         - name: Lokal Integration Runtime
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Azure-SSIS Integration Runtime

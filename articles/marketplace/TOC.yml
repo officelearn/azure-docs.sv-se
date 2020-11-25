@@ -125,12 +125,12 @@
       items:
         - name: Planera ett Azure Container-erbjudande
           href: marketplace-containers.md
+        - name: Förbereda tekniska tillgångar
+          href: create-azure-container-technical-assets.md
         - name: Skapa och publicera ett erbjudande om Azure-container
           items:
-            - name: Förbereda tekniska tillgångar
-              href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Skapa ett Azure Container-erbjudande
-              href: partner-center-portal/create-azure-container-offer.md
+              href: create-azure-container-offer.md
     - name: Erbjudanden om virtuell Azure-dator
       items:
         - name: Planera ett VM-erbjudande

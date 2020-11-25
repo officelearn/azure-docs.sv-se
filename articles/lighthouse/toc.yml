@@ -24,9 +24,6 @@
     - name: Erbjudanden om hanterade tjänster på Azure Marketplace
       displayName: 'azure marketplace, marketplace, managed service, private, plan'
       href: ./concepts/managed-services-offers.md
-    - name: Rekommenderade säkerhetsmetoder
-      displayName: 'mfa, authentication, secure, group'
-      href: ./concepts/recommended-security-practices.md
     - name: Att tänka på med Cloud Solution Provider-programmet
       displayName: 'csp, aobo, partner'
       href: ./concepts/cloud-solution-provider.md
@@ -38,6 +35,9 @@
       href: ./concepts/managed-applications.md
     - name: Säkerhet
       items:
+        - name: Rekommenderade säkerhetsmetoder
+          displayName: 'mfa, authentication, secure, group'
+          href: ./concepts/recommended-security-practices.md
         - name: Säkerhetsbaslinje
           href: security-baseline.md
 - name: Anvisningar

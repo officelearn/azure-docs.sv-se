@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86132491"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017448"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurations servern för haveri beredskap för fysiska servrar
 
@@ -20,7 +20,7 @@ Du konfigurerar en lokal konfigurations server när du använder tjänsten [Azur
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I tabellen sammanfattas kraven för distribution av den lokala konfigurations servern.
 
@@ -58,20 +58,20 @@ Den senaste versionen av konfigurations serverns installations fil finns på Sit
 ## <a name="install-and-register-the-server"></a>Installera och registrera servern
 
 1. Kör det enhetliga installationsprogrammet.
-2. I **innan du börjar**väljer du **Installera konfigurations servern och processervern**.
+2. I **innan du börjar** väljer du **Installera konfigurations servern och processervern**.
 
     ![Innan du börjar](./media/physical-manage-configuration-server/combined-wiz1.png)
 
 3. I **Third Party Software License** (Licens för programvara från tredje part) klickar du på **I Accept** (Jag accepterar) för att ladda ned och installera MySQL.
-4. I **Internet inställningar**anger du hur providern som körs på konfigurations servern ansluter till Azure Site Recovery via Internet. Kontrol lera att du har tillåtit de nödvändiga URL: erna.
+4. I **Internet inställningar** anger du hur providern som körs på konfigurations servern ansluter till Azure Site Recovery via Internet. Kontrol lera att du har tillåtit de nödvändiga URL: erna.
 
     - Om du vill ansluta till den proxyserver som är konfigurerad på datorn väljer **du Anslut för att Azure Site Recovery med hjälp av en proxyserver**.
     - Om du vill att providern ska ansluta direkt väljer du **Anslut direkt till Azure Site Recovery utan proxyserver**.
-    - Om den befintliga proxyn kräver autentisering, eller om du vill använda en anpassad proxy för anslutnings tjänsten, väljer du **Anslut med anpassade proxyinställningar**och anger adressen, porten och autentiseringsuppgifterna.
+    - Om den befintliga proxyn kräver autentisering, eller om du vill använda en anpassad proxy för anslutnings tjänsten, väljer du **Anslut med anpassade proxyinställningar** och anger adressen, porten och autentiseringsuppgifterna.
      ![Brandvägg](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. I **Kravkontroll** körs en kontroll för att se till att installationen kan köras. Om det visas en varning om **synkroniseringskontrollen för global tid** kontrollerar du att systemklockans tid (inställningarna för **datum och tid**) är samma som tidszonen.
 
-    ![Krav](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![Förutsättningar](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. I **MySQL Configuration** (MySQL-konfiguration) skapar du autentiseringsuppgifter för att logga in på den MySQL-serverinstans som är installerad.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
@@ -79,7 +79,7 @@ Den senaste versionen av konfigurations serverns installations fil finns på Sit
 9. I **Installationsplats** väljer du om du vill installera binärfilerna och lagra cachen. Enheten du väljer måste ha minst 5 GB tillgängligt utrymme, men vi rekommenderar en cacheenhet med 600 GB eller mer ledigt utrymme.
 
     ![Installationsplats](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. I **Val av nätverk**väljer du först det nätverkskort som den inbyggda processervern använder för identifiering och push-installation av mobilitets tjänsten på käll datorer. Välj sedan det nätverkskort som konfigurations servern använder för anslutning med Azure. Port 9443 är standardporten som används för att skicka och ta emot replikeringstrafik, men du kan ändra portnumret så att det passar din miljö. Förutom port 9443 öppnar vi också port 443, som används av en webbserver för att dirigera replikeringsåtgärder. Använd inte port 443 för att skicka eller ta emot replikeringstrafik.
+10. I **Val av nätverk** väljer du först det nätverkskort som den inbyggda processervern använder för identifiering och push-installation av mobilitets tjänsten på käll datorer. Välj sedan det nätverkskort som konfigurations servern använder för anslutning med Azure. Port 9443 är standardporten som används för att skicka och ta emot replikeringstrafik, men du kan ändra portnumret så att det passar din miljö. Förutom port 9443 öppnar vi också port 443, som används av en webbserver för att dirigera replikeringsåtgärder. Använd inte port 443 för att skicka eller ta emot replikeringstrafik.
 
     ![Val av nätverk](./media/physical-manage-configuration-server/combined-wiz9.png)
 
@@ -108,21 +108,21 @@ Kör installations filen på följande sätt:
 
 ### <a name="parameters"></a>Parametrar
 
-|Parameternamn| Typ | Beskrivning| Värden|
+|Parameternamn| Typ | Description| Värden|
 |-|-|-|-|
-| /ServerMode|Krävs|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
-|/InstallLocation|Krävs|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|
-|/MySQLCredsFilePath|Krävs|Filsökvägen till platsen där autentiseringsuppgifterna för MySQL-servern lagras|Filen ska vara i det format som anges nedan|
-|/VaultCredsFilePath|Krävs|Sökvägen för valvautentiseringsfilen|Giltig sökväg|
-|/EnvType|Krävs|Typ av miljö som du vill skydda |VMware<br>NonVMware|
-|/PSIP|Krävs|Nätverkskortets IP-adress används för överföring av replikeringsdata| Vilken giltig IP-adress som helst|
-|/CSIP|Krävs|Nätverkskortets IP-adress som konfigurationsservern lyssnar på| Vilken giltig IP-adress som helst|
-|/PassphraseFilePath|Krävs|Den fullständiga sökvägen till platsen för lösenfrasfilen|Giltig sökväg|
+| /ServerMode|Obligatorisk|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
+|/InstallLocation|Obligatorisk|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|
+|/MySQLCredsFilePath|Obligatorisk|Filsökvägen till platsen där autentiseringsuppgifterna för MySQL-servern lagras|Filen ska vara i det format som anges nedan|
+|/VaultCredsFilePath|Obligatorisk|Sökvägen för valvautentiseringsfilen|Giltig sökväg|
+|/EnvType|Obligatorisk|Typ av miljö som du vill skydda |VMware<br>NonVMware|
+|/PSIP|Obligatorisk|Nätverkskortets IP-adress används för överföring av replikeringsdata| Vilken giltig IP-adress som helst|
+|/CSIP|Obligatorisk|Nätverkskortets IP-adress som konfigurationsservern lyssnar på| Vilken giltig IP-adress som helst|
+|/PassphraseFilePath|Obligatorisk|Den fullständiga sökvägen till platsen för lösenfrasfilen|Giltig sökväg|
 |/BypassProxy|Valfritt|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
 |/ProxySettingsFilePath|Valfritt|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
 |DataTransferSecurePort|Valfritt|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
 |/SkipSpaceCheck|Valfritt|Hoppa över utrymmeskontroll för cachedisk| |
-|/AcceptThirdpartyEULA|Krävs|När du flaggar innebär det att du godkänner licensavtalet från tredje part| |
+|/AcceptThirdpartyEULA|Obligatorisk|När du flaggar innebär det att du godkänner licensavtalet från tredje part| |
 |/ShowThirdpartyEULA|Valfritt|Visar licensavtalet (EULA) från tredje part. Om detta anges som indata ignoreras alla andra parametrar| |
 
 
@@ -303,7 +303,7 @@ För distributioner av Configuration server före maj 2016 har certifikatet för
 
 ### <a name="renew-the-certificate"></a>Förnya certifikatet
 
-1. Öppna **Site Recovery infrastruktur**  >  **konfigurations Server**i valvet och klicka på konfigurations servern som krävs.
+1. Öppna **Site Recovery infrastruktur**  >  **konfigurations Server** i valvet och klicka på konfigurations servern som krävs.
 2. Förfallo datumet visas under **konfigurations serverns hälsa**
 3. Klicka på **Förnya certifikat**. 
 

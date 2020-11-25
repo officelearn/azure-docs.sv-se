@@ -7,11 +7,11 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 6a429c09b6f8082c95e29bcea62d27ec4fb46fd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523391"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017312"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Skydda åtkomsten till Data Catalog och data till gångar
 
@@ -40,7 +40,7 @@ För att ge en användare eller grupp åtkomst till en data katalog och ange beh
 
 5. Tryck på **RETUR** eller **tabba** ut ur text rutan. 
 
-6. Bekräfta att alla behörigheter (**anteckna**, **Registrera**och **bli ägare**) är kopplade till dessa användare eller grupper som standard. Det innebär att användaren eller gruppen kan [registrera data till gångar]( data-catalog-how-to-register.md), [kommentera data till gångar]( data-catalog-how-to-annotate.md)och [bli ägare till data till gångar]( data-catalog-how-to-manage.md). 
+6. Bekräfta att alla behörigheter (**anteckna**, **Registrera** och **bli ägare**) är kopplade till dessa användare eller grupper som standard. Det innebär att användaren eller gruppen kan [registrera data till gångar]( data-catalog-how-to-register.md), [kommentera data till gångar]( data-catalog-how-to-annotate.md)och [bli ägare till data till gångar]( data-catalog-how-to-manage.md). 
 
    ![Azure Data Catalog användare – standard behörigheter](media/data-catalog-how-to-secure-catalog/data-catalog-default-permissions.png)
 

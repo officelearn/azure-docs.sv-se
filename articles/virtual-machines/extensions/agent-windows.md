@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/20/2019
 ms.author: mimckitt
 ms.openlocfilehash: 3724b8a2afb89594c73f7dae782658ec8978963a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968442"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016479"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure Virtual Machine agent
 Den Microsoft Azure virtuella dator agenten (VM-agenten) är en säker, lätt process som hanterar interaktionen mellan virtuella datorer (VM) med Azure Fabric-styrenheten. VM-agenten har en primär roll för att aktivera och köra tillägg för virtuella Azure-datorer. Med VM-tillägg kan du konfigurera virtuella datorer efter distributionen, till exempel installera och konfigurera program vara. VM-tillägg möjliggör också återställnings funktioner som att återställa det administrativa lösen ordet för en virtuell dator. Utan Azure VM-agenten kan VM-tillägg inte köras.
@@ -63,7 +63,7 @@ $vm.OSProfile.AllowExtensionOperations = $true
 $vm | Update-AzVM
 ```
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Windows VM-agenten måste ha minst Windows Server 2008 SP2 (64-bitars) för att kunna köras, med .NET Framework 4,0. Se [lägsta versions stöd för virtuella dator agenter i Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 

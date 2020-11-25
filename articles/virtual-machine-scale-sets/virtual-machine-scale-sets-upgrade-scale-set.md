@@ -10,11 +10,11 @@ ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745831"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016683"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
@@ -354,7 +354,7 @@ Vissa egenskaper kan ändras, med undantag beroende på det aktuella värdet. Bl
 ### <a name="properties-that-require-deallocation-to-change"></a>Egenskaper som kräver att tilldelningen ändras
 Vissa egenskaper kan bara ändras till vissa värden om de virtuella datorerna i skalnings uppsättningen är friallokerade. Bland dessa egenskaper finns:
 
-- **SKU-namn** – om den nya VM-SKU: n inte stöds på den maskin vara som skalnings uppsättningen är på, måste du frigöra de virtuella datorerna i skalnings uppsättningen innan du ändrar SKU-namnet. Mer information finns i [så här ändrar du storlek på en virtuell Azure-dator](../virtual-machines/windows/resize-vm.md).
+- **SKU-namn**– om den nya VM-SKU: n inte stöds på den maskin vara som skalnings uppsättningen är på, måste du frigöra de virtuella datorerna i skalnings uppsättningen innan du ändrar SKU-namnet. Mer information finns i [så här ändrar du storlek på en virtuell Azure-dator](../virtual-machines/windows/resize-vm.md).
 
 
 ## <a name="vm-specific-updates"></a>VM-/regionsspecifika uppdateringar
@@ -379,7 +379,7 @@ Om du använder anpassade avbildningar kan du uppdatera avbildningen genom att u
 ## <a name="examples"></a>Exempel
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>Uppdatera operativ system avbildningen för din skalnings uppsättning
-Du kan ha en skalnings uppsättning som kör en gammal version av Ubuntu LTS 16,04. Du vill uppdatera till en nyare version av Ubuntu LTS 16,04, till exempel version *16.04.201801090* . Egenskapen bild referens version är inte en del av en lista, så du kan ändra dessa egenskaper direkt med något av följande kommandon:
+Du kan ha en skalnings uppsättning som kör en gammal version av Ubuntu LTS 16,04. Du vill uppdatera till en nyare version av Ubuntu LTS 16,04, till exempel version *16.04.201801090*. Egenskapen bild referens version är inte en del av en lista, så du kan ändra dessa egenskaper direkt med något av följande kommandon:
 
 - Azure PowerShell med [Update-AzVmss](/powershell/module/az.compute/update-azvmss) på följande sätt:
 
@@ -447,7 +447,7 @@ Anta att du har en skalnings uppsättning med en Azure Load Balancer och att du 
     ```
 
 >[!NOTE]
-> Dessa kommandon förutsätter att det bara finns en IP-konfiguration och belastningsutjämnare på skalnings uppsättningen. Om det finns flera kan du behöva använda ett List index som inte är *0* .
+> Dessa kommandon förutsätter att det bara finns en IP-konfiguration och belastningsutjämnare på skalnings uppsättningen. Om det finns flera kan du behöva använda ett List index som inte är *0*.
 
 
 ## <a name="next-steps"></a>Nästa steg

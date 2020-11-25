@@ -4,11 +4,11 @@ description: Den här artikeln innehåller information om hur du lägger till en
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427206"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015596"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Tillåt åtkomst till Azure Event Hubs-namnrymder från vissa virtuella nätverk 
 
@@ -55,7 +55,7 @@ Det här avsnittet visar hur du använder Azure Portal för att lägga till en t
 
     ![Brand vägg – alternativet alla nätverk är valt](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Om du vill begränsa åtkomsten till vissa nätverk väljer du alternativet **valda nätverk** överst på sidan om det inte redan är markerat.
-2. I avsnittet **Virtual Network** på sidan väljer du **+ Lägg till befintligt virtuellt nätverk** _. Välj _ *+ Skapa nytt virtuellt nätverk* * om du vill skapa ett nytt VNet. 
+2. I avsnittet **Virtual Network** på sidan väljer du **+ Lägg till befintligt virtuellt nätverk** _. Välj _ *+ Skapa nytt virtuellt nätverk** om du vill skapa ett nytt VNet. 
 
     ![lägga till ett befintligt virtuellt nätverk](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
 3. Välj det virtuella nätverket i listan över virtuella nätverk och välj sedan **under nätet**. Du måste aktivera tjänstens slut punkt innan du lägger till det virtuella nätverket i listan. Om tjänstens slut punkt inte är aktive rad uppmanas du att aktivera den.

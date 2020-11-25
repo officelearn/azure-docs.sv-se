@@ -11,11 +11,11 @@ ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d1b1c27fe0136220d5a1851af4a5c24102a37da1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288625"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015561"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurera Azure Key Vault brand väggar och virtuella nätverk
 
@@ -71,7 +71,7 @@ Information om hur du konfigurerar en privat länk anslutning i ditt nyckel valv
 > [!NOTE]
 > Tänk på följande konfigurations begränsningar:
 > * Högst 127 virtuella nätverks regler och 127 IPv4-regler är tillåtna. 
-> * IP-nätverksadresser tillåts endast för offentliga IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i RFC 1918) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med **10.** , **172.16-31** och **192,168.**.. 
+> * IP-nätverksadresser tillåts endast för offentliga IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i RFC 1918) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med **10.**, **172.16-31** och **192,168.**.. 
 > * Endast IPv4-adresser stöds för tillfället.
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen

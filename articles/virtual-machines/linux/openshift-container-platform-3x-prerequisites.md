@@ -10,11 +10,11 @@ ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
 ms.openlocfilehash: 68bd748e890659e4b79d76e4ccab038f251a937a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87368191"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016037"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Vanliga krav för distribution av OpenShift container Platform 3,11 i Azure
 
@@ -44,7 +44,7 @@ I den här guiden beskrivs hur du skapar artefakter som är associerade med för
 > * Skapa ett nyckel valv för att hantera SSH-nycklar för OpenShift-klustret.
 > * Skapa ett tjänst huvud namn för användning av Azure Cloud Provider.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure 
 Logga in på din Azure-prenumeration med kommandot [AZ login](/cli/azure/reference-index) och följ anvisningarna på skärmen, eller klicka på **prova** att använda Cloud Shell.
@@ -138,7 +138,7 @@ Mer information om tjänstens huvud namn finns i [skapa ett Azure-tjänstens huv
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Krav som endast gäller för Resource Manager-mall
 
-Hemligheter måste skapas för SSH privat nyckel (**sshPrivateKey**), Azure AD client Secret (**aadClientSecret**), OpenShift Admin Password (**OpenshiftPassword**) och Red Hat Subscription Manager Password eller aktiverings nyckel (**rhsmPasswordOrActivationKey**).  Om anpassade TLS/SSL-certifikat används måste dessutom sex ytterligare hemligheter skapas – **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**och **masterkeyfile**.  Dessa parametrar förklaras i detalj.
+Hemligheter måste skapas för SSH privat nyckel (**sshPrivateKey**), Azure AD client Secret (**aadClientSecret**), OpenShift Admin Password (**OpenshiftPassword**) och Red Hat Subscription Manager Password eller aktiverings nyckel (**rhsmPasswordOrActivationKey**).  Om anpassade TLS/SSL-certifikat används måste dessutom sex ytterligare hemligheter skapas – **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile** och **masterkeyfile**.  Dessa parametrar förklaras i detalj.
 
 Mallen refererar till vissa hemliga namn, så du **måste** använda de fetstilta namnen som anges ovan (Skift läges känsligt).
 

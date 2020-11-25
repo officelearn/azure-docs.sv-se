@@ -6,11 +6,11 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 152a000939f74b1852073742e501ac66246389a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961464"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015902"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Skapa en PHP-webbapp i Azure App Service
 
@@ -116,7 +116,7 @@ Du har skapat en tom ny webbapp med Git-distribution aktive rad.
 > URL för fjärransluten Git visas i egenskapen `deploymentLocalGitUrl` med formatet `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Spara den här URL:en, eftersom du behöver den senare.
 >
 
-Bläddra till webbappen som precis skapades. Ersätt _ &lt; app-name->_ med ditt unika app-namn som skapades i föregående steg.
+Bläddra till webbappen som precis skapades. Ersätt _&lt; app-name->_ med ditt unika app-namn som skapades i föregående steg.
 
 ```bash
 http://<app-name>.azurewebsites.net
@@ -196,7 +196,7 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
     ![Portalnavigering till Azure-app](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
 
-    Webb programmets **översikts** sida visas. Här kan du utföra grundläggande hanterings åtgärder som att **Bläddra**, **stoppa**, **starta om**och **ta bort**.
+    Webb programmets **översikts** sida visas. Här kan du utföra grundläggande hanterings åtgärder som att **Bläddra**, **stoppa**, **starta om** och **ta bort**.
 
     ![App Service-sidan på Azure Portal](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 

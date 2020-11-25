@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.author: normesta
-ms.openlocfilehash: 3ddcbe57112251a428e11d6c164cdb1224553f98
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 65d1ef76ffae113a4b526eec75301abbfea751e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959211"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017720"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Åtkomst kontroll modell i Azure Data Lake Storage Gen2
 
@@ -33,17 +33,17 @@ Den här artikeln fokuserar på Azure RBAC och ACL: er och hur systemet utvärde
 
 ## <a name="role-based-access-control-azure-rbac"></a>Rollbaserad åtkomst kontroll (Azure RBAC)
 
-Azure RBAC använder roll tilldelningar för att tillämpa uppsättningar av behörigheter för [säkerhets objekt](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal). Ett säkerhets objekt är ett objekt som representerar en användare, grupp, tjänstens huvud namn eller en hanterad identitet som definieras i Azure Active Directory (AD). En behörighets uppsättning kan ge ett säkerhets objekt en "grov kornig" åtkomst nivå, till exempel Läs-eller skriv åtkomst till **alla** data i ett lagrings konto eller **alla** data i en behållare. 
+Azure RBAC använder roll tilldelningar för att tillämpa uppsättningar av behörigheter för [säkerhets objekt](../../role-based-access-control/overview.md#security-principal). Ett säkerhets objekt är ett objekt som representerar en användare, grupp, tjänstens huvud namn eller en hanterad identitet som definieras i Azure Active Directory (AD). En behörighets uppsättning kan ge ett säkerhets objekt en "grov kornig" åtkomst nivå, till exempel Läs-eller skriv åtkomst till **alla** data i ett lagrings konto eller **alla** data i en behållare. 
 
 Följande roller tillåter ett säkerhets objekt att komma åt data i ett lagrings konto. 
 
 |Roll|Beskrivning|
 |--|--|
-| [Storage Blob Data-ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Fullständig åtkomst till Blob Storage-behållare och data. Med den här åtkomsten kan säkerhetsobjektet ange ägare ett objekt och ändra ACL: er för alla objekt. |
-| [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Läsa, skriva och ta bort åtkomst till Blob Storage-behållare och blobbar. Den här åtkomsten tillåter inte att säkerhetsobjektet anger ägarskapet för ett objekt, men det kan ändra ACL för objekt som ägs av säkerhets objekt. |
-| [Storage Blob Data-läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Läsa och lista Blob Storage-behållare och blobbar. |
+| [Storage Blob Data-ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Fullständig åtkomst till Blob Storage-behållare och data. Med den här åtkomsten kan säkerhetsobjektet ange ägare ett objekt och ändra ACL: er för alla objekt. |
+| [Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Läsa, skriva och ta bort åtkomst till Blob Storage-behållare och blobbar. Den här åtkomsten tillåter inte att säkerhetsobjektet anger ägarskapet för ett objekt, men det kan ändra ACL för objekt som ägs av säkerhets objekt. |
+| [Storage Blob Data-läsare](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) | Läsa och lista Blob Storage-behållare och blobbar. |
 
-Roller som [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)och [lagrings konto deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) tillåter ett säkerhets objekt att hantera ett lagrings konto, men ger inte åtkomst till data i det kontot. Dessa roller (exklusive **läsare**) kan dock få åtkomst till lagrings nycklarna som kan användas i olika klient verktyg för att få åtkomst till data.
+Roller som [ägare](../../role-based-access-control/built-in-roles.md#owner), [deltagare](../../role-based-access-control/built-in-roles.md#contributor), [läsare](../../role-based-access-control/built-in-roles.md#reader)och [lagrings konto deltagare](../../role-based-access-control/built-in-roles.md#storage-account-contributor) tillåter ett säkerhets objekt att hantera ett lagrings konto, men ger inte åtkomst till data i det kontot. Dessa roller (exklusive **läsare**) kan dock få åtkomst till lagrings nycklarna som kan användas i olika klient verktyg för att få åtkomst till data.
 
 ## <a name="access-control-lists-acls"></a>Åtkomstkontrollistor (ACL)
 
@@ -73,7 +73,7 @@ Följande diagram visar behörighets flödet för tre vanliga åtgärder: Visa k
 
 I följande tabell visas hur du kombinerar Azure-roller och ACL-poster så att ett säkerhets objekt kan utföra de åtgärder som anges i kolumnen **operation** . I den här tabellen visas en kolumn som representerar varje nivå i en fiktiv katalog-hierarki. Det finns en kolumn för behållarens rot Katalog ( `/` ), en under katalog med namnet " **Oregon** Göteborg", en under katalog till katalogen Göteborg, som heter **Göteborg** och en textfil i katalogen Göteborg med namnet **Data.txt**. De som visas i dessa kolumner är [korta formulär](data-lake-storage-access-control.md#short-forms-for-permissions) som representeras av ACL-posten som krävs för att bevilja behörigheter. **Ej** _tillämpligt (ej tillämpligt_) visas i kolumnen om det inte krävs någon ACL-post för att utföra åtgärden.
 
-|    Åtgärd             | Tilldelad RBAC-roll               |    /        | Oregon     | Portland | Data.txt |             
+|    Åtgärd             | Tilldelad Azure-roll               |    /        | Oregon     | Portland | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
 | Läs Data.txt            |   Storage Blob Data-ägare        | Saknas      | Saknas      | Saknas       | Saknas    |  
 |                          |   Storage Blob Data-deltagare  | Saknas      | Saknas      | Saknas       | Saknas    |
@@ -85,12 +85,12 @@ I följande tabell visas hur du kombinerar Azure-roller och ACL-poster så att e
 |                          |   Inget                           | `--X`    | `--X`    | `--X`     | `RW-`  |
 | Ta bort Data.txt          |   Storage Blob Data-ägare        | Saknas      | Saknas      | Saknas       | Saknas    |
 |                          |   Storage Blob Data-deltagare  | Saknas      | Saknas      | Saknas       | Saknas    |
-|                          |   Storage Blob Data-läsare       | `--X`    | `--X`    | `-WX`     | E.t.    |
-|                          |   Inget                           | `--X`    | `--X`    | `-WX`     | E.t.    |
+|                          |   Storage Blob Data-läsare       | `--X`    | `--X`    | `-WX`     | Ej tillämpligt    |
+|                          |   Inget                           | `--X`    | `--X`    | `-WX`     | Ej tillämpligt    |
 | Skapa Data.txt          |   Storage Blob Data-ägare        | Saknas      | Saknas      | Saknas       | Saknas    |
 |                          |   Storage Blob Data-deltagare  | Saknas      | Saknas      | Saknas       | Saknas    |
-|                          |   Storage Blob Data-läsare       | `--X`    | `--X`    | `-WX`     | E.t.    |
-|                          |   Inget                           | `--X`    | `--X`    | `-WX`     | E.t.    |
+|                          |   Storage Blob Data-läsare       | `--X`    | `--X`    | `-WX`     | Ej tillämpligt    |
+|                          |   Inget                           | `--X`    | `--X`    | `-WX`     | Ej tillämpligt    |
 | Lista                   |   Storage Blob Data-ägare        | Saknas      | Saknas      | Saknas       | Saknas    |
 |                          |   Storage Blob Data-deltagare  | Saknas      | Saknas      | Saknas       | Saknas    |
 |                          |   Storage Blob Data-läsare       | Saknas      | Saknas      | Saknas       | Saknas    |
@@ -102,11 +102,11 @@ I följande tabell visas hur du kombinerar Azure-roller och ACL-poster så att e
 | Visa lista/Oregon/Portland/   |   Storage Blob Data-ägare        | Saknas      | Saknas      | Saknas       | Saknas    |
 |                          |   Storage Blob Data-deltagare  | Saknas      | Saknas      | Saknas       | Saknas    |
 |                          |   Storage Blob Data-läsare       | Saknas      | Saknas      | Saknas       | Saknas    |
-|                          |   Inget                           | `--X`    | `--X`    | `R-X`     | E.t.    |
+|                          |   Inget                           | `--X`    | `--X`    | `R-X`     | Ej tillämpligt    |
 
 
 > [!NOTE] 
-> Om du vill visa innehållet i en behållare i Azure Storage Explorer måste säkerhets objekt [Logga in på Storage Explorer med hjälp av Azure AD](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#add-a-resource-via-azure-ad)och (minst) ha Läs åtkomst (R--) till rotmappen ( `\` ) i en behållare. Den här behörighets nivån ger dem möjlighet att visa innehållet i rotmappen. Om du inte vill att innehållet i rotmappen ska visas kan du tilldela dem rollen [läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) . Med den rollen kan de lista behållarna i kontot, men inte container innehåll. Sedan kan du bevilja åtkomst till vissa kataloger och filer med hjälp av ACL: er.   
+> Om du vill visa innehållet i en behållare i Azure Storage Explorer måste säkerhets objekt [Logga in på Storage Explorer med hjälp av Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#add-a-resource-via-azure-ad)och (minst) ha Läs åtkomst (R--) till rotmappen ( `\` ) i en behållare. Den här behörighets nivån ger dem möjlighet att visa innehållet i rotmappen. Om du inte vill att innehållet i rotmappen ska visas kan du tilldela dem rollen [läsare](../../role-based-access-control/built-in-roles.md#reader) . Med den rollen kan de lista behållarna i kontot, men inte container innehåll. Sedan kan du bevilja åtkomst till vissa kataloger och filer med hjälp av ACL: er.   
 
 ## <a name="security-groups"></a>Säkerhetsgrupper
 
@@ -120,7 +120,7 @@ Genom att använda grupper kan du minska det högsta antalet roll tilldelningar 
 
 ## <a name="shared-key-and-shared-access-signature-sas-authorization"></a>Auktorisering av delad nyckel och signatur för delad åtkomst (SAS)
 
-Azure Data Lake Storage Gen2 också stöd för [delad nyckel](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key) och [SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview?toc=/azure/storage/blobs/toc.json) -metoder för autentisering. En egenskap hos dessa autentiseringsmetoder är att ingen identitet är kopplad till anroparen och därför kan inte behörigheten för säkerhets objekts behörighet utföras.
+Azure Data Lake Storage Gen2 också stöd för [delad nyckel](/rest/api/storageservices/authorize-with-shared-key) och [SAS](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) -metoder för autentisering. En egenskap hos dessa autentiseringsmetoder är att ingen identitet är kopplad till anroparen och därför kan inte behörigheten för säkerhets objekts behörighet utföras.
 
 I händelse av en delad nyckel får anroparen effektiv åtkomst till "Super-User", vilket innebär fullständig åtkomst till alla åtgärder på alla resurser, inklusive data, inställnings ägare och ändring av ACL: er.
 
@@ -129,4 +129,3 @@ SAS-token inkluderar tillåtna behörigheter som en del av token. Behörighetern
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om åtkomst kontrol listor finns  [i åtkomst kontrol listor (ACL: er) i Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-

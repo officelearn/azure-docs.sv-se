@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d41b86b902d9a58b144e251e6922fbd95d459031
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67671210"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016142"
 ---
 1. Installera DAPL, rdmacm, ibverbs och mlx4
 
@@ -28,7 +28,7 @@ ms.locfileid: "67671210"
    OS.UpdateRdmaDriver=y
    ```
 
-3. Lägg till eller ändra följande minnes inställningar i KB i/etc/Security/Limits.conf-filen. Du behöver rot åtkomst för att redigera den här filen. I test syfte kan du ange Memlock till obegränsad. Exempel: `<User or group name>   hard    memlock   unlimited`.
+3. Lägg till eller ändra följande minnes inställningar i KB i/etc/Security/Limits.conf-filen. Du behöver rot åtkomst för att redigera den här filen. I test syfte kan du ange Memlock till obegränsad. Till exempel: `<User or group name>   hard    memlock   unlimited`.
 
    ```
    <User or group name> hard    memlock <memory required for your application in KB>

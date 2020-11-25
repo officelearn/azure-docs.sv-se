@@ -4,11 +4,11 @@ description: Lär dig mer om att paketera ett befintligt program som en körbar 
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247395"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017754"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Distribuera en befintlig körbar fil till Service Fabric
 Du kan köra vilken typ av kod som helst, till exempel Node.js, Java eller C++ i Azure Service Fabric som en tjänst. Service Fabric avser de här typerna av tjänster som körbara gäst program.
@@ -19,7 +19,7 @@ Körbara gäst program behandlas av Service Fabric som tillstånds lösa tjänst
 Det finns flera fördelar med att köra en körbar gäst fil i ett Service Fabric kluster:
 
 * Hög tillgänglighet. Program som körs i Service Fabric görs med hög tillgänglighet. Service Fabric garanterar att instanser av ett program körs.
-* Hälso övervakning. Service Fabric hälso övervakning identifierar om ett program körs och innehåller diagnostikinformation om det uppstår ett fel.   
+* Hälsoövervakning. Service Fabric hälso övervakning identifierar om ett program körs och innehåller diagnostikinformation om det uppstår ett fel.   
 * Hantering av program livs cykel. Förutom att tillhandahålla uppgraderingar utan avbrott ger Service Fabric automatisk återställning till den tidigare versionen om det finns en skadad hälso händelse som rapporteras under en uppgradering.    
 * Innebär. Du kan köra flera program i ett kluster, vilket eliminerar behovet av att varje program ska köras på sin egen maskin vara.
 * Identifierings möjlighet: med hjälp av REST kan du anropa Service Fabric Naming Service för att hitta andra tjänster i klustret. 

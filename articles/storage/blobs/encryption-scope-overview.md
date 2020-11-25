@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 881a7fc915ab986577599b85f8412fa8107f7902
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326124"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017397"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Krypterings omfång för Blob Storage (för hands version)
 
@@ -52,8 +52,8 @@ När en krypterings omfattning är inaktive rad debiteras du inte längre. Inakt
 
 Om krypterings omfattningen är skyddad med Kundhanterade nycklar kan du också ta bort den tillhör ande nyckeln i nyckel valvet för att inaktivera krypterings omfånget. Tänk på att Kundhanterade nycklar skyddas av mjuk borttagnings-och rensnings skydd i nyckel valvet, och en borttagen nyckel omfattas av det beteende som definierats för dessa egenskaper. Mer information finns i något av följande avsnitt i Azure Key Vault-dokumentationen:
 
-- [Använda mjuk borttagning med PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [Använda mjuk borttagning med CLI](../../key-vault/general/soft-delete-cli.md)
+- [Använda mjuk borttagning med PowerShell](../../key-vault/general/key-vault-recovery.md)
+- [Använda mjuk borttagning med CLI](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > Det går inte att ta bort en krypterings omfattning.

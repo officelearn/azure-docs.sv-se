@@ -8,11 +8,11 @@ ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
 ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999028"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015527"
 ---
 # <a name="monitoring-scheduled-events"></a>Övervaknings Schemalagda händelser
 
@@ -29,7 +29,7 @@ I den här artikeln får du lära dig hur du samlar in underhålls Schemalagda h
 
 ![Diagram över händelsens livs cykel](./media/notifications/events.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I det här exemplet måste du skapa en [virtuell Windows-dator i en tillgänglighets uppsättning](tutorial-availability-sets.md). Schemalagda händelser ange meddelanden om ändringar som kan påverka någon av de virtuella datorerna i din tillgänglighets uppsättning, moln tjänst, skalnings uppsättning för virtuell dator eller fristående virtuella datorer. Vi kommer att köra en [tjänst](https://github.com/microsoft/AzureScheduledEventsService) som avsöker efter schemalagda händelser på en av de virtuella datorer som fungerar som en insamlare, för att hämta händelser för alla andra virtuella datorer i tillgänglighets uppsättningen.    
 
@@ -110,7 +110,7 @@ Nu vill vi ansluta en Log Analytics arbets yta till den virtuella datorn för in
     ![Ansluta till en virtuell dator som en data Källa](./media/notifications/connect-to-data-source.png)
 
 1. Sök efter och välj **myCollectorVM**. 
-1. På den nya sidan för **myCollectorVM**väljer du **Anslut**.
+1. På den nya sidan för **myCollectorVM** väljer du **Anslut**.
 
 Då installeras [Microsoft Monitoring Agent](../extensions/oms-windows.md) på den virtuella datorn. Det tar några minuter att ansluta den virtuella datorn till arbets ytan och installera tillägget. 
 
@@ -118,11 +118,11 @@ Då installeras [Microsoft Monitoring Agent](../extensions/oms-windows.md) på d
 
 1. Öppna sidan för din arbets yta och välj **Avancerade inställningar**.
 1. Välj **data** på den vänstra menyn och välj sedan **Windows händelse loggar**.
-1. I **samla in från följande händelse loggar**börjar du skriva *program* och väljer sedan **program** i listan.
+1. I **samla in från följande händelse loggar** börjar du skriva *program* och väljer sedan **program** i listan.
 
     ![Välj avancerade inställningar](./media/notifications/advanced.png)
 
-1. Lämna **fel**, **Varning**och **information** valt och välj **Spara** för att spara inställningarna.
+1. Lämna **fel**, **Varning** och **information** valt och välj **Spara** för att spara inställningarna.
 
 
 > [!NOTE]
@@ -150,22 +150,22 @@ När händelserna flyttas till Log Analytics kan du köra följande [fråga](../
     | project-away RenderedDescription,ReqJson
     ```
 
-1. Välj **Spara**och skriv *logQuery* som namn, lämna **frågan** som typ, Skriv *VMLogs* som **kategori**och välj sedan **Spara**. 
+1. Välj **Spara** och skriv *logQuery* som namn, lämna **frågan** som typ, Skriv *VMLogs* som **kategori** och välj sedan **Spara**. 
 
     ![Spara frågan](./media/notifications/save-query.png)
 
 1. Välj **Ny aviseringsregel**. 
 1. På sidan **Skapa regel** lämnar du `collectorworkspace` som **resurs**.
-1. Under **villkor**väljer du posten *när kund loggs ökningen är <login undefined> *. Sidan **Konfigurera signal logik** öppnas.
-1. Under **tröskelvärde**anger du *0* och väljer sedan **färdig**.
-1. Under **åtgärder**väljer du **skapa åtgärds grupp**. Sidan **Lägg till åtgärds grupp** öppnas.
-1. I **Åtgärds grupp namn**skriver du *myActionGroup*.
-1. Skriv **myActionGroup**i **kort namn**.
-1. I **resurs grupp**väljer du **myResourceGroupAvailability**.
-1. Under åtgärder, under **Åtgärds namn** skriver du **e-post**och väljer sedan **e-post/SMS/push/röst**. Sidan **e-post/SMS/push/Voice** öppnas.
+1. Under **villkor** väljer du posten *när kund loggs ökningen är <login undefined>*. Sidan **Konfigurera signal logik** öppnas.
+1. Under **tröskelvärde** anger du *0* och väljer sedan **färdig**.
+1. Under **åtgärder** väljer du **skapa åtgärds grupp**. Sidan **Lägg till åtgärds grupp** öppnas.
+1. I **Åtgärds grupp namn** skriver du *myActionGroup*.
+1. Skriv **myActionGroup** i **kort namn**.
+1. I **resurs grupp** väljer du **myResourceGroupAvailability**.
+1. Under åtgärder, under **Åtgärds namn** skriver du **e-post** och väljer sedan **e-post/SMS/push/röst**. Sidan **e-post/SMS/push/Voice** öppnas.
 1. Välj **e**-postadress, Skriv in din e-postadress och välj sedan **OK**.
 1. På sidan **Lägg till åtgärds grupp** väljer du **OK**. 
-1. Skriv aviserings **regelns namn**under **aviserings information**på sidan **Skapa regel** *och skriv sedan* *e-postavisering* för **beskrivningen**.
+1. Skriv aviserings **regelns namn** under **aviserings information** på sidan **Skapa regel** *och skriv sedan* *e-postavisering* för **beskrivningen**.
 1. När du är färdig väljer du **skapa aviserings regel**.
 1. Starta om en av de virtuella datorerna i tillgänglighets uppsättningen. Inom några minuter bör du få ett e-postmeddelande om att aviseringen har utlösts.
 

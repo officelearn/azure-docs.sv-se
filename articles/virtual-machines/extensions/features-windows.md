@@ -17,11 +17,11 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 565f98126cea8cc03874bb4f83ecdc2c65f8d5fb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966062"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016462"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg och funktioner för virtuella datorer för Windows
 
@@ -43,7 +43,7 @@ Flera olika Azure VM-tillägg är tillgängliga, var och en med ett särskilt an
 
 Förutom process-/regionsspecifika tillägg är ett anpassat skript tillägg tillgängligt för virtuella Windows-och Linux-datorer. Med tillägget för anpassat skript för Windows kan du köra alla PowerShell-skript på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfiguration utöver vad interna Azure-verktyg kan tillhandahålla. Mer information finns i [anpassat skript tillägg för Windows VM](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill hantera tillägget på den virtuella datorn behöver du Azure Windows-agenten installerad. Vissa enskilda tillägg har krav, till exempel åtkomst till resurser eller beroenden.
 
@@ -422,7 +422,7 @@ Du kan också ta bort ett tillägg i Azure Portal på följande sätt:
 4. Välj **Avinstallera**.
 
 ## <a name="common-vm-extensions-reference"></a>Common VM Extensions-referens
-| Tilläggs namn | Beskrivning | Mer information |
+| Tilläggs namn | Description | Mer information |
 | --- | --- | --- |
 | Anpassat skripttillägg för Windows |Kör skript mot en virtuell Azure-dator |[Anpassat skripttillägg för Windows](custom-script-windows.md) |
 | DSC-tillägg för Windows |PowerShell DSC (Desired State Configuration)-tillägg |[DSC-tillägg för Windows](dsc-overview.md) |

@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 734d52dadbb849925303febb0d3d1195bbddb0df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cbfd90ca65a1fb75c9cbe5602ac2a69741e378f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89236762"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96017244"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Använd Azure-brandväggen för att kontrol lera trafik som är avsedd för en privat slut punkt
 
@@ -55,7 +55,7 @@ Mer information om avgifter som rör anslutningar med peer-kopplade virtuella n�
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Scenario 2: hubb-och eker-arkitektur – delat virtuellt nätverk för privata slut punkter och virtuella datorer
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Dedikerade Virtual Network för privata slut punkter" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Privata slut punkter och Virtual Machines i samma Virtual Network" border="true":::
 
 Det här scenariot implementeras när:
 
@@ -78,7 +78,7 @@ Mer information om avgifter som rör anslutningar med peer-kopplade virtuella n�
 
 ## <a name="scenario-3-single-virtual-network"></a>Scenario 3: enskilt virtuellt nätverk
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Dedikerade Virtual Network för privata slut punkter" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Enskilt virtuellt nätverk" border="true":::
 
 Det finns vissa begränsningar för implementeringen: det går inte att migrera till en hubb och eker-arkitektur. Samma saker som i scenario 2 gäller. I det här scenariot gäller inte peering-kostnader för virtuella nätverk.
 
@@ -87,7 +87,7 @@ Det finns vissa begränsningar för implementeringen: det går inte att migrera 
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Scenario 4: lokal trafik till privata slut punkter
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Dedikerade Virtual Network för privata slut punkter" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Lokal trafik till privata slut punkter" border="true":::
 
 Den här arkitekturen kan implementeras om du har konfigurerat anslutningen till ditt lokala nätverk med hjälp av något av följande: 
 
@@ -106,7 +106,7 @@ Samma överväganden som i scenario 2 gäller. I det här scenariot finns det in
 * En Azure-prenumeration.
 * En Log Analytics-arbetsyta.  
 
-Se [skapa en Log Analytics arbets yta i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) för att skapa en arbets yta om du inte har en i din prenumeration.
+Se [skapa en Log Analytics arbets yta i Azure Portal](../azure-monitor/learn/quick-create-workspace.md) för att skapa en arbets yta om du inte har en i din prenumeration.
 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -208,7 +208,7 @@ Ersätt följande parametrar i stegen med informationen nedan:
 
 ## <a name="deploy-the-firewall"></a>Distribuera brand väggen
 
-1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**.
+1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**.
 
 2. Skriv **brand väggen** i sökrutan och tryck på **RETUR**.
 
@@ -246,7 +246,7 @@ I det här avsnittet aktiverar du loggarna i brand väggen.
 
 4. Välj **+ Lägg till diagnostisk inställning** i diagnostikinställningar.
 
-5. I **inställningen diagnostik**anger eller väljer du den här informationen:
+5. I **inställningen diagnostik** anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -265,7 +265,7 @@ I det här avsnittet skapar du en privat SQL Database.
 
 1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs**  >  **databas**  >  **SQL Database**.
 
-2. I **skapa SQL Database – grunderna**anger eller väljer du den här informationen:
+2. I **skapa SQL Database – grunderna** anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -300,7 +300,7 @@ I det här avsnittet skapar du en privat slut punkt för Azure SQL-databasen i f
 
 4. Välj **+ privat slut punkt**.
 
-5. I **skapa en privat slut punkt**anger eller väljer du den här informationen på fliken **grundläggande** :
+5. I **skapa en privat slut punkt** anger eller väljer du den här informationen på fliken **grundläggande** :
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -343,7 +343,7 @@ I det här avsnittet skapar du en privat slut punkt för Azure SQL-databasen i f
 
 12. När slut punkten har skapats väljer du **brand väggar och virtuella nätverk** under **säkerhet**.
 
-13. I **brand väggar och virtuella nätverk**väljer du **Ja** bredvid **Tillåt Azure-tjänster och-resurser för att få åtkomst till den här servern**.
+13. I **brand väggar och virtuella nätverk** väljer du **Ja** bredvid **Tillåt Azure-tjänster och-resurser för att få åtkomst till den här servern**.
 
 14. Välj **Spara**.
 
@@ -351,7 +351,7 @@ I det här avsnittet skapar du en privat slut punkt för Azure SQL-databasen i f
 
 I det här avsnittet ska vi ansluta virtuella nätverk **myVMVNet** och **myPEVNet** till **myAzFwVNet** med hjälp av peering. Det finns ingen direkt anslutning mellan **myVMVNet** och **myPEVNet**.
 
-1. Skriv **myAzFwVNet**i portalens Sök fält.
+1. Skriv **myAzFwVNet** i portalens Sök fält.
 
 2. Välj **peer** -kopplingar under menyn **Inställningar** och välj **+ Lägg till**.
 
@@ -361,7 +361,7 @@ I det här avsnittet ska vi ansluta virtuella nätverk **myVMVNet** och **myPEVN
     | ------- | ----- |
     | Peer-kopplingens namn från myAzFwVNet till ett virtuellt dator nätverk | Ange **myAzFwVNet-till-myVMVNet**. |
     | **Peer-information** |  |
-    | Distributions modell för virtuellt nätverk  | Låt standard **resurs hanteraren**vara kvar.  |
+    | Distributions modell för virtuellt nätverk  | Låt standard **resurs hanteraren** vara kvar.  |
     | Jag känner till mitt resurs-ID | Lämna alternativet omarkerat.    |
     | Prenumeration | Välj din prenumeration.    |
     | Virtuellt nätverk | Välj **myVMVNet**. |
@@ -387,7 +387,7 @@ I det här avsnittet ska vi ansluta virtuella nätverk **myVMVNet** och **myPEVN
     | ------- | ----- |
     | Peer-kopplingens namn från myAzFwVNet till ett virtuellt dator nätverk | Ange **myAzFwVNet-till-myPEVNet**. |
     | **Peer-information** |  |
-    | Distributions modell för virtuellt nätverk  | Låt standard **resurs hanteraren**vara kvar.  |
+    | Distributions modell för virtuellt nätverk  | Låt standard **resurs hanteraren** vara kvar.  |
     | Jag känner till mitt resurs-ID | Lämna alternativet omarkerat.    |
     | Prenumeration | Välj din prenumeration.    |
     | Virtuellt nätverk | Välj **myPEVNet**. |
@@ -442,7 +442,7 @@ I det här avsnittet konfigurerar du en program regel för att tillåta kommunik
 
 Den här regeln tillåter kommunikation via brand väggen som vi skapade i föregående steg.
 
-1. Skriv **myAzureFirewall**i portalens Sök fält.
+1. Skriv **myAzureFirewall** i portalens Sök fält.
 
 2. Välj **myAzureFirewall** i Sök resultaten.
 
@@ -458,15 +458,15 @@ Den här regeln tillåter kommunikation via brand väggen som vi skapade i före
     | ------- | ----- |
     | Namn | Ange **SQLPrivateEndpoint**. |
     | Prioritet | Ange **100**. |
-    | Action | Ange **Tillåt**. |
+    | Åtgärd | Ange **Tillåt**. |
     | **Regler** |  |
     | **FQDN-taggar** | |
-    | Namn  | Lämna tomt.  |
+    | Name  | Lämna tomt.  |
     | Källtyp | Lämna standard **-IP-adressen**.    |
     | Källa | Lämna tomt. |
     | FQDN-taggar | Låt standardvärdet **0 vara markerat**. |
     | **Mål-FQDN** | |
-    | Namn | Ange **SQLPrivateEndpoint**.    |
+    | Name | Ange **SQLPrivateEndpoint**.    |
     | Källtyp | Lämna standard **-IP-adressen**. |
     | Källa | Ange **10.1.0.0/16**. |
     | Protokoll: port | Ange **MSSQL: 1433**. |
@@ -481,9 +481,9 @@ Vi har inte skapat någon peering för virtuellt nätverk direkt mellan virtuell
 
 I det här avsnittet ska vi skapa en routningstabell med en anpassad väg. 
 
-Vägen skickar trafik från **myVM** -undernätet till adress utrymmet för det virtuella nätverket **myPEVNet**via Azure-brandväggen.
+Vägen skickar trafik från **myVM** -undernätet till adress utrymmet för det virtuella nätverket **myPEVNet** via Azure-brandväggen.
 
-1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**.
+1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**.
 
 2. Skriv **routningstabellen** i rutan Sök och tryck på **RETUR**.
 
@@ -498,7 +498,7 @@ Vägen skickar trafik från **myVM** -undernätet till adress utrymmet för det 
     | Resursgrupp | Välj **myResourceGroup**.  |
     | **Instansinformation** |  |
     | Region | Välj **södra centrala USA**. |
-    | Namn | Ange **VMsubnet-till-AzureFirewall**. |
+    | Name | Ange **VMsubnet-till-AzureFirewall**. |
     | Sprida Gateway-vägar | Välj **Nej**. |
 
 5. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration.
@@ -575,7 +575,7 @@ I det här avsnittet ska du ansluta privat till SQL Database med hjälp av den p
     Address: 10.2.0.4
     ```
 
-2. Installera [SQL Server kommando rads verktyg](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Installera [SQL Server kommando rads verktyg](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
 
 3. Kör följande kommando för att ansluta till SQL Server. Använd Server administratören och lösen ordet som du definierade när du skapade SQL Server i föregående steg.
 

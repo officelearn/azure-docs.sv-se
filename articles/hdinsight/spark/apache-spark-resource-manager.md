@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 5427077a4b07917c8852d0a63c815195e776b9de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085199"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017040"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Hantera resurser för Apache Spark kluster i Azure HDInsight
 
@@ -29,7 +29,7 @@ Du kan använda garn gränssnittet för att övervaka program som för närvaran
 
 1. Öppna Spark-klustret från [Azure Portal](https://portal.azure.com/). Mer information finns i [lista och Visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters).
 
-2. Välj **garn**från **kluster instrument paneler**. När du uppmanas till det anger du administratörs behörighet för Spark-klustret.
+2. Välj **garn** från **kluster instrument paneler**. När du uppmanas till det anger du administratörs behörighet för Spark-klustret.
 
     ![Starta garn gränssnitt](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
 
@@ -109,7 +109,7 @@ I Ambari-användargränssnittet navigerar du till **Spark2**  >  **configs**  > 
 
 På grund av Spark Dynamic Allocation är de enda resurserna som används av Thrift-servern resurserna för de två program huvuden. Om du vill frigöra resurserna måste du stoppa de Thrift-Server tjänster som körs i klustret.
 
-1. I Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Spark2**i det vänstra fönstret.
+1. I Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Spark2** i det vänstra fönstret.
 
 2. På nästa sida väljer du **Spark2 Thrift-servrar**.
 
@@ -126,7 +126,7 @@ På grund av Spark Dynamic Allocation är de enda resurserna som används av Thr
 
 ## <a name="restart-the-jupyter-service"></a>Starta om Jupyter-tjänsten
 
-Starta Ambari-webbgränssnittet som visas i början av artikeln. Välj **Jupyter**i det vänstra navigerings fönstret, Välj **tjänst åtgärder**och välj sedan **starta om alla**. Detta startar Jupyter-tjänsten på alla huvudnoderna.
+Starta Ambari-webbgränssnittet som visas i början av artikeln. Välj **Jupyter** i det vänstra navigerings fönstret, Välj **tjänst åtgärder** och välj sedan **starta om alla**. Detta startar Jupyter-tjänsten på alla huvudnoderna.
 
 ![Starta om Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "Starta om Jupyter")
 
@@ -138,7 +138,7 @@ Starta det garn användar gränssnitt som visas i början av artikeln. I tabelle
 
 ## <a name="kill-running-applications"></a>Avsluta program som körs
 
-1. Välj **Kör**i den vänstra panelen i garn gränssnittet. I listan över program som körs anger du vilket program som ska avlivas och väljer **ID**.
+1. Välj **Kör** i den vänstra panelen i garn gränssnittet. I listan över program som körs anger du vilket program som ska avlivas och väljer **ID**.
 
     ![Kill-APP1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "Kill-APP1")
 

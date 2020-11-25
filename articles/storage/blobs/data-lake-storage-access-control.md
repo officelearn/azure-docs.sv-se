@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 03117b9f0c3cbaea22f36703f689264549b851e8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 485b23d9b7ebac4f7d183239d035fbd53b09f4ee
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959143"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017699"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Åtkomst kontrol listor (ACL: er) i Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Azure Data Lake Storage Gen2 implementerar en modell för åtkomst kontroll som 
 
 ## <a name="about-acls"></a>Om ACL: er
 
-Du kan associera ett [säkerhets objekt](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) med en åtkomst nivå för filer och kataloger. Dessa associationer samlas in i en *åtkomst kontrol lista (ACL)*. Varje fil och katalog i ditt lagrings konto har en åtkomst kontrol lista. När ett säkerhets objekt försöker utföra en åtgärd på en fil eller katalog, avgör en ACL-kontroll om säkerhets objekt (användare, grupp, tjänstens huvud namn eller hanterad identitet) har rätt behörighets nivå för att utföra åtgärden.
+Du kan associera ett [säkerhets objekt](../../role-based-access-control/overview.md#security-principal) med en åtkomst nivå för filer och kataloger. Dessa associationer samlas in i en *åtkomst kontrol lista (ACL)*. Varje fil och katalog i ditt lagrings konto har en åtkomst kontrol lista. När ett säkerhets objekt försöker utföra en åtgärd på en fil eller katalog, avgör en ACL-kontroll om säkerhets objekt (användare, grupp, tjänstens huvud namn eller hanterad identitet) har rätt behörighets nivå för att utföra åtgärden.
 
 > [!NOTE]
 > ACL: er gäller endast för säkerhets objekt i samma klient organisation, och de gäller inte för användare som använder delad nyckel eller autentisering med signatur för delad åtkomst (SAS). Det beror på att ingen identitet är kopplad till anroparen och därför inte behörigheten för säkerhets objekts behörighet kan inte utföras.  
@@ -34,13 +34,13 @@ Om du vill ange behörigheter för fil-och katalog nivå kan du läsa följande 
 
 | Miljö | Artikel |
 |--------|-----------|
-|Azure Storage Explorer |[Använda Azure Storage Explorer till att hantera kataloger, filer och åtkomstkontrollistor i Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|Azure Lagringsutforskaren |[Använda Azure Storage Explorer till att hantera kataloger, filer och åtkomstkontrollistor i Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Använd .NET för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
 |Java|[Använd Java för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
 |Python|[Använd python för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
 |PowerShell|[Använd PowerShell för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
 |Azure CLI|[Använd Azure CLI för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
-|REST-API |[Sökväg – uppdatera](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|REST-API |[Sökväg – uppdatera](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > Om säkerhetsobjektet är ett huvud namn för *tjänsten* är det viktigt att använda objekt-ID: t för tjänstens huvud namn och inte objekt-ID: t för den relaterade appens registrering. För att hämta objekt-ID: t för tjänstens huvud namn öppnar du Azure CLI och använder sedan det här kommandot: `az ad sp show --id <Your App ID> --query objectId` . Se till att ersätta `<Your App ID>` plats hållaren med app-ID: t för din app Registration.
@@ -92,7 +92,8 @@ I följande tabell visas de ACL-poster som krävs för att aktivera ett säkerhe
 
 I den här tabellen visas en kolumn som representerar varje nivå i en fiktiv katalog-hierarki. Det finns en kolumn för behållarens rot Katalog ( `\` ), en under katalog med namnet " **Oregon** Göteborg", en under katalog till katalogen Göteborg, som heter **Göteborg** och en textfil i katalogen Göteborg med namnet **Data.txt**. 
 
-> [! IMPORANT] den här tabellen förutsätter att du **bara** använder ACL: er utan några Azure Role-tilldelningar. Om du vill se en liknande tabell som kombinerar Azure RBAC tillsammans med ACL: er, se [behörighets tabell: kombinera Azure RBAC och ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> [!IMPORTANT]
+> Den här tabellen förutsätter att du **bara** använder ACL: er utan några Azure Role-tilldelningar. Om du vill se en liknande tabell som kombinerar Azure RBAC tillsammans med ACL: er, se [behörighets tabell: kombinera Azure RBAC och ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Åtgärd             |    /    | Oregon | Portland | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -203,7 +204,7 @@ För en ny Data Lake Storage Gen2-behållare är masken för åtkomst-ACL: en f�
 |--|--|--|
 |Ägande användare|`rwx`|`r-w`|
 |Ägande grupp|`r-x`|`r--`|
-|Annat|`---`|`---`|
+|Övrigt|`---`|`---`|
 
 Filerna tar inte emot X-biten eftersom det är irrelevant för filer i ett system för endast lagring. 
 
@@ -254,7 +255,7 @@ def set_default_acls_for_new_child(parent, child):
         child_acls.add( new_entry )
 ```
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>Måste jag aktivera stöd för ACL:er?
 
@@ -330,7 +331,7 @@ När du har rätt OID för tjänstens huvud namn går du till sidan Storage Expl
 
 Nej. En behållare har ingen ACL. Du kan dock ange ACL: en för behållarens rot Katalog. Varje behållare har en rot Katalog och den delar samma namn som behållaren. Om behållaren till exempel heter `my-container` , namnges rot katalogen `myContainer/` . 
 
-Azure Storage REST API innehåller en åtgärd med namnet [set behållar-ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl), men åtgärden kan inte användas för att ange ACL för en behållare eller rot katalogen för en behållare. I stället används den åtgärden för att indikera om blobbar i en behållare [kan nås offentligt](anonymous-read-access-configure.md). 
+Azure Storage REST API innehåller en åtgärd med namnet [set behållar-ACL](/rest/api/storageservices/set-container-acl), men åtgärden kan inte användas för att ange ACL för en behållare eller rot katalogen för en behållare. I stället används den åtgärden för att indikera om blobbar i en behållare [kan nås offentligt](anonymous-read-access-configure.md). 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Var hittar jag mer information om POSIX-modellen för åtkomstkontroll?
 

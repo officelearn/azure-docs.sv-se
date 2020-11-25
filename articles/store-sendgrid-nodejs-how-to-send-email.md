@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60931725"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015440"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Skicka e-post med hjälp av SendGrid från Node.js
 
-Den här guiden visar hur du utför vanliga programmerings åtgärder med e-posttjänsten SendGrid i Azure. Exemplen skrivs med hjälp av Node.js-API: et. Scenarierna som beskrivs är att **Skapa e-post**, **skicka e-post**, **lägga till bilagor**, **använda filter**och **Uppdatera egenskaper**. Mer information om SendGrid och hur du skickar e-post finns i avsnittet [Nästa steg](#next-steps) .
+Den här guiden visar hur du utför vanliga programmerings åtgärder med e-posttjänsten SendGrid i Azure. Exemplen skrivs med hjälp av Node.js-API: et. Scenarierna som beskrivs är att **Skapa e-post**, **skicka e-post**, **lägga till bilagor**, **använda filter** och **Uppdatera egenskaper**. Mer information om SendGrid och hur du skickar e-post finns i avsnittet [Nästa steg](#next-steps) .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Vad är e-posttjänsten för SendGrid?
 

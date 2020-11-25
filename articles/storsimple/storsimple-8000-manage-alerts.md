@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 36ed87a75d590a8647e5347b3e90e6f5159dc6b5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961841"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016853"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Använd tjänsten StorSimple Enhetshanteraren för att visa och hantera StorSimple-aviseringar
 
@@ -91,7 +91,7 @@ Om du klickar på en avisering i listan får du ytterligare information om avise
 
 Du kan kopiera aviserings informationen till en textfil om du behöver skicka informationen till Microsoft Support. När du har följt rekommendationen och löst aviserings villkoret lokalt bör du ta bort aviseringen från enheten genom att välja aviseringen i bladet **aviseringar** och klicka på **Rensa**. Om du vill ta bort flera aviseringar markerar du varje avisering, klickar på en kolumn förutom kolumnen **avisering** och klickar sedan på **Rensa** när du har valt att alla aviseringar ska rensas. Observera att vissa aviseringar rensas automatiskt när problemet löses eller när systemet uppdaterar aviseringen med ny information.
 
-När du klickar på **Rensa**har du möjlighet att ange kommentarer om aviseringen och de steg som du har vidtagit för att lösa problemet. Vissa händelser raderas av systemet om en annan händelse utlöses med ny information. I så fall visas följande meddelande.
+När du klickar på **Rensa** har du möjlighet att ange kommentarer om aviseringen och de steg som du har vidtagit för att lösa problemet. Vissa händelser raderas av systemet om en annan händelse utlöses med ny information. I så fall visas följande meddelande.
 
 ![Rensa aviserings meddelande](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
 

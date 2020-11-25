@@ -4,11 +4,11 @@ description: En översikt över Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093675"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017329"
 ---
 # <a name="recovery-services-vaults-overview"></a>Översikt över Recovery Services-valv
 

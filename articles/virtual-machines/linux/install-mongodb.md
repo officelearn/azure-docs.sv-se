@@ -13,11 +13,11 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 49a0e48977393aeab7ff93b79e28acc55a87b51a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504627"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016190"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Så här installerar och konfigurerar du MongoDB på en virtuell Linux-dator
 
@@ -125,7 +125,7 @@ Om du vill skapa den här miljön måste du ha det senaste [Azure CLI](/cli/azur
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuera sedan MongoDB-mallen med [AZ Group Deployment Create](/cli/azure/group/deployment). När du uppmanas till det anger du dina egna unika värden för användar namn och lösen ord för *newStorageAccountName*, *dnsNameForPublicIP*och admin:
+Distribuera sedan MongoDB-mallen med [AZ Group Deployment Create](/cli/azure/group/deployment). När du uppmanas till det anger du dina egna unika värden för användar namn och lösen ord för *newStorageAccountName*, *dnsNameForPublicIP* och admin:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -176,7 +176,7 @@ Om du vill skapa den här miljön måste du ha det senaste [Azure CLI](/cli/azur
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuera sedan MongoDB-mallen med [AZ Group Deployment Create](/cli/azure/group/deployment). Definiera egna resurs namn och storlekar där det behövs, till exempel för *mongoAdminUsername*, *sizeOfDataDiskInGB*och *configNodeVmSize*:
+Distribuera sedan MongoDB-mallen med [AZ Group Deployment Create](/cli/azure/group/deployment). Definiera egna resurs namn och storlekar där det behövs, till exempel för *mongoAdminUsername*, *sizeOfDataDiskInGB* och *configNodeVmSize*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \

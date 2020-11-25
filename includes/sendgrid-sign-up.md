@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
 ms.openlocfilehash: 3590b8fdb67b25e0d4389e814aefcc4d18b1193c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116671"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015443"
 ---
 Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. Med de här 25 000 kostnads fria e-postmeddelandena får du till gång till avancerad rapportering och analys och [alla API: er][all APIs] (webb, SMTP, evenemang, analys och annat). Information om ytterligare tjänster från SendGrid finns på sidan om [SendGrid-lösningar][SendGrid Solutions].
 

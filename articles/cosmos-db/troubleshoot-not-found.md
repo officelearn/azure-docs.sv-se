@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 782abee06c5ab0f985e8bd90dbbecae18b1dfe02
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 2df401f7871d631ba317fb670783cad086b9a351
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442335"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96017567"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnostisera och Felsök Azure Cosmos DB inte hittade undantag
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,6 +25,11 @@ Det finns många giltiga scenarier där ett program förväntar sig en kod 404 o
 
 ## <a name="a-not-found-exception-was-returned-for-an-item-that-should-exist-or-does-exist"></a>Ett undantag som inte hittades returnerades för ett objekt som ska finnas eller som finns
 Här följer möjliga orsaker till att en status kod 404 returneras om objektet ska finnas eller finns.
+
+### <a name="the-read-session-is-not-available-for-the-input-session-token"></a>Läsningssessionen är inte tillgänglig för inmatningssessionens token
+
+#### <a name="solution"></a>Lösning:
+1. Uppdatera din aktuella SDK till den senaste versionen som är tillgänglig. De vanligaste orsakerna till det här felet har åtgärd ATS i de senaste SDK-versionerna.
 
 ### <a name="race-condition"></a>Konkurrenstillstånd
 Det finns flera SDK-klient instanser och läsningen skedde innan skrivningen.

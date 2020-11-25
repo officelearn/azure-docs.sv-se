@@ -1,5 +1,5 @@
 ---
-title: inkludera fil
+title: ta med fil
 description: ta med filen som innehåller koden för att skapa ett ASP .NET-WebAPI-projekt för serverdel.
 services: notification-hubs
 author: spelluru
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f490b6f25112ed8a10bbd865070bd07ea3ee84f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86530188"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016970"
 ---
 ## <a name="create-the-webapi-project"></a>Skapa ett WebAPI-projekt
 
@@ -63,10 +63,10 @@ Skapa en ny ASP.NET-WebAPI-serverdel genom att göra följande:
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Autentisera klienter mot WebAPI-serverdelen
 
-I det här avsnittet skapar du en ny meddelandehanterarklass med namnet **AuthenticationTestHandler** för den nya serverdelen. Den här klassen härleds från [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) och läggs till som en meddelandehanterare så att den kan bearbeta alla begäranden som kommer till serverdelen.
+I det här avsnittet skapar du en ny meddelandehanterarklass med namnet **AuthenticationTestHandler** för den nya serverdelen. Den här klassen härleds från [DelegatingHandler](/previous-versions/visualstudio/hh193679(v=vs.118)) och läggs till som en meddelandehanterare så att den kan bearbeta alla begäranden som kommer till serverdelen.
 
 1. I Solution Explorer högerklickar du på projektet **AppBackend** och väljer sedan **Lägg till** och sedan **Klass**.
-2. Ge den nya klassen namnet **AuthenticationTestHandler.cs** och välj sedan **Lägg till ** för att generera klassen. Den här klassen autentiserar användare med hjälp av *Grundläggande autentisering* för enkelhetens skull. Din app kan använda alla autentiseringsscheman.
+2. Ge den nya klassen namnet **AuthenticationTestHandler.cs** och välj sedan **Lägg till** för att generera klassen. Den här klassen autentiserar användare med hjälp av *Grundläggande autentisering* för enkelhetens skull. Din app kan använda alla autentiseringsscheman.
 3. Lägg till följande `using`-instruktioner i AuthenticationTestHandler.cs:
 
     ```csharp
@@ -88,7 +88,7 @@ I det här avsnittet skapar du en ny meddelandehanterarklass med namnet **Authen
 
    I annat fall avvisas begäran. Den här begäran är inte en riktig autentiserings- och auktoriseringsmetod. Det är bara ett enkelt exempel för den här självstudien.
 
-   Om meddelandebegäran autentiseras och godkänns av `AuthenticationTestHandler`, kopplas användaren med den grundläggande autentiseringen till den aktuella begäran i [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Senare används användarinformationen i HttpContext av en annan kontrollant (RegisterController) för att lägga till en [tagg](https://msdn.microsoft.com/library/azure/dn530749.aspx) till meddelanderegistreringsbegäran.
+   Om meddelandebegäran autentiseras och godkänns av `AuthenticationTestHandler`, kopplas användaren med den grundläggande autentiseringen till den aktuella begäran i [HttpContext](/dotnet/api/system.web.httpcontext.current). Senare används användarinformationen i HttpContext av en annan kontrollant (RegisterController) för att lägga till en [tagg](/previous-versions/azure/azure-services/dn530749(v=azure.100)) till meddelanderegistreringsbegäran.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler
@@ -333,7 +333,7 @@ I det här avsnittet kan du lägga till en ny domänkontrollant som exponerar en
 
     Den här koden skickar en meddelandetyp som är baserad på PNS-parametern (Platform Notification Service) `pns`. Värdet för `to_tag` används för att ställa in *usernamne*-taggen för meddelandet. Den här taggen måste matcha en username-tagg för en aktiv meddelandehubbsregistrering. Meddelandet hämtas från innehållsdelen i POST-begäran och formateras för PNS-måltjänsten.
 
-    Beroende på det PNS-system som dina stödda enheter använder för att ta emot meddelanden, stöds meddelanden i olika format. På Windows-enheter kan du till exempel använda ett [popup-meddelande med WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) som inte stöds direkt av en annan PNS. I dessa fall måste din serverdel alltså formatera meddelandet till ett meddelande som stöds för PNS-tjänsten för enheter som du vill ha stöd för. Därefter använder du lämpligt överförings-API i [NotificationHubClient-klassen](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx).
+    Beroende på det PNS-system som dina stödda enheter använder för att ta emot meddelanden, stöds meddelanden i olika format. På Windows-enheter kan du till exempel använda ett [popup-meddelande med WNS](/uwp/schemas/tiles/toastschema/schema-root) som inte stöds direkt av en annan PNS. I dessa fall måste din serverdel alltså formatera meddelandet till ett meddelande som stöds för PNS-tjänsten för enheter som du vill ha stöd för. Därefter använder du lämpligt överförings-API i [NotificationHubClient-klassen](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient).
 
     ```csharp
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)

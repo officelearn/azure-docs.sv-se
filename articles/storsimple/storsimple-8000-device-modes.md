@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: c7b0ea489c1d70ab86d677aad666ea6728fa76b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85511614"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017091"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Ändra enhets läge på din StorSimple-enhet
 
@@ -78,7 +78,7 @@ Du kan placera StorSimple-enheten i underhålls läge (från normalt läge) för
 #### <a name="to-enter-maintenance-mode"></a>Ange underhålls läge
 
 1. Logga in på enhetens serie konsol genom att följa stegen i [använda SparaTillFil för att ansluta till enhetens serie konsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange **enhetens administratörs lösen ord**när du uppmanas att göra det. Standard lösen ordet är: `Password1` .
+2. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange **enhetens administratörs lösen ord** när du uppmanas att göra det. Standard lösen ordet är: `Password1` .
 3. Skriv i kommando tolken 
    
     `Enter-HcsMaintenanceMode`

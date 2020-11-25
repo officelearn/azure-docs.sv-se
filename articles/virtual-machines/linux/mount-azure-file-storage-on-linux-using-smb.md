@@ -8,11 +8,11 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.openlocfilehash: 6a5d4f388d9e5f47a13812687489525590c520c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085494"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016105"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montera Azure File Storage på virtuella Linux-datorer med SMB
 
@@ -35,7 +35,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Skapa ett nytt lagrings konto i resurs gruppen som du skapade med [AZ lagrings konto skapa](/cli/azure/storage/account). I det här exemplet skapas ett lagrings konto med namnet *mySTORAGEACCT \<random number> * och namnet på lagrings kontot läggs till i variabeln **STORAGEACCT**. Lagrings konto namn måste vara unika, med `$RANDOM` Lägg till ett nummer i slutet för att göra det unikt.
+Skapa ett nytt lagrings konto i resurs gruppen som du skapade med [AZ lagrings konto skapa](/cli/azure/storage/account). I det här exemplet skapas ett lagrings konto med namnet *mySTORAGEACCT \<random number>* och namnet på lagrings kontot läggs till i variabeln **STORAGEACCT**. Lagrings konto namn måste vara unika, med `$RANDOM` Lägg till ett nummer i slutet för att göra det unikt.
 
 ```azurecli
 STORAGEACCT=$(az storage account create \

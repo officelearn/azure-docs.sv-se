@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9210c54305427c82d5666d68573fd3af41e8cef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e77b58f7741af42f00b2a1831157405b12fa24ff
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972199"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017414"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Skapa och hantera krypterings omfång (förhands granskning)
 
@@ -41,7 +41,7 @@ Följ dessa steg om du vill skapa en krypterings omfattning i Azure Portal:
 1. I fönstret Skapa **krypterings omfång** anger du ett namn för det nya omfånget.
 1. Välj typ av kryptering, antingen **Microsoft-hanterade nycklar** eller **Kundhanterade nycklar**.
     - Om du har valt **Microsoft-hanterade nycklar**, klickar du på **skapa** för att skapa krypterings omfånget.
-    - Om du har valt **Kundhanterade nycklar**anger du ett nyckel valv eller en hanterad HSM, nyckel och nyckel version som ska användas för krypterings omfånget, som visas i följande bild.
+    - Om du har valt **Kundhanterade nycklar** anger du ett nyckel valv eller en hanterad HSM, nyckel och nyckel version som ska användas för krypterings omfånget, som visas i följande bild.
 
     :::image type="content" source="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png" alt-text="Skärm bild som visar hur du skapar ett krypterings omfång i Azure Portal":::
 
@@ -179,7 +179,7 @@ Information om hur du konfigurerar Azure Storage kryptering med Kundhanterade ny
 
 Om du vill visa krypterings omfång för ett lagrings konto i Azure Portal navigerar du till inställningen **krypterings omfång** för lagrings kontot. I det här fönstret kan du aktivera eller inaktivera ett krypterings omfång eller ändra nyckeln för en krypterings omfattning.
 
-:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Skärm bild som visar hur du skapar ett krypterings omfång i Azure Portal":::
+:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Skärm bild som visar en lista över krypterings områden i Azure Portal":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -223,7 +223,7 @@ Om du vill skapa en behållare med en standard krypterings omfattning i Azure Po
 1. I list rutan **krypterings omfång** väljer du standard krypterings omfång för behållaren.
 1. Om du vill kräva att alla blobar i behållaren använder standard krypterings omfånget markerar du kryss rutan för att **använda krypterings omfånget för alla blobbar i behållaren**. Om den här kryss rutan är markerad kan en enskild BLOB i behållaren inte åsidosätta standard krypterings omfånget.
 
-    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Skärm bild som visar hur du skapar ett krypterings omfång i Azure Portal":::
+    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Skärm bild som visar behållare med standard krypterings omfång":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -247,7 +247,7 @@ New-AzRmStorageContainer -ResourceGroupName $rgName `
 
 Om du vill skapa en behållare med ett standard krypterings omfång med Azure CLI anropar du kommandot [AZ Storage container Create](/cli/azure/storage/container#az-storage-container-create) och anger omfånget för `--default-encryption-scope` parametern. Om du vill tvinga alla blobbar i en behållare att använda behållarens standard omfång anger du `--prevent-encryption-scope-override` parametern till `true` .
 
-I följande exempel används ditt Azure AD-konto för att auktorisera åtgärden att skapa behållaren. Du kan också använda kontots åtkomst nyckel. Mer information finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](../common/authorize-data-operations-cli.md).
+I följande exempel används ditt Azure AD-konto för att auktorisera åtgärden att skapa behållaren. Du kan också använda kontots åtkomst nyckel. Mer information finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](./authorize-data-operations-cli.md).
 
 ```azurecli-interactive
 az storage container create \
@@ -275,9 +275,9 @@ Om du vill ladda upp en blob med ett krypterings omfång som anges i Azure Porta
 1. Välj knappen **överför** och leta upp bloben som ska laddas upp.
 1. Expandera de **avancerade** inställningarna i fönstret **Ladda upp BLOB** .
 1. Leta upp List rutan **krypterings omfång** . Som standard skapas blobben med standard krypterings omfånget för behållaren, om en sådan har angetts. Om behållaren kräver att blobbar använder standard krypterings omfattningen är det här avsnittet inaktiverat.
-1. Om du vill ange ett annat omfång för den blob som du överför, väljer du **Välj en befintlig omfattning**och väljer sedan önskat omfång i list rutan.
+1. Om du vill ange ett annat omfång för den blob som du överför, väljer du **Välj en befintlig omfattning** och väljer sedan önskat omfång i list rutan.
 
-    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Skärm bild som visar hur du skapar ett krypterings omfång i Azure Portal":::
+    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Skärm bild som visar hur du laddar upp en blob med ett krypterings omfång":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

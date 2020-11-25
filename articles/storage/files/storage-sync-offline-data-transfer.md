@@ -8,11 +8,11 @@ ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 94abb33d39765a19306a013576d43fb2602d1c37
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630234"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017635"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrera bulkdata till Azure File Sync med Azure DataBox
 Du kan migrera Mass data till Azure File Sync på två sätt:
@@ -54,7 +54,7 @@ Så här konfigurerar du Azure File Sync på ett sätt som är kompatibelt med v
 | ![Steg 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Beställ dina data Box-enhet](../../databox/data-box-deploy-ordered.md). Data Box-enhets familjen erbjuder [flera produkter](https://azure.microsoft.com/services/storage/databox/data) som passar dina behov. När du får Data Box-enhet ska du följa [dokumentationen för att kopiera data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) till den här UNC-sökvägen på Data Box-enhet: *\\<DeviceIPAddres \> \<StorageAccountName_AzFile\> \<ShareName\>*. Här är *resurs* namn namnet på den mellanlagrings resursen. Skicka Data Box-enhet tillbaka till Azure. |
 | ![Steg 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Vänta tills filerna visas i de Azure-filresurser som du valde som tillfälliga mellanlagrings resurser. *Aktivera inte synkronisering till dessa resurser.* |
 | ![Steg 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | <ul><li>Skapa en ny tom resurs för varje fil resurs som Data Box-enhet skapats åt dig. Den här nya resursen ska finnas i samma lagrings konto som Data Box-enhet resursen. [Så här skapar du en ny Azure-filresurs](storage-how-to-create-file-share.md).</li><li>[Skapa en Sync-grupp](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) i en tjänst för synkronisering av lagring. Referera till den tomma resursen som en moln slut punkt. Upprepa det här steget för alla Data Box-enhet fil resurser. [Konfigurera Azure File Sync](storage-sync-files-deployment-guide.md).</li></ul> |
-| ![Steg 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Lägg till din Live Server-katalog som en server slut punkt](storage-sync-files-deployment-guide.md#create-a-server-endpoint). I processen anger du att du har flyttat filerna till Azure och hänvisar till mellanlagrings resurserna. Du kan aktivera eller inaktivera moln nivåer efter behov. När du skapar en server slut punkt på din Live-Server refererar du till mellanlagrings resursen. På bladet **Lägg till Server slut punkt** , under **offline-dataöverföring** , väljer du **aktive rad** och väljer sedan den mellanlagrings resurs som måste finnas i samma lagrings konto som moln slut punkten. Här filtreras listan över tillgängliga resurser efter lagrings konto och resurser som inte redan synkroniseras. Skärm bilden som följer efter den här tabellen visar hur du refererar till data delning när Server slut punkten skapas i Azure Portal. |
+| ![Steg 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Lägg till din Live Server-katalog som en server slut punkt](storage-sync-files-deployment-guide.md#create-a-server-endpoint). I processen anger du att du har flyttat filerna till Azure och hänvisar till mellanlagrings resurserna. Du kan aktivera eller inaktivera moln nivåer efter behov. När du skapar en server slut punkt på din Live-Server refererar du till mellanlagrings resursen. På bladet **Lägg till Server slut punkt** , under **offline-dataöverföring**, väljer du **aktive rad** och väljer sedan den mellanlagrings resurs som måste finnas i samma lagrings konto som moln slut punkten. Här filtreras listan över tillgängliga resurser efter lagrings konto och resurser som inte redan synkroniseras. Skärm bilden som följer efter den här tabellen visar hur du refererar till data delning när Server slut punkten skapas i Azure Portal. |
 | ![Steg 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | När du har lagt till Server slut punkten i föregående steg börjar data flöda automatiskt från den högra källan. Avsnittet [Synkronisera resurs](#syncing-the-share) förklarar när data flödar antingen från data-eller Windows Server |
 | |
 

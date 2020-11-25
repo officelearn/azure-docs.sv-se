@@ -3,33 +3,32 @@ title: 'Snabb start: skapa en C# ASP.NET Core-app'
 description: Lär dig hur du kör Web Apps i Azure App Service genom att distribuera din första ASP.NET Core-app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 09/24/2020
+ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: aa8eb945ba77e1a4ac5215acf3bdbc12cac0c4c9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf7d911c6f9d90e400e589828c093877875e7d97
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91661133"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96015697"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Snabb start: skapa en ASP.NET Core webbapp i Azure
 
 ::: zone pivot="platform-windows"  
 
-I den här snabb starten får du lära dig hur du skapar och distribuerar din första ASP.NET Core-webbapp till [Azure App Service](overview.md). 
+I den här snabb starten får du lära dig hur du skapar och distribuerar din första ASP.NET Core-webbapp till [Azure App Service](overview.md). App Service stöder .NET 5,0-appar.
 
 När du är klar har du en Azure-resurs grupp som består av en App Service värd plan och en App Service med ett distribuerat webb program.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/dotnet/).
-- Den här snabb starten distribuerar en app till App Service i Windows. Information om hur du distribuerar till App Service på _Linux_finns [i skapa en .net Core-webbapp i App Service](./quickstart-dotnetcore.md).
 - Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> med arbets belastningen **ASP.net och webb utveckling** .
 
   Om du redan har installerat Visual Studio 2019:
 
-  - Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp**  >  **sökning efter uppdateringar**.
+  - Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp**  >  **sökning efter uppdateringar**. De senaste uppdateringarna innehåller .NET 5,0 SDK.
   - Lägg till arbets belastningen genom att välja **verktyg**  >  **Hämta verktyg och funktioner**.
 
 
@@ -37,21 +36,45 @@ När du är klar har du en Azure-resurs grupp som består av en App Service vär
 
 Skapa en ASP.NET Core webbapp i Visual Studio genom att följa dessa steg:
 
+# <a name="net-core-31"></a>[.NET Core 3,1](#tab/netcore31)
+
 1. Öppna Visual Studio och välj **skapa ett nytt projekt**.
 
-1. I **skapa ett nytt projekt**väljer du **ASP.net Core webb program** och bekräftar att **C#** visas på de språk som du väljer. Välj sedan **Nästa**.
+1. I **skapa ett nytt projekt** väljer du **ASP.net Core webb program** och bekräftar att **C#** visas på de språk som du väljer. Välj sedan **Nästa**.
 
-1. I **Konfigurera ditt nya projekt**namnger du ditt webb program projekt *MyFirstAzureWebApp*och väljer **skapa**.
+1. I **Konfigurera ditt nya projekt** namnger du ditt webb program projekt *MyFirstAzureWebApp* och väljer **skapa**.
 
    ![Konfigurera ditt webbapp](./media/quickstart-dotnetcore/configure-web-app-project.png)
 
-1. Du kan distribuera vilken typ av ASP.NET Core webbapp som helst till Azure, men i den här snabb starten väljer du mallen för **webb program** . Kontrol lera att **autentiseringen** är inställd på **Ingen autentisering**och att inget annat alternativ har valts. Välj sedan **Skapa**.
+1. Du kan distribuera vilken typ av ASP.NET Core webbapp som helst till Azure, men i den här snabb starten väljer du mallen för **webb program** . Kontrol lera att **autentiseringen** är inställd på **Ingen autentisering** och att inget annat alternativ har valts. Välj sedan **Skapa**.
 
    ![Skapa en ny ASP.NET Core webbapp](./media/quickstart-dotnetcore/create-aspnet-core-web-app.png) 
    
 1. Från Visual Studio-menyn väljer du **Felsök**  >  **Start utan fel sökning** för att köra din webbapp lokalt.
 
    ![Webbapp som körs lokalt](./media/quickstart-dotnetcore/web-app-running-locally.png)
+
+# <a name="net-50"></a>[.NET 5,0](#tab/net50)
+
+1. Öppna Visual Studio och välj **skapa ett nytt projekt**.
+
+1. I **skapa ett nytt projekt** väljer du **ASP.net Core webb program** och bekräftar att **C#** visas på de språk som du väljer. Välj sedan **Nästa**.
+
+1. I **Konfigurera ditt nya projekt** namnger du ditt webb program projekt *MyFirstAzureWebApp* och väljer **skapa**.
+
+   ![Konfigurera ditt webbapp](./media/quickstart-dotnetcore/configure-web-app-project.png)
+
+1. För en .NET 5,0-app väljer du **ASP.NET Core 5,0** i list rutan.
+
+1. Du kan distribuera vilken typ av ASP.NET Core webbapp som helst till Azure, men i den här snabb starten väljer du mallen **ASP.net Core webbapp** . Kontrol lera att **autentiseringen** är inställd på **Ingen autentisering** och att inget annat alternativ har valts. Välj sedan **Skapa**.
+
+   ![Skapa en ny ASP.NET Core webbapp](./media/quickstart-dotnetcore/create-aspnet-core-web-app-5.png) 
+   
+1. Från Visual Studio-menyn väljer du **Felsök**  >  **Start utan fel sökning** för att köra din webbapp lokalt.
+
+   ![Webbapp som körs lokalt](./media/quickstart-dotnetcore/web-app-running-locally.png)
+
+---
 
 ## <a name="publish-your-web-app"></a>Publicera din webbapp
 
@@ -64,23 +87,27 @@ Som en del av att konfigurera App Service skapar du:
 
 Följ de här stegen för att skapa din App Service och publicera din webbapp:
 
-1. I **Solution Explorer**högerklickar du på projektet **MyFirstAzureWebApp** och väljer **publicera**. Om du inte redan har loggat in på ditt Azure-konto från Visual Studio väljer du antingen **Lägg till ett konto** eller **Logga**in. Du kan också skapa ett kostnads fritt Azure-konto.
+1. I **Solution Explorer** högerklickar du på projektet **MyFirstAzureWebApp** och väljer **publicera**. 
 
-1. I dialog rutan **Välj ett publicerings mål** väljer du **App Service**, väljer **Skapa ny**och väljer sedan **Skapa profil**.
+1. I **publicera** väljer du **Azure** och klickar på **Nästa**.
 
-   ![Välj ett publiceringsmål](./media/quickstart-dotnetcore/pick-publish-target-vs2019.png)
+1. Vilka alternativ som är tillgängliga beror på om du redan är inloggad på Azure och om du har ett Visual Studio-konto som är länkat till ett Azure-konto. Välj antingen **Lägg till ett konto** eller **Logga** in för att logga in på din Azure-prenumeration. Om du redan är inloggad väljer du det konto som du vill använda.
 
-1. I dialog rutan **App Service: skapa ny** anger du ett globalt unikt **namn** för din app genom att antingen acceptera standard namnet eller ange ett nytt namn. Giltiga tecken är: `a-z` , `A-Z` , `0-9` , och `-` . Det här **namnet** används som URL-prefix för din webbapp i formatet `http://<app_name>.azurewebsites.net` .
+   ![Logga in på Azure](./media/quickstart-dotnetcore/sign-in-azure-vs2019.png)
+
+1. Till höger om **App Service-instanser** klickar du på **+** .
+
+   ![Ny App Service-app](./media/quickstart-dotnetcore/publish-new-app-service.png)
 
 1. Acceptera prenumerationen som visas i listan eller Välj en ny i list rutan för **prenumeration**.
 
-1. I **resurs grupp**väljer du **ny**. I **nytt resurs grupp namn**anger du *MyResourceGroup* och väljer **OK**. 
+1. För **resurs grupp** väljer du **nytt**. I **nytt resurs grupp namn** anger du *MyResourceGroup* och väljer **OK**. 
 
-1. För **värd plan**väljer du **nytt**. 
+1. För **värd plan** väljer du **nytt**. 
 
 1. Ange de värden som anges i följande tabell i dialog rutan **värd plan: skapa ny** .
 
-   | Inställning  | Föreslaget värde | Beskrivning |
+   | Inställning  | Föreslaget värde | Description |
    | -------- | --------------- | ----------- |
    | **Värdplan**  | *myFirstAzureWebAppPlan* | Namnet på App Service-planen. |
    | **Plats**      | *Europa, västra* | Datacenter som är värd för webbappen. |
@@ -88,17 +115,17 @@ Följ de här stegen för att skapa din App Service och publicera din webbapp:
    
    ![Skapa ny värd plan](./media/quickstart-dotnetcore/create-new-hosting-plan-vs2019.png)
 
-1. Lämna **Application Insights** inställningen *ingen*.
+1. I **namn** anger du ett unikt namn för appen som bara innehåller giltiga tecken är `a-z` , `A-Z` , `0-9` och `-` . Du kan acceptera det automatiskt genererade unika namnet. Webbadressen till webbappen är `http://<app-name>.azurewebsites.net`, där `<app-name>` är appens namn.
 
-1. I dialog rutan **App Service: skapa nytt** väljer du **skapa** för att börja skapa Azure-resurser.
+2. Välj **skapa** för att skapa Azure-resurserna.
 
-   ![Skapa ny app service](./media/quickstart-dotnetcore/create-new-app-service-vs2019.png)
+   ![Skapa app-resurser](./media/quickstart-dotnetcore/web-app-name-vs2019.png)
 
-1. När guiden har slutförts väljer du **publicera**.
+   När guiden har slutförts skapas Azure-resurserna åt dig och du är redo att publicera.
 
-   ![Publicera webbapp till Azure](./media/quickstart-dotnetcore/publish-web-app-vs2019.png)
+3. Stäng guiden genom att klicka på **Slutför** .
 
-   Visual Studio publicerar din ASP.NET Core-webbapp till Azure och startar appen i din standard webbläsare. 
+1. På sidan **publicera** klickar du på **publicera**. Visual Studio skapar, paketerar och publicerar appen till Azure och startar sedan appen i standard webbläsaren.
 
    ![Publicerad ASP.NET-webbapp som körs i Azure](./media/quickstart-dotnetcore/web-app-running-live.png)
 
@@ -108,7 +135,7 @@ Följ de här stegen för att skapa din App Service och publicera din webbapp:
 
 Följ dessa steg för att uppdatera och distribuera om din webbapp:
 
-1. Öppna **Solution Explorer** **Pages**  >  **index. cshtml**under ditt projekt i Solution Explorer.
+1. Öppna **Solution Explorer** **Pages**  >  **index. cshtml** under ditt projekt i Solution Explorer.
 
 1. Ersätt hela `<div>` taggen med följande kod:
 
@@ -123,11 +150,11 @@ Följ dessa steg för att uppdatera och distribuera om din webbapp:
 
 1. På sidan **publicera** Sammanfattning väljer du **publicera**.
 
-   ![Publicera uppdatering av webbapp](./media/quickstart-dotnetcore/publish-update-to-web-app-vs2019.png)
+   <!-- ![Publish update to web app](./media/quickstart-dotnetcore/publish-update-to-web-app-vs2019.png) -->
 
-När publiceringen är klar startar Visual Studio en webbläsare till webbappens URL.
+    När publiceringen är klar startar Visual Studio en webbläsare till webbappens URL.
 
-![Uppdaterade ASP.NET-webbappen som körs i Azure](./media/quickstart-dotnetcore/updated-web-app-running-live.png)
+    ![Uppdaterade ASP.NET-webbappen som körs i Azure](./media/quickstart-dotnetcore/updated-web-app-running-live.png)
 
 ## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 
@@ -168,12 +195,23 @@ Du kan följa stegen i den här artikeln på en Mac-, Windows- eller Linux-dator
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="set-up-your-initial-environment"></a>Konfigurera din inledande miljö
+
+# <a name="net-core-31"></a>[.NET Core 3,1](#tab/netcore31)
 
 För att slutföra den här snabbstarten behöver du:
 
-* <a href="https://git-scm.com/" target="_blank">Installera Git</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installera den senaste .NET Core 3,1 SDK</a>
+* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installera den senaste .net Core 3,1 SDK: n</a>.
+* <a href="/cli/azure/install-azure-cli" target="_blank">Installera den senaste versionen av Azure CLI</a>.
+
+# <a name="net-50"></a>[.NET 5,0](#tab/net50)
+
+För att slutföra den här snabbstarten behöver du:
+
+* <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">Installera den senaste .net 5,0 SDK: n</a>.
+* <a href="/cli/azure/install-azure-cli" target="_blank">Installera den senaste versionen av Azure CLI</a>.
+
+---
 
 [Har du problem? Berätta för oss.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
@@ -196,8 +234,6 @@ dotnet new web
 
 Kör programmet lokalt så att du ser hur det ska se ut när du distribuerar det till Azure. 
 
-Återställ NuGet-paketen och kör appen.
-
 ```bash
 dotnet run
 ```
@@ -208,76 +244,56 @@ Nu kan du se **Hello World**-meddelandet från exempelappen på sidan.
 
 ![Testa med webbläsare](media/quickstart-dotnetcore/dotnet-browse-local.png)
 
-Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern. Initiera en Git-lagringsplats för .NET Core-projektet.
+[Har du problem? Berätta för oss.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
-```bash
-git init
-git add .
-git commit -m "first commit"
+## <a name="sign-into-azure"></a>Logga in på Azure
+Logga in på Azure med följande kommando i terminalfönstret:
+
+```azurecli
+az login
 ```
 
-[Har du problem? Berätta för oss.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
+## <a name="deploy-the-app"></a>Distribuera appen
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Distribuera koden i din lokala mapp (*hellodotnetcore*) med hjälp av `az webapp up` kommandot:
 
-[Har du problem? Berätta för oss.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
-
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
-
-[Har du problem? Berätta för oss.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
-
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-linux.md)]
-
-[Har du problem? Berätta för oss.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
-
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux.md)]
-
-[Har du problem? Berätta för oss.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
-
-## <a name="create-a-web-app"></a>Skapa en webbapp
-
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
-
-Bläddra till appen som precis skapades. Ersätt _ &lt; app-name->_ med namnet på appen.
-
-```bash
-https://<app-name>.azurewebsites.net
+```azurecli
+az webapp up --sku F1 --name <app-name> --os-type linux
 ```
 
-Så här bör din nya app se ut:
+- Om `az` kommandot inte känns igen kontrollerar du att Azure CLI är installerat enligt beskrivningen i [Konfigurera din första miljö](#set-up-your-initial-environment).
+- Ersätt `<app-name>` med ett namn som är unikt för alla Azure (*giltiga tecken är `a-z` , `0-9` och `-`*). Ett utmärkt mönster är att använda en kombination av företagets namn och en app-ID.
+- `--sku F1`Argumentet skapar webb programmet på den kostnads fria pris nivån. Utelämna det här argumentet om du vill använda en snabbare Premium-nivå, vilket innebär en timkostnad.
+- Du kan också inkludera argumentet `--location <location-name>` där `<location-name>` är en tillgänglig Azure-region. Du kan hämta en lista över tillåtna regioner för ditt Azure-konto genom att köra [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) kommandot.
 
-![Tom appsida](media/quickstart-dotnetcore/dotnet-browse-created.png)
+Det kan ta några minuter att slutföra kommandot. Under körningen innehåller den meddelanden om att skapa resurs gruppen, App Service plan och värd appen, Konfigurera loggning och sedan utföra ZIP-distribution. Det ger meddelandet "du kan starta appen på http:// &lt; App-Name &gt; . azurewebsites.net", som är appens URL på Azure.
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+# <a name="net-core-31"></a>[.NET Core 3,1](#tab/netcore31)
 
-<pre>
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 285 bytes | 95.00 KiB/s, done.
-Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
-remote: Deploy Async
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'd6b54472f7'.
-remote: Repository path is /home/site/repository
-remote: Running oryx build...
-remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
-remote: You can report issues at https://github.com/Microsoft/Oryx/issues
-remote:
-remote: Oryx Version      : 0.2.20200114.13, Commit: 204922f30f8e8d41f5241b8c218425ef89106d1d, ReleaseTagName: 20200114.13
-remote: Build Operation ID: |imoMY2y77/s=.40ca2a87_
-remote: Repository Commit : d6b54472f7e8e9fd885ffafaa64522e74cf370e1
-.
-.
-.
-remote: Deployment successful.
-remote: Deployment Logs : 'https://&lt;app-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/d6b54472f7e8e9fd885ffafaa64522e74cf370e1/log'
-To https://&lt;app-name&gt;.scm.azurewebsites.net:443/&lt;app-name&gt;.git
-   d87e6ca..d6b5447  master -> master
-</pre>
+![Exempel på utdata från kommandot AZ webapp up](./media/quickstart-dotnetcore/az-webapp-up-output-3.1.png)
+
+# <a name="net-50"></a>[.NET 5,0](#tab/net50)
+
+<!-- Deploy the code in your local folder (*hellodotnetcore*) using the `az webapp up` command:
+
+```azurecli
+az webapp up --sku B1 --name <app-name> --os-type linux
+```
+
+- If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
+- Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
+- The `--sku B1` argument creates the web app in the Basic pricing tier, which incurs an hourly cost. Omit this argument to use a faster premium tier, which costs more.
+- You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
+
+The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan and hosting app, configuring logging, then performing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure. -->
+
+![Exempel på utdata från kommandot AZ webapp up](./media/quickstart-dotnetcore/az-webapp-up-output-5.0.png)
+
+---
 
 [Har du problem? Berätta för oss.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
+
+[!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## <a name="browse-to-the-app"></a>Bläddra till appen
 
@@ -303,12 +319,13 @@ http://<app_name>.azurewebsites.net
 await context.Response.WriteAsync("Hello Azure!");
 ```
 
-Spara ändringarna på Git och skicka sedan kodändringarna till Azure.
+Spara ändringarna och distribuera sedan om appen med `az webapp up` kommandot igen:
 
-```bash
-git commit -am "updated output"
-git push azure master
+```azurecli
+az webapp up
 ```
+
+Det här kommandot använder värden som cachelagras lokalt i *Azure/config* -filen, inklusive app-namn, resurs grupp och App Service plan.
 
 När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades i **Bläddra till app** -steget och trycker på Uppdatera.
 
@@ -322,11 +339,11 @@ Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> f
 
 I den vänstra menyn, klickar du på **App Services** och därefter på namnet på din Azure-app.
 
-:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="Skärm bild av App Services sidan med ett exempel på en webbapp vald.":::
+:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list-up.png" alt-text="Skärm bild av sidan App Services som visar att ett exempel på en Azure-app har valts.":::
 
 Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
 
-![App Service-sidan på Azure Portal](media/quickstart-dotnetcore/portal-app-overview.png)
+![App Service-sidan på Azure Portal](media/quickstart-dotnetcore/portal-app-overview-up.png)
 
 Menyn till vänster innehåller olika sidor för att konfigurera appen. 
 

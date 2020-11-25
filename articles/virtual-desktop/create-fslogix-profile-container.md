@@ -7,11 +7,11 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 6a9f2c62d8e7f17f6ea8377982c79fef3dfbb97c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002824"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016836"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Skapa en profil behållare med Azure NetApp Files och AD DS
 
@@ -64,7 +64,7 @@ För att komma igång måste du konfigurera ett Azure NetApp Files-konto.
    az provider register --namespace Microsoft.NetApp --wait
    ```
 
-6. Välj **alla tjänster**på vänster sida i fönstret. Ange **Azure NetApp Files** i sökrutan som visas överst på menyn.
+6. Välj **alla tjänster** på vänster sida i fönstret. Ange **Azure NetApp Files** i sökrutan som visas överst på menyn.
 
    > [!div class="mx-imgBorder"]
    > ![En skärm bild av en användare som anger "Azure NetApp Files" i sökrutan alla tjänster. Sök resultatet visar Azure NetApp Files resursen.](media/azure-netapp-files-search-box.png)
@@ -75,10 +75,10 @@ För att komma igång måste du konfigurera ett Azure NetApp Files-konto.
 8. Välj knappen **Lägg till**.
 9. När fliken **nytt NetApp-konto** öppnas anger du följande värden:
 
-    - I **namn**anger du namnet på NetApp-kontot.
-    - För **prenumeration**väljer du prenumerationen för det lagrings konto som du ställer in i steg 4 i den nedrullningsbara menyn.
-    - För **resurs grupp**väljer du antingen en befintlig resurs grupp på den nedrullningsbara menyn eller skapar en ny genom att välja **Skapa ny**.
-    - För **plats**väljer du regionen för ditt NetApp-konto på den nedrullningsbara menyn. Den här regionen måste vara samma region som dina sessions värdar för virtuella datorer.
+    - I **namn** anger du namnet på NetApp-kontot.
+    - För **prenumeration** väljer du prenumerationen för det lagrings konto som du ställer in i steg 4 i den nedrullningsbara menyn.
+    - För **resurs grupp** väljer du antingen en befintlig resurs grupp på den nedrullningsbara menyn eller skapar en ny genom att välja **Skapa ny**.
+    - För **plats** väljer du regionen för ditt NetApp-konto på den nedrullningsbara menyn. Den här regionen måste vara samma region som dina sessions värdar för virtuella datorer.
 
    >[!NOTE]
    >Azure NetApp Files stöder för närvarande inte montering av en volym i flera regioner.
@@ -94,8 +94,8 @@ Skapa sedan en ny kapacitets grupp:
 3. Välj **Lägg till pool**.
 4. När fliken **ny pool för kapacitet** öppnas anger du följande värden:
 
-    - I **namn**anger du ett namn för den nya kapacitets gruppen.
-    - För **service nivå**väljer du önskat värde på den nedrullningsbara menyn. Vi rekommenderar **Premium** för de flesta miljöer.
+    - I **namn** anger du ett namn för den nya kapacitets gruppen.
+    - För **service nivå** väljer du önskat värde på den nedrullningsbara menyn. Vi rekommenderar **Premium** för de flesta miljöer.
        >[!NOTE]
        >Premium-inställningen ger det lägsta data flöde som är tillgängligt för en Premium service-nivå, som är 256 Mbit/s. Du kan behöva justera data flödet för en produktions miljö. Slutligt data flöde baseras på relationen som beskrivs i [data flödes gränser](../azure-netapp-files/azure-netapp-files-service-levels.md).
     - I **storlek (TIB)** anger du den storlek på kapacitets bassänger som bäst passar dina behov. Den minsta storleken är 4 TiB.
@@ -113,27 +113,27 @@ Därefter måste du ansluta till en Active Directory-anslutning.
 
 2. Ange följande värden på sidan **anslut Active Directory** för att ansluta till en anslutning:
 
-    - För **primär DNS**anger du IP-adressen för DNS-servern i din miljö som kan matcha domän namnet.
-    - För **domän**anger du det fullständigt kvalificerade domän namnet (FQDN).
+    - För **primär DNS** anger du IP-adressen för DNS-servern i din miljö som kan matcha domän namnet.
+    - För **domän** anger du det fullständigt kvalificerade domän namnet (FQDN).
     - För **SMB server-prefix (dator konto)** anger du den sträng som du vill lägga till i datorns konto namn.
-    - För **användar**namn anger du namnet på det konto som har behörighet att utföra domän anslutning.
-    - För **lösen ord**anger du kontots lösen ord.
+    - För **användar** namn anger du namnet på det konto som har behörighet att utföra domän anslutning.
+    - För **lösen ord** anger du kontots lösen ord.
 
 ## <a name="create-a-new-volume"></a>Skapa en ny volym
 
 Därefter måste du skapa en ny volym.
 
-1. Välj **volymer**och välj sedan **Lägg till volym**.
+1. Välj **volymer** och välj sedan **Lägg till volym**.
 
 2. När fliken **skapa en volym** öppnas anger du följande värden:
 
     - Ange ett namn på den nya volymen för **volym namn**.
-    - För **kapacitets grupp**väljer du den kapacitets uppsättning som du nyss skapade på den nedrullningsbara menyn.
+    - För **kapacitets grupp** väljer du den kapacitets uppsättning som du nyss skapade på den nedrullningsbara menyn.
     - För **kvot (GIB)** anger du den volym storlek som passar din miljö.
-    - För **virtuellt nätverk**väljer du ett befintligt virtuellt nätverk som har anslutning till domänkontrollanten från den nedrullningsbara menyn.
-    - Under **undernät**väljer du **Skapa nytt**. Tänk på att det här under nätet ska delegeras till Azure NetApp Files.
+    - För **virtuellt nätverk** väljer du ett befintligt virtuellt nätverk som har anslutning till domänkontrollanten från den nedrullningsbara menyn.
+    - Under **undernät** väljer du **Skapa nytt**. Tänk på att det här under nätet ska delegeras till Azure NetApp Files.
 
-3.  Välj **Nästa: protokoll \> \> ** för att öppna fliken protokoll och konfigurera dina volym åtkomst parametrar.
+3.  Välj **Nästa: protokoll \> \>** för att öppna fliken protokoll och konfigurera dina volym åtkomst parametrar.
 
 ## <a name="configure-volume-access-parameters"></a>Konfigurera parametrar för volym åtkomst
 
@@ -166,7 +166,7 @@ Det här avsnittet baseras på [skapa en profil behållare för en värdbaserad 
 
 5. Markera kryss rutan bredvid **Jag accepterar licens villkoren**.
 
-6. Välj **installera**.
+6. Välj **Installera**.
 
 7. Gå till **C: \\ Program Files \\ FSLogix- \\ appar** för att bekräfta att agenten är installerad.
 

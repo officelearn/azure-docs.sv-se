@@ -10,11 +10,11 @@ ms.date: 05/18/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
 ms.openlocfilehash: 68f311a949d6c7663c5602c444d1b7b9af09dcad
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517503"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016734"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med Azure CLI
 
@@ -55,7 +55,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Definiera en autoskalningsprofil
 
-Om du vill aktivera autoskalning för en skalningsuppsättning börjar du med att definiera en autoskalningsprofil. Den här profilen definierar skalningsuppsättningens förvalda, lägsta och högsta kapacitet. Med hjälp av dessa restriktioner kan du begränsa kostnaderna genom att inte skapa VM-instanser kontinuerligt, samtidigt som du kan balansera godtagbara prestanda med minsta antal instanser som bevaras vid en nedskalning. Skapa en autoskalningsprofil med [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). Följande exempel anger standard-och minimum kapacitet på *2* virtuella dator instanser och högst *10* :
+Om du vill aktivera autoskalning för en skalningsuppsättning börjar du med att definiera en autoskalningsprofil. Den här profilen definierar skalningsuppsättningens förvalda, lägsta och högsta kapacitet. Med hjälp av dessa restriktioner kan du begränsa kostnaderna genom att inte skapa VM-instanser kontinuerligt, samtidigt som du kan balansera godtagbara prestanda med minsta antal instanser som bevaras vid en nedskalning. Skapa en autoskalningsprofil med [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). Följande exempel anger standard-och minimum kapacitet på *2* virtuella dator instanser och högst *10*:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -123,7 +123,7 @@ SSH till din första virtuella datorinstans. Ange din egen offentliga IP-adress 
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-När du är inloggad, installerar du **stress** -verktyget. Starta *10* **stress** -arbetare som genererar CPU-belastning. De här arbetarna kör i *420* sekunder, vilket räcker för att få reglerna för automatisk skalning att implementera den önskade åtgärden.
+När du är inloggad, installerar du **stress**-verktyget. Starta *10* **stress**-arbetare som genererar CPU-belastning. De här arbetarna kör i *420* sekunder, vilket räcker för att få reglerna för automatisk skalning att implementera den önskade åtgärden.
 
 ```console
 sudo apt-get update
@@ -131,15 +131,15 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-När **stress** visar utdata som liknar *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , trycker du på *Retur* för att återgå till prompten.
+När **stress** visar utdata som liknar *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, trycker du på *Retur* för att återgå till prompten.
 
-Kontrollera att **stress** genererar CPU-belastning genom att granska den aktiva systembelastningen med **top** -verktyget:
+Kontrollera att **stress** genererar CPU-belastning genom att granska den aktiva systembelastningen med **top**-verktyget:
 
 ```console
 top
 ```
 
-Avsluta **top** , stäng sedan anslutningen till den virtuella datorinstansen. **stress** fortsätter att köras på den virtuella datorinstansen.
+Avsluta **top**, stäng sedan anslutningen till den virtuella datorinstansen. **stress** fortsätter att köras på den virtuella datorinstansen.
 
 ```console
 Ctrl-c
@@ -159,7 +159,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-När **stress** återigen visar utdata som liknar *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , trycker du på *Retur* för att återgå till prompten.
+När **stress** återigen visar utdata som liknar *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, trycker du på *Retur* för att återgå till prompten.
 
 Stäng din anslutning till den andra virtuella datorinstansen. **stress** fortsätter att köras på den virtuella datorinstansen.
 

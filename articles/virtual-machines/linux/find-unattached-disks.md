@@ -8,11 +8,11 @@ ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 0c3e8bb2ff6f3313e851a4253a95a5ad923a8f70
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913950"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016224"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Hitta och ta bort frånkopplade Azure-hanterade och ohanterade diskar med hjälp av Azure CLI
 När du tar bort en virtuell dator (VM) i Azure tas som standard alla diskar som är kopplade till den virtuella datorn bort. Den här funktionen hjälper till att förhindra data förlust på grund av oavsiktlig borttagning av virtuella datorer. När en virtuell dator har tagits bort fortsätter du att betala för ej anslutna diskar. Den här artikeln visar hur du hittar och tar bort alla frånkopplade diskar och minskar onödiga kostnader. 
@@ -50,7 +50,7 @@ done
 
 ## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Ohanterade diskar: hitta och ta bort ej anslutna diskar 
 
-Ohanterade diskar är VHD-filer som lagras som [Page blobbar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) i [Azure Storage-konton](../../storage/common/storage-account-overview.md). Följande skript söker efter ej anslutna ohanterade diskar (Page blobbar) genom att undersöka värdet för egenskapen **LeaseStatus** . När en ohanterad disk är ansluten till en virtuell dator är egenskapen **LeaseStatus** inställd på **låst** . När en ohanterad disk är frånkopplad är egenskapen **LeaseStatus** inställd på **olåst** . Skriptet undersöker alla ohanterade diskar i alla Azure Storage-konton i en Azure-prenumeration. När skriptet hittar en ohanterad disk med egenskapen **LeaseStatus** inställd på **olåst** , fastställer skriptet att disken är frånkopplad.
+Ohanterade diskar är VHD-filer som lagras som [Page blobbar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) i [Azure Storage-konton](../../storage/common/storage-account-overview.md). Följande skript söker efter ej anslutna ohanterade diskar (Page blobbar) genom att undersöka värdet för egenskapen **LeaseStatus** . När en ohanterad disk är ansluten till en virtuell dator är egenskapen **LeaseStatus** inställd på **låst**. När en ohanterad disk är frånkopplad är egenskapen **LeaseStatus** inställd på **olåst**. Skriptet undersöker alla ohanterade diskar i alla Azure Storage-konton i en Azure-prenumeration. När skriptet hittar en ohanterad disk med egenskapen **LeaseStatus** inställd på **olåst**, fastställer skriptet att disken är frånkopplad.
 
 >[!IMPORTANT]
 >Kör först skriptet genom att ange **deleteUnattachedVHDs** -variabeln till 0. Med den här åtgärden kan du söka efter och Visa alla frånkopplade ohanterade virtuella hård diskar.

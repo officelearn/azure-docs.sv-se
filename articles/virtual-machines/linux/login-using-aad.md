@@ -8,11 +8,11 @@ ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
 ms.openlocfilehash: 882df9d0dcb01d6321455b845fed087a5e14ccc6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843085"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016173"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>För hands version: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering
 

@@ -10,18 +10,18 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: cca0b197bdef04ffca9b71a7f394d3359023e2b7
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: de42854f512a69b7b70a15a10fe8499ca1d0bf8b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637434"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017737"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-data"></a>Kör PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-data
 
 Azure Storage innehåller tillägg för PowerShell som gör att du kan logga in och köra skript kommandon med Azure Active Directory (autentiseringsuppgifter för Azure AD). När du loggar in på PowerShell med autentiseringsuppgifter för Azure AD returneras en OAuth 2,0-åtkomsttoken. Denna token används automatiskt av PowerShell för att auktorisera efterföljande data åtgärder mot Blob Storage. För åtgärder som stöds behöver du inte längre skicka en konto nyckel eller SAS-token med kommandot.
 
-Du kan tilldela behörigheter till BLOB-data till ett säkerhets objekt i Azure AD via rollbaserad åtkomst kontroll (Azure RBAC). Mer information om Azure-roller i Azure Storage finns i [Hantera åtkomst rättigheter för att Azure Storage data med Azure RBAC](../common/storage-auth-aad-rbac.md).
+Du kan tilldela behörigheter till BLOB-data till ett säkerhets objekt i Azure AD via rollbaserad åtkomst kontroll (Azure RBAC). Mer information om Azure-roller i Azure Storage finns i [Hantera åtkomst rättigheter för att Azure Storage data med Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
 
 ## <a name="supported-operations"></a>Åtgärder som stöds
 
@@ -68,7 +68,7 @@ I följande exempel visas hur du skapar en behållare i ett nytt lagrings konto 
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Innan du skapar behållaren ska du tilldela rollen [Storage BLOB data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) till dig själv. Även om du är kontots ägare behöver du explicita behörigheter för att utföra data åtgärder mot lagrings kontot. Mer information om hur du tilldelar Azure-roller finns i [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](../common/storage-auth-aad-rbac.md).
+1. Innan du skapar behållaren ska du tilldela rollen [Storage BLOB data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) till dig själv. Även om du är kontots ägare behöver du explicita behörigheter för att utföra data åtgärder mot lagrings kontot. Mer information om hur du tilldelar Azure-roller finns i [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](../common/storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > Det kan ta några minuter att sprida Azures roll tilldelningar.

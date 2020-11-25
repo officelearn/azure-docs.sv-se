@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: b-juche
 ms.openlocfilehash: 7eac6a40476cffe875a03de49c9c9311ffbf4d39
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016050"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017074"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Tjänstnivåer för Azure NetApp Files
 Service nivåer är ett attribut för en pool med kapacitets värden. Service nivåer definieras och särskiljs av det tillåtna maximala data flödet för en volym i kapacitetsutnyttjandet baserat på den kvot som har tilldelats till volymen.
 
 ## <a name="supported-service-levels"></a>Service nivåer som stöds
 
-Azure NetApp Files stöder tre service nivåer: *Ultra*, *Premium*och *standard*. 
+Azure NetApp Files stöder tre service nivåer: *Ultra*, *Premium* och *standard*. 
 
 * <a name="Ultra"></a>Ultra Storage
 

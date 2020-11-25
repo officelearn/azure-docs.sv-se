@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: c7dfbd60b7a668b849c3150bb16e40285c345634
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844121"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015357"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Vad är klassiska aviseringar i Microsoft Azure?
 
@@ -37,7 +37,7 @@ Användar upplevelsen för nya aviseringar har följande fördelar jämfört med
 
 De nyare mått aviseringarna har följande fördelar jämfört med de klassiska måtten:
 - **Förbättrad svars tid**: nya mått aviseringar kan köras så ofta som var som än en minut. Äldre mått varningar körs alltid med en frekvens på 5 minuter. Nyare aviseringar har ökat mindre fördröjning från ärende förekomst till meddelande eller åtgärd (3 till 5 minuter). Äldre aviseringar är 5 till 15 minuter beroende på typ.  Logg aviseringar har vanligt vis 10 till 15 minuters fördröjning på grund av den tid det tar att mata in loggarna, men nyare bearbetnings metoder minskar den tiden. 
-- **Stöd för**flerdimensionella mått: du kan varna på dimensionella mått så att du kan övervaka ett intressant segment av måttet.
+- **Stöd för** flerdimensionella mått: du kan varna på dimensionella mått så att du kan övervaka ett intressant segment av måttet.
 - **Mer kontroll över mått villkor**: du kan definiera omfattande aviserings regler. De nya aviseringarna har stöd för övervakning av de högsta, lägsta, genomsnittliga och totala värdena för mått.
 - **Kombinerad övervakning av flera mått**: du kan övervaka flera mått (för närvarande upp till två mått) med en enda regel. En avisering utlöses om båda måtten bryter mot respektive tröskelvärde för den angivna tids perioden.
 - **Bättre meddelande system**: alla nyare aviseringar använder [Åtgärds grupper](./action-groups.md), som heter grupper av meddelanden och åtgärder som kan återanvändas i flera aviseringar.  Klassiska mått varningar och äldre Log Analytics aviseringar använder inte åtgärds grupper. 

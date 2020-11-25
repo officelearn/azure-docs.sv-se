@@ -7,11 +7,11 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 4a847b273472ecc9d2aaa3993ec9d88aa46f2e7f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973877"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017176"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Skapa och hantera ett support paket för StorSimple 8000-serien
 
@@ -23,7 +23,7 @@ Den här självstudien innehåller stegvisa instruktioner för att skapa och han
 
 ## <a name="create-a-support-package"></a>Skapa ett support paket
 
-I vissa fall måste du skapa ett support paket manuellt via Windows PowerShell för StorSimple. Till exempel:
+I vissa fall måste du skapa ett support paket manuellt via Windows PowerShell för StorSimple. Exempel:
 
 * Om du behöver ta bort känslig information från dina loggfiler innan du delar med Microsoft Support.
 * Om du har problem med att ladda upp paketet på grund av anslutnings problem.
@@ -67,7 +67,7 @@ Du kan använda följande parametrar med Export-HcsSupportPackage-cmdleten.
 | Parameter | Obligatorisk/valfri | Beskrivning |
 | --- | --- | --- |
 | `-Path` |Krävs |Används för att ange platsen för den delade nätverksmapp där support paketet placeras. |
-| `-EncryptionPassphrase` |Krävs |Används för att ge en lösen fras för att kryptera support paketet. |
+| `-EncryptionPassphrase` |Obligatorisk |Används för att ge en lösen fras för att kryptera support paketet. |
 | `-Credential` |Valfritt |Använd för att ange autentiseringsuppgifter för den delade nätverksmappen. |
 | `-Force` |Valfritt |Används för att hoppa över bekräftelse steget för kryptering av lösen fras. |
 | `-PackageTag` |Valfritt |Används för att ange en katalog under *sökvägen* där support paketet placeras. Standardvärdet är [enhets namn]-[aktuellt datum och tid: ÅÅÅÅ-MM-dd-HH-mm-SS]. |

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: dffa059b18e159d04b5e3bb8555dabf801ede692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85511810"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017125"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Växling vid fel och haveriberedskap för enhet i StorSimple 8000-serien
 
@@ -120,7 +120,7 @@ A. Skräp insamling är bara aktiverat på käll enheten när enheten har rensat
 
 F. **Vad händer om borttagnings jobbet som är kopplat till volym behållarna på käll enheten Miss lyckas?**
 
-A.  Om borttagnings jobbet Miss lyckas kan du ta bort volym containrarna manuellt. Välj din käll enhet på bladet **enheter** och klicka på **volym behållare**. Välj de volym behållare som du har växlat över och klicka på **ta bort**längst ned på bladet. När du har tagit bort alla felaktiga volymer över volym containrar på käll enheten kan du starta återställningen. Mer information finns i [ta bort en volym behållare](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
+A.  Om borttagnings jobbet Miss lyckas kan du ta bort volym containrarna manuellt. Välj din käll enhet på bladet **enheter** och klicka på **volym behållare**. Välj de volym behållare som du har växlat över och klicka på **ta bort** längst ned på bladet. När du har tagit bort alla felaktiga volymer över volym containrar på käll enheten kan du starta återställningen. Mer information finns i [ta bort en volym behållare](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
 
 ## <a name="business-continuity-disaster-recovery-bcdr"></a>Katastrof återställning av affärs kontinuitet (BCDR)
 

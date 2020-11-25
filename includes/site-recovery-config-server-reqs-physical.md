@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: afeae4af9b41bf434b26833a3bd927118a4697ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a8a7be6f437687a4de31ce8e0ac62588f64e2eb
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187569"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96016919"
 ---
 **Krav på konfiguration/Processerver för fysisk server-replikering**
 
@@ -31,8 +31,8 @@ Ledigt disk utrymme (kvarhållning av disk) | 600 GB
 Operativsystem | Windows Server 2012 R2 <br> Windows Server 2016
 Nationella inställningar för operativsystem | Engelska (en-us)
 Windows Server-roller | Aktivera inte följande roller: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
-Grup principer | Aktivera inte dessa grup principer: <br> -Förhindra åtkomst till kommando tolken. <br> -Förhindra åtkomst till verktyg för redigering av registret. <br> – Förtroende logik för bifogade filer. <br> – Aktivera skript körning. <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | -Ingen befintlig standard webbplats <br> – Ingen befintlig webbplats/program lyssnar på port 443 <br>-Aktivera  [Anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> – Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -inställningen.
+Grup principer | Aktivera inte dessa grup principer: <br> -Förhindra åtkomst till kommando tolken. <br> -Förhindra åtkomst till verktyg för redigering av registret. <br> – Förtroende logik för bifogade filer. <br> – Aktivera skript körning. <br> [Läs mer](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
+IIS | -Ingen befintlig standard webbplats <br> – Ingen befintlig webbplats/program lyssnar på port 443 <br>-Aktivera  [Anonym autentisering](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> – Aktivera [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) -inställningen.
 IP-adresstyp | Statisk 
 | 
 **ÅTKOMST INSTÄLLNINGAR** | 
@@ -49,4 +49,3 @@ Portar | Tillåt 443 (kontroll av kanal dirigering)<br/><br/> Tillåt 9443 (data
 8 virtuella processorer<br/><br/> 2 Sockets * 4 kärnor \@ 2,5 GHz | GB | 300 GB | 500 GB eller mindre | < 100-datorer
 12 virtuella processorer<br/><br/> 2 SOCKS * 6 kärnor \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 till 150-datorer
 16 virtuella processorer<br/><br/> 2 SOCKS * 8 kärnor \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200-datorer
-

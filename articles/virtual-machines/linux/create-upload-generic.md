@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
 ms.openlocfilehash: a80cc29f318cff8e5a4c665cd07ba1829d25d66d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373393"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016343"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Information om icke-godkända distributioner
 
@@ -35,7 +35,7 @@ Vi rekommenderar att du börjar med en av [Linux på Azure-godkända distributio
 Den här artikeln fokuserar på allmän vägledning för att köra din Linux-distribution på Azure.
 
 ## <a name="general-linux-installation-notes"></a>Allmän Linux-installation anmärkningar
-* Formatet för Hyper-V virtuell hård disk (VHDX) stöds inte i Azure, endast *fast virtuell*hård disk.  Du kan konvertera disken till VHD-format med hjälp av Hyper-V Manager eller cmdleten [Convert-VHD](/powershell/module/hyper-v/convert-vhd) . Om du använder VirtualBox väljer du **fast storlek** i stället för standard (dynamiskt allokerat) när du skapar disken.
+* Formatet för Hyper-V virtuell hård disk (VHDX) stöds inte i Azure, endast *fast virtuell* hård disk.  Du kan konvertera disken till VHD-format med hjälp av Hyper-V Manager eller cmdleten [Convert-VHD](/powershell/module/hyper-v/convert-vhd) . Om du använder VirtualBox väljer du **fast storlek** i stället för standard (dynamiskt allokerat) när du skapar disken.
 * Azure stöder gen1 (BIOS boot) & Gen2 (UEFI boot) virtuella datorer.
 * Den maximala storlek som tillåts för den virtuella hård disken är 1 023 GB.
 * När du installerar Linux-systemet rekommenderar vi att du använder standardpartitioner istället för LVM (Logical Volume Manager) som är standard för många installationer. Genom att använda standardpartitioner undviker du LVM namn konflikter med klonade virtuella datorer, särskilt om en OS-disk någonsin är ansluten till en annan identisk virtuell dator för fel sökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan användas på data diskar.

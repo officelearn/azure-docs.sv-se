@@ -16,11 +16,11 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: c137cbf0c2290bdbe228f7902e616e7f79cb459e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307797"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016989"
 ---
 # <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Självstudie: skicka push-meddelanden till vissa Android-användare med Azure Notification Hubs och Google Cloud Messaging (inaktuellt)
 
@@ -38,7 +38,7 @@ I den här självstudien gör du följande:
 > * Uppdatera Android-programmet.
 > * Testa appen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [Självstudie: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md) innan du börjar med den här självstudien.
 
@@ -470,7 +470,7 @@ Nästa steg är att uppdatera Android-programmet som skapades i [Självstudie: P
 
 1. Kör programmet på en enhet eller i en emulator med Android Studio.
 2. Ange ett användarnamn och lösenord i Android-appen. De måste båda ha samma strängvärde och får inte innehålla blanksteg eller specialtecken.
-3. Klicka på **Logga**in i Android-appen. Vänta på ett popup-meddelande med texten **Inloggad och registrerad**. Detta aktiverar knappen **Skicka meddelande**.
+3. Klicka på **Logga** in i Android-appen. Vänta på ett popup-meddelande med texten **Inloggad och registrerad**. Detta aktiverar knappen **Skicka meddelande**.
 
     ![Skärm bild av en app. Ett popup-meddelande som bekräftar att användaren är inloggad och registrerad är synlig och knappen Skicka meddelande är aktive rad.][A2]
 4. Klicka på växlingsknapparna för att aktivera alla plattformar där du körde appen och registrerade en användare.

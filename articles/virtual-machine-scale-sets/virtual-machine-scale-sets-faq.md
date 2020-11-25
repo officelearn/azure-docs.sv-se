@@ -10,11 +10,11 @@ ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87080479"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016717"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar om Virtual Machine Scale Sets
 
@@ -60,7 +60,7 @@ Ja, du kan använda [tillägg](virtual-machine-scale-sets-extension-sequencing.m
 
 ### <a name="do-scale-sets-work-with-azure-availability-sets"></a>Fungerar skalningsuppsättningar med Azures tillgänglighetsuppsättningar?
 
-En regional (icke-zonindelade) skalnings uppsättning använder *placerings grupper*som fungerar som en implicit tillgänglighets uppsättning med fem fel domäner och fem uppdaterings domäner. Skalnings uppsättningar på fler än 100 virtuella datorer sträcker sig över flera placerings grupper. Mer information om placeringsgrupper finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). En tillgänglighetsuppsättning för virtuella datorer kan finnas i samma virtuella nätverk som en skalningsuppsättning för virtuella datorer. En vanlig konfiguration är att placera virtuella kontrollnodsdatorer (som ofta kräver unika konfigurationer) i en tillgänglighetsuppsättning och placera datanoder i skalningsuppsättningen.
+En regional (icke-zonindelade) skalnings uppsättning använder *placerings grupper* som fungerar som en implicit tillgänglighets uppsättning med fem fel domäner och fem uppdaterings domäner. Skalnings uppsättningar på fler än 100 virtuella datorer sträcker sig över flera placerings grupper. Mer information om placeringsgrupper finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). En tillgänglighetsuppsättning för virtuella datorer kan finnas i samma virtuella nätverk som en skalningsuppsättning för virtuella datorer. En vanlig konfiguration är att placera virtuella kontrollnodsdatorer (som ofta kräver unika konfigurationer) i en tillgänglighetsuppsättning och placera datanoder i skalningsuppsättningen.
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>Fungerar skalnings uppsättningar med Azures tillgänglighets zoner?
 
@@ -224,9 +224,9 @@ Du kan tillhandahålla offentliga SSH-nycklar i oformaterad text när du skapar 
 }
 ```
 
-linuxConfiguration element namn | Krävs | Typ | Beskrivning
+linuxConfiguration element namn | Krävs | Typ | Description
 --- | --- | --- | ---
-SSH | Inga | Samling | Anger SSH-nyckeln för ett Linux-operativsystem
+SSH | No | Samling | Anger SSH-nyckeln för ett Linux-operativsystem
 path | Ja | Sträng | Anger sökvägen till Linux-filen där SSH-nycklar eller certifikatet ska placeras
 Data | Ja | Sträng | Anger en Base64-kodad Offentlig SSH-nyckel
 
@@ -368,13 +368,13 @@ Ett exempel på en mall för skalnings uppsättning för virtuell dator som inte
 
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Hur gör jag för att lägga till ett tillägg till alla virtuella datorer i skalnings uppsättningen för den virtuella datorn?
 
-Om uppdaterings principen är inställd på **Automatisk**och distribuerar om mallen med de nya tilläggs egenskaperna uppdaterar alla virtuella datorer.
+Om uppdaterings principen är inställd på **Automatisk** och distribuerar om mallen med de nya tilläggs egenskaperna uppdaterar alla virtuella datorer.
 
-Om uppdaterings principen är inställd på **manuell**måste du först uppdatera tillägget och sedan manuellt uppdatera alla instanser i de virtuella datorerna.
+Om uppdaterings principen är inställd på **manuell** måste du först uppdatera tillägget och sedan manuellt uppdatera alla instanser i de virtuella datorerna.
 
 ### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected"></a>Om tilläggen som är associerade med en befintlig virtuell dators skalnings uppsättning uppdateras, påverkas befintliga virtuella datorer?
 
-Om tilläggs definitionen i den virtuella datorns skal uppsättnings modell uppdateras och upgradePolicy-egenskapen är inställd på **Automatisk**, uppdateras de virtuella datorerna. Om egenskapen upgradePolicy är inställd på **manuell**flaggas tillägg som inte matchar modellen.
+Om tilläggs definitionen i den virtuella datorns skal uppsättnings modell uppdateras och upgradePolicy-egenskapen är inställd på **Automatisk**, uppdateras de virtuella datorerna. Om egenskapen upgradePolicy är inställd på **manuell** flaggas tillägg som inte matchar modellen.
 
 ### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>Körs tilläggen igen när en befintlig dator är servad eller avbildningad?
 
@@ -660,7 +660,7 @@ Du hittar de nödvändiga workspaceId och workspaceKey på arbets ytan Log Analy
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>Hur gör jag för att aktiverar du startdiagnostik?
 
-Du aktiverar startdiagnostik genom att först skapa ett lagrings konto. Lägg sedan till det här JSON-blocket i den virtuella datorns skalnings uppsättning **virtualMachineProfile**och uppdatera skalnings uppsättningen för den virtuella datorn:
+Du aktiverar startdiagnostik genom att först skapa ett lagrings konto. Lägg sedan till det här JSON-blocket i den virtuella datorns skalnings uppsättning **virtualMachineProfile** och uppdatera skalnings uppsättningen för den virtuella datorn:
 
 ```json
 "diagnosticsProfile": {
@@ -694,7 +694,7 @@ Nej, du kan inte skicka olika tilläggs argument till olika virtuella datorer i 
 
 ### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Varför finns det luckor mellan den virtuella datorns skalnings uppsättnings dator namn och VM-ID? Till exempel: 0, 1, 3...
 
-Det finns luckor mellan den virtuella datorns skalnings uppsättnings dator namn och VM-ID: t eftersom **egenskapen för** skalnings uppsättningen för den virtuella datorn har angetts till standardvärdet **True**. Om överetablering har angetts till **Sant**skapas fler virtuella datorer än vad som begärs. Ytterligare virtuella datorer tas sedan bort. I det här fallet får du ökad distributions tillförlitlighet, men vid kostnad av sammanhängande namn och sammanhängande regler för NAT (Network Address Translation).
+Det finns luckor mellan den virtuella datorns skalnings uppsättnings dator namn och VM-ID: t eftersom **egenskapen för** skalnings uppsättningen för den virtuella datorn har angetts till standardvärdet **True**. Om överetablering har angetts till **Sant** skapas fler virtuella datorer än vad som begärs. Ytterligare virtuella datorer tas sedan bort. I det här fallet får du ökad distributions tillförlitlighet, men vid kostnad av sammanhängande namn och sammanhängande regler för NAT (Network Address Translation).
 
 Du kan ställa in den här egenskapen på **false**. För små skalnings uppsättningar för virtuella datorer påverkar detta inte distributionens tillförlitlighet.
 

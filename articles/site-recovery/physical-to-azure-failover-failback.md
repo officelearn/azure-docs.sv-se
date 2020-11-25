@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
 ms.openlocfilehash: 2994f68e4159c7c4aa7d82bef7a5891deb5055a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292818"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017431"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Redundansväxla och återställa fysiska servrar som replikeras till Azure
 
@@ -34,11 +34,11 @@ I den här självstudien beskrivs hur du växlar över lokala fysiska servrar so
 
 Kontrol lera Server egenskaperna och se till att de uppfyller [Azure-kraven](vmware-physical-azure-support-matrix.md#replicated-machines) för virtuella Azure-datorer.
 
-1. I **skyddade objekt**klickar du på **replikerade objekt**och väljer datorn.
+1. I **skyddade objekt** klickar du på **replikerade objekt** och väljer datorn.
 2. I fönstret **replikerat objekt** finns en sammanfattning av dator information, hälso status och de senaste tillgängliga återställnings punkterna. Klicka på **Egenskaper** för att se mer information.
-3. I **beräkning och nätverk**kan du ändra Azure-namn, resurs grupp, mål storlek, [tillgänglighets uppsättning](../virtual-machines/windows/tutorial-availability-sets.md)och hanterade disk inställningar
+3. I **beräkning och nätverk** kan du ändra Azure-namn, resurs grupp, mål storlek, [tillgänglighets uppsättning](../virtual-machines/windows/tutorial-availability-sets.md)och hanterade disk inställningar
 4. Du kan visa och ändra inställningar för nätverk, inklusive det nätverk/undernät där den virtuella Azure-datorn kommer att finnas efter redundansen och den IP-adress som kommer att tilldelas till den.
-5. I **diskar**kan du se information om datorns operativ system och data diskar.
+5. I **diskar** kan du se information om datorns operativ system och data diskar.
 
 ### <a name="fail-over-to-azure"></a>Redundansväxla till Azure
 
@@ -95,7 +95,7 @@ När du har växlat till Azure igen kan du skydda virtuella Azure-datorer genom 
 
 Den här proceduren förutsätter att den lokala virtuella datorn inte är tillgänglig.
 
-1. I valvet > **Inställningar**  >  **replikerade objekt**högerklickar du på den dator som har redundansväxlats > **skydda igen**.
+1. I valvet > **Inställningar**  >  **replikerade objekt** högerklickar du på den dator som har redundansväxlats > **skydda igen**.
 2. I **Återaktivera skydd** kontrollerar du att **Azure till lokal plats** är valt.
 3. Ange den lokala huvudmålservern och processervern.
 4. I **Datalager** välj du det huvudmåldatalager som du vill återställa diskarna till lokalt.

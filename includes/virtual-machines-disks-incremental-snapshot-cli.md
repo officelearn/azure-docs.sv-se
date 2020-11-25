@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cbd6f821326c86983ceb3ae5b90969e522c187fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bdeef537556db94338ed50fcfa6e9d88431f25a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82204593"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96016273"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -29,9 +29,9 @@ I Windows installerar eller uppdaterar du den befintliga installationen till den
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
-I Linux kan CLI-installationen variera beroende på operativ systemets version.  Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) för din specifika Linux-version.
+I Linux kan CLI-installationen variera beroende på operativ systemets version.  Se [Installera Azure CLI](/cli/azure/install-azure-cli) för din specifika Linux-version.
 
-Om du vill skapa en stegvis ögonblicks bild använder du [AZ Snapshot Create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) med `--incremental` parametern.
+Om du vill skapa en stegvis ögonblicks bild använder du [AZ Snapshot Create](/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) med `--incremental` parametern.
 
 I följande exempel skapas en stegvis ögonblicks bild, ersätter `<yourDesiredSnapShotNameHere>` ,, `<yourResourceGroupNameHere>` `<exampleDiskName>` och `<exampleLocation>` med dina egna värden, och sedan körs exemplet:
 

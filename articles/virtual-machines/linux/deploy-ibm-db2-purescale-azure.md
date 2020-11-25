@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: 17ea965758150adb72d8e8f9fee9937bd5387a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371931"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016326"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuera IBM DB2 pureScale på Azure
 
@@ -71,7 +71,7 @@ GitHub-lagringsplatsen innehåller DB2server. rsp, en svars fil (. RSP) som gör
 > [!NOTE]
 > En exempel svars fil, DB2server. rsp, ingår i [DB2onAzure](https://aka.ms/db2onazure) -lagringsplatsen på GitHub. Om du använder den här filen måste du redigera den innan den kan fungera i din miljö.
 
-| Skärm namn               | Field                                        | Värde                                                                                                 |
+| Skärm namn               | Fält                                        | Värde                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Välkommen                   |                                              | Ny installation                                                                                           |
 | Välj en produkt          |                                              | DB2-version 11.1.3.3. Server versioner med DB2 pureScale                                              |
@@ -111,7 +111,7 @@ GitHub-lagringsplatsen innehåller DB2server. rsp, en svars fil (. RSP) som gör
 
 - Installations skripten använder alias för iSCSI-diskarna så att de faktiska namnen kan hittas enkelt.
 
-- När installations skriptet körs på D0 kan **/dev/DM- \* ** -värdena vara olika på D1, cf0 och CF1. Skillnaden i värden påverkar inte installationen av DB2-pureScale.
+- När installations skriptet körs på D0 kan **/dev/DM- \*** -värdena vara olika på D1, cf0 och CF1. Skillnaden i värden påverkar inte installationen av DB2-pureScale.
 
 ## <a name="troubleshooting-and-known-issues"></a>Felsökning och kända problem
 

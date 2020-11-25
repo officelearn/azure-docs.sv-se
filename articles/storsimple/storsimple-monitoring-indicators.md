@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85512973"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015408"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Använd StorSimple övervaknings indikatorer för att hantera din enhet
 
@@ -55,13 +55,13 @@ Använd följande tabell för att identifiera den status som anges av lysdiodern
 
 | Systemets strömförsörjning | Modul-fel | Logiskt fel | Varningar | Status |
 | --- | --- | --- | --- | --- |
-| Röd-gul |OFF |OFF |E.t. |Ström spar läge går förlorat, körs på säkerhets kopiering eller LIKSTRÖMs drift och Controller-modulerna har tagits bort. |
-| Green |ON |ON |E.t. |Test status för OPS-panelens start på (5 SEK) |
-| Green |OFF |OFF |E.t. |Slå på, alla funktioner är effektiva |
-| Green |ON |E.t. |Fel lampor för PCM, fläkt Fels lampor |Ett PCM-fel, fläkt fel, över eller under temperatur |
-| Green |ON |E.t. |I/O-modulens lampor |Ett fel i styrenhets module |
+| Röd-gul |OFF |OFF |Ej tillämpligt |Ström spar läge går förlorat, körs på säkerhets kopiering eller LIKSTRÖMs drift och Controller-modulerna har tagits bort. |
+| Green |ON |ON |Ej tillämpligt |Test status för OPS-panelens start på (5 SEK) |
+| Green |OFF |OFF |Ej tillämpligt |Slå på, alla funktioner är effektiva |
+| Green |ON |Ej tillämpligt |Fel lampor för PCM, fläkt Fels lampor |Ett PCM-fel, fläkt fel, över eller under temperatur |
+| Green |ON |Ej tillämpligt |I/O-modulens lampor |Ett fel i styrenhets module |
 | Green |ON |Saknas |Saknas |Kabinett logiskt fel |
-| Green |Utvecklingsverktyget |E.t. |INDIKATOR för modulens status i Controller-modulen. Fel lampor för PCM, fläkt Fels lampor |Okänd modultyp har installerats, I2C Bus-fel, konfigurations fel i kontrollantens vitala produkt data (VPD) |
+| Green |Utvecklingsverktyget |Ej tillämpligt |INDIKATOR för modulens status i Controller-modulen. Fel lampor för PCM, fläkt Fels lampor |Okänd modultyp har installerats, I2C Bus-fel, konfigurations fel i kontrollantens vitala produkt data (VPD) |
 
 ## <a name="power-cooling-module-pcm-indicator-leds"></a>Indikator lampor för Power kylning module (PCM)
 Indikator lampor för Power kylning module (PCM) finns på bak sidan av den primära inne slutningen eller EBOD-kammaren på varje PCM-modul. I det här avsnittet beskrivs hur du använder följande indikatorer för att övervaka status för din StorSimple-enhet.  
@@ -91,7 +91,7 @@ Status för PCM visas på indikator panelen. Indikator lampan för enhets-PCM ha
 | Ingen växel ström (till kabinett) |OFF |OFF |OFF |OFF |
 | Ingen växel ström (endast denna PCM) |OFF |ON |OFF |ON |
 | AC-presentera PCM på OK |ON |OFF |OFF |OFF |
-| PCM-misslyckande (fläkt misslyckande) |OFF |OFF |ON |E.t. |
+| PCM-misslyckande (fläkt misslyckande) |OFF |OFF |ON |Ej tillämpligt |
 | PCM-fel (via amp, överspänning, över aktuella) |OFF |ON |ON |ON |
 | PCM (från tolerans) |ON |OFF |OFF |ON |
 | Vänte läge |Blinkande |OFF |OFF |OFF |
@@ -136,7 +136,7 @@ Följande bild hjälper dig att identifiera lysdioderna på den primära kontrol
 Använd följande tabell för att avgöra om Controller-modulen fungerar som den ska.  
 
 ### <a name="controller-indicator-leds"></a>Indikator lampor för kontrollant
-| SPOLNING | Beskrivning |
+| SPOLNING | Description |
 | --- | --- |
 | Indikator för ID (blå) |Anger att modulen identifieras. Om den blå INDIKATORn blinkar på en styrenhet som körs, är kontrollanten den aktiva styrenheten och den andra är vänte läges styrenheten. Mer information finns i [identifiera den aktiva kontrollanten på enheten](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | Fel indikator (gul) |Indikerar ett fel i kontrollanten. |
@@ -200,7 +200,7 @@ En StorSimple-enhet innehåller akustiska larm som är kopplade till både den p
 I följande tabell beskrivs de olika larm tillstånden.  
 
 ### <a name="alarm-states"></a>Larm tillstånd
-| Larm tillstånd | Action | Åtgärd med knappen Muted nedtryckt |
+| Larm tillstånd | Åtgärd | Åtgärd med knappen Muted nedtryckt |
 | --- | --- | --- |
 | S0 |Normal läge: tyst |PIP två gånger |
 | S1 |Fel läge: 1 sekund på/1 sekund av |Över gång till S2 eller S3 (se kommentarer) |
@@ -239,7 +239,7 @@ I följande tabell beskrivs de olika larm villkoren.
 | Enhetens energi kontroll fel |Varning – ingen förlust av enhets strömförsörjning |S1 |Modul-fel |
 | Enhetens energi kontroll fel |Fel – kritiskt; förlust av enhets kraft |S1 |Modul-fel |
 | Enheten har tagits bort |Varning |Inget |Modul-fel |
-| Otillräcklig ström tillgänglig |Varning |ingen |Modul-fel |
+| Otillräcklig ström tillgänglig |Varning |inget |Modul-fel |
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om [StorSimple maskin varu komponenter och status](storsimple-8000-monitor-hardware-status.md).

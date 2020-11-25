@@ -15,11 +15,11 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 167c666c536ee33531fd069dbd1edb530331a9f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302197"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016969"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa användare med Azure Notification Hubs
 
@@ -56,8 +56,8 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
 
     ![Redigera storyboard i Xcode Interface Builder][1]
 
-   * **Användar namn**: en UITextField med platshållartext, *Ange användar namn*direkt under etiketten skicka resultat och begränsas till vänster och höger marginaler och under etiketten skicka resultat.
-   * **Lösen ord**: ett UITextField med platshållartext, *Ange lösen ordet*direkt under textfältet username och begränsat till vänster och höger marginaler och under text fältet användar namn. Markera alternativet för **säker text inmatning** i modulen attribut under *RETUR nyckel*.
+   * **Användar namn**: en UITextField med platshållartext, *Ange användar namn* direkt under etiketten skicka resultat och begränsas till vänster och höger marginaler och under etiketten skicka resultat.
+   * **Lösen ord**: ett UITextField med platshållartext, *Ange lösen ordet* direkt under textfältet username och begränsat till vänster och höger marginaler och under text fältet användar namn. Markera alternativet för **säker text inmatning** i modulen attribut under *RETUR nyckel*.
    * **Logga in**: en UIButton som märks direkt under fältet lösen ords text och avmarkerar alternativet **aktive rad** i kontrollen attribut under *kontroll-Content*
    * **WNS**: etikett och växel för att aktivera sändning av Notification Service för meddelande tjänsten om den har kon figurer ATS i hubben. Se själv studie kursen om [Windows komma igång](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
    * **GCM**: etikett och växel för att aktivera sändning av meddelandet till Google Cloud Messaging om det har kon figurer ATS i hubben. Se själv studie kursen om [Android komma igång](notification-hubs-android-push-notification-google-gcm-get-started.md) .

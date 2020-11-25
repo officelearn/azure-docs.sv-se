@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9f1c30b303bd1fe02e0685c7d848be92073ca2f6
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375804"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016885"
 ---
 #### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>Så här lägger du till autentiseringsuppgifter för ett lagringskonto i samma Azure-prenumeration som StorSimple Device Manager-tjänsten
 
@@ -21,7 +21,7 @@ ms.locfileid: "93375804"
 
     ![Lägg till autentiseringsuppgift för lagringskonto](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct2.png)
 
-3. Utför följande steg på bladet **Lägg till autentiseringsuppgift för lagringskonto** :
+3. Utför följande steg på bladet **Lägg till autentiseringsuppgift för lagringskonto**:
 
     1. När du lägger till en autentiseringsuppgift för ett lagringskonto i samma Azure-prenumeration som din tjänst kontrollerar du att **Aktuell** är markerat.
 

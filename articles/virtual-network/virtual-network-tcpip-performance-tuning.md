@@ -16,11 +16,11 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87068517"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017618"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Prestanda justering för TCP/IP för virtuella Azure-datorer
 
@@ -220,7 +220,7 @@ Detta är de effektiva TCP-inställningarna för `AutoTuningLevel` :
 
 | AutoTuningLevel | Skalnings faktor | Skalnings multiplikator | Formel för att<br/>beräkna maximal fönster storlek |
 | --------------- | -------------- | ------------------ | -------------------------------------------- |
-|Inaktiverad|Inget|Inget|Fönster storlek|
+|Inaktiverad|Inga|Inga|Fönster storlek|
 |Begränsade|4|2 ^ 4|Fönster storlek * (2 ^ 4)|
 |Hög begränsad|2|2 ^ 2|Fönster storlek * (2 ^ 2)|
 |Normal|8|2 ^ 8|Fönster storlek * (2 ^ 8)|
@@ -305,7 +305,7 @@ Mer information finns i [bandbredd för virtuella dator nätverk](https://aka.ms
 
 Som vi diskuterat i den här artikeln kan faktorer på Internet och utanför kontrollen av Azure påverka nätverks prestanda. Här följer några av dessa faktorer:
 
-- **Svars tid: fördröjningen**mellan två destinationer kan påverkas av problem i mellanliggande nätverk, av trafik som inte tar vägen "kortaste", och efter optimala peering-sökvägar.
+- **Svars tid: fördröjningen** mellan två destinationer kan påverkas av problem i mellanliggande nätverk, av trafik som inte tar vägen "kortaste", och efter optimala peering-sökvägar.
 
 - **Paket förlust**: paket förlust kan orsakas av överbelastning på nätverket, fysiska Sök vägs problem och underpresterande nätverks enheter.
 

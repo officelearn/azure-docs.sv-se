@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151384"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017006"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autentisera en underordnad enhet på Azure IoT Hub
 
@@ -144,13 +144,13 @@ Det här avsnittet baseras på instruktionerna som beskrivs i IoT Hub artikel ko
 
 2. Följ anvisningarna i avsnittet [Registrera x. 509 CA-certifikat i IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) i *Konfigurera X. 509-säkerhet i Azure IoT Hub*. I det avsnittet utför du följande steg:
 
-   1. Ladda upp ett rot certifikat för certifikat utfärdare. Om du använder demonstrations certifikaten är rot certifikat utfärdaren ** \<path> /certs/Azure-IoT-test-Only.root.ca.cert.pem**.
+   1. Ladda upp ett rot certifikat för certifikat utfärdare. Om du använder demonstrations certifikaten är rot certifikat utfärdaren **\<path> /certs/Azure-IoT-test-Only.root.ca.cert.pem**.
 
    2. Kontrol lera att du äger det rot certifikat utfärdarens certifikat.
 
 3. Följ anvisningarna i avsnittet [skapa en X. 509-enhet för din IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) i *Konfigurera X. 509-säkerhet i Azure IoT Hub*. I det avsnittet utför du följande steg:
 
-   1. Lägg till en ny enhet. Ange ett gement namn för **enhets-ID**och välj autentiseringstypen **X. 509 ca signerad**.
+   1. Lägg till en ny enhet. Ange ett gement namn för **enhets-ID** och välj autentiseringstypen **X. 509 ca signerad**.
 
    2. Ange en överordnad enhet. Välj **Ange en överordnad enhet** och välj den IoT Edge gateway-enhet som ska ansluta till IoT Hub.
 

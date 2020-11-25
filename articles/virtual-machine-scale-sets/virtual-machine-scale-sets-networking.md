@@ -10,11 +10,11 @@ ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: 234834af4fcf4ad809f548d171a4c1c406d85895
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747838"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016700"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Nätverk för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -69,7 +69,7 @@ Om du vill skapa en skalningsuppsättning som använder en programgateway refere
 Som standard tar skalningsuppsättningar över specifika DNS-inställningar från de VNET och undernät som de skapades i. Du kan dock konfigurera DNS-inställningar för en skalningsuppsättning direkt.
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Skapa en skalningsuppsättning med konfigurerbara DNS-servrar
-Om du vill skapa en skalningsuppsättning med en anpassad DNS-konfiguration med hjälp av Azure CLI lägger du till argumentet -- **dns-servers** till kommandot **vmss create** följt av ip-adresser som avgränsas av ett blanksteg. Exempel:
+Om du vill skapa en skalningsuppsättning med en anpassad DNS-konfiguration med hjälp av Azure CLI lägger du till argumentet --**dns-servers** till kommandot **vmss create** följt av ip-adresser som avgränsas av ett blanksteg. Exempel:
 
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
@@ -130,7 +130,7 @@ I allmänhet kräver inte skalningsuppsättningar för virtuella Azure-datorer s
 Men vissa scenarier kräver att skalningsuppsättningarna för virtuella datorer har sina egna offentliga IP-adresser. Ett exempel är spel, där en konsol kan behöva ansluta direkt till en virtuell dator i molnet som utför bearbetningen av spelets fysik. Ett annat exempel är när virtuella datorer behöver göra externa anslutningar till varandra över regioner i en distribuerad databas.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Skapa en skalningsuppsättning med en offentlig IP per virtuell dator
-För att skapa en skalningsuppsättning som tilldelar varje virtuell dator en offentlig IP-adress med hjälp av CLI lägger du till parametern **--public-ip-per-vm** till kommandot **vmss create** . 
+För att skapa en skalningsuppsättning som tilldelar varje virtuell dator en offentlig IP-adress med hjälp av CLI lägger du till parametern **--public-ip-per-vm** till kommandot **vmss create**. 
 
 Om du vill skapa en skalnings uppsättning med hjälp av en Azure-mall ser du till att API-versionen av Microsoft. Compute/virtualMachineScaleSets-resursen är minst **2017-03-30** och lägger till en **publicIpAddressConfiguration** JSON-egenskap i avsnittet för skalnings uppsättningen ipConfigurations. Exempel:
 
@@ -146,9 +146,9 @@ Om du vill skapa en skalnings uppsättning med hjälp av en Azure-mall ser du ti
 Exempelmall: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Ställ frågor till de offentliga IP-adresserna för de virtuella datorerna i en skalningsuppsättning
-Om du vill se en lista över de offentliga IP-adresserna som tilldelats till skalningsuppsättningar för virtuella datorer med hjälp av CLI använder du kommandot **az vmss list-instance-public-ips** .
+Om du vill se en lista över de offentliga IP-adresserna som tilldelats till skalningsuppsättningar för virtuella datorer med hjälp av CLI använder du kommandot **az vmss list-instance-public-ips**.
 
-För visa skaluppsättningens offentliga IP-adresser med hjälp av PowerShell använder du kommandot _Get-AzPublicIpAddress_ . Exempel:
+För visa skaluppsättningens offentliga IP-adresser med hjälp av PowerShell använder du kommandot _Get-AzPublicIpAddress_. Exempel:
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
@@ -168,11 +168,11 @@ Fråga [Azure Resource Explorer](https://resources.azure.com):
 1. Expandera *prenumerationer* till vänster genom att klicka på *+* bredvid. Om du bara har ett objekt under *prenumerationer* kan den redan ha expanderats.
 1. Expandera din prenumeration.
 1. Expandera din resursgrupp.
-1. Expandera *providers* .
-1. Expandera *Microsoft. Compute* .
-1. Expandera *virtualMachineScaleSets* .
+1. Expandera *providers*.
+1. Expandera *Microsoft. Compute*.
+1. Expandera *virtualMachineScaleSets*.
 1. Expandera din skalningsuppsättning.
-1. Klicka på *publicipaddresses* .
+1. Klicka på *publicipaddresses*.
 
 Fråga Azure REST API:
 

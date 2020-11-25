@@ -7,11 +7,11 @@ ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
 ms.openlocfilehash: 29cbb2f6a7f0faf91852e520f15b779b3fe229c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95556670"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026224"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina avbildningar. Delade avbildnings gallerier ger:
 
@@ -165,12 +165,12 @@ Anta till exempel att du har en avbildning av en 127 GB OS-disk, som endast uppt
 När du har skapat kan du göra några ändringar i avbildnings Galleri resurserna. Dessa är begränsade till:
  
 Galleri för delad avbildning:
-- Beskrivning
+- Description
 
 Bild definition:
 - Rekommenderad virtuella processorer
 - Rekommenderat minne
-- Beskrivning
+- Description
 - Datum för slut på livs längd
 
 Avbildnings version:

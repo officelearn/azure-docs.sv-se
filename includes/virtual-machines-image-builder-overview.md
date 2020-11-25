@@ -1,20 +1,20 @@
 ---
-author: cynthn
-ms.author: cynthn
+author: ''
+ms.author: danielsollondon
 ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: daberry
-ms.openlocfilehash: a5a201a9f993db2be00645d8d60a11c5be9cdbe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c028fc1abd77bda1a41857a7a7c77da1ad1b2d2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89304106"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026228"
 ---
 Med standardiserade avbildningar av virtuella datorer kan organisationer migrera till molnet och säkerställa konsekvens i distributionerna. Bilder innehåller vanligt vis fördefinierade säkerhets-och konfigurations inställningar och nödvändig program vara. Att konfigurera din egen avbildnings pipeline kräver tid, infrastruktur och konfiguration, men med Azure VM Image Builder får du bara en enkel konfiguration som beskriver avbildningen, skickar den till tjänsten och avbildningen skapas och distribueras.
  
-Med Azures avbildnings verktyg för virtuella datorer (Azure Image Builder) kan du starta med en Windows-eller Linux-baserad Azure Marketplace-avbildning, befintliga anpassade avbildningar eller Red Hat Enterprise Linux (RHEL) ISO och börja lägga till dina egna anpassningar. Eftersom Image Builder bygger på [HashiCorp Packer](https://packer.io/), kan du också importera befintliga paket i Shell-Provisioning-skripten. Du kan också ange var du vill att dina avbildningar ska finnas i [Azures Galleri för delad avbildning](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), som en hanterad avbildning eller en virtuell hård disk.
+Med Azures avbildnings verktyg för virtuella datorer (Azure Image Builder) kan du starta med en Windows-eller Linux-baserad Azure Marketplace-avbildning, befintliga anpassade avbildningar eller Red Hat Enterprise Linux (RHEL) ISO och börja lägga till dina egna anpassningar. Eftersom Image Builder bygger på [HashiCorp Packer](https://packer.io/), kan du också importera befintliga paket i Shell-Provisioning-skripten. Du kan också ange var du vill att dina avbildningar ska finnas i [Azures Galleri för delad avbildning](../articles/virtual-machines/windows/shared-image-galleries.md), som en hanterad avbildning eller en virtuell hård disk.
 
 > [!IMPORTANT]
 > Azure Image Builder är för närvarande en offentlig för hands version.
@@ -59,12 +59,8 @@ Stöd för RHEL ISO stöds inte längre.
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
-
-![Konceptuell ritning i Azure Image Builder](./media/virtual-machines-image-builder-overview/image-builder.png)
-
 Azure Image Builder är en fullständigt hanterad Azure-tjänst som kan nås av en Azure-adressresurs. Azure Image Builder-processen har tre huvud delar: källa, anpassa och distribuera, dessa representeras i en mall. Diagrammet nedan visar komponenterna, med några av deras egenskaper. 
  
-
 
 **Image Builder-process** 
 
@@ -81,14 +77,14 @@ När du registrerar dig för (AIB) ger detta behörigheten AIB-tjänst för att 
 
 Om du vill tillåta att Azure VM Image Builder distribuerar avbildningar till antingen de hanterade avbildningarna eller till ett delat avbildnings Galleri måste du skapa en Azure User-tilldelad identitet som har behörighet att läsa och skriva bilder. Om du använder Azure Storage måste du ha behörighet att läsa privata behållare.
 
-Från början måste du följa anvisningarna för att [skapa en Azure-tilldelad identitets](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) dokumentation om hur du skapar en identitet.
+Från början måste du följa anvisningarna för att [skapa en Azure-tilldelad identitets](../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) dokumentation om hur du skapar en identitet.
 
 När du har identiteten som du behöver för att ge IT-behörighet kan du använda en anpassad roll definition i Azure och sedan tilldela den användare som tilldelats den hanterade identiteten att använda den anpassade roll definitionen.
 
 Behörigheter förklaras i detalj [här](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements)och exemplen visar hur detta implementeras.
 
 > [!Note]
-> Tidigare med AIB använder du AIB SPN och ger SPN-behörighet till avbildnings resurs grupperna. Vi går vidare från den här modellen, så att du kan använda framtida funktioner. Från 26 maj 2020 kan Image Builder inte ta emot mallar som inte har någon tilldelad identitet, befintliga mallar måste skickas igen till tjänsten med en [användar identitet](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#identity). Exemplen här visar redan hur du kan skapa en användardefinierad identitet och lägga till dem i en mall. Mer information finns i den här [dokumentationen](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information) om den här ändringen och uppdateringar.
+> Tidigare med AIB använder du AIB SPN och ger SPN-behörighet till avbildnings resurs grupperna. Vi går vidare från den här modellen, så att du kan använda framtida funktioner. Från 26 maj 2020 kan Image Builder inte ta emot mallar som inte har någon tilldelad identitet, befintliga mallar måste skickas igen till tjänsten med en [användar identitet](../articles/virtual-machines/linux/image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#identity). Exemplen här visar redan hur du kan skapa en användardefinierad identitet och lägga till dem i en mall. Mer information finns i den här [dokumentationen](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information) om den här ändringen och uppdateringar.
 
 ## <a name="costs"></a>Kostnader
 Du kommer att ådra dig några beräknings-, nätverks-och lagrings kostnader när du skapar, skapar och lagrar avbildningar med Azure Image Builder. Dessa kostnader liknar kostnaderna för att skapa anpassade avbildningar manuellt. För resurserna debiteras du enligt dina Azure-priser. 
@@ -105,4 +101,3 @@ Image Builder har för närvarande endast stöd för att skapa Hyper-V generatio
 ## <a name="next-steps"></a>Nästa steg 
  
 Om du vill prova Azure Image Builder kan du läsa artikeln om att skapa [Linux](../articles/virtual-machines/linux/image-builder.md) -eller [Windows](../articles/virtual-machines/windows/image-builder.md) -avbildningar.
- 

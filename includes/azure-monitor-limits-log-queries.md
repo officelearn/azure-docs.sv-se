@@ -9,15 +9,15 @@ ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
 ms.openlocfilehash: ff5d04a2923f16c763e1529ecb365f60d6275ca2
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95554114"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026313"
 ---
 ### <a name="general-query-limits"></a>Allmänna begränsningar för frågor
 
-| Gräns | Beskrivning |
+| Gräns | Description |
 |:---|:---|
 | Frågespråk | Azure Monitor använder samma [frågespråk för Kusto](/azure/kusto/query/) som Azure datautforskaren. Se [Azure Monitor logg frågor språk skillnader](/azure/data-explorer/kusto/query/) för KQL språk element som inte stöds i Azure Monitor. |
 | Azure-regioner | Logg frågor kan uppleva onödig belastning när data sträcker sig Log Analytics arbets ytor i flera Azure-regioner. Mer information finns i [fråga om begränsningar](../articles/azure-monitor/log-query/scope.md#query-scope-limits) . |
@@ -27,7 +27,7 @@ ms.locfileid: "95554114"
 Azure Monitor har flera begränsnings gränser som skyddar mot användare som skickar ett stort antal frågor. Detta beteende kan eventuellt överbelasta systemets Server dels resurser och äventyra tjänstens svars tider. Följande gränser är utformade för att skydda kunder mot avbrott och säkerställa konsekvent service nivå. Användarens begränsning och begränsningar har utformats för att endast påverka extrema användnings scenarier och bör inte vara relevanta för typisk användning.
 
 
-| Mått | Begränsa per användare | Beskrivning |
+| Mått | Begränsa per användare | Description |
 |:---|:---|:---|
 | Samtidiga frågor | 5 | Om det redan finns 5 frågor som körs för användaren placeras alla nya frågor i en transaktionskö per användare. När en av de frågor som körs avslutas kommer nästa fråga att hämtas från kön och startas. Detta omfattar inte frågor från varnings regler.
 | Tid i samtidighets kön | 3 minuter | Om en fråga finns i kön i mer än tre minuter utan att startas, avbryts den med ett HTTP-felsvar med koden 429. |

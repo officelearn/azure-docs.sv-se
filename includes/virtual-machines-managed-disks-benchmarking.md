@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 09af5d9af749d43f9d15f42daee6b562a877397b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 358e92d8e43473c168e24be9f4af504e6ffcc37a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94633398"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026102"
 ---
 *Uppvärmning av cacheminnet*  
 Disken med ReadOnly-värd-cachelagring kan ge högre IOPS än disk gränsen. För att få den här maximala Läs prestandan från värd-cachen måste du först värma upp cacheminnet för den här disken. Detta säkerställer att den Läs IOs som benchmarking-verktyget kommer att köra på CacheReads volym, träffar i själva cacheminnet och inte på disken direkt. Cacheträffar resulterar i ytterligare IOPS från den enkla cache-aktiverade disken.
@@ -60,24 +60,24 @@ Utför stegen nedan för att värma upp cachen
 
 1. Skapa två åtkomst-specifikationer med värden som visas nedan,
 
-   | Namn | Begär ande storlek | Slumpmässiga | Läs |
+   | Name | Begär ande storlek | Slumpmässiga | Läs |
    | --- | --- | --- | --- |
    | RandomWrites \_ 1 MB |1 MB |100 |0 |
    | RandomReads \_ 1 MB |1 MB |100 |100 |
 1. Kör IOMeter-testet för att initiera cache-disken med följande parametrar. Använd tre arbets trådar för mål volymen och ett ködjup på 128. Ange körnings tiden för testet till 2 timmar på fliken test konfiguration.
 
-   | Scenario | Mål volym | Namn | Varaktighet |
+   | Scenario | Mål volym | Name | Varaktighet |
    | --- | --- | --- | --- |
    | Initiera cache-disk |CacheReads |RandomWrites \_ 1 MB |2 timmar |
 1. Kör IOMeter-testet för att värma upp cache-disken med följande parametrar. Använd tre arbets trådar för mål volymen och ett ködjup på 128. Ange körnings tiden för testet till 2 timmar på fliken test konfiguration.
 
-   | Scenario | Mål volym | Namn | Varaktighet |
+   | Scenario | Mål volym | Name | Varaktighet |
    | --- | --- | --- | --- |
    | Värm upp cache-disk |CacheReads |RandomReads \_ 1 MB |2 timmar |
 
 När du har värmt upp cache-disken fortsätter du med de test scenarier som anges nedan. Om du vill köra IOMeter-testet använder du minst tre arbets trådar för **varje** mål volym. För varje arbets tråd väljer du mål volymen, ställer in ködjup och väljer en av de sparade test specifikationerna, som du ser i tabellen nedan, för att köra motsvarande test scenario. Tabellen visar även förväntade resultat för IOPS och data flöde när du kör de här testerna. I alla scenarier används en liten IO-storlek på 8 KB och ett högt ködjup på 128.
 
-| Test scenario | Mål volym | Namn | Resultat |
+| Test scenario | Mål volym | Name | Resultat |
 | --- | --- | --- | --- |
 | Max. Läs IOPS |CacheReads |RandomWrites \_ 8K |50 000 IOPS |
 | Max. Skriv IOPS |NoCacheWrites |RandomReads \_ 8K |64 000 IOPS |
@@ -123,17 +123,9 @@ direct=1
 iodepth=256
 ioengine=libaio
 bs=8k
+numjobs=4
 
 [writer1]
-rw=randwrite
-directory=/mnt/nocache
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-[writer4]
 rw=randwrite
 directory=/mnt/nocache
 ```
@@ -164,17 +156,9 @@ direct=1
 iodepth=256
 ioengine=libaio
 bs=8k
+numjobs=4
 
 [reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
 rw=randread
 directory=/mnt/readcache
 ```
@@ -205,33 +189,13 @@ direct=1
 iodepth=128
 ioengine=libaio
 bs=4k
+numjobs=4
 
 [reader1]
 rw=randread
 directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
 
 [writer1]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer4]
 rw=randwrite
 directory=/mnt/nocache
 rate_iops=12500

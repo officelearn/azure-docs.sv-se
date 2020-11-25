@@ -7,11 +7,11 @@ ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984394"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004369"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Kontinuerlig distribution till Azure App Service
 
@@ -37,7 +37,7 @@ För BitBucket eller GitHub kan du auktorisera Azure App Service att ansluta til
    
 1. På sidan app väljer du **Deployment Center** på den vänstra menyn.
    
-1. På sidan **distributions Center** väljer du **GitHub** eller **BitBucket**och väljer sedan **auktorisera**. 
+1. På sidan **distributions Center** väljer du **GitHub** eller **BitBucket** och väljer sedan **auktorisera**. 
    
    ![Välj käll kontroll tjänst och välj sedan auktorisera.](media/app-service-continuous-deployment/github-choose-source.png)
    
@@ -51,7 +51,7 @@ När du har auktoriserat en käll kontroll tjänst konfigurerar du din app för 
 
 Du kan använda den inbyggda kudu App Service build-servern för att kontinuerligt distribuera från GitHub, BitBucket eller Azure databaser. 
 
-1. Sök efter **app Services**i [Azure Portal](https://portal.azure.com)och välj sedan den app service som du vill distribuera. 
+1. Sök efter **app Services** i [Azure Portal](https://portal.azure.com)och välj sedan den app service som du vill distribuera. 
    
 1. På sidan app väljer du **Deployment Center** på den vänstra menyn.
    
@@ -60,20 +60,20 @@ Du kan använda den inbyggda kudu App Service build-servern för att kontinuerli
    > [!NOTE]
    > Om du vill använda Azure databaser kontrollerar du att Azure DevOps Services-organisationen är länkad till din Azure-prenumeration. Mer information finns i [Konfigurera ett Azure DevOps Services-konto så att det kan distribueras till en webbapp](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true).
    
-1. För GitHub eller Azure databaser väljer du **App Service Build Service**på sidan **build Provider** och väljer sedan **Fortsätt**. BitBucket använder alltid App Service build-tjänsten.
+1. För GitHub eller Azure databaser väljer du **App Service Build Service** på sidan **build Provider** och väljer sedan **Fortsätt**. BitBucket använder alltid App Service build-tjänsten.
    
    ![Välj App Service build-tjänst och välj sedan Fortsätt.](media/app-service-continuous-deployment/choose-kudu.png)
    
 1. På sidan **Konfigurera** :
    
-   - För GitHub, list rutan och välj den **organisation**, **lagrings plats**och **gren** som du vill distribuera kontinuerligt.
+   - För GitHub, list rutan och välj den **organisation**, **lagrings plats** och **gren** som du vill distribuera kontinuerligt.
      
      > [!NOTE]
-     > Om du inte ser några databaser kan du behöva auktorisera Azure App Service i GitHub. Bläddra till GitHub-lagringsplatsen och gå till **Inställningar**  >  **program**  >  **auktoriserade OAuth-appar**. Välj **Azure App Service**och välj sedan **bevilja**. Du måste vara ägare till organisationen för att kunna bevilja behörighet för organisations databaser.
+     > Om du inte ser några databaser kan du behöva auktorisera Azure App Service i GitHub. Bläddra till GitHub-lagringsplatsen och gå till **Inställningar**  >  **program**  >  **auktoriserade OAuth-appar**. Välj **Azure App Service** och välj sedan **bevilja**. Du måste vara ägare till organisationen för att kunna bevilja behörighet för organisations databaser.
      
-   - För BitBucket väljer du det BitBucket- **team**, den **lagrings plats**och den **gren** som du vill distribuera kontinuerligt.
+   - För BitBucket väljer du det BitBucket- **team**, den **lagrings plats** och den **gren** som du vill distribuera kontinuerligt.
      
-   - För Azure databaser väljer du den **Azure DevOps-organisation**, det **projekt**, den **lagrings plats**och den **gren** som du vill distribuera kontinuerligt.
+   - För Azure databaser väljer du den **Azure DevOps-organisation**, det **projekt**, den **lagrings plats** och den **gren** som du vill distribuera kontinuerligt.
      
      > [!NOTE]
      > Om din Azure DevOps-organisation inte finns med i listan kontrollerar du att den är länkad till din Azure-prenumeration. Mer information finns i [Konfigurera ett Azure DevOps Services-konto så att det kan distribueras till en webbapp](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true).
@@ -104,30 +104,30 @@ För att Azure App Service ska kunna skapa kontinuerlig leverans med Azure-pipel
 
 #### <a name="github--azure-pipelines"></a>GitHub + Azure-pipeline
 
-1. Sök efter **app Services**i [Azure Portal](https://portal.azure.com)och välj sedan den app service som du vill distribuera. 
+1. Sök efter **app Services** i [Azure Portal](https://portal.azure.com)och välj sedan den app service som du vill distribuera. 
    
 1. På sidan app väljer du **Deployment Center** på den vänstra menyn.
 
-1. Välj **GitHub** som käll kontroll leverantör på sidan **distributions Center** och välj **Fortsätt**. För **GitHub**kan du välja **Ändra konto** för att ändra det auktoriserade kontot.
+1. Välj **GitHub** som käll kontroll leverantör på sidan **distributions Center** och välj **Fortsätt**. För **GitHub** kan du välja **Ändra konto** för att ändra det auktoriserade kontot.
 
     :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
    
 1. På sidan **build Provider** väljer du **Azure-pipelines (för hands version)** och väljer sedan **Fortsätt**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
+    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Skärm bild som visar sidan distributions Center med Azure-pipeline (för hands version) vald.":::
    
-1. På sidan **Konfigurera** i avsnittet **kod** väljer du den **organisation**, den **lagrings plats**och **gren** som du vill distribuera kontinuerligt och väljer **Fortsätt**.
+1. På sidan **Konfigurera** i avsnittet **kod** väljer du den **organisation**, den **lagrings plats** och **gren** som du vill distribuera kontinuerligt och väljer **Fortsätt**.
      
      > [!NOTE]
-     > Om du inte ser några databaser kan du behöva auktorisera Azure App Service i GitHub. Bläddra till GitHub-lagringsplatsen och gå till **Inställningar**  >  **program**  >  **auktoriserade OAuth-appar**. Välj **Azure App Service**och välj sedan **bevilja**. Du måste vara ägare till organisationen för att kunna bevilja behörighet för organisations databaser.
+     > Om du inte ser några databaser kan du behöva auktorisera Azure App Service i GitHub. Bläddra till GitHub-lagringsplatsen och gå till **Inställningar**  >  **program**  >  **auktoriserade OAuth-appar**. Välj **Azure App Service** och välj sedan **bevilja**. Du måste vara ägare till organisationen för att kunna bevilja behörighet för organisations databaser.
        
     I avsnittet **skapa** anger du den Azure DevOps-organisation, projekt, språk ramverk som Azure-pipelinen ska använda för att köra Bygg uppgifter och väljer sedan **Fortsätt**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Skärm bild av avsnittet build med exempel text i fälten.":::
 
 1. När du har konfigurerat build-providern granskar du inställningarna på sidan **Sammanfattning** och väljer sedan **Slutför**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Skärm bild av sidan distributions Center som visar incheckningar och distributioner med knappen Uppdatera markerad.":::
    
 1. Nya incheckningar i den valda databasen och grenen distribueras nu kontinuerligt till din App Service. Du kan spåra incheckningar och distributioner på sidan **distributions Center** .
    
@@ -135,30 +135,30 @@ För att Azure App Service ska kunna skapa kontinuerlig leverans med Azure-pipel
 
 #### <a name="azure-repos--azure-pipelines"></a>Azure databaser + Azure-pipeline
 
-1. Sök efter **app Services**i [Azure Portal](https://portal.azure.com)och välj sedan den app service som du vill distribuera. 
+1. Sök efter **app Services** i [Azure Portal](https://portal.azure.com)och välj sedan den app service som du vill distribuera. 
    
 1. På sidan app väljer du **Deployment Center** på den vänstra menyn.
 
 1. Välj **Azure-databaser** som käll kontroll leverantör på sidan **distributions Center** och välj **Fortsätt**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Skärm bild av sidan distributions Center som visar valen för kontinuerlig distribution (CI/CD).":::
 
 1. På sidan **build Provider** väljer du **Azure-pipelines (för hands version)** och väljer sedan **Fortsätt**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
+    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Skärm bild av distributions Center som visar Azure-pipeliner (för hands version).":::
 
-1. På sidan **Konfigurera** i avsnittet **kod** väljer du den **organisation**, den **lagrings plats**och **gren** som du vill distribuera kontinuerligt och väljer **Fortsätt**.
+1. På sidan **Konfigurera** i avsnittet **kod** väljer du den **organisation**, den **lagrings plats** och **gren** som du vill distribuera kontinuerligt och väljer **Fortsätt**.
 
    > [!NOTE]
    > Om din befintliga Azure DevOps-organisation inte finns med i listan kan du behöva länka den till din Azure-prenumeration. Mer information finns i [definiera din pipeline för CD-version](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
 
    I avsnittet **skapa** anger du den Azure DevOps-organisation, projekt, språk ramverk som Azure-pipelinen ska använda för att köra Bygg uppgifter och väljer sedan **Fortsätt**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Skärm bild av avsnittet build som visar Azure DevOps-organisation och projekt fält fyllda med exempel.":::
 
 1. När du har konfigurerat build-providern granskar du inställningarna på sidan **Sammanfattning** och väljer sedan **Slutför**.  
      
-   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Skärm bild som visar de valda inställningarna på sidan Sammanfattning.":::
 
 1. Nya incheckningar i den valda databasen och grenen distribueras nu kontinuerligt till din App Service. Du kan spåra incheckningar och distributioner på sidan **distributions Center** .
 

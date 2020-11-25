@@ -15,11 +15,11 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38992c15c23216aa81cda566a333d8e45f90b17e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369853"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004695"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Aktivera mina Azure AD-roller i PIM
 
@@ -48,7 +48,7 @@ När du behöver anta en Azure AD-roll kan du begära aktivering genom att öppn
 
 1. Öppna **Azure AD Privileged Identity Management**. Information om hur du lägger till panelen Privileged Identity Management på instrument panelen finns i [börja använda Privileged Identity Management](pim-getting-started.md).
 
-1. Välj **Mina roller**och välj sedan **Azure AD-roller** för att se en lista över dina kvalificerade Azure AD-roller.
+1. Välj **Mina roller** och välj sedan **Azure AD-roller** för att se en lista över dina kvalificerade Azure AD-roller.
 
     ![Sidan mina roller med roller som du kan aktivera](./media/pim-how-to-activate-role/my-roles.png)
 

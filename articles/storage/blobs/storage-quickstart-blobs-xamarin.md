@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 434f112e78938c94d887423316fccea270059b6b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109025"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004746"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Snabb start: klient biblioteket Azure Blob Storage V12 med Xamarin
 
-Kom igång med Azure Blob Storages klient bibliotek V12 med Xamarin. Azure Blob Storage är Microsofts objektlagringslösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blobblagring är optimerat för att lagra stora mängder ostrukturerade data.
+Kom igång med Azure Blob Storages klient bibliotek V12 med Xamarin. Azure Blob Storage är Microsofts objektlagringslösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blob Storage är optimerad för lagring av enorma mängder ostrukturerade data.
 
 Använd klient biblioteket för Azure Blob Storage-V12 med Xamarin för att:
 
@@ -36,11 +36,11 @@ Referens länkar:
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Visual Studio med [mobil utveckling för .net-arbetsbelastningar](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=windows) installerade eller [Visual Studio för Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Azure Storage-konto – [skapa ett lagrings konto](../common/storage-account-create.md)
+* Visual Studio med [mobil utveckling för .net-arbetsbelastningar](/xamarin/get-started/installation/?pivots=windows) installerade eller [Visual Studio för Mac](/visualstudio/mac/installation?view=vsmac-2019)
 
 ## <a name="setting-up"></a>Konfigurera
     

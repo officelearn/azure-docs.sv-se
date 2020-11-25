@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 543050bc899c257c4ad5e0d0c399a1de6f0f58f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86220583"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005221"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Så här skapar du en App Service-miljön v1 
 
@@ -36,9 +36,9 @@ Det är viktigt att vara medveten om de saker som du inte kan ändra. De aspekte
 När du väljer ett VNet och anger ett undernät kontrollerar du att det är tillräckligt stort för att kunna hantera framtida tillväxt. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Skapa en App Service-miljön v1
-Om du vill skapa en app service-miljön v1 kan du söka i Azure Marketplace efter ***App Service-miljön v1***eller gå igenom **skapa en resurs**  ->  **webb och mobilt**  ->  **App Service-miljön**. Så här skapar du en ASEv1:
+Om du vill skapa en app service-miljön v1 kan du söka i Azure Marketplace efter ***App Service-miljön v1** _ eller gå till _ *skapa en resurs**-> **webb och mobilt**  ->  **App Service-miljön**. Så här skapar du en ASEv1:
 
-1. Ange namnet på din ASE. Det namn som du anger för ASE kommer att användas för de appar som skapas i ASE. Om namnet på ASE är appsvcenvdemo skulle under domän namnet vara: *appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*skulle den vara adresserbar vid *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Du kan inte använda blank steg i namnet på din ASE. Om du använder versaler i namnet blir domän namnet den totala gemena versionen av det namnet. Om du använder en ILB används inte ditt ASE-namn i under domänen, men anges i stället uttryckligen när ASE skapas.
+1. Ange namnet på din ASE. Det namn som du anger för ASE kommer att användas för de appar som skapas i ASE. Om namnet på ASE är appsvcenvdemo skulle under domän namnet vara: *appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp* skulle den vara adresserbar vid *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Du kan inte använda blank steg i namnet på din ASE. Om du använder versaler i namnet blir domän namnet den totala gemena versionen av det namnet. Om du använder en ILB används inte ditt ASE-namn i under domänen, men anges i stället uttryckligen när ASE skapas.
    
     ![Skärm bild som visar hur du skapar en App Service-miljön (ASE).][1]
 2. Välj din prenumeration. Prenumerationen som du använder för din ASE gäller även för alla appar som du skapar i den ASE. Du kan inte placera din ASE i ett VNet som finns i en annan prenumeration.

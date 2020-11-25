@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: f98021d1e94b3796b2aeb6ba2e883e4e1380b8ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504340"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004831"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix i Azure HDInsight
 
@@ -37,7 +37,7 @@ Skapa ett sekundärt index med `CREATE INDEX` kommandot:
 CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) INCLUDE (bookname, quantity);
 ```
 
-Den här metoden kan ge en betydande prestanda ökning för att köra enstaka indexerade frågor. Den här typen av sekundärt index är ett överordnat **index**som innehåller alla kolumner som ingår i frågan. Därför krävs inte tabells ökningen och indexet uppfyller hela frågan.
+Den här metoden kan ge en betydande prestanda ökning för att köra enstaka indexerade frågor. Den här typen av sekundärt index är ett överordnat **index** som innehåller alla kolumner som ingår i frågan. Därför krävs inte tabells ökningen och indexet uppfyller hela frågan.
 
 ### <a name="views"></a>Vyer
 
@@ -99,7 +99,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 *Region Server-Hotspotting* kan uppstå när du skriver poster med sekventiella nycklar till HBase. Även om du kan ha flera region servrar i klustret, sker dina skrivningar bara på en. Den här koncentrationen skapar Hotspotting-problemet där, i stället för din Skriv arbets belastning som distribueras på alla tillgängliga region servrar, bara en hanterar belastningen. Eftersom varje region har en fördefinierad Max storlek, delas den upp i två små regioner när en region når den storleks gränsen. När detta sker tar en av dessa nya regioner emot alla nya poster och blir den nya aktiva punkten.
 
-För att minimera det här problemet och uppnå bättre prestanda, så dela tabeller så att alla region servrar används lika bra. Phoenix tillhandahåller *saltade tabeller*och lägger transparent till saltning-byte i rad nyckeln för en viss tabell. Tabellen är i förväg delad på salt byte-gränserna för att säkerställa lika belastnings fördelning mellan region servrar under den inledande fasen i tabellen. Den här metoden distribuerar Skriv arbets belastningen över alla tillgängliga region servrar, vilket förbättrar Skriv-och Läs prestanda. Om du vill salt a tabell anger du `SALT_BUCKETS` tabell egenskapen när tabellen skapas:
+För att minimera det här problemet och uppnå bättre prestanda, så dela tabeller så att alla region servrar används lika bra. Phoenix tillhandahåller *saltade tabeller* och lägger transparent till saltning-byte i rad nyckeln för en viss tabell. Tabellen är i förväg delad på salt byte-gränserna för att säkerställa lika belastnings fördelning mellan region servrar under den inledande fasen i tabellen. Den här metoden distribuerar Skriv arbets belastningen över alla tillgängliga region servrar, vilket förbättrar Skriv-och Läs prestanda. Om du vill salt a tabell anger du `SALT_BUCKETS` tabell egenskapen när tabellen skapas:
 
 ```sql
 CREATE TABLE Saltedweblogs (

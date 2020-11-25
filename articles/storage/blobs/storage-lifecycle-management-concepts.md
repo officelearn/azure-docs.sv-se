@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 85577a428f803e31aa33468496d7efca77933835
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1b568687ffe646a91544c1bb75d26d552a23f49c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579319"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96005290"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optimera kostnader genom att automatisera Azure-Blob Storage åtkomst nivåer
 
@@ -39,7 +39,7 @@ Tänk dig ett scenario där data får frekvent åtkomst under de tidiga faserna 
 
 Funktionen för livs cykel hantering är tillgänglig i alla Azure-regioner för Generell användning v2-konton (GPv2), Blob Storage-konton, Premium Block Blob Storage-konton och Azure Data Lake Storage Gen2-konton. I Azure Portal kan du uppgradera ett befintligt Generell användning-konto (GPv1) till ett GPv2-konto. Mer information om lagrings konton finns i [Översikt över Azure Storage-konto](../common/storage-account-overview.md).
 
-Funktionen för livs cykel hantering är kostnads fri. Kunderna debiteras den vanliga drift kostnaden för den [angivna](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-anropen på BLOB-nivå. Borttagnings åtgärden är kostnads fri. Mer information om priser finns i [Block-Blob-prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Funktionen för livs cykel hantering är kostnads fri. Kunderna debiteras den vanliga drift kostnaden för den [angivna](/rest/api/storageservices/set-blob-tier) API-anropen på BLOB-nivå. Borttagnings åtgärden är kostnads fri. Mer information om priser finns i [Block-Blob-prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="add-or-remove-a-policy"></a>Lägga till eller ta bort en princip
 
@@ -47,13 +47,13 @@ Du kan lägga till, redigera eller ta bort en princip med någon av följande me
 
 * [Azure Portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
-* [REST API:er](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
+* [Azure CLI](/cli/azure/install-azure-cli)
+* [REST API:er](/rest/api/storagerp/managementpolicies)
 
 En princip kan läsas eller skrivas fullständigt. Del uppdateringar stöds inte. 
 
 > [!NOTE]
-> Om du aktiverar brand Väggs regler för ditt lagrings konto kan begäran om livs cykel hantering blockeras. Du kan avblockera dessa förfrågningar genom att tillhandahålla undantag för betrodda Microsoft-tjänster. Mer information finns i avsnittet undantag i [Konfigurera brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Om du aktiverar brand Väggs regler för ditt lagrings konto kan begäran om livs cykel hantering blockeras. Du kan avblockera dessa förfrågningar genom att tillhandahålla undantag för betrodda Microsoft-tjänster. Mer information finns i avsnittet undantag i [Konfigurera brand väggar och virtuella nätverk](../common/storage-network-security.md#exceptions).
 
 Den här artikeln visar hur du hanterar principer med hjälp av Portal-och PowerShell-metoder.
 
@@ -74,7 +74,7 @@ Det finns två sätt att lägga till en princip via Azure Portal.
 
 1. Välj fliken **listvy** .
 
-1. Välj **Lägg till en regel** och ge regeln ett namn i formuläret **information** . Du kan också ange **regel omfång** , **Blob-typ** och värden för BLOB- **undertyper** . I följande exempel anges omfånget för att filtrera blobbar. Detta gör att fliken **filter uppsättning** läggs till.
+1. Välj **Lägg till en regel** och ge regeln ett namn i formuläret **information** . Du kan också ange **regel omfång**, **Blob-typ** och värden för BLOB- **undertyper** . I följande exempel anges omfånget för att filtrera blobbar. Detta gör att fliken **filter uppsättning** läggs till.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Livs cykel hantering Lägg till en regel informations sida i Azure Portal":::
 
@@ -317,12 +317,12 @@ Filtren är:
 
 | Filternamn | Filtertyp | Kommentarer | Krävs |
 |-------------|-------------|-------|-------------|
-| blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob` och `appendBlob` . Endast borttagning stöds för `appendBlob` , Set-nivån stöds inte. | Ja |
-| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo` . | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot. | Inga |
-| blobIndexMatch | En matris med ordboks värden som består av BLOB index tag gen nyckel och värde villkor som ska matchas. Varje regel kan definiera upp till 10 tagg villkor för BLOB-index. Om du till exempel vill matcha alla blobbar med `Project = Contoso` under `https://myaccount.blob.core.windows.net/` för en regel är blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}` . | Om du inte definierar blobIndexMatch gäller regeln för alla blobbar i lagrings kontot. | Inga |
+| blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob` och `appendBlob` . Endast borttagning stöds för `appendBlob` , Set-nivån stöds inte. | Yes |
+| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo` . | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot. | No |
+| blobIndexMatch | En matris med ordboks värden som består av BLOB index tag gen nyckel och värde villkor som ska matchas. Varje regel kan definiera upp till 10 tagg villkor för BLOB-index. Om du till exempel vill matcha alla blobbar med `Project = Contoso` under `https://myaccount.blob.core.windows.net/` för en regel är blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}` . | Om du inte definierar blobIndexMatch gäller regeln för alla blobbar i lagrings kontot. | No |
 
 > [!NOTE]
-> BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada** , **östra** , **centrala Frankrike** och **södra Frankrike** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
+> BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada**, **östra**, **centrala Frankrike** och **södra Frankrike** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Regel åtgärder
 
@@ -342,7 +342,7 @@ Livs cykel hantering stöder nivåer och borttagning av blobbar, tidigare BLOB-v
 
 Körnings villkoren baseras på ålder. Bas-blobbar använder den senast ändrade tiden, BLOB-versioner använder skapande tid för version och blob-ögonblicksbilder använder ögonblicks bilds skapande tiden för att spåra ålder.
 
-| Åtgärds körnings villkor               | Villkors värde                          | Beskrivning                                                                      |
+| Åtgärds körnings villkor               | Villkors värde                          | Description                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | Heltals värde som anger ålder i dagar | Villkoret för bas-BLOB-åtgärder                                              |
 | daysAfterCreationGreaterThan       | Heltals värde som anger ålder i dagar | Villkoret för blob-version och åtgärder för BLOB-ögonblicksbilder                         |
@@ -450,7 +450,7 @@ Varje senaste uppdatering av åtkomst tiden anses vara en [annan åtgärd](https
 Vissa data är inaktiva i molnet och är sällan, om de någonsin, används när de har lagrats. Följande livs cykel princip är konfigurerad för att arkivera data strax efter att den har matats in. Det här exemplet översätter block-blobar i lagrings kontot i behållaren `archivecontainer` till en Arkiv nivå. Över gången görs genom att agera på blobbar 0 dagar efter senaste ändrings tid:
 
 > [!NOTE] 
-> Vi rekommenderar att du överför dina blobar direkt till Arkiv nivån för att vara mer effektiv. Du kan använda huvudet x-MS-Access-Tier för [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) eller [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) med rest version 2018-11-09 och nyare eller våra senaste Blob Storage-klient bibliotek. 
+> Vi rekommenderar att du överför dina blobar direkt till Arkiv nivån för att vara mer effektiv. Du kan använda huvudet x-MS-Access-Tier för [PutBlob](/rest/api/storageservices/put-blob) eller [PutBlockList](/rest/api/storageservices/put-block-list) med rest version 2018-11-09 och nyare eller våra senaste Blob Storage-klient bibliotek. 
 
 ```json
 {
@@ -574,7 +574,7 @@ För data som ändras och används regelbundet under hela sin livs längd kan du
 }
 ```
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **Jag skapade en ny princip, varför körs inte åtgärderna direkt?**
 
@@ -592,7 +592,7 @@ När en BLOB flyttas från en åtkomst nivå till en annan ändras inte den sena
 
 Lär dig hur du återställer data efter en oavsiktlig borttagning:
 
-- [Mjuk borttagning för Azure Storage-blobar](../blobs/storage-blob-soft-delete.md)
+- [Mjuk borttagning för Azure Storage-blobar](./soft-delete-blob-overview.md)
 
 Lär dig hur du hanterar och hittar data med BLOB-index:
 

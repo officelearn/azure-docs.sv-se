@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: bdf0e87c92a55d0dbb5bbe34334a6de4580cb350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84708186"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004967"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Skapa, ändra eller ta bort tjänstens slut punkts princip med hjälp av Azure Portal
 
 Med tjänst slut punkts principer kan du filtrera virtuell nätverks trafik till vissa Azure-resurser, över tjänst slut punkter. Om du inte är bekant med tjänstens slut punkts principer kan du läsa mer i [Översikt över tjänst slut punkts principer](virtual-network-service-endpoint-policies-overview.md) .
 
- I den här guiden får du lära dig att:
+ I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa en princip för tjänst slut punkt
@@ -31,7 +31,7 @@ Med tjänst slut punkts principer kan du filtrera virtuell nätverks trafik till
 > * Skapa ett virtuellt nätverk med ett undernät
 > * Koppla en tjänst slut punkts princip till ett undernät
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure 
 
@@ -71,14 +71,14 @@ Logga in på Azure Portal på https://portal.azure.com.
    - Nyckel: Välj din nyckel för principen. T. ex. avd     
    - Värde: Ange värde paret för nyckeln. Till exempel: ekonomi
 
-6. Välj **Granska + skapa**. Verifiera informationen och klicka på **skapa**. Klicka på **föregående**om du vill göra ytterligare ändringar. 
+6. Välj **Granska + skapa**. Verifiera informationen och klicka på **skapa**. Klicka på **föregående** om du vill göra ytterligare ändringar. 
 
    ![Skapa slutlig validering för tjänst slut punkts princip](./media/virtual-network-service-endpoint-policies-portal/create-sep-review-create.png)
   
 ## <a name="view-endpoint-policies"></a>Visa slut punkts principer 
 
 1. I rutan *alla tjänster* i portalen börjar du skriva *tjänst slut punkts principer*. Välj **tjänst slut punkts principer**.
-2. Under **prenumerationer**väljer du din prenumeration och resurs grupp, som du ser i följande bild
+2. Under **prenumerationer** väljer du din prenumeration och resurs grupp, som du ser i följande bild
 
    ![Visa princip](./media/virtual-network-service-endpoint-policies-portal/sep-view.png)
        
@@ -99,7 +99,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 - Innan du kan koppla en princip till ett undernät måste du skapa ett virtuellt nätverk och ett undernät. Mer information om detta finns i artikeln [skapa en Virtual Network](./quick-create-portal.md) .
 
-- När du har konfigurerat det virtuella nätverket och under nätet måste du konfigurera Virtual Network tjänstens slut punkter för Azure Storage. På bladet Virtual Network väljer du **tjänst slut punkter**och i nästa ruta väljer du **Microsoft. Storage** och under **undernät** väljer du önskat VNet eller undernät
+- När du har konfigurerat det virtuella nätverket och under nätet måste du konfigurera Virtual Network tjänstens slut punkter för Azure Storage. På bladet Virtual Network väljer du **tjänst slut punkter** och i nästa ruta väljer du **Microsoft. Storage** och under **undernät** väljer du önskat VNet eller undernät
 
 - Nu kan du antingen välja att välja tjänstens slut punkts princip i list rutan i rutan ovan om du redan har skapat tjänst slut punkts principer innan du konfigurerar tjänst slut punkten för under nätet enligt nedan
 

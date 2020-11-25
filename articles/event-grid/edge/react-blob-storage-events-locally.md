@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87462028"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005069"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Självstudie: reagera på Blob Storage händelser på IoT Edge (förhands granskning)
 Den här artikeln visar hur du distribuerar Azure Blob Storage i IoT-modulen, som fungerar som en Event Grid utgivare för att skicka händelser vid skapande av BLOB och blob-borttagning till Event Grid.  
@@ -45,7 +45,7 @@ Det finns flera sätt att distribuera moduler till en IoT Edge-enhet och alla fu
 
 ### <a name="configure-a-deployment-manifest"></a>Konfigurera ett distributions manifest
 
-Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som ska distribueras, hur data flödar mellan moduler och önskade egenskaper för modulen. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest i stället för att skapa JSON-dokumentet manuellt.  Det finns tre steg: **Lägg till moduler**, **Ange vägar**och **Granska distribution**.
+Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som ska distribueras, hur data flödar mellan moduler och önskade egenskaper för modulen. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest i stället för att skapa JSON-dokumentet manuellt.  Det finns tre steg: **Lägg till moduler**, **Ange vägar** och **Granska distribution**.
 
 ### <a name="add-modules"></a>Lägga till moduler
 
@@ -324,7 +324,7 @@ Grattis! Du har slutfört självstudien. I följande avsnitt finns information o
 
 Här är en lista över de händelse egenskaper som stöds och deras typer och beskrivningar. 
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 | Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
@@ -337,7 +337,7 @@ Här är en lista över de händelse egenskaper som stöds och deras typer och b
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | api | sträng | Den åtgärd som utlöste händelsen. Det kan vara något av följande värden: <ul><li>BlobCreated-tillåtna värden är: `PutBlob` och `PutBlockList`</li><li>BlobDeleted-tillåtna värden är `DeleteBlob` `DeleteAfterUpload` och `AutoDelete` . <p>`DeleteAfterUpload`Händelsen genereras när BLOB tas bort automatiskt eftersom den önskade deleteAfterUpload-egenskapen har angetts till true. </p><p>`AutoDelete` händelsen genereras när blobben tas bort automatiskt eftersom det önskade egenskap svärdet för deleteAfterMinutes har upphört att gälla.</p></li></ul>|
 | clientRequestId | sträng | ett ID för begäran som tillhandahållits för Storage API-åtgärden. Detta ID kan användas för att korrelera Azure Storage diagnostikloggar med hjälp av fältet "client-Request-ID" i loggarna och kan tillhandahållas i klient begär Anden med hjälp av huvudet "x-MS-client-Request-ID". Mer information finns i [logg format](/rest/api/storageservices/storage-analytics-log-format). |
@@ -346,7 +346,7 @@ Data-objektet har följande egenskaper:
 | Innehålls | sträng | Den innehålls typ som angetts för blobben. |
 | contentLength | heltal | Storleken på blobben i byte. |
 | blobType | sträng | Typ av BLOB. Giltiga värden är antingen "BlockBlob" eller "PageBlob". |
-| url | sträng | Sökvägen till blobben. <br>Om klienten använder en BLOB-REST API, har URL: en följande struktur: * \<storage-account-name\> . blob.Core.Windows.net/ \<container-name\> / \<file-name\> *. <br>Om klienten använder en Data Lake Storage REST API har URL: en följande struktur: * \<storage-account-name\> . DFS.Core.Windows.net/ \<file-system-name\> / \<file-name\> *. |
+| url | sträng | Sökvägen till blobben. <br>Om klienten använder en BLOB-REST API, har URL: en följande struktur: *\<storage-account-name\> . blob.Core.Windows.net/ \<container-name\> / \<file-name\>*. <br>Om klienten använder en Data Lake Storage REST API har URL: en följande struktur: *\<storage-account-name\> . DFS.Core.Windows.net/ \<file-system-name\> / \<file-name\>*. |
 
 
 ## <a name="next-steps"></a>Nästa steg

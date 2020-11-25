@@ -13,11 +13,11 @@ ms.custom: seo-lt-2019
 ms.date: 11/11/2020
 ms.author: jingwang
 ms.openlocfilehash: ef9ac29735289d5c7a60ff0fca3b9e9f360f6e08
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555404"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005137"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data från Azure Blob Storage till en databas i Azure SQL Database genom att använda Azure Data Factory
 
@@ -49,7 +49,7 @@ Förbered nu Blob Storage och SQL-databasen för den här självstudien genom at
 
 #### <a name="create-a-source-blob"></a>Skapa en källblob
 
-1. Öppna Anteckningar. Kopiera följande text och spara den som en **emp.txt** -fil på din disk:
+1. Öppna Anteckningar. Kopiera följande text och spara den som en **emp.txt**-fil på din disk:
 
     ```
     FirstName,LastName
@@ -82,13 +82,13 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
 
 1. Öppna **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 2. På den vänstra menyn väljer du **skapa en resurs**  >  **integration**  >  **Data Factory**.
-3. I fönstret **Ny datafabrik** , under **Namn** anger du **ADFTutorialDataFactory**.
+3. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**.
 
    Namnet på Azure Data Factory måste vara *globalt unikt*. Ange ett annat namn för datafabriken om du får ett felmeddelande om namnvärdet. (till exempel Dittnamnadftutorialdatafactory). Se artikeln [Namnregler för Data Factory](naming-rules.md) för namnregler för Data Factory-artefakter.
 
      ![Ny datafabrik](./media/doc-common-process/name-not-available-error.png)
-4. Välj den Azure- **prenumeration** som du vill skapa den nya datafabriken i.
-5. Gör något av följande för **Resursgrupp** :
+4. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i.
+5. Gör något av följande för **Resursgrupp**:
 
     a. Välj **Använd befintlig** och välj en befintlig resurs grupp i den nedrullningsbara listan.
 
@@ -124,7 +124,7 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
 ### <a name="configure-source"></a>Konfigurera källan
 
 >[!TIP]
->I den här självstudien använder du *konto nyckel* som autentiseringstyp för ditt käll data lager, men du kan välja andra autentiseringsmetoder som stöds: *SAS-URI* , *tjänstens huvud namn* och *hanterad identitet* om det behövs. Mer information finns i motsvarande avsnitt i [den här artikeln](./connector-azure-blob-storage.md#linked-service-properties) .
+>I den här självstudien använder du *konto nyckel* som autentiseringstyp för ditt käll data lager, men du kan välja andra autentiseringsmetoder som stöds: *SAS-URI*,*tjänstens huvud namn* och *hanterad identitet* om det behövs. Mer information finns i motsvarande avsnitt i [den här artikeln](./connector-azure-blob-storage.md#linked-service-properties) .
 >För att lagra hemligheter för data lager säkert rekommenderar vi också att du använder en Azure Key Vault. Se [den här artikeln](./store-credentials-in-key-vault.md) för detaljerade illustrationer.
 
 1. Gå till fliken **källa** . Välj **+ ny** för att skapa en käll data uppsättning.
@@ -220,7 +220,7 @@ I det här schemat skapar du en schemautlösare för pipelinen. Utlösaren kör 
 
 1. I dialog rutan **Lägg till utlösare** väljer du **+ nytt** för avsnittet **Välj utlösare** .
 
-1. Utför följande steg i fönstret **Ny utlösare** :
+1. Utför följande steg i fönstret **Ny utlösare**:
 
     a. Under **Namn** anger du **RunEveryMinute**.
 

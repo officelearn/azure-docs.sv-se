@@ -14,11 +14,11 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: 3542ae2e94c2fa3d3e9d6100738b2aabded94d15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306675"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005273"
 ---
 # <a name="application-security-groups"></a>Programsäkerhetsgrupper
 
@@ -42,7 +42,7 @@ Eftersom standardsäkerhetsregeln **AllowVNetInBound** tillåter all kommunikati
 
 |Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
 |---|---|---|---|---|---|---|
-| 120 | * | * | AsgDb | 1433 | Alla | Neka |
+| 120 | * | * | AsgDb | 1433 | Valfri | Neka |
 
 ## <a name="allow-database-businesslogic"></a>Allow-Database-BusinessLogic
 

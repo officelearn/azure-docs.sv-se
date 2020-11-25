@@ -2,13 +2,13 @@
 title: Mall funktioner – objekt
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med objekt.
 ms.topic: conceptual
-ms.date: 10/12/2020
-ms.openlocfilehash: 632e92bb798a5e8469079ef4693b7f321617f88c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/18/2020
+ms.openlocfilehash: 7ed317b3506f00e71bbf97d5564cacec05032744
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977892"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96004525"
 ---
 # <a name="object-functions-for-arm-templates"></a>Objekt funktioner för ARM-mallar
 
@@ -23,7 +23,9 @@ Resource Manager innehåller flera funktioner för att arbeta med objekt i din A
 * [ha](#null)
 * [Union](#union)
 
-## <a name="contains"></a>contains
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
+## <a name="contains"></a>innehåller
 
 `contains(container, itemToFind)`
 
@@ -31,10 +33,10 @@ Kontrollerar om en matris innehåller ett värde, ett objekt innehåller en nyck
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| container |Ja |matris, objekt eller sträng |Värdet som innehåller värdet som ska hittas. |
-| itemToFind |Ja |sträng eller heltal |Det värde som ska hittas. |
+| container |Yes |matris, objekt eller sträng |Värdet som innehåller värdet som ska hittas. |
+| itemToFind |Yes |sträng eller heltal |Det värde som ska hittas. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -44,54 +46,85 @@ Kontrollerar om en matris innehåller ett värde, ett objekt innehåller en nyck
 
 I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) visas hur du använder med olika typer:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringToTest": {
-            "type": "string",
-            "defaultValue": "OneTwoThree"
-        },
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c"}
-        },
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "OneTwoThree"
     },
-    "resources": [
-    ],
-    "outputs": {
-        "stringTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('stringToTest'), 'e')]"
-        },
-        "stringFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('stringToTest'), 'z')]"
-        },
-        "objectTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('objectToTest'), 'one')]"
-        },
-        "objectFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('objectToTest'), 'a')]"
-        },
-        "arrayTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('arrayToTest'), 'three')]"
-        },
-        "arrayFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('arrayToTest'), 'four')]"
-        }
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
+    },
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "stringTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'e')]"
+    },
+    "stringFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'z')]"
+    },
+    "objectTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'one')]"
+    },
+    "objectFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'a')]"
+    },
+    "arrayTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'three')]"
+    },
+    "arrayFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'four')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param stringToTest string = 'OneTwoThree'
+param objectToTest object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c'
+}
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+
+output stringTrue bool = contains(stringToTest, 'e')
+output stringFalse bool = contains(stringToTest, 'z')
+output objectTrue bool = contains(objectToTest, 'one')
+output objectFalse bool = contains(objectToTest, 'a')
+output arrayTrue bool = contains(arrayToTest, 'three')
+output arrayFalse bool = contains(arrayToTest, 'four')
+```
+
+---
 
 Utdata från föregående exempel med standardvärdena är:
 
@@ -108,16 +141,16 @@ Utdata från föregående exempel med standardvärdena är:
 
 `createObject(key1, value1, key2, value2, ...)`
 
-Skapar ett objekt från nycklar och värden.
+Skapar ett objekt från nycklar och värden. `createObject`Funktionen stöds inte av bicep.  Skapa ett objekt med hjälp av `{}` .
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| key1 |Nej |sträng |Namnet på nyckeln. |
-| value1 |Nej |int, boolesk, sträng, objekt eller matris |Värdet för nyckeln. |
-| ytterligare nycklar |Nej |sträng |Ytterligare namn på nycklarna. |
-| ytterligare värden |Nej |int, boolesk, sträng, objekt eller matris |Ytterligare värden för nycklarna. |
+| key1 |No |sträng |Namnet på nyckeln. |
+| value1 |No |int, boolesk, sträng, objekt eller matris |Värdet för nyckeln. |
+| ytterligare nycklar |No |sträng |Ytterligare namn på nycklarna. |
+| ytterligare värden |No |int, boolesk, sträng, objekt eller matris |Ytterligare värden för nycklarna. |
 
 Funktionen accepterar bara ett jämnt antal parametrar. Varje nyckel måste ha ett matchande värde.
 
@@ -129,20 +162,42 @@ Ett objekt med varje nyckel och värde-par.
 
 I följande exempel skapas ett objekt av olika typer av värden.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-    ],
-    "outputs": {
-        "newObject": {
-            "type": "object",
-            "value": "[createObject('intProp', 1, 'stringProp', 'abc', 'boolProp', true(), 'arrayProp', createArray('a', 'b', 'c'), 'objectProp', createObject('key1', 'value1'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+  ],
+  "outputs": {
+    "newObject": {
+      "type": "object",
+      "value": "[createObject('intProp', 1, 'stringProp', 'abc', 'boolProp', true(), 'arrayProp', createArray('a', 'b', 'c'), 'objectProp', createObject('key1', 'value1'))]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output newObject object = {
+  'intProp': 1
+  'stringProp': 'abc'
+  'boolProp': true
+  'arrayProp': [
+    'a'
+    'b'
+    'c'
+  ]
+  'objectProp': {
+    'key1': 'value1'
+  }
+}
+```
+
+---
 
 Utdata från föregående exempel med standardvärdena är ett objekt med namnet `newObject` med följande värde:
 
@@ -164,9 +219,9 @@ Anger om en matris, ett objekt eller en sträng är tom.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Ja |matris, objekt eller sträng |Värdet för att kontrol lera om det är tomt. |
+| itemToTest |Yes |matris, objekt eller sträng |Värdet för att kontrol lera om det är tomt. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -176,42 +231,58 @@ Returnerar **Sant** om värdet är tomt. annars **false**.
 
 Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) kontrollerar om en matris, ett objekt och en sträng är tomma.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testArray": {
-            "type": "array",
-            "defaultValue": []
-        },
-        "testObject": {
-            "type": "object",
-            "defaultValue": {}
-        },
-        "testString": {
-            "type": "string",
-            "defaultValue": ""
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": []
     },
-    "resources": [
-    ],
-    "outputs": {
-        "arrayEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testArray'))]"
-        },
-        "objectEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testObject'))]"
-        },
-        "stringEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testString'))]"
-        }
+    "testObject": {
+      "type": "object",
+      "defaultValue": {}
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": ""
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testArray'))]"
+    },
+    "objectEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testObject'))]"
+    },
+    "stringEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testString'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param testArray array = []
+param testObject object = {}
+param testString string = ''
+
+output arrayEmpty bool = empty(testArray)
+output objectEmpty bool = empty(testObject)
+output stringEmpty bool = empty(testString)
+```
+
+---
 
 Utdata från föregående exempel med standardvärdena är:
 
@@ -229,11 +300,11 @@ Returnerar en enskild matris eller ett objekt med de gemensamma elementen från 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att hitta vanliga element. |
-| arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att hitta vanliga element. |
-| ytterligare argument |Nej |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
+| arg1 |Yes |matris eller objekt |Det första värdet som ska användas för att hitta vanliga element. |
+| arg2 |Yes |matris eller objekt |Det andra värdet som ska användas för att hitta vanliga element. |
+| ytterligare argument |No |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -243,42 +314,81 @@ En matris eller ett objekt med gemensamma element.
 
 I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) visas hur du använder snitt med matriser och objekt:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstObject": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c"}
-        },
-        "secondObject": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "z", "three": "c"}
-        },
-        "firstArray": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        },
-        "secondArray": {
-            "type": "array",
-            "defaultValue": ["two", "three"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "objectOutput": {
-            "type": "object",
-            "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
-        }
+    "secondObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "z",
+        "three": "c"
+      }
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "objectOutput": {
+      "type": "object",
+      "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstObject object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c'
+}
+param secondObject object = {
+  'one': 'a'
+  'two': 'z'
+  'three': 'c'
+}
+param firstArray array = [
+  'one'
+  'two'
+  'three'
+]
+param secondArray array = [
+  'two'
+  'three'
+]
+
+output objectOutput object = intersection(firstObject, secondObject)
+output arrayOutput array = intersection(firstArray, secondArray)
+```
+
+---
 
 Utdata från föregående exempel med standardvärdena är:
 
@@ -286,6 +396,8 @@ Utdata från föregående exempel med standardvärdena är:
 | ---- | ---- | ----- |
 | objectOutput | Objekt | {"One": "a", "tre": "c"} |
 | arrayOutput | Matris | ["två", "tre"] |
+
+<a id="json"></a>
 
 ## <a name="json"></a>json
 
@@ -295,9 +407,9 @@ Konverterar en giltig JSON-sträng till en JSON-datatyp.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |sträng |Värdet som ska konverteras till JSON. Strängen måste vara en korrekt formaterad JSON-sträng. |
+| arg1 |Yes |sträng |Värdet som ska konverteras till JSON. Strängen måste vara en korrekt formaterad JSON-sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -313,74 +425,98 @@ Du kan också använda [Null ()](#null) för att få ett null-värde.
 
 I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) visas hur du använder JSON-funktionen. Observera att du kan skicka in **Null** för ett tomt objekt.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "jsonEmptyObject": {
-            "type": "string",
-            "defaultValue": "null"
-        },
-        "jsonObject": {
-            "type": "string",
-            "defaultValue": "{\"a\": \"b\"}"
-        },
-        "jsonString": {
-            "type": "string",
-            "defaultValue": "\"test\""
-        },
-        "jsonBoolean": {
-            "type": "string",
-            "defaultValue": "true"
-        },
-        "jsonInt": {
-            "type": "string",
-            "defaultValue": "3"
-        },
-        "jsonArray": {
-            "type": "string",
-            "defaultValue": "[[1,2,3 ]"
-        },
-        "concatValue": {
-            "type": "string",
-            "defaultValue": "demo value"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "jsonEmptyObject": {
+      "type": "string",
+      "defaultValue": "null"
     },
-    "resources": [
-    ],
-    "outputs": {
-        "emptyObjectOutput": {
-            "type": "bool",
-            "value": "[empty(json(parameters('jsonEmptyObject')))]"
-        },
-        "objectOutput": {
-            "type": "object",
-            "value": "[json(parameters('jsonObject'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[json(parameters('jsonString'))]"
-        },
-        "booleanOutput": {
-            "type": "bool",
-            "value": "[json(parameters('jsonBoolean'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[json(parameters('jsonInt'))]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[json(parameters('jsonArray'))]"
-        },
-        "concatObjectOutput": {
-            "type": "object",
-            "value": "[json(concat('{\"a\": \"', parameters('concatValue'), '\"}'))]"
-        }
+    "jsonObject": {
+      "type": "string",
+      "defaultValue": "{\"a\": \"b\"}"
+    },
+    "jsonString": {
+      "type": "string",
+      "defaultValue": "\"test\""
+    },
+    "jsonBoolean": {
+      "type": "string",
+      "defaultValue": "true"
+    },
+    "jsonInt": {
+      "type": "string",
+      "defaultValue": "3"
+    },
+    "jsonArray": {
+      "type": "string",
+      "defaultValue": "[[1,2,3 ]"
+    },
+    "concatValue": {
+      "type": "string",
+      "defaultValue": "demo value"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "emptyObjectOutput": {
+      "type": "bool",
+      "value": "[empty(json(parameters('jsonEmptyObject')))]"
+    },
+    "objectOutput": {
+      "type": "object",
+      "value": "[json(parameters('jsonObject'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[json(parameters('jsonString'))]"
+    },
+    "booleanOutput": {
+      "type": "bool",
+      "value": "[json(parameters('jsonBoolean'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[json(parameters('jsonInt'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[json(parameters('jsonArray'))]"
+    },
+    "concatObjectOutput": {
+      "type": "object",
+      "value": "[json(concat('{\"a\": \"', parameters('concatValue'), '\"}'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param jsonEmptyObject string = 'null'
+param jsonObject string = '{\'a\': \'b\'}'
+param jsonString string = '\'test\''
+param jsonBoolean string = 'true'
+param jsonInt string = '3'
+param jsonArray string = '[[1,2,3]]'
+param concatValue string = 'demo value'
+
+output emptyObjectOutput bool = empty(json(jsonEmptyObject))
+output objectOutput object = json(jsonObject)
+output stringOutput string =json(jsonString)
+output booleanOutput bool = json(jsonBoolean)
+output intOutput int = json(jsonInt)
+output arrayOutput array = json(jsonArray)
+output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
+```
+
+---
 
 Utdata från föregående exempel med standardvärdena är:
 
@@ -390,7 +526,7 @@ Utdata från föregående exempel med standardvärdena är:
 | objectOutput | Objekt | {"a": "b"} |
 | stringOutput | Sträng | test |
 | booleanOutput | Boolesk | Sant |
-| intOutput | Heltal | 3 |
+| intOutput | Integer | 3 |
 | arrayOutput | Matris | [1, 2, 3] |
 | concatObjectOutput | Objekt | {"a": "demo värde"} |
 
@@ -402,9 +538,9 @@ Returnerar antalet element i en matris, tecken i en sträng eller på rot nivå 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris, sträng eller objekt |Den matris som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken, eller objektet som ska användas för att hämta antalet rot nivå egenskaper. |
+| arg1 |Yes |matris, sträng eller objekt |Den matris som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken, eller objektet som ska användas för att hämta antalet rot nivå egenskaper. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -414,53 +550,81 @@ En int.
 
 I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) visas hur du använder length med en matris och en sträng:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [
-                "one",
-                "two",
-                "three"
-            ]
-        },
-        "stringToTest": {
-            "type": "string",
-            "defaultValue": "One Two Three"
-        },
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {
-                "propA": "one",
-                "propB": "two",
-                "propC": "three",
-                "propD": {
-                    "propD-1": "sub",
-                    "propD-2": "sub"
-                }
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
     },
-    "resources": [],
-    "outputs": {
-        "arrayLength": {
-            "type": "int",
-            "value": "[length(parameters('arrayToTest'))]"
-        },
-        "stringLength": {
-            "type": "int",
-            "value": "[length(parameters('stringToTest'))]"
-        },
-        "objectLength": {
-            "type": "int",
-            "value": "[length(parameters('objectToTest'))]"
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "One Two Three"
+    },
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "propA": "one",
+        "propB": "two",
+        "propC": "three",
+        "propD": {
+          "propD-1": "sub",
+          "propD-2": "sub"
         }
+      }
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayLength": {
+      "type": "int",
+      "value": "[length(parameters('arrayToTest'))]"
+    },
+    "stringLength": {
+      "type": "int",
+      "value": "[length(parameters('stringToTest'))]"
+    },
+    "objectLength": {
+      "type": "int",
+      "value": "[length(parameters('objectToTest'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+param stringToTest string = 'One Two Three'
+param objectToTest object = {
+  'propA': 'one'
+  'propB': 'two'
+  'propC': 'three'
+  'propD': {
+      'propD-1': 'sub'
+      'propD-2': 'sub'
+  }
+}
+
+output arrayLength int = length(arrayToTest)
+output stringLength int = length(stringToTest)
+output objectLength int = length(objectToTest)
+```
+
+---
 
 Utdata från föregående exempel med standardvärdena är:
 
@@ -474,7 +638,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 `null()`
 
-Returnerar null.
+Returnerar null. `null`Funktionen är inte tillgänglig i bicep. Använd `null` nyckelordet i stället.
 
 ### <a name="parameters"></a>Parametrar
 
@@ -488,19 +652,29 @@ Ett värde som alltid är null.
 
 I följande exempel används funktionen null.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "emptyOutput": {
-            "type": "bool",
-            "value": "[empty(null())]"
-        },
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "emptyOutput": {
+      "type": "bool",
+      "value": "[empty(null())]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output emptyOutput bool = empty(null)
+```
+
+---
 
 Utdata från föregående exempel är:
 
@@ -516,11 +690,11 @@ Returnerar en enskild matris eller ett objekt med alla element från parametrarn
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att koppla ihop element. |
-| arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att koppla ihop element. |
-| ytterligare argument |Nej |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
+| arg1 |Yes |matris eller objekt |Det första värdet som ska användas för att koppla ihop element. |
+| arg2 |Yes |matris eller objekt |Det andra värdet som ska användas för att koppla ihop element. |
+| ytterligare argument |No |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -530,42 +704,84 @@ En matris eller ett objekt.
 
 I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) visas hur du använder union med matriser och objekt:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstObject": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c1"}
-        },
-        "secondObject": {
-            "type": "object",
-            "defaultValue": {"three": "c2", "four": "d", "five": "e"}
-        },
-        "firstArray": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        },
-        "secondArray": {
-            "type": "array",
-            "defaultValue": ["three", "four"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c1"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "objectOutput": {
-            "type": "object",
-            "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
-        }
+    "secondObject": {
+      "type": "object",
+      "defaultValue": {
+        "three": "c2",
+        "four": "d",
+        "five": "e"
+      }
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "three", "four" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "objectOutput": {
+      "type": "object",
+      "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstObject object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c1'
+}
+
+param secondObject object = {
+  'three': 'c2'
+  'four': 'd'
+  'five': 'e'
+}
+
+param firstArray array = [
+  'one'
+  'two'
+  'three'
+]
+
+param secondArray array = [
+  'three'
+  'four'
+]
+
+output objectOutput object = union(firstObject, secondObject)
+output arrayOutput array = union(firstArray, secondArray)
+```
+
+---
 
 Utdata från föregående exempel med standardvärdena är:
 

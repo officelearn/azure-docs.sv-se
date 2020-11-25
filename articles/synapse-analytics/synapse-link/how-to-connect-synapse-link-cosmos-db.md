@@ -10,11 +10,11 @@ ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3434953de3460d3eff066768474f03aa0e14165e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668601"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005001"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Ansluta till Azure Synapse-länken (för hands version) för Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Om du vill köra storskalig analys i Azure Cosmos DB utan att påverka drifts pr
 
 ## <a name="go-to-synapse-studio"></a>Gå till Synapse Studio
 
-Från din Azure Synapse-arbetsyta väljer du **Starta Synapse Studio** . På Start sidan för Synapse Studio väljer du **data** , som tar dig till data Object Explorer.
+Från din Azure Synapse-arbetsyta väljer du **Starta Synapse Studio**. På Start sidan för Synapse Studio väljer du **data**, som tar dig till data Object Explorer.
 
 ## <a name="connect-an-azure-cosmos-db-database-to-an-azure-synapse-workspace"></a>Ansluta en Azure Cosmos DB-databas till en Azure Synapse-arbetsyta
 
@@ -44,22 +44,22 @@ Anslutning av en Azure Cosmos DB databas görs som en länkad tjänst. Med en Az
 
 Från data Object Explorer kan du ansluta direkt till en Azure Cosmos DB-databas genom att följa dessa steg:
 
-1. Välj **+** ikonen nära **data** .
-1. Välj **Anslut till externa data** .
-1. Välj det API som du vill ansluta till, till exempel **SQL API** eller **API för MongoDB** .
-1. Välj **Fortsätt** .
+1. Välj **+** ikonen nära **data**.
+1. Välj **Anslut till externa data**.
+1. Välj det API som du vill ansluta till, till exempel **SQL API** eller **API för MongoDB**.
+1. Välj **Fortsätt**.
 1. Använd ett eget namn för att namnge den länkade tjänsten. Namnet kommer att visas i data Object Explorer och används av Azure Synapse-körningar för att ansluta till databasen och behållarna.
-1. Välj det **Azure Cosmos DB konto namnet** och **databas namnet** .
-1. Valfritt Om ingen region anges dirigeras Azure Synapse runtime-åtgärder mot den närmaste region där analys lagret är aktiverat. Du kan också manuellt ange den region som du vill att användarna ska använda för att få åtkomst till den Azure Cosmos DB analytiska butiken. Välj **Ytterligare egenskaper för anslutning** och välj sedan **ny** . Under **egenskaps namn** , anger du **PreferredRegions** . Ange **värdet** till den region som du vill ha, till exempel **WestUS2** . (Det finns inga blank steg mellan orden och talet.)
-1. Välj **Skapa** .
+1. Välj det **Azure Cosmos DB konto namnet** och **databas namnet**.
+1. Valfritt Om ingen region anges dirigeras Azure Synapse runtime-åtgärder mot den närmaste region där analys lagret är aktiverat. Du kan också manuellt ange den region som du vill att användarna ska använda för att få åtkomst till den Azure Cosmos DB analytiska butiken. Välj **Ytterligare egenskaper för anslutning** och välj sedan **ny**. Under **egenskaps namn**, anger du **PreferredRegions**. Ange **värdet** till den region som du vill ha, till exempel **WestUS2**. (Det finns inga blank steg mellan orden och talet.)
+1. Välj **Skapa**.
 
 Azure Cosmos DB databaser visas på fliken **länkad** under avsnittet **Azure Cosmos DB** . Med Azure Cosmos DB kan du särskilja en HTAP-aktiverad behållare från en OLTP-behållare via följande ikoner:
 
-**Endast OLTP-behållare** :
+**Endast OLTP-behållare**:
 
 ![Visualisering som visar ikonen för OLTP-behållare.](../media/quickstart-connect-synapse-link-cosmosdb/oltp-container.png)
 
-**HTAP-aktive rad behållare** :
+**HTAP-aktive rad behållare**:
 
 ![Visualisering som visar HTAP container-ikonen.](../media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
 

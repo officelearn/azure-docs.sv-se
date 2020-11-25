@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 05d260de726c62c130a58938c2a2c9fa2440a96d
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186730"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004729"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Kör distributions planeraren för VMware haveri beredskap
 Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
@@ -86,7 +86,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Port|(Valfritt) Portnummer för anslutning till vCenter/ESXi-värden. Standardporten är 443.|
 |-Protocol| (Valfritt) Ange protokollet, antingen http eller https, för anslutning till vCenter. Standardprotokollet är https.|
 | -StorageAccountName | (Valfritt) Namnet på det lagringskonto som används för beräkning av dataflödet som kan uppnås för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när dataflödet ska beräknas. Lagringskontot måste vara av typen generell användning v1 (GPv1). |
-| -StorageAccountKey | (Valfritt) Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > < *[lagringskontots namn]* > > Inställningar > Åtkomstnycklar > Key1. |
+| -StorageAccountKey | (Valfritt) Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*[lagringskontots namn]*> > Inställningar > Åtkomstnycklar > Key1. |
 | -Environment | (Valfritt) Det här är din målmiljö för Azure Storage-kontot. Detta kan vara ett av tre värden – AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din Azure-region är antingen Azure amerikanska myndigheter eller Azure Kina 21Vianet. |
 
 
@@ -96,7 +96,7 @@ Under profileringen kan du välja att skicka namn och nyckel för ett lagringsko
 
 Du kan köra flera instanser av verktyget för olika uppsättningar av virtuella datorer. Se till att det inte finns dubbletter av namn på virtuella datorer i profileringsuppsättningarna. Till exempel kanske du har profilerat tio virtuella datorer (VM1–VM10). Efter några dagar vill du profilera ytterligare fem virtuella datorer (VM11–VM15), och då kan du köra verktyget från en annan kommandotolk för den andra uppsättningen av virtuella datorer (VM11–VM15). Se till att den andra uppsättningen av virtuella datorer inte innehåller något av namnen på de virtuella datorerna från den första profileringsinstansen, eller använd en annan utdatakatalog för den andra körningen. Om två instanser av verktyget används för profilering av samma virtuella datorer och samma utdatakatalog används kommer den genererade rapporten att vara felaktig.
 
-Som standard är verktyget konfigurerat för att profilera och generera rapporter upp till 1000 virtuella datorer. Du kan ändra gränsen genom att ändra nyckelvärdet i filen *ASRDeploymentPlanner.exe.config* .
+Som standard är verktyget konfigurerat för att profilera och generera rapporter upp till 1000 virtuella datorer. Du kan ändra gränsen genom att ändra nyckelvärdet i filen *ASRDeploymentPlanner.exe.config*.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -165,16 +165,16 @@ När profileringen är färdig kan köra du verktyget i läget för rapportgener
 |-Protocol|(Valfritt) Ange protokollet, antingen http eller https, för anslutning till vCenter. Standardprotokollet är https.|
 | -DesiredRPO | (Valfritt) Önskat mål för återställningspunkt (RPO) i minuter. Standardvärdet är 15 minuter.|
 | -Bandwidth | Bandbredd i Mbit/s. Det här värdet används till att beräkna det RPO som kan uppnås för den angivna bandbredden. |
-| -StartDate | (Valfritt) Startdatum och tidpunkt i formatet MM-DD-ÅÅÅÅ:HH:MM (24-timmarsformat). *StartDate* måste anges tillsammans med *EndDate* . När StartDate anges genereras rapporten för de profileringsdata som samlats in mellan StartDate och EndDate. |
-| -EndDate | (Valfritt) Slutdatum och tidpunkt i formatet MM-DD-ÅÅÅÅ:HH:MM (24-timmarsformat). *EndDate* måste anges tillsammans med *StartDate* . När du anger EndDate genereras rapporten för profileringsdata som samlats in mellan StartDate och EndDate. |
+| -StartDate | (Valfritt) Startdatum och tidpunkt i formatet MM-DD-ÅÅÅÅ:HH:MM (24-timmarsformat). *StartDate* måste anges tillsammans med *EndDate*. När StartDate anges genereras rapporten för de profileringsdata som samlats in mellan StartDate och EndDate. |
+| -EndDate | (Valfritt) Slutdatum och tidpunkt i formatet MM-DD-ÅÅÅÅ:HH:MM (24-timmarsformat). *EndDate* måste anges tillsammans med *StartDate*. När du anger EndDate genereras rapporten för profileringsdata som samlats in mellan StartDate och EndDate. |
 | -GrowthFactor | (Valfritt) Tillväxtfaktor, uttryckt i procent. Standardvärdet är 30 procent. |
 | -UseManagedDisks | (Valfritt) UseManagedDisks - Ja/Nej. Standardvärdet är Ja. Antalet virtuella datorer som kan placeras i ett enda lagringskonto beräknas utifrån om redundans/redundanstest för virtuella datorer görs på en hanterad disk istället för en ohanterad disk. |
-|-SubscriptionId |(Valfritt) GUID för prenumerationen. Observera att den här parametern krävs när du behöver generera rapporten kostnads uppskattning med det senaste priset baserat på din prenumeration, erbjudandet som är associerat med din prenumeration och för din specifika Azure-region i den **angivna valutan** .|
+|-SubscriptionId |(Valfritt) GUID för prenumerationen. Observera att den här parametern krävs när du behöver generera rapporten kostnads uppskattning med det senaste priset baserat på din prenumeration, erbjudandet som är associerat med din prenumeration och för din specifika Azure-region i den **angivna valutan**.|
 |-TargetRegion|(Valfritt) Azure-regionen som är mål för replikeringen. Eftersom Azure har olika kostnader för olika regioner ska du använda den här parametern till att generera en rapport för en specifik Azure-region.<br>Standard är usavästra2 eller den senast använda målregionen.<br>Läs mer i listan med [målregioner som stöds](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Valfritt) Erbjudandet som är associerat med den angivna prenumerationen. Standard är MS-AZR-0003P (Betala per användning).|
 |-Currency|(Valfritt) Valutan i vilken kostnaden visas i den genererade rapporten. Standard är amerikanska dollar ($) eller den senast använda valutan.<br>Läs mer i listan med [valutor som stöds](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
-Som standard är verktyget konfigurerat för att profilera och generera rapporter upp till 1000 virtuella datorer. Du kan ändra gränsen genom att ändra nyckelvärdet i filen *ASRDeploymentPlanner.exe.config* .
+Som standard är verktyget konfigurerat för att profilera och generera rapporter upp till 1000 virtuella datorer. Du kan ändra gränsen genom att ändra nyckelvärdet i filen *ASRDeploymentPlanner.exe.config*.
 ```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -269,7 +269,7 @@ Om du vill få en uppskattning av vilket dataflöde som Site Recovery kan uppnå
 |-Virtualization|Ange visualiseringstyp (VMware eller Hyper-V).|
 | -Directory | (Valfritt) UNC eller lokal katalogsökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om namnet på en katalog inte anges används katalogen ProfiledData. |
 | -StorageAccountName | Namnet på det lagringskonto som används för beräkning av den bandbredd som används för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när bandbredden ska beräknas. Lagringskontot måste vara antingen av typen generell användning v1 (GPv1).|
-| -StorageAccountKey | Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > < *[lagringskontots namn]* > Inställningar > Åtkomstnycklar > Key1 (eller en primär åtkomstnyckel för ett klassiskt lagringskonto). |
+| -StorageAccountKey | Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*[lagringskontots namn]*> Inställningar > Åtkomstnycklar > Key1 (eller en primär åtkomstnyckel för ett klassiskt lagringskonto). |
 | -VMListFile | En fil som innehåller listan med virtuella datorer som ska profileras när den förbrukade bandbredden ska beräknas. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla ett virtuellt datornamn/en IP-adress per rad. Namnen på de virtuella datorerna i filen ska vara samma som namnen på de virtuella datorerna på vCenter-servern/vSphere ESXi-värden.<br>Filen VMList.txt innehåller exempelvis följande virtuella datorer:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 | -Environment | (Valfritt) Det här är din målmiljö för Azure Storage-kontot. Detta kan vara ett av tre värden – AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din Azure-region är antingen Azure amerikanska myndigheter eller Azure Kina 21Vianet. |
 

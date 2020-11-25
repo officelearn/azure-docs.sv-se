@@ -2,13 +2,13 @@
 title: Mallens funktioner – datum
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med datum.
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: abdc88ce15279b90f8f9dc05a38a2ae236498f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 83e601adb649098f7a4e19cb71170b96a3287d9b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86058052"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96004593"
 ---
 # <a name="date-functions-for-arm-templates"></a>Datum funktioner för ARM-mallar
 
@@ -16,6 +16,8 @@ Resource Manager innehåller följande funktioner för att arbeta med datum i di
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## <a name="datetimeadd"></a>dateTimeAdd
 
@@ -25,11 +27,11 @@ Lägger till en tids period till ett bas värde. ISO 8601-format förväntas.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| base | Ja | sträng | Start-datetime-värdet för additionen. Använd [formatet ISO 8601-tidsstämpel](https://en.wikipedia.org/wiki/ISO_8601). |
-| varaktighet | Ja | sträng | Det tids värde som ska läggas till i basen. Det kan vara ett negativt värde. Använd [varaktighets formatet ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| format | Inga | sträng | Utdataformatet för datum/tid-resultatet. Om inget värde anges används formatet för bas värdet. Använd antingen [standard format strängar](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| base | Yes | sträng | Start-datetime-värdet för additionen. Använd [formatet ISO 8601-tidsstämpel](https://en.wikipedia.org/wiki/ISO_8601). |
+| varaktighet | Yes | sträng | Det tids värde som ska läggas till i basen. Det kan vara ett negativt värde. Använd [varaktighets formatet ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| format | No | sträng | Utdataformatet för datum/tid-resultatet. Om inget värde anges används formatet för bas värdet. Använd antingen [standard format strängar](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -39,100 +41,142 @@ Det datetime-värde som är resultatet av att lägga till duration-värdet i bas
 
 Följande exempel-mall visar olika sätt att lägga till tids värden.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters":{
-        "baseTime":{
-            "type":"string",
-            "defaultValue": "[utcNow('u')]"
-        }
-    },
-    "variables": {
-        "add3Years": "[dateTimeAdd(parameters('baseTime'), 'P3Y')]",
-        "subtract9Days": "[dateTimeAdd(parameters('baseTime'), '-P9D')]",
-        "add1Hour": "[dateTimeAdd(parameters('baseTime'), 'PT1H')]"
-    },
-    "resources": [],
-    "outputs": {
-        "add3Years": {
-            "value": "[variables('add3Years')]",
-            "type": "string"
-        },
-        "subtract9Days": {
-            "value": "[variables('subtract9Days')]",
-            "type": "string"
-        },
-        "add1Hour": {
-            "value": "[variables('add1Hour')]",
-            "type": "string"
-        },
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "baseTime": {
+      "type": "string",
+      "defaultValue": "[utcNow('u')]"
     }
+  },
+  "variables": {
+    "add3Years": "[dateTimeAdd(parameters('baseTime'), 'P3Y')]",
+    "subtract9Days": "[dateTimeAdd(parameters('baseTime'), '-P9D')]",
+    "add1Hour": "[dateTimeAdd(parameters('baseTime'), 'PT1H')]"
+  },
+  "resources": [],
+  "outputs": {
+    "add3YearsOutput": {
+      "value": "[variables('add3Years')]",
+      "type": "string"
+    },
+    "subtract9DaysOutput": {
+      "value": "[variables('subtract9Days')]",
+      "type": "string"
+    },
+    "add1HourOutput": {
+      "value": "[variables('add1Hour')]",
+      "type": "string"
+    },
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param baseTime string = utcNow('u')
+
+var add3Years = dateTimeAdd(baseTime, 'P3Y')
+var subtract9Days = dateTimeAdd(baseTime, '-P9D')
+var add1Hour = dateTimeAdd(baseTime, 'PT1H')
+
+output add3YearsOutput string = add3Years
+output subtract9DaysOutput string = subtract9Days
+output add1HourOutput string = add1Hour
+```
+
+---
 
 När föregående mall distribueras med en bas tid av `2020-04-07 14:53:14Z` , är utdata:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| add3Years | Sträng | 4/7/2023 2:53:14 PM |
-| subtract9Days | Sträng | 3/29/2020 2:53:14 PM |
-| add1Hour | Sträng | 4/7/2020 3:53:14 PM |
+| add3YearsOutput | Sträng | 4/7/2023 2:53:14 PM |
+| subtract9DaysOutput | Sträng | 3/29/2020 2:53:14 PM |
+| add1HourOutput | Sträng | 4/7/2020 3:53:14 PM |
 
 I nästa exempel-mall visas hur du ställer in start tiden för ett Automation-schema.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "omsAutomationAccountName": {
-            "type": "string",
-            "defaultValue": "demoAutomation",
-            "metadata": {
-                "description": "Use an existing Automation account."
-            }
-        },
-        "scheduleName": {
-            "type": "string",
-            "defaultValue": "demoSchedule1",
-            "metadata": {
-                "description": "Name of the new schedule."
-            }
-        },
-        "baseTime":{
-            "type":"string",
-            "defaultValue": "[utcNow('u')]",
-            "metadata": {
-                "description": "Schedule will start one hour from this time."
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "omsAutomationAccountName": {
+      "type": "string",
+      "defaultValue": "demoAutomation",
+      "metadata": {
+        "description": "Use an existing Automation account."
+      }
     },
-    "variables": {
-        "startTime": "[dateTimeAdd(parameters('baseTime'), 'PT1H')]"
+    "scheduleName": {
+      "type": "string",
+      "defaultValue": "demoSchedule1",
+      "metadata": {
+        "description": "Name of the new schedule."
+      }
     },
-    "resources": [
-        {
-            "name": "[concat(parameters('omsAutomationAccountName'), '/', parameters('scheduleName'))]",
-            "type": "microsoft.automation/automationAccounts/schedules",
-            "apiVersion": "2015-10-31",
-            "location": "eastus2",
-            "tags": {
-            },
-            "properties": {
-                "description": "Demo Scheduler",
-                "startTime": "[variables('startTime')]",
-                "isEnabled": "true",
-                "interval": 1,
-                "frequency": "hour"
-            }
-        }
-    ],
-    "outputs": {
+    "baseTime": {
+      "type": "string",
+      "defaultValue": "[utcNow('u')]",
+      "metadata": {
+        "description": "Schedule will start one hour from this time."
+      }
     }
+  },
+  "variables": {
+    "startTime": "[dateTimeAdd(parameters('baseTime'), 'PT1H')]"
+  },
+  "resources": [
+    ...
+    {
+      "type": "Microsoft.Automation/automationAccounts/schedules",
+      "apiVersion": "2015-10-31",
+      "name": "[concat(parameters('omsAutomationAccountName'), '/', parameters('scheduleName'))]",
+
+      "properties": {
+        "description": "Demo Scheduler",
+        "startTime": "[variables('startTime')]",
+        "interval": 1,
+        "frequency": "Hour"
+      }
+    }
+  ],
+  "outputs": {
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param omsAutomationAccountName string = 'demoAutomation'
+param scheduleName string = 'demSchedule1'
+param baseTime string = utcNow('u')
+
+var startTime = dateTimeAdd(baseTime, 'PT1H')
+
+...
+
+resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31' = {
+  name: concat(omsAutomationAccountName, '/', scheduleName)
+  properties: {
+    description: 'Demo Scheduler'
+    startTime: startTime
+    interval: 1
+    frequency: 'Hour'
+  }
+}
+```
+
+---
 
 ## <a name="utcnow"></a>utcNow
 
@@ -142,9 +186,9 @@ Returnerar det aktuella (UTC) datetime-värdet i det angivna formatet. Om inget 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| format |Inga |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |No |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -162,42 +206,58 @@ Aktuellt UTC-slutdatum värde.
 
 I följande exempel mall visas olika format för datetime-värdet.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcValue": {
-            "type": "string",
-            "defaultValue": "[utcNow()]"
-        },
-        "utcShortValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "utcCustomValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('M d')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "utcValue": {
+      "type": "string",
+      "defaultValue": "[utcNow()]"
     },
-    "resources": [
-    ],
-    "outputs": {
-        "utcOutput": {
-            "type": "string",
-            "value": "[parameters('utcValue')]"
-        },
-        "utcShortOutput": {
-            "type": "string",
-            "value": "[parameters('utcShortValue')]"
-        },
-        "utcCustomOutput": {
-            "type": "string",
-            "value": "[parameters('utcCustomValue')]"
-        }
+    "utcShortValue": {
+      "type": "string",
+      "defaultValue": "[utcNow('d')]"
+    },
+    "utcCustomValue": {
+      "type": "string",
+      "defaultValue": "[utcNow('M d')]"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "utcOutput": {
+      "type": "string",
+      "value": "[parameters('utcValue')]"
+    },
+    "utcShortOutput": {
+      "type": "string",
+      "value": "[parameters('utcShortValue')]"
+    },
+    "utcCustomOutput": {
+      "type": "string",
+      "value": "[parameters('utcCustomValue')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param utcValue string = utcNow()
+param utcShortValue string = utcNow('d')
+param utcCustomValue string = utcNow('M d')
+
+output utcOutput string = utcValue
+output utcShortOutput string = utcShortValue
+output utcCustomOutput string = utcCustomValue
+```
+
+---
 
 Resultatet från föregående exempel varierar för varje distribution, men ser ut ungefär så här:
 
@@ -209,39 +269,60 @@ Resultatet från föregående exempel varierar för varje distribution, men ser 
 
 I nästa exempel visas hur du använder ett värde från funktionen när du anger ett tagg värde.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcShort": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "rgName": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "utcShort": {
+      "type": "string",
+      "defaultValue": "[utcNow('d')]"
     },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/resourceGroups",
-            "apiVersion": "2018-05-01",
-            "name": "[parameters('rgName')]",
-            "location": "westeurope",
-            "tags":{
-                "createdDate": "[parameters('utcShort')]"
-            },
-            "properties":{}
-        }
-    ],
-    "outputs": {
-        "utcShort": {
-            "type": "string",
-            "value": "[parameters('utcShort')]"
-        }
+    "rgName": {
+      "type": "string"
     }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "apiVersion": "2018-05-01",
+      "name": "[parameters('rgName')]",
+      "location": "westeurope",
+      "tags": {
+        "createdDate": "[parameters('utcShort')]"
+      },
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "utcShortOutput": {
+      "type": "string",
+      "value": "[parameters('utcShort')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param utcShort string = utcNow('d')
+param rgName string
+
+resource myRg 'Microsoft.Resources/resourceGroups@2018-05-01' = {
+  name: rgName
+  location: 'westeurope'
+  tags: {
+    createdDate: utcShort
+  }
+}
+
+output utcShortOutput string = utcShort
+```
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

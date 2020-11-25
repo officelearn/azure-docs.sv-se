@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/19/2020
-ms.openlocfilehash: a9636e7227671cd5a8ed31904e6bc27782d3bd6a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/22/2020
+ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025841"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004895"
 ---
 # <a name="monitor-data-flows"></a>Övervaka data flöden
 
@@ -81,6 +81,16 @@ Du kan också se detaljerad tids inställning för varje partitions omvandlings 
 
 När du väljer en omvandlings ikon för mottagare i kartan visas en ytterligare data punkt med namnet "efter bearbetnings tid" längst ned i den högra panelen. Detta är den mängd tid som krävs för att köra jobbet på Spark-klustret *efter* att dina data har lästs in, omvandlats och skrivits. Den här tiden kan vara att stänga anslutningspooler, stänga av driv rutin, ta bort filer, sammanföra filer osv. När du utför åtgärder i ditt flöde, t. ex. "flytta filer" och "utdata till en enskild fil", kommer du troligen att se en ökning i värdet efter bearbetnings tid.
   
+## <a name="error-rows"></a>Felrader
+
+Att aktivera fel rad hantering i din data flödes mottagare visas i övervaknings resultatet. När du ställer in Sink till "rapportera lyckade vid fel" visar övervaknings resultatet antalet lyckade och misslyckade rader när du klickar på noden för övervakning av mottagare.
+
+![Skärm bild som visar fel rader.](media/data-flow/error-row-2.png "Fel rad övervakningen lyckades")
+
+När du väljer "rapportera fel vid fel" visas samma utdata endast i text för aktiviteten övervakning av utdata. Detta beror på att data flödes aktiviteten returnerar ett problem med körningen och att vyn detaljerad övervakning inte är tillgänglig.
+
+![Skärm bild som visar fel rader i aktivitet.](media/data-flow/error-rows-4.png "Fel vid rad övervakning")
+
 ## <a name="monitor-icons"></a>Övervaka ikoner
 
 Den här ikonen innebär att Transformations data redan har cachelagrats i klustret, så tids inställningarna och körnings Sök vägen har tagit detta i beräkningen:

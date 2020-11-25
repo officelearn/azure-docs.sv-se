@@ -10,11 +10,11 @@ ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316189"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004712"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Check lista för prestanda och skalbarhet för tabell lagring
 
@@ -243,7 +243,7 @@ I det här avsnittet beskrivs beprövade metoder för att skicka frågor till Ta
 
 Det finns flera sätt att ange intervallet för entiteter att fråga. I följande lista beskrivs varje alternativ för fråge omfånget.
 
-- **Punkt frågor:** -en punkt fråga hämtar exakt en entitet genom att ange både partitionsnyckel och rad nyckel för entiteten som ska hämtas. Dessa frågor är effektiva och du bör använda dem där det är möjligt.
+- **Punkt frågor:**-en punkt fråga hämtar exakt en entitet genom att ange både partitionsnyckel och rad nyckel för entiteten som ska hämtas. Dessa frågor är effektiva och du bör använda dem där det är möjligt.
 - **Partitions frågor:** En partitions fråga är en fråga som hämtar en uppsättning data som delar en gemensam partitionsnyckel. Normalt anger frågan ett intervall med rad nyckel värden eller ett värde intervall för viss enhets egenskap utöver en partitionsnyckel. Dessa frågor är mindre effektiva än punkt frågor och bör användas sparsamt.
 - **Tabell frågor:** En tabell fråga är en fråga som hämtar en uppsättning entiteter som inte delar en gemensam partitionsnyckel. Dessa frågor är inte effektiva och du bör undvika dem om möjligt.
 
@@ -273,10 +273,10 @@ Batch-transaktioner kallas för enhets grupp transaktioner i Azure Storage. Alla
 
 #### <a name="upsert"></a>Upsert
 
-Använd Table **upsert** -åtgärder där det är möjligt. Det finns två typer av **upsert** , som båda kan vara mer effektiva än vanliga **insert** -och **uppdaterings** åtgärder:  
+Använd Table **upsert** -åtgärder där det är möjligt. Det finns två typer av **upsert**, som båda kan vara mer effektiva än vanliga **insert** -och **uppdaterings** åtgärder:  
 
-- **InsertOrMerge** : Använd den här åtgärden när du vill ladda upp en delmängd av entitetens egenskaper, men är osäker på om entiteten redan finns. Om entiteten finns uppdaterar det här anropet egenskaperna som ingår i **upsert** -åtgärden och lämnar alla befintliga egenskaper, om entiteten inte finns, infogar den nya entiteten. Detta liknar att använda projektion i en fråga, i att du bara behöver överföra de egenskaper som ändras.
-- **InsertOrReplace** : Använd den här åtgärden när du vill ladda upp en helt ny entitet, men är osäker på om den redan finns. Använd den här åtgärden när du vet att den nyligen överförda entiteten är helt korrekt, eftersom den gamla entiteten skrivs över helt. Till exempel vill du uppdatera entiteten som lagrar en användares aktuella plats oavsett om programmet har lagrat plats data tidigare lagrat för användaren. entiteten ny plats har slutförts och du behöver inte någon information från någon tidigare entitet.
+- **InsertOrMerge**: Använd den här åtgärden när du vill ladda upp en delmängd av entitetens egenskaper, men är osäker på om entiteten redan finns. Om entiteten finns uppdaterar det här anropet egenskaperna som ingår i **upsert** -åtgärden och lämnar alla befintliga egenskaper, om entiteten inte finns, infogar den nya entiteten. Detta liknar att använda projektion i en fråga, i att du bara behöver överföra de egenskaper som ändras.
+- **InsertOrReplace**: Använd den här åtgärden när du vill ladda upp en helt ny entitet, men är osäker på om den redan finns. Använd den här åtgärden när du vet att den nyligen överförda entiteten är helt korrekt, eftersom den gamla entiteten skrivs över helt. Till exempel vill du uppdatera entiteten som lagrar en användares aktuella plats oavsett om programmet har lagrat plats data tidigare lagrat för användaren. entiteten ny plats har slutförts och du behöver inte någon information från någon tidigare entitet.
 
 #### <a name="storing-data-series-in-a-single-entity"></a>Lagra data serier i en enskild entitet
 

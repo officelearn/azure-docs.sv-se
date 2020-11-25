@@ -4,11 +4,11 @@ description: Lär dig hur du använder Webhooks för att utlösa händelser när
 ms.topic: article
 ms.date: 05/24/2019
 ms.openlocfilehash: 1db1098da81e6cf9ecb262c99f705b77af2efd26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253402"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004491"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Använda Azure Container Registry Webhooks
 
@@ -25,7 +25,7 @@ Mer information om webhook-begäranden finns i [Azure Container Registry webhook
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Navigera till behållar registret där du vill skapa en webhook.
-1. Under **tjänster**väljer du **Webhooks**.
+1. Under **tjänster** väljer du **Webhooks**.
 1. Välj **Lägg till** i verktygsfältet webhook.
 1. Fyll i formuläret *skapa webhook* med följande information:
 

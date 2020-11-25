@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
 ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531878"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004984"
 ---
 # <a name="virtual-network-peering"></a>Peering för virtuella nätverk
 
@@ -39,7 +39,7 @@ Fördelar med att använda VNET-peering (avsett om den är lokal eller global):
 
 Nätverkstrafiken mellan peer-kopplade virtuella nätverk är privat. Trafiken mellan de virtuella nätverken finns i Microsoft-stamnätverket. Vid kommunikation mellan virtuella nätverk krävs inget offentligt Internet, inga gatewayer eller ingen kryptering.
 
-## <a name="connectivity"></a>Anslutningsmöjlighet
+## <a name="connectivity"></a>Anslutning
 
 För peer-kopplade virtuella nätverk kan resurser i antingen det virtuella nätverket ansluta direkt till resurser i det peer-kopplade virtuella nätverket.
 

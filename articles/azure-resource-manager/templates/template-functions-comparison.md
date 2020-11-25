@@ -2,24 +2,26 @@
 title: Mall-funktioner – jämförelse
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att jämföra värden.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 01d66f43cf73dcc9228118db5a9b6149b19ee66d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: c5ffcfe7688935da6ea5602cdb2c66a8b86a8d88
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677839"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96004610"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Jämförelse funktioner för ARM-mallar
 
 Resource Manager innehåller flera funktioner för att göra jämförelser i dina Azure Resource Manager-mallar (ARM).
 
 * [coalesce](#coalesce)
-* [är lika med](#equals)
+* [lika med](#equals)
 * [större än](#greater)
 * [större än eller lika med](#greaterorequals)
-* [mindre än](#less)
+* [minskad](#less)
 * [mindre än eller lika med](#lessorequals)
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## <a name="coalesce"></a>coalesce
 
@@ -29,10 +31,10 @@ Returnerar det första värdet som inte är null från parametrarna. Tomma strä
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |heltal, sträng, matris eller objekt |Det första värdet som ska testas för null. |
-| ytterligare argument |Inga |heltal, sträng, matris eller objekt |Ytterligare värden att testa för null. |
+| arg1 |Yes |heltal, sträng, matris eller objekt |Det första värdet som ska testas för null. |
+| ytterligare argument |No |heltal, sträng, matris eller objekt |Ytterligare värden att testa för null. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -42,49 +44,76 @@ Värdet för de första icke-null-parametrarna, som kan vara en sträng, en helt
 
 I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) visas utdata från olika användnings områden för sammanslagning.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {
-                "null1": null,
-                "null2": null,
-                "string": "default",
-                "int": 1,
-                "object": {"first": "default"},
-                "array": [1]
-            }
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "stringOutput": {
-            "type": "string",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
-        },
-        "objectOutput": {
-            "type": "object",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
-        },
-        "emptyOutput": {
-            "type": "bool",
-            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "null1": null,
+        "null2": null,
+        "string": "default",
+        "int": 1,
+        "object": { "first": "default" },
+        "array": [ 1 ]
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "stringOutput": {
+      "type": "string",
+      "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
+    },
+    "objectOutput": {
+      "type": "object",
+      "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
+    },
+    "emptyOutput": {
+      "type": "bool",
+      "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param objectToTest object = {
+  'null1': null
+  'null2': null
+  'string': 'default'
+  'int': 1
+  'object': {
+    'first': 'default'
+  }
+  'array': [
+    1
+  ]
+}
+
+output stringOutput string = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.string)
+output intOutput int = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.int)
+output objectOutput object = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.object)
+output arrayOutput array = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.array)
+output emptyOutput bool =empty(coalesce(objectToTest.null1, objectToTest.null2))
+```
+
+---
 
 Utdata från föregående exempel med standardvärdena är:
 
@@ -100,14 +129,14 @@ Utdata från föregående exempel med standardvärdena är:
 
 `equals(arg1, arg2)`
 
-Kontrollerar om två värden är lika med varandra.
+Kontrollerar om två värden är lika med varandra. `equals`Funktionen stöds inte i bicep. Använd `==` operatorn i stället.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |heltal, sträng, matris eller objekt |Det första värdet för att kontrol lera om det är lika. |
-| arg2 |Ja |heltal, sträng, matris eller objekt |Det andra värdet för att kontrol lera om det är lika. |
+| arg1 |Yes |heltal, sträng, matris eller objekt |Det första värdet för att kontrol lera om det är lika. |
+| arg2 |Yes |heltal, sträng, matris eller objekt |Det andra värdet för att kontrol lera om det är lika. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -117,85 +146,126 @@ Returnerar **Sant** om värdena är lika. annars **false**.
 
 Funktionen Equals används ofta tillsammans med `condition` elementet för att testa om en resurs har distribuerats.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
+  "condition": "[equals(parameters('newOrExisting'),'new')]",
+  "type": "Microsoft.Storage/storageAccounts",
+  "name": "[variables('storageAccountName')]",
+  "apiVersion": "2017-06-01",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "[variables('storageAccountType')]"
+  },
+  "kind": "Storage",
+  "properties": {}
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+> [!NOTE]
+> `Conditions` har ännu inte implementerats i bicep. Se [villkor](https://github.com/Azure/bicep/issues/186).
+
+---
 
 ### <a name="example"></a>Exempel
 
 I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) kontrol leras olika typer av värden för likhet. Alla standardvärden returnerar true.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "a"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        },
-        "firstArray": {
-            "type": "array",
-            "defaultValue": ["a", "b"]
-        },
-        "secondArray": {
-            "type": "array",
-            "defaultValue": ["a", "b"]
-        },
-        "firstObject": {
-            "type": "object",
-            "defaultValue": {"a": "b"}
-        },
-        "secondObject": {
-            "type": "object",
-            "defaultValue": {"a": "b"}
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstInt": {
+      "type": "int",
+      "defaultValue": 1
     },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[equals(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[equals(parameters('firstString'), parameters('secondString'))]"
-        },
-        "checkArrays": {
-            "type": "bool",
-            "value": "[equals(parameters('firstArray'), parameters('secondArray'))]"
-        },
-        "checkObjects": {
-            "type": "bool",
-            "value": "[equals(parameters('firstObject'), parameters('secondObject'))]"
-        }
+    "secondInt": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "firstString": {
+      "type": "string",
+      "defaultValue": "a"
+    },
+    "secondString": {
+      "type": "string",
+      "defaultValue": "a"
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "a", "b" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "a", "b" ]
+    },
+    "firstObject": {
+      "type": "object",
+      "defaultValue": { "a": "b" }
+    },
+    "secondObject": {
+      "type": "object",
+      "defaultValue": { "a": "b" }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "checkInts": {
+      "type": "bool",
+      "value": "[equals(parameters('firstInt'), parameters('secondInt') )]"
+    },
+    "checkStrings": {
+      "type": "bool",
+      "value": "[equals(parameters('firstString'), parameters('secondString'))]"
+    },
+    "checkArrays": {
+      "type": "bool",
+      "value": "[equals(parameters('firstArray'), parameters('secondArray'))]"
+    },
+    "checkObjects": {
+      "type": "bool",
+      "value": "[equals(parameters('firstObject'), parameters('secondObject'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstInt int = 1
+param secondInt int = 1
+param firstString string = 'a'
+param secondString string = 'a'
+param firstArray array = [
+  'a'
+  'b'
+]
+param secondArray array = [
+  'a'
+  'b'
+]
+param firstObject object = {
+  'a': 'b'
+}
+param secondObject object = {
+  'a': 'b'
+}
+
+output checInts bool = firstInt == secondInt
+output checkStrings bool = firstString == secondString
+output checkArrays bool = firstArray == secondArray
+output checkObjects bool = firstObject == secondObject
+```
+
+---
 
 Utdata från föregående exempel med standardvärdena är:
 
@@ -206,22 +276,32 @@ Utdata från föregående exempel med standardvärdena är:
 | checkArrays | Bool | Sant |
 | checkObjects | Bool | Sant |
 
-Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) använder [inte](template-functions-logical.md#not) **lika**med.
+Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) använder [inte](template-functions-logical.md#not) **lika** med.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-    ],
-    "outputs": {
-        "checkNotEquals": {
-            "type": "bool",
-            "value": "[not(equals(1, 2))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+  ],
+  "outputs": {
+    "checkNotEquals": {
+      "type": "bool",
+      "value": "[not(equals(1, 2))]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output checkNotEquals bool = ! (1 == 2)
+```
+
+---
 
 Utdata från föregående exempel är:
 
@@ -233,14 +313,14 @@ Utdata från föregående exempel är:
 
 `greater(arg1, arg2)`
 
-Kontrollerar om det första värdet är större än det andra värdet.
+Kontrollerar om det första värdet är större än det andra värdet. `greater`Funktionen stöds inte i bicep. Använd `>` operatorn i stället.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |int eller string |Det första värdet för större jämförelse. |
-| arg2 |Ja |int eller string |Det andra värdet för större jämförelse. |
+| arg1 |Yes |int eller string |Det första värdet för större jämförelse. |
+| arg2 |Yes |int eller string |Det andra värdet för större jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -250,42 +330,58 @@ Returnerar **True** om det första värdet är större än det andra värdet. an
 
 Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) kontrollerar om det ena värdet är större än det andra.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstInt": {
+      "type": "int",
+      "defaultValue": 1
     },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[greater(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[greater(parameters('firstString'), parameters('secondString'))]"
-        }
+    "secondInt": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "firstString": {
+      "type": "string",
+      "defaultValue": "A"
+    },
+    "secondString": {
+      "type": "string",
+      "defaultValue": "a"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "checkInts": {
+      "type": "bool",
+      "value": "[greater(parameters('firstInt'), parameters('secondInt') )]"
+    },
+    "checkStrings": {
+      "type": "bool",
+      "value": "[greater(parameters('firstString'), parameters('secondString'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstInt int = 1
+param secondInt int = 2
+param firstString string = 'A'
+param secondString string = 'a'
+
+output checkInts bool = firstInt > secondInt
+output checkStrings bool = firstString > secondString
+```
+
+---
 
 Utdata från föregående exempel med standardvärdena är:
 
@@ -298,14 +394,14 @@ Utdata från föregående exempel med standardvärdena är:
 
 `greaterOrEquals(arg1, arg2)`
 
-Kontrollerar om det första värdet är större än eller lika med det andra värdet.
+Kontrollerar om det första värdet är större än eller lika med det andra värdet. `greaterOrEquals`Funktionen stöds inte i bicep. Använd `>=` operatorn i stället.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |int eller string |Det första värdet för större eller lika jämförelse. |
-| arg2 |Ja |int eller string |Det andra värdet för större eller lika jämförelse. |
+| arg1 |Yes |int eller string |Det första värdet för större eller lika jämförelse. |
+| arg2 |Yes |int eller string |Det andra värdet för större eller lika jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -315,42 +411,58 @@ Returnerar **True** om det första värdet är större än eller lika med det an
 
 Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) kontrollerar om det ena värdet är större än eller lika med det andra.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstInt": {
+      "type": "int",
+      "defaultValue": 1
     },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[greaterOrEquals(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[greaterOrEquals(parameters('firstString'), parameters('secondString'))]"
-        }
+    "secondInt": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "firstString": {
+      "type": "string",
+      "defaultValue": "A"
+    },
+    "secondString": {
+      "type": "string",
+      "defaultValue": "a"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "checkInts": {
+      "type": "bool",
+      "value": "[greaterOrEquals(parameters('firstInt'), parameters('secondInt') )]"
+    },
+    "checkStrings": {
+      "type": "bool",
+      "value": "[greaterOrEquals(parameters('firstString'), parameters('secondString'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstInt int = 1
+param secondInt int = 2
+param firstString string = 'A'
+param secondString string = 'a'
+
+output checkInts bool = firstInt >= secondInt
+output checkStrings bool = firstString >= secondString
+```
+
+---
 
 Utdata från föregående exempel med standardvärdena är:
 
@@ -363,14 +475,14 @@ Utdata från föregående exempel med standardvärdena är:
 
 `less(arg1, arg2)`
 
-Kontrollerar om det första värdet är mindre än det andra värdet.
+Kontrollerar om det första värdet är mindre än det andra värdet. `less`Funktionen stöds inte i bicep. Använd `<` operatorn i stället.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |int eller string |Det första värdet för mindre jämförelse. |
-| arg2 |Ja |int eller string |Det andra värdet för mindre jämförelse. |
+| arg1 |Yes |int eller string |Det första värdet för mindre jämförelse. |
+| arg2 |Yes |int eller string |Det andra värdet för mindre jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -380,42 +492,58 @@ Returnerar **True** om det första värdet är mindre än det andra värdet. ann
 
 Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) kontrollerar om det ena värdet är mindre än det andra.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstInt": {
+      "type": "int",
+      "defaultValue": 1
     },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[less(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[less(parameters('firstString'), parameters('secondString'))]"
-        }
+    "secondInt": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "firstString": {
+      "type": "string",
+      "defaultValue": "A"
+    },
+    "secondString": {
+      "type": "string",
+      "defaultValue": "a"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "checkInts": {
+      "type": "bool",
+      "value": "[less(parameters('firstInt'), parameters('secondInt') )]"
+    },
+    "checkStrings": {
+      "type": "bool",
+      "value": "[less(parameters('firstString'), parameters('secondString'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstInt int = 1
+param secondInt int = 2
+param firstString string = 'A'
+param secondString string = 'a'
+
+output checkInts bool = firstInt < secondInt
+output checkStrings bool = firstString < secondString
+```
+
+---
 
 Utdata från föregående exempel med standardvärdena är:
 
@@ -428,14 +556,14 @@ Utdata från föregående exempel med standardvärdena är:
 
 `lessOrEquals(arg1, arg2)`
 
-Kontrollerar om det första värdet är mindre än eller lika med det andra värdet.
+Kontrollerar om det första värdet är mindre än eller lika med det andra värdet. `lessOrEquals`Funktionen stöds inte i bicep. Använd `<=` operatorn i stället.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |int eller string |Det första värdet för mindre eller lika med jämförelse. |
-| arg2 |Ja |int eller string |Det andra värdet för jämförelsen som är mindre eller lika med. |
+| arg1 |Yes |int eller string |Det första värdet för mindre eller lika med jämförelse. |
+| arg2 |Yes |int eller string |Det andra värdet för jämförelsen som är mindre eller lika med. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -445,42 +573,58 @@ Returnerar **True** om det första värdet är mindre än eller lika med det and
 
 Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) kontrollerar om det ena värdet är mindre än eller lika med det andra.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstInt": {
+      "type": "int",
+      "defaultValue": 1
     },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
-        }
+    "secondInt": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "firstString": {
+      "type": "string",
+      "defaultValue": "A"
+    },
+    "secondString": {
+      "type": "string",
+      "defaultValue": "a"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "checkInts": {
+      "type": "bool",
+      "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
+    },
+    "checkStrings": {
+      "type": "bool",
+      "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param firstInt int = 1
+param secondInt int = 2
+param firstString string = 'A'
+param secondString string = 'a'
+
+output checkInts bool = firstInt <= secondInt
+output checkStrings bool = firstString <= secondString
+```
+
+---
 
 Utdata från föregående exempel med standardvärdena är:
 

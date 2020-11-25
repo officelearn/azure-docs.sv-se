@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.openlocfilehash: 05c89c8628b4d4ce10ca4ba12c720b410b72601f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457732"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Självstudie: Azure Active Directory integrering med asana
 
@@ -30,7 +30,7 @@ När du integrerar Asana med Azure AD så får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Asana så behöver du följande objekt:
 
@@ -123,7 +123,7 @@ Konfigurera Azure AD enkel inloggning med Asana genom att utföra följande steg
 
 ### <a name="configure-asana-single-sign-on"></a>Konfigurera enkel inloggning i Asana
 
-1. Logga in i ditt Asana-program i en annan webbläsare. Om du vill konfigurera enkel inloggning i Asana så öppnar du arbetsyteinställningarna genom att klicka på arbetsytans namn i det övre högra hörnet på skärmen. Klicka sedan på ** \<your workspace name\> Inställningar**.
+1. Logga in i ditt Asana-program i en annan webbläsare. Om du vill konfigurera enkel inloggning i Asana så öppnar du arbetsyteinställningarna genom att klicka på arbetsytans namn i det övre högra hörnet på skärmen. Klicka sedan på **\<your workspace name\> Inställningar**.
 
     ![Inställningar för enkel inloggning i Asana](./media/asana-tutorial/tutorial_asana_09.png)
 

@@ -16,17 +16,17 @@ ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: 43b4bcaee447d84efa088e84340ccfc717fe2777
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778318"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005188"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella POP IP-listan för Azure CDN
 
 ## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella Verizon POP IP-listan för Azure CDN
 
-Du kan använda REST API för att hämta en uppsättning IP-adresser för Verizons Point of Presence (POP)-servrar. Dessa POP-servrar utför förfrågningar till ursprungs servrar som är associerade med Azure Content Delivery Network-slutpunkter (CDN) i en Verizon-profil ( **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** ). Observera att den här uppsättningen IP-adresser skiljer sig från de IP-adresser som en klient kan se när de gör förfrågningar till pop. 
+Du kan använda REST API för att hämta en uppsättning IP-adresser för Verizons Point of Presence (POP)-servrar. Dessa POP-servrar utför förfrågningar till ursprungs servrar som är associerade med Azure Content Delivery Network-slutpunkter (CDN) i en Verizon-profil (**Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon**). Observera att den här uppsättningen IP-adresser skiljer sig från de IP-adresser som en klient kan se när de gör förfrågningar till pop. 
 
 Syntaxen för REST API-åtgärden för att hämta POP-listan finns i [Edge Nodes-List](/rest/api/cdn/edgenodes/list).
 

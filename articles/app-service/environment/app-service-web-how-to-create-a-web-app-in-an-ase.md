@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: d0ac8e0cf187d1a6a329f2c7332c9ec37018d4cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962527"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005239"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Skapa en webbapp i en App Service-miljön v1
 
@@ -52,9 +52,9 @@ I den här självstudien förutsätter vi att du har skapat en App Service-milj�
     Om du vill använda en App Service plan som redan finns i App Service-miljön väljer du den planen. Om du vill skapa en ny App Service plan går du till följande avsnitt i den här självstudien och [skapar en app service plan i en app service-miljön](#createplan).
 5. Ange namnet på din webbapp och klicka sedan på **skapa**. 
    
-    Om din ASE använder en extern VIP är URL: en för en app i en ASE: [*webbplats*namn]. [*namnet på din app service-miljön*]. p.azurewebsites.net i stället för [*webbplats*namn]. azurewebsites.net
+    Om din ASE använder en extern VIP är URL: en för en app i en ASE: [*webbplats* namn]. [*namnet på din app service-miljön*]. p.azurewebsites.net i stället för [*webbplats* namn]. azurewebsites.net
    
-    Om din ASE använder en intern VIP-adress är URL: en för en app i den ASE: [*webbplats*namn]. [*under domän angavs vid skapande av ASE*]   
+    Om din ASE använder en intern VIP-adress är URL: en för en app i den ASE: [*webbplats* namn]. [*under domän angavs vid skapande av ASE*]   
     När du har valt ASP när du har skapat ASE visas under domän uppdateringen nedan **namn**
 
 ## <a name="create-an-app-service-plan"></a><a name="createplan"></a> Skapa en App Service plan

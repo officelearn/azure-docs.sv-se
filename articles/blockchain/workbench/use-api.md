@@ -5,11 +5,11 @@ ms.date: 03/05/2020
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 696f1f2f96034f7a044f6a39182774c02804518f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87003074"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004848"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Använda Azure blockchain Workbench Preview REST API
 
@@ -24,7 +24,7 @@ Blockchain Workbench-API: er nås via en slut punkt för din distribution. Hämt
 1. Välj resurs gruppens namn din distribuerade blockchain Workbench.
 1. Välj kolumn rubriken **typ** för att sortera listan alfabetiskt efter typ.
 1. Det finns två resurser av typen **App Service**. Välj resurs av typen **App Service** *med* suffixet "-API".
-1. I App Service **Översikt**kopierar du **URL** -värdet, som representerar API-slutpunktens URL till din distribuerade blockchain Workbench.
+1. I App Service **Översikt** kopierar du **URL** -värdet, som representerar API-slutpunktens URL till din distribuerade blockchain Workbench.
 
     ![URL för App Service API-slutpunkt](media/use-api/app-service-api.png)
 

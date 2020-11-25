@@ -14,17 +14,17 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434477"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004950"
 ---
 # <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
 
 Virtual Network tjänst slut punkten för virtuella nätverk ger säker och direkt anslutning till Azure-tjänster via en optimerad väg över Azures stamnät nätverk. Med slutpunkter kan du skydda dina kritiska Azure-tjänstresurser till endast dina virtuella nätverk. Med tjänstens slut punkter kan privata IP-adresser i VNet komma åt slut punkten för en Azure-tjänst utan att behöva en offentlig IP-adress på det virtuella nätverket.
 
-Den här funktionen är tillgänglig för följande Azure-tjänster och-regioner. *Microsoft. \* * Resource är i parentes. Aktivera den här resursen från under näts sidan när du konfigurerar tjänstens slut punkter för tjänsten:
+Den här funktionen är tillgänglig för följande Azure-tjänster och-regioner. *Microsoft. \** Resource är i parentes. Aktivera den här resursen från under näts sidan när du konfigurerar tjänstens slut punkter för tjänsten:
 
 **Allmänt tillgänglig**
 
@@ -77,7 +77,7 @@ Tjänstslutpunkter har följande fördelar:
 
   Som standard går det inte att komma åt Azure Service-resurser som är säkrade för virtuella nätverk från lokala nätverk. Om du vill tillåta trafik från lokalt måste du också tillåta offentliga (vanligt vis NAT) IP-adresser från din lokala eller ExpressRoute. Du kan lägga till dessa IP-adresser via IP-brandväggens konfiguration för Azure Service-resurser.
 
-  ExpressRoute: om du använder [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för offentlig peering eller Microsoft-peering från dina lokaler måste du identifiera de NAT-IP-adresser som du använder. För offentlig peering använder varje ExpressRoute-krets två NAT-IP-adresser som standard som tillämpas på Azure Service-trafik när trafiken går in Microsoft Azure nätverkets stamnät. För Microsoft-peering tillhandahålls NAT-IP-adresserna antingen av kunden eller tillhandahålls av tjänst leverantören.Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning.För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du en supportbegäran hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Mer information om NAT för ExpressRoute offentlig och Microsoft-peering finns i [EXPRESSROUTE NAT-krav](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
+  ExpressRoute: om du använder [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för offentlig peering eller Microsoft-peering från dina lokaler måste du identifiera de NAT-IP-adresser som du använder. För offentlig peering använder varje ExpressRoute-krets två NAT-IP-adresser som standard som tillämpas på Azure Service-trafik när trafiken går in Microsoft Azure nätverkets stamnät. För Microsoft-peering tillhandahålls NAT-IP-adresserna antingen av kunden eller tillhandahålls av tjänst leverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du en supportbegäran hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Mer information om NAT för ExpressRoute offentlig och Microsoft-peering finns i [EXPRESSROUTE NAT-krav](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
 
 ![Skydda Azure-tjänster i virtuella nätverk](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 

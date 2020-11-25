@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
 ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326060"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004916"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med System Center Operations Manager-hälsokontrollösningen (förhandsversion)
 
@@ -77,8 +77,8 @@ Kör som-kontot måste uppfylla följande krav innan du fortsätter:
 * Om kontot inte har SQL sysadmin-behörighet kör du [skriptet](#sql-script-to-grant-granular-permissions-to-the-run-as-account) för att ge detaljerade behörigheter till kontot på varje SQL Server instans som är värd för en eller alla Operations Manager-databaser.
 
 1. Välj navigerings knappen **Administration** i Operations Manager-konsolen.
-2. Under **Kör som-konfiguration**klickar du på **konton**.
-3. I guiden **skapa kör som-konto** klickar du på **Nästa**på sidan **Introduktion** .
+2. Under **Kör som-konfiguration** klickar du på **konton**.
+3. I guiden **skapa kör som-konto** klickar du på **Nästa** på sidan **Introduktion** .
 4. På sidan **allmänna egenskaper** väljer du **Windows** i listan **typ av kör som-konto:** .
 5. Skriv ett visnings namn i text rutan **visnings namn** och skriv en beskrivning i rutan **Beskrivning** och klicka sedan på **Nästa**.
 6. På sidan **distributions säkerhet** väljer du **säkrare**.
@@ -86,9 +86,9 @@ Kör som-kontot måste uppfylla följande krav innan du fortsätter:
 
 Nu när kör som-kontot har skapats måste mål hanterings servrarna i hanterings gruppen och associeras med en fördefinierad kör som-profil så att arbets flöden körs med hjälp av autentiseringsuppgifterna.  
 
-1. Under **Kör som-konfiguration**, **konton**i resultat fönstret, dubbelklickar du på det konto som du skapade tidigare.
+1. Under **Kör som-konfiguration**, **konton** i resultat fönstret, dubbelklickar du på det konto som du skapade tidigare.
 2. På fliken **distribution** klickar du på **Lägg till** för rutan **valda datorer** och lägger till den hanterings server som kontot ska distribueras till.  Klicka på **OK** två gånger för att spara ändringarna.
-3. Under **Kör som-konfiguration**klickar du på **profiler**.
+3. Under **Kör som-konfiguration** klickar du på **profiler**.
 4. Sök efter *profilen för SCOM-utvärdering*.
 5. Profil namnet ska vara: *Microsoft System Center Operations Manager-hälsokontroll kör som-profil*.
 6. Högerklicka på och uppdatera dess egenskaper och Lägg till det senast skapade kör som-kontot som du skapade tidigare.

@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 633e3a6386b9e6098e167c7fdd542d98c16fae48
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7b6f762dd04244f430f08894cc06991796a11229
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737895"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004933"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudie: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
@@ -75,9 +75,9 @@ Mer information om hur du lägger till en Active Directory-administratör finns 
 ## <a name="set-up-visual-studio"></a>Konfigurera Visual Studio
 
 ### <a name="windows-client"></a>Windows-klient
-Visual Studio för Windows är integrerat med Azure AD-autentisering. Om du vill aktivera utveckling och fel sökning i Visual Studio lägger du till din Azure AD-användare i Visual Studio genom att välja **fil**  >  **konto inställningar** på menyn och klicka på **Lägg till ett konto** .
+Visual Studio för Windows är integrerat med Azure AD-autentisering. Om du vill aktivera utveckling och fel sökning i Visual Studio lägger du till din Azure AD-användare i Visual Studio genom att välja **fil**  >  **konto inställningar** på menyn och klicka på **Lägg till ett konto**.
 
-Om du vill ställa in Azure AD-användaren för Azure-tjänsteautentisering väljer du **verktyg**  >  **alternativ** på menyn och väljer sedan konto val för **Azure-tjänstens autentisering**  >  **Account Selection** . Välj den Azure AD-användare som du har lagt till och klicka på **OK** .
+Om du vill ställa in Azure AD-användaren för Azure-tjänsteautentisering väljer du **verktyg**  >  **alternativ** på menyn och väljer sedan konto val för **Azure-tjänstens autentisering**  >  **Account Selection**. Välj den Azure AD-användare som du har lagt till och klicka på **OK**.
 
 Nu är du redo att utveckla och felsöka din app med SQL Database som Server del, med Azure AD-autentisering.
 
@@ -142,7 +142,7 @@ I Visual Studio öppnar du Package Manager-konsolen och lägger till NuGet-paket
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
-I [självstudierna ASP.net Core och SQL Database](tutorial-dotnetcore-sqldb-app.md) `MyDbConnection` används inte anslutnings strängen alls eftersom den lokala utvecklings miljön använder en sqlite-databasfil och Azures produktions miljö använder en anslutnings sträng från App Service. Med Active Directory autentisering vill du att båda miljöerna ska använda samma anslutnings sträng. I *appsettings.jspå* , ersätter du värdet för `MyDbConnection` anslutnings strängen med:
+I [självstudierna ASP.net Core och SQL Database](tutorial-dotnetcore-sqldb-app.md) `MyDbConnection` används inte anslutnings strängen alls eftersom den lokala utvecklings miljön använder en sqlite-databasfil och Azures produktions miljö använder en anslutnings sträng från App Service. Med Active Directory autentisering vill du att båda miljöerna ska använda samma anslutnings sträng. I *appsettings.jspå*, ersätter du värdet för `MyDbConnection` anslutnings strängen med:
 
 ```json
 "Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
@@ -151,8 +151,8 @@ I [självstudierna ASP.net Core och SQL Database](tutorial-dotnetcore-sqldb-app.
 Sedan anger du Entity Framework databas kontext med åtkomsttoken för SQL Database. I *Data\MyDatabaseContext.cs* lägger du till följande kod innanför klammerparenteserna i den tomma `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` konstruktorn:
 
 ```csharp
-var conn = (Microsoft.Data.SqlClient.SqlConnection)Database.GetDbConnection();
-conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
+var connection = (SqlConnection)Database.GetDbConnection();
+connection.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
 > [!NOTE]
@@ -194,7 +194,7 @@ Här är ett exempel på utdata:
 ### <a name="grant-permissions-to-managed-identity"></a>Bevilja behörighet till hanterad identitet
 
 > [!NOTE]
-> Om du vill kan du lägga till identiteten i en [Azure AD-grupp](../active-directory/fundamentals/active-directory-manage-groups.md)och sedan bevilja SQL Database åtkomst till Azure AD-gruppen i stället för identiteten. Följande kommandon lägger till exempel till den hanterade identiteten från föregående steg till en ny grupp med namnet _myAzureSQLDBAccessGroup_ :
+> Om du vill kan du lägga till identiteten i en [Azure AD-grupp](../active-directory/fundamentals/active-directory-manage-groups.md)och sedan bevilja SQL Database åtkomst till Azure AD-gruppen i stället för identiteten. Följande kommandon lägger till exempel till den hanterade identiteten från föregående steg till en ny grupp med namnet _myAzureSQLDBAccessGroup_:
 > 
 > ```azurecli-interactive
 > groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -220,7 +220,7 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name>* är namnet på den hanterade identiteten i Azure AD. Om identiteten är systemtilldelad är namnet alltid detsamma som namnet på din App Service-app. Om du vill bevilja behörighet för en Azure AD-grupp använder du gruppens visnings namn i stället (till exempel *myAzureSQLDBAccessGroup* ).
+*\<identity-name>* är namnet på den hanterade identiteten i Azure AD. Om identiteten är systemtilldelad är namnet alltid detsamma som namnet på din App Service-app. Om du vill bevilja behörighet för en Azure AD-grupp använder du gruppens visnings namn i stället (till exempel *myAzureSQLDBAccessGroup*).
 
 Skriv `EXIT` för att återgå till Cloud Shell-prompten.
 
@@ -239,13 +239,13 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 Nu behöver du bara publicera ändringarna till Azure.
 
-**Om du kom från [Självstudier: bygg en ASP.net-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)** , publicera dina ändringar i Visual Studio. I **Solution Explorer** : Högerklicka på projektet **DotNetAppSqlDb** och välj **Publicera** .
+**Om du kom från [Självstudier: bygg en ASP.net-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)**, publicera dina ändringar i Visual Studio. I **Solution Explorer**: Högerklicka på projektet **DotNetAppSqlDb** och välj **Publicera**.
 
 ![Publicera från Solution Explorer](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
 Klicka på **Publicera** på publiceringssidan. 
 
-**Om du kom från [Självstudier: bygg en ASP.NET Core och SQL Database app i Azure App Service](tutorial-dotnetcore-sqldb-app.md)** , publicera dina ändringar med hjälp av Git med följande kommandon:
+**Om du kom från [Självstudier: bygg en ASP.NET Core och SQL Database app i Azure App Service](tutorial-dotnetcore-sqldb-app.md)**, publicera dina ändringar med hjälp av Git med följande kommandon:
 
 ```bash
 git commit -am "configure managed identity"

@@ -4,11 +4,11 @@ description: Lär dig att visa alla labb i ett labb konto och ta bort ett labb f
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cc097e97430462e36a33b982a7394a20c308eab5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443493"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993626"
 ---
 # <a name="manage-labs-in-a-lab-account"></a>Hantera labb i ett labbkonto
 Den här artikeln visar hur du kan visa alla labb i ett labb konto och ta bort ett labb i labb kontot. 

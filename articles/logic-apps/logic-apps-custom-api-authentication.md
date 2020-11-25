@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80656241"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993176"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Öka säkerheten för anrop till anpassade API: er från Azure Logic Apps
 
@@ -56,11 +56,11 @@ Din Logic app använder den här Azure AD-programidentiteten för att autentiser
 3. I menyn katalog, under **Hantera**, väljer du **Appregistreringar**  >  **ny program registrering**.
 
    > [!TIP]
-   > Appens registrerings lista visar som standard alla app-registreringar i din katalog. Om du bara vill visa dina program registreringar väljer du **Mina appar**bredvid sökrutan. 
+   > Appens registrerings lista visar som standard alla app-registreringar i din katalog. Om du bara vill visa dina program registreringar väljer du **Mina appar** bredvid sökrutan. 
 
    ![Skapa ny appregistrering](./media/logic-apps-custom-api-authentication/new-app-registration-azure-portal.png)
 
-4. Ge program identiteten ett namn, lämna **program typ** inställd på **webbapp/API**, ange en unik sträng formaterad som en domän för **inloggnings-URL**och välj **skapa**.
+4. Ge program identiteten ett namn, lämna **program typ** inställd på **webbapp/API**, ange en unik sträng formaterad som en domän för **inloggnings-URL** och välj **skapa**.
 
    ![Ange namn och inloggnings-URL för program identitet](./media/logic-apps-custom-api-authentication/logic-app-identity-azure-portal.png)
 
@@ -74,13 +74,13 @@ Din Logic app använder den här Azure AD-programidentiteten för att autentiser
 
 6. Om dina program identitets inställningar inte visas väljer du **Inställningar** eller **alla inställningar**.
 
-7. Under **API-åtkomst**väljer du **nycklar**. Under **Beskrivning**anger du ett namn för nyckeln. Under **upphör ande**väljer du en varaktighet för nyckeln.
+7. Under **API-åtkomst** väljer du **nycklar**. Under **Beskrivning** anger du ett namn för nyckeln. Under **upphör ande** väljer du en varaktighet för nyckeln.
 
    Den nyckel som du skapar fungerar som program identitetens "hemligt" eller lösen ord för din Logic app.
 
    ![Skapa nyckel för Logic app-identitet](./media/logic-apps-custom-api-authentication/create-logic-app-identity-key-secret-password.png)
 
-8. Välj **Spara**i verktygsfältet. Under **värde**visas nu din nyckel. 
+8. Välj **Spara** i verktygsfältet. Under **värde** visas nu din nyckel. 
 **Se till att kopiera och spara nyckeln** för senare användning eftersom nyckeln är dold när du lämnar sidan **nycklar** .
 
    När du konfigurerar din Logic-app i del 3 anger du den här nyckeln som "hemlig" eller lösen ord.
@@ -103,7 +103,7 @@ Du kan utföra den här uppgiften med hjälp av Azure Resource Manager med Power
 
 1. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
-1. Se till att kopiera **klient-ID** : t (GUID för din Azure AD-klient), **program-ID**och lösen ord som du använde.
+1. Se till att kopiera **klient-ID** : t (GUID för din Azure AD-klient), **program-ID** och lösen ord som du använde.
 
 Mer information finns i så här [skapar du ett huvud namn för tjänsten med PowerShell för att få åtkomst till resurser](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
@@ -115,7 +115,7 @@ Om din webbapp eller API-app redan har distribuerats kan du aktivera autentiseri
 
 1. Leta upp och välj din webbapp eller API-app i [Azure Portal](https://portal.azure.com "https://portal.azure.com"). 
 
-2. Under **Inställningar**väljer du **autentisering/auktorisering**. Under **App Service autentisering**aktiverar du autentisering **.** Under **autentiseringsproviders**väljer du **Azure Active Directory**.
+2. Under **Inställningar** väljer du **autentisering/auktorisering**. Under **App Service autentisering** aktiverar du autentisering **.** Under **autentiseringsproviders** väljer du **Azure Active Directory**.
 
    ![Aktivera autentisering](./media/logic-apps-custom-api-authentication/custom-web-api-app-authentication.png)
 
@@ -129,18 +129,18 @@ Nu måste du hitta klient-ID och klient-ID för program identiteten som är asso
 
 **Hitta program identitetens klient-ID och klient-ID för din webbapp eller API-app i Azure Portal**
 
-1. Under **autentiseringsproviders**väljer du **Azure Active Directory**. 
+1. Under **autentiseringsproviders** väljer du **Azure Active Directory**. 
 
    ![Välj ”Azure Active Directory”](./media/logic-apps-custom-api-authentication/custom-api-app-identity-client-id-tenant-id.png)
 
 2. På sidan **Azure Active Directory inställningar** anger du **hanterings läge** till **Avancerat**.
 
-3. Kopiera **klient-ID**och spara det GUID för användning i del 3.
+3. Kopiera **klient-ID** och spara det GUID för användning i del 3.
 
    > [!TIP] 
    > Om **klient-ID** och **utfärdare-URL** inte visas kan du försöka med att uppdatera Azure Portal och upprepa steg 1.
 
-4. Under **utfärdar-URL**kopierar du och sparar bara GUID för del 3. Du kan också använda det här GUID: t i webbappen eller i API-appens distributionsmall, om det behövs.
+4. Under **utfärdar-URL** kopierar du och sparar bara GUID för del 3. Du kan också använda det här GUID: t i webbappen eller i API-appens distributionsmall, om det behövs.
 
    Detta GUID är din speciella klients GUID ("klient-ID") och ska visas i denna URL: `https://sts.windows.net/{GUID}`
 
@@ -199,11 +199,11 @@ Det här avsnittet har redan kon figurer ATS för föregående mall, men om du r
 
 | Egenskap | Krävs | Beskrivning | 
 | -------- | -------- | ----------- | 
-| tenant | Ja | GUID för Azure AD-klienten | 
-| filmen | Ja | GUID för den mål resurs som du vill få åtkomst till, vilket är klient-ID: t från program identiteten för din webbapp eller API-app | 
-| ClientID | Ja | GUID för klienten som begär åtkomst, vilket är klient-ID: t från program identiteten för din Logic app | 
-| hemlighet | Ja | Nyckeln eller lösen ordet från program identiteten för klienten som begär åtkomsttoken | 
-| typ | Ja | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är värdet `ActiveDirectoryOAuth` . | 
+| tenant | Yes | GUID för Azure AD-klienten | 
+| filmen | Yes | GUID för den mål resurs som du vill få åtkomst till, vilket är klient-ID: t från program identiteten för din webbapp eller API-app | 
+| ClientID | Yes | GUID för klienten som begär åtkomst, vilket är klient-ID: t från program identiteten för din Logic app | 
+| hemlighet | Yes | Nyckeln eller lösen ordet från program identiteten för klienten som begär åtkomsttoken | 
+| typ | Yes | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är värdet `ActiveDirectoryOAuth` . | 
 |||| 
 
 Exempel:
@@ -251,8 +251,8 @@ I avsnittet **auktorisering** inkluderar du följande egenskaper:
 | Egenskap | Krävs | Beskrivning |
 | -------- | -------- | ----------- |
 | `type` | Ja | Autentiseringstypen. För TLS/SSL-klientcertifikat måste värdet vara `ClientCertificate` . |
-| `password` | Inga | Lösen ordet för att komma åt klient certifikatet (PFX-filen) |
-| `pfx` | Ja | Det Base64-kodade innehållet i klient certifikatet (PFX-filen) |
+| `password` | No | Lösen ordet för att komma åt klient certifikatet (PFX-filen) |
+| `pfx` | Yes | Det Base64-kodade innehållet i klient certifikatet (PFX-filen) |
 ||||
 
 <a name="basic"></a>
@@ -273,9 +273,9 @@ I avsnittet **auktorisering** inkluderar du följande egenskaper:
 
 | Egenskap | Krävs | Beskrivning | 
 | -------- | -------- | ----------- | 
-| typ | Ja | Autentiseringstypen som du vill använda. För grundläggande autentisering måste värdet vara `Basic` . | 
-| användarnamn | Ja | Det användar namn som du vill använda för autentisering | 
-| password | Ja | Det lösen ord som du vill använda för autentisering | 
+| typ | Yes | Autentiseringstypen som du vill använda. För grundläggande autentisering måste värdet vara `Basic` . | 
+| användarnamn | Yes | Det användar namn som du vill använda för autentisering | 
+| password | Yes | Det lösen ord som du vill använda för autentisering | 
 |||| 
 
 <a name="azure-ad-code"></a>

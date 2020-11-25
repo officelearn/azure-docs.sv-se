@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 46c27fa2073ea1178fdf01ea3cbf96fe86954a6a
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 3fc2475569765116d46a175629f25d9d49634942
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255152"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993965"
 ---
 Den här artikeln innehåller versioner och funktioner i Azure Active Directory Connect etablerings agent som har släppts. Azure AD-teamet uppdaterar regelbundet etablerings agenten med nya funktioner och funktioner. Etablerings agenten uppdateras automatiskt när en ny version släpps. 
 
@@ -14,12 +14,12 @@ Microsoft tillhandahåller direkt support för den senaste agent versionen och e
 
 ### <a name="release-status"></a>Versionsstatus
 
-November XX 2020: har släppts för hämtning
+23 november 2020: släpps för hämtning
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
 * Stöd för [gMSA](../articles/active-directory/cloud-provisioning/how-to-prerequisites.md#group-managed-service-accounts)
-* Stöd för grupper upp till storleken 1500 medlemmar (under delta synkronisering)
+* Stöd för grupper upp till en storlek som är mindre än 1500 medlemmar under stegvis eller delta-synkronisering. Detta gäller när du använder grupp definitions filter
 * Stöd för stora grupper med medlems storlek upp till 15 000
 * Förbättringar av inledande synkronisering
 * Avancerad utförlig loggning

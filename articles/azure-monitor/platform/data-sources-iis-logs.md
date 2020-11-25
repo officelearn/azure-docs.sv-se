@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/13/2020
 ms.openlocfilehash: a089631ab199b0fe997bba001561c6b027034e2c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628755"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993694"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Samla in IIS-loggar med Log Analytics agent i Azure Monitor
 Internet Information Services (IIS) lagrar användar aktivitet i loggfiler som kan samlas in av Log Analytics-agenten och lagras i [Azure Monitor loggar](data-platform.md).
@@ -33,7 +33,7 @@ Konfigurera IIS-loggar i Azure Monitor från [menyn Avancerade inställningar](a
 Azure Monitor samlar in IIS-loggfiler från varje agent varje gången loggens tidsstämpel ändras. Loggen läses var **5: e minut**. Om IIS inte uppdaterar tidsstämpeln före förnyelse tiden när en ny fil skapas, kommer posterna att samlas in när den nya filen skapas. Frekvensen för att skapa nya filer styrs av inställningen för **förnyelse av logg filen** för IIS-platsen, vilket är en gång om dagen som standard. Om inställningen anges **per timme** Azure Monitors loggen varje timme. Om inställningen är **dagligen** samlar Azure monitor in loggen var 24: e timme.
 
 > [!IMPORTANT]
-> Vi rekommenderar att du ställer in **schemat för förnyelse av logg filen** på **varje timme**. Om det är inställt på **daglig** , kan det uppstå toppar i dina data eftersom de bara samlas in en gång per dag.
+> Vi rekommenderar att du ställer in **schemat för förnyelse av logg filen** på **varje timme**. Om det är inställt på **daglig**, kan det uppstå toppar i dina data eftersom de bara samlas in en gång per dag.
 
 ## <a name="iis-log-record-properties"></a>Egenskaper för logg poster i IIS
 Poster i IIS-loggen har en typ av **W3CIISLog** och har egenskaperna i följande tabell:
@@ -65,7 +65,7 @@ Poster i IIS-loggen har en typ av **W3CIISLog** och har egenskaperna i följande
 ## <a name="log-queries-with-iis-logs"></a>Logga frågor med IIS-loggar
 Följande tabell innehåller olika exempel på logg frågor som hämtar poster i IIS-loggen.
 
-| Söka i data | Beskrivning |
+| Fråga | Description |
 |:--- |:--- |
 | W3CIISLog |Alla logg poster i IIS. |
 | W3CIISLog &#124; där scStatus = = 500 |Alla poster i IIS-loggen med retur status 500. |

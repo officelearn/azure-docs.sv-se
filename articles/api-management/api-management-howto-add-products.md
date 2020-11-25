@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 2f298f240d8aa7a38b42a8c78ee3c90fe3423d10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630600"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993558"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Självstudie: skapa och publicera en produkt  
 
 I Azure API Management innehåller en [*produkt*](api-management-terminology.md#term-definitions) en eller flera API: er samt användnings kvot och användnings villkor. När en produkt har publicerats kan utvecklarna prenumerera på produkten och börja använda produktens API: er.  
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa och publicera en produkt
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 :::image type="content" source="media/api-management-howto-add-products/added-product.png" alt-text="API Management produkter i portalen":::
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
@@ -38,12 +38,12 @@ I den här guiden får du lära dig att:
 1. I det vänstra navigerings fältet väljer du **produkter**  >  **+ Lägg till**.
 1.  I fönstret **Lägg till produkt** anger du de värden som beskrivs i följande tabell för att skapa din produkt.
 
-    :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-01.png" alt-text="API Management produkter i portalen":::
+    :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-01.png" alt-text="Lägg till produkt i portalen":::
 
     | Name                     | Beskrivning                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Visningsnamn             | Namnet som du vill att det ska visas i [Developer-portalen](api-management-howto-developer-portal.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-    | Beskrivning              | Ange information om produkten, till exempel dess syfte, de API: er som ger åtkomst till och annan information.                                                                                                                                               |
+    | Description              | Ange information om produkten, till exempel dess syfte, de API: er som ger åtkomst till och annan information.                                                                                                                                               |
     | Tillstånd                    | Välj **publicerad** om du vill publicera produkten. Produkten måste vara publicerad innan API:er i en produkt kan anropa den. Som standard är nya produkter opublicerade och visas endast i gruppen  **Administratörer** .                                                                                      |
     | Prenumeration krävs    | Välj om en användare måste prenumerera för att använda produkten.                                                                                                                                                                                                                                   |
     | Godkännande krävs        | Välj om du vill att en administratör ska granska och godkänna eller avvisa prenumerations försök till den här produkten. Om du inte väljer det här godkänns prenumerations försök automatiskt.                                                                                                                         |
@@ -78,9 +78,9 @@ Utvecklare måste först prenumerera på en produkt för att få åtkomst till A
 1. I det vänstra navigerings fönstret på API Management-instansen väljer du **produkter**.
 1. Välj en produkt och välj sedan **API: er**.
 1. Välj **+ Lägg till**.
-1. Välj en eller flera API: er och **Välj**sedan.
+1. Välj en eller flera API: er och **Välj** sedan.
 
-:::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="API Management produkter i portalen":::
+:::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="Lägg till API i befintlig produkt":::
 
 > [!TIP]
 > Du kan skapa eller uppdatera en användares prenumeration på en produkt med anpassade prenumerations nycklar via ett [REST API](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) -eller PowerShell-kommando.

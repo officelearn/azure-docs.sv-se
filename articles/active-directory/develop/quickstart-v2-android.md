@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: e0f3cd034838d5a9ccb1a5ccdc2567933b2e1dd6
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: f5909a3a824149d9bb4247c78eaaa895b040c6f2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562210"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993983"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
-I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett Android-program kan logga in användare och hämta en åtkomsttoken för att anropa Microsoft Graph-API: et. 
+I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett Android-program kan logga in användare och få en åtkomsttoken för att anropa Microsoft Graph-API: et. 
 
 Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
@@ -51,7 +51,7 @@ Program måste representeras av ett app-objekt i Azure Active Directory så att 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: appen har kon figurer ATS och är redo att köras
 > Vi har konfigurerat ditt projekt med värdena för appens egenskaper och är redo att köras.
-> Exempel appen startar på skärmen med ett **enda konto läge** . En standard omfattning, **User. Read** , tillhandahålls som standard, som används när du läser dina egna profil data under Microsoft Graph API-anropet. URL: en för API-anropet Microsoft Graph anges som standard. Du kan ändra båda dessa om du vill.
+> Exempel appen startar på skärmen med ett **enda konto läge** . En standard omfattning, **User. Read**, tillhandahålls som standard, som används när du läser dina egna profil data under Microsoft Graph API-anropet. URL: en för API-anropet Microsoft Graph anges som standard. Du kan ändra båda dessa om du vill.
 >
 > ![MSAL exempel app som visar användning av enkel och flera konton](./media/quickstart-v2-android/quickstart-sample-app.png)
 >
@@ -77,7 +77,7 @@ Program måste representeras av ett app-objekt i Azure Active Directory så att 
 >
 > Välj emulatorn eller den fysiska enheten från Android Studio rutorna **tillgängliga enheter** och kör appen.
 >
-> Exempel appen startar på skärmen med ett **enda konto läge** . En standard omfattning, **User. Read** , tillhandahålls som standard, som används när du läser dina egna profil data under Microsoft Graph API-anropet. URL: en för API-anropet Microsoft Graph anges som standard. Du kan ändra båda dessa om du vill.
+> Exempel appen startar på skärmen med ett **enda konto läge** . En standard omfattning, **User. Read**, tillhandahålls som standard, som används när du läser dina egna profil data under Microsoft Graph API-anropet. URL: en för API-anropet Microsoft Graph anges som standard. Du kan ändra båda dessa om du vill.
 >
 > ![MSAL exempel app som visar användning av enkel och flera konton](./media/quickstart-v2-android/quickstart-sample-app.png)
 >
@@ -110,7 +110,7 @@ Nu ska vi titta på de här filerna i detalj och anropa MSAL kod i varje.
 
 ### <a name="adding-msal-to-the-app"></a>Lägga till MSAL i appen
 
-MSAL ([com. Microsoft. Identity. client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Gradle 3.0 + installerar biblioteket när du lägger till följande i **Gradle-skript**  >  **build. Gradle (modul: app)** under **beroenden** :
+MSAL ([com. Microsoft. Identity. client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Gradle 3.0 + installerar biblioteket när du lägger till följande i **Gradle-skript**  >  **build. Gradle (modul: app)** under **beroenden**:
 
 ```gradle
 implementation 'com.microsoft.identity.client:msal:2.+'

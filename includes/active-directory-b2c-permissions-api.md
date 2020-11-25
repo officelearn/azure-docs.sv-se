@@ -6,25 +6,25 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: mimart
 ms.openlocfilehash: c1628894205754c1b8f1fc954796009afbdc8ed4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84680332"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994337"
 ---
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/) 
 
-1. Välj **Appregistreringar**och välj sedan det webb program som ska ha åtkomst till API: et. Till exempel *webapp1*.
+1. Välj **Appregistreringar** och välj sedan det webb program som ska ha åtkomst till API: et. Till exempel *webapp1*.
 1. Under **Hantera**, Välj **API-behörigheter**.
-1. Under **konfigurerade behörigheter**väljer du **Lägg till en behörighet**.
+1. Under **konfigurerade behörigheter** väljer du **Lägg till en behörighet**.
 1. Välj fliken **Mina API: er** .
 1. Välj det API som webb programmet ska beviljas åtkomst till. Till exempel *webapi1*.
-1. Under **behörighet**expanderar du **demo**och väljer sedan de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
+1. Under **behörighet** expanderar du **demo** och väljer sedan de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
 1. Välj **Lägg till behörigheter**.
 1. Välj **bevilja administrativt godkännande för (ditt klient namn)**.
 1. Om du uppmanas att välja ett konto väljer du ditt inloggade administratörs konto eller loggar in med ett konto i Azure AD B2C-klienten som har tilldelats minst administratörs rollen för *moln program* .
 1. Välj **Ja**.
-1. Välj **Uppdatera**och verifiera sedan att "beviljat..." visas under **status** för båda omfattningarna.
+1. Välj **Uppdatera** och verifiera sedan att "beviljat..." visas under **status** för båda omfattningarna.
 
 #### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
 

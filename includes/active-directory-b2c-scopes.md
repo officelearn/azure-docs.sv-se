@@ -6,20 +6,20 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
 ms.openlocfilehash: 3ebe1ec4c0292a530e5ef2c754e9b002e931300e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84680290"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994336"
 ---
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/) 
 
 1. Välj **Appregistreringar**.
 1. Välj *webapi1* -programmet för att öppna dess **översikts** sida.
-1. Under **Hantera**väljer du **exponera ett API**.
+1. Under **Hantera** väljer du **exponera ett API**.
 1. Välj länken **mängd** bredvid **program-ID-URI**.
 1. Ersätt standardvärdet (ett GUID) med `api` och välj sedan **Spara**. Den fullständiga URI: n visas och ska ha formatet `https://your-tenant-name.onmicrosoft.com/api` . När ditt webb program begär en åtkomsttoken för API: et ska den lägga till denna URI som prefix för varje omfång som du definierar för API: et.
-1. Under **omfattningar som definieras av detta API**väljer du **Lägg till ett omfång**.
+1. Under **omfattningar som definieras av detta API** väljer du **Lägg till ett omfång**.
 1. Ange följande värden för att skapa ett omfång som definierar Läs åtkomst till API: et och välj sedan **Lägg till omfång**:
     1. **Omfattnings namn**: `demo.read`
     1. **Visnings namn för administratörs medgivande**: `Read access to demo API`
@@ -34,6 +34,6 @@ ms.locfileid: "84680290"
 1. Välj **program (bakåtkompatibelt)**.
 1. Välj *webapi1* -programmet för att öppna dess **egenskaps** sida.
 1. Välj **Publicerade omfång**. Publicerade omfattningar kan användas för att ge ett klient program vissa behörigheter till webb-API: et.
-1. För **omfattning**, ange `demo.read` och för **Beskrivning**anger du `Read access to the web API` .
-1. För **omfattning**, ange `demo.write` och för **Beskrivning**anger du `Write access to the web API` .
+1. För **omfattning**, ange `demo.read` och för **Beskrivning** anger du `Read access to the web API` .
+1. För **omfattning**, ange `demo.write` och för **Beskrivning** anger du `Write access to the web API` .
 1. Välj **Spara**.

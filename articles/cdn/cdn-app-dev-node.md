@@ -16,11 +16,11 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: devx-track-js
 ms.openlocfilehash: f5d5c7a6e1f6993b19f38db2ae846b213a1d553e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316773"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993364"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Kom igång med Azure CDN-utveckling
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Skapa en mapp för att lagra ditt program.  Från en-konsol med Node.js verktyg 
 npm init
 ```
 
-Sedan visas en serie frågor om att initiera projektet.  I den här självstudien används *app.js*för **Start punkten**.  Du kan se mina andra alternativ i följande exempel.
+Sedan visas en serie frågor om att initiera projektet.  I den här självstudien används *app.js* för **Start punkten**.  Du kan se mina andra alternativ i följande exempel.
 
 ![NPM init-utdata](./media/cdn-app-dev-node/cdn-npm-init.png)
 
@@ -91,7 +91,7 @@ Med *app.js* öppna i vårt redigerings program, ska vi hämta den grundläggand
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. Vi måste definiera vissa konstanter som metoderna kommer att använda.  Lägg till följande.  Se till att ersätta plats hållarna, inklusive ** &lt; vinkel paren tes &gt; **, med dina egna värden efter behov.
+2. Vi måste definiera vissa konstanter som metoderna kommer att använda.  Lägg till följande.  Se till att ersätta plats hållarna, inklusive **&lt; vinkel paren tes &gt;**, med dina egna värden efter behov.
    
     ``` javascript
     //Tenant app constants
@@ -124,7 +124,7 @@ Med *app.js* öppna i vårt redigerings program, ska vi hämta den grundläggand
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    Se till att ersätta objekten i ** &lt; vinkelparenteser &gt; ** med rätt information.  För `<redirect URI>` använder du den omdirigerings-URI som du angav när du registrerade programmet i Azure AD.
+    Se till att ersätta objekten i **&lt; vinkelparenteser &gt;** med rätt information.  För `<redirect URI>` använder du den omdirigerings-URI som du angav när du registrerade programmet i Azure AD.
 4. Vårt Node.js konsol program kommer att ta några kommando rads parametrar.  Vi kontrollerar att minst en parameter skickades.
    
    ```javascript

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bf8fe68c28457fd01704762e537fe259a96a6bce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6fb23d7325347a1b27165d3e9bc3bf33797682
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116238"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95994372"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure Active Directory B2C att använda en anpassad princip
 
@@ -60,7 +60,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
     </ClaimsSchema>
     ```
 
-3. Efter **ClaimsSchema**lägger du till ett **ClaimsTransformations** -element och dess underordnade element till **BuildingBlocks** -elementet:
+3. Efter **ClaimsSchema** lägger du till ett **ClaimsTransformations** -element och dess underordnade element till **BuildingBlocks** -elementet:
 
     ```xml
     <ClaimsTransformations>
@@ -219,7 +219,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
     ```
 
 7. På sidan **anpassade principer** i Azure AD B2C klienten väljer du **Ladda upp princip**.
-8. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj *TrustFrameworkExtensions.xml* -filen.
+8. Aktivera **Skriv över principen om den finns** och bläddra sedan till och välj *TrustFrameworkExtensions.xml* -filen.
 9. Klicka på **Överför**.
 
 ## <a name="create-a-relying-party-file"></a>Skapa en förlitande parts fil
@@ -240,14 +240,14 @@ Uppdatera sedan den förlitande part filen som initierar användar resan som du 
     ```
 
 5. På sidan **anpassade principer** i Azure AD B2C klienten väljer du **Ladda upp princip**.
-6. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj *ROPC_Auth.xml* -filen.
+6. Aktivera **Skriv över principen om den finns** och bläddra sedan till och välj *ROPC_Auth.xml* -filen.
 7. Klicka på **Överför**.
 
 ## <a name="test-the-policy"></a>Testa principen
 
 Använd ditt favorit-API utvecklings program för att generera ett API-anrop och granska svaret för att felsöka principen. Skapa ett anrop som det här exemplet med följande information som brödtext i POST-begäran:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Ersätt `<tenant-name>` med namnet på din Azure AD B2C-klient.
 - Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.
@@ -269,7 +269,7 @@ Använd ditt favorit-API utvecklings program för att generera ett API-anrop och
 Förfrågningen om faktisk POST ser ut som i följande exempel:
 
 ```https
-POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1A_ROPC_Auth HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -292,7 +292,7 @@ Ett lyckat svar med offline-åtkomst ser ut som i följande exempel:
 
 Skapa ett POST samtal som det som visas här. Använd informationen i följande tabell som brödtext i begäran:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Ersätt `<tenant-name>` med namnet på din Azure AD B2C-klient.
 - Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.

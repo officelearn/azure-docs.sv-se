@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: eaac8bdf828d2dd9a8e2dfae0b1b2b5985d1951d
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 1a8d851d2e70850155950786c6aa67c1d5086eb2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592710"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993881"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en python-webbapp
 
-I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett python-webbprogram kan logga in användare och hämta en åtkomsttoken för att anropa Microsoft Graph-API: et. Användare med ett personligt Microsoft-konto eller ett konto i en Azure Active Directory (Azure AD) organisation kan logga in i programmet.
+I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett python-webbprogram kan logga in användare och få en åtkomsttoken för att anropa Microsoft Graph-API: et. Användare med ett personligt Microsoft-konto eller ett konto i en Azure Active Directory (Azure AD) organisation kan logga in i programmet.
 
 Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
@@ -116,7 +116,7 @@ Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 > CLIENT_SECRET = "Enter_the_Client_Secret_Here"
 > AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 > ```
-> Där:
+> Plats:
 >
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 > - `Enter_the_Client_Secret_Here` – är den **klient hemlighet** som du skapade i **certifikat & hemligheter**  för det program som du har registrerat.

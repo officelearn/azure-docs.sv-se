@@ -12,17 +12,17 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 333bb42643539cedec04d37680749c749a003536
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953890"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994068"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Arkose Labs med Azure Active Directory B2C
 
 I den här självstudien lär du dig att integrera Azure AD B2C-autentisering med Arkose Labs. Arkose Labs hjälper organisationer mot bot-attacker, konto upptagnings attacker och falska konto öppningar.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du:
 

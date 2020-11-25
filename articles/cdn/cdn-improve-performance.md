@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
 ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148744"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993677"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Förbättra prestanda genom att komprimera filer i Azure CDN
 Fil komprimering är en enkel och effektiv metod för att förbättra fil överförings hastigheten och öka sid inläsnings prestandan genom att minska fil storleken innan den skickas från servern. Fil komprimering kan minska bandbredds kostnaderna och ge användarna ett mer svars upplevelser.
@@ -42,7 +42,7 @@ Nivåerna standard och Premium CDN ger samma komprimerings funktioner, men anvä
 
 ### <a name="standard-cdn-profiles"></a>Standard-CDN-profiler 
 > [!NOTE]
-> Det här avsnittet gäller för **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**och **Azure CDN Standard från Akamai** -profiler.
+> Det här avsnittet gäller för **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai** -profiler.
 > 
 > 
 

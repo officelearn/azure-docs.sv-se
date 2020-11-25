@@ -8,11 +8,11 @@ ms.date: 04/29/2020
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 8620d6bc403882cb308405e8ffb4412917d0c6f1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743830"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993488"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service
 
@@ -225,7 +225,7 @@ git push frontend master
 
 Navigera till `http://<back-end-app-name>.azurewebsites.net` för att visa de objekt som lades till från klientdelsappen. Lägg även till några objekt, som `from back end 1` och `from back end 2`, och uppdatera sedan klientdelsappen för att se om ändringarna visas.
 
-:::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Skärm bild av ett Azure App Service REST API-exempel i ett webbläsarfönster som visar en att göra-lista-app.":::
+:::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Skärm bild av ett Azure App Service REST API-exempel i ett webbläsarfönster som visar en att göra-lista-app med objekt som har lagts till från frontend-appen.":::
 
 ## <a name="configure-auth"></a>Konfigurera autentisering
 
@@ -239,27 +239,29 @@ I [Azure Portal](https://portal.azure.com) -menyn väljer du **resurs grupper** 
 
 I **resurs grupper** söker du efter och väljer din resurs grupp. I **Översikt** väljer du din backend-appens hanterings sida.
 
-:::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Skärm bild av ett Azure App Service REST API-exempel i ett webbläsarfönster som visar en att göra-lista-app.":::
+:::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Skärm bild av fönstret resurs grupper som visar översikten över ett exempel på en resurs grupp och en backend-appens hanterings sida vald.":::
 
-I backend-appens vänstra meny väljer du **autentisering/auktorisering** och aktiverar App Service autentisering genom att välja **på** .
+I backend-appens vänstra meny väljer du **autentisering/auktorisering** och aktiverar App Service autentisering genom att välja **på**.
 
-För **Åtgärd att vidta när en begäran inte har autentiserats** väljer du **Logga in med Azure Active Directory** .
+För **Åtgärd att vidta när en begäran inte har autentiserats** väljer du **Logga in med Azure Active Directory**.
 
-Under **autentiseringsproviders** väljer du **Azure Active Directory** .
+Under **autentiseringsproviders** väljer du **Azure Active Directory**.
 
-:::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Skärm bild av ett Azure App Service REST API-exempel i ett webbläsarfönster som visar en att göra-lista-app.":::
+:::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Skärm bild av backend-appens vänstra meny med autentisering/auktorisering valt och inställningar som valts på den högra menyn.":::
 
-Välj **Express** och godkänn standardinställningarna för att skapa en ny AD-App och välj **OK** .
+Välj **Express** och godkänn standardinställningarna för att skapa en ny AD-App och välj **OK**.
 
-På sidan **autentisering/auktorisering** väljer du **Spara** .
+På sidan **autentisering/auktorisering** väljer du **Spara**.
 
 Uppdatera portal sidan när du ser meddelandet med meddelandet `Successfully saved the Auth Settings for <back-end-app-name> App` .
 
-Välj **Azure Active Directory** igen och välj sedan **Azure AD App** .
+Välj **Azure Active Directory** igen och välj sedan **Azure AD App**.
 
 Kopiera **klient-ID** för Azure AD-programmet till en anteckning. Du behöver det här värdet senare.
 
-:::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Skärm bild av ett Azure App Service REST API-exempel i ett webbläsarfönster som visar en att göra-lista-app." den autentiserade användaren från klient delen till Server delen. 
+:::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Skärm bild av fönstret Azure Active Directory inställningar som visar Azure AD App och fönstret Azure AD-program visar det klient-ID som ska kopieras.":::
+
+Om du slutar här har du en fristående app som redan är skyddad av App Service autentisering och auktorisering. I de återstående avsnitten kan du se hur du skyddar en lösning för flera appar genom att "flöda" den autentiserade användaren från klient delen till Server delen. 
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>Aktivera autentisering och auktorisering för klientappen
 
@@ -280,15 +282,15 @@ Nu när du har aktiverat autentisering och auktorisering för båda dina appar b
 
 I menyn [Azure Portal](https://portal.azure.com) väljer du **Azure Active Directory** eller söker efter och väljer *Azure Active Directory* från vilken sida som helst.
 
-Välj **Appregistreringar**  >  **ägda program**  >  **Visa alla program i den här katalogen** . Välj namn på klient sidan och välj sedan API- **behörigheter** .
+Välj **Appregistreringar**  >  **ägda program**  >  **Visa alla program i den här katalogen**. Välj namn på klient sidan och välj sedan API- **behörigheter**.
 
-:::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Skärm bild av ett Azure App Service REST API-exempel i ett webbläsarfönster som visar en att göra-lista-app.":::
+:::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Skärm bild av Microsoft-Appregistreringar-fönstret med ägda program, ett klient namn för klient sidan och de API-behörigheter som valts.":::
 
 Välj **Lägg till en behörighet** och välj sedan de **API: er som används i organisationen**  >  **\<back-end-app-name>** .
 
-På sidan **begär API-behörigheter** för backend-appen väljer du **delegerade behörigheter** och **User_impersonation** och väljer sedan **Lägg till behörigheter** .
+På sidan **begär API-behörigheter** för backend-appen väljer du **delegerade behörigheter** och **User_impersonation** och väljer sedan **Lägg till behörigheter**.
 
-:::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Skärm bild av ett Azure App Service REST API-exempel i ett webbläsarfönster som visar en att göra-lista-app.":::
+:::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Skärm bild av sidan begär API-behörigheter som visar delegerade behörigheter, user_impersonation och knappen Lägg till behörighet vald.":::
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>Konfigurera App Service för att returnera en användbar åtkomsttoken
 
@@ -298,9 +300,9 @@ Navigera till [Azure Resource Explorer](https://resources.azure.com) och Använd
 
 [Azure Resource Explorer](https://resources.azure.com) öppnas nu med din frontend-app vald i resurs trädet. Överst på sidan klickar du på **Läs/skriv** för att aktivera redigeringen av Azure-resurserna.
 
-:::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Skärm bild av ett Azure App Service REST API-exempel i ett webbläsarfönster som visar en att göra-lista-app.":::
+:::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Skärm bild av knapparna skriv skydd och Läs/skriv överst på sidan Azure Resource Explorer med knappen Läs/skriv markerad.":::
 
-Gå nedåt till **config** authsettings i den vänstra webbläsaren  >  **authsettings** .
+Gå nedåt till **config** authsettings i den vänstra webbläsaren  >  **authsettings**.
 
 I vyn **authsettings** (autentiseringsinställningar) klickar du på **Edit** (Redigera). Ange `additionalLoginParams` till följande JSON-sträng med det klient-ID som du kopierade. 
 
@@ -308,7 +310,7 @@ I vyn **authsettings** (autentiseringsinställningar) klickar du på **Edit** (R
 "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
 ```
 
-:::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Skärm bild av ett Azure App Service REST API-exempel i ett webbläsarfönster som visar en att göra-lista-app.":::
+:::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Skärm bild av ett kod exempel i authsettings-vyn som visar additionalLoginParams-strängen med ett exempel på ett klient-ID.":::
 
 Spara inställningarna genom att klicka på **PUT** (Placera).
 
@@ -348,7 +350,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-Logga in på `https://<front-end-app-name>.azurewebsites.net` igen. På sidan med dataanvändningsavtalet klickar du på **acceptera** .
+Logga in på `https://<front-end-app-name>.azurewebsites.net` igen. På sidan med dataanvändningsavtalet klickar du på **acceptera**.
 
 Du bör nu kunna skapa, läsa, uppdatera och ta bort data från serverdelsappen, precis som innan. Den enda skillnaden är att båda apparna är nu skyddade med App Service-autentisering och -auktorisering, inklusive tjänst-till-tjänst-anrop.
 
@@ -384,7 +386,7 @@ På den lokala lagringsplatsen öppnar du _wwwroot/app/scripts/todoListSvc.js_ o
 
 ### <a name="add-access-token-to-api-calls"></a>Lägga till åtkomsttoken till API-anrop
 
-Öppna _wwwroot/app/scripts/todoListSvc.js_ . Ovanför listan med API-anrop (ovanför raden `getItems : function(){`), lägger du till följande funktion i listan:
+Öppna _wwwroot/app/scripts/todoListSvc.js_. Ovanför listan med API-anrop (ovanför raden `getItems : function(){`), lägger du till följande funktion i listan:
 
 ```javascript
 setAuth: function (token) {

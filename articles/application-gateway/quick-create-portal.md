@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 08/27/2020
+ms.date: 11/24/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d700c2f2b4df01da577b67dafab989b655bdb58d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 904456de527e8d0acb1319059c18f9a3c6b0a1a3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91331088"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95992959"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal
 
@@ -38,7 +38,7 @@ Logga in på [Azure-portalen](https://portal.azure.com) med ditt Azure-konto.
 
 Du skapar programgatewayen med hjälp av flikarna på sidan **skapa en Application Gateway** .
 
-1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**. Fönstret **Nytt** visas.
+1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. Fönstret **Nytt** visas.
 
 2. Välj **nätverk** och välj sedan **Application Gateway** i listan **aktuella** .
 
@@ -56,7 +56,7 @@ Du skapar programgatewayen med hjälp av flikarna på sidan **skapa en Applicati
     > [!NOTE]
     > [Slut punkts principer för virtuella nätverk](../virtual-network/virtual-network-service-endpoint-policies-overview.md) stöds för närvarande inte i ett Application Gateway-undernät.
 
-    Under **Konfigurera virtuellt nätverk**skapar du ett nytt virtuellt nätverk genom att välja **Skapa nytt**. I fönstret **Skapa virtuellt nätverk** som öppnas anger du följande värden för att skapa det virtuella nätverket och två undernät:
+    Under **Konfigurera virtuellt nätverk** skapar du ett nytt virtuellt nätverk genom att välja **Skapa nytt**. I fönstret **Skapa virtuellt nätverk** som öppnas anger du följande värden för att skapa det virtuella nätverket och två undernät:
 
     - **Namn**: ange *myVNet* som namn på det virtuella nätverket.
 
@@ -64,7 +64,7 @@ Du skapar programgatewayen med hjälp av flikarna på sidan **skapa en Applicati
 
     - **Under näts namn** (backend-serverns undernät): i den andra raden i rutnätet för **undernät** anger du *myBackendSubnet* i kolumnen **under nät namn** .
 
-    - **Adress intervall** (backend-serverns undernät): Ange ett adress intervall som inte överlappar adress intervallet för *myAGSubnet*på den andra raden i **under nätets** rutnät. Om adress intervallet för *myAGSubnet* till exempel är 10.0.0.0/24, anger du *10.0.1.0/24* för adress intervallet för *myBackendSubnet*.
+    - **Adress intervall** (backend-serverns undernät): Ange ett adress intervall som inte överlappar adress intervallet för *myAGSubnet* på den andra raden i **under nätets** rutnät. Om adress intervallet för *myAGSubnet* till exempel är 10.0.0.0/24, anger du *10.0.1.0/24* för adress intervallet för *myBackendSubnet*.
 
     Välj **OK** för att stänga fönstret **Skapa virtuellt nätverk** och spara inställningarna för det virtuella nätverket.
 
@@ -112,7 +112,7 @@ På fliken **konfiguration** ansluter du klient dels-och backend-poolen som du s
 3. En regel för routning kräver en lyssnare. Ange följande värden för lyssnaren på fliken **lyssnare** i fönstret **Lägg till regel för vidarebefordran** :
 
     - **Namn på lyssnare**: *Ange en lyssnare* för namnet på lyssnaren.
-    - **IP-adress för klient**del: Välj **offentlig** för att välja den offentliga IP-adress som du skapade för klient delen.
+    - **IP-adress för klient** del: Välj **offentlig** för att välja den offentliga IP-adress som du skapade för klient delen.
   
       Acceptera standardvärdena för de andra inställningarna på fliken **lyssnare** och välj sedan fliken **backend-mål** för att konfigurera resten av regeln.
 
@@ -120,7 +120,7 @@ På fliken **konfiguration** ansluter du klient dels-och backend-poolen som du s
 
 4. På fliken **backend-mål** väljer du **MyBackendPool** för **Server dels målet**.
 
-5. För **http-inställningen**väljer du **Skapa ny** för att skapa en ny http-inställning. HTTP-inställningen avgör hur routningsregler fungerar. I fönstret **Lägg till en HTTP-inställning** som öppnas anger du *MyHTTPSetting* som **http-inställnings namn** och *80* för **backend-porten**. Acceptera standardvärdena för de andra inställningarna i fönstret **Lägg till en HTTP-inställning** och välj sedan **Lägg till** för att återgå till fönstret **Lägg till regel för routning** . 
+5. För **http-inställningen** väljer du **Skapa ny** för att skapa en ny http-inställning. HTTP-inställningen avgör hur routningsregler fungerar. I fönstret **Lägg till en HTTP-inställning** som öppnas anger du *MyHTTPSetting* som **http-inställnings namn** och *80* för **backend-porten**. Acceptera standardvärdena för de andra inställningarna i fönstret **Lägg till en HTTP-inställning** och välj sedan **Lägg till** för att återgå till fönstret **Lägg till regel för routning** . 
 
      ![Skapa ny Application Gateway: HTTP-inställning](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
 
@@ -146,19 +146,19 @@ Det gör du genom att:
 
 ### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**. Fönstret **Nytt** visas.
+1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. Fönstret **Nytt** visas.
 2. Välj **Windows Server 2016 Data Center** i listan **populär** . Sidan **Skapa en virtuell dator** visas.<br>Application Gateway kan dirigera trafik till vilken typ av virtuell dator som helst som används i dess backend-pool. I det här exemplet använder du ett Windows Server 2016 Data Center.
 3. Ange dessa värden på fliken **Grundläggande inställningar** för följande inställningar för virtuella datorer:
 
     - **Resurs grupp**: Välj **myResourceGroupAG** som resurs grupps namn.
     - **Namn på virtuell dator**: ange *myVM* som namn på den virtuella datorn.
     - **Region**: Välj samma region där du skapade Application Gateway.
-    - **Användar**namn: Skriv *azureuser* som administratörs användar namn.
+    - **Användar** namn: Skriv *azureuser* som administratörs användar namn.
     - **Lösen ord**: Ange ett lösen ord.
 4. Godkänn de andra standardinställningarna och välj sedan **Nästa: diskar**.  
 5. Godkänn standardvärdena på fliken **diskar** och välj sedan **Nästa: nätverk**.
 6. På fliken **Nätverk** kontrollerar du att **myVNet** har valts för **Virtuellt nätverk** och att **Undernät** är inställt på **myBackendSubnet**. Godkänn de andra standardinställningarna och välj sedan **Nästa: hantering**.<br>Application Gateway kan kommunicera med instanser utanför det virtuella nätverk som det finns i, men du måste se till att det finns en IP-anslutning.
-7. På fliken **Hantering** anger du **Startdiagnostik** till **Av**. Acceptera de övriga standardinställningarna och välj sedan **Granska + skapa**.
+7. På fliken **hantering** ställer du in **startdiagnostik** som ska **inaktive ras**. Acceptera de övriga standardinställningarna och välj sedan **Granska + skapa**.
 8. Gå igenom inställningarna på fliken **Granska + skapa** och åtgärda eventuella verifieringsfel och välj sedan **Skapa**.
 9. Vänta på att skapandet av den virtuella datorn är klart innan du fortsätter.
 
@@ -194,9 +194,9 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
 
 3. Välj **myBackendPool**.
 
-4. Under **backend-mål**, **måltyp**väljer du **virtuell dator** i den nedrullningsbara listan.
+4. Under **backend-mål**, **måltyp** väljer du **virtuell dator** i den nedrullningsbara listan.
 
-5. Under **mål**väljer du de virtuella **MyVM** -och **myVM2** -datorerna och deras associerade nätverks gränssnitt från List rutorna.
+5. Under **mål** väljer du de virtuella **MyVM** -och **myVM2** -datorerna och deras associerade nätverks gränssnitt från List rutorna.
 
    > [!div class="mx-imgBorder"]
    > ![Lägga till serverdelsservrar](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)

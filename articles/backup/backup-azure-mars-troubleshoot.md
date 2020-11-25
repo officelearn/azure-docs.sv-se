@@ -4,11 +4,11 @@ description: I den här artikeln får du lära dig hur du felsöker installation
 ms.topic: troubleshooting
 ms.date: 07/15/2019
 ms.openlocfilehash: 4ae4142652d9d38d5bf384e5a10d6eeb7e3cc608
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900379"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993847"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -37,12 +37,12 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 
 ## <a name="invalid-vault-credentials-provided"></a>Ogiltiga valvautentiseringsuppgifter har angetts
 
-**Fel meddelande** : ogiltiga valv uppgifter angavs. Filen är antingen skadad eller har inte har de senaste autentiseringsuppgifterna som är associerade med återställningstjänsten. (ID: 34513)
+**Fel meddelande**: ogiltiga valv uppgifter angavs. Filen är antingen skadad eller har inte har de senaste autentiseringsuppgifterna som är associerade med återställningstjänsten. (ID: 34513)
 
 | Orsak | Rekommenderade åtgärder |
 | ---     | ---    |
-| **Autentiseringsuppgifterna för valvet är ogiltiga** <br/> <br/> Valvets autentiseringsuppgifter kan vara skadade, kan ha upphört att gälla eller också har de ett annat fil namns tillägg än *. vaultCredentials* . (Till exempel kan de ha hämtats mer än 48 timmar före registrerings tiden.)| [Hämta nya autentiseringsuppgifter](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) från Recovery Services valvet på Azure Portal. Utför sedan dessa steg efter behov: <ul><li> Om du redan har installerat och registrerat MARS öppnar du MMC-konsolen för Microsoft Azure Backup agenten. Välj sedan **Registrera Server** i **Åtgärds** fönstret för att slutföra registreringen med de nya autentiseringsuppgifterna. <br/> <li> Om den nya installationen Miss lyckas kan du försöka med att installera om med de nya autentiseringsuppgifterna.</ul> **Obs!** om filer med flera valv har hämtats är det bara den senaste filen som är giltig för de kommande 48 timmarna. Vi rekommenderar att du hämtar en ny fil med autentiseringsuppgifter för valvet.
-| **Proxyservern eller brand väggen blockerar registreringen** <br/>eller <br/>**Ingen Internet anslutning** <br/><br/> Om din dator eller proxyserver har begränsad Internet anslutning och du inte ser till att du har åtkomst till de nödvändiga URL: erna, Miss söker registreringen.| Gör så här:<br/> <ul><li> Arbeta med IT-teamet för att säkerställa att systemet är ansluten till Internet.<li> Om du inte har en proxyserver, se till att alternativet proxy inte är markerat när du registrerar agenten. [Kontrol lera proxyinställningarna](#verifying-proxy-settings-for-windows).<li> Om du har en brand vägg/proxyserver arbetar du med nätverks teamet för att se till att dessa URL: er och IP-adresser har åtkomst:<br/> <br> **Webbadresser**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP-adresser**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Försök att registrera igen när du har slutfört föregående fel söknings steg.<br></br> Om din anslutning är via Azure ExpressRoute kontrollerar du att inställningarna är konfigurerade enligt beskrivningen i [Azure ExpressRoute-supporten](backup-support-matrix-mars-agent.md#azure-expressroute-support).
+| **Autentiseringsuppgifterna för valvet är ogiltiga** <br/> <br/> Valvets autentiseringsuppgifter kan vara skadade, kan ha upphört att gälla eller också har de ett annat fil namns tillägg än *. vaultCredentials*. (Till exempel kan de ha hämtats mer än 48 timmar före registrerings tiden.)| [Hämta nya autentiseringsuppgifter](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) från Recovery Services valvet på Azure Portal. Utför sedan dessa steg efter behov: <ul><li> Om du redan har installerat och registrerat MARS öppnar du MMC-konsolen för Microsoft Azure Backup agenten. Välj sedan **Registrera Server** i **Åtgärds** fönstret för att slutföra registreringen med de nya autentiseringsuppgifterna. <br/> <li> Om den nya installationen Miss lyckas kan du försöka med att installera om med de nya autentiseringsuppgifterna.</ul> **Obs!** om filer med flera valv har hämtats är det bara den senaste filen som är giltig för de kommande 48 timmarna. Vi rekommenderar att du hämtar en ny fil med autentiseringsuppgifter för valvet.
+| **Proxyservern eller brand väggen blockerar registreringen** <br/>eller <br/>**Ingen Internet anslutning** <br/><br/> Om din dator eller proxyserver har begränsad Internet anslutning och du inte ser till att du har åtkomst till de nödvändiga URL: erna, Miss söker registreringen.| Gör så här:<br/> <ul><li> Arbeta med IT-teamet för att säkerställa att systemet är ansluten till Internet.<li> Om du inte har en proxyserver, se till att alternativet proxy inte är markerat när du registrerar agenten. [Kontrol lera proxyinställningarna](#verifying-proxy-settings-for-windows).<li> Om du har en brand vägg/proxyserver arbetar du med nätverks teamet för att se till att dessa URL: er och IP-adresser har åtkomst:<br/> <br> **Er**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP-adresser**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Försök att registrera igen när du har slutfört föregående fel söknings steg.<br></br> Om din anslutning är via Azure ExpressRoute kontrollerar du att inställningarna är konfigurerade enligt beskrivningen i [Azure ExpressRoute-supporten](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **Antivirus programmet blockerar registreringen** | Om du har installerat antivirus program på servern lägger du till nödvändiga undantags regler i Antivirus genomsökningen för dessa filer och mappar: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> Mappen scratch. Standard platsen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Ytterligare rekommendationer
@@ -57,7 +57,7 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 1. Kör `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` från en upphöjd kommando tolk.
 
    Det här kommandot öppnar Internet Explorer.
-1. Gå till **verktyg**  >  **Internet alternativ**  >  **anslutningar**  >  **LAN-inställningar** .
+1. Gå till **verktyg**  >  **Internet alternativ**  >  **anslutningar**  >  **LAN-inställningar**.
 1. Kontrol lera proxyinställningarna för system-kontot.
 1. Ta bort informationen om ingen proxy har kon figurer ATS och det finns information om proxyn.
 1. Om en proxyserver har kon figurer ATS och informationen om proxyn är felaktig kontrollerar du att **proxy-IP-adressen** och **port** informationen är korrekt.
@@ -73,7 +73,7 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 
 | Fel  | Möjlig orsak | Rekommenderade åtgärder |
 | ---     | ---     | ---    |
-| <br /><ul><li>Microsoft Azure återställnings tjänst agenten kunde inte ansluta till Microsoft Azure Backup. (ID: 100050) Kontrol lera nätverks inställningarna och se till att du kan ansluta till Internet.<li>(407) Proxyautentisering krävs. |En proxyserver blockerar anslutningen. |  <ul><li>I Internet Explorer går du till **verktyg**  >  **Internet alternativ**  >  **säkerhet**  >  **Internet** . Välj **Anpassad nivå** och rulla ned till **fil hämtnings** avsnittet. Välj **Aktivera** .<p>Du kan också behöva lägga till [URL: er och IP-adresser](install-mars-agent.md#verify-internet-access) till dina betrodda platser i Internet Explorer.<li>Ändra inställningarna för att använda en proxyserver. Ange sedan information om proxyservern.<li> Om datorn har begränsad Internet åtkomst kontrollerar du att brand Väggs inställningarna på datorn eller proxyservern tillåter dessa [URL: er och IP-adresser](install-mars-agent.md#verify-internet-access). <li>Om du har installerat antivirus program på servern kan du undanta dessa filer från AntiVirus genomsökningen: <ul><li>CBEngine.exe (i stället för dpmra.exe).<li>CSC.exe (relaterat till .NET Framework). Det finns ett CSC.exe för varje .NET Framework-version som är installerad på servern. Undanta CSC.exe-filer för alla versioner av .NET Framework på den berörda servern. <li>Den tillfälliga mappen eller cacheplatsen. <br>Standard platsen för mappen scratch eller sökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
+| <br /><ul><li>Microsoft Azure återställnings tjänst agenten kunde inte ansluta till Microsoft Azure Backup. (ID: 100050) Kontrol lera nätverks inställningarna och se till att du kan ansluta till Internet.<li>(407) Proxyautentisering krävs. |En proxyserver blockerar anslutningen. |  <ul><li>I Internet Explorer går du till **verktyg**  >  **Internet alternativ**  >  **säkerhet**  >  **Internet**. Välj **Anpassad nivå** och rulla ned till **fil hämtnings** avsnittet. Välj **Aktivera**.<p>Du kan också behöva lägga till [URL: er och IP-adresser](install-mars-agent.md#verify-internet-access) till dina betrodda platser i Internet Explorer.<li>Ändra inställningarna för att använda en proxyserver. Ange sedan information om proxyservern.<li> Om datorn har begränsad Internet åtkomst kontrollerar du att brand Väggs inställningarna på datorn eller proxyservern tillåter dessa [URL: er och IP-adresser](install-mars-agent.md#verify-internet-access). <li>Om du har installerat antivirus program på servern kan du undanta dessa filer från AntiVirus genomsökningen: <ul><li>CBEngine.exe (i stället för dpmra.exe).<li>CSC.exe (relaterat till .NET Framework). Det finns ett CSC.exe för varje .NET Framework-version som är installerad på servern. Undanta CSC.exe-filer för alla versioner av .NET Framework på den berörda servern. <li>Den tillfälliga mappen eller cacheplatsen. <br>Standard platsen för mappen scratch eller sökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
 
 ## <a name="the-specified-vault-credential-file-cannot-be-used-as-it-is-not-downloaded-from-the-vault-associated-with-this-server"></a>Det går inte att använda den angivna autentiseringsuppgiften för valvet eftersom den inte har laddats ned från valvet som är associerat med den här servern
 
@@ -117,13 +117,13 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 
 | Fel  | Möjliga orsaker | Rekommenderade åtgärder |
 |---------|---------|---------|
-|<br />Aktiveringen slutfördes inte. Den aktuella åtgärden kunde inte utföras på grund av ett internt tjänst fel [0x1FC07]. Försök igen efter en stund. Kontakta Microsoft-supporten om problemet kvarstår.     | <li> Scratch-mappen finns på en volym som inte har tillräckligt med utrymme. <li> Den tillfälliga mappen har flyttats felaktigt. <li> Filen OnlineBackup. KEK saknas.         | <li>Uppgradera till den [senaste versionen](https://aka.ms/azurebackup_agent) av mars-agenten.<li>Flytta mappen scratch eller cacheplatsen till en volym med ett ledigt utrymme som är mellan 5% och 10% av den totala storleken på säkerhets kopierings data. Se stegen i [vanliga frågor om säkerhets kopiering av filer och mappar](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)för att flytta cacheplatsen på rätt sätt.<li> Se till att filen OnlineBackup. KEK finns. <br>*Standard platsen för mappen scratch eller sökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch* .        |
+|<br />Aktiveringen slutfördes inte. Den aktuella åtgärden kunde inte utföras på grund av ett internt tjänst fel [0x1FC07]. Försök igen efter en stund. Kontakta Microsoft-supporten om problemet kvarstår.     | <li> Scratch-mappen finns på en volym som inte har tillräckligt med utrymme. <li> Den tillfälliga mappen har flyttats felaktigt. <li> Filen OnlineBackup. KEK saknas.         | <li>Uppgradera till den [senaste versionen](https://aka.ms/azurebackup_agent) av mars-agenten.<li>Flytta mappen scratch eller cacheplatsen till en volym med ett ledigt utrymme som är mellan 5% och 10% av den totala storleken på säkerhets kopierings data. Se stegen i [vanliga frågor om säkerhets kopiering av filer och mappar](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)för att flytta cacheplatsen på rätt sätt.<li> Se till att filen OnlineBackup. KEK finns. <br>*Standard platsen för mappen scratch eller sökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>Krypteringslösenfrasen är inte korrekt konfigurerad
 
 | Fel  | Möjliga orsaker | Rekommenderade åtgärder |
 |---------|---------|---------|
-| <br />Fel 34506. Krypterings lösen frasen som är lagrad på den här datorn är inte korrekt konfigurerad.    | <li> Scratch-mappen finns på en volym som inte har tillräckligt med utrymme. <li> Den tillfälliga mappen har flyttats felaktigt. <li> Filen OnlineBackup. KEK saknas.        | <li>Uppgradera till den [senaste versionen](https://aka.ms/azurebackup_agent) av mars-agenten.<li>Flytta mappen scratch eller cacheplatsen till en volym med ett ledigt utrymme som är mellan 5% och 10% av den totala storleken på säkerhets kopierings data. Se stegen i [vanliga frågor om säkerhets kopiering av filer och mappar](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)för att flytta cacheplatsen på rätt sätt.<li> Se till att filen OnlineBackup. KEK finns. <br>*Standard platsen för mappen scratch eller sökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch* .         |
+| <br />Fel 34506. Krypterings lösen frasen som är lagrad på den här datorn är inte korrekt konfigurerad.    | <li> Scratch-mappen finns på en volym som inte har tillräckligt med utrymme. <li> Den tillfälliga mappen har flyttats felaktigt. <li> Filen OnlineBackup. KEK saknas.        | <li>Uppgradera till den [senaste versionen](https://aka.ms/azurebackup_agent) av mars-agenten.<li>Flytta mappen scratch eller cacheplatsen till en volym med ett ledigt utrymme som är mellan 5% och 10% av den totala storleken på säkerhets kopierings data. Se stegen i [vanliga frågor om säkerhets kopiering av filer och mappar](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)för att flytta cacheplatsen på rätt sätt.<li> Se till att filen OnlineBackup. KEK finns. <br>*Standard platsen för mappen scratch eller sökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 ## <a name="backups-dont-run-according-to-schedule"></a>Säkerhets kopieringar körs inte enligt schema
 
@@ -133,9 +133,9 @@ Om schemalagda säkerhets kopieringar inte aktive ras automatiskt, men manuella 
 
 - Se till att statusen för onlinesäkerhetskopiering är **aktive** rad. Gör så här för att kontrol lera statusen:
 
-  1. I Schemaläggaren expanderar du **Microsoft** och väljer **onlinesäkerhetskopiering** .
+  1. I Schemaläggaren expanderar du **Microsoft** och väljer **onlinesäkerhetskopiering**.
   1. Dubbelklicka på **Microsoft-OnlineBackup** och gå till fliken **utlösare** .
-  1. Kontrol lera om status är **aktive rad** . Om den inte är det väljer du **Redigera** , väljer **aktive rad** och väljer sedan **OK** .
+  1. Kontrol lera om status är **aktive rad**. Om den inte är det väljer du **Redigera**, väljer **aktive rad** och väljer sedan **OK**.
 
 - Se till att det användar konto som har valts för att köra uppgiften är antingen **system** -eller **lokal administratörs grupp** på servern. Verifiera användar kontot genom att gå till fliken **Allmänt** och kontrol lera **säkerhets** alternativen.
 
@@ -173,20 +173,20 @@ Den aktuella åtgärden kunde inte utföras på grund av ett internt tjänst fel
 
 ## <a name="job-could-not-be-started-as-another-job-was-in-progress"></a>Det gick inte att starta jobbet eftersom ett annat jobb pågår
 
-Om du ser ett varnings meddelande om **MARS console** att det  >  inte gick att starta jobbet eftersom ett annat jobb pågår i mars-konsolens **jobb historik** , kan det bero på en dubblett av jobbet som utlösts av Schemaläggaren.
+Om du ser ett varnings meddelande om **MARS console** att det  >  inte gick att starta jobbet eftersom ett annat jobb pågår i mars-konsolens **jobb historik**, kan det bero på en dubblett av jobbet som utlösts av Schemaläggaren.
 
 ![Det gick inte att starta jobbet eftersom ett annat jobb pågår](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
 
 Lös problemet så här:
 
 1. Starta snapin-modulen Schemaläggaren genom att skriva *taskschd. msc* i körnings fönstret
-1. I det vänstra fönstret navigerar du till **biblioteket för Schemaläggaren**  ->  **Microsoft**  ->  **OnlineBackup** .
+1. I det vänstra fönstret navigerar du till **biblioteket för Schemaläggaren**  ->  **Microsoft**  ->  **OnlineBackup**.
 1. För varje aktivitet i det här biblioteket dubbelklickar du på aktiviteten för att öppna egenskaper och utför följande steg:
     1. Växla till fliken **Inställningar** .
 
          ![Fliken Inställningar](./media/backup-azure-mars-troubleshoot/settings-tab.png)
 
-    1. Ändra alternativet för **om aktiviteten redan körs används följande regel** . Välj **Starta inte en ny instans** .
+    1. Ändra alternativet för **om aktiviteten redan körs används följande regel**. Välj **Starta inte en ny instans**.
 
          ![Ändra regeln om du inte vill starta en ny instans](./media/backup-azure-mars-troubleshoot/change-rule.png)
 
@@ -196,23 +196,23 @@ Azure Backup kan inte montera återställnings volymen, även efter flera minute
 
 1. Avbryt monterings processen om den körs i flera minuter.
 
-2. Kontrol lera att du har den senaste versionen av säkerhets kopierings agenten. Om du vill kontrol lera versionen går du till fönstret **åtgärder** i mars-konsolen och väljer **om Microsoft Azure Recovery Services agent** . Kontrol lera att **versions** numret är lika med eller högre än den version som nämns i [den här artikeln](https://go.microsoft.com/fwlink/?linkid=229525). Välj den här länken för att [Ladda ned den senaste versionen](https://go.microsoft.com/fwLink/?LinkID=288905).
+2. Kontrol lera att du har den senaste versionen av säkerhets kopierings agenten. Om du vill kontrol lera versionen går du till fönstret **åtgärder** i mars-konsolen och väljer **om Microsoft Azure Recovery Services agent**. Kontrol lera att **versions** numret är lika med eller högre än den version som nämns i [den här artikeln](https://go.microsoft.com/fwlink/?linkid=229525). Välj den här länken för att [Ladda ned den senaste versionen](https://go.microsoft.com/fwLink/?LinkID=288905).
 
-3. Gå till **Enhetshanteraren**  >  **lagrings styrenheter** och leta upp **Microsoft iSCSI Initiator** . Om du hittar den går du direkt till steg 7.
+3. Gå till **Enhetshanteraren**  >  **lagrings styrenheter** och leta upp **Microsoft iSCSI Initiator**. Om du hittar den går du direkt till steg 7.
 
-4. Om du inte kan hitta Microsoft iSCSI Initiator-tjänsten försöker du hitta en post under **Enhetshanteraren**  >  **lagrings styrenheter** med namnet **Okänd enhet** med maskinvaru-ID **ROOT\ISCSIPRT** .
+4. Om du inte kan hitta Microsoft iSCSI Initiator-tjänsten försöker du hitta en post under **Enhetshanteraren**  >  **lagrings styrenheter** med namnet **Okänd enhet** med maskinvaru-ID **ROOT\ISCSIPRT**.
 
-5. Högerklicka på **Okänd enhet** och välj **Uppdatera driv rutins program vara** .
+5. Högerklicka på **Okänd enhet** och välj **Uppdatera driv rutins program vara**.
 
-6. Uppdatera driv rutinen genom att välja alternativet att  **söka automatiskt efter uppdaterad driv rutins program vara** . Den här uppdateringen bör ändra den **okända enheten** till **Microsoft iSCSI-initieraren** :
+6. Uppdatera driv rutinen genom att välja alternativet att  **söka automatiskt efter uppdaterad driv rutins program vara**. Den här uppdateringen bör ändra den **okända enheten** till **Microsoft iSCSI-initieraren**:
 
     ![Skärm bild av Azure Backup Enhetshanteraren, med lagrings styrenheter markerade](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
-7. Gå till **aktivitets hanterarens**  >  **tjänster (lokal)**  >  **Microsoft iSCSI Initiator service** :
+7. Gå till **aktivitets hanterarens**  >  **tjänster (lokal)**  >  **Microsoft iSCSI Initiator service**:
 
     ![Skärm bild av Azure Backup aktivitets hanteraren med tjänster (lokala) markerade](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
 
-8. Starta om Microsoft iSCSI Initiator service. Det gör du genom att högerklicka på tjänsten och välja **stoppa** . Högerklicka sedan på den igen och välj **Starta** .
+8. Starta om Microsoft iSCSI Initiator service. Det gör du genom att högerklicka på tjänsten och välja **stoppa**. Högerklicka sedan på den igen och välj **Starta**.
 
 9. Försök återställa igen med hjälp av [omedelbar återställning](backup-instant-restore-capability.md).
 

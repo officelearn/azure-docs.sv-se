@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: e1ccd337851f8242526362675a11280e33584082
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92513874"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993932"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Självstudie: Azure Active Directory integrering med PageDNA
 
@@ -64,7 +64,7 @@ Om du vill konfigurera integreringen av PageDNA i Azure AD måste du lägga till
 
     ![Alternativet nytt program](common/add-new-app.png)
 
-1. Skriv **PageDNA**i rutan Sök. I Sök resultaten väljer du **PageDNA**och väljer sedan **Lägg till** för att lägga till programmet.
+1. Skriv **PageDNA** i rutan Sök. I Sök resultaten väljer du **PageDNA** och väljer sedan **Lägg till** för att lägga till programmet.
 
     ![PageDNA i resultat listan](common/search-new-app.png)
 
@@ -87,7 +87,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Utför följande steg för att konfigurera enkel inloggning med PageDNA i Azure AD:
 
-1. Välj **enkel inloggning**på sidan **PageDNA** Application Integration i [Azure Portal](https://portal.azure.com/).
+1. Välj **enkel inloggning** på sidan **PageDNA** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera alternativ för enkel inloggning](common/select-sso.png)
 
@@ -156,7 +156,7 @@ I det här avsnittet skapar du en testanvändare i Azure-portalen med namnet Bri
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I rutan **användar namn** anger du **BrittaSimon \@ \<yourcompanydomain> . \<extension> **. Till exempel **BrittaSimon \@ contoso.com**.
+    1. I rutan **användar namn** anger du **BrittaSimon \@ \<yourcompanydomain> . \<extension>**. Till exempel **BrittaSimon \@ contoso.com**.
 
     1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 
@@ -174,11 +174,11 @@ I det här avsnittet aktiverar du User Britta Simon till att använda enkel inlo
 
     ![PageDNA i listan program](common/all-applications.png)
 
-1. I den vänstra rutan under **Hantera**väljer **du användare och grupper**.
+1. I den vänstra rutan under **Hantera** väljer **du användare och grupper**.
 
     ![Alternativet "användare och grupper"](common/users-groups-blade.png)
 
-1. Välj **+ Lägg till användare**och välj sedan **användare och grupper** i fönstret **Lägg till tilldelning** .
+1. Välj **+ Lägg till användare** och välj sedan **användare och grupper** i fönstret **Lägg till tilldelning** .
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 

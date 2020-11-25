@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: d806d8a04dc1bd8547808d20c77bfec310f7dd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507491"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992987"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Använd tjänsten StorSimple Enhetshanteraren för att visa jobb för den virtuella StorSimple-matrisen
 ## <a name="overview"></a>Översikt
@@ -32,8 +32,8 @@ Du kan snabbt hitta de jobb som du är intresse rad av genom att filtrera efter 
 * **Tidsintervall** – jobb kan filtreras baserat på datum-och tidsintervallet.
 * **Enheter** – jobb initieras på en speciell enhet som är ansluten till din tjänst. De filtrerade jobben är sedan tabellen baserat på följande attribut:
   
-  * **Namn** – jobb namnet kan vara **alla**, **säkerhetskopiera**, **klona**, **redundansväxla**, **Hämta uppdateringar**eller **Installera uppdateringar**.
-  * **Status** – jobb kan vara **alla**, **pågående**, **lyckade**eller **misslyckade**eller **avbrutna**.
+  * **Namn** – jobb namnet kan vara **alla**, **säkerhetskopiera**, **klona**, **redundansväxla**, **Hämta uppdateringar** eller **Installera uppdateringar**.
+  * **Status** – jobb kan vara **alla**, **pågående**, **lyckade** eller **misslyckade** eller **avbrutna**.
   * **Entitet** – jobben kan associeras med en volym, en resurs eller en enhet.
   * **Enhet** – namnet på enheten där jobbet startades.
   * **Startades** – den tidpunkt då jobbet startades.
@@ -51,7 +51,7 @@ Utför följande steg för att visa information om ett jobb.
 2. Välj ett jobb i tabell listan med jobb.
    
     ![Bladet jobb](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
-3. Klicka på **information**längst ned på sidan.
+3. Klicka på **information** längst ned på sidan.
 4. I dialog rutan **information** kan du Visa status, information och tids statistik. Följande bild visar ett exempel på dialog rutan **information om säkerhets kopierings jobb** .
    
     ![Information om jobb](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)

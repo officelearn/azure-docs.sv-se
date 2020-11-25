@@ -9,11 +9,11 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82612341"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992935"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Skapa och hantera handelspartneravtal i Azure Logic Apps
 
@@ -45,26 +45,26 @@ På huvud menyn i Azure väljer du **alla tjänster**. I rutan Sök anger du "in
 
    ![Hitta ditt integrations konto](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
 
-1. Under **integrations konton**väljer du det integrations konto där du vill skapa avtalet.
+1. Under **integrations konton** väljer du det integrations konto där du vill skapa avtalet.
 
    ![Välj det integrations konto där du vill skapa avtalet](./media/logic-apps-enterprise-integration-agreements/select-integration-account.png)
 
-1. I den högra rutan under **komponenter**väljer du **avtals** panelen.
+1. I den högra rutan under **komponenter** väljer du **avtals** panelen.
 
    ![Välj "avtal"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
-1. Välj **Lägg till**under **avtal**. I fönstret **Lägg till** anger du information om ditt avtal, till exempel:
+1. Välj **Lägg till** under **avtal**. I fönstret **Lägg till** anger du information om ditt avtal, till exempel:
 
    ![Välj "Lägg till"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Namn** | Ja | <*avtals namn*> | Namnet på ditt avtal |
-   | **Avtals typ** | Ja | **AS2**, **X12**eller **EDIFACT** | Protokoll typ för ditt avtal. När du skapar en avtals fil måste innehållet i den filen matcha avtals typen. | |  
-   | **Värd partner** | Ja | <*värd partner-namn*> | Värd partnern representerar den organisation som specificerar avtalet |
-   | **Värd identitet** | Ja | <*värd partner-ID*> | Värd partnerns identifierare |
-   | **Gäst partner** | Ja | <*gäst-partner-Name*> | Gäst partnern representerar den organisation som gör affärer med värd partnern |
-   | **Gäst identitet** | Ja | <*gäst-partner-ID*> | Gäst partnerns identifierare |
+   | **Namn** | Yes | <*avtals namn*> | Namnet på ditt avtal |
+   | **Avtals typ** | Yes | **AS2**, **X12** eller **EDIFACT** | Protokoll typ för ditt avtal. När du skapar en avtals fil måste innehållet i den filen matcha avtals typen. | |  
+   | **Värd partner** | Yes | <*värd partner-namn*> | Värd partnern representerar den organisation som specificerar avtalet |
+   | **Värd identitet** | Yes | <*värd partner-ID*> | Värd partnerns identifierare |
+   | **Gäst partner** | Yes | <*gäst-partner-Name*> | Gäst partnern representerar den organisation som gör affärer med värd partnern |
+   | **Gäst identitet** | Yes | <*gäst-partner-ID*> | Gäst partnerns identifierare |
    | **Ta emot inställningar** | Det varierar | Det varierar | Dessa egenskaper anger hur värd partner tar emot alla inkommande meddelanden från gäst partnern i avtalet. Mer information finns i respektive avtals typ: <p>- [AS2 meddelande inställningar](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT meddelande inställningar](logic-apps-enterprise-integration-edifact.md) <br>- [X12 meddelande inställningar](logic-apps-enterprise-integration-x12.md) |
    | **Skicka inställningar** | Det varierar | Det varierar | De här egenskaperna anger hur värd partner skickar alla utgående meddelanden till gäst partnern i avtalet. Mer information finns i respektive avtals typ: <p>- [AS2 meddelande inställningar](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT meddelande inställningar](logic-apps-enterprise-integration-edifact.md) <br>- [X12 meddelande inställningar](logic-apps-enterprise-integration-x12.md) |
    |||||
@@ -77,7 +77,7 @@ På huvud menyn i Azure väljer du **alla tjänster**. I rutan Sök anger du "in
    >
    > Om dessa värden ändras för din partner, se till att du uppdaterar avtalet.
 
-1. När du är klar med att skapa ditt avtal går du **till sidan Lägg till** och väljer **OK**och återgår till ditt integrations konto.
+1. När du är klar med att skapa ditt avtal går du **till sidan Lägg till** och väljer **OK** och återgår till ditt integrations konto.
 
    **Avtals** listan visar nu ditt nya avtal.
 
@@ -87,11 +87,11 @@ På huvud menyn i Azure väljer du **alla tjänster**. I rutan Sök anger du "in
 
 1. I rutan Sök anger du "integration" som filter. Välj den här resursen i resultatet: **integrations konton**
 
-1. Under **integrations konton**väljer du det integrations konto som har det avtal som du vill redigera.
+1. Under **integrations konton** väljer du det integrations konto som har det avtal som du vill redigera.
 
-1. I den högra rutan under **komponenter**väljer du **avtals** panelen.
+1. I den högra rutan under **komponenter** väljer du **avtals** panelen.
 
-1. Under **avtal**väljer du ditt avtal och väljer **Redigera**.
+1. Under **avtal** väljer du ditt avtal och väljer **Redigera**.
 
 1. Gör och spara ändringarna.
 
@@ -101,11 +101,11 @@ På huvud menyn i Azure väljer du **alla tjänster**. I rutan Sök anger du "in
 
 1. I rutan Sök anger du "integration" som filter. Välj den här resursen i resultatet: **integrations konton**
 
-1. Under **integrations konton**väljer du det integrations konto som har det avtal som du vill ta bort.
+1. Under **integrations konton** väljer du det integrations konto som har det avtal som du vill ta bort.
 
-1. I den högra rutan under **komponenter**väljer du **avtals** panelen.
+1. I den högra rutan under **komponenter** väljer du **avtals** panelen.
 
-1. Under **avtal**väljer du ditt avtal och väljer **ta bort**.
+1. Under **avtal** väljer du ditt avtal och väljer **ta bort**.
 
 1. Bekräfta att du vill ta bort det valda avtalet.
 

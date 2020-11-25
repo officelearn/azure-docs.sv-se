@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
 ms.openlocfilehash: cb5cda16cd9405f0cbe91a3f88be7dc3f582d21b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86142763"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993437"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch pool i ett virtuellt nätverk
 
@@ -21,7 +21,7 @@ Compute-noder i en pool kan kommunicera med varandra, till exempel för att kör
 
 Om du vill tillåta att Compute-noder kommunicerar säkert med andra virtuella datorer, eller med ett lokalt nätverk, kan du etablera poolen i ett undernät för ett Azure VNet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Autentisering**. Om du vill använda ett Azure VNet-nätverk måste Batch-klientens API använda Azure Active Directory-autentisering (AD). Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory).
 
@@ -35,15 +35,15 @@ Om du vill tillåta att Compute-noder kommunicerar säkert med andra virtuella d
 
 ## <a name="create-a-pool-with-a-vnet-in-the-azure-portal"></a>Skapa en pool med ett VNet i Azure Portal
 
-När du har skapat ditt VNet och tilldelat ett undernät, kan du skapa en batch-pool med det virtuella nätverket. Följ de här stegen för att skapa en pool från Azure Portal: 
+När du har skapat ditt VNet och tilldelat ett undernät, kan du skapa en batch-pool med det virtuella nätverket. Följ de här stegen för att skapa en pool från Azure Portal: 
 
 1. Navigera till ditt Batch-konto i Azure Portal. Det här kontot måste finnas i samma prenumeration och region som den resurs grupp som innehåller det virtuella nätverk som du vill använda.
 2. I fönstret **Inställningar** till vänster väljer du meny alternativet **pooler** .
 3. I fönstret **pooler** väljer du **Lägg till**.
 4. I fönstret **Lägg till pool** väljer du det alternativ som du vill använda från List rutan **Bildtyp** .
 5. Välj rätt **utgivare/erbjudande/SKU** för din anpassade avbildning.
-6. Ange de återstående nödvändiga inställningarna, inklusive **nodens storlek**, **dedikerade noder**och **noder med låg prioritet**samt önskade valfria inställningar.
-7. I **Virtual Network**väljer du det virtuella nätverk och undernät som du vill använda.
+6. Ange de återstående nödvändiga inställningarna, inklusive **nodens storlek**, **dedikerade noder** och **noder med låg prioritet** samt önskade valfria inställningar.
+7. I **Virtual Network** väljer du det virtuella nätverk och undernät som du vill använda.
 
    ![Lägg till poolen med virtuellt nätverk](./media/batch-virtual-network/add-vnet-pool.png)
 

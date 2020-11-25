@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363682"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994272"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Självbetjäning av lösenordsåterställning i Azure AD
 
@@ -172,17 +172,17 @@ För att förbättra medvetenheten om lösen ords händelser kan SSPR Konfigurer
 
 ### <a name="notify-users-on-password-resets"></a>Meddela användare om lösenordsåterställning
 
-Om det här alternativet är inställt på **Ja**får användare som återställer sina lösen ord ett e-postmeddelande om att deras lösen ord har ändrats. E-postmeddelandet skickas via SSPR-portalen till sina primära och alternativa e-postadresser som lagras i Azure AD. Ingen annan får ett meddelande om reset-händelsen.
+Om det här alternativet är inställt på **Ja** får användare som återställer sina lösen ord ett e-postmeddelande om att deras lösen ord har ändrats. E-postmeddelandet skickas via SSPR-portalen till sina primära och alternativa e-postadresser som lagras i Azure AD. Ingen annan får ett meddelande om reset-händelsen.
 
 ### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Meddela alla administratörer när andra administratörer återställer sina lösen ord
 
-Om det här alternativet är inställt på **Ja**får alla andra Azure-administratörer ett e-postmeddelande till sin primära e-postadress som lagras i Azure AD. E-postmeddelandet meddelar att en annan administratör har ändrat sitt lösen ord med hjälp av SSPR.
+Om det här alternativet är inställt på **Ja** får alla andra Azure-administratörer ett e-postmeddelande till sin primära e-postadress som lagras i Azure AD. E-postmeddelandet meddelar att en annan administratör har ändrat sitt lösen ord med hjälp av SSPR.
 
 Tänk på följande exempel scenario:
 
 * Det finns fyra administratörer i en miljö.
 * Administratör *A* återställer lösen ordet med hjälp av SSPR.
-* Administratörer *B*, *C*och *D* får en e-postavisering om att lösen ordet återställs.
+* Administratörer *B*, *C* och *D* får en e-postavisering om att lösen ordet återställs.
 
 ## <a name="on-premises-integration"></a>Lokal integration
 
@@ -208,15 +208,15 @@ Kom igång med SSPR tillbakaskrivning genom att följa de här självstudierna:
 
 Du kan aktivera tillbakaskrivning av lösen ord med hjälp av Azure Portal. Du kan också inaktivera tillbakaskrivning av lösen ord tillfälligt utan att behöva konfigurera om Azure AD Connect.
 
-* Om alternativet är inställt på **Ja**är tillbakaskrivning aktiverat. Federerad, direktautentisering eller lösen ords-hash-synkroniserade användare kan återställa sina lösen ord.
+* Om alternativet är inställt på **Ja** är tillbakaskrivning aktiverat. Federerad, direktautentisering eller lösen ords-hash-synkroniserade användare kan återställa sina lösen ord.
 * Om alternativet är inställt på **Nej**, inaktive ras tillbakaskrivning. Federerad autentisering, direktautentisering eller lösen ords-hash-synkroniserade användare kan inte återställa sina lösen ord.
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Tillåt att användare låser upp konton utan att återställa sina lösen ord
 
 Som standard låser Azure AD upp konton när en lösen ords återställning utförs. För att ge flexibilitet kan du välja att tillåta att användarna låser upp sina lokala konton utan att behöva återställa sina lösen ord. Använd den här inställningen för att avgränsa de två åtgärderna.
 
-* Om det är inställt på **Ja**får användarna möjlighet att återställa sina lösen ord och låsa upp kontot eller för att låsa upp kontot utan att behöva återställa lösen ordet.
-* Om det är inställt på **Nej**kan användarna bara utföra en kombinerad lösen ords återställning och konto upplåsning.
+* Om det är inställt på **Ja** får användarna möjlighet att återställa sina lösen ord och låsa upp kontot eller för att låsa upp kontot utan att behöva återställa lösen ordet.
+* Om det är inställt på **Nej** kan användarna bara utföra en kombinerad lösen ords återställning och konto upplåsning.
 
 ### <a name="on-premises-active-directory-password-filters"></a>Lösen ords filter för lokala Active Directory
 

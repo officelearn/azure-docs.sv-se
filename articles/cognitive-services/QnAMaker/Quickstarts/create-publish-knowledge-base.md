@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
 ms.openlocfilehash: b22c73b3f0626b9938608e88c3382e3f5e8d97fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427487"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993139"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
 
@@ -73,7 +73,7 @@ Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanli
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png" alt-text="Skärm bild av val av en QnA Maker Service Knowledge Base Managed Preview":::
 
-5. I **steg 2** , om du skapar den första kunskaps basen för din tjänst, så har du ett alternativ för att göra språkinställningen specifik för varje kunskaps bas. När språk inställningen har definierats för den första kunskaps basen kommer du inte att kunna ändra inställningarna för tjänsten senare.
+5. I **steg 2**, om du skapar den första kunskaps basen för din tjänst, så har du ett alternativ för att göra språkinställningen specifik för varje kunskaps bas. När språk inställningen har definierats för den första kunskaps basen kommer du inte att kunna ändra inställningarna för tjänsten senare.
 
 6. I **steg 3** namnger du kunskaps basen **mitt exempel på QNA KB**. 
 
@@ -101,7 +101,7 @@ Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanli
 
     `How many Azure services are used by a knowledge base?`
 
-1. Lägg till svaret som formaterats med _markdown_ :
+1. Lägg till svaret som formaterats med _markdown_:
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
@@ -184,7 +184,7 @@ När du gör ändringar i kunskaps basen och återpublicerar behöver du inte vi
 
 1. När roboten har skapats öppnar du **bot-tjänstens** resurs.
 1. Under **bot-hantering** väljer du **test i Web Chat**.
-1. Skriv följande i Chat-prompten för att **skriva ditt meddelande** :
+1. Skriv följande i Chat-prompten för att **skriva ditt meddelande**:
 
     `Azure services?`
 

@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
 ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108107"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994119"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
 
@@ -33,7 +33,7 @@ På sidan Azure Portal visar **översikts** sidan för kontot nyckel Node-, Core
 
 Visa alla batch-kontots mått i Azure Portal:
 
-1. I Azure Portal väljer du **alla tjänster**  >  **batch-konton**och väljer sedan namnet på batch-kontot.
+1. I Azure Portal väljer du **alla tjänster**  >  **batch-konton** och väljer sedan namnet på batch-kontot.
 2. Gå till **Övervakning** och välj **Mått**.
 3. Välj **Lägg till mått** och välj sedan ett mått i list rutan.
 4. Välj ett **agg regerings** alternativ för måttet. Använd den **genomsnittliga** agg regeringen för beräknings mått (t. ex. "dedikerat antal" eller "antal med låg prioritet"). För händelsebaserade mått (t. ex. När du ändrar storlek på en slutförd pool), använder du **Count agg Count**.
@@ -61,12 +61,12 @@ Du kanske t. ex. vill konfigurera en måtta avisering när antalet låg priorite
 
 Så här konfigurerar du en mått avisering i Azure Portal:
 
-1. Välj **alla tjänster**  >  **batch-konton**och välj sedan namnet på batch-kontot.
-2. Under **övervakning**väljer du **aviseringar**och väljer sedan **ny aviserings regel**.
-3. Klicka på **Välj villkor**och välj sedan ett mått. Bekräfta värdena för **diagram period**, **tröskel typ**, **operator**och **sammansättnings typ**och ange ett **tröskelvärde**. Välj sedan **Done** (Klar).
+1. Välj **alla tjänster**  >  **batch-konton** och välj sedan namnet på batch-kontot.
+2. Under **övervakning** väljer du **aviseringar** och väljer sedan **ny aviserings regel**.
+3. Klicka på **Välj villkor** och välj sedan ett mått. Bekräfta värdena för **diagram period**, **tröskel typ**, **operator** och **sammansättnings typ** och ange ett **tröskelvärde**. Välj sedan **Done** (Klar).
 4. Lägg till en åtgärds grupp i aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
 5. I avsnittet **aviserings regel information** anger du ett namn och en **Beskrivning** för **varnings regeln** och väljer **allvarlighets grad**
-6. Välj **Skapa aviseringsregel**.
+6. Välj **Skapa varningsregel**.
 
 Mer information om hur du skapar mått aviseringar finns i [förstå hur mått varningar fungerar i Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) och [skapa, Visa och hantera mått aviseringar med hjälp av Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
@@ -97,12 +97,12 @@ Alternativt kan du:
 
 Följ stegen nedan om du vill skapa en ny diagnostisk inställning i Azure Portal.
 
-1. I Azure Portal väljer du **alla tjänster**  >  **batch-konton**och väljer sedan namnet på batch-kontot.
+1. I Azure Portal väljer du **alla tjänster**  >  **batch-konton** och väljer sedan namnet på batch-kontot.
 2. Under **Övervakning** väljer du **Diagnostikinställningar**.
-3. I **diagnostikinställningar**väljer du **Lägg till diagnostisk inställning**.
+3. I **diagnostikinställningar** väljer du **Lägg till diagnostisk inställning**.
 4. Ange ett namn för inställningen.
-5. Välj ett mål: **Skicka till Log Analytics**, **arkivera till ett lagrings konto**eller **strömma till en Event Hub**. Om du väljer ett lagrings konto kan du välja att ange en bevarande princip. Om du inte anger ett antal dagar för kvarhållning behålls data under lagrings kontots livs längd.
-6. Välj **ServiceLog**, **AllMetrics**eller båda.
+5. Välj ett mål: **Skicka till Log Analytics**, **arkivera till ett lagrings konto** eller **strömma till en Event Hub**. Om du väljer ett lagrings konto kan du välja att ange en bevarande princip. Om du inte anger ett antal dagar för kvarhållning behålls data under lagrings kontots livs längd.
+6. Välj **ServiceLog**, **AllMetrics** eller båda.
 7. Välj **Spara** för att skapa den diagnostiska inställningen.
 
 Du kan också [Aktivera samling genom Azure Monitor i Azure Portal](../azure-monitor/platform/diagnostic-settings.md) för att konfigurera diagnostikinställningar, med hjälp av en [Resource Manager-mall](../azure-monitor/samples/resource-manager-diagnostic-settings.md)eller med Azure PowerShell eller Azure CLI. Mer information finns i [Översikt över Azures plattforms loggar](../azure-monitor/platform/platform-logs-overview.md).

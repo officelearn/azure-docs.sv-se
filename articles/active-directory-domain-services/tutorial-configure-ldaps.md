@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: joflore
 ms.openlocfilehash: f5ebe594f1f50c7b7490e5ead8cb3fe7636f0ce7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967485"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994034"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
@@ -57,7 +57,7 @@ Om du vill använda säker LDAP används ett digitalt certifikat för att krypte
 
 * Ett certifikat från en offentlig certifikat utfärdare (CA) eller en företags certifikat utfärdare.
     * Om din organisation hämtar certifikat från en offentlig certifikat utfärdare hämtar du det säkra LDAP-certifikatet från den offentliga certifikat utfärdaren. Om du använder en företags certifikat utfärdare i din organisation hämtar du det säkra LDAP-certifikatet från företags certifikat utfärdaren.
-    * En offentlig certifikat utfärdare fungerar bara när du använder ett anpassat DNS-namn med din hanterade domän. Om DNS-domännamnet för den hanterade domänen slutar på *. onmicrosoft.com*kan du inte skapa ett digitalt certifikat för att skydda anslutningen till den här standard domänen. Microsoft äger *onmicrosoft.com* -domänen, så en offentlig certifikat utfärdare utfärdar inget certifikat. I det här scenariot skapar du ett självsignerat certifikat och använder det för att konfigurera säker LDAP.
+    * En offentlig certifikat utfärdare fungerar bara när du använder ett anpassat DNS-namn med din hanterade domän. Om DNS-domännamnet för den hanterade domänen slutar på *. onmicrosoft.com* kan du inte skapa ett digitalt certifikat för att skydda anslutningen till den här standard domänen. Microsoft äger *onmicrosoft.com* -domänen, så en offentlig certifikat utfärdare utfärdar inget certifikat. I det här scenariot skapar du ett självsignerat certifikat och använder det för att konfigurera säker LDAP.
 * Ett självsignerat certifikat som du själv skapar.
     * Den här metoden är bra för test ändamål och är vad den här självstudien visar.
 
@@ -127,10 +127,10 @@ Innan du kan använda det digitala certifikatet som skapades i föregående steg
 1. Öppna Microsoft Management Console (MMC) genom att ange **MMC** i dialog rutan *Kör* och välj sedan **OK**.
 1. I rutan **User Account Control** väljer du **Ja** för att starta MMC som administratör.
 1. I menyn **Arkiv** väljer du **Lägg till/ta bort snapin-modul...**
-1. I **snapin-modulen certifikat** väljer du **dator konto**och väljer sedan **Nästa**.
+1. I **snapin-modulen certifikat** väljer du **dator konto** och väljer sedan **Nästa**.
 1. På sidan **Välj dator** väljer du **lokal dator: (den dator den här konsolen körs på)** och väljer sedan **Slutför**.
 1. I dialog rutan **Lägg till eller ta bort snapin-moduler** väljer du **OK** för att lägga till snapin-modulen certifikat i MMC.
-1. Expandera **konsol rot**i MMC-fönstret. Välj **certifikat (lokal dator)** och expandera sedan den **personliga** noden, följt av noden **certifikat** .
+1. Expandera **konsol rot** i MMC-fönstret. Välj **certifikat (lokal dator)** och expandera sedan den **personliga** noden, följt av noden **certifikat** .
 
     ![Öppna arkivet personliga certifikat i Microsoft Management Console](./media/tutorial-configure-ldaps/open-personal-store.png)
 
@@ -138,11 +138,11 @@ Innan du kan använda det digitala certifikatet som skapades i föregående steg
 
     ![Exportera certifikat i Microsoft Management Console](./media/tutorial-configure-ldaps/export-cert.png)
 
-1. I **guiden Exportera certifikat**väljer du **Nästa**.
+1. I **guiden Exportera certifikat** väljer du **Nästa**.
 1. Den privata nyckeln för certifikatet måste exporteras. Om den privata nyckeln inte ingår i det exporterade certifikatet, så Miss lyckas åtgärden att aktivera säker LDAP för din hanterade domän.
 
-    På sidan **Exportera privat nyckel** väljer du **Ja, exportera den privata nyckeln**och väljer sedan **Nästa**.
-1. Hanterade domäner stöder bara *. * Fil format för PFX-certifikat som innehåller den privata nyckeln. Exportera inte certifikatet som *. CER* -certifikatets fil format utan privat nyckel.
+    På sidan **Exportera privat nyckel** väljer du **Ja, exportera den privata nyckeln** och väljer sedan **Nästa**.
+1. Hanterade domäner stöder bara *.* Fil format för PFX-certifikat som innehåller den privata nyckeln. Exportera inte certifikatet som *. CER* -certifikatets fil format utan privat nyckel.
 
     På sidan **fil format för export** väljer du **personal information Exchange – PKCS #12 (. PFX)** som fil format för det exporterade certifikatet. Markera kryss rutan för att *Inkludera alla certifikat i certifierings Sök vägen om möjligt*:
 
@@ -162,8 +162,8 @@ Klient datorerna måste ha förtroende för utfärdaren av det säkra LDAP-certi
 I den här självstudien använder du ett självsignerat certifikat och genererade ett certifikat som innehåller den privata nyckeln i föregående steg. Nu ska vi exportera och sedan installera det självsignerade certifikatet i det betrodda certifikat arkivet på klient datorn:
 
 1. Gå tillbaka till MMC för *certifikat (lokal dator) > personliga > certifikat* arkiv. Det självsignerade certifikatet som skapades i ett föregående steg visas, till exempel *aaddscontoso.com*. Högerklicka på det här certifikatet och välj sedan **alla aktiviteter > exportera...**
-1. I **guiden Exportera certifikat**väljer du **Nästa**.
-1. Eftersom du inte behöver den privata nyckeln för-klienter väljer du **Nej, exportera inte den privata nyckeln**på sidan **Exportera privat nyckel** och väljer sedan **Nästa**.
+1. I **guiden Exportera certifikat** väljer du **Nästa**.
+1. Eftersom du inte behöver den privata nyckeln för-klienter väljer du **Nej, exportera inte den privata nyckeln** på sidan **Exportera privat nyckel** och väljer sedan **Nästa**.
 1. På sidan **fil format för export** väljer du **Base-64-kodad X. 509 (. CER)** som fil format för det exporterade certifikatet:
 
     ![Välj alternativet för att exportera certifikatet i Base-64-kodad X. 509 (. CER) fil format](./media/tutorial-configure-ldaps/export-cert-to-cer-file.png)
@@ -175,12 +175,12 @@ I den här självstudien använder du ett självsignerat certifikat och generera
 
 1. Öppna Utforskaren och bläddra till den plats där du sparade filen *. CER* -certifikatfil, till exempel *C:\Users\accountname\azure-AD-DS-client.cer*.
 1. Högerklicka på *. CER* -certifikatfil och välj sedan **Installera certifikat**.
-1. I **guiden Importera certifikat**väljer du att lagra certifikatet på den *lokala datorn*och väljer sedan **Nästa**:
+1. I **guiden Importera certifikat** väljer du att lagra certifikatet på den *lokala datorn* och väljer sedan **Nästa**:
 
     ![Välj alternativet för att importera certifikatet till den lokala datorns Arkiv](./media/tutorial-configure-ldaps/import-cer-file.png)
 
 1. När du uppmanas väljer du **Ja** så att datorn kan göra ändringar.
-1. Välj att **välja certifikat Arkiv automatiskt baserat på certifikat typ**och välj sedan **Nästa**.
+1. Välj att **välja certifikat Arkiv automatiskt baserat på certifikat typ** och välj sedan **Nästa**.
 1. På sidan Granska väljer du **Slutför** för att importera *. CER* -certifikat. filen en bekräftelse dialog ruta visas när certifikatet har importer ATS.
 
 ## <a name="enable-secure-ldap-for-azure-ad-ds"></a>Aktivera säker LDAP för Azure AD DS
@@ -190,7 +190,7 @@ Med ett digitalt certifikat som har skapats och exporter ATS som innehåller den
 1. I [Azure Portal](https://portal.azure.com)anger du *domän tjänster* i rutan **Sök resurser** . Välj **Azure AD Domain Services** från Sök resultatet.
 1. Välj din hanterade domän, till exempel *aaddscontoso.com*.
 1. På vänster sida av Azure AD DS-fönstret väljer du **säkert LDAP**.
-1. Som standard är säker LDAP-åtkomst till din hanterade domän inaktive rad. **Aktivera**genom att växla **säkert LDAP** .
+1. Som standard är säker LDAP-åtkomst till din hanterade domän inaktive rad. **Aktivera** genom att växla **säkert LDAP** .
 1. Säkert LDAP åtkomst till din hanterade domän via Internet är inaktive rad som standard. När du aktiverar offentlig säker LDAP-åtkomst är din domän sårbar för angrepp av lösen ord i brutet skydd via Internet. I nästa steg konfigureras en nätverks säkerhets grupp för att låsa åtkomsten till de käll-IP-adressintervall som krävs.
 
     Växla **Tillåt säker LDAP-åtkomst över Internet** för att **Aktivera**.
@@ -211,7 +211,7 @@ Ett meddelande visas om att säker LDAP konfigureras för den hanterade domänen
 
 Det tar några minuter att aktivera säker LDAP för din hanterade domän. Om det säkra LDAP-certifikatet som du anger inte uppfyller de krav som krävs kan åtgärden för att aktivera säker LDAP för den hanterade domänen Miss lyckas.
 
-Några vanliga orsaker till fel är om domän namnet är felaktigt, krypteringsalgoritmen för certifikatet inte är *TripleDES-SHA1*eller om certifikatet upphör snart att gälla eller redan har gått ut. Du kan återskapa certifikatet med giltiga parametrar och sedan Aktivera säker LDAP med det uppdaterade certifikatet.
+Några vanliga orsaker till fel är om domän namnet är felaktigt, krypteringsalgoritmen för certifikatet inte är *TripleDES-SHA1* eller om certifikatet upphör snart att gälla eller redan har gått ut. Du kan återskapa certifikatet med giltiga parametrar och sedan Aktivera säker LDAP med det uppdaterade certifikatet.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Lås säker LDAP-åtkomst via Internet
 
@@ -221,8 +221,8 @@ Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via T
 
 1. I Azure Portal väljer du *resurs grupper* i navigeringen till vänster.
 1. Välj din resurs grupp, till exempel *myResourceGroup*, och välj sedan din nätverks säkerhets grupp, till exempel *aaads-NSG*.
-1. Listan över befintliga inkommande och utgående säkerhets regler visas. Välj **inställningar > inkommande säkerhets regler**till vänster i fönstret nätverks säkerhets grupp.
-1. Välj **Lägg till**och skapa sedan en regel för att tillåta *TCP* -port *636*. För förbättrad säkerhet väljer du källan som *IP-adresser* och anger sedan din egen giltiga IP-adress eller intervall för din organisation.
+1. Listan över befintliga inkommande och utgående säkerhets regler visas. Välj **inställningar > inkommande säkerhets regler** till vänster i fönstret nätverks säkerhets grupp.
+1. Välj **Lägg till** och skapa sedan en regel för att tillåta *TCP* -port *636*. För förbättrad säkerhet väljer du källan som *IP-adresser* och anger sedan din egen giltiga IP-adress eller intervall för din organisation.
 
     | Inställning                           | Värde        |
     |-----------------------------------|--------------|
@@ -234,7 +234,7 @@ Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via T
     | Protokoll                          | TCP          |
     | Åtgärd                            | Tillåt        |
     | Prioritet                          | 401          |
-    | Namn                              | AllowLDAPS   |
+    | Name                              | AllowLDAPS   |
 
 1. När du är klar väljer du **Lägg till** för att spara och tillämpa regeln.
 
@@ -259,14 +259,14 @@ I följande exempel DNS-post, antingen med den externa DNS-providern eller i den
 Om du vill ansluta och binda till din hanterade domän och söka via LDAP använder du *LDP.exe* -verktyget. Det här verktyget ingår i verktyg för fjärrserveradministration-paketet (RSAT). Mer information finns i [installera verktyg för fjärrserveradministration][rsat].
 
 1. Öppna *LDP.exe* och Anslut till den hanterade domänen. Välj **anslutning**, välj sedan **Anslut...**.
-1. Ange det säkra LDAP DNS-domännamnet för din hanterade domän som skapats i föregående steg, till exempel *LDAPS.aaddscontoso.com*. Om du vill använda säker LDAP ställer du in **port** på *636*och markerar sedan kryss rutan för **SSL**.
+1. Ange det säkra LDAP DNS-domännamnet för din hanterade domän som skapats i föregående steg, till exempel *LDAPS.aaddscontoso.com*. Om du vill använda säker LDAP ställer du in **port** på *636* och markerar sedan kryss rutan för **SSL**.
 1. Välj **OK** för att ansluta till den hanterade domänen.
 
 Bind sedan till din hanterade domän. Användare (och tjänst konton) kan inte utföra enkla LDAP-bindningar om du har inaktiverat NTLM-lösenord för hash-synkronisering på din hanterade domän. Mer information om hur du inaktiverar hash-synkronisering av NTLM-lösenord finns i [skydda din hanterade domän][secure-domain].
 
 1. Välj meny alternativet **anslutning** och välj sedan **BIND...**.
 1. Ange autentiseringsuppgifterna för ett användar konto som tillhör den hanterade domänen. Ange användar kontots lösen ord och ange sedan din domän, till exempel *aaddscontoso.com*.
-1. För **bindnings typ**väljer du alternativet för *BIND med autentiseringsuppgifter*.
+1. För **bindnings typ** väljer du alternativet för *BIND med autentiseringsuppgifter*.
 1. Välj **OK** för att binda till din hanterade domän.
 
 För att se de objekt som lagras i din hanterade domän:

@@ -4,11 +4,11 @@ description: Lägg till distribution eller skapa markörer i dina Metrics Explor
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758191"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993728"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anteckningar på mått diagram i Application Insights
 
@@ -42,7 +42,7 @@ Skapa en separat API-nyckel för var och en av dina mallar för Azure-pipeliner.
 
 1. I ett separat webbläsarfönster öppnar eller skapar du den versions mall som hanterar dina distributioner av Azure-pipeline.
    
-1. Välj **Lägg till aktivitet**och välj sedan aktiviteten **Application Insights versions anteckning** på menyn.
+1. Välj **Lägg till aktivitet** och välj sedan aktiviteten **Application Insights versions anteckning** på menyn.
    
    ![Välj Lägg till uppgift och välj Application Insights versions anteckning.](./media/annotations/3-add-task.png)
 
@@ -57,13 +57,13 @@ Skapa en separat API-nyckel för var och en av dina mallar för Azure-pipeliner.
    
    ![På fliken API-åtkomst väljer du skapa API-nyckel.](./media/annotations/5-create-api-key.png)
    
-1. I fönstret **skapa API-nyckel** anger du en beskrivning, väljer **Skriv kommentarer**och väljer sedan **generera nyckel**. Kopiera den nya nyckeln.
+1. I fönstret **skapa API-nyckel** anger du en beskrivning, väljer **Skriv kommentarer** och väljer sedan **generera nyckel**. Kopiera den nya nyckeln.
    
    ![I fönstret Skapa API-nyckel anger du en beskrivning, väljer Skriv kommentarer och väljer sedan generera nyckel.](./media/annotations/6-create-api-key.png)
    
 1. I fönstret frigör mall på fliken **variabler** väljer du **Lägg till** för att skapa en variabel definition för den nya API-nyckeln.
 
-1. Under **namn**anger du `ApiKey` och under **värde**klistrar du in API-nyckeln som du kopierade från fliken **API-åtkomst** .
+1. Under **namn** anger du `ApiKey` och under **värde** klistrar du in API-nyckeln som du kopierade från fliken **API-åtkomst** .
    
    ![På fliken Azure DevOps-variabler väljer du Lägg till, namnger variabeln ApiKey och klistrar in API-nyckeln under värde.](./media/annotations/7-paste-api-key.png)
    

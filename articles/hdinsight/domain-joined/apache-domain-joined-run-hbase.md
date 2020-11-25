@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 5747de399e7ae0cfe99ba013f8da376be0ba1b2a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544961"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993643"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Självstudie: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package
 
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache HBase-kluster med Enterprise Security Package (ESP). ESP-kluster är anslutna till en domän så att användare kan autentisera med autentiseringsuppgifter för domänen. I den här självstudien skapar du två Ranger-principer för att begränsa åtkomsten till olika kolumnserier i en HBase-tabell.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa domänanvändare
@@ -45,7 +45,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="create-domain-users"></a>Skapa domänanvändare
 
-Läs avsnittet om hur du [skapar ett HDInsight-kluster med Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md) för att se hur du skapar domänanvändarna **sales_user1** och **marketing_user1** . I ett produktionsscenario kommer domänanvändarna från din Active Directory-klientorganisation.
+Läs avsnittet om hur du [skapar ett HDInsight-kluster med Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md) för att se hur du skapar domänanvändarna **sales_user1** och **marketing_user1**. I ett produktionsscenario kommer domänanvändarna från din Active Directory-klientorganisation.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>Skapa HBase-tabeller och importera exempeldata
 
@@ -93,13 +93,13 @@ Du kan använda SSH för att ansluta till HBase-kluster och sedan använda [Apac
 
 ## <a name="create-ranger-policies"></a>Skapa Ranger-principer
 
-Skapa en Ranger-princip för **sales_user1** och **marketing_user1** .
+Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
 
-1. Öppna **Ranger-administratörsanvändargränssnittet** . Klicka på **\<ClusterName> _Hbase** under **HBase** .
+1. Öppna **Ranger-administratörsanvändargränssnittet**. Klicka på **\<ClusterName> _Hbase** under **HBase**.
 
    ![HDInsight Apache Ranger-administratörs gränssnitt](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
-2. Skärmen **Lista över principer** visar alla Ranger-principer som skapats för det här klustret. En förkonfigurerad princip kan visas. Klicka på **Lägg till ny princip** .
+2. Skärmen **Lista över principer** visar alla Ranger-principer som skapats för det här klustret. En förkonfigurerad princip kan visas. Klicka på **Lägg till ny princip**.
 
     ![Lista över Apache Ranger HBase-principer](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
@@ -123,7 +123,7 @@ Skapa en Ranger-princip för **sales_user1** och **marketing_user1** .
    ![Apache Ranger-princip skapa försäljning](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
-   >Vänta en stund medan Ranger synkroniserar med Azure AD om en domänanvändare inte automatiskt har fyllts i för **Välj användare** .
+   >Vänta en stund medan Ranger synkroniserar med Azure AD om en domänanvändare inte automatiskt har fyllts i för **Välj användare**.
 
 4. Klicka på **Lägg till** för att spara principen.
 
@@ -191,7 +191,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
 
 ### <a name="access-data-as-marketing_user1"></a>Komma åt data som marketing_user1
 
-1. Öppna en ny SSH-anslutning till klustret. Använd följande kommando för att logga in som **marketing_user1** :
+1. Öppna en ny SSH-anslutning till klustret. Använd följande kommando för att logga in som **marketing_user1**:
 
    ```bash
    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -236,10 +236,10 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
 Om du inte planerar att fortsätta använda det här programmet tar du bort det HBase-kluster som du skapade med följande steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. I rutan **Sök** längst upp skriver du **HDInsight** . 
-1. Välj **HDInsight-kluster** under **Tjänster** .
+2. I rutan **Sök** längst upp skriver du **HDInsight**. 
+1. Välj **HDInsight-kluster** under **Tjänster**.
 1. I listan över HDInsight-kluster som visas klickar du på **...** intill det kluster som du skapade för den här självstudien. 
-1. Klicka på **Ta bort** . Klicka på **Ja** .
+1. Klicka på **Ta bort**. Klicka på **Ja**.
 
 ## <a name="next-steps"></a>Nästa steg
 

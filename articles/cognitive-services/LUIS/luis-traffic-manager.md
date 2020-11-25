@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.openlocfilehash: e37b35e3473b2da397904d01be5e65cf8cafbbe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fc5bea71909d0e17b4ef0256ab0cad644dacbb3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541126"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95993830"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Använd Microsoft Azure Traffic Manager för att hantera slut punkts kvot för nycklar
 Language Understanding (LUIS) ger möjlighet att öka kvoten för slut punkts förfrågningar bortom kvoten för en enskild nyckel. Detta görs genom att skapa fler nycklar för LUIS och lägga till dem i LUIS-programmet på sidan **publicera** i avsnittet **resurser och nycklar** .
@@ -30,12 +30,12 @@ Den här artikeln förklarar hur du hanterar trafiken över nycklar med Azure [T
 
 ![Skärm bild av Azure Portal med PowerShell-fönster öppet](./media/traffic-manager/azure-portal-powershell.png)
 
-I följande avsnitt används [Traffic Manager PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.trafficmanager/#traffic_manager).
+I följande avsnitt används [Traffic Manager PowerShell-cmdletar](/powershell/module/az.trafficmanager/#traffic_manager).
 
 ## <a name="create-azure-resource-group-with-powershell"></a>Skapa en Azure-resurs grupp med PowerShell
 Innan du skapar Azure-resurserna skapar du en resurs grupp som innehåller alla resurser. Namnge resurs gruppen `luis-traffic-manager` och Använd regionen `West US` . Regionen i resurs gruppen lagrar metadata om gruppen. Det kommer inte att sakta ned resurserna om de befinner sig i en annan region.
 
-Skapa resurs grupp med cmdleten **[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** :
+Skapa resurs grupp med cmdleten **[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)** :
 
 ```powerShell
 New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
@@ -56,7 +56,7 @@ Traffic Manager skapar en ny DNS-åtkomst punkt för dina slut punkter. Den fung
 ### <a name="polling-uses-luis-endpoint"></a>Avsökningen använder LUIS-slutpunkt
 Traffic Manager avsöker slut punkterna regelbundet för att se till att slut punkten fortfarande är tillgänglig. Den Traffic Manager URL-avsökningen måste vara tillgänglig med en GET-begäran och returnera en 200. Slut punkts-URL: en på **publicerings** sidan gör detta. Eftersom varje slut punkts nyckel har en annan väg och parametrar för frågesträng behöver varje slut punkts nyckel en annan avsöknings väg. Varje gången Traffic Manager avsökningar kostar det en kvot förfrågan. Frågesträngparametern **q** för Luis-slutpunkten är den uttryck som skickas till Luis. Den här parametern, i stället för att skicka en uttryck, används för att lägga till Traffic Manager avsökning till LUIS-slutpunkt-loggen som en fel söknings teknik medan Traffic Manager konfigureras.
 
-Eftersom varje LUIS-slutpunkt behöver sin egen sökväg behöver den sin egen Traffic Manager profil. Skapa en [ _kapslad_ Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-nested-profiles) -arkitektur för att hantera profiler i profiler. En överordnad profil pekar på underordnade profiler och hanterar trafik mellan dem.
+Eftersom varje LUIS-slutpunkt behöver sin egen sökväg behöver den sin egen Traffic Manager profil. Skapa en [ _kapslad_ Traffic Manager](../../traffic-manager/traffic-manager-nested-profiles.md) -arkitektur för att hantera profiler i profiler. En överordnad profil pekar på underordnade profiler och hanterar trafik mellan dem.
 
 När Traffic Manager har kon figurer ATS ska du komma ihåg att ändra sökvägen till att använda parametern Logging = false frågesträng så att loggen inte fylls med avsökningen.
 
@@ -66,7 +66,7 @@ I följande avsnitt skapas två underordnade profiler, en för den östra LUIS-n
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>Skapa Traffic Managers profil för USA, östra med PowerShell
 Det finns flera steg för att skapa en Traffic Manager-profil för östra USA: skapa profil, Lägg till slut punkt och ange slut punkt. En Traffic Manager profil kan ha många slut punkter men varje slut punkt har samma validerings Sök väg. Eftersom LUIS slut punkts-URL: er för de östra och västra prenumerationerna är olika på grund av region och slut punkts nyckel måste varje LUIS-slutpunkt vara en enda slut punkt i profilen.
 
-1. Skapa en profil med cmdleten **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)**
+1. Skapa en profil med cmdleten **[New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)**
 
     Använd följande cmdlet för att skapa profilen. Se till att ändra `appIdLuis` och `subscriptionKeyLuis` . SubscriptionKey är för den östra amerikanska LUIS-nyckeln. Om sökvägen inte är korrekt, inklusive LUIS-appens ID och slut punkts nyckel, är Traffic Manager avsökningen statusen `degraded` eftersom trafik hanteringen inte kan begära Luis-slutpunkten. Kontrol lera att värdet `q` är `traffic-manager-east` så att du kan se det här värdet i Luis slut punkts loggar.
 
@@ -88,7 +88,7 @@ Det finns flera steg för att skapa en Traffic Manager-profil för östra USA: s
 
     En lyckad begäran saknar svar.
 
-2. Lägg till östra USA-slutpunkt med cmdleten **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)**
+2. Lägg till östra USA-slutpunkt med cmdleten **[Add-AzTrafficManagerEndpointConfig](/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
@@ -123,7 +123,7 @@ Det finns flera steg för att skapa en Traffic Manager-profil för östra USA: s
     Endpoints                        : {luis-east-endpoint}
     ```
 
-3. Ange östra USA-slutpunkt med cmdleten **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)**
+3. Ange östra USA-slutpunkt med cmdleten **[set-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)**
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $eastprofile
@@ -134,7 +134,7 @@ Det finns flera steg för att skapa en Traffic Manager-profil för östra USA: s
 ### <a name="create-the-west-us-traffic-manager-profile-with-powershell"></a>Skapa Traffic Managers profilen västra USA med PowerShell
 Om du vill skapa en Traffic Manager-profil för västra USA följer du samma steg: skapa profil, Lägg till slut punkt och ange slut punkt.
 
-1. Skapa en profil med cmdleten **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**
+1. Skapa en profil med cmdleten **[New-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**
 
     Använd följande cmdlet för att skapa profilen. Se till att ändra `appIdLuis` och `subscriptionKeyLuis` . SubscriptionKey är för den östra amerikanska LUIS-nyckeln. Om sökvägen inte är korrekt, inklusive LUIS app-ID och slut punkts nyckel, är Traffic Manager avsökningen statusen `degraded` eftersom trafik hanteringen inte kan begära Luis-slutpunkten. Kontrol lera att värdet `q` är `traffic-manager-west` så att du kan se det här värdet i Luis slut punkts loggar.
 
@@ -156,7 +156,7 @@ Om du vill skapa en Traffic Manager-profil för västra USA följer du samma ste
 
     En lyckad begäran saknar svar.
 
-2. Lägg till västra USA-slutpunkt med cmdleten **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)**
+2. Lägg till västra USA-slutpunkt med cmdleten **[Add-AzTrafficManagerEndpointConfig](/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
@@ -192,7 +192,7 @@ Om du vill skapa en Traffic Manager-profil för västra USA följer du samma ste
     Endpoints                        : {luis-west-endpoint}
     ```
 
-3. Ange västra USA-slutpunkt med cmdleten **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)**
+3. Ange västra USA-slutpunkt med cmdleten **[set-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)**
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $westprofile
@@ -203,7 +203,7 @@ Om du vill skapa en Traffic Manager-profil för västra USA följer du samma ste
 ### <a name="create-parent-traffic-manager-profile"></a>Skapa överordnad Traffic Manager profil
 Skapa den överordnade Traffic Manager profilen och länka två underordnade Traffic Manager profiler till den överordnade.
 
-1. Skapa en överordnad profil med cmdleten **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**
+1. Skapa en överordnad profil med cmdleten **[New-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**
 
     ```powerShell
     $parentprofile = New-AzTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
@@ -223,7 +223,7 @@ Skapa den överordnade Traffic Manager profilen och länka två underordnade Tra
 
     En lyckad begäran saknar svar.
 
-2. Lägg till den underordnade amerikanska USA-profilen till Parent med **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** och **NestedEndpoints** -typ
+2. Lägg till den underordnade amerikanska USA-profilen till Parent med **[Add-AzTrafficManagerEndpointConfig](/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** och **NestedEndpoints** -typ
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
@@ -235,7 +235,7 @@ Skapa den överordnade Traffic Manager profilen och länka två underordnade Tra
     |--|--|--|
     |– EndpointName|underordnad-slut punkt-USEast|Öst-profil|
     |-TrafficManagerProfile|$parentprofile|Profil att tilldela slut punkten till|
-    |-Typ|NestedEndpoints|Mer information finns i [Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
+    |-Typ|NestedEndpoints|Mer information finns i [Add-AzTrafficManagerEndpointConfig](/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |– TargetResourceId|$eastprofile. Identitet|ID för den underordnade profilen|
     |-EndpointStatus|Enabled|Slut punkts status efter tillägg till överordnad|
     |-EndpointLocation|platsen eastus|Resursens [region namn](https://azure.microsoft.com/global-infrastructure/regions/)|
@@ -260,7 +260,7 @@ Skapa den överordnade Traffic Manager profilen och länka två underordnade Tra
     Endpoints                        : {child-endpoint-useast}
     ```
 
-3. Lägg till en underordnad USA-profil till överordnad med **[Add-AzTrafficManagerEndpointConfig-](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** cmdlet och **NestedEndpoints** -typ
+3. Lägg till en underordnad USA-profil till överordnad med **[Add-AzTrafficManagerEndpointConfig-](/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** cmdlet och **NestedEndpoints** -typ
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
@@ -272,7 +272,7 @@ Skapa den överordnade Traffic Manager profilen och länka två underordnade Tra
     |--|--|--|
     |– EndpointName|underordnad-slut punkt-USWest|Västra profil|
     |-TrafficManagerProfile|$parentprofile|Profil att tilldela slut punkten till|
-    |-Typ|NestedEndpoints|Mer information finns i [Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
+    |-Typ|NestedEndpoints|Mer information finns i [Add-AzTrafficManagerEndpointConfig](/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |– TargetResourceId|$westprofile. Identitet|ID för den underordnade profilen|
     |-EndpointStatus|Enabled|Slut punkts status efter tillägg till överordnad|
     |-EndpointLocation|westus|Resursens [region namn](https://azure.microsoft.com/global-infrastructure/regions/)|
@@ -297,7 +297,7 @@ Skapa den överordnade Traffic Manager profilen och länka två underordnade Tra
     Endpoints                        : {child-endpoint-useast, child-endpoint-uswest}
     ```
 
-4. Ange slut punkter med **[set-AzTrafficManagerProfile-](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** cmdlet
+4. Ange slut punkter med **[set-AzTrafficManagerProfile-](/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** cmdlet
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $parentprofile
@@ -306,7 +306,7 @@ Skapa den överordnade Traffic Manager profilen och länka två underordnade Tra
     Ett lyckat svar är samma svar som steg 3.
 
 ### <a name="powershell-variables"></a>PowerShell-variabler
-I föregående avsnitt skapades tre PowerShell-variabler: `$eastprofile` , `$westprofile` , `$parentprofile` . Dessa variabler används i slutet av Traffic Managers konfigurationen. Om du väljer att inte skapa variabler, eller glömt till, eller om PowerShell-fönstret har nått tids gränsen, kan du använda PowerShell-cmdleten **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** för att hämta profilen igen och tilldela den till en variabel.
+I föregående avsnitt skapades tre PowerShell-variabler: `$eastprofile` , `$westprofile` , `$parentprofile` . Dessa variabler används i slutet av Traffic Managers konfigurationen. Om du väljer att inte skapa variabler, eller glömt till, eller om PowerShell-fönstret har nått tids gränsen, kan du använda PowerShell-cmdleten **[Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** för att hämta profilen igen och tilldela den till en variabel.
 
 Ersätt objekten i vinkelparenteser, `<>` med rätt värden för var och en av de tre profilerna du behöver.
 
@@ -371,12 +371,12 @@ Ta bort de två LUIS slut punkts nycklarna, de tre Traffic Manager-profilerna oc
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska alternativ för [mellanprogram](https://docs.microsoft.com/azure/bot-service/bot-builder-create-middleware?view=azure-bot-service-4.0&tabs=csaddmiddleware%2Ccsetagoverwrite%2Ccsmiddlewareshortcircuit%2Ccsfallback%2Ccsactivityhandler) i BotFramework v4 för att förstå hur den här Traffic Management-koden kan läggas till i en BotFramework-robot.
+Granska alternativ för [mellanprogram](/azure/bot-service/bot-builder-create-middleware?tabs=csaddmiddleware%252ccsetagoverwrite%252ccsmiddlewareshortcircuit%252ccsfallback%252ccsactivityhandler&view=azure-bot-service-4.0) i BotFramework v4 för att förstå hur den här Traffic Management-koden kan läggas till i en BotFramework-robot.
 
 [traffic-manager-marketing]: https://azure.microsoft.com/services/traffic-manager/
-[traffic-manager-docs]: https://docs.microsoft.com/azure/traffic-manager/
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+[traffic-manager-docs]: ../../traffic-manager/index.yml
+[LUIS]: ./luis-reference-regions.md#luis-website
 [azure-portal]: https://portal.azure.com/
 [azure-storage]: https://azure.microsoft.com/services/storage/
-[routing-methods]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods
-[traffic-manager-endpoints]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-endpoint-types
+[routing-methods]: ../../traffic-manager/traffic-manager-routing-methods.md
+[traffic-manager-endpoints]: ../../traffic-manager/traffic-manager-endpoint-types.md

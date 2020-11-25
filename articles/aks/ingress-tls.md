@@ -6,11 +6,11 @@ services: container-service
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: 5032880ddc5d23f824adec28aee85c652bad29d2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129668"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993158"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Skapa en HTTPS ingress-styrenhet på Azure Kubernetes service (AKS)
 
@@ -38,15 +38,15 @@ Den här artikeln kräver också att du kör Azure CLI-version 2.0.64 eller sena
 
 ## <a name="create-an-ingress-controller"></a>Skapa en ingångs kontroll enhet
 
-Om du vill skapa en ingångs kontroll använder du `helm` kommandot för att installera *nginx-ingress* . För ytterligare redundans distribueras två repliker av NGINX-ingresskontrollanterna med parametern `--set controller.replicaCount`. Se till att det finns fler än en nod i ditt AKS-kluster för att få full nytta av att köra repliker av ingångs styrenheten.
+Om du vill skapa en ingångs kontroll använder du `helm` kommandot för att installera *nginx-ingress*. För ytterligare redundans distribueras två repliker av NGINX-ingresskontrollanterna med parametern `--set controller.replicaCount`. Se till att det finns fler än en nod i ditt AKS-kluster för att få full nytta av att köra repliker av ingångs styrenheten.
 
 Ingresskontrollanten måste också schemaläggas på en Linux-nod. Windows Server-noder bör inte köra ingresskontrollanten. En nodväljare anges med parametern `--set nodeSelector` för att instruera Kubernetes-schemaläggaren att köra NGINX-ingresskontrollanten på en Linux-baserad nod.
 
 > [!TIP]
-> I följande exempel skapas ett Kubernetes-namnområde för de ingress-resurser som heter *ingress-Basic* . Ange ett namn område för din egen miljö efter behov.
+> I följande exempel skapas ett Kubernetes-namnområde för de ingress-resurser som heter *ingress-Basic*. Ange ett namn område för din egen miljö efter behov.
 
 > [!TIP]
-> Om du vill aktivera [IP-konservering för klient källa][client-source-ip] för förfrågningar till behållare i klustret, lägger `--set controller.service.externalTrafficPolicy=Local` du till det i Helm install-kommandot. Klientens käll-IP lagras i begär ande huvudet under *X-forwarded – for* . TLS-vidarekoppling fungerar inte när du använder en ingångs kontroll för att aktivera IP-konservering i klient källan.
+> Om du vill aktivera [IP-konservering för klient källa][client-source-ip] för förfrågningar till behållare i klustret, lägger `--set controller.service.externalTrafficPolicy=Local` du till det i Helm install-kommandot. Klientens käll-IP lagras i begär ande huvudet under *X-forwarded – for*. TLS-vidarekoppling fungerar inte när du använder en ingångs kontroll för att aktivera IP-konservering i klient källan.
 
 ```console
 # Create a namespace for your ingress resources
@@ -265,7 +265,7 @@ Båda programmen körs nu på ditt Kubernetes-kluster. De är dock konfigurerade
 I följande exempel, trafik till adressen *Hello-World-ingress. MY_CUSTOM_DOMAIN* dirigeras till *AKS-HelloWorld-* tjänsten. Trafik till adressen *Hello-World-ingress. MY_CUSTOM_DOMAIN/Hello-World-Two* dirigeras till tjänsten *AKS-HelloWorld-två* . Trafik till *Hello – värld – ingress. MY_CUSTOM_DOMAIN/static* dirigeras till tjänsten med namnet *AKS-HelloWorld* för statiska till gångar.
 
 > [!NOTE]
-> Om du har konfigurerat ett fullständigt domän namn för IP-adressen för ingångs enheten i stället för en anpassad domän använder du FQDN i stället för *Hello-World-ingress. MY_CUSTOM_DOMAIN* . Om ditt FQDN till exempel är *demo-AKS-ingress.eastus.cloudapp.Azure.com* ersätter du *Hello-World-ingress. MY_CUSTOM_DOMAIN* med *demo-AKS-ingress.eastus.cloudapp.Azure.com* i `hello-world-ingress.yaml` .
+> Om du har konfigurerat ett fullständigt domän namn för IP-adressen för ingångs enheten i stället för en anpassad domän använder du FQDN i stället för *Hello-World-ingress. MY_CUSTOM_DOMAIN*. Om ditt FQDN till exempel är *demo-AKS-ingress.eastus.cloudapp.Azure.com* ersätter du *Hello-World-ingress. MY_CUSTOM_DOMAIN* med *demo-AKS-ingress.eastus.cloudapp.Azure.com* i `hello-world-ingress.yaml` .
 
 Skapa en fil med namnet `hello-world-ingress.yaml` med hjälp av nedanstående exempel yaml. Uppdatera *värdarna* och *värden* till det DNS-namn som du skapade i föregående steg.
 
@@ -335,7 +335,7 @@ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
 Därefter måste du skapa en certifikat resurs. Certifikat resursen definierar det önskade X. 509-certifikatet. Mer information finns i certifikat för certifikat [hanterare][cert-manager-certificates]. CERT Manager har automatiskt skapat ett certifikat objekt åt dig med hjälp av ingress-shim, som automatiskt distribueras med cert Manager sedan v 0.2.2. Mer information finns i dokumentationen om [ingress-shim][ingress-shim].
 
-Kontrol lera att certifikatet har skapats genom att använda `kubectl get certificate --namespace ingress-basic` kommandot och verifiera att *klart* är *Sant* , vilket kan ta flera minuter.
+Kontrol lera att certifikatet har skapats genom att använda `kubectl get certificate --namespace ingress-basic` kommandot och verifiera att *klart* är *Sant*, vilket kan ta flera minuter.
 
 ```
 $ kubectl get certificate --namespace ingress-basic
@@ -368,7 +368,7 @@ Alternativt är en mer detaljerad metod att ta bort de enskilda resurserna som s
 kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
 ```
 
-Visar en lista med Helm-versioner med `helm list` kommandot. Leta efter diagram med namnet *nginx* och *cert Manager* , som visas i följande exempel på utdata:
+Visar en lista med Helm-versioner med `helm list` kommandot. Leta efter diagram med namnet *nginx* och *cert Manager*, som visas i följande exempel på utdata:
 
 ```
 $ helm list --namespace ingress-basic

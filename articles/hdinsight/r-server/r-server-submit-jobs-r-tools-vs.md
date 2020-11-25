@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 08426c74b26c18b15466578d9921520da1e9c923
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536240"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993796"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Skicka jobb från R Tools för Visual Studio
 
@@ -27,7 +27,7 @@ RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R In
 
     ![Installera RTVS i Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 
-2. Välj arbets belastningen *data vetenskap och analys program* och välj sedan **stöd för r-språk** , stöd **för körning av r-utveckling** och alternativ för **Microsoft r-klienten** .
+2. Välj arbets belastningen *data vetenskap och analys program* och välj sedan **stöd för r-språk**, stöd **för körning av r-utveckling** och alternativ för **Microsoft r-klienten** .
 
 3. Du måste ha offentliga och privata nycklar för SSH-autentisering.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
@@ -37,9 +37,9 @@ RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R In
 5. Installera [SparaTillFil](https://www.putty.org/) för att tillhandahålla en beräknings kontext för att köra `RevoScaleR` funktioner från din lokala klient till ditt HDInsight-kluster.
 
 6. Du kan välja att tillämpa inställningarna för data vetenskap i Visual Studio-miljön, vilket ger en ny layout för din arbets yta för R-verktygen.
-   1. Om du vill spara dina aktuella Visual Studio-inställningar använder du kommandot **verktyg > import-och export inställningar** och väljer sedan **Exportera valda miljö inställningar** och anger ett fil namn. Om du vill återställa de inställningarna använder du samma kommando och väljer **Importera valda miljö inställningar** .
+   1. Om du vill spara dina aktuella Visual Studio-inställningar använder du kommandot **verktyg > import-och export inställningar** och väljer sedan **Exportera valda miljö inställningar** och anger ett fil namn. Om du vill återställa de inställningarna använder du samma kommando och väljer **Importera valda miljö inställningar**.
 
-   2. Gå till meny alternativet **R tools** och välj **data science-inställningar...** .
+   2. Gå till meny alternativet **R tools** och välj **data science-inställningar...**.
 
        ![Inställningar för Visual Studio data science](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
@@ -121,7 +121,7 @@ Med hjälp av en Microsoft ML Server/Microsoft R-klient från en Windows-dator s
 
         ![Azure HDInsight Storage-behållare](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
-    4. Välj klustrets behållar namn, bläddra till mappen **användare** (du kanske måste klicka på *Läs in mer* längst ned i listan) och välj sedan *RevoShare* , sedan **newUser** . `people.json`Filen ska visas i `newUser` mappen.
+    4. Välj klustrets behållar namn, bläddra till mappen **användare** (du kanske måste klicka på *Läs in mer* längst ned i listan) och välj sedan *RevoShare*, sedan **newUser**. `people.json`Filen ska visas i `newUser` mappen.
 
         ![HDInsight kopierad mappsökväg](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 

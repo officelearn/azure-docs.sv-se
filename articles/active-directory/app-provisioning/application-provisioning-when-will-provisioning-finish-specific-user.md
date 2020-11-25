@@ -12,11 +12,11 @@ ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 307a97b71fe453c89617a86a88063e60fcf28fa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235068"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994017"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Kontrol lera status för användar etablering
 
@@ -59,7 +59,7 @@ När du använder automatisk användar etablering med ett program, etablerar Azu
 
 Hur lång tid det tar för en specifik användare att tillhandahållas beror huvudsakligen på om ditt etablerings jobb kör en inledande cykel eller en stegvis cykel.
 
-- För den **första cykeln**beror jobb tiden på många faktorer, inklusive antalet användare och grupper inom omfånget för etablering och det totala antalet användare och grupper i käll systemet. Den första synkroniseringen mellan Azure AD och en app kan ta var som helst från 20 minuter till flera timmar, beroende på storleken på Azure AD-katalogen och antalet användare i omfånget för etablering. En omfattande lista över faktorer som påverkar inledande cykel prestanda sammanfattas senare i det här avsnittet.
+- För den **första cykeln** beror jobb tiden på många faktorer, inklusive antalet användare och grupper inom omfånget för etablering och det totala antalet användare och grupper i käll systemet. Den första synkroniseringen mellan Azure AD och en app kan ta var som helst från 20 minuter till flera timmar, beroende på storleken på Azure AD-katalogen och antalet användare i omfånget för etablering. En omfattande lista över faktorer som påverkar inledande cykel prestanda sammanfattas senare i det här avsnittet.
 
 - För **stegvisa cykler** efter den första cykeln, tenderar jobb tiderna att bli snabbare (till exempel inom 10 minuter), eftersom etablerings tjänsten lagrar vattenstämplar som representerar båda systemens tillstånd efter den första cykeln, vilket förbättrar prestandan för efterföljande synkroniseringar. Jobb tiden beror på antalet ändringar som har upptäckts i den etablerings cykeln. Om det finns mindre än 5 000 ändringar av användare eller grupp medlemskap kan jobbet avslutas inom en enda stegvis etablerings cykel. 
 
@@ -77,7 +77,7 @@ I följande tabell sammanfattas synkroniserings tider för vanliga etablerings s
 | Synkronisera alla användare i Azure AD|  < 1 000  | < 30 minuter | < 30 minuter |
 | Synkronisera alla användare i Azure AD | 1 000 – 10 000  | 43 – 86 minuter | < 30 minuter |
 
-För den konfigurations **synkronisering som tilldelas användare och grupper**kan du använda följande formler för att fastställa den ungefärliga minsta och högsta förväntade **första cykel** tiden:
+För den konfigurations **synkronisering som tilldelas användare och grupper** kan du använda följande formler för att fastställa den ungefärliga minsta och högsta förväntade **första cykel** tiden:
 
 - Minsta antal minuter = 0,01 x [antal tilldelade användare, grupper och grupp medlemmar]
 - Maximalt antal minuter = 0,08 x [antal tilldelade användare, grupper och grupp medlemmar]

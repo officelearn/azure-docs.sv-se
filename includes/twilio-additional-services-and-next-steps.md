@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 8acb75f1cac83595da88a4a5ffa33102136266f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187369"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003776"
 ---
 ## <a name="how-to-use-additional-twilio-services"></a><a name="AdditionalServices"></a>Så här gör du: Använd ytterligare Twilio-tjänster
 Förutom exemplen som visas här erbjuder Twilio webbaserade API: er som du kan använda för att utnyttja ytterligare Twilio-funktioner från ditt Azure-program. Fullständig information finns i [TWILIO API-dokumentationen][twilio_api_documentation].

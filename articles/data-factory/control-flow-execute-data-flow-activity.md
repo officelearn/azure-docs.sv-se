@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 10/28/2020
-ms.openlocfilehash: 753d72b31e4f813d0e7abbbd223e050fd3390411
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 11/24/2020
+ms.openlocfilehash: c436d75384c527ba7666cd2e6e780b9d8a93eae2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910771"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003962"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Data flödes aktivitet i Azure Data Factory
 
@@ -37,6 +37,7 @@ Använd data flödes aktiviteten för att transformera och flytta data via data 
          "coreCount": 8,
          "computeType": "General"
       },
+      "traceLevel": "Fine",
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -54,14 +55,15 @@ Använd data flödes aktiviteten för att transformera och flytta data via data 
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-data flöde | Referens till det data flöde som körs | DataFlowReference | Ja
-integrationRuntime | Beräknings miljön som data flödet körs på. Om inget anges används automatisk lösning för Azure integration Runtime. | IntegrationRuntimeReference | Nej
-Compute. coreCount | Antalet kärnor som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | 8, 16, 32, 48, 80, 144, 272 | Nej
-Compute. computeType | Den typ av beräkning som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | "Allmänt", "ComputeOptimized", "MemoryOptimized" | Nej
+data flöde | Referens till det data flöde som körs | DataFlowReference | Yes
+integrationRuntime | Beräknings miljön som data flödet körs på. Om inget anges används automatisk lösning för Azure integration Runtime. | IntegrationRuntimeReference | No
+Compute. coreCount | Antalet kärnor som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | 8, 16, 32, 48, 80, 144, 272 | No
+Compute. computeType | Den typ av beräkning som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | "Allmänt", "ComputeOptimized", "MemoryOptimized" | No
 mellanlagring. linkedService | Om du använder en Azure Synapse Analytics-källa eller mottagare anger du det lagrings konto som används för PolyBase-mellanlagring.<br/><br/>Om din Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitetsautentisering med alternativet "Tillåt betrodd Microsoft-tjänst" på lagrings kontot, se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig även de konfigurationer som krävs för [Azure-Blob](connector-azure-blob-storage.md#managed-identity) respektive [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .<br/> | LinkedServiceReference | Endast om data flödet läser eller skriver till en Azure Synapse-analys
 mellanlagring. folderPath | Om du använder en Azure Synapse Analytics-källa eller handfat, används mappsökvägen i Blob Storage-kontot för PolyBase-mellanlagring | Sträng | Endast om data flödet läser eller skriver till Azure Synapse Analytics
+traceLevel | Ange loggnings nivå för körning av data flödes aktivitet | Fin, grov, ingen | No
 
 ![Kör data flöde](media/data-flow/activity-data-flow.png "Kör data flöde")
 
@@ -87,6 +89,12 @@ För pipeline-körningar är klustret ett jobb kluster, vilket tar flera minuter
 ### <a name="polybase"></a>PolyBase
 
 Om du använder en Azure Synapse-analys (tidigare SQL Data Warehouse) som mottagare eller källa, måste du välja en mellanlagringsplats för grupp inläsningen för PolyBase. PolyBase tillåter satsvis inläsning i bulk i stället för att läsa in data rad för rad. PolyBase minskar drastiskt inläsnings tiden till Azure Synapse Analytics.
+
+## <a name="logging-level"></a>Loggnings nivå
+
+Om du inte behöver varje pipeline-körning av dina data flödes aktiviteter för att fullständigt logga alla utförliga telemetri loggar kan du ange loggnings nivån till "Basic" eller "none". När du kör dina data flöden i "VERBOSE"-läge (standard) begär du att ADF ska logga in fullständigt på varje enskild partitions nivå under din data omvandling. Detta kan vara en dyr åtgärd, så att bara aktivera utförligt läge när fel sökning kan förbättra ditt totala data flöde och prestanda för pipelinen. "Grundläggande"-läget loggar bara omvandlings varaktigheter medan "ingen" bara innehåller en sammanfattning av varaktigheter.
+
+![Loggnings nivå](media/data-flow/logging.png "Ange loggnings nivå")
 
 ## <a name="parameterizing-data-flows"></a>Parameters-data flöden
 
@@ -116,7 +124,7 @@ Fel söknings pipelinen körs mot det aktiva fel söknings klustret, inte integr
 
 ## <a name="monitoring-the-data-flow-activity"></a>Övervaka data flödes aktiviteten
 
-Data flödes aktiviteten har en särskild övervaknings upplevelse där du kan visa information om partitionering, fas tid och data härkomst. Öppna fönstret övervakning via glasögon-ikonen under **åtgärder** . Mer information finns i [övervaka data flöden](concepts-data-flow-monitoring.md).
+Data flödes aktiviteten har en särskild övervaknings upplevelse där du kan visa information om partitionering, fas tid och data härkomst. Öppna fönstret övervakning via glasögon-ikonen under **åtgärder**. Mer information finns i [övervaka data flöden](concepts-data-flow-monitoring.md).
 
 ### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Använd data flödes aktivitets resultat i en efterföljande aktivitet
 

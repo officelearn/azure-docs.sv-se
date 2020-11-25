@@ -8,11 +8,11 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: aed015b67aa36e7678b31d7f2f047cb1e77c6a3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84485322"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004202"
 ---
 # <a name="fail-back-vmware-vms-to-on-premises-site"></a>Återställa virtuella VMware-datorer till en lokal plats
 
@@ -33,15 +33,15 @@ Den här artikeln beskriver hur du återställer virtuella Azure-datorer till en
     - En virtuell dator måste ha minst en återställnings punkt för att kunna återställas.
     - Om du växlar tillbaka till en återställnings plan bör alla datorer i planen ha minst en återställnings punkt.
 2. Välj den virtuella datorn i valvet > **replikerade objekt**. Högerklicka på den virtuella datorn > **oplanerad redundansväxling**.
-3. I **Bekräfta redundans**kontrollerar du riktningen för redundans (från Azure).
+3. I **Bekräfta redundans** kontrollerar du riktningen för redundans (från Azure).
 4. Välj en återställningspunkt som ska användas för redundansen.
     - Vi rekommenderar att du använder den **senaste** återställnings punkten. Den app-konsekventa punkten ligger bakom den senaste tidpunkten och orsakar viss data förlust.
     - **Senaste** är en krasch-konsekvent återställnings punkt.
-    - Med den **senaste versionen**växlar en virtuell dator till den senaste tillgängliga tidpunkten. Om du har en replikeringsgrupp för konsekvens för flera virtuella datorer i en återställnings plan växlar varje virtuell dator i gruppen över till den oberoende senaste tidpunkten.
+    - Med den **senaste versionen** växlar en virtuell dator till den senaste tillgängliga tidpunkten. Om du har en replikeringsgrupp för konsekvens för flera virtuella datorer i en återställnings plan växlar varje virtuell dator i gruppen över till den oberoende senaste tidpunkten.
     - Om du använder en programkonsekvent återställnings punkt går varje virtuell dator tillbaka till den senast tillgängliga punkten. Om en återställnings plan har en replikeringsgrupp återställs varje grupp till den gemensamma tillgängliga återställnings punkten.
 5. Redundansväxlingen börjar. Site Recovery stänger de virtuella Azure-datorerna.
 6. När redundansväxlingen är klar kontrollerar du att allt fungerar som förväntat. Kontrol lera att de virtuella Azure-datorerna är avstängda. 
-7. När allting har verifierats högerklickar du på den virtuella datorn > **commit**för att slutföra redundansväxlingen. Commit tar bort den misslyckade virtuella Azure-datorn. 
+7. När allting har verifierats högerklickar du på den virtuella datorn > **commit** för att slutföra redundansväxlingen. Commit tar bort den misslyckade virtuella Azure-datorn. 
 
 > [!NOTE]
 > Site Recovery inaktiverar VMware-verktygen under redundans för virtuella Windows-datorer. Vid failback för den virtuella Windows-datorn är VMware-verktygen aktiverat igen. 
@@ -53,7 +53,7 @@ Den här artikeln beskriver hur du återställer virtuella Azure-datorer till en
 
 När du har beställt failback tas de virtuella Azure-datorerna bort. Den virtuella datorn är tillbaka på den lokala platsen, men den är inte skyddad. Starta replikeringen av virtuella datorer till Azure igen enligt följande:
 
-1. I valvet > **replikerade objekt**väljer du kunde inte återställa virtuella datorer och väljer sedan **skydda igen**.
+1. I valvet > **replikerade objekt** väljer du kunde inte återställa virtuella datorer och väljer sedan **skydda igen**.
 2. Ange den processerver som används för att skicka data tillbaka till Azure.
 3. Välj **OK** för att starta återskydds jobbet.
 

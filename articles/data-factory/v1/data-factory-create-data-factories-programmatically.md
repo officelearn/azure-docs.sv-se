@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c9dce90b0dc563fb0fa7ecaaa0882167eef444a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019903"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003641"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Skapa, övervaka och hantera Azure-datafabriker med Azure Data Factory .NET SDK
 > [!NOTE]
@@ -51,7 +51,7 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
     ```powershell
     Get-AzSubscription
     ```
-4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt ** &lt; NameOfAzureSubscription** &gt; med namnet på din Azure-prenumeration.
+4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **&lt; NameOfAzureSubscription** &gt; med namnet på din Azure-prenumeration.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -117,7 +117,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
    5. Ange **DataFactoryAPITestApp** som namn.
    6. Välj **C:\ADFGetStarted** som plats.
    7. Klicka på **OK** för att skapa projektet.
-2. Klicka på **verktyg**, peka på **NuGet Package Manager**och klicka på **Package Manager-konsolen**.
+2. Klicka på **verktyg**, peka på **NuGet Package Manager** och klicka på **Package Manager-konsolen**.
 3. I **Package Manager Console** gör du följande steg:
    1. Kör följande kommando för att installera Data Factory-paketet: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Kör följande kommando för att installera Azure Active Directory-paketet (du använder Active Directory-API i koden): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
@@ -138,7 +138,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
         </appSettings>
     </configuration>
     ```
-5. I App.Config-filen uppdaterar du värden för ** &lt; program- &gt; ID**, ** &lt; lösen ord &gt; **, ** &lt; prenumerations-ID &gt; **och ** &lt; klient-ID &gt; ** med dina egna värden.
+5. I App.Config-filen uppdaterar du värden för **&lt; program- &gt; ID**, **&lt; lösen ord &gt;**, **&lt; prenumerations-ID &gt;** och **&lt; klient-ID &gt;** med dina egna värden.
 6. Lägg till följande **using** -uttryck i **program.cs** -filen i projektet.
 
     ```csharp
@@ -446,7 +446,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
     }
     ```
 
-15. I Solution Explorer expanderar du projektet: **DataFactoryAPITestApp**, högerklickar på **referenser**och klickar på **Lägg till referens**. Markera kryss rutan för `System.Configuration` sammansättning och klicka på **OK**.
+15. I Solution Explorer expanderar du projektet: **DataFactoryAPITestApp**, högerklickar på **referenser** och klickar på **Lägg till referens**. Markera kryss rutan för `System.Configuration` sammansättning och klicka på **OK**.
 15. Skapa konsolprogrammet. Klicka på **Skapa** på menyn och klicka sedan på **Build Solution** (Skapa lösning).
 16. Kontrollera att det finns minst en fil i adftutorial-containern i Azure-bloblagringen. Om inte skapar du Emp.txt-filen i Anteckningar med följande innehåll och laddar upp den till adftutorial-containern.
 

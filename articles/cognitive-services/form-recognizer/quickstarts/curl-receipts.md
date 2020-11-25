@@ -9,20 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 282b8e1292bf1fe24655691fbbeb876d871bc31e
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 9ef4378602403afccc7c02e4bacb50e851d74f2a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761353"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96004013"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Snabb start: extrahera indata från formulär tolken REST API med en sväng
 
 I den här snabb starten använder du Azure formulär igenkännings REST API med sväng för att extrahera och identifiera relevant information från amerikanska försäljnings kvitton.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
 - [spiralen](https://curl.haxx.se/windows/) är installerad.
@@ -34,32 +34,32 @@ För att slutföra den här snabb starten måste du ha:
 
 ## <a name="analyze-a-receipt"></a>Analysera ett kvitto
 
-Om du vill börja analysera ett kvitto anropar du API: et för att **[analysera kvitto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync)** med hjälp av kommandot vänd nedan. Innan du kör kommandot gör du följande ändringar:
+Om du vill börja analysera ett kvitto anropar du API: et för att **[analysera kvitto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)** med hjälp av kommandot vänd nedan. Innan du kör kommandot gör du följande ändringar:
 
 1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
 1. Ersätt `<your receipt URL>` med URL-adressen för en kvitto avbildning.
 1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
 
 ```bash
-curl -i -X POST "https://<Endpoint>/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<your receipt URL>\"}"
+curl -i -X POST "https://<Endpoint>/formrecognizer/v2.1-preview.2/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<your receipt URL>\"}"
 ```
 
 Du får ett `202 (Success)` svar som innehåller rubriken för **åtgärden location** . Värdet för den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel är strängen efter `operations/` Åtgärds-ID: t.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## <a name="get-the-receipt-results"></a>Hämta kvitto resultat
 
-När du har anropat API för att **analysera kvitto** anropar du API: et för att **[analysera kvitto resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult)** för att hämta status för åtgärden och de extraherade data. Innan du kör kommandot gör du följande ändringar:
+När du har anropat API för att **analysera kvitto** anropar du API: et för att **[analysera kvitto resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult)** för att hämta status för åtgärden och de extraherade data. Innan du kör kommandot gör du följande ändringar:
 
 1. Ersätt `<Endpoint>` med den slut punkt som du fick med ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
 1. Ersätt `<operationId>` med åtgärds-ID: t från föregående steg.
 1. Ersätt `<subscription key>` med din prenumerationsnyckel.
 
 ```bash
-curl -X GET "https://<Endpoint>/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyzeResults/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X GET "https://<Endpoint>/formrecognizer/v2.1-preview.2/prebuilt/receipt/analyzeResults/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>Granska svaret
@@ -402,4 +402,4 @@ Se följande kvitto avbildning och dess motsvarande JSON-utdata. Utdatan har kor
 I den här snabb starten använde du formulär tolken REST API med sväng för att extrahera innehållet i en försäljnings leverans. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
 
 > [!div class="nextstepaction"]
-> [REST API referens dokumentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync)
+> [REST API referens dokumentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)

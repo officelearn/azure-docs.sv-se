@@ -14,11 +14,11 @@ ms.date: 04/24/2015
 ms.author: gwallace
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 104f969f5e27ef36ad43eb10e19176a4bcfd6648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021144"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003775"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Använda Twilio för röst-och SMS-funktioner från Azure
 Den här guiden visar hur du utför vanliga programmerings åtgärder med Twilio API-tjänsten på Azure. Scenarierna som ingår är att ringa ett telefonsamtal och skicka ett SMS-meddelande (Short Message Service). Mer information om Twilio och hur du använder röst-och SMS i dina program finns i avsnittet [Nästa steg](#NextSteps) .
@@ -39,7 +39,7 @@ Twilio-API: et är ett RESTful-API som tillhandahåller röst-och SMS-funktioner
 Viktiga aspekter av Twilio-API: et är Twilio-verb och Twilio Markup Language (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Twilio-verb
-API: et använder Twilio-verb. exempelvis instruerar verbet Twilio till audibly att leverera ett meddelande på ett samtal. ** &lt; &gt; **
+API: et använder Twilio-verb. exempelvis instruerar verbet Twilio till audibly att leverera ett meddelande på ett samtal. **&lt; &gt;**
 
 Följande är en lista över Twilio-verb.  Lär dig mer om andra verb och funktioner via [Twilio Markup Language-dokumentation](https://www.twilio.com/docs/api/twiml).
 
@@ -84,7 +84,7 @@ Twilio innehåller en uppsättning .NET Helper-bibliotek som omsluter olika aspe
 
 Twilio tillhandahåller fem bibliotek för .NET-utvecklare:
 
-| Bibliotek | Beskrivning |
+| Bibliotek | Description |
 | --- | --- |
 | Twilio. API | Kärn Twilio-biblioteket som omsluter Twilio-REST API i ett eget .NET-bibliotek. Det här biblioteket är tillgängligt för .NET, Silverlight och Windows Phone 7. |
 | Twilio. TwiML | Är ett eget .NET-sätt att generera TwiML markering. |
@@ -111,7 +111,7 @@ Som standard installerar Microsoft Visual Studio 2010 version 1,2 av NuGet. Att 
 2. Högerklicka på **referenser**.
 3. Klicka på **Hantera NuGet-paket...**
 4. Klicka på **online**.
-5. Skriv *Twilio*i rutan Sök online.
+5. Skriv *Twilio* i rutan Sök online.
 6. Klicka på **Installera** på Twilio-paketet.
 
 ## <a name="how-to-make-an-outgoing-call"></a><a id="howto_make_call"></a>Gör så här: gör ett utgående samtal

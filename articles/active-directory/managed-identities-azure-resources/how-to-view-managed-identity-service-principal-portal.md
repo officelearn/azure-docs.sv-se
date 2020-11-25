@@ -16,11 +16,11 @@ ms.date: 09/30/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b25f2691646192faf4d4c133835b456038abd94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611936"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003743"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>Visa tjänstens huvud namn för en hanterad identitet i Azure Portal
 
@@ -42,7 +42,7 @@ I den här artikeln får du lära dig hur du visar tjänstens huvud namn för en
 Den här proceduren visar hur du visar tjänstens huvud namn för en virtuell dator med systemtilldelad identitet aktive rad (samma steg gäller för ett program).
 
 1. Klicka på **Azure Active Directory** och sedan på **företags program**.
-2. Under **program typ**väljer du **alla program** och klickar sedan på **Använd**.
+2. Under **program typ** väljer du **alla program** och klickar sedan på **Använd**.
 3. I rutan Sök filter skriver du namnet på den Azure-resurs som har hanterad identitet aktive rad eller väljer den i listan som visas.
 
    ![Visa Managed Identity service-huvudobjektet i portalen](./media/how-to-view-managed-identity-service-principal-portal/view-managed-identity-service-principal-portal.png)

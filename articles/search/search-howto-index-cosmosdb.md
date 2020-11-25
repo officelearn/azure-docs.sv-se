@@ -10,11 +10,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.openlocfilehash: aed1aa03527481014a63c636181725b91b17a1e8
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697313"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003896"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Så här indexerar du Cosmos DB-data med hjälp av en indexerare i Azure Cognitive Search 
 
@@ -278,7 +278,7 @@ Se till att schemat för mål indexet är kompatibelt med schemat för käll-JSO
 | Matriser med primitiva typer, till exempel ["a", "b", "c"] |Collection(Edm.String) |
 | Strängar som ser ut som datum |EDM. DateTimeOffset, EDM. String |
 | Subjson-objekt, till exempel {"typ": "Point", "koordinater": [Long, Lat]} |Edm.GeographyPoint |
-| Andra JSON-objekt |E.t. |
+| Andra JSON-objekt |Ej tillämpligt |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4 – Konfigurera och kör indexeraren
 

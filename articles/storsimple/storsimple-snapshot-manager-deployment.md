@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 5f94564c5e769d3cf0e0abbe92a309a1ee2117a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055086"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003879"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Distribuera snapin-modulen StorSimple Snapshot Manager MMC
 
@@ -151,13 +151,13 @@ Följ dessa steg om du uppgraderar eller ominstallerar StorSimple Snapshot Manag
 Använd följande steg för att avinstallera StorSimple Snapshot Manager.
 
 #### <a name="to-uninstall-storsimple-snapshot-manager"></a>Så här avinstallerar du StorSimple Snapshot Manager
-1. Öppna **kontroll panelen**på värddatorn, klicka på **program**och klicka sedan på **program och funktioner**.
-2. Klicka på **Avinstallera eller ändra ett program**i det vänstra fönstret.
-3. Högerklicka på **StorSimple Snapshot Manager**och klicka sedan på **Avinstallera**.
-4. Detta startar installations programmet för StorSimple-Snapshot Manager. Klicka på **ändra installations programmet**och klicka sedan på **Avinstallera**.
+1. Öppna **kontroll panelen** på värddatorn, klicka på **program** och klicka sedan på **program och funktioner**.
+2. Klicka på **Avinstallera eller ändra ett program** i det vänstra fönstret.
+3. Högerklicka på **StorSimple Snapshot Manager** och klicka sedan på **Avinstallera**.
+4. Detta startar installations programmet för StorSimple-Snapshot Manager. Klicka på **ändra installations programmet** och klicka sedan på **Avinstallera**.
    
    > [!NOTE]
-   > Om det finns MMC-processer som körs i bakgrunden, t. ex. StorSimple Snapshot Manager eller disk hantering, Miss lyckas avinstallationen och du får ett meddelande om att stänga alla instanser av MMC innan du försöker avinstallera programmet. Välj **Stäng program automatiskt och försök att starta om dem när installationen är klar**och klicka sedan på **OK**.
+   > Om det finns MMC-processer som körs i bakgrunden, t. ex. StorSimple Snapshot Manager eller disk hantering, Miss lyckas avinstallationen och du får ett meddelande om att stänga alla instanser av MMC innan du försöker avinstallera programmet. Välj **Stäng program automatiskt och försök att starta om dem när installationen är klar** och klicka sedan på **OK**.
    > 
    > 
 5. När avinstallationen är klar visas ett meddelande om att **installationen har slutförts** . Klicka på **Stäng**.
@@ -169,9 +169,9 @@ Använd följande steg för att skapa och spara en kopia av StorSimple Snapshot 
 1. Stoppa Microsoft StorSimple Management Service:
    
    1. Starta Serverhanteraren.
-   2. På instrument panelen för Serverhanteraren väljer du **tjänster**på **verktyg** -menyn.
+   2. På instrument panelen för Serverhanteraren väljer du **tjänster** på **verktyg** -menyn.
    3. På sidan **tjänster** väljer du **Microsoft StorSimple Management Service**.
-   4. Klicka på **stoppa tjänsten**under **Microsoft StorSimple Management Service**i den högra rutan.
+   4. Klicka på **stoppa tjänsten** under **Microsoft StorSimple Management Service** i den högra rutan.
       
         ![Stoppa tjänsten StorSimple Enhetshanteraren](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 2. Bläddra till C:\ProgramData\Microsoft\StorSimple\BACatalog. 
@@ -184,9 +184,9 @@ Använd följande steg för att skapa och spara en kopia av StorSimple Snapshot 
     ![StorSimple säkerhets kopierings katalog fil](./media/storsimple-snapshot-manager-deployment/HCS_SSM_bacatalog.png)
 4. Starta om Microsoft StorSimple Management-tjänsten: 
    
-   1. På instrument panelen för Serverhanteraren väljer du **tjänster**på **verktyg** -menyn.
+   1. På instrument panelen för Serverhanteraren väljer du **tjänster** på **verktyg** -menyn.
    2. På sidan **tjänster** väljer du **hanterings tjänsten för Microsoft-StorSimple**.
-   3. Klicka på **starta om tjänsten**under **Microsoft StorSimple Management Service**i den högra rutan. 
+   3. Klicka på **starta om tjänsten** under **Microsoft StorSimple Management Service** i den högra rutan. 
 
 ### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>Steg 3: installera om StorSimple Snapshot Manager och Återställ databasen
 Om du vill installera om StorSimple Snapshot Manager följer du stegen i [installera en ny StorSimple Snapshot Manager](#install-a-new-storsimple-snapshot-manager). Använd sedan följande procedur för att återställa StorSimple Snapshot Manager-databasen.
@@ -195,9 +195,9 @@ Om du vill installera om StorSimple Snapshot Manager följer du stegen i [instal
 1. Stoppa Microsoft StorSimple Management Service:
    
    1. Starta Serverhanteraren.
-   2. På instrument panelen för Serverhanteraren väljer du **tjänster**på **verktyg** -menyn.
+   2. På instrument panelen för Serverhanteraren väljer du **tjänster** på **verktyg** -menyn.
    3. På sidan **tjänster** väljer du **Microsoft StorSimple Management Service**.
-   4. Klicka på **stoppa tjänsten**under **Microsoft StorSimple Management Service**i den högra rutan.
+   4. Klicka på **stoppa tjänsten** under **Microsoft StorSimple Management Service** i den högra rutan.
 2. Bläddra till C:\ProgramData\Microsoft\StorSimple\BACatalog.
    
    > [!NOTE]
@@ -207,9 +207,9 @@ Om du vill installera om StorSimple Snapshot Manager följer du stegen i [instal
 3. Ta bort XML-filen för katalogen och ersätt den med den version som du sparade tidigare.
 4. Starta om Microsoft StorSimple Management-tjänsten: 
    
-   1. På instrument panelen för Serverhanteraren väljer du **tjänster**på **verktyg** -menyn.
+   1. På instrument panelen för Serverhanteraren väljer du **tjänster** på **verktyg** -menyn.
    2. På sidan **tjänster** väljer du **Microsoft StorSimple Management Service**.
-   3. Klicka på **starta om tjänsten**under **Microsoft StorSimple Management Service**i den högra rutan.
+   3. Klicka på **starta om tjänsten** under **Microsoft StorSimple Management Service** i den högra rutan.
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill veta mer om StorSimple Snapshot Manager går du till [StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md).

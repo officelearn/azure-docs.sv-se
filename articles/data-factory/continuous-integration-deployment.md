@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 93aeb088f82cae6dde215792e399997b592a5c14
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658697"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96003981"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -636,6 +636,14 @@ Om du distribuerar en fabrik till produktion och inser att det finns en bugg som
 Se videon under en djupgående video genom gång om hur du kan åtgärda dina miljöer. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
+## <a name="exposure-control-and-feature-flags"></a>Exponerings kontroll och funktions flaggor
+
+När du arbetar med ett team finns det instanser där du kan slå samman ändringar, men vill inte att de ska köras i utökade miljöer som till exempel PROD och frågor och svar. För att hantera det här scenariot rekommenderar ADF-teamet [DevOps-begreppet att använda funktions flaggor](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). I ADF kan du kombinera [globala parametrar](author-global-parameters.md) och [if villkor-aktiviteten](control-flow-if-condition-activity.md) för att dölja uppsättningar av logik baserat på dessa miljö flaggor.
+
+Information om hur du konfigurerar en funktions flagga finns i följande video kurs:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IxdW]
 
 ## <a name="best-practices-for-cicd"></a>Metod tips för CI/CD
 

@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896046"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003624"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway – hög tillgänglighet och skalbarhet (för hands version)
 > [!NOTE]
@@ -29,10 +29,10 @@ Den här artikeln hjälper dig att konfigurera hög tillgänglighets-och skalbar
 > [!NOTE]
 > Den här artikeln förutsätter att du redan är bekant med grunderna i Integration Runtime (tidigare Data Management Gateway). Om du inte gör det, se [Data Management Gateway](data-factory-data-management-gateway.md).
 > 
-> **Den här förhands gransknings funktionen stöds officiellt på Data Management Gateway version 2.12. xxxx. x och senare** . Kontrol lera att du använder version 2.12. xxxx. x eller senare. Hämta den senaste versionen av Data Management Gateway [här](https://www.microsoft.com/download/details.aspx?id=39717).
+> **Den här förhands gransknings funktionen stöds officiellt på Data Management Gateway version 2.12. xxxx. x och senare**. Kontrol lera att du använder version 2.12. xxxx. x eller senare. Hämta den senaste versionen av Data Management Gateway [här](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="overview"></a>Översikt
-Du kan associera data management gatewayer som är installerade på flera lokala datorer med en enda logisk Gateway från portalen. De här datorerna kallas **noder** . Du kan ha upp till **fyra noder** kopplade till en logisk Gateway. Fördelarna med att ha flera noder (lokala datorer med Gateway installerad) för en logisk Gateway är:  
+Du kan associera data management gatewayer som är installerade på flera lokala datorer med en enda logisk Gateway från portalen. De här datorerna kallas **noder**. Du kan ha upp till **fyra noder** kopplade till en logisk Gateway. Fördelarna med att ha flera noder (lokala datorer med Gateway installerad) för en logisk Gateway är:  
 
 - Förbättra prestanda för data förflyttning mellan lokala och molnbaserade data lager.  
 - Om en av noderna kraschar av någon anledning är det fortfarande andra noder som är tillgängliga för att flytta data. 
@@ -47,13 +47,13 @@ Följande diagram innehåller en översikt över funktionerna för skalbarhet oc
 
 ![Data Management Gateway – hög tillgänglighet och skalbarhet](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)
 
-En **logisk Gateway** är den gateway som du lägger till i en data fabrik i Azure Portal. Tidigare kunde du bara associera en lokal Windows-dator med Data Management Gateway installerat med en logisk Gateway. Den här lokala gateway-datorn kallas för en nod. Nu kan du koppla upp till **fyra fysiska noder** med en logisk Gateway. En logisk Gateway med flera noder kallas för en **Gateway för flera noder** .  
+En **logisk Gateway** är den gateway som du lägger till i en data fabrik i Azure Portal. Tidigare kunde du bara associera en lokal Windows-dator med Data Management Gateway installerat med en logisk Gateway. Den här lokala gateway-datorn kallas för en nod. Nu kan du koppla upp till **fyra fysiska noder** med en logisk Gateway. En logisk Gateway med flera noder kallas för en **Gateway för flera noder**.  
 
-Alla de här noderna är **aktiva** . De kan bearbeta data förflyttnings jobb för att flytta data mellan lokala och molnbaserade data lager. En av noderna fungerar som både dispatcher och Worker. Andra noder i grupperna är arbetsnoder. En **dispatcher** -nod hämtar uppgifter för data förflyttning/jobb från moln tjänsten och skickar dem till arbetsnoder (inklusive sig själv). En **worker** arbetsnoden kör data förflyttnings jobb för att flytta data mellan lokala och molnbaserade data lager. Alla noder är anställda. Endast en nod kan vara både sändning och arbetare.    
+Alla de här noderna är **aktiva**. De kan bearbeta data förflyttnings jobb för att flytta data mellan lokala och molnbaserade data lager. En av noderna fungerar som både dispatcher och Worker. Andra noder i grupperna är arbetsnoder. En **dispatcher** -nod hämtar uppgifter för data förflyttning/jobb från moln tjänsten och skickar dem till arbetsnoder (inklusive sig själv). En **worker** arbetsnoden kör data förflyttnings jobb för att flytta data mellan lokala och molnbaserade data lager. Alla noder är anställda. Endast en nod kan vara både sändning och arbetare.    
 
 Du kan vanligt vis börja med en nod och **skala ut** för att lägga till fler noder eftersom de befintliga noderna är överbelastade med data flyttnings belastningen. Du kan också **skala upp** kapaciteten för data förflyttning i en gateway-nod genom att öka antalet samtidiga jobb som tillåts att köras på noden. Den här funktionen är även tillgänglig med en gateway med en nod (även om funktionen skalbarhets-och tillgänglighet inte är aktive rad). 
 
-En gateway med flera noder sparar autentiseringsuppgifterna för data lagringen på alla noder. Om det finns ett anslutnings problem för nod-till-nod kan autentiseringsuppgifterna vara osynkroniserade. När du anger autentiseringsuppgifter för ett lokalt data lager som använder en gateway, sparas autentiseringsuppgifter på noden dispatcher/Worker. Dispatcher-noden synkroniseras med andra arbetsnoder. Den här processen kallas **synkronisering av autentiseringsuppgifter** . Kommunikations kanalen mellan noder kan **krypteras** med ett offentligt SSL/TLS-certifikat. 
+En gateway med flera noder sparar autentiseringsuppgifterna för data lagringen på alla noder. Om det finns ett anslutnings problem för nod-till-nod kan autentiseringsuppgifterna vara osynkroniserade. När du anger autentiseringsuppgifter för ett lokalt data lager som använder en gateway, sparas autentiseringsuppgifter på noden dispatcher/Worker. Dispatcher-noden synkroniseras med andra arbetsnoder. Den här processen kallas **synkronisering av autentiseringsuppgifter**. Kommunikations kanalen mellan noder kan **krypteras** med ett offentligt SSL/TLS-certifikat. 
 
 ## <a name="set-up-a-multi-node-gateway"></a>Konfigurera en gateway med flera noder
 Det här avsnittet förutsätter att du har gått igenom följande två artiklar eller bekant med koncept i de här artiklarna: 
@@ -80,7 +80,7 @@ Det här avsnittet förutsätter att du har gått igenom följande två artiklar
     2. Starta Datahantering Configuration Manager för gatewayen genom att följa [dessa anvisningar](data-factory-data-management-gateway.md#configuration-manager). Du ser Gateway-namn, nodnamn, status osv.
 
         ![Skärm bild som visar var du kan se gatewayens namn, nodnamn och status.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
-4. Om du väljer **manuell installation** :
+4. Om du väljer **manuell installation**:
     1. Hämta installations paketet från Microsoft Download Center, kör det för att installera gateway på din dator.
     2. Använd **nyckeln Authentication** på sidan **Konfigurera** för att registrera gatewayen.
     
@@ -88,7 +88,7 @@ Det här avsnittet förutsätter att du har gått igenom följande två artiklar
     3. På sidan **ny Gateway-nod** kan du ange ett eget **namn** på Gateway-noden. Som standard är nodnamn detsamma som dator namnet.    
 
         ![Data Management Gateway-ange namn](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png)
-    4. På nästa sida kan du välja om du vill **Aktivera kryptering för nod-till-nod-kommunikation** . Klicka på **hoppa över** för att inaktivera kryptering (standard).
+    4. På nästa sida kan du välja om du vill **Aktivera kryptering för nod-till-nod-kommunikation**. Klicka på **hoppa över** för att inaktivera kryptering (standard).
 
         ![Data Management Gateway-aktivera kryptering](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-node-encryption.png)  
     
@@ -99,14 +99,14 @@ Det här avsnittet förutsätter att du har gått igenom följande två artiklar
     5. När gatewayen har installerats klickar du på Starta Configuration Manager:
     
         ![Manuell installation – starta Configuration Manager](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)   
-    6. du ser Data Management Gateway Configuration Manager på noden (lokal Windows-dator) som visar anslutnings status, **Gateway-namn** och **nodnamn** .  
+    6. du ser Data Management Gateway Configuration Manager på noden (lokal Windows-dator) som visar anslutnings status, **Gateway-namn** och **nodnamn**.  
 
         ![Data Management Gateway-installationen lyckades](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
         > Om du konfigurerar gatewayen på en virtuell Azure-dator kan du använda [den här Azure Resource Manager mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway). Det här skriptet skapar en logisk Gateway, konfigurerar virtuella datorer med Data Management Gateway program installerat och registrerar dem med den logiska gatewayen. 
 6. Starta **Gateway** -sidan i Azure Portal: 
-    1. På data fabrikens start sida i portalen klickar du på **länkade tjänster** .
+    1. På data fabrikens start sida i portalen klickar du på **länkade tjänster**.
     
         ![Skärm bild som visar panelen länkade tjänster.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
     2. Välj **gatewayen** för att se sidan **Gateway** :
@@ -133,7 +133,7 @@ Det här avsnittet förutsätter att du har gått igenom följande två artiklar
 Du kan uppgradera en befintlig gateway om du vill använda funktionen hög tillgänglighet och skalbarhet. Den här funktionen fungerar bara med noder som har data Management Gateway för version >= 2.12. xxxx. Du kan se vilken version av data Management Gateway som är installerad på en dator på fliken **Hjälp** i Data Management Gateway Configuration Manager. 
 
 1. Uppdatera gatewayen på den lokala datorn till den senaste versionen genom att följa genom att hämta och köra ett MSI-installationspaket från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Mer information finns i [installations](data-factory-data-management-gateway.md#installation) avsnittet.  
-2. Gå till Azure-portalen. Starta **Data Factory sidan** för din data fabrik. Klicka på panelen länkade tjänster för att starta **sidan länkade tjänster** . Välj den gateway som ska starta **Gateway-sidan** . Klicka och aktivera **förhands gransknings funktionen** som visas i följande bild: 
+2. Gå till Azure-portalen. Starta **Data Factory sidan** för din data fabrik. Klicka på panelen länkade tjänster för att starta **sidan länkade tjänster**. Välj den gateway som ska starta **Gateway-sidan**. Klicka och aktivera **förhands gransknings funktionen** som visas i följande bild: 
 
     ![Data Management Gateway – aktivera förhands gransknings funktion](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
 2. När du har aktiverat funktionen för förhands granskning i portalen stänger du alla sidor. Öppna Gateway- **sidan** igen för att se det nya användar gränssnittet för förhands granskning.
@@ -144,7 +144,7 @@ Du kan uppgradera en befintlig gateway om du vill använda funktionen hög tillg
 
     > [!NOTE]
     > Under uppgraderingen är namnet på den första noden namnet på datorn. 
-3. Lägg nu till en nod. På sidan **Gateway** klickar du på **Lägg till nod** .  
+3. Lägg nu till en nod. På sidan **Gateway** klickar du på **Lägg till nod**.  
 
     ![Menyn Data Management Gateway – Lägg till nod](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
 
@@ -164,8 +164,8 @@ Här följer kraven för TLS/SSL-certifikatet som används för att skydda kommu
 - Varje nod för integration runtime måste ha förtroende för det här certifikatet, samt klient datorn som kör Credential Manager-programmet. 
   > [!NOTE]
   > Autentiseringshanteraren används när du anger autentiseringsuppgifter på ett säkert sätt från guiden Kopiera i guiden/Azure Portal. Detta kan startas från valfri dator i samma nätverk som det lokala/privata data lagret.
-- Jokertecken stöds. Om ditt FQDN-namn är **node1.domain.contoso.com** kan du använda * *_. domain.contoso.com_* som certifikatets ämnes namn.
-- SAN-certifikat rekommenderas inte eftersom endast det sista objektet i alternativa namn för certifikat mottagare används och alla andra kommer att ignoreras på grund av den aktuella begränsningen. T.ex. du har ett SAN-certifikat vars SAN är **node1.domain.contoso.com** och **node2.domain.contoso.com** . du kan bara använda det här certifikatet på den dator vars FQDN är **node2.domain.contoso.com** .
+- Jokertecken stöds. Om ditt FQDN-namn är **node1.domain.contoso.com** kan du använda **_. domain.contoso.com_* som certifikatets ämnes namn.
+- SAN-certifikat rekommenderas inte eftersom endast det sista objektet i alternativa namn för certifikat mottagare används och alla andra kommer att ignoreras på grund av den aktuella begränsningen. T.ex. du har ett SAN-certifikat vars SAN är **node1.domain.contoso.com** och **node2.domain.contoso.com**. du kan bara använda det här certifikatet på den dator vars FQDN är **node2.domain.contoso.com**.
 - Stöder alla nyckel storlekar som stöds av Windows Server 2012 R2 för TLS/SSL-certifikat.
 - Certifikat som använder CNG-nycklar stöds inte.
 
@@ -181,11 +181,11 @@ I Azure Portal kan du Visa en ögonblicks bild av resursutnyttjande i real tid (
 
 ![Data Management Gateway-övervakning av flera noder](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
 
-Du kan aktivera **Avancerade inställningar** på sidan **Gateway** om du vill se avancerade mått som **nätverk** (in/ut), **roll & status för autentiseringsuppgifter** , vilket är till hjälp vid fel sökning av Gateway-problem och **samtidiga jobb** (som körs/begränsas) som kan ändras/ändras enligt detta under prestanda justering. Följande tabell innehåller beskrivningar av kolumner i listan **Gateway-noder** :  
+Du kan aktivera **Avancerade inställningar** på sidan **Gateway** om du vill se avancerade mått som **nätverk**(in/ut), **roll & status för autentiseringsuppgifter**, vilket är till hjälp vid fel sökning av Gateway-problem och **samtidiga jobb** (som körs/begränsas) som kan ändras/ändras enligt detta under prestanda justering. Följande tabell innehåller beskrivningar av kolumner i listan **Gateway-noder** :  
 
 Övervaknings egenskap | Beskrivning
 :------------------ | :---------- 
-Namn | Namnet på den logiska gatewayen och noder som är associerade med gatewayen.  
+Name | Namnet på den logiska gatewayen och noder som är associerade med gatewayen.  
 Status | Status för den logiska gatewayen och gateway-noderna. Exempel: online/offline/begränsat/osv. Information om dessa statusar finns i avsnittet om [Gateway-status](#gateway-status) . 
 Version | Visar versionen för den logiska gatewayen och varje gateway-nod. Versionen av den logiska gatewayen fastställs baserat på den version av majoriteten av noderna i gruppen. Om det finns noder med olika versioner i installations programmet för den logiska gatewayen fungerar bara noderna med samma versions nummer som den logiska gatewayen. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering Miss lyckas). 
 Tillgängligt minne | Tillgängligt minne på en gateway-nod. Det här värdet är en nära real tids ögonblicks bild. 
@@ -198,7 +198,7 @@ Roll | Det finns två typer av roller – dispatcher och Worker. Alla noder är 
 
 ### <a name="gateway-status"></a>Gateway-status
 
-Följande tabell innehåller möjliga status värden för en **Gateway-nod** : 
+Följande tabell innehåller möjliga status värden för en **Gateway-nod**: 
 
 Status  | Kommentarer/scenarier
 :------- | :------------------
@@ -209,7 +209,7 @@ Begränsad | På grund av anslutnings problem. Kan bero på problem med HTTP-por
 Inaktiv | Noden har en annan konfiguration än konfigurationen av andra majoritets noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder. 
 
 
-Följande tabell innehåller möjliga status värden för en **logisk Gateway** . Gateway-statusen beror på status för gateway-noderna. 
+Följande tabell innehåller möjliga status värden för en **logisk Gateway**. Gateway-statusen beror på status för gateway-noderna. 
 
 Status | Kommentarer
 :----- | :-------

@@ -13,11 +13,11 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124160"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004167"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Uppdatera dina grupp information på portalen Mina appar
 
@@ -88,7 +88,7 @@ Om administratören har gett dig behörighet att visa panelen **grupper** kan du
 
     - **Grup princip.** Välj antingen om du vill att alla ska kunna ansluta till gruppen eller bara tillåta ägare av gruppen att lägga till medlemmar.
 
-3. Välj **Skapa** .
+3. Välj **Skapa**.
 
     Den nya gruppen skapas med dig som ägare och visas i **grupper** i listan. Eftersom du är ägare visas den här gruppen även i **grupperna** i listan.
 
@@ -100,7 +100,7 @@ När du har skapat en grupp kan du redigera dess information, inklusive uppdater
 
     Rutan **Redigera information** visas och du kan uppdatera den information som du lade till när du skapade gruppen första gången.
 
-2. Gör alla ändringar och välj sedan **Uppdatera** .
+2. Gör alla ändringar och välj sedan **Uppdatera**.
 
 ## <a name="add-or-remove-a-member"></a>Lägga till eller ta bort en medlem
 
@@ -110,7 +110,7 @@ Du kan lägga till eller ta bort medlemmar för alla grupper som du äger.
 
     ![Lägg till en grupp medlem med plus tecken markerat](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
-2. Sök efter den medlem som du vill lägga till från rutan **Lägg till medlemmar** och välj sedan **Lägg till** .
+2. Sök efter den medlem som du vill lägga till från rutan **Lägg till medlemmar** och välj sedan **Lägg till**.
 
     ![Rutan Lägg till medlemmar med ny medlem att lägga till](media/my-apps-portal/my-apps-portal-add-member-page.png)
 
@@ -124,7 +124,7 @@ Du kan lägga till eller ta bort medlemmar för alla grupper som du äger.
 
 Om din organisation tillåter det kan du förnya en Office 365-grupp och förlänga ditt förfallo datum.
 
-1. Välj den Office 365-grupp som du vill förnya och välj sedan **förnya grupp** .
+1. Välj den Office 365-grupp som du vill förnya och välj sedan **förnya grupp**.
 
     ![Förnya en Office 365-grupp och utöka förfallo datumet](media/my-apps-portal/my-apps-portal-renew-group-link.png)
 
@@ -156,9 +156,9 @@ Du kan koppla eller lämna en befintlig grupp från sidan **grupper** .
 
 2. På sidan **Anslut grupper** väljer du namnet på den grupp som du vill ansluta till, visar de associerade grupp detaljerna och väljer sedan **Anslut grupp** om gruppen är tillgänglig.
 
-    Om gruppen kräver att grupp ägaren godkänner medlemskap, uppmanas du att ange en affärs motivering för varför du behöver delta i gruppen och väljer sedan **begäran** . Om gruppen inte kräver godkännande läggs du omedelbart till som medlem och gruppen visas i **grupper** i listan.
+    Om gruppen kräver att grupp ägaren godkänner medlemskap, uppmanas du att ange en affärs motivering för varför du behöver delta i gruppen och väljer sedan **begäran**. Om gruppen inte kräver godkännande läggs du omedelbart till som medlem och gruppen visas i **grupper** i listan.
 
-3. Om du har anslutit en grupp av misstag eller om du inte längre behöver vara en del av den, kan du välja grupp namnet på sidan **Anslut grupper** och sedan välja **lämna grupp** .
+3. Om du har anslutit en grupp av misstag eller om du inte längre behöver vara en del av den, kan du välja grupp namnet på sidan **Anslut grupper** och sedan välja **lämna grupp**.
 
     ![Sidan Anslut till grupper med knappen lämna grupp markerad](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 

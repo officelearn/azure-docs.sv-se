@@ -7,18 +7,18 @@ ms.date: 08/11/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 3b7c9b51bad45bb348f70c8b0e433404b49b5aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e6c090c02798103a30cc68f2ca28e8c4f7f2f17
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761370"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96004270"
 ---
 # <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Konfigurera din miljö för IoT Plug and Play snabb starter och självstudier
 
 Innan du kan slutföra någon av IoT-Plug and Play snabb starter och självstudier måste du konfigurera en IoT-hubb och enhets etablerings tjänsten (DPS) i din Azure-prenumeration. Du behöver också lokala kopior av de konsolfiler som används av exempel programmen och Azure IoT Explorer-verktyget.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 Du kan undvika kravet på att installera Azure CLI lokalt genom att använda Azure Cloud Shell för att konfigurera moln tjänsterna.
 
@@ -126,7 +126,7 @@ Snabb starterna och självstudierna använder **Azure IoT Explorer** -verktyget.
 
 Första gången du kör verktyget uppmanas du att ange anslutnings strängen för IoT Hub. Använd anslutnings strängen som du antecknade tidigare.
 
-Konfigurera verktyget för att använda de modell filer som du laddade ned tidigare. Välj **IoT plug and Play inställningar**på Start sidan i verktyget och sedan **+ Lägg till > lokal mapp**. Välj mappen *modeller* som du skapade tidigare. Välj **Spara** för att spara inställningarna.
+Konfigurera verktyget för att använda de modell filer som du laddade ned tidigare. Välj **IoT plug and Play inställningar** på Start sidan i verktyget och sedan **+ Lägg till > lokal mapp**. Välj mappen *modeller* som du skapade tidigare. Välj **Spara** för att spara inställningarna.
 
 Mer information finns i [Installera och använda Azure IoT Explorer](howto-use-iot-explorer.md).
 
@@ -143,4 +143,4 @@ az group delete --name my-pnp-resourcegroup
 Nu när du har konfigurerat din miljö kan du prova någon av snabb starterna eller självstudierna som:
 
 > [!div class="nextstepaction"]
-> [Ansluta ett exempel på IoT Plug and Play Device-program till IoT Hub (Node.js)](quickstart-connect-device-node.md)
+> [Anslut ett exempel på IoT Plug and Play Device-program till IoT Hub](quickstart-connect-device.md)

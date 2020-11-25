@@ -7,11 +7,11 @@ ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: efdb195ad41b036f7f470884b3a441de1db7f7f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716157"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003709"
 ---
 # <a name="manage-role-permissions-and-security"></a>Hantera rollbehörigheter och säkerhet
 
@@ -284,13 +284,13 @@ I följande avsnitt lär du dig hur du konfigurerar Azure RBAC på ditt Automati
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Lägga till en ny användare och tilldela en roll
 
-1. Klicka på **+ Lägg till roll tilldelning**på sidan åtkomst kontroll (IAM). Den här åtgärden öppnar sidan Lägg till roll tilldelning där du kan lägga till en användare, grupp eller ett program och tilldela en motsvarande roll.
+1. Klicka på **+ Lägg till roll tilldelning** på sidan åtkomst kontroll (IAM). Den här åtgärden öppnar sidan Lägg till roll tilldelning där du kan lägga till en användare, grupp eller ett program och tilldela en motsvarande roll.
 
 2. Välj en roll i listan över tillgängliga roller. Du kan välja någon av de tillgängliga inbyggda rollerna som ett Automation-konto har stöd för eller en anpassad roll som du kan ha definierat.
 
 3. Skriv namnet på den användare som du vill ge behörighet till i fältet **Välj** . Välj användaren i listan och klicka på **Spara**.
 
-   ![Lägg till användare](media/automation-role-based-access-control/automation-04-add-users.png)
+   ![Lägga till användare](media/automation-role-based-access-control/automation-04-add-users.png)
 
    Nu bör du se användaren som har lagts till på sidan användare med den valda rollen tilldelad.
 

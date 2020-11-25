@@ -6,17 +6,17 @@ ms.topic: include
 ms.date: 06/12/2019
 ms.author: pafarley
 ms.openlocfilehash: 897f2b728dc068b09849d4f48f899b8630a87a51
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913175"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004014"
 ---
 Gå till Azure Portal och <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" skapa en ny formulär igenkännings resurs " target="_blank"> skapa en ny formulär igenkännings resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> . I fönstret **skapa** anger du följande information:
 
 |    |    |
 |--|--|
-| **Namn** | Ett beskrivande namn för din resurs. Vi rekommenderar att du använder ett beskrivande namn, till exempel *MyNameFormRecognizer* . |
+| **Namn** | Ett beskrivande namn för din resurs. Vi rekommenderar att du använder ett beskrivande namn, till exempel *MyNameFormRecognizer*. |
 | **Prenumeration** | Välj den Azure-prenumeration som har beviljats åtkomst. |
 | **Plats** | Platsen för din kognitiva tjänst instans. Olika platser kan orsaka svars tid, men har ingen inverkan på resursens tillgänglighet för körning. |
 | **Prisnivå** | Kostnaden för din resurs beror på vilken pris nivå du väljer och din användning. Mer information finns i [pris informationen](https://azure.microsoft.com/pricing/details/cognitive-services/)för API.

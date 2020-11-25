@@ -4,11 +4,11 @@ description: Funktionerna i Azure Lighthouse kan användas för att förenkla ha
 ms.date: 08/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 3f452e6810fa6809b5ba1b83b664f8b38d82a895
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167357"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004253"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse i företagsscenarier
 
@@ -24,7 +24,7 @@ I de fall där en arkitektur för flera innehavare krävs kan Azure Lighthouse h
 
 Om du vill använda Azure Lighthouse i ett företag måste du bestämma vilken klient som ska innehålla de användare som utför hanterings åtgärder på de andra klient organisationerna. Med andra ord måste du bestämma vilken klient som ska användas som hanterings klient för andra klienter.
 
-Anta till exempel att din organisation har en enda klient som vi ska kalla *klient a*. Din organisation kommer sedan att förvärva *klient B* och *klient C*och du har affärs skäl som kräver att du underhåller dem som separata klienter.
+Anta till exempel att din organisation har en enda klient som vi ska kalla *klient a*. Din organisation kommer sedan att förvärva *klient B* och *klient C* och du har affärs skäl som kräver att du underhåller dem som separata klienter.
 
 Organisationen vill använda samma princip definitioner, säkerhets kopierings metoder och säkerhets processer för alla klienter. Eftersom klient organisationen redan innehåller användare som är ansvariga för dessa uppgifter kan du publicera prenumerationer i klient B och klient C, så att samma användare i klient organisationen kan utföra dessa uppgifter.
 

@@ -7,38 +7,47 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 10/22/2020
+ms.date: 11/24/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 0062caff7d8d25b263a9b1202f61691c056469af
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 19be1155476ca7c295e2d0311e8285bc2128dd1d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701090"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030772"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Vad är Azure Cognitive Search?
 
-Azure Kognitiv sökning ([tidigare kallat "Azure Search"](whats-new.md#new-service-name)) är en moln Sök tjänst som tillhandahåller utvecklares API: er och verktyg för att skapa en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program.
+Azure Kognitiv sökning ([tidigare kallat "Azure Search"](whats-new.md#new-service-name)) är en moln Sök tjänst som tillhandahåller utvecklares API: er och verktyg för att skapa en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program. 
 
-När du skapar en Kognitiv sökning-tjänst får du en sökmotor som utför indexerings-och frågekörning, beständig lagring av index som du skapar och hanterar och ett frågespråk för att skriva enkla till komplexa frågor. Om du vill kan en Sök tjänst integreras med andra Azure-tjänster i form av *indexerare* som automatiserar inmatningen/hämtningen av data från Azure-datakällor och *färdighetsuppsättningar* som innehåller förbruknings bara AI från Cognitive Services, till exempel bild-och text analys eller anpassad AI som du skapar i Azure Machine Learning eller omslutning i Azure Functions.
+När du skapar en Kognitiv sökning-tjänst får du:
+
++ en sökmotor som utför indexering och frågekörningen
++ AI – centrerad analys och omvandling av bilder och avskiljande text under indexering
++ beständig lagring av Sök index som du skapar och hanterar
++ ett frågespråk för att skriva enkla till komplexa frågor
+
+En Sök tjänst är arkitekturad mellan de externa data lager som innehåller dina data som inte har indexerats och en klient-app som skickar förfrågningar till ett sökindex och hanterar svaret.
 
 ![Azure Kognitiv sökning-arkitektur](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Kognitiv sökning-arkitektur")
 
-En Sök tjänst är arkitekturad mellan de externa data lager som innehåller dina data som inte har indexerats och en klient-app som skickar förfrågningar till ett sökindex och hanterar svaret.  Ett index schema bestämmer strukturen för sökbart innehåll. 
+En Sök tjänst integreras med andra Azure-tjänster i form av *indexerare* som automatiserar data inmatning/hämtning från Azure-datakällor, och *färdighetsuppsättningar* som innehåller förbruknings bara AI från Cognitive Services, till exempel bild-och text analys eller anpassad AI som du skapar i Azure Machine Learning eller omslutning i Azure Functions.
 
-De två primära arbets belastningarna i en Sök tjänst är att *Indexera* och *fråga*.
+På själva Sök tjänsten är de två primära arbets belastningarna *Indexera* och *fråga*. 
 
-+ Indexeringen ger text till Sök tjänsten och gör den sökbar. Internt bearbetas inkommande text till tokens och lagras i inverterade index för snabba sökningar. Under indexeringen har du möjlighet att lägga till *kognitiva kunskaper*, antingen fördefinierade från Microsoft eller anpassade kunskaper som du skapar. Den efterföljande analysen och transformeringar kan leda till ny information och strukturer som inte tidigare fanns, vilket ger ett högt verktyg för många Sök-och kunskaps utvinnings scenarier.
++ Indexeringen ger text till Sök tjänsten och gör den sökbar. Internt bearbetas inkommande text till tokens och lagras i inverterade index för snabba sökningar. 
+
+  Inom indexering har du möjlighet att lägga till AI- *anrikning* genom [kognitiva kunskaper](cognitive-search-working-with-skillsets.md), antingen fördefinierade från Microsoft eller anpassade kunskaper som du skapar. Den efterföljande analysen och transformeringar kan leda till ny information och strukturer som inte tidigare fanns, vilket ger ett högt verktyg för många Sök-och kunskaps utvinnings scenarier.
 
 + När ett index har fyllts med sökbara data skickar klient programmet förfrågningar till en Sök tjänst och hanterar svar. All frågekörningen är över ett Sök index som du skapar, äger och lagrar i din tjänst. I din klient app definieras Sök funktionen med hjälp av API: er från Azure Kognitiv sökning, och det kan ta med relevans-justering, komplettering, synonym matchning, fuzzy-matchning, mönster matchning, filter och sortering.
 
 Funktionerna exponeras via en enkel [REST API](/rest/api/searchservice/) eller [.NET-SDK](search-howto-dotnet-sdk.md) som maskerar den inbyggda komplexiteten i informationshämtning. Du kan också använda Azure Portal för tjänst administration och innehålls hantering med verktyg för prototypering och frågor mot index och färdighetsuppsättningar. Eftersom tjänsten körs i molnet hanteras infrastruktur och tillgänglighet av Microsoft.
 
-## <a name="when-to-use-cognitive-search"></a>När du ska använda Kognitiv sökning
+## <a name="why-use-cognitive-search"></a>Varför använda Kognitiv sökning
 
-Azure Kognitiv sökning passar bra för följande program scenarier:
+Azure Kognitiv sökning lämpar sig väl för följande program scenarier:
 
-+ Konsolidering av heterogena innehålls typer i ett privat och användardefinierat sökindex. Du kan fylla i ett Sök index med strömmar av JSON-dokument från vilken källa som helst. Använd en *indexerare* för att automatisera indexering för källor som stöds i Azure. Kontroll över index schema och uppdaterings schema är en viktig orsak till att använda Kognitiv sökning.
++ Konsolidera heterogent innehåll till ett privat, användardefinierat sökindex. Du kan fylla i ett Sök index med strömmar av JSON-dokument från vilken källa som helst. Använd en *indexerare* för att automatisera indexering för källor som stöds i Azure. Kontroll över index schema och uppdaterings schema är en viktig orsak till att använda Kognitiv sökning.
 
 + Enkel implementering av sökrelaterade funktioner. API: er för sökning fören klar frågornas konstruktion, fasett navigering, filter (inklusive geo-spatial sökning), synonym mappning, komplettering och relevans-justering. Med hjälp av inbyggda funktioner kan du tillgodose förväntningar på slutanvändare för en Sök upplevelse som liknar de kommersiella sökmotorer för Webbs ökning.
 
@@ -48,39 +57,20 @@ Azure Kognitiv sökning passar bra för följande program scenarier:
 
 Mer information om de olika funktionerna finns i [funktioner i Azure kognitiv sökning](search-features-list.md)
 
-## <a name="how-to-use-cognitive-search"></a>Använda Kognitiv sökning
+## <a name="how-to-get-started"></a>Så här kommer du igång
 
-### <a name="step-1-provision-service"></a>Steg 1: Etablera tjänsten
+En heltäckande utforskning av Core search-funktioner kan uppnås i fyra steg:
 
-Du kan [skapa en kostnads fri tjänst](search-create-service-portal.md) som delas med andra prenumeranter eller en [betald nivå](https://azure.microsoft.com/pricing/details/search/) som dedikerar resurser som endast används av din tjänst. Alla snabbstarter och självstudier kan utföras med den kostnadsfria tjänsten.
+1. [**Skapa en Sök tjänst**](search-create-service-portal.md) på den kostnads fria nivån som delas med andra prenumeranter eller en [betald nivå](https://azure.microsoft.com/pricing/details/search/) för dedikerade resurser som endast används av din tjänst. Alla snabbstarter och självstudier kan utföras med den kostnadsfria tjänsten.
 
-För betalda nivåer kan du skala en tjänst i två dimensioner för att kalibrera omursprung baserat på produktions krav:
+1. [**Skapa ett Sök index**](search-what-is-an-index.md) med hjälp av portalen [REST API](/rest/api/searchservice/create-index). [.NET SDK](search-howto-dotnet-sdk.md)eller en annan SDK. Index-schemat definierar strukturen för sökbart innehåll.
 
-+ Lägg till repliker för att utöka kapaciteten för att hantera tungt lästa frågor
-+ Lägg till partitioner för att utöka lagringen för fler dokument
+1. [**Överför innehåll**](search-what-is-data-import.md) till indexet. Använd ["push"-modellen](tutorial-optimize-indexing-push-api.md) för att skicka JSON-dokument från vilken källa som helst, eller Använd ["pull"-modellen (indexerarna)](search-indexer-overview.md) om dina källdata är i Azure.
 
-### <a name="step-2-create-an-index"></a>Steg 2: Skapa ett index
-
-Definiera ett index schema som ska mappas för att återspegla strukturen för de dokument som du vill söka efter, på samma sätt som fält i en databas. Ett sökindex är en specialiserad data struktur som är optimerad för att köra snabba frågor.
-
-Det är vanligt att [skapa index schemat i Azure Portal](search-what-is-an-index.md)eller program mässigt med [.net SDK](search-howto-dotnet-sdk.md) eller [REST API](/rest/api/searchservice/).
+1. [**Fråga ett index**](search-query-overview.md) med hjälp av [Sök Utforskaren](search-explorer.md) i portalen, [REST API](search-get-started-rest.md), [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search)eller något annat SDK.
 
 > [!TIP]
-> Börja med [guiden snabb start: importera data](search-get-started-portal.md) för att skapa, läsa in och fråga ett index på några minuter.
-
-### <a name="step-3-load-data"></a>Steg 3: Läsa in data
-
-När du har definierat ett index kan du ladda upp innehåll. Du kan använda en push- eller pull-modell.
-
-Push-modellen push-överför JSON-dokument till ett index med hjälp av API: er från ett [SDK](search-howto-dotnet-sdk.md) eller [rest](/rest/api/searchservice/addupdate-or-delete-documents). Den externa data uppsättningen kan vara i stort sett alla data källor så länge dokumenten är JSON.
-
-Pull-modellen hämtar data från källor på Azure och skickar dem till ett sökindex. Pull-modellen implementeras genom [*indexerare*](/rest/api/searchservice/Indexer-operations) som effektiviserar och automatiserar aspekter av data inmatning, till exempel att ansluta till, läsa och serialisera data. Data källor som stöds är Azure Cosmos DB, Azure SQL och Azure Storage.
-
-### <a name="step-4-send-queries-and-handle-responses"></a>Steg 4: skicka frågor och hantera svar
-
-När du har fyllt i ett index kan du [utfärda Sök frågor](search-query-overview.md) till tjänstens slut punkt med hjälp av enkla HTTP-begäranden med [REST API](/rest/api/searchservice/Search-Documents) eller [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search).
-
-Stega genom att [skapa din första Sökapp](tutorial-csharp-create-first-app.md) för att skapa och utöka en webb sida som samlar in användarindata och hanterar resultat. Du kan också använda [Postman eller Visual Studio Code](search-get-started-rest.md)  för interaktiva rest-anrop eller den inbyggda [sök Utforskaren](search-explorer.md) i Azure Portal om du vill fråga ett befintligt index.
+> Konsolidera steg genom att starta med [**guiden Importera data**](search-get-started-portal.md) och en Azure-datakälla för att skapa, läsa in och fråga ett index på några minuter.
 
 ## <a name="how-it-compares"></a>Jämförelse
 

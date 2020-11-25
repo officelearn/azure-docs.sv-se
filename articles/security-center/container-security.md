@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6b57428aeba702dc8cf06ec4ae7984854a94ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7265195f9614928a2150a56a780ea7b36bc2e266
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449174"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030874"
 ---
-# <a name="container-security-in-security-center"></a>Behållar säkerhet i Security Center
+# <a name="container-security-in-security-center"></a>Containersäkerhet i Security Center
 
 Azure Security Center är en Azure-inbyggd lösning för att skydda dina behållare.
 
@@ -78,11 +78,11 @@ Mer information om relevanta Security Center rekommendationer som kan visas för
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Bästa metoder för arbets belastnings skydd med Kubernetes-åtkomstkontroll
 
-Installera  **Azure policy-tillägget för Kubernetes** för att få en samling rekommendationer för att skydda dina Kubernetes-behållares arbets belastningar.
+För ett paket med rekommendationer för att skydda arbets belastningarna för dina Kubernetes-behållare, installerar du  **Azure policy-tillägget för Kubernetes**. Du kan också distribuera tillägget automatiskt enligt beskrivningen i [Aktivera automatisk etablering av tillägg](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). När automatisk etablering för tillägget har angetts till "på" aktive ras tillägget som standard i alla befintliga och framtida kluster (som uppfyller installations kraven för tillägg).
 
 Som det förklaras på [sidan Azure policy för Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), utökar tillägget en [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper)-   åtkomst kontroll för öppen källkod för [öppen Policy Agent](https://www.openpolicyagent.org/). Kubernetes-styrenheter är plugin-program som framtvingar hur klustren används. Tillägget registrerar sig som en webhook för att Kubernetes-åtkomstkontroll och gör det möjligt att tillämpa i skala och skydda dina kluster på ett centraliserat, konsekvent sätt. 
 
-När du har installerat tillägget i AKS-klustret kommer varje begäran till Kubernetes API-servern att övervakas mot den fördefinierade uppsättningen med bästa praxis innan den sparas i klustret. Du kan sedan konfigurera för att **tillämpa** bästa praxis och bestämma dem för framtida arbets belastningar. 
+Med tillägget i AKS-klustret kommer varje begäran till Kubernetes API-servern att övervakas mot den fördefinierade uppsättningen rekommenderade metoder innan den sparas i klustret. Du kan sedan konfigurera för att **tillämpa** bästa praxis och bestämma dem för framtida arbets belastningar. 
 
 Du kan till exempel bestämma att privilegierade behållare inte ska skapas och eventuella framtida förfrågningar om detta kommer att blockeras.
 
@@ -100,4 +100,4 @@ Läs mer i [skydda dina Kubernetes-arbetsbelastningar](kubernetes-workload-prote
 I den här översikten har du lärt dig om kärn elementen i behållar säkerhet i Azure Security Center. Information om relaterade material finns i:
 
 - [Introduktion till Azure Defender för Kubernetes](defender-for-kubernetes-introduction.md)
-- [Introduktion till Azure Defender för behållar register](defender-for-container-registries-introduction.md)
+- [Introduktion till Azure Defender för containerregister](defender-for-container-registries-introduction.md)

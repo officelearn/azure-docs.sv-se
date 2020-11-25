@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: a73d155d20d09573ad5e1b2597678291aea4c92b
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: c7db48a1df61472de8676192f267493232139b6e
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980600"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030823"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planera och hantera kostnader för Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -21,7 +21,7 @@ I den här artikeln beskrivs hur du kan planera och hantera kostnader för Azure
 
 När du har börjat använda Azure Cosmos DB resurser använder du Cost Management funktionerna för att ställa in budgetar och övervaka kostnader. Du kan också granska prognostiserade kostnader och identifiera utgifts trender för att identifiera områden där du kanske vill handla. Kostnaderna för Azure Cosmos DB är bara en del av månads kostnaderna på din Azure-faktura. Även om den här artikeln förklarar hur du planerar för och hanterar kostnader för Azure Cosmos DB debiteras du för alla Azure-tjänster och-resurser som används i din Azure-prenumeration, inklusive tjänster från tredje part.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="provisioned-throughput-or-serverless"></a>Allokerat data flöde eller Server lös
 
@@ -52,7 +52,7 @@ Om du planerar att använda Azure Cosmos DB i Server lös läge måste du uppska
 | Köra en fråga | 10 RU:er | Genomsnittlig kostnad för en fråga som tar full nytta av [indexering](index-overview.md) och returnerar 100 resultat eller mindre |
 
 > [!IMPORTANT] 
-> Var uppmärksam på anteckningarna från tabellen ovan. För en mer exakt uppskattning av de faktiska kostnaderna för dina åtgärder kan du använda [Azure Cosmos-emulatorn](local-emulator.md) och [mäta den exakta ru-kostnaden för dina åtgärder](find-request-unit-charge.md). Även om Azure Cosmos-emulatorn inte stöder Server lös rapporteras en standard-avgift för databas åtgärder och kan användas för denna uppskattning.
+> Var uppmärksam på anteckningarna från tabellen ovan. För en mer exakt uppskattning av de faktiska kostnaderna för dina åtgärder kan du använda Azure Cosmos DB- [emulatorn](local-emulator.md) och [mäta den exakta ru-kostnaden för dina åtgärder](find-request-unit-charge.md). Även om Azure Cosmos DB emulatorn inte har stöd för Server lös, rapporterar den en standard avgift för RU för databas åtgärder och kan användas för denna uppskattning.
 
 När du har beräknat det totala antalet enheter för programbegäran och GB lagrings utrymme som du sannolikt kommer att förbruka under en månad, returnerar följande formel din kostnads uppskattning: **([antal enheter för programbegäran]/1 000 000 * $0,25) + ([GB lagrings utrymme] * $0,25)**.
 

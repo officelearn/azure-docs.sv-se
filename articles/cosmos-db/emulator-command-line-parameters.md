@@ -7,17 +7,17 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: cb6d1cb684f4c2e3f563d5690c804d64c97ff70c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 67abcea1b5d7657ffcd342d4cddb9a96bdd8c63a
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096745"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030891"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Kommando rads-och PowerShell-referens för Azure Cosmos DB emulator
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos-emulatorn tillhandahåller en lokal miljö som emulerar den Azure Cosmos DB tjänsten för lokala utvecklings behov. När du har [installerat emulatorn](local-emulator.md)kan du kontrol lera emulatorn med kommando rads-och PowerShell-kommandon. Den här artikeln beskriver hur du använder kommando rads-och PowerShell-kommandon för att starta och stoppa emulatorn, konfigurera alternativ och utföra andra åtgärder. Du måste köra kommandona från installations platsen.
+Azure Cosmos DB-emulatorn tillhandahåller en lokal miljö som emulerar tjänsten Azure Cosmos DB för lokala utvecklings behov. När du har [installerat emulatorn](local-emulator.md)kan du kontrol lera emulatorn med kommando rads-och PowerShell-kommandon. Den här artikeln beskriver hur du använder kommando rads-och PowerShell-kommandon för att starta och stoppa emulatorn, konfigurera alternativ och utföra andra åtgärder. Du måste köra kommandona från installations platsen.
 
 ##  <a name="manage-the-emulator-with-command-line-syntax"></a><a id="command-line"></a>Hantera emulatorn med kommandoradssyntax
 
@@ -29,10 +29,10 @@ Om du vill visa en lista över alternativ skriver du `Microsoft.Azure.Cosmos.Emu
 
 |**Alternativ** | **Beskrivning** | **Kommando**| **Argument**|
 |---|---|---|---|
-|[Inga argument] | Startar Azure Cosmos-emulatorn med standardinställningar. |Microsoft.Azure.Cosmos.Emulator.exe| |
+|[Inga argument] | Startar Azure Cosmos DB-emulatorn med standardinställningar. |Microsoft.Azure.Cosmos.Emulator.exe| |
 |[Hjälp] |Visar en lista över kommandoradsargument som stöds.|Microsoft.Azure.Cosmos.Emulator.exe/? | |
-| GetStatus |Hämtar status för Azure Cosmos-emulatorn. Statusen visas med slutkoden: 1 = Startar, 2 = Körs, 3 = Stoppad. En negativ slutkod anger att ett fel har uppstått. Inga andra utdata produceras. | Microsoft.Azure.Cosmos.Emulator.exe/GetStatus| |
-| Avstängning| Stänger av Azure Cosmos-emulatorn.| Microsoft.Azure.Cosmos.Emulator.exe/shutdown | |
+| GetStatus |Laddar ned status för Azure Cosmos DB-emulatorn. Statusen visas med slutkoden: 1 = Startar, 2 = Körs, 3 = Stoppad. En negativ slutkod anger att ett fel har uppstått. Inga andra utdata produceras. | Microsoft.Azure.Cosmos.Emulator.exe/GetStatus| |
+| Avstängning| Stänger Azure Cosmos DB-emulatorn.| Microsoft.Azure.Cosmos.Emulator.exe/shutdown | |
 |DataPath | Anger den sökväg där du kan lagra filer. Standardvärdet är%LocalAppdata%\CosmosDBEmulator. | Microsoft.Azure.Cosmos.Emulator.exe/DataPath =\<datapath\> | \<datapath\>: En tillgänglig sökväg |
 |Port | Anger det portnummer som ska användas för emulatorn. Standardvärdet är 8081. |Microsoft.Azure.Cosmos.Emulator.exe/port =\<port\> | \<port\>: Enstaka port nummer |
 | ComputePort | Angett det port nummer som ska användas för tjänsten Compute interop Gateway. Gatewayens HTTP-slutpunkt avsöknings port beräknas som ComputePort + 79. Därför måste ComputePort och ComputePort + 79 vara öppna och tillgängliga. Standardvärdet är 8900. | Microsoft.Azure.Cosmos.Emulator.exe/ComputePort =\<computeport\> | \<computeport\>: Enstaka port nummer |
@@ -127,26 +127,26 @@ Cmdleten garanterar att emulatorn stoppas innan den avinstalleras.
 
 ## <a name="change-the-number-of-default-containers"></a><a id="set-partitioncount"></a>Ändra antalet standard behållare
 
-Som standard kan du skapa upp till 25 behållare med fast storlek (stöds endast med Azure Cosmos DB SDK: er) eller 5 obegränsade behållare med Azure Cosmos-emulatorn. Genom att ändra **PartitionCount** -värdet kan du skapa upp till 250 fast storleks behållare eller 50 obegränsade behållare, eller någon kombination av de två som inte överstiger 250 fasta storleks behållare (där en obegränsad container = 5 fast storleks behållare). Det rekommenderas dock inte att ställa in emulatorn så att den körs med fler än 200 behållare med fast storlek. På grund av den omkostnader som läggs till i diskens IO-åtgärder, vilket leder till oförutsägbara tids gränser vid användning av slut punkts-API: er.
+Som standard kan du skapa upp till 25 behållare med fast storlek (stöds endast med Azure Cosmos DB SDK: er) eller 5 obegränsade behållare med Azure Cosmos DB-emulatorn. Genom att ändra **PartitionCount** -värdet kan du skapa upp till 250 fast storleks behållare eller 50 obegränsade behållare, eller någon kombination av de två som inte överstiger 250 fasta storleks behållare (där en obegränsad container = 5 fast storleks behållare). Det rekommenderas dock inte att ställa in emulatorn så att den körs med fler än 200 behållare med fast storlek. På grund av den omkostnader som läggs till i diskens IO-åtgärder, vilket leder till oförutsägbara tids gränser vid användning av slut punkts-API: er.
 
 Om du försöker skapa en behållare när det aktuella antalet partitioner har överskridits, genererar emulatorn ett ServiceUnavailable-undantag med följande meddelande.
 
 > Vi har tyvärr för närvarande hög efter frågan i den här regionen och kan inte slutföra din begäran för tillfället. Vi arbetar kontinuerligt för att få mer och mer kapacitet online och uppmana dig att försöka igen.
 > ActivityId: 12345678-1234-1234-1234-123456789abc
 
-Kör följande steg för att ändra antalet behållare som är tillgängliga i Azure Cosmos-emulatorn:
+Kör följande steg för att ändra antalet behållare som är tillgängliga i Azure Cosmos DB-emulatorn:
 
-1. Ta bort alla lokala Azure Cosmos-emulator-data genom att högerklicka på ikonen **Azure Cosmos DB emulator** i system fältet och sedan klicka på **Återställ data..** ..
+1. Ta bort alla lokala Azure Cosmos DB-emulatordata genom att högerklicka på ikonen för **Azure Cosmos DB-emulatorn** i meddelandefältet och sedan klicka på **Återställ data...**
 
 1. Ta bort alla emulator-data i den här mappen `%LOCALAPPDATA%\CosmosDBEmulator` .
 
-1. Avsluta alla öppna instanser genom att högerklicka på ikonen för **Azure Cosmos DB-emulator** i meddelandefältet och klicka sedan på **Avsluta** . Det kan ta någon minut för alla instanser att avslutas.
+1. Avsluta alla öppna instanser genom att högerklicka på ikonen för **Azure Cosmos DB-emulator** i meddelandefältet och klicka sedan på **Avsluta**. Det kan ta någon minut för alla instanser att avslutas.
 
-1. Installera den senaste versionen av [Azure Cosmos-emulatorn](https://aka.ms/cosmosdb-emulator).
+1. Installera den senaste versionen av [Azure Cosmos DB-emulatorn](https://aka.ms/cosmosdb-emulator).
 
-1. Starta emulatorn med PartitionCount-flaggan genom att ställa in ett värde <= 250. Till exempel `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
+1. Starta emulatorn med PartitionCount-flaggan genom att ställa in ett värde <= 250. Till exempel: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
  
 ## <a name="next-steps"></a>Nästa steg
 
-* [Exportera Azure Cosmos-emulatorns certifikat för användning med Java, python och Node.js appar](local-emulator-export-ssl-certificates.md)
+* [Exportera Azure Cosmos DB emulator-certifikat för användning med Java-, python-och Node.js-appar](local-emulator-export-ssl-certificates.md)
 * [Felsöka problem med emulatorn](troubleshoot-local-emulator.md)

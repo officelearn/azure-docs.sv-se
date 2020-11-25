@@ -7,18 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81bcfdf5e63d49280fb798773559310cbd912a26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013589"
+ms.locfileid: "96030789"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Skapa en förslags ställare för att aktivera Autoavsluta och föreslagna resultat i en fråga
 
-I Azure Kognitiv sökning aktive ras "Sök som-du-typ" via en **förslags** konstruktion som läggs till i ett [sökindex](search-what-is-an-index.md). En förslags ställare stöder två upplevelser: *komplettera automatiskt*, som slutför indatamängden för en fullständig term fråga och *förslag* som bjuder in genom att klicka igenom till en viss matchning. Funktionen Komplettera automatiskt skapar en fråga. Förslag skapar ett matchande dokument.
+I Azure Kognitiv sökning aktive ras "Sök som-du-typ" via en *förslags ställare*. En förslags ställare är en intern data struktur som består av en fält samling. Fälten genomgår ytterligare tokenisering, vilket genererar prefixvärde för att stödja matchningar på delar av villkor.
+
+Om en förslags ställare t. ex. innehåller fältet stad, kommer de resulterande prefixen "Sea", "plats", "plats" och "seattl" att skapas för termen "Seattle". Prefix lagras i inverterade index, ett för varje fält som anges i en förslags fält samling.
+
+## <a name="typeahead-experiences-in-cognitive-search"></a>Typeahead-upplevelser i Kognitiv sökning
+
+En förslags ställare stöder två upplevelser: *komplettera automatiskt*, som slutför indatamängden för en fullständig term fråga och *förslag* som bjuder in genom att klicka igenom till en viss matchning. Funktionen Komplettera automatiskt skapar en fråga. Förslag skapar ett matchande dokument.
 
 Följande skärm bild från [skapa din första app i C#](tutorial-csharp-type-ahead-and-suggestions.md) visar båda. Autoavsluta förväntar sig en möjlig term, och avslutar "TW" med "in". Förslag är små Sök resultat, där ett fält som ett hotell namn representerar ett matchande hotell Sök dokument från indexet. För förslag kan du Visa alla fält som innehåller beskrivande information.
 
@@ -31,10 +37,6 @@ Du kan använda dessa funktioner separat eller tillsammans. Det finns ett index 
 + Anropa en förslags aktive rad fråga, i form av en förslags förfrågan eller en begäran om automatisk komplettering, med hjälp av något av [API: erna som anges nedan](#how-to-use-a-suggester).
 
 Stöd för sökning efter typ har Aktiver ATS baserat på fältet per fält för sträng fält. Du kan implementera båda typeahead-beteenden inom samma Sök lösning om du vill ha en upplevelse som liknar den som anges i skärm bilden. Båda begär Anden mål *dokument* samlingen för ett särskilt index och svar returneras efter att en användare har angett minst en sträng med tre tecken.
-
-## <a name="what-is-a-suggester"></a>Vad är en förslags ställare?
-
-En förslags ställare är en intern data struktur som stöder sökning efter typ genom att lagra prefix för matchning på ofullständiga frågor. Precis som med token-termer lagras prefix i inverterade index, en för varje fält som anges i en förslags fält samling.
 
 ## <a name="how-to-create-a-suggester"></a>Så här skapar du en förslags ställare
 

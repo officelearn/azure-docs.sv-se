@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: ed9c3c86336a7b0a2fe989cbe9bd0dd825c5575b
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 08bcb74fd50be0eeb7a73c0743db2c4f3a57be32
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372639"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030857"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Skydda dina Kubernetes-arbetsbelastningar
 
@@ -47,23 +47,32 @@ Security Center innehåller fler säkerhets funktioner för behållare om du akt
 
 Azure Security Center innehåller en samling rekommendationer som är tillgängliga när du har installerat **Azure policy-tillägget för Kubernetes**.
 
-1. Om du vill konfigurera rekommendationerna måste du först installera tillägget på:
+### <a name="step-1-deploy-the-add-on"></a>Steg 1: Distribuera tillägget
 
-    1. På sidan rekommendationer söker du efter rekommendationen med namnet **Azure policy tillägg för Kubernetes ska installeras och aktive ras i klustren**.
+Konfigurera rekommendationerna genom att installera  **Azure policy-tillägget för Kubernetes**. 
+
+- Du kan distribuera tillägget automatiskt enligt beskrivningen i [Aktivera automatisk etablering av tillägg](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). När automatisk etablering för tillägget har angetts till "på" aktive ras tillägget som standard i alla befintliga och framtida kluster (som uppfyller installations kraven för tillägg).
+
+- Så här distribuerar du tillägget manuellt:
+
+    1. På sidan rekommendationer söker du efter rekommendationen "**Azure policy tillägg för Kubernetes ska installeras och aktive ras i klustren**". 
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Rekommendation * * Azure Policy tillägg för Kubernetes bör installeras och aktive ras i klustren * *":::
 
         > [!TIP]
         > Rekommendationen ingår i fem olika säkerhets kontroller och det spelar ingen roll vilket du väljer i nästa steg.
 
-    1. Från någon av säkerhets kontrollerna väljer du rekommendationen för att se vilka resurser som du kan installera tillägget på och väljer **åtgärda**. 
+    1. Från någon av säkerhets kontrollerna väljer du rekommendationen för att se vilka resurser som du kan installera tillägget på.
+    1. Välj lämpligt kluster och **åtgärda**.
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Rekommendations informations sidan för * * Azure Policy tillägg för Kubernetes bör installeras och aktive ras i klustren * *":::
+
+### <a name="step-2-view-and-configure-the-bundle-of-13-recommendations"></a>Steg 2: Visa och konfigurera paketet med 13 rekommendationer
 
 1. Ungefär 30 minuter efter att installationen har slutförts, visar Security Center hälso status för klustrets hälso status för följande rekommendationer, var och en i den relevanta säkerhets kontrollen som visas:
 
     > [!TIP]
-    > Vissa rekommendationer har parametrar som måste anpassas via Azure Policy för att kunna använda dem effektivt. Om du till exempel vill dra nytta av rekommendations **behållar avbildningarna ska endast distribueras från betrodda register** , måste du definiera dina betrodda register.
+    > Vissa rekommendationer har parametrar som måste anpassas via Azure Policy för att kunna använda dem effektivt. Om du till exempel vill dra nytta av rekommendations **behållar avbildningarna ska endast distribueras från betrodda register**, måste du definiera dina betrodda register.
     > 
     > Om du inte anger de nödvändiga parametrarna för de rekommendationer som kräver konfiguration, visas dina arbets belastningar som felaktiga.
 
@@ -82,6 +91,7 @@ Azure Security Center innehåller en samling rekommendationer som är tillgängl
     | Användning av värd nätverk och portar ska begränsas                     | Begränsa obehörig nätverks åtkomst     | **Ja**                |
     | Åsidosättning eller inaktive ring av behållare AppArmor-profilen bör vara begränsad | Åtgärda säkerhetskonfigurationer        | **Ja**                |
     | Behållar avbildningar ska endast distribueras från betrodda register            | Åtgärda sårbarheter                | **Ja**                |
+    |||
 
 
 1. För rekommendationer med parametrar måste anpassas anger du parametrarna:
@@ -97,7 +107,7 @@ Azure Security Center innehåller en samling rekommendationer som är tillgängl
 
 1. För att genomdriva någon av rekommendationerna 
 
-    1. Öppna sidan rekommendations information och välj **neka** :
+    1. Öppna sidan rekommendations information och välj **neka**:
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Neka alternativ för Azure Policy parameter":::
 

@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f108d688c7060c2ae110544ac65c4f27359be242
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 1190add704fe6477892718f79aecd0139f123af0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92347128"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96007792"
 ---
-|Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Azure Cosmos DB konto ska använda Kundhanterade nycklar för att kryptera data i vila](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f905d99-2ab7-462c-a6b0-f709acca6c8f) |Använd Kundhanterade nycklar för att kontrol lera krypteringen vid resten av de data som lagras i Azure Cosmos DB när detta är ett krav för regler eller efterlevnad. Kundhanterade nycklar levererar också Double Encryption genom att lägga till ett andra lager av kryptering ovanpå det som är standard med tjänst hanterade nycklar. Kontakta [https://aka.ms/cosmosdb-cmk](https://aka.ms/cosmosdb-cmk) |granska, neka, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_CMK_Deny.json) |
 |[Azure Cosmos DB konton måste ha brand Väggs regler](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb) |Granska eller neka resurser som inte har några konfigurerade IP-regler och som standard tillåter alla nätverk. Konton som har minst en IP-regel som definierats med det virtuella nätverks filtret aktiverat anses vara kompatibla. Konton som inaktiverar offentlig åtkomst anses också uppfylla kraven. |Granska, neka, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_NetworkRulesExist_Audit.json) |

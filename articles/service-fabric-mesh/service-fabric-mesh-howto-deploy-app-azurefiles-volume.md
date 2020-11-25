@@ -7,11 +7,11 @@ ms.date: 11/21/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter , devx-track-azurecli
 ms.openlocfilehash: 00addbe992bc113c67df08f73414107d51b3bce5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748206"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007400"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montera en Azure Files baserad volym i ett Service Fabric nätprogram 
 
@@ -75,9 +75,9 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 ```
 
 Du kan också hitta de här värdena i [Azure Portal](https://portal.azure.com):
-* `<storageAccountName>` – Under **lagrings konton** , namnet på det lagrings konto som användes för att skapa fil resursen.
-* `<storageAccountKey>` – Välj ditt lagrings konto under **lagrings konton** och välj sedan **åtkomst nycklar** och Använd värdet under **KEY1** .
-* `<fileShareName>` – Välj ditt lagrings konto under  **lagrings konton** och välj sedan **filer** . Namnet som ska användas är namnet på den fil resurs som du har skapat.
+* `<storageAccountName>` – Under **lagrings konton**, namnet på det lagrings konto som användes för att skapa fil resursen.
+* `<storageAccountKey>` – Välj ditt lagrings konto under **lagrings konton** och välj sedan **åtkomst nycklar** och Använd värdet under **KEY1**.
+* `<fileShareName>` – Välj ditt lagrings konto under  **lagrings konton** och välj sedan **filer**. Namnet som ska användas är namnet på den fil resurs som du har skapat.
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Deklarera en volym resurs och uppdatera tjänst resursen (JSON)
 

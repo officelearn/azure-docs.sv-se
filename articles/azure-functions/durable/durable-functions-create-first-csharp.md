@@ -7,11 +7,11 @@ ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890283"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008250"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Skapa din första beständiga funktion i C\#
 
@@ -49,7 +49,7 @@ I det här avsnittet använder du Visual Studio Code för att skapa ett lokalt A
 
     ![Skapa ett funktionsprojekt](media/durable-functions-create-first-csharp/functions-vscode-create-project.png)
 
-1. Välj en tom mapplats för ditt projekt och välj **Välj** .
+1. Välj en tom mapplats för ditt projekt och välj **Välj**.
 
 1. Ange följande information i instruktionerna nedan:
 
@@ -76,7 +76,7 @@ Följande steg använder en mall för att skapa varaktig funktionskod.
     | Ange ett funktions namn | HelloOrchestration | Namnet på klassen där funktionerna skapas |
     | Ange ett namn område | Company. Function | Namnrymd för den genererade klassen |
 
-1. Vid VS-kod kan du välja ett lagrings konto genom att välja **Välj lagrings konto** . Följ instruktionerna och ange följande information för att skapa ett nytt lagrings konto i Azure.
+1. Vid VS-kod kan du välja ett lagrings konto genom att välja **Välj lagrings konto**. Följ instruktionerna och ange följande information för att skapa ett nytt lagrings konto i Azure.
 
     | Prompt | Värde | Beskrivning |
     | ------ | ----- | ----------- |
@@ -84,13 +84,13 @@ Följande steg använder en mall för att skapa varaktig funktionskod.
     | Välj ett lagrings konto | Skapa ett nytt lagringskonto |  |
     | Ange namnet på det nya lagrings kontot | *unikt namn* | Namn på det lagrings konto som ska skapas |
     | Välj en resursgrupp | *unikt namn* | Namnet på den resurs grupp som ska skapas |
-    | Välja en plats | *region* | Välj en region nära dig |
+    | Välja en plats | *nationella* | Välj en region nära dig |
 
 En klass som innehåller de nya funktionerna läggs till i projektet. VS Code lägger också till anslutnings strängen för lagrings kontot till *local.settings.jspå* och en referens till [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) NuGet-paketet *i. CSPROJ* -projektfilen.
 
 Öppna den nya *HelloOrchestration.cs* -filen för att visa innehållet. Det här beständiga funktionen är ett enkelt funktionslänkningsexempel med följande metoder:  
 
-| Metod | FunctionName | Beskrivning |
+| Metod | FunctionName | Description |
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `HelloOrchestration` | Hanterar varaktig orkestrering. I det här fallet startar orkestreringen, den skapar en lista och lägger till resultatet av tre funktionsanrop i listan.  När de tre funktionsanropen har slutförts returnerar den listan. |
 | **`SayHello`** | `HelloOrchestration_Hello` | Funktionen returnerar ett ”hello”. Funktionen som innehåller affärs logiken som dirigeras. |
@@ -102,7 +102,7 @@ Nu när du har skapat ditt funktionsprojekt och en beständig funktion kan du te
 
 Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio Code.
 
-1. Testa din funktion genom att ange en Bryt punkt i `SayHello` aktivitetens funktions kod och tryck på F5 för att starta projektet för Function-appen. Utdata från Core Tools visas på panelen **Terminal** .
+1. Testa din funktion genom att ange en Bryt punkt i `SayHello` aktivitetens funktions kod och tryck på F5 för att starta projektet för Function-appen. Utdata från Core Tools visas på panelen **Terminal**.
 
     > [!NOTE]
     > Mer information om fel sökning hittar du i [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging) .
@@ -146,7 +146,7 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 
 ## <a name="test-your-function-in-azure"></a>Testa din funktion i Azure
 
-1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata** . Den URL som anropar den HTTP-utlösta funktionen ska ha följande format:
+1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Den URL som anropar den HTTP-utlösta funktionen ska ha följande format:
 
     `https://<functionappname>.azurewebsites.net/api/HelloOrchestration_HttpStart`
 
@@ -183,13 +183,13 @@ Med Azure Functions-mallen skapas ett projekt som kan publiceras till en funktio
 
 1. I Visual Studio väljer du **nytt**  >  **projekt** på **Arkiv** -menyn.
 
-1. I dialog rutan **skapa ett nytt projekt** söker du efter `functions` , väljer mallen **Azure Functions** och väljer **Nästa** . 
+1. I dialog rutan **skapa ett nytt projekt** söker du efter `functions` , väljer mallen **Azure Functions** och väljer **Nästa**. 
 
     ![Dialogrutan Nytt projekt för att skapa en funktion i Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
-1. Skriv ett **projekt namn** för projektet och välj **OK** . Projekt namnet måste vara giltigt som ett C#-namn område, så Använd inte under streck, bindestreck eller andra tecken som inte är alfanumeriska.
+1. Skriv ett **projekt namn** för projektet och välj **OK**. Projekt namnet måste vara giltigt som ett C#-namn område, så Använd inte under streck, bindestreck eller andra tecken som inte är alfanumeriska.
 
-1. Använd de inställningar som anges i tabellen som följer efter bilden i **skapa ett nytt Azure Functions program** .
+1. Använd de inställningar som anges i tabellen som följer efter bilden i **skapa ett nytt Azure Functions program**.
 
     ![Skapa en ny Azure Functions program dialog i Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
@@ -205,11 +205,11 @@ Med Azure Functions-mallen skapas ett projekt som kan publiceras till en funktio
 
 Följande steg använder en mall för att skapa varaktig funktionskod.
 
-1. Högerklicka på projektet i Visual Studio och välj **Lägg till**  >  **ny Azure-funktion** .
+1. Högerklicka på projektet i Visual Studio och välj **Lägg till**  >  **ny Azure-funktion**.
 
     ![Lägga till ny funktion](./media/durable-functions-create-first-csharp/functions-vs-add-function.png)
 
-1. Verifiera att **Azure Function** har marker ATS på Lägg till-menyn, Skriv ett namn för C#-filen och välj sedan **Lägg till** .
+1. Verifiera att **Azure Function** har marker ATS på Lägg till-menyn, Skriv ett namn för C#-filen och välj sedan **Lägg till**.
 
 1. Välj mallen **Durable Functions Orchestration** och välj sedan **OK**
 
@@ -217,7 +217,7 @@ Följande steg använder en mall för att skapa varaktig funktionskod.
 
 En ny beständig funktion läggs till i appen.  Öppna den nya .cs-filen för att visa innehållet. Det här beständiga funktionen är ett enkelt funktionslänkningsexempel med följande metoder:  
 
-| Metod | FunctionName | Beskrivning |
+| Metod | FunctionName | Description |
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `<file-name>` | Hanterar varaktig orkestrering. I det här fallet startar orkestreringen, den skapar en lista och lägger till resultatet av tre funktionsanrop i listan.  När de tre funktionsanropen har slutförts returnerar den listan. |
 | **`SayHello`** | `<file-name>_Hello` | Funktionen returnerar ett ”hello”. Funktionen som innehåller affärs logiken som dirigeras. |
@@ -261,7 +261,7 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
     }
     ```
 
-5. Stoppa fel sökningen genom att trycka på **SKIFT + F5** .
+5. Stoppa fel sökningen genom att trycka på **SKIFT + F5**.
 
 När du har kontrollerat att funktionen körs korrekt på den lokala datorn är det dags att publicera projektet på Azure.
 

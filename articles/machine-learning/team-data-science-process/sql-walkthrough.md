@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 580181aaaea975ee07bcec8108297079c5373b92
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320415"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007417"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team data vetenskaps processen i praktiken: använda SQL Server
 I den här självstudien går vi igenom processen för att skapa och distribuera en maskin inlärnings modell med SQL Server och en offentligt tillgänglig data uppsättning – [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) -datauppsättningen. I proceduren följer ett standard arbets flöde för data vetenskap: mata in och utforska data, ingenjörs funktioner för att under lätta inlärningen och sedan bygga och distribuera en modell.
@@ -55,7 +55,7 @@ NYC taxi-resan är cirka 20 GB komprimerade CSV-filer (~ 48 GB okomprimerat), vi
 Den unika nyckeln för att ansluta till rese \_ data och rese \_ pris består av fälten: Medallion, Hacke \_ License och upphämtnings \_ tid.
 
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Exempel på förutsägelse aktiviteter
-Vi kommer att formulera tre förutsägelse problem baserat på *Tip- \_ mängden* , nämligen:
+Vi kommer att formulera tre förutsägelse problem baserat på *Tip- \_ mängden*, nämligen:
 
 * Binära klassificering: förutsäga huruvida ett tips har betalats för en resa, det vill säga ett *Tip- \_ belopp* som är större än $0 är ett positivt exempel, medan ett *tip- \_ värde* på $0 är ett negativt exempel.
 * Klassificering av flera klasser: för att förutsäga det tips som du betalar för resan. Vi delar upp *Tip- \_ beloppet* i fem lager platser eller klasser:
@@ -133,7 +133,7 @@ Prestanda vid inläsning/överföring av stora mängder data till en SQL Databas
      
        ![SQL Database standardvärden][15]  
 5. Om du vill skapa en ny databas och en uppsättning fil grupper som ska innehålla de partitionerade tabellerna öppnar du exempel skriptet **create \_ db \_ . SQL**. Skriptet skapar en ny databas med namnet **TaxiNYC** och 12 fil grupper på standard data platsen. Varje fil grupp innehåller en månad med rese \_ data och rese \_ pris data. Ändra databas namnet om du vill. Klicka på **Kör** för att köra skriptet.
-6. Skapa sedan två partitionstabell, en för rese \_ data och en annan för rese \_ avgiften. Öppna exempel skriptet **skapa \_ partitionerad \_ tabell. SQL** , som kommer att:
+6. Skapa sedan två partitionstabell, en för rese \_ data och en annan för rese \_ avgiften. Öppna exempel skriptet **skapa \_ partitionerad \_ tabell. SQL**, som kommer att:
    
    * Skapa en partitions funktion för att dela data efter månad.
    * Skapa ett partition schema för att mappa varje månads data till en annan filgrupp.
@@ -258,7 +258,7 @@ AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 ```
 
 #### <a name="feature-engineering-in-sql-queries"></a>Funktions teknik i SQL-frågor
-Utforsknings frågor för etikett generering och geografi konvertering kan också användas för att generera etiketter/funktioner genom att ta bort inventerings delen. Ytterligare funktioner i SQL-exempel finns i avsnittet [data utforskning och funktions teknik i IPython Notebook](#ipnb) . Det är mer effektivt att köra frågor som genereras av funktionen på den fullständiga data uppsättningen eller en stor del av den med hjälp av SQL-frågor som körs direkt på SQL Server databas instansen. Frågorna kan utföras i **SQL Server Management Studio** , IPython Notebook eller ett utvecklingsverktyg eller en miljö som kan komma åt databasen lokalt eller via fjärr anslutning.
+Utforsknings frågor för etikett generering och geografi konvertering kan också användas för att generera etiketter/funktioner genom att ta bort inventerings delen. Ytterligare funktioner i SQL-exempel finns i avsnittet [data utforskning och funktions teknik i IPython Notebook](#ipnb) . Det är mer effektivt att köra frågor som genereras av funktionen på den fullständiga data uppsättningen eller en stor del av den med hjälp av SQL-frågor som körs direkt på SQL Server databas instansen. Frågorna kan utföras i **SQL Server Management Studio**, IPython Notebook eller ett utvecklingsverktyg eller en miljö som kan komma åt databasen lokalt eller via fjärr anslutning.
 
 #### <a name="preparing-data-for-model-building"></a>Förbereda data för modell skapande
 Följande fråga ansluter tabellerna **nyctaxi \_ rese** -och **nyctaxi- \_ pris** , genererar en binära klassificerings **etikett, en** **\_ klass** för klassificerings etiketter i flera klasser och extraherar ett slumpmässigt exempel i 1% från den fullständiga sammanfogade data uppsättningen. Den här frågan kan kopieras och klistras in direkt i modulen [Azure Machine Learning Studio](https://studio.azureml.net) [Importera data][import-data] för direkt data inmatning från SQL Server databas instansen i Azure. Frågan utesluter poster med felaktiga koordinater (0, 0).
@@ -437,7 +437,7 @@ När du förbereder data för modell utveckling i [Azure Machine Learning Studio
 I det här avsnittet ska vi skapa en ny tabell för att lagra de insamlade och tillverkade data. Ett exempel på en direkt SQL-fråga för modell utveckling finns i avsnittet [data utforskning och funktions teknik i SQL Server](#dbexplore) avsnittet.
 
 #### <a name="create-a-sample-table-and-populate-with-1-of-the-joined-tables-drop-table-first-if-it-exists"></a>Skapa en exempel tabell och fyll i med 1% av de kopplade tabellerna. Ta bort tabellen först om den finns.
-I det här avsnittet ska vi gå med i tabellerna **nyctaxi \_ rese** -och **nyctaxi- \_ biljett** , extrahera ett slumpmässigt exempel för 1% och bevara exempel data i ett nytt tabell namn **nyctaxi \_ en \_ procents** ATS:
+I det här avsnittet ska vi gå med i tabellerna **nyctaxi \_ rese** -och **nyctaxi- \_ biljett**, extrahera ett slumpmässigt exempel för 1% och bevara exempel data i ett nytt tabell namn **nyctaxi \_ en \_ procents** ATS:
 
 ```sql
 cursor = conn.cursor()
@@ -661,7 +661,7 @@ Ett exempel på ett binära klassificerings experiment som läser data direkt fr
 ![Azure Machine Learning träna][10]
 
 > [!IMPORTANT]
-> I exemplen för att extrahera data och samplings frågor i föregående avsnitt, **ingår alla etiketter för de tre modell övningarna i frågan**. Ett viktigt (obligatoriskt) steg i varje modell övning är att **utesluta** onödiga etiketter för de andra två problemen och andra **mål läckor**. Om du t. ex. använder binära klassificering använder du etiketten **lutad** och utelämnar fält **Tip- \_ klassen** , **Tip- \_ beloppet** och **total \_ beloppet**. De sistnämnda är mål läckor eftersom de innebär att tipset betalas.
+> I exemplen för att extrahera data och samplings frågor i föregående avsnitt, **ingår alla etiketter för de tre modell övningarna i frågan**. Ett viktigt (obligatoriskt) steg i varje modell övning är att **utesluta** onödiga etiketter för de andra två problemen och andra **mål läckor**. Om du t. ex. använder binära klassificering använder du etiketten **lutad** och utelämnar fält **Tip- \_ klassen**, **Tip- \_ beloppet** och **total \_ beloppet**. De sistnämnda är mål läckor eftersom de innebär att tipset betalas.
 > 
 > Om du vill utesluta onödiga kolumner och/eller mål läckor kan du använda modulen [Välj kolumner i data uppsättning][select-columns] eller [Redigera metadata][edit-metadata]. Mer information finns i avsnittet [Välj kolumner i data uppsättning][select-columns] och [Redigera metadata][edit-metadata] referens sidor.
 > 

@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86130409"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007366"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Felsöka replikering i haveri beredskap för virtuella Azure-datorer
 
@@ -35,7 +35,7 @@ Du bör se **ändrings takten för händelse data utöver de gränser som stöds
 
 Om du väljer händelsen bör du se exakt disk information:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Azure Site Recovery sida som visar en hög data ändrings hastighet som är för hög.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Sidan som visar händelse informationen för data ändrings frekvensen.":::
 
 ### <a name="azure-site-recovery-limits"></a>Gränser för Azure Site Recovery
 
@@ -54,18 +54,18 @@ Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per di
 
 ### <a name="solution"></a>Lösning
 
-Azure Site Recovery har gränser för data ändrings hastigheter, beroende på typ av disk. Om du vill se om det här problemet är återkommande eller tillfälligt kan du hitta data ändrings takten för den berörda virtuella datorn. Gå till den virtuella käll datorn, hitta måtten under **övervakning**och Lägg till måtten som visas på den här skärm bilden:
+Azure Site Recovery har gränser för data ändrings hastigheter, beroende på typ av disk. Om du vill se om det här problemet är återkommande eller tillfälligt kan du hitta data ändrings takten för den berörda virtuella datorn. Gå till den virtuella käll datorn, hitta måtten under **övervakning** och Lägg till måtten som visas på den här skärm bilden:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Azure Site Recovery sida som visar en hög data ändrings hastighet som är för hög.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Sidan som visar den tre stegs processen för att hitta data ändrings takten.":::
 
-1. Välj **Lägg till mått**och Lägg till **OS disk-skrivna byte/s** och **data disk-skrivna byte/s**.
+1. Välj **Lägg till mått** och Lägg till **OS disk-skrivna byte/s** och **data disk-skrivna byte/s**.
 1. Övervaka insamling som visas i skärm bilden.
 1. Visa de totala Skriv åtgärder som sker mellan OS-diskar och alla data diskar tillsammans. Dessa mått kanske inte ger dig information på nivån per disk, men de visar det totala mönstret för data omsättning.
 
 En insamling i data ändrings takt kan komma från en tillfällig data burst. Om data ändrings takten är större än 10 MB/s (för Premium) eller 2 MB/s (för standard) och är nere, kommer replikeringen att fångas upp. Överväg något av följande alternativ om omsättningen är konsekvent väl efter den gräns som stöds:
 
 - Undanta disken som orsakar en hög data ändrings hastighet: först inaktiverar du replikeringen. Sedan kan du undanta disken med hjälp av [PowerShell](azure-to-azure-exclude-disks.md).
-- Ändra nivån på lagrings disken för haveri beredskap: det här alternativet är endast möjligt om disk data omsättningen är mindre än 20 MB/s. Till exempel har en virtuell dator med en P10-disk en data omsättning på mer än 8 MB/s men mindre än 10 MB/s. Om kunden kan använda en P30-disk för mål lagring under skyddet kan problemet lösas. Den här lösningen är bara möjlig för datorer som använder Premium-Managed diskar. Följ de här stegen:
+- Ändra nivån på lagrings disken för haveri beredskap: det här alternativet är endast möjligt om disk data omsättningen är mindre än 20 MB/s. Till exempel har en virtuell dator med en P10-disk en data omsättning på mer än 8 MB/s men mindre än 10 MB/s. Om kunden kan använda en P30-disk för mål lagring under skyddet kan problemet lösas. Den här lösningen är bara möjlig för datorer som använder Premium-Managed diskar. Gör så här:
 
   1. Gå till **diskarna** på den berörda replikerade datorn och kopiera replik diskens namn.
   1. Gå till den här repliken av den hanterade disken.
@@ -100,7 +100,7 @@ Nedan följer några av de vanligaste problemen.
 
 ### <a name="known-issue-in-sql-server-2016-and-2017"></a>Kända problem i SQL Server 2016 och 2017
 
-**Så här åtgärdar**du: Läs artikeln [kumulativ uppdatering 16 för SQL Server 2017](https://support.microsoft.com/help/4508218/cumulative-update-16-for-sql-server-2017).
+**Så här åtgärdar** du: Läs artikeln [kumulativ uppdatering 16 för SQL Server 2017](https://support.microsoft.com/help/4508218/cumulative-update-16-for-sql-server-2017).
 
 ### <a name="youre-using-azure-storage-spaces-direct-configuration"></a>Du använder konfiguration för Azure Storage dirigering
 
@@ -126,11 +126,11 @@ I föregående exempel är **2147754994** den felkod som visar om felet som föl
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS-skrivaren är inte installerad-fel 2147221164
 
-**Så här åtgärdar**du: om du vill skapa en tillämpnings konsekvens tag Azure Site Recovery använder tjänsten Volume Shadow Copy (VSS). Site Recovery installerar en VSS-Provider för åtgärden för att ta ögonblicks bilder av program konsekvens. Azure Site Recovery installerar VSS-providern som en tjänst. Om VSS-providern inte är installerad går det inte att skapa en ögonblicks bild av program. Den visar **fel-ID 0x80040154-klassen har inte registrerats**. Läs artikeln om [fel sökning av VSS Writer-installation](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
+**Så här åtgärdar** du: om du vill skapa en tillämpnings konsekvens tag Azure Site Recovery använder tjänsten Volume Shadow Copy (VSS). Site Recovery installerar en VSS-Provider för åtgärden för att ta ögonblicks bilder av program konsekvens. Azure Site Recovery installerar VSS-providern som en tjänst. Om VSS-providern inte är installerad går det inte att skapa en ögonblicks bild av program. Den visar **fel-ID 0x80040154-klassen har inte registrerats**. Läs artikeln om [fel sökning av VSS Writer-installation](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS-skrivaren är inaktive rad-fel 2147943458
 
-**Så här åtgärdar**du: om du vill generera en applikations konsekvens kod använder Azure Site Recovery VSS. Site Recovery installerar en VSS-Provider för åtgärden för att ta ögonblicks bilder av program konsekvens. Den här VSS-providern installeras som en tjänst. Om tjänsten VSS Provider inte är aktive rad går det inte att skapa en ögonblicks bild av program konsekvens. Det visar felet: **den angivna tjänsten är inaktive rad och kan inte startas (0x80070422)**.
+**Så här åtgärdar** du: om du vill generera en applikations konsekvens kod använder Azure Site Recovery VSS. Site Recovery installerar en VSS-Provider för åtgärden för att ta ögonblicks bilder av program konsekvens. Den här VSS-providern installeras som en tjänst. Om tjänsten VSS Provider inte är aktive rad går det inte att skapa en ögonblicks bild av program konsekvens. Det visar felet: **den angivna tjänsten är inaktive rad och kan inte startas (0x80070422)**.
 
 Om VSS är inaktiverat:
 
@@ -142,7 +142,7 @@ Om VSS är inaktiverat:
 
 #### <a name="vss-provider-not_registered---error-2147754756"></a>VSS-PROVIDER NOT_REGISTERED-fel 2147754756
 
-**Så här åtgärdar**du: om du vill generera en applikations konsekvens kod använder Azure Site Recovery VSS. Kontrol lera om tjänsten Azure Site Recovery VSS Provider är installerad.
+**Så här åtgärdar** du: om du vill generera en applikations konsekvens kod använder Azure Site Recovery VSS. Kontrol lera om tjänsten Azure Site Recovery VSS Provider är installerad.
 
 Använd följande kommandon för att installera om VSS-providern:
 

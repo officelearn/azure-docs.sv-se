@@ -9,16 +9,16 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: 952d0acb00a25fe7d84738825cbad017e5b18029
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: b9eb65311951706863c3b18c5fc91bae8c41c7dc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91892701"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007349"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hantering av statisk webbplats i Azure Storage
 
-Du kan hantera statiskt innehåll (HTML, CSS, Java Script och bildfiler) direkt från en lagrings behållare med namnet *$Web*. Om du är värd för ditt innehåll i Azure Storage kan du använda serverbaserade arkitekturer som inkluderar [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster (Platform as a Service). Azure Storage statisk webbplats värd är ett bra alternativ i fall där du inte behöver en webb server för att återge innehåll.
+Du kan hantera statiskt innehåll (HTML, CSS, Java Script och bildfiler) direkt från en lagrings behållare med namnet *$Web*. Om du är värd för ditt innehåll i Azure Storage kan du använda serverbaserade arkitekturer som inkluderar [Azure Functions](../../azure-functions/functions-overview.md) och andra PaaS-tjänster (Platform as a Service). Azure Storage statisk webbplats värd är ett bra alternativ i fall där du inte behöver en webb server för att återge innehåll.
 
 [App Service statiska Web Apps](https://azure.microsoft.com/services/app-service/static/) är ett bra alternativ till att Azure Storage statisk webbplats värd och är också lämpligt i fall där du inte behöver en webb server för att återge innehåll. App Service statiska Web Apps ger dig ett fullständigt hanterat arbets flöde för kontinuerlig integrering och kontinuerlig leverans (CI/CD) från GitHub källa till global distribution.
 
@@ -60,7 +60,7 @@ Användare kan visa webbplats innehåll från en webbläsare med hjälp av den o
 Om servern returnerar ett 404-fel och du inte har angett ett fel dokument när du aktiverade webbplatsen, returneras en standard-404-sida till användaren.
 
 > [!NOTE]
-> [Stöd för resurs delning mellan ursprung (CORS) för Azure Storage](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) stöds inte med den statiska webbplatsen.
+> [Stöd för resurs delning mellan ursprung (CORS) för Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) stöds inte med den statiska webbplatsen.
 
 ### <a name="regional-codes"></a>Regionala koder
 
@@ -103,13 +103,13 @@ Om lagrings kontot har kon figurer ATS för att [kräva säker överföring](../
 
 ## <a name="adding-http-headers"></a>Lägger till HTTP-huvuden
 
-Det finns inget sätt att konfigurera rubriker som en del av den statiska webbplats funktionen. Du kan dock använda Azure CDN för att lägga till rubriker och lägga till (eller överskrivna) huvud värden. Se [referens för standard regel motor för Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
+Det finns inget sätt att konfigurera rubriker som en del av den statiska webbplats funktionen. Du kan dock använda Azure CDN för att lägga till rubriker och lägga till (eller överskrivna) huvud värden. Se [referens för standard regel motor för Azure CDN](../../cdn/cdn-standard-rules-engine-reference.md).
 
-Om du vill använda huvuden för att styra cachelagring, se [kontroll Azure CDN cachelagring med regler för cachelagring](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+Om du vill använda huvuden för att styra cachelagring, se [kontroll Azure CDN cachelagring med regler för cachelagring](../../cdn/cdn-caching-rules.md).
 
 ## <a name="multi-region-website-hosting"></a>Värd för flera regioner-webbplatser
 
-Om du planerar att vara värd för en webbplats i flera geografiska områden rekommenderar vi att du använder en [Content Delivery Network](https://docs.microsoft.com/azure/cdn/) för regional cachelagring. Använd [Azures front dörr](https://docs.microsoft.com/azure/frontdoor/) om du vill hantera olika innehåll i varje region. Den innehåller också funktioner för redundans. [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) rekommenderas inte om du planerar att använda en anpassad domän. Problem kan uppstå på grund av hur Azure Storage verifierar anpassade domän namn.
+Om du planerar att vara värd för en webbplats i flera geografiska områden rekommenderar vi att du använder en [Content Delivery Network](../../cdn/index.yml) för regional cachelagring. Använd [Azures front dörr](../../frontdoor/index.yml) om du vill hantera olika innehåll i varje region. Den innehåller också funktioner för redundans. [Azure Traffic Manager](../../traffic-manager/index.yml) rekommenderas inte om du planerar att använda en anpassad domän. Problem kan uppstå på grund av hur Azure Storage verifierar anpassade domän namn.
 
 
 ## <a name="pricing"></a>Prissättning
@@ -126,7 +126,7 @@ Om du vill aktivera mått på dina statiska webbplats sidor, se [Aktivera mått 
 
 * [Vara värd för en statisk webbplats i Azure Storage](storage-blob-static-website-how-to.md)
 * [Mappa en anpassad domän till en Azure Blob Storage-slutpunkt](storage-custom-domain-name.md)
-* [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure App Service](/azure/app-service/overview)
-* [Bygg din första server lös webbapp](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
+* [Azure Functions](../../azure-functions/functions-overview.md)
+* [Azure App Service](../../app-service/overview.md)
+* [Bygg din första server lös webbapp](/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Självstudie: Använda Azure DNS som värd för din domän](../../dns/dns-delegate-domain-azure-dns.md)

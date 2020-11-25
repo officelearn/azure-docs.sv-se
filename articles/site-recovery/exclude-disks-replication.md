@@ -4,11 +4,11 @@ description: Så här undantar du diskar från replikering till Azure med Azure 
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333672"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008267"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exkludera diskar från haveri beredskap
 
@@ -56,13 +56,13 @@ Exempel på data omsättning som är bra kandidater för undantag är skrivninga
 
 ## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exempel 1: Undanta en SQL Server tempdb-disk
 
-Nu ska vi titta på hur du hanterar disk undantag, redundans och redundans för en källa SQL Server Windows VM-* * SalesDB * * *, för vilken vi vill undanta tempdb. 
+Nu ska vi titta på hur du hanterar disk undantag, redundans och redundans för en källa SQL Server Windows VM- **SalesDB** _, för vilken vi vill undanta tempdb. 
 
 ### <a name="exclude-disks-from-replication"></a>Undanta diskar från replikering
 
 Vi har de här diskarna på den virtuella käll datorn för Windows-SalesDB.
 
-**Disknamn** | **Gäst operativ system disk** | **Enhetsbeteckning** | **Disk data typ**
+_ *Disk namn** | **Gäst operativ system disk** | **Enhetsbeteckning** | **Disk data typ**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | Operativ system disk.
 DB-Disk1| Disk1 | D:\ | SQL system Database och User Databas1.

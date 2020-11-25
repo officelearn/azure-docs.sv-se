@@ -1,21 +1,21 @@
 ---
 title: Lista över inbyggda princip definitioner
 description: Visa en lista över inbyggda princip definitioner för Azure Policy. Kategorierna omfattar taggar, regelefterlevnad, Key Vault, Kubernetes, gäst konfiguration och mycket annat.
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: c1627c05e041b2b4a91f5fb5ad44d79641cb9756
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 66563a4754d706f2c73e90ad3c2e8e0f4fe7d3a0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311894"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96007828"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy inbyggda princip definitioner
 
 Den här sidan är ett index över Azure Policy inbyggda princip definitioner.
 
-Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Använd länken i kolumnen **källa** för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy). De inbyggda programmen grupperas efter egenskapen **Category** i **metadata**. Om du vill gå till en viss **kategori**använder du menyn på höger sida av sidan. Annars använder du <kbd>CTRL</kbd> - <kbd>F</kbd> för att använda Sök funktionen i webbläsaren.
+Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Använd länken i kolumnen **källa** för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy). De inbyggda programmen grupperas efter egenskapen **Category** i **metadata**. Om du vill gå till en viss **kategori** använder du menyn på höger sida av sidan. Annars använder du <kbd>CTRL</kbd> - <kbd>F</kbd> för att använda Sök funktionen i webbläsaren.
 
 ## <a name="api-for-fhir"></a>API för FHIR
 
@@ -45,6 +45,10 @@ Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Anvä
 
 [!INCLUDE [azure-policy-reference-policies-automation](../../../../includes/policy/reference/bycat/policies-automation.md)]
 
+## <a name="azure-data-explorer"></a>Azure-datautforskaren
+
+[!INCLUDE [azure-policy-reference-policies-azure-data-explorer](../../../../includes/policy/reference/bycat/policies-azure-data-explorer.md)]
+
 ## <a name="backup"></a>Backup
 
 [!INCLUDE [azure-policy-reference-policies-backup](../../../../includes/policy/reference/bycat/policies-backup.md)]
@@ -61,7 +65,7 @@ Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Anvä
 
 [!INCLUDE [azure-policy-reference-policies-cognitive-services](../../../../includes/policy/reference/bycat/policies-cognitive-services.md)]
 
-## <a name="compute"></a>Beräkning
+## <a name="compute"></a>Compute
 
 [!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
 
@@ -133,7 +137,11 @@ Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Anvä
 
 [!INCLUDE [azure-policy-reference-policies-network](../../../../includes/policy/reference/bycat/policies-network.md)]
 
-## <a name="search"></a>Search
+## <a name="portal"></a>Portalen
+
+[!INCLUDE [azure-policy-reference-policies-portal](../../../../includes/policy/reference/bycat/policies-portal.md)]
+
+## <a name="search"></a>Sök
 
 [!INCLUDE [azure-policy-reference-policies-search](../../../../includes/policy/reference/bycat/policies-search.md)]
 
@@ -164,6 +172,10 @@ Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Anvä
 ## <a name="stream-analytics"></a>Stream Analytics
 
 [!INCLUDE [azure-policy-reference-policies-stream-analytics](../../../../includes/policy/reference/bycat/policies-stream-analytics.md)]
+
+## <a name="synapse"></a>Synapse
+
+[!INCLUDE [azure-policy-reference-policies-synapse](../../../../includes/policy/reference/bycat/policies-synapse.md)]
 
 ## <a name="tags"></a>Taggar
 

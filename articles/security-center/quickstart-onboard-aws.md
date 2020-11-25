@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3a2de9b167fcbe9dc603d33fd816e70d5c3705e5
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 7aa65cb8e37ce48a59c276fdf2631f75397d3236
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372786"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122515"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Anslut dina AWS-konton till Azure Security Center
 
@@ -42,7 +42,7 @@ I skärm bilden nedan ser du AWS-konton som visas på instrument panelen i Secur
 |Versions tillstånd:|Förhandsgranskning<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
 |Nödvändiga roller och behörigheter:|**Ägare** eller **deltagare** på den aktuella Azure-prenumerationen|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -77,7 +77,7 @@ Det finns två sätt att tillåta Security Center att autentisera till AWS:
 1. Välj **ett annat AWS-konto**.
 1. Ange följande uppgifter:
 
-    - **Konto-ID** – ange Microsoft-konto-ID: t ( **158177204117** ) som visas på AWS connector-sidan i Security Center.
+    - **Konto-ID** – ange Microsoft-konto-ID: t (**158177204117**) som visas på AWS connector-sidan i Security Center.
     - **Kräv externt ID** – ska väljas
     - **Externt ID** – ange prenumerations-ID: t enligt vad som visas på AWS Connector-sidan i Security Center 
 

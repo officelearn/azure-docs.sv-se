@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2458b5f3f0c0091bb6ec24e62a1d5614e4e1ecd8
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 90a5afb19c9ba5061b9304c739914262bcdbee15
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888597"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122708"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Använda OpenRowSet med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
@@ -147,7 +147,7 @@ I exemplet nedan, om unstructured_data_path = `https://mystorageaccount.dfs.core
 
 MED WITH-satsen kan du ange kolumner som du vill läsa från filer.
 
-- För CSV-datafiler, för att läsa alla kolumner, anger du kolumn namn och deras data typer. Om du vill använda en delmängd av kolumner använder du ordnings tal för att välja kolumner från de ursprungliga datafilerna enligt ordnings tal. Kolumnerna binds enligt ordnings beteckningen. 
+- För CSV-datafiler, för att läsa alla kolumner, anger du kolumn namn och deras data typer. Om du vill använda en delmängd av kolumner använder du ordnings tal för att välja kolumner från de ursprungliga datafilerna enligt ordnings tal. Kolumnerna binds enligt ordnings beteckningen. Om HEADER_ROW = TRUE används, så görs kolumn bindningen efter kolumn namn i stället för ordnings tal.
     > [!TIP]
     > Du kan även utesluta WITH-satsen för CSV-filer. Data typer härleds automatiskt från fil innehållet. Du kan använda HEADER_ROW argument om du vill ange förekomst av rubrik raden i vilket fall kolumn namn ska läsas från rubrik raden. Mer information finns i [Automatisk schema identifiering](#automatic-schema-discovery).
     
@@ -231,7 +231,7 @@ CSV-parser version 2,0-information:
 
 HEADER_ROW = {TRUE | !
 
-Anger om CSV-filen innehåller en rubrik rad. Standardvärdet är FALSe. Stöds i PARSER_VERSION = ' 2.0 '. Om värdet är TRUE kommer kolumn namn att läsas från första raden enligt FIRSTROW-argumentet.
+Anger om CSV-filen innehåller en rubrik rad. Standardvärdet är FALSe. Stöds i PARSER_VERSION = ' 2.0 '. Om värdet är TRUE kommer kolumn namn att läsas från första raden enligt FIRSTROW-argumentet. Om sant och schema anges med WITH, utförs bindning av kolumn namn med hjälp av kolumn namn, inte ordnings positioner.
 
 DATAFILETYPE = {' char ' | ' widechar '}
 
@@ -281,7 +281,7 @@ Parquet-filer innehåller typ beskrivningar för varje kolumn. I följande tabel
 | INT32 |INT (8, falskt) |tinyint |
 | INT32 |INT (16, falskt) |int |
 | INT32 |INT (32, falskt) |bigint |
-| INT32 |DATE |datum |
+| INT32 |DATE |date |
 | INT32 |DECIMAL |decimal |
 | INT32 |TID (MILLIS)|time |
 | INT64 |INT (64, sant) |bigint |

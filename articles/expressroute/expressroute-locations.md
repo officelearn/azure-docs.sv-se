@@ -6,14 +6,14 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/26/2020
+ms.date: 11/25/2020
 ms.author: duau
-ms.openlocfilehash: 30d1fb62b661d898ba06548e5e3a2c7d31b97794
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8b344f38dd5effb34adec7943a444ce51ed513a9
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95906491"
+ms.locfileid: "96122536"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>ExpressRoute-anslutningspartner och peering-platser
 
@@ -108,10 +108,11 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Amsterdam, Atlanta, Berlin, Canberra2, Chicago, Borås, Dubai2, Dublin, Frankfurt, Genève, Hong Kong SAR, London, London2, Los Angeles, Los Angeles2, Melbourne, Miami, Milano, New York, Osaka, Sao Paulo, Seattle, Söul, Silicon dal, Singapore, Stockholm, Sydney, Tokyo, Toronto, Washington DC, Zürich |
 | **Etisalat Förenade Arabemiraten** |Stöds |Stöds |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Stöds |Stöds |Amsterdam, Amsterdam2, Dublin, Frankfurt, London |
-| **FarEasTone** |Stöds |Stöds |Taipei|
+| **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** |Stöds |Stöds |Taipei|
 | **[Fastweb](https://www.fastweb.it/grandi-aziende/cloud/scheda-prodotto/fastcloud-interconnect/)** | Stöds |Stöds |Milano|
-| **Fibrenoire** |Stöds |Stöds |Montreal|
-| **GÉANT** |Stöds |Stöds |Amsterdam, Amsterdam2, Dublin, Frankfurt, Marseille |
+| **[Fibrenoire](https://fibrenoire.ca/en/services/cloudextn-2/)** |Stöds |Stöds |Montreal|
+| **[GÉANT](https://www.geant.org/Networks)** |Stöds |Stöds |Amsterdam, Amsterdam2, Dublin, Frankfurt, Marseille |
+| **[GlobalConnect]()** | Stöds |Stöds | Oslo, Stavanger | 
 | **GTT** |Stöds |Stöds |London2 |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Stöds| Stöds | Chennai, Mumbai |
 | **Intelsat** | Stöds | Stöds | Washington DC2 |
@@ -167,6 +168,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Telus](https://www.telus.com)** |Stöds |Stöds |Montrealprotokollet, Seattle, Toronto, Vancouver |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Stöds |Stöds |Kapstaden, Johannesburg |
 | **[TID dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Stöds | Stöds | Kuala Lumpur |
+| **[Tokai-kommunikation](https://www.tokai-com.co.jp/en/)** | Stöds | Stöds | Osaka, Tokyo2 |
 | **[Transtelco](https://transtelco.net/enterprise-services/)** |Stöds |Stöds |Borås, Queretaro (Mexiko)|
 | **T-Systems** |Stöds |Stöds |Frankfurt|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Stöds |Stöds |Sao Paulo |

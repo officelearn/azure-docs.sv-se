@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c58ee46a608ccdcbb01a082ee278d9e0f8a07f6e
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 8fd7562d1f8e38c79f739fdd2db7031e772874bc
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030687"
+ms.locfileid: "96122635"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Azure Synapse Analytics-terminologi
 
@@ -47,17 +47,11 @@ Det finns två sätt i Synapse att använda Spark:
 * **Spark-anteckningsböcker** för data vetenskap och-teknik använder Scala, PySpark, C# och SparkSQL
 * **Spark-jobb definitioner** för att köra batch Spark-jobb med JAR-filer.
 
-Versions stöd:
-* Spark 2,4
-* Python-3.6.1
-* Scala 2.11.12
-* .NET för Apache Spark 1,0
-* Delta Lake 0,3.  
-
 ## <a name="pipelines"></a>Pipelines
 
-* **Data integrering** – ger möjlighet att mata in data mellan olika källor och dirigera aktiviteter som körs i en arbets yta eller utanför en arbets yta.
-* **Data flöde** – ger en helt visuell upplevelse utan kodning som krävs för att utföra stor data omvandling. All optimering och körning hanteras utan server.
+Pipelines är hur Azure Synapse tillhandahåller data integrering – så att du kan flytta data mellan tjänster och dirigera aktiviteter.
+
+* **Data flöden** ger en codine upplevelse för att utföra datatransformering som använder Synapse Spark under-The-Cover.
 * **Pipeline** – logisk gruppering av aktiviteter som utför en aktivitet tillsammans.
 * **Activity** -definierar åtgärder som ska utföras på data, till exempel kopiera data, köra en bärbar dator eller ett SQL-skript.
 * **Trigger** – kör en pipeline. Den kan köras manuellt eller automatiskt (schema, rullande Window eller event-based)

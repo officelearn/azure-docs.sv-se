@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2ac4f41a36a2a18a65816be5ea74e88d0b364294
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bb0e073d5ccf73434d05c801b9a8727c1d19fa47
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789071"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122242"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introduktion till Azure Defender för App Service
 
@@ -50,7 +50,7 @@ För att skydda din Azure App Service-plan med Azure Defender för App Service:
 Security Center är internt integrerat med App Service, vilket eliminerar behovet av distribution och onboarding – integreringen är transparent.
 
 >[!NOTE]
-> På sidan priser och inställningar visas ett antal instanser för din **resurs antal** . Detta representerar det totala antalet beräknings instanser, i alla App Service planer i den här prenumerationen, som körs vid den tidpunkt då du öppnade sidan pris nivå.
+> På sidan priser och inställningar visas ett antal instanser för din **resurs antal**. Detta representerar det totala antalet beräknings instanser, i alla App Service planer i den här prenumerationen, som körs vid den tidpunkt då du öppnade sidan pris nivå.
 >
 > Azure App Service erbjuder en rad olika planer. App Service plan definierar mängden beräknings resurser för en webbapp som ska köras. Dessa motsvarar Server grupper i konventionell webb värd. En eller flera appar kan konfigureras för att köras på samma dator resurser (eller i samma App Service plan).
 >

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 82818c8db326889079948cd2b32b2ed0be6ab50d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e33f48c9496ffa3cca9d8b1aa71d524be9a311bb
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990762"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122256"
 ---
 # <a name="iot-central-device-development-overview"></a>Översikt över enhetsutveckling i IoT Central
 
@@ -135,7 +135,7 @@ Använd en av [Azure IoT-enhetens SDK](#languages-and-sdks) : er för att implem
 
 Mer information om rollen hets mallar finns i [Vad är enhets mallar?](./concepts-device-templates.md).
 
-En del exempel kod finns i [skapa och ansluta ett Node.js klient program](./tutorial-connect-device-nodejs.md) eller [skapa och ansluta ett python-klientprogram](./tutorial-connect-device-python.md).
+En del exempel kod finns i [skapa och ansluta ett klient program](./tutorial-connect-device.md).
 
 ### <a name="languages-and-sdks"></a>Språk och SDK: er
 
@@ -143,6 +143,6 @@ Mer information om språk och SDK: er som stöds finns i [förstå och använda 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du är en enhets utvecklare och vill gå in i viss kod, är det föreslagna nästa steg att [skapa och ansluta ett klient program till ditt Azure IoT Central-program](./tutorial-connect-device-nodejs.md).
+Om du är en enhets utvecklare och vill gå in i viss kod, är det föreslagna nästa steg att [skapa och ansluta ett klient program till ditt Azure IoT Central-program](./tutorial-connect-device.md).
 
 Om du vill lära dig mer om hur du använder IoT Central, är de föreslagna nästa steg som du behöver för att testa snabb starterna, från och med [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md).

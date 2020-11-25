@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 24fbe347aeb0b47ffd1ba694f761d909ff2950f8
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 5b1bbce68be19c2dbb08f7d69611b719b450a370
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989555"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121766"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Telemetri, egenskaper och kommandonyttolaster
 
@@ -36,7 +36,7 @@ I varje exempel visas ett kodfragment från enhets modellen som definierar typ o
 
 JSON-filen som definierar enhets modellen använder den [digitala DTDL (Digital Definition Language) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-För exempel enhets kod som visar några av dessa nytto laster som används, se avsnittet [skapa och ansluta ett klient program till ditt azure IoT Central-program (Node.js)](tutorial-connect-device-nodejs.md) och [skapa och Anslut ett klient program till dina Azure IoT Central-program (python)](tutorial-connect-device-python.md) .
+Information om exempel på enhets kod som visar att vissa av dessa nytto laster används finns i själv studie kursen [skapa och ansluta ett klient program till Azure IoT Central Application](tutorial-connect-device.md) .
 
 ## <a name="view-raw-data"></a>Visa rå data
 
@@ -717,7 +717,7 @@ IoT Central förväntar sig ett svar från enheten till skrivbara egenskaps uppd
 
 `ac` är ett numeriskt fält som använder värdena i följande tabell:
 
-| Värde | Etikett | Description |
+| Värde | Etikett | Beskrivning |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Slutförd | Egenskaps ändrings åtgärden har slutförts. |
 | `'ac': 202`  eller `'ac': 201` | Väntar | Egenskaps ändrings åtgärden väntar eller pågår |

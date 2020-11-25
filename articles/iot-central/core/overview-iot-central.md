@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: b62a0da7074676787b7e1c0182ca7588b83cdbe0
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 41dba796327d7f5857098af6165be996bed226fb
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985050"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122703"
 ---
 # <a name="what-is-azure-iot-central"></a>Vad är Azure IoT Central?
 
@@ -157,7 +157,7 @@ Varje Azure-prenumeration har standard kvoter som kan påverka omfånget för di
 Nu när du har en översikt över IoT Central finns några förslag på nästa steg:
 
 - Förstå tillgängliga [Azure-tekniker och-tjänster för att skapa IoT-lösningar](../../iot-fundamentals/iot-services-and-technologies.md).
-- Om du är en enhets utvecklare och vill gå in i viss kod, är det föreslagna nästa steg att [skapa och ansluta ett klient program till ditt Azure IoT Central-program](./tutorial-connect-device-nodejs.md).
+- Om du är en enhets utvecklare och vill gå in i viss kod, är det föreslagna nästa steg att [skapa och ansluta ett klient program till ditt Azure IoT Central-program](./tutorial-connect-device.md).
 - bekanta dig med [Azure IoT Central-användargränssnittet](overview-iot-central-tour.md)
 - kom igång genom att [skapa ett Azure IoT Central-program](quick-deploy-iot-central.md).
 - Lär dig hur du [ansluter en Azure IoT Edge enhet](./tutorial-add-edge-as-leaf-device.md).

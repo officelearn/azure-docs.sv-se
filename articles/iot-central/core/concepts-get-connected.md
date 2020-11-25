@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: abfd5fadcf553e73dca3f08bc8a0e377f2ace87d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a050daa3a4b3ae9be5ef40961c40adaa90dc72b
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992666"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121814"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ansluta till Azure IoT Central
 
@@ -205,7 +205,7 @@ När en riktig enhet ansluter till ditt IoT Central-program ändras enhetens sta
 
     Operatören kan koppla en enhet till en enhets mall från sidan **enheter** med knappen **migrera** .
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Rekommenderade metoder
 
 Behåll eller cachelagra inte enhets anslutnings strängen som DPS returnerar när du först ansluter enheten. Om du vill återansluta en enhet går du igenom standard enhets registrerings flödet för att få rätt anslutnings sträng för enheten. Om enheten cachelagrar anslutnings strängen, körs enhetens program vara i risken att en inaktuell anslutnings sträng används. Om IoT Central uppdaterar den underliggande Azure IoT-hubben som används kan en enhet med en inaktuell anslutnings sträng inte ansluta.
 
@@ -255,7 +255,7 @@ Alla data som utbyts mellan enheter och din Azure-IoT Central krypteras. IoT Hub
 
 Om du är enhets utvecklare är några förslag på nästa steg att:
 
-- Granska en exempel kod som visar hur du använder SAS-token i [självstudie: skapa och ansluta ett klient program till ditt Azure IoT Central-program (självstudie-Connect-Device-nodejs.md)
+- Granska en exempel kod som visar hur du använder SAS-token i [Självstudier: skapa och ansluta ett klient program till ditt Azure IoT Central-program](tutorial-connect-device.md)
 - Lär dig hur du [ansluter enheter med X. 509-certifikat med hjälp av Node.js Device SDK för IoT Central program](how-to-connect-devices-x509.md)
 - Lär dig hur du [övervakar enhets anslutningar med hjälp av Azure CLI](./howto-monitor-devices-azure-cli.md)
 - Lär dig hur du [definierar en ny IoT-enhets typ i ditt Azure IoT Central-program](./howto-set-up-template.md)

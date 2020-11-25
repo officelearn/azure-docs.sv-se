@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 43b66a59062a230aa2fba6909172deb5f1740b28
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289239"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122302"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportera Security Center data kontinuerligt
 
@@ -61,7 +61,11 @@ Stegen nedan är nödvändiga om du konfigurerar en kontinuerlig export till Log
 1. Välj **pris & inställningar** från Security Center marginal List.
 1. Välj den prenumeration som du vill konfigurera data exporten för.
 1. Från List rutan på sidan Inställningar för den prenumerationen väljer du **löpande export**.
-    [ ![ Exportera alternativ i Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) här visas export alternativen. Det finns en flik för varje tillgängligt export mål. 
+
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Export alternativ i Azure Security Center":::
+
+    Här ser du export alternativen. Det finns en flik för varje tillgängligt export mål. 
+
 1. Välj den datatyp som du vill exportera och välj bland filtren för varje typ (till exempel endast exportera aviseringar med hög allvarlighets grad).
 1. Om ditt val till exempel innehåller någon av dessa fyra rekommendationer, kan du inkludera resultaten av sårbarhets utvärderingen tillsammans med dem:
     - Avgöranden för sårbarhets bedömning på SQL-databaser bör åtgärdas
@@ -163,7 +167,7 @@ Om du vill visa händelse scheman för de exporterade data typerna går du till 
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Visa exporterade aviseringar och rekommendationer i Azure Monitor
 
-I vissa fall kan du välja att visa de exporterade säkerhets aviseringarna och/eller rekommendationerna i [Azure Monitor](../azure-monitor/platform/alerts-overview.md). 
+Du kan också välja att Visa exporterade säkerhets aviseringar och/eller rekommendationer i [Azure Monitor](../azure-monitor/platform/alerts-overview.md). 
 
 Azure Monitor ger en enhetlig aviserings upplevelse för en rad olika Azure-aviseringar, inklusive diagnostisk logg, mått aviseringar och anpassade aviseringar baserat på frågor från Log Analytics-arbetsyta.
 
@@ -207,7 +211,7 @@ Läs mer om [priser för Azure Event Hub](https://azure.microsoft.com/pricing/de
 
 ### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>Innehåller exporten data om det aktuella läget för alla resurser?
 
-Nej. Kontinuerlig export skapas för strömning av **händelser** :
+Nej. Kontinuerlig export skapas för strömning av **händelser**:
 
 - **Aviseringar** som tagits emot innan du aktiverade exporten exporteras inte.
 - **Rekommendationer** skickas när en resurss kompatibilitetstillstånd ändras. Till exempel när en resurs blir från felfritt till dåligt. Med aviseringar exporteras därför rekommendationer för resurser som inte har ändrat tillstånd sedan du aktiverade exporten.

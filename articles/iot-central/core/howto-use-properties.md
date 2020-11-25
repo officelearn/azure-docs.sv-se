@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: aeb1e5ee00bd52ebb4bd93dec2f4a1eacb002fb9
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 992fb4422974dad7a48e5fea953ac4530bb52d5c
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986559"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122596"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Använd egenskaper i en Azure IoT Central-lösning
 
@@ -32,10 +32,10 @@ Följande skärm bild visar en egenskaps definition i ett Azure IoT Central-prog
 
 I följande tabell visas konfigurations inställningarna för en egenskaps funktion.
 
-| Fält           | Beskrivning                                                                                                                                                                                                                        |
+| Field           | Beskrivning                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Visningsnamn    | Visnings namnet för egenskap svärdet som används på instrument paneler och formulär.                                                                                                                                                              |
-| Name            | Egenskapens namn. Azure IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. Det här fältet måste vara alfanumeriskt.                                                 |
+| Namn            | Egenskapens namn. Azure IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. Det här fältet måste vara alfanumeriskt.                                                 |
 | Funktions typ | Immaterialrätt.                                                                                                                                                                                                                          |
 | Semantiktyp   | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga.                                                                       |
 | Schema          | Egenskaps data typen, t. ex. Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. Schemat är inte tillgängligt för semantiska typer av händelse och tillstånd.                                               |
@@ -45,7 +45,7 @@ I följande tabell visas konfigurations inställningarna för en egenskaps funkt
 | Enhet            | En enhet för egenskap svärdet, till exempel **mph**, **%** eller **&deg; C**.                                                                                                                                                              |
 | Visa enhet    | En visnings enhet för användning på instrument paneler och formulär.                                                                                                                                                                                    |
 | Kommentar         | Kommentarer om egenskaps funktionen.                                                                                                                                                                                        |
-| Description     | En beskrivning av egenskaps funktionen.                                                                                                                                                                                          |
+| Beskrivning     | En beskrivning av egenskaps funktionen.                                                                                                                                                                                          |
 
 Egenskaperna kan också definieras i ett gränssnitt i en enhets mall som visas här:
 
@@ -160,11 +160,7 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-Den här artikeln använder Node.js för enkelhetens skull. Fullständig information om exempel på enhets program finns i följande Självstudier:
-
-* [Skapa och ansluta ett klient program till ditt Azure IoT Central-program (Node.js)](tutorial-connect-device-nodejs.md)
-* [Skapa och ansluta ett klient program till ditt Azure IoT Central-program (python)](tutorial-connect-device-python.md)
-* [Skapa och ansluta ett klient program till ditt Azure IoT Central-program (Java)](tutorial-connect-device-java.md)
+Den här artikeln använder Node.js för enkelhetens skull. Fullständig information om exempel på enhets program finns i följande guide för [att skapa och ansluta ett klient program till Azure IoT Central Application](tutorial-connect-device.md) .
 
 I följande vy i Azure IoT Central-programmet visas de egenskaper som du kan se. I vyn blir **enhets modell** egenskapen till en _skrivskyddad enhets egenskap_.
 
@@ -214,7 +210,7 @@ Svars meddelandet ska innehålla `ac` fälten och `av` . Fältet `ad` är valfri
 * `av` är versions numret som skickas till enheten.
 * `ad` är en beskrivning av alternativ strängen.
 
-| Värde | Etikett | Description |
+| Värde | Etikett | Beskrivning |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Slutförd | Egenskaps ändrings åtgärden har slutförts. |
 | `'ac': 202` eller `'ac': 201` | Väntar | Egenskaps ändrings åtgärden väntar eller pågår. |
@@ -236,4 +232,4 @@ I följande vy visas skrivbara egenskaper. När du anger värdet och väljer **S
 Nu när du har lärt dig hur du använder egenskaper i ditt Azure IoT Central-program, se:
 
 * [Nytto laster](concepts-telemetry-properties-commands.md)
-* [Skapa och ansluta ett klient program till ditt Azure IoT Central-program (Node.js)](tutorial-connect-device-nodejs.md)
+* [Skapa och ansluta ett klient program till ditt Azure IoT Central-program](tutorial-connect-device.md)

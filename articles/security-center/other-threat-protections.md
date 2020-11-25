@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 0b80db15e4fafd5e5c63a4194039fbeca21d429b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d03416f390abb8656ac1aed81419864443122ce6
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900395"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122418"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Ytterligare hot skydd i Azure Security Center
 I och med de inbyggda [Azure Defender-skydden](azure-defender.md)erbjuder Azure Security Center även följande hot skydds funktioner.
@@ -29,7 +29,7 @@ I och med de inbyggda [Azure Defender-skydden](azure-defender.md)erbjuder Azure 
 ## <a name="threat-protection-for-azure-network-layer"></a>Hot skydd för Azure nätverks lager <a name="network-layer"></a>
 Security Center Network Layer Analytics baseras på [IPFIX data](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), som är paket rubriker som samlas in av Azure Core-routrar. Baserat på den här datafeeden använder Security Center maskin inlärnings modeller för att identifiera och flagga skadliga trafik aktiviteter. Security Center använder också Microsoft Threat Intelligence-databasen för att utöka IP-adresser.
 
-Vissa nätverkskonfigurationer kan begränsa Security Center från att generera aviseringar om misstänkt nätverks aktivitet. För att Security Center generera nätverks aviseringar, se till att:
+Vissa nätverkskonfigurationer begränsar Security Center från att generera aviseringar om misstänkt nätverks aktivitet. För att Security Center generera nätverks aviseringar, se till att:
 - Den virtuella datorn har en offentlig IP-adress (eller finns på en belastningsutjämnare med en offentlig IP-adress).
 - Den virtuella datorns utgående trafik blockeras inte av en extern ID-lösning.
 
@@ -47,10 +47,10 @@ En lista över aviseringar om Azure Resource Manager (förhands granskning) finn
 >[!NOTE]
 > Flera av föregående analyser drivs av Microsoft Cloud App Security. Om du vill dra nytta av dessa analyser måste du aktivera en Cloud App Security-licens. Om du har en Cloud App Security licens är de här aviseringarna aktiverade som standard. Så här inaktiverar du aviseringarna:
 >
-> 1. Från Security Center menyn väljer du **pris & inställningar** .
+> 1. Från Security Center menyn väljer du **pris & inställningar**.
 > 1. Välj den prenumeration som du vill ändra.
-> 1. Välj **hot identifiering** .
-> 1. Rensa **tillåt Microsoft Cloud App Security att komma åt mina data** och välj **Spara** .
+> 1. Välj **hot identifiering**.
+> 1. Rensa **tillåt Microsoft Cloud App Security att komma åt mina data** och välj **Spara**.
 
 
 >[!NOTE]
@@ -58,7 +58,7 @@ En lista över aviseringar om Azure Resource Manager (förhands granskning) finn
 
 1. Ange den arbets yta som du vill installera agenten på. Kontrol lera att arbets ytan finns i samma prenumeration som du använder i Security Center och att du har Läs-/Skriv behörighet på arbets ytan.
 
-1. Aktivera **Azure Defender** och välj **Spara** .
+1. Aktivera **Azure Defender** och välj **Spara**.
 
 
 ## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Skydd mot Azure Cosmos DB (för hands version)<a name="cosmos-db"></a>

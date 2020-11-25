@@ -9,19 +9,19 @@ ms.subservice: ''
 ms.date: 11/24/2020
 ms.author: procha
 ms.reviewer: jrasnick
-ms.openlocfilehash: 94872d3765a992fd025f30feaab95248ce6831ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 19941963b5200b3ffdb9f2360301d30fe9df4823
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920155"
+ms.locfileid: "96121854"
 ---
 # <a name="azure-synapse-analytics-system-integration-partners"></a>System integrerings partner för Azure Synapse Analytics
 
 I den här artikeln beskrivs hur Microsoft system integration partner-företag skapar lösningar med Azure Synapse.
 
-## <a name="our-public-preview-launch-partners"></a>Vår offentliga för hands versions lanserings partners
-| Partner | Description | Länk till webbplats/produkt |
+## <a name="system-integration-partners"></a>System integrerings partner
+| Partner | Beskrivning | Länk till webbplats/produkt |
 | ------- | ----------- | -------------------- |
 | ![Accenture](./media/sql-data-warehouse-partner-public-preview/accenture-logo.png) |**Accenture**<br>Att samla ihop 45000 + engagerade experter, Accenture Microsoft Business Group, som drivs av Avanade, hjälper företag att blomstra i era digitala störningar.|[Partner sida](https://www.accenture.com/us-en/services/microsoft-index)<br>|
 | ![Adatis](./media/sql-data-warehouse-partner-public-preview/adatis-logo.png) |**Adatis**<br>Adatis erbjuder tjänster som specialiserar sig på avancerad data analys, från data strategin och konsulter, till världs klass leverans och hanterade tjänster. |[Partner sida](https://adatis.co.uk/)<br> |

@@ -9,11 +9,11 @@ ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: edb80ab3107cbd0a5ddd802d56a60ce77affb2f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088122"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012926"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-java"></a>Snabb start: använda Azure cache för Redis i Java
 
@@ -32,7 +32,7 @@ I den här snabb starten införlivar du Azure cache för Redis i en Java-app med
 
 ## <a name="setting-up-the-working-environment"></a>Konfigurera arbets miljön 
 
-Beroende på vilket operativ system du använder lägger du till miljövariabler för **värd namnet** och den **primära åtkomst nyckeln** . Öppna en kommando tolk eller ett terminalfönster och Ställ in följande värden:
+Beroende på vilket operativ system du använder lägger du till miljövariabler för **värd namnet** och den **primära åtkomst nyckeln**. Öppna en kommando tolk eller ett terminalfönster och Ställ in följande värden:
 
 ```CMD 
 set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
@@ -57,7 +57,7 @@ Generera en ny snabbstartsapp med Maven:
 mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.3 -DgroupId=example.demo -DartifactId=redistest -Dversion=1.0
 ```
 
-Ändra till den nya *redistest* -projektkatalogen.
+Ändra till den nya *redistest*-projektkatalogen.
 
 Öppna filen *pom.xml* och lägg till ett beroende för [Jedis](https://github.com/xetorthio/jedis):
 
@@ -127,7 +127,7 @@ public class App
 
 Den här koden visar hur du ansluter till en Azure Cache for Redis-instans med hjälp av cache-värdnamnet och viktiga miljövariabler. Koden lagrar och hämtar även ett strängvärde i cacheminnet. Kommandona `PING` och `CLIENT LIST` körs också. 
 
-Spara *App.java* .
+Spara *App.java*.
 
 ## <a name="build-and-run-the-app"></a>Kompilera och köra appen
 
@@ -152,13 +152,13 @@ Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna 
 > Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 >
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Resursgrupper** .
+1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Resursgrupper**.
 
-1. Skriv namnet på din resurs grupp i text rutan **Filtrera efter namn** . Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources* . I resurs gruppen i resultat listan väljer du **...** och sedan **ta bort resurs grupp** .
+1. Skriv namnet på din resurs grupp i text rutan **Filtrera efter namn** . Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. I resurs gruppen i resultat listan väljer du **...** och sedan **ta bort resurs grupp**.
 
    ![Azure-resurs gruppen har tagits bort](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
-1. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på resurs gruppen som ska bekräftas och välj **ta bort** .
+1. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på resurs gruppen som ska bekräftas och välj **ta bort**.
 
 Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 

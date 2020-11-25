@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962884"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012961"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Konfigurera ett anpassat domän namn i Azure App Service med Traffic Manager-integrering
 
@@ -19,7 +19,7 @@ ms.locfileid: "88962884"
 > [!NOTE]
 > Mer Cloud Services finns i [Konfigurera ett anpassat domän namn för en Azure-moln tjänst](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-När du använder [Azure Traffic Manager](../traffic-manager/index.yml) för att belastningsutjämna trafik till [Azure App Service](overview.md), kan App Service-appen nås med hjälp av ** \<traffic-manager-endpoint> . trafficmanager.net**. Du kan tilldela ett anpassat domän namn, till exempel www \. contoso.com, med din app service-app för att ge användarna ett mer igenkännbart domän namn.
+När du använder [Azure Traffic Manager](../traffic-manager/index.yml) för att belastningsutjämna trafik till [Azure App Service](overview.md), kan App Service-appen nås med hjälp av **\<traffic-manager-endpoint> . trafficmanager.net**. Du kan tilldela ett anpassat domän namn, till exempel www \. contoso.com, med din app service-app för att ge användarna ett mer igenkännbart domän namn.
 
 Den här artikeln visar hur du konfigurerar ett anpassat domän namn med en App Service-app som är integrerad med [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
@@ -51,7 +51,7 @@ Appens aktuell nivå markeras med en blå kantlinje. Kontrol lera att appen är 
 
 Om du behöver skala upp din app väljer du någon av pris nivåerna i **produktions** kategorin. Klicka på **Visa ytterligare alternativ** om du vill se fler alternativ.
 
-Klicka på **Applicera**.
+Klicka på **Använd**.
 
 ## <a name="create-traffic-manager-endpoint"></a>Skapa Traffic Manager-slutpunkt
 
@@ -88,7 +88,7 @@ När posterna för ditt domän namn har spridits använder du webbläsaren för 
 > 
 
 1. När domän upplösningen lyckades kan du gå tillbaka till din app-sida i [Azure-portalen](https://portal.azure.com)
-2. Välj **anpassade domäner**  >  **Lägg till värdnamn**i det vänstra navigerings fältet.
+2. Välj **anpassade domäner**  >  **Lägg till värdnamn** i det vänstra navigerings fältet.
 4. Skriv det anpassade domän namnet som du mappade tidigare och välj **Verifiera**.
 5. Se till att **post typen hostname** är inställd på **CNAME (www- \. example.com eller någon under domän)**.
 

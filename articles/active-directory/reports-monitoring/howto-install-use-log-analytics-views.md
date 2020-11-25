@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 168b41534f6ea6055294cc9e9cec139853904fea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358907"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013044"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installera och Använd Log Analytics-vyerna för Azure Active Directory
 
@@ -59,7 +59,7 @@ Om du vill använda Log Analytics-vyerna behöver du:
     ![Skärm bild som visar sidan med analys information som har frågan för rapporten.](./media/howto-install-use-log-analytics-views/details.png)
 
 
-4. Välj **Ange avisering**och välj sedan **när den anpassade loggs ökningen är &lt; logiskt odefinierad &gt; ** under avsnittet **aviserings villkor** . Eftersom vi vill Avisera när det finns ett inloggnings fel anger du **tröskelvärdet** för standard varnings logiken till **1** och väljer sedan **klart**. 
+4. Välj **Ange avisering** och välj sedan **när den anpassade loggs ökningen är &lt; logiskt odefinierad &gt;** under avsnittet **aviserings villkor** . Eftersom vi vill Avisera när det finns ett inloggnings fel anger du **tröskelvärdet** för standard varnings logiken till **1** och väljer sedan **klart**. 
 
     ![Konfigurera signallogiken](./media/howto-install-use-log-analytics-views/configure-signal-logic.png)
 

@@ -9,11 +9,11 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014060"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013011"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Säkerhets kopiering och återställning av Analysis Services databasen
 
@@ -25,7 +25,7 @@ Att säkerhetskopiera tabell modell databaser i Azure Analysis Services är unge
 > 
 
 > [!NOTE]
-> Om lagrings kontot finns i en annan region konfigurerar du inställningarna för lagrings konto brand väggen för att tillåta åtkomst från **valda nätverk**. I brand Väggs **adress intervall**anger du IP-adressintervallet för den region som Analysis Services-servern finns i. Det finns stöd för att konfigurera brand Väggs inställningar för lagrings konto för att tillåta åtkomst från alla nätverk, men att välja valda nätverk och ange ett IP-adressintervall rekommenderas. Mer information finns i [vanliga frågor och svar om nätverks anslutning](analysis-services-network-faq.md#backup-and-restore).
+> Om lagrings kontot finns i en annan region konfigurerar du inställningarna för lagrings konto brand väggen för att tillåta åtkomst från **valda nätverk**. I brand Väggs **adress intervall** anger du IP-adressintervallet för den region som Analysis Services-servern finns i. Det finns stöd för att konfigurera brand Väggs inställningar för lagrings konto för att tillåta åtkomst från alla nätverk, men att välja valda nätverk och ange ett IP-adressintervall rekommenderas. Mer information finns i [vanliga frågor och svar om nätverks anslutning](analysis-services-network-faq.md#backup-and-restore).
 
 Säkerhets kopior sparas med tillägget. ABF. För i-minnes tabell modeller lagras både modell data och metadata. För DirectQuery-tabell modeller lagras bara modellens metadata. Säkerhets kopior kan komprimeras och krypteras beroende på vilka alternativ du väljer.
 
@@ -35,11 +35,11 @@ Innan du säkerhetskopierar måste du konfigurera lagrings inställningarna för
 
 
 ### <a name="to-configure-storage-settings"></a>Konfigurera lagrings inställningar
-1.  Klicka på **säkerhetskopiera**i Azure Portal > **Inställningar**.
+1.  Klicka på **säkerhetskopiera** i Azure Portal > **Inställningar**.
 
     ![Säkerhets kopieringar i inställningar](./media/analysis-services-backup/aas-backup-backups.png)
 
-2.  Klicka på **aktive rad**och sedan på **lagrings inställningar**.
+2.  Klicka på **aktive rad** och sedan på **lagrings inställningar**.
 
     ![Aktivera](./media/analysis-services-backup/aas-backup-enable.png)
 
@@ -59,7 +59,7 @@ Innan du säkerhetskopierar måste du konfigurera lagrings inställningarna för
 
 1. I SSMS högerklickar du på en databas > **säkerhets kopiering**.
 
-2. I säkerhets kopierings **databasens**  >  **säkerhets kopia**klickar du på **Bläddra**.
+2. I säkerhets kopierings **databasens**  >  **säkerhets kopia** klickar du på **Bläddra**.
 
 3. I dialog rutan **Spara filen som** kontrollerar du mappsökvägen och skriver sedan ett namn för säkerhets kopian. 
 
@@ -91,11 +91,11 @@ När du återställer måste säkerhets kopian finnas i det lagrings konto som d
 
 1. I SSMS högerklickar du på en databas > **återställning**.
 
-2. I dialog rutan **Säkerhetskopiera databas** i **säkerhets kopia**klickar du på **Bläddra**.
+2. I dialog rutan **Säkerhetskopiera databas** i **säkerhets kopia** klickar du på **Bläddra**.
 
 3. I dialog rutan **Leta upp databasfiler** väljer du den fil som du vill återställa.
 
-4. I **restore Database**väljer du databasen.
+4. I **restore Database** väljer du databasen.
 
 5. Ange alternativ. Säkerhets alternativen måste matcha de säkerhets kopierings alternativ som du använde när du säkerhetskopierade.
 
@@ -107,6 +107,6 @@ Använd [restore-Database-](/powershell/module/sqlserver/restore-asdatabase) cmd
 
 ## <a name="related-information"></a>Relaterad information
 
-[Azure-lagringskonton](../storage/common/storage-account-create.md)  
+[Azure Storage-konton](../storage/common/storage-account-create.md)  
 [Hög tillgänglighet](analysis-services-bcdr.md)      
 [Vanliga frågor och svar om nätverks anslutning Analysis Services](analysis-services-network-faq.md)

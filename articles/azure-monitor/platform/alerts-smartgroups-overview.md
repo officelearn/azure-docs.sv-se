@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
 ms.openlocfilehash: dff59ac207e6078a264d1350d24c9e6f4a461d78
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108787"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012892"
 ---
 # <a name="smart-groups"></a>Smarta grupper
 
@@ -31,7 +31,7 @@ Följande Smart Group-tillstånd stöds.
 |:---|:---|
 | Ny | Problemet har precis identifierats och har ännu inte granskats. |
 | Bekräftad | En administratör har granskat den smarta gruppen och börjat arbeta med den. |
-| Stängda | Problemet har åtgärd ATS. När en smart grupp har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
+| Stängd | Problemet har åtgärd ATS. När en smart grupp har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
 
 [Lär dig hur du ändrar status för din smart grupp.](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 
@@ -47,7 +47,7 @@ Sidan smart grupp information visas när du väljer en smart grupp. Den innehål
 
 Informations sidan för smart grupp innehåller följande avsnitt.
 
-| Section | Beskrivning |
+| Section | Description |
 |:---|:---|
 | Aviseringar | Visar en lista över enskilda aviseringar som ingår i den smarta gruppen. Välj en avisering för att öppna sidan aviserings information. |
 | Historik | Visar en lista över varje åtgärd som utförs av den smarta gruppen och eventuella ändringar som görs i den. Detta är för närvarande begränsat för att ge status ändringar och ändringar i varnings medlemskap. |

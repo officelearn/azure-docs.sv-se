@@ -9,11 +9,11 @@ ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.openlocfilehash: aa22cffc1fc38e055c6c2bb504c311c012f31ac2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087153"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012909"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>Snabb start: Använd Azure cache för Redis i Node.js
 
@@ -55,7 +55,7 @@ Skapa inte en ny anslutning för varje åtgärd i din kod. Återanvänd iställe
 
 ## <a name="create-a-new-nodejs-app"></a>Skapa en ny Node.js-app
 
-Skapa en ny skriptfil med namnet *redistest.js* . Använd kommandot `npm install redis bluebird` för att installera nödvändiga paket.
+Skapa en ny skriptfil med namnet *redistest.js*. Använd kommandot `npm install redis bluebird` för att installera nödvändiga paket.
 
 Lägg till följande JavaScript-exempel i filen. Den här koden visar hur du ansluter till en Azure Cache for Redis-instans med hjälp av cache-värdnamnet och viktiga miljövariabler. Koden lagrar och hämtar även ett strängvärde i cacheminnet. Kommandona `PING` och `CLIENT LIST` körs också. Fler exempel på hur du använder Redis med [node_redis](https://github.com/mranney/node_redis)-klienten finns på [https://redis.js.org/](https://redis.js.org/).
 
@@ -119,13 +119,13 @@ Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna 
 > Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 >
 
-Logga in på [Azure Portal](https://portal.azure.com) och välj **Resursgrupper** .
+Logga in på [Azure Portal](https://portal.azure.com) och välj **Resursgrupper**.
 
-I text rutan **Filtrera efter namn** anger du namnet på din resurs grupp. Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources* . I resurs gruppen i resultat listan väljer du **...** och sedan **ta bort resurs grupp** .
+I text rutan **Filtrera efter namn** anger du namnet på din resurs grupp. Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. I resurs gruppen i resultat listan väljer du **...** och sedan **ta bort resurs grupp**.
 
 ![Ta bort Azure-resurs grupp](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
-Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på resurs gruppen som ska bekräftas och välj **ta bort** .
+Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på resurs gruppen som ska bekräftas och välj **ta bort**.
 
 Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 

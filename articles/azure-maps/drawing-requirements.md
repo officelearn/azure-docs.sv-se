@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895842"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013130"
 ---
 # <a name="drawing-package-requirements"></a>Krav för ritningspaket
 
@@ -31,12 +31,12 @@ Du kan välja valfri CAD-programvara för att skapa ritningarna i ritnings paket
 
 Här är några termer och definitioner som är viktiga när du läser den här artikeln för enkel referens.
 
-| Period  | Definition |
+| Term  | Definition |
 |:-------|:------------|
 | Skikt | Ett AutoCAD DWG-lager.|
 | Nivå | Ett del i en byggnad med en angiven höjning. Till exempel en byggnads golv. |
 | XREF  |En fil i AutoCAD DWG-filformat (. dwg) som är kopplad till den primära ritningen som en extern referens.  |
-| Visning av aktuellt objekt | Ett objekt som kombinerar en geometri med ytterligare metadatainformation. |
+| Funktion | Ett objekt som kombinerar en geometri med ytterligare metadatainformation. |
 | Funktions klasser | En gemensam skiss för funktioner. Till exempel är en *enhet* en funktions klass och ett *kontor* är en funktion. |
 
 ## <a name="drawing-package-structure"></a>Ritnings paketets struktur
@@ -50,9 +50,9 @@ Du kan organisera DWG-filerna på valfritt sätt i mappen, men manifest filen m�
 
 ## <a name="dwg-files-requirements"></a>Krav för DWG-filer
 
-En enskild DWG-fil krävs för varje nivå i anläggningen. Nivåns data måste finnas i en enskild DWG-fil. Alla externa referenser ( _xrefs_ ) måste vara kopplade till den överordnade ritningen. Dessutom är varje DWG-fil:
+En enskild DWG-fil krävs för varje nivå i anläggningen. Nivåns data måste finnas i en enskild DWG-fil. Alla externa referenser (_xrefs_) måste vara kopplade till den överordnade ritningen. Dessutom är varje DWG-fil:
 
-* Måste definiera de _yttre_ och _enhets_ lagren. Du kan också definiera följande valfria lager: _vägg_ , _dörr_ , _UnitLabel_ , _zon_ och _ZoneLabel_ .
+* Måste definiera de _yttre_ och _enhets_ lagren. Du kan också definiera följande valfria lager: _vägg_, _dörr_, _UnitLabel_, _zon_ och _ZoneLabel_.
 * Får inte innehålla funktioner från flera nivåer.
 * Får inte innehålla funktioner från flera anläggningar.
 
@@ -168,7 +168,7 @@ Du kan se ett exempel på ZoneLabel-lagret i [exempel ritnings paketet](https://
 
 ## <a name="manifest-file-requirements"></a>Manifest fil krav
 
-Zip-mappen måste innehålla en manifest fil på rot nivån i katalogen och filen måste ha namnet **manifest.jspå** . Den beskriver DWG-filerna för att tillåta att [Azure Maps konverterings tjänsten](/rest/api/maps/conversion) tolkar sitt innehåll. Endast de filer som identifieras av manifestet matas in. Filer som finns i zip-mappen, men som inte anges korrekt i manifestet, ignoreras.
+Zip-mappen måste innehålla en manifest fil på rot nivån i katalogen och filen måste ha namnet **manifest.jspå**. Den beskriver DWG-filerna för att tillåta att [Azure Maps konverterings tjänsten](/rest/api/maps/conversion) tolkar sitt innehåll. Endast de filer som identifieras av manifestet matas in. Filer som finns i zip-mappen, men som inte anges korrekt i manifestet, ignoreras.
 
 Fil Sök vägarna i `buildingLevels` objekt i manifest filen måste vara relativa till roten i zip-mappen. DWG-filnamnet måste exakt matcha namnet på anläggnings nivån. Till exempel är en DWG-fil för nivån "Basement" "Basement. DWG". En DWG-fil för nivå 2 heter som "level_2. DWG." Använd ett under streck om ditt nivå namn har ett blank steg.
 
@@ -188,7 +188,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 ### `directoryInfo`
 
-| Egenskap  | Typ | Krävs | Beskrivning |
+| Egenskap  | Typ | Obligatorisk | Description |
 |-----------|------|----------|-------------|
 | `name`      | sträng | true   |  Namn på byggnaden. |
 | `streetAddress`|    sträng |    falskt    | Byggnadens adress. |
@@ -209,7 +209,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 `buildingLevels`Objektet innehåller en JSON-matris med byggnader-nivåer.
 
-| Egenskap  | Typ | Krävs | Beskrivning |
+| Egenskap  | Typ | Obligatorisk | Description |
 |-----------|------|----------|-------------|
 |`levelName`    |sträng    |true |    Namn på beskrivande nivå. Till exempel: våning 1, lobbyn, blå parkering eller Basement.|
 |`ordinal` | heltal |    true | Anger den lodräta ordningen för nivåer. Varje funktion måste ha en nivå med ordnings tal 0. |
@@ -219,7 +219,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 ### `georeference`
 
-| Egenskap  | Typ | Krävs | Beskrivning |
+| Egenskap  | Typ | Obligatorisk | Beskrivning |
 |-----------|------|----------|-------------|
 |`lat`    | numeric |    true |    Decimal representation av grader latitud vid ritningens ursprung. Ursprungets koordinater måste vara i WGS84 Web Mercator ( `EPSG:3857` ).|
 |`lon`    |numeric|    true|    Decimal representation av grader longitud vid ritningens ursprung. Ursprungets koordinater måste vara i WGS84 Web Mercator ( `EPSG:3857` ). |
@@ -227,7 +227,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 ### `dwgLayers`
 
-| Egenskap  | Typ | Krävs | Beskrivning |
+| Egenskap  | Typ | Obligatorisk | Beskrivning |
 |-----------|------|----------|-------------|
 |`exterior`    |matris med strängar|    true|    Namnen på de lager som definierar den yttre skapande profilen.|
 |`unit`|    matris med strängar|    true|    Namnen på de lager som definierar enheter.|
@@ -241,7 +241,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 `unitProperties`Objektet innehåller en JSON-matris med enhets egenskaper.
 
-| Egenskap  | Typ | Krävs | Beskrivning |
+| Egenskap  | Typ | Obligatorisk | Description |
 |-----------|------|----------|-------------|
 |`unitName`    |sträng    |true    |Namnet på den enhet som ska associeras med den här `unitProperty` posten. Posten är endast giltig när en etikett matchning finns `unitName` i `unitLabel` skikten. |
 |`categoryName`|    sträng|    falskt    |Kategori namn. En fullständig lista över kategorier finns i [Kategorier](https://aka.ms/pa-indoor-spacecategories). |
@@ -261,7 +261,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 `zoneProperties`Objektet innehåller en JSON-matris med zon egenskaper.
 
-| Egenskap  | Typ | Krävs | Beskrivning |
+| Egenskap  | Typ | Obligatorisk | Beskrivning |
 |-----------|------|----------|-------------|
 |Zonnamn        |sträng    |true    |Namnet på zonen som ska associeras med `zoneProperty` posten. Posten är endast giltig när en etikett matchning `zoneName` hittas i `zoneLabel` zonens skikt.  |
 |categoryName|    sträng|    falskt    |Kategori namn. En fullständig lista över kategorier finns i [Kategorier](https://aka.ms/pa-indoor-spacecategories). |

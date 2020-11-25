@@ -4,11 +4,11 @@ description: I den här artikeln sammanfattas Azure Backup support när du säke
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 26a47c2648d1307d2e7da2b25455f3f036cbf32d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363246"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997247"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -46,7 +46,7 @@ När du använder MARS-agenten för att säkerhetskopiera data tar agenten en ö
 Storlek |  Det lediga utrymmet i cache-mappen bör vara minst 5 till 10 procent av den totala storleken på dina säkerhets kopierings data.
 Plats | Cache-mappen måste lagras lokalt på den dator som säkerhets kopie ras och måste vara online. Cache-mappen får inte finnas på en nätverks resurs, på flyttbara medier eller på en frånkopplad volym.
 Mapp | Cache-mappen bör inte vara krypterad på en deduplicerad volym eller i en mapp som är komprimerad, som är sparse eller som har en referens punkt.
-Plats ändringar | Du kan ändra cache-platsen genom att stoppa säkerhets kopierings motorn ( `net stop bengine` ) och kopiera cache-mappen till en ny enhet. (Kontrol lera att det finns tillräckligt med utrymme på den nya enheten.) Uppdatera sedan två register poster under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** ( **config/ScratchLocation** och **config/CloudBackupProvider/ScratchLocation** ) till den nya platsen och starta om motorn.
+Plats ändringar | Du kan ändra cache-platsen genom att stoppa säkerhets kopierings motorn ( `net stop bengine` ) och kopiera cache-mappen till en ny enhet. (Kontrol lera att det finns tillräckligt med utrymme på den nya enheten.) Uppdatera sedan två register poster under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**config/ScratchLocation** och **config/CloudBackupProvider/ScratchLocation**) till den nya platsen och starta om motorn.
 
 ## <a name="networking-and-access-support"></a>Nätverks-och åtkomst stöd
 
@@ -67,7 +67,7 @@ Och till följande IP-adresser:
 
 Åtkomst till alla webb adresser och IP-adresser som anges ovan använder HTTPS-protokollet på port 443.
 
-När du säkerhetskopierar filer och mappar från virtuella Azure-datorer med MARS-agenten måste det virtuella Azure-nätverket också konfigureras för att tillåta åtkomst. Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen *AzureBackup* för att tillåta utgående åtkomst till Azure Backup. Förutom taggen Azure Backup måste du också tillåta anslutning för autentisering och data överföring genom att skapa liknande [NSG-regler](../virtual-network/network-security-groups-overview.md#service-tags) för Azure AD ( *AzureActiveDirectory* ) och Azure Storage ( *lagring* ). Följande steg beskriver processen för att skapa en regel för taggen Azure Backup:
+När du säkerhetskopierar filer och mappar från virtuella Azure-datorer med MARS-agenten måste det virtuella Azure-nätverket också konfigureras för att tillåta åtkomst. Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen *AzureBackup* för att tillåta utgående åtkomst till Azure Backup. Förutom taggen Azure Backup måste du också tillåta anslutning för autentisering och data överföring genom att skapa liknande [NSG-regler](../virtual-network/network-security-groups-overview.md#service-tags) för Azure AD (*AzureActiveDirectory*) och Azure Storage (*lagring*). Följande steg beskriver processen för att skapa en regel för taggen Azure Backup:
 
 1. I **alla tjänster** går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
 2. Välj **utgående säkerhets regler** under **Inställningar**.
@@ -130,13 +130,13 @@ Operativ systemen måste vara 64-bitars och köra de senaste paketen och uppdate
 
 **Operativsystem** | **Filer/mappar** | **System tillstånd** | **Krav för program/modul**
 --- | --- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Ja | Inga |  Kontrol lera motsvarande Server version för program-/modul krav
-Windows 8,1 (Enterprise, Pro)| Ja |Inga | Kontrol lera motsvarande Server version för program-/modul krav
-Windows 8 (Enterprise, Pro) | Ja | Inga | Kontrol lera motsvarande Server version för program-/modul krav
+Windows 10 (Enterprise, Pro, Home) | Ja | Nej |  Kontrol lera motsvarande Server version för program-/modul krav
+Windows 8,1 (Enterprise, Pro)| Ja |Nej | Kontrol lera motsvarande Server version för program-/modul krav
+Windows 8 (Enterprise, Pro) | Ja | Nej | Kontrol lera motsvarande Server version för program-/modul krav
 Windows Server 2016 (standard, data Center, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2012 R2 (standard, data Center, Foundation, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2012 (standard, data Center, Foundation) | Ja | Ja |– .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0 <br> – Underhåll och hantering av distributions avbildningar (DISM.exe)
-Windows Storage Server 2016/2012 R2/2012 (standard, arbets grupp) | Ja | Inga | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
+Windows Storage Server 2016/2012 R2/2012 (standard, arbets grupp) | Ja | Nej | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2019 (standard, data Center, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 
 Mer information finns i [Mabs-och DPM-operativsystem som stöds](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
@@ -151,9 +151,9 @@ För lokala eller värdbaserade miljöer, där du inte kan uppgradera operativ s
 
 | **Operativ system**                                       | **Filer/mappar** | **System tillstånd** | **Krav för program/modul**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
-| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, starter) | Ja               | Inga                 | Kontrol lera motsvarande Server version för program-/modul krav |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, starter) | Ja               | Nej                 | Kontrol lera motsvarande Server version för program-/modul krav |
 | Windows Server 2008 R2 (standard, Enterprise, data Center, Foundation) | Ja               | Ja                | – .NET 3,5, .NET 4,5 <br>  – Windows PowerShell <br>  -Kompatibel Microsoft VC + + Redistributable <br>  – Microsoft Management Console (MMC) 3,0 <br>  – Underhåll och hantering av distributions avbildningar (DISM.exe) |
-| Windows Server 2008 SP2 (standard, data Center, Foundation)  | Ja               | Inga                 | – .NET 3,5, .NET 4,5 <br>  – Windows PowerShell <br>  -Kompatibel Microsoft VC + + Redistributable <br>  – Microsoft Management Console (MMC) 3,0 <br>  – Underhåll och hantering av distributions avbildningar (DISM.exe) <br>  – Virtual Server 2005 Base + KB KB948515 |
+| Windows Server 2008 SP2 (standard, data Center, Foundation)  | Ja               | Nej                 | – .NET 3,5, .NET 4,5 <br>  – Windows PowerShell <br>  -Kompatibel Microsoft VC + + Redistributable <br>  – Microsoft Management Console (MMC) 3,0 <br>  – Underhåll och hantering av distributions avbildningar (DISM.exe) <br>  – Virtual Server 2005 Base + KB KB948515 |
 
 ## <a name="backup-limits"></a>Säkerhets kopierings gränser
 

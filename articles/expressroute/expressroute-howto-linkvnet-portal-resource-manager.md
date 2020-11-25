@@ -9,11 +9,11 @@ ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 0ffc9c2ee17862497d3fd986da8e003f7a497056
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107291"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998778"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Självstudie: ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av portalen
 
@@ -33,7 +33,7 @@ I de här självstudierna får du lära dig att
 > - Anslut ett virtuellt nätverk till en krets i en annan prenumeration.
 > - Ta bort länken mellan det virtuella nätverket och ExpressRoute-kretsen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Granska kraven [prerequisites](expressroute-prerequisites.md), kraven för [routning](expressroute-routing.md)och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 
@@ -65,25 +65,25 @@ I de här självstudierna får du lära dig att
 
 1. Nu kan du starta etableringen av en anslutning för att länka din virtuella nätverksgateway till ExpressRoute-kretsen. Välj **anslutning**  >  **Lägg** till för att öppna sidan **Lägg till anslutning** .
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/add-connection.png" alt-text="Skärm bild av ExpressRoute-krets":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/add-connection.png" alt-text="Skärm bild för Lägg till anslutning":::
 
 1. Ange ett namn för anslutningen och välj sedan **Nästa: inställningar >**.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-basic.png" alt-text="Skärm bild av ExpressRoute-krets":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-basic.png" alt-text="Sidan Skapa anslutning, bassida":::
 
 1. Välj den gateway som tillhör det virtuella nätverk som du vill länka till kretsen och välj **Granska + skapa**. Välj sedan **skapa** När valideringen är klar.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-settings.png" alt-text="Skärm bild av ExpressRoute-krets":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-settings.png" alt-text="Sidan skapa anslutnings inställningar":::
 
 1. När anslutningen har kon figurer ATS visas informationen för anslutningen i anslutnings objektet.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-object.png" alt-text="Skärm bild av ExpressRoute-krets":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-object.png" alt-text="Skärm bild för anslutnings objekt":::
 
 ## <a name="connect-a-vnet-to-a-circuit---different-subscription"></a>Ansluta ett VNet till en krets-annan prenumeration
 
 Du kan dela en ExpressRoute-krets över flera prenumerationer. Följande bild visar en enkel Schematisk över hur delning fungerar för ExpressRoute-kretsar över flera prenumerationer.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png" alt-text="Skärm bild av ExpressRoute-krets":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png" alt-text="Anslutning mellan prenumerationer":::
 
 Vart och ett av de mindre molnen i det stora molnet används för att representera prenumerationer som tillhör olika avdelningar i en organisation. Varje avdelning inom organisationen använder sin egen prenumeration för att distribuera tjänsterna – men de kan dela en enda ExpressRoute-krets för att ansluta till ditt lokala nätverk. En enda avdelning (i det här exemplet: IT) kan äga ExpressRoute-kretsen. Andra prenumerationer i organisationen kan använda ExpressRoute-kretsen.
 
@@ -109,21 +109,21 @@ Krets ägaren skapar en auktorisering, som skapar en auktoriseringsregel som ska
 
 1. På sidan ExpressRoute väljer du **auktoriseringar** och anger sedan ett **namn** för auktoriseringen och väljer **Spara**.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png" alt-text="Skärm bild av ExpressRoute-krets":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png" alt-text="Auktoriseringar":::
 
 2. När konfigurationen har sparats kopierar du **resurs-ID** och **behörighets nyckel**.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization-key.png" alt-text="Skärm bild av ExpressRoute-krets":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization-key.png" alt-text="Auktoriseringsregel":::
 
 **Ta bort en auktorisering för anslutning**
 
 Du kan ta bort en anslutning genom att välja ikonen **ta bort** för din anslutnings nyckel.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="Skärm bild av ExpressRoute-krets":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="Ta bort auktoriseringsregel":::
 
 Om du vill ta bort anslutningen men behålla verifierings nyckeln kan du ta bort anslutningen från anslutnings sidan för kretsen.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="Skärm bild av ExpressRoute-krets":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="Ta bort anslutningens ägande krets":::
 
 ### <a name="circuit-user-operations"></a>Krets användar åtgärder
 
@@ -133,31 +133,31 @@ Krets användaren behöver resurs-ID och en auktoriseringskod från krets ägare
 
 1. Välj knappen **+ skapa en resurs** . Sök efter **anslutning** och välj **skapa**.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-new-resources.png" alt-text="Skärm bild av ExpressRoute-krets":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-new-resources.png" alt-text="Skapa nya resurser":::
 
-1. Kontrol lera att *anslutnings typen* är inställd på **ExpressRoute**. Välj *resurs grupp* och *plats*och välj sedan **OK** på sidan grundläggande.
+1. Kontrol lera att *anslutnings typen* är inställd på **ExpressRoute**. Välj *resurs grupp* och *plats* och välj sedan **OK** på sidan grundläggande.
 
     > [!NOTE]
     > Platsen *måste* matcha platsen för den virtuella Nätverksgatewayen som du skapar anslutningen för.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-basics.png" alt-text="Skärm bild av ExpressRoute-krets":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-basics.png" alt-text="Sidan Grundinställningar":::
 
 1. På sidan **Inställningar** väljer du den *virtuella Nätverksgatewayen* och markerar kryss rutan **Lös in auktorisering** . Ange *verifierings nyckeln* och *peer-kretsens URI* och ge anslutningen ett namn. Välj **OK**. 
  
     > [!NOTE]
     > *Peer-kretsens URI* är resurs-ID för ExpressRoute-kretsen (som du hittar under egenskaps inställnings fönstret i ExpressRoute-kretsen).
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-settings.png" alt-text="Skärm bild av ExpressRoute-krets":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-settings.png" alt-text="Sidan Inställningar":::
 
 1. Granska informationen på sidan **Sammanfattning** och välj **OK**.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="Skärm bild av ExpressRoute-krets":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="Sammanfattningssida":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Du kan ta bort en anslutning och ta bort länken mellan ditt VNet och en ExpressRoute-krets genom att välja ikonen **ta bort** på sidan för din anslutning.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection.png" alt-text="Skärm bild av ExpressRoute-krets":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection.png" alt-text="Ta bort anslutning":::
 
 ## <a name="next-steps"></a>Nästa steg
 

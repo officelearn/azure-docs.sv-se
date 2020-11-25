@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790924"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998761"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Det går inte att skapa kluster med InvalidNetworkConfigurationErrorCode i Azure HDInsight
 
@@ -66,7 +66,7 @@ Azure Storage och SQL har inte fasta IP-adresser, så vi måste tillåta utgåen
 
     Gå till Azure Portal och identifiera routningstabellen som är associerad med under nätet där klustret distribueras. När du har hittat routningstabellen för under nätet, kontrollerar du avsnittet **vägar** i den.
 
-    Om det finns definierade vägar kontrollerar du att det finns vägar för IP-adresser för den region där klustret distribuerades och att **NextHopType** för varje väg är **Internet** . Det bör finnas en väg definierad för varje obligatorisk IP-adress som dokumenteras i den tidigare artikeln.
+    Om det finns definierade vägar kontrollerar du att det finns vägar för IP-adresser för den region där klustret distribuerades och att **NextHopType** för varje väg är **Internet**. Det bör finnas en väg definierad för varje obligatorisk IP-adress som dokumenteras i den tidigare artikeln.
 
 ## <a name="failed-to-establish-an-outbound-connection-from-the-cluster-for-the-communication-with-the-hdinsight-resource-provider-please-ensure-that-outbound-connectivity-is-allowed"></a>"Det gick inte att upprätta en utgående anslutning från klustret för kommunikation med HDInsight-resurs leverantören. Kontrol lera att den utgående anslutningen tillåts. "
 

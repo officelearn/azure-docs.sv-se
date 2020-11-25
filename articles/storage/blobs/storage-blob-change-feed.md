@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 105978daeb93a2e5646222ff10055ba20a1dc481
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7174f7dd53387de9a569a5ddcadc08c32692c749
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172896"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997111"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Ändra stöd för feed i Azure Blob Storage
 
@@ -21,7 +21,7 @@ Syftet med ändrings flödet är att tillhandahålla transaktions loggar för al
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
-Ändrings flödet lagras som [blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) i en särskild behållare i ditt lagrings konto med standard [priset för BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/) . Du kan styra Retentions perioden för de här filerna utifrån dina krav (se [villkoren](#conditions) i den aktuella versionen). Ändrings händelser läggs till i ändrings flödet som poster i [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specifikation: ett kompakt, fast binärformat som ger omfattande data strukturer med infogat schema. Det här formatet används ofta i Hadoop-eko systemet, Stream Analytics och Azure Data Factory.
+Ändrings flödet lagras som [blobbar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) i en särskild behållare i ditt lagrings konto med standard [priset för BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/) . Du kan styra Retentions perioden för de här filerna utifrån dina krav (se [villkoren](#conditions) i den aktuella versionen). Ändrings händelser läggs till i ändrings flödet som poster i [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specifikation: ett kompakt, fast binärformat som ger omfattande data strukturer med infogat schema. Det här formatet används ofta i Hadoop-eko systemet, Stream Analytics och Azure Data Factory.
 
 Du kan bearbeta loggarna asynkront, stegvis eller helt och hållet. Valfritt antal klient program kan samtidigt läsa ändrings flödet, parallellt och i sin egen takt. Analys program som [Apache-granskning](https://drill.apache.org/docs/querying-avro-files/) eller [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) kan använda loggar direkt som Avro-filer, vilket gör att du kan bearbeta dem till en låg kostnad, med hög bandbredd och utan att behöva skriva ett anpassat program.
 
@@ -105,7 +105,7 @@ Använd en Azure Resource Manager-mall för att aktivera ändra feed för ditt b
 
 1. I Azure Portal väljer du **skapa en resurs**.
 
-2. I **Sök på Marketplace**skriver du **mall distribution**och trycker sedan på **RETUR**.
+2. I **Sök på Marketplace** skriver du **mall distribution** och trycker sedan på **RETUR**.
 
 3. Välj **[distribuera en anpassad mall](https://portal.azure.com/#create/Microsoft.Template)** och välj sedan **Bygg en egen mall i redigeraren**.
 
@@ -206,7 +206,7 @@ Segment manifest filen ( `meta.json` ) visar sökvägen till filerna för att ä
 
 Filerna för ändrings-feed innehåller en serie ändrings händelse poster. Varje ändrings händelse post motsvarar en ändring i en enskild blob. Posterna serialiseras och skrivs till filen med Avro-format specifikationen [Apache](https://avro.apache.org/docs/1.8.2/spec.html) . Posterna kan läsas med hjälp av specifikationen Avro File format. Det finns flera bibliotek som är tillgängliga för att bearbeta filer i det formatet.
 
-Ändra feed-filer lagras i den `$blobchangefeed/log/` virtuella katalogen som [bifogade blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Den första ändrings matnings filen under varje sökväg kommer att ha `00000` i fil namnet (till exempel `00000.avro` ). Namnet på varje efterföljande loggfil som läggs till i sökvägen ökar med 1 (till exempel: `00001.avro` ).
+Ändra feed-filer lagras i den `$blobchangefeed/log/` virtuella katalogen som [bifogade blobbar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Den första ändrings matnings filen under varje sökväg kommer att ha `00000` i fil namnet (till exempel `00000.avro` ). Namnet på varje efterföljande loggfil som läggs till i sökvägen ökar med 1 (till exempel: `00001.avro` ).
 
 Följande händelse typer samlas in i ändra flödes poster:
 - BlobCreated
@@ -243,7 +243,7 @@ Här är ett exempel på en ändrings händelse post från ändra feed-fil som k
 }
 ```
 
-En beskrivning av varje egenskap finns i [Azure Event Grid händelse schema för Blob Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). BlobPropertiesUpdated-och BlobSnapshotCreated-händelserna är för närvarande exklusiva för att ändra feed och ännu inte stöd för Blob Storage händelser.
+En beskrivning av varje egenskap finns i [Azure Event Grid händelse schema för Blob Storage](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). BlobPropertiesUpdated-och BlobSnapshotCreated-händelserna är för närvarande exklusiva för att ändra feed och ännu inte stöd för Blob Storage händelser.
 
 > [!NOTE]
 > Filerna för att ändra feeds för ett segment visas inte direkt efter att ett segment har skapats. Fördröjnings tiden ligger inom det normala intervallet för publicerings fördröjningen för ändrings flödet som är inom några minuter från ändringen.
@@ -299,7 +299,7 @@ I det här avsnittet beskrivs kända problem och villkor i den aktuella versione
 - Du kan för närvarande inte se **$blobchangefeed** -behållaren när du anropar ListContainers API och behållaren inte visas på Azure Portal eller Storage Explorer. Du kan visa innehållet genom att anropa ListBlobs-API: et i $blobchangefeed containern direkt.
 - Lagrings konton som tidigare har initierat en [konto redundansväxling](../common/storage-disaster-recovery-guidance.md) kan ha problem med logg filen som inte visas. Eventuella framtida växlingar i kontot kan också påverka logg filen.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>Vad är skillnaden mellan ändrings flöde och Lagringsanalys loggning?
 Analys loggar innehåller poster med alla Läs-, Skriv-, list-och borttagnings åtgärder med lyckade och misslyckade förfrågningar för alla åtgärder. Analys loggar är bästa möjliga och ingen beställning är garanterat.

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d0c4a6fcdddddc77d4072c2d0d11fe78837d84bc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c5510a66f48007d629d23a96d17205b489ab6a5c
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743375"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999135"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Självstudie: skapa en funktion i Java med en Event Hub-utlösare och en Azure Cosmos DB utgående bindning
 
@@ -179,7 +179,7 @@ COSMOS_DB_CONNECTION_STRING=$( \
         --resource-group $RESOURCE_GROUP \
         --name $COSMOS_DB_ACCOUNT \
         --type connection-strings \
-        --query connectionStrings[0].connectionString \
+        --query 'connectionStrings[0].connectionString' \
         --output tsv)
 echo $COSMOS_DB_CONNECTION_STRING
 ```
@@ -412,7 +412,7 @@ Efter vissa build-och start meddelanden visas utdata som liknar följande exempe
 [10/22/19 4:01:38 AM] Executed 'Functions.processSensorData' (Succeeded, Id=1cf0382b-0c98-4cc8-9240-ee2a2f71800d)
 ```
 
-Du kan sedan gå till [Azure Portal](https://portal.azure.com) och navigera till ditt Azure Cosmos DB-konto. Välj **datautforskaren** , expandera **TelemetryInfo** och välj sedan **objekt** för att visa dina data när de tas emot.
+Du kan sedan gå till [Azure Portal](https://portal.azure.com) och navigera till ditt Azure Cosmos DB-konto. Välj **datautforskaren**, expandera **TelemetryInfo** och välj sedan **objekt** för att visa dina data när de tas emot.
 
 ![Cosmos DB Datautforskaren](media/functions-event-hub-cosmos-db/data-explorer.png)
 

@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
 ms.openlocfilehash: bcc6f41d7cc08764266ffb6705d1b8937d355199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86109730"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997842"
 ---
 # <a name="customize-an-assessment"></a>Anpassa en utvärdering
 
@@ -44,7 +44,7 @@ En utvärdering som gjorts i Azure Migrate Server-utvärderingen har tre steg. U
 
 ## <a name="whats-in-an-azure-vm-assessment"></a>Vad ingår i en Azure VM-utvärdering?
 
-**Egenskap** | **Information**
+**Egenskap** | **Detaljer**
 --- | ---
 **Målplats** | Azure-platsen du vill migrera till.<br/> Server utvärderingen stöder för närvarande dessa mål regioner: östra Australien, sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, centrala Indien, centrala USA, Kina, östra, Kina, norra, Asien, östra, östra USA, östra 2; USA, Tyskland, centrala, Tyskland nordöstra, Östra Japan, västra Japan, centrala Korea, södra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Storbritannien, västra, US gov, Arizona , US Gov, Texas, US Gov, Virginia, västra centrala USA, Västeuropa, västra Indien, västra USA och västra 2; USA.
 **Lagringstyp** | Du kan använda den här egenskapen för att ange vilken typ av diskar du vill flytta till i Azure.<br/><br/> För lokal storleks ändring kan du ange mål lagrings typ antingen som Premium-hanterade diskar, Standard SSD-hanterade diskar eller Standard HDD-hanterade diskar. För prestandabaserade storleks ändringar kan du ange mål disk typen antingen som automatiskt, Premium-hanterade diskar, Standard HDD-hanterade diskar eller Standard SSD-hanterade diskar.<br/><br/> När du anger lagrings typen som automatisk, utförs disk rekommendationer baserat på diskens prestanda data (IOPS och data flöde). Om du anger lagrings typ som Premium/standard, rekommenderar utvärderingen en disk-SKU i den valda lagrings typen. Om du vill uppnå ett service avtal för en enda instans av virtuell dator på 99,9%, kan du ange lagrings typ som Premium-hanterade diskar. Detta säkerställer att alla diskar i utvärderingen rekommenderas som Premium-hanterade diskar. Azure
@@ -65,7 +65,7 @@ En utvärdering som gjorts i Azure Migrate Server-utvärderingen har tre steg. U
 Här är what's som ingår i en AVS-utvärdering i Server utvärderingen:
 
 
-| **Egenskap** | **Information** |
+| **Egenskap** | **Detaljer** |
 | - | - |
 | **Målplats** | Anger den plats för molnets privata moln som du vill migrera till.<br/><br/> AVS-utvärderingen i Server utvärderingen stöder för närvarande dessa mål regioner: östra USA, västra Europa, västra USA. |
 | **Lagringstyp** | Anger den lagrings motor som ska användas i AVS.<br/><br/> Observera att AVS-utvärderingar endast stöder virtuellt San som standard lagrings typ. |
@@ -86,9 +86,9 @@ Här är what's som ingår i en AVS-utvärdering i Server utvärderingen:
 
 Gör följande om du vill redigera bedömnings egenskaper när du har skapat en utvärdering:
 
-1. Klicka på **servrar**i Azure Migrate-projektet.
+1. Klicka på **servrar** i Azure Migrate-projektet.
 2. Klicka på beräknings antalet i **Azure Migrate: Server bedömning**.
-3. I **utvärderingen**klickar du på relevant utvärdering > **Redigera egenskaper**.
+3. I **utvärderingen** klickar du på relevant utvärdering > **Redigera egenskaper**.
 5. Anpassa bedömnings egenskaperna enligt tabellerna ovan.
 6. Klicka på **Spara** för att uppdatera utvärderingen.
 

@@ -16,11 +16,11 @@ ms.date: 02/20/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 43b986b6bb25dff1227247b1d249ce565553877a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91329141"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997417"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Konfigurera hanterade identiteter för Azure-resurser på en skalnings uppsättning för virtuella datorer med hjälp av Azure Portal
 
@@ -57,7 +57,7 @@ Aktivera den systemtilldelade hanterade identiteten på en virtuell dators skaln
 
 2. Navigera till önskad skalnings uppsättning för virtuella datorer.
 
-3. Under **systemtilldelad**, **status**väljer du **på** och klickar sedan på **Spara**:
+3. Under **systemtilldelad**, **status** väljer du **på** och klickar sedan på **Spara**:
 
    ![Skärm bild som visar sidan "identitets (förhands granskning)" med "systemtilldelat" valt, status "på" och knappen "Spara" markerad.](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
 
@@ -69,7 +69,7 @@ Om du har en skalnings uppsättning för virtuella datorer som inte längre beh�
 
 2. Navigera till önskad skalnings uppsättning för virtuella datorer.
 
-3. Under **systemtilldelat**, **status**väljer du **av** och klickar sedan på **Spara**:
+3. Under **systemtilldelat**, **status** väljer du **av** och klickar sedan på **Spara**:
 
    ![Skärm bild för konfigurations sida](./media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
 
@@ -86,7 +86,7 @@ För närvarande stöder Azure Portal inte tilldelning av en användardefinierad
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-virtual-machine-scale-set"></a>Tilldela en användardefinierad hanterad identitet till en befintlig skalnings uppsättning för virtuella datorer
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är kopplat till Azure-prenumerationen som innehåller den virtuella datorns skal uppsättning.
-2. Navigera till önskad skalnings uppsättning för virtuell dator och klicka på **identitet**, **tilldelad användare** och ** \+ Lägg sedan till**.
+2. Navigera till önskad skalnings uppsättning för virtuell dator och klicka på **identitet**, **tilldelad användare** och **\+ Lägg sedan till**.
 
    ![Skärm bild som visar sidan "identitet" med "tilldelade användare" och knappen "Lägg till" markerad.](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
 

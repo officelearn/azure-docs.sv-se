@@ -1,19 +1,19 @@
 ---
 title: 'Självstudie: dela ankare mellan sessioner och enheter'
 description: I den här självstudien får du lära dig hur du delar Azure spatial-ankare mellan Android/iOS-enheter i Unity med en backend-tjänst.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 07/31/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b29873e161b64c52abbfdf3f2611714f6b012361
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 3048eb1ca7f9312a43bc1ab5885bf19d4c2e7931
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097294"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95998506"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Självstudie: dela spatiala ankare mellan sessioner och enheter
 
@@ -66,7 +66,7 @@ Gå till <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>och
 
 Välj **Ny** bredvid **Resursgrupp**.
 
-Namnge resurs gruppen **myResourceGroup**och välj sedan **OK**.
+Namnge resurs gruppen **myResourceGroup** och välj sedan **OK**.
 
 ### <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
 

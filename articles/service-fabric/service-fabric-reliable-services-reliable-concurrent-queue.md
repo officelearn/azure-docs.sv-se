@@ -4,11 +4,11 @@ description: ReliableConcurrentQueue är en kö med hög data flöde som tillåt
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.openlocfilehash: 423ef3d1898176d7c25c596ad186a9c000108aa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257443"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997128"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introduktion till ReliableConcurrentQueue i Azure Service Fabric
 Reliable samtidig kö är en asynkron, transaktionell och replikerad kö som innehåller hög samtidighet för att köa och ta bort åtgärder. Den är utformad för att leverera högt data flöde och låg latens genom att slappa den strikta FIFO-ordningen som tillhandahålls av en [tillförlitlig kö](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) och i stället tillhandahålla en ordning för bästa ansträngningar.
@@ -140,7 +140,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 Anta att aktiviteterna har slutförts, att aktiviteterna kördes parallellt och att det inte fanns några andra samtidiga transaktioner som ändrade kön. Eftersom ingen härledning kan göras om ordningen för objekten i kön, kommer listorna *dequeue1* och *dequeue2* att innehålla två objekt, i vilken ordning som helst.
 
-Samma objekt visas *inte* i båda listorna. Om dequeue1 har *10*, *30*skulle dequeue2 därför ha *20*, *40*.
+Samma objekt visas *inte* i båda listorna. Om dequeue1 har *10*, *30* skulle dequeue2 därför ha *20*, *40*.
 
 - *Fall 3: beställning av ur kö med transaktions avbrott*
 

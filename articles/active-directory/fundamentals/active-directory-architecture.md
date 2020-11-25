@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 476cf8013f5dc8b5d54efb573cf305d81fc690b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89319159"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996720"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Vad är Azure Active Directory arkitekturen?
 
@@ -91,8 +91,8 @@ Azure Active Directorys repliker lagras i datacenter runtom i världen. Mer info
 Azure AD fungerar i Data Center med följande egenskaper:
 
 * Autentisering, graf och andra AD-tjänster finns bakom Gateway-tjänsten. Gatewaytjänsten hanterar belastningsutjämningen av dessa tjänster. Den växlar automatiskt över automatiskt om några felaktiga servrar identifieras med hjälp av transaktionella hälso avsökningar. Utifrån dessa hälso avsökningar dirigerar gatewayen trafiken dynamiskt till felfria data Center.
-* För *läsningar*har katalogen sekundära repliker och motsvarande front-end-tjänster i en aktiv-aktiv konfiguration i flera data Center. Om det uppstår ett problem med ett helt data Center dirigeras trafiken automatiskt till ett annat data Center.
- * För *skrivningar*växlar katalogen över den primära repliken (Master) över data Center via planerat (ny primär synkroniseras till gammal primär) eller nödfall. Data hållbarhet uppnås genom att du replikerar varje incheckning till minst två Data Center.
+* För *läsningar* har katalogen sekundära repliker och motsvarande front-end-tjänster i en aktiv-aktiv konfiguration i flera data Center. Om det uppstår ett problem med ett helt data Center dirigeras trafiken automatiskt till ett annat data Center.
+ * För *skrivningar* växlar katalogen över den primära repliken (Master) över data Center via planerat (ny primär synkroniseras till gammal primär) eller nödfall. Data hållbarhet uppnås genom att du replikerar varje incheckning till minst två Data Center.
 
 #### <a name="data-consistency"></a>Datakonsekvens
 

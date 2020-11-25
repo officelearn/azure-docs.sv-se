@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 3c26a84e32a17cba83b5ca895f146e561072fa62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054967"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998200"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Använd StorSimple Snapshot Manager för att visa och hantera säkerhets kopierings jobb
 
 ## <a name="overview"></a>Översikt
-Noden **jobb** i fönstret **omfattning** visar de **schemalagda**, **senaste 24 timmarna**och **pågående** säkerhets kopierings aktiviteter som du initierade interaktivt eller av en konfigurerad princip. 
+Noden **jobb** i fönstret **omfattning** visar de **schemalagda**, **senaste 24 timmarna** och **pågående** säkerhets kopierings aktiviteter som du initierade interaktivt eller av en konfigurerad princip. 
 
 I den här självstudien beskrivs hur du kan använda noden **jobb** för att visa information om schemalagda, senaste och pågående säkerhets kopierings jobb. (Listan över jobb och motsvarande information visas i **resultat** fönstret.) Du kan också högerklicka på ett listat jobb och se en snabb meny som visar tillgängliga åtgärder.
 

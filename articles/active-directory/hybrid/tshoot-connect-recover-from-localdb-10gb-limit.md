@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ca5361d8500ecd4ea22a577d0a4dc7ced606eab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89275910"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997655"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Så här återställer du från LocalDB med en gräns på 10 GB
 Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Du kan antingen använda SQL Server 2012 Express LocalDB som är installerat som standard med Azure AD Connect eller använda din egen fullständiga SQL. SQL Server Express har en storleksgräns på 10 GB. När du använder LocalDB och gränsen har uppnåtts kan synkroniseringstjänsten för Azure AD Connect inte längre starta eller synkronisera korrekt. Den här artikeln innehåller återställnings stegen.
@@ -31,7 +31,7 @@ Det finns två vanliga symtom:
 
 * Azure AD Connect synkroniseringstjänst **körs** , men det går inte att synkronisera med fel meddelandet *"stoppad-Database-disk-full"* .
 
-* **Det gick inte att starta tjänsten för**Azure AD Connect-synkronisering. När du försöker starta tjänsten Miss lyckas den med händelse 6323 och fel meddelande *"servern påträffade ett fel eftersom SQL Server har slut på disk utrymme."*
+* **Det gick inte att starta tjänsten för** Azure AD Connect-synkronisering. När du försöker starta tjänsten Miss lyckas den med händelse 6323 och fel meddelande *"servern påträffade ett fel eftersom SQL Server har slut på disk utrymme."*
 
 ## <a name="short-term-recovery-steps"></a>Kortsiktiga återställnings steg
 Det här avsnittet innehåller stegen för att frigöra databas utrymme som krävs för att Azure AD Connect-synkroniseringstjänsten ska återupptas. Stegen är:
@@ -85,7 +85,7 @@ Som standard behåller Azure AD Connect upp till sju dagar till att köra histor
 
 2. Gå till fliken **åtgärder** .
 
-3. Under **åtgärder**väljer du **Rensa körningar**...
+3. Under **åtgärder** väljer du **Rensa körningar**...
 
 4. Du kan antingen välja **Rensa alla körningar** eller **Rensa körningar före. \<date> ..** alternativet. Vi rekommenderar att du börjar genom att rensa körnings historik data som är äldre än två dagar. Om du fortsätter att köra fel i DB-storlek väljer du alternativet **Rensa alla körningar** .
 

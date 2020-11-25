@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: dcf912f431d578a6e678801d3dc8f4e11484ea78
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678366"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997026"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Acceptera föreslagna frågor om aktiva utbildningar i kunskaps basen
 
@@ -26,11 +26,11 @@ För att kunna se föreslagna frågor måste du [Aktivera aktiv utbildning](http
 
 ## <a name="view-suggested-questions"></a>Visa föreslagna frågor
 
-1. Om du vill se de föreslagna frågorna går du till sidan **Redigera** kunskaps bas och väljer **visnings alternativ** . Välj sedan **Visa aktiva utbildnings förslag** .
+1. Om du vill se de föreslagna frågorna går du till sidan **Redigera** kunskaps bas och väljer **visnings alternativ**. Välj sedan **Visa aktiva utbildnings förslag**.
 
     [![I redigera-avsnittet i portalen väljer du Visa förslag för att se de aktiva alternativen för inlärnings nya frågor.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. Filtrera kunskaps basen med fråge-och svars par för att bara visa förslag genom att välja **Filtrera efter förslag** .
+1. Filtrera kunskaps basen med fråge-och svars par för att bara visa förslag genom att välja **Filtrera efter förslag**.
 
     [![Använd alternativet filtrera efter förslag för att bara visa de aktiva inlärnings alternativ som föreslås av den aktuella frågan.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
@@ -134,8 +134,8 @@ Content-Type: application/json
 |--|--|--|--|
 |URL-rutt parameter|Kunskaps bas-ID|sträng|Din kunskaps bas-GUID.|
 |Anpassad under domän|Resurs namn för QnAMaker|sträng|Resurs namnet används som anpassad under domän för QnA Maker. Detta är tillgängligt på sidan inställningar när du har publicerat kunskaps basen. Den visas som `host` .|
-|Sidhuvud|Content-Type|sträng|Medie typen för den brödtext som skickas till API: et. Standardvärdet är: `application/json`|
-|Sidhuvud|Auktorisering|sträng|Din slut punkts nyckel (EndpointKey XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX).|
+|Huvud|Content-Type|sträng|Medie typen för den brödtext som skickas till API: et. Standardvärdet är: `application/json`|
+|Huvud|Auktorisering|sträng|Din slut punkts nyckel (EndpointKey XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX).|
 |Publicera brödtext|JSON-objekt|JSON|Feedback om utbildningen|
 
 JSON-texten har flera inställningar:
@@ -145,7 +145,7 @@ JSON-texten har flera inställningar:
 |`feedbackRecords`|matris|Lista över feedback.|
 |`userId`|sträng|Användar-ID för den person som godkänner de föreslagna frågorna. Formatet för användar-ID är upp till dig. En e-postadress kan till exempel vara ett giltigt användar-ID i din arkitektur. Valfritt.|
 |`userQuestion`|sträng|Den exakta texten för användarens fråga. Krävs.|
-|`qnaID`|nummer|ID för fråga som finns i [GenerateAnswer-svaret](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+|`qnaID`|antal|ID för fråga som finns i [GenerateAnswer-svaret](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Ett exempel på en JSON-text ser ut så här:
 

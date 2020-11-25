@@ -2,19 +2,19 @@
 author: IngridAtMicrosoft
 ms.service: media-services
 ms.topic: include
-ms.date: 08/18/2020
+ms.date: 11/19/2020
 ms.author: inhenkel
-ms.custom: CLI
-ms.openlocfilehash: 3a99dd9e69363e8fbb02b7e5e1ac5921d079ba21
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.custom: REST
+ms.openlocfilehash: def2553ddc71f008c5d2b902d04f587ef8d26889
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917887"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996922"
 ---
 <!--Create a basic audio transform REST-->
 
-Följande Azure REST-kommando skapar en grundläggande ljud till gång. Ersätt värdena `subscriptionID` , `resourceGroup` och `amsAccountName` med värden som du håller på att arbeta med. Ge transformeringen ett namn genom att ange `transformName` .
+Följande Azure REST-kommando skapar en grundläggande ljud omvandling. Ersätt värdena `subscriptionID` , `resourceGroup` och `accountName` med värden som du håller på att arbeta med. Ge transformeringen ett namn genom att ange `transformName` .
 
 ```REST
 

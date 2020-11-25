@@ -16,11 +16,11 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f5c840722ae6b03a0b8a7fa44e5999e14730d4f3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656283"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997604"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Arbeta med anspråks medveten appar i Application Proxy
 [Anspråksmedvetna appar](/previous-versions/windows/desktop/legacy/bb736227(v=vs.85)) utför en omdirigering till säkerhetstokentjänsten (Security Token Service). STS begär autentiseringsuppgifter från användaren i Exchange för en token och omdirigerar sedan användaren till programmet. Det finns några sätt att aktivera Application Proxy för att arbeta med dessa omdirigeringar. Använd den här artikeln för att konfigurera distributionen för anspråksmedvetna appar. 

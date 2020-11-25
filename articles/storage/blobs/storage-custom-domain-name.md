@@ -9,12 +9,12 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 5e6289fb4e3b5bb695b79589d544d0ae475f9774
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dcc6f3bca80cb5860679327226d3e034c3e9b14a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314659"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996873"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mappa en anpassad domän till en Azure Blob Storage-slutpunkt
 
@@ -79,11 +79,11 @@ Skapa en CNAME-post för att peka på värd namnet. En CNAME-post är en typ av 
 
 1. Logga in på din domän registrators webbplats och gå sedan till sidan för att hantera DNS-inställningar.
 
-   Du kan hitta sidan i ett avsnitt med namnet **domän namn**, **DNS**eller **namn server hantering**.
+   Du kan hitta sidan i ett avsnitt med namnet **domän namn**, **DNS** eller **namn server hantering**.
 
 2. Hitta avsnittet för att hantera CNAME-poster. 
 
-   Du kanske måste gå till sidan Avancerade inställningar och leta efter **CNAME**, **alias**eller under **domäner**.
+   Du kanske måste gå till sidan Avancerade inställningar och leta efter **CNAME**, **alias** eller under **domäner**.
 
 3. Skapa en CNAME-post. Ange följande objekt som en del av posten: 
 
@@ -163,11 +163,11 @@ Skapa en tillfällig CNAME-post för att peka på värd namnet. En CNAME-post ä
 
 1. Logga in på din domän registrators webbplats och gå sedan till sidan för att hantera DNS-inställningar.
 
-   Du kan hitta sidan i ett avsnitt med namnet **domän namn**, **DNS**eller **namn server hantering**.
+   Du kan hitta sidan i ett avsnitt med namnet **domän namn**, **DNS** eller **namn server hantering**.
 
 2. Hitta avsnittet för att hantera CNAME-poster. 
 
-   Du kanske måste gå till sidan Avancerade inställningar och leta efter **CNAME**, **alias**eller under **domäner**.
+   Du kanske måste gå till sidan Avancerade inställningar och leta efter **CNAME**, **alias** eller under **domäner**.
 
 3. Skapa en CNAME-post. Ange följande objekt som en del av posten: 
 
@@ -211,11 +211,11 @@ Skapa en tillfällig CNAME-post för att peka på värd namnet.
 
 1. Logga in på din domän registrators webbplats och gå sedan till sidan för att hantera DNS-inställningar.
 
-   Du kan hitta sidan i ett avsnitt med namnet **domän namn**, **DNS**eller **namn server hantering**.
+   Du kan hitta sidan i ett avsnitt med namnet **domän namn**, **DNS** eller **namn server hantering**.
 
 2. Hitta avsnittet för att hantera CNAME-poster. 
 
-   Du kanske måste gå till sidan Avancerade inställningar och leta efter **CNAME**, **alias**eller under **domäner**.
+   Du kanske måste gå till sidan Avancerade inställningar och leta efter **CNAME**, **alias** eller under **domäner**.
 
 3. Skapa en CNAME-post. Ange följande objekt som en del av posten: 
 
@@ -250,7 +250,7 @@ När den anpassade domänen har tagits bort visas ett Portal meddelande om att d
 
 #### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill ta bort en anpassad domän registrering använder du kommandot [AZ Storage Account Update](https://docs.microsoft.com/cli/azure/storage/account) CLI och anger sedan en tom sträng ( `""` ) för `--custom-domain` argumentvärdet.
+Om du vill ta bort en anpassad domän registrering använder du kommandot [AZ Storage Account Update](/cli/azure/storage/account) CLI och anger sedan en tom sträng ( `""` ) för `--custom-domain` argumentvärdet.
 
 * Kommando format:
 
@@ -320,11 +320,11 @@ Gör följande för att mappa en anpassad domän och Aktivera HTTPS-åtkomst:
 
 4. Valfritt Läs följande rikt linjer:
 
-   * [Token för signatur för delad åtkomst (SAS) med Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#shared-access-signatures).
+   * [Token för signatur för delad åtkomst (SAS) med Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#shared-access-signatures).
 
-   * [Http-till-https-omdirigering med Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [Http-till-https-omdirigering med Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
-   * [Priser och fakturering när du använder Blob Storage med Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [Priser och fakturering när du använder Blob Storage med Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
 ## <a name="next-steps"></a>Nästa steg
 

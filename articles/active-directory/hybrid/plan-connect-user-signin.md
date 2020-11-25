@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3365a58a0c667ca55b74a5120cdd7a78ad0abc79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299918"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997791"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect user sign-in options (Alternativ för användarinloggning i Azure AD Connect)
 Med Azure Active Directory (Azure AD) Connect kan användarna logga in i både molnet och lokala resurser med samma lösen ord. I den här artikeln beskrivs viktiga begrepp för varje identitets modell som hjälper dig att välja den identitet som du vill använda för att logga in på Azure AD.
@@ -164,7 +164,7 @@ För följande information antar vi att vi är intresserade av UPN-suffixet cont
 ###### <a name="ad-fs-federation"></a>AD FS Federation
 Du kan inte skapa en federation med default. onmicrosoft.com-domänen i Azure AD eller en overifierad anpassad domän i Azure AD. Om du använder guiden Azure AD Connect och väljer en overifierad domän för att skapa en federation med, uppmanas Azure AD Connect att ange de nödvändiga posterna som ska skapas där din DNS är värd för domänen. Mer information finns i [Verifiera att Azure AD-domänen har valts för Federation](how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
-Om du valde Federations alternativet för användar inloggning **med AD FS**måste du ha en anpassad domän för att kunna fortsätta skapa en federation i Azure AD. För vår diskussion innebär det att vi bör ha en anpassad domän contoso.com som lagts till i Azure AD-katalogen.
+Om du valde Federations alternativet för användar inloggning **med AD FS** måste du ha en anpassad domän för att kunna fortsätta skapa en federation i Azure AD. För vår diskussion innebär det att vi bör ha en anpassad domän contoso.com som lagts till i Azure AD-katalogen.
 
 | Tillstånd | Inverkan på användarens inloggnings upplevelse i Azure |
 |:---:|:--- |

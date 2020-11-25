@@ -8,11 +8,11 @@ ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150242"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997349"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverksöverväganden för en App Service-miljö #
 
@@ -25,7 +25,7 @@ ms.locfileid: "92150242"
 
 Alla ASE, externa och ILB har en offentlig VIP som används för inkommande hanterings trafik och som från-adressen när du gör anrop från ASE till Internet. Anrop från en ASE som går till Internet lämnar VNet via den VIP som tilldelats för ASE. Den offentliga IP-adressen för denna VIP är käll-IP för alla anrop från ASE som går till Internet. Om apparna i din ASE gör anrop till resurser i ditt VNet eller via VPN, är käll-IP: en av IP-adresserna i under nätet som används av din ASE. Eftersom ASE är i det virtuella nätverket kan det också komma åt resurser inom VNet utan ytterligare konfiguration. Om det virtuella nätverket är anslutet till ditt lokala nätverk har appar i din ASE också åtkomst till resurser där utan ytterligare konfiguration.
 
-![Extern ASE][1] 
+![Extern ASE][1] 
 
 Om du har en extern ASE är den offentliga VIP också den slut punkt som dina ASE-appar matchar till för:
 
@@ -157,7 +157,7 @@ De obligatoriska posterna i en NSG, för att en ASE ska fungera, är att tillåt
 * TCP från belastningsutjämnaren på port 16001
 * från ASE-undernätet till ASE-undernätet på alla portar
 
-**Outbound (Utgående)**
+**Utgående**
 * UDP till alla IP-adresser på port 53
 * UDP till alla IP-adresser på port 123
 * TCP till alla IP-adresser på portarna 80, 443
@@ -180,9 +180,9 @@ När de inkommande och utgående kraven tas i beaktande bör NSG: er se ut ungef
 
 ![Ingående säkerhetsregler][4]
 
-En standard regel gör att IP-adresser i det virtuella nätverket kan kommunicera med ASE-undernätet. En annan standard regel aktiverar belastningsutjämnaren, även kallat offentlig VIP, för att kommunicera med ASE. Om du vill se standard reglerna väljer du **standard regler** bredvid ikonen **Lägg till** . Om du anger en neka alla Else-regler innan standard reglerna förhindras trafik mellan VIP-och ASE. Om du vill förhindra trafik som kommer inifrån VNet lägger du till en egen regel för att tillåta inkommande. Använd en källa som är lika med AzureLoadBalancer med målet **och ett** port intervall för **\*** . Eftersom NSG-regeln används för ASE-undernätet behöver du inte vara särskilt i målet.
+En standard regel gör att IP-adresser i det virtuella nätverket kan kommunicera med ASE-undernätet. En annan standard regel aktiverar belastningsutjämnaren, även kallat offentlig VIP, för att kommunicera med ASE. Om du vill se standard reglerna väljer du **standard regler** bredvid ikonen **Lägg till** . Om du anger en neka alla Else-regler innan standard reglerna förhindras trafik mellan VIP-och ASE. Om du vill förhindra trafik som kommer inifrån VNet lägger du till en egen regel för att tillåta inkommande. Använd en **källa som är** lika med AzureLoadBalancer med ett mål för ett och ett port intervall på * *\** _. Eftersom NSG-regeln används för ASE-undernätet behöver du inte vara särskilt i målet.
 
-Om du har tilldelat en IP-adress till din app, se till att du behåller portarna öppna. Om du vill se portarna väljer du **App Service-miljön**  >  **IP-adresser**.  
+Om du har tilldelat en IP-adress till din app, se till att du behåller portarna öppna. Om du vill se portarna väljer du _ *App Service-miljön** > **IP-adresser**.  
 
 Alla objekt som visas i följande utgående regler behövs, förutom det sista objektet. De ger nätverks åtkomst till ASE-beroenden som nämnts tidigare i den här artikeln. Om du blockerar någon av dem slutar ASE att fungera. Det sista objektet i listan gör att ASE kan kommunicera med andra resurser i ditt VNet.
 

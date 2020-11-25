@@ -9,18 +9,18 @@ ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 65a60425f09e9cd7a3e06ca1624621ed8b9fdcbd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9350f9aeff90b75a4e1362f6fa2fa1b0d07f20cf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842081"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95997094"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Skapa ett BlockBlobStorage-konto
 
 Med BlockBlobStorage-kontots typ kan du skapa block-blobbar med förstklassiga prestanda egenskaper. Den här typen av lagrings konto är optimerad för arbets belastningar med höga transaktions priser eller som kräver mycket snabba åtkomst tider. Den här artikeln visar hur du skapar ett BlockBlobStorage-konto med hjälp av Azure Portal, Azure CLI eller Azure PowerShell.
 
-Mer information om BlockBlobStorage-konton finns i [Översikt över Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Mer information om BlockBlobStorage-konton finns i [Översikt över Azure Storage-konto](../common/storage-account-overview.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -194,6 +194,6 @@ Om du vill skapa ett block-BLOB-konto med hjälp av Azure CLI måste du först i
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om lagrings konton finns i [Översikt över Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+- Mer information om lagrings konton finns i [Översikt över Azure Storage-konto](../common/storage-account-overview.md).
 
-- Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+- Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md).

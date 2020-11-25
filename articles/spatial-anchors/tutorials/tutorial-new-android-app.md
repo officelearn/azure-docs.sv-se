@@ -1,25 +1,25 @@
 ---
 title: 'Självstudie: skapa en ny Android-app'
 description: I den här självstudien får du lära dig hur du skapar en ny Android-app med hjälp av Azure spatiala ankare.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 06/22/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3ef24e29e5dde90aa829c46d789256e6e5f3233b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0d01a20728d2332d4a8d71819f73baf68a65a4
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85296210"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95998402"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Självstudie: steg-för-steg-instruktioner för att skapa en ny Android-app med hjälp av Azure spatiala ankare
 
 I den här självstudien får du lära dig hur du skapar en ny Android-app som integrerar ARCore-funktionen med avstånds ankare för Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa den här självstudien måste du ha:
 
@@ -28,9 +28,9 @@ För att kunna följa den här självstudien måste du ha:
 
 ## <a name="getting-started"></a>Komma igång
 
-Starta Android Studio. Klicka på **starta ett nytt Android Studio projekt**i fönstret **Välkommen till Android Studio** . Eller, om du har ett projekt som redan har öppnats, väljer du **fil** -> **nytt projekt**.
+Starta Android Studio. Klicka på **starta ett nytt Android Studio projekt** i fönstret **Välkommen till Android Studio** . Eller, om du har ett projekt som redan har öppnats, väljer du **fil** -> **nytt projekt**.
 
-I fönstret **Skapa nytt projekt** under avsnittet **telefon och surfplatta** väljer du **Tom aktivitet**och klickar på **Nästa**. Välj, under **lägsta API-nivå**, `API 26: Android 8.0 (Oreo)` och se till att **språket** är inställt på `Java` . Du kanske vill ändra projekt namnet & plats och paket namnet. Lämna de andra alternativen som de är. Klicka på **Finish**. **Komponent installations programmet** körs. När den är klar klickar du på **Slutför**. Vid viss bearbetning öppnar Android Studio IDE-filen.
+I fönstret **Skapa nytt projekt** under avsnittet **telefon och surfplatta** väljer du **Tom aktivitet** och klickar på **Nästa**. Välj, under **lägsta API-nivå**, `API 26: Android 8.0 (Oreo)` och se till att **språket** är inställt på `Java` . Du kanske vill ändra projekt namnet & plats och paket namnet. Lämna de andra alternativen som de är. Klicka på **Finish**. **Komponent installations programmet** körs. När den är klar klickar du på **Slutför**. Vid viss bearbetning öppnar Android Studio IDE-filen.
 
 ## <a name="trying-it-out"></a>Testa
 
@@ -134,7 +134,7 @@ dependencies {
 }
 ```
 
-Högerklicka på `app\java\<PackageName>` -> **ny** -> **Java-klass**. Ange **namnet** _MyFirstApp_och **superklass** till _Android. app. Application_. Lämna de andra alternativen som de är. Klicka på **OK**. En fil som heter `MyFirstApp.java` kommer att skapas. Lägg till följande import:
+Högerklicka på `app\java\<PackageName>` -> **ny** -> **Java-klass**. Ange **namnet** _MyFirstApp_ och **superklass** till _Android. app. Application_. Lämna de andra alternativen som de är. Klicka på **OK**. En fil som heter `MyFirstApp.java` kommer att skapas. Lägg till följande import:
 
 ```java
 import com.microsoft.CloudServices;
@@ -227,6 +227,6 @@ Nu ska vi koppla koden som ska anropas när ankaret som vi frågar efter finns. 
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=initializeSession&highlight=34-53)]
 
-Det är allt. [Distribuera](#trying-it-out) din app en sista gången för att testa hela scenariot från början till slut. Flytta runt enheten och placera din svarta sfär. Fortsätt sedan att flytta enheten för att avbilda kamera bild rutor tills klotet blir gult. Ditt lokala ankare laddas upp och sfären blir blå. Till sist trycker du på skärmen en gång till, så att ditt lokala ankare tas bort och vi kommer att fråga efter dess moln motsvarighet. Fortsätt att flytta enheten tills molnets spatiala ankare är belägen. En grön sfär bör visas på rätt plats och du kan skölja & upprepa hela scenariot igen.
+Klart! [Distribuera](#trying-it-out) din app en sista gången för att testa hela scenariot från början till slut. Flytta runt enheten och placera din svarta sfär. Fortsätt sedan att flytta enheten för att avbilda kamera bild rutor tills klotet blir gult. Ditt lokala ankare laddas upp och sfären blir blå. Till sist trycker du på skärmen en gång till, så att ditt lokala ankare tas bort och vi kommer att fråga efter dess moln motsvarighet. Fortsätt att flytta enheten tills molnets spatiala ankare är belägen. En grön sfär bör visas på rätt plats och du kan skölja & upprepa hela scenariot igen.
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-new-android-app-finished.md)]

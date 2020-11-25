@@ -14,11 +14,11 @@ ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f47ae9b087615a77f6bd4d3f14f1b0052037cba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321981"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996770"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Lägg till din organisations sekretess information med Azure Active Directory
 Den här artikeln förklarar hur en innehavaradministratör kan lägga till sekretess information till en organisations Azure Active Directory (Azure AD)-klient, via Azure Portal.
@@ -34,7 +34,7 @@ Du lägger till din organisations sekretess information i avsnittet **Egenskaper
 
 1. Logga in på Azure Portal som klient organisations administratör.
 
-2. Välj **Azure Active Directory**i det vänstra navigerings fältet och välj sedan **Egenskaper**.
+2. Välj **Azure Active Directory** i det vänstra navigerings fältet och välj sedan **Egenskaper**.
 
     **Egenskaps** områden visas.
 
@@ -49,7 +49,7 @@ Du lägger till din organisations sekretess information i avsnittet **Egenskaper
     - **URL för sekretess policy.** Skriv länken till din organisations dokument som beskriver hur din organisation hanterar både intern och extern gäst data sekretess.
 
         >[!Important]
-        >Om du inte inkluderar antingen din egen sekretess policy eller din sekretess kontakt kommer dina externa gäster att se text i rutan **Granska behörigheter** som säger att ** < _ditt organisations namn_> inte har tillhandahållit några länkar till sina villkor för att granska**. En gäst användare ser exempelvis det här meddelandet när de får en inbjudan att få åtkomst till en organisation via B2B-samarbete.
+        >Om du inte inkluderar antingen din egen sekretess policy eller din sekretess kontakt kommer dina externa gäster att se text i rutan **Granska behörigheter** som säger att **< _ditt organisations namn_> inte har tillhandahållit några länkar till sina villkor för att granska**. En gäst användare ser exempelvis det här meddelandet när de får en inbjudan att få åtkomst till en organisation via B2B-samarbete.
 
         ![B2B-samarbete för gransknings behörighet med meddelande](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 

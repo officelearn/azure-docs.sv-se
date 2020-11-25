@@ -13,11 +13,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1257c783ffeae68bf338b21a5d2f6bba72ea25b3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836435"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997774"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrera från Federation till direktautentisering för Azure Active Directory
 
@@ -419,7 +419,7 @@ När du har kontrollerat att alla användare och klienter har autentiserats via 
 
 Om du inte använder AD FS för andra orsaker (det vill säga för andra förtroenden för förlitande part), är det säkert att inaktivera AD FS i det här läget.
 
-### <a name="rollback"></a>Ånger
+### <a name="rollback"></a>Återställning
 
 Om du upptäcker ett större problem och inte kan lösa det snabbt kan du välja att återställa lösningen till Federation.
 

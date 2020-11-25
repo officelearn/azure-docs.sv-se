@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
 ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379455"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997059"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Självstudie: övervaka publicerade API: er
 
 Med Azure Monitor kan du visualisera, fråga, cirkulera, arkivera och vidta åtgärder för mått eller loggar som kommer från Azure API Management-tjänsten.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Visa mått för din API 
@@ -56,7 +56,7 @@ Så här får du åtkomst till mått:
 
 1. Från listrutan väljer du mått som du är intresserad av. Till exempel **begär Anden**. 
 1. Diagrammet visar det totala antalet API-anrop.
-1. Diagrammet kan filtreras med dimensionerna för **begär** ande mått. Välj **till exempel Lägg till filter** , Välj **svars kod kategori för Server** del, ange 500 som värde. Nu visar diagrammet antalet begär Anden som misslyckats i API-backend-servern.   
+1. Diagrammet kan filtreras med dimensionerna för **begär** ande mått. Välj **till exempel Lägg till filter**, Välj **svars kod kategori för Server** del, ange 500 som värde. Nu visar diagrammet antalet begär Anden som misslyckats i API-backend-servern.   
 
 ## <a name="set-up-an-alert-rule"></a>Konfigurera en varnings regel 
 
@@ -78,7 +78,7 @@ Så här konfigurerar du ett exempel på en varnings regel baserat på ett begä
 1. I fönstret **Konfigurera signal logik** :
     1. I **signal typ** väljer du **mått**.
     1. I **signal namn** väljer du **begär Anden**.
-    1. I **dela efter dimensioner** , i **Dimensions namn** , väljer du **kategori för gateway-svars kod**.
+    1. I **dela efter dimensioner**, i **Dimensions namn**, väljer du **kategori för gateway-svars kod**.
     1. I **Dimensions värden** väljer du **4xx** för klient fel som obehöriga eller ogiltiga begär Anden.
     1. I **aviserings logik** anger du ett tröskelvärde efter vilken aviseringen ska utlösas och väljer sedan **slutförd**.
 

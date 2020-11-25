@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 6eced120a05ddaca8d8cf426fd2a977891b3e36b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515938"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997145"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Självstudie: Azure Active Directory integrering med små förbättringar
 
@@ -61,7 +61,7 @@ Om du vill konfigurera en integrering av små förbättringar i Azure AD måste 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **små förbättringar**i sökrutan, Välj **små förbättringar** från resultat panelen och klicka sedan på **Lägg till** för att lägga till programmet.
+4. Skriv **små förbättringar** i sökrutan, Välj **små förbättringar** från resultat panelen och klicka sedan på **Lägg till** för att lägga till programmet.
 
      ![Små förbättringar i resultat listan](common/search-new-app.png)
 
@@ -138,7 +138,7 @@ Utför följande steg för att konfigurera enkel inloggning med små förbättri
 
     ![Skärm bild som visar sidan S O-inställningar där du kan ange de värden som beskrivs.](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
-    a. I text rutan **http-slutpunkt** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
+    a. I text rutan **http-slutpunkt** klistrar du in värdet för **inloggnings-URL: en** som du har kopierat från Azure Portal.
 
     b. Öppna det hämtade certifikatet i anteckningar, kopiera innehållet och klistra in det i text rutan **x509-certifikat** . 
 
@@ -177,7 +177,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till små förbättringar.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **små förbättringar**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program** och väljer sedan **små förbättringar**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 

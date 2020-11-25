@@ -6,11 +6,11 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 ms.openlocfilehash: 7d6c0d13e440beb9a934adba3908cc9a08f396f1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747136"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997967"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Skapa en Ruby- och Postgres-app i Azure App Service på Linux
 
@@ -125,7 +125,7 @@ I det här avsnittet skapar du en Azure Database for PostgreSQL-Server och-datab
 az extension add --name db-up
 ```
 
-Skapa postgres-databasen i Azure med [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) kommandot, som du ser i följande exempel. Ersätt *\<postgresql-name>* med ett *unikt* namn (Server slut punkten är *https:// \<postgresql-name> . postgres.Database.Azure.com* ). För *\<admin-username>* och *\<admin-password>* anger du autentiseringsuppgifter för att skapa en administratörs användare för den här postgres-servern.
+Skapa postgres-databasen i Azure med [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) kommandot, som du ser i följande exempel. Ersätt *\<postgresql-name>* med ett *unikt* namn (Server slut punkten är *https:// \<postgresql-name> . postgres.Database.Azure.com*). För *\<admin-username>* och *\<admin-password>* anger du autentiseringsuppgifter för att skapa en administratörs användare för den här postgres-servern.
 
 <!-- Issue: without --location -->
 ```azurecli
@@ -157,7 +157,7 @@ I det här steget ansluter du Ruby on Rails-appen till Postgres-databasen du ska
 
 ### <a name="configure-the-database-connection"></a>Konfigurera databasanslutningen
 
-På lagringsplatsen öppnar du _config/database.yml_ . Ersätt produktionsvariablerna med följande kod längst ned i filen. 
+På lagringsplatsen öppnar du _config/database.yml_. Ersätt produktionsvariablerna med följande kod längst ned i filen. 
 
 ```txt
 production:
@@ -257,7 +257,7 @@ I det här steget, distribuerar du ditt Postgres-anslutna Rails-program till Azu
 
 I App Service ställer du in miljövariabler som _appinställningar_ med kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) i Cloud Shell.
 
-Följande Cloud Shell-kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` och `DB_PASSWORD`. Ersätt plats hållarna _&lt; APPNAME>_ och _&lt; postgres-Server-Name>_ .
+Följande Cloud Shell-kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` och `DB_PASSWORD`. Ersätt plats hållarna _&lt; APPNAME>_ och _&lt; postgres-Server-Name>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="root@<postgres-server-name>" DB_PASSWORD="Sampledb1"
@@ -316,7 +316,7 @@ remote: Running deployment command...
 
 Bläddra till `http://<app-name>.azurewebsites.net` och lägg till några uppgifter i listan.
 
-:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="Skärm bild av ett exempel på en Ruby on-app med titeln uppgifter.":::
+:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="Skärm bild av Azure App-exemplet med rubriken uppgifter som visar aktiviteter som lagts till i listan.":::
 
 Grattis! Du kör en datadriven Ruby on Rails-app i Azure App Service.
 
@@ -336,7 +336,7 @@ Generera en ny migrering som lägger till en boolesk kolumn med namnet `Done` i 
 rails generate migration AddDoneToTasks Done:boolean
 ```
 
-Det här kommandot genererar en ny migrationsfil i katalogen _db/migrate_ .
+Det här kommandot genererar en ny migrationsfil i katalogen _db/migrate_.
 
 
 I terminalen kör du Rails-databasemigreringar för att göra ändringen i den lokala databasen.
@@ -347,7 +347,7 @@ rake db:migrate
 
 ### <a name="update-application-logic"></a>Uppdatera programlogik
 
-Öppna filen *app/controllers/tasks_controller.rb* . Lägg till följande rad i slutet av filen:
+Öppna filen *app/controllers/tasks_controller.rb*. Lägg till följande rad i slutet av filen:
 
 ```rb
 params.require(:task).permit(:Description)
@@ -361,7 +361,7 @@ params.require(:task).permit(:Description, :Done)
 
 ### <a name="update-the-views"></a>Uppdatera vyerna
 
-Öppna filen *app/views/tasks/_form.html.erb* , som är i redigeringsform.
+Öppna filen *app/views/tasks/_form.html.erb*, som är i redigeringsform.
 
 Leta reda på raden `<%=f.error_span(:Description) %>` och infoga följande kod direkt under den:
 
@@ -372,7 +372,7 @@ Leta reda på raden `<%=f.error_span(:Description) %>` och infoga följande kod 
 </div>
 ```
 
-Öppna filen *app/views/tasks/show.html.erb* , som är den enskilda postens visningssida. 
+Öppna filen *app/views/tasks/show.html.erb*, som är den enskilda postens visningssida. 
 
 Leta reda på raden `<dd><%= @task.Description %></dd>` och infoga följande kod direkt under den:
 
@@ -381,7 +381,7 @@ Leta reda på raden `<dd><%= @task.Description %></dd>` och infoga följande kod
   <dd><%= check_box "task", "Done", {:checked => @task.Done, :disabled => true}%></dd>
 ```
 
-Öppna filen *app/views/tasks/index.html.erb* , som är indexsidan för alla poster.
+Öppna filen *app/views/tasks/index.html.erb*, som är indexsidan för alla poster.
 
 Leta reda på raden `<th><%= model_class.human_attribute_name(:Description) %></th>` och infoga följande kod direkt under den:
 

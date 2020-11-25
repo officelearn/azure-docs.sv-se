@@ -1,19 +1,19 @@
 ---
-author: ramonarguelles
+author: msftradford
 ms.service: spatial-anchors
 ms.topic: include
-ms.date: 1/30/2019
-ms.author: rgarcia
-ms.openlocfilehash: 0e6f68daf22659b880827ad027268d9757c60063
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/20/2020
+ms.author: parkerra
+ms.openlocfilehash: 80685dee7907b81832c94044d1feb8fcf2e41bde
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971433"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95998503"
 ---
 ### <a name="open-the-publish-wizard"></a>Öppna guiden publicera
 
-I **Solution Explorer**högerklickar du på projektet **SharingService** och väljer sedan **publicera**.
+I **Solution Explorer** högerklickar du på projektet **SharingService** och väljer sedan **publicera**.
 
 Publicerings guiden startar. 
 
@@ -21,9 +21,9 @@ Välj **App Service**  >  **publicera** för att öppna fönstret **Skapa App Se
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal.
+Logga in på Azure-portalen.
 
-I fönstret **skapa App Service** väljer du **Lägg till ett konto**och loggar sedan in på din Azure-prenumeration. Om du redan är inloggad väljer du önskat konto i list rutan.
+I fönstret **skapa App Service** väljer du **Lägg till ett konto** och loggar sedan in på din Azure-prenumeration. Om du redan är inloggad väljer du önskat konto i list rutan.
 
    > [!NOTE]
    > Välj inte **Skapa** ännu om du redan är inloggad.
@@ -35,7 +35,7 @@ I fönstret **skapa App Service** väljer du **Lägg till ett konto**och loggar 
 
 Välj **Ny** bredvid **Resursgrupp**.
 
-Namnge resurs gruppen **myResourceGroup**och välj sedan **OK**.
+Namnge resurs gruppen **myResourceGroup** och välj sedan **OK**.
 
 ### <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
 

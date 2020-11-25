@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
 ms.openlocfilehash: c0c428997cfba8871a29d9bfe0df0a6920a1d22f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357597"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998676"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Självstudie: Konfigurera 4me för automatisk användar etablering
 
@@ -53,7 +53,7 @@ Innan du konfigurerar 4me för automatisk användar etablering med Azure AD mås
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **4me** , väljer **4me** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **4me**, väljer **4me** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![4me i resultatlistan](common/search-new-app.png)
 

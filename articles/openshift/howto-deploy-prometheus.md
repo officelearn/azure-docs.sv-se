@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: Prometheus, Aro, OpenShift, Metrics, Red Hat
 ms.openlocfilehash: 42ed8c90b35eba57fdc3db1f0ed93d44cf9a5e41
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218620"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996856"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Distribuera en fristående Prometheus-instans i ett Azure Red Hat OpenShift-kluster
 
@@ -36,7 +36,7 @@ Du kommer att förbereda vissa Prometheus-konfigurationsfiler lokalt. Skapa en n
 
 ## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>Logga in på klustret med hjälp av verktyget OC
 
-1. Öppna en webbläsare och gå sedan till webb konsolen för klustret ( https://openshift .* slumpmässigt ID*. *region*. azmosa.IO).
+1. Öppna en webbläsare och gå sedan till webb konsolen för klustret ( https://openshift .*slumpmässigt ID*. *region*. azmosa.IO).
 2. Logga in med dina Azure autentiseringsuppgifter.
 3. Välj ditt användar namn i det övre högra hörnet och välj sedan **Kopiera inloggnings kommando**.
 4. Klistra in ditt användar namn i den terminal som du ska använda.
@@ -188,7 +188,7 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 
 ## <a name="optional-deploy-example-application"></a>Valfritt: Distribuera exempel program
 
-Allt fungerar, men det finns inga mått källor. Gå till Prometheus-URL: en ( https://prom-prometheus-project.apps .* slumpmässigt ID*. *region*. azmosa.IO/). Du hittar det genom att använda följande kommando:
+Allt fungerar, men det finns inga mått källor. Gå till Prometheus-URL: en ( https://prom-prometheus-project.apps .*slumpmässigt ID*. *region*. azmosa.IO/). Du hittar det genom att använda följande kommando:
 
 ```
 oc get route prom -n prometheus-project

@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370822"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996703"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Lägga till eller ta bort användare med hjälp av Azure Active Directory
 
@@ -34,7 +34,7 @@ Följ dessa steg om du vill lägga till en ny användare:
 
 1. Sök efter och välj *Azure Active Directory* från vilken sida som helst.
 
-1. Välj **användare**och välj sedan **ny användare**.
+1. Välj **användare** och välj sedan **ny användare**.
 
     ![Lägg till en användare via användare – alla användare i Azure AD](media/add-users-azure-active-directory/add-user-in-users-all-users.png)
 
@@ -44,7 +44,7 @@ Följ dessa steg om du vill lägga till en ny användare:
 
    - **Användar namn**. Krävs. Den nya användarens användar namn. Exempelvis `mary@contoso.com`.
 
-     Domän delen av användar namnet måste antingen använda det inledande standard domän namnet, * \<yourdomainname> . onmicrosoft.com*eller ett anpassat domän namn, till exempel *contoso.com*. Mer information om hur du skapar ett anpassat domän namn finns i [lägga till ditt anpassade domän namn med hjälp av Azure Active Directory portalen](add-custom-domain.md).
+     Domän delen av användar namnet måste antingen använda det inledande standard domän namnet, *\<yourdomainname> . onmicrosoft.com* eller ett anpassat domän namn, till exempel *contoso.com*. Mer information om hur du skapar ett anpassat domän namn finns i [lägga till ditt anpassade domän namn med hjälp av Azure Active Directory portalen](add-custom-domain.md).
 
    - **Grupper**. Du kan också lägga till användaren i en eller flera befintliga grupper. Du kan också lägga till användaren till grupper vid ett senare tillfälle. Mer information om hur du lägger till användare till grupper finns i [skapa en grundläggande grupp och lägga till medlemmar med hjälp av Azure Active Directory](active-directory-groups-create-azure-portal.md).
 

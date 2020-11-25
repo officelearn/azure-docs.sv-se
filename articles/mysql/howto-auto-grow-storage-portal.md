@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 9355c2b2c780b6ccd63100e576850fe5566db3cc
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546848"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998608"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Utöka lagringen automatiskt i Azure Database for MySQL att använda Azure Portal
 I den här artikeln beskrivs hur du kan konfigurera en Azure Database for MySQL Server lagring så att den växer utan att arbets belastningen påverkas.
@@ -34,11 +34,11 @@ Följ de här stegen för att ställa in MySQL-serverns lagrings storlek automat
 
     :::image type="content" source="./media/howto-auto-grow-storage-portal/3-auto-grow.png" alt-text="Azure Database for MySQL-Settings_Pricing_tier-Auto-EXPTREND":::
 
-4. Spara ändringarna genom att klicka på **OK** .
+4. Spara ändringarna genom att klicka på **OK**.
 
 5. Ett meddelande bekräftar att den automatiska utökningen har Aktiver ATS.
 
-    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-success.png" alt-text="Azure Database for MySQL-Settings_Pricing_tier-Auto-EXPTREND":::
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-success.png" alt-text="Azure Database for MySQL-automatisk tillväxt lyckades":::
 
 ## <a name="next-steps"></a>Nästa steg
 

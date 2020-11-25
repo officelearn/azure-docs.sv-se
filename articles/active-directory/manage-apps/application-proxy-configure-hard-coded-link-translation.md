@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 544aa1a4a859a9c328eb1d36e72d0f9f9ddb55b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ad45d5f0e313c06619fa9c998515e434de957ea
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327909"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997570"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodade länkar för appar som publicerats med Azure AD-programproxy
 
@@ -47,14 +47,14 @@ De här tre funktionerna gör att dina länkar fungerar oavsett var dina använd
 > [!NOTE]
 > Det sista alternativet är endast för klienter som av någon anledning inte kan använda anpassade domäner för att ha samma interna och externa URL: er för sina appar. Innan du aktiverar den här funktionen kan du se om [anpassade domäner i Azure AD-programproxy](application-proxy-configure-custom-domain.md) kan arbeta åt dig. 
 > 
-> Eller, om programmet du behöver konfigurera med länk översättning är SharePoint, se [Konfigurera alternativa åtkomst mappningar för SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) för en annan metod för att mappa länkar. 
+> Eller, om programmet du behöver konfigurera med länk översättning är SharePoint, se [Konfigurera alternativa åtkomst mappningar för SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings) för en annan metod för att mappa länkar. 
 
  
 ### <a name="option-1-microsoft-edge-integration"></a>Alternativ 1: Microsoft Edge-integration 
 
 Du kan använda Microsoft Edge för att ytterligare skydda ditt program och ditt innehåll. Om du vill använda den här lösningen måste du kräva/rekommendera användares åtkomst till programmet via Microsoft Edge. Alla interna URL: er som publiceras med programproxyn kommer att identifieras av Edge och omdirigeras till motsvarande externa URL. Detta säkerställer att alla hårdkodade interna URL: er fungerar, och om en användare går till webbläsaren och direkt skriver den interna URL: en, fungerar den även om användaren är fjärran sluten.  
 
-Mer information, inklusive hur du konfigurerar det här alternativet finns i [Hantera webb åtkomst med hjälp av Edge för iOS och Android med Microsoft Intune](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge) -dokumentationen.  
+Mer information, inklusive hur du konfigurerar det här alternativet finns i [Hantera webb åtkomst med hjälp av Edge för iOS och Android med Microsoft Intune](/mem/intune/apps/manage-microsoft-edge) -dokumentationen.  
 
 ### <a name="option-2-myapps-browser-extension"></a>Alternativ 2: webb läsar tillägget för appar 
 
@@ -62,7 +62,7 @@ Med webb läsar tillägget för appar, identifieras alla interna URL: er som pub
 
 Användaren måste ladda ned tillägget och vara inloggad för att kunna använda den här funktionen. Det finns ingen annan konfiguration som krävs för administratörer eller användare. 
 
-Mer information, inklusive hur du konfigurerar det här alternativet finns i dokumentationen för [webb läsar tillägget för appar](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) .
+Mer information, inklusive hur du konfigurerar det här alternativet finns i dokumentationen för [webb läsar tillägget för appar](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) .
 
 ### <a name="option-3-link-translation-setting"></a>Alternativ 3: inställning för länk Översättning 
 
@@ -152,4 +152,4 @@ Vi vill att den här funktionen ska fungera för alla dina appar. Vi söker öve
 ## <a name="next-steps"></a>Nästa steg
 [Använd anpassade domäner med Azure AD-programproxy](application-proxy-configure-custom-domain.md) att ha samma interna och externa URL
 
-[Konfigurera alternativa åtkomst mappningar för SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
+[Konfigurera alternativa åtkomst mappningar för SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings)

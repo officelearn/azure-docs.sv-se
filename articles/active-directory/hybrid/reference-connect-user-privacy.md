@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f1d1bf35d03f0f7c4d11e4cc7e9b6f98f38d8ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279575"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997706"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Användar sekretess och Azure AD Connect 
 
@@ -67,7 +67,7 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 ### <a name="schedule-this-script-to-run-every-48-hours"></a>Schemalägg skriptet så att det körs var 48: e timme
 Använd följande steg för att schemalägga skriptet så att det körs var 48: e timme.
 
-1.  Spara skriptet i en fil med fil namns tillägget **&#46;ps1**och öppna sedan kontroll panelen och klicka på **system och säkerhet**.
+1.  Spara skriptet i en fil med fil namns tillägget **&#46;ps1** och öppna sedan kontroll panelen och klicka på **system och säkerhet**.
     ![System](./media/reference-connect-user-privacy/gdpr2.png)
 
 2.  Under administrations verktyg-rubriken klickar du på **schemalägga aktiviteter**.

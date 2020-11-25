@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/23/2020
 ms.author: mbullwin
 keywords: avvikelse identifiering, maskin inlärning, algoritmer
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 9b540f2e04ae8533a00f79d05e220d99964d9a34
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1a13b962a000e6e3b2143dc23f94b63c122bd963
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016611"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999116"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Vad är API:et för avvikelseidentifiering?
 
@@ -59,7 +59,7 @@ Utför följande steg för att köra antecknings boken:
 1. Välj en av antecknings böckerna.
 1. Lägg till din giltiga API-prenumerations nyckel för avvikelse detektor i `subscription_key` variabeln.
 1. Ändra `endpoint` variabeln till din slut punkt. Exempelvis: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. Klicka på **cell**och **Kör alla**på den översta meny raden.
+1. Klicka på **cell** och **Kör alla** på den översta meny raden.
 
 ## <a name="workflow"></a>Arbetsflöde
 
@@ -85,6 +85,10 @@ Du kan läsa pappers [seriens avvikelse identifierings tjänst på Microsoft](ht
 
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Distribuera lokalt med Docker-behållare
+
+[Använd avvikande detektor behållare](anomaly-detector-container-howto.md) för att distribuera API-funktioner lokalt. Docker-behållare gör att du kan ta tjänsten närmare dina data för efterlevnad, säkerhet eller andra drift orsaker.
 
 ## <a name="join-the-anomaly-detector-community"></a>Delta i communityn för avvikelseidentifiering
 

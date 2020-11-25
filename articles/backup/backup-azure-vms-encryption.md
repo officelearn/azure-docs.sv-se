@@ -4,11 +4,11 @@ description: Beskriver hur du säkerhetskopierar och återställer krypterade vi
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.openlocfilehash: 67c0e879fe2acf241b1ed08a5658209bf70b1b9c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173900"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978122"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -71,15 +71,15 @@ Dessutom finns det några saker som du kan behöva göra i vissa fall:
 
       ![Scenario fönster](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-1. Välj säkerhets kopierings princip i **säkerhets kopierings princip**  >  **Choose backup policy**och välj den princip som du vill associera med valvet. Välj sedan **OK**.
+1. Välj säkerhets kopierings princip i **säkerhets kopierings princip**  >  **Choose backup policy** och välj den princip som du vill associera med valvet. Välj sedan **OK**.
     - En säkerhets kopierings princip anger när säkerhets kopieringar görs och hur länge de lagras.
     - Information om standardprincipen visas under den nedrullningsbara menyn.
 
     ![Välj säkerhets kopierings princip](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
-1. Om du inte vill använda standard principen väljer du **Skapa ny**och [skapar en anpassad princip](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
+1. Om du inte vill använda standard principen väljer du **Skapa ny** och [skapar en anpassad princip](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-1. Under **Virtual Machines**väljer du **Lägg till**.
+1. Under **Virtual Machines** väljer du **Lägg till**.
 
     ![Lägg till virtuella datorer](./media/backup-azure-vms-encryption/add-virtual-machines.png)
 
@@ -104,22 +104,22 @@ Dessutom finns det några saker som du kan behöva göra i vissa fall:
 Den första säkerhets kopieringen kommer att köras enligt schemat, men du kan köra den direkt på följande sätt:
 
 1. I menyn valv väljer du **säkerhets kopierings objekt**.
-2. I **säkerhets kopierings objekt**väljer du **virtuell Azure-dator**.
+2. I **säkerhets kopierings objekt** väljer du **virtuell Azure-dator**.
 3. I listan **säkerhets kopierings objekt** väljer du ellipserna (...).
 4. Välj **Säkerhetskopiera nu**.
-5. I **Säkerhetskopiera nu**använder du kalender kontrollen för att välja den sista dagen som återställnings punkten ska behållas. Välj sedan **OK**.
+5. I **Säkerhetskopiera nu** använder du kalender kontrollen för att välja den sista dagen som återställnings punkten ska behållas. Välj sedan **OK**.
 6. Övervaka Portal meddelanden. Du kan övervaka jobb förloppet i valv instrument panelen > **säkerhets kopierings jobb**  >  **pågår**. Beroende på den virtuella datorns storlek kan det ta en stund att skapa den första säkerhetskopian.
 
 ## <a name="provide-permissions"></a>Ange behörigheter
 
 Azure Backup behöver skrivskyddad åtkomst för att säkerhetskopiera nycklar och hemligheter, tillsammans med de associerade virtuella datorerna.
 
-- Din Key Vault är kopplad till Azure AD-klienten för Azure-prenumerationen. Om du är **medlems användare**får Azure Backup få åtkomst till Key Vault utan ytterligare åtgärder.
-- Om du är **gäst användare**måste du ange behörigheter för Azure Backup för att få åtkomst till nyckel valvet.
+- Din Key Vault är kopplad till Azure AD-klienten för Azure-prenumerationen. Om du är **medlems användare** får Azure Backup få åtkomst till Key Vault utan ytterligare åtgärder.
+- Om du är **gäst användare** måste du ange behörigheter för Azure Backup för att få åtkomst till nyckel valvet.
 
 Ange behörigheter:
 
-1. I Azure Portal väljer du **alla tjänster**och söker efter **nyckel valv**.
+1. I Azure Portal väljer du **alla tjänster** och söker efter **nyckel valv**.
 1. Välj nyckel valvet som är associerat med den krypterade virtuella datorn som du säkerhetskopierar.
 1. Välj **åtkomst principer**  >  **Lägg till åtkomst princip**.
 
@@ -127,7 +127,7 @@ Ange behörigheter:
 
 1. I **Lägg till åtkomst princip**  >  **Konfigurera från mall (valfritt)** väljer du **Azure Backup**.
     - De behörigheter som krävs är förifyllda för **nyckel behörigheter** och **hemliga behörigheter**.
-    - Om den virtuella datorn är krypterad med **endast Bek**tar du bort valet för **nyckel behörigheter** eftersom du bara behöver behörighet för hemligheter.
+    - Om den virtuella datorn är krypterad med **endast Bek** tar du bort valet för **nyckel behörigheter** eftersom du bara behöver behörighet för hemligheter.
 
     ![Azure Backup val](./media/backup-azure-vms-encryption/select-backup-template.png)
 

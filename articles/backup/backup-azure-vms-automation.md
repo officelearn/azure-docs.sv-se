@@ -4,11 +4,11 @@ description: Beskriver hur du säkerhetskopierar och återställer virtuella Azu
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094100"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978377"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 
@@ -435,7 +435,7 @@ $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -Work
 
 Använd cmdleten [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) för att visa en lista över alla återställnings punkter för säkerhets kopierings objekt. Välj sedan den återställnings punkt som ska återställas. Om du är osäker på vilken återställnings punkt som ska användas, är det en bra idé att välja den senaste RecoveryPointType = AppConsistent-punkten i listan.
 
-I följande skript är variabeln **$RP**en matris med återställnings punkter för det valda säkerhets kopierings objektet, från de senaste sju dagarna. Matrisen sorteras i omvänd ordning med den senaste återställnings punkten vid index 0. Använd standard PowerShell-matrisering för att välja återställnings punkt. I exemplet väljer $rp [0] den senaste återställnings punkten.
+I följande skript är variabeln **$RP** en matris med återställnings punkter för det valda säkerhets kopierings objektet, från de senaste sju dagarna. Matrisen sorteras i omvänd ordning med den senaste återställnings punkten vid index 0. Använd standard PowerShell-matrisering för att välja återställnings punkt. I exemplet väljer $rp [0] den senaste återställnings punkten.
 
 ```powershell
 $startDate = (Get-Date).AddDays(-7)
@@ -824,7 +824,7 @@ $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -Work
 
 Använd cmdleten [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) för att visa en lista över alla återställnings punkter för säkerhets kopierings objekt. Välj sedan den återställnings punkt som ska återställas. Om du är osäker på vilken återställnings punkt som ska användas, är det en bra idé att välja den senaste RecoveryPointType = AppConsistent-punkten i listan.
 
-I följande skript är variabeln **$RP**en matris med återställnings punkter för det valda säkerhets kopierings objektet, från de senaste sju dagarna. Matrisen sorteras i omvänd ordning med den senaste återställnings punkten vid index 0. Använd standard PowerShell-matrisering för att välja återställnings punkt. I exemplet väljer $rp [0] den senaste återställnings punkten.
+I följande skript är variabeln **$RP** en matris med återställnings punkter för det valda säkerhets kopierings objektet, från de senaste sju dagarna. Matrisen sorteras i omvänd ordning med den senaste återställnings punkten vid index 0. Använd standard PowerShell-matrisering för att välja återställnings punkt. I exemplet väljer $rp [0] den senaste återställnings punkten.
 
 ```powershell
 $startDate = (Get-Date).AddDays(-7)

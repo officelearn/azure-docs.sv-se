@@ -12,11 +12,11 @@ ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 340c9629af89bfacb85b37503743fc5770070ae3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951850"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95990915"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "94951850"
 
 Genom att slutföra stegen i den här artikeln skapar du en anpassad princip för registrering och inloggning med ditt varumärke och utseende. Med Azure Active Directory B2C (Azure AD B2C) får du nästan fullständig kontroll över HTML-och CSS-innehållet som presenteras för användarna. När du använder en anpassad princip kan du konfigurera UI-anpassning i XML i stället för att använda kontroller i Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
 

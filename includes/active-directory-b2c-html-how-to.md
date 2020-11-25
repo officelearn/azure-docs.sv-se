@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4cdef227c786b12790903037fdc02649592e3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91377279"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95990892"
 ---
 ## <a name="use-custom-page-content"></a>Använd anpassat sid innehåll
 
@@ -46,7 +46,7 @@ I stället för att skapa ett anpassat sid innehåll från grunden kan du anpass
 
 I följande tabell visas standard sid innehållet som tillhandahålls av Azure AD B2C. Hämta filerna och Använd dem som utgångs punkt för att skapa egna anpassade sidor.
 
-| Standard sida | Beskrivning | ID för innehålls definition<br/>(endast anpassad princip) |
+| Standard sida | Description | ID för innehålls definition<br/>(endast anpassad princip) |
 |:-----------------------|:--------|-------------|
 | [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Felsida**. Den här sidan visas när ett undantag eller ett fel påträffas. | *API. error* |
 | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Själv kontrollerad sida**. Använd den här filen som ett anpassat sid innehåll för registrerings sidan för ett socialt konto, en registrerings sida för lokalt konto, en inloggnings sida för lokalt konto, lösen ords återställning med mera. Formuläret kan innehålla olika inmatnings kontroller, t. ex. en text inmatnings ruta, en ruta för lösen ords inmatning, en alternativ knapp, en listruta med flera val och kryss rutor med flera val. | *API. localaccountsignin*, *API. localaccountsignup*, *API. localaccountpasswordreset*, *API. selfasserted* |
@@ -56,7 +56,7 @@ I följande tabell visas standard sid innehållet som tillhandahålls av Azure A
 
 ## <a name="hosting-the-page-content"></a>Värd för sid innehållet
 
-När du använder egna HTML-och CSS-filer för att anpassa användar gränssnittet, ska du vara värd för ditt GRÄNSSNITTs innehåll på en offentligt tillgänglig HTTPS-slutpunkt som stöder CORS. Till exempel [Azure Blob Storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App tjänster](/azure/app-service/), webb servrar, CDN, AWS S3 eller fildelnings system.
+När du använder egna HTML-och CSS-filer för att anpassa användar gränssnittet, ska du vara värd för ditt GRÄNSSNITTs innehåll på en offentligt tillgänglig HTTPS-slutpunkt som stöder CORS. Till exempel [Azure Blob Storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App tjänster](../articles/app-service/index.yml), webb servrar, CDN, AWS S3 eller fildelnings system.
 
 ## <a name="guidelines-for-using-custom-page-content"></a>Rikt linjer för att använda anpassat sid innehåll
 
@@ -134,8 +134,8 @@ Utför följande steg för att skapa en offentlig behållare i Blob Storage:
 
 1. Under **BLOB service** på menyn till vänster väljer du **blobbar**.
 1. Välj **+ behållare**.
-1. I **namn**anger du *root*. Namnet kan vara ett namn som du väljer, till exempel *contoso*, men vi använder *roten* i det här exemplet för enkelhetens skull.
-1. För **offentlig åtkomst nivå**väljer du **BLOB**och sedan **OK**.
+1. I **namn** anger du *root*. Namnet kan vara ett namn som du väljer, till exempel *contoso*, men vi använder *roten* i det här exemplet för enkelhetens skull.
+1. För **offentlig åtkomst nivå** väljer du **BLOB** och sedan **OK**.
 1. Välj **rot** för att öppna den nya behållaren.
 
 #### <a name="22-upload-your-custom-page-content-files"></a>2,2 Ladda upp dina anpassade innehållsfiler för sidor
@@ -154,10 +154,10 @@ Utför följande steg för att skapa en offentlig behållare i Blob Storage:
 Konfigurera Blob Storage för resurs delning mellan ursprung genom att utföra följande steg:
 
 1. I menyn väljer du **CORS**.
-1. För **tillåtna ursprung**anger du `https://your-tenant-name.b2clogin.com` . Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Exempelvis `https://fabrikam.b2clogin.com`. Använd små bokstäver när du anger ditt klient namn.
-1. För **tillåtna metoder**väljer du både `GET` och `OPTIONS` .
-1. För **tillåtna huvuden**anger du en asterisk (*).
-1. För **exponerade rubriker**anger du en asterisk (*).
+1. För **tillåtna ursprung** anger du `https://your-tenant-name.b2clogin.com` . Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Exempelvis `https://fabrikam.b2clogin.com`. Använd små bokstäver när du anger ditt klient namn.
+1. För **tillåtna metoder** väljer du både `GET` och `OPTIONS` .
+1. För **tillåtna huvuden** anger du en asterisk (*).
+1. För **exponerade rubriker** anger du en asterisk (*).
 1. Ange 200 för **högsta ålder**.
 1. Välj **Spara**.
 
@@ -165,7 +165,7 @@ Konfigurera Blob Storage för resurs delning mellan ursprung genom att utföra f
 
 Verifiera att du är redo genom att utföra följande steg:
 
-1. Upprepa steget Konfigurera CORS. För **tillåtna ursprung**anger du `https://www.test-cors.org`
+1. Upprepa steget Konfigurera CORS. För **tillåtna ursprung** anger du `https://www.test-cors.org`
 1. Navigera till [www.test-CORS.org](https://www.test-cors.org/) 
 1. I rutan **Fjärradress** klistrar du in URL: en för HTML-filen. Till exempel `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Välj **skicka begäran**.

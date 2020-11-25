@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: f2687909a7067bc135f6fcf27fce2e1694325887
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504168"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95988084"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Självstudie: Azure Active Directory integration med aktivitet
 
@@ -61,7 +61,7 @@ Om du vill konfigurera en integrering av en aktivitet i Azure AD måste du lägg
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök skriver du uppgift, väljer uppgift **från resultat** **panelen och klickar**sedan på **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du uppgift, väljer uppgift **från resultat** **panelen och klickar** sedan på **Lägg till** för att lägga till programmet.
 
      ![AKTIVITET i resultat listan](common/search-new-app.png)
 
@@ -188,7 +188,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till uppgifter.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **aktivitet**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program** och väljer sedan **aktivitet**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 

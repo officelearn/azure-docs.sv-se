@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 2f490a5b12484a91e963d068810b292d7761521a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484313"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95986558"
 ---
 > [!NOTE]
 > Du kan använda Azure DNS för att konfigurera ett anpassat DNS-namn för Azure App Service. Mer information finns i [Använda Azure DNS för att skapa inställningar för anpassad domän för en Azure-tjänst](../articles/dns/dns-custom-domain.md#app-service-web-apps).
@@ -20,7 +20,7 @@ ms.locfileid: "89484313"
 
 1. Sök upp sidan för hantering av DNS-poster. Leverantören för varje domän har sitt eget DNS-postgränssnitt, så läs leverantörens dokumentation. Leta efter områden på webbplatsen med namnet **Domännamn**, **DNS**, eller **Namnserverhantering**.
 
-   Du hittar ofta sidan DNS-poster genom att visa din konto information och sedan söka efter en länk, till exempel **Mina domäner**. Gå till sidan och leta efter en länk som heter något som **zonfilen**, **DNS-poster**eller **Avancerad konfiguration**.
+   Du hittar ofta sidan DNS-poster genom att visa din konto information och sedan söka efter en länk, till exempel **Mina domäner**. Gå till sidan och leta efter en länk som heter något som **zonfilen**, **DNS-poster** eller **Avancerad konfiguration**.
 
    Skärmbilden nedan är ett exempel på en sida med DNS-poster:
 

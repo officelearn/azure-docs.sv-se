@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: 53b1db1a8c4da59055c0af5f448fa0c8a6933daf
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354314"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95988169"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Wrike för automatisk användar etablering
 
@@ -95,7 +95,7 @@ Följ dessa steg om du vill lägga till Wrike från Azure AD Application Gallery
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Wrike** , väljer **Wrike** i panelen resultat och väljer sedan **Lägg till** för att lägga till programmet.
+4. I sökrutan anger du **Wrike**, väljer **Wrike** i panelen resultat och väljer sedan **Lägg till** för att lägga till programmet.
 
     ![Wrike i resultat listan](common/search-new-app.png)
 

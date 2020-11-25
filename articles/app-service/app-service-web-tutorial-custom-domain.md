@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6a74f105525ec8ce28559b47ed4fc9624f518a06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a74a3b7542a8d683e9bbf16f99c9b2646d95e00d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488345"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95986555"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudie: mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "89488345"
 
 ![Skärm bild som visar Azure Portal navigering till en Azure-App.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Mappa en under domän (till exempel `www.contoso.com` ) med hjälp av en CNAME-post.
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Omdirigera standard-URL: en till en anpassad katalog.
 > * Automatisera domän mappning med skript.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -83,7 +83,7 @@ Du ser hanteringssidan för App Service-appen.
 
 1. Välj någon av betalnivåerna (**D1**, **B1**, **B2**, **B3** eller en nivå i kategorin **Produktion**). Om du vill ha fler alternativ väljer du **Se ytterligare alternativ**.
 
-1. Välj **Använd**.
+1. Välj **Tillämpa**.
 
    ![Skärm bild som visar kontrollerar pris nivån.](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -95,12 +95,12 @@ Du ser hanteringssidan för App Service-appen.
 
 ## <a name="get-a-domain-verification-id"></a>Hämta ett verifierings-ID för domän
 
-Om du vill lägga till en anpassad domän i din app måste du verifiera din ägande av domänen genom att lägga till ett verifierings-ID som en TXT-post med din domän leverantör. Välj **anpassade domäner**i den vänstra rutan på din app-sida. Kopiera ID: t i rutan **anpassad domän verifierings-ID** på sidan **anpassade domäner** för nästa steg.
+Om du vill lägga till en anpassad domän i din app måste du verifiera din ägande av domänen genom att lägga till ett verifierings-ID som en TXT-post med din domän leverantör. Välj **anpassade domäner** i den vänstra rutan på din app-sida. Kopiera ID: t i rutan **anpassad domän verifierings-ID** på sidan **anpassade domäner** för nästa steg.
 
 ![Skärm bild som visar ID i rutan anpassad ID för domän verifiering.](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
 
 > [!WARNING]
-> Om du lägger till domän verifierings-ID: n i din anpassade domän kan du förhindra Dangling DNS-poster och hjälpa till att undvika under domäner. Mer information om det här vanliga hot med hög allvarlighets grad finns i avsnittet övertag ande av [under domäner](../security/fundamentals/subdomain-takeover.md).
+> Om du lägger till domän verifierings-ID: n i din anpassade domän kan du förhindra Dangling DNS-poster och hjälpa till att undvika under domäner. För anpassade domäner som du tidigare har konfigurerat utan detta verifierings-ID bör du skydda dem från samma risk genom att lägga till verifierings-ID: t i din DNS-post. Mer information om det här vanliga hot med hög allvarlighets grad finns i avsnittet övertag ande av [under domäner](../security/fundamentals/subdomain-takeover.md).
 
 ## <a name="map-your-domain"></a>Mappa din domän
 

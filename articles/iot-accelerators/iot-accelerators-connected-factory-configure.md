@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290695"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002246"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Konfigurera den anslutna fabriks lösnings acceleratorn
 
@@ -88,7 +88,7 @@ Följande fragment visar en översikt över `ContosoTopologyDescription.json` ko
 }
 ```
 
-De gemensamma egenskaperna för  `<global_configuration>` , `<factory_configuration>` , `<production_line_configuration>` och `<station_configuration>` är:
+De gemensamma egenskaperna för `<global_configuration>` , `<factory_configuration>` , `<production_line_configuration>` och `<station_configuration>` är:
 
 * **Namn** (typ sträng)
 
@@ -239,7 +239,7 @@ De gemensamma egenskaperna för  `<global_configuration>` , `<factory_configura
 
 * **ConstValue** (typ Double)
 
-  Om **opcode** är **Const**är den här egenskapen värdet för noden.
+  Om **opcode** är **Const** är den här egenskapen värdet för noden.
 
 * **Minimum** (typ Double)
 
@@ -267,7 +267,7 @@ Alla egenskaper som används i konfigurations filen kan grupperas i olika katego
 
 Egenskaperna i den här kategorin definierar det visuella utseendet på den anslutna fabriks instrument panelen. Exempel:
 
-* Namn
+* Name
 * Beskrivning
 * Bild
 * Plats

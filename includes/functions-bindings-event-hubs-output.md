@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 78836ca4e51875be4237267b3bb9256cc4541fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11ad3bdcaa40c479c9358fd623edf0e6fdafa0d6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81791634"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002091"
 ---
 Använd Event Hubs utgående bindning för att skriva händelser till en händelse ström. Du måste ha behörighet att skicka till en händelsehubb för att kunna skicka händelser till den.
 
@@ -235,7 +235,7 @@ Attribut stöds inte av python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-I [Java Functions runtime-biblioteket](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)använder du antecknings anteckningen [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) för parametrar vars värde skulle publiceras till Event Hub. Parametern ska vara av typen `OutputBinding<T>` , där `T` är en POJO eller en ursprunglig Java-typ.
+I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du antecknings anteckningen [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) för parametrar vars värde skulle publiceras till Event Hub. Parametern ska vara av typen `OutputBinding<T>` , där `T` är en POJO eller en ursprunglig Java-typ.
 
 ---
 
@@ -243,11 +243,11 @@ I [Java Functions runtime-biblioteket](https://docs.microsoft.com/java/api/overv
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `EventHub` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
-|**bastyp** | Saknas | Måste vara inställd på eventHub. |
-|**position** | Saknas | Måste anges till "out". Den här parametern anges automatiskt när du skapar bindningen i Azure Portal. |
-|**Namn** | Saknas | Variabel namnet som används i funktions koden som representerar händelsen. |
+|**bastyp** | saknas | Måste vara inställd på eventHub. |
+|**position** | saknas | Måste anges till "out". Den här parametern anges automatiskt när du skapar bindningen i Azure Portal. |
+|**Namn** | saknas | Variabel namnet som används i funktions koden som representerar händelsen. |
 |**sökväg** |**EventHubName** | Functions 1. x. Namnet på händelsehubben. När namnet på händelsehubben också finns i anslutnings strängen, åsidosätter det värdet den här egenskapen vid körning. |
 |**eventHubName** |**EventHubName** | Funktioner 2. x och högre. Namnet på händelsehubben. När namnet på händelsehubben också finns i anslutnings strängen, åsidosätter det värdet den här egenskapen vid körning. |
 |**anslutningen** |**Anslutning** | Namnet på en app-inställning som innehåller anslutnings strängen till Event Hub-namnområdet. Kopiera den här anslutnings strängen genom att klicka på knappen **anslutnings information** för *namn området*, inte själva händelsehubben. Den här anslutnings strängen måste ha Send-behörighet för att kunna skicka meddelandet till händelse strömmen.|
@@ -274,15 +274,15 @@ Det finns två alternativ för att placera ett Event Hub-meddelande från en fun
 
 - **RETUR värde**: ange `name` egenskapen i *function.jspå* till `$return` . Med den här konfigurationen sparas funktionens retur värde som ett Event Hub-meddelande.
 
-- **Tvingande**: Skicka ett värde till [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) -metoden för den parameter som deklarerats som [Utdatatyp.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) Värdet som skickas till `set` behålls som ett Event Hub-meddelande.
+- **Tvingande**: Skicka ett värde till [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) -metoden för den parameter som deklarerats som [Utdatatyp.](/python/api/azure-functions/azure.functions.out?view=azure-python) Värdet som skickas till `set` behålls som ett Event Hub-meddelande.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Det finns två alternativ för att mata ut ett Event Hub-meddelande från en funktion med hjälp av [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) -anteckningen:
+Det finns två alternativ för att mata ut ett Event Hub-meddelande från en funktion med hjälp av [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) -anteckningen:
 
 - **RETUR värde**: genom att använda anteckningen i själva funktionen sparas returvärdet för funktionen som ett Event Hub-meddelande.
 
-- **Tvingande**: om du uttryckligen vill ange ett värde för meddelandet använder du anteckningen på en specifik parameter av typen [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding) , där `T` är en POJO eller en ursprunglig Java-typ. Med den här konfigurationen `setValue` kvarstår värdet som ett Event Hub-meddelande när du skickar ett värde till metoden.
+- **Tvingande**: om du uttryckligen vill ange ett värde för meddelandet använder du anteckningen på en specifik parameter av typen [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.OutputBinding) , där `T` är en POJO eller en ursprunglig Java-typ. Med den här konfigurationen `setValue` kvarstår värdet som ett Event Hub-meddelande när du skickar ett värde till metoden.
 
 ---
 
@@ -290,4 +290,4 @@ Det finns två alternativ för att mata ut ett Event Hub-meddelande från en fun
 
 | Bindning | Referens |
 |---|---|
-| Händelsehubb | [Drift guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
+| Händelsehubb | [Drift guide](/rest/api/eventhub/publisher-policy-operations) |

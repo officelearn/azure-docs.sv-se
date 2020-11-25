@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674325"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001600"
 ---
 # <a name="sensor-partner-integration"></a>Sensorpartnerintegration
 
@@ -93,7 +93,7 @@ access_token = token_response.get('access_token')
 Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-anrop till FarmBeats Datahub.
 
 
-**Sidfot** | **Beskrivning och exempel**
+**Huvud** | **Beskrivning och exempel**
 --- | ---
 Content-Type | Formatet för begäran (Content-Type: Application/ <format> ). För FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
 Auktorisering | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: Bearer <Access-Token>
@@ -126,19 +126,19 @@ JSON är ett gemensamt språk oberoende data format som ger en enkel text repres
 
 FarmBeats Datahub har följande API: er som gör det möjligt för enhets partner att skapa och hantera metadata för enheter eller sensorer.
 
-- /**DeviceModel** : DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som antingen är gateway eller nod.
-- /**Enhet** : enheten motsvarar en fysisk enhet som finns i Server gruppen.
-- /**SensorModel** : SensorModel motsvarar sensorns metadata, till exempel tillverkaren, typen av sensor, som är antingen analog eller digital och sensor måttet, till exempel omgivnings temperatur och tryck.
-- /**Sensor** : sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.
+- /**DeviceModel**: DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som antingen är gateway eller nod.
+- /**Enhet**: enheten motsvarar en fysisk enhet som finns i Server gruppen.
+- /**SensorModel**: SensorModel motsvarar sensorns metadata, till exempel tillverkaren, typen av sensor, som är antingen analog eller digital och sensor måttet, till exempel omgivnings temperatur och tryck.
+- /**Sensor**: sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.
 
-  DeviceModel | Beskrivning |
+  DeviceModel | Description |
   --- | ---
   Typ (nod, Gateway)  | Typ av enhet-nod eller gateway |
   Tillverkare  | Tillverkarens namn |
   ProductCode  | Enhetens produkt kod eller modell namn eller nummer. Till exempel EnviroMonitor # 6800. |
   Portar  | Port namn och-typ, som är digital eller analog.  |
-  Namn  | Namn för att identifiera resursen. Till exempel modell namn eller produkt namn. |
-  Beskrivning  | Ange en meningsfull beskrivning av modellen. |
+  Name  | Namn för att identifiera resursen. Till exempel modell namn eller produkt namn. |
+  Description  | Ange en meningsfull beskrivning av modellen. |
   Egenskaper  | Ytterligare egenskaper från tillverkaren. |
   **Enhet** | **Beskrivning** |
   DeviceModelId  |ID för associerad enhets modell. |
@@ -146,8 +146,8 @@ FarmBeats Datahub har följande API: er som gör det möjligt för enhets partne
   ReportingInterval |Rapport intervall i sekunder. |
   Plats    |Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter). |
   ParentDeviceId | ID för den överordnade enhet som enheten är ansluten till. Om en nod till exempel är ansluten till en gateway har noden parentDeviceID som gateway. |
-  Namn  | Namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på enhets partner sidan. Om enhetens namn är användardefinierat på enhets partner sidan, ska samma användardefinierade namn spridas till FarmBeats.  |
-  Beskrivning  | Ange en meningsfull beskrivning.  |
+  Name  | Namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på enhets partner sidan. Om enhetens namn är användardefinierat på enhets partner sidan, ska samma användardefinierade namn spridas till FarmBeats.  |
+  Description  | Ange en meningsfull beskrivning.  |
   Egenskaper  |Ytterligare egenskaper från tillverkaren.  |
   **SensorModel** | **Beskrivning** |
   Typ (analog, digital)  |Nämna analog eller digital sensor.|
@@ -160,8 +160,8 @@ FarmBeats Datahub har följande API: er som gör det möjligt för enhets partne
   SensorMeasures > AggregationType  | Antingen ingen, genomsnitt, högsta, lägsta eller StandardDeviation.
   SensorMeasures > djup  | Sensorns djup i centimeter. Till exempel mätningen av fukt 10 cm under marken.
   Beskrivning av SensorMeasures->  | Ge en meningsfull beskrivning av måttet.
-  Namn  | Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
-  Beskrivning  | Ange en meningsfull beskrivning av modellen.
+  Name  | Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
+  Description  | Ange en meningsfull beskrivning av modellen.
   Egenskaper  | Ytterligare egenskaper från tillverkaren.
   **Mäta**  | **Beskrivning** |
   HardwareId  | Unikt ID för sensorn som anges av tillverkaren.
@@ -169,8 +169,8 @@ FarmBeats Datahub har följande API: er som gör det möjligt för enhets partne
   Plats  | Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
   Port > namn  |Namn och typ för den port som sensorn är ansluten till på enheten. Det måste vara samma namn som definieras i enhets modellen.
   DeviceId  | ID för den enhet som sensorn är ansluten till.
-  Namn  | Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.
-  Beskrivning  | Ange en meningsfull beskrivning.
+  Name  | Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.
+  Description  | Ange en meningsfull beskrivning.
   Egenskaper  | Ytterligare egenskaper från tillverkaren.
 
  Information om varje objekt och deras egenskaper finns i [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
@@ -324,7 +324,7 @@ Med enhets partner kan kunderna redigera FarmBeats-integrerings inställningarna
 
 ## <a name="view-the-last-telemetry-sent"></a>Visa senaste telemetri som skickats
 
-Enhets partner kan göra det möjligt för kunder att Visa tidsstämpeln för den senaste telemetri som har skickats, som finns under **telemetri som skickas** . Detta är den tid då den senaste Telemetrin skickades till FarmBeats.
+Enhets partner kan göra det möjligt för kunder att Visa tidsstämpeln för den senaste telemetri som har skickats, som finns under **telemetri som skickas**. Detta är den tid då den senaste Telemetrin skickades till FarmBeats.
 
 ## <a name="troubleshooting-and-error-management"></a>Fel sökning och fel hantering
 

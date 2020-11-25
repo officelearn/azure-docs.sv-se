@@ -12,11 +12,11 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 96e679c0b284cc649dbde3fba1b640f4e09df05e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201658"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001855"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>Snabb start: Fivetran med informations lager 
 
@@ -82,5 +82,5 @@ För att ansluta till ditt data lager från ditt Fivetran-konto anger du de aute
 * Värd (ditt Server namn).
 * Lastning.
 * Databas.
-* Användare (användar namnet ska vara **fivetran \@ _server_name_ ** där *Server_name* är en del av din Azure-värd-URI: ** _Server \_ namn_. Database.Windows.net**).
+* Användare (användar namnet ska vara **fivetran \@ _server_name_** där *Server_name* är en del av din Azure-värd-URI: **_Server \_ namn_. Database.Windows.net**).
 * Ords.

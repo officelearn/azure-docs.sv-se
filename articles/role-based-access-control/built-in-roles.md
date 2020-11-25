@@ -10,11 +10,11 @@ ms.author: rolyon
 ms.date: 11/18/2020
 ms.custom: generated
 ms.openlocfilehash: e18dc7e16eb0b114bd279d53b7dcc895bd62f338
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980872"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002739"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda roller i Azure
 
@@ -27,7 +27,7 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 ## <a name="all"></a>Alla
 
 > [!div class="mx-tableFixed"]
-> | Inbyggd roll | Beskrivning | ID |
+> | Inbyggd roll | Description | ID |
 > | --- | --- | --- |
 > | **Allmänt** |  |  |
 > | [Deltagare](#contributor) | Ger fullständig åtkomst för att hantera alla resurser, men tillåter inte att du tilldelar roller i Azure RBAC. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -123,11 +123,11 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 > | [Schema register läsare (för hands version)](#schema-registry-reader-preview) | Läs och Visa lista över schema register grupper och scheman. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | **Blockkedja** |  |  |
 > | [Blockchain för medlems Node (för hands version)](#blockchain-member-node-access-preview) | Tillåter åtkomst till blockchain-medlems noder | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
-> | **AI + maskin inlärning** |  |  |
+> | **AI + maskininlärning** |  |  |
 > | [Cognitive Services deltagare](#cognitive-services-contributor) | Gör att du kan skapa, läsa, uppdatera, ta bort och hantera nycklar för Cognitive Services. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | [Cognitive Services data läsare (förhands granskning)](#cognitive-services-data-reader-preview) | Gör att du kan läsa Cognitive Services data. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | [Cognitive Services användare](#cognitive-services-user) | Gör att du kan läsa och Visa nycklar för Cognitive Services. | a97b65f3-24c7-4388-baec-2e87135dc908 |
-> | **Mixad verklighet** |  |  |
+> | **Mixed Reality** |  |  |
 > | [Administratör för fjärrrendering](#remote-rendering-administrator) | Ger användaren funktioner för konvertering, hantering av sessioner, åter givning och diagnostik för Azure-fjärrrendering | 3df8b902-2a6f-47c7-8cc5-360e9b272a7e |
 > | [Fjärran sluten klient](#remote-rendering-client) | Ger användaren funktioner för att hantera sessioner, åter givning och diagnostik för Azure fjärrrendering. | d39065c4-c120-43c9-ab0a-63eed9795f0a |
 > | [Konto deltagare för spatiala ankare](#spatial-anchors-account-contributor) | Låter dig hantera spatiala ankare i ditt konto, men ta inte bort dem | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
@@ -3072,7 +3072,7 @@ Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till
 }
 ```
 
-## <a name="containers"></a>Containrar
+## <a name="containers"></a>Containers
 
 
 ### <a name="acrdelete"></a>AcrDelete
@@ -4450,7 +4450,7 @@ Gör att du kan hantera SQL-servrar och databaser, men inte åtkomst till dem oc
 }
 ```
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analys
 
 
 ### <a name="azure-event-hubs-data-owner"></a>Azure Event Hubs data ägare
@@ -5012,7 +5012,7 @@ Tillåter åtkomst till blockchain-medlems noder [Läs mer](../blockchain/servic
 }
 ```
 
-## <a name="ai--machine-learning"></a>AI + maskin inlärning
+## <a name="ai--machine-learning"></a>AI + maskininlärning
 
 
 ### <a name="cognitive-services-contributor"></a>Cognitive Services deltagare
@@ -7630,7 +7630,7 @@ Gör att du kan skapa nya labb under dina Azure Lab-konton. [Läs mer](../lab-se
 }
 ```
 
-## <a name="monitor"></a>Övervaka
+## <a name="monitor"></a>Monitor
 
 
 ### <a name="application-insights-component-contributor"></a>Application Insights komponent deltagare

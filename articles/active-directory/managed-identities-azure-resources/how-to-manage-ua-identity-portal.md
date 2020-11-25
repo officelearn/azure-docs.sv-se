@@ -16,11 +16,11 @@ ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ad91c916a6134f2507e74df6e87478421a00f43
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977433"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003012"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Skapa, Visa, ta bort eller tilldela en roll till en användare som tilldelats en hanterad identitet med hjälp av Azure Portal
 
@@ -38,7 +38,7 @@ I den här artikeln får du lära dig hur du skapar, visar, tar bort eller tilld
 För att skapa en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitets deltagare](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) .
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är kopplat till Azure-prenumerationen för att skapa den tilldelade hanterade identiteten.
-2. I rutan Sök skriver du *hanterade identiteter*och under **tjänster**klickar du på **hanterade identiteter**.
+2. I rutan Sök skriver du *hanterade identiteter* och under **tjänster** klickar du på **hanterade identiteter**.
 3. Klicka på **Lägg till** och ange värden i följande fält under **skapa användare tilldelade hanterade** identitets fönster:
     - **Prenumeration**: Välj den prenumeration som du vill skapa den användarspecifika hanterade identiteten för under.
     - **Resurs grupp**: Välj en resurs grupp om du vill skapa den användar tilldelnings hanterade identiteten i eller klicka på **Skapa ny** för att skapa en ny resurs grupp.
@@ -53,7 +53,7 @@ För att skapa en användardefinierad hanterad identitet måste ditt konto ha ro
 Om du vill visa en lista över/läsa en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitet](../../role-based-access-control/built-in-roles.md#managed-identity-operator) eller [hanterad identitets deltagare](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) .
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är associerat med Azure-prenumerationen för att visa en lista över användare som tilldelats hanterade identiteter.
-2. I rutan Sök skriver du *hanterade identiteter*och under tjänster klickar du på **hanterade identiteter**.
+2. I rutan Sök skriver du *hanterade identiteter* och under tjänster klickar du på **hanterade identiteter**.
 3. En lista över de användare tilldelade hanterade identiteterna för din prenumeration returneras.  Om du vill se information om en användardefinierad hanterad identitet klickar du på dess namn.
 
 ![Lista användare-tilldelad hanterad identitet](./media/how-to-manage-ua-identity-portal/list-user-assigned-managed-identity-portal.png)
@@ -66,7 +66,7 @@ Om du tar bort en tilldelad identitet tas den inte bort från den virtuella dato
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är kopplat till Azure-prenumerationen för att ta bort en tilldelad hanterad identitet.
 2. Välj den användare-tilldelade hanterade identiteten och klicka på **ta bort**.
-3. Välj **Ja**under bekräftelse rutan.
+3. Välj **Ja** under bekräftelse rutan.
 
 ![Ta bort användardefinierad hanterad identitet](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
@@ -75,7 +75,7 @@ Om du tar bort en tilldelad identitet tas den inte bort från den virtuella dato
 För att tilldela en roll till en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [administratör för användar åtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator) .
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är associerat med Azure-prenumerationen för att visa en lista över användare som tilldelats hanterade identiteter.
-2. I rutan Sök skriver du *hanterade identiteter*och under tjänster klickar du på **hanterade identiteter**.
+2. I rutan Sök skriver du *hanterade identiteter* och under tjänster klickar du på **hanterade identiteter**.
 3. En lista över de användare tilldelade hanterade identiteterna för din prenumeration returneras.  Välj den användar tilldelnings hanterade identitet som du vill tilldela en roll.
 4. Välj **Åtkomstkontroll (IAM)** och sedan **Lägg till rolltilldelning**.
 

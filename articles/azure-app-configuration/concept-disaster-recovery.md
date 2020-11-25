@@ -7,11 +7,11 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 5c62f10d67345d68cde27af7d0a7663b22d978a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207196"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002433"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Återhämtning och haveriberedskap
 
@@ -72,11 +72,11 @@ Du kan använda funktionen **Exportera** i appen konfiguration för att kopiera 
 
 Från Azure Portal kan du skicka en ändring till ett annat konfigurations Arkiv genom att följa dessa steg.
 
-1. Gå till fliken **Importera/exportera** och välj **Exportera**  >  **konfigurations**  >  **mål**för app  >  **Välj en resurs**.
+1. Gå till fliken **Importera/exportera** och välj **Exportera**  >  **konfigurations**  >  **mål** för app  >  **Välj en resurs**.
 
 1. På det nya bladet som öppnas anger du prenumerationen, resurs gruppen och resurs namnet för din sekundära lagring och väljer sedan **Använd**.
 
-1. Användar gränssnittet har uppdaterats så att du kan välja vilka konfigurations data som du vill exportera till ditt sekundära arkiv. Du kan lämna standardvärdet för tid och ange både **etikett** och **etikett** till samma värde. Välj **Använd**. Upprepa detta för alla etiketter i ditt primära lager.
+1. Användar gränssnittet har uppdaterats så att du kan välja vilka konfigurations data som du vill exportera till ditt sekundära arkiv. Du kan lämna standardvärdet för tid och ange både **etikett** och **etikett** till samma värde. Välj **Tillämpa**. Upprepa detta för alla etiketter i ditt primära lager.
 
 1. Upprepa föregående steg när konfigurationen ändras.
 

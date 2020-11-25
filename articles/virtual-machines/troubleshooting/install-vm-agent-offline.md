@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/06/2020
 ms.author: genli
 ms.openlocfilehash: 456aa225fa8eed47ca794c54e61b77a30c93fa9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85983239"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002620"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installera Azure Virtual Machine-agenten i offline-läge 
 
@@ -39,7 +39,7 @@ Använd följande steg för att installera VM-agenten i offline-läge.
 
 1. Ta en ögonblicks bild för OS-disken för den berörda virtuella datorn, skapa en disk från ögonblicks bilden och Anslut sedan disken till en Felsök virtuell dator. Mer information finns i [Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure Portal](troubleshoot-recovery-disks-portal-windows.md). För den klassiska virtuella datorn tar du bort den virtuella datorn och behåller OS-disken och ansluter sedan OS-disken till fel söknings datorn.
 
-2.  Anslut till fel söknings datorn. Öppna **Computer management**  >  **disk hantering**för dator hantering. Bekräfta att OS-disken är online och att enhets beteckningarna är kopplade till diskpartitionerna.
+2.  Anslut till fel söknings datorn. Öppna **Computer management**  >  **disk hantering** för dator hantering. Bekräfta att OS-disken är online och att enhets beteckningarna är kopplade till diskpartitionerna.
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Steg 2: ändra OS-disken för att installera Azure VM-agenten
 
@@ -49,13 +49,13 @@ Använd följande steg för att installera VM-agenten i offline-läge.
 
 3.  Starta **Registereditorn** (regedit.exe).
 
-4.  Välj den **HKEY_LOCAL_MACHINE** nyckeln. På menyn väljer du **fil**  >  **läsnings registrerings data**fil:
+4.  Välj den **HKEY_LOCAL_MACHINE** nyckeln. På menyn väljer du **fil**  >  **läsnings registrerings data** fil:
 
     ![Läs in registrerings data filen](./media/install-vm-agent-offline/load-hive.png)
 
-5.  Bläddra till mappen \windows\system32\config\SYSTEM på den OS-disk som du har anslutit. Ange **BROKENSYSTEM**som namn på Hive. Den nya registrerings data filen visas under **HKEY_LOCAL_MACHINE** nyckeln.
+5.  Bläddra till mappen \windows\system32\config\SYSTEM på den OS-disk som du har anslutit. Ange **BROKENSYSTEM** som namn på Hive. Den nya registrerings data filen visas under **HKEY_LOCAL_MACHINE** nyckeln.
 
-6.  Bläddra till mappen \windows\system32\config\SOFTWARE på den OS-disk som du har anslutit. Skriv **BROKENSOFTWARE**som namn på Hive-programvaran.
+6.  Bläddra till mappen \windows\system32\config\SOFTWARE på den OS-disk som du har anslutit. Skriv **BROKENSOFTWARE** som namn på Hive-programvaran.
 
 7. Om den anslutna OS-disken har VM-agenten installerad utför du en säkerhets kopia av den aktuella konfigurationen. Om den inte har någon VM-agent installerad går du vidare till nästa steg.
       

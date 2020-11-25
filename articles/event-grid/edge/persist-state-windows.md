@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: f38e23a3af1e2c81ee012a4f3c268cbff3fc1bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171473"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002825"
 ---
 # <a name="persist-state-in-windows"></a>Sparat tillstånd i Windows
 
@@ -73,8 +73,8 @@ Den här artikeln innehåller de steg som krävs för att distribuera Event Grid
     1. Högerklicka på och välj sedan **Egenskaper**.
     1. Välj **Säkerhet**.
     1. Under * grupp-eller användar namn väljer du **Redigera**.
-    1. Välj **Lägg till**, ange `Users` , Välj **kontrol lera namn**och välj **OK**.
-    1. Under *behörigheter för användare*väljer du **ändra**och sedan **OK**.
+    1. Välj **Lägg till**, ange `Users` , Välj **kontrol lera namn** och välj **OK**.
+    1. Under *behörigheter för användare* väljer du **ändra** och sedan **OK**.
 1. Använd **bindningar** för att montera volymen och distribuera om Event Grid modul från Azure Portal
 
    Exempel:

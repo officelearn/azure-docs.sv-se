@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150153"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001515"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Operativ system funktioner på Azure App Service
 I den här artikeln beskrivs vanliga funktioner för bas linje operativ system som är tillgängliga för alla Windows-appar som körs på [Azure App Service](./overview.md). Den här funktionen omfattar fil-, nätverks-och register åtkomst samt diagnostikloggar och händelser. 
@@ -65,7 +65,7 @@ En av de unika aspekterna av App Service som gör det enkelt att distribuera app
 
 I App Service finns ett antal UNC-resurser som skapats i varje data Center. En procent andel av användar innehållet för alla kunder i varje data Center tilldelas till varje UNC-resurs. Dessutom placeras allt fil innehåll för en enskild kunds prenumeration alltid på samma UNC-resurs. 
 
-På grund av hur Azure-tjänster fungerar ändras den aktuella virtuella dator som är ansvarig för att vara värd för en UNC-resurs med tiden. Det garanterar att UNC-resurser monteras av olika virtuella datorer när de tas upp och ned under normal Azure-åtgärder. Därför bör appar aldrig göra hårdkodade antaganden om att dator informationen i en UNC-sökväg förblir stabil över tid. I stället bör de använda den praktiska *faux* -absoluta sökvägen **D:\home\site** som App Service tillhandahåller. Den här faux-absoluta sökvägen ger en portabel, app-och-User-oberoende-metod för att referera till en egen app. Genom att använda **D:\home\site**kan en överföra delade filer från appen till appen utan att behöva konfigurera en ny absolut sökväg för varje överföring.
+På grund av hur Azure-tjänster fungerar ändras den aktuella virtuella dator som är ansvarig för att vara värd för en UNC-resurs med tiden. Det garanterar att UNC-resurser monteras av olika virtuella datorer när de tas upp och ned under normal Azure-åtgärder. Därför bör appar aldrig göra hårdkodade antaganden om att dator informationen i en UNC-sökväg förblir stabil över tid. I stället bör de använda den praktiska *faux* -absoluta sökvägen **D:\home\site** som App Service tillhandahåller. Den här faux-absoluta sökvägen ger en portabel, app-och-User-oberoende-metod för att referera till en egen app. Genom att använda **D:\home\site** kan en överföra delade filer från appen till appen utan att behöva konfigurera en ny absolut sökväg för varje överföring.
 
 <a id="TypesOfFileAccess"></a>
 

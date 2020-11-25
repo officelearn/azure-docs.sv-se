@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: lokal, Docker, behållare
-ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 778fe388ae3db68d836384299a8a1c7c06e31f41
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460993"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001819"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Installera och kör Docker-behållare för LUIS
 
@@ -31,15 +31,15 @@ Följande video visar hur du använder den här behållaren.
 
 [![Demonstration av behållare för Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Observera följande krav för att köra LUIS-behållaren:
 
-|Krävs|Syfte|
+|Obligatorisk|Syfte|
 |--|--|
-|Docker-motorn| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
+|Docker-motorn| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows** måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
 |Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker` kommandon.|
 |Azure `Cognitive Services` Resource och Luis [paketerad app](luis-how-to-start-new-app.md) -fil |För att du ska kunna använda behållaren måste du ha:<br><br>* En _Cognitive Services_ Azure-resurs och den associerade fakturerings nyckeln för fakturerings slut punktens URI. Båda värdena är tillgängliga på sidorna översikt och nycklar för resursen och krävs för att starta behållaren. <br>* En utbildad eller publicerad app paketeras som monterad inström till behållaren med dess associerade app-ID. Du kan hämta den paketerade filen från LUIS-portalen eller redigera-API: er. Om du får LUIS paketerad app från [redigerings-API: er](#authoring-apis-for-package-file), behöver du också din _redigerings nyckel_.<br><br>Dessa krav används för att skicka kommando rads argument till följande variabler:<br><br>**{AUTHORING_KEY}**: den här nyckeln används för att hämta den paketerade appen från Luis-tjänsten i molnet och ladda upp frågan loggar tillbaka till molnet. Formatet är `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}**: detta ID används för att välja appen. Formatet är `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{Api_key}**: den här nyckeln används för att starta behållaren. Du kan hitta slut punkts nyckeln på två platser. Det första är Azure Portal i _Cognitive Services_ resursens nyckel lista. Slut punkts nyckeln är också tillgänglig i LUIS-portalen på sidan nycklar och inställningar för slut punkt. Använd inte start nyckeln.<br><br>**{ENDPOINT_URI}**: slut punkten enligt vad som anges på översikts sidan.<br><br>[Redigerings nyckeln och slut punkts nyckeln](luis-limits.md#key-limits) har olika syfte. Använd dem inte interoförändrade. |
 
@@ -276,12 +276,12 @@ Frågeparametrarna konfigurerar hur och vad som returneras i svaret för frågan
 |Frågeparameter|Typ|Syfte|
 |--|--|--|
 |`q`|sträng|Användarens uttryck.|
-|`timezoneOffset`|nummer|Med timezoneOffset kan du [ändra den tidszon](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) som används av den fördefinierade entiteten datetimeV2.|
+|`timezoneOffset`|antal|Med timezoneOffset kan du [ändra den tidszon](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) som används av den fördefinierade entiteten datetimeV2.|
 |`verbose`|boolean|Returnerar alla avsikter och deras resultat när värdet är true. Standardvärdet är false, vilket endast returnerar Top-metoden.|
 |`staging`|boolean|Returnerar fråga från tillfälliga miljö resultat om värdet är true. |
 |`log`|boolean|Loggar frågor som kan användas senare för [aktiv inlärning](luis-how-to-review-endpoint-utterances.md). Standardvärdet är true.|
 
-***
+**_
 
 ### <a name="query-the-luis-app"></a>Fråga LUIS-appen
 
@@ -299,7 +299,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-Om du vill göra frågor till **mellanlagrings** miljön ersätter du `production` i vägen med `staging` :
+Om du vill göra frågor till _ *Staging** Environment ersätter du `production` i vägen med `staging` :
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -335,7 +335,7 @@ curl -X GET \
 ```
 Versions namnet får innehålla högst 10 tecken och innehåller endast tecken som tillåts i en URL.
 
-***
+**_
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importera slut punkts loggarna för aktiv inlärning
 
@@ -346,11 +346,11 @@ Följande plats visar den kapslade katalog strukturen för behållarens loggfile
 /output/luis/{INSTANCE_ID}/
 ```
 
-Välj din app från LUIS-portalen och välj sedan **Importera slut punkts loggar** för att ladda upp loggarna.
+Välj din app från LUIS-portalen och välj sedan _ *Importera slut punkts loggar** för att ladda upp loggarna.
 
 ![Importera behållarens loggfiler för aktiv inlärning](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-När loggen har laddats upp [granskar du slut punkts](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) yttranden i Luis-portalen.
+När loggen har laddats upp [granskar du slut punkts](./luis-concept-review-endpoint-utterances.md) yttranden i Luis-portalen.
 
 <!--  ## Validate container is running -->
 
@@ -358,7 +358,7 @@ När loggen har laddats upp [granskar du slut punkts](https://docs.microsoft.com
 
 ## <a name="stop-the-container"></a>Stoppa containern
 
-Om du vill stänga av behållaren trycker du på **CTRL + C**i den kommando rads miljö där behållaren körs.
+Om du vill stänga av behållaren trycker du på **CTRL + C** i den kommando rads miljö där behållaren körs.
 
 ## <a name="troubleshooting"></a>Felsökning
 

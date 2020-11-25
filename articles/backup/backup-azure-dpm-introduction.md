@@ -4,11 +4,11 @@ description: I den här artikeln lär du dig att förbereda för säkerhets kopi
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975450"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002875"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhets kopiering av arbets belastningar till Azure med System Center DPM
 
@@ -48,7 +48,7 @@ Filtyper som stöds | De här fil typerna kan säkerhets kopie ras med Azure Bac
 Filtyper som inte stöds | <li>Servrar på SKIFT läges känsliga fil system<li> hårda länkar (hoppades över)<li> referens punkter (överhoppad)<li> krypterad och komprimerad (överhoppad)<li> krypterad och sparse (överhoppad)<li> Komprimerad ström<li> parsa data ström
 Lokal lagring | Alla datorer som du vill säkerhetskopiera måste ha lokalt ledigt lagrings utrymme som är minst 5% av storleken på de data som säkerhets kopie ras. Till exempel krävs minst 5 GB ledigt utrymme på arbets platsen för att säkerhetskopiera 100 GB data.
 Valv lagring | Det finns ingen gräns för mängden data som du kan säkerhetskopiera till ett Azure Backup-valv, men storleken på en data källa (till exempel en virtuell dator eller databas) får inte överstiga 54 400 GB.
-Azure ExpressRoute | Du kan säkerhetskopiera dina data via Azure ExpressRoute med offentlig peering (tillgänglig för gamla kretsar) och Microsoft-peering. Säkerhets kopiering över privat peering stöds inte.<br/><br/> **Med offentlig peering**: säkerställa åtkomst till följande domäner/adresser:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Med Microsoft-peering**väljer du följande tjänster/regioner och relevanta community-värden:<br/><br/>– Azure Active Directory (12076:5060)<br/><br/>– Microsoft Azure region (enligt platsen för ditt Recovery Services-valv)<br/><br/>-Azure Storage (enligt platsen för ditt Recovery Services-valv)<br/><br/>Mer information finns i [krav för ExpressRoute-routning](../expressroute/expressroute-routing.md).<br/><br/>**Obs**: offentlig peering är inaktuell för nya kretsar.
+Azure ExpressRoute | Du kan säkerhetskopiera dina data via Azure ExpressRoute med offentlig peering (tillgänglig för gamla kretsar) och Microsoft-peering. Säkerhets kopiering över privat peering stöds inte.<br/><br/> **Med offentlig peering**: säkerställa åtkomst till följande domäner/adresser:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Med Microsoft-peering** väljer du följande tjänster/regioner och relevanta community-värden:<br/><br/>– Azure Active Directory (12076:5060)<br/><br/>– Microsoft Azure region (enligt platsen för ditt Recovery Services-valv)<br/><br/>-Azure Storage (enligt platsen för ditt Recovery Services-valv)<br/><br/>Mer information finns i [krav för ExpressRoute-routning](../expressroute/expressroute-routing.md).<br/><br/>**Obs**: offentlig peering är inaktuell för nya kretsar.
 Azure Backup-agent | Om DPM körs i System Center 2012 SP1 installerar du Rollup 2 eller senare för DPM SP1. Detta krävs för agent installation.<br/><br/> Den här artikeln beskriver hur du distribuerar den senaste versionen av Azure Backup Agent, även kallat MARS-agenten (Microsoft Azure Recovery Service). Om du har en tidigare distribuerad version uppdaterar du till den senaste versionen för att se till att säkerhets kopieringen fungerar som förväntat.
 
 Innan du börjar behöver du ett Azure-konto med Azure Backup funktionen aktive rad. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Läs om [priser för Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
@@ -68,7 +68,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 1. Öppna instrument panelen för valvet.
 
-2. I **Hantera**väljer du **infrastruktur för säkerhets kopiering**.
+2. I **Hantera** väljer du **infrastruktur för säkerhets kopiering**.
 
 3. I menyn **säkerhets kopierings konfiguration** väljer du ett lagrings alternativ för valvet.
 
@@ -99,11 +99,11 @@ Hämta valv filen med autentiseringsuppgifter till en lokal dator på följande 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Öppna det valv där du vill registrera DPM-servern.
-3. I **Inställningar**väljer du **Egenskaper**.
+3. I **Inställningar** väljer du **Egenskaper**.
 
     ![Öppna menyn för valvet](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
-4. I **Egenskaper**  >  **autentiseringsuppgifter för säkerhets kopiering**väljer du **Hämta**. Portalen genererar valvets loggfil med en kombination av valv namnet och det aktuella datumet och gör den tillgänglig för nedladdning.
+4. I **Egenskaper**  >  **autentiseringsuppgifter för säkerhets kopiering** väljer du **Hämta**. Portalen genererar valvets loggfil med en kombination av valv namnet och det aktuella datumet och gör den tillgänglig för nedladdning.
 
     ![Hämta autentiseringsuppgifter](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
@@ -114,7 +114,7 @@ Hämta valv filen med autentiseringsuppgifter till en lokal dator på följande 
 Alla datorer som säkerhets kopie ras av Azure Backup måste ha säkerhets kopierings agenten Microsoft Azure (MARS) installerat på den. Installera agenten på DPM-servern på följande sätt:
 
 1. Öppna valvet som du vill registrera DPM-servern på.
-2. I **Inställningar**väljer du **Egenskaper**.
+2. I **Inställningar** väljer du **Egenskaper**.
 
     ![Öppna valv inställningar](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. På sidan **Egenskaper** laddar du ned Azure Backup agenten.
@@ -131,19 +131,19 @@ Alla datorer som säkerhets kopie ras av Azure Backup måste ha säkerhets kopie
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>Registrera DPM-servern i valvet
 
-1. I DPM-administratörskonsolen > **hantering**väljer du **online**. Välj **Register** (Registrera). Guiden Registrera Server öppnas.
-2. I **proxykonfiguration**anger du proxyinställningarna efter behov.
+1. I DPM-administratörskonsolen > **hantering** väljer du **online**. Välj **Register** (Registrera). Guiden Registrera Server öppnas.
+2. I **proxykonfiguration** anger du proxyinställningarna efter behov.
 
     ![Proxykonfiguration](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
-3. I **säkerhets kopierings valvet**bläddrar du till och väljer den valv fil för autentiseringsuppgifter som du laddade ned.
+3. I **säkerhets kopierings valvet** bläddrar du till och väljer den valv fil för autentiseringsuppgifter som du laddade ned.
 
     ![Autentiseringsuppgifter för valv](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
 
-4. I **begränsnings inställningen**kan du välja att aktivera bandbredds begränsning för säkerhets kopieringar. Du kan ange hastighets gränserna för ange arbets tid och dagar.
+4. I **begränsnings inställningen** kan du välja att aktivera bandbredds begränsning för säkerhets kopieringar. Du kan ange hastighets gränserna för ange arbets tid och dagar.
 
     ![Begränsnings inställning](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Throttling.png)
 
-5. I **Inställningar för återställnings mapp**anger du en plats som kan användas under data återställningen.
+5. I **Inställningar för återställnings mapp** anger du en plats som kan användas under data återställningen.
 
     - Azure Backup använder den här platsen som ett temporärt område för återställda data.
     - När du har slutfört data återställningen kommer Azure Backup att rensa data i det här avsnittet.
@@ -151,7 +151,7 @@ Alla datorer som säkerhets kopie ras av Azure Backup måste ha säkerhets kopie
 
     ![Inställning av återställnings mapp](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
 
-6. I **krypterings inställning**genererar eller anger du en lösen fras.
+6. I **krypterings inställning** genererar eller anger du en lösen fras.
 
     - Lösen frasen används för att kryptera säkerhets kopiorna till molnet.
     - Ange minst 16 tecken.

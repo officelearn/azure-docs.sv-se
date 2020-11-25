@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 53f50e98bcec4b8ace342808f0bcfd96770834b0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312347"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002229"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team data science-processen i praktiken: Använd Azure HDInsight Hadoop kluster
 I den här genom gången använder vi [team data science-processen (TDSP)](overview.md) i ett scenario från slut punkt till slut punkt. Vi använder ett [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska och tillhandahålla data från den allmänt tillgängliga [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) -datauppsättningen och för att få fram exempel på data. För att hantera binära och Regressions aktiviteter med multiklasser, bygger vi modeller av data med Azure Machine Learning. 
@@ -59,9 +59,9 @@ NYC taxi-resan är ungefär 20 GB komprimerade kommaavgränsade värden (CSV) (~
 Den unika nyckeln för att ansluta till rese \_ data och rese \_ pris består av fälten: Medallion, Hack \_ License och upphämtnings \_ datum. För att få all information som är relevant för en viss resa räcker det att ansluta till dessa tre nycklar.
 
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Exempel på förutsägelse aktiviteter
-Bestäm vilken typ av förutsägelser du vill göra baserat på data analys för att klargör nödvändiga process uppgifter. Här följer tre exempel på förutsägelse problem som vi åtgärdar i den här genom gången, allt baserat på *tips \_ mängden* :
+Bestäm vilken typ av förutsägelser du vill göra baserat på data analys för att klargör nödvändiga process uppgifter. Här följer tre exempel på förutsägelse problem som vi åtgärdar i den här genom gången, allt baserat på *tips \_ mängden*:
 
-- **Binära klassificering** : förutsäga huruvida ett tips har betalats för en resa. Det vill säga ett *Tip- \_ belopp* som är större än $0 är ett positivt exempel, medan ett *tips \_ på* $0 är ett negativt exempel.
+- **Binära klassificering**: förutsäga huruvida ett tips har betalats för en resa. Det vill säga ett *Tip- \_ belopp* som är större än $0 är ett positivt exempel, medan ett *tips \_ på* $0 är ett negativt exempel.
 
   - Klass 0: tip_amount = $0
   - Klass 1: tip_amount > $0
@@ -74,7 +74,7 @@ Bestäm vilken typ av förutsägelser du vill göra baserat på data analys för
   - Klass 3: tip_amount > $10 och tip_amount <= $20
   - Klass 4: tip_amount > $20
 
-- **Regressions uppgift** : förutsäga hur mycket av tipset som betalats för en resa.  
+- **Regressions uppgift**: förutsäga hur mycket av tipset som betalats för en resa.  
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-advanced-analytics"></a><a name="setup"></a>Konfigurera ett HDInsight Hadoop-kluster för avancerad analys
 > [!NOTE]
@@ -130,7 +130,7 @@ Det här kommandot överför rese data till _*_nyctaxitripraw_*_ -katalogen i st
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data__.csv
 ```
 
-Det här kommandot överför pris data till * **nyctaxifareraw** _-katalogen i standard behållaren för Hadoop-klustret.
+Det här kommandot överför pris data till ***nyctaxifareraw** _-katalogen i standard behållaren för Hadoop-klustret.
 
 ```console
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare__.csv
@@ -156,7 +156,7 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-De här två kommandona laddar ned alla '. HQL '-filer som behövs i den här genom gången till den lokala katalogen * **C:\temp&#92;** _ i head-noden.
+De här två kommandona laddar ned alla '. HQL '-filer som behövs i den här genom gången till den lokala katalogen ***C:\temp&#92;** _ i head-noden.
 
 ## <a name="create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Skapa Hive-databas och tabeller partitionerade efter månad
 > [!NOTE]
@@ -182,7 +182,7 @@ Från Hive-katalogen, kör du följande kommando på Hadoop-kommandoraden i head
 hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 ```
 
-Här är innehållet i filen _ *C:\temp\sample \_ Hive \_ create \_ db \_ och \_ Tables. HQL* * som skapar Hive-databasen **nyctaxidb** och tabellerna **resa** och **pris**.
+Här är innehållet i filen _ *C:\temp\sample \_ Hive \_ create \_ db \_ och \_ Tables. HQL** som skapar Hive-databasen **nyctaxidb** och tabellerna **resa** och **pris**.
 
 ```hiveql
 create database if not exists nyctaxidb;
@@ -447,7 +447,7 @@ Det totala antalet poster i båda tabellerna är också detsamma, vilket ger en 
 > 
 > 
 
-I det här exemplet identifieras medallions (taxi-nummer) med fler än 100 resor inom en viss tids period. Frågan fördelar från den partitionerade tabell åtkomsten, eftersom den är ett villkor för en partitions variabel **månad**. Frågeresultatet skrivs till en lokal fil, **queryoutput. tsv** , i `C:\temp` på Head-noden.
+I det här exemplet identifieras medallions (taxi-nummer) med fler än 100 resor inom en viss tids period. Frågan fördelar från den partitionerade tabell åtkomsten, eftersom den är ett villkor för en partitions variabel **månad**. Frågeresultatet skrivs till en lokal fil, **queryoutput. tsv**, i `C:\temp` på Head-noden.
 
 ```console
 hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
@@ -639,7 +639,7 @@ hdfs dfs -mkdir wasb:///queryoutputdir
 hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 ```
 
-Frågeresultatet skrivs till nio Azure-blobbar ( **queryoutputdir/000000 \_ 0** till  **queryoutputdir/000008 \_ 0** ) under standard behållaren för Hadoop-klustret.
+Frågeresultatet skrivs till nio Azure-blobbar (**queryoutputdir/000000 \_ 0** till  **queryoutputdir/000008 \_ 0**) under standard behållaren för Hadoop-klustret.
 
 Om du vill se storleken på de enskilda Blobbarna kör du följande kommando från Hive-katalogens kommando tolk:
 
@@ -647,7 +647,7 @@ Om du vill se storleken på de enskilda Blobbarna kör du följande kommando fr�
 hdfs dfs -ls wasb:///queryoutputdir
 ```
 
-Om du vill se innehållet i en specifik fil, t. ex. **000000 \_ 0** , använder du Hadoop- `copyToLocal` kommandot.
+Om du vill se innehållet i en specifik fil, t. ex. **000000 \_ 0**, använder du Hadoop- `copyToLocal` kommandot.
 
 ```hiveql
 hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
@@ -669,7 +669,7 @@ En viktig fördel med att ha dessa data finns i en Azure-Blob är att vi kan utf
 Efter analys fasen för analys av undersöknings data är vi nu redo att stänga av data för att skapa modeller i Machine Learning. I det här avsnittet visar vi hur du använder en Hive-fråga för att visa exempel på data. Machine Learning öppnas sedan från modulen [Importera data][import-data] .
 
 ### <a name="down-sampling-the-data"></a>Nedåt – sampling av data
-Det finns två steg i den här proceduren. Först ansluter vi tabellerna **nyctaxidb. rese** och **nyctaxidb. pris** på tre nycklar som finns i alla poster: **Medallion** , **Hack \_ License** och **upphämtnings \_ datum**. Sedan genererar vi en binära klassificerings etikett, **lutad** och en klassificerings etikett för multiklass, **Tip- \_ klass**.
+Det finns två steg i den här proceduren. Först ansluter vi tabellerna **nyctaxidb. rese** och **nyctaxidb. pris** på tre nycklar som finns i alla poster: **Medallion**, **Hack \_ License** och **upphämtnings \_ datum**. Sedan genererar vi en binära klassificerings etikett, **lutad** och en klassificerings etikett för multiklass, **Tip- \_ klass**.
 
 Om du vill kunna använda de nedsamplade data direkt från modulen [Importera data][import-data] i Machine Learning bör du lagra resultatet från föregående fråga till en intern Hive-tabell. I det här exemplet skapar vi en intern Hive-tabell och fyller i dess innehåll med de kopplade och indata.
 
@@ -820,17 +820,17 @@ Om du vill utfärda Hive-frågor i modulen [Importera data][import-data] i Machi
 
 Här följer information om modulen [Importera data][import-data] och parametrarna för indata:
 
-**HCatalog Server-URI** : om kluster namnet är **vi abc123** använder du: https: \/ /abc123.azurehdinsight.net.
+**HCatalog Server-URI**: om kluster namnet är **vi abc123** använder du: https: \/ /abc123.azurehdinsight.net.
 
-**Hadoop-användar konto namn** : det användar namn som valts för klustret (inte användar namnet för fjärråtkomst).
+**Hadoop-användar konto namn**: det användar namn som valts för klustret (inte användar namnet för fjärråtkomst).
 
-**Konto lösen ord för Hadoop-användare** : lösen ordet som valts för klustret (inte lösen ordet för fjärråtkomst).
+**Konto lösen ord för Hadoop-användare**: lösen ordet som valts för klustret (inte lösen ordet för fjärråtkomst).
 
-**Plats för utgående data** : väljs som Azure.
+**Plats för utgående data**: väljs som Azure.
 
-**Azure Storage konto namn** : namnet på det standard lagrings konto som är associerat med klustret.
+**Azure Storage konto namn**: namnet på det standard lagrings konto som är associerat med klustret.
 
-**Namn på Azure-behållare** : standard behållar namnet för klustret och är vanligt vis samma som kluster namnet. För ett kluster med namnet **vi abc123** är namnet vi abc123.
+**Namn på Azure-behållare**: standard behållar namnet för klustret och är vanligt vis samma som kluster namnet. För ett kluster med namnet **vi abc123** är namnet vi abc123.
 
 > [!IMPORTANT]
 > Alla tabeller som vi vill fråga med hjälp av modulen [Importera data][import-data] i Machine Learning måste vara en intern tabell.
@@ -858,11 +858,11 @@ Data uppsättningen kan nu användas som start punkt för att skapa Machine Lear
 ### <a name="build-models-in-machine-learning"></a><a name="mlmodel"></a>Bygg modeller i Machine Learning
 Nu kan du fortsätta med modell skapande och modell distribution i [Machine Learning](https://studio.azureml.net). Data är redo för oss att använda för att hantera de förutsägelse problem som identifierats tidigare:
 
-- **Binära klassificering** : för att förutsäga om ett tips har betalats för en resa.
+- **Binära klassificering**: för att förutsäga om ett tips har betalats för en resa.
 
   **Elev som används:** Logistik regression med två klasser
 
-  a. För det här problemet **lutas** mål-eller klass etiketten. Den ursprungliga data uppsättningen i det här exemplet har några kolumner som är mål läckor för det här klassificerings experimentet. I synnerhet **Tip- \_ klass** , **Tip- \_ belopp** och **total \_ mängd** för att visa information om mål etiketten som inte är tillgänglig vid test tillfället. Vi tar bort dessa kolumner från överväganden med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
+  a. För det här problemet **lutas** mål-eller klass etiketten. Den ursprungliga data uppsättningen i det här exemplet har några kolumner som är mål läckor för det här klassificerings experimentet. I synnerhet **Tip- \_ klass**, **Tip- \_ belopp** och **total \_ mängd** för att visa information om mål etiketten som inte är tillgänglig vid test tillfället. Vi tar bort dessa kolumner från överväganden med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
 
   I följande diagram visas vårt experiment för att förutse om ett tips har betalats för en bestämd resa:
 
@@ -882,7 +882,7 @@ Nu kan du fortsätta med modell skapande och modell distribution i [Machine Lear
 
   **Elev som används:** Logistik regression med multiklass
 
-  a. För det här problemet är vår mål sättnings etikett (eller klass) en **Tip- \_ klass** , som kan ha ett av fem värden (0, 1, 2, 3, 4). Som i det binära klassificerings fallet har vi några kolumner som är mål läckor för det här experimentet. I synnerhet överliggande, **Tip \_** **-** belopp och **total \_ mängd** visar information om mål etiketten som inte är tillgänglig vid testnings tillfället. Vi tar bort de här kolumnerna med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
+  a. För det här problemet är vår mål sättnings etikett (eller klass) en **Tip- \_ klass**, som kan ha ett av fem värden (0, 1, 2, 3, 4). Som i det binära klassificerings fallet har vi några kolumner som är mål läckor för det här experimentet. I synnerhet överliggande, **Tip \_** **-** belopp och **total \_ mängd** visar information om mål etiketten som inte är tillgänglig vid testnings tillfället. Vi tar bort de här kolumnerna med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
 
   I följande diagram visas experimentet för att förutsäga på vilken lager plats ett tips sannolikt kommer att falla. Lager platserna är: klass 0: tips = $0, klass 1: tips > $0 och tips <= $5, klass 2: tips > $5 och tips <= $10, klass 3: Tip > $10 och Tip <= $20 och klass 4: Tip > $20.
 
@@ -898,11 +898,11 @@ Nu kan du fortsätta med modell skapande och modell distribution i [Machine Lear
 
   Även om klassen visar att de vanligaste klasserna är effektiva, gör modellen inte något lämpligt jobb av "inlärning" i rarer-klasserna.
 
-- **Regressions uppgift** : för att förutsäga hur mycket tips du betalar för en resa.
+- **Regressions uppgift**: för att förutsäga hur mycket tips du betalar för en resa.
 
   **Elev som används:** Utökat besluts träd
 
-  a. För det här problemet är mål etiketten (eller klassen) **Tip- \_ storlek**. Mål läckor i det här fallet är: **nedlutad** , **Tip- \_ klass** och **total \_ mängd**. Alla dessa variabler visar information om det tips belopp som normalt inte är tillgängligt vid test tillfället. Vi tar bort de här kolumnerna med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
+  a. För det här problemet är mål etiketten (eller klassen) **Tip- \_ storlek**. Mål läckor i det här fallet är: **nedlutad**, **Tip- \_ klass** och **total \_ mängd**. Alla dessa variabler visar information om det tips belopp som normalt inte är tillgängligt vid test tillfället. Vi tar bort de här kolumnerna med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
 
   I följande diagram visas experimentet för att förutsäga det aktuella tipset:
 

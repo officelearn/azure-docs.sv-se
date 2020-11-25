@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 327e995a8fe2f66903548fba054804768d2538ab
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534302"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001579"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Konfigurera konfigurationsservern för haveriberedskap för fysiska servrar till Azure
 
@@ -36,19 +36,19 @@ I följande tabell visas minimi kraven för maskin vara, program vara och nätve
 ## <a name="choose-your-protection-goals"></a>Välj skydds mål
 
 1. I Azure Portal går du till bladet **Recovery Services** valv och väljer ditt valv.
-2. I menyn **resurs** för valvet klickar du på **komma igång**  >  **Site Recovery**  >  **steg 1: Förbered infrastruktur**  >  **skydds mål** .
+2. I menyn **resurs** för valvet klickar du på **komma igång**  >  **Site Recovery**  >  **steg 1: Förbered infrastruktur**  >  **skydds mål**.
 
     ![Skärm bild som visar var du väljer skydds målet.](./media/physical-azure-set-up-source/choose-goals.png)
-3. I **skydds mål** väljer **du till Azure** och **inte virtualiserat/övrigt** och klickar sedan på **OK** .
+3. I **skydds mål** väljer **du till Azure** och **inte virtualiserat/övrigt** och klickar sedan på **OK**.
 
     ![Välja mål](./media/physical-azure-set-up-source/physical-protection-goal.png)
 
 ## <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
 
-1. I **Förbered källa** , om du inte har en konfigurations Server, klickar du på **+ konfigurations Server** för att lägga till en.
+1. I **Förbered källa**, om du inte har en konfigurations Server, klickar du på **+ konfigurations Server** för att lägga till en.
 
    ![Skärm bild som visar hur du väljer konfigurations servern.](./media/physical-azure-set-up-source/plus-config-srv.png)
-2. I bladet **Lägg till Server** kontrollerar du att **konfigurations servern** visas i **Server typ** .
+2. I bladet **Lägg till Server** kontrollerar du att **konfigurations servern** visas i **Server typ**.
 4. Hämta installations filen Site Recovery Unified setup.
 5. Ladda ned valvregistreringsnyckeln. Du behöver registrerings nyckeln när du kör enhetlig installation. Nyckeln är giltig i fem dagar efter att du har genererat den.
 

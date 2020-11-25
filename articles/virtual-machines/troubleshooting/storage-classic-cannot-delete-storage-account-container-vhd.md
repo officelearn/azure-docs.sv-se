@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: c74f2ef9eed25719e722970671406c850b6a59b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361865"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002603"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av klassiska lagrings resurser
 Den här artikeln innehåller en fel söknings vägledning när något av följande fel uppstår vid försök att ta bort det klassiska Azure-lagrings kontot, behållaren eller *. VHD-sidans BLOB-fil. 

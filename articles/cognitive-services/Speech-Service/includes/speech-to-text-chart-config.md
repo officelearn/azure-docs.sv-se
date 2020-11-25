@@ -11,17 +11,17 @@ ms.topic: include
 ms.date: 05/05/2020
 ms.author: trbye
 ms.openlocfilehash: 85c4e0641e1989ddea6c8aa8b8a8895a966a5ddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82876027"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002309"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Tal till text (under diagram: diagram/speechToText)
 
 Om du vill åsidosätta diagrammet "paraply" lägger du till prefixet `speechToText.` på valfri parameter för att göra det mer exakt. Den kommer till exempel att åsidosätta motsvarande parameter till exempel åsidosättningar `speechToText.numberOfConcurrentRequest` `numberOfConcurrentRequest` .
 
-|Parameter|Beskrivning|Default|
+|Parameter|Beskrivning|Standardvärde|
 | -- | -- | -- |
 | `enabled` | Om tjänsten för **tal till text** är aktive rad. | `false` |
 | `numberOfConcurrentRequest` | Antalet samtidiga förfrågningar för tjänsten **tal till text** . Det här diagrammet beräknar automatiskt processor-och minnes resurser baserat på det här värdet. | `2` |
@@ -45,7 +45,7 @@ Om du vill åsidosätta diagrammet "paraply" lägger du till prefixet `speechToT
 
 Från och med v-2.2.0 av tal-till-text-behållaren och v-0.2.0 i Helm-diagrammet används följande parametrar för sentiment analys med hjälp av API för textanalys.
 
-|Parameter|Beskrivning|Värden|Default|
+|Parameter|Beskrivning|Värden|Standardvärde|
 | --- | --- | --- | --- |
 |`textanalytics.enabled`| Om tjänsten för **text analys** är aktive rad| True/false| `false`|
 |`textanalytics.image.registry`| Den **text Analytics-** Docker avbildnings register| giltigt Docker-avbildnings register| |

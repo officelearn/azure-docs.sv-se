@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: 1ef52d74f7ae6e7e0d8c58e3b1972a0a1227c6b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85962211"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001939"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Aktivera heap-dum par för Apache Hadoop tjänster på Linux-baserade HDInsight
 
@@ -37,7 +37,7 @@ Du kan också aktivera heap-dum par för kartan och minska de processer som kör
 
 Heap-dumpar aktive ras genom att skicka alternativ (ibland kallade eller parametrar) till JVM när en tjänst startas. För de flesta [Apache Hadoop](https://hadoop.apache.org/) -tjänster kan du ändra det Shell-skript som används för att starta tjänsten för att skicka dessa alternativ.
 
-I varje ** \* \_ skript är det en export for man**som innehåller de alternativ som skickas till JVM. I **Hadoop-ENV.sh** -skriptet innehåller till exempel den rad som börjar med `export HADOOP_NAMENODE_OPTS=` innehåller alternativen för NameNode-tjänsten.
+I varje **\* \_ skript är det en export for man** som innehåller de alternativ som skickas till JVM. I **Hadoop-ENV.sh** -skriptet innehåller till exempel den rad som börjar med `export HADOOP_NAMENODE_OPTS=` innehåller alternativen för NameNode-tjänsten.
 
 Mappa och minska processer skiljer sig något åt, eftersom dessa åtgärder är underordnade processer i MapReduce-tjänsten. Varje karta eller minska processen körs i en underordnad behållare och det finns två poster som innehåller JVM-alternativen. Båda finns i **mapred-site.xml**:
 
@@ -91,7 +91,7 @@ Använd följande steg för att ändra konfigurationen för en tjänst:
 
     ![Filtrerad lista med Apache Ambari-konfiguration](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
-4. Leta upp posten för den tjänst som du vill aktivera heap-dum par för och Lägg till de alternativ som du vill aktivera. ** \* \_ ** I följande bild har jag lagt till i `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` posten **HADOOP \_ NAMENODE \_ ** :
+4. Leta upp posten för den tjänst som du vill aktivera heap-dum par för och Lägg till de alternativ som du vill aktivera. **\* \_** I följande bild har jag lagt till i `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` posten **HADOOP \_ NAMENODE \_** :
 
     ![Apache Ambari Hadoop-namenode-väljer](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 

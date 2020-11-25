@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 11/23/2020
 ms.author: alkohli
-ms.openlocfilehash: ad8a5a23361e721fd5d8d55d3555f51def94e768
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b132368982e0013bfe6f3ffd52e7aacb7b1274eb
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442029"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96003347"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Självstudie: skapa en export ordning för Azure Data Box (förhands granskning)
 
@@ -30,7 +30,7 @@ I den här självstudien lär du dig:
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande konfigurations krav för Data Box-enhet tjänst och enhet innan du beställer enheten.
 
@@ -80,7 +80,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
    ![Välj Data Box-enhet kapacitet](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
-6. Ange **grundläggande** beställnings information i **ordning**. Ange eller välj följande information och välj **Nästa**.
+6. Ange **grundläggande** beställnings information i **ordning**. Ange eller välj följande information.
 
     |Inställning  |Värde  |
     |---------|---------|
@@ -88,21 +88,21 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
     |Resursgrupp | Den resurs grupp som du valde tidigare. |
     |Exportera beställnings namn     |  Välj ett smeknamn så att du kan spåra beställningen. <br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra.      |
 
-    ![Grundläggande om export order](media/data-box-deploy-export-ordered/azure-data-box-export-order-storage-account-export-type.png)
+    ![Grundläggande om export order](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-order-name.png)
 
     Välj **Nästa: data urvalet** för att gå vidare.
 
 7. I **data urval** väljer du **Lägg till lagrings konto och export typ**.
 
-    ![Lägg till lagrings konto och export typ](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics.png)
+    ![Lägg till lagrings konto och export typ](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-add-storage.png)
 
 8. I **Välj export alternativ** anger du alternativ informationen för export. Ange eller Välj följande information och välj sedan **Lägg till**.
 
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Lagringskonto     | Det Azure Storage konto som du vill exportera data från. |
     |Export typ     | Anger vilken typ av data som ska exporteras från **alla objekt** och **använda XML-filen**.<ul><li> **Alla objekt** – anger att jobbet ska exportera alla data beroende på ditt val av **överförings alternativ**.</li><li> **Använd XML-fil** – anger en XML-fil som innehåller en uppsättning sökvägar och prefix för blobbar och/eller filer som ska exporteras från lagrings kontot. XML-filen måste finnas i det valda lagrings kontots behållare och det finns för närvarande inte stöd för att välja från fil resurser. Filen måste vara en XML-fil som inte är tom.</li></ul>        |
-    |Överförings alternativ     |  Anger alternativ för data överföring från **Välj alla** , **alla blobbar** och **alla filer**. <ul><li> **Markera alla** -anger att alla blobbar och Azure Files exporteras. Om du använder ett lagrings konto som bara stöder blobbar (Blob Storage konto) går det inte att välja alternativet **alla filer** .</li><li> **Alla blobbar** – anger att endast block-och sid-blobar ska exporteras.</li><li> **Alla filer** -anger att alla filer exporteras exklusive blobbar. Vilken typ av lagrings konto du har (GPv1 och GPv2, Premium Storage eller Blob Storage) bestämmer vilka typer av data som du kan exportera. Mer information finns i [lagrings konton som stöds för export](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Överförings alternativ     |  Anger alternativ för data överföring från **Välj alla**, **alla blobbar** och **alla filer**. <ul><li> **Markera alla** -anger att alla blobbar och Azure Files exporteras. Om du använder ett lagrings konto som bara stöder blobbar (Blob Storage konto) går det inte att välja alternativet **alla filer** .</li><li> **Alla blobbar** – anger att endast block-och sid-blobar ska exporteras.</li><li> **Alla filer** -anger att alla filer exporteras exklusive blobbar. Vilken typ av lagrings konto du har (GPv1 och GPv2, Premium Storage eller Blob Storage) bestämmer vilka typer av data som du kan exportera. Mer information finns i [lagrings konton som stöds för export](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Inkludera utförlig logg     | Anger om du vill ha en utförlig logg fil som innehåller en lista över alla filer som har exporter ATS.        |
 
     > [!NOTE]
@@ -115,15 +115,88 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
    Ett exempel på XML-indata finns i [exempel på XML-indata](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. Granska inställningarna i **data urval** och välj **nästa: säkerhets>**.
+9. Granska inställningarna i **data urval** och välj **nästa: säkerhets>** för att fortsätta.
 
    ![Exportera order, data urval](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-selection.png)
 
-10. I **säkerhet** , om du vill aktivera programvarubaserad dubbel kryptering, väljer du **Aktivera dubbel kryptering för ordern**. 
+    På sidan **säkerhet** kan du använda en egen krypterings nyckel och välja att använda Double Encryption.
+
+    Alla inställningar på **säkerhets** skärmen är valfria. Om du inte ändrar några inställningar används standardinställningarna.
+
+    ![Säkerhets skärmen i guiden Data Box-enhet importera order](media/data-box-deploy-export-ordered/data-box-export-security-01.png)
+
+10. Om du vill använda din egen Kundhanterade nyckel för att skydda upplåsnings nyckeln för den nya resursen expanderar du **krypterings typ**.
+
+    Det är valfritt att konfigurera en kundhanterad nyckel för din Azure Data Box. Som standard använder Data Box-enhet en Microsoft-hanterad nyckel för att skydda upplåsnings nyckeln.
+
+    En kundhanterad nyckel påverkar inte hur data på enheten krypteras. Nyckeln används bara för kryptering av enhetens upplåsnings nyckel.
+
+    Om du inte vill använda en kundhanterad nyckel går du vidare till steg 16.
+
+    ![Säkerhets skärm som visar inställningar för krypterings typ](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
+
+11. Välj **kund hanterad nyckel** som nyckel typ. Välj sedan **Välj ett nyckel valv och nyckel**.
+   
+    ![Säkerhets skärm, inställningar för en kundhanterad nyckel](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
+
+12. På skärmen **Välj nyckel från Azure Key Vault** fylls prenumerationen i automatiskt.
+
+    - För **Key Vault** kan du välja ett befintligt nyckel valv i list rutan.
+
+      ![Välj nyckel från Azure Key Vault skärmen](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
+
+    - Du kan också välja **Skapa nytt** för att skapa ett nytt nyckel valv. På skärmen **skapa nyckel valv** anger du resurs gruppen och ett nyckel valvs namn. Se till att det **mjuka borttagnings** -och **rensnings skyddet** har Aktiver ATS. Acceptera alla andra standardvärden och välj **Granska + skapa**.
+
+      ![Skapa en ny Azure Key Vault inställningar](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
+
+      Granska informationen för nyckel valvet och välj **skapa**. Vänta några minuter tills nyckel valvet har skapats.
+
+      ![Ny Azure Key Vault gransknings skärmen](./media/data-box-deploy-export-ordered/customer-managed-key-05.png)
+
+13. På skärmen **Välj nyckel från Azure Key Vault** kan du välja en befintlig nyckel i nyckel valvet.
+
+    ![Välj befintlig nyckel från Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
+
+    Om du vill skapa en ny nyckel väljer du **Skapa ny**. Du måste använda en RSA-nyckel. Storleken kan vara 2048 eller högre. Ange ett namn för den nya nyckeln, godkänn de andra standardinställningarna och välj **skapa**.
+
+      ![Skapa ett nytt nyckel alternativ](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
+
+      Du får ett meddelande när nyckeln har skapats i nyckel valvet.
+
+14. Välj den **version** av nyckeln som ska användas och välj sedan **Välj**.
+
+      ![Ny nyckel har skapats i Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
+
+    Om du vill skapa en ny nyckel version väljer du **Skapa ny**.
+
+    ![Öppna en dialog ruta för att skapa en ny nyckel version](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
+
+    På skärmen **Skapa ny nyckel** väljer du inställningar för den nya nyckel versionen och väljer **skapa**.
+
+    ![Skapa en ny nyckel version](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
+
+    Inställningarna för **krypterings typ** på **säkerhets** skärmen visar ditt nyckel valv och nyckel.
+
+    ![Nyckel-och nyckel valv för en kundhanterad nyckel](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
+
+15. Välj en användar identitet som du ska använda för att hantera åtkomst till den här resursen. Välj **Välj en användar identitet**. I panelen till höger väljer du prenumerationen och den hanterade identiteten som ska användas. Välj sedan **Välj**.
+
+    En användare som tilldelats en hanterad identitet är en fristående Azure-resurs som kan användas för att hantera flera resurser. Mer information finns i [hanterade identitets typer](/azure/active-directory/managed-identities-azure-resources/overview).  
+
+    Om du behöver skapa en ny hanterad identitet följer du rikt linjerna i [skapa, lista, ta bort eller tilldela en roll till en användardefinierad hanterad identitet med hjälp av Azure Portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    
+    ![Välj en användar identitet](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
+
+    Användar identiteten visas i inställningar för **krypterings typ** .
+
+    Du kan minimera **krypterings typs** inställningarna nu.
+
+    ![En vald användar identitet visas i inställningar för krypterings typ](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
+
+16. Om du vill aktivera programvarubaserad dubbel kryptering expanderar du **Double Encryption (för miljöer med hög säkerhet)** och väljer **Aktivera dubbel kryptering för ordern**. 
 
     Den programvarubaserade krypteringen utförs förutom AES-256-bitars kryptering av data på Data Box-enhet.
 
-   
     > [!NOTE]
     > Att aktivera det här alternativet kan göra order bearbetning och data kopieringen ta längre tid. Du kan inte ändra det här alternativet när du har skapat din beställning.
 
@@ -259,7 +332,7 @@ Några viktiga punkter i avseende XML-filer:
 
 I följande tabell visas exempel på giltiga BLOB-sökvägar:
 
-   | Väljare | BLOB-sökväg | Beskrivning |
+   | Väljare | BLOB-sökväg | Description |
    | --- | --- | --- |
    | Börjar med |/ |Exporterar alla blobar i lagrings kontot |
    | Börjar med |/$root/ |Exporterar alla blobbar i rot behållaren |

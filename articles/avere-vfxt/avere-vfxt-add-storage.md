@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271149"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001532"
 ---
 # <a name="configure-storage"></a>Konfigurera lagring
 
@@ -62,7 +62,7 @@ Följ dessa steg om du vill lägga till en NAS core-filer:
      ![Skärm bild av sidan Lägg till ny core-filer med namnet på kärn filen och det fullständigt kvalificerade domän namnet](media/avere-vfxt-add-core-filer.png)
   
    * Klicka på **Nästa** och välj en princip för cache.
-   * Klicka på **Lägg till**filer.
+   * Klicka på **Lägg till** filer.
    * Mer detaljerad information finns i lägga till [en ny NAS Core](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) -filer i guiden för kluster inställningar i AVERT.
 
 Fortsätt sedan att [skapa en Knut](#create-a-junction)punkt.  
@@ -119,17 +119,17 @@ Följ dessa steg om du vill lägga till Blob Storage när klustret har skapats.
 
    ![Azure Portal GUI för att kopiera nyckeln](media/avere-vfxt-copy-storage-key.png)
 
-1. Öppna kontroll panelen aver för klustret. Klicka på **Inställningar**och öppna **Cluster**  >  **autentiseringsuppgifter** för kluster moln i det vänstra navigerings fönstret. På sidan autentiseringsuppgifter för moln klickar du på **Lägg till autentiseringsuppgift**.
+1. Öppna kontroll panelen aver för klustret. Klicka på **Inställningar** och öppna **Cluster**  >  **autentiseringsuppgifter** för kluster moln i det vänstra navigerings fönstret. På sidan autentiseringsuppgifter för moln klickar du på **Lägg till autentiseringsuppgift**.
 
    ![Klicka på knappen Lägg till autentiseringsuppgift på sidan konfiguration av moln autentiseringsuppgifter](media/avere-vfxt-new-credential-button.png)
 
 1. Fyll i följande information för att skapa en autentiseringsuppgift för Cloud core-filer:
 
-   | Field | Värde |
+   | Fält | Värde |
    | --- | --- |
    | Namn på autentiseringsuppgifter | ett beskrivande namn |
    | Typ av tjänst | (Välj Azure Storage åtkomst nyckel) |
-   | Klient | lagringskontots namn |
+   | Klientorganisation | lagringskontots namn |
    | Prenumeration | subscription ID |
    | Lagrings åtkomst nyckel | Nyckel för Azure Storage-konto (kopieras i föregående steg) |
 
@@ -146,7 +146,7 @@ Följ dessa steg om du vill lägga till Blob Storage när klustret har skapats.
    * Välj typ av filtyp- **moln**.
    * Namnge den nya Core-filen och klicka på **Nästa**.
    * Godkänn standard principen för cache och fortsätt till den tredje sidan.
-   * I **tjänst typ**väljer du **Azure Storage**.
+   * I **tjänst typ** väljer du **Azure Storage**.
    * Välj de autentiseringsuppgifter som skapades tidigare.
    * Ange **Bucket-innehåll** som **tomt**
    * Ändra **certifikat verifiering** till **inaktive rad**
@@ -154,7 +154,7 @@ Följ dessa steg om du vill lägga till Blob Storage när klustret har skapats.
    * Klicka på **Nästa**.
    * På den fjärde sidan anger du namnet på behållaren i **Bucket-namn** som *storage_account_name* / *container_name*.
    * Du kan också ange **krypterings typ** till **ingen**.  Azure Storage krypteras som standard.
-   * Klicka på **Lägg till**filer.
+   * Klicka på **Lägg till** filer.
 
    Mer detaljerad information finns i [lägga till en ny Cloud Core](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) -filer i konfigurations guiden för AVERT kluster.
 

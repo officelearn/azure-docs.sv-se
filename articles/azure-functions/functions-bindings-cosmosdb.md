@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 524df7805207ce517c7ae805fb17de1b041a2248
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876047"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002126"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB bindningar för Azure Functions 1. x
 
@@ -178,11 +178,11 @@ Attribut stöds inte av Java Script.
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `CosmosDBTrigger` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
-|**bastyp** | Saknas | Måste anges till `cosmosDBTrigger` . |
-|**position** | Saknas | Måste anges till `in` . Den här parametern anges automatiskt när du skapar utlösaren i Azure Portal. |
-|**Namn** | Saknas | Variabel namnet som används i funktions kod som representerar listan med dokument med ändringar. |
+|**bastyp** | saknas | Måste anges till `cosmosDBTrigger` . |
+|**position** | saknas | Måste anges till `in` . Den här parametern anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**Namn** | saknas | Variabel namnet som används i funktions kod som representerar listan med dokument med ändringar. |
 |**connectionStringSetting**|**ConnectionStringSetting** | Namnet på en app-inställning som innehåller anslutnings strängen som används för att ansluta till det Azure Cosmos DB-konto som övervakas. |
 |**Databas**|**DatabaseName**  | Namnet på Azure Cosmos DB databasen med den samling som övervakas. |
 |**Samling** |**CollectionName** | Namnet på den samling som övervakas. |
@@ -1115,11 +1115,11 @@ Attribut stöds inte av Java Script.
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `DocumentDB` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
-|**bastyp**     | Saknas | Måste anges till `documentdb` .        |
-|**position**     | Saknas | Måste anges till `in` .         |
-|**Namn**     | Saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
+|**bastyp**     | saknas | Måste anges till `documentdb` .        |
+|**position**     | saknas | Måste anges till `in` .         |
+|**Namn**     | saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
 |**Databas** |**DatabaseName** |Databasen som innehåller dokumentet.        |
 |**Samling** |**CollectionName** | Namnet på den samling som innehåller dokumentet. |
 |**id**    | **Identitet** | ID för det dokument som ska hämtas. Den här egenskapen stöder [bindnings uttryck](./functions-bindings-expressions-patterns.md). Ange inte egenskaperna för både **ID** och **sqlQuery** . Om du inte anger någon, hämtas hela samlingen. |
@@ -1456,11 +1456,11 @@ Attribut stöds inte av Java Script.
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `DocumentDB` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
-|**bastyp**     | Saknas | Måste anges till `documentdb` .        |
-|**position**     | Saknas | Måste anges till `out` .         |
-|**Namn**     | Saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
+|**bastyp**     | saknas | Måste anges till `documentdb` .        |
+|**position**     | saknas | Måste anges till `out` .         |
+|**Namn**     | saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
 |**Databas** | **DatabaseName**|Databasen som innehåller den samling där dokumentet skapas.     |
 |**Samling** |**CollectionName**  | Namnet på den samling där dokumentet skapas. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Ett booleskt värde som anger om samlingen skapas när den inte finns. Standardvärdet är *false* eftersom nya samlingar skapas med reserverat data flöde, vilket innebär kostnads konsekvenser. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/documentdb/).  |

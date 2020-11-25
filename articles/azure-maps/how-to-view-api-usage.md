@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: c9b732bd25e7ef8aa084c98d5b059d422f86a4b0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895417"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003522"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Visa användningsstatistik för Azure Maps API
 
@@ -21,7 +21,7 @@ Den här artikeln visar hur du visar användnings statistik för API: er för di
 
 ## <a name="view-metric-snapshot"></a>Visa mått ögonblicks bild
 
-Du kan se några vanliga mått på **översikts** sidan för ditt Maps-konto. Den visar för närvarande *Totalt antal förfrågningar* , *Totalt antal fel* och *tillgänglighet* under en tids period som kan väljas.
+Du kan se några vanliga mått på **översikts** sidan för ditt Maps-konto. Den visar för närvarande *Totalt antal förfrågningar*, *Totalt antal fel* och *tillgänglighet* under en tids period som kan väljas.
 
 ![Översikt över Azure Maps användnings statistik](media/how-to-view-api-usage/portal-overview.png)
 
@@ -31,7 +31,7 @@ Fortsätt till nästa avsnitt om du behöver anpassa diagrammen för just din an
 
 1. Logga in på din Azure-prenumeration i [portalen](https://portal.azure.com).
 
-2. Klicka på meny alternativet **alla resurser** till vänster och navigera till ditt *Azure Maps-konto* .
+2. Klicka på meny alternativet **alla resurser** till vänster och navigera till ditt *Azure Maps-konto*.
 
 3. När ditt Maps-konto är öppet klickar du på **mått** menyn till vänster.
 
@@ -42,7 +42,7 @@ Fortsätt till nästa avsnitt om du behöver anpassa diagrammen för just din an
 
       ![Fönstret Azure Maps användnings statistik](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Sedan kan du välja *tidsintervallet* genom att klicka på de **senaste 24 timmarna (automatiskt)** . Som standard är tidsintervallet inställt på 24 timmar. När du har klickat visas alla Selectable Time-intervall. Du kan välja *tids kornig het* och välja att visa tiden som *lokal* eller *GMT* i samma listruta. Klicka på **Godkänn** .
+5. Sedan kan du välja *tidsintervallet* genom att klicka på de **senaste 24 timmarna (automatiskt)**. Som standard är tidsintervallet inställt på 24 timmar. När du har klickat visas alla Selectable Time-intervall. Du kan välja *tids kornig het* och välja att visa tiden som *lokal* eller *GMT* i samma listruta. Klicka på **Använd**.
 
     ![Tidsintervallet Azure Maps mått](media/how-to-view-api-usage/time-range.png)
 

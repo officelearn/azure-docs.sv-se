@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 28169e43d0e6949a16cc56c7e7d5d91d6db1ef57
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636926"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003046"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Kopiera eller flytta data enkelt med Azure Data Factory kopiera guiden
 > [!NOTE]
@@ -62,7 +62,7 @@ I exemplet använder SQL-frågan `Text.Format` funktionen och `WindowStart` vari
 ![Validera uttryck](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrering av data i en Azure Blob-mapp
-Du kan använda variabler i mappsökvägen för att kopiera data från en mapp som fastställs vid körning baserat på [Systemvariabler](data-factory-functions-variables.md#data-factory-system-variables). Variabler som stöds är: **{Year** }, **{Month}** , **{Day}** , **{Hour}** , **{Minute}** och **{Custom}** . Exempel: inputfolder/{year}/{month}/{Day}.
+Du kan använda variabler i mappsökvägen för att kopiera data från en mapp som fastställs vid körning baserat på [Systemvariabler](data-factory-functions-variables.md#data-factory-system-variables). Variabler som stöds är: **{Year**}, **{Month}**, **{Day}**, **{Hour}**, **{Minute}** och **{Custom}**. Exempel: inputfolder/{year}/{month}/{Day}.
 
 Anta att du har inmatade mappar i följande format:
 
@@ -73,7 +73,7 @@ Anta att du har inmatade mappar i följande format:
 ...
 ```
 
-Klicka på knappen **Bläddra** för **filen eller mappen** , bläddra till någon av dessa mappar (till exempel 2016->03->01->02) och klicka på **Välj** . Du bör se `2016/03/01/02` i text rutan. Ersätt nu **2016** med **{Year}** , **03** med **{Month}** , **01** med **{Day}** och **02** med **{Hour}** och tryck på TABB. Du bör se List rutor för att välja formatet för dessa fyra variabler:
+Klicka på knappen **Bläddra** för **filen eller mappen**, bläddra till någon av dessa mappar (till exempel 2016->03->01->02) och klicka på **Välj**. Du bör se `2016/03/01/02` i text rutan. Ersätt nu **2016** med **{Year}**, **03** med **{Month}**, **01** med **{Day}** och **02** med **{Hour}** och tryck på TABB. Du bör se List rutor för att välja formatet för dessa fyra variabler:
 
 ![Använda systemvariabler](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 

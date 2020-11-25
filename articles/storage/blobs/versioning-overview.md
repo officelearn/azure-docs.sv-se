@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e2d74519b9adf9a74e5af180a3da28918a9a8dab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444511"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96001889"
 ---
 # <a name="blob-versioning"></a>BLOB-versioner
 
@@ -128,7 +128,7 @@ Följande diagram visar hur ändring av en BLOB efter versions hantering är ina
 
 ## <a name="blob-versioning-and-soft-delete"></a>BLOB-versioner och mjuk borttagning
 
-BLOB-versioner och blob-mjuk borttagning fungerar tillsammans för att ge dig optimalt data skydd. När du aktiverar mjuk borttagning anger du hur länge Azure Storage ska behålla en mjuk, borttagen blob. Eventuell mjuk, borttagen blob-version finns kvar i systemet och kan tas bort från kvarhållningsperioden för mjuk borttagning. Mer information om mjuk borttagning av BLOB finns i [mjuk borttagning för Azure Storage blobbar](storage-blob-soft-delete.md).
+BLOB-versioner och blob-mjuk borttagning fungerar tillsammans för att ge dig optimalt data skydd. När du aktiverar mjuk borttagning anger du hur länge Azure Storage ska behålla en mjuk, borttagen blob. Eventuell mjuk, borttagen blob-version finns kvar i systemet och kan tas bort från kvarhållningsperioden för mjuk borttagning. Mer information om mjuk borttagning av BLOB finns i [mjuk borttagning för Azure Storage blobbar](./soft-delete-blob-overview.md).
 
 ### <a name="deleting-a-blob-or-version"></a>Ta bort en BLOB eller version
 
@@ -187,7 +187,7 @@ BLOB-versioner är utformad för att skydda dina data från oavsiktlig eller ska
 
 I följande tabell visas vilka Azure RBAC-åtgärder som stöder borttagning av BLOB-eller BLOB-versioner.
 
-| Beskrivning | Blob Service åtgärd | Azure RBAC-dataåtgärd krävs | Stöd för inbyggd Azure-roll |
+| Description | Blob Service åtgärd | Azure RBAC-dataåtgärd krävs | Stöd för inbyggd Azure-roll |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Tar bort den aktuella versionen av blobben | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Delete** | Storage Blob Data-deltagare |
 | Tar bort en version | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/deleteBlobVersion/åtgärd** | Storage Blob Data-ägare |
@@ -297,4 +297,4 @@ I följande tabell beskrivs fakturerings beteendet för en blob som är mjuk bor
 
 - [Aktivera och hantera BLOB-versioner](versioning-enable.md)
 - [Skapa en ögonblicks bild av en BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
-- [Mjuk borttagning för Azure Storage blobbar](storage-blob-soft-delete.md)
+- [Mjuk borttagning för Azure Storage blobbar](./soft-delete-blob-overview.md)

@@ -14,11 +14,11 @@ ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 55a27dbb6c2ec3569bae9d6fb96fcd8087f08daf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637674"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001685"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Guiden Azure Data Factory kopiering
 
@@ -63,7 +63,7 @@ Följande skärm bild visar en SQL-fråga med hjälp av `Text.Format` funktionen
 ![Validera uttryck](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrering av data i en Azure Blob-mapp
-Du kan använda variabler i mappsökvägen för att kopiera data från en mapp som fastställs vid körning baserat på [Systemvariabler](data-factory-functions-variables.md#data-factory-system-variables). Variabler som stöds är: **{Year** }, **{Month}** , **{Day}** , **{Hour}** , **{Minute}** och **{Custom}** . Exempel: inputfolder/{year}/{month}/{Day}.
+Du kan använda variabler i mappsökvägen för att kopiera data från en mapp som fastställs vid körning baserat på [Systemvariabler](data-factory-functions-variables.md#data-factory-system-variables). Variabler som stöds är: **{Year**}, **{Month}**, **{Day}**, **{Hour}**, **{Minute}** och **{Custom}**. Exempel: inputfolder/{year}/{month}/{Day}.
 
 Anta att du har inmatade mappar i följande format:
 
@@ -74,7 +74,7 @@ Anta att du har inmatade mappar i följande format:
 ...
 ```
 
-Klicka på knappen **Bläddra** för **filen eller mappen** , bläddra till någon av dessa mappar (till exempel 2016->03->01->02) och klicka på **Välj** . Du bör se `2016/03/01/02` i text rutan. Ersätt nu **2016** med **{Year}** , **03** med **{Month}** , **01** med **{Day}** och **02** med **{Hour}** och tryck på **TABB** -tangenten. Du bör se List rutor för att välja formatet för dessa fyra variabler:
+Klicka på knappen **Bläddra** för **filen eller mappen**, bläddra till någon av dessa mappar (till exempel 2016->03->01->02) och klicka på **Välj**. Du bör se `2016/03/01/02` i text rutan. Ersätt nu **2016** med **{Year}**, **03** med **{Month}**, **01** med **{Day}** och **02** med **{Hour}** och tryck på **TABB** -tangenten. Du bör se List rutor för att välja formatet för dessa fyra variabler:
 
 ![Använda systemvariabler](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
@@ -98,25 +98,25 @@ I det här avsnittet beskrivs vanliga fel söknings metoder för guiden Kopiera 
 
 ### <a name="error-code-unable-to-validate-in-copy-wizard"></a>Felkod: det går inte att verifiera i guiden Kopiera
 
-- **Symptom** : du får varnings meddelandet "Det gick inte att verifiera" i det första steget i kopierings guiden.
-- **Orsaker** : Detta kan inträffa när alla tredjeparts cookies är inaktiverade.
-- **Lösning** : 
+- **Symptom**: du får varnings meddelandet "Det gick inte att verifiera" i det första steget i kopierings guiden.
+- **Orsaker**: Detta kan inträffa när alla tredjeparts cookies är inaktiverade.
+- **Lösning**: 
     - Använd Internet Explorer eller Microsoft Edge-webbläsare.
-    - Om du använder Chrome Browser följer du anvisningarna nedan om du vill lägga till cookies-undantag för *microsoftonline.com* och *Windows.net* .
+    - Om du använder Chrome Browser följer du anvisningarna nedan om du vill lägga till cookies-undantag för *microsoftonline.com* och *Windows.net*.
         1.  Öppna Chrome-webbläsaren.
         2.  Klicka på SKIFT nyckel eller tre rader till höger (anpassa och kontrol lera Google Chrome).
-        3.  Klicka på **Inställningar** .
+        3.  Klicka på **Inställningar**.
         4.  Sök efter **cookies** eller gå till **Sekretess** under avancerade inställningar.
-        5.  Välj **innehålls inställningar** .    
-        6.  Cookies ska ställas in så att **lokala data kan anges (rekommenderas)** .
-        7.  Klicka på **Hantera undantag** . Under **hostname-mönster** anger du följande och kontrollerar att **Tillåt** är inställd.
+        5.  Välj **innehålls inställningar**.    
+        6.  Cookies ska ställas in så att **lokala data kan anges (rekommenderas)**.
+        7.  Klicka på **Hantera undantag**. Under **hostname-mönster** anger du följande och kontrollerar att **Tillåt** är inställd.
             - login.microsoftonline.com
             - login.windows.net
         8.  Stäng webbläsaren och starta om.
     - Om du använder Firefox webbläsare följer du anvisningarna nedan för att lägga till cookies-undantag.
-        1. Från menyn Firefox går du till **verktyg**  >  **alternativ** .
-        2. Under **Sekretess**  >  **historiken** kan du se att den aktuella inställningen **använder anpassade inställningar för historik** .
-        3. I **acceptera cookies från tredje part** kan den aktuella inställningen bli **aldrig** . du bör sedan klicka på **undantag** till höger för att lägga till följande platser.
+        1. Från menyn Firefox går du till **verktyg**  >  **alternativ**.
+        2. Under **Sekretess**  >  **historiken** kan du se att den aktuella inställningen **använder anpassade inställningar för historik**.
+        3. I **acceptera cookies från tredje part** kan den aktuella inställningen bli **aldrig**. du bör sedan klicka på **undantag** till höger för att lägga till följande platser.
             - https://login.microsoftonline.com
             - https://login.windows.net
         4.  Stäng webbläsaren och starta om. 
@@ -124,9 +124,9 @@ I det här avsnittet beskrivs vanliga fel söknings metoder för guiden Kopiera 
 
 ### <a name="error-code-unable-to-open-login-page-and-enter-password"></a>Felkod: det går inte att öppna inloggnings sidan och ange lösen ord
 
-- **Symptom** : guiden Kopiera omdirigerar sidan till inloggnings sidan, men inloggnings sidan visas inte korrekt.
-- **Orsaker** : det här problemet kan inträffa om du har ändrat nätverks miljön från kontors nät verket till hem nätverket. Det finns vissa cacheminnen i webbläsare. 
-- **Lösning** : 
+- **Symptom**: guiden Kopiera omdirigerar sidan till inloggnings sidan, men inloggnings sidan visas inte korrekt.
+- **Orsaker**: det här problemet kan inträffa om du har ändrat nätverks miljön från kontors nät verket till hem nätverket. Det finns vissa cacheminnen i webbläsare. 
+- **Lösning**: 
     1.  Stäng webbläsaren och försök igen. Gå till nästa steg om problemet fortfarande finns.   
     2.  Om du använder Internet Explorer-webbläsare försöker du öppna den i privat läge (tryck på "CTRL" + "Shift" + "P"). Om du använder Chrome-webbläsare försöker du öppna den i Incognito-läge (tryck på "CTRL" + "Shift" + "N"). Gå till nästa steg om problemet fortfarande finns. 
     3.  Försök att använda en annan webbläsare. 

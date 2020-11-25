@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 4a1aa913c31b3fc310b23b8eafc47df4ab9a9779
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460141"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002654"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>Självstudie: Azure Active Directory integration med Insider-spår
 
@@ -30,7 +30,7 @@ Att integrera Insider-spår med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Insider-spår behöver du följande objekt:
 
@@ -153,7 +153,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Insider-spår.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Insider Track**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program** och väljer sedan **Insider Track**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 

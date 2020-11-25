@@ -4,11 +4,11 @@ description: I den här artikeln lär du dig hur du använder Azure Backup Serve
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069840"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002961"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
@@ -98,21 +98,21 @@ Konfigurera en säker kanal enligt följande:
 
 7. Ändra rot certifikatets tillägg till. CRT och bekräfta. Fil ikonen ändras till en som representerar ett rot certifikat.
 
-8. Högerklicka på rot certifikatet och välj **Installera certifikat**på popup-menyn.
+8. Högerklicka på rot certifikatet och välj **Installera certifikat** på popup-menyn.
 
-9. I **guiden Importera certifikat**väljer du **lokal dator** som mål för certifikatet och väljer sedan **Nästa**. Bekräfta om du tillfrågas om du vill tillåta ändringar i datorn.
+9. I **guiden Importera certifikat** väljer du **lokal dator** som mål för certifikatet och väljer sedan **Nästa**. Bekräfta om du tillfrågas om du vill tillåta ändringar i datorn.
 
     ![Välkommen till guiden](./media/backup-azure-backup-server-vmware/certificate-import-wizard1.png)
 
-10. På sidan **certifikat Arkiv** väljer du **Placera alla certifikat i följande Arkiv**och väljer sedan **Bläddra** för att välja certifikat arkivet.
+10. På sidan **certifikat Arkiv** väljer du **Placera alla certifikat i följande Arkiv** och väljer sedan **Bläddra** för att välja certifikat arkivet.
 
     ![Certifikat lagring](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
-11. I **Välj certifikat Arkiv**väljer du **betrodda rot certifikat utfärdare** som målmapp för certifikaten. Välj sedan **OK**.
+11. I **Välj certifikat Arkiv** väljer du **betrodda rot certifikat utfärdare** som målmapp för certifikaten. Välj sedan **OK**.
 
     ![Målmapp för certifikat](./media/backup-azure-backup-server-vmware/certificate-store-selected.png)
 
-12. När **du har slutfört guiden Importera certifikat**kontrollerar du mappen och väljer sedan **Slutför**.
+12. När **du har slutfört guiden Importera certifikat** kontrollerar du mappen och väljer sedan **Slutför**.
 
     ![Verifiera att certifikatet finns i rätt mapp](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
@@ -143,11 +143,11 @@ Azure Backup Server behöver ett användar konto med behörighet att komma åt v
 
     ![Administration](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
-3. I **administrations**  >  **roller**väljer du ikonen Lägg till roll (symbolen +).
+3. I **administrations**  >  **roller** väljer du ikonen Lägg till roll (symbolen +).
 
     ![Lägg till roll](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
-4. I **skapa roll**  >  **roll namn**anger du *BackupAdminRole*. Roll namnet kan vara vad du vill, men det bör vara igenkännligt för rollens syfte.
+4. I **skapa roll**  >  **roll namn** anger du *BackupAdminRole*. Roll namnet kan vara vad du vill, men det bör vara igenkännligt för rollens syfte.
 
 5. Välj behörigheterna som sammanfattas i tabellen nedan och välj sedan **OK**.  Den nya rollen visas i listan på **roll** panelen.
    - Välj ikonen bredvid den överordnade etiketten för att expandera den överordnade och Visa de underordnade privilegierna.
@@ -199,7 +199,7 @@ I följande tabell visas de privilegier som du måste tilldela till det använda
 | Virtuell dator. Etablering. Tillåt disk åtkomst                            | Virtuell dator. Etablering. Tillåt disk åtkomst                            |
 | Virtuell dator. Etablering. Tillåt fil åtkomst                            | Virtuell dator. Etablering. Tillåt fil åtkomst                            |
 | Virtuell dator. Etablering. Tillåt skrivskyddad åtkomst till disk                  | Virtuell dator. Etablering. Tillåt skrivskyddad åtkomst till disk                  |
-| Virtuell dator. Etablering. Tillåt nedladdning av virtuell dator               | Virtuell dator. Etablering. Tillåt nedladdning av virtuell dator               |
+| Virtuell dator. Etablering. Tillåt nedladdning av virtuell dator               | Virtuell dator. Etablering. Tillåt nedladdning av virtuell dator               |
 | Virtuell dator. Ögonblicks bilds hantering. Skapa en ögonblicksbild                      | Virtuell dator. Ögonblicks bilds hantering. Skapa en ögonblicksbild                      |
 | Virtuell dator. Ögonblicks bilds hantering. Ta bort ögonblicks bild                       | Virtuell dator. Ögonblicks bilds hantering. Ta bort ögonblicks bild                       |
 | Virtuell dator. Ögonblicks bilds hantering. Återgå till ögonblicks bild                    | Virtuell dator. Ögonblicks bilds hantering. Återgå till ögonblicks bild                    |
@@ -248,15 +248,15 @@ I följande tabell visas de privilegier som du måste tilldela till det använda
 
     ![Panelen globala behörigheter](./media/backup-azure-backup-server-vmware/vmware-add-new-perms.png)
 
-5. I **global behörighet rot – Lägg till behörighet**väljer du **Lägg till** för att välja användare eller grupp.
+5. I **global behörighet rot – Lägg till behörighet** väljer du **Lägg till** för att välja användare eller grupp.
 
     ![Välj användare eller grupp](./media/backup-azure-backup-server-vmware/vmware-add-new-global-perm.png)
 
-6. I **Välj användare/grupper**väljer du **BackupAdmin**  >  **Lägg till**. I **användare**används formatet *domän \ användar namn* för användar kontot. Om du vill använda en annan domän väljer du den i listan **domän** . Välj **OK** för att lägga till de valda användarna i dialog rutan **Lägg till behörighet** .
+6. I **Välj användare/grupper** väljer du **BackupAdmin**  >  **Lägg till**. I **användare** används formatet *domän \ användar namn* för användar kontot. Om du vill använda en annan domän väljer du den i listan **domän** . Välj **OK** för att lägga till de valda användarna i dialog rutan **Lägg till behörighet** .
 
     ![Lägg till BackupAdmin-användare](./media/backup-azure-backup-server-vmware/vmware-assign-account-to-role.png)
 
-7. I den **tilldelade rollen**väljer du **BackupAdminRole**  >  **OK**i list rutan.
+7. I den **tilldelade rollen** väljer du **BackupAdminRole**  >  **OK** i list rutan.
 
     ![Tilldela användare till roll](./media/backup-azure-backup-server-vmware/vmware-choose-role.png)
 
@@ -276,7 +276,7 @@ På fliken **Hantera** i panelen **globala behörigheter** visas det nya använd
 
     ![Dialog rutan Hantera autentiseringsuppgifter](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
-4. I **Lägg till autentiseringsuppgift**anger du ett namn och en beskrivning för den nya autentiseringsuppgiften och anger det användar namn och lösen ord som du definierade på VMware-servern. Namnet, *contoso vCenter-autentiseringsuppgiften* används för att identifiera autentiseringsuppgifterna i den här proceduren. Om VMware-servern och Azure Backup Server inte finns i samma domän anger du domänen i användar namnet.
+4. I **Lägg till autentiseringsuppgift** anger du ett namn och en beskrivning för den nya autentiseringsuppgiften och anger det användar namn och lösen ord som du definierade på VMware-servern. Namnet, *contoso vCenter-autentiseringsuppgiften* används för att identifiera autentiseringsuppgifterna i den här proceduren. Om VMware-servern och Azure Backup Server inte finns i samma domän anger du domänen i användar namnet.
 
     ![Dialog rutan Azure Backup Server Lägg till autentiseringsuppgift](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
@@ -292,7 +292,7 @@ Lägg till vCenter Server i Azure Backup Server.
 
     ![Öppna guiden för att lägga till produktions server](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-2. I **guiden**för att lägga till produktions servrar  >  **väljer du sidan typ av produktions server** , väljer **VMware-servrar**och väljer sedan **Nästa**.
+2. I **guiden** för att lägga till produktions servrar  >  **väljer du sidan typ av produktions server** , väljer **VMware-servrar** och väljer sedan **Nästa**.
 
     ![Guiden för att lägga till produktions server](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
@@ -300,13 +300,13 @@ Lägg till vCenter Server i Azure Backup Server.
 
     ![Ange VMware-Server](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 
-4. I **SSL-port**anger du den port som används för att kommunicera med VMware-servern. 443 är standard porten, men du kan ändra den om din VMware-Server lyssnar på en annan port.
+4. I **SSL-port** anger du den port som används för att kommunicera med VMware-servern. 443 är standard porten, men du kan ändra den om din VMware-Server lyssnar på en annan port.
 
-5. I **Ange autentiseringsuppgift**väljer du de autentiseringsuppgifter som du skapade tidigare.
+5. I **Ange autentiseringsuppgift** väljer du de autentiseringsuppgifter som du skapade tidigare.
 
     ![Ange autentiseringsuppgift](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. Välj **Lägg** till för att lägga till VMware-servern i listan servrar. Välj **Nästa**.
+6. Välj **Lägg** till för att lägga till VMware-servern i listan servrar. Välj sedan **Nästa**.
 
     ![Lägg till VMWare-Server och autentiseringsuppgift](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -334,20 +334,20 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
 
 1. Välj **servrar** på sidan **Välj typ av skydds grupp** och välj sedan **Nästa**. Sidan **Välj grupp medlemmar** visas.
 
-1. I **Välj grupp medlemmar**väljer du de virtuella datorer (eller VM-mappar) som du vill säkerhetskopiera. Välj **Nästa**.
+1. I **Välj grupp medlemmar** väljer du de virtuella datorer (eller VM-mappar) som du vill säkerhetskopiera. Välj sedan **Nästa**.
 
     - När du väljer en mapp, eller virtuella datorer eller mappar i mappen, väljs även för säkerhets kopiering. Du kan avmarkera mappar och virtuella datorer som du inte vill säkerhetskopiera.
 1. Om en virtuell dator eller mapp redan säkerhets kopie ras kan du inte välja den. Detta säkerställer att dubbla återställnings punkter inte skapas för en virtuell dator.
 
     ![Välj grupp medlemmar](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. På sidan **Välj data skydds metod** anger du ett namn på skydds gruppen och skydds inställningarna. Om du vill säkerhetskopiera till Azure ställer du in kortsiktigt skydd på **disk** och aktiverar onlineskydd. Välj **Nästa**.
+1. På sidan **Välj data skydds metod** anger du ett namn på skydds gruppen och skydds inställningarna. Om du vill säkerhetskopiera till Azure ställer du in kortsiktigt skydd på **disk** och aktiverar onlineskydd. Välj sedan **Nästa**.
 
     ![Välj dataskyddsmetod](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
-1. I **ange Short-Term mål**anger du hur länge du vill behålla data som säkerhets kopie ras till disk.
-   - I **kvarhållningsintervall**anger du hur många dagar disk återställnings punkter ska behållas.
-   - I **Synkroniseringsfrekvens**anger du hur ofta disk återställnings punkter ska tas.
+1. I **ange Short-Term mål** anger du hur länge du vill behålla data som säkerhets kopie ras till disk.
+   - I **kvarhållningsintervall** anger du hur många dagar disk återställnings punkter ska behållas.
+   - I **Synkroniseringsfrekvens** anger du hur ofta disk återställnings punkter ska tas.
        - Om du inte vill ange ett intervall för säkerhets kopiering kan du kontrol lera **precis innan en återställnings punkt** så att en säkerhets kopiering körs precis innan varje återställnings punkt schemaläggs.
        - Kortsiktiga säkerhets kopieringar är fullständiga säkerhets kopieringar och inte stegvisa.
        - Välj **ändra** för att ändra de tidpunkter/datum då kortsiktiga säkerhets kopieringar sker.
@@ -372,17 +372,17 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
 
     ![Välj metod för skapande av replik](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. I **alternativ för konsekvens kontroll**väljer du hur och när du vill automatisera konsekvens kontroller. Välj **Nästa**.
+1. I **alternativ för konsekvens kontroll** väljer du hur och när du vill automatisera konsekvens kontroller. Välj sedan **Nästa**.
       - Du kan köra konsekvens kontroller när replik data blir inkonsekventa eller enligt ett angivet schema.
       - Om du inte vill konfigurera automatiska konsekvens kontroller kan du köra en manuell kontroll. Det gör du genom att högerklicka på skydds gruppen > **utföra konsekvens kontroll**.
 
-1. På sidan **Ange online skydds data** väljer du de virtuella datorer eller VM-mappar som du vill säkerhetskopiera. Du kan välja medlemmar individuellt, eller välja **alla** medlemmar för att välja alla medlemmar. Välj **Nästa**.
+1. På sidan **Ange online skydds data** väljer du de virtuella datorer eller VM-mappar som du vill säkerhetskopiera. Du kan välja medlemmar individuellt, eller välja **alla** medlemmar för att välja alla medlemmar. Välj sedan **Nästa**.
 
     ![Ange skydds data online](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. På sidan **Ange schema för onlinesäkerhetskopiering** anger du hur ofta du vill säkerhetskopiera data från lokal lagring till Azure.
 
-    - Moln återställnings punkter för data kommer att genereras enligt schemat. Välj **Nästa**.
+    - Moln återställnings punkter för data kommer att genereras enligt schemat. Välj sedan **Nästa**.
     - När återställnings punkten har skapats överförs den till Recovery Services valvet i Azure.
 
     ![Ange schemat för onlinesäkerhetskopiering](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)

@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329490"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002756"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Full texts ökning i Azure Kognitiv sökning
 
@@ -251,7 +251,7 @@ Det är vanligt, men krävs inte, för att använda samma analyser för sökning
 
 I vårt exempel, för fältet **title** ser det inverterade indexet ut så här:
 
-| Period | Dokument lista |
+| Term | Dokument lista |
 |------|---------------|
 | atman | 1 |
 | bollar | 2 |
@@ -265,7 +265,7 @@ I fältet Rubrik visas bara *hotell* i två dokument: 1, 3.
 
 I fältet **Beskrivning** ser indexet ut så här:
 
-| Period | Dokument lista |
+| Term | Dokument lista |
 |------|---------------|
 | löst | 3
 | och | 4
@@ -399,7 +399,7 @@ I den här artikeln utforskas fullständig texts ökning i samband med Azure-Kog
 
 [Enkel frågesyntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Fullständigt Lucene-frågesyntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+[Fullständig Lucene-frågesyntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
 [Hantera sökresultat](./search-pagination-page-layout.md)
 

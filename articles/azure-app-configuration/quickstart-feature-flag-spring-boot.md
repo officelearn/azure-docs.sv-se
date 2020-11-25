@@ -8,11 +8,11 @@ ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
 ms.openlocfilehash: 64ccc9c91d9ead567035b1f7f35e0a0088b6200b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124194"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001496"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabb start: Lägg till funktions flaggor i en våren Boot-app
 
@@ -45,12 +45,12 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 1. Ange följande alternativ:
 
-   * Generera ett **Maven** -projekt med **Java** .
+   * Generera ett **Maven**-projekt med **Java**.
    * Ange en **våren Boot** -version som är lika med eller större än 2,0.
    * Ange namnen för **Group** (Grupp) och **Artifact** (Artefakt) för ditt program.  I den här artikeln används `com.example` och `demo` .
    * Lägg till **våren-** webbberoendet.
 
-1. När du har angett föregående alternativ väljer du **generera projekt** . När du uppmanas att ladda ned projektet till den lokala datorn.
+1. När du har angett föregående alternativ väljer du **generera projekt**. När du uppmanas att ladda ned projektet till den lokala datorn.
 
 ## <a name="add-feature-management"></a>Lägg till funktions hantering
 
@@ -242,7 +242,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
     ```
 
-1. Skapa en ny mapp med namnet CSS under `static` och inuti den till en ny CSS-fil med namnet *main. CSS* .
+1. Skapa en ny mapp med namnet CSS under `static` och inuti den till en ny CSS-fil med namnet *main. CSS*.
 
     ```css
     html {
@@ -288,7 +288,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
     ![Skärm bild som visar ett webb läsar fönster med ett välkomst meddelande.](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-1. I konfigurations portalen för app väljer du **funktions hanteraren** och ändrar status för **beta** nyckeln till **på** :
+1. I konfigurations portalen för app väljer du **funktions hanteraren** och ändrar status för **beta** nyckeln till **på**:
 
     | Nyckel | Tillstånd |
     |---|---|

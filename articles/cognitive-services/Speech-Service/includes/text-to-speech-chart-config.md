@@ -11,17 +11,17 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 22168974ab8b285413b4fa6e947c05f65a73ae12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80874368"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002310"
 ---
 ### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>Text till tal (under diagram: diagram/textToSpeech)
 
 Om du vill åsidosätta diagrammet "paraply" lägger du till prefixet `textToSpeech.` på valfri parameter för att göra det mer exakt. Den kommer till exempel att åsidosätta motsvarande parameter till exempel åsidosättningar `textToSpeech.numberOfConcurrentRequest` `numberOfConcurrentRequest` .
 
-|Parameter|Beskrivning|Default|
+|Parameter|Beskrivning|Standardvärde|
 | -- | -- | -- |
 | `enabled` | Om **text till tal** -tjänsten är aktive rad. | `false` |
 | `numberOfConcurrentRequest` | Antalet samtidiga förfrågningar för **text till tal** -tjänsten. Det här diagrammet beräknar automatiskt processor-och minnes resurser baserat på det här värdet. | `2` |

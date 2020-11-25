@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167924"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002705"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Felsöka en virtuell Linux-dator när det inte finns någon åtkomst till Azures serie konsol och disklayouten använder LVM (Logical Volume Manager)
 
@@ -65,9 +65,9 @@ I de flesta fall visas den anslutna ögonblicks bild disken som **/dev/SDC** som
 
 ![Fdisk](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
 
-**\*** Anger en startpartition, båda partitionerna ska monteras.
+* *\** _ Anger en startpartition, båda partitionerna ska monteras.
 
-Kör kommandot **lsblk** för att se LVMs för den berörda virtuella datorn
+Kör kommandot _ *lsblk** för att se LVMs för den berörda virtuella datorn
 
 `lsblk`
 
@@ -75,7 +75,7 @@ Kör kommandot **lsblk** för att se LVMs för den berörda virtuella datorn
 
 
 Kontrol lera om LVMs från den berörda virtuella datorn visas.
-Annars kan du använda nedanstående kommandon för att aktivera dem och köra **lsblk**igen.
+Annars kan du använda nedanstående kommandon för att aktivera dem och köra **lsblk** igen.
 Se till att ha LVMs från den anslutna disken synlig innan du fortsätter.
 
 ```

@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: c117f9697299b94a54d9184093e65c56822b8bd2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975679"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002637"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Detaljerade SSH-felsökningssteg för problem med anslutning till en virtuell Linux-dator i Azure
 Det finns många möjliga orsaker till att SSH-klienten kanske inte kan komma åt SSH-tjänsten på den virtuella datorn. Om du har följt de mer [allmänna SSH-fel söknings stegen](troubleshoot-ssh-connection.md)måste du ytterligare felsöka anslutnings problemet. Den här artikeln vägleder dig genom detaljerade fel söknings steg för att avgöra var SSH-anslutningen fungerar och hur du löser den.

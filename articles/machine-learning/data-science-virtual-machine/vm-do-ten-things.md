@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 766da55f2589e2a8eb09e0f1b1c9a0a5027c8c3c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320943"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002773"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Data vetenskap med en Windows-Data Science Virtual Machine
 
@@ -197,7 +197,7 @@ När du har kört AzCopy-kommandot för att kopiera till en Azure-Blob visas fil
 Du kan också ladda upp data från den lokala filen på den virtuella datorn med hjälp av Azure Storage Explorer:
 
 * Om du vill överföra data till en behållare väljer du mål behållaren och klickar på knappen **överför** . ![ Skärm bild av knappen upload i Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
-* Välj ellipsen ( **...** ) till höger om rutan **filer** , Välj en eller flera filer som ska överföras från fil systemet och välj **Ladda upp** för att påbörja överföring av filerna. ![ Skärm bild av dialog rutan Ladda upp filer](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Välj ellipsen (**...**) till höger om rutan **filer** , Välj en eller flera filer som ska överföras från fil systemet och välj **Ladda upp** för att påbörja överföring av filerna. ![ Skärm bild av dialog rutan Ladda upp filer](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Läsa data från en Azure-Blob: python ODBC
 

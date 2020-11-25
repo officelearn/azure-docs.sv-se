@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: cauribeg
 ms.custom: include file
-ms.openlocfilehash: 07a80fcd1ec62b051a660bdac696f89e3b7c42b7
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: da36cb5c5d2db20b89f80d381f48632c7528c193
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93354060"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002481"
 ---
 1. Om du vill skapa en cache loggar du in på [Azure Portal](https://portal.azure.com) och väljer **skapa en resurs**.
 
-    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Välj Azure-cache för Redis.":::
+    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Skapa en resurs markeras i det vänstra navigerings fönstret.":::
 
    
 1. Välj **databaser** på sidan **nytt** och välj sedan **Azure cache för Redis**.
 
-    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="Välj Azure-cache för Redis.":::
+    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="På nytt markeras databaser och Azure cache för Redis är markerat.":::
    
 1. På sidan **ny Redis cache** konfigurerar du inställningarna för din nya cache.
    

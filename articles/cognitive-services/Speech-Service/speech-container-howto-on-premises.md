@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: aahi
-ms.openlocfilehash: 277a3c1c53564d7c5dff6a87381680a7f41606de
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c3791a9049a3eab3ddd6fc70073629c38830dbc7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131606"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96002308"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Använda tal tjänst behållare med Kubernetes och Helm
 
@@ -27,11 +27,11 @@ Följande krav gäller innan du använder tal behållare lokalt:
 
 | Obligatorisk | Syfte |
 |----------|---------|
-| Azure-konto | Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto][free-azure-account] innan du börjar. |
+| Azure-konto | Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto][free-azure-account] innan du börjar. |
 | Container Registry åtkomst | För att Kubernetes ska kunna hämta Docker-avbildningarna till klustret behöver den åtkomst till behållar registret. |
 | Kubernetes CLI | [KUBERNETES CLI][kubernetes-cli] krävs för att hantera delade autentiseringsuppgifter från behållar registret. Kubernetes krävs också innan Helm, som är Kubernetes Package Manager. |
 | Helm CLI | Installera [Helm CLI][helm-install], som används för att installera ett Helm-diagram (definition av container paket). |
-|Tal resurs |Du måste ha följande för att kunna använda dessa behållare:<br><br>En _Azure-_ resurs för att hämta den associerade fakturerings nyckeln och URI för fakturerings slut punkt. Båda värdena är tillgängliga på Azure Portals **tal** översikt och nycklar sidor och krävs för att starta behållaren.<br><br>**{Api_key}** : resurs nyckel<br><br>**{ENDPOINT_URI}** : slut punkts-URI-exemplet är: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|Tal resurs |Du måste ha följande för att kunna använda dessa behållare:<br><br>En _Azure-_ resurs för att hämta den associerade fakturerings nyckeln och URI för fakturerings slut punkt. Båda värdena är tillgängliga på Azure Portals **tal** översikt och nycklar sidor och krävs för att starta behållaren.<br><br>**{Api_key}**: resurs nyckel<br><br>**{ENDPOINT_URI}**: slut punkts-URI-exemplet är: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>Den rekommenderade värddator konfigurationen
 
@@ -48,7 +48,7 @@ Värddatorn förväntas ha ett tillgängligt Kubernetes-kluster. I den här sjä
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>Konfigurera Helm för distribution
 
-Besök [Microsoft Helm Hub][ms-helm-hub] för alla allmänt tillgängliga Helm-diagram som Microsoft erbjuder. I Microsoft Helm-hubben hittar du det **lokala diagrammet Cognitive Services tal** . **Cognitive Services talet lokalt** är det diagram vi kommer att installera, men vi måste först skapa en `config-values.yaml` fil med explicita konfigurationer. Vi börjar med att lägga till Microsoft-lagringsplatsen till vår Helm-instans.
+Besök [Microsoft Helm Hub][ms-helm-hub] för alla allmänt tillgängliga Helm-diagram som Microsoft erbjuder. I Microsoft Helm-hubben hittar du det **lokala diagrammet Cognitive Services tal**. **Cognitive Services talet lokalt** är det diagram vi kommer att installera, men vi måste först skapa en `config-values.yaml` fil med explicita konfigurationer. Vi börjar med att lägga till Microsoft-lagringsplatsen till vår Helm-instans.
 
 ```console
 helm repo add microsoft https://microsoft.github.io/charts/repo
@@ -189,7 +189,7 @@ horizontalpodautoscaler.autoscaling/text-to-speech-autoscaler   Deployment/text-
 
 ### <a name="verify-helm-deployment-with-helm-tests"></a>Verifiera Helm-distribution med Helm-tester
 
-De installerade Helm-diagrammen definierar *Helm-tester* , vilket ger en bekvämlighet för verifiering. De här testerna verifierar tjänst beredskap. För att verifiera både **tal-till-text** -och **text till tal** -tjänster kör vi kommandot [Helm test][helm-test] .
+De installerade Helm-diagrammen definierar *Helm-tester*, vilket ger en bekvämlighet för verifiering. De här testerna verifierar tjänst beredskap. För att verifiera både **tal-till-text** -och **text till tal** -tjänster kör vi kommandot [Helm test][helm-test] .
 
 ```console
 helm test onprem-speech
@@ -229,7 +229,7 @@ Mer information om hur du installerar program med Helm i Azure Kubernetes servic
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
 [git-download]: https://git-scm.com/downloads
-[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/intro/install/

@@ -4,11 +4,11 @@ description: Den här artikeln beskriver hur du använder de gamla och nya diagn
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: 3d10053bae5148f33dba6d1207a81bdb16c37577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182606"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002893"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Använda diagnostikinställningar för Recovery Services valv
 
@@ -44,7 +44,7 @@ Så här skickar du dina valv diagnostikdata till Log Analytics:
 1. Gå till valvet och välj **diagnostikinställningar**. Välj **+ Lägg till diagnostisk inställning**.
 1. Ange ett namn på den diagnostiska inställningen.
 1. Markera kryss rutan **Skicka till Log Analytics** och välj en Log Analytics arbets yta.
-1. Välj **resurs Special** i växlingen och välj följande sex händelser: **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**och **AddonAzureBackupProtectedInstance**.
+1. Välj **resurs Special** i växlingen och välj följande sex händelser: **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage** och **AddonAzureBackupProtectedInstance**.
 1. Välj **Spara**.
 
    ![Resurs-/regionsspecifika läge](./media/backup-azure-diagnostics-events/resource-specific-blade.png)
@@ -102,7 +102,7 @@ För närvarande fortsätter vi att stödja AzureBackupReport-händelsen för ba
 
 2. Använd de [inbyggda Azure policy definitionerna](./azure-policy-configure-diagnostics.md) i Azure Backup för att lägga till en ny inställning för diagnostik för alla valv i en angiven omfattning. Den här principen lägger till en ny diagnostisk inställning till valv som antingen inte har någon diagnostik-inställning eller som bara har en äldre diagnostisk inställning. Den här principen kan tilldelas till en hel prenumeration eller resurs grupp i taget. Du måste ha ägar åtkomst till varje prenumeration som principen är tilldelad.
 
-Du kan välja att ha separata diagnostikinställningar för AzureBackupReport och de sex nya händelserna tills du har migrerat alla anpassade frågor för att använda data från de nya tabellerna. Följande bild visar ett exempel på ett valv som har två diagnostiska inställningar. Den första inställningen med namnet **Setting1**skickar data från en AzureBackupReport-händelse till en Log Analytics arbets yta i Azure Diagnostics-läge. Den andra inställningen, med namnet **Setting2**, skickar data från de sex nya Azure Backup händelser till en Log Analytics arbets yta i det resursbaserade läget.
+Du kan välja att ha separata diagnostikinställningar för AzureBackupReport och de sex nya händelserna tills du har migrerat alla anpassade frågor för att använda data från de nya tabellerna. Följande bild visar ett exempel på ett valv som har två diagnostiska inställningar. Den första inställningen med namnet **Setting1** skickar data från en AzureBackupReport-händelse till en Log Analytics arbets yta i Azure Diagnostics-läge. Den andra inställningen, med namnet **Setting2**, skickar data från de sex nya Azure Backup händelser till en Log Analytics arbets yta i det resursbaserade läget.
 
 ![Två inställningar](./media/backup-azure-diagnostics-events/two-settings-example.png)
 
@@ -114,17 +114,17 @@ Du kan välja att ha separata diagnostikinställningar för AzureBackupReport oc
 
 ## <a name="send-azure-site-recovery-events-to-log-analytics"></a>Skicka Azure Site Recovery händelser till Log Analytics
 
-Azure Backup och Azure Site Recovery händelser skickas från samma Recovery Services-valv. Azure Site Recovery är för närvarande inte tillgängligt för resursbaserade tabeller. Användare som vill skicka Azure Site Recovery händelser till Log Analytics hänvisas till att *endast*använda Azure Diagnostics-läge, som visas i avbildningen. Om *du väljer det resursbaserade läget för Azure Site Recovery händelser så förhindras att nödvändiga data skickas till arbets ytan Log Analytics*.
+Azure Backup och Azure Site Recovery händelser skickas från samma Recovery Services-valv. Azure Site Recovery är för närvarande inte tillgängligt för resursbaserade tabeller. Användare som vill skicka Azure Site Recovery händelser till Log Analytics hänvisas till att *endast* använda Azure Diagnostics-läge, som visas i avbildningen. Om *du väljer det resursbaserade läget för Azure Site Recovery händelser så förhindras att nödvändiga data skickas till arbets ytan Log Analytics*.
 
 ![Site Recovery händelser](./media/backup-azure-diagnostics-events/site-recovery-settings.png)
 
 Sammanfattningsvis:
 
 * Om du redan har Log Analytics diagnostik som har kon figurer ATS med Azure-diagnostik och har skrivna anpassade frågor ovanpå den, bör du behålla inställningen *intakt* tills du migrerar dina frågor till att använda data från de nya händelserna.
-* Om du också vill publicera på nya tabeller, som vi rekommenderar, skapar du en **ny** inställning för diagnostik, väljer **resurs information**och väljer de sex nya händelserna.
-* Om du för närvarande skickar Azure Site Recovery händelser till Log Analytics ska du *inte* välja det resurs-/regionsspecifika läget för dessa händelser. Annars flödar inte data för dessa händelser till din Log Analytics-arbetsyta. Skapa i stället en ytterligare diagnostisk inställning, Välj **Azure Diagnostics**och välj relevanta Azure Site Recovery händelser.
+* Om du också vill publicera på nya tabeller, som vi rekommenderar, skapar du en **ny** inställning för diagnostik, väljer **resurs information** och väljer de sex nya händelserna.
+* Om du för närvarande skickar Azure Site Recovery händelser till Log Analytics ska du *inte* välja det resurs-/regionsspecifika läget för dessa händelser. Annars flödar inte data för dessa händelser till din Log Analytics-arbetsyta. Skapa i stället en ytterligare diagnostisk inställning, Välj **Azure Diagnostics** och välj relevanta Azure Site Recovery händelser.
 
-Följande bild visar ett exempel på en användare som har tre diagnostikinställningar för ett valv. Den första inställningen, med namnet **Setting1**, skickar data från en AzureBackupReport-händelse till en Log Analytics arbets yta i Azure Diagnostics-läge. Den andra inställningen, med namnet **Setting2**, skickar data från de sex nya Azure Backup händelser till en Log Analytics arbets yta i det resursbaserade läget. Den tredje inställningen med namnet **Setting3**skickar data från Azure Site Recovery händelser till en Log Analytics arbets yta i Azure Diagnostics-läge.
+Följande bild visar ett exempel på en användare som har tre diagnostikinställningar för ett valv. Den första inställningen, med namnet **Setting1**, skickar data från en AzureBackupReport-händelse till en Log Analytics arbets yta i Azure Diagnostics-läge. Den andra inställningen, med namnet **Setting2**, skickar data från de sex nya Azure Backup händelser till en Log Analytics arbets yta i det resursbaserade läget. Den tredje inställningen med namnet **Setting3** skickar data från Azure Site Recovery händelser till en Log Analytics arbets yta i Azure Diagnostics-läge.
 
 ![Tre inställningar](./media/backup-azure-diagnostics-events/three-settings-example.png)
 

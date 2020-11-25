@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: a6f53d6ce41085b2348857ccb5b45c06132d6a99
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655467"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001991"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Skapa en utlösare som kör en pipeline enligt ett schema
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -371,7 +371,7 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 | **/St** | Sträng | Yes | Inget | ISO 8601-datum/tid | för UTC-tidszonen `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> för annan tidszon `"2013-01-09T09:30:00-08:00"` |
 | **Informationen** | Sträng | Yes | Inget | [Tids zons värden](#time-zone-option)  | `"UTC"` |
 | **mönster** | Objekt | Yes | Inget | Upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **intervall** | Tal | No | 1 | 1 till 1 000 | `"interval":10` |
+| **intervall** | Antal | No | 1 | 1 till 1 000 | `"interval":10` |
 | **endTime** | Sträng | Yes | Inget | Ett datum/tid-värde som representerar en tidpunkt i framtiden. | för UTC-tidszonen `"endTime" : "2013-02-09T09:30:00-08:00Z"` <br> för annan tidszon `"endTime" : "2013-02-09T09:30:00-08:00"`|
 | **Ange** | Objekt | No | Inget | Schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
@@ -420,8 +420,8 @@ I följande tabell beskrivs **schedule**-elementen i detalj:
 
 | JSON-element | Description | Giltiga värden |
 |:--- |:--- |:--- |
-| **fördröjning** | Minuter för den timme då utlösaren körs. | <ul><li>Heltal</li><li>Heltalsmatris</li></ul>
-| **timmarna** | Timmar på dagen då utlösaren körs. | <ul><li>Heltal</li><li>Heltalsmatris</li></ul> |
+| **fördröjning** | Minuter för den timme då utlösaren körs. | <ul><li>Integer</li><li>Heltalsmatris</li></ul>
+| **timmarna** | Timmar på dagen då utlösaren körs. | <ul><li>Integer</li><li>Heltalsmatris</li></ul> |
 | **weekDays** | Veckodagar som utlösaren körs på. Värdet kan bara anges med en veckofrekvens. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday och Sunday</li><li>Matris med dagvärden (maximal matrisstorlek är 7)</li><li>Dagvärdena är inte skiftlägeskänsliga</li></ul> |
 | **monthlyOccurrences** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. | <ul><li>Matris med **monthlyOccurrence** -objekt: `{ "day": day,  "occurrence": occurrence }` .</li><li>Attributet **day** är veckodagen som utlösaren körs på. Om egenskapen **monthlyOccurrences** till exempel har **day**-värdet `{Sunday}` innebär det varje söndag i månaden. Attributet **day** är obligatoriskt.</li><li>Attributet **occurrence** är förekomsten av **day**-värdet i månaden. Om egenskapen **monthlyOccurrences** till exempel har **day**- och **occurrence**-värdena `{Sunday, -1}` innebär det den sista söndagen i månaden. Attributet **occurrence** är valfritt.</li></ul> |
 | **monthDays** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. | <ul><li>Ett värde < = -1 och > =-31</li><li>Ett värde > = 1 och < = 31</li><li>Matris med värden</li></ul> |

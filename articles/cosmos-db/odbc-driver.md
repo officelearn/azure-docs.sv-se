@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
 ms.openlocfilehash: e7d6a67f5322c5bb640430f66ccb0917f6faada1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339792"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003505"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos DB med hjälp av BI Analytics-verktyg med ODBC-drivrutinen
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -59,17 +59,17 @@ Nu ska vi komma igång med ODBC-drivrutinen.
 1. I **installations fönstret Azure Cosmos DB ODBC-drivrutin för SDN** , Fyll i följande information: 
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Installations fönster för Azure Cosmos DB ODBC-drivrutin":::
-    - **Data källans namn** : ditt eget namn för ODBC-datakällan. Det här namnet är unikt för ditt Azure Cosmos DB-konto, så ge det ett namn om du har flera konton.
-    - **Beskrivning** : en kort beskrivning av data källan.
-    - **Värd** : URI för ditt Azure Cosmos DB-konto. Du kan hämta detta från sidan Azure Cosmos DB nycklar i Azure Portal, som du ser i följande skärm bild. 
-    - **Åtkomst nyckel** : den primära eller sekundära, skrivskyddade eller skrivskyddade nyckeln på sidan Azure Cosmos DB nycklar i Azure Portal som visas på följande skärm bild. Vi rekommenderar att du använder den skrivskyddade nyckeln om DSN används för skrivskyddad data bearbetning och rapportering.
+    - **Data källans namn**: ditt eget namn för ODBC-datakällan. Det här namnet är unikt för ditt Azure Cosmos DB-konto, så ge det ett namn om du har flera konton.
+    - **Beskrivning**: en kort beskrivning av data källan.
+    - **Värd**: URI för ditt Azure Cosmos DB-konto. Du kan hämta detta från sidan Azure Cosmos DB nycklar i Azure Portal, som du ser i följande skärm bild. 
+    - **Åtkomst nyckel**: den primära eller sekundära, skrivskyddade eller skrivskyddade nyckeln på sidan Azure Cosmos DB nycklar i Azure Portal som visas på följande skärm bild. Vi rekommenderar att du använder den skrivskyddade nyckeln om DSN används för skrivskyddad data bearbetning och rapportering.
     :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Sidan Azure Cosmos DB nycklar":::
-    - **Kryptera åtkomst nyckel för** : Välj det bästa valet baserat på användare av den här datorn. 
+    - **Kryptera åtkomst nyckel för**: Välj det bästa valet baserat på användare av den här datorn. 
     
 1. Klicka på knappen **testa** för att kontrol lera att du kan ansluta till ditt Azure Cosmos DB-konto. 
 
 1.  Klicka på **Avancerade alternativ** och ange följande värden:
-    *  **REST API version** : Välj [REST API-versionen](/rest/api/cosmos-db/) för dina åtgärder. Standardvärdet 2015-12-16. Om du har behållare med [stora partitionsnyckel](large-partition-keys.md) och behöver REST API version 2018-12-31:
+    *  **REST API version**: Välj [REST API-versionen](/rest/api/cosmos-db/) för dina åtgärder. Standardvärdet 2015-12-16. Om du har behållare med [stora partitionsnyckel](large-partition-keys.md) och behöver REST API version 2018-12-31:
         - Skriv **2018-12-31** för REST API version
         - I **Start** -menyn skriver du "regedit" för att hitta och öppna programmet **Registry Editor** .
         - I Registereditorn navigerar du till sökvägen: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
@@ -79,11 +79,11 @@ Nu ska vi komma igång med ODBC-drivrutinen.
             - Värde namn: **IgnoreSessionToken**
             - Värde data: **1** 
              :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="register redigerings inställningar":::
-    - **Fråga konsekvens** : Välj [konsekvens nivå](consistency-levels.md) för dina åtgärder. Standardvärdet är session.
-    - **Antal återförsök** : Ange hur många försök en åtgärd som ska utföras igen om den första begäran inte slutförs på grund av begränsning av tjänst hastighet.
-    - **Schema fil** : du har ett antal alternativ här.
+    - **Fråga konsekvens**: Välj [konsekvens nivå](consistency-levels.md) för dina åtgärder. Standardvärdet är session.
+    - **Antal återförsök**: Ange hur många försök en åtgärd som ska utföras igen om den första begäran inte slutförs på grund av begränsning av tjänst hastighet.
+    - **Schema fil**: du har ett antal alternativ här.
         - Som standard när du lämnar den här posten som den är (tom) genomsöker driv rutinen den första sidan med data för alla behållare för att fastställa schemat för varje behållare. Detta kallas för behållar mappning. Utan en schema fil måste driv rutinen utföra genomsökningen för varje driv rutins session och kunna resultera i en högre start tid för ett program med hjälp av DSN. Vi rekommenderar att du alltid associerar en schema fil för en DSN.
-        - Om du redan har en schema fil (eventuellt en som du har skapat med hjälp av schema redigeraren) kan du klicka på **Bläddra** , navigera till filen, klicka på **Spara** och sedan på **OK**.
+        - Om du redan har en schema fil (eventuellt en som du har skapat med hjälp av schema redigeraren) kan du klicka på **Bläddra**, navigera till filen, klicka på **Spara** och sedan på **OK**.
         - Om du vill skapa ett nytt schema klickar du på **OK** och sedan på **schema redigerare** i huvud fönstret. Fortsätt sedan till information om schema redigeraren. När du har skapat den nya schema filen måste du komma ihåg att gå tillbaka till fönstret **Avancerade alternativ** för att inkludera den nya schema filen.
 
 1. När du har slutfört och stängt **installations fönstret Azure Cosmos DB ODBC-drivrutin** , läggs den nya användar-DSN till på fliken Användar-DSN.
@@ -107,7 +107,7 @@ Det finns två typer av samplings metoder som du kan använda: **container mappn
     - Du kan ange **kolumnen Dölj** till **Sant** om du vill undanta den kolumnen från frågeresultaten. Kolumnerna som marker ATS Dölj kolumn = True returneras inte för markering och projektion, även om de fortfarande är en del av schemat. Du kan till exempel dölja alla Azure Cosmos DB system egenskaper som krävs från och med "_".
     - Kolumnen **ID** är det enda fält som inte kan döljas eftersom det används som primär nyckel i det normaliserade schemat. 
 
-1. När du är klar med att definiera schemat klickar du på **Arkiv**  |  **Spara** , navigerar till katalogen för att spara schemat och klickar sedan på **Spara**.
+1. När du är klar med att definiera schemat klickar du på **Arkiv**  |  **Spara**, navigerar till katalogen för att spara schemat och klickar sedan på **Spara**.
 
 1. Om du vill använda det här schemat med en DSN öppnar du **fönstret Azure Cosmos DB ODBC-drivrutin för driv rutins-DSN** (via ODBC-administratören för data källa), klickar på **Avancerade alternativ** och går sedan till det sparade schemat i rutan **schema fil** . Om du sparar en schema fil i en befintlig DSN ändras DSN-anslutningen till omfång till de data och den struktur som definieras av schemat.
 
@@ -137,7 +137,7 @@ Följande steg skapar ett schema för data i en eller flera behållare med hjäl
     - Du kan ange **kolumnen Dölj** till **Sant** om du vill undanta den kolumnen från frågeresultaten. Kolumnerna som marker ATS Dölj kolumn = True returneras inte för markering och projektion, även om de fortfarande är en del av schemat. Du kan till exempel dölja alla Azure Cosmos DB system egenskaper som krävs från och med `_` .
     - Kolumnen **ID** är det enda fält som inte kan döljas eftersom det används som primär nyckel i det normaliserade schemat. 
 
-1. När du är klar med att definiera schemat klickar du på **Arkiv**  |  **Spara** , navigerar till katalogen för att spara schemat och klickar sedan på **Spara**.
+1. När du är klar med att definiera schemat klickar du på **Arkiv**  |  **Spara**, navigerar till katalogen för att spara schemat och klickar sedan på **Spara**.
 
 1. Klicka på **Avancerade alternativ** i **installations fönstret Azure Cosmos db odbc-drivrutinens DSN** . Gå sedan till den sparade schema filen i rutan **schema fil** och klicka på **OK**. Klicka på **OK** igen för att spara DSN. Detta sparar det schema som du skapade i DSN. 
 
@@ -203,7 +203,7 @@ Om du vill skapa en vy för dina data går du till kolumnen **Visa definitioner*
 
 I fönstret **Visa definitioner** gör du följande:
 
-1. Klicka på **nytt** , ange ett namn för vyn, till exempel EmployeesfromSeattleView, och klicka sedan på **OK**.
+1. Klicka på **nytt**, ange ett namn för vyn, till exempel EmployeesfromSeattleView, och klicka sedan på **OK**.
 
 1. I fönstret **Redigera vy** anger du en Azure Cosmos DB fråga. Detta måste vara en [Azure Cosmos DB SQL-fråga](./sql-query-getting-started.md), till exempel `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"` och klicka sedan på **OK**.
 

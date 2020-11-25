@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361355"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002671"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Så här använder du PerfInsights i Azure
 
@@ -118,15 +118,15 @@ Information om virtuella Windows-datorer, diskar eller lagringspooler konfigurat
 | SQL Server-konfiguration          | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Spårning av prestanda diagnoser *  | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Spårning av prestanda räknare * *      |                            |                                    | Ja                      |                      | Ja                  |
-| Spårning av SMB-räknare * *              |                            |                                    |                          | Ja                  |                      |
+| Spårning av SMB-räknare * *              |                            |                                    |                          | Yes                  |                      |
 | Spårning av SQL Server räknare * *       |                            |                                    | Ja                      |                      | Ja                  |
-| XPerf-spårning                       |                            |                                    |                          |                      | Ja                  |
-| StorPort-spårning                    |                            |                                    |                          |                      | Ja                  |
+| XPerf-spårning                       |                            |                                    |                          |                      | Yes                  |
+| StorPort-spårning                    |                            |                                    |                          |                      | Yes                  |
 | Nätverks spårning                     |                            |                                    |                          | Ja                  | Ja                  |
-| Diskspd benchmark-spårning * * *       |                            | Ja                                |                          |                      |                      |
+| Diskspd benchmark-spårning * * _       |                            | Yes                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
-### <a name="performance-diagnostics-trace-"></a>Spårning av prestanda diagnostik (*)
+### <a name="performance-diagnostics-trace-_"></a>Spårning av prestanda diagnostik (_)
 
 Kör en regel baserad motor i bakgrunden för att samla in data och diagnostisera pågående prestanda problem. Följande regler stöds för närvarande:
 
@@ -154,7 +154,7 @@ Samlar in följande prestanda räknare:
 #### <a name="for-azure-files"></a>För Azure Files
 \SMB klient resurser
 
-### <a name="diskspd-benchmark-trace-"></a>Diskspd benchmark-spårning (* * *)
+### <a name="diskspd-benchmark-trace-_"></a>Diskspd benchmark-spårning (* * _)
 Diskspd I/O-arbetsbelastnings test (OS-disk [Write] och pool enheter [läsa/skriva])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Kör verktyget PerfInsights på den virtuella datorn
@@ -165,8 +165,7 @@ Diskspd I/O-arbetsbelastnings test (OS-disk [Write] och pool enheter [läsa/skri
 
 -  Det här verktyget måste köras på den virtuella datorn som har prestanda problemet. 
 
--  Följande operativsystem stöds:
-   * Windows Server 2019
+-  Följande operativ system stöds: _ Windows Server 2019
    * Windows Server 2016
    * Windows Server 2012 R2
    * Windows Server 2012
@@ -198,7 +197,7 @@ Följ dessa steg om du vill köra PerfInsights-verktyget:
 
 1. Ladda ned [PerfInsights.zip](https://aka.ms/perfinsightsdownload).
 
-2. Avblockera PerfInsights.zips filen. Det gör du genom att högerklicka på PerfInsights.zip-filen och välja **Egenskaper**. På fliken **Allmänt** väljer du **Häv blockering**och väljer sedan **OK**. Detta säkerställer att verktyget körs utan några ytterligare säkerhets meddelanden.  
+2. Avblockera PerfInsights.zips filen. Det gör du genom att högerklicka på PerfInsights.zip-filen och välja **Egenskaper**. På fliken **Allmänt** väljer du **Häv blockering** och väljer sedan **OK**. Detta säkerställer att verktyget körs utan några ytterligare säkerhets meddelanden.  
 
     ![Skärm bild av PerfInsights-egenskaper, med avblockera markerade](media/how-to-use-perfInsights/pi-unlock-file.png)
 
@@ -255,7 +254,7 @@ När spårningen eller åtgärderna har slutförts visas en ny fil i samma mapp 
 
 ## <a name="review-the-diagnostics-report"></a>Granska den diagnostiska rapporten
 
-I **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip- ** filen kan du hitta en HTML-rapport som innehåller information om resultaten av PerfInsights. Om du vill granska rapporten expanderar du **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip- ** filen och öppnar sedan filen **PerfInsights Report.html** .
+I **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip-** filen kan du hitta en HTML-rapport som innehåller information om resultaten av PerfInsights. Om du vill granska rapporten expanderar du **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip-** filen och öppnar sedan filen **PerfInsights Report.html** .
 
 Välj fliken **resultat** .
 
@@ -320,4 +319,4 @@ Följande skärm bild visar ett meddelande som liknar det du kan få:
 
 Följ anvisningarna i meddelandet för att komma åt fil överförings arbets ytan. För ytterligare säkerhet måste du ändra ditt lösen ord vid första användningen.
 
-När du har loggat in hittar du en dialog ruta där du kan ladda upp **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip- ** filen som samlats in av PerfInsights.
+När du har loggat in hittar du en dialog ruta där du kan ladda upp **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip-** filen som samlats in av PerfInsights.

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: 4e115de4f86baba9559730d94f45ab7b17cc4379
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357971"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002212"
 ---
 # <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>Självstudie: Konfigurera SpaceIQ för automatisk användar etablering
 
@@ -86,7 +86,7 @@ Innan du konfigurerar SpaceIQ för automatisk användar etablering med Azure AD 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **SpaceIQ** , väljer **SpaceIQ** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **SpaceIQ**, väljer **SpaceIQ** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![SpaceIQ i resultat listan](common/search-new-app.png)
 

@@ -15,11 +15,11 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45144f64789a19390984c3f9f6a660e3c3300215
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84743158"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002501"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visa aktivitet och gransknings historik för Azures resurs roller i Privileged Identity Management
 
@@ -86,11 +86,11 @@ Resurs granskning ger dig en översikt över alla roll aktiviteter för en resur
 
     [![Resurs gransknings lista med filter](media/azure-pim-resource-rbac/rbac-resource-audit.png "Resurs gransknings lista med filter")](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-1. För **gransknings typ**väljer du **Aktivera (tilldelad + aktive rad)**.
+1. För **gransknings typ** väljer du **Aktivera (tilldelad + aktive rad)**.
 
     [![Resurs gransknings listan filtrerad efter aktivera gransknings typ](media/azure-pim-resource-rbac/rbac-audit-activity.png "Resurs gransknings lista filtrerad efter aktivering")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![ Resurs gransknings lista som filtrerats efter aktivera gransknings typ](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
-1. Under **åtgärd**klickar du på **(aktivitet)** för en användare för att se användarens aktivitets information i Azure-resurser.
+1. Under **åtgärd** klickar du på **(aktivitet)** för en användare för att se användarens aktivitets information i Azure-resurser.
 
     ![Information om användar aktiviteter för en viss åtgärd](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 

@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438542"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001767"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiera data till eller från Azure Blob Storage med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -54,7 +54,7 @@ Du kan skapa en pipeline med en kopierings aktivitet som flyttar data till/från
 
 Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Den här artikeln innehåller en [genom gång](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) av hur du skapar en pipeline för att kopiera data från en Azure Blob Storage plats till en annan Azure Blob Storage plats. En själv studie kurs om hur du skapar en pipeline för att kopiera data från en Azure-Blob Storage till Azure SQL Database finns i [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md).
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API** och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -83,11 +83,11 @@ Data Factory stöder följande CLS-kompatibla .NET-baserade typ värden för att
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| folderPath |Sökväg till behållaren och mappen i blob-lagringen. Exempel: myblobcontainer\myblobfolder\ |Ja |
-| fileName |Namn på blobben. fileName är valfritt och Skift läges känsligt.<br/><br/>Om du anger ett fil namn fungerar aktiviteten (inklusive kopia) på den aktuella blobben.<br/><br/>Om inget fil namn har angetts innehåller kopian alla blobbar i folderPath för indata-datauppsättning.<br/><br/>Om inget **fil namn** har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren, skulle namnet på den genererade filen ha följande format: `Data.<Guid>.txt` (till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Inga |
-| partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett fil namn för Time Series-data. FolderPath kan till exempel vara parameterstyrda för varje timme med data. Mer information och exempel finns i avsnittet om att [använda partitionedBy-egenskapen](#using-partitionedby-property) . |Inga |
-| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |Inga |
-| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
+| folderPath |Sökväg till behållaren och mappen i blob-lagringen. Exempel: myblobcontainer\myblobfolder\ |Yes |
+| fileName |Namn på blobben. fileName är valfritt och Skift läges känsligt.<br/><br/>Om du anger ett fil namn fungerar aktiviteten (inklusive kopia) på den aktuella blobben.<br/><br/>Om inget fil namn har angetts innehåller kopian alla blobbar i folderPath för indata-datauppsättning.<br/><br/>Om inget **fil namn** har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren, skulle namnet på den genererade filen ha följande format: `Data.<Guid>.txt` (till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett fil namn för Time Series-data. FolderPath kan till exempel vara parameterstyrda för varje timme med data. Mer information och exempel finns i avsnittet om att [använda partitionedBy-egenskapen](#using-partitionedby-property) . |No |
+| format | Följande format typer **stöds: text** format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |No |
+| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2** och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 ### <a name="using-partitionedby-property"></a>Använda egenskapen partitionedBy
 Som vi nämnt i föregående avsnitt kan du ange ett dynamiskt folderPath och ett fil namn för Time Series-data med egenskapen **partitionedBy** , [Data Factory Functions och systemvariablerna](data-factory-functions-variables.md).
@@ -127,15 +127,15 @@ En fullständig lista över avsnitt & egenskaper som är tillgängliga för att 
 
 **BlobSource** stöder följande egenskaper i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant (standardvärde), falskt |Inga |
+| rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant (standardvärde), falskt |No |
 
 **BlobSink** stöder följande egenskaper **typeProperties** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| copyBehavior |Definierar kopierings beteendet när källan är BlobSource eller FileSystem. |<b>PreserveHierarchy</b>: filens hierarki bevaras i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen finns på den första nivån i målmappen. Målfilen har ett namn som skapats automatiskt. <br/><br/><b>MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Om filen/BLOB-namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars skapas fil namnet automatiskt. |Inga |
+| copyBehavior |Definierar kopierings beteendet när källan är BlobSource eller FileSystem. |<b>PreserveHierarchy</b>: filens hierarki bevaras i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen finns på den första nivån i målmappen. Målfilen har ett namn som skapats automatiskt. <br/><br/><b>MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Om filen/BLOB-namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars skapas fil namnet automatiskt. |No |
 
 **BlobSource** stöder också dessa två egenskaper för bakåtkompatibilitet.
 
@@ -185,7 +185,7 @@ Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage
 
 ### <a name="create-the-data-factory"></a>Skapa data fabriken
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Klicka på **skapa en resurs** i det övre vänstra hörnet, klicka på **information + analys**och klicka på **Data Factory**.
+2. Klicka på **skapa en resurs** i det övre vänstra hörnet, klicka på **information + analys** och klicka på **Data Factory**.
 3. I fönstret **ny data fabrik** :  
     1. Ange **ADFBlobConnectorDF** som **namn**. Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: `*Data factory name “ADFBlobConnectorDF” is not available` ändrar du namnet på data fabriken (till exempel yournameADFBlobConnectorDF) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
     2. Välj din Azure- **prenumeration**.
@@ -203,7 +203,7 @@ Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage
 2. På sidan **Egenskaper**:
     1. Ange **CopyPipeline** som **uppgifts namn**. Uppgifts namnet är namnet på pipelinen i din data fabrik.
     2. Ange en **Beskrivning** av uppgiften (valfritt).
-    3. För **aktivitets takt eller aktivitets schema**bör du behålla alternativet **kör regelbundet på schema** . Om du bara vill köra den här uppgiften en gång i stället för att köras upprepade gånger enligt ett schema väljer du **kör en gång nu**. Om du väljer alternativet **kör en gång nu** skapas en [engångs pipeline](data-factory-create-pipelines.md#onetime-pipeline) .
+    3. För **aktivitets takt eller aktivitets schema** bör du behålla alternativet **kör regelbundet på schema** . Om du bara vill köra den här uppgiften en gång i stället för att köras upprepade gånger enligt ett schema väljer du **kör en gång nu**. Om du väljer alternativet **kör en gång nu** skapas en [engångs pipeline](data-factory-create-pipelines.md#onetime-pipeline) .
     4. Behåll inställningarna för **återkommande mönster**. Den här aktiviteten kör dagligen mellan start-och slut tiderna som du anger i nästa steg.
     5. Ändra **start datum tiden** till **04/21/2017**.
     6. Ändra **slutdatumets tid** till **04/25/2017**. Du kanske vill ange datumet i stället för att bläddra i kalendern.
@@ -220,7 +220,7 @@ Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage
         ![Verktyget Kopiera – Ange konto för Azure blobblagring](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
 5. På sidan **Välj indatafil eller mapp**:
     1. Dubbelklicka på **adfblobcontainer**.
-    2. Välj **inmatade**och klicka på **Välj**. I den här genom gången väljer du mappen indatamängden. Du kan också välja emp.txt filen i mappen i stället.
+    2. Välj **inmatade** och klicka på **Välj**. I den här genom gången väljer du mappen indatamängden. Du kan också välja emp.txt filen i mappen i stället.
         ![Verktyget kopiera – Välj indatafil eller mapp 1](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
 6. På sidan **Välj indatafil eller mapp** :
     1. Bekräfta att **filen eller mappen** har angetts till **adfblobconnector/indata**. Om filerna finns i undermappar, till exempel 2017/04/01, 2017/04/02 och så vidare, anger du adfblobconnector/indata/{year}/{month}/{Day} för filen eller mappen. När du trycker på TABB av text rutan visas tre List rutor för att välja format för år (åååå), månad (MM) och dag (dd).
@@ -242,7 +242,7 @@ Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage
     4. Klicka på fliken **schema** längst ned för att se schemat som kopierings guiden härledde genom att titta på data i käll filen.
     5. Klicka på **Nästa** när du har granskat avgränsarna och förhandsgranskat data.
     ![Verktyget Kopiera – Filformatinställningar](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)
-8. På **sidan mål data lager**väljer du **Azure Blob Storage**och klickar på **Nästa**. Du använder Azure-Blob Storage som både käll-och mål data lager i den här genom gången.  
+8. På **sidan mål data lager** väljer du **Azure Blob Storage** och klickar på **Nästa**. Du använder Azure-Blob Storage som både käll-och mål data lager i den här genom gången.  
     ![Verktyget kopiera – Välj mål data lager](media/data-factory-azure-blob-connector/select-destination-data-store.png)
 9. På sidan **Ange Azure Blob Storage-konto** :  
     1. Ange **AzureStorageLinkedService** i fältet **anslutnings namn** .
@@ -251,17 +251,17 @@ Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage
     4. Välj ditt Azure Storage-konto.
     5. Klicka på **Nästa**.
 10. På sidan **Välj utdatafil eller mapp** :  
-    1. Ange **mappsökväg** som **adfblobconnector/output/{year}/{month}/{Day}**. **Fliken**ange.
-    1. För **året**väljer du **åååå**.
-    1. I **månaden**bekräftar du att den är inställd på **mm**.
-    1. Bekräfta att den är inställd på **DD**för **dagen**.
+    1. Ange **mappsökväg** som **adfblobconnector/output/{year}/{month}/{Day}**. **Fliken** ange.
+    1. För **året** väljer du **åååå**.
+    1. I **månaden** bekräftar du att den är inställd på **mm**.
+    1. Bekräfta att den är inställd på **DD** för **dagen**.
     1. Bekräfta att **komprimerings typen** är inställd på **ingen**.
     1. Bekräfta att **kopierings beteendet** är inställt på **sammanfoga filer**. Om utdatafilen med samma namn redan finns, läggs det nya innehållet till i samma fil i slutet.
     1. Klicka på **Nästa**.
        ![Verktyget kopiera – Välj utdatafil eller mapp](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. På sidan **fil formats inställningar** granskar du inställningarna och klickar på **Nästa**. Ett av de ytterligare alternativen här är att lägga till en rubrik i utdatafilen. Om du väljer det alternativet läggs en rubrik rad till med namnen på kolumnerna från källans schema. Du kan byta namn på standard kolumn namnen när du visar schemat för källan. Du kan till exempel ändra den första kolumnen till förnamnet och andra kolumnen till efter namn. Sedan genereras utdatafilen med ett huvud med dessa namn som kolumn namn.
     ![Verktyget Kopiera – fil format inställningar för mål](media/data-factory-azure-blob-connector/file-format-destination.png)
-12. På sidan **prestanda inställningar** bekräftar du att **moln enheter** och **parallella kopior** är inställda på **Auto**och klickar på Nästa. Mer information om de här inställningarna finns i [Kopiera aktivitets prestanda och justerings guide](data-factory-copy-activity-performance.md#parallel-copy).
+12. På sidan **prestanda inställningar** bekräftar du att **moln enheter** och **parallella kopior** är inställda på **Auto** och klickar på Nästa. Mer information om de här inställningarna finns i [Kopiera aktivitets prestanda och justerings guide](data-factory-copy-activity-performance.md#parallel-copy).
     ![Verktyget kopiera – prestanda inställningar](media/data-factory-azure-blob-connector/copy-performance-settings.png)
 14. På sidan **Sammanfattning** granskar du alla inställningar (aktivitets egenskaper, inställningar för källa och mål och kopiera inställningar) och klickar på **Nästa**.
     ![Verktyget kopiera – sammanfattnings sida](media/data-factory-azure-blob-connector/copy-tool-summary-page.png)

@@ -7,11 +7,11 @@ ms.date: 2/28/2018
 ms.author: gwallace
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6df434610a8f595ecca7f16e31f8a302373b02f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012661"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001872"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Lägg till anpassade Service Fabric hälso rapporter
 Azure Service Fabric introducerar en [hälso modell](service-fabric-health-introduction.md) som har utformats för att flagga kluster och program villkor på vissa enheter. Hälso modellen använder **hälso rapporter** (system komponenter och övervaknings rapporter). Målet är enkelt och snabbt att diagnostisera och reparera. Service Writers måste vara på väg om hälso tillståndet. Alla villkor som kan påverka hälsan bör rapporteras, särskilt om det kan hjälpa till att flagga problem nära roten. Hälso informationen kan spara tid och ansträngning för fel sökning och undersökning. Användbarheten är särskilt tydlig när tjänsten är igång och körs i molnet (privat eller Azure).
@@ -207,7 +207,7 @@ public static void SendReport(object obj)
 ```
 
 ### <a name="powershell"></a>PowerShell
-Skicka hälso rapporter med **send-ServiceFabric*EntityType*HealthReport**.
+Skicka hälso rapporter med **send-ServiceFabric *EntityType* HealthReport**.
 
 I följande exempel visas periodiska rapporter om processor värden på en nod. Rapporterna ska skickas var 30: e sekund och de har tid att leva på två minuter. Om de går ut har rapportören problem, så noden utvärderas vid fel. När processorn är över ett tröskelvärde har rapporten ett hälso tillstånd för varningen. När CPU: n är över ett tröskelvärde på mer än den konfigurerade tiden rapporteras den som ett fel. Annars skickar rapportören ett hälso tillstånd för OK.
 

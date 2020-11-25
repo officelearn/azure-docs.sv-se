@@ -11,11 +11,11 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912879"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002008"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Måttlig text från API-konsolen
 
@@ -43,14 +43,14 @@ För **öppna API test-konsolen** väljer du den region som bäst beskriver din 
 
 ### <a name="parameters"></a>Parametrar
 
-Välj de frågeparametrar som du vill använda på text skärmen. I det här exemplet använder du standardvärdet för **språk** . Du kan också lämna det tomt eftersom åtgärden automatiskt identifierar det sannolika språket som en del av körningen.
+Välj de frågeparametrar som du vill använda på text skärmen. I det här exemplet använder du standardvärdet för **språk**. Du kan också lämna det tomt eftersom åtgärden automatiskt identifierar det sannolika språket som en del av körningen.
 
 > [!NOTE]
-> För parametern **språk** , tilldelar `eng` eller lämnar du den tom för att se det omhjälpande **klassificerings** svaret (förhands gransknings funktion). **Den här funktionen stöder enbart engelska** .
+> För parametern **språk** , tilldelar `eng` eller lämnar du den tom för att se det omhjälpande **klassificerings** svaret (förhands gransknings funktion). **Den här funktionen stöder enbart engelska**.
 >
 > För identifiering av **svordomar** kan du använda [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln eller lämna det tomt.
 
-För **Autokorrigering** , **PII** och **klassificering (för hands version)** väljer du **Sant** . Lämna fältet **listid** tomt.
+För **Autokorrigering**, **PII** och **klassificering (för hands version)** väljer du **Sant**. Lämna fältet **listid** tomt.
 
   ![Frågeparametrar för text skärms konsolen](images/text-api-console-inputs.PNG)
 

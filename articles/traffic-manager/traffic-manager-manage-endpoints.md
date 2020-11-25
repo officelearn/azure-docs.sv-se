@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: duau
 ms.openlocfilehash: fc6e8bcda17f9d788a430ed763bd9f8702eaf250
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392926"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003556"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Lägga till, inaktivera, aktivera eller ta bort slutpunkter
 
@@ -38,7 +38,7 @@ Du kan också inaktivera enskilda slutpunkter som ingår i en Traffic Manager-pr
     2. Ange ett **Namn** som du vill använda för att identifiera den här slutpunkten.
     3. För **Målresurstyp** väljer du en lämplig resurstyp från listrutan.
     4. För **Målresurs** klickar du på **Välj...** för att visa resurser i samma prenumeration på **bladet Resurser**. På bladet för **Resurser** som visas väljer du den tjänst som du vill lägga till som den första slutpunkten.
-    5. För **Prioritet**väljer du **1**. Detta resulterar i all trafik går igenom den här slutpunkten, förutsatt att den är felfri.
+    5. För **Prioritet** väljer du **1**. Detta resulterar i all trafik går igenom den här slutpunkten, förutsatt att den är felfri.
     6. Behåll **Lägg till som inaktiverad** som avmarkerat.
     7. Klicka på **OK**
 6.  Upprepa steg 4 och 5 för att lägga till nästa Azure-slutpunkt. Se till att lägga till den med dess **Prioritet**-värde angivet som **2**.

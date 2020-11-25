@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: eebfa61632bc49d5df35c17ba2d2faca0382001c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 998d49e91d38a1f2fdc2503165ee99635e153027
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91336147"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001906"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -26,7 +26,7 @@ Ytterligare resurser:
 * [Referensdokumentation för API](/javascript/api/@azure/storage-blob)
 * [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-blob)
-* [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Exempel](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -66,7 +66,7 @@ Det här avsnittet beskriver hur du förbereder ett projekt så att det fungerar
 
 ### <a name="create-a-cors-rule"></a>Skapa en CORS-regel
 
-Innan ditt webb program kan komma åt Blob Storage från klienten måste du konfigurera ditt konto för att aktivera [resurs delning mellan ursprung](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)eller CORS.
+Innan ditt webb program kan komma åt Blob Storage från klienten måste du konfigurera ditt konto för att aktivera [resurs delning mellan ursprung](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)eller CORS.
 
 I Azure Portal väljer du ditt lagrings konto. Om du vill definiera en ny CORS-regel går du till avsnittet **Inställningar** och väljer **CORS**. För den här snabbstarten skapar du en öppen CORS-regel:
 
@@ -76,10 +76,10 @@ I följande tabell beskrivs varje CORS-inställning och de värden som används 
 
 |Inställning  |Värde  | Beskrivning |
 |---------|---------|---------|
-| **TILLÅTNA URSPRUNG** | **\*** | Accepterar en kommaavgränsad lista över domäner som är inställda som godkänt ursprung. Om du anger värdet till `*` ges alla domäner åtkomst till lagringskontot. |
-| **TILLÅTNA METODER** | **Ta bort**, **Hämta**, **huvud**, **slå samman**, **anslå**, **alternativ**och **Placera** | Listar de HTTP-verb som kan köras mot lagringskontot. För den här snabbstarten väljer du alla tillgängliga alternativ. |
-| **TILLÅTNA HUVUDEN** | **\*** | Definierar en lista över begäranderubriker (inklusive prefixrubriker) som tillåts av lagringskontot. Om du ställer in värdet på `*` får alla rubriker åtkomst. |
-| **EXPONERADE RUBRIKER** | **\*** | Listar de svarsrubriker som tillåts av kontot. Om du ställer in värdet på `*` får kontot skicka alla rubriker. |
+| **TILLÅTNA URSPRUNG** | **\** _ | Accepterar en kommaavgränsad lista över domäner som är inställda som godkänt ursprung. Om du anger värdet till `_` ges alla domäner åtkomst till lagringskontot. |
+| **TILLÅTNA METODER** | **Ta bort**, **Hämta**, **huvud**, **slå samman**, **anslå**, **alternativ** och **Placera** | Listar de HTTP-verb som kan köras mot lagringskontot. För den här snabbstarten väljer du alla tillgängliga alternativ. |
+| **TILLÅTNA HUVUDEN** | **\** _ | Definierar en lista över begäranderubriker (inklusive prefixrubriker) som tillåts av lagringskontot. Om du ställer in värdet på `_` får alla rubriker åtkomst. |
+| **EXPONERADE RUBRIKER** | **\** _ | Listar de svarsrubriker som tillåts av kontot. Om du ställer in värdet på `_` får kontot skicka alla rubriker. |
 | **HÖGSTA ÅLDER** | **86400** | Den maximala tid som webbläsaren cachelagrar preflight OPTIONs-begäran på några sekunder. Ett värde på *86400* innebär cachelagring under ett helt dygn. |
 
 När du har fyllt i fälten med värdena från den här tabellen klickar du på knappen **Spara** .
@@ -237,7 +237,7 @@ Om du vill köra koden i Visual Studio Code debugger konfigurerar du *launch.jsp
 Så här konfigurerar du tillägget för fel sökning i Visual Studio Code:
 
 1. Välj **kör > Lägg till konfiguration**
-2. Välj **Edge**, **Chrome**eller **Firefox**, beroende på vilket tillägg du installerade i avsnittet [krav](#prerequisites) ovan.
+2. Välj **Edge**, **Chrome** eller **Firefox**, beroende på vilket tillägg du installerade i avsnittet [krav](#prerequisites) ovan.
 
 Om du lägger till en ny konfiguration skapas en *launch.jspå* filen och den öppnas i redigeraren. Ändra *launch.jspå* filen så att `url` värdet är `http://localhost:1234/index.html` , som du ser här:
 
@@ -255,7 +255,7 @@ parcel index.html
 
 Skiftena paketerar koden och startar en lokal utvecklings Server för din sida på `http://localhost:1234/index.html` . Ändringar som du gör i *index.js* skapas automatiskt och avspeglas på utvecklings servern när du sparar filen.
 
-Om du får ett meddelande om att **det inte gick att använda den konfigurerade port 1234**kan du ändra porten genom att köra kommandot `parcel -p <port#> index.html` . I *launch.jspå* filen uppdaterar du porten i URL-sökvägen så att den matchar.
+Om du får ett meddelande om att **det inte gick att använda den konfigurerade port 1234** kan du ändra porten genom att köra kommandot `parcel -p <port#> index.html` . I *launch.jspå* filen uppdaterar du porten i URL-sökvägen så att den matchar.
 
 ### <a name="start-debugging"></a>Starta fel sökning
 
@@ -288,7 +288,7 @@ I [Azure Portal](https://portal.azure.com)kan du verifiera resultatet av API-anr
 #### <a name="step-4---delete-the-container"></a>Steg 4 – ta bort behållaren
 
 1. I webbapp väljer du **ta bort behållare**. Statusen anger att behållaren har tagits bort.
-2. I Azure Portal väljer du ** \<account-name\> | Behållare** -länk längst upp till vänster i Portal fönstret.
+2. I Azure Portal väljer du **\<account-name\> | Behållare** -länk längst upp till vänster i Portal fönstret.
 3. Välj **Uppdatera**. Den nya behållaren försvinner.
 4. Stäng webb programmet.
 

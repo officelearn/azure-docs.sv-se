@@ -4,11 +4,11 @@ description: Återställ de data som du har skyddat till ett Recovery Services v
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 0cce45fbaaedad4cfcee0cda768aae2fa294312b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378074"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002978"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Återställa data från Azure Backup Server
 
@@ -51,7 +51,7 @@ Du kan använda Azure Backup Server för att återställa de data som du har sä
 7. Välj **Återställ till en alternativ plats**. **Bläddra** till rätt plats för återställningen.
 
     ![Alternativ plats för extern DPM-återställning](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
-8. Välj alternativet för att **Skapa kopia**, **hoppa över**eller **Skriv över**.
+8. Välj alternativet för att **Skapa kopia**, **hoppa över** eller **Skriv över**.
 
    * **Skapa kopia** – skapar en kopia av filen om det finns en namn konflikt.
    * **Hoppa över** – om det finns en namn konflikt återställs inte filen, vilket innebär att den ursprungliga filen är kvar.
@@ -62,7 +62,7 @@ Du kan använda Azure Backup Server för att återställa de data som du har sä
      Identifiera om ett **meddelande** skickas när återställningen har slutförts.
 
      ![Aviseringar om extern DPM-återställning](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. På sidan **Sammanfattning** visas de alternativ som valts hittills. När du väljer **Återställ**återställs data till lämplig lokal plats.
+9. På sidan **Sammanfattning** visas de alternativ som valts hittills. När du väljer **Återställ** återställs data till lämplig lokal plats.
 
     ![Sammanfattning av alternativ för extern DPM-återställning](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 

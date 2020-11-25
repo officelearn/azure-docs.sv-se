@@ -5,11 +5,11 @@ services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 5fcc0f820983da388d808cadf8ce64a555e8ef0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87532891"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000189"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Azure Relay mått i Azure Monitor 
 Azure Relay mått ger dig tillstånd för resurser i din Azure-prenumeration. Med en omfattande uppsättning Mät data kan du utvärdera övergripande hälso tillstånd för dina relä resurser, inte bara på namn områdes nivå, utan även på enhets nivå. Den här statistiken kan vara viktig när de hjälper dig att övervaka status för Azure Relay. Mått kan också hjälpa till att felsöka rotor Saks problem utan att behöva kontakta Azure-supporten.
@@ -48,7 +48,7 @@ Alla mått värden skickas till Azure Monitor varje minut. Tids kornig het defin
 
 ## <a name="connection-metrics"></a>Anslutnings mått
 
-| Måttnamn | Beskrivning |
+| Måttnamn | Description |
 | ------------------- | ----------------- |
 | ListenerConnections-Success  | Antalet lyckade lyssnar anslutningar som har gjorts till Azure Relay under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 |ListenerConnections-ClientError |Antalet klient fel i lyssnar anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
@@ -65,7 +65,7 @@ Alla mått värden skickas till Azure Monitor varje minut. Tids kornig het defin
 
 ## <a name="memory-usage-metrics"></a>Minnes användnings mått
 
-| Måttnamn | Beskrivning |
+| Måttnamn | Description |
 | ------------------- | ----------------- |
 |BytesTransferred |Antalet byte som överförts under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 
@@ -73,7 +73,7 @@ Alla mått värden skickas till Azure Monitor varje minut. Tids kornig het defin
 
 Azure Relay stöder följande dimensioner för mått i Azure Monitor. Det är valfritt att lägga till dimensioner i måtten. Om du inte lägger till dimensioner anges måtten på namn områdes nivå. 
 
-|Dimensions namn|Beskrivning|
+|Dimensions namn|Description|
 | ------------------- | ----------------- |
 |Entitetsnamnet| Azure Relay stöder meddelande enheter under namn området.|
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1138a970bf7c52182f13d0fd14d0178a2d0cfeba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93a3adf00203e317be912e3e72de7a3f7ca666c6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918799"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001120"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Identifiera avsikter från tal med hjälp av tal-SDK för C #
 
@@ -55,7 +55,7 @@ LUIS använder tre typer av nycklar:
 | Starter   | Gör att du kan testa ditt LUIS-program med enbart text   |
 | Slutpunkt  | Auktoriserar åtkomst till en viss LUIS-app            |
 
-Du behöver en slut punkts nyckel typ för den här guiden. Den här guiden använder LUIS-appen för hem automatisering, som du kan skapa genom att följa snabb starten för [välbyggda hem automatiserings program](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Om du har skapat en LUIS app som du själv har skapat kan du använda den i stället.
+Du behöver en slut punkts nyckel typ för den här guiden. Den här guiden använder LUIS-appen för hem automatisering, som du kan skapa genom att följa snabb starten för [välbyggda hem automatiserings program](../luis/luis-get-started-create-app.md) . Om du har skapat en LUIS app som du själv har skapat kan du använda den i stället.
 
 När du skapar en LUIS-app genererar LUIS automatiskt en start nyckel så att du kan testa appen med hjälp av text frågor. Den här nyckeln aktiverar inte röst tjänst integrering och fungerar inte med den här guiden. Skapa en LUIS-resurs på Azure-instrumentpanelen och tilldela den till LUIS-appen. Du kan använda den kostnads fria prenumerations nivån för den här guiden.
 
@@ -68,9 +68,9 @@ På sidan **nycklar och inställningar för slut punkt** :
 1. Rulla ned till avsnittet **resurser och nycklar** och välj **tilldela resurs**.
 1. Gör följande ändringar i dialog rutan **tilldela en nyckel till din app** :
 
-   - Under **klient**väljer du **Microsoft**.
-   - Under **prenumerations namn**väljer du den Azure-prenumeration som innehåller den Luis-resurs som du vill använda.
-   - Under **nyckel**väljer du den Luis-resurs som du vill använda med appen.
+   - Under **klient** väljer du **Microsoft**.
+   - Under **prenumerations namn** väljer du den Azure-prenumeration som innehåller den Luis-resurs som du vill använda.
+   - Under **nyckel** väljer du den Luis-resurs som du vill använda med appen.
 
    Om en stund visas den nya prenumerationen i tabellen längst ned på sidan.
 
@@ -86,7 +86,7 @@ På sidan **nycklar och inställningar för slut punkt** :
 
 Sedan lägger du till kod i projektet.
 
-1. Öppna filen **program.cs**från **Solution Explorer**.
+1. Öppna filen **program.cs** från **Solution Explorer**.
 
 1. Ersätt blocket med `using` instruktioner i början av filen med följande deklarationer:
 
@@ -201,4 +201,4 @@ Sök efter koden från den här artikeln i mappen **samples/csharp/sharedcontent
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabb start: identifiera tal från en mikrofon](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [Snabb start: identifiera tal från en mikrofon](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore)

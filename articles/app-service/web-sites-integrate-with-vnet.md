@@ -8,11 +8,11 @@ ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 764e0262c8a26511c55740aa1797b5ec9b59cc8e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150151"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999472"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera en app med ett virtuellt Azure-nätverk
 
@@ -24,7 +24,7 @@ Azure App Service har två varianter på funktionen för VNet-integrering:
 
 ## <a name="enable-vnet-integration"></a>Aktivera VNet-integrering
 
-1. Gå till **nätverks** gränssnittet i App Service portalen. Under **VNet-integrering**väljer **du klicka här för att konfigurera**.
+1. Gå till **nätverks** gränssnittet i App Service portalen. Under **VNet-integrering** väljer **du klicka här för att konfigurera**.
 
 1. Välj **Lägg till VNet**.
 
@@ -129,7 +129,7 @@ Den enda åtgärd som du kan vidta i vyn app för din VNet-integrering är att k
 GRÄNSSNITTET App Service plan VNet-integration visar alla VNet-integreringar som används av apparna i App Service plan. Om du vill se information om varje VNet väljer du det VNet som du är intresse rad av. Det finns två åtgärder som du kan utföra här för gateway-nödvändig VNet-integrering:
 
 * **Sync-nätverk**: åtgärden synkronisera nätverk används endast för funktionen Gateway-beroende VNet-integrering. Att utföra en synkroniserad nätverks åtgärd garanterar att dina certifikat och nätverksinformation är synkroniserade. Om du lägger till eller ändrar DNS för ditt VNet, utför du en synkronisera nätverks åtgärd. Den här åtgärden startar om alla appar som använder det här virtuella nätverket. Den här åtgärden fungerar inte om du använder en app och ett virtuellt nätverk som tillhör olika prenumerationer.
-* **Lägg till vägar: Lägg**till vägar enheter utgående trafik till ditt VNet.
+* **Lägg till vägar: Lägg** till vägar enheter utgående trafik till ditt VNet.
 
 ### <a name="gateway-required-vnet-integration-routing"></a>Gateway-nödvändig VNet-integrering routning
 Vägarna som definieras i ditt VNet används för att dirigera trafik till ditt VNet från din app. Om du vill skicka ytterligare utgående trafik till VNet lägger du till dessa adress block här. Den här funktionen fungerar bara med Gateway-nödvändig VNet-integrering. Routningstabeller påverkar inte din app-trafik när du använder Gateway-nödvändig VNet-integrering på det sätt som de gör med regional VNet-integration.
@@ -137,7 +137,7 @@ Vägarna som definieras i ditt VNet används för att dirigera trafik till ditt 
 ### <a name="gateway-required-vnet-integration-certificates"></a>Gateway – nödvändiga VNet-integrerings certifikat
 När Gateway-nödvändig VNet-integrering är aktive rad finns det ett nödvändigt utbyte av certifikat för att säkerställa anslutningens säkerhet. Tillsammans med certifikaten är DNS-konfigurationen, vägarna och andra liknande saker som beskriver nätverket.
 
-Om certifikat eller nätverksinformation har ändrats väljer du **Synkronisera nätverk**. När du väljer **Synkronisera nätverk**orsakar du ett kort avbrott i anslutningen mellan appen och ditt VNet. När din app inte startas om kan det leda till att din webbplats inte fungerar korrekt.
+Om certifikat eller nätverksinformation har ändrats väljer du **Synkronisera nätverk**. När du väljer **Synkronisera nätverk** orsakar du ett kort avbrott i anslutningen mellan appen och ditt VNet. När din app inte startas om kan det leda till att din webbplats inte fungerar korrekt.
 
 ## <a name="pricing-details"></a>Prisinformation
 Funktionen för regional VNet-integrering har ingen extra avgift för användning utöver App Service plan pris nivå kostnader.

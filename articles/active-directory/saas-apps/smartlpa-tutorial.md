@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 157922cf597ff110b8d66ddaa44917bf2cb76029
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514953"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Självstudie: Azure Active Directory integrering med SmartLPA
 
@@ -85,7 +85,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Utför följande steg för att konfigurera enkel inloggning med SmartLPA i Azure AD:
 
-1. Välj **enkel inloggning**på sidan **SmartLPA** Application Integration i [Azure Portal](https://portal.azure.com/).
+1. Välj **enkel inloggning** på sidan **SmartLPA** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -155,7 +155,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SmartLPA.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **SmartLPA**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program** och väljer sedan **SmartLPA**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 

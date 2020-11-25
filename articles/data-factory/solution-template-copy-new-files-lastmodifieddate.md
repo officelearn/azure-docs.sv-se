@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
 ms.openlocfilehash: 99d90e4d93f0e4a70350a5a33a65700c3e14acb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398331"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000818"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Kopiera nya och ändrade filer genom LastModifiedDate med Azure Data Factory
 
@@ -26,7 +26,7 @@ Den här artikeln beskriver en lösnings mall som du kan använda för att kopie
 
 ## <a name="about-this-solution-template"></a>Om den här lösnings mal len
 
-Den här mallen väljer först de nya och ändrade filerna enbart efter deras attribut **LastModifiedDate**och kopierar sedan de valda filerna från data käll arkivet till data destinations lagret.
+Den här mallen väljer först de nya och ändrade filerna enbart efter deras attribut **LastModifiedDate** och kopierar sedan de valda filerna från data käll arkivet till data destinations lagret.
 
 Mallen innehåller en aktivitet:
 - **Kopiera** för att kopiera nya och ändrade filer enbart av LastModifiedDate från ett fil lager till ett mål lager.
@@ -73,7 +73,7 @@ Mallen definierar sex parametrar:
 
     ![Granska resultatet](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate7.png)
     
-7. Nu kan du lägga till en rullande Windows-utlösare för att automatisera den här pipelinen, så att pipelinen alltid kan kopiera nya och ändrade filer endast av LastModifiedDate med jämna mellanrum.  Välj **Lägg till utlösare**och välj **nytt/redigera**.
+7. Nu kan du lägga till en rullande Windows-utlösare för att automatisera den här pipelinen, så att pipelinen alltid kan kopiera nya och ändrade filer endast av LastModifiedDate med jämna mellanrum.  Välj **Lägg till utlösare** och välj **nytt/redigera**.
 
     ![Skärm bild som visar meny alternativet nytt/redigera som visas när du väljer Lägg till utlösare.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
@@ -88,8 +88,8 @@ Mallen definierar sex parametrar:
     - **Directory_Source**  =  **undermappen**.  Du kan ersätta med din undermapp i käll data lagret.
     - **FolderPath_Destination**  =  **destinationfolder**.  Du kan ersätta med din mapp i mål data lagret.
     - **Directory_Destination**  =  **undermappen**.  Du kan ersätta med din undermapp i mål data lagret.
-    - **LastModified_From**  =   ** \@ trigger (). outputs. windowStartTime**.  Det är en system variabel från utlösaren som fastställer tidpunkten då pipelinen utlöstes senast.
-    - **LastModified_To**  =  ** \@ trigger (). outputs. windowEndTime**.  Det är en system variabel från utlösaren som fastställer tidpunkten då pipelinen utlöses för tillfället.
+    - **LastModified_From**  =   **\@ trigger (). outputs. windowStartTime**.  Det är en system variabel från utlösaren som fastställer tidpunkten då pipelinen utlöstes senast.
+    - **LastModified_To**  =  **\@ trigger (). outputs. windowEndTime**.  Det är en system variabel från utlösaren som fastställer tidpunkten då pipelinen utlöses för tillfället.
     
     ![Indataparametrar](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 6bdf6015ca5633c77280111a55055a7394cee5bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057662"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001379"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Strömma innehåll med CDN-integrering
 
@@ -32,7 +32,7 @@ Det populära innehållet kommer att betjänas direkt från CDN-cachen så läng
 Du måste också fundera över hur anpassningsbar strömning fungerar. Varje enskilt video fragment cachelagras som sin egen entitet. Anta till exempel att en viss video är bevakad första gången. Om visnings programmet hoppar över att titta bara några sekunder här och där finns det bara videofragment som är associerade med vad den person som bevakar cachelagrar i CDN. Med anpassningsbar strömning har du normalt 5 till 7 olika bit hastigheter för video. Om en person tittar på en bit hastighet och en annan person tittar på en annan bit hastighet, är de båda cachelagrade separat i CDN. Även om två personer tittar på samma bit hastighet kan de strömmas över olika protokoll. Varje protokoll (HLS, MPEG-streck, Smooth Streaming) cachelagras separat. Varje bit hastighet och protokoll cachelagras separat och endast de video fragment som har begärts cachelagras.
 
 Förutom test miljön rekommenderar vi att CDN aktive ras för både standard-och Premium-slutpunkter för direkt uppspelning. Varje typ av slut punkt för direkt uppspelning har en annan data flödes gräns som stöds.
-Det är svårt att göra en exakt beräkning för maximalt antal samtidiga strömmar som stöds av en strömnings slut punkt eftersom det finns olika faktorer att ta med i beräkningen. Exempel:
+Det är svårt att göra en exakt beräkning för maximalt antal samtidiga strömmar som stöds av en strömnings slut punkt eftersom det finns olika faktorer att ta med i beräkningen. Dessa omfattar:
 
 - Högsta antal bit hastigheter som används för strömning
 - Beteende för förbuffring och växling i spelaren. Spelarna försöker överföra segment från ett ursprung och använda belastnings hastigheten för att beräkna den anpassade bit hastighets växlingen. Om en strömmande slut punkt blir nära mättnad kan svars tiderna variera och spelarna börjar växla till lägre kvalitet. Eftersom detta minskar belastningen på de strömmande slut punkts spelarna kan du skala tillbaka till högre kvalitet och skapa oönskade växlings utlösare.
@@ -40,7 +40,7 @@ Generellt är det säkert att uppskatta maximalt antal samtidiga data strömmar 
 
 I det här avsnittet beskrivs hur du aktiverar [CDN-integrering](#enable-azure-cdn-integration). Den förklarar också för hämtning (aktiv cachelagring) och [ursprunget-Assist CDN-prefetch](#origin-assist-cdn-prefetch) .
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 - [Slut punkten för direkt uppspelning](streaming-endpoint-concept.md) `hostname` och STRÖMNINGS-URL: en är oförändrad oavsett om du aktiverar CDN eller inte.
 - Om du behöver kunna testa ditt innehåll med eller utan CDN, skapar du en annan slut punkt för direkt uppspelning som inte är CDN-aktiverad.

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260181"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000665"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
 Azure Service Fabric-komponenter tillhandahåller system hälso rapporter på alla entiteter i klustret direkt. [Hälso arkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort entiteter baserat på system rapporter. Den organiserar också dem i en hierarki som fångar interaktionen mellan entiteter.
@@ -116,7 +116,7 @@ HealthEvents          :
 
 
 ### <a name="certificate-expiration"></a>Certifikatets förfallo datum
-**System. FabricNode** rapporterar en varning när certifikat som används av noden snart upphör att gälla. Det finns tre certifikat per nod: **Certificate_cluster**, **Certificate_server**och **Certificate_default_client**. När giltighets tiden är minst två veckor är rapportens hälso tillstånd OK. När förfallo tiden är inom två veckor är rapport typen en varning. TTL för dessa händelser är oändligt och tas bort när en nod lämnar klustret.
+**System. FabricNode** rapporterar en varning när certifikat som används av noden snart upphör att gälla. Det finns tre certifikat per nod: **Certificate_cluster**, **Certificate_server** och **Certificate_default_client**. När giltighets tiden är minst två veckor är rapportens hälso tillstånd OK. När förfallo tiden är inom två veckor är rapport typen en varning. TTL för dessa händelser är oändligt och tas bort när en nod lämnar klustret.
 
 * **SourceId**: system. FabricNode
 * **Egenskap**: börjar med **certifikat** och innehåller mer information om certifikat typen.
@@ -425,10 +425,10 @@ Den här egenskapen används för att Visa varningar eller fel vid försök att 
 Dessa hälso varningar utlöses efter att du har försökt att utföra åtgärden lokalt under ett visst antal gånger (beroende på princip). Service Fabric försöker utföra åtgärden upp till ett maximalt tröskelvärde. När max gränsen har nåtts kan det försöka åtgärda problemet. Det här försöket kan orsaka att de här varningarna rensas när de visas på den här noden. Om en replik till exempel inte kan öppnas på en nod, Service Fabric genererar en hälso varning. Om repliken fortfarande inte kan öppnas Service Fabric agerar själv reparation. Den här åtgärden kan innebära att du försöker samma åtgärd på en annan nod. Det här försöket gör att den här repliken rensas. 
 
 * **SourceId**: system. ra
-* **Property**: **ReplicaOpenStatus**, **ReplicaCloseStatus**och **ReplicaChangeRoleStatus**.
+* **Property**: **ReplicaOpenStatus**, **ReplicaCloseStatus** och **ReplicaChangeRoleStatus**.
 * **Nästa steg**: Undersök tjänst koden eller krasch dum par för att identifiera varför åtgärden misslyckades.
 
-I följande exempel visas hälso tillståndet för en replik som kastas `TargetInvocationException` från dess öppna-metod. Beskrivningen innehåller fel punkten, **IStatefulServiceReplica. Open**, undantags typen **TargetInvocationException**och stack spårningen.
+I följande exempel visas hälso tillståndet för en replik som kastas `TargetInvocationException` från dess öppna-metod. Beskrivningen innehåller fel punkten, **IStatefulServiceReplica. Open**, undantags typen **TargetInvocationException** och stack spårningen.
 
 ```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794

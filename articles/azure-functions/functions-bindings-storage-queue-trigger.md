@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 95560801d4132735435e4d45e8a588476636ec38
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491451"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001243"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Queue Storage-utlösare för Azure Functions
 
@@ -97,6 +97,22 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 I avsnittet [användning](#usage) beskrivs `myQueueItem` , som namnges av `name` egenskapen i function.jspå.  I [avsnittet meddelande metadata](#message-metadata) beskrivs alla andra variabler som visas.
 
+# <a name="java"></a>[Java](#tab/java)
+
+I följande Java-exempel visas en utlösnings funktion i Storage Queue, som loggar det Utlös ande meddelandet som placeras i kön `myqueuename` .
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 I följande exempel visas en Utlös ande bindning för kö i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen avsöker `myqueue-items` kön och skriver en logg varje gången ett köobjekt bearbetas.
@@ -141,6 +157,42 @@ module.exports = async function (context, message) {
 ```
 
 I avsnittet [användning](#usage) beskrivs `myQueueItem` , som namnges av `name` egenskapen i function.jspå.  I [avsnittet meddelande metadata](#message-metadata) beskrivs alla andra variabler som visas.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Följande exempel visar hur du läser ett Queue-meddelande som skickas till en funktion via en utlösare.
+
+En utlösare för lagrings kön definieras i *function.jspå* filen där `type` har angetts till `queueTrigger` .
+
+```json
+{
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+Koden i *Run.ps1* -filen deklarerar en parameter som `$QueueItem` , vilket gör att du kan läsa meddelandet i kön i din funktion.
+
+```powershell
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata)
+
+# Write out the queue message and metadata to the information log.
+Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
+Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
+Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
+Write-Host "ID: $($TriggerMetadata.Id)"
+Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
+Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
+```
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -189,22 +241,6 @@ def main(msg: func.QueueMessage):
 
     logging.info(result)
 ```
-
-# <a name="java"></a>[Java](#tab/java)
-
-I följande Java-exempel visas en utlösnings funktion i Storage Queue, som loggar det Utlös ande meddelandet som placeras i kön `myqueuename` .
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
 
  ---
 
@@ -270,14 +306,6 @@ Lagrings kontot som ska användas fastställs i följande ordning:
 
 Attribut stöds inte av C#-skript.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Attribut stöds inte av Java Script.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Attribut stöds inte av python.
-
 # <a name="java"></a>[Java](#tab/java)
 
 `QueueTrigger`Anteckningen ger dig åtkomst till den kö som utlöser funktionen. I följande exempel blir Queue-meddelandet tillgängligt för funktionen via `message` parametern.
@@ -305,13 +333,25 @@ public class QueueTriggerDemo {
 |`queueName`  | Deklarerar könamnet i lagrings kontot. |
 |`connection` | Pekar på anslutnings strängen för lagrings kontot. |
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Attribut stöds inte av Java Script.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Attribut stöds inte av PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Attribut stöds inte av python.
+
 ---
 
 ## <a name="configuration"></a>Konfiguration
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `QueueTrigger` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 |**bastyp** | saknas| Måste anges till `queueTrigger` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
 |**position**| saknas | Endast i *function.jsendast på* fil. Måste anges till `in` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
@@ -327,7 +367,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 Få åtkomst till meddelande data med hjälp av en metod parameter, till exempel `string paramName` . Du kan binda till någon av följande typer:
 
-* Objekt-funktions körningen deserialiserar en JSON-nyttolast till en instans av en godtycklig klass som definierats i din kod. 
+* Objekt-funktions körningen deserialiserar en JSON-nyttolast till en instans av en godtycklig klass som definierats i din kod.
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -345,17 +385,21 @@ Få åtkomst till meddelande data med hjälp av en metod parameter, till exempel
 
 Om du försöker binda till `CloudQueueMessage` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+# <a name="java"></a>[Java](#tab/java)
+
+[QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) -anteckningen ger dig åtkomst till det Queue meddelande som utlöste funktionen.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Objektet för köobjekt är tillgängligt via `context.bindings.<NAME>` där `<NAME>` matchar det namn som definierats i *function.jspå*. Om nytto lasten är JSON deserialiseras värdet i ett objekt.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Åtkomst till köa meddelande via sträng parameter som matchar det namn som anges av bindnings `name` parametern i *function.jsi* filen.
+
 # <a name="python"></a>[Python](#tab/python)
 
-Få åtkomst till Queue-meddelandet via parametern som anges som [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
-
-# <a name="java"></a>[Java](#tab/java)
-
-[QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) -anteckningen ger dig åtkomst till det Queue meddelande som utlöste funktionen.
+Få åtkomst till Queue-meddelandet via parametern som anges som [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true).
 
 ---
 
@@ -363,7 +407,7 @@ Få åtkomst till Queue-meddelandet via parametern som anges som [QueueMessage](
 
 Utlösaren för kön innehåller flera [Egenskaper för metadata](./functions-bindings-expressions-patterns.md#trigger-metadata). Dessa egenskaper kan användas som en del av bindnings uttryck i andra bindningar eller som parametrar i koden. Egenskaperna är medlemmar i klassen [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) .
 
-|Egenskap|Typ|Beskrivning|
+|Egenskap|Typ|Description|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Köns nytto Last (om en giltig sträng). Om nytto lasten i kön är en sträng, `QueueTrigger` har samma värde som variabeln som namnges av `name` egenskapen i *function.jspå*.|
 |`DequeueCount`|`int`|Antal gånger som det här meddelandet har tagits ur kö.|

@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07a274bd4ac227b6260f7891b24dad0eacdfb4f7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a71c1a0df1a72e3831fa54a041539f62b38a0aca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561521"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95999917"
 ---
 # <a name="create-luis-resources"></a>Skapa LUIS-resurser
 
@@ -29,8 +29,8 @@ LUIS tillåter tre typer av Azure-resurser och en icke-Azure-resurs:
 
 |Resurs|Syfte|Kognitiv tjänst `kind`|Kognitiv tjänst `type`|
 |--|--|--|--|
-|Skapar resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. [Skapa en Luis Authoring-resurs](luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal) om du tänker redigera Luis Apps program mässigt eller från Luis-portalen. Du måste [migrera ditt Luis-konto](luis-migration-authoring.md#what-is-migration) innan du länkar dina Azures redigerings resurser till ditt program. Du kan kontrol lera behörigheter till redigerings resursen genom att tilldela personer [rollen deltagare](#contributions-from-other-authors). <br><br> En nivå är tillgänglig för LUIS Authoring-resursen:<br> <ul> <li>**Kostnads fri F0 Authoring-resurs** , som ger dig 1 000 000 kostnads fria redigerings transaktioner och 1 000 kostnads fria testnings slut punkt förfrågningar varje månad. |`LUIS.Authoring`|`Cognitive Services`|
-|Förutsägelse resurs| När du har publicerat ditt LUIS-program använder du förutsägelse resurs/nyckel för att fråga förutsägelse slut punkts begär Anden. Skapa en LUIS förutsägelse resurs innan klient programmet begär förutsägelser utöver de 1 000-begäranden som anges av redigerings-eller start resurs. <br><br> Det finns två nivåer för förutsägelse resursen:<br><ul> <li> **Kostnads fri F0 förutsägelse resurs** , som ger dig 10 000 kostnads fri förutsägelse slut punkt begär Anden varje månad.<br> <li> **Standard S0 förutsägelse resurs** , som är den betalda nivån. [Läs mer om priser.](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
+|Skapar resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. [Skapa en Luis Authoring-resurs](luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal) om du tänker redigera Luis Apps program mässigt eller från Luis-portalen. Du måste [migrera ditt Luis-konto](luis-migration-authoring.md#what-is-migration) innan du länkar dina Azures redigerings resurser till ditt program. Du kan kontrol lera behörigheter till redigerings resursen genom att tilldela personer [rollen deltagare](#contributions-from-other-authors). <br><br> En nivå är tillgänglig för LUIS Authoring-resursen:<br> <ul> <li>**Kostnads fri F0 Authoring-resurs**, som ger dig 1 000 000 kostnads fria redigerings transaktioner och 1 000 kostnads fria testnings slut punkt förfrågningar varje månad. |`LUIS.Authoring`|`Cognitive Services`|
+|Förutsägelse resurs| När du har publicerat ditt LUIS-program använder du förutsägelse resurs/nyckel för att fråga förutsägelse slut punkts begär Anden. Skapa en LUIS förutsägelse resurs innan klient programmet begär förutsägelser utöver de 1 000-begäranden som anges av redigerings-eller start resurs. <br><br> Det finns två nivåer för förutsägelse resursen:<br><ul> <li> **Kostnads fri F0 förutsägelse resurs**, som ger dig 10 000 kostnads fri förutsägelse slut punkt begär Anden varje månad.<br> <li> **Standard S0 förutsägelse resurs**, som är den betalda nivån. [Läs mer om priser.](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
 |Start/utvärderings resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. Den här resursen skapas som standard om du väljer alternativet Start resurs första gången du loggar in på LUIS. Start nyckeln är slutligen inaktuell. Alla LUIS-användare kommer att behöva [migrera sina konton](luis-migration-authoring.md#what-is-migration) och länka sina Luis-program till en redigerings resurs. Till skillnad från redigerings resursen ger den här resursen inte behörighet för Azure-rollbaserad åtkomst kontroll. <br><br> Precis som med redigerings resursen ger start resursen dig 1 000 000 kostnads fri redigering av transaktioner och 1 000 kostnads fria test slut punkter.|-|Inte en Azure-resurs.|
 |[Cognitive Services resurs nyckel för multitjänst](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Slut punkts begär Anden för förfrågan som delas med LUIS och andra kognitiva tjänster som stöds.|`CognitiveServices`|`Cognitive Services`|
 
@@ -52,7 +52,7 @@ Om du vill ändra ägarskap för en resurs kan du utföra någon av följande å
 * Exportera LUIS-appen som en fil och importera sedan appen på en annan prenumeration. Export är tillgängligt på sidan **Mina appar** i Luis-portalen.
 
 
-## <a name="resource-limits"></a>Resursbegränsningar
+## <a name="resource-limits"></a>Resursgränser
 
 ### <a name="authoring-key-creation-limits"></a>Redigerings gränser för att skapa nycklar
 
@@ -176,7 +176,7 @@ Du kan styra vem som kan se slut punkts nyckeln för LUIS förutsägelse körnin
 
 ### <a name="create-resources-in-the-azure-cli"></a>Skapa resurser i Azure CLI
 
-Använd [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att skapa varje resurs individuellt.
+Använd [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) för att skapa varje resurs individuellt.
 
 Resurs `kind` :
 
@@ -224,7 +224,7 @@ Du kan tilldela en redigerings resurs för en enskild app eller för alla appar 
 Du kan använda den här proceduren för att skapa en redigerare eller en förutsägelse resurs eller tilldela en till ett program: 
 
 1. Logga in på [Luis-portalen](https://www.luis.ai). Välj en app i listan **Mina appar** .
-1. Gå till **Hantera**  >  **Azure-resurser** :
+1. Gå till **Hantera**  >  **Azure-resurser**:
 
     ![Skärm bild som visar sidan Azure-resurser.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
 

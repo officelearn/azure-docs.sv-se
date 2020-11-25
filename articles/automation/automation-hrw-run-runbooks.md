@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2f1c703f2bd2e90e15c566b7e04e8a878c16f6de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772829"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001277"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Köra runbook-flöden på Hybrid Runbook Worker
 
@@ -86,7 +86,7 @@ Använd följande procedur för att ange ett Kör som-konto för en Hybrid Runbo
 
 1. Skapa en [inloggnings till gång](./shared-resources/credentials.md) med till gång till lokala resurser.
 2. Öppna Automation-kontot i Azure Portal.
-3. Välj **hybrid Worker grupper**och välj sedan den aktuella gruppen.
+3. Välj **hybrid Worker grupper** och välj sedan den aktuella gruppen.
 4. Välj **alla inställningar**, följt av **inställningarna för Hybrid Worker-grupper**.
 5. Ändra värdet för **Kör som** **från standardvärdet** till **Custom**.
 6. Välj autentiseringsuppgiften och klicka på **Spara**.
@@ -263,7 +263,7 @@ Om du vill skapa GPG-nyckelring och nyckel par använder du Hybrid Runbook Worke
     sudo su – nxautomation
     ```
 
-2. När du använder **nxautomation**genererar du GPG-nyckelpar. GPG vägleder dig genom stegen. Du måste ange namn, e-postadress, förfallo tid och lösen fras. Sedan väntar du tills det finns tillräckligt med entropi på datorn för att nyckeln ska genereras.
+2. När du använder **nxautomation** genererar du GPG-nyckelpar. GPG vägleder dig genom stegen. Du måste ange namn, e-postadress, förfallo tid och lösen fras. Sedan väntar du tills det finns tillräckligt med entropi på datorn för att nyckeln ska genereras.
 
     ```bash
     sudo gpg --generate-key
@@ -299,7 +299,7 @@ När du har konfigurerat verifieringen av signaturen använder du följande GPG-
 gpg –-clear-sign <runbook name>
 ```
 
-Den signerade runbooken kallas ** <runbook name> . asc**.
+Den signerade runbooken kallas **<runbook name> . asc**.
 
 Nu kan du ladda upp den signerade runbooken till Azure Automation och köra den som en vanlig Runbook.
 
@@ -307,7 +307,7 @@ Nu kan du ladda upp den signerade runbooken till Azure Automation och köra den 
 
 [Starta en Runbook i Azure Automation](start-runbooks.md) beskriver olika metoder för att starta en Runbook. Om du startar en Runbook på en Hybrid Runbook Worker används ett **Kör** som-alternativ som gör att du kan ange namnet på en hybrid Runbook Worker grupp. När en grupp anges hämtar och kör en av arbets tagarna i gruppen och kör runbooken. Om din Runbook inte anger det här alternativet Kör Azure Automation Runbook som vanligt.
 
-När du startar en Runbook i Azure Portal visas alternativet **kör på** där du kan välja **Azure** eller **hybrid Worker**. Om du väljer **hybrid Worker**kan du välja hybrid Runbook Workers gruppen i en listruta.
+När du startar en Runbook i Azure Portal visas alternativet **kör på** där du kan välja **Azure** eller **hybrid Worker**. Om du väljer **hybrid Worker** kan du välja hybrid Runbook Workers gruppen i en listruta.
 
 När du startar en Runbook med PowerShell använder du `RunOn` parametern med cmdleten [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) . I följande exempel används Windows PowerShell för att starta en Runbook med namnet **test-Runbook** på en hybrid Runbook Worker grupp med namnet MyHybridGroup.
 

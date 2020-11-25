@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 956406ec5ac99be5973f1928bbb89db10e68b339
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533775"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000511"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Kör Apache Hive frågor med Apache Hadoop i HDInsight med REST
 
@@ -31,7 +31,7 @@ Lär dig hur du använder WebHCat-REST API för att köra Apache Hive frågor me
 
 ## <a name="base-uri-for-rest-api"></a>Bas-URI för REST API
 
-Bas Uniform Resource Identifier (URI) för REST API på HDInsight är `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , där `CLUSTERNAME` är namnet på klustret.  Kluster namn i URI: er är Skift läges **känsliga** .  Kluster namnet i det fullständigt kvalificerade domän namnet (FQDN) i URI: n () är Skift läges okänsligt `CLUSTERNAME.azurehdinsight.net` , men andra förekomster i URI: n är Skift läges känsliga.
+Bas Uniform Resource Identifier (URI) för REST API på HDInsight är `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , där `CLUSTERNAME` är namnet på klustret.  Kluster namn i URI: er är Skift läges **känsliga**.  Kluster namnet i det fullständigt kvalificerade domän namnet (FQDN) i URI: n () är Skift läges okänsligt `CLUSTERNAME.azurehdinsight.net` , men andra förekomster i URI: n är Skift läges känsliga.
 
 ## <a name="authentication"></a>Autentisering
 
@@ -120,7 +120,7 @@ $clusterName
     {"module":"hive","version":"1.2.1000.2.6.5.3008-11"}
     ```
 
-1. Använd följande för att skapa en tabell med namnet **log4jLogs** :
+1. Använd följande för att skapa en tabell med namnet **log4jLogs**:
 
     ```bash
     jobid=$(curl -s -u admin:$password -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$clusterName.azurehdinsight.net/templeton/v1/hive | jq -r .id)
@@ -156,7 +156,7 @@ $clusterName
 
    * `ROW FORMAT` – Hur data formateras. Fälten i varje logg skiljs åt med ett blank steg.
    * `STORED AS TEXTFILE LOCATION` – Var data lagras (exempel/data-katalogen) och att de lagras som text.
-   * `SELECT` – Väljer antalet rader där kolumnen **T4** innehåller värdet **[Error]** . Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.
+   * `SELECT` – Väljer antalet rader där kolumnen **T4** innehåller värdet **[Error]**. Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.
 
      > [!NOTE]  
      > Observera att blank stegen mellan HiveQL-uttryck ersätts med ett `+` tecken när det används med en sväng. Citerade värden som innehåller ett blank steg, t. ex. avgränsare, ska inte ersättas med `+` .
@@ -181,7 +181,7 @@ $clusterName
     (ConvertFrom-Json $fixDup).status.state
     ```
 
-    Om jobbet har slutförts har statusen **slutförts** .
+    Om jobbet har slutförts har statusen **slutförts**.
 
 1. När jobbets tillstånd har ändrats till **lyckades** kan du hämta resultatet från Azure Blob Storage. Den `statusdir` parameter som skickades med frågan innehåller platsen för utdatafilen, i det här fallet `/example/rest` . Den här adressen lagrar utdata i `example/curl` katalogen i klustrets standard lagring.
 

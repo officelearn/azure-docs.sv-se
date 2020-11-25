@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: c1b0ce62905424032c2100a1a032fa43ba97578f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87084865"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999407"
 ---
 # <a name="restore-an-app-in-azure"></a>Återställ en app i Azure
 Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/overview.md) som du tidigare har säkerhetskopierat (se [säkerhetskopiera din app i Azure](manage-backup.md)). Du kan återställa din app med dess länkade databaser på begäran till ett tidigare tillstånd, eller skapa en ny app baserat på en av din ursprungliga programs säkerhets kopior. Azure App Service stöder följande databaser för säkerhets kopiering och återställning:
@@ -39,7 +39,7 @@ Den här artikeln visar hur du återställer en app i [Azure App Service](../app
     ![Skärm bild som visar var du anger målet för appens återställning.](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
-   > Om du väljer **Skriv över**raderas och skrivs alla befintliga data i din aktuella app över. Kontrol lera att det är precis det du vill göra innan du klickar på **OK**.
+   > Om du väljer **Skriv över** raderas och skrivs alla befintliga data i din aktuella app över. Kontrol lera att det är precis det du vill göra innan du klickar på **OK**.
    > 
    > 
    
@@ -55,7 +55,7 @@ Den här artikeln visar hur du återställer en app i [Azure App Service](../app
 <a name="StorageAccount"></a>
 
 ## <a name="download-or-delete-a-backup-from-a-storage-account"></a>Hämta eller ta bort en säkerhets kopia från ett lagrings konto
-1. Välj **lagrings konton**på den huvudsakliga sidan **Bläddra** i Azure Portal. En lista över dina befintliga lagrings konton visas.
+1. Välj **lagrings konton** på den huvudsakliga sidan **Bläddra** i Azure Portal. En lista över dina befintliga lagrings konton visas.
 2. Välj det lagrings konto som innehåller den säkerhets kopia som du vill ladda ned eller ta bort. Sidan för lagrings kontot visas.
 3. På sidan lagrings konto väljer du den behållare som du vill använda
    

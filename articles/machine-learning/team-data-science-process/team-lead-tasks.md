@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321210"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000036"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Uppgifter för team ledare i en team data vetenskap process-grupp
 
@@ -89,7 +89,7 @@ Så här skapar du ett separat projekt för ditt team:
    
    ![Välj nytt projekt](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
-1. I dialog rutan **skapa projekt** anger du ditt grupp namn, till exempel min *team* , under **projekt namn** och väljer sedan **Avancerat**. 
+1. I dialog rutan **skapa projekt** anger du ditt grupp namn, till exempel min *team*, under **projekt namn** och väljer sedan **Avancerat**. 
    
 1. Under **versions kontroll** väljer du **git** och under **arbets objekts process** väljer du **Agile**. Välj sedan **Skapa**. 
    
@@ -148,7 +148,7 @@ För att fylla i dina team databaser med innehållet i gruppen gemensamma databa
    
 1. Längst upp på projektets **databaser** -sida, list rutan och välj **TeamUtilities** -lagringsplatsen.
    
-1. Upprepa import processen för att importera innehållet i din grupp vanliga verktyg-lagringsplats, till exempel *GroupUtilities* , till din **TeamUtilities** -lagringsplats. 
+1. Upprepa import processen för att importera innehållet i din grupp vanliga verktyg-lagringsplats, till exempel *GroupUtilities*, till din **TeamUtilities** -lagringsplats. 
    
 Var och en av dina två team-databaser innehåller nu filerna från motsvarande grupps gemensamma lagrings plats. 
 
@@ -296,7 +296,7 @@ Information om hur du delar andra resurser med ditt team, till exempel Azure HDI
    
 1. Välj det lagrings konto som du vill använda, eller skapa ett nytt under den valda prenumerationen. Du kan använda gemener, siffror och bindestreck för Azure File Storage-namnet.
    
-1. För att under lätta montering och delning av lagringen, tryck på RETUR eller ange *Y* för att spara informationen om Azure File Storage i en textfil i den aktuella katalogen. Du kan kontrol lera text filen i **TeamTemplate** -lagringsplatsen, helst under **Docs\DataDictionaries** , så att alla projekt i teamet kan komma åt den. Du behöver också fil informationen för att montera Azure File Storage i Azure-DSVM i nästa avsnitt. 
+1. För att under lätta montering och delning av lagringen, tryck på RETUR eller ange *Y* för att spara informationen om Azure File Storage i en textfil i den aktuella katalogen. Du kan kontrol lera text filen i **TeamTemplate** -lagringsplatsen, helst under **Docs\DataDictionaries**, så att alla projekt i teamet kan komma åt den. Du behöver också fil informationen för att montera Azure File Storage i Azure-DSVM i nästa avsnitt. 
    
 ### <a name="mount-azure-file-storage-on-your-local-machine-or-dsvm"></a>Montera Azure File Storage på din lokala dator eller DSVM
 

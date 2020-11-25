@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4bcbbd9378b6ea861c926eed16d2ceed8131b913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082757"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000971"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Process roller och uppgifter för team data vetenskap
 
@@ -65,7 +65,7 @@ Grupp hanteraren eller en utsedd TDSP system administratör utför följande upp
 - Skapar en **lagrings plats för projekt mal len** i Azure DevOps Group-projektet och dirigerar den från lagrings platsen för projekt mal len som har utvecklats av Microsoft TDSP-teamet. Microsoft TDSP Project Template-lagringsplatsen innehåller:
   - En **standardiserad katalog struktur**, inklusive kataloger för data, kod och dokument.
   - En uppsättning **standardiserade dokumentmallar** som hjälper dig att skapa en effektiv data vetenskaps process.
-- Skapar en **verktygs lagrings plats**och dirigerar den från verktygets lagrings plats som utvecklats av Microsoft TDSP-teamet. TDSP Utility-lagringsplatsen från Microsoft tillhandahåller en uppsättning användbara verktyg för att göra arbetet i en data expert mer effektivt. Microsoft-verktygets lagrings plats innehåller verktyg för interaktiv data utforskning, analys, rapportering och bas linje modellering och rapportering.
+- Skapar en **verktygs lagrings plats** och dirigerar den från verktygets lagrings plats som utvecklats av Microsoft TDSP-teamet. TDSP Utility-lagringsplatsen från Microsoft tillhandahåller en uppsättning användbara verktyg för att göra arbetet i en data expert mer effektivt. Microsoft-verktygets lagrings plats innehåller verktyg för interaktiv data utforskning, analys, rapportering och bas linje modellering och rapportering.
 - Konfigurerar **säkerhets kontroll principen** för organisations kontot.
 
 Detaljerade anvisningar finns i [grupp chefs aktiviteter för ett data vetenskaps team](group-manager-tasks.md).

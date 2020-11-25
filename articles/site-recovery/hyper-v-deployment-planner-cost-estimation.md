@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 29457f2f5021fed9d8785f5764c4119de4be1fa9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089557"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999220"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapporten Kostnadsuppskattning från Distributionshanteraren för Azure Site Recovery 
 
@@ -167,7 +167,7 @@ usaöstra, usaöstra2, usavästra, usacentrala, usanorracentrala, usasödracentr
 ## <a name="supported-currencies"></a>Valutor som stöds
 Distributionshanteraren för Site Recovery kan generera kostnadsrapporten i någon av följande valutor.
 
-|Valuta|Namn|Valuta|Namn|Valuta|Namn|
+|Valuta|Name|Valuta|Name|Valuta|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|Argentinska pesos ($)|AUD|Australiensiska dollar ($)|BRL|Brasilianska real (R$)|
 |CAD|Kanadensiska dollar ($)|CHF|Schweiziska franc (chf)|DKK|Danska kronor (kr)|

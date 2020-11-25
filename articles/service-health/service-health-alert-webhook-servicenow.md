@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: f120e9d950cc349d0331a476dbfbfe9d7e599f0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307576"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000648"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Skicka Azure Service Health-aviseringar med ServiceNow med webhookar
 
@@ -33,7 +33,7 @@ Den här artikeln visar hur du integrerar Azure Service Health-aviseringar med S
 
     ![REST API inställningar i ServiceNow](./media/webhook-alerts/servicenow-restapi-settings.png)
 
-1.  Välj den REST API som du skapade och välj **ny**under fliken **resurser** .
+1.  Välj den REST API som du skapade och välj **ny** under fliken **resurser** .
 
     ![Fliken "resurs" i ServiceNow](./media/webhook-alerts/servicenow-resources-tab.png)
 

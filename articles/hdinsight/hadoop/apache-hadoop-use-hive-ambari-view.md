@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: cc04a891bb32ede6c7bb72a339b728642cf343ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207823"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000529"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använd Apache Ambari Hive-vyn med Apache Hadoop i HDInsight
 
@@ -21,7 +21,7 @@ ms.locfileid: "86207823"
 
 Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive-vyn. I Hive-vyn kan du redigera, optimera och köra Hive-frågor från webbläsaren.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
@@ -29,7 +29,7 @@ Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache
 
 1. Välj ditt kluster från [Azure Portal](https://portal.azure.com/).  Instruktioner finns i [lista och Visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters) . Klustret öppnas i en ny portal vy.
 
-1. Välj **Ambari vyer**från **kluster instrument paneler**. När du uppmanas att autentisera ska du använda det `admin` konto namn och lösen ord för kluster inloggning (standard) som du angav när du skapade klustret. Du kan också navigera till `https://CLUSTERNAME.azurehdinsight.net/#/main/views` i din webbläsare där `CLUSTERNAME` är namnet på klustret.
+1. Välj **Ambari vyer** från **kluster instrument paneler**. När du uppmanas att autentisera ska du använda det `admin` konto namn och lösen ord för kluster inloggning (standard) som du angav när du skapade klustret. Du kan också navigera till `https://CLUSTERNAME.azurehdinsight.net/#/main/views` i din webbläsare där `CLUSTERNAME` är namnet på klustret.
 
 1. I listan med vyer väljer du __Hive-vy__.
 
@@ -62,11 +62,11 @@ Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache
 
     |Uttryck | Beskrivning |
     |---|---|
-    |TA BORT TABELL|Tar bort tabellen och data filen, om tabellen redan finns.|
+    |DROP TABLE|Tar bort tabellen och data filen, om tabellen redan finns.|
     |SKAPA EXTERN TABELL|Skapar en ny "extern" tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data finns kvar på den ursprungliga platsen.|
     |RAD FORMAT|Visar hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.|
     |LAGRAD SOM TEXTFILE-PLATS|Visar var data lagras och att de lagras som text.|
-    |VÄLJ|Väljer ett antal rader där kolumnen T4 innehåller värdet [ERROR].|
+    |SELECT|Väljer ett antal rader där kolumnen T4 innehåller värdet [ERROR].|
 
    > [!IMPORTANT]  
    > Låt __databasen__ vara markerad som __standard__. I exemplen i det här dokumentet används standard databasen som ingår i HDInsight.
@@ -141,7 +141,7 @@ Om du till exempel har definierat en UDF med följande egenskaper:
 
 * UDF-klass namn: com. myudfs. toppen
 
-Om du använder knappen **Infoga UDF: er** visas en post med namnet **myudfs**med en annan listruta för varje UDF som definierats för resursen. I det här fallet är det **myawesomeudf**. Om du väljer den här posten läggs följande till i början av frågan:
+Om du använder knappen **Infoga UDF: er** visas en post med namnet **myudfs** med en annan listruta för varje UDF som definierats för resursen. I det här fallet är det **myawesomeudf**. Om du väljer den här posten läggs följande till i början av frågan:
 
 ```hiveql
 add jar /myudfs.jar;

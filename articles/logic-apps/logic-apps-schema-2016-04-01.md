@@ -9,11 +9,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
 ms.openlocfilehash: ccc7df5bfac327fabf05f210764dbe10658b5015
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86520723"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000325"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Schema uppdateringar för Azure Logic Apps – 1 juni 2016
 
@@ -121,7 +121,7 @@ Om du vill uppgradera till det [senaste schemat](https://schema.management.azure
    > [!NOTE]
    > Om du använder en manuell eller begär ande utlösare ändras återanrops-URL: en för den nya Logic-appen. Testa den nya URL: en för att se till att slut punkt till slut punkt fungerar. För att bevara tidigare URL: er kan du klona över din befintliga Logic-app.
 
-6. *Valfritt* Om du vill skriva över din tidigare Logic-app med den nya schema versionen väljer du **klona**bredvid **uppdaterings schema**i verktygsfältet. Det här steget är bara nödvändigt om du vill behålla samma resurs-ID eller begär Utlösar-URL för din Logic app.
+6. *Valfritt* Om du vill skriva över din tidigare Logic-app med den nya schema versionen väljer du **klona** bredvid **uppdaterings schema** i verktygsfältet. Det här steget är bara nödvändigt om du vill behålla samma resurs-ID eller begär Utlösar-URL för din Logic app.
 
 ## <a name="upgrade-tool-notes"></a>Information om uppgraderings verktyget
 

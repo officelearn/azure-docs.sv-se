@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 17b070fea422268ec12e0ccd3357ae0549a78916
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e803fa393d85f7f0b4849aed96356b7a4e77d83f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566273"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96000138"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Language Understanding
 
@@ -95,7 +95,7 @@ För att åtgärda det här felet måste du antingen [ändra pris nivån](luis-h
 
 Lösningar för det här felet är:
 
-* I [Azure Portal](https://portal.azure.com)i language Understanding resurs, på **pris nivån resurs hantering->** , ändrar du pris nivån till en högre TPS-nivå. Du behöver inte göra något i Language Understanding portal om din resurs redan har tilldelats till din Language Understanding-app.
+* I [Azure Portal](https://portal.azure.com)i language Understanding resurs, på **pris nivån resurs hantering->**, ändrar du pris nivån till en högre TPS-nivå. Du behöver inte göra något i Language Understanding portal om din resurs redan har tilldelats till din Language Understanding-app.
 *  Om din användning överskrider den högsta pris nivån lägger du till fler Language Understanding resurser med en belastningsutjämnare framför dem. [Language Understanding containern](luis-container-howto.md) med Kubernetes eller Docker Compose kan hjälpa dig med detta.
 
 ### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>Jag har fått en HTTP 429-fel status kod. Vad kan jag göra?
@@ -108,7 +108,7 @@ Lösningarna omfattar:
 
 * Du kan [öka pris nivån](luis-how-to-azure-subscription.md#change-the-pricing-tier)om du inte är på den högsta nivån.
 * Om din användning överskrider den högsta pris nivån lägger du till fler Language Understanding resurser med en belastningsutjämnare framför dem. [Language Understanding containern](luis-container-howto.md) med Kubernetes eller Docker Compose kan hjälpa dig med detta.
-* Du kan Grinda klient program begär Anden med en [princip för återförsök](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) som du implementerar själv när du får den här status koden.
+* Du kan Grinda klient program begär Anden med en [princip för återförsök](/azure/architecture/best-practices/transient-faults#general-guidelines) som du implementerar själv när du får den här status koden.
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Min slut punkts fråga returnerade oväntade resultat. Vad ska jag göra?
 
@@ -286,7 +286,7 @@ Om du använder Azure Bot Service och problemet är att **testet i Web Chat** re
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Lös problemet vid fel sökning på den lokala datorn med bot Framework.
 
-Mer information om lokal fel sökning av en bot finns i [Felsöka en bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+Mer information om lokal fel sökning av en bot finns i [Felsöka en bot](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
 ## <a name="integrating-luis"></a>Integrera LUIS
 
@@ -296,7 +296,7 @@ Om du väljer en LUIS-mall och väljer knappen **Välj** i rutan mall ändras de
 ![LUIS-mall Web App bot region](./media/luis-faq/web-app-bot-location.png)
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Vilka LUIS-regioner stöder bot Framework Speech Prima?
-[Tal-Prima](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) stöds bara för Luis-appar i den centrala (amerikanska) instansen.
+[Tal-Prima](/bot-framework/bot-service-manage-speech-priming) stöds bara för Luis-appar i den centrala (amerikanska) instansen.
 
 ## <a name="api-programming-strategies"></a>API-programmerings strategier
 
@@ -334,4 +334,4 @@ Videor:
 
 Mer information om LUIS finns i följande resurser:
 * [Stack Overflow frågor taggade med LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Sidan Microsoft Q&en fråga för MSDN Language Understanding intelligent Services (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
+* [Sidan Microsoft Q&en fråga för MSDN Language Understanding intelligent Services (LUIS)](/answers/topics/azure-language-understanding.html)

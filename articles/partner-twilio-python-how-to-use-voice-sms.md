@@ -14,11 +14,11 @@ ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: devx-track-python
 ms.openlocfilehash: ba93591ade730c4e9c9bdb6a42232e71e10d6469
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87850159"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000444"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Använda Twilio för röst-och SMS-funktioner i python
 Den här guiden visar hur du utför vanliga programmerings åtgärder med Twilio API-tjänsten på Azure. Scenarierna som ingår är att ringa ett telefonsamtal och skicka ett SMS-meddelande (Short Message Service). Mer information om Twilio och hur du använder röst-och SMS i dina program finns i avsnittet [Nästa steg](#NextSteps) .
@@ -41,21 +41,21 @@ Twilio-API: et är ett RESTful-API som tillhandahåller röst-och SMS-funktioner
 Viktiga aspekter av Twilio-API: et är Twilio-verb och Twilio Markup Language (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Twilio-verb
-API: et använder Twilio-verb. exempelvis instruerar verbet Twilio till audibly att leverera ett meddelande på ett samtal. ** &lt; &gt; **
+API: et använder Twilio-verb. exempelvis instruerar verbet Twilio till audibly att leverera ett meddelande på ett samtal. **&lt; &gt;**
 
 Följande är en lista över Twilio-verb. Lär dig mer om andra verb och funktioner via [Twilio Markup Language-dokumentation][twiml].
 
-* ** &lt; Dial &gt; **: ansluter anroparen till en annan telefon.
-* ** &lt; Samla &gt; **in: samlar in numeriska siffror som anges på telefon tangent bordet.
-* Koppla: avslutar ett anrop. ** &lt; &gt; **
-* ** &lt; Paus &gt; **: väntar i tyst läge under ett angivet antal sekunder.
-* ** &lt; Play &gt; **: spelar upp en ljudfil.
-* ** &lt; Kö &gt; **: Lägg till i en kö med anropare.
-* ** &lt; Post &gt; **: registrerar rösten för anroparen och returnerar en URL för en fil som innehåller inspelningen.
-* ** &lt; Omdirigera &gt; **: överför kontroll av ett anrop eller SMS till TWIML på en annan URL.
-* ** &lt; Avvisa &gt; **: avvisar ett inkommande samtal till ditt Twilio-nummer utan fakturering.
-* ** &lt; Säg &gt; **: konverterar text till tal som görs i ett samtal.
-* ** &lt; SMS &gt; **: skickar ett SMS-meddelande.
+* **&lt; Dial &gt;**: ansluter anroparen till en annan telefon.
+* **&lt; Samla &gt;** in: samlar in numeriska siffror som anges på telefon tangent bordet.
+* Koppla: avslutar ett anrop. **&lt; &gt;**
+* **&lt; Paus &gt;**: väntar i tyst läge under ett angivet antal sekunder.
+* **&lt; Play &gt;**: spelar upp en ljudfil.
+* **&lt; Kö &gt;**: Lägg till i en kö med anropare.
+* **&lt; Post &gt;**: registrerar rösten för anroparen och returnerar en URL för en fil som innehåller inspelningen.
+* **&lt; Omdirigera &gt;**: överför kontroll av ett anrop eller SMS till TWIML på en annan URL.
+* **&lt; Avvisa &gt;**: avvisar ett inkommande samtal till ditt Twilio-nummer utan fakturering.
+* **&lt; Säg &gt;**: konverterar text till tal som görs i ett samtal.
+* **&lt; SMS &gt;**: skickar ett SMS-meddelande.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML är en uppsättning XML-baserade instruktioner som baseras på Twilio-verb som informerar Twilio om hur man bearbetar ett anrop eller SMS.

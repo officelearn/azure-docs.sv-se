@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 48a9856c58a815eabcc0b105efcd548e66ddd552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4f2b07edc6c290fa030621a4dc400ab50890bba
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80874219"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001212"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Konfigurera Language Understanding Docker-behållare 
 
@@ -26,16 +26,16 @@ ms.locfileid: "80874219"
 
 Den här behållaren har följande konfigurations inställningar:
 
-|Krävs|Inställning|Syfte|
+|Obligatorisk|Inställning|Syfte|
 |--|--|--|
-|Ja|[ApiKey](#apikey-setting)|Används för att spåra fakturerings information.|
-|Inga|[ApplicationInsights](#applicationinsights-setting)|Gör att du kan lägga till stöd för [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) -telemetri till din behållare.|
-|Ja|[Billing](#billing-setting)|Anger slut punkts-URI för tjänst resursen på Azure.|
-|Ja|[Villkoren](#eula-setting)| Anger att du har accepterat licensen för behållaren.|
-|Inga|[Fluent](#fluentd-settings)|Skriv logg och, om du vill, Metric-data till en Fluent-Server.|
-|Inga|[Http-proxy](#http-proxy-credentials-settings)|Konfigurera en HTTP-proxy för att göra utgående begär Anden.|
-|Inga|[Loggning](#logging-settings)|Tillhandahåller ASP.NET Core loggnings stöd för din behållare. |
-|Ja|[Monterar](#mount-settings)|Läs och Skriv data från värddatorn till behållare och från behållare tillbaka till värddatorn.|
+|Yes|[ApiKey](#apikey-setting)|Används för att spåra fakturerings information.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Gör att du kan lägga till stöd för [Azure Application Insights](/azure/application-insights) -telemetri till din behållare.|
+|Yes|[Billing](#billing-setting)|Anger slut punkts-URI för tjänst resursen på Azure.|
+|Yes|[Villkoren](#eula-setting)| Anger att du har accepterat licensen för behållaren.|
+|No|[Fluent](#fluentd-settings)|Skriv logg och, om du vill, Metric-data till en Fluent-Server.|
+|No|[Http-proxy](#http-proxy-credentials-settings)|Konfigurera en HTTP-proxy för att göra utgående begär Anden.|
+|No|[Loggning](#logging-settings)|Tillhandahåller ASP.NET Core loggnings stöd för din behållare. |
+|Yes|[Monterar](#mount-settings)|Läs och Skriv data från värddatorn till behållare och från behållare tillbaka till värddatorn.|
 
 > [!IMPORTANT]
 > [`ApiKey`](#apikey-setting)Inställningarna, [`Billing`](#billing-setting) och [`Eula`](#eula-setting) används tillsammans och du måste ange giltiga värden för alla dessa tre. i annat fall startar inte behållaren. Mer information om hur du använder dessa konfigurations inställningar för att instansiera en behållare finns i [fakturering](luis-container-howto.md#billing).
@@ -64,7 +64,7 @@ Du hittar den här inställningen på följande platser:
 * Azure Portal: **Cognitive Services** översikt, etiketterad `Endpoint`
 * LUIS Portal: **Inställningar för nycklar och slut punkt** som en del av slut punktens URI.
 
-| Krävs | Name | Datatyp | Beskrivning |
+| Obligatorisk | Name | Datatyp | Beskrivning |
 |----------|------|-----------|-------------|
 | Ja      | `Billing` | sträng | URI för fakturerings slut punkt. Mer information om hur du skaffar fakturerings-URI: n finns i [samla in obligatoriska parametrar](luis-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
@@ -94,10 +94,10 @@ Den exakta syntaxen för värd monterings platsen varierar beroende på värd op
 
 I följande tabell beskrivs de inställningar som stöds.
 
-|Krävs| Name | Datatyp | Beskrivning |
+|Obligatorisk| Name | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
 |Ja| `Input` | Sträng | Målet för den inmatade monteringen. Standardvärdet är `/input`. Det här är platsen för LUIS. <br><br>Exempel:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Inga| `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`. Detta är platsen för loggarna. Detta inkluderar LUIS-frågemeddelanden och behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Nej| `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`. Detta är platsen för loggarna. Detta inkluderar LUIS-frågemeddelanden och behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel på Docker-körnings kommandon
 

@@ -4,11 +4,11 @@ description: Den här guiden hjälper administratörer som skapar och hanterar l
 ms.topic: article
 ms.date: 10/20/2020
 ms.openlocfilehash: 08d2fea719ad67f666ea9da09721dc3f7ab54768
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024644"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999288"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services-administratörs guide
 IT-administratörer som hanterar ett universitets moln resurser är vanligt vis ansvariga för att ställa in labb kontot för sin skola. När du har konfigurerat ett labb konto skapar administratörer eller lärare de labb som finns i kontot. Den här artikeln innehåller en översikt över de Azure-resurser som är inblandade och vägledningen för att skapa dem.

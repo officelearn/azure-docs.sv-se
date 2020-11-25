@@ -4,11 +4,11 @@ description: Lär dig hur du skapar ett labb konto, visar alla labb konton eller
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 33e5e42f65fdd34bb37b12947b5173700ad7970c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251668"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999509"
 ---
 # <a name="create-and-manage-lab-accounts"></a>Skapa och hantera labbkonton
 I Azure Lab Services är ett labb konto en behållare för hanterade labb typer, till exempel klass rums labb. En administratör konfigurerar ett labb konto med Azure Lab Services och ger till gång till labb ägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labb konto, visar alla labb konton eller tar bort ett labb konto.
@@ -34,7 +34,7 @@ Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto 
 5. Välj **Nästa: Avancerat** längst ned på sidan för att navigera till fliken **Avancerat** och utför sedan följande steg: 
     1. Välj ett befintligt **delat avbildnings Galleri** eller skapa ett. Du kan spara mallen VM i det delade avbildnings galleriet så att den återanvänds av andra. Detaljerad information om delade avbildnings gallerier finns [i använda ett delat avbildnings galleri i Azure Lab Services](how-to-use-shared-image-gallery.md).
     2. Ange om du vill **stänga virtuella Windows-datorer automatiskt** när användarna kopplar från dem. Ange hur länge de virtuella datorerna ska vänta tills användaren ansluter igen innan den stängs av automatiskt. 
-    3. För **peer Virtual Network**väljer du ett peer-virtuellt nätverk (VNet) för labb nätverket. Labb som skapats i det här kontot är anslutna till det valda virtuella nätverket och har åtkomst till resurserna i det valda virtuella nätverket. Mer information finns i [ansluta ditt labbs virtuella nätverk till ett virtuellt peer-nätverk](how-to-connect-peer-virtual-network.md).    
+    3. För **peer Virtual Network** väljer du ett peer-virtuellt nätverk (VNet) för labb nätverket. Labb som skapats i det här kontot är anslutna till det valda virtuella nätverket och har åtkomst till resurserna i det valda virtuella nätverket. Mer information finns i [ansluta ditt labbs virtuella nätverk till ett virtuellt peer-nätverk](how-to-connect-peer-virtual-network.md).    
     8. Ange ett **adress intervall** för virtuella datorer i labbet. Adress intervallet bör vara i CIDR-notation (Classless Inter-Domain routing) (exempel: 10.20.0.0/23). Virtuella datorer i labbet skapas i det här adress intervallet. Mer information finns i [Ange ett adress intervall för virtuella datorer i labbet](how-to-connect-peer-virtual-network.md#specify-an-address-range-for-vms-in-the-lab-account)  
 
         > [!NOTE]
@@ -48,7 +48,7 @@ Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto 
 4. Granska sammanfattnings informationen på den här sidan och välj **skapa**. 
 
     ![Skapa labb konto – > Taggar](./media/how-to-manage-lab-accounts/create-lab-account-review-create.png)
-5. Vänta tills distributionen är klar expanderar du **Nästa steg**och väljer **gå till resurs** som det visas i följande bild: 
+5. Vänta tills distributionen är klar expanderar du **Nästa steg** och väljer **gå till resurs** som det visas i följande bild: 
 
     Du kan också välja **klock ikonen** i verktygsfältet (**meddelanden**), kontrol lera att distributionen har slutförts och sedan välja **gå till resurs**. 
 

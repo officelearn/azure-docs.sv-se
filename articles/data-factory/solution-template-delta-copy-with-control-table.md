@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
 ms.openlocfilehash: 255e4085e24ee7520c603f8a00b3e46c23367a77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442011"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000835"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Delta kopia från en databas med en kontroll tabell
 
@@ -42,7 +42,7 @@ Mallen innehåller fyra aktiviteter:
 
 Mallen definierar följande parametrar:
 - *Data_Source_Table_Name* är tabellen i käll databasen som du vill läsa in data från.
-- *Data_Source_WaterMarkColumn* är namnet på kolumnen i käll tabellen som används för att identifiera nya eller uppdaterade rader. Den här kolumnens typ är normalt *datetime*, *int*eller liknande.
+- *Data_Source_WaterMarkColumn* är namnet på kolumnen i käll tabellen som används för att identifiera nya eller uppdaterade rader. Den här kolumnens typ är normalt *datetime*, *int* eller liknande.
 - *Data_Destination_Container* är rot Sök vägen till den plats där data kopieras till i mål arkivet.
 - *Data_Destination_Directory* är katalog Sök vägen under roten på den plats där data kopieras till i mål arkivet.
 - *Data_Destination_Table_Name* är den plats där data kopieras till i mål lagret (gäller när "Azure Synapse Analytics (tidigare SQL DW) är valt som data mål).
@@ -52,7 +52,7 @@ Mallen definierar följande parametrar:
 
 ## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
 
-1. Utforska den käll tabell som du vill läsa in och definiera den övre vatten märkes kolumnen som kan användas för att identifiera nya eller uppdaterade rader. Typen för den här kolumnen kan vara *datetime*, *int*eller liknande. Den här kolumnens värde ökar när nya rader läggs till. I följande exempel käll tabell (data_source_table) kan vi använda kolumnen *LastModifytime* som övre vatten märkes kolumn.
+1. Utforska den käll tabell som du vill läsa in och definiera den övre vatten märkes kolumnen som kan användas för att identifiera nya eller uppdaterade rader. Typen för den här kolumnen kan vara *datetime*, *int* eller liknande. Den här kolumnens värde ökar när nya rader läggs till. I följande exempel käll tabell (data_source_table) kan vi använda kolumnen *LastModifytime* som övre vatten märkes kolumn.
 
     ```sql
             PersonID    Name    LastModifytime
@@ -110,15 +110,15 @@ Mallen definierar följande parametrar:
   
     ![Granska pipelinen](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-9. Välj **lagrad procedur**. För **lagrad procedur namn**väljer du **[dbo]. [ update_watermark]**. Välj **import parameter**och välj sedan **Lägg till dynamiskt innehåll**.  
+9. Välj **lagrad procedur**. För **lagrad procedur namn** väljer du **[dbo]. [ update_watermark]**. Välj **import parameter** och välj sedan **Lägg till dynamiskt innehåll**.  
 
     ![Ange den lagrade procedur aktiviteten](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
-10. Skriv innehållet ** \@ {Activity (' LookupCurrentWaterMark '). output. FirstRow. NewWatermarkValue}** och välj sedan **Slutför**.  
+10. Skriv innehållet **\@ {Activity (' LookupCurrentWaterMark '). output. FirstRow. NewWatermarkValue}** och välj sedan **Slutför**.  
 
     ![Skriv innehållet för parametrarna för den lagrade proceduren](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
-11. Välj **Felsök**, ange **parametrarna**och välj sedan **Slutför**.
+11. Välj **Felsök**, ange **parametrarna** och välj sedan **Slutför**.
 
     ![Välj * * Felsök * *](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 
@@ -136,7 +136,7 @@ Mallen definierar följande parametrar:
             VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
 
-14. Om du vill köra pipelinen igen väljer du **Felsök**, anger **parametrarna**och väljer sedan **Slutför**.
+14. Om du vill köra pipelinen igen väljer du **Felsök**, anger **parametrarna** och väljer sedan **Slutför**.
 
     Du kommer att se att endast nya rader har kopierats till målet.
 

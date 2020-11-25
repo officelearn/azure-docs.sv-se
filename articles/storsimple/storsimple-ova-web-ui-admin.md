@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 6bea9c9b7807ffb32b6071c968d3186965477009
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513050"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000937"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Använd webb gränssnittet för att administrera din virtuella StorSimple-matris
 ![konfigurations process flöde](./media/storsimple-ova-web-ui-admin/manage4.png)
@@ -41,7 +41,7 @@ Om du har felplacerat krypterings nyckeln för tjänst data och behöver hämta 
 
 #### <a name="to-get-the-service-data-encryption-key"></a>Hämta krypterings nyckeln för tjänst data
 1. Anslut till det lokala webb gränssnittet. Gå till inställningar för **konfigurations**  >  **moln**.
-2. Klicka på **Hämta krypterings nyckel för tjänst data**längst ned på sidan. En nyckel visas. Kopiera och spara den här nyckeln.
+2. Klicka på **Hämta krypterings nyckel för tjänst data** längst ned på sidan. En nyckel visas. Kopiera och spara den här nyckeln.
    
     ![Hämta krypterings nyckel för tjänst data 1](./media/storsimple-ova-web-ui-admin/image27.png)
 
@@ -52,7 +52,7 @@ I vissa fall när du konfigurerar enheten via det lokala webb gränssnittet kan 
 1. I det lokala webb gränssnittet går du till **Felsöka**  >  **diagnostiska tester**.
    
     ![Kör diagnostik 1](./media/storsimple-ova-web-ui-admin/image29.png)
-2. Klicka på **Kör diagnostiska tester**längst ned på sidan. Detta kommer att initiera tester för att diagnostisera eventuella problem med nätverks-, enhets-, webbproxy-, tids-eller moln inställningar. Du får ett meddelande om att enheten kör tester.
+2. Klicka på **Kör diagnostiska tester** längst ned på sidan. Detta kommer att initiera tester för att diagnostisera eventuella problem med nätverks-, enhets-, webbproxy-, tids-eller moln inställningar. Du får ett meddelande om att enheten kör tester.
 3. När testerna har slutförts visas resultaten. I följande exempel visas resultatet av diagnostiska tester. Observera att webbproxy-inställningarna inte har kon figurer ATS på den här enheten, och därför kördes inte webbproxy-testet. Alla andra tester för nätverks inställningar, DNS-server och tids inställningar lyckades.
    
     ![Kör diagnostik 2](./media/storsimple-ova-web-ui-admin/image30.png)
@@ -64,7 +64,7 @@ Ett logg paket består av alla relevanta loggar som kan hjälpa Microsoft Suppor
 1. I det lokala webb gränssnittet går du till **Felsöka**  >  **system loggar**.
    
     ![Generera logg paket 1](./media/storsimple-ova-web-ui-admin/image31.png)
-2. Klicka på **Skapa logg paket**längst ned på sidan. Ett paket av system loggarna kommer att skapas. Detta tar några minuter.
+2. Klicka på **Skapa logg paket** längst ned på sidan. Ett paket av system loggarna kommer att skapas. Detta tar några minuter.
    
     ![Generera logg paket 2](./media/storsimple-ova-web-ui-admin/image32.png)
    
@@ -77,11 +77,11 @@ Ett logg paket består av alla relevanta loggar som kan hjälpa Microsoft Suppor
 4. Du kan zippa upp det hämtade logg paketet och se systemloggfilerna.
 
 ## <a name="shut-down-and-restart-your-device"></a>Stäng av och starta om enheten
-Du kan stänga av eller starta om den virtuella enheten med hjälp av det lokala webb gränssnittet. Du rekommenderas att innan du startar om, ta volymerna eller resurserna offline på värden och sedan på enheten. Detta minimerar risken för skadade data. 
+Du kan stänga av eller starta om den virtuella enheten med hjälp av det lokala webbgränssnittet. Du rekommenderas att innan du startar om, ta volymerna eller resurserna offline på värden och sedan på enheten. Detta minimerar risken för skadade data. 
 
 #### <a name="to-shut-down-your-virtual-device"></a>Stänga av den virtuella enheten
 1. I det lokala webb gränssnittet går du till **underhålls**  >  **energi inställningar**.
-2. Klicka på **Avsluta**längst ned på sidan.
+2. Klicka på **Avsluta** längst ned på sidan.
    
     ![enhets avstängning 1](./media/storsimple-ova-web-ui-admin/image36.png)
 3. En varning visas om att en avstängning av enheten kommer att avbryta eventuella i/o som pågår, vilket resulterar i en stillestånds tid. Klicka på kryssikonen ![kryssikon](./media/storsimple-ova-web-ui-admin/image3.png).
@@ -96,7 +96,7 @@ Du kan stänga av eller starta om den virtuella enheten med hjälp av det lokala
 
 #### <a name="to-restart-your-virtual-device"></a>Starta om den virtuella enheten
 1. I det lokala webb gränssnittet går du till **underhålls**  >  **energi inställningar**.
-2. Klicka på **starta om**längst ned på sidan.
+2. Klicka på **starta om** längst ned på sidan.
    
     ![omstart av enhet](./media/storsimple-ova-web-ui-admin/image36.png)
 3. En varning visas om att omstart av enheten kommer att avbryta alla IOs-enheter som pågår, vilket resulterar i en stillestånds tid. Klicka på kryssikonen ![kryssikon](./media/storsimple-ova-web-ui-admin/image3.png).

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
 ms.openlocfilehash: f4cad2b658547d56d00efdd5e1496110f8e4a5e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284021"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999593"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Skapa, övervaka och hantera FTP-filer med hjälp av Azure Logic Apps
 
@@ -43,7 +43,7 @@ Du kan använda utlösare som får svar från FTP-servern och göra utdata tillg
 
 FTP-utlösare fungerar genom att avsöka FTP-filsystemet och leta efter en fil som har ändrats sedan den senaste avsökningen. Med vissa verktyg kan du bevara tidsstämpeln när filerna ändras. I dessa fall måste du inaktivera den här funktionen så att utlösaren kan fungera. Här följer några vanliga inställningar:
 
-| SFTP-klient | Action |
+| SFTP-klient | Åtgärd |
 |-------------|--------|
 | WinSCP | Gå till **alternativ**  >  **Inställningar**  >  **överför**  >  **Redigera**  >  **bevara tidsstämpel**  >  **inaktivera** |
 | FileZilla | Gå till **överför**  >  **bevara tidsstämplar för överförda filer**  >  **inaktivera** |
@@ -73,7 +73,7 @@ När en utlösare hittar en ny fil, kontrollerar utlösaren att den nya filen ä
 
    \- eller -
 
-   För befintliga Logic Apps, under det sista steget där du vill lägga till en åtgärd, väljer du **nytt steg**och sedan **Lägg till en åtgärd**. I rutan Sök anger `ftp` du som filter. I listan **åtgärder** väljer du den åtgärd som du vill använda.
+   För befintliga Logic Apps, under det sista steget där du vill lägga till en åtgärd, väljer du **nytt steg** och sedan **Lägg till en åtgärd**. I rutan Sök anger `ftp` du som filter. I listan **åtgärder** väljer du den åtgärd som du vill använda.
 
    Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
@@ -133,7 +133,7 @@ Nu när din Logic app har en utlösare lägger du till de åtgärder som du vill
 
    ![Skapa anslutning till FTP-Server](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
 
-1. När åtgärden **Hämta filens metadata** visas klickar du i rutan **fil** så att listan med dynamiskt innehåll visas. Nu kan du välja egenskaper för utdata från föregående steg. I listan med dynamiskt innehåll under **Hämta metadata för filen**väljer du egenskapen **lista över filer-ID** som refererar till den samling där filen lades till eller uppdaterades.
+1. När åtgärden **Hämta filens metadata** visas klickar du i rutan **fil** så att listan med dynamiskt innehåll visas. Nu kan du välja egenskaper för utdata från föregående steg. I listan med dynamiskt innehåll under **Hämta metadata för filen** väljer du egenskapen **lista över filer-ID** som refererar till den samling där filen lades till eller uppdaterades.
 
    ![Hitta och välj egenskapen "lista över filer-ID"](./media/connectors-create-api-ftp/select-list-of-files-id-output.png)
 
@@ -145,7 +145,7 @@ Nu när din Logic app har en utlösare lägger du till de åtgärder som du vill
 
    ![Sök efter och Välj åtgärden Hämta fil innehåll](./media/connectors-create-api-ftp/select-get-file-content-ftp-action.png)
 
-1. När åtgärden **Hämta fil innehåll** visas klickar du i rutan **fil** så att listan med dynamiskt innehåll visas. Nu kan du välja egenskaper för utdata från föregående steg. I listan med dynamiskt innehåll under **Hämta metadata för filen**väljer du egenskapen **ID** som refererar till filen som har lagts till eller uppdaterats.
+1. När åtgärden **Hämta fil innehåll** visas klickar du i rutan **fil** så att listan med dynamiskt innehåll visas. Nu kan du välja egenskaper för utdata från föregående steg. I listan med dynamiskt innehåll under **Hämta metadata för filen** väljer du egenskapen **ID** som refererar till filen som har lagts till eller uppdaterats.
 
    ![Hitta och välj egenskapen "ID"](./media/connectors-create-api-ftp/get-file-content-id-output.png)
 
@@ -167,7 +167,7 @@ Om du vill kontrol lera att arbets flödet returnerar det innehåll som du förv
 
    ![Ange information om e-poståtgärd](./media/connectors-create-api-ftp/selected-send-email-action.png)
 
-1. Spara logikappen. Om du vill köra och utlösa Logic-appen väljer du **Kör**i verktygsfältet och lägger sedan till en fil i FTP-mappen som din Logic app nu övervakar.
+1. Spara logikappen. Om du vill köra och utlösa Logic-appen väljer du **Kör** i verktygsfältet och lägger sedan till en fil i FTP-mappen som din Logic app nu övervakar.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 

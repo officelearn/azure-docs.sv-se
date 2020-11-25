@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93235899"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999471"
 ---
-Funktionen är enkel att konfigurera, men det innebär inte att du kommer att få problem kostnads fritt. Om du stöter på problem med att komma åt den önskade slut punkten finns det vissa verktyg som du kan använda för att testa anslutningen från App-konsolen. Det finns två konsoler som du kan använda. Det ena är kudu-konsolen och den andra konsolen i Azure Portal. Om du vill komma åt kudu-konsolen från din app går du till **verktyg**  >  **kudu**. Du kan också komma åt Kudo-konsolen på [webbplats namn]. scm. azurewebsites. net. När webbplatsen har lästs in går du till fliken **fel söknings konsol** . Gå till **verktyg** -konsolen för att komma till den Azure Portal-värdbaserade konsolen från din app  >  **Console**.
+Funktionen är enkel att konfigurera, men det innebär inte att du kommer att få problem kostnads fritt. Om du stöter på problem med att komma åt den önskade slut punkten finns det vissa verktyg som du kan använda för att testa anslutningen från App-konsolen. Det finns två konsoler som du kan använda. Det ena är kudu-konsolen och den andra konsolen i Azure Portal. Om du vill komma åt kudu-konsolen från din app går du till **verktyg**  >  **kudu**. Du kan också komma åt Kudo-konsolen på [webbplats namn]. scm. azurewebsites. net. När webbplatsen har lästs in går du till fliken **fel söknings konsol** . Gå till **verktyg**-konsolen för att komma till den Azure Portal-värdbaserade konsolen från din app  >  **Console**.
 
 #### <a name="tools"></a>Verktyg
-I inbyggda Windows-appar fungerar inte **ping** , **nslookup** och **tracert** genom-konsolen på grund av säkerhets begränsningar (de fungerar i [anpassade Windows-behållare](../articles/app-service/quickstart-custom-container.md)). Två separata verktyg läggs till för att fylla i Void. För att testa DNS-funktionen har vi lagt till ett verktyg med namnet **nameresolver.exe**. Syntax:
+I inbyggda Windows-appar fungerar inte **ping**, **nslookup** och **tracert** genom-konsolen på grund av säkerhets begränsningar (de fungerar i [anpassade Windows-behållare](../articles/app-service/quickstart-custom-container.md)). Två separata verktyg läggs till för att fylla i Void. För att testa DNS-funktionen har vi lagt till ett verktyg med namnet **nameresolver.exe**. Syntax:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]

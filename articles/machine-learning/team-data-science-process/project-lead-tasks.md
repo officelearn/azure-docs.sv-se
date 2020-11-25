@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9d9b2546553e03d1555cf4c587d699d9a4ea7e51
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321933"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000988"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Projekt ledar uppgifter i team data science process
 
@@ -57,7 +57,7 @@ Om du vill klona lagrings utrymmen och ändra innehåll på din lokala dator ell
 
 Så här skapar du en projekt databas i teamets **team projekt:**
 
-1. Gå till din grupps projekt **sammanfattnings** sida på *https \/ / \<server name> / \<organization name> / \<team name> :* , till exempel **https: \/ /dev.Azure.com/DataScienceUnit/myTeam** , och välj **databaser** i det vänstra navigerings fältet. 
+1. Gå till din grupps projekt **sammanfattnings** sida på *https \/ / \<server name> / \<organization name> / \<team name> :*, till exempel **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**, och välj **databaser** i det vänstra navigerings fältet. 
    
 1. Välj namn på databasen överst på sidan och välj sedan **ny lagrings plats** i list rutan.
    

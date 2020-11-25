@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/30/2019
 ms.author: wolfma
 ms.openlocfilehash: c7332177795a45331749225e0f3dc3856e28a6a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71327061"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001121"
 ---
 Om du vill skapa ett Visual Studio-projekt för Windows-utveckling måste du skapa projektet, konfigurera Visual Studio för .NET Desktop Development, installera Speech SDK och välja mål arkitektur.
 
@@ -23,7 +23,7 @@ Starta genom att skapa projektet i Visual Studio och se till att Visual Studio h
 
 1. Välj **konsol program (.NET Framework)** i fönstret **skapa ett nytt projekt** och välj sedan **Nästa**.
 
-1. I fönstret **Konfigurera ditt nya projekt** anger du *HelloWorld* i **projekt namn**, väljer eller skapar sökvägen till katalogen på **platsen**och väljer sedan **skapa**.
+1. I fönstret **Konfigurera ditt nya projekt** anger du *HelloWorld* i **projekt namn**, väljer eller skapar sökvägen till katalogen på **platsen** och väljer sedan **skapa**.
 
 1. I meny raden i Visual Studio väljer du **verktyg**  >  **Hämta verktyg och funktioner**, som öppnar Visual Studio Installer och visar dialog rutan **ändra** .
 
@@ -61,7 +61,7 @@ Nästa steg är att installera NuGet- [paketet för tal-SDK](https://aka.ms/cssp
 
 Skapa och kör konsol programmet nu genom att skapa en plattforms konfiguration som matchar datorns arkitektur.
 
-1. Välj **build**  >  **Configuration Manager**på Meny raden. Dialog rutan **Configuration Manager** visas.
+1. Välj **build**  >  **Configuration Manager** på Meny raden. Dialog rutan **Configuration Manager** visas.
 
    ![Configuration Manager dialog ruta](../articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 

@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776552"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000104"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Redigera QnA-par i kunskaps basen
 
@@ -59,8 +59,8 @@ Text redigering av svars texten ger dig markdown format från ett enkelt verktyg
     |Funktioner i Rich-Text-redigeraren|Kortkommando|
     |--|--|
     |Växla mellan Rich-Text Editor och markdown. `</>`|CTRL+M|
-    |Breda. **T**|Prod + LB|
-    |Kursiv stil, visas med kursivt ** _i_**|CTRL + I|
+    |Breda. **B**|Prod + LB|
+    |Kursiv stil, visas med kursivt **_i_**|CTRL + I|
     |Osorterad lista||
     |Ordnad lista||
     |Stycke format||
@@ -112,7 +112,7 @@ Du kan inte länka QnA-par i svarets metadata.
 
 ## <a name="add-metadata"></a>Lägg till metadata
 
-Lägg till metadata-par genom att först välja **visnings alternativ**och sedan välja **Visa metadata**. Kolumnen metadata visas. Sedan väljer du **+** tecknet för att lägga till ett metadata-par. Det här paret består av en nyckel och ett värde.
+Lägg till metadata-par genom att först välja **visnings alternativ** och sedan välja **Visa metadata**. Kolumnen metadata visas. Sedan väljer du **+** tecknet för att lägga till ett metadata-par. Det här paret består av en nyckel och ett värde.
 
 Läs mer om metadata i snabb starten för QnA Maker Portal för metadata:
 * [Redigering – Lägg till metadata i QnA-paret](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)

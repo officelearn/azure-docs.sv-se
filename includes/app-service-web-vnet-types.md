@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 481bd4f50eb527bcad2ba79b5ba4b9df4b872bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b92da999c15255f543abca346fc2bf8840006c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739924"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999470"
 ---
 * De flera klient system som har stöd för alla pris avtal förutom isolerade.
 * App Service-miljön, som distribueras till ditt VNet och stöder isolerade program för prissättnings planer.
@@ -38,5 +38,5 @@ Gateway-nödvändig VNet-integrering ger endast åtkomst till resurser i målets
 Oavsett vilken version som används ger VNet-integration appen åtkomst till resurser i ditt VNet, men den beviljar inte inkommande privat åtkomst till din app från det virtuella nätverket. Åtkomst till privata webbplatser syftar bara på att göra appen tillgänglig från ett privat nätverk, t. ex. inifrån ett Azure VNet. VNet-integrering är bara för att göra utgående samtal från din app till ditt VNet.
 
 <!--Links-->
-[ASEintro]: https://docs.microsoft.com/azure/app-service/environment/intro
-[Networkingfeatures]: https://docs.microsoft.com/azure/app-service/networking-features
+[ASEintro]: ../articles/app-service/environment/intro.md
+[Networkingfeatures]: ../articles/app-service/networking-features.md

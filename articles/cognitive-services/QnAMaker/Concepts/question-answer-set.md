@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: c21c82b5fd024598da30f4ac7b1ed01e64561e3b
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576197"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000121"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Begrepp för frågor och svars par
 
@@ -28,7 +28,7 @@ Varje par representeras av ett **ID**.
 De **valfria** inställningarna för ett par är:
 
 * **Andra typer av frågor** – detta hjälper QNA Maker att returnera rätt svar för en större mängd olika frågor ordföljder
-* **Metadata** : metadata är taggar som är associerade med ett QNA-par och som representeras som nyckel/värde-par. Metadata-Taggar används för att filtrera QnA-par och begränsa den mängd som frågan ska matchas över.
+* **Metadata**: metadata är taggar som är associerade med ett QNA-par och som representeras som nyckel/värde-par. Metadata-Taggar används för att filtrera QnA-par och begränsa den mängd som frågan ska matchas över.
 * Snabb **prompter** som används för att fortsätta en konversation med flera varv
 
 ![QnA Maker kunskaps baser](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)

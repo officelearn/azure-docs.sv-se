@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: shsha
 ms.openlocfilehash: 6f2f6aa4380fcf6909957118bf682275350ce68c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261202"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000274"
 ---
 # <a name="runtocompletion"></a>RunToCompletion
 
@@ -78,7 +78,7 @@ Följande ServiceManifest.xml beskriver ett ServicePack som består av två Code
 </ServiceManifest>
 ```
 
-Följande ApplicationManifest.xml beskriver ett program baserat på ServiceManifest.xml som beskrivs ovan. Den anger **RunToCompletion** - **ExecutionPolicy** för *WindowsRunToCompletionServicePackage* med en omstarts princip för **onFailure**. Vid aktivering av *WindowsRunToCompletionServicePackage*startas dess komponent-CodePackages. *RunToCompletionCodePackage1* bör avslutas när den första aktiveringen är klar. *RunToCompletionCodePackage2* kan dock Miss Missing **(slutkod som inte är noll)**, vilket innebär att den startas om sedan principen för omstart är **onFailure**.
+Följande ApplicationManifest.xml beskriver ett program baserat på ServiceManifest.xml som beskrivs ovan. Den anger **RunToCompletion** - **ExecutionPolicy** för *WindowsRunToCompletionServicePackage* med en omstarts princip för **onFailure**. Vid aktivering av *WindowsRunToCompletionServicePackage* startas dess komponent-CodePackages. *RunToCompletionCodePackage1* bör avslutas när den första aktiveringen är klar. *RunToCompletionCodePackage2* kan dock Miss Missing **(slutkod som inte är noll)**, vilket innebär att den startas om sedan principen för omstart är **onFailure**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

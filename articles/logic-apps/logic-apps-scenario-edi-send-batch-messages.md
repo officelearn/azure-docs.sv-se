@@ -8,11 +8,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75666677"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000410"
 ---
 # <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Exchange EDI-meddelanden som batchar eller grupper mellan handels partner i Azure Logic Apps
 
@@ -30,7 +30,7 @@ I den här artikeln skapar du en batch-lösning genom att skapa två Logi Kap pa
 
 Se till att batch-mottagaren och batch-avsändaren delar samma Azure-prenumeration *och* Azure-region. Om de inte gör det kan du inte välja batch-mottagaren när du skapar batch-avsändaren eftersom de inte är synliga för varandra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa det här exemplet behöver du följande objekt:
 
@@ -115,7 +115,7 @@ För batch-mottagare anger du batch-läge, namn, versions villkor, X12-avtal och
 
 För att se till att batch-mottagaren fungerar som förväntat, kan du lägga till en HTTP-åtgärd i test syfte och skicka ett batch-meddelande till [tjänsten Request bin](https://requestbin.com/). 
 
-1. Välj **nytt steg**under X12-instruktionen. 
+1. Välj **nytt steg** under X12-instruktionen. 
 
 2. I rutan Sök anger du "http" som filter. Välj den här åtgärden: **http-http**
     
@@ -125,7 +125,7 @@ För att se till att batch-mottagaren fungerar som förväntat, kan du lägga ti
 
    | Egenskap | Beskrivning | 
    |----------|-------------|
-   | **Metod** | Välj **post**i listan. | 
+   | **Metod** | Välj **post** i listan. | 
    | **URI** | Generera en URI för din begär ande bin och ange sedan denna URI i den här rutan. | 
    | **Brödtext** | Klicka i den här rutan och när listan med dynamiskt innehåll öppnas väljer du **Body** -token, som visas i avsnittet, **batch-koda efter avtals namn**. <p>Om du inte ser **Body** -token, bredvid **batch-koda efter avtals namn**, väljer du **Se fler**. | 
    ||| 
@@ -167,7 +167,7 @@ Skapa nu en eller flera Logi Kap par som skickar meddelanden till appen för bat
 
       ![Välj Logic-appen "batch mottagare"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. Välj den här åtgärden: **Batch_messages-<*din-batch-mottagare* > **
+   4. Välj den här åtgärden: **Batch_messages-<*din-batch-mottagare* >**
 
       ![Välj åtgärden Batch_messages](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: fce4da9cc9577bc9805289473d3df7647b1b0934
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670923"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000478"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrera lösningen för fjärrövervakning med Azure Data Lake Store
 
@@ -57,7 +57,7 @@ az iot hub consumer-group create --hub-name contoso-rm30263 --name streamanalyti
 
 Skapa ett Azure Stream Analytics jobb för att strömma data från din IoT-hubb till din Azure Data Lake Store.
 
-1. Klicka på **skapa en resurs** , Välj Sakernas Internet från Marketplace och klicka på **Stream Analytics jobb** .
+1. Klicka på **skapa en resurs**, Välj Sakernas Internet från Marketplace och klicka på **Stream Analytics jobb**.
 
     ![Nytt Stream Analytics jobb](./media/iot-accelerators-integrate-data-lake/new-stream-analytics-job.png)
 
@@ -65,9 +65,9 @@ Skapa ett Azure Stream Analytics jobb för att strömma data från din IoT-hubb 
 
 1. Välj en plats i närheten eller i samma region som din Data Lake Store. Här använder vi östra USA.
 
-1. Se till att lämna värd miljön som standard **moln** .
+1. Se till att lämna värd miljön som standard **moln**.
 
-1. Klicka på **Skapa** .
+1. Klicka på **Skapa**.
 
     ![Skapa Stream Analytics jobb](./media/iot-accelerators-integrate-data-lake/create-stream-analytics-job.png)
 
@@ -75,7 +75,7 @@ Skapa ett Azure Stream Analytics jobb för att strömma data från din IoT-hubb 
 
 1. Gå till **Stream Analytics jobb** i resurs gruppen för fjärr styrnings lösning.
 
-1. På sidan Översikt klickar du på **indata** .
+1. På sidan Översikt klickar du på **indata**.
 
     ![Översikts sida](./media/iot-accelerators-integrate-data-lake/stream-analytics-overview.png)
 
@@ -83,15 +83,15 @@ Skapa ett Azure Stream Analytics jobb för att strömma data från din IoT-hubb 
 
     ![Lägg till inmatare](./media/iot-accelerators-integrate-data-lake/stream-analytics-add-input.png)
 
-1. På fliken ny inskrivning anger du ett indataports-alias för **IoTHub** .
+1. På fliken ny inskrivning anger du ett indataports-alias för **IoTHub**.
 
-1. I list rutan konsument grupp väljer du den konsument grupp som du skapade tidigare. Här använder vi **streamanalyticsjob** .
+1. I list rutan konsument grupp väljer du den konsument grupp som du skapade tidigare. Här använder vi **streamanalyticsjob**.
 
     ![Välj inmatade](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-input.png)
 
-1. Klicka på **Spara** .
+1. Klicka på **Spara**.
 
-1. På sidan Översikt klickar du på **utdata** .
+1. På sidan Översikt klickar du på **utdata**.
 
     ![Lägg till Data Lake Store](./media/iot-accelerators-integrate-data-lake/stream-analytics-overview-2.png)
 
@@ -99,15 +99,15 @@ Skapa ett Azure Stream Analytics jobb för att strömma data från din IoT-hubb 
 
     ![Lägg till utdata](./media/iot-accelerators-integrate-data-lake/stream-analytics-output.png)
 
-1. På fliken ny utmatning anger du ett kolumnalias för **DataLakeStore** .
+1. På fliken ny utmatning anger du ett kolumnalias för **DataLakeStore**.
 
 1. Välj det Data Lake Store konto du skapade i föregående steg och ange mappstruktur för att strömma data till butiken.
 
-1. I fältet datum format anger du **/streaming/{date}/{time}** . Lämna standard datum formatet ÅÅÅÅ/MM/DD och tids format för HH.
+1. I fältet datum format anger du **/streaming/{date}/{time}**. Lämna standard datum formatet ÅÅÅÅ/MM/DD och tids format för HH.
 
     ![Ange mappstruktur](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 
-1. Klicka på **auktorisera** .
+1. Klicka på **auktorisera**.
 
     Du måste auktorisera med Data Lake Store för att ge Stream Analytics-jobbet skriv åtkomst till fil systemet.
 
@@ -118,7 +118,7 @@ Skapa ett Azure Stream Analytics jobb för att strömma data från din IoT-hubb 
     > [!NOTE]
     > Om du ser ett fel i popup-fönstret öppnar du ett nytt webbläsarfönster i Incognito-läge och försöker igen.
 
-1. Klicka på **Spara** .
+1. Klicka på **Spara**.
 
 ## <a name="edit-the-stream-analytics-query"></a>Redigera den Stream Analytics frågan
 
@@ -141,7 +141,7 @@ Azure Stream Analytics använder ett SQL-liknande frågespråk för att ange en 
 
     ![Stream Analytics fråga](./media/iot-accelerators-integrate-data-lake/stream-analytics-query.png)
 
-1. Klicka på **Spara** .
+1. Klicka på **Spara**.
 1. Klicka på **Ja** för att acceptera ändringarna.
 
 ## <a name="start-the-stream-analytics-job"></a>Starta Stream Analytics jobbet
@@ -150,11 +150,11 @@ Azure Stream Analytics använder ett SQL-liknande frågespråk för att ange en 
 
     ![Starta Stream Analytics jobb](./media/iot-accelerators-integrate-data-lake/stream-analytics-start.png)
 
-1. På fliken starta jobb klickar du på **anpassad** .
+1. På fliken starta jobb klickar du på **anpassad**.
 
 1. Ange anpassad tid för att gå tillbaka några timmar för att hämta data från när enheten har börjat strömma.
 
-1. Klicka på **Starta** .
+1. Klicka på **Starta**.
 
     ![Välj anpassat datum](./media/iot-accelerators-integrate-data-lake/stream-analytics-start-custom.png)
 
@@ -178,6 +178,6 @@ Azure Stream Analytics använder ett SQL-liknande frågespråk för att ange en 
 
     ![Utforska strömmande data](./media/iot-accelerators-integrate-data-lake/data-lake-store-file-preview.png)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Azure Data Lake Analytics kan användas för att utföra stor data analys på dina Data Lake Store data uppsättningar. Läs mer i [data Lake Analytics-dokumentationen](../data-lake-analytics/index.yml).

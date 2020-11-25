@@ -8,11 +8,11 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: fdf5f25ae6f89ccc06c95ee1be021691dab0047a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322435"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000359"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Undantagshantering och felloggning för logikappar
 
@@ -396,7 +396,7 @@ Vår lösning lade till funktioner med [Azure Cosmos DB](https://azure.microsoft
 
 ### <a name="error-management-portal"></a>Fel hanterings Portal
 
-Om du vill visa felen kan du skapa en MVC-webbapp för att visa fel posterna från Cosmos DB. Åtgärderna **lista**, **information**, **Redigera**och **ta bort** ingår i den aktuella versionen.
+Om du vill visa felen kan du skapa en MVC-webbapp för att visa fel posterna från Cosmos DB. Åtgärderna **lista**, **information**, **Redigera** och **ta bort** ingår i den aktuella versionen.
 
 > [!NOTE]
 > Redigera åtgärd: Cosmos DB ersätter hela dokumentet. De poster som visas i vyerna **lista** och **Detaljer** är exempel. De är inte faktiska poster för den avtalade tiden.
@@ -481,5 +481,5 @@ Käll koden för API-programmet för Logic Apps undantags hantering finns i den 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Visa fler exempel och scenarier för Logic-appar](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Övervaka logikappar](../logic-apps/monitor-logic-apps.md)
+* [Övervaka Logic Apps](../logic-apps/monitor-logic-apps.md)
 * [Automatisera distributionen av logikappar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

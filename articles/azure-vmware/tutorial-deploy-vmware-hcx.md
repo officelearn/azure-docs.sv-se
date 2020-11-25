@@ -3,18 +3,21 @@ title: Självstudie – distribuera och konfigurera VMware HCX
 description: Lär dig hur du distribuerar och konfigurerar en VMware HCX-lösning för ditt privata moln i Azure VMware-lösningen.
 ms.topic: tutorial
 ms.date: 11/18/2020
-ms.openlocfilehash: 57bcf1bd3023e56f6a64b5d82d8f1fc90be9dd47
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: afb5c653ce7c4b4a453a4031c5664042357de6c0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888750"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999643"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Distribuera och konfigurera VMware HCX
 
 Den här artikeln visar hur du distribuerar och konfigurerar den lokala VMware HCX-anslutningen för ditt privata moln i Azure VMware-lösningen. Med VMware HCX kan du migrera dina VMware-arbetsbelastningar till Azure VMware-lösningen och andra anslutna platser via olika typer av migrering. Eftersom Azure VMware-lösningen distribuerar och konfigurerar HCX Cloud Manager måste du ladda ned, aktivera och konfigurera HCX-anslutningen i ditt lokala VMware-datacenter.
 
 VMware HCX Advanced Connector förinstalleras i Azure VMware-lösningen. Det har stöd för upp till tre plats anslutningar (lokalt till molnet eller molnet till molnet). Om du behöver fler än tre plats anslutningar skickar du en [supportbegäran](https://portal.azure.com/#create/Microsoft.Support) för att aktivera [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) -tillägget. Tillägget är för närvarande en för hands version. 
+
+>[!Note]
+>Även om verktyget för maximala VMware-konfiguration beskriver plats par maximalt 25 mellan lokal-anslutningen och moln hanteraren, begränsar licensieringen igen detta till 3 för avancerad och 10 för Enterprise Edition.
 
 >[!NOTE]
 >VMware HCX Enterprise är tillgängligt med Azure VMware-lösningen som en för hands versions tjänst. Det är kostnads fritt och omfattas av villkor för en för hands versions tjänst. När VMware HCX Enterprise-tjänsten är allmänt tillgänglig får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan också välja att stänga av eller avanmäla tjänsten. Det finns ingen enkel degradering-sökväg från VMware HCX Enterprise till VMware HCX Advanced. Om du bestämmer dig för att nedgradera måste du distribuera om, vilket uppstår drift stopp.

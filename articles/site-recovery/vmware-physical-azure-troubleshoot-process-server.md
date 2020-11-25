@@ -8,11 +8,11 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: ad1bec66edaa3fcc6049f4911684f6e6d6c3e366
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369411"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999202"
 ---
 # <a name="troubleshoot-the-process-server"></a>Felsöka processervern
 
@@ -113,7 +113,7 @@ Kontrol lera att inget antivirus program på den replikerade datorn blockerar Si
 3. Kontrol lera om anslutningen lyckades.
 
 
-**Anslutning** | **Detaljer** | **Åtgärd**
+**Anslutningsmöjligheter** | **Detaljer** | **Åtgärd**
 --- | --- | ---
 **Lyckad** | Telnet visar en tom skärm och processervern kan komma åt den. | Ingen ytterligare åtgärd krävs.
 **Misslyckade** | Du kan inte ansluta | Kontrol lera att den inkommande port 9443 är tillåten på processervern. Om du till exempel har ett perimeternätverk eller ett skärmat undernät. Kontrol lera anslutningen igen.
@@ -168,7 +168,7 @@ Kontrol lera om processervern aktivt skickar data till Azure.
 
   1. Öppna aktivitets hanteraren på processervern (tryck på Ctrl + Shift + Esc).
   2. Välj fliken **prestanda** > **öppna resursövervakare**.
-  3. På sidan **resursövervakare** väljer du fliken **nätverk** . Under **processer med nätverks aktivitet**kontrollerar du om cbengine.exe aktivt skickar en stor mängd data.
+  3. På sidan **resursövervakare** väljer du fliken **nätverk** . Under **processer med nätverks aktivitet** kontrollerar du om cbengine.exe aktivt skickar en stor mängd data.
 
        ![Skärm bild som visar ett stort antal volymer under processer med nätverks aktivitet.](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
@@ -177,7 +177,7 @@ Kontrol lera om processervern aktivt skickar data till Azure.
 ## <a name="step-9-check-the-process-server-connection-to-azure-blob-storage"></a>Steg 9: kontrol lera anslutningen till processervern i Azure Blob Storage
 
 1. I resursövervakare väljer du **cbengine.exe**.
-2. Under **TCP-anslutningar**kontrollerar du om det finns en anslutning från processervern till Azure Storage.
+2. Under **TCP-anslutningar** kontrollerar du om det finns en anslutning från processervern till Azure Storage.
 
   ![Skärm bild som visar anslutningen mellan cbengine.exe och Azure Blob Storage-URL: en.](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
@@ -199,8 +199,8 @@ Om det inte finns någon anslutning från processervern till Azure Blob Storage-
 
 ## <a name="step-10-check-the-process-server-connection-to-azure-public-ip-address"></a>Steg 10: kontrol lera anslutningen till processervern för Azures offentliga IP-adress
 
-1. Öppna den senaste CBEngineCurr. errlog-filen i **%program%\Microsoft Azure Recovery Services Agent\Temp**på processervern.
-2. I filen söker du efter **443**eller för **anslutnings försöket misslyckades**.
+1. Öppna den senaste CBEngineCurr. errlog-filen i **%program%\Microsoft Azure Recovery Services Agent\Temp** på processervern.
+2. I filen söker du efter **443** eller för **anslutnings försöket misslyckades**.
 
   ![Fel loggar i Temp-mappen](./media/vmware-physical-azure-troubleshoot-process-server/logdetails1.png)
 
@@ -235,7 +235,7 @@ Kontrol lera om den IP-adressbaserade brand väggen på processervern blockerar 
 
     a) Sök efter **Microsoft Azure Backup**.
 
-    b) öppna **Microsoft Azure Backup**och välj Egenskaper för **Åtgärds**  >  **ändring**.
+    b) öppna **Microsoft Azure Backup** och välj Egenskaper för **Åtgärds**  >  **ändring**.
 
     c) på fliken **proxykonfiguration** ska adressen vara samma som den proxyadress som visas i register inställningarna. Om inte, ändra den till samma adress.
 

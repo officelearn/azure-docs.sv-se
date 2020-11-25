@@ -10,11 +10,11 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
 ms.openlocfilehash: 7fc878e0c9e099b201264c1c3981c603668214d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318389"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017771"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägg till ett anpassat rutnät i webb gränssnittet för lösnings Accelerator för fjärr styrning
 
@@ -248,7 +248,7 @@ Om en användare behöver agera på flera rader samtidigt använder du kryss rut
 
 Om användaren bara behöver agera på en enda rad konfigurerar du en mjuk markerings länk för en eller flera kolumner i **columnDefs**.
 
-1. I **exampleGridConfig.js**lägger du till **SoftSelectLinkRenderer** som **cellRendererFramework** för en **columnDef**.
+1. I **exampleGridConfig.js** lägger du till **SoftSelectLinkRenderer** som **cellRendererFramework** för en **columnDef**.
 
     ```js
     export const exampleColumnDefs = {

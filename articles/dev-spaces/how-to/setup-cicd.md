@@ -9,11 +9,11 @@ manager: gwallace
 description: Lär dig hur du konfigurerar kontinuerlig integrering/kontinuerlig distribution med Azure DevOps med Azure dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
 ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960396"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017788"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Använda CI/CD med Azure Dev Spaces
 
@@ -78,7 +78,7 @@ Så här skapar du en pipeline från den här filen:
 1. På DevOps-projektets huvud sida navigerar du till pipelines > builds.
 1. Välj alternativet för att skapa en **ny** versions pipeline.
 1. Välj **GitHub** som källa, auktorisera med ditt GitHub-konto om det behövs och välj den _azds_updates_ grenen från den förgrenade versionen av exempel program lagrings platsen för _dev-Spaces_ .
-1. Välj **konfiguration som kod**eller **yaml**som mall.
+1. Välj **konfiguration som kod** eller **yaml** som mall.
 1. Nu visas en konfigurations sida för din build-pipeline. Som vi nämnt ovan navigerar du till den språkspecifika sökvägen för sökvägen till **yaml-filen** med hjälp av **...** -knappen. Exempelvis `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Gå till fliken **variabler** .
 1. Lägg till _dockerId_ manuellt som en variabel, vilket är användar namnet för ditt [Azure Container Registry administratörs konto](../../container-registry/container-registry-authentication.md#admin-account). (Anges i artikel förutsättningar)
@@ -98,7 +98,7 @@ Nu har du en CI-lösning som automatiskt skapar *mywebapi* och *webfrontend* fö
 1. Klicka på **OK**. Lägg märke till att pipeline-fönstret har lästs in med sidan för versions definitions redigering. Observera också att det finns några röda varnings ikoner som anger kluster information som fortfarande måste konfigureras.
 1. Klicka på bubblan **Lägg till en artefakt** till vänster i rutan pipelines.
 1. I list rutan **källa** väljer du den versions pipeline som du skapade tidigare.
-1. För **standard versionen**väljer du **senaste från standard grenen build pipeline med Taggar**.
+1. För **standard versionen** väljer du **senaste från standard grenen build pipeline med Taggar**.
 1. Lämna **taggar** tomma.
 1. Ange **käll Ali Aset** till `drop` . Värdet för **käll Ali Aset** används av de fördefinierade versions aktiviteterna så att det måste anges.
 1. Klicka på **Lägg till**.
@@ -120,7 +120,7 @@ Nu har du en CI-lösning som automatiskt skapar *mywebapi* och *webfrontend* fö
 1. Uppdatera värdet för **DevSpacesHostSuffix** från **UPDATE_ME** till ditt värdnamn. Värddatorns suffix visas när du körde `azds show-context` kommandot tidigare.
 1. Klicka på **Spara** längst upp till höger och **OK**.
 1. Klicka på **+ släpp** (bredvid knappen Spara) och **skapa en version**.
-1. Under **artefakter**kontrollerar du att den senaste versionen från din build-pipeline är markerad.
+1. Under **artefakter** kontrollerar du att den senaste versionen från din build-pipeline är markerad.
 1. Klicka på **Skapa**.
 
 En automatiserad versions process börjar nu, distribuerar *mywebapi* -och *webfrontend* -diagrammen till ditt Kubernetes-kluster i den översta nivån i _dev_ -området. Du kan övervaka förloppet för din version på webb portalen för Azure DevOps:
@@ -133,7 +133,7 @@ En automatiserad versions process börjar nu, distribuerar *mywebapi* -och *webf
 Versionen görs när alla aktiviteter har slutförts.
 
 > [!TIP]
-> Om din version Miss lyckas med ett fel meddelande som *uppgradering misslyckades: tids gränsen*nåddes i väntan på villkoret, försök att inspektera poddar i klustret [med hjälp av Kubernetes-instrumentpanelen](../../aks/kubernetes-dashboard.md). Om du ser att poddar Miss lyckas med att starta med fel meddelanden som *det inte gick att hämta avbildningen "azdsexample.azurecr.io/mywebapi:122": RPC-fel: kod = okänd DESC = fel svar från daemon: Hämta https: \/ /azdsexample.azurecr.io/v2/mywebapi/Manifests/122: obehörig: autentisering krävs*, det kan bero på att klustret inte har behörighet att hämta från din Azure Container Registry. Se till att du har slutfört [auktoriseringen av ditt AKS-kluster för att hämta från din Azure Container Registry](../../aks/cluster-container-registry-integration.md) -förutsättning.
+> Om din version Miss lyckas med ett fel meddelande som *uppgradering misslyckades: tids gränsen* nåddes i väntan på villkoret, försök att inspektera poddar i klustret [med hjälp av Kubernetes-instrumentpanelen](../../aks/kubernetes-dashboard.md). Om du ser att poddar Miss lyckas med att starta med fel meddelanden som *det inte gick att hämta avbildningen "azdsexample.azurecr.io/mywebapi:122": RPC-fel: kod = okänd DESC = fel svar från daemon: Hämta https: \/ /azdsexample.azurecr.io/v2/mywebapi/Manifests/122: obehörig: autentisering krävs*, det kan bero på att klustret inte har behörighet att hämta från din Azure Container Registry. Se till att du har slutfört [auktoriseringen av ditt AKS-kluster för att hämta från din Azure Container Registry](../../aks/cluster-container-registry-integration.md) -förutsättning.
 
 Nu har du en helt automatiserad CI/CD-pipeline för GitHub-delen av dev Spaces-exempel appar. Varje gång du genomför och push-koden skapar och skickar du en pipeline för att bygga och push- *mywebapi* och *webfrontend* -avbildningar till din anpassade ACR-instans. Sedan distribuerar pipelinen Helm-diagrammet för varje app till _dev_ -utrymmet på ditt dev Spaces-aktiverade kluster.
 

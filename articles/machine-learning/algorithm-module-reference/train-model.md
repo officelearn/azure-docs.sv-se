@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: e3080836e8b9ed38e99c691c66e71a4620829c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: f9a7623fd27178e8b9c213a1759bb09863d16c72
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890209"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030704"
 ---
 # <a name="train-model-module"></a>Träna modell modul
 
@@ -40,16 +40,14 @@ I Azure Machine Learning är det vanligt vis en tre stegs process att skapa och 
 3. När utbildningen har slutförts använder du den tränade modellen med en av [poängsättnings-modulerna](./score-model.md)för att göra förutsägelser på nya data.
 
 ## <a name="how-to-use-train-model"></a>Använda träna modell 
-  
-1.  I Azure Machine Learning konfigurerar du en klassificerings modell eller Regressions modell.
     
-2. Lägg till modulen **träna modell** i pipelinen.  Du hittar den här modulen under kategorin **Machine Learning** . Expandera **träna**och dra modulen **träna modell** till din pipeline.
+1. Lägg till modulen **träna modell** i pipelinen.  Du hittar den här modulen under kategorin **Machine Learning** . Expandera **träna** och dra modulen **träna modell** till din pipeline.
   
-3.  Koppla det nedtränade läget till vänster. Koppla data uppsättningen utbildning till den högra indatan för **träna modell**.
+1.  Koppla det nedtränade läget till vänster. Koppla data uppsättningen utbildning till den högra indatan för **träna modell**.
 
     Data uppsättningen för träning måste innehålla en etikett kolumn. Alla rader utan etiketter ignoreras.
   
-4.  För **kolumnen etikett**klickar du på **Redigera kolumn** i den högra panelen i modulen och väljer en enda kolumn som innehåller resultat som modellen kan använda för utbildning.
+1.  För **kolumnen etikett** klickar du på **Redigera kolumn** i den högra panelen i modulen och väljer en enda kolumn som innehåller resultat som modellen kan använda för utbildning.
   
     - För klassificerings problem måste etikett kolumnen innehålla antingen **kategoriska** -värden eller **diskreta** värden. Några exempel kan vara ja/nej-klassificering, en klassificerings kod, ett namn på en sjukdom eller en inkomst grupp.  Om du väljer en noncategorical-kolumn kommer modulen att returnera ett fel under träningen.
   
@@ -62,7 +60,10 @@ I Azure Machine Learning är det vanligt vis en tre stegs process att skapa och 
     > [!TIP] 
     > Om du har problem med att använda kolumn Väljaren kan du läsa mer i artikeln [Välj kolumner i data uppsättning](./select-columns-in-dataset.md) . I den här artikeln beskrivs några vanliga scenarier och tips för att använda alternativen **med regler** och **efter namn** .
   
-5.  Skicka pipelinen. Om du har stora mängder data kan det ta en stund.
+1.  Skicka pipelinen. Om du har stora mängder data kan det ta en stund.
+
+    > [!IMPORTANT] 
+    > Om du har en ID-kolumn som är ID för varje rad kan **träna modell** få ett fel som "antalet unika värden i kolumnen: {column_name} är större än tillåtet." Detta beror på att ID-kolumnen träffar tröskelvärdet för unika värden och kan orsaka slut på minne. Vanligt vis är ID-kolumnen meningslös under träningen. Du kan använda [Redigera metadata](edit-metadata.md) för att markera kolumnen som **rensad funktion** och den används inte i träning. Mer fel information finns i [fel koden för designer](././designer-error-codes.md) .
 
 ## <a name="results"></a>Resultat
 

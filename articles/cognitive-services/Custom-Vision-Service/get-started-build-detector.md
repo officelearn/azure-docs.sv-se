@@ -13,17 +13,17 @@ ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: bild igenkänning, app för bild igenkänning, anpassad vision
 ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596889"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018400"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Snabb start: bygga en objekt detektor med Custom Vision webbplats
 
 I den här snabb starten får du lära dig hur du använder Custom Vision webbplats för att skapa en objekt detektor modell. När du har skapat en modell kan du testa den med nya avbildningar och sedan integrera den i din egen bild igenkännings app.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -35,12 +35,12 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
-Navigera till [Custom vision webb sida](https://customvision.ai) i webbläsaren och välj __Logga__in. Logga in med samma konto som du använde för att logga in på Azure Portal.
+Navigera till [Custom vision webb sida](https://customvision.ai) i webbläsaren och välj __Logga__ in. Logga in med samma konto som du använde för att logga in på Azure Portal.
 
 ![Bild av inloggnings Sidan](./media/browser-home.png)
 
 
-1. Välj **nytt projekt**för att skapa ditt första projekt. Dialog rutan **Skapa nytt projekt** visas.
+1. Välj **nytt projekt** för att skapa ditt första projekt. Dialog rutan **Skapa nytt projekt** visas.
 
     ![Dialog rutan nytt projekt innehåller fält för namn, beskrivning och domäner.](./media/get-started-build-detector/new-project.png)
 
@@ -53,7 +53,7 @@ Navigera till [Custom vision webb sida](https://customvision.ai) i webbläsaren 
 
 1. Välj sedan en av de tillgängliga domänerna. Varje domän optimerar detektorn för vissa typer av avbildningar, enligt beskrivningen i följande tabell. Du kommer att kunna ändra domänen senare om du vill.
 
-    |Domän|Syfte|
+    |Domain|Syfte|
     |---|---|
     |__Allmänt__| Optimerad för ett brett utbud av objekt identifierings aktiviteter. Om ingen av de andra domänerna är lämpliga, eller om du är osäker på vilken domän du väljer, väljer du den allmänna domänen. |
     |__Logotyp__|Optimerad för att hitta varumärkes logo typer i bilder.|

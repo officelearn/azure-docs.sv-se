@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: ca8d4d725ff25687d1005ddab1964316a147c730
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779782"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017898"
 ---
 ### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Distribuera Attitydanalys-behållaren till ett AKS-kluster
 
@@ -49,7 +49,7 @@ ms.locfileid: "91779782"
     code .
     ```
 
-1. I text redigeraren skapar du en ny fil med namnet *sentiment. yaml*och klistrar in följande yaml i den. Se till att ersätta `billing/value` och `apikey/value` med din egen information.
+1. I text redigeraren skapar du en ny fil med namnet *sentiment. yaml* och klistrar in följande yaml i den. Se till att ersätta `billing/value` och `apikey/value` med din egen information.
 
     ```yaml
     apiVersion: apps/v1beta1

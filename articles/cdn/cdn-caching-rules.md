@@ -14,11 +14,11 @@ ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
 ms.openlocfilehash: a5f4f6a6e72b57638688069111071a6e0a035c49
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778973"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018672"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Kontrollera funktionssättet för Azure CDN-cachelagring med cachelagringsregler
 
@@ -42,7 +42,7 @@ Information om standard beteende för cachelagring och lagring av direktiv-rubri
 
 1. Öppna Azure Portal, Välj en CDN-profil och välj en slut punkt.
 
-2. I det vänstra fönstret under inställningar, väljer du **Cachelagringsregler** .
+2. I det vänstra fönstret under inställningar, väljer du **Cachelagringsregler**.
 
    ![Knappen CDN-cachelagringsregler](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
@@ -54,11 +54,11 @@ Information om standard beteende för cachelagring och lagring av direktiv-rubri
 ## <a name="caching-behavior-settings"></a>Egenskaper för cachelagring
 För globala och anpassade regler för cachelagring kan du ange följande **beteende inställningar för cachelagring** :
 
-- **Kringgå cache** : cachelagra och ignorerar inte ursprung-tillhandahållna cache-direktiv-rubriker.
+- **Kringgå cache**: cachelagra och ignorerar inte ursprung-tillhandahållna cache-direktiv-rubriker.
 
-- **Åsidosätt** : Ignorera ursprung-angiven cache-varaktighet; Använd den angivna cachens varaktighet i stället. Detta kommer inte att åsidosätta Cache-Control: no-cache.
+- **Åsidosätt**: Ignorera ursprung-angiven cache-varaktighet; Använd den angivna cachens varaktighet i stället. Detta kommer inte att åsidosätta Cache-Control: no-cache.
 
-- **Ange om det saknas** : respektera ursprung-tillhandahållen cache-direktiv-rubriker, om de finns. Annars använder du angiven cache-varaktighet.
+- **Ange om det saknas**: respektera ursprung-tillhandahållen cache-direktiv-rubriker, om de finns. Annars använder du angiven cache-varaktighet.
 
 ![Globala cachelagringsregler](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
@@ -75,9 +75,9 @@ För globala och anpassade regler för cachelagring kan du ange förfallo tid f�
 
 Två matchnings villkor är tillgängliga för anpassade cache-regler:
  
-- **Sökväg** : det här tillståndet matchar sökvägen till URL: en, exklusive domän namnet och stöder jokertecknet ( \* ). Till exempel _/myfile.html_ , _/My/Folder/*_ och _/my/images/*. jpg_ . Den maximala längden är 260 tecken.
+- **Sökväg**: det här tillståndet matchar sökvägen till URL: en, exklusive domän namnet och stöder jokertecknet ( \* ). Till exempel _/myfile.html_, _/My/Folder/*_ och _/my/images/*. jpg_. Den maximala längden är 260 tecken.
 
-- **Tillägg** : det här villkoret matchar fil namns tillägget för den begärda filen. Du kan ange en lista över kommaavgränsade fil namns tillägg som ska matchas. Till exempel _. jpg_ , _. mp3_ eller _. png_ . Det maximala antalet tillägg är 50 och det maximala antalet tecken per tillägg är 16. 
+- **Tillägg**: det här villkoret matchar fil namns tillägget för den begärda filen. Du kan ange en lista över kommaavgränsade fil namns tillägg som ska matchas. Till exempel _. jpg_, _. mp3_ eller _. png_. Det maximala antalet tillägg är 50 och det maximala antalet tecken per tillägg är 16. 
 
 ## <a name="global-and-custom-rule-processing-order"></a>Global och anpassad regel bearbetnings ordning
 Globala och anpassade regler för cachelagring bearbetas i följande ordning:
@@ -86,7 +86,7 @@ Globala och anpassade regler för cachelagring bearbetas i följande ordning:
 
 - Regler för anpassad cachelagring åsidosätter globala regler för cachelagring, där de tillämpas. Anpassade regler för cachelagring bearbetas i ordning från uppifrån och ned. Det vill säga om en begäran matchar båda villkoren, åsidosätter reglerna längst ned i listan över regler överst i listan. Därför bör du placera mer detaljerade regler längre ned i listan.
 
-**Exempel** :
+**Exempel**:
 - Global caching-regel: 
    - Beteende för cachelagring: **Åsidosätt**
    - Förfallo tid för cache: 1 dag
@@ -103,13 +103,13 @@ Globala och anpassade regler för cachelagring bearbetas i följande ordning:
    - Beteende för cachelagring: **Ange om det saknas**
    - Förfallo tid för cache: 3 dagar
 
-När de här reglerna anges är en begäran om _&lt; slut punkts namn &gt;_ . azureedge.net/Home/index.html utlöser en anpassad regel för cachelagring #2, som är inställt på: **Ange om det saknas** och 3 dagar. Om *index.html* -filen har `Cache-Control` eller `Expires` http-huvuden, kommer de att bevaras. i annat fall cachelagras filen i tre dagar, om dessa huvuden inte har angetts.
+När de här reglerna anges är en begäran om _&lt; slut punkts namn &gt;_. azureedge.net/Home/index.html utlöser en anpassad regel för cachelagring #2, som är inställt på: **Ange om det saknas** och 3 dagar. Om *index.html* -filen har `Cache-Control` eller `Expires` http-huvuden, kommer de att bevaras. i annat fall cachelagras filen i tre dagar, om dessa huvuden inte har angetts.
 
 > [!NOTE] 
 > Filer som cachelagras före en regel ändring behåller sina inställningar för varaktighet för ursprungs cache. Om du vill återställa deras cache-varaktigheter måste du [Rensa filen](cdn-purge-endpoint.md). 
 >
 > Azure CDN konfigurations ändringar kan ta lite tid att sprida genom nätverket: 
-> - För **Azure CDN Standard från Akamai** -profiler slutförs spridningen vanligtvis inom en minut. 
+> - För **Azure CDN Standard från Akamai**-profiler slutförs spridningen vanligtvis inom en minut. 
 > - För **Azure CDN Standard från Verizon** -profiler, slutförs spridningen vanligt vis om 10 minuter.  
 >
 

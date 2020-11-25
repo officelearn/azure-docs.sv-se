@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
 ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895209"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018077"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>Snabb start: skapa en privat slut punkt med hjälp av Azure Portal
 
@@ -50,7 +50,7 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
     | Resursgrupp   | Välj **CreatePrivateEndpointQS-RG** |
     | **Instansinformation** |                                                                 |
     | Name             | Ange **myVNet**                                    |
-    | Region           | Välj **Europa, västra** .|
+    | Region           | Välj **Europa, västra**.|
 
 3. Välj fliken **IP-adresser** eller Välj **Nästa: knappen Nästa: IP-adress** längst ned på sidan.
 
@@ -60,7 +60,7 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
     |--------------------|----------------------------|
     | IPv4-adressutrymme | Ange **10.1.0.0/16** |
 
-5. Under **under näts namn** väljer du ordet **standard** .
+5. Under **under näts namn** väljer du ordet **standard**.
 
 6. I **Redigera undernät** anger du den här informationen:
 
@@ -69,22 +69,22 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
     | Namn på undernät | Ange **undernät** |
     | Adressintervall för undernätet | Ange **10.1.0.0/24** |
 
-7. Välj **Spara** .
+7. Välj **Spara**.
 
 8. Välj fliken **säkerhet** .
 
-9. Under **BastionHost** väljer du **Aktivera** . Ange den här informationen:
+9. Under **BastionHost** väljer du **Aktivera**. Ange den här informationen:
 
     | Inställning            | Värde                      |
     |--------------------|----------------------------|
     | Skydds namn | Ange **myBastionHost** |
     | AzureBastionSubnet-adressutrymme | Ange **10.1.1.0/24** |
-    | Offentlig IP-adress | Välj **Skapa ny** . </br> Som **namn** anger du **myBastionIP** . </br> Välj **OK** . |
+    | Offentlig IP-adress | Välj **Skapa ny**. </br> Som **namn** anger du **myBastionIP**. </br> Välj **OK**. |
 
 
 8. Välj fliken **Granska + skapa** eller Välj knappen **Granska + skapa** .
 
-9. Välj **Skapa** .
+9. Välj **Skapa**.
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
@@ -101,7 +101,7 @@ I det här avsnittet ska du skapa en virtuell dator som ska användas för att t
     | Resursgrupp | Välj **CreatePrivateEndpointQS-RG** |
     | **Instansinformation** |  |
     | Namn på virtuell dator | Ange **myVM** |
-    | Region | Välj **Europa, västra** . |
+    | Region | Välj **Europa, västra**. |
     | Tillgänglighets alternativ | Välj **ingen redundans för infrastruktur krävs** |
     | Bild | Välj **Windows Server 2019 Data Center – gen1** |
     | Azure Spot-instans | Välj **Nej** |
@@ -111,7 +111,7 @@ I det här avsnittet ska du skapa en virtuell dator som ska användas för att t
     | Lösenord | Ange ett lösen ord |
     | Bekräfta lösenordet | Ange lösenordet igen |
 
-3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk** .
+3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
   
 4. På fliken nätverk väljer eller anger du:
 
@@ -120,25 +120,25 @@ I det här avsnittet ska du skapa en virtuell dator som ska användas för att t
     | **Nätverksgränssnitt** |  |
     | Virtuellt nätverk | **myVNet** |
     | Undernät | **mySubnet** |
-    | Offentlig IP-adress | Välj **Ingen** . |
+    | Offentlig IP-adress | Välj **Ingen**. |
     | Nätverks säkerhets grupp för nätverkskort | **Basic**|
-    | Offentliga inkommande portar | Välj **Ingen** . |
+    | Offentliga inkommande portar | Välj **Ingen**. |
    
-5. Välj **Granska + skapa** . 
+5. Välj **Granska + skapa**. 
   
-6. Granska inställningarna och välj sedan **Skapa** .
+6. Granska inställningarna och välj sedan **Skapa**.
 
 ## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 
 I det här avsnittet ska du skapa en privat slut punkt för den webbapp som du skapade i avsnittet krav.
 
-1. På den övre vänstra sidan av skärmen i portalen väljer du **skapa en resurs**  >  **nätverk**  >  **privat länk** eller i rutan Sök anger du **privat länk** .
+1. På den övre vänstra sidan av skärmen i portalen väljer du **skapa en resurs**  >  **nätverk**  >  **privat länk** eller i rutan Sök anger du **privat länk**.
 
-2. Välj **Skapa** .
+2. Välj **Skapa**.
 
 3. I **Private Link Center** väljer du **privata slut punkter** i den vänstra menyn.
 
-4. I **privata slut punkter** väljer du **+ Lägg till** .
+4. I **privata slut punkter** väljer du **+ Lägg till**.
 
 5. På fliken **grundläggande** i **skapa en privat slut punkt** anger eller väljer du den här informationen:
 
@@ -146,10 +146,10 @@ I det här avsnittet ska du skapa en privat slut punkt för den webbapp som du s
     | ------- | ----- |
     | **Projektinformation** | |
     | Prenumeration | Välj din prenumeration. |
-    | Resursgrupp | Välj **CreatePrivateEndpointQS-RG** . Du har skapat den här resurs gruppen i föregående avsnitt.|
+    | Resursgrupp | Välj **CreatePrivateEndpointQS-RG**. Du har skapat den här resurs gruppen i föregående avsnitt.|
     | **Instansinformation** |  |
-    | Name  | Ange **myPrivateEndpoint** . |
-    | Region | Välj **Europa, västra** . |
+    | Name  | Ange **myPrivateEndpoint**. |
+    | Region | Välj **Europa, västra**. |
 
 6. Välj fliken **resurs** eller **Nästa: resurs** längst ned på sidan.
     
@@ -157,11 +157,11 @@ I det här avsnittet ska du skapa en privat slut punkt för den webbapp som du s
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Anslutningsmetod | Välj **Anslut till en Azure-resurs i min katalog** . |
+    | Anslutningsmetod | Välj **Anslut till en Azure-resurs i min katalog**. |
     | Prenumeration | Välj din prenumeration. |
-    | Resurstyp | Välj **Microsoft. Web/Sites** . |
-    | Resurs | Välj **\<your-web-app-name>** . </br> Välj namnet på den webbapp som du skapade i kraven. |
-    | Målunderresurs | Välj **platser** . |
+    | Resurstyp | Välj **Microsoft. Web/Sites**. |
+    | Resurs | Välj **\<your-web-app-name>**. </br> Välj namnet på den webbapp som du skapade i kraven. |
+    | Målunderresurs | Välj **platser**. |
 
 8. Välj fliken **konfiguration** eller **Nästa: konfigurations** knappen längst ned på skärmen.
 
@@ -170,17 +170,17 @@ I det här avsnittet ska du skapa en privat slut punkt för den webbapp som du s
     | Inställning | Värde |
     | ------- | ----- |
     | **Nätverk** |  |
-    | Virtuellt nätverk | Välj **myVNet** . |
-    | Undernät | Välj **undernät** . |
+    | Virtuellt nätverk | Välj **myVNet**. |
+    | Undernät | Välj **undernät**. |
     | **Privat DNS-integrering** |  |
     | Integrera med privat DNS-zon | Låt standardvärdet **Ja** vara kvar. |
     | Prenumeration | Välj din prenumeration. |
-    | Privata DNS-zoner | Lämna standardvärdet **(New) privatelink.azurewebsites.net** .
+    | Privata DNS-zoner | Lämna standardvärdet **(New) privatelink.azurewebsites.net**.
     
 
-13. Välj **Granska + skapa** .
+13. Välj **Granska + skapa**.
 
-14. Välj **Skapa** .
+14. Välj **Skapa**.
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testa anslutningen till privat slut punkt
 
@@ -188,11 +188,11 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
 
 1. Välj **resurs grupper** i det vänstra navigerings fönstret.
 
-2. Välj **CreatePrivateEndpointQS-RG** .
+2. Välj **CreatePrivateEndpointQS-RG**.
 
-3. Välj **myVM** .
+3. Välj **myVM**.
 
-4. På sidan Översikt för **myVM** väljer du **Anslut** sedan **skydds** .
+4. På sidan Översikt för **myVM** väljer du **Anslut** sedan **skydds**.
 
 5. Välj knappen blå **användnings skydds** .
 
@@ -214,15 +214,15 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
 
     En privat IP-adress för **10.1.0.5** returneras för namnet på webb programmet.  Adressen finns i under nätet för det virtuella nätverk som du skapade tidigare.
 
-11. Öppna Internet Explorer i skydds-anslutningen till **myVM** .
+11. Öppna Internet Explorer i skydds-anslutningen till **myVM**.
 
-12. Ange URL: en för din webbapp, **https:// \<your-webapp-name> . azurewebsites.net** .
+12. Ange URL: en för din webbapp, **https:// \<your-webapp-name> . azurewebsites.net**.
 
 13. Du får standard sidan webbapp om ditt program inte har distribuerats:
 
     :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Standard webb program sida." border="true":::
 
-18. Stäng anslutningen till **myVM** .
+18. Stäng anslutningen till **myVM**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -230,13 +230,13 @@ Om du inte kommer att fortsätta att använda det här programmet, tar du bort d
 
 1. Välj **resurs grupper** på den vänstra menyn.
 
-2. Välj **CreatePrivateEndpointQS-RG** .
+2. Välj **CreatePrivateEndpointQS-RG**.
 
-3. Välj **Ta bort resursgrupp** .
+3. Välj **Ta bort resursgrupp**.
 
-4. Ange **CreatePrivateEndpointQS-RG** i **Skriv resurs gruppens namn** .
+4. Ange **CreatePrivateEndpointQS-RG** i **Skriv resurs gruppens namn**.
 
-5. Välj **Ta bort** .
+5. Välj **Ta bort**.
 
 
 ## <a name="next-steps"></a>Nästa steg

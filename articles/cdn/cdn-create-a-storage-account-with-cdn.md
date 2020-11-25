@@ -16,11 +16,11 @@ ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778905"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018621"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Snabb start: integrera ett Azure Storage-konto med Azure CDN
 
@@ -42,7 +42,7 @@ Om du vill skapa ett lagringskonto måste du vara tjänstadministratör eller me
 
 1. I Azure Portal väljer du **skapa en resurs** längst upp till vänster. Fönstret **Ny** visas.
 
-1. Sök efter **lagrings konto** och välj **lagrings konto – BLOB, fil, tabell, kö** i list rutan. Välj sedan **skapa** :
+1. Sök efter **lagrings konto** och välj **lagrings konto – BLOB, fil, tabell, kö** i list rutan. Välj sedan **skapa**:
     
     ![Välj lagringsresurs](./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png)
 
@@ -50,11 +50,11 @@ Om du vill skapa ett lagringskonto måste du vara tjänstadministratör eller me
 
     | Inställning | Värde | 
     | --- | --- |
-    | Projekt information > resurs grupp | Välj **Skapa nytt** och Använd namnet *CDNQuickstart-RG* . Du kan också använda en befintlig resurs grupp om du föredrar det. |
-    | Instans information > lagrings konto namn | Ange ett namn för kontot 3-24 med bara gemena bokstäver och siffror. Namnet måste vara unikt i Azure och blir värd namnet i den URL som används för att adressera BLOB-, kö-eller tabell resurser för prenumerationen. Om du vill adressera en behållar resurs i Blob Storage använder du en URI i följande format: http:// *&lt; storageaccountname &gt;* . blob.Core.Windows.net/ *&lt; container-name &gt;* .
+    | Projekt information > resurs grupp | Välj **Skapa nytt** och Använd namnet *CDNQuickstart-RG*. Du kan också använda en befintlig resurs grupp om du föredrar det. |
+    | Instans information > lagrings konto namn | Ange ett namn för kontot 3-24 med bara gemena bokstäver och siffror. Namnet måste vara unikt i Azure och blir värd namnet i den URL som används för att adressera BLOB-, kö-eller tabell resurser för prenumerationen. Om du vill adressera en behållar resurs i Blob Storage använder du en URI i följande format: http://*&lt; storageaccountname &gt;*. blob.Core.Windows.net/*&lt; container-name &gt;*.
     | Instans information > plats | Välj en Azure-region nära dig i list rutan. |
     
-    Lämna all annan information inställd på standardvärdena och välj sedan **Granska + skapa** .
+    Lämna all annan information inställd på standardvärdena och välj sedan **Granska + skapa**.
 
 1. Det kan ta flera minuter att slutföra skapandet av lagrings kontot. När du har skapat filen väljer du **gå till resurs** för att öppna lagrings kontots sida för nästa steg.
 
@@ -68,12 +68,12 @@ Om du vill skapa ett lagringskonto måste du vara tjänstadministratör eller me
 
     | Inställning  | Värde |
     | -------- | ----- |
-    | **CDN-profil** | Välj **Skapa ny** och ange ditt profil namn, till exempel *CDN-Profile-123* . En profil är en samling slut punkter. |
-    | **Prisnivå** | Välj ett av **standard** alternativen, till exempel **standard Microsoft** . |
-    | **CDN-slutpunktsnamn** | Ange slut punktens värdnamn, till exempel *CDN-Endpoint-123* . Det här namnet måste vara globalt unikt i Azure eftersom det är för att komma åt dina cachelagrade resurser i URL _&lt; -slutpunkten-name &gt;_ . azureedge.net. |
+    | **CDN-profil** | Välj **Skapa ny** och ange ditt profil namn, till exempel *CDN-Profile-123*. En profil är en samling slut punkter. |
+    | **Prisnivå** | Välj ett av **standard** alternativen, till exempel **standard Microsoft**. |
+    | **CDN-slutpunktsnamn** | Ange slut punktens värdnamn, till exempel *CDN-Endpoint-123*. Det här namnet måste vara globalt unikt i Azure eftersom det är för att komma åt dina cachelagrade resurser i URL _&lt; -slutpunkten-name &gt;_. azureedge.net. |
     | **Ursprungets värdnamn** | En ny CDN-slutpunkt använder som standard lagringskontots värdnamn som ursprunglig server. |
 
-1. Välj **Skapa** . När slutpunkten har skapats visas den i listan med slutpunkter.
+1. Välj **Skapa**. När slutpunkten har skapats visas den i listan med slutpunkter.
 
     ![Lagra en ny CDN-slutpunkt](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
 
@@ -83,7 +83,7 @@ Om du vill skapa ett lagringskonto måste du vara tjänstadministratör eller me
 
 ## <a name="enable-additional-cdn-features"></a>Aktivera ytterligare CDN-funktioner
 
-Öppna CDN slutpunktens konfigurationssida genom att välja CDN-slutpunkten i listan på lagringskontots **Azure CDN** -sida.
+Öppna CDN slutpunktens konfigurationssida genom att välja CDN-slutpunkten i listan på lagringskontots **Azure CDN**-sida.
 
 Från den här sidan kan du aktivera ytterligare CDN-funktioner, t.ex. [komprimering](cdn-improve-performance.md), [cachelagring av frågesträngar](cdn-query-string.md) och [geofiltrering](cdn-restrict-access-by-country.md). 
     
@@ -95,7 +95,7 @@ Om du vill ge begränsad åtkomst till privata lagrings behållare kan du använ
 
 Använd CDN-URL som anges i portalen om du vill få åtkomst till cachelagrat innehåll på CDN. Adressen för en cachelagrad blobb har följande format:
 
-http://< *-slutpunkt-Name* \> . azureedge.net/< *myPublicContainer* \> /< *BlobName*\>
+http://<*-slutpunkt-Name* \> . azureedge.net/<*myPublicContainer* \> /< *BlobName*\>
 
 > [!NOTE]
 > När du aktiverar Azure CDN-åtkomst till ett lagringskonto är alla offentligt tillgängliga objekt berättigade för CDN POP-cachelagring. Om du ändrar ett objekt som för tillfället är cachelagrat i CDN blir det nya innehållet inte tillgängligt via Azure CDN förrän Azure CDN uppdaterar sitt innehåll efter det att det cachelagrade innehållets Time to Live-period har löpt ut.
@@ -116,7 +116,7 @@ I föregående steg skapade du en CDN-profil och en CDN-slutpunkt i en resursgru
 
 1. I den vänstra menyn i Azure Portal väljer du **resurs grupper** och väljer sedan * CDNQuickstart-rg * *.
 
-2. Välj **ta bort resurs grupp** på sidan **resurs grupp** , ange *CDNQuickstart-RG* i text rutan och välj sedan **ta bort** .
+2. Välj **ta bort resurs grupp** på sidan **resurs grupp** , ange *CDNQuickstart-RG* i text rutan och välj sedan **ta bort**.
 
     Den här åtgärden tar bort resursgruppen, profilen och slutpunkten som du skapade i den här snabbstarten.
 

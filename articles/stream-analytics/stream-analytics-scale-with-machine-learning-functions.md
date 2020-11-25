@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
 ms.openlocfilehash: feeb709f67a0e75f5980ec0520b95feb7edd5960
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124415"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018825"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Skala ditt Stream Analytics jobb med Azure Machine Learning Studio (klassiska) funktioner
 
@@ -52,7 +52,7 @@ För att bearbeta 200 000-händelser per sekund behöver Stream Analyticss jobbe
 
 ![Skala Stream Analytics med Studio (klassisk) funktioner två jobb exempel](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Skala Stream Analytics med Studio (klassisk) funktioner två jobb exempel")
 
-I allmänhet, * *_B_* _ för batchstorlek, _*_L_*_ för webb tjänstens svars tid vid batch-storlek B i millisekunder, är data flödet för ett Stream Analytics jobb med _*_N_*_ SUS:
+I allmänhet, **_B_* _ för batchstorlek, _*_L_*_ för webb tjänstens svars tid vid batch-storlek B i millisekunder, är data flödet för ett Stream Analytics jobb med _*_N_*_ SUS:
 
 ![Skala Stream Analytics med funktions formeln Studio (klassisk)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Skala Stream Analytics med funktions formeln Studio (klassisk)")
 
@@ -63,7 +63,7 @@ Mer information om den här inställningen finns i [skalnings artikeln för Mach
 ## <a name="example--sentiment-analysis"></a>Exempel – Attitydanalys
 I följande exempel finns ett Stream Analytics jobb med funktionen sentiment Analysis Studio (klassisk), enligt beskrivningen i [själv studie kursen om Stream Analytics Machine Learning Studio (klassisk)](stream-analytics-machine-learning-integration-tutorial.md).
 
-Frågan är en helt partitionerad fråga som följs av funktionen _ *sentiment* *, som visas i följande exempel:
+Frågan är en helt partitionerad fråga som följs av funktionen _ *sentiment**, som visas i följande exempel:
 
 ```SQL
     WITH subquery AS (
@@ -88,7 +88,7 @@ Om frekvensen för inaktiva händelser ökar med 100x måste Stream Analyticss j
 
 Med det första alternativet ökar jobb **svars tiden** .
 
-Med det andra alternativet måste du etablera mer SUs om du vill ha fler samtidiga WebService-begäranden (klassiska Studio). Detta är ett större antal SUs-jobb, vilket ökar jobb **kostnaden** .
+Med det andra alternativet måste du etablera mer SUs om du vill ha fler samtidiga WebService-begäranden (klassiska Studio). Detta är ett större antal SUs-jobb, vilket ökar jobb **kostnaden**.
 
 Nu ska vi titta på skalningen med följande tids fördröjnings mått för varje batchstorlek:
 
@@ -99,7 +99,7 @@ Nu ska vi titta på skalningen med följande tids fördröjnings mått för varj
 | 300 MS | 10 000 – händelse batchar |
 | 500 ms | 25 000 – händelse batchar |
 
-1. Med det första alternativet ( **inte** etablering av mer SUS). Batchstorleken kan höjas till **25 000** . Om du ökar batchstorleken på det här sättet kan jobbet bearbeta 1 000 000-händelser med 20 samtidiga anslutningar till webb tjänsten Studio (klassisk) (med en svars tid på 500 ms per anrop). Ytterligare svars tid för Stream Analytics jobb på grund av sentiment-funktionen mot WebService-begärandena för Studio (klassisk) skulle öka från **200 MS** till **500 ms** . Batchstorleken **kan dock inte** ökas oändligt eftersom Studio (klassiska) webb tjänster kräver en begärans nytto Last storlek 4 MB eller mindre och webb tjänst begär timeout efter 100 sekunders åtgärd.
+1. Med det första alternativet (**inte** etablering av mer SUS). Batchstorleken kan höjas till **25 000**. Om du ökar batchstorleken på det här sättet kan jobbet bearbeta 1 000 000-händelser med 20 samtidiga anslutningar till webb tjänsten Studio (klassisk) (med en svars tid på 500 ms per anrop). Ytterligare svars tid för Stream Analytics jobb på grund av sentiment-funktionen mot WebService-begärandena för Studio (klassisk) skulle öka från **200 MS** till **500 ms**. Batchstorleken **kan dock inte** ökas oändligt eftersom Studio (klassiska) webb tjänster kräver en begärans nytto Last storlek 4 MB eller mindre och webb tjänst begär timeout efter 100 sekunders åtgärd.
 1. Med det andra alternativet lämnas batchstorleken på 1000, med 200-MS-webbtjänstens svars tid, var 20 samtidiga anslutningar till webb tjänsten att kunna bearbeta 1000 * 20 * 5 händelser = 100 000 per sekund. För att bearbeta 1 000 000-händelser per sekund behöver jobbet 60 SUs. Jämfört med det första alternativet skulle Stream Analytics jobb göra fler webb tjänst begär Anden, vilket i sin tur genererar en ökad kostnad.
 
 Nedan visas en tabell för data flödet för Stream Analytics jobb för olika SUs-och batch-storlekar (i antal händelser per sekund).
@@ -120,17 +120,17 @@ Nu bör du redan ha en god förståelse för hur Studio (klassiska) funktioner i
 Normalt är batchstorleken som vi anger för Studio (klassisk) funktioner inte exakt delbar med antalet händelser som returneras av varje Stream Analytics jobb "pull". När detta inträffar anropas webb tjänsten Studio (klassisk) med del-batchar. Genom att använda del batchar slipper du ytterligare jobb fördröjning i sammanslagning av händelser från pull till pull.
 
 ## <a name="new-function-related-monitoring-metrics"></a>Nya funktions relaterade övervaknings mått
-I övervaknings ytan i ett Stream Analytics jobb har tre ytterligare Function-relaterade mått lagts till. De är **funktions begär Anden** , **funktions händelser** och **misslyckade funktions begär Anden** , som visas i bilden nedan.
+I övervaknings ytan i ett Stream Analytics jobb har tre ytterligare Function-relaterade mått lagts till. De är **funktions begär Anden**, **funktions händelser** och **misslyckade funktions begär Anden**, som visas i bilden nedan.
 
 ![Skala Stream Analytics med Studio (klassisk) funktions mått](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Skala Stream Analytics med Studio (klassisk) funktions mått")
 
 Definieras enligt följande:
 
-**Funktions begär Anden** : antalet funktions begär Anden.
+**Funktions begär Anden**: antalet funktions begär Anden.
 
-**Funktions händelser** : antalet händelser i funktions begär Anden.
+**Funktions händelser**: antalet händelser i funktions begär Anden.
 
-**Misslyckade funktions begär Anden** : antal misslyckade funktions begär Anden.
+**Misslyckade funktions begär Anden**: antal misslyckade funktions begär Anden.
 
 ## <a name="key-takeaways"></a>Key takeaways
 

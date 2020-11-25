@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 70edf224494fdf1395d59d1c591d0369b9b20557
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333026"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018094"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>Självstudie: utforma en Azure Database for PostgreSQL-enskild server med PowerShell
 
@@ -28,7 +28,7 @@ Azure Database for PostgreSQL är en Relations databas tjänst i Microsoft-molne
 > - Uppdatera data
 > - Återställa data
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -142,7 +142,7 @@ Om din klientdator har PostgreSQL installerat, kan du använda en lokal instans 
    CREATE DATABASE mypgsqldb;
    ```
 
-1. I prompten, kör du följande kommando för att växla anslutning till den nyligen skapade databasen **mypgsqldb** :
+1. I prompten, kör du följande kommando för att växla anslutning till den nyligen skapade databasen **mypgsqldb**:
 
    ```sql
    \c mypgsqldb

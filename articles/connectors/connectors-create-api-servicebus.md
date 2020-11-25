@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
 ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426647"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019725"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Exchange-meddelanden i molnet med hjälp av Azure Logic Apps och Azure Service Bus
 
@@ -29,7 +29,7 @@ Du kan använda utlösare som får svar från Service Bus och göra utdata tillg
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -47,7 +47,7 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
 
 1. Logga in med ditt Azure-konto i [Azure Portal](https://portal.azure.com).
 
-1. Gå till din Service Bus *namnrum*. På sidan namn område under **Inställningar**väljer du **principer för delad åtkomst**. Under **anspråk**kontrollerar du att du har behörighet att **Hantera** för det namn området.
+1. Gå till din Service Bus *namnrum*. På sidan namn område under **Inställningar** väljer du **principer för delad åtkomst**. Under **anspråk** kontrollerar du att du har behörighet att **Hantera** för det namn området.
 
    ![Hantera behörigheter för Service Bus namnrymd](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
@@ -123,7 +123,7 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
 
    Eller om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj **Lägg till en åtgärd**.
 
-1. Under **Välj en åtgärd**i rutan Sök anger du `azure service bus` . I listan åtgärder som visas väljer du den åtgärd som du vill använda. 
+1. Under **Välj en åtgärd** i rutan Sök anger du `azure service bus` . I listan åtgärder som visas väljer du den åtgärd som du vill använda. 
 
    I det här exemplet väljer du åtgärden **Skicka meddelande** .
 

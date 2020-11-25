@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5565dd43689d0420fbb9b73f088f24a38a2d54db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5ecbabe4a5c3458c77d145fbce1281550470e00
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665913"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96019080"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Sammanfattning av funktioner för begäranden om kunddata
 
@@ -34,7 +34,7 @@ En klient organisations administratör kan ta bort kund information med hjälp a
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Men innan du tar bort kunddata via portalen bör du ta bort användarens åtkomst principer från Time Series Insights miljön i Azure Portal. Mer information finns i avsnittet [bevilja åtkomst till en Time Series Insights miljö med hjälp av Azure Portal](time-series-insights-data-access.md).
+Men innan du tar bort kunddata via portalen bör du ta bort användarens åtkomst principer från Time Series Insights miljön i Azure Portal. Mer information finns i avsnittet [bevilja åtkomst till en Time Series Insights miljö med hjälp av Azure Portal](./concepts-access-policies.md).
 
 Du kan också utföra borttagnings åtgärder på åtkomst principer med hjälp av REST API. Mer information finns i avsnittet om [åtkomst principer – ta bort](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/delete).
 
@@ -46,7 +46,7 @@ På samma sätt som för att ta bort data kan en innehavaradministratör Visa oc
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Om du är klient organisations administratör kan du visa data åtkomst principer i Time Series Insightss miljön i Azure Portal. Mer information finns i avsnittet [bevilja åtkomst till en Time Series Insights miljö med hjälp av Azure Portal](time-series-insights-data-access.md).
+Om du är klient organisations administratör kan du visa data åtkomst principer i Time Series Insightss miljön i Azure Portal. Mer information finns i avsnittet [bevilja åtkomst till en Time Series Insights miljö med hjälp av Azure Portal](./concepts-access-policies.md).
 
 Du kan också utföra export åtgärder på åtkomst principer med hjälp av åtgärden "lista efter miljö" i den angivna REST API. Mer information finns i avsnittet om [åtkomst principer – lista efter miljö](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment).
 
@@ -68,7 +68,7 @@ Mer information finns [i Konfigurera kvarhållning i Time Series Insights](time-
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [att bevilja data åtkomst till din Azure Time Series Insightss miljö](./time-series-insights-data-access.md).
+* Läs mer om [att bevilja data åtkomst till din Azure Time Series Insightss miljö](./concepts-access-policies.md).
 
 * Visa [Azure Time Series Insights Explorer](time-series-insights-explorer.md).
 

@@ -6,13 +6,13 @@ ms.topic: include
 ms.date: 11/18/2020
 ms.author: baanders
 ms.openlocfilehash: 261c5fa47cddcc527e7c0a18fbd18aad9320ed4b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95561201"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018977"
 ---
-| Filternamn | Beskrivning | Filtrera text schema | Värden som stöds | 
+| Filternamn | Description | Filtrera text schema | Värden som stöds | 
 | --- | --- | --- | --- |
 | True/false | Tillåter att du skapar en väg utan filtrering eller inaktiverar en väg så att inga händelser skickas | `<true/false>` | `true` = Route är aktiverat utan filtrering <br> `false` = vägen är inaktive rad |
 | Typ | Den [typ av händelse](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) som flödar genom den digitala dubbla instansen | `type = '<eventType>'` | Här följer möjliga värden för händelse typ: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |

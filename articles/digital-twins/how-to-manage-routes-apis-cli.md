@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Se hur du konfigurerar och hanterar slut punkter och händelse vägar för Azure Digitals dubbla data.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 10/12/2020
+ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0b8bd9006482daf7c9218f0f3dbb16d2e08359bf
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b836038aa2f8f60e25c51d1d5674d22497b3ce44
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533760"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96018976"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Hantera slut punkter och vägar i Azure Digitals dubbla (API: er och CLI)
 
@@ -64,15 +64,15 @@ När du har skapat ämnet kan du länka det till Azure Digitals dubbla med följ
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Nu är event Grid-avsnittet tillgängligt som en slut punkt i Azure Digitals, under namnet som anges med `--endpoint-name` argumentet. Du använder vanligt vis det namnet som mål för en **händelse väg** , som du kommer att skapa [senare i den här artikeln](#create-an-event-route) med hjälp av Azure Digitals tjänst-API.
+Nu är event Grid-avsnittet tillgängligt som en slut punkt i Azure Digitals, under namnet som anges med `--endpoint-name` argumentet. Du använder vanligt vis det namnet som mål för en **händelse väg**, som du kommer att skapa [senare i den här artikeln](#create-an-event-route) med hjälp av Azure Digitals tjänst-API.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Skapa en Event Hubs-eller Service Bus-slutpunkt
 
 Processen för att skapa Event Hubs-eller Service Bus-slutpunkter liknar Event Grid processen som visas ovan.
 
 Börja med att skapa de resurser som du ska använda som slut punkt. Här är vad som krävs:
-* Service Bus: _Service Bus namnrymd_ , _Service Bus ämne_ , _auktoriseringsregel_
-* Event Hubs: _Event Hubs namnrymd_ , _händelsehubben_ , _auktoriseringsregel_
+* Service Bus: _Service Bus namnrymd_, _Service Bus ämne_, _auktoriseringsregel_
+* Event Hubs: _Event Hubs namnrymd_, _händelsehubben_, _auktoriseringsregel_
 
 Använd sedan följande kommandon för att skapa slut punkterna i Azure Digitals flätas: 
 
@@ -156,10 +156,10 @@ Om du faktiskt vill skicka data från digitala Azure-sändningar till en slut pu
 
 I exemplen i det här avsnittet används [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
-**Förutsättning** : du måste skapa slut punkter enligt beskrivningen ovan i den här artikeln innan du kan gå vidare till skapa en väg. Du kan fortsätta att skapa en händelse väg när slut punkterna har koner ATS.
+**Förutsättning**: du måste skapa slut punkter enligt beskrivningen ovan i den här artikeln innan du kan gå vidare till skapa en väg. Du kan fortsätta att skapa en händelse väg när slut punkterna har koner ATS.
 
->[!NOTE]
->Om du nyligen har distribuerat dina slut punkter kontrollerar du att de är klara med distributionen **innan** du försöker använda dem för en ny händelse väg. Om väg distributionen Miss lyckas eftersom slut punkterna inte är klara, väntar du några minuter och försöker igen.
+> [!NOTE]
+> Om du nyligen har distribuerat dina slut punkter kontrollerar du att de är klara med distributionen **innan** du försöker använda dem för en ny händelse väg. Om väg distributionen Miss lyckas eftersom slut punkterna inte är klara, väntar du några minuter och försöker igen.
 >
 > Om du använder skript för det här flödet kanske du vill ta hänsyn till det genom att skapa i 2-3 minuter vänte tid för slut punkts tjänsten för att slutföra distributionen innan du går vidare till väg installationen.
 
@@ -229,7 +229,7 @@ Utan filtrering tar slut punkter emot flera olika händelser från Azures digita
 
 Du kan begränsa vilka händelser som ska skickas genom att lägga till ett **filter** för en slut punkt till händelse vägen.
 
-Om du vill lägga till ett filter kan du använda en skicka-begäran till *https://{YourHost}/EventRoutes/myNewRoute? API-version = 2020-10-31* med följande text:
+Om du vill lägga till ett filter, kan du använda en skicka-begäran till *https://{Your-Azure-Digital-posters-hostname}/eventRoutes/{Event Route-Name}? API-version = 2020-10-31* med följande text:
 
 ```json  
 {
@@ -237,7 +237,6 @@ Om du vill lägga till ett filter kan du använda en skicka-begäran till *https
     "filter": "<filter-text>"
 }
 ``` 
-
 Här följer de väg filter som stöds. Använd informationen i kolumnen *filtrera text schema* för att ersätta `<filter-text>` plats hållaren i begär ande texten ovan.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]

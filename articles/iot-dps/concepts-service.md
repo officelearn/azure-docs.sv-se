@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotga
 ms.openlocfilehash: b9fc37c6589cdd0bc6a5cdce7b7ebebe2c6e9a85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531618"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019454"
 ---
 # <a name="iot-hub-device-provisioning-service-dps-terminology"></a>Terminologi för IoT Hub Device Provisioning Service (DPS)
 
@@ -123,6 +123,6 @@ Enhets-ID: t är det ID som det visas i IoT Hub. Det önskade enhets-ID: t kan a
 
 
 
-## <a name="operations"></a>Åtgärder
+## <a name="operations"></a>Operations
 
 Åtgärder är fakturerings enheten för enhets etablerings tjänsten. En åtgärd är slutförd slut för ande av en instruktion till tjänsten. Åtgärderna inkluderar enhets registreringar och omregistreringar; åtgärder omfattar även ändringar på tjänst sidan, till exempel att lägga till registrerings List poster och uppdatera poster i registrerings listan.

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: a547a874c42d06d8453b154847561d8b5f0dabb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361404"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019213"
 ---
 # <a name="manage-process-servers"></a>Hantera processervrar
 
@@ -37,17 +37,17 @@ När du distribuerar en processerver lokalt, eller som en virtuell Azure-dator f
 
 Utjämna belastningen genom att flytta virtuella datorer mellan två process servrar enligt följande:
 
-1. I valvet under **Hantera** klickar du på **Site Recovery infrastruktur**. Under **för fysiska VMware & fysiska datorer**klickar du på **konfigurations servrar**.
+1. I valvet under **Hantera** klickar du på **Site Recovery infrastruktur**. Under **för fysiska VMware & fysiska datorer** klickar du på **konfigurations servrar**.
 2. Klicka på den konfigurations server som process servrarna är registrerade på.
 3. Klicka på den processerver som du vill belastningsutjämna trafik för.
 
     ![Skärm bild som visar en Processerver för vilken du kan belastningsutjämna trafik.](media/vmware-azure-manage-process-server/LoadBalance.png)
 
-4. Klicka på **belastnings utjämning**och välj den mål process server som du vill flytta datorer till. Klicka sedan på **OK**
+4. Klicka på **belastnings utjämning** och välj den mål process server som du vill flytta datorer till. Klicka sedan på **OK**
 
     ![Skärm bild som visar fönstret belastnings utjämning med Välj mål process Server vald.](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
-2. Klicka på **Välj datorer**och välj de datorer som du vill flytta från den aktuella till mål process servern. Information om genomsnittlig data ändring visas för varje virtuell dator. Klicka sedan på **OK**. 
+2. Klicka på **Välj datorer** och välj de datorer som du vill flytta från den aktuella till mål process servern. Information om genomsnittlig data ändring visas för varje virtuell dator. Klicka sedan på **OK**. 
 3. I valvet övervakar du förloppet för jobbet under **övervakning**  >  **Site Recovery jobb**.
 
 Det tar ungefär 15 minuter innan ändringarna visas i portalen. [Uppdatera konfigurations servern](vmware-azure-manage-configuration-server.md#refresh-configuration-server)för en snabbare inverkan.
@@ -56,10 +56,10 @@ Det tar ungefär 15 minuter innan ändringarna visas i portalen. [Uppdatera konf
 
 Flytta hela arbets belastningen som hanteras av en processerver till en annan processerver enligt följande:
 
-1. I valvet under **Hantera** klickar du på **Site Recovery infrastruktur**. Under **för fysiska VMware & fysiska datorer**klickar du på **konfigurations servrar**.
+1. I valvet under **Hantera** klickar du på **Site Recovery infrastruktur**. Under **för fysiska VMware & fysiska datorer** klickar du på **konfigurations servrar**.
 2. Klicka på den konfigurations server som process servrarna är registrerade på.
 3. Klicka på den processerver som du vill byta arbets belastningen från.
-4. Klicka på **växel**och välj den mål process server som du vill flytta arbets belastningen till. Klicka sedan på **OK**
+4. Klicka på **växel** och välj den mål process server som du vill flytta arbets belastningen till. Klicka sedan på **OK**
 
     ![Skärm bild som visar fönstret Välj mål process Server.](media/vmware-azure-manage-process-server/Switch.PNG)
 
@@ -69,7 +69,7 @@ Det tar ungefär 15 minuter innan ändringarna visas i portalen. [Uppdatera konf
 
 ## <a name="register-a-master-target-server"></a>Registrera en huvud mål Server
 
-Huvud mål servern finns på konfigurations servern och de skalbara process servrarna. Det måste registreras med konfigurations servern. Om registreringen Miss lyckas kan det påverka hälsan hos skyddade objekt. Om du vill registrera huvud mål servern med konfigurations servern loggar du in på den specifika konfigurations servern/den skalbara processervern där registreringen krävs. Gå till mappen **%programdata%\ASR\Agent**och kör följande på administratörs kommando tolken.
+Huvud mål servern finns på konfigurations servern och de skalbara process servrarna. Det måste registreras med konfigurations servern. Om registreringen Miss lyckas kan det påverka hälsan hos skyddade objekt. Om du vill registrera huvud mål servern med konfigurations servern loggar du in på den specifika konfigurations servern/den skalbara processervern där registreringen krävs. Gå till mappen **%programdata%\ASR\Agent** och kör följande på administratörs kommando tolken.
 
    ```
    cmd
@@ -91,7 +91,7 @@ Registrera om en processerver som körs lokalt eller på en virtuell Azure-dator
 När du har sparat inställningarna gör du följande:
 
 1. Öppna en administratörs kommando tolk på processervern.
-2. Bläddra till mappen **%programdata%\ASR\Agent**och kör kommandot:
+2. Bläddra till mappen **%programdata%\ASR\Agent** och kör kommandot:
 
     ```
     cdpcli.exe --registermt
@@ -111,7 +111,7 @@ Om en lokal processerver använder en proxyserver för att ansluta till Azure, k
    net stop obengine
    net start obengine
    ```
-2. Bläddra till mappen **%programdata%\ASR\Agent**och kör följande kommando:
+2. Bläddra till mappen **%programdata%\ASR\Agent** och kör följande kommando:
    ```
    cmd
    cdpcli.exe --registermt

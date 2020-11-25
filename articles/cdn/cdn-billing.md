@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
 ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779177"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018689"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Så här fungerar fakturering för Azure CDN
 
@@ -48,7 +48,7 @@ Azure CDN fakturerings region baseras på platsen för käll servern som leverer
 Exempel: om en användare som finns i Mexiko utfärdar en begäran och denna begäran betjänas av en server som finns i ett USA POP på grund av peering-eller trafik förhållanden, är fakturerings regionen USA.
 
 ## <a name="what-is-a-billable-azure-cdn-transaction"></a>Vad är en fakturerbar Azure CDN transaktion?
-Alla HTTP (S)-förfrågningar som avslutas vid CDN är en fakturerbar händelse som innehåller alla svars typer: lyckades, misslyckades eller annat. Olika svar kan dock generera olika trafik mängder. Till exempel, *304 har inte ändrats* och andra skrivskyddade svar genererar lite trafik eftersom de är ett litet huvud svar. på samma sätt är fel svar (till exempel *404 som inte hittas* ) fakturerbara men kostar en låg kostnad på grund av den stora nytto lasten.
+Alla HTTP (S)-förfrågningar som avslutas vid CDN är en fakturerbar händelse som innehåller alla svars typer: lyckades, misslyckades eller annat. Olika svar kan dock generera olika trafik mängder. Till exempel, *304 har inte ändrats* och andra skrivskyddade svar genererar lite trafik eftersom de är ett litet huvud svar. på samma sätt är fel svar (till exempel *404 som inte hittas*) fakturerbara men kostar en låg kostnad på grund av den stora nytto lasten.
 
 ## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Vilka andra Azure-kostnader är associerade med Azure CDN använda?
 Om du använder Azure CDN uppstår även några användnings kostnader för de tjänster som används som ursprung för dina objekt. Dessa kostnader är vanligt vis en liten del av den totala förbruknings kostnaden för CDN.

@@ -6,11 +6,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 02/09/2018
 ms.openlocfilehash: e7da5454581e0e414dc832d4fcec50277f3b7f40
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221255"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019063"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Använda Azure Data Lake Tools för Visual Studio Code
 
@@ -20,7 +20,7 @@ I den här artikeln lär du dig hur du kan använda Azure Data Lake verktyg för
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Azure Data Lake verktyg för VS Code stöder Windows, Linux och macOS.U-SQL lokal körning och lokal fel sökning fungerar bara i Windows.
+Azure Data Lake verktyg för VS Code stöder Windows, Linux och macOS. U-SQL lokal körning och lokal fel sökning fungerar bara i Windows.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
@@ -65,18 +65,18 @@ Om du vill arbeta med U-SQL måste du öppna antingen en U-SQL-fil eller en mapp
 4. Ange följande kod i filen namnlös-1:
 
    ```usql
-   @departments  =
-       SELECT * FROM
-           (VALUES
-               (31,    "Sales"),
-               (33,    "Engineering"),
-               (34,    "Clerical"),
-               (35,    "Marketing")
-           ) AS
-                 D( DepID, DepName );
+   @departments  =
+       SELECT * FROM
+           (VALUES
+               (31,    "Sales"),
+               (33,    "Engineering"),
+               (34,    "Clerical"),
+               (35,    "Marketing")
+           ) AS
+                 D( DepID, DepName );
    ```
 
-   UTDATA @departments      till "/output/departments.csv" med Outputters.Csv ();
+   UTDATA @departments     till "/Output/departments.csv" med Outputters.Csv ();
 
     Skriptet skapar en departments.csv-fil med vissa data som ingår i mappen/output.
 
@@ -248,11 +248,11 @@ Innan du kan kompilera och köra U-SQL-skript i Data Lake Analytics måste du an
 > - Data Lake verktyg loggar automatiskt in dig nästa gången om du inte loggar ut.
 > - Om ditt konto har två faktorer aktiverade, rekommenderar vi att du använder autentisering i stället för att använda en PIN-kod.
 
-Logga ut genom att ange kommandot **ADL: Logga**ut.
+Logga ut genom att ange kommandot **ADL: Logga** ut.
 
 ### <a name="to-connect-to-azure-from-the-explorer"></a>Ansluta till Azure från Utforskaren
 
-Expandera **Azure DATALAKE**, Välj **Logga in på Azure**och följ sedan steg 3 och steg 4 i [för att ansluta till Azure med hjälp av ett kommando](#sign-in-by-command).
+Expandera **Azure DATALAKE**, Välj **Logga in på Azure** och följ sedan steg 3 och steg 4 i [för att ansluta till Azure med hjälp av ett kommando](#sign-in-by-command).
 
 ![Val av "logga in på Azure" i Utforskaren](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-sign-in-from-explorer.png )  
 
@@ -382,7 +382,7 @@ Du kan [övervaka nedladdnings statusen](#check-storage-tasks-status).
 
 ### <a name="to-download-a-file-through-the-adl-download-file-command"></a>Hämta en fil via kommandot ADL: Download File
 
-1. Högerklicka på skript redigeraren, Välj **Hämta fil**och välj sedan målmappen i dialog rutan **Välj mapp** .
+1. Högerklicka på skript redigeraren, Välj **Hämta fil** och välj sedan målmappen i dialog rutan **Välj mapp** .
 
 1. Välj mappen i listan eller Välj **Ange en sökväg** eller **Bläddra till rot Sök vägen**. (Vi använder **Ange en sökväg** som exempel.)
 
@@ -410,7 +410,7 @@ När du har loggat in visas alla prenumerationer för ditt Azure-konto i den vä
 
 ### <a name="data-lake-analytics-metadata-navigation"></a>Data Lake Analytics navigering för metadata
 
-Expandera din Azure-prenumeration. Under noden **U-SQL-databaser** kan du bläddra igenom din U-SQL-databas och Visa mappar som **scheman**, **autentiseringsuppgifter**, **sammansättningar**, **tabeller**och **index**.
+Expandera din Azure-prenumeration. Under noden **U-SQL-databaser** kan du bläddra igenom din U-SQL-databas och Visa mappar som **scheman**, **autentiseringsuppgifter**, **sammansättningar**, **tabeller** och **index**.
 
 ### <a name="data-lake-analytics-metadata-entity-management"></a>Data Lake Analytics entitets hantering av metadata
 
@@ -432,11 +432,11 @@ Du kan registrera en sammansättning i motsvarande databas genom att högerklick
 
 Bläddra till **data Lake Store**:
 
-- Du kan högerklicka på noden mapp och sedan använda kommandona **Uppdatera**, **ta bort**, **Ladda upp**, **överför,** **Kopiera relativ sökväg**och **Kopiera fullständig sökväg** på snabb menyn.
+- Du kan högerklicka på noden mapp och sedan använda kommandona **Uppdatera**, **ta bort**, **Ladda upp**, **överför,** **Kopiera relativ sökväg** och **Kopiera fullständig sökväg** på snabb menyn.
 
    ![Snabb Meny kommandon för en mapp-nod i Data Lake Explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
-- Du kan högerklicka på filnoden och sedan använda kommandona för för **hands version**, **Hämta**, **ta bort**, **skapa extraherings skript** (endast tillgängligt för CSV-, TSV-och txt-filer), **Kopiera relativ sökväg**och **Kopiera fullständiga sökvägar** på snabb menyn.
+- Du kan högerklicka på filnoden och sedan använda kommandona för för **hands version**, **Hämta**, **ta bort**, **skapa extraherings skript** (endast tillgängligt för CSV-, TSV-och txt-filer), **Kopiera relativ sökväg** och **Kopiera fullständiga sökvägar** på snabb menyn.
 
    ![Snabb Meny kommandon för en filnod i Data Lake Explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-extract.png)
 
@@ -444,7 +444,7 @@ Bläddra till **data Lake Store**:
 
 Bläddra till Blob Storage:
 
-- Du kan högerklicka på noden BLOB container och sedan använda kommandona **Uppdatera**, **ta bort BLOB container**och **Ladda upp BLOB** på snabb menyn.
+- Du kan högerklicka på noden BLOB container och sedan använda kommandona **Uppdatera**, **ta bort BLOB container** och **Ladda upp BLOB** på snabb menyn.
 
    ![Snabb Meny kommandon för en BLOB container-nod under Blob Storage](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
 
@@ -452,7 +452,7 @@ Bläddra till Blob Storage:
 
    ![Snabb Meny kommandon för en mapp-nod under Blob Storage](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
 
-- Du kan högerklicka på filnoden och sedan använda kommandona **Preview/redigera**, **Hämta**, **ta bort**, **skapa extraherings skript** (endast tillgängligt för CSV-, TSV-och txt-filer), **Kopiera relativ sökväg**och **Kopiera fullständiga sökvägar** på snabb menyn.
+- Du kan högerklicka på filnoden och sedan använda kommandona **Preview/redigera**, **Hämta**, **ta bort**, **skapa extraherings skript** (endast tillgängligt för CSV-, TSV-och txt-filer), **Kopiera relativ sökväg** och **Kopiera fullständiga sökvägar** på snabb menyn.
 
     ![Snabb Meny kommandon för en filnod under Blob Storage](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-from-context-menu-2.png)
 

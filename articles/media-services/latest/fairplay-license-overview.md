@@ -15,11 +15,11 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 09068064f24594ef35a8a1bf64213b48d83873ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296871"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018740"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Licenskrav för och konfiguration av Apple FairPlay
 
@@ -69,7 +69,7 @@ Följande krävs när du använder Media Services för att kryptera ditt HLS-inn
 
 ## <a name="fairplay-and-player-apps"></a>FairPlay-och Player-appar
 
-När ditt innehåll krypteras med **Apple-Fairplay**krypteras de enskilda video-och ljud exemplen med hjälp av **CBC-läget AES-128** . **Fairplay Streaming** (FPS) är integrerat i enhetens operativ system, med inbyggt stöd för iOS och Apple TV. Safari på OS X aktiverar FPS med hjälp av EME-gränssnittet (Encrypted Media Extensions).
+När ditt innehåll krypteras med **Apple-Fairplay** krypteras de enskilda video-och ljud exemplen med hjälp av **CBC-läget AES-128** . **Fairplay Streaming** (FPS) är integrerat i enhetens operativ system, med inbyggt stöd för iOS och Apple TV. Safari på OS X aktiverar FPS med hjälp av EME-gränssnittet (Encrypted Media Extensions).
 
 Azure Media Player stöder också uppspelning av FairPlay. Mer information finns i [Azure Media Player-dokumentationen](https://amp.azure.net/libs/amp/latest/docs/index.html).
 

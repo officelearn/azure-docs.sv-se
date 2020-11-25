@@ -8,11 +8,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
 ms.openlocfilehash: d06501abe69ce9b06656cfa8949c42bb53a03983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439248"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019046"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Azure Monitor loggar Connector för Logic Apps och energi automatisering
 Med [Azure Logic Apps](../../logic-apps/index.yml) och [energi spar läge](https://flow.microsoft.com) kan du skapa automatiserade arbets flöden med hundratals åtgärder för olika tjänster. Med anslutnings programmet för Azure Monitor loggar kan du bygga arbets flöden som hämtar data från en Log Analytics arbets yta eller ett Application Insights program i Azure Monitor. I den här artikeln beskrivs de åtgärder som ingår i kopplingen och en genom gång av hur du skapar ett arbets flöde med dessa data.
@@ -46,7 +46,7 @@ Följande självstudier illustrerar användningen av Azure Monitor-kopplingar i 
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
 
-Gå till **Logic Apps** i Azure Portal och klicka på **Lägg till**. Välj en **prenumeration**, en **resurs grupp**och en **region** för att lagra den nya Logic-appen och ge den ett unikt namn. Du kan aktivera **Log Analytics** inställningen för att samla in information om körnings data och händelser enligt beskrivningen i [Konfigurera Azure Monitor loggar och samla in diagnostikdata för Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). Den här inställningen krävs inte för att använda anslutnings programmet för Azure Monitor-loggar.
+Gå till **Logic Apps** i Azure Portal och klicka på **Lägg till**. Välj en **prenumeration**, en **resurs grupp** och en **region** för att lagra den nya Logic-appen och ge den ett unikt namn. Du kan aktivera **Log Analytics** inställningen för att samla in information om körnings data och händelser enligt beskrivningen i [Konfigurera Azure Monitor loggar och samla in diagnostikdata för Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). Den här inställningen krävs inte för att använda anslutnings programmet för Azure Monitor-loggar.
 
 ![Skapa en logikapp](media/logicapp-flow-connector/create-logic-app.png)
 
@@ -54,7 +54,7 @@ Gå till **Logic Apps** i Azure Portal och klicka på **Lägg till**. Välj en *
 Klicka på **Granska + skapa** och sedan på **skapa**. När distributionen är klar klickar du på **gå till resurs** för att öppna **Logic Apps designer**.
 
 ### <a name="create-a-trigger-for-the-logic-app"></a>Skapa en utlösare för Logic app
-Under **börja med en gemensam utlösare**väljer du **upprepning**. Detta skapar en logisk app som körs automatiskt med jämna mellanrum. I rutan **frekvens** för åtgärden väljer du **dag** och i rutan **intervall** anger du **1** för att köra arbets flödet en gång per dag.
+Under **börja med en gemensam utlösare** väljer du **upprepning**. Detta skapar en logisk app som körs automatiskt med jämna mellanrum. I rutan **frekvens** för åtgärden väljer du **dag** och i rutan **intervall** anger du **1** för att köra arbets flödet en gång per dag.
 
 ![Upprepnings åtgärd](media/logicapp-flow-connector/recurrence-action.png)
 
@@ -93,7 +93,7 @@ E-postmeddelandet kommer att skickas av det konto som är associerat med den akt
 
 ### <a name="add-email-action"></a>Lägg till e-poståtgärd
 
-Klicka på **+ nytt steg**och klicka sedan på **+ Lägg till en åtgärd**. Under **Välj en åtgärd**skriver du **Outlook** och väljer sedan **Office 365 Outlook**.
+Klicka på **+ nytt steg** och klicka sedan på **+ Lägg till en åtgärd**. Under **Välj en åtgärd** skriver du **Outlook** och väljer sedan **Office 365 Outlook**.
 
 ![Välj Outlook-koppling](media/logicapp-flow-connector/select-outlook-connector.png)
 

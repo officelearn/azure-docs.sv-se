@@ -5,11 +5,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 08/02/2017
 ms.openlocfilehash: a1e9a9df4c2ec57dfeec8cf5ddd5348228b9cc3e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218688"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018570"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Använda jobbwebbläsaren och jobbvyn för Azure Data Lake Analytics
 Azure Data Lake Analytics tjänst arkiverar jobb som skickats i ett frågearkivet. I den här artikeln får du lära dig hur du använder jobb webbläsare och jobb visning i Azure Data Lake verktyg för Visual Studio för att hitta den historiska jobb informationen. 
@@ -162,7 +162,7 @@ Jobb information visar detaljerad information om jobbet, inklusive skript, resur
   
     Den visar information om körning av formhörn. Jobb profilen arkiverar varje form av körnings logg, till exempel total läsning/skrivning av data, körning, tillstånd osv. I den här vyn kan du få mer information om hur ett jobb körs. Mer information finns i [Använd vyn hörn körning i data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * Information om hur du loggar diagnostikinformation finns i [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * Om du vill se en mer komplex fråga, se [Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Om du vill använda körnings visning för hörn, se [Använd vyn hörn körning i data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

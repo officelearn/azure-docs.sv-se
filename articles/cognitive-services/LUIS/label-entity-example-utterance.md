@@ -6,11 +6,11 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: ffbaa2e40d5924ba61e548398e63295cf7dba2b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303734"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019743"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Etiketten maskin inlärnings enhet i ett exempel uttryck
 
@@ -39,7 +39,7 @@ Det finns stöd för två etikett tekniker på sidan för avsikts information.
 
 När du har [planerat schemat med entiteter](luis-how-plan-your-app.md)ska **entitetens palett** vara synlig medan du märker dem. **Entitetens palett** är en påminnelse om vilka entiteter du har planerat att extrahera.
 
-Om du vill komma åt **entiteten entitet**väljer du **@** symbolen i kontext verktygsfältet ovanför exempel uttryck-listan.
+Om du vill komma åt **entiteten entitet** väljer du **@** symbolen i kontext verktygsfältet ovanför exempel uttryck-listan.
 
 > [!div class="mx-imgBorder"]
 > ![Skärm bild av paletten för entity på sidan information om avsikt.](media/label-utterances/entity-palette-from-tool-bar.png)

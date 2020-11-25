@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 27c78566877f27e80ae5ae27c5250f228c7ae676
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779830"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017907"
 ---
 ### <a name="deploy-the-key-phrase-extraction-container-to-an-aks-cluster"></a>Distribuera Extrahering av diskussionsämne-behållaren till ett AKS-kluster
 
@@ -49,7 +49,7 @@ ms.locfileid: "91779830"
     code .
     ```
 
-1. Skapa en ny fil med namnet *yaml*i text redigeraren och klistra in följande yaml i den. Se till att ersätta `billing/value` och `apikey/value` med din egen information.
+1. Skapa en ny fil med namnet *yaml* i text redigeraren och klistra in följande yaml i den. Se till att ersätta `billing/value` och `apikey/value` med din egen information.
 
     ```yaml
     apiVersion: apps/v1beta1

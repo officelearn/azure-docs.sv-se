@@ -10,11 +10,11 @@ ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307468"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019233"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
 I den här artikeln beskrivs några mönster som lämpar sig för användning med Table service lösningar. Dessutom får du se hur du praktiskt taget kan åtgärda några av de problem och kompromisser som beskrivs i andra tabell lagrings design artiklar. Följande diagram sammanfattar relationerna mellan olika mönster:  
@@ -35,7 +35,7 @@ Table service indexerar automatiskt entiteter med hjälp av värdena **Partition
 Om du också vill kunna hitta en anställd entitet baserat på värdet för en annan egenskap, till exempel e-postadress, måste du använda en mindre effektiv partitions ökning för att hitta en matchning. Detta beror på att tabell tjänsten inte tillhandahåller sekundära index. Det finns dessutom inget alternativ för att begära en lista över anställda sorterad i en annan ordning än **RowKey** ordning.  
 
 ### <a name="solution"></a>Lösning
-För att undvika avsaknad av sekundära index kan du lagra flera kopior av varje entitet med varje kopia med ett annat **RowKey** -värde. Om du lagrar en entitet med de strukturer som visas nedan kan du effektivt hämta personal enheter baserat på e-postadress eller medarbetar-ID. Prefixvärde för **RowKey** , "empid_" och "email_" gör att du kan fråga efter en enskild anställd eller ett antal anställda genom att använda ett intervall med e-postadresser eller anställnings-ID.  
+För att undvika avsaknad av sekundära index kan du lagra flera kopior av varje entitet med varje kopia med ett annat **RowKey** -värde. Om du lagrar en entitet med de strukturer som visas nedan kan du effektivt hämta personal enheter baserat på e-postadress eller medarbetar-ID. Prefixvärde för **RowKey**, "empid_" och "email_" gör att du kan fråga efter en enskild anställd eller ett antal anställda genom att använda ett intervall med e-postadresser eller anställnings-ID.  
 
 ![Personal enheter](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
 
@@ -90,7 +90,7 @@ Om du också vill kunna hitta en anställd entitet baserat på värdet för en a
 Du förväntar dig en stor mängd transaktioner mot dessa entiteter och vill minimera risken för Table service begränsning av klienten.  
 
 ### <a name="solution"></a>Lösning
-För att undvika avsaknad av sekundära index kan du lagra flera kopior av varje entitet med varje kopia med olika **PartitionKey** -och **RowKey** -värden. Om du lagrar en entitet med de strukturer som visas nedan kan du effektivt hämta personal enheter baserat på e-postadress eller medarbetar-ID. Prefixvärde för **PartitionKey** , "empid_" och "email_" gör att du kan identifiera vilket index som du vill använda för en fråga.  
+För att undvika avsaknad av sekundära index kan du lagra flera kopior av varje entitet med varje kopia med olika **PartitionKey** -och **RowKey** -värden. Om du lagrar en entitet med de strukturer som visas nedan kan du effektivt hämta personal enheter baserat på e-postadress eller medarbetar-ID. Prefixvärde för **PartitionKey**, "empid_" och "email_" gör att du kan identifiera vilket index som du vill använda för en fråga.  
 
 ![Primärt index och sekundärt index](media/storage-table-design-guide/storage-table-design-IMAGE10.png)
 
@@ -156,7 +156,7 @@ I det här exemplet infogar steg 4 medarbetaren i **Arkiv** tabellen. Den kan l�
 ### <a name="recovering-from-failures"></a>Återställer från haverier
 Det är viktigt att åtgärderna i steg **4** och **5** måste vara *idempotenta* om arbets rollen behöver starta om lagrings åtgärden. Om du använder Table service, för steg **4** , ska du använda en "Infoga eller Ersätt"-åtgärd. i steg **5** bör du använda åtgärden "ta bort om finns" i klient biblioteket som du använder. Om du använder ett annat lagrings system måste du använda en lämplig idempotenta-åtgärd.  
 
-Om arbets rollen aldrig slutförs steg **6** , efter en tids gräns, visas meddelandet igen i kön redo för arbets rollen för att försöka att bearbeta det igen. Arbets rollen kan kontrol lera hur många gånger ett meddelande i kön har lästs och, om det behövs, flagga det är ett "Poison"-meddelande för undersökning genom att skicka det till en separat kö. Mer information om hur du läser Kömeddelanden och kontrollerar antalet ur kön finns i [Hämta meddelanden](/rest/api/storageservices/Get-Messages).  
+Om arbets rollen aldrig slutförs steg **6**, efter en tids gräns, visas meddelandet igen i kön redo för arbets rollen för att försöka att bearbeta det igen. Arbets rollen kan kontrol lera hur många gånger ett meddelande i kön har lästs och, om det behövs, flagga det är ett "Poison"-meddelande för undersökning genom att skicka det till en separat kö. Mer information om hur du läser Kömeddelanden och kontrollerar antalet ur kön finns i [Hämta meddelanden](/rest/api/storageservices/Get-Messages).  
 
 Vissa fel från tabell-och Queue-tjänsterna är tillfälliga fel och klient programmet bör inkludera lämplig omprövnings logik för att hantera dem.  
 
@@ -185,7 +185,7 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 Underhåll index enheter för att aktivera effektiva sökningar som returnerar listor med entiteter.  
 
 ### <a name="context-and-problem"></a>Kontext och problem
-Table service indexerar automatiskt entiteter med hjälp av värdena **PartitionKey** och **RowKey** . Detta gör att ett klient program kan hämta en entitet effektivt med en punkt fråga. Med hjälp av tabell strukturen som visas nedan kan ett klient program effektivt hämta en enskild anställd entitet med hjälp av avdelnings namnet och medarbetar-ID: t ( **PartitionKey** och **RowKey** ).  
+Table service indexerar automatiskt entiteter med hjälp av värdena **PartitionKey** och **RowKey** . Detta gör att ett klient program kan hämta en entitet effektivt med en punkt fråga. Med hjälp av tabell strukturen som visas nedan kan ett klient program effektivt hämta en enskild anställd entitet med hjälp av avdelnings namnet och medarbetar-ID: t ( **PartitionKey** och **RowKey**).  
 
 ![Anställd entitet](media/storage-table-design-guide/storage-table-design-IMAGE13.png)
 
@@ -213,7 +213,7 @@ Egenskapen **EmployeeIDs** innehåller en lista med anställnings-ID: n för ans
 Följande steg beskriver processen som du bör följa när du lägger till en ny medarbetare om du använder det andra alternativet. I det här exemplet lägger vi till en anställd med ID 000152 och efter namn Jones på försäljnings avdelningen:  
 
 1. Hämta index entiteten med **PartitionKey** -värdet "Sales" och **RowKey** -värdet "Johansson". Spara ETag för den här entiteten som ska användas i steg 2.  
-2. Skapa en enhets grupp transaktion (det vill säga en batch-åtgärd) som infogar den nya personal enheten ( **PartitionKey** värde "försäljning" och **RowKey** värde "000152") och uppdaterar index enheten ( **PartitionKey** värde "Sales" och **RowKey** Value "Johansson") genom att lägga till det nya medarbetar-ID: t i listan i fältet EmployeeIDs. Mer information om enhets grupps transaktioner finns i enhets grupp transaktioner.  
+2. Skapa en enhets grupp transaktion (det vill säga en batch-åtgärd) som infogar den nya personal enheten (**PartitionKey** värde "försäljning" och **RowKey** värde "000152") och uppdaterar index enheten (**PartitionKey** värde "Sales" och **RowKey** Value "Johansson") genom att lägga till det nya medarbetar-ID: t i listan i fältet EmployeeIDs. Mer information om enhets grupps transaktioner finns i enhets grupp transaktioner.  
 3. Om enhets grupp transaktionen Miss lyckas på grund av ett optimistiskt samtidigt fel (någon annan har precis ändrat entiteten index) måste du börja om steg 1.  
 
 Du kan använda en liknande metod för att ta bort en medarbetare om du använder det andra alternativet. Att ändra en anställds efter namn är något mer komplicerat eftersom du måste köra en enhets grupps transaktion som uppdaterar tre entiteter: den anställdas entitet, index-entiteten för det gamla efter namnet och entiteten index för det nya efter namnet. Du måste hämta varje entitet innan du gör några ändringar för att kunna hämta de ETag-värden som du sedan kan använda för att utföra uppdateringarna med optimistisk samtidighet.  
@@ -372,7 +372,7 @@ Aktivera borttagning av en stor mängd entiteter genom att lagra alla entiteter 
 ### <a name="context-and-problem"></a>Kontext och problem
 Många program tar bort gamla data som inte längre behöver vara tillgängliga för ett klient program eller som programmet har arkiverat till ett annat lagrings medium. Du kan vanligt vis identifiera sådana data med ett datum: exempelvis har du ett krav för att ta bort poster för alla inloggnings begär Anden som är äldre än 60 dagar gamla.  
 
-En möjlig design är att använda datum och tid för inloggningsbegäran i **RowKey** :  
+En möjlig design är att använda datum och tid för inloggningsbegäran i **RowKey**:  
 
 ![Datum och tid för inloggnings försök](media/storage-table-design-guide/storage-table-design-IMAGE21.png)
 
@@ -686,7 +686,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 ### <a name="server-side-projection"></a>Projektion på Server Sidan
-En enskild entitet kan ha upp till 255 egenskaper och vara upp till 1 MB. När du frågar tabellen och hämtar entiteter kanske du inte behöver alla egenskaper och kan undvika att överföra data i onödan (för att minska svars tid och kostnader). Du kan använda projektion på Server sidan för att bara överföra de egenskaper du behöver. I följande exempel hämtas bara egenskapen **e-post** (tillsammans med **PartitionKey** , **RowKey** , **timestamp** och **etag** ) från entiteterna som valts av frågan.  
+En enskild entitet kan ha upp till 255 egenskaper och vara upp till 1 MB. När du frågar tabellen och hämtar entiteter kanske du inte behöver alla egenskaper och kan undvika att överföra data i onödan (för att minska svars tid och kostnader). Du kan använda projektion på Server sidan för att bara överföra de egenskaper du behöver. I följande exempel hämtas bara egenskapen **e-post** (tillsammans med **PartitionKey**, **RowKey**, **timestamp** och **etag**) från entiteterna som valts av frågan.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
@@ -711,7 +711,7 @@ Undantag som har utlösts när lagrings klient biblioteket kör en EGT inkludera
 Du bör också fundera över hur din design påverkar hur ditt klient program hanterar samtidighets-och uppdaterings åtgärder.  
 
 ### <a name="managing-concurrency"></a>Hantera samtidighet
-Som standard implementerar tabell tjänsten optimistisk concurrency-kontroller på nivån för enskilda entiteter för **insert** -, **merge** -och **Delete** -åtgärder, även om det är möjligt för en klient att tvinga tabell tjänsten att kringgå kontrollerna. Mer information om hur tabell tjänsten hanterar samtidighet finns i  [Hantera samtidighet i Microsoft Azure Storage](../../storage/common/storage-concurrency.md).  
+Som standard implementerar tabell tjänsten optimistisk concurrency-kontroller på nivån för enskilda entiteter för **insert**-, **merge**-och **Delete** -åtgärder, även om det är möjligt för en klient att tvinga tabell tjänsten att kringgå kontrollerna. Mer information om hur tabell tjänsten hanterar samtidighet finns i  [Hantera samtidighet i Microsoft Azure Storage](../../storage/common/storage-concurrency.md).  
 
 ### <a name="merge-or-replace"></a>Sammanfoga eller Ersätt
 **Ersättnings** metoden i **TableOperation** -klassen ersätter alltid den fullständiga entiteten i Table service. Om du inte tar med en egenskap i begäran när egenskapen finns i den lagrade entiteten tar begäran bort egenskapen från den lagrade entiteten. Om du inte vill ta bort en egenskap uttryckligen från en lagrad entitet måste du inkludera varje egenskap i begäran.  
@@ -813,9 +813,9 @@ Table service är en *schema lös* tabell lagring som innebär att en enskild ta
 </tr>
 </table>
 
-Varje entitet måste fortfarande ha **PartitionKey** -, **RowKey** -och **timestamp** -värden, men kan ha en uppsättning egenskaper. Det finns dessutom inget som anger typen av entitet om du inte väljer att lagra informationen någonstans. Det finns två alternativ för att identifiera enhets typen:  
+Varje entitet måste fortfarande ha **PartitionKey**-, **RowKey**-och **timestamp** -värden, men kan ha en uppsättning egenskaper. Det finns dessutom inget som anger typen av entitet om du inte väljer att lagra informationen någonstans. Det finns två alternativ för att identifiera enhets typen:  
 
-* Lägga av entitetstypen till **RowKey** (eller eventuellt **PartitionKey** ). Till exempel **EMPLOYEE_000123** eller **DEPARTMENT_SALES** som **RowKey** -värden.  
+* Lägga av entitetstypen till **RowKey** (eller eventuellt **PartitionKey**). Till exempel **EMPLOYEE_000123** eller **DEPARTMENT_SALES** som **RowKey** -värden.  
 * Använd en separat egenskap för att registrera entitetstypen som visas i tabellen nedan.  
 
 <table>
@@ -913,7 +913,7 @@ Varje entitet måste fortfarande ha **PartitionKey** -, **RowKey** -och **timest
 </tr>
 </table>
 
-Det första alternativet, beroende på enhets typ till **RowKey** , är användbart om det finns en möjlighet att två entiteter av olika typer kan ha samma nyckel värde. Den grupperar också entiteter av samma typ tillsammans i partitionen.  
+Det första alternativet, beroende på enhets typ till **RowKey**, är användbart om det finns en möjlighet att två entiteter av olika typer kan ha samma nyckel värde. Den grupperar också entiteter av samma typ tillsammans i partitionen.  
 
 De metoder som beskrivs i det här avsnittet är särskilt relevanta för diskussions [arvs relationerna](table-storage-design-modeling.md#inheritance-relationships) tidigare i den här hand boken i artikeln [modellerings relationer](table-storage-design-modeling.md).  
 
@@ -927,7 +927,7 @@ I resten av det här avsnittet beskrivs några av funktionerna i lagrings klient
 ### <a name="retrieving-heterogeneous-entity-types"></a>Hämtar heterogena entitetstyper
 Om du använder lagrings klient biblioteket har du tre alternativ för att arbeta med flera olika entitetstyper.  
 
-Om du vet vilken typ av entitet som lagras med ett särskilt värde för **RowKey** och **PartitionKey** kan du ange entitetstypen när du hämtar entiteten som du ser i föregående två exempel som hämtar entiteter av typen **EmployeeEntity** : [köra en punkt fråga med hjälp av lagrings klient biblioteket](#executing-a-point-query-using-the-storage-client-library) och [hämtar flera entiteter med LINQ](#retrieving-multiple-entities-using-linq).  
+Om du vet vilken typ av entitet som lagras med ett särskilt värde för **RowKey** och **PartitionKey** kan du ange entitetstypen när du hämtar entiteten som du ser i föregående två exempel som hämtar entiteter av typen **EmployeeEntity**: [köra en punkt fråga med hjälp av lagrings klient biblioteket](#executing-a-point-query-using-the-storage-client-library) och [hämtar flera entiteter med LINQ](#retrieving-multiple-entities-using-linq).  
 
 Det andra alternativet är att använda **DynamicTableEntity** -typen (en egenskaps uppsättning) i stället för en konkret Poco-entitetstyp (det här alternativet kan också förbättra prestanda eftersom det inte behövs att serialisera och deserialisera entiteten till .net-typer). Följande C#-kod kan användas för att hämta flera entiteter av olika typer från tabellen, men returnerar alla entiteter som **DynamicTableEntity** -instanser. Den använder sedan egenskapen **EntityType** för att fastställa typen av varje entitet:  
 

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 50e047325ad17710794b1640715ab1938373fe85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542180"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019471"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Belastningsutjämning med Azures paket för programleverans
 
@@ -25,7 +25,7 @@ Microsoft Azure tillhandahåller olika globala och regionala tjänster för att 
 
 * Application Gateway
 * Front Door 
-* Lastbalanserare  
+* Load Balancer  
 * Traffic Manager
 
 Tillsammans med Azures många regioner och zonindelade-arkitektur kan du med hjälp av dessa tjänster tillsammans skapa robusta, skalbara och högpresterande program.
@@ -82,7 +82,7 @@ Dessutom måste standard-VM-poolen som hanterar det dynamiska innehållet kommun
 
 Följande diagram visar arkitekturen för det här scenariot:
 
-:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="Application Delivery Suite":::
+:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="Detaljerad arkitektur för Application Delivery Suite":::
 
 > [!NOTE]
 > Det här exemplet är bara en av många möjliga konfigurationer av de belastnings Utjämnings tjänster som Azure erbjuder. Traffic Manager, front dörren, Application Gateway och Load Balancer kan blandas och matchas mot bästa möjliga belastnings Utjämnings behov. Om t. ex. TLS/SSL-avlastning eller Layer 7-bearbetning inte behövs, kan Load Balancer användas i stället för Application Gateway.

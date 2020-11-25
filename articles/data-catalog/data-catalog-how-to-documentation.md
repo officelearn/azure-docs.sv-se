@@ -7,18 +7,18 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 3674c316e34b1e54ed8282ac7d2c228a2b774c06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081227"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019029"
 ---
 # <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Så här dokumenterar du data källor i Azure Data Catalog
 
 ## <a name="introduction"></a>Introduktion
-**Microsoft Azure Data Catalog** är en fullständigt hanterad moln tjänst som fungerar som ett system för registrering och identifierings system för företags data källor. Med andra ord är **Azure Data Catalog** att hjälpa människor att upptäcka, *förstå*och använda data källor och hjälpa organisationer att få mer värde än befintliga data.
+**Microsoft Azure Data Catalog** är en fullständigt hanterad moln tjänst som fungerar som ett system för registrering och identifierings system för företags data källor. Med andra ord är **Azure Data Catalog** att hjälpa människor att upptäcka, *förstå* och använda data källor och hjälpa organisationer att få mer värde än befintliga data.
 
-När en data källa registreras med **Azure Data Catalog**kopieras och indexeras dess metadata av tjänsten, men artikeln slutar inte där. **Azure Data Catalog** ger också användarna möjlighet att ange sin egen fullständiga dokumentation som kan beskriva användningen och vanliga scenarier för data källan.
+När en data källa registreras med **Azure Data Catalog** kopieras och indexeras dess metadata av tjänsten, men artikeln slutar inte där. **Azure Data Catalog** ger också användarna möjlighet att ange sin egen fullständiga dokumentation som kan beskriva användningen och vanliga scenarier för data källan.
 
 När du [kommenterar data källor](data-catalog-how-to-annotate.md), lär du dig att experter som vet att data källan kan kommentera den med taggar och en beskrivning. **Azure Data Catalog** -portalen innehåller en RTF-redigerare så att användarna helt kan dokumentera data till gångar och behållare. Redigeraren innehåller styckeformatering, till exempel rubriker, textformatering, punkt listor, numrerade listor och tabeller.
 

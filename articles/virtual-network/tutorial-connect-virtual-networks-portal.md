@@ -14,15 +14,15 @@ ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77201306"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017924"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudie: Koppla samman virtuella nätverk med peerkoppling med hjälp av Azure Portal
 
-Du kan ansluta virtuella nätverk till varandra med peerkoppling. Dessa virtuella nätverk kan finnas i samma region eller andra regioner (kallas även Global VNet-peering). När virtuella nätverk har peerkopplats kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna fanns i samma virtuella nätverk. I den här guiden får du lära dig att:
+Du kan ansluta virtuella nätverk till varandra med peerkoppling. Dessa virtuella nätverk kan finnas i samma region eller andra regioner (kallas även Global VNet-peering). När virtuella nätverk har peerkopplats kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna fanns i samma virtuella nätverk. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa två virtuella nätverk
@@ -32,7 +32,7 @@ Du kan ansluta virtuella nätverk till varandra med peerkoppling. Dessa virtuell
 
 Om du vill kan du slutföra den här självstudien med [Azure CLI](tutorial-connect-virtual-networks-cli.md) eller [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -44,7 +44,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 2. Välj **Nätverk** och välj därefter **Virtuellt nätverk**.
 3. På fliken **grundläggande** anger eller väljer du följande information och accepterar standardinställningarna för de återstående inställningarna:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |---|---|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och skriv *myResourceGroup*.|
@@ -56,7 +56,7 @@ Logga in på Azure Portal på https://portal.azure.com.
    
 5. Utför steg 1–5 igen, med följande ändringar:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |---|---|
     |Namn|myVirtualNetwork2|
     |Adressutrymme|10.1.0.0/16|
@@ -67,17 +67,17 @@ Logga in på Azure Portal på https://portal.azure.com.
 ## <a name="peer-virtual-networks"></a>Peerkoppla virtuella nätverk
 
 1. I rutan Sök högst upp på Azure Portal börjar du skriva *MyVirtualNetwork1*. När **myVirtualNetwork1** visas i sökresultatet väljer du det.
-2. Välj **peering**, under **Inställningar**och välj sedan **Lägg till**, som du ser i följande bild:
+2. Välj **peering**, under **Inställningar** och välj sedan **Lägg till**, som du ser i följande bild:
 
     ![Skapa peerkoppling](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
 3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**.
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |---|---|
     |Peer-kopplingens namn från myVirtualNetwork1 till ett virtuellt dator nätverk|myVirtualNetwork1-myVirtualNetwork2 – när sidan först läses in visas frasen "fjärran sluten virtuellt nätverk" här. När du har valt det virtuella fjärrnätverket ersätts frasen "fjärrstyrt nätverk" med namnet på det virtuella fjärrnätverket.|
     |Prenumeration| Välj din prenumeration.|
-    |Virtuellt nätverk|myVirtualNetwork2 – om du vill välja det virtuella *myVirtualNetwork2* -nätverket väljer du **virtuellt nätverk**och väljer sedan **myVirtualNetwork2 (myResourceGroup)**. Du kan välja ett virtuellt nätverk i samma region eller i en annan region.|
+    |Virtuellt nätverk|myVirtualNetwork2 – om du vill välja det virtuella *myVirtualNetwork2* -nätverket väljer du **virtuellt nätverk** och väljer sedan **myVirtualNetwork2 (myResourceGroup)**. Du kan välja ett virtuellt nätverk i samma region eller i en annan region.|
     |Peer-kopplingens namn från myVirtualNetwork2 till myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
     ![Inställningar för peerkoppling](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
@@ -98,18 +98,18 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. Du kan välja ett annat operativsystem, men i återstående steg förutsätts att du har valt **Windows Server 2016 Datacenter**. 
 3. Ange eller välj följande information för **Grundinställningar**, acceptera standardinställningarna för återstående inställningar och välj sedan **Skapa**:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |---|---|
     |Resursgrupp| Välj **Använd befintlig** och välj sedan **myResourceGroup**.|
     |Name|myVm1|
-    |Location| Välj **USA, östra**.|
+    |Plats| Välj **USA, östra**.|
     |Användarnamn| Ange ett valfritt användarnamn.|
     |Lösenord| Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    
 4. Välj en storlek på virtuell dator för alternativet **storlek** .
 5. Välj följande värden för under **nätverk**:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |---|---|
     |Virtuellt nätverk| myVirtualNetwork1 – om det inte redan är valt väljer du **virtuellt nätverk** och väljer sedan **myVirtualNetwork1**.|
     |Undernät| Subnet1 – om det inte redan är valt väljer du **undernät** och sedan **Subnet1**.|
@@ -122,7 +122,7 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
 
 Utför steg 1–6 igen, med följande ändringar:
 
-|Inställningen|Värde|
+|Inställning|Värde|
 |---|---|
 |Namn | myVm2|
 |Virtuellt nätverk | myVirtualNetwork2|

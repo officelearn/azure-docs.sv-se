@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: ed63d148afa6f5674d36cc50c18351b2a06966eb
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636841"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019624"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory-exempel
 > [!NOTE]
@@ -46,7 +46,7 @@ ms.locfileid: "92636841"
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 Du kan hitta följande Azure Resource Manager mallar för Data Factory på GitHub.
 
-| Mall | Beskrivning |
+| Mall | Description |
 | --- | --- |
 | [Kopiera från Azure Blob Storage till Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Genom att distribuera den här mallen skapas en Azure-datafabrik med en pipeline som kopierar data från Azure Blob Storage till Azure SQL Database |
 | [Kopiera från Salesforce till Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Genom att distribuera den här mallen skapas en Azure-datafabrik med en pipeline som kopierar data från det angivna Salesforce-kontot till Azure Blob Storage. |
@@ -79,37 +79,37 @@ Du kan använda panelen **exempel pipelines** på Start sidan för din data fabr
 Du måste ha följande installerat på datorn:
 
 * Visual Studio 2013 eller Visual Studio 2015
-* Hämta Azure SDK för Visual Studio 2013 eller Visual Studio 2015. Gå till [Azures hämtningssida](https://azure.microsoft.com/downloads/) och klicka på **VS 2013** eller **VS 2015** i **.NET** -avsnittet.
-* Hämta det senaste Azure Data Factory-plugin-programmet för Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) eller [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Om du använder Visual Studio 2013 kan du också uppdatera plugin-programmet genom att göra följande: på menyn klickar du på **verktyg**  ->  **tillägg och uppdateringar**  ->  **online**  ->  **Visual Studio-galleriet**  ->  **Microsoft Azure Data Factory verktyg för Visual Studio**  ->  **Update** .
+* Hämta Azure SDK för Visual Studio 2013 eller Visual Studio 2015. Gå till [Azures hämtningssida](https://azure.microsoft.com/downloads/) och klicka på **VS 2013** eller **VS 2015** i **.NET**-avsnittet.
+* Hämta det senaste Azure Data Factory-plugin-programmet för Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) eller [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Om du använder Visual Studio 2013 kan du också uppdatera plugin-programmet genom att göra följande: på menyn klickar du på **verktyg**  ->  **tillägg och uppdateringar**  ->  **online**  ->  **Visual Studio-galleriet**  ->  **Microsoft Azure Data Factory verktyg för Visual Studio**  ->  **Update**.
 
 ### <a name="use-data-factory-templates"></a>Använda Data Factory mallar
-1. Klicka på **Arkiv** på menyn, peka på **nytt** och klicka på **projekt** .
-2. Gör följande steg i dialogrutan **Nytt projekt** :
+1. Klicka på **Arkiv** på menyn, peka på **nytt** och klicka på **projekt**.
+2. Gör följande steg i dialogrutan **Nytt projekt**:
 
-   1. Välj **DataFactory** under **mallar** .
+   1. Välj **DataFactory** under **mallar**.
    2. Välj **Data Factory mallar** i den högra rutan.
    3. Ange ett **namn** för projektet.
    4. Välj en **plats** för projektet.
-   5. Klicka på **OK** .
+   5. Klicka på **OK**.
 
       ![Dialogrutan Nytt projekt](./media/data-factory-samples/vs-new-project-adf-templates.png)
-3. I dialog rutan **Data Factory mallar** väljer du exempel mal len från avsnittet **använda-Case-mallar** och klickar på **Nästa** . Följande steg beskriver hur du använder mallen för **kund profilering** . Stegen är liknande för de andra exemplen.
+3. I dialog rutan **Data Factory mallar** väljer du exempel mal len från avsnittet **använda-Case-mallar** och klickar på **Nästa**. Följande steg beskriver hur du använder mallen för **kund profilering** . Stegen är liknande för de andra exemplen.
 
     ![Dialog rutan Data Factory mallar](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
 4. I dialog rutan **Data Factory konfiguration** klickar du på **Nästa** på sidan för **Data Factory grundläggande** information.
 5. Utför följande steg på sidan **Konfigurera data fabrik** :
-   1. Välj **Skapa ny Data Factory** . Du kan också välja **Använd befintlig data fabrik** .
+   1. Välj **Skapa ny Data Factory**. Du kan också välja **Använd befintlig data fabrik**.
    2. Ange ett **namn** för data fabriken.
    3. Välj den **Azure-prenumeration** där du vill att data fabriken ska skapas.
    4. Välj **resurs grupp** för data fabriken.
-   5. Välj **västra USA** , **östra USA** eller **norra Europa** för **regionen** .
-   6. Klicka på **Nästa** .
+   5. Välj **västra USA**, **östra USA** eller **norra Europa** för **regionen**.
+   6. Klicka på **Nästa**.
 6. På sidan **Konfigurera data lager** anger du en befintlig **databas i Azure SQL Database** och **Azure Storage-konto** (eller) skapa databas/lagring och klickar på Nästa.
-7. På sidan **Konfigurera beräkning** väljer du standardvärden och klickar på **Nästa** .
-8. Granska alla inställningar på sidan **Sammanfattning** och klicka på **Nästa** .
-9. På sidan **distributions status** väntar du tills distributionen är klar och klickar på **Slutför** .
-10. I Solution Explorer högerklickar du på projektet och klickar sedan på **Publicera** .
-11. Om du ser dialogrutan **Logga in på ditt Microsoft-konto** , anger du dina autentiseringsuppgifter för det konto som har Azure-prenumerationen. Klicka sedan på **Logga in** .
+7. På sidan **Konfigurera beräkning** väljer du standardvärden och klickar på **Nästa**.
+8. Granska alla inställningar på sidan **Sammanfattning** och klicka på **Nästa**.
+9. På sidan **distributions status** väntar du tills distributionen är klar och klickar på **Slutför**.
+10. I Solution Explorer högerklickar du på projektet och klickar sedan på **Publicera**.
+11. Om du ser dialogrutan **Logga in på ditt Microsoft-konto**, anger du dina autentiseringsuppgifter för det konto som har Azure-prenumerationen. Klicka sedan på **Logga in**.
 12. Du bör se följande dialogruta:
 
     ![Dialogrutan Publicera](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
@@ -117,9 +117,9 @@ Du måste ha följande installerat på datorn:
 
     1. Bekräfta att alternativet **Använd befintlig data fabrik** .
     2. Välj den **data fabrik** du valde när du använde mallen.
-    3. Klicka på **Nästa** för att växla till sidan **Publicera objekt** . (Tryck på **TAB** för att flytta ut från namnfältet om knappen **Nästa** är inaktiverad.)
-14. På sidan **Publicera objekt** kontrollerar du att alla datafabriksentiteter har valts. Klicka på **Nästa** för att växla till sidan **Sammanfattning** .     
-15. Granska sammanfattningen och klicka på **Nästa** för att starta distributionsprocessen och visa **Distributionsstatus** .
+    3. Klicka på **Nästa** för att växla till sidan **Publicera objekt**. (Tryck på **TAB** för att flytta ut från namnfältet om knappen **Nästa** är inaktiverad.)
+14. På sidan **Publicera objekt** kontrollerar du att alla datafabriksentiteter har valts. Klicka på **Nästa** för att växla till sidan **Sammanfattning**.     
+15. Granska sammanfattningen och klicka på **Nästa** för att starta distributionsprocessen och visa **Distributionsstatus**.
 16. På sidan **Distributionsstatus** bör du se statusen för distributionen. Klicka på Slutför när distributionen är klar.
 
 Se [skapa din första data fabrik (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) om du vill ha mer information om hur du använder Visual Studio för att redigera data Factory entiteter och publicera dem till Azure.

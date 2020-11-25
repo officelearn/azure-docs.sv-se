@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f7edf790e526329dd285d03a31137a26220e52ee
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778939"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018655"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Använda Azure CDN med CORS
 ## <a name="what-is-cors"></a>Vad är CORS?
@@ -69,7 +69,7 @@ På Azure CDN Standard från Microsoft kan du skapa en regel i [standard regel m
 ![Regel exempel med standard regel motor](./media/cdn-cors/cdn-standard-cors.png)
 
 > [!TIP]
-> Du kan lägga till ytterligare åtgärder i regeln för att ändra ytterligare svarshuvuden, till exempel **Access-Control-Allow-Methods** .
+> Du kan lägga till ytterligare åtgärder i regeln för att ändra ytterligare svarshuvuden, till exempel **Access-Control-Allow-Methods**.
 > 
 
 På **Azure CDN Standard från Akamai** är den enda mekanismen att tillåta för flera ursprung utan att använda jokertecken för att använda [cachelagring av frågesträngar](cdn-query-string.md). Aktivera inställningen för frågesträngen för CDN-slutpunkten och Använd sedan en unik frågesträng för begär Anden från varje tillåten domän. Detta leder till att CDN cachelagrar ett separat objekt för varje unik frågesträng. Den här metoden är inte idealisk, men eftersom det leder till att flera kopior av samma fil cachelagras i CDN.  
@@ -91,7 +91,7 @@ https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.co
 > 
 > 
 
-Om det reguljära uttrycket matchar, kommer din regel att ersätta **Access-Control-Allow-Origin** -huvudet (om det finns) från ursprunget med det ursprung som skickade begäran.  Du kan också lägga till ytterligare CORS-rubriker, till exempel **Access-Control-Allow-Methods** .
+Om det reguljära uttrycket matchar, kommer din regel att ersätta **Access-Control-Allow-Origin** -huvudet (om det finns) från ursprunget med det ursprung som skickade begäran.  Du kan också lägga till ytterligare CORS-rubriker, till exempel **Access-Control-Allow-Methods**.
 
 ![Regel exempel med reguljärt uttryck](./media/cdn-cors/cdn-cors-regex.png)
 

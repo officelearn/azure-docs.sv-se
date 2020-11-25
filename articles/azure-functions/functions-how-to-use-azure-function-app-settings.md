@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
 ms.openlocfilehash: f597e58c70d6ac9daff753f5c0a54199c2383c42
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746166"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019521"
 ---
 # <a name="manage-your-function-app"></a>Hantera din Function-app 
 
@@ -29,11 +29,11 @@ Den här artikeln beskriver hur du konfigurerar och hanterar dina Function-appar
 
 1. Börja genom att gå till [Azure Portal] och logga in på ditt Azure-konto. I Sök fältet längst upp i portalen anger du namnet på din Function-app och väljer den i listan. 
 
-2. Under **Inställningar** i den vänstra rutan väljer du **konfiguration** .
+2. Under **Inställningar** i den vänstra rutan väljer du **konfiguration**.
 
     :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Översikt över Function-appen i Azure Portal":::
 
-Du kan navigera till allt du behöver för att hantera din Function-app från översikts sidan, i synnerhet **[program inställningar](#settings)** och **[plattforms funktioner](#platform-features)** .
+Du kan navigera till allt du behöver för att hantera din Function-app från översikts sidan, i synnerhet **[program inställningar](#settings)** och **[plattforms funktioner](#platform-features)**.
 
 ## <a name="application-settings"></a><a name="settings"></a>Programinställningar
 

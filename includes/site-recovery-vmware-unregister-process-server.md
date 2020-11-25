@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: bff9457220efbb6a6b318550a5b2dd9af4ae230f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361405"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019212"
 ---
 Följ anvisningarna för dina särskilda omständigheter.
 
 ### <a name="unregister-a-connected-process-server"></a>Avregistrera en ansluten processerver
 
 1. Upprätta en fjärr anslutning till processervern som administratör.
-2. Öppna program på **kontroll panelen**och **> Avinstallera ett program**.
+2. Öppna program på **kontroll panelen** och **> Avinstallera ett program**.
 3. Avinstallera programmet **Microsoft Azure Site Recovery mobilitets tjänsten/huvud mål servern**.
 4. Avinstallera programmet **Microsoft Azure Site Recovery konfiguration/processerver**.
 5. När programmen i steg 3 och 4 har avinstallerats avinstallerar du **Microsoft Azure Site Recovery konfiguration/process Server beroenden**.

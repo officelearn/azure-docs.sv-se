@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195983"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019692"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -52,8 +52,8 @@ Innan du påbörjar den här genom gången måste du ha följande krav:
 ## <a name="create-data-factory"></a>Skapa en datafabrik
 I det här steget använder du Azure Portal för att skapa en Azure Data Factory-instans med namnet **ADFTutorialOnPremDF**.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Klicka på **skapa en resurs**, klicka på **information + analys**och klicka på **Data Factory**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Klicka på **skapa en resurs**, klicka på **information + analys** och klicka på **Data Factory**.
 
    ![Nytt->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
 3. På sidan **ny data fabrik** anger du **ADFTutorialOnPremDF** som namn.
@@ -85,7 +85,7 @@ I det här steget använder du Azure Portal för att skapa en Azure Data Factory
 2. I Data Factory redigeraren klickar du på **... Mer** information i verktygsfältet och klicka sedan på **ny datagateway**. Du kan också högerklicka på **Datagateways** i trädvyn och klicka på **ny data Gateway**.
 
    ![Ny datagateway i verktygsfältet](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
-3. På sidan **skapa** anger du **adftutorialgateway** som **namn**och klickar på **OK**.     
+3. På sidan **skapa** anger du **adftutorialgateway** som **namn** och klickar på **OK**.     
 
     ![Sidan skapa Gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
@@ -148,23 +148,23 @@ I det här steget använder du Azure Portal för att skapa en Azure Data Factory
    * Klicka på **Visa loggar** om du vill se data Management Gateway loggen i ett Loggbokens fönster.
    * Klicka på **skicka loggar** för att ladda upp en zip-fil med loggar av de senaste sju dagarna till Microsoft för att under lätta fel sökning av problem.
 10. På fliken **diagnostik** i avsnittet **Testa anslutning** väljer du **SQLServer** för typen av data lager. Ange namnet på databas servern, namnet på databasen, ange autentiseringstyp, Ange användar namn och lösen ord och klicka på **testa** för att testa om gatewayen kan ansluta till databasen.
-11. Växla till webbläsaren och klicka på **OK** i **Azure Portal**på sidan **Konfigurera** och på sidan **ny data Gateway** .
+11. Växla till webbläsaren och klicka på **OK** i **Azure Portal** på sidan **Konfigurera** och på sidan **ny data Gateway** .
 12. Du bör se **adftutorialgateway** under **datagateways** i trädvyn till vänster.  Om du klickar på den bör du se tillhör ande JSON.
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 I det här steget skapar du två länkade tjänster: **AzureStorageLinkedService** och **SqlServerLinkedService**. **SqlServerLinkedService** länkar en SQL Server-databas och den länkade **AzureStorageLinkedService** -tjänsten länkar ett Azure Blob-lager till data fabriken. Du skapar en pipeline senare i den här genom gången som kopierar data från SQL Server-databasen till Azure Blob Store.
 
 #### <a name="add-a-linked-service-to-a-sql-server-database"></a>Lägg till en länkad tjänst i en SQL Server databas
-1. I **Data Factory redigeraren**klickar du på **nytt data lager** i verktygsfältet och väljer **SQL Server**.
+1. I **Data Factory redigeraren** klickar du på **nytt data lager** i verktygsfältet och väljer **SQL Server**.
 
    ![Ny SQL Server länkad tjänst](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
 2. I **JSON-redigeraren** till höger utför du följande steg:
 
-   1. För **gatewayName**anger du **adftutorialgateway**.    
+   1. För **gatewayName** anger du **adftutorialgateway**.    
    2. Utför följande steg i **ConnectionString**:    
 
-      1. För **Server Namn anger**du namnet på den server som är värd för SQL Server databasen.
-      2. För **databasename**anger du namnet på databasen.
+      1. För **Server Namn anger** du namnet på den server som är värd för SQL Server databasen.
+      2. För **databasename** anger du namnet på databasen.
       3. Klicka på knappen **kryptera** i verktygsfältet. Du ser programmet för hantering av autentiseringsuppgifter.
 
          ![Autentiseringshanteraren-program](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
@@ -177,7 +177,7 @@ I det här steget skapar du två länkade tjänster: **AzureStorageLinkedService
       ![SQL Server länkad tjänst i trädvyn](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
 
 #### <a name="add-a-linked-service-for-an-azure-storage-account"></a>Lägg till en länkad tjänst för ett Azure Storage-konto
-1. I **Data Factory redigeraren**klickar du på **nytt data lager** i kommando fältet och sedan på **Azure Storage**.
+1. I **Data Factory redigeraren** klickar du på **nytt data lager** i kommando fältet och sedan på **Azure Storage**.
 2. Ange namnet på ditt Azure Storage-konto för **konto namnet**.
 3. Ange nyckeln för ditt Azure Storage-konto för **konto nyckeln**.
 4. Klicka på **distribuera** för att distribuera **AzureStorageLinkedService**.
@@ -210,7 +210,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
 
 ### <a name="create-input-dataset"></a>Skapa indatauppsättning
 
-1. I **Data Factory redigeraren**klickar du på **... Mer**, klicka på **ny data uppsättning** i kommando fältet och klicka på **SQL Server tabell**.
+1. I **Data Factory redigeraren** klickar du på **... Mer**, klicka på **ny data uppsättning** i kommando fältet och klicka på **SQL Server tabell**.
 2. Ersätt JSON i den högra rutan med följande text:
 
     ```JSON   
@@ -249,7 +249,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
 
 ### <a name="create-output-dataset"></a>Skapa datauppsättning för utdata
 
-1. I **Data Factory redigeraren**klickar du på **ny data uppsättning** i kommando fältet och sedan på **Azure Blob Storage**.
+1. I **Data Factory redigeraren** klickar du på **ny data uppsättning** i kommando fältet och sedan på **Azure Blob Storage**.
 2. Ersätt JSON i den högra rutan med följande text:
 
     ```JSON   
@@ -302,7 +302,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
 ## <a name="create-pipeline"></a>Skapa pipeline
 I det här steget skapar du en **pipeline** med en **kopierings aktivitet** som använder **EmpOnPremSQLTable** som indata och **OutputBlobTable** som utdata.
 
-1. I Data Factory redigeraren klickar du på **... Mer**och klicka på **ny pipeline**.
+1. I Data Factory redigeraren klickar du på **... Mer** och klicka på **ny pipeline**.
 2. Ersätt JSON i den högra rutan med följande text:    
 
     ```JSON   
@@ -350,7 +350,7 @@ I det här steget skapar du en **pipeline** med en **kopierings aktivitet** som 
      }
     ```   
    > [!IMPORTANT]
-   > Ersätt värdet i **start**egenskapen med den aktuella dagen och **slut**värdet med nästa dag.
+   > Ersätt värdet i **start** egenskapen med den aktuella dagen och **slut** värdet med nästa dag.
    >
    >
 
@@ -363,7 +363,7 @@ I det här steget skapar du en **pipeline** med en **kopierings aktivitet** som 
 
    Både start- och slutdatum måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. **Sluttiden** är valfri, men vi använder den i den här självstudiekursen.
 
-   Om du inte anger värdet för **slut** egenskapen, beräknas det som "**Start + 48 timmar**". Om du vill köra pipelinen på obestämd tid, anger du **9/9/9999** som värde för **slut**egenskapen.
+   Om du inte anger värdet för **slut** egenskapen, beräknas det som "**Start + 48 timmar**". Om du vill köra pipelinen på obestämd tid, anger du **9/9/9999** som värde för **slut** egenskapen.
 
    Du definierar hur länge data sektorerna ska bearbetas utifrån de **tillgänglighets** egenskaper som definierats för varje Azure Data Factory data uppsättning.
 
@@ -374,7 +374,7 @@ I det här steget skapar du en **pipeline** med en **kopierings aktivitet** som 
 **Grattis!** Du har skapat en Azure-datafabrik, länkade tjänster, data uppsättningar och en pipeline och schemalagt pipelinen.
 
 #### <a name="view-the-data-factory-in-a-diagram-view"></a>Visa datafabriken i en diagramvy
-1. I **Azure Portal**klickar du på **diagram** panelen på Start sidan för data fabriken **ADFTutorialOnPremDF** . :
+1. I **Azure Portal** klickar du på **diagram** panelen på Start sidan för data fabriken **ADFTutorialOnPremDF** . :
 
     ![Diagram länk](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 2. Du bör se ett diagram som liknar följande bild:
@@ -390,7 +390,7 @@ I det här steget ska du använda Azure-portalen för att övervaka vad som hän
 
     ![EmpOnPremSQLTable-segment](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
 2. Observera att alla data sektorer är i **klart** läge eftersom pipeline-varaktigheten (start tid till slut tid) redan har passerat. Det beror också på att du har infogat data i SQL Server-databasen och att det är där som helst. Bekräfta att inga sektorer visas i avsnittet **problem sektorer** längst ned. Om du vill visa alla sektorer klickar du på **Visa mer** längst ned i listan över segment.
-3. Nu klickar du på **OutputBlobTable**på sidan **data uppsättningar** .
+3. Nu klickar du på **OutputBlobTable** på sidan **data uppsättningar** .
 
     ![OputputBlobTable-segment](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
 4. Klicka på valfri data sektor i listan så visas sidan **data sektor** . Du ser aktivitets körningar för sektorn. Du ser bara en aktivitets körning vanligt vis.  
@@ -405,7 +405,7 @@ I det här steget ska du använda Azure-portalen för att övervaka vad som hän
    Du kan se information som till exempel data flöde, varaktighet och den gateway som används för att överföra data.
 6. Klicka på **X** för att stänga alla sidor tills du
 7. gå tillbaka till start sidan för **ADFTutorialOnPremDF**.
-8. valfritt Klicka på **pipeliner**, klicka på **ADFTutorialOnPremDF**och gå igenom inmatnings tabeller (**förbrukade**) eller utdata-datauppsättningar (**producerade**).
+8. valfritt Klicka på **pipeliner**, klicka på **ADFTutorialOnPremDF** och gå igenom inmatnings tabeller (**förbrukade**) eller utdata-datauppsättningar (**producerade**).
 9. Använd verktyg som [Microsoft Storage Explorer](https://storageexplorer.com/) för att kontrol lera att en BLOB/fil skapas för varje timme.
 
    ![Azure Lagringsutforskaren](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)

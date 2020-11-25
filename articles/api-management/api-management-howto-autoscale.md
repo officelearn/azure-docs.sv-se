@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095959"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018263"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Skala en Azure API Management-instans automatiskt  
 
@@ -93,7 +93,7 @@ Följ stegen nedan för att konfigurera autoskalning för en Azure API Managemen
 
     ![Regel för Azure Monitor skala ut](media/api-management-howto-autoscale/05.png)
 
-9. Klicka på igen på **+ Lägg till en regel** .
+9. Klicka på igen på **+ Lägg till en regel**.
 
     Den här gången måste en skala i regeln definieras. Det ser till att resurserna inte slösas om, när användningen av API: er minskar.
 
@@ -127,7 +127,7 @@ Följ stegen nedan för att konfigurera autoskalning för en Azure API Managemen
 
     ![Skärm bild som visar var du anger det maximala antalet Azure API Management-enheter.](media/api-management-howto-autoscale/07.png)
 
-13. Klicka på **Spara** . Autoskalning har kon figurer ATS.
+13. Klicka på **Spara**. Autoskalning har kon figurer ATS.
 
 ## <a name="next-steps"></a>Nästa steg
 

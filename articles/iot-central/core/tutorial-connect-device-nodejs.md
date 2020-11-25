@@ -1,9 +1,9 @@
 ---
 title: Självstudie – ansluta en allmän Node.js klient-app till Azure IoT Central | Microsoft Docs
-description: Den här självstudien visar hur du, som enhets utvecklare, ansluter en enhet som kör en Node.js-klient till ditt Azure IoT Central-program. Du skapar en enhets mall genom att importera en enhets kapacitets modell och lägga till vyer som gör att du kan interagera med en ansluten enhet
+description: Den här självstudien visar hur du, som enhets utvecklare, ansluter en enhet som kör en Node.js-klient till ditt Azure IoT Central-program. Du ändrar den automatiskt genererade enhets mal len genom att lägga till vyer som låter en operatör interagera med en ansluten enhet.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/07/2020
+ms.date: 11/03/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -11,330 +11,282 @@ ms.custom:
 - mqtt
 - device-developer
 - devx-track-js
-ms.openlocfilehash: 87284b88076cbd205a5d8ae388fe0b37c35cf6f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6175be702f0824ad2cd2b146e96641037407ca0b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328555"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96018808"
 ---
-# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Självstudie: skapa och ansluta ett klient program till ditt Azure IoT Central-program (Node.js)
+# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Självstudie: Skapa och anslut ett klientprogram till ditt Azure IoT Central-program (Node.js)
 
 [!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
 
 *Den här artikeln gäller lösnings byggare och enhets utvecklare.*
 
-Den här självstudien visar hur du, som enhets utvecklare, ansluter ett Node.js klient program till ditt Azure IoT Central-program. Node.js programmet simulerar beteendet för en miljö sensor enhet. Du kan använda ett exempel på _enhets kapacitets modell_ för att skapa en _enhets mal len_ i IoT Central. Du lägger till vyer i enhets mal len för att låta en operatör interagera med en enhet.
+Den här självstudien visar hur du, som enhets utvecklare, ansluter ett Node.js klient program till ditt Azure IoT Central-program. I Node.jss programmet simuleras beteendet för en termostat-enhet. När programmet ansluter till IoT Central, skickas modell-ID: t för enhets modellen termostat. IoT Central använder modell-ID: t för att hämta enhets modellen och skapa en enhets mall åt dig. Du kan lägga till anpassningar och vyer i enhets mal len så att en operatör kan interagera med en enhet.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
-> * Importera en enhets kapacitets modell för att skapa en enhets mall.
-> * Lägg till standard-och anpassade vyer i en enhets mall.
-> * Publicera en enhets mall och Lägg till en riktig enhet i IoT Central programmet.
 > * Skapa och kör Node.js enhets koden och se hur den ansluter till ditt IoT Central-program.
 > * Visa den simulerade telemetri som skickas från enheten.
+> * Lägg till anpassade vyer i en enhets mall.
+> * Publicera enhets mal len.
 > * Använd en vy för att hantera enhets egenskaper.
-> * Anropa synkrona och asynkrona kommandon för att styra enheten.
+> * Anropa ett kommando för att kontrol lera enheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-* Ett Azure IoT Central-program som skapats med hjälp av den **anpassade program** mal len. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md). Programmet måste ha skapats på eller efter 07/14/2020.
-* En utvecklings dator med [Node.js](https://nodejs.org/) version 10.0.0 eller senare installerad. Du kan köra `node --version` på kommando raden för att kontrol lera din version. Anvisningarna i den här självstudien förutsätter att du kör **Node** -kommandot i kommando tolken i Windows. Du kan dock använda Node.js på många andra operativ system.
+* Ett Azure IoT Central-program som skapats med hjälp av den **anpassade program** mal len. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md). Programmet måste ha skapats den 14 juli 2020 eller senare.
+* En utvecklings dator med [Node.js](https://nodejs.org/) version 6 eller senare installerad. Du kan köra `node --version` på kommando raden för att kontrol lera din version. Anvisningarna i den här självstudien förutsätter att du kör **Node** -kommandot i kommando tolken i Windows. Du kan dock använda Node.js på många andra operativ system.
+* En lokal kopia av [Microsoft Azure IoT SDK för Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub-lagringsplatsen som innehåller exempel koden. Använd den här länken för att ladda ned en kopia av lagrings platsen: [Ladda ned ZIP](https://github.com/Azure/azure-iot-sdk-node/archive/master.zip). Zippa sedan upp filen till en lämplig plats på den lokala datorn.
 
-[!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
+## <a name="review-the-code"></a>Granska koden
 
-### <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
+I kopian av Microsoft Azure IoT SDK för Node.js som du har hämtat tidigare öppnar du filen *Azure-IoT-SDK-Node/Device/samples/PnP/simple_thermostat.js* i en text redigerare.
 
-Följande steg visar hur du skapar ett Node.js klient program som ansluter till den riktiga enheten som du har lagt till i programmet. I det här Node.js programmet simuleras beteendet för en riktig enhet.
+När du kör exemplet för att ansluta till IoT Central, används enhets etablerings tjänsten (DPS) för att registrera enheten och skapa en anslutnings sträng. Exemplet hämtar den information om DPS-anslutningen som krävs från kommando rads miljön.
 
-1. I din kommando rads miljö navigerar du till `environmental-sensor` mappen som du skapade tidigare.
+`main`Metoden:
 
-1. Om du vill initiera Node.js-projektet och installera de nödvändiga beroendena, kör du följande kommandon – Godkänn alla standard alternativ när du kör `npm init` :
+* Skapar ett- `client` objekt och anger `dtmi:com:example:Thermostat;1` modell-ID: t innan det öppnar anslutningen.
+* Skapar en kommando hanterare.
+* Startar en slinga för att skicka temperatur telemetri var 10: e sekund.
+* Skickar `maxTempSinceLastReboot` egenskapen till IoT Central. IoT Central ignorerar `serialNumber` egenskapen eftersom den inte är en del av enhets modellen.
+* Skapar en skrivbar egenskaps hanterare.
 
-    ```cmd/sh
-    npm init
-    npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
-    ```
+```javascript
+async function main() {
 
-1. Skapa en fil med namnet **environmentalSensor.js** i `environmental-sensor` mappen.
+  // ...
 
-1. Lägg till följande- `require` instruktioner i början av **environmentalSensor.js** -filen:
+  // fromConnectionString must specify a transport, coming from any transport package.
+  const client = Client.fromConnectionString(deviceConnectionString, Protocol);
 
-    ```javascript
-    "use strict";
+  let resultTwin;
+  try {
+    // Add the modelId here
+    await client.setOptions(modelIdObject);
+    await client.open();
 
-    // Use the Azure IoT device SDK for devices that connect to Azure IoT Central.
-    var iotHubTransport = require('azure-iot-device-mqtt').Mqtt;
-    var Client = require('azure-iot-device').Client;
-    var Message = require('azure-iot-device').Message;
-    var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
-    var SymmetricKeySecurityClient = require('azure-iot-security-symmetric-key').SymmetricKeySecurityClient;
-    var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
-    ```
+    client.onDeviceMethod(commandMaxMinReport, commandHandler);
 
-1. Lägg till följande variabeldeklarationer i filen:
+    // Send Telemetry every 10 secs
+    let index = 0;
+    intervalToken = setInterval(() => {
+      sendTelemetry(client, index).catch((err) => console.log('error', err.toString()));
+      index += 1;
+    }, telemetrySendInterval);
 
-    ```javascript
-    var provisioningHost = 'global.azure-devices-provisioning.net';
-    var idScope = '{your Scope ID}';
-    var registrationId = '{your Device ID}';
-    var symmetricKey = '{your Primary Key}';
-    var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
-    var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
-    var hubClient;
+    // attach a standard input exit listener
+    attachExitHandler(client);
 
-    var targetTemperature = 0;
-    var ledOn = true;
-    ```
-
-    Uppdatera plats hållarna `{your Scope ID}` , `{your Device ID}` och `{your Primary Key}` med de värden som du antecknade tidigare. I det här exemplet initierar du `targetTemperature` till noll, du kan använda den aktuella läsningen från enheten eller ett värde från enheten.
-
-1. Om du vill skicka simulerad telemetri till ditt Azure IoT Central-program lägger du till följande funktion i filen:
-
-    ```javascript
-    // Send simulated device telemetry.
-    function sendTelemetry() {
-      var temp = targetTemperature + (Math.random() * 15);
-      var humid = 70 + (Math.random() * 10);
-      var data = JSON.stringify({
-        temp: temp,
-        humid: humid,
-        });
-      var message = new Message(data);
-      hubClient.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
-        (err ? `; error: ${err.toString()}` : '') +
-        (res ? `; status: ${res.constructor.name}` : '')));
-    }
-    ```
-
-    Namnen på telemetri-objekten ( `temp` och `humid` ) måste matcha namnen som används i enhets mal len.
-
-1. Om du vill skicka enhetens dubbla egenskaper till ditt Azure IoT Central-program lägger du till följande funktion i filen:
-
-    ```javascript
-    // Send device twin reported properties.
-    function sendDeviceProperties(twin, properties) {
-      twin.properties.reported.update(properties, (err) => console.log(`Sent device properties: ${JSON.stringify(properties)}; ` +
-        (err ? `error: ${err.toString()}` : `status: success`)));
-    }
-    ```
-
-    IoT Central använder enheten för att synkronisera egenskaps värden mellan enheten och IoT Central programmet. Enhetens egenskaps värden använder enhetens dubbla rapporterade egenskaper. Skrivbara egenskaper använder både enhetens dubbla rapporter och önskade egenskaper.
-
-1. Lägg till följande kod för att definiera och hantera de skrivbara egenskaper som enheten svarar på. Meddelandet som enheten skickar som svar på uppdatering av [skrivbara egenskaper](concepts-telemetry-properties-commands.md#writeable-property-types) måste innehålla `av` `ac` fälten och. `ad`Fältet är valfritt:
-
-    ```javascript
-    // Add any writeable properties your device supports,
-    // mapped to a function that's called when the writeable property
-    // is updated in the IoT Central application.
-    var writeableProperties = {
-      'name': (newValue, callback) => {
-          setTimeout(() => {
-            callback(newValue, 'completed', 200);
-          }, 1000);
-      },
-      'brightness': (newValue, callback) => {
-        setTimeout(() => {
-            callback(newValue, 'completed', 200);
-        }, 5000);
-      }
-    };
-
-    // Handle writeable property updates that come from IoT Central via the device twin.
-    function handleWriteablePropertyUpdates(twin) {
-      twin.on('properties.desired', function (desiredChange) {
-        for (let setting in desiredChange) {
-          if (writeableProperties[setting]) {
-            console.log(`Received setting: ${setting}: ${desiredChange[setting]}`);
-            writeableProperties[setting](desiredChange[setting], (newValue, status, code) => {
-              var patch = {
-                [setting]: {
-                  value: newValue,
-                  ad: status,
-                  ac: code,
-                  av: desiredChange.$version
-                }
-              }
-              sendDeviceProperties(twin, patch);
-            });
-          }
-        }
+    // Deal with twin
+    try {
+      resultTwin = await client.getTwin();
+      const patchRoot = createReportPropPatch({ serialNumber: deviceSerialNum });
+      const patchThermostat = createReportPropPatch({
+        maxTempSinceLastReboot: deviceTemperatureSensor.getMaxTemperatureValue()
       });
+
+      // the below things can only happen once the twin is there
+      updateComponentReportedProperties(resultTwin, patchRoot);
+      updateComponentReportedProperties(resultTwin, patchThermostat);
+
+      // Setup the handler for desired properties
+      desiredPropertyPatchHandler(resultTwin);
+
+    } catch (err) {
+      console.error('could not retrieve twin or report twin properties\n' + err.toString());
     }
-    ```
-
-    När operatorn ställer in en skrivbar egenskap i IoT Central-programmet använder programmet en enhet med dubbla önskade egenskaper för att skicka värdet till enheten. Enheten svarar sedan med en enhets dubbla rapporterad egenskap. När IoT Central tar emot det rapporterade egenskap svärdet uppdateras egenskaps läget med statusen **synkroniserad**.
-
-    Namnen på egenskaperna ( `name` och `brightness` ) måste matcha namnen som används i enhets mal len.
-
-1. Lägg till följande kod för att hantera de kommandon som skickas från IoT Central-programmet:
-
-    ```javascript
-    // Setup command handlers
-    function setupCommandHandlers(twin) {
-
-      // Handle synchronous LED blink command with request and response payload.
-      function onBlink(request, response) {
-        console.log('Received synchronous call to blink');
-        var responsePayload = {
-          status: 'Blinking LED every ' + request.payload  + ' seconds'
-        }
-        response.send(200, responsePayload, (err) => {
-          if (err) {
-            console.error('Unable to send method response: ' + err.toString());
-          } else {
-            console.log('Blinking LED every ' + request.payload  + ' seconds');
-          }
-        });
-      }
-
-      // Handle synchronous LED turn on command
-      function turnOn(request, response) {
-        console.log('Received synchronous call to turn on LED');
-        if(!ledOn){
-          console.log('Turning on the LED');
-          ledOn = true;
-        }
-        response.send(200, (err) => {
-          if (err) {
-            console.error('Unable to send method response: ' + err.toString());
-          }
-        });
-      }
-
-      // Handle synchronous LED turn off command
-      function turnOff(request, response) {
-        console.log('Received synchronous call to turn off LED');
-        if(ledOn){
-          console.log('Turning off the LED');
-          ledOn = false;
-        }
-        response.send(200, (err) => {
-          if (err) {
-            console.error('Unable to send method response: ' + err.toString());
-          }
-        });
-      }
-
-      // Handle asynchronous sensor diagnostics command with response payload.
-      function diagnostics(request, response) {
-        console.log('Starting asynchronous diagnostics run...');
-        response.send(202, (err) => {
-          if (err) {
-            console.error('Unable to send method response: ' + err.toString());
-          } else {
-            var repetitions = 3;
-            var intervalID = setInterval(() => {
-              console.log('Generating diagnostics...');
-              if (--repetitions === 0) {
-                clearInterval(intervalID);
-                var properties = {
-                  rundiagnostics: {
-                    value: 'Diagnostics run complete at ' + new Date().toLocaleString()
-                  }
-                };
-                sendDeviceProperties(twin, properties);
-              }
-            }, 2000);
-          }
-        });
-      }
-
-      hubClient.onDeviceMethod('blink', onBlink);
-      hubClient.onDeviceMethod('turnon', turnOn);
-      hubClient.onDeviceMethod('turnoff', turnOff);
-      hubClient.onDeviceMethod('rundiagnostics', diagnostics);
-    }
-    ```
-
-    Namnen på kommandona ( `blink` , `turnon` , `turnoff` och `rundiagnostics` ) måste matcha namnen som används i enhets mal len.
-
-    För närvarande använder IoT Central inte det svars schema som definierats i enhetens kapacitets modell. För ett synkront kommando kan svars nytto lasten vara vilken giltig JSON som helst. För ett asynkront kommando ska enheten returnera ett 202-svar omedelbart följt av den rapporterande egenskaps uppdateringen när arbetet är klart. Formatet för den rapporterade egenskaps uppdateringen är:
-
-    ```json
-    {
-      [command name] : {
-        value: 'response message'
-      }
-    }
-    ```
-
-    En operatör kan visa svars nytto lasten i kommando historiken.
-
-1. Lägg till följande kod för att slutföra anslutningen till Azure IoT Central och koppla samman funktionerna i klientkoden:
-
-    ```javascript
-    // Handle device connection to Azure IoT Central.
-    var connectCallback = (err) => {
-      if (err) {
-        console.log(`Device could not connect to Azure IoT Central: ${err.toString()}`);
-      } else {
-        console.log('Device successfully connected to Azure IoT Central');
-
-        // Send telemetry to Azure IoT Central every 1 second.
-        setInterval(sendTelemetry, 1000);
-
-        // Get device twin from Azure IoT Central.
-        hubClient.getTwin((err, twin) => {
-          if (err) {
-            console.log(`Error getting device twin: ${err.toString()}`);
-          } else {
-            // Send device properties once on device start up.
-            var properties = {
-              state: 'true',
-              processorArchitecture: 'ARM',
-              swVersion: '1.0.0'
-            };
-            sendDeviceProperties(twin, properties);
-
-            handleWriteablePropertyUpdates(twin);
-
-            setupCommandHandlers(twin);
-          }
-        });
-      }
-    };
-
-    // Start the device (register and connect to Azure IoT Central).
-    provisioningClient.register((err, result) => {
-      if (err) {
-        console.log('Error registering device: ' + err);
-      } else {
-        console.log('Registration succeeded');
-        console.log('Assigned hub=' + result.assignedHub);
-        console.log('DeviceId=' + result.deviceId);
-        var connectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';SharedAccessKey=' + symmetricKey;
-        hubClient = Client.fromConnectionString(connectionString, iotHubTransport);
-
-        hubClient.open(connectCallback);
-      }
-    });
-    ```
-
-## <a name="run-your-nodejs-application"></a>Kör Node.js-programmet
-
-Starta enhets klient programmet genom att köra följande kommando i din kommando rads miljö:
-
-```cmd/sh
-node environmentalSensor.js
+  } catch (err) {
+    console.error('could not connect Plug and Play client or could not attach interval function for telemetry\n' + err.toString());
+  }
+}
 ```
 
-Du kan se att enheten ansluter till ditt Azure IoT Central-program och börjar skicka telemetri:
+`provisionDevice`Funktionen visar hur enheten använder DPS för att registrera och ansluta till IoT Central. Nytto lasten inkluderar modell-ID:
 
-![Kör klient programmet](media/tutorial-connect-device-nodejs/run-application.png)
+```javascript
+async function provisionDevice(payload) {
+  var provSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
+  var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvProtocol(), provSecurityClient);
 
-[!INCLUDE [iot-central-monitor-environmental-sensor](../../../includes/iot-central-monitor-environmental-sensor.md)]
+  if (!!(payload)) {
+    provisioningClient.setProvisioningPayload(payload);
+  }
+
+  try {
+    let result = await provisioningClient.register();
+    deviceConnectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';SharedAccessKey=' + symmetricKey;
+  } catch (err) {
+    console.error("error registering device: " + err.toString());
+  }
+}
+```
+
+`sendTelemetry`Funktionen visar hur enheten skickar en temperatur telemetri till IoT Central. `getCurrentTemperatureObject`Metoden returnerar ett objekt som ser ut så här `{ temperature: 45.6 }` :
+
+```javascript
+async function sendTelemetry(deviceClient, index) {
+  console.log('Sending telemetry message %d...', index);
+  const msg = new Message(
+    JSON.stringify(
+      deviceTemperatureSensor.updateSensor().getCurrentTemperatureObject()
+    )
+  );
+  msg.contentType = 'application/json';
+  msg.contentEncoding = 'utf-8';
+  await deviceClient.sendEvent(msg);
+}
+```
+
+`main`Metoden använder följande två metoder för att skicka `maxTempSinceLastReboot` egenskapen till IoT Central. `main`Metoden anropar `createReportPropPatch` med ett objekt som ser ut så här `{maxTempSinceLastReboot: 80.9}` :
+
+```javascript
+const createReportPropPatch = (propertiesToReport) => {
+  let patch;
+  patch = { };
+  patch = propertiesToReport;
+  return patch;
+};
+
+const updateComponentReportedProperties = (deviceTwin, patch) => {
+  deviceTwin.properties.reported.update(patch, function (err) {
+    if (err) throw err;
+    console.log('Properties have been reported for component');
+  });
+};
+```
+
+`main`Metoden använder följande två metoder för att hantera uppdateringar av den skrivbara egenskapen för _mål temperaturen_ från IoT Central. Observera hur `propertyUpdateHandle` skapar svaret med version och status kod:
+
+```javascript
+const desiredPropertyPatchHandler = (deviceTwin) => {
+  deviceTwin.on('properties.desired', (delta) => {
+    const versionProperty = delta.$version;
+
+    Object.entries(delta).forEach(([propertyName, propertyValue]) => {
+      if (propertyName !== '$version') {
+        propertyUpdateHandler(deviceTwin, propertyName, null, propertyValue, versionProperty);
+      }
+    });
+  });
+};
+
+const propertyUpdateHandler = (deviceTwin, propertyName, reportedValue, desiredValue, version) => {
+  console.log('Received an update for property: ' + propertyName + ' with value: ' + JSON.stringify(desiredValue));
+  const patch = createReportPropPatch(
+    { [propertyName]:
+      {
+        'value': desiredValue,
+        'ac': 200,
+        'ad': 'Successfully executed patch for ' + propertyName,
+        'av': version
+      }
+    });
+  updateComponentReportedProperties(deviceTwin, patch);
+  console.log('updated the property');
+};
+```
+
+`main`Metoden använder följande två metoder för att hantera anrop till `getMaxMinReport` kommandot. `getMaxMinReportObject`Metoden genererar rapporten som ett JSON-objekt:
+
+```javascript
+const commandHandler = async (request, response) => {
+  switch (request.methodName) {
+  case commandMaxMinReport: {
+    console.log('MaxMinReport ' + request.payload);
+    await sendCommandResponse(request, response, 200, deviceTemperatureSensor.getMaxMinReportObject());
+    break;
+  }
+  default:
+    await sendCommandResponse(request, response, 404, 'unknown method');
+    break;
+  }
+};
+
+const sendCommandResponse = async (request, response, status, payload) => {
+  try {
+    await response.send(status, payload);
+    console.log('Response to method \'' + request.methodName +
+              '\' sent successfully.' );
+  } catch (err) {
+    console.error('An error ocurred when sending a method response:\n' +
+              err.toString());
+  }
+};
+```
+
+## <a name="get-connection-information"></a>Hämta anslutningsinformation
+
+[!INCLUDE [iot-central-connection-configuration](../../../includes/iot-central-connection-configuration.md)]
+
+## <a name="run-the-code"></a>Kör koden
+
+Kör exempel programmet genom att öppna en kommando rads miljö och navigera till mappen *Azure-IoT-SDK-Node/enhet/samples/PnP* som innehåller *simple_thermostat.js* exempel filen.
+
+[!INCLUDE [iot-central-connection-environment](../../../includes/iot-central-connection-environment.md)]
+
+Installera de nödvändiga paketen:
+
+```cmd/sh
+npm install
+```
+
+Kör exemplet:
+
+```cmd/sh
+node simple_thermostat.js
+```
+
+Följande utdata visar enhets registrering och anslutning till IoT Central. Exemplet skickar sedan `maxTempSinceLastReboot` egenskapen innan den börjar skicka telemetri:
+
+```cmd/sh
+registration succeeded
+assigned hub=iotc-.......azure-devices.net
+deviceId=sample-device-01
+payload=undefined
+Connecting using connection string HostName=iotc-........azure-devices.net;DeviceId=sample-device-01;SharedAccessKey=Ci....=
+Enabling the commands on the client
+Please enter q or Q to exit sample.
+The following properties will be updated for root interface:
+{ maxTempSinceLastReboot: 55.20309427428496 }
+Properties have been reported for component
+Sending telemetry message 0...
+Sending telemetry message 1...
+Sending telemetry message 2...
+Sending telemetry message 3...
+```
+
+[!INCLUDE [iot-central-monitor-thermostat](../../../includes/iot-central-monitor-thermostat.md)]
 
 Du kan se hur enheten svarar på kommandon och egenskaps uppdateringar:
 
-![Observera klient programmet](media/tutorial-connect-device-nodejs/run-application-2.png)
+```cmd/sh
+MaxMinReport 2020-10-15T12:00:00.000Z
+Response to method 'getMaxMinReport' sent successfully.
+
+...
+
+Received an update for property: targetTemperature with value: {"value":86.3}
+The following properties will be updated for root interface:
+{
+  targetTemperature: {
+    value: { value: 86.3 },
+    ac: 200,
+    ad: 'Successfully executed patch for targetTemperature',
+    av: 2
+  }
+}
+```
 
 ## <a name="view-raw-data"></a>Visa rå data
 
-[!INCLUDE [iot-central-monitor-environmental-sensor-raw-data](../../../includes/iot-central-monitor-environmental-sensor-raw-data.md)]
+[!INCLUDE [iot-central-monitor-thermostat-raw-data](../../../includes/iot-central-monitor-thermostat-raw-data.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -347,3 +299,4 @@ Som en enhets utvecklare har du nu lärt dig grunderna för hur du skapar en enh
 
 * Läs [Vad är enhets mallar?](./concepts-device-templates.md) om du vill lära dig mer om rollen hets mallar när du implementerar din enhets kod.
 * Läs [bli ansluten till Azure IoT Central](./concepts-get-connected.md) om du vill veta mer om hur du registrerar enheter med IoT Central och hur IoT Central skyddar enhets anslutningar.
+* Läs [telemetri, egenskaper och kommando nytto laster](concepts-telemetry-properties-commands.md) för att lära dig mer om de data som enheten utbyter med IoT Central.

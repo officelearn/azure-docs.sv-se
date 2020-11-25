@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
 ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217566"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018213"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, Visa och hantera logg aviseringar med Azure Monitor
 
@@ -34,7 +34,7 @@ Du kan också skapa logg aviserings regler med Azure Resource Manager mallar, so
 Här är stegen för att komma igång med att skriva frågor för aviseringar:
 
 1. Gå till den resurs som du vill Avisera om.
-1. Under **övervaka**väljer du **loggar**.
+1. Under **övervaka** väljer du **loggar**.
 1. Efterfråga de loggdata som kan indikera problemet. Du kan använda [aviserings frågans exempel ämne](../log-query/saved-queries.md) för att förstå vad du kan identifiera eller [komma igång med att skriva en egen fråga](../log-query/get-started-portal.md). Du kan också [lära dig hur du skapar optimerade aviseringsfrågor](alerts-log-query.md).
 1. Tryck på knappen + Ny varnings regel för att starta flödet för att skapa aviseringar.
 
@@ -79,9 +79,9 @@ Här är stegen för att komma igång med att skriva frågor för aviseringar:
 
 1. Du kan också ange [antalet överträdelser som utlöser en avisering](alerts-unified-log.md#number-of-violations-to-trigger-alert) med hjälp av **Totalt antal överträdelser eller i följd**.
 
-1. Välj **Done** (Klar). 
+1. Välj **Klar**. 
 
-1. Definiera **aviserings regelns namn**, **Beskrivning**och välj aviseringens **allvarlighets grad**. Informationen används i alla aviserings åtgärder. Du kan dessutom välja att inte aktivera aviserings regeln när du skapar den genom att välja **Aktivera regel när**du har skapat den.
+1. Definiera **aviserings regelns namn**, **Beskrivning** och välj aviseringens **allvarlighets grad**. Informationen används i alla aviserings åtgärder. Du kan dessutom välja att inte aktivera aviserings regeln när du skapar den genom att välja **Aktivera regel när** du har skapat den.
 
 1. Välj om du vill utelämna regel åtgärder under en tid efter att en avisering har utlösts, använder du alternativet [**Dölj aviseringar**](alerts-unified-log.md#state-and-resolving-alerts) . Regeln körs fortfarande och skapar aviseringar, men åtgärder aktive ras inte för att förhindra brus. Värdet för att stänga av åtgärder måste vara större än aviserings frekvensen som ska vara effektiv.
 
@@ -126,7 +126,7 @@ Här är stegen för att komma igång med att skriva frågor för aviseringar:
 
     ![Skapa regel](media/alerts-log/AlertsPreviewAdd.png)
 
-1. Tryck på knappen **Välj resurs** . Filtrera genom att välja *prenumeration*, *resurs typ*och välj en resurs. Se till att resursen har tillgängliga loggar.
+1. Tryck på knappen **Välj resurs** . Filtrera genom att välja *prenumeration*, *resurs typ* och välj en resurs. Se till att resursen har tillgängliga loggar.
 
    ![Välj resurs](media/alerts-log/Alert-SelectResourceLog.png)
 
@@ -176,7 +176,7 @@ Här är stegen för att komma igång med att skriva frågor för aviseringar:
 
     ![Fliken åtgärder](media/alerts-log/actions-tab.png)
 
-1. Definiera **varnings regel informationen**och **projekt information**på fliken **information** . Du kan också ange om du vill **Starta körningen nu**eller [**inaktivera åtgärder**](alerts-unified-log.md#state-and-resolving-alerts) under en period efter att varnings regeln utlöses.
+1. Definiera **varnings regel informationen** och **projekt information** på fliken **information** . Du kan också ange om du vill **Starta körningen nu** eller [**inaktivera åtgärder**](alerts-unified-log.md#state-and-resolving-alerts) under en period efter att varnings regeln utlöses.
 
     > [!NOTE]
     > Logg varnings regler är för närvarande tillstånds lösa och utlöser en åtgärd varje gång en avisering skapas om inte avstängning har definierats.

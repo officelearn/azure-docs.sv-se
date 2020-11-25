@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 31e61069c95be9bd1c7a684bb83ebcd93bcb14be
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548240"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019163"
 ---
 1. Starta Azure Site Recovery UnifiedSetup.exe
 2. I **Before you begin** (Innan du börjar) väljer du **Add additional process servers to scale out deployment** (Lägg till ytterligare processervrar till utskalningsdistribution).
@@ -23,14 +23,14 @@ ms.locfileid: "92548240"
 
    ![Lägga till processerver 3](./media/site-recovery-add-process-server/ps-page-3.png)
 
-   * Om du vill ansluta till den befintliga proxyservern som är konfigurerad på datorn väljer du **Anslut med befintliga proxyinställningar** .
-   * Om du vill att providern ska ansluta direkt väljer du **Anslut direkt utan en proxy** .
-   * Om den befintliga proxyservern kräver autentisering, eller om du vill använda en anpassad proxyserver för provideranslutningen, väljer du **Anslut med anpassade proxyinställningar** .
+   * Om du vill ansluta till den befintliga proxyservern som är konfigurerad på datorn väljer du **Anslut med befintliga proxyinställningar**.
+   * Om du vill att providern ska ansluta direkt väljer du **Anslut direkt utan en proxy**.
+   * Om den befintliga proxyservern kräver autentisering, eller om du vill använda en anpassad proxyserver för provideranslutningen, väljer du **Anslut med anpassade proxyinställningar**.
 
      * Om du använder en anpassad proxyserver måste du ange adressen, porten och autentiseringsuppgifterna.
      * Om du använder en proxyserver bör du redan ha tillåtit åtkomst till URL:erna för tjänsten.
 
-5. I **Kravkontroll** körs en kontroll för att se till att installationen kan köras. Om det visas en varning om **synkroniseringskontrollen för global tid** kontrollerar du att systemklockans tid (inställningarna för **datum och tid** ) är samma som tidszonen.
+5. I **Kravkontroll** körs en kontroll för att se till att installationen kan köras. Om det visas en varning om **synkroniseringskontrollen för global tid** kontrollerar du att systemklockans tid (inställningarna för **datum och tid**) är samma som tidszonen.
 
      ![Lägga till processerver 4](./media/site-recovery-add-process-server/ps-page-4.png)
 
@@ -44,6 +44,6 @@ ms.locfileid: "92548240"
 8. I **Val av nätverk** anger du lyssnare (nätverkskort och SSL-port) där konfigurationsservern skickar och tar emot replikeringsdata. Port 9443 är standardporten som används för att skicka och ta emot replikeringstrafik, men du kan ändra portnumret så att det passar din miljö. Förutom port 9443 öppnar vi också port 443, som används av en webbserver för att dirigera replikeringsåtgärder. Använd inte Port 443 för att skicka eller ta emot replikeringstrafik.
 
      ![Lägga till processerver 6](./media/site-recovery-add-process-server/ps-page-7.png)
-9. I **Sammanfattning** granskar du informationen och klickar på **Installera** . När installationen är klar skapas en lösenfras. Du behöver den när du aktiverar replikering. Kopiera lösenfrasen och förvara den på en säker plats.
+9. I **Sammanfattning** granskar du informationen och klickar på **Installera**. När installationen är klar skapas en lösenfras. Du behöver den när du aktiverar replikering. Kopiera lösenfrasen och förvara den på en säker plats.
 
      ![Lägga till processerver 7](./media/site-recovery-add-process-server/ps-page-8.png)

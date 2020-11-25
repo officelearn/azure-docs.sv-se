@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 10/19/2020
 ms.author: lcozzens
 ms.openlocfilehash: c379d3f99628c2d3fb32ae34ca0214f608d365c7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201280"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012705"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Snabb start: Lägg till funktions flaggor i en .NET Framework app
 
@@ -49,9 +49,9 @@ Biblioteken för .NET-funktions hantering utökar ramverket med stöd för funkt
 
 1. Starta Visual Studio och välj **fil**  >  **nytt**  >  **projekt**.
 
-1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)**. Klicka på **Nästa**.
+1. I **skapa ett nytt projekt** filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)**. Klicka på **Nästa**.
 
-1. Ange ett projekt namn i **Konfigurera ditt nya projekt**. Under **ramverk**väljer du **.NET Framework 4,8** eller högre. Klicka på **Skapa**.
+1. Ange ett projekt namn i **Konfigurera ditt nya projekt**. Under **ramverk** väljer du **.NET Framework 4,8** eller högre. Klicka på **Skapa**.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 

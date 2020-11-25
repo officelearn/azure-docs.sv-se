@@ -10,11 +10,11 @@ ms.date: 07/17/2017
 ms.custom: devx-track-java
 ms.author: cynthn
 ms.openlocfilehash: f571dc5f4f3aee2405d4968b050bd2dd92a709db
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973673"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012756"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Skapa och hantera virtuella Windows-datorer i Azure med Java
 
@@ -128,7 +128,7 @@ Innan du startar det här steget ska du kontrol lera att du har åtkomst till et
     graphURL=https://graph.microsoft.com/
     ```
 
-    Ersätt ** &lt; prenumerations- &gt; ID** med prenumerations-ID, ** &lt; program &gt; -ID** med Active Directory-program-ID, ** &lt; autentisering- &gt; nyckel** med program nyckeln och klient-ID med klient- ** &lt; ID: t &gt; ** .
+    Ersätt **&lt; prenumerations- &gt; ID** med prenumerations-ID, **&lt; program &gt; -ID** med Active Directory-program-ID, **&lt; autentisering- &gt; nyckel** med program nyckeln och klient-ID med klient- **&lt; ID: t &gt;** .
 
 2. Spara filen.
 3. Ange en miljö variabel med namnet AZURE_AUTH_LOCATION i ditt gränssnitt med den fullständiga sökvägen till autentiserings filen.

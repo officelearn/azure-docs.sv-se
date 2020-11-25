@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
 ms.openlocfilehash: 7c644583e994e51f11bdf7991755a6ea94b01e76
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533486"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012825"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop kluster i HDInsight med hjälp av Azure Portal
 
@@ -33,7 +33,7 @@ Logga in på [https://portal.azure.com](https://portal.azure.com).
 
 Sidan **HDInsight-kluster** visar dina befintliga kluster.  Från portalen:
 1. Välj **alla tjänster** på den vänstra menyn.
-2. Välj **HDInsight-kluster** under **Analytics** .
+2. Välj **HDInsight-kluster** under **Analytics**.
 
 ## <a name="cluster-home-page"></a><a name="homePage"></a> Kluster start sida
 
@@ -98,7 +98,7 @@ Välj ditt kluster namn på sidan [**HDInsight-kluster**](#showClusters) .  Vyn 
 
 ## <a name="cluster-properties"></a><a name="properties"></a> Kluster egenskaper
 
-På [Start sidan för klustret](#homePage)under **Inställningar** väljer du **Egenskaper** .
+På [Start sidan för klustret](#homePage)under **Inställningar** väljer du **Egenskaper**.
 
 |Objekt | Beskrivning |
 |---|---|
@@ -109,7 +109,7 @@ På [Start sidan för klustret](#homePage)under **Inställningar** väljer du **
 |STATUS|En av: avbruten, accepterad, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, drift, körning, fel, borttagning, borttagning, stängningsåtgärd, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued eller ClusterCustomization.|
 |REGION|Azure-plats. En lista över Azure-platser som stöds finns i list rutan **region** på [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).|
 |SKAPAD DEN|Det datum då klustret distribuerades.|
-|OPERATIV SYSTEM|Antingen **Windows** eller **Linux** .|
+|OPERATIV SYSTEM|Antingen **Windows** eller **Linux**.|
 |TYP|Hadoop, HBase, Storm, Spark.|
 |Version|Se [HDInsight-versioner](hdinsight-component-versioning.md).|
 |Lägsta TLS-version|TLS-versionen.|
@@ -126,7 +126,7 @@ Du kan flytta ett HDInsight-kluster till en annan Azure-resurs grupp eller en an
 Från [klustrets start sida](#homePage):
 
 1. Välj **Flytta** på den översta menyn.
-2. Välj **Flytta till en annan resurs grupp** eller **Flytta till en annan prenumeration** .
+2. Välj **Flytta till en annan resurs grupp** eller **Flytta till en annan prenumeration**.
 3. Följ anvisningarna på den nya sidan.
 
 ## <a name="delete-clusters"></a>Ta bort kluster
@@ -174,12 +174,12 @@ Ambari tillhandahåller ett intuitivt, lättanvänt Hadoop Management-webbgräns
 
 Från [klustrets start sida](#homePage):
 
-1. Välj **kluster instrument paneler** .
+1. Välj **kluster instrument paneler**.
 
     ![HDInsight Apache Hadoop kluster meny](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
 
 1. Välj **Ambari start** från den nya sidan.
-1. Ange användar namn och lösen ord för klustret.  Standard namnet för kluster är _admin_ .
+1. Ange användar namn och lösen ord för klustret.  Standard namnet för kluster är _admin_.
 
 Mer information finns i [Hantera HDInsight-kluster med hjälp av Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
@@ -193,16 +193,16 @@ An-HDInsight kluster kan ha två användar konton. HDInsight-klustrets användar
 > Att ändra lösen ordet för kluster användare (admin) kan orsaka att skript åtgärder körs mot klustret för att Miss lyckas. Om du har några sparade skript åtgärder som riktar sig mot arbetsnoder kan dessa skript Miss lyckas när du lägger till noder i klustret genom att ändra storlek. Mer information om skript åtgärder finns i [Anpassa HDInsight-kluster med hjälp av skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md).
 
 Från [klustrets start sida](#homePage):
-1. Välj **SSH + kluster inloggning** under **Inställningar** .
-2. Välj **Återställ autentiseringsuppgifter** .
+1. Välj **SSH + kluster inloggning** under **Inställningar**.
+2. Välj **Återställ autentiseringsuppgifter**.
 3. Ange och bekräfta det nya lösen ordet i text rutorna.
-4. Välj **OK** .
+4. Välj **OK**.
 
 Lösen ordet har ändrats på alla noder i klustret.
 
 ### <a name="change-the-ssh-user-password-or-public-key"></a>Ändra lösen ord för SSH-användare eller offentlig nyckel
 
-1. Använd en text redigerare och spara följande text som en fil med namnet **changecredentials.sh** .
+1. Använd en text redigerare och spara följande text som en fil med namnet **changecredentials.sh**.
 
     > [!IMPORTANT]  
     > Du måste använda ett redigerings program som använder LF som linje slut. Om redigeraren använder CRLF fungerar inte skriptet.
@@ -215,8 +215,8 @@ Lösen ordet har ändrats på alla noder i klustret.
     ```
 
 2. Överför filen till en lagrings plats som kan nås från HDInsight med hjälp av en HTTP-eller HTTPS-adress. Till exempel ett offentligt fil arkiv som OneDrive eller Azure Blob Storage. Spara URI (HTTP eller HTTPS-adress) till filen, eftersom denna URI behövs i nästa steg.
-3. Från [klustrets start sida](#homePage)väljer du **skript åtgärder** under **Inställningar** .
-4. På sidan **skript åtgärder** väljer du **Skicka ny** .
+3. Från [klustrets start sida](#homePage)väljer du **skript åtgärder** under **Inställningar**.
+4. På sidan **skript åtgärder** väljer du **Skicka ny**.
 5. På sidan **Skicka skript åtgärd** anger du följande information:
 
 > [!NOTE]
@@ -228,7 +228,7 @@ Lösen ordet har ändrats på alla noder i klustret.
    | Fält | Värde |
    | --- | --- |
    | Skript typ | Välj **anpassad** i list rutan.|
-   | Namn |"Ändra SSH-autentiseringsuppgifter" |
+   | Name |"Ändra SSH-autentiseringsuppgifter" |
    | Bash-skript-URI |URI: n till changecredentials.sh-filen |
    | Nodtyp (er): (Head, Worker, Nimbus, chef eller Zookeeper.) |✓ för alla nodtyper i listan |
    | Parametrar |Ange SSH-användarnamnet och sedan det nya lösen ordet. Det måste finnas ett blank steg mellan användar namnet och lösen ordet. |
@@ -246,7 +246,7 @@ I Azure Resource Managers läge skapas varje HDInsight-kluster med en Azure Reso
 
 ## <a name="find-the-storage-accounts"></a>Hitta lagrings kontona
 
-HDInsight-kluster använder antingen ett Azure Storage konto eller Azure Data Lake Storage för att lagra data. Varje HDInsight-kluster kan ha ett standard lagrings konto och ett antal länkade lagrings konton. Om du vill visa lagrings kontona går du till [klustrets start sida](#homePage) under **Inställningar** och väljer **lagrings konton** .
+HDInsight-kluster använder antingen ett Azure Storage konto eller Azure Data Lake Storage för att lagra data. Varje HDInsight-kluster kan ha ett standard lagrings konto och ett antal länkade lagrings konton. Om du vill visa lagrings kontona går du till [klustrets start sida](#homePage) under **Inställningar** och väljer **lagrings konton**.
 
 ## <a name="monitor-jobs"></a>Övervaka jobb
 

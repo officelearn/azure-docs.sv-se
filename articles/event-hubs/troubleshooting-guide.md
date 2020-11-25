@@ -3,12 +3,12 @@ title: Felsöka anslutnings problem – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om fel sökning av anslutnings problem med Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eddc0e8c598e4553b30759d179fecb6ae880829
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87039335"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96012688"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Felsöka anslutnings problem – Azure Event Hubs
 Det finns olika orsaker till att klient program inte kan ansluta till en Event Hub. De anslutnings problem som du upplever kan vara permanenta eller tillfälliga. Om problemet inträffar hela tiden (permanent) kanske du vill kontrol lera anslutnings strängen, din organisations brand Väggs inställningar, inställningar för IP-brandvägg, nätverks säkerhets inställningar (tjänst slut punkter, privata slut punkter osv.). Vid tillfälliga problem kan du uppgradera till den senaste versionen av SDK, köra kommandon för att kontrol lera ignorerade paket och hämta nätverks spår för att felsöka problemen. 
@@ -26,54 +26,7 @@ Kontrol lera att anslutnings strängen som du använder är korrekt. Se [Hämta 
 
 För Kafka-klienter kontrollerar du att producer.config-eller consumer.config-filerna är korrekt konfigurerade. Mer information finns i [skicka och ta emot meddelanden med Kafka i Event Hubs](event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs).
 
-### <a name="check-if-the-ports-required-to-communicate-with-event-hubs-are-blocked-by-organizations-firewall"></a>Kontrol lera om portarna som krävs för att kommunicera med Event Hubs blockeras av organisationens brand vägg
-Kontrol lera att portarna som används vid kommunikation med Azure Event Hubs inte är blockerade i din organisations brand vägg. Se följande tabell för utgående portar som du måste öppna för att kommunicera med Azure Event Hubs. 
-
-| Protokoll | Portar | Information | 
-| -------- | ----- | ------- | 
-| AMQP | 5671 och 5672 | Se [AMQP-protokoll guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | Se [använda Event Hubs från Kafka-program](event-hubs-for-kafka-ecosystem-overview.md)
-
-Här är ett exempel kommando som kontrollerar om 5671-porten är blockerad.
-
-```powershell
-tnc <yournamespacename>.servicebus.windows.net -port 5671
-```
-
-I Linux:
-
-```shell
-telnet <yournamespacename>.servicebus.windows.net 5671
-```
-
-### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Kontrol lera att IP-adresser tillåts i företags brand väggen
-När du arbetar med Azure måste du ibland tillåta vissa IP-adressintervall eller URL: er i företagets brand vägg eller proxy för att få åtkomst till alla Azure-tjänster som du använder eller försöker använda. Kontrol lera att trafiken tillåts på IP-adresser som används av Event Hubs. För IP-adresser som används av Azure Event Hubs: se [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519).
-
-Kontrol lera också att IP-adressen för ditt namn område är tillåten. Följ dessa steg om du vill hitta rätt IP-adresser som tillåts för dina anslutningar:
-
-1. Kör följande kommando från en kommando tolk: 
-
-    ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
-    ```
-2. Anteckna IP-adressen som returnerades i `Non-authoritative answer` . Den enda tid det skulle ändra är om du återställer namn området på ett annat kluster.
-
-Om du använder zon redundans för ditt namn område måste du utföra några ytterligare steg: 
-
-1. Först kör du nslookup i namn området.
-
-    ```
-    nslookup <yournamespace>.servicebus.windows.net
-    ```
-2. Anteckna namnet i avsnittet **icke-auktoritativt svar** , vilket är i något av följande format: 
-
-    ```
-    <name>-s1.cloudapp.net
-    <name>-s2.cloudapp.net
-    <name>-s3.cloudapp.net
-    ```
-3. Kör nslookup för var och en med suffix S1, S2 och S3 för att hämta IP-adresserna för alla tre instanser som körs i tre tillgänglighets zoner. 
+[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 
 ### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Kontrol lera att AzureEventGrid service tag är tillåtet i dina nätverks säkerhets grupper
 Om ditt program körs i ett undernät och det finns en tillhör ande nätverks säkerhets grupp, kontrollerar du om den utgående Internet-koden är tillåten eller om AzureEventGrid är tillåten. Se [tjänst taggar för virtuella nätverk](../virtual-network/service-tags-overview.md) och Sök efter `EventHub` .
@@ -91,22 +44,6 @@ Som standard är Event Hubs-namnrymder tillgängliga från Internet så länge f
 IP-brandväggens regler tillämpas på Event Hubs namn områdes nivå. Reglerna gäller därför för alla anslutningar från klienter som använder ett protokoll som stöds. Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Event Hubs namn området nekas som obehörig. Svaret innehåller ingen IP-regel. IP filter regler tillämpas i ordning och den första regeln som matchar IP-adressen avgör vilken åtgärd som godkänns eller nekas.
 
 Mer information finns i [Konfigurera IP-brandväggens regler för ett Azure Event Hubs-namnområde](event-hubs-ip-filtering.md). Information om hur du kontrollerar om det finns IP-filtrering, ett virtuellt nätverk eller problem med certifikat kedjan finns i [Felsöka nätverksrelaterade problem](#troubleshoot-network-related-issues).
-
-#### <a name="find-the-ip-addresses-blocked-by-ip-firewall"></a>Hitta IP-adresserna som blockeras av IP-brandväggen
-Aktivera diagnostikloggar för [Event Hubs händelser för virtuella nätverks anslutningar](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) genom att följa anvisningarna i [Aktivera diagnostikloggar](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). IP-adressen för den anslutning som nekas visas.
-
-```json
-{
-    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
-    "NamespaceName": "namespace-name",
-    "IPAddress": "1.2.3.4",
-    "Action": "Deny Connection",
-    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
-    "Count": "65",
-    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
-    "Category": "EventHubVNetConnectionEvent"
-}
-```
 
 ### <a name="check-if-the-namespace-can-be-accessed-using-only-a-private-endpoint"></a>Kontrol lera om namn området kan nås enbart med en privat slut punkt
 Om Event Hubs namn området är konfigurerat att vara tillgängligt enbart via privat slut punkt kontrollerar du att klient programmet har åtkomst till namn området över den privata slut punkten. 

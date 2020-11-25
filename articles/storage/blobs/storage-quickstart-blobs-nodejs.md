@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 54bf6265a5b440e5c450d21b192acc2f7024f938
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ed3a88dbca1788a5c5a265fe91bdd5e88ae1fe36
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91307542"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012773"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Snabb start: hantera blobbar med Java Script V12 SDK i Node.js
 
@@ -24,7 +24,7 @@ Ytterligare resurser:
 * [Referensdokumentation för API](/javascript/api/@azure/storage-blob)
 * [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Paket (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob)
-* [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Exempel](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -314,6 +314,6 @@ För självstudier, exempel, snabb starter och annan dokumentation går du till:
 > [!div class="nextstepaction"]
 > [Azure för Java Script Developer Center](/azure/developer/javascript/)
 
-* Information om hur du distribuerar en webbapp som använder Azure Blob Storage finns i [Självstudier: Ladda upp avbildnings data i molnet med Azure Storage](/azure/storage/blobs/storage-upload-process-images?tabs=javascript&preserve-view=true)
+* Information om hur du distribuerar en webbapp som använder Azure Blob Storage finns i [Självstudier: Ladda upp avbildnings data i molnet med Azure Storage](./storage-upload-process-images.md?preserve-view=true&tabs=javascript)
 * Om du vill se exempel appar för Blob Storage kan du fortsätta till [Azure Blob Storage-V12 JavaScript-exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
 * Mer information finns i [klient biblioteket för Azure Blob Storage för Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).

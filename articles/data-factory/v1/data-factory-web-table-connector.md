@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84689766"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012858"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Flytta data från en webb tabell källa med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -34,7 +34,7 @@ Data Factory har för närvarande endast stöd för att flytta data från en web
 > [!IMPORTANT]
 > Denna webb anslutning stöder för närvarande endast extrahering av tabell innehåll från en HTML-sida. Om du vill hämta data från en HTTP/s-slutpunkt använder du [http-anslutning](data-factory-http-connector.md) i stället.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda den här webb tabell anslutningen måste du konfigurera en egen värd Integration Runtime (aka Data Management Gateway) och konfigurera `gatewayName` egenskapen i den länkade mottagar tjänsten. Om du till exempel vill kopiera från webb tabellen till Azure Blob Storage konfigurerar du Azure Storage länkade tjänsten som följer:
 
@@ -55,7 +55,7 @@ Om du vill använda den här webb tabell anslutningen måste du konfigurera en e
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett lokalt Cassandra data lager med hjälp av olika verktyg/API: er. 
 
 - Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API** och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -72,9 +72,9 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Egenskapen Type måste anges till: **webb** |Ja |
-| URL |URL till webb adressen |Ja |
-| authenticationType |Anonym. |Ja |
+| typ |Egenskapen Type måste anges till: **webb** |Yes |
+| URL |URL till webb adressen |Yes |
+| authenticationType |Antal. |Yes |
 
 ### <a name="using-anonymous-authentication"></a>Använda anonym autentisering
 
@@ -100,9 +100,9 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning och i
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |typ av data uppsättning. måste vara inställd på **Webtable** |Ja |
+| typ |typ av data uppsättning. måste vara inställd på **Webtable** |Yes |
 | path |En relativ URL till den resurs som innehåller tabellen. |Nej. Om ingen sökväg anges används endast den URL som angavs i den länkade tjänst definitionen. |
-| index |Indexet för tabellen i resursen. Se avsnittet [Hämta index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) för steg för att hämta index för en tabell på en HTML-sida. |Ja |
+| index |Indexet för tabellen i resursen. Se avsnittet [Hämta index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) för steg för att hämta index för en tabell på en HTML-sida. |Yes |
 
 **Exempel:**
 
@@ -293,7 +293,7 @@ Se egenskaper för Websource-typ för listan över egenskaper som stöds av Webs
     ![Från webben-dialog](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
     URL som används i det här exemplet: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
-4. Om dialog rutan **Öppna webb innehåll** visas väljer du rätt **URL**, **autentisering**och klickar på **Anslut**.
+4. Om dialog rutan **Öppna webb innehåll** visas väljer du rätt **URL**, **autentisering** och klickar på **Anslut**.
 
    ![Dialog rutan för att komma åt webb innehåll](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
 5. Klicka på ett **tabell** objekt i trädvyn om du vill visa innehåll från tabellen och klicka sedan på knappen **Redigera** längst ned.  

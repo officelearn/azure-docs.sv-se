@@ -4,11 +4,11 @@ description: Beskriver de egenskaper som har angetts för Media Services händel
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: c1c5953cae7364131eefcec97d3375404c85e963
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105939"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015221"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services som en Event Grid källa
 
@@ -124,7 +124,7 @@ I följande exempel visas schemat för **JobStateChange** -händelsen:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | previousState | sträng | Jobbets tillstånd före händelsen. |
 | state | sträng | Det nya läget för jobbet som meddelas i den här händelsen. Till exempel "schemalagd: jobbet är klart att starta" eller "slutfört: jobbet har slutförts".|
@@ -194,7 +194,7 @@ För varje slutlig jobb tillstånds ändring (till exempel JobFinished, JobCance
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | utdata | Matris | Hämtar jobbets utdata.|
 
@@ -310,7 +310,7 @@ I följande exempel visas schemat för **LiveEventConnectionRejected** -händels
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | streamId | sträng | Identifierare för strömmen eller anslutningen. Kodare eller kund ansvarar för att lägga till detta ID i inmatnings-URL: en. |  
 | ingest | sträng | Inmatnings-URL som tillhandahålls av Live-händelsen. |  
@@ -346,7 +346,7 @@ I följande exempel visas schemat för **LiveEventEncoderConnected** -händelsen
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | streamId | sträng | Identifierare för strömmen eller anslutningen. Kodare eller kund ansvarar för att tillhandahålla detta ID i inmatnings-URL: en. |
 | ingest | sträng | Inmatnings-URL som tillhandahålls av Live-händelsen. |
@@ -380,7 +380,7 @@ I följande exempel visas schemat för **LiveEventEncoderDisconnected** -händel
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | streamId | sträng | Identifierare för strömmen eller anslutningen. Kodare eller kund ansvarar för att lägga till detta ID i inmatnings-URL: en. |  
 | ingest | sträng | Inmatnings-URL som tillhandahålls av Live-händelsen. |  
@@ -392,7 +392,7 @@ Du hittar fel resultat koderna i [fel koder för Live-händelser](../media-servi
 
 De korrekt resultat koderna för från koppling är:
 
-| Resultatkod | Beskrivning |
+| Resultatkod | Description |
 | ----------- | ----------- |
 | S_OK | Kodaren har kopplats från. |
 | MPE_CLIENT_TERMINATED_SESSION | Kodare frånkopplad (RTMP). |
@@ -430,7 +430,7 @@ I följande exempel visas schemat för **LiveEventIncomingDataChunkDropped** -h�
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | trackType | sträng | Typ av spår (ljud/video). |
 | trackName | sträng | Spårets namn. |
@@ -470,7 +470,7 @@ I följande exempel visas schemat för **LiveEventIncomingStreamReceived** -hän
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | trackType | sträng | Typ av spår (ljud/video). |
 | trackName | sträng | Namnet på spåret (antingen från kodaren eller, om det är RTMP, servern genererar i *TrackType_Bitrate* -format). |
@@ -509,7 +509,7 @@ I följande exempel visas schemat för **LiveEventIncomingStreamsOutOfSync** -h�
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | minLastTimestamp | sträng | Minsta antal senaste tidsstämplar bland alla spår (ljud eller video). |
 | typeOfTrackWithMinLastTimestamp | sträng | Typ av spår (ljud eller video) med minst senaste tidsstämpel. |
@@ -545,7 +545,7 @@ I följande exempel visas schemat för **LiveEventIncomingVideoStreamsOutOfSync*
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | firstTimestamp | sträng | Tidsstämpeln togs emot för en av bildens spår/kvalitets nivåer av typen video. |
 | firstDuration | sträng | Varaktigheten för data segmentet med den första tidsstämpeln. |
@@ -587,7 +587,7 @@ I följande exempel visas schemat för **LiveEventIngestHeartbeat** -händelsen:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | trackType | sträng | Typ av spår (ljud/video). |
 | trackName | sträng | Namnet på spåret (antingen från kodaren eller, om det är RTMP, servern genererar i *TrackType_Bitrate* -format). |
@@ -631,7 +631,7 @@ I följande exempel visas schemat för **LiveEventTrackDiscontinuityDetected** -
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | trackType | sträng | Typ av spår (ljud/video). |
 | trackName | sträng | Namnet på spåret (antingen från kodaren eller, om det är RTMP, servern genererar i *TrackType_Bitrate* -format). |
@@ -645,7 +645,7 @@ Data-objektet har följande egenskaper:
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ämne | sträng | Avsnittet EventGrid. Den här egenskapen har resurs-ID: t för det Media Services kontot. |
 | motiv | sträng | Resurs Sök vägen för Media Servicess kanalen under Media Services kontot. Genom att sammanfoga ämnet och ämnet får du resurs-ID för jobbet. |

@@ -10,11 +10,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 99fb41542dff28997438881abad71da11e927a78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898803"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014898"
 ---
 # <a name="clip-values"></a>Beskärningsvärden
 
@@ -32,9 +32,9 @@ Modulen använder samma villkor och ersättnings metod för **alla** kolumner so
 
 Om du behöver tillämpa urklipps metoder eller andra villkor för vissa kolumner måste du använda en ny instans av **klipp värden** för varje uppsättning liknande kolumner.
 
-1.  Lägg till modulen **Clip Values** i din pipeline och Anslut den till den data uppsättning som du vill ändra. Du hittar den här modulen under **dataomvandling**i kategorin **skala och minska** . 
+1.  Lägg till modulen **Clip Values** i din pipeline och Anslut den till den data uppsättning som du vill ändra. Du hittar den här modulen under **dataomvandling** i kategorin **skala och minska** . 
   
-1.  Använd kolumn väljaren i kolumn **listan**för att välja de kolumner som **klipp värden** ska användas för.  
+1.  Använd kolumn väljaren i kolumn **listan** för att välja de kolumner som **klipp värden** ska användas för.  
   
 1.  Välj något av följande alternativ i list rutan för att **ange tröskelvärden**. De här alternativen avgör hur du ställer in de övre och nedre gränserna för acceptabla värden jämfört med värden som måste klippas.  
   
@@ -50,13 +50,13 @@ Om du behöver tillämpa urklipps metoder eller andra villkor för vissa kolumne
     + **Övre tröskelvärde**: visas bara om du väljer **ClipPeaks**
     + **Tröskel**: visas bara om du väljer **ClipPeaksAndSubPeaks**
 
-    Välj antingen **konstant** eller **percentil**för varje tröskel typ.
+    Välj antingen **konstant** eller **percentil** för varje tröskel typ.
 
-1. Om du väljer **konstant**anger du det högsta eller lägsta värdet i text rutan. Anta till exempel att du vet att värdet 999 har använts som plats hållarens värde. Du kan välja **konstant** för det övre tröskelvärdet och ange 999 i **konstant värde för övre tröskelvärde**.
+1. Om du väljer **konstant** anger du det högsta eller lägsta värdet i text rutan. Anta till exempel att du vet att värdet 999 har använts som plats hållarens värde. Du kan välja **konstant** för det övre tröskelvärdet och ange 999 i **konstant värde för övre tröskelvärde**.
   
-1. Om du väljer **percentil**begränsar du kolumnens värden till ett percentils intervall. 
+1. Om du väljer **percentil** begränsar du kolumnens värden till ett percentils intervall. 
 
-    Anta till exempel att du bara vill behålla värdena i intervallet 10-80 percentil och ersätta alla andra. Välj **percentil**och skriv sedan 10 för **percentilvärdet för nedre tröskelvärde**och skriv 80 för **percentilvärdet för övre tröskelvärdet**. 
+    Anta till exempel att du bara vill behålla värdena i intervallet 10-80 percentil och ersätta alla andra. Välj **percentil** och skriv sedan 10 för **percentilvärdet för nedre tröskelvärde** och skriv 80 för **percentilvärdet för övre tröskelvärdet**. 
 
     Se avsnittet om [percentiler](#examples-for-clipping-using-percentiles) för några exempel på hur du använder percentils intervall.  
   
@@ -86,7 +86,7 @@ Om du behöver tillämpa urklipps metoder eller andra villkor för vissa kolumne
   
 1.  Skicka pipelinen.  
   
-    Högerklicka på modulen **Clip Values** och välj **visualisera** eller Välj modulen och växla till fliken **utdata** i den högra panelen, klicka på histogrammets ikon i **portens utdata**för att granska värdena och se till att urklipps åtgärden uppfyller dina förväntningar.  
+    Högerklicka på modulen **Clip Values** och välj **visualisera** eller Välj modulen och växla till fliken **utdata** i den högra panelen, klicka på histogrammets ikon i **portens utdata** för att granska värdena och se till att urklipps åtgärden uppfyller dina förväntningar.  
  
 ### <a name="examples-for-clipping-using-percentiles"></a>Exempel på Urklipp med hjälp av percentiler
 
@@ -96,17 +96,17 @@ För att förstå hur Urklipp i percentiler fungerar, bör du överväga en data
   
 - Om du använder percentilen som nedre tröskel, måste 10 procent av alla värden i data uppsättningen vara lägre än värdet för den tionde percentilen.  
   
-1.  För **uppsättning tröskelvärden**väljer du **ClipPeaksAndSubPeaks**.  
+1.  För **uppsättning tröskelvärden** väljer du **ClipPeaksAndSubPeaks**.  
   
-1.  För **övre tröskelvärdet**väljer du **percentil**och för **percentils nummer**skriver du 90.  
+1.  För **övre tröskelvärdet** väljer du **percentil** och för **percentils nummer** skriver du 90.  
   
-1.  För **övre ersättnings värde**väljer du **värde som saknas**.  
+1.  För **övre ersättnings värde** väljer du **värde som saknas**.  
   
-1.  För **lägre tröskelvärde**väljer du **percentil**och för **percentils nummer**skriver du 10.  
+1.  För **lägre tröskelvärde** väljer du **percentil** och för **percentils nummer** skriver du 10.  
   
-1.  Om du vill ha ett **lägre ersättnings värde**väljer du **värde som saknas**.  
+1.  Om du vill ha ett **lägre ersättnings värde** väljer du **värde som saknas**.  
   
-1.  Avmarkera alternativet **Skriv över flagga**och välj alternativet **Lägg till indikator kolumn**.  
+1.  Avmarkera alternativet **Skriv över flagga** och välj alternativet **Lägg till indikator kolumn**.  
   
 Prova nu samma pipeline med 60 som det övre percentilvärdet och 30 som nedre percentilvärdet och Använd tröskelvärdet som ersättnings värde. I följande tabell jämförs dessa två resultat:  
   

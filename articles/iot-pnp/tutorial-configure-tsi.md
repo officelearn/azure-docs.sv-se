@@ -1,73 +1,88 @@
 ---
 title: Använd Time Series Insights för att lagra och analysera Azure IoT Plug and Play-telemetri för enheter | Microsoft Docs
-description: Konfigurera en Time Series Insights miljö och Anslut IoT Hub för att visa och analysera telemetri från dina IoT Plug and Play-enheter.
+description: Konfigurera en Time Series Insights-miljö och Anslut IoT Hub för att visa och analysera telemetri från IoT Plug and Play-enheter.
 author: lyrana
 ms.author: lyhughes
 ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: aa99b9059fe8e3cd5b0dfe6f7e62bd02012fd144
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ca2319a78fb4c0c720a21e97944d5b75ada9d008
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422271"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015032"
 ---
-# <a name="tutorial-create-and-connect-to-time-series-insights-gen2-to-store-visualize-and-analyze-iot-plug-and-play-device-telemetry"></a>Självstudie: skapa och Anslut till Time Series Insights Gen2 för att lagra, visualisera och analysera IoT Plug and Play Device-telemetri
+# <a name="preview-tutorial-create-and-connect-to-time-series-insights-gen2-to-store-visualize-and-analyze-iot-plug-and-play-device-telemetry"></a>För hands versions Självstudier: skapa och Anslut till Time Series Insights Gen2 för att lagra, visualisera och analysera IoT Plug and Play Device-telemetri
 
-I den här självstudien får du lära dig hur du skapar och konfigurerar en [Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/overview-what-is-tsi) -miljö (TSD) så att den integreras med din IoT plug and Play-lösning. Med TSD kan du samla in, bearbeta, lagra, fråga och visualisera Time Series-data på Sakernas Internet (IoT).
+I den här självstudien får du lära dig hur du skapar och konfigurerar en [Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/overview-what-is-tsi) -miljö (TSD) så att den integreras med din IoT plug and Play-lösning. Använd TSD för att samla in, bearbeta, lagra, fråga och visualisera Time Series-data på Sakernas Internet (IoT).
 
-Först etablerar du en TSD-miljö och ansluter IoT Hub som en händelse källa för strömning. Sedan kommer du att arbeta med modell synkroniseringen för att skapa en miljö för en tids serie modell i TSD-miljön som baseras på de [DTDL-exempel (Digital based Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) som du använde för temperatur styrenheten och termostat enheter.
+Först etablerar du en TSD-miljö och ansluter din IoT Hub som en händelse källa för strömmande data. Sedan arbetar du med synkronisering av modeller för att redigera din [tids serie modell](../time-series-insights/concepts-model-overview.md) baserat på [DTDL-exempelfilerna (Digital based Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) som du använde för temperatur styrenheten och termostat enheter.
+
+> [!NOTE]
+> Den här integrationen är i för hands version. Hur DTDL enhets modeller mappas till tids serie modellen kan ändras.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
+I det här läget har du:
+
+* En Azure IoT-hubb.
+* En DPS-instans som är länkad till din IoT Hub med en individuell enhets registrering för din IoT Plug and Play-enhet.
+* En anslutning till din IoT-hubb från en enda eller enhet med flera komponenter, som strömmar simulerade data.
+
 Du kan undvika kravet på att installera Azure CLI lokalt genom att använda Azure Cloud Shell för att konfigurera moln tjänsterna.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-### <a name="time-series-id-selection"></a>Val av tids serie-ID
+## <a name="prepare-your-event-source"></a>Förbered din händelse källa
 
-Vid etablering av TSD-miljön måste du välja ett Time Series-ID. Att välja rätt tids serie-ID är kritiskt eftersom egenskapen är oföränderlig och inte kan ändras efter att den har angetts. Att välja ett Time Series-ID är som att välja en partitionsnyckel för en databas. Ditt TS-ID bör vanligt vis vara noden lövnod i din till gångs modell. Med andra ord vill du normalt välja egenskapen ID för den mest detaljerade till gång eller sensor som avger telemetri.
+IoT-hubben som du skapade tidigare är din TSD-Miljös [händelse källa](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources).
 
-Som IoT Plug and Play-användare är den relevanta frågan för att välja ditt TS-ID förekomsten av [komponenterna](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#component) i enhets modellerna. 
+> [!IMPORTANT]
+> Inaktivera alla befintliga IoT Hub vägar. Det finns ett känt problem när du använder en IoT-hubb som en händelse källa för TSD med konfigurerad [routning](../iot-hub/iot-hub-devguide-messages-d2c.md#routing-endpoints) . Inaktivera tillfälligt alla Dirigerings slut punkter och när IoT-hubben är ansluten till TSD kan du återaktivera dem.
 
-![Val av TS-ID](./media/tutorial-configure-tsi/ts-id-selection-pnp.png)
+Skapa en unik konsument grupp på IoT-hubben för att använda TSD. Ersätt `my-pnp-hub` med namnet på den IoT-hubb som du tidigare använde:
 
-* Om du har utfört snabb starten och IoT Hub enheten representerar [termostat](https://raw.githubusercontent.com/Azure/opendigitaltwins-dtdl/master/DTDL/v2/samples/Thermostat.json)använder du `iot-hub-connection-device-id` som ditt TS-ID.
+```azurecli-interactive
+az iot hub consumer-group create --hub-name my-pnp-hub --name tsi-consumer-group
+```
 
-* Om du har gjort någon av självstudierna för [TemperatureController](https://raw.githubusercontent.com/Azure/opendigitaltwins-dtdl/master/DTDL/v2/samples/TemperatureController.json)med flera komponenter använder du en sammansatt nyckel i avsnittet nedan, skrivet som  `iot-hub-connection-device-id, dt-subject`
+## <a name="choose-your-time-series-id"></a>Välj tids serie-ID
 
-## <a name="provision-your-azure-time-series-insights-gen2-environment"></a>Etablera din Azure Time Series Insights Gen2-miljö
+När du etablerar en TSD-miljö måste du välja ett *Time Series-ID*. Det är viktigt att välja rätt tids serie-ID eftersom den här egenskapen är oföränderlig och inte kan ändras efter att den har angetts. Ett Time Series-ID är som en databas partitions nyckel. Time Series-ID fungerar som primär nyckel för din tids serie modell. Mer information finns i [metod tips för att välja ett Time Series-ID](../time-series-insights/how-to-select-tsid.md).
 
-Kommandot nedan gör följande:
+Som IoT Plug and Play-användare anger du en _sammansatt nyckel_ som består av `iothub-connection-device-id` och `dt-subject` som tids serie-ID. IoT Hub lägger till dessa system egenskaper som innehåller ditt IoT Plug and Play-enhets-ID och enhets komponent namnen.
+
+Även om din IoT Plug and Play enhets modeller för närvarande inte använder komponenter, bör du inkludera `dt-subject` som en del av en sammansatt nyckel så att du kan använda dem i framtiden. Eftersom din Time Series-ID är oföränderlig rekommenderar Microsoft att du aktiverar det här alternativet om du behöver det i framtiden.
+
+> [!NOTE]
+> Exemplen nedan gäller för **TemperatureController** -enheten för flera komponenter, men begreppen är desamma för termostat-enheten (No-Component **Thermostat** ).
+
+## <a name="provision-your-tsi-environment"></a>Etablera en TSD-miljö
+
+I det här avsnittet beskrivs hur du etablerar din Azure Time Series Insights Gen2-miljö.
+
+Följande kommando:
 
 * Skapar ett Azure Storage-konto för din miljös [kall butik](https://docs.microsoft.com/azure/time-series-insights/concepts-storage#cold-store), utformad för långsiktig kvarhållning och analys över historiska data.
-  * Ersätt `mytsicoldstore` med ett unikt namn för ditt konto.
-* Skapar en Azure Time Series Insights Gen2-miljö, inklusive varm lagring med en kvarhållningsperiod på 7 dagar och ett kall Arkiv för oändlig kvarhållning. 
-  * Ersätt `my-tsi-env` med ett unikt namn för din TSD-miljö 
-  * Ersätt `my-pnp-resourcegroup` med namnet på den resurs grupp som du använde när du konfigurerade
-  * Ersätt `my-ts-id-property` med ditt TS-ID egenskaps värde baserat på urvalskriterierna ovan
+  * Ersätt `mytsicoldstore` med ett unikt namn för ditt kalla lagrings konto.
+* Skapar en Azure Time Series Insights Gen2-miljö, inklusive varm lagring med en kvarhållningsperiod på sju dagar och kall lagring för oändlig kvarhållning.
+  * Ersätt `my-tsi-env` med ett unikt namn för din TSD-miljö.
+  * Ersätt `my-pnp-resourcegroup` med namnet på den resurs grupp som du använde när du konfigurerade.
+  * `iothub-connection-device-id, dt-subject` är din Time Series ID-egenskap.
 
 ```azurecli-interactive
 storage=mytsicoldstore
 rg=my-pnp-resourcegroup
 az storage account create -g $rg -n $storage --https-only
 key=$(az storage account keys list -g $rg -n $storage --query [0].value --output tsv)
-az timeseriesinsights environment longterm create --name my-tsi-env --resource-group $rg --time-series-id-properties my-ts-id-property --sku-name L1 --sku-capacity 1 --data-retention 7 --storage-account-name $storage --storage-management-key $key --location eastus2
+az timeseriesinsights environment longterm create --name my-tsi-env --resource-group $rg --time-series-id-properties iothub-connection-device-id, dt-subject --sku-name L1 --sku-capacity 1 --data-retention 7 --storage-account-name $storage --storage-management-key $key --location eastus2
 ```
 
-Nu ska du konfigurera IoT Hub som du skapade tidigare som din miljös [händelse källa](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources). När din händelse källa är ansluten börjar TSD indexera händelser från din hubb, med början från den tidigaste händelsen i kön.
-
-Skapa först en unik konsument grupp på din IoT Hub för din TSD-miljö. Ersätt `my-pnp-hub` med namnet på den IoT Hub som du använde tidigare.
-
-```azurecli-interactive
-az iot hub consumer-group create --hub-name my-pnp-hub --name tsi-consumer-group 
-```
-
-Anslut IoT Hub. Ersätt `my-pnp-resourcegroup` , `my-pnp-hub` och `my-tsi-env` med dina respektive värden.
+Anslut din IoT Hub händelse källa. Ersätt `my-pnp-resourcegroup` , `my-pnp-hub` och `my-tsi-env` med de värden som du har valt. Följande kommando hänvisar till konsument gruppen för TSD som du skapade tidigare:
 
 ```azurecli-interactive
 rg=my-pnp-resourcegroup
@@ -77,65 +92,86 @@ es_resource_id=$(az iot hub create -g $rg -n $iothub --query id --output tsv)
 shared_access_key=$(az iot hub policy list -g $rg --hub-name $iothub --query "[?keyName=='service'].primaryKey" --output tsv)
 az timeseriesinsights event-source iothub create -g $rg --environment-name $env -n iot-hub-event-source --consumer-group-name tsi-consumer-group  --key-name iothubowner --shared-access-key $shared_access_key --event-source-resource-id $es_resource_id
 ```
-Navigera till din resurs grupp i [Azure Portal](https://portal.azure.com) och välj den nyligen skapade Time Series Insightss miljön. Besök den *Time Series Insights Explorer-URL* som visas i instans översikten.
+
+Navigera till resurs gruppen i [Azure Portal](https://portal.azure.com) och välj den nya Time Series Insightss miljön. Besök *URL: en för Time Series Insights Explorer* som visas i instans översikten:
 
 ![Portalöversiktssida](./media/tutorial-configure-tsi/view-environment.png)
 
-I Utforskaren bör du se dina två termostater under "alla hierarkier". Härnäst ska du granska din tids serie modell som baseras på din enhets modell.
+I Utforskaren ser du tre instanser:
+
+* &lt;ditt PnP-enhets-ID &gt; , thermostat1
+* &lt;ditt PnP-enhets-ID &gt; , thermostat2
+* &lt;ditt PnP-enhets-ID &gt; , `null`
+
+> [!NOTE]
+> Den tredje taggen representerar telemetri från själva **TemperatureController** , till exempel arbets minnet för enhets minnet. Eftersom det här är en egenskap på den översta nivån är värdet för komponent namnet null. I ett senare steg uppdaterar du detta till ett mer användarvänligt namn.
 
 ![Explorer-vy 1](./media/tutorial-configure-tsi/tsi-env-first-view.png)
 
-## <a name="model-synchronization-between-digital-twins-definition-language-and-time-series-insights-gen2"></a>Synkronisering av modeller mellan digitala dubbla definitions språk och Time Series Insights Gen2
+## <a name="configure-model-translation"></a>Konfigurera modell Översättning
 
-Härnäst ska du översätta din DTDL-enhets modell till till gångs modellen i Azure Time Series Insights (TSD). TSD: s tids serie modell är ett semantiskt modellerings verktyg för data contextualization i TSD. Tids serie modellen har tre huvud komponenter:
+Sedan översätter du din DTDL-enhets modell till till gångs modellen i Azure Time Series Insights (TSD). TSD: s tids serie modell är ett semantiskt modellerings verktyg för data contextualization i TSD. Tids serie modellen har tre huvud komponenter:
 
-* [Tids serie modell instanser](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview#time-series-model-instances). Instanser är virtuella representationer av själva tids serien. Instanser identifieras unikt av ditt TS-ID.
-* [Hierarkier för tids serie modell](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview#time-series-model-hierarchies). Hierarkier organiserar instanser genom att ange egenskaps namn och deras relationer.
-* [Modell typer för tids serier](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview#time-series-model-types). Med hjälp av typer kan du definiera [variabler](https://docs.microsoft.com/azure/time-series-insights/concepts-variables) eller formler för att utföra beräkningar. Typer är associerade med en angiven instans.
-
-> [!NOTE]
-> I exemplen nedan finns TemperatureController för flera komponenter.
+* [Tids serie modell instanser](../time-series-insights/concepts-model-overview.md#time-series-model-instances). Instanser är virtuella representationer av själva tids serien. Instanser identifieras unikt av ditt Time Series ID.
+* [Hierarkier för tids serie modell](../time-series-insights/concepts-model-overview.md#time-series-model-hierarchies). Hierarkier organiserar instanser genom att ange egenskaps namn och deras relationer.
+* [Modell typer för tids serier](../time-series-insights/concepts-model-overview.md#time-series-model-types). Med hjälp av typer kan du definiera [variabler](../time-series-insights/concepts-variables.md) eller formler för beräkningar. Typer är associerade med en angiven instans.
 
 ### <a name="define-your-types"></a>Definiera dina typer
 
-Du kan börja mata in data i Azure Time Series Insights Gen2 utan att ha en fördefinierad modell. När telemetri kommer försöker TSD att automatiskt lösa Time Series-instanser baserat på egenskap svärdet för TS-ID. Alla instanser tilldelas *standard typen*. Du måste skapa en ny typ manuellt för att representera dina modeller. Bilden nedan visar en enkel metod för att synkronisera en DTDL-modell och en TSM-typ:
+Du kan börja mata in data i Azure Time Series Insights Gen2 utan att ha en fördefinierad modell. När telemetri kommer försöker underavsnittet att lösa Time Series-instanser baserat på dina tids serie-ID-egenskaps värden. Alla instanser tilldelas *standard typen*. Du måste skapa en ny typ manuellt för att kunna kategorisera dina instanser. Följande information visar den enklaste metoden för att synkronisera enhets DTDL modeller med dina tids serie modell typer:
 
-![DTDL till TSM-typ](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
+* Den digitala, dubbla modell identifieraren blir ditt typ-ID.
+* Typ namnet kan vara antingen modell namnet eller visnings namnet.
+* Modell beskrivningen blir typens beskrivning.
+* Minst en typ variabel skapas för varje telemetri med ett numeriskt schema.
+  * Endast numeriska data typer kan användas för variabler, men om ett värde skickas som en annan typ som kan konverteras, `"0"` kan du använda en [konverterings](/rest/api/time-series-insights/reference-time-series-expression-syntax.md#conversion-functions) funktion som t `toDouble` . ex..
+* Variabel namnet kan antingen vara telemetri-namnet eller visnings namnet.
+* När du definierar ett variabelt tids serie uttryck kan du se telemetrins namn på kabeln och dess datatyp.
 
-* Den digitala, dubbla modell identifieraren (DTMI) blir ditt typ-ID
-* Typ namnet kan antingen vara modellens namn eller visnings namn
-* Modell beskrivningen blir typens Beskrivning
-* Minst en typ variabel skapas för varje telemetri-komponent som har ett numeriskt schema. 
-  * Det går bara att använda numeriska data typer för variabler, men om ett värde skickas som en sträng som kan parsas, `"0"` kan du till exempel använda en [konverterings](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) funktion som `toDouble`
-* Variabel namnet kan antingen vara namnet på telemetri eller visnings namnet
-* När du definierar uttryck för variabeln Time Series (TSX), se telemetrins namn på kabeln och dess datatyp.
+| DTDL-JSON | JSON-typ för tids serie modell | Exempelvärde |
+|-----------|------------------|-------------|
+| `@id` | `id` | `dtmi:com:example:TemperatureController;1` |
+| `displayName`    | `name`   |   `Temperature Controller`  |
+| `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |  
+|`contents` lagringsmatriser| `variables` jobbobjektet  | Visa exemplet nedan
+
+![DTDL till tids serie modell typ](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
 
 > [!NOTE]
-> I det här exemplet visas endast två variabler – en agg regering och ett numeriskt värde, men varje typ kan ha upp till 100. Olika variabler kan referera till samma telemetri-värde för att utföra olika calucaultions vid behov. För en fullständig lista över filter, agg regeringar och skalära funktioner visas [syntaxen Time Series Insights Gen2 Time Series Expression syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) .
+> Det här exemplet visar tre variabler, men varje typ kan ha upp till 100. Olika variabler kan referera till samma telemetri-värde för att utföra olika beräkningar vid behov. En fullständig lista över filter, agg regeringar och skalära funktioner finns [Time Series Insights Gen2 Time Series Expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax.md).
 
-Öppna valfri text redigerare och spara JSON-filen nedan till din lokala enhet:
+Öppna en text redigerare och spara följande JSON-fil på din lokala enhet:
 
 ```JSON
 {
   "put": [
     {
-      "id": "dtmi:com:example:Thermostat;1",
-      "name": "Thermostat",
-      "description": "Reports current temperature and provides desired temperature control.",
+      "id": "dtmi:com:example:TemperatureController;1",
+      "name": "Temperature Controller",
+      "description": "Device with two thermostats and remote reboot.",
       "variables": {
-        "EventCount": {
-          "kind": "aggregate",
-          "aggregation": {
-            "tsx": "count()"
-          }
-        },
-        "Temperature": {
+        "workingSet": {
           "kind": "numeric",
           "value": {
-            "tsx": "$event.temperature.Double"
+            "tsx": "coalesce($event.workingSet.Long, toLong($event.workingSet.Double))"
+          }, 
+          "aggregation": {
+            "tsx": "avg($value)"
+          }
+        },
+        "temperature": {
+          "kind": "numeric",
+          "value": {
+            "tsx": "coalesce($event.temperature.Long, toLong($event.temperature.Double))"
           },
           "aggregation": {
             "tsx": "avg($value)"
+          }
+        },
+        "eventCount": {
+          "kind": "aggregate",
+          "aggregation": {
+            "tsx": "count()"
           }
         }
       }
@@ -144,54 +180,50 @@ Du kan börja mata in data i Azure Time Series Insights Gen2 utan att ha en för
 }
 ```
 
-I Time Series Insights Explorer navigerar du till fliken modell genom att klicka på modell ikonen till vänster. Klicka på **typer** och klicka på **överför JSON** :
+I Time Series Insights Explorer navigerar du till fliken **modell** genom att välja modell ikonen till vänster. Välj **typer** och välj sedan **Ladda upp JSON**:
 
 ![Ladda upp](./media/tutorial-configure-tsi/upload-type.png)
 
-Välj **Välj fil** , Välj den JSON som du sparade tidigare och klicka på **överför**
+Välj **Välj fil**, Välj den JSON som du sparade tidigare och välj **Ladda upp**
 
-Du bör se den nyligen definierade termostat-typen.
+Du ser den nyligen definierade typen av **temperatur kontrollant** .
 
-### <a name="optional---create-a-hierarchy"></a>Valfritt – skapa en hierarki
+### <a name="create-a-hierarchy"></a>Skapa en hierarki
 
-Du kan också skapa en hierarki för att organisera de två termostat-komponenterna under deras TemeraptureController-överordnade.
+Skapa en hierarki för att organisera taggarna under deras **TemperatureController** överordnade objekt. Följande enkla exempel har en nivå, men IoT-lösningar har ofta många nivåer av kapsling till sätta-Taggar i deras fysiska och semantiska position inom en organisation.
 
-Klicka på *hierarkier* och välj *Lägg till en hierarki*. Ange `Device Fleet` som namn och skapa en nivå med namnet `Device Name` och klicka sedan på *Spara*.
+Välj **hierarkier** och välj **Lägg till hierarki**. Ange *enhets flottan* som namn och skapa en nivå som heter *enhets namn*. Välj sedan **Spara**.
 
 ![Lägg till en hierarki](./media/tutorial-configure-tsi/add-hierarchy.png)
 
 ### <a name="assign-your-instances-to-the-correct-type"></a>Tilldela dina instanser till rätt typ
 
-Härnäst ska du ändra typ av instanser och eventuellt Situate dem i hierarkin
+Sedan ändrar du typ av instanser och placerar dem i hierarkin.
 
-Välj fliken *instanser* och klicka på ikonen *Redigera* längst till höger.
+Välj fliken **instanser** , leta upp den instans som representerar enhetens arbets minne och välj ikonen **Redigera** längst till höger:
 
 ![Redigera instanser](./media/tutorial-configure-tsi/edit-instance.png)
 
-Klicka på list rutan typ och välj `Thermostat` . 
+Välj List rutan **typ** och välj **temperatur styrenhet**. Ange *defaultComponent <your device name>* för att uppdatera namnet på instansen som representerar alla översta taggar som är associerade med din enhet.
 
 ![Ändra instans typ](./media/tutorial-configure-tsi/change-type.png)
 
-Om du har skapat en hierarki väljer du *instans fält* och markerar `Device Fleet` rutan. Ange `Temperature Controller` som värde för den överordnade enheten och klicka sedan på *Spara*.
+Innan du väljer Spara väljer du fliken **instans fält** och kontrollerar **enhets flottan i rutan enhets flottan** . Ange `<your device name> - Temp Controller` för att gruppera Telemetrin tillsammans och välj sedan **Spara**.
 
 ![Tilldela till hierarki](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
 
-Upprepa stegen ovan för din andra termostat.
+Upprepa föregående steg för att tilldela termostat-taggarna rätt typ och hierarki.
 
-### <a name="view-your-data"></a>Visa dina data
+## <a name="view-your-data"></a>Visa dina data
 
-Gå tillbaka till diagram fönstret och expandera enhets flottan och TemperatureController. Klicka på thermostat1, Välj `Temperature` variabeln och klicka sedan på *Lägg till* diagrammets värde. Gör samma sak för thermostat2.
+Gå tillbaka till diagram fönstret och expandera **enhets flottan > enheten**. Välj **thermostat1**, Välj **temperatur** variabeln och välj sedan **Lägg till** i diagrammet värdet. Gör samma sak för **thermostat2** och **defaultComponent** för det **aktiva** värdet.
 
 ![Ändra instans typ för thermostat2](./media/tutorial-configure-tsi/charting-values.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill veta mer om olika diagram alternativ, inklusive intervall storlek och kontroll för Y-axeln, kan du läsa dokumentationen för [Azure Time Series Insights Explorer ](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels) .
+* Mer information om olika diagram alternativ, inklusive intervall storlek och kontroll av Y-axeln, finns i [Azure Time Series Insights Explorer](../time-series-insights/concepts-ux-panels.md).
 
-* En djupgående översikt över din miljös tids serie modell finns i [den här](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview) artikeln.
+* En djupgående översikt över din miljös tids serie modell finns i [tids serie modell i Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md) -artikeln.
 
-* [Välj](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis)om du vill gå in i fråge-API: erna och syntaxen för Time Series-uttryck.
-
-
-
-
+* Information om API: n för frågor och tids serie uttryck finns i [Azure Time Series Insights Gen2-fråge-API: er](/rest/api/time-series-insights/reference-query-apis.md).

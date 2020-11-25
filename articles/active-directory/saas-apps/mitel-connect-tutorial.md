@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
 ms.openlocfilehash: b89ae74a1f4ead568a5454c9494d4a82b0eeea3e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521347"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Självstudie: Azure Active Directory integrering med MiCloud Connect eller CloudLink Platform
 
@@ -47,11 +47,11 @@ I den här självstudien får du konfigurera och testa enkel inloggning (SSO) f�
 
 Om du vill konfigurera integrering av tusentals anslutning till Azure AD måste du lägga till ett spets koppling från galleriet till listan över hanterade SaaS-appar i Azure Portal.
 
-1. Välj **Azure Active Directory**på den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** på den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Välj **företags program**och välj sedan **alla program**.
+2. Välj **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -102,7 +102,7 @@ Om du vill konfigurera MiCloud ansluta med SSO för Azure AD är det enklast att
 
     1. På **telefon system** -menyn väljer du **tilläggs funktioner**.
 
-    1. Till höger om **enkel inloggning**väljer du **Aktivera** eller **Inställningar**.
+    1. Till höger om **enkel inloggning** väljer du **Aktivera** eller **Inställningar**.
     
     Dialog rutan Anslut enskilda Sign-On inställningar visas.
     
@@ -168,7 +168,7 @@ I det här avsnittet ska du skapa en test användare med namnet Britta Simon i A
 
     1. I fältet **namn** skriver du **BrittaSimon**.
   
-    1. I fältet **användar namn** skriver du brittasimon@ \<yourcompanydomain\> . \<extension\> .  Till exempel BrittaSimon@contoso.com.
+    1. I fältet **användar namn** skriver du brittasimon@ \<yourcompanydomain\> . \<extension\> .  Exempelvis BrittaSimon@contoso.com.
 
     1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
 
@@ -178,7 +178,7 @@ I det här avsnittet ska du skapa en test användare med namnet Britta Simon i A
 
 I det här avsnittet ska du aktivera Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till spets anslutning.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I Azure Portal väljer du **företags program** och väljer sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -190,7 +190,7 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+4. Välj **Lägg till användare** och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
@@ -249,7 +249,7 @@ Om du vill konfigurera CloudLink-plattformen med enkel inloggning för Azure AD 
 
     1. I avsnittet **integreringar** väljer du **+ Lägg till ny**. En popup-skärm visar panelen **integrationer** .
 
-    1. Välj fliken **tredje part** . En lista över program från tredje part som stöds visas. Välj knappen **Lägg till** som är kopplad till **enkel inloggning med Azure AD**och välj **slutförd**.
+    1. Välj fliken **tredje part** . En lista över program från tredje part som stöds visas. Välj knappen **Lägg till** som är kopplad till **enkel inloggning med Azure AD** och välj **slutförd**.
 
        ![Skärm bild som visar sidan integrationer där du kan lägga till Azure A D enkel inloggning.](./media/mitel-connect-tutorial/mitel-cloudlink-integrations.png)
 
@@ -323,7 +323,7 @@ I det här avsnittet ska du skapa en test användare med namnet Britta Simon i A
 
     1. I fältet **namn** skriver du **BrittaSimon**.
   
-    1. I fältet **användar namn** skriver du brittasimon@ \<yourcompanydomain\> . \<extension\> .  Till exempel BrittaSimon@contoso.com.
+    1. I fältet **användar namn** skriver du brittasimon@ \<yourcompanydomain\> . \<extension\> .  Exempelvis BrittaSimon@contoso.com.
 
     1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
 
@@ -333,7 +333,7 @@ I det här avsnittet ska du skapa en test användare med namnet Britta Simon i A
 
 I det här avsnittet ska du aktivera Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till spets anslutning.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I Azure Portal väljer du **företags program** och väljer sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -345,7 +345,7 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+4. Välj **Lägg till användare** och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 

@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 706457a602e20dd37e64e5f389948b351ac8ebcf
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219249"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015255"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Använd ett U-SQL Database-projekt för att utveckla en U-SQL-databas för Azure Data Lake
 
@@ -68,7 +68,7 @@ Du kan distribuera en U-SQL-databas via ett U-SQL Database-projekt eller ett. us
 
 1. Högerklicka på U-SQL Database-projektet och välj sedan **distribuera**.
 
-1. I **guiden Distribuera U-SQL Database**väljer du det **ADLA-konto** som du vill distribuera databasen till. Både lokala konton och ADLA-konton stöds.
+1. I **guiden Distribuera U-SQL Database** väljer du det **ADLA-konto** som du vill distribuera databasen till. Både lokala konton och ADLA-konton stöds.
 
 1. **Databas källan** fylls i automatiskt och pekar på. usqldbpack-paketet i projektets version av utdata-mappen.
 
@@ -84,7 +84,7 @@ Du kan distribuera en U-SQL-databas via ett U-SQL Database-projekt eller ett. us
 
 1. Öppna **Server Explorer**. Expandera sedan det **Azure Data Lake Analytics konto** som du vill distribuera databasen till.
 
-1. Högerklicka på **U-SQL-databaser**och välj sedan **distribuera databas**.
+1. Högerklicka på **U-SQL-databaser** och välj sedan **distribuera databas**.
 
 1. Ange **databas källa** till U-SQL-databasens distributions paket (. usqldbpack-fil).
 
@@ -109,7 +109,7 @@ Ett U-SQL-projekt kan referera till ett U-SQL Database-projekt. Referensen påve
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>Så här lägger du till en U-SQL Database-referens
 
-1. Högerklicka på U-SQL-projektet i **Solution Explorer**och välj sedan **Lägg till u-SQL Database referens...**.
+1. Högerklicka på U-SQL-projektet i **Solution Explorer** och välj sedan **Lägg till u-SQL Database referens...**.
 
     ![Data Lake verktyg för Visual Studio – Lägg till databas projekt referens](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-database-project-reference.png)
 

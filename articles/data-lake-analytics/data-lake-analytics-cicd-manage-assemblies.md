@@ -7,11 +7,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 10/30/2018
 ms.openlocfilehash: e88616f45c69d33234aa35333e0d82ad8cc59bb6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219368"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015289"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Metod tips för att hantera U-SQL-sammansättningar i en CI/CD-pipeline
 
@@ -57,7 +57,7 @@ Följ dessa steg om du vill skapa projekt och lägga till referenser.
 
 1. Lägg till **hanterade beroenden** och **Ytterligare filer**, om det finns några. När du lägger till ytterligare filer använder verktyget den relativa sökvägen för att kontrol lera att det går att hitta sammansättningarna på den lokala datorn och på Build-datorn senare.
 
-** \@ _DeployTempDirectory** i redigerings fönstret längst ned är en fördefinierad variabel som pekar på verktyget för mappen för att bygga utdata. Under mappen för att bygga utdata har varje sammansättning en undermapp med namnet med sammansättnings namnet. Alla DLL-filer och ytterligare filer finns i undermappen.
+**\@ _DeployTempDirectory** i redigerings fönstret längst ned är en fördefinierad variabel som pekar på verktyget för mappen för att bygga utdata. Under mappen för att bygga utdata har varje sammansättning en undermapp med namnet med sammansättnings namnet. Alla DLL-filer och ytterligare filer finns i undermappen.
 
 ## <a name="build-a-u-sql-database-project"></a>Bygg ett U-SQL Database-projekt
 

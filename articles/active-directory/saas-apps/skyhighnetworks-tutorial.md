@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
 ms.openlocfilehash: 456348f5492af44274a37a6400fb8d95e9bd55a4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516037"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015153"
 ---
 # <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Självstudie: integrera MVISION Cloud Azure AD SSO-konfiguration med Azure Active Directory
 
@@ -50,7 +50,7 @@ Om du vill konfigurera integrering av MVISION Cloud Azure AD SSO-konfigurationen
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
 1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. Välj **nytt program** om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** , Skriv **MVision Cloud Azure AD SSO Configuration** i sökrutan.
 1. Välj **MVision Cloud Azure AD SSO-konfiguration** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
@@ -131,7 +131,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till MVISION Cloud Azure AD SSO-konfiguration.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **MVision Cloud Azure AD SSO Configuration**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program** och väljer sedan **MVision Cloud Azure AD SSO Configuration**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 

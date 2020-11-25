@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: a5a7a31c174271f963bb005f10b8376a59133d36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513123"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014881"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Ersätta en diskenhet på en enhet i StorSimple 8000-serien
 
@@ -73,7 +73,7 @@ Din StorSimple-enhet har stöd för en RAID 10-liknande konfiguration av lagring
 Enheter kan tas bort och ersättas medan systemet fungerar.
 
 #### <a name="to-remove-a-drive"></a>Ta bort en enhet
-1. Om du vill identifiera den felande disken går du till enhets **inställningarna > maskin varu hälso tillstånd**i Azure Portal. Eftersom en disk kan krascha i den primära inne slutningen och/eller i en EBOD-kabinett (om du använder en 8600-modell) tittar du på status för diskarna under **delade komponenter** och under **delade komponenter i EBOD**. En havererad disk i någon av de två kabinetten visas med röd status.
+1. Om du vill identifiera den felande disken går du till enhets **inställningarna > maskin varu hälso tillstånd** i Azure Portal. Eftersom en disk kan krascha i den primära inne slutningen och/eller i en EBOD-kabinett (om du använder en 8600-modell) tittar du på status för diskarna under **delade komponenter** och under **delade komponenter i EBOD**. En havererad disk i någon av de två kabinetten visas med röd status.
 2. Leta upp enheterna överst i den primära inne slutningen eller EBOD-höljet. 
 3. Om disken är olåst går du vidare till nästa steg. Om disken är låst kan du låsa upp den genom att följa anvisningarna i avsnittet om att stoppa skyddet mot [manipulering](#disengage-the-antitamper-lock).
 4. Tryck på den svarta spärren på modulen enhets transport och hämta enhetens bärvåg och ta bort den från fronten på chassit.
@@ -103,7 +103,7 @@ När en enhet har misslyckats i StorSimple-enheten och du har tagit bort den, s�
     **Bild 6**  Dra enhets transporten till chassit
 3. När enhetens bärvåg har satts in stänger du enhetens frakt-handtag samtidigt som du fortsätter att push-överföra enhetens bärvåg till chassit tills enhetens frakt handtag fästs på en låst plats.
 4. Använd lås nyckeln som tillhandahölls av Microsoft (tamperproof Torx Screwdriver) för att skydda bär Vågs handtaget på plats genom att sätta på Lås skruven ett kvartal moturs.
-5. Kontrol lera att ersättningen lyckades och att enheten fungerar. Öppna Azure Portal och navigera till **enhets inställningar**  >  **maskin varu hälsa**. Under **delade komponenter** eller **EBOD delade komponenter**ska enhetens status vara grön, vilket indikerar att den är felfri.
+5. Kontrol lera att ersättningen lyckades och att enheten fungerar. Öppna Azure Portal och navigera till **enhets inställningar**  >  **maskin varu hälsa**. Under **delade komponenter** eller **EBOD delade komponenter** ska enhetens status vara grön, vilket indikerar att den är felfri.
 
    
    > [!NOTE]

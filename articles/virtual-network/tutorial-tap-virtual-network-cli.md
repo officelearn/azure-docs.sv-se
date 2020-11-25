@@ -17,11 +17,11 @@ ms.date: 03/18/2018
 ms.author: kaanan
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 8e3a56e4a6eb1fb6eb633021178ef78f8ac7287d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87488847"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014796"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Arbeta med ett virtuellt nätverk genom att trycka på Azure CLI
 
@@ -53,7 +53,7 @@ Läs [nödvändiga komponenter](virtual-network-tap-overview.md#prerequisites) i
 
 4. Om målet för det virtuella nätverket trycker är nätverks gränssnittet på den virtuella nätverks enheten för insamlare eller analys verktyg-
 
-   - Hämta IP-konfigurationen för nätverks gränssnittet för den virtuella nätverks enheten i en variabel som används i ett senare steg. ID är den slut punkt som används för att aggregera kran trafiken. I följande exempel hämtas ID: t för *ipconfig1* IP-konfiguration för ett nätverks gränssnitt med namnet *myNetworkInterface*i en resurs grupp med namnet *myResourceGroup*:
+   - Hämta IP-konfigurationen för nätverks gränssnittet för den virtuella nätverks enheten i en variabel som används i ett senare steg. ID är den slut punkt som används för att aggregera kran trafiken. I följande exempel hämtas ID: t för *ipconfig1* IP-konfiguration för ett nätverks gränssnitt med namnet *myNetworkInterface* i en resurs grupp med namnet *myResourceGroup*:
 
       ```azurecli-interactive
        IpConfigId=$(az network nic ip-config show \
@@ -77,7 +77,7 @@ Läs [nödvändiga komponenter](virtual-network-tap-overview.md#prerequisites) i
 
 5. Om målet för det virtuella nätverket trycker på är en intern Azure Load Balancer:
   
-   - Hämta klient delens IP-konfiguration för den interna Azure-belastningsutjämnaren i en variabel som används i ett senare steg. ID är den slut punkt som används för att aggregera kran trafiken. I följande exempel hämtas ID: t för *frontendipconfig1* klient DELENS IP-konfiguration för en belastningsutjämnare med namnet *myInternalLoadBalancer*i en resurs grupp med namnet *myResourceGroup*:
+   - Hämta klient delens IP-konfiguration för den interna Azure-belastningsutjämnaren i en variabel som används i ett senare steg. ID är den slut punkt som används för att aggregera kran trafiken. I följande exempel hämtas ID: t för *frontendipconfig1* klient DELENS IP-konfiguration för en belastningsutjämnare med namnet *myInternalLoadBalancer* i en resurs grupp med namnet *myResourceGroup*:
 
       ```azurecli-interactive
       FrontendIpConfigId=$(az network lb frontend-ip show \

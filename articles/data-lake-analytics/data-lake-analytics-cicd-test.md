@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 08/30/2019
 ms.openlocfilehash: 7310c67ef20a4134d4f613ea969c96802958bf62
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219215"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015238"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Testa din Azure Data Lake Analyticss kod
 
@@ -34,7 +34,7 @@ Med Azure Data Lake verktyg för Visual Studio kan du skapa test fall i U-SQL-sk
 
 ### <a name="manage-the-test-data-source"></a>Hantera test data källan
 
-När du testar U-SQL-skript måste du testa indatafiler. Om du vill hantera test data i **Solution Explorer**högerklickar du på U-SQL-projektet och väljer **Egenskaper**. Du kan ange en källa i **test data källan**.
+När du testar U-SQL-skript måste du testa indatafiler. Om du vill hantera test data i **Solution Explorer** högerklickar du på U-SQL-projektet och väljer **Egenskaper**. Du kan ange en källa i **test data källan**.
 
 ![Data Lake verktyg för Visual Studio – konfigurera data källa för projekt test](./media/data-lake-analytics-cicd-test/data-lake-tools-configure-project-test-data-source.png)
 

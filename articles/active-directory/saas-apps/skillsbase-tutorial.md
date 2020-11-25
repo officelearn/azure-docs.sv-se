@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 9b712756b6daf7380998bb98f56113cab29ebb59
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516519"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015170"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Självstudie: Azure Active Directory integrering med kunskaps bas
 
@@ -128,7 +128,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med kun
 
 1. Logga in på kunskaps basen som säkerhets administratör i ett annat webbläsarfönster.
 
-2. Klicka på **autentisering**under **admin** på vänster sida av menyn.
+2. Klicka på **autentisering** under **admin** på vänster sida av menyn.
 
     ![Administratören](./media/skillsbase-tutorial/tutorial_skillsbase_auth.png)
 
@@ -176,7 +176,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till kunskaps bas.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **kunskaps bas**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program** och väljer sedan **kunskaps bas**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 

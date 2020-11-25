@@ -9,11 +9,11 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
 ms.openlocfilehash: 61f3f2af61bc24f76d061de672a3eaacd54f7f0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87066117"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015204"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange X12-meddelanden för B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
 
@@ -39,7 +39,7 @@ Om du vill arbeta med X12-meddelanden i Azure Logic Apps kan du använda X12-ans
 
 När du har angett avtals egenskaperna kan du konfigurera hur det här avtalet identifierar och hanterar inkommande meddelanden som du får från din partner genom detta avtal.
 
-1. Under **Lägg till**väljer du **ta emot inställningar**.
+1. Under **Lägg till** väljer du **ta emot inställningar**.
 
 1. Konfigurera dessa egenskaper utifrån ditt avtal med den partner som utbyter meddelanden med dig. **Mottagnings inställningarna** är ordnade i följande avsnitt:
 
@@ -161,7 +161,7 @@ I det här avsnittet väljer du ett [schema](../logic-apps/logic-apps-enterprise
 
 När du har angett avtals egenskaperna kan du konfigurera hur det här avtalet identifierar och hanterar utgående meddelanden som du skickar till din partner via detta avtal.
 
-1. Under **Lägg till**väljer du **Skicka inställningar**.
+1. Under **Lägg till** väljer du **Skicka inställningar**.
 
 1. Konfigurera dessa egenskaper utifrån ditt avtal med den partner som utbyter meddelanden med dig. För egenskaps beskrivningar, se tabellerna i det här avsnittet.
 
@@ -247,7 +247,7 @@ I det här avsnittet väljer du ett [schema](../logic-apps/logic-apps-enterprise
 | **GS2** | Valfritt anger du avsändarens program. |
 | **GS3** | Valfritt, ange program mottagaren. |
 | **GS4** | Valfritt väljer du **CCYYMMDD** eller **yymmdd**. |
-| **GS5** | Valfritt väljer du **HHMM**, **HHMMSS**eller **HHMMSSdd**. |
+| **GS5** | Valfritt väljer du **HHMM**, **HHMMSS** eller **HHMMSSdd**. |
 | **GS7** | Valfritt väljer du ett värde för ansvarig myndighet. |
 | **GS8** | Valfritt anger du schema dokument versionen. |
 |||
@@ -278,7 +278,7 @@ I det här avsnittet väljer du ett [schema](../logic-apps/logic-apps-enterprise
 
 | Egenskap | Beskrivning |
 |----------|-------------|
-| **Teckenuppsättning som ska användas** | X12 teckenuppsättning, som är antingen **Basic**, **Extended**eller **utf8**. |
+| **Teckenuppsättning som ska användas** | X12 teckenuppsättning, som är antingen **Basic**, **Extended** eller **utf8**. |
 | **Schema** | Det schema som du vill använda. När du har valt schemat väljer du den teckenuppsättning som du vill använda, baserat på avgräns beskrivningarna nedan. |
 | **Indatatyp** | Indatatypen för teckenuppsättningen |
 | **Komponent avgränsare** | Ett enda Character som avgränsar sammansatta data element |
@@ -316,7 +316,7 @@ När du arbetar med HIPAA-scheman och meddelande typerna 277 eller 837 måste du
 
 I den här tabellen visas de typer av meddelanden som påverkas, alla varianter och dokument versions nummer som mappas till dessa meddelande typer:
 
-| Meddelande typ eller variant |  Beskrivning | Dokument versions nummer (GS8) |
+| Meddelande typ eller variant |  Description | Dokument versions nummer (GS8) |
 |-------------------------|--------------|-------------------------------|
 | 277 | Status meddelande för hälso vårds information | 005010X212 |
 | 837_I | Hälso vårds anspråk institutionellt | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |

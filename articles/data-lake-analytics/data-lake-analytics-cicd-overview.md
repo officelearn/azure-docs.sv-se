@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 09/14/2018
 ms.openlocfilehash: 95b638b85e0746d2995488f2a28a5fb2512b1063
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219334"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015272"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Så här konfigurerar du en CI/CD-pipeline för Azure Data Lake Analytics  
 
@@ -83,7 +83,7 @@ Argumenten och värdena är följande:
 
   - **SyntaxCheck**. SyntaxCheck-läget sammanfogar först kod-bakom filer till U-SQL-skriptet. Sedan kompileras U-SQL-skriptet för att verifiera din kod.
 
-- **DataRoot = \<DataRoot path> **. DataRoot krävs bara för SyntaxCheck-läge. När skriptet bygger med SyntaxCheck-läge, kontrollerar MSBuild referenserna till databas objekt i skriptet. Innan du skapar konfigurerar du en matchande lokal miljö som innehåller de refererade objekten från U-SQL-databasen i DataRoot-mappen för build-datorn. Du kan också hantera dessa databas beroenden genom att [referera till ett U-SQL Database-projekt](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild kontrollerar endast databas objekts referenser, inte filer.
+- **DataRoot = \<DataRoot path>**. DataRoot krävs bara för SyntaxCheck-läge. När skriptet bygger med SyntaxCheck-läge, kontrollerar MSBuild referenserna till databas objekt i skriptet. Innan du skapar konfigurerar du en matchande lokal miljö som innehåller de refererade objekten från U-SQL-databasen i DataRoot-mappen för build-datorn. Du kan också hantera dessa databas beroenden genom att [referera till ett U-SQL Database-projekt](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild kontrollerar endast databas objekts referenser, inte filer.
 
 - **EnableDeployment = True** eller **false**. EnableDeployment anger om det ska vara tillåtet att distribuera refererade U-SQL-databaser under skapande processen. Om du refererar till ett U-SQL Database-projekt och använder databas objekt i ditt U-SQL-skript anger du den här parametern till **True**.
 

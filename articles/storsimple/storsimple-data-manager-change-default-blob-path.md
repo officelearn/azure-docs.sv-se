@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743581"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011446"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Ändra en blobsökväg från standardsökvägen
 
@@ -40,7 +40,7 @@ Utför följande steg för att skapa en Azure-funktion:
     1. Ange ett unikt **namn för appen**.
     2. I list rutan väljer du **prenumerationen**. Den här prenumerationen ska vara samma som den som är associerad med din StorSimple Data Manager-tjänst.
     3. Välj **Skapa ny** resurs grupp.
-    4. Välj **förbruknings plan**för List rutan **värd plan** .
+    4. Välj **förbruknings plan** för List rutan **värd plan** .
     5. Ange en plats där din funktion körs. Du vill ha samma region där StorSimple Data Manager-tjänsten och lagrings kontot som är kopplat till jobb definitionen finns.
     6. Välj ett befintligt lagringskonto eller skapa ett nytt lagringskonto. Ett lagrings konto används internt för funktionen.
 
@@ -50,7 +50,7 @@ Utför följande steg för att skapa en Azure-funktion:
      
         ![Funktionsapp skapats](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
 
-5. Välj **Functions**och klicka på **+ ny funktion**.
+5. Välj **Functions** och klicka på **+ ny funktion**.
 
     ![Klicka på + ny funktion](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
 
@@ -60,7 +60,7 @@ Utför följande steg för att skapa en Azure-funktion:
 
     1. Ange ett **namn** för din funktion.
     2. I rutan **Könamn** skriver du namnet på din data omvandlings jobb definition.
-    3. Under **lagrings konto anslutning**klickar du på **ny**. I listan över lagrings konton väljer du det konto som är associerat med din jobb definition. Anteckna anslutnings namnet (markerat). Namnet krävs senare i Azure-funktionen.
+    3. Under **lagrings konto anslutning** klickar du på **ny**. I listan över lagrings konton väljer du det konto som är associerat med din jobb definition. Anteckna anslutnings namnet (markerat). Namnet krävs senare i Azure-funktionen.
 
         ![Skapa en ny C#-funktion](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
 
@@ -193,7 +193,7 @@ Utför följande steg för att skapa en Azure-funktion:
         
         ![Lägg till ny funktion Lägg till fil](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. Skriv **project.jspå**och tryck sedan på **RETUR**. I **project.js** filen klistrar du in följande kod:
+    3. Skriv **project.jspå** och tryck sedan på **RETUR**. I **project.js** filen klistrar du in följande kod:
 
         ```
         {

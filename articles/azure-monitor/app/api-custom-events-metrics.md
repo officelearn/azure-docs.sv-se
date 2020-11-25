@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264141"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011362"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API för Application Insights för anpassade händelser och mått
 
@@ -690,7 +690,7 @@ Om din app grupperar användare till konton kan du också skicka en identifierar
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-I [Metrics Explorer](../platform/metrics-charts.md)kan du skapa ett diagram som räknar **användare, autentiserade**och **användar konton**.
+I [Metrics Explorer](../platform/metrics-charts.md)kan du skapa ett diagram som räknar **användare, autentiserade** och **användar konton**.
 
 Du kan också [söka](./diagnostic-search.md) efter klient data punkter med vissa användar namn och konton.
 
@@ -918,9 +918,9 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 Enskilda telemetri samtal kan åsidosätta standardvärdena i sina egenskaps ord listor.
 
-*För JavaScript-webbklienter*använder du JavaScript-telemetri för att initiera.
+*För JavaScript-webbklienter* använder du JavaScript-telemetri för att initiera.
 
-[Implementera `ITelemetryInitializer` ](./api-filtering-sampling.md#add-properties)om du *vill lägga till egenskaper till all telemetri*, inklusive data från standardsamlings-moduler.
+[Implementera `ITelemetryInitializer`](./api-filtering-sampling.md#add-properties)om du *vill lägga till egenskaper till all telemetri*, inklusive data från standardsamlings-moduler.
 
 ## <a name="sampling-filtering-and-processing-telemetry"></a>Sampling, filtrering och bearbetning av telemetri
 
@@ -1083,7 +1083,7 @@ Om du anger något av dessa värden själv kan du ta bort den relevanta raden fr
 * **Session**: användarens session. ID: t har angetts till ett genererat värde, vilket ändras när användaren inte har varit aktiv under ett tag.
 * **Användare**: användar information.
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 

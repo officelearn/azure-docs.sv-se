@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: a092859517ee6ac41e62e55fe95f72b8bfdf87d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290730"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011208"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Anpassa hur den anslutna fabriks lösningen visar data från OPC UA-servrar
 
@@ -23,7 +23,7 @@ ms.locfileid: "91290730"
 
 Den anslutna fabriks lösningen sammanställer och visar data från OPC UA-servrar som är anslutna till lösningen. Du kan bläddra och skicka kommandon till OPC UA-servrar i din lösning. Mer information om OPC UA finns i [vanliga frågor och svar om ansluten fabrik](iot-accelerators-faq-cf.md).
 
-Exempel på sammanställda data i lösningen är OEE (total Equipment effektivitet) och KPI: er (nyckeltal) som du kan visa i instrument panelen på fabriks-, linje-och Stations nivåerna. Följande skärm bild visar OEE och KPI-värden för **monterings** stationen på **produktions rad 1**i **München** -fabriken:
+Exempel på sammanställda data i lösningen är OEE (total Equipment effektivitet) och KPI: er (nyckeltal) som du kan visa i instrument panelen på fabriks-, linje-och Stations nivåerna. Följande skärm bild visar OEE och KPI-värden för **monterings** stationen på **produktions rad 1** i **München** -fabriken:
 
 ![Exempel på OEE och KPI-värden i lösningen][img-oee-kpi]
 

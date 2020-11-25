@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: 13959c4a3c798656efdc72b5c8e5f96e4fb2392a
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375361"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011905"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Felsöka problem med Log Analytics-agenten för Linux 
 
@@ -92,9 +92,9 @@ Vi har sett att en ren ominstallation av agenten kommer att åtgärda de flesta 
 | NOT_DEFINED | Eftersom nödvändiga beroenden inte är installerade kommer auoms-granskade plugin-programmet inte att installeras | Det gick inte att installera auoms, installations paketet har granskats. |
 | 2 | Ett ogiltigt alternativ angavs för gränssnitts paketet. Kör `sudo sh ./omsagent-*.universal*.sh --help` för användning |
 | 3 | Inget alternativ angavs för gränssnitts paketet. Kör `sudo sh ./omsagent-*.universal*.sh --help` för användning. |
-| 4 | Ogiltig pakettyp eller ogiltiga proxyinställningar. omsagent- *rpm*. sh-paket kan bara installeras på RPM-baserade system och omsagent- *deb*. sh-paket kan bara installeras på Debian-baserade system. Vi rekommenderar att du använder det universella installations programmet från den [senaste versionen](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Se även till att verifiera proxyinställningarna. |
+| 4 | Ogiltig pakettyp eller ogiltiga proxyinställningar. omsagent-*rpm*. sh-paket kan bara installeras på RPM-baserade system och omsagent-*deb*. sh-paket kan bara installeras på Debian-baserade system. Vi rekommenderar att du använder det universella installations programmet från den [senaste versionen](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Se även till att verifiera proxyinställningarna. |
 | 5 | Shell-paketet måste köras som rot eller så uppstod ett 403-fel under inregistreringen. Kör kommandot med hjälp av `sudo` . |
-| 6 | Ogiltig paket arkitektur eller så uppstod fel 200 vid registrering. omsagent- *x64.sh-paket kan bara installeras på 64-bitars system, och omsagent-x86.sh-* paket kan bara installeras på 32-bitars system. Hämta rätt paket för din arkitektur från den [senaste versionen](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
+| 6 | Ogiltig paket arkitektur eller så uppstod fel 200 vid registrering. omsagent-*x64.sh-paket kan bara installeras på 64-bitars system, och omsagent-x86.sh-* paket kan bara installeras på 32-bitars system. Hämta rätt paket för din arkitektur från den [senaste versionen](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Installationen av OMS-paketet misslyckades. Titta igenom kommandots utdata för rot felen. |
 | 19 | Det gick inte att installera OMI-paketet. Titta igenom kommandots utdata för rot felen. |
 | 20 | Det gick inte att installera SCX-paketet. Titta igenom kommandots utdata för rot felen. |

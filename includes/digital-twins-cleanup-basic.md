@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 8/13/2020
 ms.author: baanders
 ms.openlocfilehash: 4c03ef942896dda63f678018cdd257024cfbb6d4
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95561064"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011291"
 ---
 Om du inte längre behöver resurserna som skapas i den här självstudien kan du ta bort dem genom att följa stegen nedan.
 

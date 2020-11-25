@@ -10,11 +10,11 @@ ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
 ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965841"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012279"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -94,7 +94,7 @@ Läs mer om [etiketter för bild instans segment](how-to-label-images.md).
     + Stöd för miljöns klient etiketter. Användaren kan etikettera miljöer och referera dem efter etikett.
   + **azureml-dataprep**
     + Bättre fel meddelande vid användning av Spark med Scala 2,12 som inte stöds.
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
     + Azureml-förklaring – modell paketet är officiellt inaktuellt
   + **azureml-mlflow**
     + Löst ett fel i mlflow. projects. Run to azureml Server del där det slutliga status inte hanterades korrekt.
@@ -146,7 +146,7 @@ Läs mer om [etiketter för bild instans segment](how-to-label-images.md).
 
 ### <a name="azure-machine-learning-sdk-for-python-v1150"></a>Azure Machine Learning SDK för python v-1.15.0
 + **Fel korrigeringar och förbättringar**
-  + **azureml-contrib-tolka**
+  + **azureml-contrib-interpret**
     + LIME-förklaring har flyttats från azureml-contrib-tolka till tolka-community-paket och bild förklaring borttagen från azureml-contrib-tolka paket
     + instrument panelen för visualiseringar har tagits bort från azureml-contrib-tolka paket, förklarings klient som flyttats till azureml-tolka paket och föråldras i azureml-contrib-tolka paket och antecknings böcker som är uppdaterade för att återspegla
     + åtgärda pypi-paketets beskrivningar för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolka och AzureML-tensorboard
@@ -162,7 +162,7 @@ Läs mer om [etiketter för bild instans segment](how-to-label-images.md).
     + Update Run. Cancel () har uppdaterats för att avbryta en lokal körning från en annan dator.
   + **azureml-dataprep**
     +  Timeout-fel vid montering av fast data mängd.
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
     + åtgärda pypi-paketets beskrivningar för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolka och AzureML-tensorboard
   + **azureml-interpret**
     + instrument panelen för visualiseringar har tagits bort från azureml-contrib-tolka paket, förklarings klient som flyttats till azureml-tolka paket och föråldras i azureml-contrib-tolka paket och antecknings böcker som är uppdaterade för att återspegla
@@ -797,7 +797,7 @@ Nu kan du skapa, redigera och dela Machine Learning-anteckningsböcker och filer
 
 Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     
-| Webbaserat verktyg  |     Beskrivning  |
+| Webbaserat verktyg  |     Description  |
 |---|---|
 | Azure ML Studio-anteckningsböcker   |     Första redigering i klass för notebook-filer och stöd för alla åtgärder som är tillgängliga i Azure ML python SDK. | 
 
@@ -985,7 +985,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
   + **azureml-pipeline-steps**
     + Har flyttat `AutoMLStep` till `azureml-pipeline-steps` paketet. Föråldrade `AutoMLStep` i `azureml-train-automl-runtime` .
     + Exempel på dokumentation som lagts till för data uppsättning som PythonScriptStep-indata
-  + **azureml – tensorboard**
+  + **azureml-tensorboard**
     + uppdaterade azureml-tensorboard för att stödja tensorflow 2,0
     + Visa rätt port nummer när du använder en anpassad Tensorboard-port på en beräknings instans
   + **azureml-train-automl-client**
@@ -1065,7 +1065,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     + Har flyttat `AutoMLStep` i `azureml-pipeline-steps` paketet. Föråldrade `AutoMLStep` i `azureml-train-automl-runtime` .
   + **azureml-contrib-pipeline-steps**
     + Valfri parameter side_inputs lagts till i ParallelRunStep. Den här parametern kan användas för att montera en mapp på behållaren. Typer som stöds för närvarande är DataReference och PipelineData.
-  + **azureml – tensorboard**
+  + **azureml-tensorboard**
     + uppdaterade azureml-tensorboard för att stödja tensorflow 2,0
   + **azureml-train-automl-client**
     + fast FeaturizationConfig åsidosätter problem som filtrerar anpassad funktionalisering-konfiguration.
@@ -1114,7 +1114,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     + Y_query har tagits bort från Dominick för tjänsten orange juice Notebook.
     + Åtgärdade fel som förhindrar prognoser i distribuerade modeller, körs på data uppsättningar med datum tid kolumner.
     + Matthews korrelations faktor har lagts till som klassificerings mått för både binära och multiklass-klassificering.
-  + **azureml-contrib-tolka**
+  + **azureml-contrib-interpret**
     + Borttagna text förklaringar från azureml-contrib-tolka som text förklaring har flyttats till tolknings texten lagrings platsen som kommer att lanseras snart.
   + **azureml-core**
     + Data uppsättning: användningen av fil data uppsättningen är inte längre beroende av att numpy och Pandas har installerats i python-miljö.
@@ -1125,7 +1125,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     + Föråldrad befintlig get_token ()-metod i AksWebservice som den nya metoden returnerar all information som den här metoden returnerar.
     + Ändrade utdata från AZ ml-kommandot Get-Access-token. Token har bytt namn till accessToken och refreshBy till refreshAfter. Har lagt till egenskaperna expiryOn och tokenType.
     + Fast get_active_runs
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
     + uppdaterade Shap till 0.33.0 och tolkning – community till 0,4. *
   + **azureml-interpret**
     + uppdaterade Shap till 0.33.0 och tolkning – community till 0,4. *
@@ -1166,7 +1166,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
 ### <a name="azure-machine-learning-sdk-for-python-v1081"></a>Azure Machine Learning SDK för python v-1.0.81
 
 + **Fel korrigeringar och förbättringar**
-  + **azureml-contrib-tolka**
+  + **azureml-contrib-interpret**
     + skjuta upp Shap-beroendet till tolka-community från azureml-tolka
   + **azureml-core**
     + Compute Target kan nu anges som en parameter för motsvarande distributions konfigurations objekt. Detta är i synnerhet namnet på det beräknings mål som ska distribueras till, inte SDK-objektet.
@@ -1174,7 +1174,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     + Fast ContainerImage. Run (), som inte konfigurerades på rätt sätt i Docker-behållarens HTTP-port.
     + Gör `azureml-dataprep` valfritt för `az ml dataset register` CLI-kommando
     + En bugg har åtgärd ATS som `TabularDataset.to_pandas_dataframe` felaktigt skulle återgå till en alternativ läsare och skriva ut en varning.
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
     + skjuta upp Shap-beroendet till tolka-community från azureml-tolka
   + **azureml-pipeline-core**
     + Ett nytt pipeline-steg har lagts `NotebookRunnerStep` till för att köra en lokal antecknings bok som ett steg i pipeline.
@@ -1225,7 +1225,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     + När du anropar `to_pandas_dataframe` en etikettad data uppsättning med alternativet Hämta kan du nu ange om du vill skriva över befintliga filer eller inte.
     + När du anropar `keep_columns` eller `drop_columns` som resulterar i en tids serie, etikett eller bild kolumn som släpps, tas även motsvarande funktioner bort för data uppsättningen.
     + Åtgärdade ett problem med pytorch-inläsaren för objekt identifiering.
-  + **azureml-contrib-tolka**
+  + **azureml-contrib-interpret**
     + Widgeten förklarings instrument panel togs bort från azureml-contrib-tolka, ändrade paket för att referera till den nya i interpret_community
     + Uppdaterad version av tolka-community till 0.2.0
   + **azureml-core**
@@ -1309,7 +1309,7 @@ Från Studio kan du träna, testa, distribuera och hantera Azure Machine Learnin
 
 Få åtkomst till följande webbaserade redigerings verktyg från Studio:
 
-| Webbaserat verktyg | Beskrivning | 
+| Webbaserat verktyg | Description | 
 |-|-|-|
 | Notebook VM (för hands version) | Helt hanterad molnbaserad arbets Station | 
 | [Automatisk maskin inlärning](tutorial-first-experiment-automated-ml.md) (för hands version) | Ingen kod upplevelse för automatisering av maskin inlärnings modell utveckling | 
@@ -1462,7 +1462,7 @@ Azure Machine Learning är nu en resurs leverantör för Event Grid kan du konfi
       + Lade till utskrift för de heuristiskt bestämda parametrarna i prognos körningarna.
   + **azureml-contrib-datadrift**
     + Skydd har lagts till när du skapar utmatnings mått om data uppsättnings nivån inte är i det första avsnittet.
-  + **azureml-contrib-tolka**
+  + **azureml-contrib-interpret**
     + azureml-contrib-förklara-modell paketet har bytt namn till azureml-contrib-tolka
   + **azureml-core**
     + API har lagts till för att avregistrera data uppsättningar. `dataset.unregister_all_versions()`
@@ -1488,7 +1488,7 @@ Azure Machine Learning är nu en resurs leverantör för Event Grid kan du konfi
       + Genom att skriva in en speciell start_time och/eller end_time returneras endast resultaten av schemalagda körningar.
       + Parametern daily_latest_only är föråldrad.
     + Stöd för hämtning av data uppsättningar-baserade datautdata.
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
     + Byter namn på AzureML-förklarar-Model-paket till AzureML-tolka, och behåller det gamla paketet för bakåtkompatibilitet för tillfället
     + fast `automl` bugg med obehandlade förklaringar har angetts till klassificerings uppgift i stället för regression som standard vid hämtning från ExplanationClient
     + Lägg till stöd för `ScoringExplainer` som ska skapas direkt med `MimicWrapper`
@@ -1527,7 +1527,7 @@ Azure Machine Learning är nu en resurs leverantör för Event Grid kan du konfi
       + Genom att skriva in en speciell start_time och/eller end_time returneras endast resultaten av schemalagda körningar.
       + Parametern daily_latest_only är föråldrad.
     + Stöd för hämtning av data uppsättningar-baserade datautdata.
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
     + Lägg till stöd för [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py&preserve-view=true) som ska skapas direkt med MimicWrapper
   + **[azureml-pipeline-core](/python/api/azureml-pipeline-core)**
     + Bättre prestanda för att skapa stora pipeliner.
@@ -1594,7 +1594,7 @@ Fliken experiment i den [nya arbets ytans Portal](https://ml.azure.com) har uppd
     + Ytterligare fält för VM-storlek (OS-disk, antal GPU: er) har lagts till i supported_vmsizes ()-funktionen
     + Ytterligare fält har lagts till i funktionen list_nodes () för att Visa körningen, den privata och den offentliga IP-adressen, porten osv.
     + Möjlighet att ange ett nytt fält under kluster etableringen – remotelogin_port_public_access som kan ställas in på aktive rad eller inaktive ras beroende på om du vill lämna SSH-porten öppen eller stängd vid tidpunkten för att skapa klustret. Om du inte anger det öppnas tjänsten Smartt, eller så stängs porten beroende på om du distribuerar klustret i ett virtuellt nätverk.
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
   + **[azureml-core](/python/api/azureml-core/azureml.core)**
     + Möjlighet att hämta SAS-URL till modellen i lagring via Model-objektet har lagts till. Ex: modell. [get_sas_url ()](/python/api/azureml-core/azureml.core.model.model#get-sas-urls--)
     + Introducera körning. [get_details](/python/api/azureml-core/azureml.core.run%28class%29#get-details--)[' dataset '] för att hämta data uppsättningar som är associerade med den skickade körningen
@@ -1602,7 +1602,7 @@ Fliken experiment i den [nya arbets ytans Portal](https://ml.azure.com) har uppd
     + Ytterligare fält för VM-storlek (OS-disk, antal GPU: er) har lagts till i [supported_vmsizes ()-](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-) funktionen
     + Ytterligare fält har lagts till i funktionen [list_nodes ()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#list-nodes--) för att Visa körning, privat och offentlig IP-adress, Port osv.
     + Möjlighet att ange ett nytt fält under kluster [etablering](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--)  som kan ställas in på aktive rad eller inaktive ras beroende på om du vill lämna SSH-porten öppen eller stängd vid tidpunkten för att skapa klustret. Om du inte anger det öppnas tjänsten Smartt, eller så stängs porten beroende på om du distribuerar klustret i ett virtuellt nätverk.
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
     + Förbättrad dokumentation för förklarings resultat i klassificerings scenariot.
     + Har lagt till möjligheten att överföra de förutsagda y-värdena i förklaringen till utvärderings exemplen. Låser upp användbara visualiseringar.
     + Har lagt till förklarings egenskapen till MimicWrapper för att aktivera hämtning av underliggande MimicExplainer.
@@ -1653,7 +1653,7 @@ Fliken experiment i den [nya arbets ytans Portal](https://ml.azure.com) har uppd
     + Undantag utlöstes när en grov kornig het eller en detaljerad tids stämplings kolumn ignoreras med indikation för att användaren som släpper kan utföras efter att ha tagit bort kolumnen tidsstämpel i släppa listan eller anropa with_time_stamp med inget värde för att frisläppa Timestamp-kolumner
     + Undantag utlöstes när en grov kornig het eller en detaljerad tids stämplings kolumn inte ingår i listan Behåll kolumner med indikation för den användare som håller på att göras efter att ha angett kolumnen tidsstämpel i kolumnen Behåll kolumn eller anropa with_time_stamp med inget värde för att frisläppa Timestamp-kolumner.
     + Loggning har lagts till för en registrerad modell storlek.
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
     + Åtgärdad varning har skrivits ut till konsolen när python-paketet "packning" inte är installerat: "Använd äldre versioner än lightgbm som stöds, uppgradera till version som är större än 2.2.1"
     + Förklaring av den fasta nedladdnings modellen med horisontell partitionering för globala förklaringar med många funktioner
     + Välklarande härma-förklaring saknas initierings exempel på utdata förklaring
@@ -1743,7 +1743,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Den här versionen förbättrar körnings prestandan för automatiserade lokala Machine Learning-körningar.
     + Användare kan fråga mått från körnings historik efter namn.
     + Förbättrad loggning genom att använda anpassade undantag i stället för allmän i prognos aktiviteterna.
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
     + Feature_maps parameter har lagts till i den nya MimicWrapper, vilket gör det möjligt för användare att hämta rå funktions förklaringar.
     + Uppladdningar av data uppsättningar är nu inaktiverade som standard för förklarings överföring och kan aktive ras igen med upload_datasets = True
     + Har lagt till "is_law" filtrerings parametrar i förklarings listan och nedladdnings funktioner.
@@ -1805,7 +1805,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Föråldrad-metoden arbetsyte. Setup (). Varnings meddelande som visas för användare som föreslår användning av Create () eller Get ()/from_config () i stället.
     + Lade till Environment.add_private_pip_wheel (), som möjliggör överföring av privata anpassade python-paket `whl` till arbets ytan och att använda dem på ett säkert sätt för att bygga/materialisera miljön.
     + Nu kan du uppdatera TLS/SSL-certifikatet för poängsättnings slut punkten som distribueras i AKS-kluster både för Microsoft-genererade och kund certifikat.
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
     + Parameter har lagts till för att lägga till ett modell-ID till förklaringar vid uppladdning.
     + Taggar har lagts `is_raw` till i förklaringar i minnet och uppladdning.
     + Stöd för pytorch och tester har lagts till för azureml-förklarar-modell-paketet.
@@ -1875,7 +1875,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Save_to_directory-och load_from_directory-metoder har lagts till i azureml. Core. Environment. Environment.
     + Har lagt till kommandona "AZ ml miljö hämtning" och "AZ ml-miljö registrera" i CLI.
     + Environment.add_private_pip_wheel metod har lagts till.
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
     + Data uppsättnings spårning har lagts till i förklaringar med data uppsättnings tjänsten (för hands version).
     + Minskad standard grupp storlek vid strömning av globala förklaringar från 10 000 till 100.
     + Om du lägger till model_task flagga i förklaringar för att låta användaren åsidosätta standard logiken för automatisk härledning för modell typ.
@@ -1952,7 +1952,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Modell beskrivningen kan nu uppdateras korrekt efter registreringen
     + Modell-och bild borttagning innehåller nu mer information om överordnade objekt som är beroende av dem, vilket gör att borttagningen Miss fungerar
     + Förbättra resursutnyttjande för fjärrkörningar med hjälp av azureml. mlflow.
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
     + Argument för fasta omvandlingar för LIME-förklaringar för rå funktions prioritet i azureml-contrib-Restore-Model-paket
     + Lägg till scipy-sparse-stöd för LimeExplainer
     + lagt till en linjär förklaring av form, samt en annan nivå till förklaring av tabell för att förklara linjära modeller
@@ -2026,7 +2026,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Flyttade azureml-contrib-opendataset till azureml-opendataset.
     + Tillåtna öppna data uppsättnings klasser som ska registreras på Azure Machine Learning arbets ytan och utnyttja AML-datauppsättnings funktionerna sömlöst.
     + Förbättrad NoaaIsdWeather-prestanda i en icke-SPARK-version nämnvärt.
-  + **azureml – förklara-modell**
+  + **azureml-explain-model**
     + Uppdaterad online-dokumentation för tolknings objekt.
     + Har lagts `batch_size` till i härmar `include_local=False` -förklaringen när, för att strömma globala förklaringar i batchar för att förbättra körnings tiden för DecisionTreeExplainableModel för bibliotek med modell förklaringar.
     + Vi har åtgärdat problemet där `explanation.expected_values` skulle ibland returnera ett flyttal i stället för en lista med ett flyttal.

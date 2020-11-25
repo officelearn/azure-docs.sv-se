@@ -1,18 +1,18 @@
 ---
-title: Genom gång av Azure Monitoring REST API
+title: Genomgång av REST-API:et för Azure Monitoring
 description: Autentisera begär Anden och Använd Azure Monitor REST API för att hämta tillgängliga mått definitioner och mät värden.
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
 ms.openlocfilehash: 500d5242d5185a8014283918c1f3a22c5c22cf48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325601"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012024"
 ---
-# <a name="azure-monitoring-rest-api-walkthrough"></a>Genom gång av Azure Monitoring REST API
+# <a name="azure-monitoring-rest-api-walkthrough"></a>Genomgång av REST-API:et för Azure Monitoring
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -582,7 +582,7 @@ Den resulterande JSON-svars texten liknar följande exempel:
 En annan metod är att använda [ARMClient](https://github.com/projectkudu/armclient) på din Windows-dator. ARMClient hanterar Azure AD-autentiseringen (och den resulterande JWT-token) automatiskt. Följande steg beskriver hur du använder ARMClient för att hämta mått data:
 
 1. Installera [choklad](https://chocolatey.org/) och [ARMClient](https://github.com/projectkudu/armclient).
-2. Skriv *armclient.exe inloggning*i ett terminalfönster. Om du gör det blir du ombedd att logga in på Azure.
+2. Skriv *armclient.exe inloggning* i ett terminalfönster. Om du gör det blir du ombedd att logga in på Azure.
 3. Skriv *ARMCLIENT get [your_resource_id]/providers/Microsoft.Insights/metricdefinitions? API-version = 2016-03-01*
 4. Skriv *ARMCLIENT get [your_resource_id]/providers/Microsoft.Insights/Metrics? API-version = 2016-09-01*
 

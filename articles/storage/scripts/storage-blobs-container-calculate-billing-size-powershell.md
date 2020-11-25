@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f8bd47a8fde700382f9789ab1c77ff35e9b1f4f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999538"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96010902"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Beräkna den totala faktureringsstorleken på en blob-container
 
@@ -31,7 +31,7 @@ Det här skriptet beräknar storleken på en container i Azure Blob Storage för
 
 Den totala storleken på blob-containern inkluderar storleken på själva containern och storleken på alla blobar i containern.
 
-Följande avsnitt beskriver hur lagringskapaciteten beräknas för blob-containrar och blobar.I följande avsnitt betyder Len(X) antalet tecken i strängen.
+Följande avsnitt beskriver hur lagringskapaciteten beräknas för blob-containrar och blobar. I följande avsnitt betyder Len(X) antalet tecken i strängen.
 
 ### <a name="blob-containers"></a>Blobcontainrar
 
@@ -120,6 +120,6 @@ Här följer analysen:
 
 - Mer information om Azure Storage-fakturering finns i [Förstå Windows Azure Storage-fakturering](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/azure/).
+- Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/).
 
 - Ytterligare Storage PowerShell-skriptexempel finns i [PowerShell-exempel för Azure Storage](../blobs/storage-samples-blobs-powershell.md).

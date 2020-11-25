@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
 ms.openlocfilehash: 330bffebb870635fd473e88a8eadb300eed40b9b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518304"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012143"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migrera från Media Indexer och Media Indexer 2 till Video Indexer
 
@@ -57,7 +57,7 @@ Med **AudioAnalyzerPreset** kan du extrahera flera ljud insikter från en ljud-e
 
 För att komma igång, se:
 
-* [Självstudier](../latest/analyze-videos-tutorial-with-api.md)
+* [Självstudie](../latest/analyze-videos-tutorial-with-api.md)
 * AudioAnalyzerPreset-exempel: [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/AudioAnalytics/AudioAnalyzer) eller [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer)
 * VideoAnalyzerPreset-exempel: [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoAnalytics/VideoAnalyzer) eller [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/VideoAnalytics/VideoAnalyzer)
 

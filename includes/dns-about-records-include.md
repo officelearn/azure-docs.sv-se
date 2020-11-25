@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
 ms.openlocfilehash: 8ca054b3a3d5147b7d98a021ce1e26d02d5581b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050427"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011580"
 ---
 ### <a name="record-names"></a>Registrera namn
 
 DNS-poster i Azure anges med relativa namn. Ett *fullständigt kvalificerat* domännamn (FQDN), inkluderar zonnamnet, medan ett *relativt* namn inte gör det. Det relativa post namnet `www` i zonen ger till exempel `contoso.com` det fullständigt kvalificerade post namnet `www.contoso.com` .
 
-En *topp*post är en DNS-post vid roten (eller *toppen*) av en DNS-zon. I DNS-zonen `contoso.com` har exempelvis en Apex-post också det fullständigt kvalificerade namnet `contoso.com` (Detta kallas ibland en *blott* -domän).  I konvention används det relativa namnet \@ för att representera Apex-poster.
+En *topp* post är en DNS-post vid roten (eller *toppen*) av en DNS-zon. I DNS-zonen `contoso.com` har exempelvis en Apex-post också det fullständigt kvalificerade namnet `contoso.com` (Detta kallas ibland en *blott* -domän).  I konvention används det relativa namnet \@ för att representera Apex-poster.
 
 ### <a name="record-types"></a>Typer av poster
 
@@ -32,7 +32,7 @@ www.contoso.com.        3600    IN    A    134.170.185.46
 www.contoso.com.        3600    IN    A    134.170.188.221
 ```
 
-Azure DNS hanterar DNS-poster med hjälp av *postuppsättningar*. En postuppsättning (även kallat en *resurs*postuppsättning)är en samling DNS-poster i en zon som har samma namn och är av samma typ. De flesta postuppsättningar innehåller en enda post. Men exempel som det ovanstående, där en postuppsättning innehåller fler än en post, är inte ovanliga.
+Azure DNS hanterar DNS-poster med hjälp av *postuppsättningar*. En postuppsättning (även kallat en *resurs* postuppsättning)är en samling DNS-poster i en zon som har samma namn och är av samma typ. De flesta postuppsättningar innehåller en enda post. Men exempel som det ovanstående, där en postuppsättning innehåller fler än en post, är inte ovanliga.
 
 Anta till exempel att du redan har skapat en A-post "www" i zonen "contoso.com" som pekar på IP-adressen ”134.170.185.46” (första posten ovan).  För att skapa den andra posten skulle du lägga till posten i den befintliga postuppsättningen i stället för att skapa ytterligare en post.
 

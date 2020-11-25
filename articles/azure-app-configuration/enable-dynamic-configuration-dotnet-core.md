@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
 ms.openlocfilehash: aebe7772c673162d60f35d6a81725ba1452d16a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88207074"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012364"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Självstudie: Använd dynamisk konfiguration i en .NET Core-app
 
@@ -32,13 +32,13 @@ Den här självstudien visar hur du kan implementera dynamiska konfigurationsupp
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera din .NET Core-app så att den uppdaterar konfigurationen som svar på ändringar i ett konfigurations lager för appar.
 > * Använd den senaste konfigurationen i ditt program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill göra den här själv studie kursen installerar du [.net Core SDK](https://dotnet.microsoft.com/download).
 
@@ -99,7 +99,7 @@ class Program
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
-1. Ange en miljö variabel med namnet **ConnectionString**och ange den till åtkomst nyckeln till appens konfigurations arkiv. Om du använder kommando tolken i Windows kör du följande kommando och startar om kommando tolken för att ändringarna ska börja gälla:
+1. Ange en miljö variabel med namnet **ConnectionString** och ange den till åtkomst nyckeln till appens konfigurations arkiv. Om du använder kommando tolken i Windows kör du följande kommando och startar om kommando tolken för att ändringarna ska börja gälla:
 
     ```console
      setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -131,9 +131,9 @@ class Program
 
     ![Snabbstart av lokal app](./media/quickstarts/dotnet-core-app-run.png)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser** och välj den instans av app Configuration Store som du skapade i snabb starten.
 
-1. Välj **Configuration Explorer**och uppdatera värdena för följande nycklar:
+1. Välj **Configuration Explorer** och uppdatera värdena för följande nycklar:
 
     | Tangent | Värde |
     |---|---|

@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777737"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011055"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Skapa kunskaps bas och hantera inställningar
 
@@ -34,13 +34,13 @@ Med QnA Maker kan du hantera dina kunskaps baser genom att ge åtkomst till kuns
 
     När du är klar med att skapa resursen i Azure Portal går du tillbaka till QnA Maker Portal, uppdaterar sidan webbläsare och fortsätter till **steg 2**.
 
-1. I **steg 3**väljer du din Active Directory, prenumeration, tjänst (resurs) och språket för alla kunskaps baser som skapats i tjänsten.
+1. I **steg 3** väljer du din Active Directory, prenumeration, tjänst (resurs) och språket för alla kunskaps baser som skapats i tjänsten.
 
    ![Skärm bild av att välja en QnA Maker tjänst kunskaps bas](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
 1. Ge din kunskaps bas i **steg 3** `My Sample QnA KB` .
 
-1. I **steg 4**konfigurerar du inställningarna med följande tabell:
+1. I **steg 4** konfigurerar du inställningarna med följande tabell:
 
     |Inställning|Värde|
     |--|--|
@@ -49,7 +49,7 @@ Med QnA Maker kan du hantera dina kunskaps baser genom att ge åtkomst till kuns
     |**+ Lägg till URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Chit-chat**|Välj **Professional**|
 
-1. I **steg 5**väljer **du skapa din KB**.
+1. I **steg 5** väljer **du skapa din KB**.
 
     Extraherings processen tar en stund att läsa dokumentet och identifiera frågor och svar.
 
@@ -67,12 +67,12 @@ Med QnA Maker kan du hantera dina kunskaps baser genom att ge åtkomst till kuns
 
 1.  Välj **Inställningar**. Följande lista innehåller fält som du kan ändra.
 
-       |Mål|Action|
+       |Mål|Åtgärd|
        |--|--|
        |Lägg till URL|Du kan lägga till nya URL: er för att lägga till nya FAQ-innehåll i kunskaps basen genom att klicka på **Hantera kunskaps bas-> ' + Lägg till URL '**|
        |Ta bort URL|Du kan ta bort befintliga URL: er genom att välja borttagnings ikonen så kan pappers korgen.|
        |Uppdatera innehåll|Om du vill att din kunskaps bas ska crawla det senaste innehållet i befintliga webb adresser markerar du kryss rutan **Uppdatera** . Detta uppdaterar kunskaps basen med senaste URL-innehåll en gång. Detta ställer inte in ett regelbundet uppdaterings schema.|
-       |Lägg till fil|Du kan lägga till ett fil dokument som stöds som en del av en kunskaps bas genom att välja **Hantera kunskaps bas**och sedan välja **+ Lägg till fil**|
+       |Lägg till fil|Du kan lägga till ett fil dokument som stöds som en del av en kunskaps bas genom att välja **Hantera kunskaps bas** och sedan välja **+ Lägg till fil**|
     |Importera|Du kan också importera en befintlig kunskaps bas genom att välja knappen **Importera kunskaps bas** . |
     |Uppdatera|Uppdatering av kunskaps basen beror på vilken **hanterings pris nivå** som används när du skapar QNA Maker tjänst som är kopplad till din kunskaps bas. Du kan också uppdatera hanterings nivån från Azure Portal vid behov.
 

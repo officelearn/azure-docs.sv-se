@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75464285"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012535"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Köra skript för start av tjänster som ett lokalt konto för användaren eller systemet
 Innan en körbar Service Fabric-tjänst startar kan det vara nödvändigt att köra vissa konfigurations-eller konfigurations arbeten.  Du kan till exempel konfigurera miljövariabler. Du kan ange ett skript som ska köras innan den körbara tjänsten startar i tjänst manifestet för tjänsten. Genom att konfigurera en RunAs-princip för start punkten för tjänst konfigurationen kan du ändra vilket konto som den körbara filen för installations programmet körs under.  Med en separat installations start punkt kan du köra hög privilegie rad konfiguration under en kort tids period, så att tjänst värd filen inte behöver köras med hög behörighet under längre tid.
@@ -18,7 +18,7 @@ Innan en körbar Service Fabric-tjänst startar kan det vara nödvändigt att k�
 Installations start punkten (**SetupEntryPoint** i [tjänst manifestet](service-fabric-application-and-service-manifests.md)) är en privilegie rad start punkt som standard körs med samma autentiseringsuppgifter som Service Fabric (vanligt vis kontot *NetworkService* ) före någon annan start punkt. Den körbara filen som anges av **EntryPoint** är vanligt vis den tids krävande tjänst värden. Den körbara **Start punkten** körs när den körbara filen **SetupEntryPoint** har slutförts. Den resulterande processen övervakas och startas om och börjar igen med **SetupEntryPoint** om den skulle stängas av eller kraschar. 
 
 ## <a name="configure-the-service-setup-entry-point"></a>Konfigurera tjänstens konfigurationsstartpunkt
-Följande är ett enkelt tjänst manifest exempel för en tillstånds lös tjänst som anger ett installations skript *MySetup.bat* i **SetupEntryPoint**för tjänsten.  **Argument** används för att skicka argument till skriptet när det körs.
+Följande är ett enkelt tjänst manifest exempel för en tillstånds lös tjänst som anger ett installations skript *MySetup.bat* i **SetupEntryPoint** för tjänsten.  **Argument** används för att skicka argument till skriptet när det körs.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

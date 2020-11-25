@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: f43d7b2a858c5047c40157429dc5c50b467c8efc
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353143"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012398"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Självstudie: konfigurera SAP Cloud Platform Identity Authentication för automatisk användar etablering
 
@@ -85,7 +85,7 @@ Innan du konfigurerar SAP Cloud Platform Identity Authentication för automatisk
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **SAP Cloud Platform Identity Authentication** , väljer **SAP Cloud Platform Identity Authentication** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **SAP Cloud Platform Identity Authentication**, väljer **SAP Cloud Platform Identity Authentication** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![SAP Cloud Platform Identity Authentication i resultatlistan](common/search-new-app.png)
 

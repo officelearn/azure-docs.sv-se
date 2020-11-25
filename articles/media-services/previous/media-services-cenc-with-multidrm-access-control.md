@@ -16,11 +16,11 @@ ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841160"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010919"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Design av ett innehålls skydds system med åtkomst kontroll med Azure Media Services
 
@@ -157,7 +157,7 @@ I följande tabell visas mappningen.
 | **Arbets flöde för DRM-skydd** |Media Services dynamiskt skydd |
 | **DRM-licensleverans** |* Media Services licens leverans (PlayReady, Widevine, FairPlay) <br/>* Axinom licens Server <br/>* Anpassad PlayReady-licensserver |
 | **Kommer** |Slut punkt för Media Services strömning |
-| **Nyckelhantering** |Krävs inte för referens implementering |
+| **Nyckel hantering** |Krävs inte för referens implementering |
 | **Innehållshantering** |Ett C#-konsol program |
 
 Med andra ord används både IDP och STS med Azure AD. [Azure Media Player-API](https://amp.azure.net/libs/amp/latest/docs/) : t används för spelaren. Både Media Services och Media Player stöd för bindestreck och CENC med multi-DRM.
@@ -349,7 +349,7 @@ Gör så här för att registrera och konfigurera pekverktyget i Azure AD:
 
 3. Uppdatera appens manifest fil så att groupMembershipClaims-egenskapen har värdet "groupMembershipClaims": "alla".
 
-4. I Azure AD-appen som pekar på Player-webbappen, i avsnittet **behörigheter till andra program**, lägger du till resurs programmet som lades till i steg 1. Under **delegerad behörighet**väljer du **åtkomst [resource_name]**. Det här alternativet ger webbappen behörighet att skapa åtkomsttoken som ansluter till resurs appen. Gör detta för både den lokala och distribuerade versionen av webbapp om du utvecklar med Visual Studio och Azure-webbappen.
+4. I Azure AD-appen som pekar på Player-webbappen, i avsnittet **behörigheter till andra program**, lägger du till resurs programmet som lades till i steg 1. Under **delegerad behörighet** väljer du **åtkomst [resource_name]**. Det här alternativet ger webbappen behörighet att skapa åtkomsttoken som ansluter till resurs appen. Gör detta för både den lokala och distribuerade versionen av webbapp om du utvecklar med Visual Studio och Azure-webbappen.
 
 Den JWT som utfärdats av Azure AD är den åtkomsttoken som används för att få åtkomst till pekarens resurs.
 

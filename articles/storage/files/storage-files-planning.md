@@ -8,19 +8,19 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: a35c34a08dba625b16940d7ec5fb870952dba36b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e60ba773c5ef750f027c2e0b1528409c71eeb4b8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630251"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011763"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 [Azure Files](storage-files-introduction.md) kan distribueras på två huvudsakliga sätt: genom att montera Server lös Azure-filresurser direkt eller genom att cachelagra Azure-filresurser lokalt med hjälp av Azure File Sync. Vilket distributions alternativ du väljer ändrar de saker du behöver tänka på när du planerar för distributionen. 
 
-- **Direkt montering av en Azure-fil resurs** : eftersom Azure Files tillhandahåller SMB-(Server Message Block) eller NFS-åtkomst (Network File System) kan du montera Azure-filresurser lokalt eller i molnet med hjälp av de standard-SMB-eller NFS-klienter som är tillgängliga i ditt operativ system. Eftersom Azure-filresurser är utan server, behöver distributionen för produktions scenarier inte hantera en fil server eller NAS-enhet. Det innebär att du inte behöver tillämpa program varu korrigeringar eller byta ut fysiska diskar. 
+- **Direkt montering av en Azure-fil resurs**: eftersom Azure Files tillhandahåller SMB-(Server Message Block) eller NFS-åtkomst (Network File System) kan du montera Azure-filresurser lokalt eller i molnet med hjälp av de standard-SMB-eller NFS-klienter som är tillgängliga i ditt operativ system. Eftersom Azure-filresurser är utan server, behöver distributionen för produktions scenarier inte hantera en fil server eller NAS-enhet. Det innebär att du inte behöver tillämpa program varu korrigeringar eller byta ut fysiska diskar. 
 
-- **Cachelagra Azure-filresurser lokalt med Azure File Sync** : Azure File Sync gör det möjligt att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibiliteten, prestandan och kompatibiliteten för en lokal fil server. Azure File Sync transformerar en lokal (eller moln) Windows Server till ett snabbt cacheminne för din Azure SMB-filresurs. 
+- **Cachelagra Azure-filresurser lokalt med Azure File Sync**: Azure File Sync gör det möjligt att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibiliteten, prestandan och kompatibiliteten för en lokal fil server. Azure File Sync transformerar en lokal (eller moln) Windows Server till ett snabbt cacheminne för din Azure SMB-filresurs. 
 
 Den här artikeln beskriver främst distributions överväganden för att distribuera en Azure-filresurs som ska monteras direkt av en lokal eller moln klient. För att planera för en Azure File Sync distribution, se [Planera för en Azure File Sync distribution](storage-sync-files-planning.md).
 
@@ -44,9 +44,9 @@ Vi rekommenderar att du distribuerar Azure-filresurser till lagrings konton:
 
 ## <a name="identity"></a>Identitet
 För att få åtkomst till en Azure-filresurs måste fil resursens användare autentiseras och ha behörighet att komma åt resursen. Detta görs baserat på identiteten för den användare som har åtkomst till fil resursen. Azure Files integreras med tre huvudsakliga identitets leverantörer:
-- **Lokala Active Directory Domain Services (AD DS eller lokala AD DS)** : Azure Storage-konton kan vara domänanslutna till kundägda Active Directory Domain Services, precis som en Windows Server-fil server eller NAS-enhet. Du kan distribuera en domänkontrollant lokalt, i en virtuell Azure-dator eller till och med som en virtuell dator i en annan moln leverantör. Azure Files är oberoende till platsen där din domänkontrollant finns. När ett lagrings konto är domänanslutna kan slutanvändaren montera en fil resurs med det användar konto som de har loggat in på sina datorer med. AD-baserad autentisering använder Kerberos-autentiseringsprotokollet.
-- **Azure Active Directory Domain Services (Azure AD DS)** : Azure AD DS tillhandahåller en Microsoft-hanterad domänkontrollant som kan användas för Azure-resurser. En domän som ansluter till ditt lagrings konto till Azure AD DS ger liknande förmåner för domän som du ansluter till till ett kundägda Active Directory. Det här distributions alternativet är mest användbart för scenarier med program ökning och-SKIFT som kräver AD-baserade behörigheter. Eftersom Azure AD DS tillhandahåller AD-baserad autentisering använder det här alternativet även Kerberos-autentiseringsprotokollet.
-- **Azure Storage-konto nyckel** : Azure-filresurser kan också monteras med en nyckel för Azure Storage-konto. För att montera en fil resurs på det här sättet används lagrings kontots namn som användar namn och lagrings konto nyckel används som ett lösen ord. Att använda lagrings konto nyckeln för att montera Azure-filresursen är en administratörs åtgärd, eftersom den monterade fil resursen kommer att ha fullständig behörighet till alla filer och mappar på resursen, även om de har ACL: er. När du använder lagrings konto nyckeln för att montera via SMB används NTLMv2-autentiseringsprotokollet.
+- **Lokala Active Directory Domain Services (AD DS eller lokala AD DS)**: Azure Storage-konton kan vara domänanslutna till kundägda Active Directory Domain Services, precis som en Windows Server-fil server eller NAS-enhet. Du kan distribuera en domänkontrollant lokalt, i en virtuell Azure-dator eller till och med som en virtuell dator i en annan moln leverantör. Azure Files är oberoende till platsen där din domänkontrollant finns. När ett lagrings konto är domänanslutna kan slutanvändaren montera en fil resurs med det användar konto som de har loggat in på sina datorer med. AD-baserad autentisering använder Kerberos-autentiseringsprotokollet.
+- **Azure Active Directory Domain Services (Azure AD DS)**: Azure AD DS tillhandahåller en Microsoft-hanterad domänkontrollant som kan användas för Azure-resurser. En domän som ansluter till ditt lagrings konto till Azure AD DS ger liknande förmåner för domän som du ansluter till till ett kundägda Active Directory. Det här distributions alternativet är mest användbart för scenarier med program ökning och-SKIFT som kräver AD-baserade behörigheter. Eftersom Azure AD DS tillhandahåller AD-baserad autentisering använder det här alternativet även Kerberos-autentiseringsprotokollet.
+- **Azure Storage-konto nyckel**: Azure-filresurser kan också monteras med en nyckel för Azure Storage-konto. För att montera en fil resurs på det här sättet används lagrings kontots namn som användar namn och lagrings konto nyckel används som ett lösen ord. Att använda lagrings konto nyckeln för att montera Azure-filresursen är en administratörs åtgärd, eftersom den monterade fil resursen kommer att ha fullständig behörighet till alla filer och mappar på resursen, även om de har ACL: er. När du använder lagrings konto nyckeln för att montera via SMB används NTLMv2-autentiseringsprotokollet.
 
 För kunder som migrerar från lokala fil servrar, eller om du skapar nya fil resurser i Azure Files som är avsedda att fungera som Windows-filservrar eller NAS-enheter, är det rekommenderade alternativet att ansluta till ditt lagrings konto till **kundägda Active Directory** . Mer information om domän anslutning till ditt lagrings konto till ett kundägda Active Directory finns i [Azure Files Active Directory översikt](storage-files-active-directory-overview.md).
 
@@ -63,9 +63,9 @@ Om du vill avblockera åtkomst till Azure-filresursen har du två huvud alternat
 
 Även om det är mycket enklare att montera dina Azure-filresurser via den offentliga slut punkten i ett tekniskt perspektiv förväntar vi de flesta kunder att montera sina Azure-filresurser via en ExpressRoute eller VPN-anslutning. Montering med dessa alternativ är möjligt med både SMB-och NFS-resurser. För att göra detta måste du konfigurera följande för din miljö:  
 
-- **Nätverks tunnel med ExpressRoute, plats-till-plats eller punkt-till-plats-VPN** : tunnlar till ett virtuellt nätverk tillåter åtkomst till Azure-filresurser från lokalt, även om Port 445 är blockerad.
-- **Privata slut punkter** : privata slut punkter ger ditt lagrings konto en dedikerad IP-adress i det virtuella nätverkets adress utrymme. Detta möjliggör nätverks tunnel utan att behöva öppna lokala nätverk upp till alla IP-adressintervall som ägs av Azure Storage-klustren. 
-- **DNS-vidarebefordran** : Konfigurera din lokala DNS för att matcha namnet på ditt lagrings konto (dvs. `storageaccount.file.core.windows.net` för de offentliga moln regionerna) för att matcha IP-adressen för dina privata slut punkter.
+- **Nätverks tunnel med ExpressRoute, plats-till-plats eller punkt-till-plats-VPN**: tunnlar till ett virtuellt nätverk tillåter åtkomst till Azure-filresurser från lokalt, även om Port 445 är blockerad.
+- **Privata slut punkter**: privata slut punkter ger ditt lagrings konto en dedikerad IP-adress i det virtuella nätverkets adress utrymme. Detta möjliggör nätverks tunnel utan att behöva öppna lokala nätverk upp till alla IP-adressintervall som ägs av Azure Storage-klustren. 
+- **DNS-vidarebefordran**: Konfigurera din lokala DNS för att matcha namnet på ditt lagrings konto (dvs. `storageaccount.file.core.windows.net` för de offentliga moln regionerna) för att matcha IP-adressen för dina privata slut punkter.
 
 Information om hur du planerar för nätverk som är kopplade till att distribuera en Azure-filresurs finns [Azure Files nätverks överväganden](storage-files-networking-overview.md).
 
@@ -133,16 +133,16 @@ I allmänhet är Azure Files funktioner och samverkan med andra tjänster identi
 När en fil resurs har skapats som antingen en Premium-eller standard fil resurs kan du inte automatiskt konvertera den till den andra nivån. Om du vill växla till den andra nivån måste du skapa en ny fil resurs på den nivån och manuellt kopiera data från den ursprungliga resursen till den nya resurs som du har skapat. Vi rekommenderar att `robocopy` du använder för Windows eller `rsync` MacOS och Linux för att utföra den kopian.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Förstå etablering för Premium-filresurser
-Premium-filresurser tillhandahålls baserat på en fast GiB/IOPS/data flödes kvot. För varje GiB tilldelas resursen en IOPS och 0,1 MiB/s-genomflöde upp till de maximala gränserna per resurs. Den minsta tillåtna etableringen är 100 GiB med lägsta IOPS/data flöde.
+Premium-filresurser tillhandahålls baserat på en fast GiB/IOPS/data flödes kvot. Alla resurs storlekar erbjuds minst bas linje/data flöde och tillåts överföras till burst. För varje GiB utfärdas resursen minst IOPS/data flöde och en IOPS och 0,1 MiB/s genom strömning upp till de maximala gränserna per resurs. Den minsta tillåtna etableringen är 100 GiB med lägsta IOPS/data flöde. 
 
-På bästa möjliga sätt kan alla resurser överföra upp till tre IOPS per GiB lagrings utrymme i 60 minuter eller längre beroende på resursens storlek. Nya resurser börjar med full burst-kredit baserat på den tillhandahållna kapaciteten.
+Alla Premium resurser erbjuds gratis burst-överföring på bästa möjliga sätt. Alla resurs storlekar kan överföra upp till 4 000 IOPS eller upp till tre IOPS per etablerad GiB, beroende på vilket som ger en större burst-IOPS till resursen. Alla resurser stöder burst-överföring under en maximal varaktighet på 60 minuter vid högsta tillåtna burst-överföring. Nya resurser börjar med full burst-kredit baserat på den tillhandahållna kapaciteten.
 
 Resurser måste tillhandahållas i steg om 1 GiB. Minimi storleken är 100 GiB, nästa storlek är 101 GiB och så vidare.
 
 > [!TIP]
-> Bas linje IOPS = 1 * etablerad GiB. (Upp till högst 100 000 IOPS).
+> Bas linje IOPS = 400 + 1 * etablerad GiB. (Upp till högst 100 000 IOPS).
 >
-> Burst-gräns = 3 * bas linje IOPS. (Upp till högst 100 000 IOPS).
+> Burst-gräns = MAX (4 000, 3 * bas linje IOPS). (den övre gränsen är högre, upp till högst 100 000 IOPS).
 >
 > utgående taxa = 60 MiB/s + 0,06 * etablerad GiB
 >
@@ -156,33 +156,29 @@ I följande tabell visas några exempel på dessa formler för de allokerade res
 
 |Kapacitet (GiB) | Bas linje IOPS | Burst IOPS | Utgående (MiB/s) | Ingress (MiB/s) |
 |---------|---------|---------|---------|---------|
-|100         | 100     | Upp till 300     | 66   | 44   |
-|500         | 500     | Upp till 1 500   | 90   | 60   |
-|1 024       | 1 024   | Upp till 3 072   | 122   | 81   |
-|5 120       | 5 120   | Upp till 15 360  | 368   | 245   |
-|10 240      | 10 240  | Upp till 30 720  | 675 | 450   |
-|33 792      | 33 792  | Upp till 100 000 | 2 088 | 1 392   |
-|51 200      | 51 200  | Upp till 100 000 | 3 132 | 2 088   |
+|100         | 500     | Upp till 4 000     | 66   | 44   |
+|500         | 900     | Upp till 4 000  | 90   | 60   |
+|1 024       | 1 424   | Upp till 4 000   | 122   | 81   |
+|5 120       | 5 520   | Upp till 15 360  | 368   | 245   |
+|10 240      | 10 640  | Upp till 30 720  | 675   | 450   |
+|33 792      | 34 192  | Upp till 100 000 | 2 088 | 1 392   |
+|51 200      | 51 600  | Upp till 100 000 | 3 132 | 2 088   |
 |102 400     | 100 000 | Upp till 100 000 | 6 204 | 4 136   |
 
-> [!NOTE]
-> Fil resursernas prestanda är beroende av dator nätverks begränsningar, tillgänglig nätverks bandbredd, i/o-storlekar, parallellitet, bland många andra faktorer. Till exempel, baserat på intern testning med 8 KiB i/o-storlek, kan en virtuell Windows-dator, *Standard F16s_v2* som är anslutna till Premium-filresurs via SMB uppnå 20 000 Read IOPS och 15 000 Skriv-IOPS. Med 512 MiB Läs-/skriv-i/o-storlekar kan samma virtuella dator uppnå 1,1 GiB/s utgående och 370 MiB/s ingress-genomflöde. För att uppnå maximal prestanda skalning sprider du belastningen över flera virtuella datorer. Se [fel söknings guiden](storage-troubleshooting-files-performance.md) för några vanliga prestanda problem och lösningar.
+Det är viktigt att Observera att effektiva fil resurser är beroende av dator nätverks begränsningar, tillgänglig nätverks bandbredd, i/o-storlekar, parallellitet, bland många andra faktorer. Till exempel, baserat på intern testning med 8 KiB i/o-storlek, kan en virtuell Windows-dator utan SMB Multichannel vara aktive rad, *Standard F16s_v2*, ansluten till Premium-filresurs via SMB, få 20 000 Read IOPS och 15 000 Skriv-IOPS. Med 512 MiB Läs-/skriv-i/o-storlekar kan samma virtuella dator uppnå 1,1 GiB/s utgående och 370 MiB/s ingress-genomflöde. Samma klient kan få upp till \~ 3x prestanda om SMB Multichannel är aktiverat på Premium-resurserna. För att uppnå maximal prestanda skala kan du [Aktivera SMB Multichannel](storage-files-enable-smb-multichannel.md) och sprida belastningen över flera virtuella datorer. Se [SMB Multichannel-prestanda](storage-files-smb-multichannel-performance.md) och [fel söknings guide](storage-troubleshooting-files-performance.md) för några vanliga prestanda problem och lösningar.
 
 #### <a name="bursting"></a>Bursting "
-Premium-filresurser kan överföra sina IOPS upp till en faktor på tre. Burst-överföring automatiseras och fungerar baserat på ett kredit system. Burst-överföring fungerar på bästa möjliga sätt och burst-gränsen är inte en garanti, fil resurser kan överföras *till* gränsen.
+Om din arbets belastning behöver den extra prestanda som krävs för att uppfylla den högsta efter frågan kan din resurs använda burst-krediter för att gå över resursens IOPS-gräns för att erbjuda resurs prestanda som krävs för att uppfylla behovet. Premium-filresurser kan överföra sina IOPS upp till 4 000 eller upp till en faktor på tre, beroende på vilket som är ett högre värde. Burst-överföring automatiseras och fungerar baserat på ett kredit system. Burst-överföring fungerar på bästa möjliga sätt och burst-gränsen är inte en garanti, fil resurser kan överföras *till* gränsen för en maximal varaktighet på 60 minuter.
 
-Krediterna ackumuleras i en burst-Bucket när trafiken för fil resursen är under bas linje IOPS. Till exempel har en 100 GiB-resurs 100 bas linje IOPS. Om den faktiska trafiken på resursen var 40 IOPS för ett angivet intervall på 1 sekund, krediteras 60 oanvända IOPS till en burst-Bucket. Dessa krediter kommer sedan att användas senare när åtgärder skulle överskrida bas linjens IOPs.
+Krediterna ackumuleras i en burst-Bucket när trafiken för fil resursen är under bas linje IOPS. Till exempel har en 100 GiB-resurs 500 bas linje IOPS. Om den faktiska trafiken på resursen var 100 IOPS för ett angivet intervall på 1 sekund, krediteras 400 oanvända IOPS till en burst-Bucket. På samma sätt påförs en TiB-resurs för inaktivitet med 1 424 IOPS. Dessa krediter kommer sedan att användas senare när åtgärder skulle överskrida bas linjens IOPS.
 
-> [!TIP]
-> Storlek på burst-Bucket = bas linje för IOPS * 2 * 3600.
-
-När en resurs överskrider bas linjens IOPS och har krediter i en burst-Bucket, överförs den till burst. Resurser kan fortsätta att överföra så länge krediterna är kvar, men resurser som är mindre än 50 TiB hålls bara vid burst-gränsen i upp till en timme. Resurser som är större än 50 TiB får tekniskt ut en Tim gräns på upp till två timmar, men detta baseras på antalet överförda burst-krediter. Varje i/o utöver bas linje IOPS förbrukar en kredit och när alla krediter förbrukas kommer resursen att återgå till bas linje IOPS.
+När en resurs överskrider bas linjens IOPS och har krediter i en burst-Bucket, kommer den att överföras till den högsta tillåtna högsta överföringshastigheten. Resurser kan fortsätta att överföra så länge krediterna är återstående, upp till max 60 minuter, men detta baseras på antalet överförda burst-krediter. Varje i/o utöver bas linje IOPS förbrukar en kredit och när alla krediter förbrukas kommer resursen att återgå till bas linjens IOPS.
 
 Dela krediter har tre tillstånd:
 
 - Påförs när fil resursen använder mindre än bas linjens IOPS.
-- Avböjande, när fil resursen är burst-överföring.
-- Återstående konstant, när det inte finns några krediter eller bas linje IOPS som används.
+- Avböja, när fil resursen använder mer än bas linjens IOPS och i burst-läge.
+- En konstant är att fil resursen använder exakt den grundläggande IOPS, men det finns inga krediter som är upplupna eller använda.
 
 Nya fil resurser börjar med det fullständiga antalet krediter i sin burst-Bucket. Burst-krediter kommer inte att periodiseras om resursens IOPS sjunker under bas linje IOPS på grund av begränsning av servern.
 

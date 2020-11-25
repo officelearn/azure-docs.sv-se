@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 10/22/2020
 ms.author: baanders
 ms.openlocfilehash: 3cb053f9673532ac19e2098678ec341f2f676486
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329480"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011266"
 ---
 Med `DefaultAzureCredential` söker exemplet efter autentiseringsuppgifter i din lokala miljö, t. ex. en Azure-inloggning i ett lokalt [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) eller i Visual Studio eller Visual Studio Code. Därför bör du *Logga in på Azure lokalt* via någon av dessa metoder för att ställa in autentiseringsuppgifter för exemplet.
 

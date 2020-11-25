@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: add7674771fd19f6029a94c46624006f0cf30f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710889"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011548"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegera en Azure DNS under domän
 
@@ -20,7 +20,7 @@ Du kan använda Azure Portal för att delegera en DNS-under domän. Om du till e
 
 Om du vill kan du delegera en under domän med hjälp av [Azure PowerShell](delegate-subdomain-ps.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill delegera en Azure DNS under domän måste du först delegera din offentliga domän till Azure DNS. Mer information om hur du konfigurerar namnservrar för delegering finns i [delegera en domän till Azure DNS](./dns-delegate-domain-azure-dns.md) . När din domän har delegerats till din Azure DNS zon kan du delegera din under domän.
 
@@ -31,8 +31,8 @@ Om du vill delegera en Azure DNS under domän måste du först delegera din offe
 
 Skapa först zonen för under domänen **teknik** .
 
-1. Välj **skapa en resurs**från Azure Portal.
-2. Skriv **DNS**i rutan Sök och välj **DNS-zon**.
+1. Välj **skapa en resurs** från Azure Portal.
+2. Skriv **DNS** i rutan Sök och välj **DNS-zon**.
 3. Välj **Skapa**.
 4. I fönstret **Skapa DNS-zon** skriver du **Engineering.contoso.com** i text rutan **namn** .
 5. Välj resurs grupp för din zon. Du kanske vill använda samma resurs grupp som den överordnade zonen för att hålla likartade resurser sammantaget.
@@ -56,8 +56,8 @@ Skapa sedan en namnserver post (NS) för **teknik** zonen.
 1. Navigera till zonen för den överordnade domänen.
 2. Välj **+ Postuppsättning**.
 3. I rutan **Lägg till uppsättning av poster** skriver du **tekniker** i text rutan **namn** .
-4. I **typ**väljer du **ns**.
-5. Under **namnserver**anger du de fyra namnservrar som du spelat in tidigare från **teknik** zonen.
+4. I **typ** väljer du **ns**.
+5. Under **namnserver** anger du de fyra namnservrar som du spelat in tidigare från **teknik** zonen.
 6. Klicka på **OK**.
 
 ## <a name="test-the-delegation"></a>Testa delegeringen

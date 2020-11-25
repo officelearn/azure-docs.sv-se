@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: caedcf313ab809e9607907545f26ca1b62bbeca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720052"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012415"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Uppgifter för att förbereda data för förbättrad Machine Learning
 För bearbetning och rensning av data är viktiga uppgifter som måste utföras innan en data uppsättning kan användas för modell träning. Rå data är ofta störningar och otillförlitliga och kan sakna värden. Att använda sådana data för modellering kan producera missvisande resultat. De här uppgifterna är en del av TDSP (Team data science process) och följer vanligt vis en inledande utforskning av en data uppsättning som används för att identifiera och planera för bearbetningen som krävs. Mer detaljerad information om TDSP-processen finns i stegen som beskrivs i [team data science-processen](overview.md).

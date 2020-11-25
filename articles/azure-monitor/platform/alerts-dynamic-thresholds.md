@@ -6,11 +6,11 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340095"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012347"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Mått aviseringar med dynamiska tröskelvärden i Azure Monitor
 
@@ -103,7 +103,7 @@ Följande objekt är metod tips för hur du konfigurerar aviseringar för vissa 
 
 ### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Dynamiska tröskelvärden för den virtuella datorns processor procents mått
 
-1. Klicka på **övervaka**i [Azure Portal](https://portal.azure.com). Vyn övervakare konsoliderar alla övervaknings inställningar och data i en vy.
+1. Klicka på **övervaka** i [Azure Portal](https://portal.azure.com). Vyn övervakare konsoliderar alla övervaknings inställningar och data i en vy.
 
 2. Klicka på **aviseringar** och klicka sedan på **+ ny varnings regel**.
 
@@ -129,7 +129,7 @@ Följande objekt är metod tips för hur du konfigurerar aviseringar för vissa 
 
 9. Klicka på **Klar**.
 
-10. Fyll i **aviserings information** som **aviserings regel namn**, **Beskrivning**och **allvarlighets grad**.
+10. Fyll i **aviserings information** som **aviserings regel namn**, **Beskrivning** och **allvarlighets grad**.
 
 11. Lägg till en åtgärds grupp i aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
 
@@ -140,7 +140,7 @@ Följande objekt är metod tips för hur du konfigurerar aviseringar för vissa 
 
 ### <a name="dynamic-thresholds-on-application-insights-http-request-execution-time"></a>Dynamiska tröskelvärden på Application Insights körnings tid för HTTP-begäran
 
-1. Klicka på **övervaka**i [Azure Portal](https://portal.azure.com). Vyn övervakare konsoliderar alla övervaknings inställningar och data i en vy.
+1. Klicka på **övervaka** i [Azure Portal](https://portal.azure.com). Vyn övervakare konsoliderar alla övervaknings inställningar och data i en vy.
 
 2. Klicka på **aviseringar** och klicka sedan på **+ ny varnings regel**.
 
@@ -164,7 +164,7 @@ Följande objekt är metod tips för hur du konfigurerar aviseringar för vissa 
 
 9. Klicka på **Klar**.
 
-10. Fyll i **aviserings information** som **aviserings regel namn**, **Beskrivning**och **allvarlighets grad**.
+10. Fyll i **aviserings information** som **aviserings regel namn**, **Beskrivning** och **allvarlighets grad**.
 
 11. Lägg till en åtgärds grupp i aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
 

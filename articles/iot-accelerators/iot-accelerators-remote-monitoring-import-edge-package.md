@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 10/10/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34222f396ed3c43932371aa9f64a459bb2a5dd0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61443019"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012296"
 ---
 # <a name="import-an-iot-edge-package-into-your-remote-monitoring-solution-accelerator"></a>Importera ett IoT Edge-paket till acceleratorn för fjärrövervakningslösningen
 
@@ -35,7 +35,7 @@ Använd Azure Portal för att exportera distributions manifestet från utvecklin
 
 1. Klicka på **hämta IoT Edge manifest**:  ![ Ladda ned distributions manifest](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
 
-1. Spara JSON-filen som en lokal fil ** med namnetdeploymentmanifest.jspå**.
+1. Spara JSON-filen som en lokal fil **med namnetdeploymentmanifest.jspå**.
 
 Nu har du en fil som innehåller distributions manifestet. I nästa avsnitt importerar du det här manifestet som ett paket till den fjärranslutna övervaknings lösningen.
 

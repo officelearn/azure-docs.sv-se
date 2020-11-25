@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 3db411df69a754857220867865522f8e4fa24030
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546015"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011497"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Gateway-djupgående och bästa praxis för Apache Hive i Azure HDInsight
 
@@ -46,7 +46,7 @@ Följande diagram illustrerar de steg som ingår i en SELECT-fråga.
 
 Apache Hive är en relationell abstraktion ovanpå ett HDFS-kompatibelt fil system. Den här abstraktionen innebär att **Select** -instruktioner i Hive motsvarar **Läs** åtgärder i fil systemet. **Läs** åtgärder översätts till lämpligt schema innan de rapporteras till användaren. Svars tiden för den här processen ökar med data storlek och totalt antal hopp som krävs för att komma åt slutanvändaren.
 
-Liknande beteende kan uppstå när du kör **create** eller **insert** -instruktioner för stora data, eftersom dessa kommandon motsvarar **Skriv** åtgärder i det underliggande fil systemet. Överväg att skriva data, till exempel RAW-ORC, till fil systemet/datalake i stället för att läsa in det med hjälp av **insert** eller **load** .
+Liknande beteende kan uppstå när du kör **create** eller **insert** -instruktioner för stora data, eftersom dessa kommandon motsvarar **Skriv** åtgärder i det underliggande fil systemet. Överväg att skriva data, till exempel RAW-ORC, till fil systemet/datalake i stället för att läsa in det med hjälp av **insert** eller **load**.
 
 I Enterprise Security Pack-aktiverade kluster kan tillräckligt komplexa Apache Ranger-principer orsaka en långsammare tid för att beräkna frågor, vilket kan leda till en gateway-timeout. Om en gateway-tidsgräns har märkts i ett ESP-kluster bör du överväga att minska eller kombinera antalet Ranger-principer.
 
@@ -54,9 +54,9 @@ I Enterprise Security Pack-aktiverade kluster kan tillräckligt komplexa Apache 
 
 Det finns flera platser för att undvika och förstå prestanda problem som en del av ovanstående beteende. Använd följande check lista när du upplever frågor om prestanda försämring över HDInsight-gatewayen:
 
-* Använd **begränsnings** satsen när du kör stora **urvals** frågor. **Begränsnings** satsen minskar antalet rader som rapporteras till klient värden. **Begränsnings** satsen påverkar endast generering av resultat och ändrar inte frågeplan. Använd konfigurationen om du vill tillämpa **begränsnings** satsen i frågeuttrycket `hive.limit.optimize.enable` . **Gränsen** kan kombineras med en förskjutning med hjälp av argument formen **Limit x, y** .
+* Använd **begränsnings** satsen när du kör stora **urvals** frågor. **Begränsnings** satsen minskar antalet rader som rapporteras till klient värden. **Begränsnings** satsen påverkar endast generering av resultat och ändrar inte frågeplan. Använd konfigurationen om du vill tillämpa **begränsnings** satsen i frågeuttrycket `hive.limit.optimize.enable` . **Gränsen** kan kombineras med en förskjutning med hjälp av argument formen **Limit x, y**.
 
-* Namnge dina kolumner med intresse när du kör **Select** -frågor i stället för att använda * *Select \** _. Om du väljer färre kolumner sänks mängden data som ska läsas.
+* Namnge dina kolumner med intresse när du kör **Select** -frågor i stället för att använda **Select \** _. Om du väljer färre kolumner sänks mängden data som ska läsas.
 
 _ Prova att köra frågan på intresse genom Apache Beeline. Om resultat hämtning via Apache Beeline tar en längre tid, förväntar sig fördröjningar vid hämtning av samma resultat via externa verktyg.
 

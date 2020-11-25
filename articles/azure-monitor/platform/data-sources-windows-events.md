@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
 ms.openlocfilehash: 109e96f862ec2f3ddf879bccba114c44aecfe3c8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440611"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012603"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Samla in data källor för Windows-händelseloggen med Log Analytics agent
 Windows-händelseloggar är en av de vanligaste [data källorna](agent-data-sources.md) för Log Analytics agenter på virtuella Windows-datorer eftersom många program skriver till händelse loggen i Windows.  Du kan samla in händelser från standard loggar som system och program, förutom att ange anpassade loggar som skapats av program som du behöver övervaka.
@@ -63,7 +63,7 @@ Händelse poster i Windows har en typ av **händelse** och har egenskaperna i f�
 ## <a name="log-queries-with-windows-events"></a>Logga frågor med Windows-händelser
 Följande tabell innehåller olika exempel på logg frågor som hämtar Windows-händelseloggar.
 
-| Söka i data | Description |
+| Fråga | Description |
 |:---|:---|
 | Händelse |Alla Windows-händelser. |
 | Händelse &#124; där EventLevelName = = "Error" |Alla Windows-händelser med allvarlighets graden fel. |

@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: d222234cd6ff3d910e6dbc51a394695ce467edce
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793304"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011872"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>Hantera schema i ett SaaS-program som använder shardade-databaser för flera klienter
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -75,7 +75,7 @@ Wingtip-biljetterna SaaS databas skript för flera innehavare och program käll 
 
 I den här självstudien krävs att du använder PowerShell för att skapa jobb Agent databasen och jobb agenten. Precis som MSDB-databasen som används av SQL Agent använder en jobb agent en databas i Azure SQL Database för att lagra jobb definitioner, jobb status och historik. När jobb agenten har skapats kan du skapa och övervaka jobb direkt.
 
-1. I **POWERSHELL ISE** öppnar du *... \\ Modulerna \\ schema hantering \\ för inlärningDemo-SchemaManagement.ps1* .
+1. I **POWERSHELL ISE** öppnar du *... \\ Modulerna \\ schema hantering \\ för inlärningDemo-SchemaManagement.ps1*.
 2. Tryck **F5** för att köra skriptet.
 
 *Demo-SchemaManagement.ps1* skriptet anropar *Deploy-SchemaManagement.ps1* -skriptet för att skapa en databas med namnet _JobAgent_ på katalog servern. Skriptet skapar sedan jobb agenten och skickar _JobAgent_ -databasen som en parameter.
@@ -84,7 +84,7 @@ I den här självstudien krävs att du använder PowerShell för att skapa jobb 
 
 #### <a name="prepare"></a>Förbereda
 
-Varje innehavares databas innehåller en uppsättning plats typer i **VenueTypes** -tabellen. Varje platstyp definierar typ av händelser som kan finnas på en plats. Dessa typer av platser motsvarar de bakgrunds bilder som visas i appen klient organisations händelser.  I den här övningen distribuerar du en uppdatering till alla databaser för att lägga till två ytterligare plats typer: *motorcykel tävling* och *SIM-klubb* .
+Varje innehavares databas innehåller en uppsättning plats typer i **VenueTypes** -tabellen. Varje platstyp definierar typ av händelser som kan finnas på en plats. Dessa typer av platser motsvarar de bakgrunds bilder som visas i appen klient organisations händelser.  I den här övningen distribuerar du en uppdatering till alla databaser för att lägga till två ytterligare plats typer: *motorcykel tävling* och *SIM-klubb*.
 
 Börja med att granska de plats typer som ingår i varje klient databas. Anslut till en av klient databaserna i SQL Server Management Studio (SSMS) och granska VenueTypes-tabellen.  Du kan också fråga den här tabellen i Frågeredigeraren i Azure Portal, som öppnas från databas sidan.
 
@@ -105,11 +105,11 @@ Om du vill skapa ett nytt jobb använder du uppsättningen med jobb system lagra
 
 3. Fråga *VenueTypes* -tabellen för att bekräfta att *motorcykelns racing* -och *SIM-klubb* ännu inte finns i resultat listan.
 
-4. Anslut till katalog servern, som är *Catalog-MT- &lt; user &gt; . Database.Windows.net* .
+4. Anslut till katalog servern, som är *Catalog-MT- &lt; user &gt; . Database.Windows.net*.
 
 5. Anslut till _JobAgent_ -databasen på katalog servern.
 
-6. Öppna filen i SSMS *... \\ Inlärnings moduler \\ schema hantering \\ DeployReferenceData. SQL* .
+6. Öppna filen i SSMS *... \\ Inlärnings moduler \\ schema hantering \\ DeployReferenceData. SQL*.
 
 7. Ändra instruktionen: set @User = &lt; User &gt; och ersätt User Value som används när du distribuerade Wingtip Ticket SaaS-databasprogram för flera innehavare.
 
@@ -125,10 +125,10 @@ Observera följande objekt i *DeployReferenceData. SQL* -skriptet:
     - En medlems typ för *Server* mål.
         - Detta är den *tenants1-MT- &lt; User &gt; -* server som innehåller klienternas databaser.
         - Inklusive-servern omfattar de klient databaser som finns när jobbet körs.
-    - En *databas* mål medlems typ för den mall databas ( *basetenantdb* ) som finns på *katalogen – MT- &lt; User &gt;* Server
+    - En *databas* mål medlems typ för den mall databas (*basetenantdb*) som finns på *katalogen – MT- &lt; User &gt;* Server
     - En medlems typ av *databas* mål som innehåller *AdHocReporting* -databasen som används i en senare själv studie kurs.
 
-- **SP \_ Add \_ Job** skapar ett jobb med namnet *referens data distribution* .
+- **SP \_ Add \_ Job** skapar ett jobb med namnet *referens data distribution*.
 
 - **SP \_ Add \_ Jobstep** skapar det jobb steg som innehåller T-SQL-kommando texten för att uppdatera referens tabellen, VenueTypes.
 
@@ -142,7 +142,7 @@ Den här övningen skapar ett jobb för att återskapa indexet för primär nyck
 
 1. I SSMS ansluter du till _JobAgent_ Database i *katalogen-MT- &lt; User &gt; . Database.Windows.net-* servern.
 
-2. Öppna i SSMS *... \\ Inlärnings moduler \\ schema hantering \\ OnlineReindex. SQL* .
+2. Öppna i SSMS *... \\ Inlärnings moduler \\ schema hantering \\ OnlineReindex. SQL*.
 
 3. Tryck **F5** för att köra skriptet.
 
@@ -150,7 +150,7 @@ Den här övningen skapar ett jobb för att återskapa indexet för primär nyck
 
 Observera följande objekt i *OnlineReindex. SQL* -skriptet:
 
-* **SP \_ Add \_ Job** skapar ett nytt jobb med namnet *online Reindex PK \_ \_ VenueTyp \_ \_ 265E44FD7FD4C885* .
+* **SP \_ Add \_ Job** skapar ett nytt jobb med namnet *online Reindex PK \_ \_ VenueTyp \_ \_ 265E44FD7FD4C885*.
 
 * **SP \_ Add \_ Jobstep** skapar det jobb steg som innehåller kommando texten T-SQL för att uppdatera indexet.
 

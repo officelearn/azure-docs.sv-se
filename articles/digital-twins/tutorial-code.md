@@ -8,11 +8,11 @@ ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: 3225fff1c82822dee990804f934ada86068841e8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280261"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011310"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Självstudie: koda med Azure Digitals dubbla API: er
 
@@ -25,7 +25,7 @@ Det är vanligt för utvecklare som arbetar med Azure Digitals dubblare att skri
 > * Rensa resurser
 > * Nästa steg
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien används kommando raden för installation och projekt arbete. Därför kan du använda valfri kod redigerare för att gå igenom övningarna.
 
@@ -43,7 +43,7 @@ Vad du behöver för att börja:
 
 När du är redo att ansluta till din Azure Digital-instansen börjar du konfigurera klientens program projekt. 
 
-Öppna en kommando tolk eller ett annat konsol fönster på datorn och skapa en tom projekt katalog där du vill lagra ditt arbete under den här självstudien. Namnge katalogen oavsett om du vill (till exempel *DigitalTwinsCodeTutorial* ).
+Öppna en kommando tolk eller ett annat konsol fönster på datorn och skapa en tom projekt katalog där du vill lagra ditt arbete under den här självstudien. Namnge katalogen oavsett om du vill (till exempel *DigitalTwinsCodeTutorial*).
 
 Navigera till den nya katalogen.
 
@@ -267,7 +267,7 @@ for(int i=0; i<3; i++) {
 }
 ```
 
-Kör programmet med i kommando fönstret `dotnet run` . I utdata söker du efter de utskrifts meddelanden som *sampleTwin-0* , *sampleTwin-1* och *sampleTwin-2* har skapats. 
+Kör programmet med i kommando fönstret `dotnet run` . I utdata söker du efter de utskrifts meddelanden som *sampleTwin-0*, *sampleTwin-1* och *sampleTwin-2* har skapats. 
 
 Kör sedan programmet igen. 
 

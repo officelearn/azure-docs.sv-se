@@ -18,11 +18,11 @@ ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 469f6a1021fde661c4eae7951b86c9bb500c7050
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958582"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012501"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en fil resurs i Azure
 
@@ -33,7 +33,7 @@ Windows Server-redundanskluster är grunden för en hög tillgänglig SAP-ASCS/S
 
 Ett redundanskluster är en grupp med 1 + n oberoende servrar (noder) som arbetar tillsammans för att öka tillgängligheten för program och tjänster. Om ett nodfel inträffar beräknar Windows Server-redundanskluster antalet fel som kan uppstå och fortfarande upprätthåller ett felfritt kluster för att tillhandahålla program och tjänster. Du kan välja mellan olika kvorumresurser för att nå redundanskluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Läs igenom den här artikeln innan du påbörjar de uppgifter som beskrivs i den här artikeln:
 
 * [Azure Virtual Machines hög tillgänglighets arkitektur och scenarier för SAP NetWeaver][sap-high-availability-architecture-scenarios]

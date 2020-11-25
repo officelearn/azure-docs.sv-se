@@ -6,11 +6,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871906"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011888"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantera och underhålla Log Analytics-agenten för Windows och Linux
 
@@ -38,7 +38,7 @@ Du kan ladda ned den senaste versionen av Windows-agenten från din Log Analytic
 
 3. I listan med Log Analytics arbets ytor väljer du arbets ytan.
 
-4. I arbets ytan Log Analytics väljer du **Avancerade inställningar**och väljer sedan **anslutna källor**och slutligen **Windows-servrar**.
+4. I arbets ytan Log Analytics väljer du **Avancerade inställningar** och väljer sedan **anslutna källor** och slutligen **Windows-servrar**.
 
 5. På sidan **Windows-servrar** väljer du lämplig version av **Windows-agenten** som ska laddas ned beroende på processor arkitekturen i Windows-operativsystemet.
 
@@ -52,7 +52,7 @@ Du kan ladda ned den senaste versionen av Windows-agenten från din Log Analytic
 
 2. Kör **MMASetup- \<platform\> . exe** för att starta installations guiden.
 
-3. Klicka på **Nästa**på den första sidan i installations guiden.
+3. Klicka på **Nästa** på den första sidan i installations guiden.
 
 4. I dialog rutan **installations program för Microsoft Monitoring Agent** klickar **du på jag accepterar** att godkänna licens avtalet.
 
@@ -231,9 +231,9 @@ Använd någon av följande procedurer för att avinstallera Windows-eller Linux
 #### <a name="uninstall-from-control-panel"></a>Avinstallera från kontroll panelen
 1. Logga in på datorn med ett konto som har administratörs behörighet.
 
-2. I **kontroll panelen**klickar du på **program och funktioner**.
+2. I **kontroll panelen** klickar du på **program och funktioner**.
 
-3. Klicka på **Microsoft Monitoring Agent**i **program och funktioner**, klicka på **Avinstallera**och klicka sedan på **Ja**.
+3. Klicka på **Microsoft Monitoring Agent** i **program och funktioner**, klicka på **Avinstallera** och klicka sedan på **Ja**.
 
 >[!NOTE]
 >Installations guiden för agenten kan också köras genom att dubbelklicka på **MMASetup- \<platform\> . exe**, som är tillgänglig för nedladdning från en arbets yta i Azure Portal.
@@ -275,7 +275,7 @@ Utför följande steg för att konfigurera Log Analytics agent för Windows att 
 
 8. I fältet **hanterings server port** anger du TCP-portnumret.
 
-9. Under **agent åtgärds konto**väljer du antingen lokalt system konto eller ett lokalt domän konto.
+9. Under **agent åtgärds konto** väljer du antingen lokalt system konto eller ett lokalt domän konto.
 
 10. Klicka på **OK** för att stänga dialog rutan **Lägg till en hanterings grupp** och klicka sedan på **OK** för att stänga dialog rutan **Egenskaper för Microsoft Monitoring Agent** .
 

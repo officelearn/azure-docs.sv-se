@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 09/27/2020
 ms.author: jingwang
 ms.openlocfilehash: c99225b53266fc74ea357151de824cd8d8ed2088
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946152"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011616"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Parquet-format i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,9 +29,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Data uppsättningens typ-egenskap måste anges till **Parquet**. | Ja      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
-| compressionCodec | Den komprimerings-codec som ska användas när du skriver till Parquet-filer. Vid läsning från Parquet-filer bestämmer data fabrikerna automatiskt komprimerings-codecen baserat på filens metadata.<br>De typer som stöds är "**none**", "**gzip**", "**fästfunktionen**" (standard) och "**LZO**". Obs! kopierings aktiviteten stöder för närvarande inte LZO vid läsning/skrivning av Parquet-filer. | Nej       |
+| typ             | Data uppsättningens typ-egenskap måste anges till **Parquet**. | Yes      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Yes      |
+| compressionCodec | Den komprimerings-codec som ska användas när du skriver till Parquet-filer. Vid läsning från Parquet-filer bestämmer data fabrikerna automatiskt komprimerings-codecen baserat på filens metadata.<br>De typer som stöds är "**none**", "**gzip**", "**fästfunktionen**" (standard) och "**LZO**". Obs! kopierings aktiviteten stöder för närvarande inte LZO vid läsning/skrivning av Parquet-filer. | No       |
 
 > [!NOTE]
 > Tomt utrymme i kolumn namn stöds inte för Parquet-filer.
@@ -66,30 +66,30 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="parquet-as-source"></a>Parquet som källa
 
-Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** .
+Följande egenskaper stöds i avsnittet Kopiera aktivitet **_ \_ källa \****.
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **ParquetSource**. | Ja      |
-| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
+| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **ParquetSource**. | Yes      |
+| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | No       |
 
 ### <a name="parquet-as-sink"></a>Parquet som mottagare
 
-Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* mottagare \* *** .
+Följande egenskaper stöds i avsnittet Kopiera aktivitet **_ \_ mottagare \****.
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Egenskapen Type för kopierings aktivitetens Sink måste anges till **ParquetSink**. | Ja      |
-| formatSettings | En grupp med egenskaper. Se **Parquet Write Settings** Table nedan. |    Nej      |
-| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
+| typ          | Egenskapen Type för kopierings aktivitetens Sink måste anges till **ParquetSink**. | Yes      |
+| formatSettings | En grupp med egenskaper. Se **Parquet Write Settings** Table nedan. |    No      |
+| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | No       |
 
 **Skriv inställningar för Parquet** som stöds under `formatSettings` :
 
 | Egenskap      | Beskrivning                                                  | Krävs                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| typ          | Typen för formatSettings måste anges till **ParquetWriteSettings**. | Ja                                                   |
-| maxRowsPerFile | När du skriver data till en mapp kan du välja att skriva till flera filer och ange max rader per fil.  | Nej |
-| fileNamePrefix | Gäller när `maxRowsPerFile` har kon figurer ATS.<br> Ange prefixet för fil namn när du skriver data till flera filer, vilket resulterade i det här mönstret: `<fileNamePrefix>_00000.<fileExtension>` . Om inget anges skapas prefixet för fil namn automatiskt. Den här egenskapen gäller inte när källan är filbaserad lagring eller [partition-alternativ-aktiverat data lager](copy-activity-performance-features.md).  | Nej |
+| typ          | Typen för formatSettings måste anges till **ParquetWriteSettings**. | Yes                                                   |
+| maxRowsPerFile | När du skriver data till en mapp kan du välja att skriva till flera filer och ange max rader per fil.  | No |
+| fileNamePrefix | Gäller när `maxRowsPerFile` har kon figurer ATS.<br> Ange prefixet för fil namn när du skriver data till flera filer, vilket resulterade i det här mönstret: `<fileNamePrefix>_00000.<fileExtension>` . Om inget anges skapas prefixet för fil namn automatiskt. Den här egenskapen gäller inte när källan är filbaserad lagring eller [partition-alternativ-aktiverat data lager](copy-activity-performance-features.md).  | No |
 
 ## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 
@@ -99,9 +99,9 @@ I mappa data flöden kan du läsa och skriva till Parquet-format i följande dat
 
 I tabellen nedan visas de egenskaper som stöds av en Parquet-källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** .
 
-| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | Formatet måste vara `parquet` | ja | `parquet` | format |
+| Format | Formatet måste vara `parquet` | yes | `parquet` | format |
 | Jokertecken sökvägar | Alla filer som matchar sökvägen för jokertecken kommer att bearbetas. Åsidosätter mappen och fil Sök vägen som angetts i data uppsättningen. | nej | Sträng [] | wildcardPaths |
 | Partitionens rot Sök väg | För fildata som är partitionerade kan du ange en rot Sök väg för partitionen för att kunna läsa partitionerade mappar som kolumner | nej | Sträng | partitionRootPath |
 | Lista över filer | Om källan pekar på en textfil som visar en lista över filer som ska bearbetas | nej | `true` eller `false` | fileList |
@@ -129,9 +129,9 @@ source(allowSchemaDrift: true,
 
 I tabellen nedan visas de egenskaper som stöds av en Parquet-mottagare. Du kan redigera dessa egenskaper på fliken **Inställningar** .
 
-| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | Formatet måste vara `parquet` | ja | `parquet` | format |
+| Format | Formatet måste vara `parquet` | yes | `parquet` | format |
 | Rensa mappen | Om målmappen rensas innan den skrivs | nej | `true` eller `false` | truncate |
 | Fil namns alternativ | Namngivnings formatet för de data som skrivits. Som standard är en fil per partition i format `part-#####-tid-<guid>` | nej | Mönster: sträng <br> Per partition: sträng [] <br> Som data i kolumnen: sträng <br> Utdata till en enskild fil: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
 
@@ -161,7 +161,7 @@ Parquet komplexa data typer (t. ex. MAP, LIST, STRUCT) stöds för närvarande b
 ## <a name="using-self-hosted-integration-runtime"></a>Använda egen värd Integration Runtime
 
 > [!IMPORTANT]
-> Om du inte kopierar Parquet-filer **som du har**befogenhet att kopiera med egen värd integration runtime, t. ex. mellan lokala och molnbaserade data lager, måste du installera **64-bitars JRE 8 (Java Runtime Environment) eller openjdk** och **Microsoft Visual C++ 2010 Redistributable Package** på din IR-dator. Mer information finns i följande stycke.
+> Om du inte kopierar Parquet-filer **som du har** befogenhet att kopiera med egen värd integration runtime, t. ex. mellan lokala och molnbaserade data lager, måste du installera **64-bitars JRE 8 (Java Runtime Environment) eller openjdk** och **Microsoft Visual C++ 2010 Redistributable Package** på din IR-dator. Mer information finns i följande stycke.
 
 För kopiering som körs på egen värd-IR med Parquet-filserialisering/deserialisering, hittar ADF Java-körningen genom att först kontrol lera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om det inte hittas, och sedan kontrol lera system variabeln *`JAVA_HOME`* för openjdk.
 
@@ -178,7 +178,7 @@ Exempel: Ange variabeln `_JAVA_OPTIONS` med värde `-Xms256m -Xmx16g` . Flaggan 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över kopieringsaktivitet](copy-activity-overview.md)
+- [Översikt över kopierings aktivitet](copy-activity-overview.md)
 - [Mappa data flöde](concepts-data-flow-overview.md)
 - [Söknings aktivitet](control-flow-lookup-activity.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)

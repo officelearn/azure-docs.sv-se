@@ -8,11 +8,11 @@ ms.date: 06/16/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 9c204a07e3c5edff028342af1c88b15ebac0754b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743659"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012228"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Självstudie: Bygg en Node.js-och MongoDB-app i Azure
 
@@ -186,7 +186,7 @@ Kopiera värdet för `primaryMasterKey`. Du behöver den här informationen i n�
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Konfigurera anslutningssträngen i ditt Node.js-program
 
-I din lokala MEAN.js-lagringsplats skapar du en fil som heter _local-production.js_ i mappen _config/env/_ . _. gitignore_ har redan kon figurer ATS för att hålla filen utanför lagrings platsen. 
+I din lokala MEAN.js-lagringsplats skapar du en fil som heter _local-production.js_ i mappen _config/env/_. _. gitignore_ har redan kon figurer ATS för att hålla filen utanför lagrings platsen. 
 
 Kopiera följande kod till den. Se till att ersätta de två *\<cosmosdb-name>* plats hållarna med namnet på Cosmos DB databasen och Ersätt *\<primary-master-key>* plats hållaren med den nyckel som du kopierade i föregående steg.
 
@@ -210,7 +210,7 @@ I ett lokalt terminalfönster kör du följande kommando för att minimera och p
 gulp prod
 ```
 
-I ett lokalt terminalfönster kör du följande kommando för att använda anslutningssträngen du konfigurerade i _config/env/local-production.js_ . Ignorera certifikatfelet och config.domain-varningen.
+I ett lokalt terminalfönster kör du följande kommando för att använda anslutningssträngen du konfigurerade i _config/env/local-production.js_. Ignorera certifikatfelet och config.domain-varningen.
 
 ```bash
 # Bash
@@ -287,7 +287,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 I Node.js-kod kommer du [åt den här appens inställning](configure-language-nodejs.md#access-environment-variables) med `process.env.MONGODB_URI` , precis som du skulle få åtkomst till en miljö variabel. 
 
-På din lokala MEAN.js-lagringsplats öppnar du _config/env/production.js_ (inte _config/env/local-production.js_ ), som har en specifik konfiguration för produktion-miljö. MEAN.js-standardappen är redan konfigurerade för att använda `MONGODB_URI`-miljövariabeln du har skapat.
+På din lokala MEAN.js-lagringsplats öppnar du _config/env/production.js_ (inte _config/env/local-production.js_), som har en specifik konfiguration för produktion-miljö. MEAN.js-standardappen är redan konfigurerade för att använda `MONGODB_URI`-miljövariabeln du har skapat.
 
 ```javascript
 db: {
@@ -351,7 +351,7 @@ I det här steget ändrar du datamodellen `article` och publicerar din ändring 
 
 ### <a name="update-the-data-model"></a>Uppdatera datamodellen
 
-I din lokala MEAN.js-katalog öppnar du _modules/articles/server/models/article.server.model.js_ .
+I din lokala MEAN.js-katalog öppnar du _modules/articles/server/models/article.server.model.js_.
 
 I `ArticleSchema` lägger du till `String`-typ med namnet `comment`. När du är klar bör schemakoden se ut så här:
 
@@ -376,7 +376,7 @@ Uppdatera resten av din `articles`-kod för att använda `comment`.
 
 Det finns fem filer som du måste ändra: serverkontrollanten och de fyra klientvyerna. 
 
-Öppna _modules/articles/server/controllers/articles.server.controller.js_ .
+Öppna _modules/articles/server/controllers/articles.server.controller.js_.
 
 I funktionen `update` lägger du till en uppgift för `article.comment`. Följande kod visar den slutförda `update`-funktionen:
 
@@ -392,7 +392,7 @@ exports.update = function (req, res) {
 };
 ```
 
-Öppna _modules/articles/client/views/view-article.client.view.html_ .
+Öppna _modules/articles/client/views/view-article.client.view.html_.
 
 Strax ovanför den avslutande `</section>`-taggen lägger du till följande rad för att visa `comment` tillsammans med resterande artikeldata:
 
@@ -400,7 +400,7 @@ Strax ovanför den avslutande `</section>`-taggen lägger du till följande rad 
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
-Öppna _modules/articles/client/views/list-articles.client.view.html_ .
+Öppna _modules/articles/client/views/list-articles.client.view.html_.
 
 Strax ovanför den avslutande `</a>`-taggen lägger du till följande rad för att visa `comment` tillsammans med resterande artikeldata:
 
@@ -408,7 +408,7 @@ Strax ovanför den avslutande `</a>`-taggen lägger du till följande rad för a
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
-Öppna _modules/articles/client/views/admin/list-articles.client.view.html_ .
+Öppna _modules/articles/client/views/admin/list-articles.client.view.html_.
 
 I elementet `<div class="list-group">` och strax ovanför den avslutande `</a>`-taggen lägger du till följande rad för att visa `comment` tillsammans med resterande artikeldata:
 
@@ -416,7 +416,7 @@ I elementet `<div class="list-group">` och strax ovanför den avslutande `</a>`-
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
-Öppna _modules/articles/client/views/admin/form-article.client.view.html_ .
+Öppna _modules/articles/client/views/admin/form-article.client.view.html_.
 
 Leta reda på elementet `<div class="form-group">` som innehåller skickaknappen som ser ut så här:
 
@@ -454,7 +454,7 @@ node server.js
 
 Gå till `http://localhost:8443` i en webbläsare och kontrollera att du är inloggad.
 
-Välj **Administratör > Hantera artiklar** och lägg sedan till en artikel genom att välja knappen **+** .
+Välj **Administratör > Hantera artiklar** och lägg sedan till en artikel genom att välja knappen **+**.
 
 Nu ser du den nya textrutan `Comment`.
 
@@ -509,7 +509,7 @@ Klicka på **App Services** på menyn till vänster och klicka sedan på din Azu
 
 ![Portalnavigering till Azure-app](./media/tutorial-nodejs-mongodb-app/access-portal.png)
 
-Portalen visar som standard dina webbappar på sidan **Översikt** . På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
+Portalen visar som standard dina webbappar på sidan **Översikt**. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
 
 ![App Service-sidan på Azure Portal](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
 

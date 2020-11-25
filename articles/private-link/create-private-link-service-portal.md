@@ -8,18 +8,18 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b7bc8be89068f0d3cf6722c36ae7fd5cc560736
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87927246"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96012126"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Snabb start: skapa en privat länk-tjänst med hjälp av Azure Portal
 
 En Azure Private Link-tjänst refererar till din egen tjänst som hanteras av en privat länk. Du kan ge privat länk åtkomst till den tjänst eller resurs som fungerar bakom Azure Standard Load Balancer. Konsumenter av tjänsten kan komma åt den privat från sina egna virtuella nätverk. I den här snabb starten får du lära dig hur du skapar en privat länk-tjänst med hjälp av Azure Portal.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -79,7 +79,7 @@ I det här avsnittet konfigurerar du inställningar för lastbalanseraren för e
 En backend-adresspool innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till belastningsutjämnaren. Med den här poolen kan du distribuera trafik till dina resurser. Skapa backend-adresspoolen med namnet **myBackendPool** för att inkludera resurser som belastnings Utjämnings trafik.
 
 1. Välj **alla tjänster** på menyn längst till vänster.
-1. Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
+1. Välj **alla resurser** och välj sedan **myLoadBalancer** i listan resurser.
 1. Under **Inställningar** väljer du **Serverdelspooler** och sedan **Lägg till**.
 1. På sidan **Lägg till en server dels grupp** anger du **myBackendPool** som namn på backend-poolen och väljer sedan **Lägg till**.
 
@@ -99,7 +99,7 @@ Så här skapar du en hälso avsökning för att övervaka hälso tillståndet f
    - **Protokoll**: Välj **TCP**.
    - **Port**: ange **80**.
    - **Intervall**: ange **15**. Det här värdet är antalet sekunder mellan avsöknings försök.
-   - **Tröskelvärde**för ej felfri: ange **2**. Det här värdet är antalet avsöknings fel i följd som inträffar innan en virtuell dator betraktas som ohälsosam.
+   - **Tröskelvärde** för ej felfri: ange **2**. Det här värdet är antalet avsöknings fel i följd som inträffar innan en virtuell dator betraktas som ohälsosam.
 
 1. Välj **OK**.
 
@@ -117,7 +117,7 @@ Så här skapar du en belastnings Utjämnings regel:
 
 1. Välj **alla resurser** på menyn längst till vänster och välj sedan **myLoadBalancer** i resurs listan.
 
-1. Under **Inställningar**väljer du **regler för belastnings utjämning**och väljer sedan **Lägg till**.
+1. Under **Inställningar** väljer du **regler för belastnings utjämning** och väljer sedan **Lägg till**.
 
 1. På sidan **Lägg till belastnings Utjämnings regel** anger eller väljer du följande värden om de inte redan finns:
 
@@ -139,7 +139,7 @@ I det här avsnittet ska du skapa en privat länk-tjänst bakom en standard bela
 
 1. I **privat länk Center – översikt**  >  **exponerar din egen tjänst så att andra kan ansluta**, Välj **Start**.
 
-1. Under **skapa en privat länk tjänst – grunderna**anger eller väljer du den här informationen:
+1. Under **skapa en privat länk tjänst – grunderna** anger eller väljer du den här informationen:
 
     | Inställning           | Värde                                                                        |
     |-------------------|------------------------------------------------------------------------------|
@@ -152,11 +152,11 @@ I det här avsnittet ska du skapa en privat länk-tjänst bakom en standard bela
 
 1. Välj **Nästa: utgående inställningar**.
 
-1. Under **skapa en privat länk tjänst-utgående inställningar**anger eller väljer du den här informationen:
+1. Under **skapa en privat länk tjänst-utgående inställningar** anger eller väljer du den här informationen:
 
     | Inställning                           | Värde                                                                           |
     |-----------------------------------|---------------------------------------------------------------------------------|
-    | **Lastbalanserare**                     | Välj **myLoadBalancer**.                                                           |
+    | **Load Balancer**                     | Välj **myLoadBalancer**.                                                           |
     | **IP-adress för Load Balancer-klient** | Välj IP-adressen för klient delen av **myLoadBalancer**.                                |
     | **Käll-NAT virtuellt nätverk**        | Välj **myVNet**.                                                                   |
     | **Käll-NAT-undernät**                 | Välj **myBackendSubnet**.                                                          |
@@ -165,7 +165,7 @@ I det här avsnittet ska du skapa en privat länk-tjänst bakom en standard bela
 
 1. Välj **Nästa: åtkomst säkerhet**.
 
-1. Under **skapa en privat länk tjänst-åtkomst säkerhet**, väljer du **synlighet**och väljer sedan **rollbaserad åtkomst kontroll**.
+1. Under **skapa en privat länk tjänst-åtkomst säkerhet**, väljer du **synlighet** och väljer sedan **rollbaserad åtkomst kontroll**.
   
 1. Välj antingen **Nästa: Taggar**  >  **Granska + skapa** eller Välj fliken **Granska + skapa** högst upp på sidan.
 
@@ -182,4 +182,4 @@ När du är klar med den privata länk tjänsten tar du bort resurs gruppen för
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en intern Azure Load Balancer och en privat länk tjänst. Du kan också lära dig hur du [skapar en privat slut punkt med hjälp av Azure Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+I den här snabb starten skapade du en intern Azure Load Balancer och en privat länk tjänst. Du kan också lära dig hur du [skapar en privat slut punkt med hjälp av Azure Portal](./create-private-endpoint-portal.md).

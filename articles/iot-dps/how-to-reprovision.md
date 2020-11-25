@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839800"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010953"
 ---
 # <a name="how-to-reprovision-devices"></a>Så här etablerar du om enheter
 
@@ -37,9 +37,9 @@ Följande steg konfigurerar principen för en enhets registrering:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din enhets etablerings tjänst instans.
 
-2. Klicka på **Hantera registreringar**och klicka på den registrerings grupp eller enskild registrering som du vill konfigurera för att etablera om. 
+2. Klicka på **Hantera registreringar** och klicka på den registrerings grupp eller enskild registrering som du vill konfigurera för att etablera om. 
 
-3. Under **Välj hur du vill tilldela enheter till hubbar väljer du**någon av följande allokeringsregler:
+3. Under **Välj hur du vill tilldela enheter till hubbar väljer du** någon av följande allokeringsregler:
 
     * **Lägsta latens**: den här principen tilldelar enheter till den länkade IoT Hub som leder till den lägsta latens kommunikationen mellan enhet och IoT Hub. Med det här alternativet kan enheten kommunicera med den närmaste IoT-hubben baserat på plats. 
     
@@ -47,7 +47,7 @@ Följande steg konfigurerar principen för en enhets registrering:
     
     * **Statisk konfiguration**: den här principen kräver att en önskad IoT Hub anges i registrerings posten för att en enhet ska kunna tillhandahållas. Med den här principen kan du ange en enda viss IoT-hubb som du vill tilldela enheter till.
 
-4. Under **Välj de IoT-hubbar som gruppen kan tilldelas till**väljer du de länkade IoT-hubbar som du vill ska ingå i din resursallokeringsprincip. Du kan också lägga till en ny länkad IoT-hubb med knappen **Länka en ny IoT Hub** .
+4. Under **Välj de IoT-hubbar som gruppen kan tilldelas till** väljer du de länkade IoT-hubbar som du vill ska ingå i din resursallokeringsprincip. Du kan också lägga till en ny länkad IoT-hubb med knappen **Länka en ny IoT Hub** .
 
     Med den **lägsta** tilldelnings principen för fördröjning kommer de nav du väljer att inkluderas i utvärderingen av fördröjningen för att fastställa den närmaste hubben för enhets tilldelning.
 
@@ -65,9 +65,9 @@ Följande steg konfigurerar principen för en enhets registrering:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din enhets etablerings tjänst instans.
 
-2. Klicka på **Hantera registreringar**och klicka på den registrerings grupp eller enskild registrering som du vill konfigurera för att etablera om.
+2. Klicka på **Hantera registreringar** och klicka på den registrerings grupp eller enskild registrering som du vill konfigurera för att etablera om.
 
-3. Under **Välj hur du vill att enhets data ska hanteras vid ny etablering till en annan IoT-hubb**väljer du någon av följande principer för att etablera:
+3. Under **Välj hur du vill att enhets data ska hanteras vid ny etablering till en annan IoT-hubb** väljer du någon av följande principer för att etablera:
 
     * **Förnya och migrera data**: den här principen vidtar åtgärder när enheter som är associerade med registrerings posten skickar en ny etablerings förfrågan. Beroende på konfigurationen av registrerings posten kan enheten omtilldelas till en annan IoT-hubb. Om enheten ändrar IoT-hubbar tas enhets registreringen med den inledande IoT Hub bort. All enhets tillstånds information från den inledande IoT-hubben migreras till den nya IoT-hubben. Under migreringen rapporteras enhetens status som **tilldela**
 

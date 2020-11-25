@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74085279"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010871"
 ---
 När du skapar en virtuell nätverksgateway måste du ange vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastning, dataflöden, funktioner och serviceavtal. För virtuella nätverksgateway-SKU: er i Azure-tillgänglighetszoner, se [Azure-tillgänglighetszoner Gateway-SKU: er](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 

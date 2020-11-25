@@ -9,16 +9,16 @@ ms.service: iot-dps
 ms.custom: fasttrack-edit, iot
 services: iot-dps
 ms.openlocfilehash: 45a2b7a64006ab6963290be3ac86a3a5d1e4916d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959891"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010987"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Hantera enhets registreringar med SDK: er för Azure Device Provisioning-tjänsten
 En *enhets registrering* skapar en post för en enskild enhet eller en grupp av enheter som kan komma att registreras med enhets etablerings tjänsten. Registrerings posten innehåller den initiala önskade konfigurationen för enheten eller enheterna som en del av registreringen, inklusive önskad IoT-hubb. Den här artikeln visar hur du hanterar enhets registreringar för din etablerings tjänst program mässigt med hjälp av SDK: er för Azure IoT Provisioning-tjänsten.  SDK: er är tillgängliga på GitHub i samma databas som Azure IoT SDK: er.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Hämta anslutnings strängen från din enhets etablerings tjänst instans.
 * Hämta enhetens säkerhets artefakter för den [mekanism för attestering](concepts-service.md#attestation-mechanism) som används:
     * [**Trusted Platform Module (TPM)**](./concepts-tpm-attestation.md):

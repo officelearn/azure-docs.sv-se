@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144680"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011039"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure Cloud Services: vanliga frågor och svar
 
@@ -196,7 +196,7 @@ Windows 10 och Windows Server 2016 levereras med stöd för HTTP/2 på både kli
 3. Skapa ett nytt DWORD-värde med namnet **DuoEnabled**.
 4. Ange värdet 1.
 5. Starta om servern.
-6. Gå till **standard webbplatsen** och under **bindningar**skapar du en ny TLS-bindning med det självsignerade certifikatet som du nyss skapade. 
+6. Gå till **standard webbplatsen** och under **bindningar** skapar du en ny TLS-bindning med det självsignerade certifikatet som du nyss skapade. 
 
 Mer information finns i:
 

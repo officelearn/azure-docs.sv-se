@@ -17,11 +17,11 @@ ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b506ada0bc072a4174de6f884d1814a63f1f93ca
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949368"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012518"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer
 
@@ -1017,7 +1017,7 @@ Om du vill använda olika nummer för SAP ASCS-eller SCS-instanserna måste du �
 1. I Azure Portal väljer du **< *sid*>-lb-ASCs** belastnings  >  **Utjämnings regler**.
 2. Ändra följande värden för alla belastnings Utjämnings regler som tillhör SAP ASCS-eller SCS-instansen:
 
-   * Namn
+   * Name
    * Port
    * Server dels port
 

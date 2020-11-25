@@ -4,12 +4,12 @@ description: Den här artikeln beskriver hur du kan avbryta övervakning av ditt
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af5f49dfe5e668f39f105a62ad20858e273b34cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15ec102632258870745f510a98773f70242118be
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489494"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96011650"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Stoppa övervakningen av Azure Kubernetes Service (AKS) med Azure Monitor för containrar
 
@@ -35,7 +35,7 @@ Om du inte känner till konceptet att distribuera resurser med hjälp av en mall
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
 >[!NOTE]
->Mallen måste distribueras i samma resurs grupp i klustret. Om du utelämnar andra egenskaper eller tillägg när du använder den här mallen kan det leda till att de tas bort från klustret. Till exempel *enableRBAC* för RBAC-principer som implementeras i klustret eller *aksResourceTagValues* IF-Taggar har angetts för AKS-klustret.  
+>Mallen måste distribueras i samma resurs grupp i klustret. Om du utelämnar andra egenskaper eller tillägg när du använder den här mallen kan det leda till att de tas bort från klustret. Till exempel är *enableRBAC* för Kubernetes RBAC-principer implementerade i klustret eller *aksResourceTagValues* om Taggar har angetts för AKS-klustret.  
 >
 
 Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. För att identifiera din version, kör `az --version` . Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).

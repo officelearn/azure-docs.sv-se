@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 332d6da35af0eaae9d9d15258a152734f0a9eba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64069292ea0059216d06bfc41316c2aed7484dd0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033639"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011106"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Använda Blob Storage från C++
 
@@ -51,7 +51,7 @@ Lägg till följande include-instruktioner överst i C++-filen där du vill anv�
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Konfigurera en anslutnings sträng för Azure Storage
-En Azure Storage-klient använder en förvaringsanslutningssträng för att lagra slutpunkter och autentiseringsuppgifter för åtkomst av datahanteringstjänster. När du kör i ett klient program måste du ange lagrings anslutnings strängen i följande format, med namnet på ditt lagrings konto och lagrings åtkomst nyckeln för det lagrings konto som anges i [Azure Portal](https://portal.azure.com) för värdena *AccountName* och *AccountKey* . Information om lagrings konton och åtkomst nycklar finns i [om Azure Storage-konton](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Det här exemplet visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen:
+En Azure Storage-klient använder en förvaringsanslutningssträng för att lagra slutpunkter och autentiseringsuppgifter för åtkomst av datahanteringstjänster. När du kör i ett klient program måste du ange lagrings anslutnings strängen i följande format, med namnet på ditt lagrings konto och lagrings åtkomst nyckeln för det lagrings konto som anges i [Azure Portal](https://portal.azure.com) för värdena *AccountName* och *AccountKey* . Information om lagrings konton och åtkomst nycklar finns i [om Azure Storage-konton](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Det här exemplet visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen:
 
 ```cpp
 // Define the connection-string with your values.
@@ -184,7 +184,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 }
 ```
 
-Mer information om List åtgärder finns i [lista Azure Storage resurser i C++](../storage-c-plus-plus-enumeration.md).
+Mer information om List åtgärder finns i [lista Azure Storage resurser i C++](../common/storage-c-plus-plus-enumeration.md).
 
 ## <a name="how-to-download-blobs"></a>Så här gör du: Ladda ned blobbar
 Hämta blobar genom att först hämta en BLOB-referens och sedan anropa **download_to_stream** -metoden. I följande exempel används metoden **download_to_stream** för att överföra BLOB-innehållet till ett Stream-objekt som du sedan kan behålla till en lokal fil.
@@ -257,10 +257,9 @@ blockBlob.delete_blob();
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig grunderna i Blob Storage kan du följa dessa länkar om du vill veta mer om Azure Storage.
 
-- [Så använder du Queue Storage från C++](../storage-c-plus-plus-how-to-use-queues.md)
+- [Så använder du Queue Storage från C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 - [Använda Table Storage från C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-- [Visa Azure Storage resurser i C++](../storage-c-plus-plus-enumeration.md)
+- [Visa Azure Storage resurser i C++](../common/storage-c-plus-plus-enumeration.md)
 - [Lagrings klient bibliotek för C++-referens](https://azure.github.io/azure-storage-cpp)
 - [Azure Storage dokumentation](https://azure.microsoft.com/documentation/services/storage/)
-- [Överföra data med kommando rads verktyget AzCopy](../storage-use-azcopy.md)
-
+- [Överföra data med kommando rads verktyget AzCopy](../common/storage-use-azcopy-v10.md)

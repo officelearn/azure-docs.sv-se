@@ -4,11 +4,11 @@ description: Den här artikeln beskriver hur du konfigurerar åtkomst från priv
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.openlocfilehash: 9503fc26c22d7dbff13c5754288f577b7bb3242f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331319"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011004"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Nätverks säkerhet för Azure Event Hubs 
 I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med Azure Event Hubs: 
@@ -26,7 +26,7 @@ Du kan använda service märken för att definiera nätverks åtkomst kontroller
 
 | Tjänsttagg | Syfte | Kan använda inkommande eller utgående? | Kan regionala? | Kan använda med Azure-brandväggen? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **EventHub** | Azure-Event Hubs. | Outbound (Utgående) | Ja | Ja |
+| **EventHub** | Azure-Event Hubs. | Utgående | Ja | Ja |
 
 
 ## <a name="ip-firewall"></a>IP-brandvägg 

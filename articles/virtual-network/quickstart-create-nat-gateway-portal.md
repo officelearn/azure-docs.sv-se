@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
 ms.openlocfilehash: 5010dc08b695a0376ace5dde935c63caf0c39633
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711416"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012093"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Självstudie: skapa en NAT-gateway med hjälp av Azure Portal
 
@@ -53,14 +53,14 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 Nu ska vi skapa en virtuell dator för att använda NAT-tjänsten. Den här virtuella datorn har en offentlig IP-adress som kan användas som en offentlig IP-adress på instans nivå för att få åtkomst till den virtuella datorn. NAT-tjänsten är en flödes riktning som är medveten om och kommer att ersätta standard målet för Internet i ditt undernät. Den virtuella datorns offentliga IP-adress används inte för utgående anslutningar.
 
-1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **Compute**  >  **Ubuntu Server 18,04 LTS**eller söker efter **Ubuntu Server 18,04 LTS** i Marketplace-sökningen.
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **Compute**  >  **Ubuntu Server 18,04 LTS** eller söker efter **Ubuntu Server 18,04 LTS** i Marketplace-sökningen.
 
 2. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
    - **Prenumeration**  >  **Resurs grupp**: Välj **myResourceGroupNAT**.
    - **Instans information**  >  **Namn på virtuell dator**: Skriv **myVM**.
    - **Instans information**  >  **Region** > väljer **USA, östra 2**.
    - **Administratörs konto**  >  **Autentiseringstyp**: Välj **lösen ord**.
-   - **Administratörs konto** > ange **användar namn**, **lösen ord**och **Bekräfta lösen ords** information.
+   - **Administratörs konto** > ange **användar namn**, **lösen ord** och **Bekräfta lösen ords** information.
    - Regler för inkommande **portar**  >  **Offentliga inkommande portar**: Välj **Tillåt valda portar**.
    - Regler för inkommande **portar**  >  **Välj inkommande portar**: Välj **SSH (22)**
    - Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
@@ -89,26 +89,26 @@ I det här avsnittet beskrivs hur du kan skapa och konfigurera följande kompone
 
 ### <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
 
-1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **nätverkets**  >  **offentliga IP-adress**eller söker efter **offentlig IP-adress** i Marketplace-sökningen.
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **nätverkets**  >  **offentliga IP-adress** eller söker efter **offentlig IP-adress** i Marketplace-sökningen.
 
-2. I **skapa offentlig IP-adress**anger eller väljer du den här informationen:
+2. I **skapa offentlig IP-adress** anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | IP-version | Välj **IPv4**.
     | SKU | Välj **standard**.
     | Name | Ange **myPublicIP**. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **myResourceGroupNAT**. |
-    | Location | Välj **USA, östra 2**.|
+    | Plats | Välj **USA, östra 2**.|
 
 3. Lämna resten av standardinställningarna och välj **Skapa**.
 
 ### <a name="create-a-public-ip-prefix"></a>Skapa ett offentligt IP-prefix
 
-1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **nätverk**  >  **offentlig IP-prefix**eller söker efter **offentliga IP-prefix** i Marketplace-sökningen. 
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **nätverk**  >  **offentlig IP-prefix** eller söker efter **offentliga IP-prefix** i Marketplace-sökningen. 
 
-2. I **skapa ett offentligt IP-prefix**skriver eller väljer du följande värden på fliken **grundläggande** :
+2. I **skapa ett offentligt IP-prefix** skriver eller väljer du följande värden på fliken **grundläggande** :
    - **Prenumeration**  >  **Resurs grupp**: Välj **myResourceGroupNAT**>
    - **Instans information**  >  **Namn**: Skriv **myPublicIPprefix**.
    - **Instans information**  >  **Region**: Välj **USA, östra 2**.
@@ -121,7 +121,7 @@ I det här avsnittet beskrivs hur du kan skapa och konfigurera följande kompone
 
 ### <a name="create-a-nat-gateway-resource"></a>Skapa en NAT-gateway-resurs
 
-1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **nätverk**  >  **NAT gateway**eller söker efter **NAT-gateway** i Marketplace-sökningen.
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **nätverk**  >  **NAT gateway** eller söker efter **NAT-gateway** i Marketplace-sökningen.
 
 2. I **skapa Network Address Translation-Gateway (NAT)** skriver eller väljer du följande värden på fliken **grundläggande** :
    - **Prenumeration**  >  **Resurs grupp**: Välj **myResourceGroupNAT**.
@@ -145,7 +145,7 @@ I det här avsnittet beskrivs hur du kan skapa och konfigurera följande kompone
 
 ## <a name="discover-the-ip-address-of-the-vm"></a>Identifiera IP-adressen för den virtuella datorn
 
-1. Välj **resurs grupper**på vänster sida av portalen.
+1. Välj **resurs grupper** på vänster sida av portalen.
 2. Välj **myResourceGroupNAT**.
 3. Välj **myVM**.
 4. I **Översikt**, kopierar du värdet för den **offentliga IP-adressen** och klistrar in i anteckningar så att du kan använda det för att få åtkomst till den virtuella datorn.

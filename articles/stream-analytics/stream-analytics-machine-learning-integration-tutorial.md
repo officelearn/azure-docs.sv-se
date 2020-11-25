@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
 ms.openlocfilehash: 9b08b59090d9dd23405f8a0ba86ce608e3a64902
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123769"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011395"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Gör sentiment-analys med Azure Stream Analytics och Azure Machine Learning Studio (klassisk)
 
@@ -43,7 +43,7 @@ Se till att du har följande innan du börjar:
 
 I det här steget laddar du upp en CSV-fil till din lagrings behållare.
 
-1. I Azure Portal väljer du **skapa ett resurs**  >  **lagrings**  >  **lagrings konto** .
+1. I Azure Portal väljer du **skapa ett resurs**  >  **lagrings**  >  **lagrings konto**.
 
 2. Fyll i fliken *grundläggande* med följande information och lämna standardvärdena för de återstående fälten:
 
@@ -51,23 +51,23 @@ I det här steget laddar du upp en CSV-fil till din lagrings behållare.
    |---------|---------|
    |Prenumeration|Välj din prenumeration.|
    |Resursgrupp|Välj din resurs grupp.|
-   |Lagringskontonamn|Ange ett namn för lagringskontot. Namnet måste vara unikt i Azure.|
+   |Namn på lagringskonto|Ange ett namn för lagringskontot. Namnet måste vara unikt i Azure.|
    |Plats|Välj en plats. Alla resurser bör använda samma plats.|
    |Typ av konto|BlobStorage|
 
    ![Ange information om lagrings konto](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-3. Välj **Granska + skapa** . Välj sedan **skapa** för att distribuera ditt lagrings konto.
+3. Välj **Granska + skapa**. Välj sedan **skapa** för att distribuera ditt lagrings konto.
 
-4. När distributionen är klar navigerar du till ditt lagrings konto. Välj **containrar** under **Blob Service** . Välj sedan **+ container** för att skapa en ny behållare.
+4. När distributionen är klar navigerar du till ditt lagrings konto. Välj **containrar** under **Blob Service**. Välj sedan **+ container** för att skapa en ny behållare.
 
    ![Skapa Blob Storage-behållare för indata](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
-5. Ange ett namn för behållaren och kontrol lera att **offentlig åtkomst nivå** är inställd på **privat** . När du är färdig väljer du **Skapa** .
+5. Ange ett namn för behållaren och kontrol lera att **offentlig åtkomst nivå** är inställd på **privat**. När du är färdig väljer du **Skapa**.
 
    ![Ange information om BLOB container](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
-6. Navigera till den nyligen skapade behållaren och välj **Ladda upp** . Ladda upp **sampleinput.csv** -filen som du laddade ned tidigare.
+6. Navigera till den nyligen skapade behållaren och välj **Ladda upp**. Ladda upp **sampleinput.csv** -filen som du laddade ned tidigare.
 
    ![Knappen Ladda upp för en behållare](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
@@ -77,7 +77,7 @@ Nu när exempel data finns i en BLOB kan du aktivera sentiment analys modell i C
 
 1. Gå till sidan för [förutsägelse sentiment Analytics-modellen](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) i Cortana Intelligence Gallery.  
 
-2. Välj **Öppna i Studio (klassisk)** .  
+2. Välj **Öppna i Studio (klassisk)**.  
    
    ![Stream Analytics Azure Machine Learning Studio (klassisk), öppna Studio (klassisk)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
@@ -115,7 +115,7 @@ Gå till [Azure Portal](https://portal.azure.com) och skapa ett Stream Analytics
 
 Jobbet hämtar indata från den CSV-fil som du överförde tidigare till Blob Storage.
 
-1. Gå till Stream Analytics-jobbet. Under **jobb sto pol Ogin** väljer du alternativet **indata** . Välj **Lägg till Stream-indata**  > **Blob Storage** .
+1. Gå till Stream Analytics-jobbet. Under **jobb sto pol Ogin** väljer du alternativet **indata** . Välj **Lägg till Stream-indata**  > **Blob Storage**.
 
 2. Fyll i **Blob Storage** information med följande värden:
 
@@ -127,13 +127,13 @@ Jobbet hämtar indata från den CSV-fil som du överförde tidigare till Blob St
    |Container|Välj den behållare som du skapade i föregående steg.|
    |Händelseserialiseringsformat|CSV|
 
-3. Välj **Spara** .
+3. Välj **Spara**.
 
 ### <a name="configure-the-job-output"></a>Konfigurera jobbets utdata
 
 Jobbet skickar resultat till samma blob-lagring där det matas in.
 
-1. Gå till Stream Analytics-jobbet. Under **jobb sto pol Ogin** väljer du alternativet **utdata** . Välj **Lägg till**  >  **Blob Storage** .
+1. Gå till Stream Analytics-jobbet. Under **jobb sto pol Ogin** väljer du alternativet **utdata** . Välj **Lägg till**  >  **Blob Storage**.
 
 2. Fyll i formuläret **Blob Storage** med följande värden:
 
@@ -145,7 +145,7 @@ Jobbet skickar resultat till samma blob-lagring där det matas in.
    |Container|Välj den behållare som du skapade i föregående steg.|
    |Händelseserialiseringsformat|CSV|
 
-3. Välj **Spara** .
+3. Välj **Spara**.
 
 ### <a name="add-the-studio-classic-function"></a>Lägg till Studio-funktionen (klassisk)
 
@@ -161,11 +161,11 @@ I det här avsnittet definierar du en funktion i Stream Analysis-jobbet. Funktio
 
    |Fält  |Värde  |
    |---------|---------|
-   | Funktions Ali Aset | Använd namnet `sentiment` och välj **Ange Azure Machine Learning funktions inställningar manuellt** , vilket ger dig ett alternativ för att ange URL och nyckel.      |
+   | Funktions Ali Aset | Använd namnet `sentiment` och välj **Ange Azure Machine Learning funktions inställningar manuellt**, vilket ger dig ett alternativ för att ange URL och nyckel.      |
    | URL| Klistra in webb tjänstens URL.|
    |Nyckel | Klistra in API-nyckeln. |
 
-4. Välj **Spara** .
+4. Välj **Spara**.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Skapa en fråga för att transformera data
 
@@ -173,7 +173,7 @@ Stream Analytics använder en deklarativ, SQL-baserad fråga för att undersöka
 
 1. Gå tillbaka till Stream Analytics jobb översikt.
 
-2. Under **jobb sto pol Ogin** väljer du **fråga** .
+2. Under **jobb sto pol Ogin** väljer du **fråga**.
 
 3. Ange följande fråga:
 
@@ -202,7 +202,7 @@ Nu kan du starta Stream Analytics jobbet.
 
 2. Välj **Starta** överst på sidan.
 
-3. I **Start jobb** väljer du **anpassad** och väljer sedan en dag innan du laddade upp CSV-filen till Blob Storage. När du är klar väljer du **Starta** .  
+3. I **Start jobb** väljer du **anpassad** och väljer sedan en dag innan du laddade upp CSV-filen till Blob Storage. När du är klar väljer du **Starta**.  
 
 ### <a name="check-the-output"></a>Kontrol lera utdata
 
@@ -211,7 +211,7 @@ Nu kan du starta Stream Analytics jobbet.
 2. Om du har ett verktyg som du normalt använder för att undersöka innehållet i Blob Storage, använder du verktyget för att undersöka behållaren. Du kan också utföra följande steg i Azure Portal:
 
       1. I Azure Portal letar du reda på ditt lagrings konto och hittar behållaren i kontot. Du ser två filer i behållaren: filen som innehåller exempel-tweets och en CSV-fil som genereras av Stream Analyticss jobbet.
-      2. Högerklicka på den genererade filen och välj sedan **Ladda ned** .
+      2. Högerklicka på den genererade filen och välj sedan **Ladda ned**.
 
 3. Öppna den genererade CSV-filen. Du ser något som liknar följande exempel:  
 

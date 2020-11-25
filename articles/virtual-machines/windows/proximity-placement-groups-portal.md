@@ -8,11 +8,11 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: cynthn
 ms.openlocfilehash: 6a14e2bd7385430c3d0fbec06259a876af556e38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82190409"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010732"
 ---
 # <a name="create-a-proximity-placement-group-using-the-portal"></a>Skapa en närhetsplaceringsgrupp med hjälp av portalen
 
@@ -59,7 +59,7 @@ Om den virtuella datorn är en del av tillgänglighets uppsättningen måste du 
 1. Stop\deallocate varje virtuell dator i tillgänglighets uppsättningen genom att välja den virtuella datorn och sedan välja **stoppa** på sidan för den virtuella datorn och välj sedan **OK** för att stoppa den virtuella datorn.
 1. Kontrol lera att alla virtuella datorer har **statusen** **stoppad (Frigjord)** på sidan för din tillgänglighets uppsättning.
 1. I den vänstra menyn väljer du **Konfiguration**.
-1. Välj en placerings grupp i list rutan under **närhets placerings grupp**och välj sedan **Spara**.
+1. Välj en placerings grupp i list rutan under **närhets placerings grupp** och välj sedan **Spara**.
 1. Välj **Översikt** på den vänstra menyn för att visa listan över virtuella datorer igen. 
 1. Välj varje virtuell dator i tillgänglighets uppsättningen och välj sedan **Starta** på sidan för varje virtuell dator. 
 
@@ -69,7 +69,7 @@ Om den virtuella datorn är en del av tillgänglighets uppsättningen måste du 
 
 1. På sidan för den virtuella datorn väljer du **stoppa**.
 1. När statusen för den virtuella datorn visas som **stoppad (Frigjord)** väljer du **konfiguration** på den vänstra menyn.
-1. Välj en placerings grupp i list rutan under **närhets placerings grupp**och välj sedan **Spara**.
+1. Välj en placerings grupp i list rutan under **närhets placerings grupp** och välj sedan **Spara**.
 1. Välj **Översikt** i den vänstra menyn och välj **Starta** för att starta om den virtuella datorn.
 
  

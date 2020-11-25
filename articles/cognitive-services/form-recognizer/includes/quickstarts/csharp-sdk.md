@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 86803e1d7ef77467fd870221c0bc2c1c006ae479
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2d8b876f01f110a314734e596055831650a6c08b
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94816574"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95863616"
 ---
 > [!IMPORTANT]
 > Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker.
@@ -31,18 +31,6 @@ ms.locfileid: "94816574"
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 
 ## <a name="setting-up"></a>Konfigurera
-
-### <a name="create-a-new-c-application"></a>Skapa ett nytt C#-program
-
-#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
-
-Skapa ett nytt .NET Core-program med Visual Studio. 
-
-### <a name="install-the-client-library"></a>Installera klient biblioteket 
-
-När du har skapat ett nytt projekt installerar du klient biblioteket genom att högerklicka på projekt lösningen i **Solution Explorer** och välja **Hantera NuGet-paket**. I paket hanteraren som öppnas väljer du **Bläddra**, markerar **ta med för hands version** och söker efter `Azure.AI.FormRecognizer` . Välj version `3.0.0` och **Installera** sedan. 
-
-#### <a name="cli"></a>[CLI](#tab/cli)
 
 I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet `formrecognizer-quickstart` . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *program.cs*. 
 
@@ -70,8 +58,16 @@ Build succeeded.
 
 I program katalogen installerar du formulär tolkens klient bibliotek för .NET med följande kommando:
 
+#### <a name="version-30"></a>[version 3,0](#tab/ga)
+
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
+```
+
+#### <a name="version-31-preview"></a>[version 3,1 Preview](#tab/preview)
+
+```console
+dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
 ```
 ---
 
@@ -91,9 +87,14 @@ I programmets **program** klass skapar du variabler för resursens nyckel och sl
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_creds)]
 
-I programmets **main** -metod lägger du till ett anrop till den asynkrona aktivitet som används i den här snabb starten. Du kommer att implementera den senare.
+I programmets **main** -metod lägger du till ett anrop till de asynkrona uppgifter som används i den här snabb starten. Du kommer att implementera dem senare.
 
+#### <a name="version-30"></a>[version 3,0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
+#### <a name="version-31-preview"></a>[version 3,1 Preview](#tab/preview)
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
+
+---
 
 
 ## <a name="object-model"></a>Objekt modell 
@@ -126,6 +127,8 @@ Se exempel för att [träna en modell](#train-a-custom-model) och [Hantera anpas
 
 De här kodfragmenten visar hur du utför följande uppgifter med formulär tolkens klient bibliotek för .NET:
 
+#### <a name="version-30"></a>[version 3,0](#tab/ga)
+
 * [Autentisera klienten](#authenticate-the-client)
 * [Identifiera formulär innehåll](#recognize-form-content)
 * [Identifiera kvitton](#recognize-receipts)
@@ -133,6 +136,18 @@ De här kodfragmenten visar hur du utför följande uppgifter med formulär tolk
 * [Analysera formulär med en anpassad modell](#analyze-forms-with-a-custom-model)
 * [Hantera dina anpassade modeller](#manage-your-custom-models)
 
+#### <a name="version-31-preview"></a>[version 3,1 Preview](#tab/preview)
+
+* [Autentisera klienten](#authenticate-the-client)
+* [Identifiera formulär innehåll](#recognize-form-content)
+* [Identifiera kvitton](#recognize-receipts)
+* [Identifiera visitkort](#recognize-business-cards)
+* [Identifiera fakturor](#recognize-invoices)
+* [Träna en anpassad modell](#train-a-custom-model)
+* [Analysera formulär med en anpassad modell](#analyze-forms-with-a-custom-model)
+* [Hantera dina anpassade modeller](#manage-your-custom-models)
+
+---
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
@@ -155,9 +170,14 @@ Du måste också lägga till referenser till URL: erna för din utbildning och t
 
 * Om du vill hämta SAS-URL: en för din anpassade modell inlärnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Använd sedan stegen ovan för att hämta SAS-URL: en för ett enskilt dokument i Blob Storage.
-* Spara slutligen URL: en för exempel kvitto bilden som ingår i exemplen nedan (även tillgängligt på [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms). 
+* Spara slutligen URL: en för de exempel bilder som ingår nedan (finns också på [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)). 
 
+#### <a name="version-30"></a>[version 3,0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
+#### <a name="version-31-preview"></a>[version 3,1 Preview](#tab/preview)
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
+
+---
 
 
 ## <a name="recognize-form-content"></a>Identifiera formulär innehåll
@@ -268,6 +288,43 @@ Item:
     Total Price: '99.99', with confidence 0.386
 Total: '1203.39', with confidence '0.774'
 ```
+
+#### <a name="version-30"></a>[version 3,0](#tab/ga)
+
+#### <a name="version-31-preview"></a>[version 3,1 Preview](#tab/preview)
+
+## <a name="recognize-business-cards"></a>Identifiera visitkort
+
+Det här avsnittet visar hur du känner igen och extraherar vanliga fält från engelska visitkort med en förtränad modell.
+
+Använd metoden för att identifiera visitkort från en URL `StartRecognizeBusinessCardsFromUriAsync` . 
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
+
+> [!TIP]
+> Du kan också identifiera lokala kvitto avbildningar. Se [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) -metoderna, till exempel **StartRecognizeBusinessCards**. Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) för scenarier som involverar lokala avbildningar.
+
+Det returnerade värdet är en samling `RecognizedForm` objekt: ett för varje kort i dokumentet. Följande kod bearbetar visitkortet vid den aktuella URI: n och skriver ut de viktigaste fälten och värdena till-konsolen.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
+
+## <a name="recognize-invoices"></a>Identifiera fakturor
+
+Det här avsnittet visar hur du identifierar och extraherar gemensamma fält från försäljnings fakturor med hjälp av en förtränad modell.
+
+Använd-metoden för att identifiera fakturor från en URL `StartRecognizeInvoicesFromUriAsync` . 
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_call)]
+
+> [!TIP]
+> Du kan också identifiera lokala faktura avbildningar. Se [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) -metoderna, till exempel **StartRecognizeInvoices**. Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) för scenarier som involverar lokala avbildningar.
+
+Det returnerade värdet är en samling `RecognizedForm` objekt: ett för varje faktura i det dokument som skickas. Följande kod bearbetar fakturan vid den aktuella URI: n och skriver ut de viktigaste fälten och värdena till-konsolen.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_print)]
+
+---
+
 
 ## <a name="train-a-custom-model"></a>Träna en anpassad modell
 
@@ -575,19 +632,12 @@ Du kan också ta bort en modell från ditt konto genom att referera till dess ID
 
 ## <a name="run-the-application"></a>Kör programmet
 
-#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
-
-Kör programmet genom att klicka på knappen **Felsök** överst i IDE-fönstret.
-
-#### <a name="cli"></a>[CLI](#tab/cli)
-
 Kör programmet från program katalogen med `dotnet run` kommandot.
 
 ```dotnet
 dotnet run
 ```
 
----
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

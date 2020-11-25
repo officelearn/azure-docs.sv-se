@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
 ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318359"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975589"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Anslut Operations Manager till Azure Monitor
 
@@ -72,15 +72,15 @@ Informationen nedan visar den konfigurations information för proxy och brand v�
 |Resurs | Portnummer| Kringgå HTTPS-kontroll|  
 |---------|------|-----------------------|  
 |**Agent**|||  
-|\*.ods.opinsights.azure.com| 443 |Ja|  
-|\*.oms.opinsights.azure.com| 443|Ja|  
-|\*.blob.core.windows.net| 443|Ja|  
-|\*.azure-automation.net| 443|Ja|  
+|\*.ods.opinsights.azure.com| 443 |Yes|  
+|\*.oms.opinsights.azure.com| 443|Yes|  
+|\*.blob.core.windows.net| 443|Yes|  
+|\*.azure-automation.net| 443|Yes|  
 |**Hanteringsserver**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| Ja|  
-|\*.ods.opinsights.azure.com| 443| Ja|  
-|*.azure-automation.net | 443| Ja|  
+|\*.blob.core.windows.net| 443| Yes|  
+|\*.ods.opinsights.azure.com| 443| Yes|  
+|*.azure-automation.net | 443| Yes|  
 |**Operations Manager-konsolen för att Azure Monitor**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -136,7 +136,7 @@ När du har konfigurerat integrationen med din Log Analytics-arbetsyta upprätta
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 1. Expandera noden Operations Management Suite och klicka på **Anslutning**.
 1. Klicka på länken **Lägg till en dator/grupp** under rubriken Åtgärder på höger sida av fönstret.
-1. I dialogrutan **Datorsökning** kan du söka efter datorer eller grupper som övervakas av Operations Manager. Välj datorer eller grupper, inklusive den Operations Manager hanterings server som ska publiceras i Azure Monitor, klicka på **Lägg till**och sedan på **OK**.
+1. I dialogrutan **Datorsökning** kan du söka efter datorer eller grupper som övervakas av Operations Manager. Välj datorer eller grupper, inklusive den Operations Manager hanterings server som ska publiceras i Azure Monitor, klicka på **Lägg till** och sedan på **OK**.
 
 Du kan visa datorer och grupper som konfigurerats för att samla in data från noden för hanterade datorer under Operations Management Suite i arbetsytan **Administration** i Operations-konsolen. Härifrån kan du lägga till eller ta bort datorer och grupper efter behov.
 
@@ -162,7 +162,7 @@ Om proxyservern kräver autentisering utför du följande steg för att konfigur
 
 När anslutningen har skapats och du konfigurerar vilka agenter som ska samla in och rapportera logg data till Azure Monitor, tillämpas följande konfiguration i hanterings gruppen, inte nödvändigt vis i ordning:
 
-* Kör som-kontot **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** skapas. Det är associerat med Kör som-profilen **Microsoft System Center Advisor Run As Profile Blob** (Microsoft System Center Advisor Kör som-profilblob) och har två klasser som mål – **insamlingsserver** och **Operations Manager-hanteringsgrupp **.
+* Kör som-kontot **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** skapas. Det är associerat med Kör som-profilen **Microsoft System Center Advisor Run As Profile Blob** (Microsoft System Center Advisor Kör som-profilblob) och har två klasser som mål – **insamlingsserver** och **Operations Manager-hanteringsgrupp**.
 * Två anslutningsprogram skapas.  Det första heter **Microsoft.SystemCenter. Advisor. DataConnector** och konfigureras automatiskt med en prenumeration som vidarebefordrar alla aviseringar som genereras från instanser av alla klasser i hanterings gruppen till Azure Monitor. Den andra kopplingen är **Advisor-koppling**, som ansvarar för att kommunicera med Azure Monitor och dela data.
 * Agenter och grupper som du har valt för att samla in data i hanteringsgruppen läggs till i **Övervakning av servergrupp i Microsoft System Center Advisor**.
 

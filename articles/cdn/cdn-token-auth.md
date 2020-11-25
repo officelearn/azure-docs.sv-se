@@ -15,11 +15,11 @@ ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
 ms.openlocfilehash: 21ef06f37e6840df08b1477f9c0ff24f6e15d1a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778012"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978054"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Skydda Azure CDN-tillgångar med token-autentisering
 
@@ -80,9 +80,9 @@ Följande flödes schema beskriver hur Azure CDN verifierar en klientbegäran n�
     
    2. Ange en unik krypterings nyckel i rutan **primär nyckel** och ange en säkerhets kopierings nyckel i rutan **säkerhets kopierings nyckel** om du vill.
 
-   3. Välj den minsta krypterings versionen för varje nyckel från listan **lägsta krypterings version** och välj sedan **Uppdatera** :
-      - **V2** : anger att nyckeln kan användas för att generera version 2,0 och 3,0-token. Använd bara det här alternativet om du övergår från en äldre version 2,0-krypterings nyckel till en version 3,0-nyckel.
-      - **V3** : (rekommenderas) anger att nyckeln endast kan användas för att generera version 3,0-token.
+   3. Välj den minsta krypterings versionen för varje nyckel från listan **lägsta krypterings version** och välj sedan **Uppdatera**:
+      - **V2**: anger att nyckeln kan användas för att generera version 2,0 och 3,0-token. Använd bara det här alternativet om du övergår från en äldre version 2,0-krypterings nyckel till en version 3,0-nyckel.
+      - **V3**: (rekommenderas) anger att nyckeln endast kan användas för att generera version 3,0-token.
 
       ![Konfigurations nyckel för CDN token auth](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
@@ -114,7 +114,7 @@ Följande flödes schema beskriver hur Azure CDN verifierar en klientbegäran n�
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>Indatavärde `/pictures/` : endast begär Anden som innehåller `/pictures/` sökvägen tillåts. Till exempel `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+      >       <li>Indatavärde `/pictures/` : endast begär Anden som innehåller `/pictures/` sökvägen tillåts. Exempelvis `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
       >       <li>Indatavärde `/pictures/city/strasbourg.png` : endast begär Anden för denna angivna sökväg och till gång är tillåtna.</li>
       >    </ul>
       > </tr>
@@ -162,28 +162,28 @@ Följande flödes schema beskriver hur Azure CDN verifierar en klientbegäran n�
 
    7. Välj **kryptera** för att generera token.
 
-      När token har skapats visas den i rutan **genererad token** . Om du vill använda token lägger du till den som en frågesträng i slutet av filen i URL-sökvägen. Till exempel `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+      När token har skapats visas den i rutan **genererad token** . Om du vill använda token lägger du till den som en frågesträng i slutet av filen i URL-sökvägen. Exempelvis `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-   8. Du kan också testa din token med dekrypterings verktyget så att du kan visa din tokens parametrar. Klistra in token-värdet i rutan **token för att dekryptera** . Välj den krypterings nyckel som du vill använda från **nyckeln för att dekryptera** listan och välj sedan **dekryptera** .
+   8. Du kan också testa din token med dekrypterings verktyget så att du kan visa din tokens parametrar. Klistra in token-värdet i rutan **token för att dekryptera** . Välj den krypterings nyckel som du vill använda från **nyckeln för att dekryptera** listan och välj sedan **dekryptera**.
 
       När token har dekrypterats visas parametrarna i rutan **ursprungliga parametrar** .
 
-   9. Du kan också anpassa den typ av svarskod som returneras när en begäran nekas. Välj **aktive rad** och sedan svars koden från listan **svars kod** . **Huvud namnet** anges automatiskt till **location** . Välj **Spara** för att implementera den nya svars koden. För vissa svars koder måste du också ange webb adressen till fel sidan i rutan **rubrik värde** . **403** -svars koden (förbjuden) är markerad som standard. 
+   9. Du kan också anpassa den typ av svarskod som returneras när en begäran nekas. Välj **aktive rad** och sedan svars koden från listan **svars kod** . **Huvud namnet** anges automatiskt till **location**. Välj **Spara** för att implementera den nya svars koden. För vissa svars koder måste du också ange webb adressen till fel sidan i rutan **rubrik värde** . **403** -svars koden (förbjuden) är markerad som standard. 
 
-3. Välj **regel motor** under **http Large** . Du använder regel motorn för att definiera sökvägar för att tillämpa funktionen, aktivera funktionen token Authentication och aktivera ytterligare funktioner för token-autentisering. Mer information finns i [regel motor referens](./cdn-verizon-premium-rules-engine-reference.md).
+3. Välj **regel motor** under **http Large**. Du använder regel motorn för att definiera sökvägar för att tillämpa funktionen, aktivera funktionen token Authentication och aktivera ytterligare funktioner för token-autentisering. Mer information finns i [regel motor referens](./cdn-verizon-premium-rules-engine-reference.md).
 
    1. Välj en befintlig regel eller skapa en ny regel för att definiera den till gång eller sökväg för vilken du vill använda token-autentisering. 
-   2. Om du vill aktivera token-autentisering för en regel väljer du **[token auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** i listan **funktioner** och väljer sedan **aktive rad** . Välj **Uppdatera** om du vill uppdatera en regel eller **lägga till** om du skapar en regel.
+   2. Om du vill aktivera token-autentisering för en regel väljer du **[token auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** i listan **funktioner** och väljer sedan **aktive rad**. Välj **Uppdatera** om du vill uppdatera en regel eller **lägga till** om du skapar en regel.
         
       ![CDN-regler motor för token-autentisering aktivera exempel](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. I regel motorn kan du också aktivera ytterligare funktioner för token-autentisering. Om du vill aktivera någon av följande funktioner väljer du den i listan **funktioner** och väljer sedan **aktive rad** .
+4. I regel motorn kan du också aktivera ytterligare funktioner för token-autentisering. Om du vill aktivera någon av följande funktioner väljer du den i listan **funktioner** och väljer sedan **aktive rad**.
     
-   - **[Denial Code för token-autentisering](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm)** : bestämmer vilken typ av svar som returneras till en användare när en begäran nekas. Regel uppsättningen här åsidosätter svars koden som anges i avsnittet **anpassad Denial-hantering** på sidan för tokenbaserad autentisering.
+   - **[Denial Code för token-autentisering](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm)**: bestämmer vilken typ av svar som returneras till en användare när en begäran nekas. Regel uppsättningen här åsidosätter svars koden som anges i avsnittet **anpassad Denial-hantering** på sidan för tokenbaserad autentisering.
 
-   - **[Token auth IGNORE URL Case](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm)** : anger om den URL som används för att validera token är Skift läges känslig.
+   - **[Token auth IGNORE URL Case](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm)**: anger om den URL som används för att validera token är Skift läges känslig.
 
-   - **[Parameter för autentiseringstoken](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm)** : byter namn på frågesträngparametern för token som visas i den begärda URL: en. 
+   - **[Parameter för autentiseringstoken](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm)**: byter namn på frågesträngparametern för token som visas i den begärda URL: en. 
         
      ![Exempel på Inställningar för CDN-autentiseringsinställningar för motor](./media/cdn-token-auth/cdn-rules-engine2.png)
 

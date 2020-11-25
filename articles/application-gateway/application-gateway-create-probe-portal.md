@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 5d2760415e4f4ef3b181f2fb69802659fec3ef66
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397883"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975963"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Skapa en anpassad avsökning för Application Gateway med hjälp av portalen
 
@@ -34,7 +34,7 @@ Avsökningar konfigureras i en två stegs process via portalen. Det första steg
 
 ### <a name="enter-probe-properties"></a><a name="createprobe"></a>Ange egenskaper för avsökning
 
-1. Logga in i [Azure-portalen](https://portal.azure.com). Om du inte redan har ett konto kan du registrera dig för en [kostnads fri utvärderings period på en månad](https://azure.microsoft.com/free)
+1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har ett konto kan du registrera dig för en [kostnads fri utvärderings period på en månad](https://azure.microsoft.com/free)
 
 2. Klicka på Alla resurser i rutan Favoriter i Azure Portal. Klicka på Application Gateway på bladet alla resurser. Om den prenumeration du valde redan har flera resurser kan du ange partners.contoso.net i rutan Filtrera efter namn... för att enkelt få åtkomst till Application Gateway.
 
@@ -85,7 +85,7 @@ Avsökningar konfigureras i en två stegs process via portalen. Det första steg
 
 ### <a name="create-the-probe"></a><a name="createprobe"></a>Skapa avsökningen
 
-1. Logga in i [Azure-portalen](https://portal.azure.com). Om du inte redan har ett konto kan du registrera dig för en [kostnads fri utvärderings period på en månad](https://azure.microsoft.com/free)
+1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har ett konto kan du registrera dig för en [kostnads fri utvärderings period på en månad](https://azure.microsoft.com/free)
 
 2. Klicka på **Alla resurser** i rutan Favoriter i Azure Portal. Välj Application Gateway på sidan **alla resurser** . Om den prenumeration du valde redan har flera resurser kan du ange partners.contoso.net i rutan Filtrera efter namn... för att enkelt få åtkomst till Application Gateway.
 

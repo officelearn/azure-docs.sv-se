@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 018ba33271f8a3a81c3b7109607334b076d8609c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536205"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95977034"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Azure Database for MariaDB Avancerat skydd
 
@@ -34,11 +34,11 @@ Avancerat skydd för Azure Database for MariaDB ger ett nytt säkerhets lager so
 
 ## <a name="advanced-threat-protection-alerts"></a>Aviseringar för avancerat skydd 
 Avancerat skydd för Azure Database for MariaDB identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser och kan utlösa följande aviseringar:
-- **Åtkomst från ovanlig plats** : den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MariaDB-servern, där någon har loggat in på Azure Database for MariaDB servern från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en giltig åtgärd (ett nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
-- **Åtkomst från ovanliga Azure-datacenter** : den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MariaDB-servern, där någon har loggat in på servern från ett ovanligt Azure-datacenter som setts på den här servern under den senaste perioden. I vissa fall identifierar aviseringen en legitim åtgärd (ditt nya program i Azure, Power BI). I andra fall identifierar aviseringen en skadlig åtgärd från en Azure-resurs/-tjänst (tidigare anställd, extern angripare).
-- **Åtkomst från okända huvud objekt** : den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MariaDB-servern, där någon har loggat in på servern med en ovanlig huvud server (Azure Database for MariaDB användare). I vissa fall identifierar aviseringen en giltig åtgärd (nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
+- **Åtkomst från ovanlig plats**: den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MariaDB-servern, där någon har loggat in på Azure Database for MariaDB servern från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en giltig åtgärd (ett nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
+- **Åtkomst från ovanliga Azure-datacenter**: den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MariaDB-servern, där någon har loggat in på servern från ett ovanligt Azure-datacenter som setts på den här servern under den senaste perioden. I vissa fall identifierar aviseringen en legitim åtgärd (ditt nya program i Azure, Power BI). I andra fall identifierar aviseringen en skadlig åtgärd från en Azure-resurs/-tjänst (tidigare anställd, extern angripare).
+- **Åtkomst från okända huvud objekt**: den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MariaDB-servern, där någon har loggat in på servern med en ovanlig huvud server (Azure Database for MariaDB användare). I vissa fall identifierar aviseringen en giltig åtgärd (nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
 - **Access from a potentially harmful application** (Åtkomst från ett potentiellt skadligt program): Den här aviseringen utlöses när ett potentiellt skadligt program används för att få åtkomst till databasen. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen en attack med vanliga angreppsverktyg.
-- **Brute force Azure Database for MariaDB autentiseringsuppgifter** : den här aviseringen utlöses när det finns ett onormalt stort antal misslyckade inloggningar med andra autentiseringsuppgifter. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen ett nyckelsökningsangrepp.
+- **Brute force Azure Database for MariaDB autentiseringsuppgifter**: den här aviseringen utlöses när det finns ett onormalt stort antal misslyckade inloggningar med andra autentiseringsuppgifter. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen ett nyckelsökningsangrepp.
 
 ## <a name="next-steps"></a>Nästa steg
 

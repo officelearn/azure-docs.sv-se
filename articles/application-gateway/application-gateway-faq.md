@@ -9,11 +9,11 @@ ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
 ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397798"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975657"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -434,9 +434,9 @@ Nej, AGIC-tillägg är en hanterad tjänst, vilket innebär att Microsoft automa
 
 Application Gateway innehåller tre loggar: 
 
-* **ApplicationGatewayAccessLog** : åtkomst loggen innehåller varje begäran som skickats till Application Gateway-frontend. Data innehåller anroparens IP, URL begärd, svars fördröjning, retur kod och byte in och ut. Den innehåller en post per Application Gateway.
-* **ApplicationGatewayPerformanceLog** : prestanda loggen samlar in prestanda information för varje Application Gateway. Informationen omfattar data flödet i byte, totalt antal hanterade begär Anden, misslyckade begär Anden och antalet felfria och felaktiga Server dels instanser.
-* **ApplicationGatewayFirewallLog** : för programgatewayer som du konfigurerar med WAF innehåller brand Väggs loggen begär Anden som loggas via antingen identifierings läge eller skydds läge.
+* **ApplicationGatewayAccessLog**: åtkomst loggen innehåller varje begäran som skickats till Application Gateway-frontend. Data innehåller anroparens IP, URL begärd, svars fördröjning, retur kod och byte in och ut. Den innehåller en post per Application Gateway.
+* **ApplicationGatewayPerformanceLog**: prestanda loggen samlar in prestanda information för varje Application Gateway. Informationen omfattar data flödet i byte, totalt antal hanterade begär Anden, misslyckade begär Anden och antalet felfria och felaktiga Server dels instanser.
+* **ApplicationGatewayFirewallLog**: för programgatewayer som du konfigurerar med WAF innehåller brand Väggs loggen begär Anden som loggas via antingen identifierings läge eller skydds läge.
 
 Alla loggar samlas in var 60: e sekund. Mer information finns i [backend-hälsohälsa, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md).
 

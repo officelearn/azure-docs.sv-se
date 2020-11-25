@@ -7,11 +7,11 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86508057"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95976201"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Konfigurera Micro Focus CICS BankDemo för Micro Focus Enterprise Developer 4,0 på Azure
 
@@ -22,7 +22,7 @@ CICs står för system för kontroll av kund information, den transaktions platt
 > [!NOTE]
 > Kommer snart: anvisningar för att konfigurera [Micro Focus Enterprise Server 5,0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) på virtuella Azure-datorer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En virtuell dator med [företags utvecklare](set-up-micro-focus-azure.md). Tänk på att företags utvecklaren har en fullständig instans av Enterprise Server i syfte att utveckla och testa. Den här instansen är den instans av företags servern som används för demonstrationen.
 
@@ -50,7 +50,7 @@ När du har installerat Enterprise Developer 4,0 på den virtuella datorn måste
     - Skript och verktyg för IIS-hantering
     - Hanterings tjänst för IIS
 
-4. Välj **World Wide Web tjänster**och kontrol lera följande alternativ:
+4. Välj **World Wide Web tjänster** och kontrol lera följande alternativ:
 
      Program utvecklings funktioner:
     - .NET-utökningsbarhet
@@ -63,12 +63,12 @@ När du har installerat Enterprise Developer 4,0 på den virtuella datorn måste
 
 5. Välj **Windows Process Activation Service** och alla dess underordnade.
 
-6. För **funktioner**kontrollerar du **Microsoft .NET Framework 3.5.1**och kontrollerar följande alternativ:
+6. För **funktioner** kontrollerar du **Microsoft .NET Framework 3.5.1** och kontrollerar följande alternativ:
 
     - Windows Communication Foundation HTTP-aktivering
     - Windows Communication Foundation icke-HTTP-aktivering
 
-7. För **funktioner**kontrollerar du **Microsoft .NET Framework 4,6**och kontrollerar följande alternativ:
+7. För **funktioner** kontrollerar du **Microsoft .NET Framework 4,6** och kontrollerar följande alternativ:
 
    - Namngiven pipe-aktivering
    - TCP-aktivering
@@ -78,7 +78,7 @@ När du har installerat Enterprise Developer 4,0 på den virtuella datorn måste
 
 8. När du har valt alla alternativ klickar du på **Nästa** för att installera.
 
-9. Efter Windows-funktionerna går du till **kontroll panelen \> system och \> administrations verktyg för säkerhet**och väljer **tjänster**. Rulla nedåt och kontrol lera att följande tjänster körs och är inställda på **Automatisk**:
+9. Efter Windows-funktionerna går du till **kontroll panelen \> system och \> administrations verktyg för säkerhet** och väljer **tjänster**. Rulla nedåt och kontrol lera att följande tjänster körs och är inställda på **Automatisk**:
 
     - **NetTcpPortSharing**
     - **Net. pipe Listener adapter**
@@ -132,7 +132,7 @@ Frågan ska köras utan fel. När den är klar har du exempel databasen för Ban
 
 1. Öppna Visual Studio och logga in.
 
-2. Under meny alternativet **Arkiv** väljer du **öppna projekt/lösning**, navigera till **C: \\ användare \\ publika \\ dokument \\ Micro fokusering \\ Enterprise Developer- \\ exempel \\ stordator \\ CICS \\ dotNet \\ BankDemo**och väljer **SLN** -filen.
+2. Under meny alternativet **Arkiv** väljer du **öppna projekt/lösning**, navigera till **C: \\ användare \\ publika \\ dokument \\ Micro fokusering \\ Enterprise Developer- \\ exempel \\ stordator \\ CICS \\ dotNet \\ BankDemo** och väljer **SLN** -filen.
 
 3. Ta lite tid för att undersöka objekten. COBOL-program visas i Solution Explorer med CBL-tillägget tillsammans med CopyBooks (CPY) och JCL.
 
@@ -141,7 +141,7 @@ Frågan ska köras utan fel. När den är klar har du exempel databasen för Ban
     > [!NOTE]
     > BankDemo-projektet använder HCOSS (värdens kompatibilitetsalternativ för SQL Server), som inte används för den här demon.
 
-5. I **Solution Explorer**högerklickar du på projektet **BankDemo2** och väljer **build**.
+5. I **Solution Explorer** högerklickar du på projektet **BankDemo2** och väljer **build**.
 
     > [!NOTE]
     > När du skapar en lösnings nivå resulterar det i fel eftersom HCOSS inte har kon figurer ATS.
@@ -177,7 +177,7 @@ Frågan ska köras utan fel. När den är klar har du exempel databasen för Ban
 
 4. Välj **definiera region** för att skapa en ny CICS-region som heter **BANKDEMO**, som finns i den lokala databasen (lokal).
 
-5. Ange databas Server instansen, klicka på **Nästa**och ange sedan region namnet **BANKDEMO**.
+5. Ange databas Server instansen, klicka på **Nästa** och ange sedan region namnet **BANKDEMO**.
 
      ![Dialog rutan definiera region](media/07-demo-cics.png)
 
@@ -189,7 +189,7 @@ Frågan ska köras utan fel. När den är klar har du exempel databasen för Ban
 
 ## <a name="create-xa-resource-definitions"></a>Skapa resurs definitioner för XA
 
-1. I den vänstra rutan i **Enterprise Server för .net administrations** gränssnitt expanderar du **system**och sedan **XA-resursposter**. Den här inställningen definierar hur regionen samverkar med företags servern och program databaserna.
+1. I den vänstra rutan i **Enterprise Server för .net administrations** gränssnitt expanderar du **system** och sedan **XA-resursposter**. Den här inställningen definierar hur regionen samverkar med företags servern och program databaserna.
 
 2. Högerklicka på **resurs definitioner för XA** och välj **Lägg till Server instans**.
 
@@ -201,7 +201,7 @@ Frågan ska köras utan fel. När den är klar har du exempel databasen för Ban
 
      ![Skärm bild definition för den nya databasens XA-resurs](media/09-demo-xa.png)
 
-6. Klicka på ellipserna (**...**) för att öppna guiden anslutnings sträng. För **Server namn**skriver du **(lokal) \\ SQLExpress**. För **inloggning**väljer du **Windows-autentisering**. För databas namn skriver du **BANKDEMO**
+6. Klicka på ellipserna (**...**) för att öppna guiden anslutnings sträng. För **Server namn** skriver du **(lokal) \\ SQLExpress**. För **inloggning** väljer du **Windows-autentisering**. För databas namn skriver du **BANKDEMO**
 
      ![Skärmen Redigera anslutnings sträng](media/10-demo-string.png)
 
@@ -212,7 +212,7 @@ Frågan ska köras utan fel. När den är klar har du exempel databasen för Ban
 > [!NOTE]
 > Det första steget är viktigt: du måste ange region för att använda den resurs definition för XA som du nyss skapade.
 
-1. Navigera till **BANDEMO CICS-regionen** under **behållaren regioner**och välj sedan **Redigera region start fil** från fönstret **åtgärder** . Rulla ned till SQL-egenskaperna och ange **bankdemo** som **resurs namn för XA**, eller Använd ellipsen för att välja den.
+1. Navigera till **BANDEMO CICS-regionen** under **behållaren regioner** och välj sedan **Redigera region start fil** från fönstret **åtgärder** . Rulla ned till SQL-egenskaperna och ange **bankdemo** som **resurs namn för XA**, eller Använd ellipsen för att välja den.
 
 2. Spara ändringarna genom att klicka på ikonen **Spara** .
 
@@ -234,13 +234,13 @@ Skapa en lyssnare för de TN3270-sessioner som har åtkomst till BankDemo-progra
 
 3. Lägg märke till de två regioner som definierats tidigare (ESDEMO och JCLDEMO).
 
-4. Om du vill skapa en ny region för BANKDEMO högerklickar du på **regioner**och väljer **Lägg till region**.
+4. Om du vill skapa en ny region för BANKDEMO högerklickar du på **regioner** och väljer **Lägg till region**.
 
 5. Välj **BANKDEMO region**.
 
 6. Lägg till en TN3270-kanal genom att högerklicka på **BANKDEMO region** och välja **Lägg till kanal**.
 
-7. Som **namn**anger du **TN3270**. För **port**anger du **9024**. ESDEMO-programmet använder port 9230 så du måste använda en annan port.
+7. Som **namn** anger du **TN3270**. För **port** anger du **9024**. ESDEMO-programmet använder port 9230 så du måste använda en annan port.
 
 8. Spara filen genom att klicka på ikonen **Spara** eller välja **Arkiv** \> **Spara**.
 
@@ -259,7 +259,7 @@ Det sista du behöver göra är att konfigurera en 3270-session med Rumba, en 32
 
 3. Klicka på **Infoga** och skriv **127.0.0.1** för IP-adressen och **9024** för den användardefinierade porten.
 
-4. Klicka på **Anslut**längst ned i dialog rutan. En svart CICS-skärm visas.
+4. Klicka på **Anslut** längst ned i dialog rutan. En svart CICS-skärm visas.
 
 5. Skriv **Bank** för att visa första 3270-skärmen för BankDemo-programmet.
 

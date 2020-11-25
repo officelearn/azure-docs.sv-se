@@ -2,14 +2,14 @@
 title: Tagga resurser, resurs grupper och prenumerationer för logisk organisation
 description: Visar hur du använder taggar för att organisera Azure-resurser för fakturering och hantering.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3ffcb4a0f2f5dc64b165fcdec03f7c3ced258cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e9ef96a712e5ac2ba483170fb8ef9c89115b4f8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90086767"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95972576"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Använd taggar för att ordna dina Azure-resurser och-hanterings hierarki
 
@@ -107,7 +107,7 @@ Properties :
         Environment  Production
 ```
 
-När du anger parametern **-operation** **som ska ersättas ersätts**de befintliga taggarna med den nya uppsättningen taggar.
+När du anger parametern **-operation** **som ska ersättas ersätts** de befintliga taggarna med den nya uppsättningen taggar.
 
 ```azurepowershell-interactive
 $tags = @{"Project"="ECommerce"; "CostCenter"="00123"; "Team"="Web"}
@@ -240,107 +240,200 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### <a name="apply-tags"></a>Använd Taggar
 
-När du lägger till taggar till en resurs grupp eller resurs kan du antingen skriva över befintliga taggar eller lägga till nya taggar i befintliga taggar.
+Azure CLI erbjuder två kommandon för att tillämpa Taggar – [AZ tag Create](/cli/azure/tag#az_tag_create) och [AZ tag Update](/cli/azure/tag#az_tag_update). Du måste ha Azure CLI-2.10.0 eller senare. Du kan kontrol lera din version med `az version` . Information om hur du uppdaterar eller installerar finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-Om du vill skriva över taggarna på en resurs använder du:
+**AZ-taggen Create** ersätter alla Taggar i resursen, resurs gruppen eller prenumerationen. När du anropar kommandot skickar du resurs-ID för den entitet som du vill tagga.
 
-```azurecli-interactive
-az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-Om du vill lägga till en tagg till de befintliga taggarna på en resurs använder du:
+I följande exempel används en uppsättning taggar för ett lagrings konto:
 
 ```azurecli-interactive
-az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag create --resource-id $resource --tags Dept=Finance Status=Normal
 ```
 
-Om du vill skriva över de befintliga taggarna i en resurs grupp använder du:
+När kommandot har slutförts ser du till att resursen har två taggar.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Status": "Normal"
+  }
+},
+```
+
+Observera att de tidigare taggarna tas bort om du kör kommandot igen men den här gången med olika taggar.
 
 ```azurecli-interactive
-az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
+az tag create --resource-id $resource --tags Team=Compliance Environment=Production
 ```
 
-Om du vill lägga till en tagg till de befintliga taggarna i en resurs grupp använder du:
+```output
+"properties": {
+  "tags": {
+    "Environment": "Production",
+    "Team": "Compliance"
+  }
+},
+```
+
+Om du vill lägga till taggar till en resurs som redan har taggar, använder du **AZ tag Update**. Ange parametern **--operation** som ska **slås samman**.
 
 ```azurecli-interactive
-az group update -n examplegroup --set tags.'Status'='Approved'
+az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
 ```
 
-För närvarande har Azure CLI inget kommando för att tillämpa taggar på prenumerationer. Du kan dock använda CLI för att distribuera en ARM-mall som använder taggarna för en prenumeration. Se [använda taggar för resurs grupper eller prenumerationer](#apply-tags-to-resource-groups-or-subscriptions).
+Observera att de två nya taggarna har lagts till i de två befintliga taggarna.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Normal",
+    "Team": "Compliance"
+  }
+},
+```
+
+Varje taggnamn får bara ha ett värde. Om du anger ett nytt värde för en tagg ersätts det gamla värdet även om du använder sammanslagnings åtgärden. I följande exempel ändras status tag gen från normal till grön.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Merge --tags Status=Green
+```
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Green",
+    "Team": "Compliance"
+  }
+},
+```
+
+När du anger parametern **--operation** **som ska ersättas ersätts** de befintliga taggarna med den nya uppsättningen taggar.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
+```
+
+Endast de nya taggarna är kvar på resursen.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123",
+    "Project": "ECommerce",
+    "Team": "Web"
+  }
+},
+```
+
+Samma kommandon fungerar också med resurs grupper eller prenumerationer. Du skickar in identifieraren för den resurs grupp eller prenumeration som du vill tagga.
+
+Om du vill lägga till en ny uppsättning taggar i en resurs grupp använder du:
+
+```azurecli-interactive
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag create --resource-id $group --tags Dept=Finance Status=Normal
+```
+
+Om du vill uppdatera taggarna för en resurs grupp använder du:
+
+```azurecli-interactive
+az tag update --resource-id $group --operation Merge --tags CostCenter=00123 Environment=Production
+```
+
+Om du vill lägga till en ny uppsättning taggar i en prenumeration använder du:
+
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag create --resource-id /subscriptions/$sub --tags CostCenter=00123 Environment=Dev
+```
+
+Om du vill uppdatera taggarna för en prenumeration använder du:
+
+```azurecli-interactive
+az tag update --resource-id /subscriptions/$sub --operation Merge --tags Team="Web Apps"
+```
 
 ### <a name="list-tags"></a>Visa en lista över taggar
 
-Om du vill se de befintliga taggarna för en resurs använder du:
+Om du vill hämta taggar för en resurs, en resurs grupp eller en prenumeration använder du kommandot [AZ tag List](/cli/azure/tag#az_tag_list) och anger resurs-ID för entiteten.
+
+Om du vill se taggarna för en resurs använder du:
 
 ```azurecli-interactive
-az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag list --resource-id $resource
 ```
 
-Om du vill visa de befintliga taggarna för en resursgrupp använder du:
+Om du vill se taggarna för en resurs grupp använder du:
 
 ```azurecli-interactive
-az group show -n examplegroup --query tags
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag list --resource-id $group
 ```
 
-Skriptet returnerar följande format:
+Om du vill se taggarna för en prenumeration använder du:
 
-```json
-{
-  "Dept"        : "IT",
-  "Environment" : "Test"
-}
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag list --resource-id /subscriptions/$sub
 ```
 
 ### <a name="list-by-tag"></a>Lista efter tagg
 
-Om du vill hämta alla resurser som har en viss tagg och värde använder du `az resource list` :
+Använd följande för att hämta resurser som har ett visst taggnamn och värde:
 
 ```azurecli-interactive
-az resource list --tag Dept=Finance
+az resource list --tag CostCenter=00123 --query [].name
 ```
 
-Om du vill hämta resurs grupper som har en angiven tagg använder du `az group list` :
+Använd följande om du vill hämta resurser som har ett visst taggnamn med valfritt tagg-värde:
 
 ```azurecli-interactive
-az group list --tag Dept=IT
+az resource list --tag Team --query [].name
+```
+
+Använd följande om du vill hämta resurs grupper som har ett visst taggnamn och värde:
+
+```azurecli-interactive
+az group list --tag Dept=Finance
+```
+
+### <a name="remove-tags"></a>Ta bort taggar
+
+Om du vill ta bort vissa Taggar använder du **AZ tag-uppdatering** och anger **åtgärd** att **ta bort**. Skicka in de taggar som du vill ta bort.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web
+```
+
+De angivna taggarna tas bort.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123"
+  }
+},
+```
+
+Om du vill ta bort alla Taggar använder du kommandot [AZ tag Delete](/cli/azure/tag#az_tag_delete) .
+
+```azurecli-interactive
+az tag delete --resource-id $resource
 ```
 
 ### <a name="handling-spaces"></a>Hantera utrymmen
 
-Om taggnamn eller värden innehåller blank steg måste du ta några extra steg. 
-
-`--tags`Parametrarna i Azure CLI kan användas för att acceptera en sträng som består av en sträng mat ris. I följande exempel skrivs taggarna i en resurs grupp över och taggarna innehåller blank steg och bindestreck: 
+Om taggnamn eller värden innehåller blank steg, omger du dem med dubbla citat tecken.
 
 ```azurecli-interactive
-TAGS=("Cost Center=Finance-1222" "Location=West US")
-az group update --name examplegroup --tags "${TAGS[@]}"
-```
-
-Du kan använda samma syntax när du skapar eller uppdaterar en resurs grupp eller resurser med hjälp av- `--tags` parametern.
-
-Om du vill uppdatera taggarna med hjälp av `--set` parametern måste du skicka nyckeln och värdet som en sträng. I följande exempel läggs en enskild tagg till i en resurs grupp:
-
-```azurecli-interactive
-TAG="Cost Center='Account-56'"
-az group update --name examplegroup --set tags."$TAG"
-```
-
-I det här fallet är taggvärde markerat med enkla citat tecken eftersom värdet har ett bindestreck.
-
-Du kan också behöva använda taggar för många resurser. I följande exempel används alla Taggar från en resurs grupp till dess resurser när taggarna kan innehålla blank steg:
-
-```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '{}"' | sed 's/: /=/g' | sed "s/\"/'/g" | sed 's/, /,/g' | sed 's/ *$//g' | sed 's/^ *//g')
-origIFS=$IFS
-IFS=','
-read -a tagarr <<< "$tags"
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  az resource tag --tags "${tagarr[@]}" --id $id
-done
-IFS=$origIFS
+az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
 ## <a name="templates"></a>Mallar

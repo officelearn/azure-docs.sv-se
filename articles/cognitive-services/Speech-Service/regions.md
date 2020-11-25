@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b872340c50c800ebe4d4d6c7ca56b3b327bf162
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749306"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95972661"
 ---
 # <a name="speech-service-supported-regions"></a>Regioner som stöds av tal tjänster
 
@@ -27,7 +27,7 @@ Tal portalen för att utföra anpassade konfigurationer i din tal upplevelse fö
 Tänk på följande när du överväger regioner:
 
 * Om programmet använder ett [tal-SDK](speech-sdk.md)anger du regions-ID: t, till exempel `westus` när du skapar en tal konfiguration.
-* Om ditt program använder en av de olika tal tjänstens [REST-API: er](rest-apis.md)är regionen en del av slut punkts-URI: n som du använder när du gör förfrågningar.
+* Om ditt program använder en av de olika tal tjänstens [REST-API: er](./overview.md#reference-docs)är regionen en del av slut punkts-URI: n som du använder när du gör förfrågningar.
 * Nycklar som skapats för en region är bara giltiga i den regionen. Om du försöker använda dem med andra regioner resulterar det i autentiseringsfel.
 
 ## <a name="speech-sdk"></a>Speech SDK
@@ -38,7 +38,7 @@ I [talet SDK](speech-sdk.md)anges regioner som en sträng (till exempel som en p
 
 Anpassnings portalen för tal finns här: https://speech.microsoft.com
 
-Tal tjänsten är tillgänglig i dessa regioner för **tal igenkänning**, **text till tal**och **översättning**:
+Tal tjänsten är tillgänglig i dessa regioner för **tal igenkänning**, **text till tal** och **översättning**:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
@@ -63,7 +63,7 @@ Tillgängliga regioner för **avsikts igenkänning** via tal-SDK: n är följand
 | Nordamerika | USA, västra 2        | `westus2`            |
 | Sydamerika | Brasilien, södra     | `brazilsouth`        |
 
-Det här är en delmängd av de publicerings regioner som stöds av [language Understandings tjänsten (Luis)](/azure/cognitive-services/luis/luis-reference-regions).
+Det här är en delmängd av de publicerings regioner som stöds av [language Understandings tjänsten (Luis)](../luis/luis-reference-regions.md).
 
 ### <a name="voice-assistants"></a>Röstassistenter
 

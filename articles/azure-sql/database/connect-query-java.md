@@ -11,11 +11,11 @@ ms.devlang: java
 ms.date: 06/26/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: badf6b8887c356c2a7fc7308f6aa15f551e4bb67
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746723"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972682"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Använda Java och JDBC med Azure SQL Database
 
@@ -30,7 +30,7 @@ JDBC är standard Java-API: et för att ansluta till traditionella Relations dat
 - En [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support)som stöds, version 8 (ingår i Azure Cloud Shell).
 - Verktyget [Apache maven](https://maven.apache.org/) build.
 
-## <a name="prepare-the-working-environment"></a>Förbered arbets miljön
+## <a name="prepare-the-working-environment"></a>Förbereda arbetsmiljön
 
 Vi kommer att använda miljövariabler för att begränsa skrivfel och för att göra det enklare för dig att anpassa följande konfiguration efter dina egna behov.
 
@@ -45,11 +45,11 @@ AZ_SQL_SERVER_PASSWORD=<YOUR_AZURE_SQL_PASSWORD>
 AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
-Ersätt plats hållarna med följande värden, som används i den här artikeln:
+Ersätt platshållarna med följande värden, som används i hela artikeln:
 
-- `<YOUR_DATABASE_NAME>`: Namnet på din Azure SQL Database-Server. Det bör vara unikt i Azure.
-- `<YOUR_AZURE_REGION>`: Den Azure-region som du ska använda. Du kan använda `eastus` som standard, men vi rekommenderar att du konfigurerar en region närmare var du bor. Du kan ha en fullständig lista över tillgängliga regioner genom att ange `az account list-locations` .
-- `<AZ_SQL_SERVER_PASSWORD>`: Lösen ordet för din Azure SQL Database-Server. Lösen ordet måste innehålla minst åtta tecken. Tecknen ska vara från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #,% osv.).
+- `<YOUR_DATABASE_NAME>`: Namnet på din Azure SQL Database-Server. Det ska vara unikt i Azure.
+- `<YOUR_AZURE_REGION>`: Den Azure-region som du ska använda. Du kan använda `eastus` som standard, men vi rekommenderar att du konfigurerar den region som är närmast dig. Du kan ha en fullständig lista över tillgängliga regioner genom att ange `az account list-locations` .
+- `<AZ_SQL_SERVER_PASSWORD>`: Lösen ordet för din Azure SQL Database-Server. Lösenordet måste innehålla minst åtta tecken. Tecknen måste komma från tre av följande kategorier: Engelska versaler, engelska gemener, siffror (0–9) och specialtecken (som !, $, # eller %).
 - `<YOUR_LOCAL_IP_ADDRESS>`: IP-adressen för den lokala datorn som du kör Java-programmet från. Ett bekvämt sätt att hitta det är att peka din webbläsare på [whatismyip.Akamai.com](http://whatismyip.akamai.com/).
 
 Skapa sedan en resurs grupp med följande kommando:
@@ -62,7 +62,7 @@ az group create \
 ```
 
 > [!NOTE]
-> Vi använder `jq` verktyget för att Visa JSON-data och gör det lättare att läsa. Det här verktyget installeras som standard på [Azure Cloud Shell](https://shell.azure.com/). Om du inte gillar verktyget kan du på ett säkert sätt ta bort `| jq` delen av alla kommandon som vi kommer att använda.
+> Vi använder `jq` verktyget för att Visa JSON-data och gör det lättare att läsa. Det här verktyget installeras som standard på [Azure Cloud Shell](https://shell.azure.com/). Om du inte gillar det här verktyget kan du ta bort `| jq` i alla kommandon.
 
 ## <a name="create-an-azure-sql-database-instance"></a>Skapa en Azure SQL Database-instans
 
@@ -87,7 +87,7 @@ Det här kommandot skapar en Azure SQL Database-Server.
 
 ### <a name="configure-a-firewall-rule-for-your-azure-sql-database-server"></a>Konfigurera en brand Väggs regel för din Azure SQL Database-Server
 
-Azure SQL Database instanser är säkra som standard. De har en brand vägg som inte tillåter inkommande anslutningar. Om du vill kunna använda databasen måste du lägga till en brand Väggs regel som tillåter att den lokala IP-adressen kommer åt databas servern.
+Azure SQL Database instanser är säkra som standard. Databaserna har en brandvägg som inte tillåter inkommande anslutningar. Om du vill kunna använda databasen måste du lägga till en brand Väggs regel som tillåter att den lokala IP-adressen kommer åt databas servern.
 
 Eftersom du konfigurerade vår lokala IP-adress i början av den här artikeln kan du öppna serverns brand vägg genom att köra följande kommando:
 
@@ -170,7 +170,7 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id INT PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BIT);
 ```
 
-## <a name="code-the-application"></a>Koda programmet
+## <a name="code-the-application"></a>Koda appen
 
 ### <a name="connect-to-the-database"></a>Ansluta till databasen
 

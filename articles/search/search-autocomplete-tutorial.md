@@ -7,22 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1bf0a4a86ccc36960f218fabebda5bc82eb29019
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 5b498b8f49f2f0636b010e3c4d86f13ad44ac090
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426178"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029021"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Lägg till komplettera automatiskt och förslag till klient program
 
-Sökning efter typ är en vanlig teknik för att förbättra produktiviteten för användarinitierade frågor. I Azure Kognitiv sökning stöds den här upplevelsen genom *Autoavsluta* , som avslutar en term eller fras baserat på inaktuella inleveranser (som slutförs med "Micro" med "Microsoft"). Ett annat formulär är *förslag* : en kort lista med matchande dokument (som returnerar bok titlar med ett ID så att du kan länka till en informations sida). Både Autoavsluta och förslag är predikat på en matchning i indexet. Tjänsten erbjuder inte frågor som returnerar noll resultat.
+Sökning efter typ är en vanlig teknik för att förbättra produktiviteten för användarinitierade frågor. I Azure Kognitiv sökning stöds den här upplevelsen genom *Autoavsluta*, som avslutar en term eller fras baserat på inaktuella inleveranser (som slutförs med "Micro" med "Microsoft"). En andra användar upplevelse är *förslag* eller en kort lista med matchande dokument (som returnerar bok titlar med ett ID så att du kan länka till en informations sida om den boken). Både Autoavsluta och förslag är predikat på en matchning i indexet. Tjänsten erbjuder inte frågor som returnerar noll resultat.
 
 Om du vill implementera dessa upplevelser i Azure Kognitiv sökning behöver du:
 
-+ En *förslags ställare* på Server delen.
++ En *förslags* definition som är inbäddad i index schemat.
 + En *fråga* som anger [Autoavsluta](/rest/api/searchservice/autocomplete) -eller [Suggestions](/rest/api/searchservice/suggestions) -API: et för begäran.
 + En *gränssnitts kontroll* som hanterar interaktioner från sökning till typ i klient programmet. Vi rekommenderar att du använder ett befintligt JavaScript-bibliotek för detta ändamål.
 
@@ -131,7 +131,7 @@ source: "/home/suggest?highlights=false&fuzzy=true&",
 
 ### <a name="enable-highlighting"></a>Aktivera markering
 
-Markeringen använder tecken formatet för de tecken i resultatet som motsvarar indatatypen. Om t. ex. den partiella indatamängden är "Micro" visas resultatet **som** mikrosoft, **Micro** -omfattning och så vidare. Markering baseras på parametrarna HighlightPreTag och HighlightPostTag, definierade infogade med förslags funktionen.
+Markeringen använder tecken formatet för de tecken i resultatet som motsvarar indatatypen. Om t. ex. den partiella indatamängden är "Micro" visas resultatet **som** mikrosoft, **Micro**-omfattning och så vidare. Markering baseras på parametrarna HighlightPreTag och HighlightPostTag, definierade infogade med förslags funktionen.
 
 ```javascript
 source: "/home/suggest?highlights=true&fuzzy=true&",

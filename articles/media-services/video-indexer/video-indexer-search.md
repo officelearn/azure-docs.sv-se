@@ -8,54 +8,55 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 11/23/2019
 ms.author: juliako
-ms.openlocfilehash: 1c3326456fefbbef9228cf26b5821f306cd21601
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1ca7c677e5f1eb55d74cca45e757676674f303c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80127914"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030526"
 ---
 # <a name="search-for-exact-moments-in-videos-with-video-indexer"></a>Sök efter exakt moment i videor med Video Indexer
 
-Det här avsnittet visar de sökalternativ som gör att du kan söka efter exakta moment i videor.
+Det här avsnittet visar hur du använder Video Indexer webbplats för att söka efter exakta moment i videor.
 
 1. Gå till [video Indexer](https://www.videoindexer.ai/) webbplats och logga in.
-2. Sök bland alla videor i ditt konto.
+1. Ange sökorden och sökningen kommer att utföras bland alla videor i ditt konto bibliotek. 
 
-    I följande exempel söker vi efter alla videor som talar om säkerhet och i vilken Satya visas.
+    Du kan filtrera sökningen genom att välja **filter**. I följande exempel söker vi efter "Microsoft" som endast visas som en text på skärmen (OCR).
 
-    ![Sök efter video i Video Indexer](./media/video-indexer-search/video-indexer-search01.png)
+    :::image type="content" source="./media/video-indexer-search/filter.png" alt-text="Filter, endast text":::
+1. Tryck på **Sök** för att visa resultatet.
 
-3. Sök i de sammanfattande insikterna av videon.
+    :::image type="content" source="./media/video-indexer-search/results.png" alt-text="Video Sök Resultat":::
 
-    Du kan sedan söka i en video genom att välja **spela upp** på videon. Sedan kan du söka efter exakt en stund i videon genom att välja fliken **Sök** .
+    Om du väljer ett av resultaten ger spelaren dig det exakta tillfället i videon.
+1. Visa och Sök i de sammanfattande insikterna av videon genom att klicka på **spela upp** på videon eller välja ett av dina ursprungliga Sök resultat. 
 
-    I följande exempel söker vi efter "Secure" i den valda videon.
+    Du kan visa, söka och redigera **insikter**. När du väljer en av insikterna ger spelaren dig den exakta tidpunkten i videon.  
 
-    ![Sök i en video med Video Indexer](./media/video-indexer-search/video-indexer-search02.png)
+    :::image type="content" source="./media/video-indexer-search/insights.png" alt-text="Visa, Sök och redigera insikter för videon":::
 
-    Om du väljer ett av resultaten ger spelaren dig det exakta tillfället i videon. Du kan nå Player/Insights-vyn och synkroniseringen i din app. Mer information finns i [bädda in video Indexer-widgetar i din app](video-indexer-embed-widgets.md).
+    Om du bäddar in videon via Video Indexer widgetar kan du nå Player/Insights-vyn och synkroniseringen i din app. Mer information finns i [bädda in video Indexer-widgetar i din app](video-indexer-embed-widgets.md).
+1. Du kan visa, söka och redigera avskrifterna genom att klicka på fliken **tids linje** . 
 
-4. Sök igenom den detaljerade indelningen av videon.
+    :::image type="content" source="./media/video-indexer-search/timeline.png" alt-text="Visa, Sök och redigera avskrifterna av videon":::
 
-    Om du vill skapa ett eget klipp baserat på videon som du hittat väljer du knappen **Redigera** . På den här sidan visas videon tillsammans med dess insikter som filter. Mer information finns i [Visa och redigera video Indexer insikter](video-indexer-view-edit.md).
+    Redigera texten genom att välja **Redigera** i det övre högra hörnet och ändra texten efter behov. 
 
-    Du kan söka efter exakt en stund i videon för att bara visa de rader som du är intresse rad av. Använd sido insikter för att filtrera de delar som du vill se. När du är klar kan du förhandsgranska ditt klipp och välja **publicera** för att skapa det nya klippet som visas i galleriet.
+    Du kan också översätta och hämta avskrifterna genom att välja lämpligt alternativ i det övre högra hörnet. 
 
-    I följande exempel sökte vi efter texten "Mixad verklighet". Vi har också använt ytterligare filter, som du ser på skärmen nedan.
+## <a name="embed-download-create-projects"></a>Bädda in, Hämta, skapa projekt
 
-    ![Sök efter exakta moment i Video Indexer](./media/video-indexer-search/video-indexer-search03.png)
+Du kan bädda in videon genom att välja **</>bädda in** under videon. Mer information finns i [bädda in visuella widgetar i ditt program](video-indexer-embed-widgets.md).
+
+Du kan ladda ned käll videon, insikter om videon, avskrifter genom att klicka på **Ladda ned** under videon.
+
+Du kan skapa ett klipp baserat på din video av vissa rader och en stund genom att klicka på **Öppna i redigeraren**. Redigera sedan videon och spara projektet. Mer information finns i [använda dina videors djup insikter](use-editor-create-project.md).
+
+:::image type="content" source="./media/video-indexer-search/embed-download-create-projects.png" alt-text="Bädda in, hämta och skapa projekt för videon":::
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har hittat den exakta tidpunkten i videon som du vill arbeta med kan du fortsätta att bearbeta videon. Mer information finns i följande avsnitt:
-
-- [Använd dina videor med djupgående insikter](use-editor-create-project.md)
-- [Bearbeta innehåll med Video Indexer REST API](video-indexer-use-apis.md)
-- [Bädda in visuella widgetar i ditt program](video-indexer-embed-widgets.md)
-
-## <a name="see-also"></a>Se även
-
-[Översikt över Video Indexer](video-indexer-overview.md)
+[Bearbeta innehåll med Video Indexer REST API](video-indexer-use-apis.md)

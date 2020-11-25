@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda9378a41e0d98276957a6fad75db2c20e6e4e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ba7b8ff2555fd7014cf16f66745721c6425ff868
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920047"
+ms.locfileid: "96029531"
 ---
 # <a name="build-resilience-in-your-customer-identity-and-access-management-with-azure-active-directory-b2c"></a>Bygg återhämtning i din kund identitets-och åtkomst hantering med Azure Active Directory B2C
 
@@ -46,10 +46,6 @@ När du utvecklar ditt program rekommenderar vi att du överväger att [öka åt
 
 - [Övervakning och analys](resilience-with-monitoring-alerting.md): utvärdera hälso tillståndet för din tjänst genom att övervaka nyckel indikatorer och identifiera fel och prestanda avbrott genom aviseringar.
 
-- Återhämtnings resurser för Azure AD B2C utvecklare
-  - [Elastisk slut användar upplevelse](resilient-end-user-experience.md)
-  - [Elastiska gränssnitt med externa processer](resilient-external-processes.md)
-  - [Återhämtning genom bästa praxis för utvecklare](resilience-b2c-developer-best-practices.md)
-  - [Återhämtning genom övervakning och analys](resilience-with-monitoring-alerting.md)
 - [Bygg återhämtning i din infrastruktur för autentisering](resilience-in-infrastructure.md)
+
 - [Öka återhämtningen av autentisering och auktorisering i dina program](resilience-app-development-overview.md)

@@ -11,18 +11,16 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: f6078ed96106d6a53b55195ee950e2165334221d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c2c2f9d0ad7bfa50f543b57326b9fc8dab0069c6
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920080"
+ms.locfileid: "96029310"
 ---
 # <a name="increase-resilience-of-authentication-and-authorization-applications-you-develop"></a>Öka återhämtningen av autentiserings-och auktoriserings program som du utvecklar
 
 Microsoft Identity använder modern token-baserad autentisering och auktorisering. Det innebär att ett program hämtar token från en identitets leverantör för att autentisera användaren och för att ge programmet möjlighet att anropa skyddade API: er.
-
-![Bild av programmet som anropar Microsoft Identity](media/resilience-app-development-overview/app-overview.png)
 
 En token är giltig under en viss tids period innan appen måste hämta en ny. Ett anrop för att hämta en token kan sällan Miss lyckas på grund av ett problem som nätverks-eller infrastruktur fel eller strömavbrott i tjänsten. I det här dokumentet beskriver vi steg för steg hur en utvecklare kan ta för att öka återhämtningen i sina program om ett fel uppstår vid hämtning av token.
 

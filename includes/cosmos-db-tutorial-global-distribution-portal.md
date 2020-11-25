@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 12/26/2018
 ms.custom: include file
 ms.openlocfilehash: 58788d6194454c8bd40730c9c350aa901924ba3d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95560560"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027335"
 ---
 ## <a name="add-global-database-regions-using-the-azure-portal"></a><a id="addregion"></a>Lägg till globala databasregioner med Azure Portal
 Azure Cosmos DB är tillgängligt i alla [Azure-regioner][azureregions] över hela världen. När du har valt standardkonsekvensnivå för ditt databaskonto, så kan du associera en eller flera regioner (beroende på ditt val av standardkonsekvensnivå och globala distributionsbehov).

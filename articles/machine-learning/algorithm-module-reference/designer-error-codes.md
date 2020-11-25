@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 04/16/2020
-ms.openlocfilehash: 569cf130b464d97e0ac10904ffd86365b57610a5
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 11/25/2020
+ms.openlocfilehash: af7ac49fd6c1a31a8363c4ba0bf925787613ecc2
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420843"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030415"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Undantag och fel koder för designern
 
@@ -281,11 +281,18 @@ Om modellen tränas med någon av de specialiserade inlärnings modulerna anslut
 
  Det här felet uppstår när en kolumn innehåller för många unika värden.  Du kan till exempel se det här felet om du anger att en kolumn ska hanteras som kategoriska data, men det finns för många unika värden i kolumnen som tillåter bearbetning. Du kan också se det här felet om det uppstår ett matchnings fel mellan antalet unika värden i två indata.   
 
+Felet för unika värden är större än vad som tillåts om **båda** uppfyller följande villkor:
+
+- Mer än 97% instanser av en kolumn är unika värden, vilket innebär att nästan alla kategorier skiljer sig från varandra.
+- En kolumn har över 1000 unika värden.
+
 **Lösning:**
 
 Öppna den modul som genererade felet och identifiera de kolumner som används som indata. För vissa moduler kan du högerklicka på data uppsättningen och välja **visualisera** för att hämta statistik för enskilda kolumner, inklusive antalet unika värden och deras distribution.
 
 För kolumner som du tänker använda för gruppering eller kategorisering, vidta åtgärder för att minska antalet unika värden i kolumner. Du kan minska på olika sätt beroende på kolumnens datatyp. 
+
+I det här scenariot är det vanligt att kolumnen som påträffar felet är meningslös som en funktion för att träna modeller. Därför kan du använda [Redigera metadata](../algorithm-module-reference/edit-metadata.md) för att markera kolumnen som **rensad** och den kommer inte att användas vid inlärning av en modell. 
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
@@ -1106,8 +1113,8 @@ Se följande artiklar för hjälp med Hive-frågor för Machine Learning:
  Kontrol lera att frågan fungerar korrekt utanför Azure ML genom att logga in på databas servern direkt och köra frågan.  
 
  Om det finns ett SQL-genererat meddelande som rapporter ATS av ett modul undantag, vidta åtgärder baserat på det rapporterade felet. Fel meddelandena innehåller till exempel ibland speciell vägledning om det troliga felet:
-+ *Ingen sådan kolumn eller saknad databas* , vilket indikerar att du har angett ett kolumn namn som fel. Om du är säker på att kolumn namnet är korrekt kan du prova att använda hakparenteser eller citat tecken för att omsluta kolumn-ID: n.
-+ *SQL Logic-fel \<SQL keyword\> nära* , vilket indikerar att du kan ha ett syntaxfel före det angivna nyckelordet
++ *Ingen sådan kolumn eller saknad databas*, vilket indikerar att du har angett ett kolumn namn som fel. Om du är säker på att kolumn namnet är korrekt kan du prova att använda hakparenteser eller citat tecken för att omsluta kolumn-ID: n.
++ *SQL Logic-fel \<SQL keyword\> nära*, vilket indikerar att du kan ha ett syntaxfel före det angivna nyckelordet
 
   
 |Undantags meddelanden|

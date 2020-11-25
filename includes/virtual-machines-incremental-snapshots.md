@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a662598efdca05769c7da9fbeecdf692dccdacb5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95558326"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026507"
 ---
 ## <a name="overview"></a>Översikt
 Azure Storage ger möjlighet att ta ögonblicks bilder av blobbar. Ögonblicks bilder fångar BLOB-statusen vid den tidpunkten. I den här artikeln beskriver vi ett scenario där du kan underhålla säkerhets kopior av virtuella dator diskar med hjälp av ögonblicks bilder. Du kan använda den här metoden när du väljer att inte använda Azure Backup-och återställnings tjänst och vill skapa en anpassad säkerhets kopierings strategi för dina virtuella dator diskar. För virtuella datorer som kör affärs-eller verksamhets kritiska arbets belastningar rekommenderar vi att du använder [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) som en del av strategin för säkerhets kopiering.  

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f08a6b3f7abfc79bff6baff2a339053905612535
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187377"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027634"
 ---
 #### <a name="to-attach-the-sas-cables"></a>Så här kopplar du SAS-kablar
 1. Identifiera de primära och EBOD-höljen. De två höljen kan identifieras genom att titta på deras respektive back plan. Se följande bild för vägledning. 
@@ -22,7 +22,7 @@ ms.locfileid: "67187377"
    |:--- |:--- |
    | 1 |Primärt kabinett |
    | 2 |EBOD-hölje |
-2. Leta upp serie numren på den primära och EBOD-höljet. Serie numrets klister märke fästs på bak sidan av varje hölje. Serie numren måste vara identiska på båda höljen. [Kontakta Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) omedelbart om serie numren inte stämmer överens. Se följande bild för att hitta serie numren.
+2. Leta upp serie numren på den primära och EBOD-höljet. Serie numrets klister märke fästs på bak sidan av varje hölje. Serie numren måste vara identiska på båda höljen. [Kontakta Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) omedelbart om serie numren inte stämmer överens. Se följande bild för att hitta serie numren.
    
     ![Bakre vy över höljet som visar serie nummer](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
    
@@ -41,7 +41,7 @@ ms.locfileid: "67187377"
       
       **SAS-kablar**
       
-      | Etikett | Beskrivning |
+      | Etikett | Description |
       |:--- |:--- |
       | A |Primärt kabinett |
       | B |EBOD-hölje |
@@ -51,4 +51,3 @@ ms.locfileid: "67187377"
       | 4 |EBOD Controller 1 |
       | 5, 6 |SAS-portar på primär kabinett (märkta EBOD) |
       | 7, 8 |SAS-portar på EBOD-kabinettet (port A) |
-

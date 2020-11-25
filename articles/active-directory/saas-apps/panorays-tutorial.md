@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 9dacbfacdbb9a1ecc103b0cec224d861b42b1576
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3e4d3145263b4b0379f85dea86d075480935a28c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370591"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029361"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-panorays"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Panorays
 
@@ -75,20 +75,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **Grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är förintegrerad med Azure.
+1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat och de nödvändiga URL: erna är redan ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen Spara.
 
-1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP** -initierat läge:
-
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
-
-    | Inloggnings-URL |
-    |--------------|
-    | `https://www.panoraysapp.com` |
-    | `https://auth.panoraysapp.com` |
-
-1. Klicka på **Spara**.
-
-1. Ditt Panorays-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärm bild visar en lista över standardattribut, medan **unika användar identifierare** mappas med **User. UserPrincipalName**. Panorays-programmet förväntar sig att **unikt användar-ID** mappas med **User. mail** , så du måste redigera mappningen av attributet genom att klicka på ikonen **Redigera** och ändra attributet mappning.
+1. Ditt Panorays-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärm bild visar en lista över standardattribut, medan **unika användar identifierare** mappas med **User. UserPrincipalName**. Panorays-programmet förväntar sig att **unikt användar-ID** mappas med **User. mail**, så du måste redigera mappningen av attributet genom att klicka på ikonen **Redigera** och ändra attributet mappning.
 
     ![image](common/default-attributes.png)
 
@@ -100,10 +89,10 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** , väljer **användare** och väljer sedan **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare** och väljer sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn** -fältet skriver du `B.Simon`.  
+   1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
@@ -134,9 +123,7 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 #### <a name="sp-initiated"></a>SP initierad:
 
-1. Klicka på **testa det här programmet** i Azure Portal. Detta omdirigeras till Panorays-inloggnings-URL där du kan starta inloggnings flödet.  
-
-1. Gå till Panorays-inloggnings-URL: en direkt och starta inloggnings flödet därifrån.
+Gå till [Panorays-inloggnings-URL: en](https://www.panoraysapp.com) direkt och starta inloggnings flödet därifrån.
 
 #### <a name="idp-initiated"></a>IDP initierad:
 

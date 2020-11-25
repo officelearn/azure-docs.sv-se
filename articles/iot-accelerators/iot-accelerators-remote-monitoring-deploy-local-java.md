@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: 78573cfe00d8e2e7ddcbf705dffdd5530f82c4e0
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998604"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024205"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuera lösnings acceleratorn för fjärr styrning lokalt – IntelliJ
 
@@ -98,7 +98,7 @@ Om du ännu inte har skapat de nödvändiga Azure-resurserna följer du dessa st
    Skriptet lägger också till en uppsättning miljövariabler på den lokala datorn. Varje variabel namn har prefixet **PCs**. De här miljövariablerna innehåller information som tillåter fjärr styrning att läsa konfigurations värden från en Azure Key Vault resurs.
 
    > [!TIP]
-   > När skriptet har slutförts sparas miljövariablerna i en fil med namnet ** \<your home folder\> \\ . PCs. \\ \<solution name\> Kuvert**. Du kan använda dem för framtida distributioner av lösnings Accelerator. Observera att alla miljövariabler som angetts på den lokala datorn åsidosätter värdena i **den \\ \\ lokala \\ . kuvert** filen för Services-skript när du kör **Docker-sammanställning**.
+   > När skriptet har slutförts sparas miljövariablerna i en fil med namnet **\<your home folder\> \\ . PCs. \\ \<solution name\> Kuvert**. Du kan använda dem för framtida distributioner av lösnings Accelerator. Observera att alla miljövariabler som angetts på den lokala datorn åsidosätter värdena i **den \\ \\ lokala \\ . kuvert** filen för Services-skript när du kör **Docker-sammanställning**.
 
 1. Stäng kommando rads miljön.
 
@@ -109,7 +109,7 @@ Om du redan har skapat de nödvändiga Azure-resurserna ställer du in motsvaran
 * **PCS_AAD_APPID**: Azure Active Directory (Azure AD) program-ID.
 * **PCS_AAD_APPSECRET**: Azure AD Application Secret.
 
-Konfigurations värden kommer att läsas från den här Key Vault resursen. Dessa miljövariabler kan sparas i filen ** \<your home folder\> \\ . PCs \\ \<solution name\> . miljö** från distributionen. Observera att miljövariabler som har angetts på den lokala datorn åsidosätter värden i den ** \\ \\ lokala \\ . kuvert** filen för Services-skript när du kör **Docker-sammanställning**.
+Konfigurations värden kommer att läsas från den här Key Vault resursen. Dessa miljövariabler kan sparas i filen **\<your home folder\> \\ . PCs \\ \<solution name\> . miljö** från distributionen. Observera att miljövariabler som har angetts på den lokala datorn åsidosätter värden i den **\\ \\ lokala \\ . kuvert** filen för Services-skript när du kör **Docker-sammanställning**.
 
 En del av konfigurationen som krävs av mikrotjänsten lagras i en instans av Key Vault som skapades vid den första distributionen. Motsvarande variabler i nyckel valvet bör ändras efter behov.
 
@@ -161,7 +161,7 @@ Följande steg visar hur du kör mikrotjänster för fjärr styrning i IntelliJ.
 
 1. Välj **Kör**  >  **Redigera konfigurationer**.
 1. Välj **Lägg till ny konfiguration**  >  **SBT uppgift**.
-1. Ange **namn**och ange sedan **aktiviteter** som **Kör**.
+1. Ange **namn** och ange sedan **aktiviteter** som **Kör**.
 1. Välj **arbets katalog** baserat på den tjänst som du vill köra.
 1. Välj **tillämpa**  >  **OK** för att spara dina val.
 1. Skapa kör konfigurationer för följande webb tjänster:
@@ -177,7 +177,7 @@ I följande bild visas ett exempel på hur du lägger till en konfiguration för
 #### <a name="create-a-compound-configuration"></a>Skapa en sammansatt konfiguration
 
 1. Om du vill köra alla tjänster tillsammans väljer du **Lägg till ny konfiguration**  >  **sammansatt**.
-1. Ange **ett namn**och välj sedan **Lägg till SBT-aktiviteter**.
+1. Ange **ett namn** och välj sedan **Lägg till SBT-aktiviteter**.
 1. Välj **tillämpa**  >  **OK** för att spara dina val.
 
 I följande bild visas ett exempel på hur du lägger till alla SBT-aktiviteter i en enda konfiguration:

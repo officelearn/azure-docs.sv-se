@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9020e364a5c8d7a59dad5549e88036dc9edaad7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089674"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029355"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Enhets identitet och skriv bords virtualisering
 
@@ -48,20 +48,19 @@ Innan du konfigurerar enhets identiteter i Azure AD för din VDI-miljö kan du b
 
 | Enhets identitets typ | Infrastruktur för identiteter | Windows-enheter | VDI-plattforms version | Stöds |
 | --- | --- | --- | --- | --- |
-| Hybrid Azure AD-ansluten | Federerad<sup>3</sup> | Windows aktuella och Windows-äldre | Permanent | Ja |
+| Hybrid Azure AD-ansluten | Federerad<sup>3</sup> | Windows aktuella och Windows-äldre | Permanent | Yes |
 |   |   | Windows-aktuell | Icke-beständig | Ja<sup>5</sup> |
 |   |   | Äldre Windows-enheter | Icke-beständig | Ja<sup>6</sup> |
-|   | Hanterad<sup>4</sup> | Windows aktuella och Windows-äldre | Permanent | Ja |
-|   |   | Windows-aktuell | Icke-beständig | Inga |
+|   | Hanterad<sup>4</sup> | Windows aktuella och Windows-äldre | Permanent | Yes |
+|   |   | Windows-aktuell | Icke-beständig | No |
 |   |   | Äldre Windows-enheter | Icke-beständig | Ja<sup>6</sup> |
-| Azure AD-ansluten | Federerade | Windows-aktuell | Permanent | Inga |
-|   |   |   | Icke-beständig | Inga |
-|   | Hanterade | Windows-aktuell | Permanent | Inga |
-|   |   |   | Icke-beständig | Inga |
+| Azure AD-ansluten | Federerade | Windows-aktuell | Permanent | No |
+|   |   |   | Icke-beständig | No |
+|   | Hanterade | Windows-aktuell | Permanent | No |
+|   |   |   | Icke-beständig | No |
 | Azure AD-registrerad | Federerad/hanterad | Windows aktuella/Windows-äldre | Beständiga/icke-beständiga | Ej tillämpligt |
 
-<sup>1</sup> **Windows aktuella** enheter representerar Windows 10, Windows Server 2016 och Windows Server 2019.
-
+<sup>1</sup> **Windows aktuella** enheter representerar Windows 10, Windows Server 2016 V1803 eller senare och Windows Server 2019.
 <sup>2</sup> **Windows-enheter på Windows-nivå** representerar windows 7, Windows 8,1, Windows Server 2008 R2, Windows Server 2012 och Windows Server 2012 R2. Information om support för Windows 7 finns i [Support för Windows 7](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Information om support för Windows Server 2008 R2 finns i [förbereda för Windows server 2008-slut för support](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 <sup>3</sup> en **federerad** identitets infrastruktur miljö representerar en miljö med en identitets leverantör som AD FS eller andra IdP från tredje part.

@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: a1eba1fceb959bd475d205176c2c53f6409fdc77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73890894"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024154"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Distribuera lösnings acceleratorn för fjärrövervakning lokalt – Visual Studio
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du distribuerar lösnings acceleratorn för fjärrö
 
 Om du vill köra lösnings acceleratorn för fjärrövervakning i Docker på den lokala datorn läser [du distribuera lösnings Accelerator för fjärrövervakning lokalt Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill distribuera de Azure-tjänster som används av lösningen för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
 
@@ -64,7 +64,7 @@ Följande steg visar hur du kör mikrotjänster för fjärr styrning i Visual St
 
 1. Starta Visual Studio.
 1. Öppna lösningen **Remote-Monitoring. SLN** i mappen **tjänster** i din lokala kopia av lagrings platsen.
-1. I **Solution Explorer**högerklickar du på lösningen och klickar på **Egenskaper**.
+1. I **Solution Explorer** högerklickar du på lösningen och klickar på **Egenskaper**.
 1. Välj **gemensamma egenskaper > start projekt**.
 1. Välj **flera start projekt** och ange **åtgärd** att **Starta** för följande projekt:
     * Webbtjänst (asa-manager\WebService)
@@ -105,7 +105,7 @@ Konfigurera en omvänd proxyserver för att länka webb programmet och mikrotjä
 * Kopiera filen **nginx. conf** från mappen **webui\scripts\localhost** i din lokala kopia av lagrings platsen till **nginx\conf** installations katalog.
 * Kör **nginx**.
 
-Mer information om hur du kör **nginx**finns i [nginx för Windows](https://nginx.org/en/docs/windows.html).
+Mer information om hur du kör **nginx** finns i [nginx för Windows](https://nginx.org/en/docs/windows.html).
 
 ### <a name="connect-to-the-dashboard"></a>Ansluta till instrument panelen
 

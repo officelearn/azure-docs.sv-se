@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20e635d606676a526fac4c3720931525beb66876
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: c58ee46a608ccdcbb01a082ee278d9e0f8a07f6e
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95790413"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030687"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Azure Synapse Analytics-terminologi
 
@@ -41,13 +41,11 @@ En arbets yta kan innehålla valfritt antal **länkade tjänster**, i princip an
 
 ## <a name="apache-spark-for-synapse"></a>Apache Spark för Synapse
 
-Om du vill använda Spark Analytics skapar du och använder **Server lös Apache Spark pooler** på din Synapse-arbetsyta.
+Om du vill använda Spark Analytics skapar du och använder **Server lös Apache Spark pooler** på din Synapse-arbetsyta. När du börjar använda en spark-pool skapar arbets ytorna en **Spark-session** för att hantera resursernas assosociated med den sessionen. 
 
-* **Apache Spark pool** -0-till-N Spark-etablerade resurser med motsvarande databaser kan distribueras i en arbets yta. En spark-pool kan pausas automatiskt, återupptas och skalas.  
-* **Spark-program** – det består av en driv rutins process och en uppsättning utförar-processer. Ett Spark-program körs på en server lös Spark-pool.            
-* **Spark-session**– enhetlig start punkt för ett Spark-program. Det ger ett sätt att interagera med Spark: s olika funktioner och med ett mindre antal konstruktioner. Om du vill köra en antecknings bok måste du skapa en session. En session kan konfigureras för att köras på ett angivet antal körningar av en speciell storlek. Standard konfigurationen för en Notebook-session körs på 2 medel stora körningar.
-* **Notebook** – interaktiv och reaktiv data vetenskap och teknik gränssnitt som stöder Scala, PySpark, C# och SparkSQL.
-* **Spark-jobb definition** – gränssnitt för att skicka ett Spark-jobb med hjälp av Assembly jar som innehåller koden och dess beroenden.
+Det finns två sätt i Synapse att använda Spark:
+* **Spark-anteckningsböcker** för data vetenskap och-teknik använder Scala, PySpark, C# och SparkSQL
+* **Spark-jobb definitioner** för att köra batch Spark-jobb med JAR-filer.
 
 Versions stöd:
 * Spark 2,4

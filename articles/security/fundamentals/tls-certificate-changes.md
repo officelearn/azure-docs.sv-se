@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 955990ed9209ea1e12eed824241e8a5a456ed73b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4e64d866b5bd2f725db3be31d0fdd2f8663cfd7c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444885"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029701"
 ---
 # <a name="azure-tls-certificate-changes"></a>Ändringar i Azure TLS-certifikat  
 
@@ -30,6 +30,7 @@ Tjänstspecifik information:
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) och [DPS](../../iot-dps/index.yml) finns kvar på Baltimore CyberTrust-rot certifikat utfärdare men deras mellanliggande certifikat utfärdare kommer att ändras. [Klicka här om du vill ha mer information](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Azure Storage](../../storage/index.yml) kommer att finnas kvar på Baltimore CyberTrust rot certifikat utfärdare, men deras mellanliggande certifikat utfärdare ändras. [Klicka här om du vill ha mer information](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - [Azure cache för Redis](../../azure-cache-for-redis/index.yml) är kvar på Baltimore CyberTrust rot certifikat utfärdare, men deras mellanliggande certifikat utfärdare kommer att ändras. [Klicka här om du vill ha mer information](../../azure-cache-for-redis/cache-whats-new.md).
+- Azure Instance Metadata Service finns kvar på Baltimore CyberTrust rot certifikat utfärdare men deras mellanliggande certifikat utfärdare kommer att ändras. [Klicka här om du vill ha mer information](https://docs.microsoft.com/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
 
 > [!IMPORTANT]
 > Kunder kan behöva uppdatera sina program efter den här ändringen för att förhindra anslutnings problem vid försök att ansluta till Azure-tjänster.
@@ -70,11 +71,11 @@ Här följer några sätt att identifiera om ditt program påverkas:
 - Om du har ett program som integreras med Azure-API: er eller andra Azure-tjänster och du är osäker på om det använder certifikat fäst, kontrollerar du med program leverantören.
 
 - Olika operativ system och språk körningar som kommunicerar med Azure-tjänster kan kräva ytterligare åtgärder för att korrekt bygga certifikat kedjan med följande nya rötter:
-    - **Linux** : många distributioner kräver att du lägger till ca: er i/etc/ssl/certs. Mer information finns i distributionens dokumentation.
-    - **Java** : kontrol lera att Java-nyckelfilen innehåller de certifikat utfärdare som anges ovan.
-    - **Fönster som körs i frånkopplade miljöer** : system som körs i frånkopplade miljöer måste ha de nya rötter som lagts till i arkivet Betrodda rot certifikat utfärdare och de mellanliggande certifikat utfärdare som lagts till i arkivet mellanliggande certifikat utfärdare.
-    - **Android** : Mer information finns i dokumentationen för enheten och Android-versionen.
-    - **Andra maskin varu enheter, särskilt IoT** : kontakta enhets tillverkaren.
+    - **Linux**: många distributioner kräver att du lägger till ca: er i/etc/ssl/certs. Mer information finns i distributionens dokumentation.
+    - **Java**: kontrol lera att Java-nyckelfilen innehåller de certifikat utfärdare som anges ovan.
+    - **Fönster som körs i frånkopplade miljöer**: system som körs i frånkopplade miljöer måste ha de nya rötter som lagts till i arkivet Betrodda rot certifikat utfärdare och de mellanliggande certifikat utfärdare som lagts till i arkivet mellanliggande certifikat utfärdare.
+    - **Android**: Mer information finns i dokumentationen för enheten och Android-versionen.
+    - **Andra maskin varu enheter, särskilt IoT**: kontakta enhets tillverkaren.
 
 - Om du har en miljö där brand Väggs regler har ställts in för att tillåta utgående anrop till enbart en speciell lista över återkallade certifikat (CRL) och/eller Online Certificate Status Protocol (OCSP) verifierings platser. Du måste tillåta följande CRL-och OCSP-URL: er:
 

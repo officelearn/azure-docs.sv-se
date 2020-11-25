@@ -4,14 +4,14 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79e2ca71d6b8178be63c3429edba89cf3bb523e2
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67133516"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030005"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="get-sample-code"></a>Hämta exempelkod
 
@@ -21,7 +21,7 @@ Självstudien förutsätter att du redan har slutfört stegen i [föregående sj
 
 Du måste ha ett Azure-containerregister i din Azure-prenumeration för att kunna slutföra den här självstudien. Om du behöver ett register kan du gå till [föregående självstudie](../articles/container-registry/container-registry-tutorial-quick-task.md) eller [Snabbstart: Skapa ett containerregister med hjälp av Azure CLI](../articles/container-registry/container-registry-get-started-azure-cli.md).
 
-## <a name="create-a-github-personal-access-token"></a>Skapa en personlig åtkomsttoken för GitHub
+### <a name="create-a-github-personal-access-token"></a>Skapa en personlig åtkomsttoken för GitHub
 
 Om du vill utlösa en aktivitet för att genomföra en git-lagringsplats behöver ACR-aktiviteter en personlig åtkomsttoken (PAT) för att få åtkomst till lagrings platsen. Om du inte redan har en PAT, följer du de här stegen för att generera en i GitHub:
 

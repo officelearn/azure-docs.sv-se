@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 746257195220d26ad5d011a39022a3957e8cb1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40529df5195a29fbf2ff4887311932c2ffbf471d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021790"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029903"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
 
@@ -52,7 +52,7 @@ I följande avsnitt pratar vi om den kod som implementerar denna arkitektur.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde
 
-Det första steget är att skapa ett *namn område*och hämta en nyckel för [signatur för delad åtkomst (SAS)](service-bus-sas.md) för denna namnrymd. Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnet på namnområdet och SAS-nyckeln tillhandahåller autentiseringsuppgifterna för Service Bus som används för att tillåta åtkomst till ett program.
+Det första steget är att skapa ett *namn område* och hämta en nyckel för [signatur för delad åtkomst (SAS)](service-bus-sas.md) för denna namnrymd. Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnet på namnområdet och SAS-nyckeln tillhandahåller autentiseringsuppgifterna för Service Bus som används för att tillåta åtkomst till ett program.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -63,7 +63,7 @@ Efter det lägger du till kod som skickar objekt till en Service Bus-kö och vis
 
 ### <a name="create-the-project"></a>Skapa projektet
 
-1. Du startar Visual Studio med administratörsbehörighet genom att högerklicka på programikonen för **Visual Studio** och sedan klicka på **Kör som administratör**. Azure Compute Emulator, som diskuteras senare i den här artikel, kräver att Visual Studio startas med administratörsbehörighet.
+1. Du startar Visual Studio med administratörsbehörighet genom att högerklicka på programikonen för **Visual Studio** och sedan klicka på **Kör som administratör**. Azure Compute-emulatorn som beskrivs längre fram i den här artikeln kräver att Visual Studio startas med administratörs behörighet.
    
    I Visual Studio klickar du på **Nytt** på **Arkiv**-menyn och sedan på **Projekt**.
 2. Från **Installerade mallar**, under **Visual C#**, klickar du på **Moln** och sedan på **Azure Cloud Service**. Ge projektet följande namn: **MultiTierApp**. Klicka sedan på **OK**.

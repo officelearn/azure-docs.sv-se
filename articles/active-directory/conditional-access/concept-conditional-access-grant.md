@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ef2d233024ab3e9cd086e8285e681dc9f42f3f7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8915ae349e33390ce5bb687d7c07a21665a0258
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95904026"
+ms.locfileid: "96029412"
 ---
 # <a name="conditional-access-grant"></a>Villkorlig åtkomst: bevilja
 
@@ -108,7 +108,7 @@ Den här inställningen gäller för följande iOS-och Android-appar:
 - Godkända klient program har stöd för funktionen för hantering av mobil program i Intune.
 - **Kräv godkänd klient program** krav:
    - Stöder endast iOS och Android för enhets plattforms villkor.
-   - En Broker-app krävs för att registrera enheten. I iOS är Service Broker-appen Microsoft Authenticator och på Android är den Intune-företagsportal app.
+   - En Broker-app krävs för att registrera enheten. Service Broker-appen kan vara Microsoft Authenticator för iOS eller antingen Microsoft Authenticator eller Microsofts företags Portal för Android-enheter.
 - Villkorlig åtkomst kan inte beakta Microsoft Edge i InPrivate-läge en godkänd klient app.
 
 Se artikeln gör så [här: Kräv godkända klient program för åtkomst till Cloud App med villkorlig åtkomst](app-based-conditional-access.md) för konfigurations exempel.

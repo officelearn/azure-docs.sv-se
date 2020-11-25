@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8710e0cdd6c930338009fb2b7f3bd98fafcfad3e
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 18ece47187e3f83277d7d925ad958d2ede7cb337
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411571"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030024"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Fråga exporterade data från Azure Monitor med Azure Datautforskaren (förhands granskning)
 Export av data från Azure Monitor till ett Azure Storage-konto möjliggör låg kostnads kvarhållning och möjlighet att omfördela loggar till olika regioner. Använd Azure-Datautforskaren för att fråga data som har exporter ATS från dina Log Analytics arbets ytor. När den har kon figurer ATS kommer de tabeller som stöds som skickas från dina arbets ytor till ett Azure Storage-konto att vara tillgängliga som data källa för Azure-Datautforskaren.
@@ -122,7 +122,7 @@ Följande bild visar och exempel på utdata.
 
 >[!TIP]
 >* Kopiera, klistra in och kör sedan utdata från skriptet i Azure Datautforskaren client-verktyget för att skapa tabellen och mappningen.
->* Om du vill använda alla data i behållaren kan du ändra skriptet och ändra URL: en till " https://your.blob.core.windows.net/containername ; SecKey'
+>* Om du vill använda alla data i behållaren ändrar du skriptet och ändrar URL: en till ' https://your.blob.core.windows.net/containername ; SecKey'
 
 ## <a name="query-the-exported-data-from-azure-data-explorer"></a>Fråga exporterade data från Azure Datautforskaren 
 

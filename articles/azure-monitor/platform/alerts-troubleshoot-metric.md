@@ -4,16 +4,16 @@ description: Vanliga problem med Azure Monitor metriska aviseringar och möjliga
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/05/2020
+ms.date: 11/25/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 5a57e8b7f3bf2c3e820a3befee0ee69c48a2afa9
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342135"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029884"
 ---
-# <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Fel sökning av problem i Azure Monitor mått varningar 
+# <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Felsöka problem i Azure Monitor-måttaviseringar 
 
 I den här artikeln beskrivs vanliga problem i Azure Monitor [Metric-aviseringar](alerts-metric-overview.md) och fel sökning.
 
@@ -44,7 +44,7 @@ Om du tror att en måtta avisering ska ha utlösts men den inte har startats och
 
 Om du tror att din måtta avisering inte borde ha utlösts utan den gjorde kan följande steg hjälpa dig att lösa problemet.
 
-1. Granska [listan över aktiverade varningar](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) för att hitta den utlöst aviseringen och klicka på för att visa information om den. Läs informationen under **Varför hjälpte den här aviseringen?** om du vill se mått diagrammet, **Metric-värdet**och **tröskelvärdet** vid den tidpunkt då aviseringen utlöstes.
+1. Granska [listan över aktiverade varningar](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) för att hitta den utlöst aviseringen och klicka på för att visa information om den. Läs informationen under **Varför hjälpte den här aviseringen?** om du vill se mått diagrammet, **Metric-värdet** och **tröskelvärdet** vid den tidpunkt då aviseringen utlöstes.
 
     > [!NOTE] 
     > Om du använder en villkors typ för dynamiskt tröskelvärden och tror att de tröskelvärden som använts inte var korrekta, ger du feedback med hjälp av den bister ikonen. Den här feedbacken påverkar forskningen om Machine Learning-algoritmer och hjälper till att förbättra framtida identifieringar.
@@ -142,7 +142,7 @@ Genom att exportera Resource Manager-mallen för en mått varnings regel får du
 2. I avsnittet Översikt markerar du kryss rutan **Visa dolda typer** .
 3. I filter **typ** väljer du *Microsoft. Insights/metricalerts*.
 4. Välj den relevanta aviserings regeln om du vill visa information om den.
-5. Under **Inställningar**väljer du **Exportera mall**.
+5. Under **Inställningar** väljer du **Exportera mall**.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Måttet för mått för varnings regler är för litet
 
@@ -241,6 +241,8 @@ Tänk på följande begränsningar för namn på mått för varnings regler:
 - Mått varnings regel namn får inte innehålla följande tecken: * # & +:  < > ? @ % { } \ / 
 - Mått varnings regel namn får inte sluta med blank steg eller punkt
 
+> [!NOTE] 
+> Om aviserings regelns namn innehåller tecken som inte är alfabetiska eller numeriska (till exempel: blank steg, skiljetecken eller symboler) kan dessa tecken vara URL-kodade när de hämtas av vissa klienter.
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Begränsningar när du använder dimensioner i en mått varnings regel med flera villkor
 

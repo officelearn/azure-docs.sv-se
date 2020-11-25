@@ -16,12 +16,12 @@ ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449814"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029378"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Lägga till en ansluten organisation i hantering av Azure AD-rättigheter
 
@@ -56,9 +56,9 @@ Följ anvisningarna i det här avsnittet om du vill lägga till en extern Azure 
 
 **Nödvändig roll**: *Global administratör* eller *användar administratör*
 
-1. I Azure Portal väljer du **Azure Active Directory**och väljer sedan **identitets styrning**.
+1. I Azure Portal väljer du **Azure Active Directory** och väljer sedan **identitets styrning**.
 
-1. I det vänstra fönstret väljer du **anslutna organisationer**och väljer sedan **Lägg till ansluten organisation**.
+1. I det vänstra fönstret väljer du **anslutna organisationer** och väljer sedan **Lägg till ansluten organisation**.
 
     ![Knappen Lägg till ansluten organisation](./media/entitlement-management-organization/connected-organization.png)
 
@@ -93,7 +93,7 @@ Följ anvisningarna i det här avsnittet om du vill lägga till en extern Azure 
 
     Sponsorer är interna eller externa användare som redan finns i din katalog som är kontakt punkten för relationen med den här anslutna organisationen. Interna sponsorer är medlems användare i din katalog. Externa sponsorer är gäst användare från den anslutna organisationen som tidigare bjudits in och redan finns i din katalog. Sponsorer kan användas som god kännare när användare i den här anslutna organisationen begär åtkomst till det här åtkomst paketet. Information om hur du bjuder in en gäst användare till din katalog finns i [lägga till Azure Active Directory B2B-samarbets användare i Azure Portal](../external-identities/add-users-administrator.md).
 
-    När du väljer **Lägg till/ta bort**öppnas ett fönster där du kan välja interna eller externa sponsorer. I fönstret visas en ofiltrerad lista över användare och grupper i din katalog.
+    När du väljer **Lägg till/ta bort** öppnas ett fönster där du kan välja interna eller externa sponsorer. I fönstret visas en ofiltrerad lista över användare och grupper i din katalog.
 
     ![Fönstret sponsorer](./media/entitlement-management-organization/organization-sponsors.png)
 
@@ -107,15 +107,15 @@ Om den anslutna organisationen ändras till en annan domän, om organisationens 
 
 **Nödvändig roll**: *Global administratör* eller *användar administratör*
 
-1. I Azure Portal väljer du **Azure Active Directory**och väljer sedan **identitets styrning**.
+1. I Azure Portal väljer du **Azure Active Directory** och väljer sedan **identitets styrning**.
 
-1. I det vänstra fönstret väljer du **anslutna organisationer**och väljer sedan den anslutna organisationen för att öppna den.
+1. I det vänstra fönstret väljer du **anslutna organisationer** och väljer sedan den anslutna organisationen för att öppna den.
 
 1. I fönstret Översikt i den anslutna organisationen väljer du **Redigera** för att ändra organisationens namn, beskrivning eller tillstånd.  
 
 1. I fönstret **Directory + domän** väljer du **Uppdatera katalog + domän** för att ändra till en annan katalog eller domän.
 
-1. I fönstret **sponsorer** väljer du **Lägg till interna sponsorer** eller **lägger till externa sponsorer** för att lägga till en användare som sponsor. Om du vill ta bort en sponsor väljer du sponsorn och väljer **ta bort**i den högra rutan.
+1. I fönstret **sponsorer** väljer du **Lägg till interna sponsorer** eller **lägger till externa sponsorer** för att lägga till en användare som sponsor. Om du vill ta bort en sponsor väljer du sponsorn och väljer **ta bort** i den högra rutan.
 
 
 ## <a name="delete-a-connected-organization"></a>Ta bort en ansluten organisation
@@ -124,9 +124,9 @@ Om du inte längre har en relation med en extern Azure AD-katalog eller-domän k
 
 **Nödvändig roll**: *Global administratör* eller *användar administratör*
 
-1. I Azure Portal väljer du **Azure Active Directory**och väljer sedan **identitets styrning**.
+1. I Azure Portal väljer du **Azure Active Directory** och väljer sedan **identitets styrning**.
 
-1. I det vänstra fönstret väljer du **anslutna organisationer**och väljer sedan den anslutna organisationen för att öppna den.
+1. I det vänstra fönstret väljer du **anslutna organisationer** och väljer sedan den anslutna organisationen för att öppna den.
 
 1. I den anslutna organisationens översikts fönster väljer du **ta bort** för att ta bort den.
 
@@ -148,9 +148,9 @@ Det finns två olika typer av tillstånds egenskaper för anslutna organisatione
 
 - En föreslagen ansluten organisation är en ansluten organisation som har skapats automatiskt, men som inte har fått en administratör att skapa eller godkänna organisationen. När en användare registrerar sig för ett Access-paket utanför en konfigurerad ansluten organisation, kommer alla automatiskt skapade anslutna organisationer att vara i det **föreslagna** läget eftersom ingen administratör i klient organisationen har konfigurerat det partnerskapet. 
     
-    Föreslagna anslutna organisationer visas inte i väljaren för konfigurerade anslutna organisationer och omfattas inte av inställningen "alla konfigurerade anslutna organisationer" för några principer. 
+    Föreslagna anslutna organisationer omfattas inte av inställningen "alla konfigurerade anslutna organisationer" på principer, men kan bara användas i principer för principer som riktar sig mot specifika organisationer. 
 
-Endast användare från konfigurerade anslutna organisationer kan begära åtkomst paket som är tillgängliga för användare från alla konfigurerade organisationer. Användare från föreslagna anslutna organisationer har en upplevelse som om det inte finns någon ansluten organisation för domänen och inte har åtkomst till Access-paketet förrän statusen har ändrats av en administratör.
+Endast användare från konfigurerade anslutna organisationer kan begära åtkomst paket som är tillgängliga för användare från alla konfigurerade organisationer. Användare från föreslagna anslutna organisationer har erfarenhet av att det inte finns någon ansluten organisation för domänen. kan bara se och begära åtkomst paket som är begränsade till den aktuella organisationen eller omfattas av en användare.
 
 > [!NOTE]
 > Som en del av den här nya funktionen, ansågs alla anslutna organisationer som skapats före 09/09/20 vara **konfigurerade**. Om du har ett Access-paket som tillåts användare från en organisation att registrera sig bör du gå igenom listan över anslutna organisationer som skapades före det datumet för att se till att ingen är felkategoriserad som **konfigurerad**.  En administratör kan uppdatera **tillstånds** egenskapen efter behov. Vägledning finns i [Uppdatera en ansluten organisation](#update-a-connected-organization).

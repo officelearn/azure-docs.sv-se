@@ -1,24 +1,24 @@
 ---
-title: För hands version av Azure Monitor för nätverk
+title: Azure Monitor för nätverk
 description: En översikt över Azure Monitor för nätverk, som ger en omfattande vy över hälsa och mått för alla distribuerade nätverks resurser utan någon konfiguration.
 ms.subservice: ''
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 09/24/2020
-ms.openlocfilehash: e2a43c4d0423b286984631fda75e5ff806ae9a57
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+author: KumudD
+ms.author: kumud
+ms.date: 11/25/2020
+ms.openlocfilehash: 52ca879d5a680d0e62cc469e768236eac11f3719
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102769"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030226"
 ---
-# <a name="azure-monitor-for-networks-preview"></a>För hands version av Azure Monitor för nätverk
+# <a name="azure-monitor-for-networks"></a>Azure Monitor för nätverk
 Azure Monitor för nätverk ger en omfattande vy över [hälsa](../../service-health/resource-health-checks-resource-types.md) och [mått](../platform/metrics-supported.md) för alla distribuerade nätverks resurser, utan att kräva någon konfiguration. Den ger även till gång till funktioner för nätverks övervakning, t. ex. [anslutnings övervakaren](../../network-watcher/connection-monitor-preview.md), [flödes loggning för nätverks säkerhets grupper (nsg: er)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)och [trafikanalys](../../network-watcher/traffic-analytics.md). Och innehåller [andra funktioner för nätverksdiagnostik.](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics)
 
 Azure Monitor för nätverk är strukturerad kring dessa viktiga komponenter i övervakningen:
 - [Nätverks hälsa och-mått](#networkhealth)
-- [Anslutning](#connectivity)
+- [Anslutningsmöjligheter](#connectivity)
 - [Trafik](#traffic)
 - [Diagnostikverktyg](#diagnostictoolkit)
 
@@ -26,14 +26,14 @@ Azure Monitor för nätverk är strukturerad kring dessa viktiga komponenter i �
 
 **Översikts** sidan för Azure Monitor för nätverk ger ett enkelt sätt att visualisera inventeringen av dina nätverks resurser, tillsammans med resurs hälsa och aviseringar. Den är uppdelad i fyra viktiga funktions områden: sökning och filtrering, resurs hälsa och mått, aviseringar och beroende vy.
 
-![Skärm bild som visar översikts sidan.](media/network-insights-overview/overview.png)
+[ ![ Skärm bild som visar översikts sidan](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png)#lightbox)
 
 ### <a name="search-and-filtering"></a>Sökning och filtrering
-Du kan anpassa vyn resurs hälsa och aviseringar med hjälp av filter som **prenumeration**, **resurs grupp**och **typ**.
+Du kan anpassa vyn resurs hälsa och aviseringar med hjälp av filter som **prenumeration**, **resurs grupp** och **typ**.
 
 Du kan använda sökrutan för att söka efter resurser och deras associerade resurser. Till exempel är en offentlig IP-adress associerad med en Application Gateway. En sökning efter den offentliga IP-adressens DNS-namn kommer att returnera både den offentliga IP-adressen och den associerade programgatewayen:
 
-![Skärm bild som visar Azure Monitor för nätverk Sök resultat.](media/network-insights-overview/search.png)
+[![Skärm bild som visar Azure Monitor för nätverk Sök resultat.](media/network-insights-overview/search.png)](media/network-insights-overview/search.png#lightbox)
 
 
 ### <a name="resource-health-and-metrics"></a>Resurs hälsa och-mått
@@ -57,7 +57,7 @@ Beroende vy hjälper dig att visualisera hur en resurs har kon figurer ATS. Bero
 
 Beroende vyn för Application Gateway ger en förenklad vy över hur klient delens IP-adresser är anslutna till lyssnare, regler och backend-pool. De anslutande linjerna är färgkodade och ger ytterligare information baserat på Server delens hälso tillstånd. Vyn innehåller också en detaljerad vy över Application Gateway mått och mått för alla relaterade Server dels pooler, till exempel virtuell dators skalnings uppsättning och VM-instanser.
 
-![Skärm bild som visar beroende visning i Azure Monitor för nätverk.](media/network-insights-overview/dependency-view.png)
+[![Skärm bild som visar beroende visning i Azure Monitor för nätverk.](media/network-insights-overview/dependency-view.png)](media/network-insights-overview/dependency-view.png#lightbox)
 
 Beroende diagrammet ger enkel navigering till konfigurations inställningar. Högerklicka på en backend-pool för att få åtkomst till annan information. Om till exempel en VM-pool är en virtuell dator kan du direkt komma åt VM-insikter och fel sökning av Azure Network Watcher-anslutning för att identifiera anslutnings problem:
 
@@ -73,17 +73,17 @@ Välj **Visa detaljerade mått** för att öppna en förkonfigurerad arbets bok 
 
 ## <a name="connectivity"></a><a name="connectivity"></a>Anslutning
 
-Fliken **anslutning** är ett enkelt sätt att visualisera alla tester som kon figurer ATS via anslutnings övervakaren och [anslutnings övervakaren (för hands version)](../../network-watcher/connection-monitor-preview.md) för den valda uppsättningen prenumerationer.
+Fliken **anslutning** är ett enkelt sätt att visualisera alla tester som kon figurer ATS via [anslutnings övervakaren](../../network-watcher/connection-monitor-overview.md) och anslutnings övervakaren (klassisk) för den valda uppsättningen prenumerationer.
 
 ![Skärm bild som visar fliken anslutning i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tab.png)
 
 Test grupperas efter **paneler** och **destinationer** och visar tillgänglighets status för varje test. Tillgängliga inställningar ger enkel åtkomst till konfigurationer för dina kriterier för tillgänglighet, baserat på misslyckade kontroller (%) och Sökefter (MS). När du har angett värden måste status för varje test uppdateras utifrån urvalskriterierna.
 
-![Skärm bild som visar anslutnings test i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)
+[![Skärm bild som visar anslutnings test i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png#lightbox)
 
 Du kan välja valfri käll-eller mål panel för att öppna en Metric-vy:
 
-![Skärm bild som visar anslutnings mått i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)
+[![Skärm bild som visar anslutnings mått i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png#lightbox)
 
 
 Du kan välja valfritt objekt i diagramvyn. Välj ikonen i kolumnen för **tillgänglighet** för att gå till Portal sidan anslutnings övervakare och Visa hopp för hopp-topologin och anslutning som påverkar problem som identifieras. Välj värdet i kolumnen **avisering** för att gå till aviseringar. Markera graferna i kolumnerna **kontrollerna misslyckades procent** och **tur och retur tid (MS)** för att gå till sidan mått för den valda anslutnings övervakaren.
@@ -93,11 +93,11 @@ Du kan välja valfritt objekt i diagramvyn. Välj ikonen i kolumnen för **tillg
 ## <a name="traffic"></a><a name="traffic"></a>Trafik
 Fliken **trafik** ger åtkomst till alla NSG: er som kon figurer ATS för [NSG flödes loggar](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) och [trafikanalys](../../network-watcher/traffic-analytics.md) för den valda uppsättningen prenumerationer, grupperat efter plats. Med Sök funktionen på den här fliken kan du identifiera NSG: er som kon figurer ATS för den genomsökta IP-adressen. Du kan söka efter alla IP-adresser i din miljö. I den regionala vyn i vyn visas alla NSG: er tillsammans med NSG flödes loggar och Trafikanalys konfigurations status.
 
-![Skärm bild som visar fliken trafik i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)
+[![Skärm bild som visar fliken trafik i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png#lightbox)
 
 Om du väljer en region panel visas en rutnätsvy. Rutnätet innehåller NSG flödes loggar och Trafikanalys i en vy som är lätt att läsa och konfigurera:  
 
-![Skärm bild som visar vyn trafik region i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)
+[![Skärm bild som visar vyn trafik region i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png#lightbox)
 
 Du kan välja valfritt objekt i diagramvyn. Välj ikonen i kolumnen **konfigurations status för logg** för att redigera NSG Flow-loggen och trafikanalys konfiguration. Välj värdet i kolumnen **avisering** för att gå till trafik aviseringarna som kon figurer ATS för den valda NSG. På samma sätt kan du gå till Trafikanalys visning genom att välja **arbets ytan trafikanalys**.  
 

@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8f1d20e9a6a78d99a23fe4b98aeb4f3eb8359da7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73890964"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024188"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Distribuera lösnings acceleratorn för fjärrövervakning lokalt – Visual Studio Code
 
@@ -21,7 +21,7 @@ ms.locfileid: "73890964"
 
 Den här artikeln visar hur du distribuerar lösnings acceleratorn för fjärrövervakning till din lokala dator för testning och utveckling. Du lär dig hur du kör mikrotjänster i Visual Studio Code. En lokal distribution av mikrotjänster använder följande moln tjänster: IoT Hub, Cosmos DB, Azure streaming Analytics och Azure Time Series Insights.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill distribuera de Azure-tjänster som används av lösningen för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
 
@@ -89,7 +89,7 @@ Konfigurera en omvänd proxyserver för att länka webb programmet och mikrotjä
 * Kopiera filen **nginx. conf** från mappen **webui\scripts\localhost** till installations katalogen för **nginx\conf** .
 * Kör **nginx**.
 
-Mer information om hur du kör **nginx**finns i [nginx för Windows](https://nginx.org/en/docs/windows.html).
+Mer information om hur du kör **nginx** finns i [nginx för Windows](https://nginx.org/en/docs/windows.html).
 
 ### <a name="connect-to-the-dashboard"></a>Ansluta till instrument panelen
 

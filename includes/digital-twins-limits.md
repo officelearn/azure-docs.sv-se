@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: fe3c737e0cbf6831e3abc37443e27926ed5e62b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 183d12b5e9d32c777c8acf01177c8cbbe1b6ca00
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091784"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027363"
 ---
 ### <a name="functional-limits"></a>Funktionella gränser
 
 I tabellen nedan visas funktionella gränser för Azure Digital-dubbla.
 
-| Område | Funktion | Standardgräns | Justerbar? |
+| Område | Kapacitet | Standardgräns | Justerbar? |
 | --- | --- | --- | --- |
 | Azure-resurs | Antal Azure Digitals dubbla instanser i en region, per prenumeration | 10 | Yes |
 | Digitala tvillingenheter | Antal dubbla i en digital Azure-instans | 200 000 | Yes |
@@ -29,7 +29,7 @@ I tabellen nedan visas funktionella gränser för Azure Digital-dubbla.
 | Modeller | Antal modeller inom en enskild Azure Digital-instans | 10 000 | Yes |
 | Modeller | Antal modeller som kan överföras i ett enda API-anrop | 250 | No |
 | Modeller | Antal objekt som har returnerats på en enda sida | 100 | No |
-| Söka i data | Antal objekt som har returnerats på en enda sida | 100 | No |
+| Fråga | Antal objekt som har returnerats på en enda sida | 100 | Ja |
 | Söka i data | Antal `AND`  /  `OR` uttryck i en fråga | 50 | Ja |
 | Söka i data | Antal mat ris objekt i en `IN`  /  `NOT IN` sats | 50 | Ja |
 | Söka i data | Antal tecken i en fråga | 8,000 | Ja |
@@ -39,7 +39,7 @@ I tabellen nedan visas funktionella gränser för Azure Digital-dubbla.
 
 Följande tabell visar frekvens gränserna för olika API: er.
 
-| API | Funktion | Standardgräns | Justerbar? |
+| API | Kapacitet | Standardgräns | Justerbar? |
 | --- | --- | --- | --- |
 | Modell-API | Antal begär Anden per sekund | 100 | Yes |
 | Digitals dubbla API | Antal begär Anden per sekund | 2 000 | Yes |

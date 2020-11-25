@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 744bcfe196629f76c5505f36ef9c8c224fefe601
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d013af82a862f1bc6b5324e7523aeea5593a4f94
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95909075"
+ms.locfileid: "96030670"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Vanliga frågor och svar om Azure API för FHIR
 
@@ -122,7 +122,7 @@ Vi har en samling referens arkitekturer som är tillgängliga på [sidan för h�
 
 ### <a name="where-can-i-see-an-example-of-connecting-a-web-application-to-azure-api-for-fhir"></a>Var kan jag se ett exempel på att ansluta ett webb program till Azure API för FHIR?
 
-Vi har en [GitHub-sida för hälso arkitektur](https://github.com/microsoft/health-architectures) som innehåller exempel program och scenarier. Den illustrerar hur du ansluter ett webb program till Azure API för FHIR.  
+Vi har en [GitHub-sida för hälso arkitektur](https://aka.ms/health-architectures) som innehåller exempel program och scenarier. Den illustrerar hur du ansluter ett webb program till Azure API för FHIR.  
 
 ## <a name="azure-api-for-fhir-features-and-services"></a>Azure API för FHIR-funktioner och-tjänster 
 

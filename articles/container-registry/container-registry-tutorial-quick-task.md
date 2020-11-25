@@ -2,18 +2,18 @@
 title: Självstudie – bygge för snabb behållar avbildning
 description: I den här självstudien lär du dig att skapa en avbildning av en dockercontainer i Azure med Azure Container Registry Tasks (ACR Tasks) och sedan distribuera den till Azure Container Instances.
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 43d2c277fe3297c7e5ee55046118add352853640
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b218f47348d5a26297f14c4bc788a6cf6b78cc60
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739543"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030345"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Självstudier: Skapa och distribuera containeravbildningar i molnet med Azure Container Registry-uppgifter
 
-**ACR Tasks** är en uppsättning funktioner i Azure Container Registry som ger effektiva avbildningar av dockercontainrar i Azure. I den här artikeln får du lära dig att använda funktionen *Quick Build* (Snabbskapa) i ACR Tasks.
+[ACR Tasks](container-registry-tasks-overview.md) är en uppsättning funktioner i Azure Container Registry som ger effektiva avbildningar av dockercontainrar i Azure. I den här artikeln får du lära dig att använda funktionen *Quick Build* (Snabbskapa) i ACR Tasks.
 
 Utvecklingscykeln för den ”inre loopen” är den iterativa processen för att skriva kod, skapa och testa ditt program innan du utför en källkontroll. En snabbuppgift förlänger den inre loopen till molnet, vilket ger dig versionsverifiering och automatisk överföring av skapade avbildningar till containerregistret. Avbildningarna skapas internt i molnet nära registret, vilket ger snabbare distribution.
 
@@ -27,10 +27,6 @@ I den här självstudien, som är del ett i en serie:
 > * Distribuera en behållare till Azure Container Instances
 
 I kommande självstudier får du lära dig att använda i ACR Tasks för automatiska containeravbildningsversioner som bygger på kodincheckning och uppdateringar av basavbildningar. ACR-aktiviteter kan också köra [aktiviteter med flera steg](container-registry-tasks-multi-step.md), med hjälp av en yaml-fil för att definiera steg för att skapa, skicka och välja att testa flera behållare.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Om du vill använda Azure CLI lokalt, måste du ha Azure CLI version **2.0.46** eller senare installerat och vara inloggad med [az-inloggningen][az-login]. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI][azure-cli].
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -66,13 +62,13 @@ cd acr-build-helloworld-node
 
 Kommandona i den här självstudieserien är formaterade för Bash-gränssnittet. Om du föredrar att använda PowerShell, kommandotolken eller något annat gränssnitt, kan du behöva justera radfortsättningen och miljövariabelns format därefter.
 
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
 ## <a name="build-in-azure-with-acr-tasks"></a>Skapa i Azure med ACR Tasks
 
 Nu när du har hämtat källkoden till din dator, följer du dessa steg för att skapa ett containerregister och en containeravbildning med ACR Tasks.
 
 För att göra det enklare att köra exempelkommandona, använder självstudierna i serien gränssnittets miljövariabler. Kör följande kommando för att ange variabeln `ACR_NAME`. Ersätt **\<registry-name\>** med ett unikt namn för ditt nya behållar register. Register namnet måste vara unikt inom Azure, får bara innehålla gemena bokstäver och innehålla 5-50 alfanumeriska tecken. De andra resurser som du skapar i självstudien baseras på det här namnet, så du behöver bara ändra den första variabeln.
-
-[![Bädda in start](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
 
 ```console
 ACR_NAME=<registry-name>
@@ -80,16 +76,16 @@ ACR_NAME=<registry-name>
 
 När containerregistrets miljövariabel har fyllts i, bör du nu kunna kopiera och klistra in resten av kommandona i självstudien utan att redigera några värden. Kör följande kommandon för att skapa en resursgrupp och ett containerregister:
 
-```azurecli-interactive
+```azurecli
 RES_GROUP=$ACR_NAME # Resource Group name
 
 az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Nu när du har ett register kan du använda ACR Tasks till att skapa en containeravbildning från exempelkoden. Utför kommandot [az acr build][az-acr-build] för att utföra en *snabbuppgift* :
+Nu när du har ett register kan du använda ACR Tasks till att skapa en containeravbildning från exempelkoden. Utför kommandot [az acr build][az-acr-build] för att utföra en *snabbuppgift*:
 
-```azurecli-interactive
+```azurecli
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
 ```
 
@@ -100,16 +96,16 @@ Packing source code into tar file to upload...
 Sending build context (4.813 KiB) to ACR...
 Queued a build with build ID: da1
 Waiting for build agent...
-2018/08/22 18:31:42 Using acb_vol_01185991-be5f-42f0-9403-a36bb997ff35 as the home volume
-2018/08/22 18:31:42 Setting up Docker configuration...
-2018/08/22 18:31:43 Successfully set up Docker configuration
-2018/08/22 18:31:43 Logging in to registry: myregistry.azurecr.io
-2018/08/22 18:31:55 Successfully logged in
+2020/11/18 18:31:42 Using acb_vol_01185991-be5f-42f0-9403-a36bb997ff35 as the home volume
+2020/11/18 18:31:42 Setting up Docker configuration...
+2020/11/18 18:31:43 Successfully set up Docker configuration
+2020/11/18 18:31:43 Logging in to registry: myregistry.azurecr.io
+2020/11/18 18:31:55 Successfully logged in
 Sending build context to Docker daemon   21.5kB
-Step 1/5 : FROM node:9-alpine
-9-alpine: Pulling from library/node
+Step 1/5 : FROM node:15-alpine
+15-alpine: Pulling from library/node
 Digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
-Status: Image is up to date for node:9-alpine
+Status: Image is up to date for node:15-alpine
  ---> a56170f59699
 Step 2/5 : COPY . /src
  ---> 88087d7e709a
@@ -131,7 +127,7 @@ Removing intermediate container fe7027a11787
  ---> 20a27b90eb29
 Successfully built 20a27b90eb29
 Successfully tagged myregistry.azurecr.io/helloacrtasks:v1
-2018/08/22 18:32:11 Pushing image: myregistry.azurecr.io/helloacrtasks:v1, attempt 1
+2020/11/18 18:32:11 Pushing image: myregistry.azurecr.io/helloacrtasks:v1, attempt 1
 The push refers to repository [myregistry.azurecr.io/helloacrtasks]
 6428a18b7034: Preparing
 c44b9827df52: Preparing
@@ -144,8 +140,8 @@ c44b9827df52: Pushed
 6428a18b7034: Pushed
 8c9992f4e5dd: Pushed
 v1: digest: sha256:b038dcaa72b2889f56deaff7fa675f58c7c666041584f706c783a3958c4ac8d1 size: 1366
-2018/08/22 18:32:43 Successfully pushed image: myregistry.azurecr.io/helloacrtasks:v1
-2018/08/22 18:32:43 Step ID acb_step_0 marked as successful (elapsed time in seconds: 15.648945)
+2020/11/18 18:32:43 Successfully pushed image: myregistry.azurecr.io/helloacrtasks:v1
+2020/11/18 18:32:43 Step ID acb_step_0 marked as successful (elapsed time in seconds: 15.648945)
 The following dependencies were found:
 - image:
     registry: myregistry.azurecr.io
@@ -155,7 +151,7 @@ The following dependencies were found:
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/node
-    tag: 9-alpine
+    tag: 15-alpine
     digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
   git: {}
 
@@ -178,7 +174,7 @@ Alla produktionsscenarier bör använda [huvudnamnen för tjänsten][service-pri
 
 Om du inte redan har ett valv i [Azure Key Vault](../key-vault/index.yml), skapar du ett med Azure CLI och följande kommandon.
 
-```azurecli-interactive
+```azurecli
 AKV_NAME=$ACR_NAME-vault
 
 az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
@@ -190,7 +186,7 @@ Du måste nu skapa ett huvudnamn för tjänsten och lagra dess autentiseringsupp
 
 Använd kommandot [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] till att skapa tjänstens huvudnamn och [az keyvault secret set][az-keyvault-secret-set] för att lagra **lösenordet** till tjänstens huvudnamn i valvet:
 
-```azurecli-interactive
+```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
 az keyvault secret set \
   --vault-name $AKV_NAME \
@@ -203,11 +199,11 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-Argumentet `--role` i föregående kommando konfigurerar huvudnamnet för tjänsten med rollen *acrpull* , vilket endast ger den hämtningsåtkomst till registret. Om du vill bevilja både sändnings- och hämtningsåtkomst ändrar du argumentet `--role` till *acrpush* .
+Argumentet `--role` i föregående kommando konfigurerar huvudnamnet för tjänsten med rollen *acrpull*, vilket endast ger den hämtningsåtkomst till registret. Om du vill bevilja både sändnings- och hämtningsåtkomst ändrar du argumentet `--role` till *acrpush*.
 
 Därefter lagrar du *appId* för tjänstens huvudnamn i valvet, vilket är det **användarnamn** du skickar till Azure Container Registry för autentisering:
 
-```azurecli-interactive
+```azurecli
 # Store service principal ID in AKV (the registry *username*)
 az keyvault secret set \
     --vault-name $AKV_NAME \
@@ -217,8 +213,8 @@ az keyvault secret set \
 
 Du har skapat ett Azure Key Vault och lagrat två hemligheter i det:
 
-* `$ACR_NAME-pull-usr`: ID för tjänstens huvudnamn som ska användas som containerregistrets **användarnamn** .
-* `$ACR_NAME-pull-pwd`: Lösenord för tjänstens huvudnamn som ska användas som containerregistrets **lösenord** .
+* `$ACR_NAME-pull-usr`: ID för tjänstens huvudnamn som ska användas som containerregistrets **användarnamn**.
+* `$ACR_NAME-pull-pwd`: Lösenord för tjänstens huvudnamn som ska användas som containerregistrets **lösenord**.
 
 Nu kan du referera till dessa hemligheter efter namn när du eller dina program och tjänster hämtar avbildningar från registret.
 
@@ -228,7 +224,7 @@ Nu när autentiseringsuppgifterna för tjänstens huvudnamn lagras som Azure Key
 
 Kör kommandot [az container create][az-container-create] för att distribuera en behållarinstans. Kommandot använder de autentiseringsuppgifter för tjänstens huvudnamn som lagras i Azure Key Vault för autentiseringen till containerregistret.
 
-```azurecli-interactive
+```azurecli
 az container create \
     --resource-group $RES_GROUP \
     --name acr-tasks \
@@ -255,18 +251,18 @@ Anteckna containerns FQDN – du behöver det i nästa avsnitt.
 
 Om du vill se startprocessen i behållaren använder du kommandot [az container attach][az-container-attach]:
 
-```azurecli-interactive
+```azurecli
 az container attach --resource-group $RES_GROUP --name acr-tasks
 ```
 
-Utdata från `az container attach` visar först containerns status när den hämtar avbildningen och startas. Därefter binder den STDOUT och STDERR för din lokala konsol till containerns.
+`az container attach`Utdata visar först behållarens status när den hämtar avbildningen och startar och binder sedan den lokala konsolens STDOUT och stderr till den för behållaren.
 
 ```output
 Container 'acr-tasks' is in state 'Running'...
-(count: 1) (last timestamp: 2018-08-22 18:39:10+00:00) pulling image "myregistry.azurecr.io/helloacrtasks:v1"
-(count: 1) (last timestamp: 2018-08-22 18:39:15+00:00) Successfully pulled image "myregistry.azurecr.io/helloacrtasks:v1"
-(count: 1) (last timestamp: 2018-08-22 18:39:17+00:00) Created container
-(count: 1) (last timestamp: 2018-08-22 18:39:17+00:00) Started container
+(count: 1) (last timestamp: 2020-11-18 18:39:10+00:00) pulling image "myregistry.azurecr.io/helloacrtasks:v1"
+(count: 1) (last timestamp: 2020-11-18 18:39:15+00:00) Successfully pulled image "myregistry.azurecr.io/helloacrtasks:v1"
+(count: 1) (last timestamp: 2020-11-18 18:39:17+00:00) Created container
+(count: 1) (last timestamp: 2020-11-18 18:39:17+00:00) Started container
 
 Start streaming logs:
 Server running at http://localhost:80
@@ -274,7 +270,7 @@ Server running at http://localhost:80
 
 När `Server running at http://localhost:80` visas navigerar du till containerns FQDN i webbläsaren för att se programmet som körs. FQDN bör ha visats i utdatan från kommandot `az container create` du körde i föregående avsnitt.
 
-![Skärmbild av ett exempelprogram som återges i en webbläsare][quick-build-02-browser]
+:::image type="content" source="media/container-registry-tutorial-quick-build/quick-build-02-browser.png" alt-text="Exempel program som körs i webbläsaren":::
 
 Om du vill ta bort konsolen från containern trycker du på `Control+C`.
 
@@ -282,13 +278,13 @@ Om du vill ta bort konsolen från containern trycker du på `Control+C`.
 
 Stoppa behållarinstansen med kommandot [az container delete][az-container-delete]:
 
-```azurecli-interactive
+```azurecli
 az container delete --resource-group $RES_GROUP --name acr-tasks
 ```
 
 Om du vill ta bort *alla* resurser som du har skapat i den här självstudien, inklusive containerregistret, nyckelvalvet och tjänstens huvudnamn, utfärdar du följande kommandon. Dessa resurser används dock i [nästa självstudie](container-registry-tutorial-build-task.md) i serien, så du kan behålla dem om du går direkt vidare till nästa självstudie.
 
-```azurecli-interactive
+```azurecli
 az group delete --resource-group $RES_GROUP
 az ad sp delete --id http://$ACR_NAME-pull
 ```

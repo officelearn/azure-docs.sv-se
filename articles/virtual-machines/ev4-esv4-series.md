@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: b8f6768ebf988ff568739c86303b52ea5b0a9234
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 01e9787d9b812334d959ce6ae9b929ec8734ffb5
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018720"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030483"
 ---
 # <a name="ev4-and-esv4-series"></a>Ev4- och Esv4-serien
 
@@ -58,7 +58,7 @@ Esv4-seriens storlekar körs på Intel &reg; Xeon &reg; platina-8272CL (överlap
 [Premium Storage caching](premium-storage-performance.md): stöds<br>
 [Direktmigrering](maintenance-and-updates.md): stöds<br>
 [Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
-[Stöd för VM-generering](generation-2.md): generation 1<br>
+[Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
 <br>
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt antal cachelagrade diskar: IOPS/MBps | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |

@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 04/07/2020
 ms.author: mimart
-ms.openlocfilehash: 818f33abfdb0655d96c0a8873a43903ee972b3bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb2ecd9ab63345954356d18164a2afe94a5aae24
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82925393"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027487"
 ---
 ## <a name="register-an-azure-ad-app"></a>Registrera en Azure AD-app
 
@@ -22,7 +22,7 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 1. Välj **ny registrering**.
 1. Ange ett **namn** för ditt program. Exempelvis `Azure AD B2C App`.
 1. Godkänn standard valet av **konton endast i den här organisations katalogen** för det här programmet.
-1. För **omdirigerings-URI: n**, godkänn värdet för **webb**och ange följande URL i gemener, där `your-B2C-tenant-name` ersätts med namnet på din Azure AD B2C-klient.
+1. För **omdirigerings-URI: n**, godkänn värdet för **webb** och ange följande URL i gemener, där `your-B2C-tenant-name` ersätts med namnet på din Azure AD B2C-klient.
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -31,18 +31,18 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
     Exempelvis `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Välj **Register** (Registrera). Registrera **program-ID: t (Client)** för användning i ett senare steg.
-1. Välj **certifikat & hemligheter**och välj sedan **ny klient hemlighet**.
+1. Välj **certifikat & hemligheter** och välj sedan **ny klient hemlighet**.
 1. Ange en **Beskrivning** av hemligheten, Välj förfallo datum och välj sedan **Lägg till**. Registrera **värdet** för hemligheten som ska användas i ett senare steg.
 
 ### <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
 
-Om du vill hämta `family_name` och `given_name` anspråk från Azure AD kan du konfigurera valfria anspråk för programmet i Azure Portal användar gränssnitt eller applikations manifest. Mer information finns i [så här ger du valfria anspråk till din Azure AD-App](/azure/active-directory/develop/active-directory-optional-claims).
+Om du vill hämta `family_name` och `given_name` anspråk från Azure AD kan du konfigurera valfria anspråk för programmet i Azure Portal användar gränssnitt eller applikations manifest. Mer information finns i [så här ger du valfria anspråk till din Azure AD-App](../articles/active-directory/develop/active-directory-optional-claims.md).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
 1. I avsnittet **Hantera** väljer du **Appregistreringar**.
 1. Välj det program som du vill konfigurera valfria anspråk för i listan.
 1. I avsnittet **Hantera** väljer du **token-konfiguration**.
 1. Välj **Lägg till valfritt anspråk**.
-1. I **tokentyp**väljer du **ID**.
+1. I **tokentyp** väljer du **ID**.
 1. Välj de valfria anspråk som ska läggas till `family_name` och `given_name` .
 1. Klicka på **Lägg till**.

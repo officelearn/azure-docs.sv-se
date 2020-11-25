@@ -2,13 +2,13 @@
 title: Konfigurera agentbaserade beroende analyser i Azure Migrate Server utvärdering
 description: I den här artikeln beskrivs hur du konfigurerar en agent-baserad beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
-ms.date: 6/09/2020
-ms.openlocfilehash: c5c019ec995f59b61fb96917bed50bd8ba3f61d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: 17c6e3e24596727350b11946bdf6896e22d41529
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022385"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028970"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurera beroende visualisering
 
@@ -39,12 +39,12 @@ I den här artikeln beskrivs hur du konfigurerar en agent lös beroende analys i
 ## <a name="associate-a-workspace"></a>Koppla en arbets yta
 
 1. När du har identifierat datorer för utvärdering klickar du på Översikt i **servrar**  >  **Azure Migrate: Server utvärdering**. **Overview**  
-2. Klicka på **Essentials**i **Azure Migrate: Server bedömning**.
-3. I **OMS-arbetsytan**klickar du på **kräver konfiguration**.
+2. Klicka på **Essentials** i **Azure Migrate: Server bedömning**.
+3. I **OMS-arbetsytan** klickar du på **kräver konfiguration**.
 
      ![Konfigurera Log Analytics arbets yta](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
 
-4. I **Konfigurera OMS-arbetsyta**anger du om du vill skapa en ny arbets yta eller Använd en befintlig.
+4. I **Konfigurera OMS-arbetsyta** anger du om du vill skapa en ny arbets yta eller Använd en befintlig.
     - Du kan välja en befintlig arbets yta från alla arbets ytor i den migrerade projekt prenumerationen.
     - Du måste ha Läs behörighet till arbets ytan för att koppla den.
 5. Om du skapar en ny arbets yta väljer du en plats för den.
@@ -59,8 +59,8 @@ Installera agenterna på varje dator som du vill analysera.
 > [!NOTE]
 > För datorer som övervakas av System Center Operations Manager 2012 R2 eller senare behöver du inte installera MMA-agenten. Tjänstkarta integreras med Operations Manager. [Följ](../azure-monitor/insights/service-map-scom.md#prerequisites) integrerings vägledningen.
 
-1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
-2. För varje dator som du vill analysera med beroende visualiseringen klickar du på **kräver agent installation**i kolumnen **beroenden** .
+1. Klicka på **identifierade servrar** i **Azure Migrate: Server bedömning**.
+2. För varje dator som du vill analysera med beroende visualiseringen klickar du på **kräver agent installation** i kolumnen **beroenden** .
 3. På sidan **beroenden** laddar du ned MMA-och beroende agenten för Windows eller Linux.
 4. Under **Konfigurera MMA agent**, kopierar du arbetsyte-ID och nyckel. Du behöver dessa när du installerar MMA-agenten.
 
@@ -78,12 +78,12 @@ Så här installerar du agenten på en Windows-dator:
 1. Dubbelklicka på den hämtade agenten.
 2. På sidan **Välkommen** klickar du på **Nästa**. På sidan **licens villkor** klickar du på **Jag accepterar** att godkänna licensen.
 3. I **målmappen**, Behåll eller ändra standardmappen för installationen > **Nästa**.
-4. I **installations alternativ för agent**väljer du **Azure Log Analytics**  >  **Nästa**.
+4. I **installations alternativ för agent** väljer du **Azure Log Analytics**  >  **Nästa**.
 5. Klicka på **Lägg** till för att lägga till en ny Log Analytics-arbetsyta. Klistra in det arbetsyte-ID och den nyckel som du kopierade från portalen. Klicka på **Nästa**.
 
 Du kan installera agenten från kommando raden eller med en automatiserad metod som Configuration Manager eller [Intigua](https://www.intigua.com/intigua-for-azure-migration).
 - [Lär dig mer](../azure-monitor/platform/log-analytics-agent.md#installation-options) om att använda dessa metoder för att installera MMA-agenten.
-- MMA-agenten kan också installeras med detta [skript](https://go.microsoft.com/fwlink/?linkid=2104394).
+- MMA-agenten kan också installeras med detta [skript](https://github.com/brianbar-MSFT/Install-MMA).
 - [Läs mer](../azure-monitor/platform/agents-overview.md#supported-operating-systems) om de Windows-operativsystem som stöds av MMA.
 
 ### <a name="install-mma-on-a-linux-machine"></a>Installera MMA på en Linux-dator
@@ -116,7 +116,7 @@ Skapa nu en grupp för utvärdering.
 > [!NOTE]
 > Grupper som du vill visualisera beroenden för får inte innehålla fler än 10 datorer. Om du har fler än 10 datorer delar du in dem i mindre grupper.
 
-1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
+1. Klicka på **identifierade servrar** i **Azure Migrate: Server bedömning**.
 2. I kolumnen **beroenden** klickar du på **Visa beroenden** för varje dator som du vill granska.
 3. På beroende kartan kan du se följande:
     - Inkommande (klienter) och utgående (servrar) TCP-anslutningar, till och från datorn.
@@ -152,9 +152,9 @@ Du kan fråga beroende data som har registrerats av Tjänstkarta i arbets ytan L
 Kör en fråga för beroende data på följande sätt:
 
 1. När du har installerat agenterna går du till portalen och klickar på **Översikt**.
-2. I **Azure Migrate: Server utvärdering**klickar du på **Översikt**. Klicka på nedpilen för att expandera **grunderna**.
-3. I **OMS-arbetsytan**klickar du på arbets ytans namn.
-3. På sidan Log Analytics arbets yta > **Allmänt**klickar du på **loggar**.
+2. I **Azure Migrate: Server utvärdering** klickar du på **Översikt**. Klicka på nedpilen för att expandera **grunderna**.
+3. I **OMS-arbetsytan** klickar du på arbets ytans namn.
+3. På sidan Log Analytics arbets yta > **Allmänt** klickar du på **loggar**.
 4. Skriv din fråga och klicka på **Kör**.
 
 ### <a name="sample-queries"></a>Exempelfrågor

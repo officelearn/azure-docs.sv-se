@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 05719d9633429c4b8ee6fee79833f594c94ab23d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 867cdc97ff91d5932230b733dee4d7660d499c39
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375932"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027936"
 ---
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Slutför den minimala StorSimple-enhetsinställningen
 
@@ -20,11 +20,11 @@ ms.locfileid: "93375932"
 
      ![Nätverksgränssnitt för minimala StorSimple-enhetsinställningar](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
 
-2. Bladet **Konfigurera enhet** :
+2. Bladet **Konfigurera enhet**:
    
    1. Ange ett **eget namn** för din enhet. Standard-enhetsnamnet har information som enhetsmodell serienummer. Du kan tilldela ett eget namn på upp till 64 tecken för att hantera din enhet.
    2. Ange **tidszon** baserat på den geografiska plats där enheten ska distribueras. Enheten använder den här tidszonen för alla schemalagda åtgärder.
-   3. Under **Inställningar för DATA 0** :
+   3. Under **Inställningar för DATA 0**:
 
        1. DATA 0-nätverksgränssnittet visas som aktiverat med nätverksinställningarna (IP, undernät och gateway) som konfigurerats via guiden. DATA 0 aktiveras också automatiskt för molnet samt iSCSI.
 
@@ -41,4 +41,4 @@ ms.locfileid: "93375932"
     ![StorSimple minimal enhets konfiguration nätverks gränssnitt 3](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
 
 <!--Link reference-->
-[Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
+[Test]: /previous-versions/windows/powershell-scripting/dn715782(v=wps.630)

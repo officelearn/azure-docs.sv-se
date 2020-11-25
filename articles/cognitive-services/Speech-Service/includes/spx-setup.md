@@ -5,35 +5,39 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6f80d41001d11c52a00454ea2a593f3f1fce32db
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470704"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026649"
 ---
 ## <a name="download-and-install"></a>Hämta och installera
 
 #### <a name="windows-install"></a>[Windows-installation](#tab/windowsinstall)
 
-> [!NOTE]
-> I Windows behöver du [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform. Om du installerar den första gången kan du behöva starta om Windows.
-
 Följ de här stegen för att installera tal-CLI i Windows:
 
-1. Hämta [zip-arkivet](https://aka.ms/speech/spx-zips.zip)för tal CLI och extrahera det sedan.
-2. Gå till rot katalogen `spx-zips` som du extraherade från nedladdningen och extrahera den under katalog du behöver ( `spx-net471` för .NET Framework 4,7 eller `spx-netcore-win-x64` .net Core 3,0 på en x64-processor).
+1. I Windows behöver du [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform. Det kan krävas en omstart för att installera det första gången.
+2. Hämta [zip-arkivet](https://aka.ms/speech/spx-zips.zip)för tal CLI och extrahera det sedan.
+3. Gå till den katalog där du extraherade `spx-zips` . Den här mappen innehåller program filer för tal-CLI på olika plattformar. 
+4. Extrahera filerna för din plattform ( `spx-net471` för .NET Framework 4,7 eller `spx-netcore-win-x64` .net Core 3,0 på en x64-processor). Kom ihåg att du kör `spx` från den här katalogen.
 
-I kommando tolken ändrar du katalog till den här platsen och skriver sedan `spx` för att se hjälp för tal-cli.
+### <a name="run-the-speech-cli"></a>Kör tal-CLI
 
-> [!NOTE]
-> I Windows kan tal-CLI bara visa teckensnitt som är tillgängliga för kommando tolken på den lokala datorn.
-> [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) stöder alla teckensnitt som genereras interaktivt av tal-cli.
-> Om du skriver ut till en fil kan en text redigerare som anteckningar eller en webbläsare som Microsoft Edge även Visa alla teckensnitt.
+1. Öppna kommando tolken eller PowerShell och navigera sedan till den katalog där du extraherade tal-CLI.  
+2. Skriv `spx` för att se hjälp kommandon för tal-cli.
 
 > [!NOTE]
 > PowerShell kontrollerar inte den lokala katalogen vid sökning efter ett kommando. I PowerShell ändrar du katalogen till platsen för `spx` och anropar verktyget genom att ange `.\spx` .
 > Om du lägger till den här katalogen i sökvägen kommer PowerShell och kommando tolken i Windows att hitta `spx` från vilken katalog som helst utan att inkludera `.\` prefixet.
+
+### <a name="font-limitations"></a>Tecken begränsningar
+
+I Windows kan tal-CLI bara visa teckensnitt som är tillgängliga för kommando tolken på den lokala datorn.
+[Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) stöder alla teckensnitt som genereras interaktivt av tal-cli.
+
+Om du skriver ut till en fil kan en text redigerare som anteckningar eller en webbläsare som Microsoft Edge även Visa alla teckensnitt.
 
 #### <a name="linux-install"></a>[Linux-installation](#tab/linuxinstall)
 

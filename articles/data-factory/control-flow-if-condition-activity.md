@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9f65ffc9ef24b18ce0f18571c1f3fc91e7ca7fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85414614"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024239"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Om villkors aktivitet i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -65,13 +65,13 @@ If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk.
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-name | Namnet på IF-condition-aktiviteten. | Sträng | Ja
-typ | Måste anges till **IfCondition** | Sträng | Ja
-uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck med resultat typen Boolean | Ja
-ifTrueActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `true` . | Matris | Ja
-ifFalseActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `false` . | Matris | Ja
+name | Namnet på IF-condition-aktiviteten. | Sträng | Yes
+typ | Måste anges till **IfCondition** | Sträng | Yes
+uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck med resultat typen Boolean | Yes
+ifTrueActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `true` . | Matris | Yes
+ifFalseActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `false` . | Matris | Yes
 
 ## <a name="example"></a>Exempel
 Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Mappen utdata bestäms av värdet för pipeline-parametern: routeSelection. Om värdet för routeSelection är sant kopieras data till outputPath1. Om värdet för routeSelection är false kopieras data till outputPath2. 

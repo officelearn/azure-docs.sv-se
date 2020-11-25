@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8b2f8e82cac1d26689659286a5a0f81f06fb68ca
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f0630599c7c52f11a4cf3153bae38ad2d515b6bc
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695069"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029769"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Belastningsutjämnare för flera regioner (för hands version)
 
@@ -35,7 +35,7 @@ Azure Standard Load Balancer stöder belastnings utjämning mellan regioner som 
 * [Bygg en befintlig lösning för belastnings utjämning](#build-cross-region-solution-on-existing-azure-load-balancer) utan inlärnings kurva
 
 > [!IMPORTANT]
-> Belastningsutjämnare för flera regioner är för närvarande en för hands version och är inte allmänt tillgänglig.  Kontakta för hands versionen för att få åtkomst till för hands versionen av en belastningsutjämnare för flera regioner: [crossregionlb@microsoft.com](mailto:crossregionlb@microsoft.com) . </br> </br>
+> Belastningsutjämnare för flera regioner är för närvarande en för hands version och dold i för hands versionen av portalen. Logga in för **https://preview.portal.azure.com/?feature.globallb=true** att visa och distribuera funktionen.. </br> </br>
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Belastnings utjämning mellan regioner ger samma fördelar med hög prestanda och låg latens som regional standard Load Balancer. 
@@ -149,6 +149,6 @@ Belastnings utjämning för flera regioner delar [service avtalet](https://azure
  
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [skapa en offentlig standard belastningsutjämnare](quickstart-load-balancer-standard-public-portal.md) för att komma igång med att använda en belastningsutjämnare.
+- Se [Självstudier: skapa en belastningsutjämnare för flera regioner med hjälp av Azure Portal](tutorial-cross-region-portal.md) för att skapa en belastningsutjämnare för flera regioner.
+- Se [skapa en offentlig standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) för att skapa en standard regional belastningsutjämnare.
 - Läs mer om [Azure Load Balancer](load-balancer-overview.md).
-- [Vanliga frågor och svar](load-balancer-faqs.md) om Load Balancer

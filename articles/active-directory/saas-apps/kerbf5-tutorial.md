@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459118"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009168"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med F5
 
@@ -116,7 +116,7 @@ Om du vill konfigurera integrering av F5 i Azure AD måste du lägga till F5 fr�
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
 1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. Välj **nytt program** om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** skriver du **F5** i sökrutan.
 1. Välj **F5** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
@@ -168,11 +168,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare** och väljer sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -180,13 +180,13 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till F5.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I Azure Portal väljer du **företags program** och väljer sedan **alla program**.
 1. I listan program väljer du **F5**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Välj **Lägg till användare** och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
@@ -211,7 +211,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Du måste importera certifikatet för metadata till F5 som kommer att användas senare i installations processen.
 
-1. Gå till **System > certifikat hantering > hantering av trafik certifikat > SSL-certifikat lista**. Välj **Importera** från det högra hörnet. Ange ett **certifikat namn** (kommer att refereras till senare i konfigurationen). I **certifikat källan**väljer du överför fil ange det certifikat som hämtats från Azure när du konfigurerar SAML enkel inloggning. Klicka på **Importera**.
+1. Gå till **System > certifikat hantering > hantering av trafik certifikat > SSL-certifikat lista**. Välj **Importera** från det högra hörnet. Ange ett **certifikat namn** (kommer att refereras till senare i konfigurationen). I **certifikat källan** väljer du överför fil ange det certifikat som hämtats från Azure när du konfigurerar SAML enkel inloggning. Klicka på **Importera**.
 
     ![Skärm bild som visar sidan "S L-certifikat/nyckel källa" med "certifikat namnet" markerad, "Ladda upp fil" och knappen "Importera" har marker ATS.](./media/kerbf5-tutorial/configure01.png) 
 
@@ -239,15 +239,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Skärm bild som visar sidan "egenskaper för virtuell server" med text rutan "mål adress" markerad och knappen "Spara & nästa" markerad.](./media/kerbf5-tutorial/configure06.png)
 
-1. Under **Välj metod för att konfigurera din IDP-anslutning**anger du metadata, klickar på Välj fil och överför metadata-XML-filen som hämtades tidigare från Azure AD. Ange ett unikt **namn** för SAML IDP Connector. Välj det **signerings certifikat för metadata** som överfördes tidigare. Klicka på **spara & nästa**.
+1. Under **Välj metod för att konfigurera din IDP-anslutning** anger du metadata, klickar på Välj fil och överför metadata-XML-filen som hämtades tidigare från Azure AD. Ange ett unikt **namn** för SAML IDP Connector. Välj det **signerings certifikat för metadata** som överfördes tidigare. Klicka på **spara & nästa**.
 
     ![Skärm bild som visar sidan "anslutnings inställningar för extern identitetsprovider" med text rutan "namn" markerad och knappen "Spara & nästa" markerat.](./media/kerbf5-tutorial/configure07.png)  
 
-1. Under **Välj en pool**anger du **Skapa ny** (du kan också välja en pool som den redan finns). Låt andra värde vara standard.    Under pooler anger du IP-adressen under **IP-adress/nodnamn**. Ange **porten**. Klicka på **spara & nästa**.
+1. Under **Välj en pool** anger du **Skapa ny** (du kan också välja en pool som den redan finns). Låt andra värde vara standard.    Under pooler anger du IP-adressen under **IP-adress/nodnamn**. Ange **porten**. Klicka på **spara & nästa**.
  
     ![Skärm bild som visar sidan "bassängs egenskaper" med text rutorna "IP-adress/nodnamn" och "Port" markerade och knappen "Spara & nästa" markerat.](./media/kerbf5-tutorial/configure08.png)
 
-1. På skärmen Inställningar för enkel Sign-On väljer du **aktivera enkel inloggning**. Välj **Kerberos**under **Välj enskild Sign-On typ** . Ersätt **session. SAML. senaste. identitet**  med **session. SAML. Last. attr. Name. identitet** under **användar namn källa** (den här variabeln anges med anspråks mappning i Azure AD). Välj **Visa avancerad inställning**. Under **Kerberos-sfär** skriver du domän namnet. Ange kontot och lösen ordet för APM-delegering under **konto namn/konto lösen ord** . Ange domänkontrollantens IP-adress i **KDC** -fältet. Klicka på **spara & nästa**.
+1. På skärmen Inställningar för enkel Sign-On väljer du **aktivera enkel inloggning**. Välj **Kerberos** under **Välj enskild Sign-On typ** . Ersätt **session. SAML. senaste. identitet**  med **session. SAML. Last. attr. Name. identitet** under **användar namn källa** (den här variabeln anges med anspråks mappning i Azure AD). Välj **Visa avancerad inställning**. Under **Kerberos-sfär** skriver du domän namnet. Ange kontot och lösen ordet för APM-delegering under **konto namn/konto lösen ord** . Ange domänkontrollantens IP-adress i **KDC** -fältet. Klicka på **spara & nästa**.
 
     ![Skärm bild som visar "enkla Sign-On-inställningar" med text rutor markerade och knappen "Spara & nästa" markerat.](./media/kerbf5-tutorial/configure09.png)   
 
@@ -293,7 +293,7 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
 
 6. Om du har valt **direkt**, anger du ett namn **i fältet domänkontrollant** .
 
-7. Om du har valt Använd **pool**konfigurerar du poolen:
+7. Om du har valt Använd **pool** konfigurerar du poolen:
 
    * Skriv ett namn i fältet **namn på domänkontrollantens pool** .
 
@@ -325,7 +325,7 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
 
     ![Skärm bild som visar sidan "Importera S L-certifikat/nyckel-källa" med knappen "Importera" vald.](./media/kerbf5-tutorial/configure18.png)
 
-2. För att konfigurera SAML-IDP, **navigera till åtkomst > Federation > SAML: Service Provider > externa IDP-kopplingar**och klicka på **skapa > från metadata**.
+2. För att konfigurera SAML-IDP, **navigera till åtkomst > Federation > SAML: Service Provider > externa IDP-kopplingar** och klicka på **skapa > från metadata**.
 
     ![Skärm bild som visar sidan "S A M L-tjänstprovider" med "från metadata" vald från List rutan "skapa".](./media/kerbf5-tutorial/configure19.png)
 
@@ -356,7 +356,7 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
 
      ![Skärm bild som visar knappen "bind/Unbind I d P connectors" markerad.](./media/kerbf5-tutorial/configure27.png)
 
-     c. Klicka på **Lägg till ny rad** och välj den **externa IDP-anslutning** som skapades i föregående steg, klicka på **Uppdatera**och klicka sedan på **OK**.
+     c. Klicka på **Lägg till ny rad** och välj den **externa IDP-anslutning** som skapades i föregående steg, klicka på **Uppdatera** och klicka sedan på **OK**.
 
      ![Skärm bild som visar knappen "redigera S A M L I d PS som använder det här S P"-fönstret med knappen "Lägg till ny rad" markerad.](./media/kerbf5-tutorial/configure28.png)
 

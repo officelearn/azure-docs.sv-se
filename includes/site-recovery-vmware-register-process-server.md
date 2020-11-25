@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
 ms.openlocfilehash: 088cd5447b1f96dbf172b5918c29e4f3293289a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67534729"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008501"
 ---
 1. Upprätta en Anslutning till fjärrskrivbord till den dator som kör processervern. 
 2. Kör cspsconfigtool.exe för att starta konfigurations verktyget för process Server för Azure Site Recovery.
@@ -17,9 +17,9 @@ ms.locfileid: "67534729"
     - Om den inte öppnas automatiskt klickar du på genvägen på Skriv bordet.
 
 3. Ange namn eller IP-adress för den konfigurations server som du vill registrera processervern med i **konfigurations serverns FQDN eller IP-** adress.
-4. I **konfigurations server port**kontrollerar du att 443 har angetts. Detta är den port som konfigurations servern lyssnar efter begär Anden på.
-5. I **anslutnings lösen fras**anger du den lösen fras som du angav när du konfigurerade konfigurations servern. Så här hittar du lösen frasen:
-    -  På konfigurations servern navigerar du till mappen Site Recovery installation **\home\svssystems\bin \* *:
+4. I **konfigurations server port** kontrollerar du att 443 har angetts. Detta är den port som konfigurations servern lyssnar efter begär Anden på.
+5. I **anslutnings lösen fras** anger du den lösen fras som du angav när du konfigurerade konfigurations servern. Så här hittar du lösen frasen:
+    -  På konfigurations servern navigerar du till mappen Site Recovery installation **\home\svssystems\bin \**:
     ```
     cd %ProgramData%\ASR\home\svsystems\bin
     ```
@@ -28,7 +28,7 @@ ms.locfileid: "67534729"
     genpassphrase.exe -n
     ```
 
-6. I **dataöverföring port**låter du standardvärdet vara kvar om du inte har angett en anpassad port.
+6. I **dataöverföring port** låter du standardvärdet vara kvar om du inte har angett en anpassad port.
 
 7. Klicka på **Spara** Spara inställningarna och registrera processervern.
 

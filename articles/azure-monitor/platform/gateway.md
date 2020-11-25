@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: dc4d1b852b0a498de0834731b2b1cd1225b9748b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107784"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008862"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internet åtkomst med hjälp av Log Analytics gateway i Azure Monitor
 
@@ -108,15 +108,15 @@ Följ dessa steg om du vill hämta Log Analytics gatewayen från Azure Portal:
 
 1. Bläddra i listan över tjänster och välj sedan **Log Analytics**. 
 1. Välj en arbetsyta.
-1. I bladet arbets yta väljer du **Snabbstart**under **Allmänt**. 
-1. Under **Välj en data källa som ska anslutas till arbets ytan**väljer du **datorer**.
+1. I bladet arbets yta väljer du **Snabbstart** under **Allmänt**. 
+1. Under **Välj en data källa som ska anslutas till arbets ytan** väljer du **datorer**.
 1. På bladet **Direct agent** väljer du **Hämta Log Analytics Gateway**.
  
    ![Skärm bild av stegen för att ladda ned Log Analytics Gateway](./media/gateway/download-gateway.png)
 
 eller 
 
-1. I bladet arbets yta väljer du **Avancerade inställningar**under **Inställningar**.
+1. I bladet arbets yta väljer du **Avancerade inställningar** under **Inställningar**.
 1. Gå till **anslutna källor**  >  **Windows-servrar** och välj **Ladda ned Log Analytics Gateway**.
 
 ## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Installera Log Analytics Gateway med hjälp av installations guiden
@@ -142,7 +142,7 @@ Följ dessa steg om du vill installera en gateway med installations guiden.
 
 1. Om du inte har Microsoft Update aktive rad visas sidan Microsoft Update och du kan välja att aktivera den. Gör ett val och välj sedan **Nästa**. Annars fortsätter du till nästa steg.
 1. På sidan **målmapp** lämnar du standardmappen C:\Program Files\OMS gateway eller anger den plats där du vill installera gatewayen. Välj sedan **Nästa**.
-1. På sidan **klar att installera** väljer du **Installera**. Välj **Ja**om User Account Control begär behörighet att installera.
+1. På sidan **klar att installera** väljer du **Installera**. Välj **Ja** om User Account Control begär behörighet att installera.
 1. När installationen är klar väljer du **Slutför**. Verifiera att tjänsten körs genom att öppna snapin-modulen Services. msc och kontrol lera att OMS- **gatewayen** visas i listan över tjänster och att dess status är **igång**.
 
    ![Skärm bild av lokala tjänster som visar att OMS-gatewayen körs](./media/gateway/gateway-service.png)
@@ -192,7 +192,7 @@ Du kan konfigurera gatewayen för hög tillgänglighet med utjämning av nätver
 Information om hur du utformar och distribuerar ett kluster för Utjämning av nätverks belastning i Windows Server 2016 finns i [utjämning av nätverks belastning](/windows-server/networking/technologies/network-load-balancing). Följande steg beskriver hur du konfigurerar ett kluster för Utjämning av nätverks belastning i Microsoft.  
 
 1. Logga in på Windows Server som är medlem i NLB-klustret med ett administratörs konto.  
-2. Öppna hanteraren för Utjämning av nätverks belastning i Serverhanteraren, klicka på **verktyg**och klicka sedan på **hanteraren för Utjämning av nätverks belastning**.
+2. Öppna hanteraren för Utjämning av nätverks belastning i Serverhanteraren, klicka på **verktyg** och klicka sedan på **hanteraren för Utjämning av nätverks belastning**.
 3. Om du vill ansluta en Log Analytics Gateway-server med Microsoft Monitoring Agent installerad högerklickar du på klustrets IP-adress och klickar sedan på **Lägg till värd i kluster**. 
 
     ![Hanteraren för Utjämning av nätverks belastning – Lägg till värd i kluster](./media/gateway/nlb02.png)
@@ -248,7 +248,7 @@ Om du vill använda OMS-Gateway för att stödja Operations Manager måste du ha
 
 Om din Operations Manager hanterings grupp registreras med en Log Analytics arbets yta för första gången visas inte alternativet för att ange proxykonfigurationen för hanterings gruppen i drift konsolen. Det här alternativet är bara tillgängligt om hanterings gruppen har registrerats med tjänsten.  
 
-Om du vill konfigurera en integrering uppdaterar du konfigurationen av systemets proxy med hjälp av netsh på det system där du kör drift konsolen och på alla hanterings servrar i hanterings gruppen. Följ de här stegen:
+Om du vill konfigurera en integrering uppdaterar du konfigurationen av systemets proxy med hjälp av netsh på det system där du kör drift konsolen och på alla hanterings servrar i hanterings gruppen. Gör så här:
 
 1. Öppna en upphöjd kommando tolk:
 
@@ -262,7 +262,7 @@ Om du vill konfigurera en integrering uppdaterar du konfigurationen av systemets
 
 När du har slutfört integrationen med Log Analytics tar du bort ändringen genom att köra `netsh winhttp reset proxy` . I drift konsolen använder du sedan alternativet **Konfigurera proxyserver** för att ange Log Analytics Gateway-server. 
 
-1. Välj **anslutning**under **Operations Management Suite**i Operations Manager-konsolen och välj sedan **Konfigurera proxyserver**.
+1. Välj **anslutning** under **Operations Management Suite** i Operations Manager-konsolen och välj sedan **Konfigurera proxyserver**.
 
    ![Skärm bild av Operations Manager, som visar valet konfigurera proxyserver](./media/gateway/scom01.png)
 

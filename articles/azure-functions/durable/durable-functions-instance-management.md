@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 2b99d032b953caecfca2b34d5eadafe94f45f307
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87809382"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009542"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Hantera instanser i Durable Functions i Azure
 
@@ -158,11 +158,11 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 Du kan också starta en instans direkt genom att använda kommandot [Azure Functions Core tools](../functions-run-local.md) `durable start-new` . Det tar följande parametrar:
 
-* ** `function-name` (obligatoriskt)**: namnet på den funktion som ska startas.
-* ** `input` (valfritt)**: indata till funktionen, antingen i rad eller via en JSON-fil. För filer lägger du till ett prefix till sökvägen till filen med `@` , till exempel `@path/to/file.json` .
-* ** `id` (valfritt)**: ID för Orchestration-instansen. Om du inte anger den här parametern använder kommandot ett slumpmässigt GUID.
-* ** `connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är AzureWebJobsStorage.
-* ** `task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är DurableFunctionsHub. Du kan också ange detta i [host.jspå](durable-functions-bindings.md#host-json) med hjälp av DurableTask: HubName.
+* **`function-name` (obligatoriskt)**: namnet på den funktion som ska startas.
+* **`input` (valfritt)**: indata till funktionen, antingen i rad eller via en JSON-fil. För filer lägger du till ett prefix till sökvägen till filen med `@` , till exempel `@path/to/file.json` .
+* **`id` (valfritt)**: ID för Orchestration-instansen. Om du inte anger den här parametern använder kommandot ett slumpmässigt GUID.
+* **`connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är AzureWebJobsStorage.
+* **`task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är DurableFunctionsHub. Du kan också ange detta i [host.jspå](durable-functions-bindings.md#host-json) med hjälp av DurableTask: HubName.
 
 > [!NOTE]
 > Kommandona för Core tools förutsätter att du kör dem från rot katalogen i en Function-app. Om du uttryckligen anger `connection-string-setting` parametrarna och `task-hub-name` kan du köra kommandona från vilken katalog som helst. Även om du kan köra dessa kommandon utan att köra en Function-värd som kör, kan du upptäcka att du inte kan observera vissa effekter om inte värden körs. Kommandot kommer till exempel `start-new` att köa ett Start meddelande i hubben för mål, men dirigeringen körs inte om det inte finns någon funktion för att köra en Function-värd process som kan bearbeta meddelandet.
@@ -255,11 +255,11 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 Det är också möjligt att hämta statusen för en Dirigerings instans direkt genom att använda kommandot [Azure Functions Core tools](../functions-run-local.md) `durable get-runtime-status` . Det tar följande parametrar:
 
-* ** `id` (obligatoriskt)**: ID för Orchestration-instansen.
-* ** `show-input` (valfritt)**: om det är inställt på `true` , innehåller svaret indatatypen för funktionen. Standardvärdet är `false`.
-* ** `show-output` (valfritt)**: om det är inställt på `true` , innehåller svaret resultatet av funktionen. Standardvärdet är `false`.
-* ** `connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
-* ** `task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [host.jspå](durable-functions-bindings.md#host-json), med hjälp av DurableTask: HubName.
+* **`id` (obligatoriskt)**: ID för Orchestration-instansen.
+* **`show-input` (valfritt)**: om det är inställt på `true` , innehåller svaret indatatypen för funktionen. Standardvärdet är `false`.
+* **`show-output` (valfritt)**: om det är inställt på `true` , innehåller svaret resultatet av funktionen. Standardvärdet är `false`.
+* **`connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [host.jspå](durable-functions-bindings.md#host-json), med hjälp av DurableTask: HubName.
 
 Följande kommando hämtar status (inklusive indata och utdata) för en instans med ett Dirigerings instans-ID för 0ab8c55a66644d68a3a8b220b12d209c. Det förutsätter att du kör `func` kommandot från rot katalogen i Function-appen:
 
@@ -269,9 +269,9 @@ func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-inp
 
 Du kan använda `durable get-history` kommandot för att hämta historiken för en Dirigerings instans. Det tar följande parametrar:
 
-* ** `id` (obligatoriskt)**: ID för Orchestration-instansen.
-* ** `connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
-* ** `task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i host.jspå, med hjälp av durableTask: HubName.
+* **`id` (obligatoriskt)**: ID för Orchestration-instansen.
+* **`connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i host.jspå, med hjälp av durableTask: HubName.
 
 ```bash
 func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
@@ -347,10 +347,10 @@ Se [Start instanser](#javascript-function-json) för function.jsi konfiguratione
 
 Det är också möjligt att fråga instanser direkt, genom att använda kommandot [Azure Functions Core tools](../functions-run-local.md) `durable get-instances` . Det tar följande parametrar:
 
-* ** `top` (valfritt)**: det här kommandot stöder sid indelning. Den här parametern motsvarar antalet instanser som hämtas per begäran. Standardvärdet är 10.
-* ** `continuation-token` (valfritt)**: en token för att ange vilken sida eller vilket avsnitt av instanser som ska hämtas. Varje `get-instances` körning returnerar en token till nästa uppsättning instanser.
-* ** `connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
-* ** `task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [host.jspå](durable-functions-bindings.md#host-json), med hjälp av DurableTask: HubName.
+* **`top` (valfritt)**: det här kommandot stöder sid indelning. Den här parametern motsvarar antalet instanser som hämtas per begäran. Standardvärdet är 10.
+* **`continuation-token` (valfritt)**: en token för att ange vilken sida eller vilket avsnitt av instanser som ska hämtas. Varje `get-instances` körning returnerar en token till nästa uppsättning instanser.
+* **`connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [host.jspå](durable-functions-bindings.md#host-json), med hjälp av DurableTask: HubName.
 
 ```bash
 func durable get-instances
@@ -453,13 +453,13 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 I Azure Functions Core Tools kan du också använda `durable get-instances` kommandot med filter. Förutom de ovannämnda parametrarna, `top` , `continuation-token` `connection-string-setting` och `task-hub-name` kan du använda tre filter parametrar ( `created-after` , `created-before` , och `runtime-status` ).
 
-* ** `created-after` (valfritt)**: Hämta instanserna som skapats efter detta datum/tid (UTC). ISO 8601 formaterade datetimes har godkänts.
-* ** `created-before` (valfritt)**: Hämta instanserna som skapades före detta datum/tid (UTC). ISO 8601 formaterade datetimes har godkänts.
-* ** `runtime-status` (valfritt)**: Hämta instanserna med en viss status (till exempel körs eller slutfört). Kan ge flera (blankstegsavgränsad) status.
-* ** `top` (valfritt)**: antal instanser som hämtats per begäran. Standardvärdet är 10.
-* ** `continuation-token` (valfritt)**: en token för att ange vilken sida eller vilket avsnitt av instanser som ska hämtas. Varje `get-instances` körning returnerar en token till nästa uppsättning instanser.
-* ** `connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
-* ** `task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [host.jspå](durable-functions-bindings.md#host-json), med hjälp av DurableTask: HubName.
+* **`created-after` (valfritt)**: Hämta instanserna som skapats efter detta datum/tid (UTC). ISO 8601 formaterade datetimes har godkänts.
+* **`created-before` (valfritt)**: Hämta instanserna som skapades före detta datum/tid (UTC). ISO 8601 formaterade datetimes har godkänts.
+* **`runtime-status` (valfritt)**: Hämta instanserna med en viss status (till exempel körs eller slutfört). Kan ge flera (blankstegsavgränsad) status.
+* **`top` (valfritt)**: antal instanser som hämtats per begäran. Standardvärdet är 10.
+* **`continuation-token` (valfritt)**: en token för att ange vilken sida eller vilket avsnitt av instanser som ska hämtas. Varje `get-instances` körning returnerar en token till nästa uppsättning instanser.
+* **`connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [host.jspå](durable-functions-bindings.md#host-json), med hjälp av DurableTask: HubName.
 
 Om du inte anger några filter ( `created-after` , `created-before` eller `runtime-status` ) hämtar kommandot bara `top` instanser, utan hänsyn till körnings status eller skapande tid.
 
@@ -528,10 +528,10 @@ En avslutad instans övergår eventuellt till `Terminated` statusen. Den här ö
 
 Du kan också avsluta en Dirigerings instans direkt genom att använda kommandot [Azure Functions Core tools](../functions-run-local.md) `durable terminate` . Det tar följande parametrar:
 
-* ** `id` (obligatoriskt)**: ID för Orchestration-instansen som ska avbrytas.
-* ** `reason` (valfritt)**: orsak till avslutning.
-* ** `connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
-* ** `task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [host.jspå](durable-functions-bindings.md#host-json), med hjälp av DurableTask: HubName.
+* **`id` (obligatoriskt)**: ID för Orchestration-instansen som ska avbrytas.
+* **`reason` (valfritt)**: orsak till avslutning.
+* **`connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [host.jspå](durable-functions-bindings.md#host-json), med hjälp av DurableTask: HubName.
 
 Följande kommando avslutar en Dirigerings instans med ID: t 0ab8c55a66644d68a3a8b220b12d209c:
 
@@ -604,11 +604,11 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 Du kan också utlösa en händelse till en Orchestration-instans direkt genom att använda kommandot [Azure Functions Core tools](../functions-run-local.md) `durable raise-event` . Det tar följande parametrar:
 
-* ** `id` (obligatoriskt)**: ID för Orchestration-instansen.
+* **`id` (obligatoriskt)**: ID för Orchestration-instansen.
 * **`event-name`**: Namnet på händelsen som ska upphöjas.
-* ** `event-data` (valfritt)**: data som ska skickas till Orchestration-instansen. Detta kan vara sökvägen till en JSON-fil eller så kan du ange data direkt på kommando raden.
-* ** `connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
-* ** `task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [host.jspå](durable-functions-bindings.md#host-json), med hjälp av DurableTask: HubName.
+* **`event-data` (valfritt)**: data som ska skickas till Orchestration-instansen. Detta kan vara sökvägen till en JSON-fil eller så kan du ange data direkt på kommando raden.
+* **`connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Standardvärdet är `DurableFunctionsHub`. Den kan också anges i [host.jspå](durable-functions-bindings.md#host-json), med hjälp av DurableTask: HubName.
 
 ```bash
 func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
@@ -860,10 +860,10 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 Du kan också spola en Orchestration-instans direkt genom att använda kommandot [Azure Functions Core tools](../functions-run-local.md) `durable rewind` . Det tar följande parametrar:
 
-* ** `id` (obligatoriskt)**: ID för Orchestration-instansen.
-* ** `reason` (valfritt)**: skäl för att spola tillbaka Orchestration-instansen.
-* ** `connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
-* ** `task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Som standard används aktivitets hubbens namn i filen [host.js](durable-functions-bindings.md#host-json) .
+* **`id` (obligatoriskt)**: ID för Orchestration-instansen.
+* **`reason` (valfritt)**: skäl för att spola tillbaka Orchestration-instansen.
+* **`connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Som standard används aktivitets hubbens namn i filen [host.js](durable-functions-bindings.md#host-json) .
 
 ```bash
 func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
@@ -997,17 +997,17 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 ---
 
 > [!NOTE]
-> För att rensnings historiken ska fungera måste körnings status för mål instansen vara **slutförd**, **avslutad**eller **misslyckad**.
+> För att rensnings historiken ska fungera måste körnings status för mål instansen vara **slutförd**, **avslutad** eller **misslyckad**.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 Du kan rensa en Dirigerings instanss historik genom att använda kommandot [Azure Functions Core tools](../functions-run-local.md) `durable purge-history` . I likhet med det andra C#-exemplet i föregående avsnitt rensas historiken för alla Dirigerings instanser som skapats under ett angivet tidsintervall. Du kan filtrera rensade instanser ytterligare efter körnings status. Kommandot har flera parametrar:
 
-* ** `created-after` (valfritt)**: Rensa historiken för instanser som skapats efter detta datum/tid (UTC). ISO 8601 formaterade datetimes har godkänts.
-* ** `created-before` (valfritt)**: Rensa historiken för instanser som skapats före detta datum/tid (UTC). ISO 8601 formaterade datetimes har godkänts.
-* ** `runtime-status` (valfritt)**: Rensa historiken för instanser med en viss status (till exempel körs eller slutfört). Kan ge flera (blankstegsavgränsad) status.
-* ** `connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
-* ** `task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Som standard används aktivitets hubbens namn i filen [host.js](durable-functions-bindings.md#host-json) .
+* **`created-after` (valfritt)**: Rensa historiken för instanser som skapats efter detta datum/tid (UTC). ISO 8601 formaterade datetimes har godkänts.
+* **`created-before` (valfritt)**: Rensa historiken för instanser som skapats före detta datum/tid (UTC). ISO 8601 formaterade datetimes har godkänts.
+* **`runtime-status` (valfritt)**: Rensa historiken för instanser med en viss status (till exempel körs eller slutfört). Kan ge flera (blankstegsavgränsad) status.
+* **`connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Som standard används aktivitets hubbens namn i filen [host.js](durable-functions-bindings.md#host-json) .
 
 Följande kommando tar bort historiken för alla misslyckade instanser som skapats före den 14 november 2018 vid 7:35 PM (UTC).
 
@@ -1019,8 +1019,8 @@ func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runti
 
 Med hjälp av kommandot [Azure Functions Core tools](../functions-run-local.md) `durable delete-task-hub` kan du ta bort alla lagrings artefakter som är associerade med en viss aktivitets hubb, inklusive Azure Storage-tabeller, köer och blobar. Kommandot har två parametrar:
 
-* ** `connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
-* ** `task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Som standard används aktivitets hubbens namn i filen [host.js](durable-functions-bindings.md#host-json) .
+* **`connection-string-setting` (valfritt)**: namnet på den program inställning som innehåller den lagrings anslutnings sträng som ska användas. Standardvärdet är `AzureWebJobsStorage`.
+* **`task-hub-name` (valfritt)**: namnet på den Durable Functions aktivitets hubb som ska användas. Som standard används aktivitets hubbens namn i filen [host.js](durable-functions-bindings.md#host-json) .
 
 Följande kommando tar bort alla Azure Storage-data som är associerade med `UserTest` aktivitets navet.
 

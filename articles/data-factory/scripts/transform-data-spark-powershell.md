@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: 3af38f4cae53807c7268f00017f02f1325116fb6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637062"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008760"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell-skript – transformera data i molnet med hjälp av Azure Data Factory
 
@@ -26,7 +26,7 @@ Det här exemplet på PowerShell-skriptet skapar en pipeline som transformerar d
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
-* **Azure Storage konto** . Skapa ett Python-skript och en indatafil och överför dem till Azure Storage. Spark-programmets utdata lagras på det här lagringskontot. Spark-klustret på begäran använder samma lagringskonto som den primära lagringen.  
+* **Azure Storage konto**. Skapa ett Python-skript och en indatafil och överför dem till Azure Storage. Spark-programmets utdata lagras på det här lagringskontot. Spark-klustret på begäran använder samma lagringskonto som den primära lagringen.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Överföra Python-skriptet till ditt Blob Storage-konto
 1. Skapa en python-fil med namnet **WordCount_Spark. py** med följande innehåll: 
@@ -56,9 +56,9 @@ Det här exemplet på PowerShell-skriptet skapar en pipeline som transformerar d
     ```
 2. Ersätt **&lt; storageAccountName &gt;** med namnet på ditt Azure Storage-konto. Spara sedan filen. 
 3. Skapa en container med namnet **adftutorial** i Azure Blob Storage om den inte finns. 
-4. Skapa en mapp med namnet **spark** .
-5. Skapa en undermapp med namnet **script** under mappen **spark** . 
-6. Överför filen **WordCount_Spark.py** till undermappen **script** . 
+4. Skapa en mapp med namnet **spark**.
+5. Skapa en undermapp med namnet **script** under mappen **spark**. 
+6. Överför filen **WordCount_Spark.py** till undermappen **script**. 
 
 
 ### <a name="upload-the-input-file"></a>Överföra indatafilen

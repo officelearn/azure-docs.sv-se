@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
 ms.openlocfilehash: 5387fdc224cd77ee5273767df5033a51dc27608c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778871"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008369"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Acceleration av dynamisk webbplats via Azure CDN
 
@@ -32,7 +32,7 @@ Standard funktioner för Content Delivery Network (CDN) inkluderar möjligheten 
 > [!Important]
 > För **Azure CDN från Akamai** -profiler, kan du ändra optimeringen för en CDN-slutpunkt när den har skapats.
 >   
-> För **Azure CDN från Verizon** -profiler kan du inte ändra optimeringen av en CDN-slutpunkt när den väl har skapats.
+> För **Azure CDN från Verizon**-profiler kan du inte ändra optimeringen av en CDN-slutpunkt när den väl har skapats.
 
 ## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>Konfiguration av CDN-slutpunkt för att påskynda leverans av dynamiska filer
 
@@ -40,13 +40,13 @@ Om du vill konfigurera en CDN-slutpunkt för att optimera leverans av dynamiska 
 
 **Konfigurera en CDN-slutpunkt för DSA-optimering med hjälp av Azure Portal:**
 
-1. På sidan **CDN-profil** väljer du **slut punkt** .
+1. På sidan **CDN-profil** väljer du **slut punkt**.
 
    ![Lägg till en ny CDN-slutpunkt](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
 
    Fönstret **Lägg till slutpunkt** visas.
 
-2. Under **optimerad för** väljer du **dynamisk webbplats acceleration** .
+2. Under **optimerad för** väljer du **dynamisk webbplats acceleration**.
 
     ![Skapa en ny CDN-slutpunkt med DSA](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
 
@@ -54,7 +54,7 @@ Om du vill konfigurera en CDN-slutpunkt för att optimera leverans av dynamiska 
 
     Avsöknings Sök vägen är en funktion som är speciell för DSA och en giltig sökväg krävs för att kunna skapas. DSA använder en liten *avsöknings Sök vägs* fil som placerats på ursprungs servern för att optimera konfigurationen för nätverks routning för CDN. För avsöknings Sök vägs filen kan du ladda ned och ladda upp exempel filen till din webbplats eller använda en befintlig till gång på ditt ursprung som är cirka 10 KB stor.
 
-4. Ange andra obligatoriska slut punkts alternativ (mer information finns i [skapa en ny CDN-slutpunkt](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)) och välj sedan **Lägg till** .
+4. Ange andra obligatoriska slut punkts alternativ (mer information finns i [skapa en ny CDN-slutpunkt](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)) och välj sedan **Lägg till**.
 
    När CDN-slutpunkten har skapats tillämpar den DSA-optimeringar för alla filer som matchar vissa villkor. 
 
@@ -67,7 +67,7 @@ Om du vill konfigurera en CDN-slutpunkt för att optimera leverans av dynamiska 
 
    Sidan **optimering** visas.
 
-3. Under **optimerad för** väljer du **dynamisk webbplats acceleration** och väljer sedan **Spara** .
+3. Under **optimerad för** väljer du **dynamisk webbplats acceleration** och väljer sedan **Spara**.
 
 > [!Note]
 > DSA debiteras extra kostnader. Mer information finns i [Content Delivery Network prissättning](https://azure.microsoft.com/pricing/details/cdn/).
@@ -157,7 +157,7 @@ För **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai*
 
 För att få åtkomst till regler för cachelagring:
 
-1. På sidan **CDN-profil** under Inställningar väljer du **regler för cachelagring** .  
+1. På sidan **CDN-profil** under Inställningar väljer du **regler för cachelagring**.  
     
     ![Knappen CDN-cachelagringsregler](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -169,13 +169,13 @@ För **Azure CDN Premium från Verizon** -profiler aktiverar du cachelagring fö
 
 För att komma åt regel motorn:
     
-1. På sidan **CDN-profil** väljer du **Hantera** .  
+1. På sidan **CDN-profil** väljer du **Hantera**.  
     
     ![Knappen Hantera CDN-profil](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     Hanterings portalen för CDN öppnas.
 
-2. Välj **och** på hanterings portalen för CDN och välj sedan **regel motor** . 
+2. Välj **och** på hanterings portalen för CDN och välj sedan **regel motor**. 
 
     ![Regel motor för DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
 

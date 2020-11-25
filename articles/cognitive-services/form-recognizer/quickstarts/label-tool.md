@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: dokument bearbetning
-ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360878"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009338"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
@@ -32,18 +32,27 @@ För att slutföra den här snabb starten måste du ha:
 * När du har en Azure-prenumeration kan du <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" skapa en formulär igenkännings resurs "  target="_blank"> skapa en formulär igenkännings resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Forms igenkännings-API: et. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
-* En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) (Hämta och extrahera *sample_data.zip* ) för den här snabb starten. Ladda upp utbildnings-filerna till roten för en Blob Storage-behållare i ett Azure Storage konto med standard prestanda nivå.
+* En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) (Hämta och extrahera *sample_data.zip*) för den här snabb starten. Ladda upp utbildnings-filerna till roten för en Blob Storage-behållare i ett Azure Storage konto med standard prestanda nivå.
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="try-it-out"></a>Prova nu
+## <a name="try-it-out"></a>Prova
 
 Om du vill testa formulär tolkens exempel etikett verktyg online går du till FOTT- [webbplatsen](https://fott-preview.azurewebsites.net/).
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [Formulär tolkens exempel etikett verktyg](https://fott-preview.azurewebsites.net/)
+> [Prova färdiga modeller](https://fott.azurewebsites.net/)
+
+# <a name="v21-preview"></a>[v 2.1 Preview](#tab/v2-1)
+> [!div class="nextstepaction"]
+> [Prova färdiga modeller](https://fott-preview.azurewebsites.net/)
+
+---
+
+Du behöver en Azure-prenumeration ([skapa en kostnads fri](https://azure.microsoft.com/free/cognitive-services)) och en resurs slut punkt för [formulär igenkänning](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) och en nyckel för att testa formulär igenkännings tjänsten. 
 
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Konfigurera verktyget för samplings etiketter
@@ -68,8 +77,6 @@ Du använder Docker-motorn för att köra verktyget för etikettering. Följ de 
 
 
 
-
-
 1. Hämta exempel på etiketting Tool-behållaren med `docker pull` kommandot.
 
     # <a name="v20"></a>[v2.0](#tab/v2-0)    
@@ -78,7 +85,7 @@ Du använder Docker-motorn för att köra verktyget för etikettering. Följ de 
     ```
     # <a name="v21-preview"></a>[v 2.1 Preview](#tab/v2-1)    
     ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
     ```
 
     ---
@@ -91,7 +98,7 @@ Du använder Docker-motorn för att köra verktyget för etikettering. Följ de 
     ```
     # <a name="v21-preview"></a>[v 2.1 Preview](#tab/v2-1)    
     ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept    
     ```
 
     --- 
@@ -130,7 +137,7 @@ Fyll i fälten med följande värden:
 
 * **Visnings namn** – anslutningens visnings namn.
 * **Beskrivning** – din projekt beskrivning.
-* **SAS-URL** – URL: en för signaturen för delad åtkomst (SAS) för din Azure Blob Storage-behållare. Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Ange förfallotiden till en tid som infaller efter att du har använt tjänsten. Kontrol lera att behörigheterna **läsa** , **skriva** , **ta bort** och **lista** är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **SAS-URL** – URL: en för signaturen för delad åtkomst (SAS) för din Azure Blob Storage-behållare. Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Ange förfallotiden till en tid som infaller efter att du har använt tjänsten. Kontrol lera att behörigheterna **läsa**, **skriva**, **ta bort** och **lista** är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Anslutnings inställningar för verktyget för exempel etiketter.":::
 
@@ -193,7 +200,7 @@ Därefter skapar du taggar (etiketter) och tillämpar dem på de text element so
    1. Klicka **+** om du vill skapa en ny tagg.
    1. Ange namnet på taggen.
    1. Spara taggen genom att trycka på RETUR.
-1. Klicka i huvud redigeraren för att välja ord från de markerade text elementen. I för _hands versionen av v 2.1_ kan du också klicka för att välja _markerings märken_ som alternativ knappar och kryss rutor som nyckel värdes par. Formulär tolken identifierar om markerings markeringen är "markerad" eller "omarkerad" som värde.
+1. Klicka i huvud redigeraren för att välja ord från de markerade text elementen. I för _hands versionen av v 2.1.2_ du kan också klicka för att välja _markerings märken_ som alternativ knappar och kryss rutor som nyckel värdes par. Formulär tolken identifierar om markerings markeringen är "markerad" eller "omarkerad" som värde.
 1. Klicka på den tagg som du vill använda, eller tryck på motsvarande tangent bords nyckel. Siffer nycklarna tilldelas som kortkommandon för de första 10 taggarna. Du kan ändra ordning på taggarna med hjälp av upp-och nedpilens ikoner i rutan kod redigeraren.
     > [!Tip]
     > Tänk på följande när du är etikett på formulären.

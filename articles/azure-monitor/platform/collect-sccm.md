@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
 ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448148"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008981"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Anslut Configuration Manager till Azure Monitor
 Du kan ansluta din Microsoft Endpoint Configuration Manager-miljö till Azure Monitor för att synkronisera enhets samlings data och referera till dessa samlingar i Azure Monitor och Azure Automation.  
@@ -102,13 +102,13 @@ Läs artikeln [Anslut Windows-datorer till Azure Monitor i Azure](agent-windows.
 
     5. Ange för **hemlig nyckel**, klientens hemliga nyckel för den skapade Azure AD-appen.
 
-    6. Ange för den **hemliga nyckelns**förfallo datum, förfallo datum för nyckeln.
+    6. Ange för den **hemliga nyckelns** förfallo datum, förfallo datum för nyckeln.
 
     7. Ange för **app-ID-URI**: n för app-ID för den skapade Azure AD-appen som skapades tidigare.
 
     8. Välj **Verifiera** och till höger bör resultaten visas som **verifierade!**.
 
-8. På sidan **konfiguration** granskar du informationen för att kontrol lera fälten **Azure-prenumeration**, **Azure-resurs grupp**och **Operations Management Suite-arbetsytan** i förväg, vilket innebär att Azure AD-programmet har tillräcklig behörighet i resurs gruppen. Om fälten är tomma anger det att programmet inte har de rättigheter som krävs. Välj de enhets samlingar som ska samlas in och vidarebefordras till arbets ytan och välj sedan **Lägg till**.
+8. På sidan **konfiguration** granskar du informationen för att kontrol lera fälten **Azure-prenumeration**, **Azure-resurs grupp** och **Operations Management Suite-arbetsytan** i förväg, vilket innebär att Azure AD-programmet har tillräcklig behörighet i resurs gruppen. Om fälten är tomma anger det att programmet inte har de rättigheter som krävs. Välj de enhets samlingar som ska samlas in och vidarebefordras till arbets ytan och välj sedan **Lägg till**.
 
 9. Granska alternativen på sidan **Bekräfta inställningar** och välj **Nästa** för att börja skapa och konfigurera anslutningen.
 

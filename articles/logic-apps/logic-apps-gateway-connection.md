@@ -7,11 +7,11 @@ ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
 ms.date: 08/18/2020
 ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661205"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009271"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ansluta till lokala datakällor från Azure Logic Apps
 
@@ -72,11 +72,11 @@ När du har installerat gatewayen på en lokal dator skapar du Azure-resursen f�
 
    ![Hitta en lokal datagateway](./media/logic-apps-gateway-connection/search-for-on-premises-data-gateway.png)
 
-1. Under **lokala Datagatewayer**väljer du **Lägg till**.
+1. Under **lokala Datagatewayer** väljer du **Lägg till**.
 
    ![Lägg till ny Azure-resurs för datagateway](./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png)
 
-1. Under **skapa Gateway för anslutning**anger du den här informationen för din gateway-resurs. När du är färdig väljer du **Skapa**.
+1. Under **skapa Gateway för anslutning** anger du den här informationen för din gateway-resurs. När du är färdig väljer du **Skapa**.
 
    | Egenskap | Beskrivning |
    |----------|-------------|
@@ -103,7 +103,7 @@ När du har skapat din gateway-resurs och associerat din Azure-prenumeration med
 
 1. Välj **Anslut via lokal datagateway**.
 
-1. Under **gatewayer**väljer du din Azure-prenumeration som har den gateway-resurs som du vill använda från listan **prenumerationer** .
+1. Under **gatewayer** väljer du din Azure-prenumeration som har den gateway-resurs som du vill använda från listan **prenumerationer** .
 
    Förutsatt att du har åtkomst till prenumerationen kan du välja mellan olika Azure-prenumerationer som är associerade med en annan gateway-resurs. Din Logic app-och gateway-resurs behöver inte finnas i samma Azure-prenumeration.
 
@@ -140,7 +140,7 @@ Om du vill uppdatera inställningarna för en gateway-anslutning kan du redigera
 Så här hittar du alla API-anslutningar som är associerade med din Azure-prenumeration:
 
 * Från Azure Portal-menyn väljer du **alla tjänster**  >  **Web**  >  **API-anslutningar**.
-* Eller Välj **alla resurser**från Azure Portal-menyn. Ange **typ** filter till **API-anslutning**.
+* Eller Välj **alla resurser** från Azure Portal-menyn. Ange **typ** filter till **API-anslutning**.
 
 <a name="change-delete-gateway-resource"></a>
 
@@ -148,9 +148,9 @@ Så här hittar du alla API-anslutningar som är associerade med din Azure-prenu
 
 Om du vill skapa en annan gateway-resurs länkar du Gateway-installationen till en annan gateway-resurs eller tar bort Gateway-resursen, kan du ta bort Gateway-resursen utan att det påverkar Gateway-installationen.
 
-1. Från Azure Portal-menyn väljer du **alla resurser**eller söker efter och väljer **alla resurser** från vilken sida som helst. Hitta och välj din gateway-resurs.
+1. Från Azure Portal-menyn väljer du **alla resurser** eller söker efter och väljer **alla resurser** från vilken sida som helst. Hitta och välj din gateway-resurs.
 
-1. Om du inte redan har valt väljer du **lokal datagateway**på menyn gateway-resurs. I verktygsfältet gateway-resurs väljer du **ta bort**.
+1. Om du inte redan har valt väljer du **lokal datagateway** på menyn gateway-resurs. I verktygsfältet gateway-resurs väljer du **ta bort**.
 
    Exempel:
 

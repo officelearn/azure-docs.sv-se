@@ -8,11 +8,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88207805"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008998"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar
 
@@ -43,7 +43,7 @@ Skapa en ny virtuell Linux-dator:
 1. Välj **Ubuntu 16,04 LTS** och välj **skapa**. 
 1. Ange ett VM-namn som **MyTelegrafVM**.  
 1. Lämna disk typen **SSD**. Ange sedan ett **användar namn**, till exempel **azureuser**. 
-1. För **Autentiseringstyp**väljer du **lösen ord**. Ange ett lösen ord som du kommer att använda senare för att använda SSH i den här virtuella datorn. 
+1. För **Autentiseringstyp** väljer du **lösen ord**. Ange ett lösen ord som du kommer att använda senare för att använda SSH i den här virtuella datorn. 
 1. Välj att **skapa en ny resurs grupp**. Ange sedan ett namn, till exempel **myResourceGroup**. Välj din **plats**. Välj sedan **OK**. 
 
     ![Skapa en virtuell Ubuntu-dator](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
@@ -68,7 +68,7 @@ Skapa en SSH-anslutning med den virtuella datorn. Välj **Anslut**-knappen på �
 
 ![Översikts sida för virtuella datorer i netympkvistar](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
 
-På sidan **Anslut till den virtuella datorn** behåller du standardalternativen för att ansluta med DNS-namn via port 22. I **Logga in med lokalt konto för virtuell dator**visas ett anslutnings kommando. Klicka på knappen för att kopiera kommandot. Följande exempel visar hur SSH-anslutningskommandot ser ut: 
+På sidan **Anslut till den virtuella datorn** behåller du standardalternativen för att ansluta med DNS-namn via port 22. I **Logga in med lokalt konto för virtuell dator** visas ett anslutnings kommando. Klicka på knappen för att kopiera kommandot. Följande exempel visar hur SSH-anslutningskommandot ser ut: 
 
 ```cmd
 ssh azureuser@XXXX.XX.XXX 

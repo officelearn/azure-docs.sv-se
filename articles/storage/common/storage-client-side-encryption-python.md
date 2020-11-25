@@ -12,11 +12,11 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 511166e156591562b2120b58cc420f3fccd1d8c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84804909"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008948"
 ---
 # <a name="client-side-encryption-with-python"></a>Kryptering på klient sidan med python
 
@@ -54,7 +54,7 @@ Dekryptering via kuvert tekniken fungerar på följande sätt:
 Lagrings klient biblioteket använder [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) för att kryptera användar data. Särskilt [CBC-läge (cipher block Chaining)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) med AES. Varje tjänst fungerar något annorlunda, så vi diskuterar var och en av dem här.
 
 ### <a name="blobs"></a>Blobar
-Klient biblioteket har för närvarande endast stöd för kryptering av hela blobbar. Mer specifikt stöds kryptering när användarna använder metoderna **create***. För hämtningar stöds både fullständig och intervall hämtningar, och parallellisering av både överföring och nedladdning är tillgängligt.
+Klient biblioteket har för närvarande endast stöd för kryptering av hela blobbar. Mer specifikt stöds kryptering när användarna använder metoderna **create** _. För hämtningar stöds både fullständig och intervall hämtningar, och parallellisering av både överföring och nedladdning är tillgängligt.
 
 Under krypteringen genererar klient biblioteket en slumpmässig initierings vektor (IV) av 16 byte, tillsammans med en slumpmässig innehålls krypterings nyckel (CEK) på 32 byte och utför kuvert kryptering av BLOB-data med hjälp av den här informationen. Den omslutna CEK och vissa ytterligare krypterings-metadata lagras sedan som BLOB-metadata tillsammans med den krypterade blobben i tjänsten.
 
@@ -63,9 +63,9 @@ Under krypteringen genererar klient biblioteket en slumpmässig initierings vekt
 > 
 > 
 
-Genom att hämta en krypterad BLOB måste du hämta innehållet i hela blobben med hjälp av **Get***-bekvämlighets metoderna. Den omslutna CEK är unwrap och används tillsammans med IV (lagras som BLOB-metadata i det här fallet) för att returnera dekrypterade data till användarna.
+Genom att hämta en krypterad BLOB måste du hämta innehållet i hela blobben med hjälp av _*Get* *_ -metoderna. Den omslutna CEK är unwrap och används tillsammans med IV (lagras som BLOB-metadata i det här fallet) för att returnera dekrypterade data till användarna.
 
-Att ladda ned ett godtyckligt intervall (**Get*** metoder med intervall parametrar som skickas in) i den krypterade blobben innefattar justering av intervallet som anges av användarna för att få en liten mängd ytterligare data som kan användas för att dekryptera det begärda intervallet.
+Att ladda ned ett godtyckligt intervall (_*Get* *_ -metoder med intervall parametrar som skickas in) i den krypterade blobben innefattar justering av intervallet som anges av användarna för att få en liten mängd ytterligare data som kan användas för att dekryptera det begärda intervallet.
 
 Block-blobbar och Page blobbar kan bara krypteras/dekrypteras med det här schemat. Det finns för närvarande inget stöd för kryptering av tilläggs-blobar.
 
@@ -114,7 +114,7 @@ Observera att entiteter krypteras när de infogas i batchen med hjälp av batche
 > [!IMPORTANT]
 > Tänk på följande viktiga punkter när du använder kryptering på klient sidan:
 > 
-> * När du läser från eller skriver till en krypterad BLOB använder du kommandona för att ladda upp hela bloben och hämta intervall/hela BLOB-kommandon. Undvik att skriva till en krypterad BLOB med hjälp av protokoll åtgärder som till exempel spärra block, lista över blockerade sidor, skriv sidor eller rensa sidor. Annars kan du skada den krypterade blobben och göra den oläslig.
+> _ Vid läsning från eller skrivning till en krypterad BLOB använder du kommandon för att ladda upp hela bloben och kommandot intervall/fullständig BLOB-hämtning. Undvik att skriva till en krypterad BLOB med hjälp av protokoll åtgärder som till exempel spärra block, lista över blockerade sidor, skriv sidor eller rensa sidor. Annars kan du skada den krypterade blobben och göra den oläslig.
 > * För tabeller finns det liknande villkor. Var noga med att inte uppdatera krypterade egenskaper utan att uppdatera metadata för kryptering.
 > * Om du ställer in metadata på den krypterade blobben kan du skriva över de krypterings-relaterade metadata som krävs för dekryptering, eftersom inställning av metadata inte är additiv. Detta gäller även för ögonblicks bilder. Undvik att ange metadata när du skapar en ögonblicks bild av en krypterad blob. Om metadata måste anges måste du anropa metoden **get_blob_metadata** först för att hämta aktuella krypterings-metadata och undvika samtidiga skrivningar medan metadata anges.
 > * Aktivera **require_encryption** -flaggan på serviceobjektet för användare som endast ska arbeta med krypterade data. Se nedan för mer information.
@@ -197,7 +197,7 @@ retrieved_message_list = my_queue_service.get_messages(queue_name)
 ```
 
 ### <a name="table-service-encryption"></a>Table service kryptering
-Förutom att skapa en krypterings princip och ställa in den på begär ande alternativ måste du antingen ange en **encryption_resolver_function** på **tableservice**eller ange attributet kryptera på EntityProperty.
+Förutom att skapa en krypterings princip och ställa in den på begär ande alternativ måste du antingen ange en **encryption_resolver_function** på **tableservice** eller ange attributet kryptera på EntityProperty.
 
 ### <a name="using-the-resolver"></a>Använda matcharen
 

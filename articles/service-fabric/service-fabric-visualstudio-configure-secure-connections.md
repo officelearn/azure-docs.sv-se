@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: d4d6b781d97d481793e69cf2ca97cca5b93ce432
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256101"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008539"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Konfigurera säkra anslutningar till ett Service Fabric kluster från Visual Studio
 Lär dig hur du använder Visual Studio för säker åtkomst till ett Azure Service Fabric-kluster med åtkomst kontroll principer konfigurerade.
@@ -21,7 +21,7 @@ Två typer av anslutningar stöds av Azure Service Fabric-klustret: **icke-säkr
 Visual Studio Service Fabric-verktyg stöder alla autentiseringstyper för att ansluta till ett kluster för publicering. Anvisningar om hur du konfigurerar ett säkert Service Fabric kluster finns i Konfigurera [ett Service Fabric kluster från Azure Portal](service-fabric-cluster-creation-via-portal.md) .
 
 ## <a name="configure-cluster-connections-in-publish-profiles"></a>Konfigurera kluster anslutningar i publicerings profiler
-Om du publicerar ett Service Fabric-projekt från Visual Studio använder du dialog rutan **publicera Service Fabric program** för att välja ett Azure Service Fabric-kluster. Under **anslutnings slut punkt**väljer du ett befintligt kluster under din prenumeration.
+Om du publicerar ett Service Fabric-projekt från Visual Studio använder du dialog rutan **publicera Service Fabric program** för att välja ett Azure Service Fabric-kluster. Under **anslutnings slut punkt** väljer du ett befintligt kluster under din prenumeration.
 
 ![Dialog rutan * * publicera Service Fabric program * * används för att konfigurera en Service Fabric anslutning.][publishdialog]
 

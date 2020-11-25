@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
 ms.openlocfilehash: de01a8a8522f93684ed428fd4ef19963b1af2059
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564318"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008352"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiera data från Azure Blob Storage till en SQL Database med hjälp av Kopiera data-verktyget
 
@@ -40,9 +40,9 @@ I den här självstudien får du göra följande:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Azure-prenumeration** : Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure Storage konto** : Använd Blob Storage som _käll_ data lager. Om du inte har ett Azure Storage konto kan du läsa instruktionerna i [skapa ett lagrings konto](../storage/common/storage-account-create.md).
-* **Azure SQL Database** : använd en SQL Database som data lager för _mottagare_ . Om du inte har en SQL Database kan du läsa anvisningarna i [skapa en SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* **Azure Storage konto**: Använd Blob Storage som _käll_ data lager. Om du inte har ett Azure Storage konto kan du läsa instruktionerna i [skapa ett lagrings konto](../storage/common/storage-account-create.md).
+* **Azure SQL Database**: använd en SQL Database som data lager för _mottagare_ . Om du inte har en SQL Database kan du läsa anvisningarna i [skapa en SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Skapa en blob och en SQL-tabell
 
@@ -80,18 +80,18 @@ Förbered din Blob Storage och dina SQL Database för självstudien genom att ut
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. På den vänstra menyn väljer du **skapa en resurs**  >  **integrations**  >  **Data Factory** :
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **integrations**  >  **Data Factory**:
 
     ![Skapa ny datafabrik](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. I fönstret **Ny datafabrik** , under **Namn** anger du **ADFTutorialDataFactory**.
+1. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**.
 
     Namnet på datafabriken måste vara _globalt unikt_. Du kan få följande felmeddelande:
 
     ![Felmeddelande för ny datafabrik](./media/doc-common-process/name-not-available-error.png)
 
     Ange ett annat namn för datafabriken om du får ett felmeddelande om namnvärdet. Använd till exempel namnet _**dittnamn**_**ADFTutorialDataFactory**. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
-1. Välj den Azure- **prenumeration** som du vill skapa den nya datafabriken i.
-1. Gör något av följande för **Resursgrupp** :
+1. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i.
+1. Gör något av följande för **Resursgrupp**:
 
     a. Välj **Använd befintlig** och välj en befintlig resurs grupp i den nedrullningsbara listan.
 
@@ -113,10 +113,10 @@ Förbered din Blob Storage och dina SQL Database för självstudien genom att ut
 1. Sidan **Nu sätter vi igång** visas. Välj panelen **Kopiera data** för att starta verktyget Kopiera data.
 
     ![Panel för verktyget Kopiera data](./media/doc-common-process/get-started-page.png)
-1. På sidan **Egenskaper** under **Aktivitetsnamn** , anger du **CopyFromBlobToSqlPipeline**. Välj sedan **Nästa**. Med användargränssnittet för Data Factory skapas en pipeline med angivet aktivitetsnamn.
+1. På sidan **Egenskaper** under **Aktivitetsnamn**, anger du **CopyFromBlobToSqlPipeline**. Välj sedan **Nästa**. Med användargränssnittet för Data Factory skapas en pipeline med angivet aktivitetsnamn.
     ![Skapa en pipeline](./media/tutorial-copy-data-tool/create-pipeline.png)
 
-1. Gör följande på sidan **Källdatalager** :
+1. Gör följande på sidan **Källdatalager**:
 
     a. Klicka på **+ Skapa ny anslutning** för att lägga till en anslutning
 
@@ -128,16 +128,16 @@ Förbered din Blob Storage och dina SQL Database för självstudien genom att ut
 
     ![Välj källa för den länkade tjänsten](./media/tutorial-copy-data-tool/select-source-linked-service.png)
 
-1. Gör följande på sidan för att **välja indatafil eller -mapp** :
+1. Gör följande på sidan för att **välja indatafil eller -mapp**:
 
-    a. Klicka på **Bläddra** för att gå till mappen **adfv2tutorial/input** , välj filen **inputEmp.txt** och klicka på **Välj**.
+    a. Klicka på **Bläddra** för att gå till mappen **adfv2tutorial/input**, välj filen **inputEmp.txt** och klicka på **Välj**.
 
     b. Klicka på **Nästa** för att gå vidare till nästa steg.
 
 1. På sidan **fil formats inställningar** aktiverar du kryss rutan för *första raden som rubrik*. Observera att verktyget automatiskt identifierar kolumn-och rad avgränsare. Välj **Nästa**. Du kan också förhandsgranska data och Visa schemat för indata på den här sidan.
 
     ![Filformatinställningar](./media/tutorial-copy-data-tool/file-format-settings-page.png)
-1. Gör följande på sidan **Måldatalager** :
+1. Gör följande på sidan **Måldatalager**:
 
     a. Klicka på **+ Skapa ny anslutning** för att lägga till en anslutning
 

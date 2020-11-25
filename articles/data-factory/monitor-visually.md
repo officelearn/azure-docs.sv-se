@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: ecb066c7269217af3f8cc84e0f59ab29b4b39a9e
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 45ebd793d96ed8cf0edf88d5631353fb6cd6a982
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331620"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96008777"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Övervaka Azure-datafabriker visuellt
 
@@ -40,7 +40,7 @@ Pipelinens körnings rutnät innehåller följande kolumner:
 | Kör slut | Slutdatum och-tid för pipeline-körningen (MM/DD/ÅÅÅÅ, HH: MM: SS fm/em) |
 | Varaktighet | Körnings tid (HH: MM: SS) |
 | Utlöst av | Namnet på utlösaren som startade pipelinen |
-| Status | **Misslyckades** , **lyckades** , **In Progress** pågår, **avbröts** eller **köade** |
+| Status | **Misslyckades**, **lyckades**, **In Progress** pågår, **avbröts** eller **köade** |
 | Anteckningar | Filter bara taggar som är associerade med en pipeline  |
 | Parametrar | Parametrar för pipeline-körningen (namn/värde-par) |
 | Fel | Om pipelinen misslyckades, körs fel |
@@ -62,16 +62,16 @@ Om du vill få en detaljerad översikt över de enskilda aktivitets körningarna
 
 Listvyn visar aktivitets körningar som motsvarar varje pipeline-körning. Hovra över den särskilda aktivitets körningen för att hämta information om den här typen av information, till exempel JSON-indata, JSON-utdata och detaljerade verksamhetsspecifika övervaknings upplevelser.
 
-![Listvy för övervakning av aktivitets körningar](media/monitor-visually/activity-runs.png)
+![Det finns information om SalesAnalyticsMLPipeline, följt av en lista över aktivitets körningar.](media/monitor-visually/activity-runs.png)
 
 | **Kolumnnamn** | **Beskrivning** |
 | --- | --- |
 | Aktivitetsnamn | Namn på aktiviteten inuti pipelinen |
-| Aktivitetstyp | Typ av aktivitet, till exempel **copy** , **ExecuteDataFlow** eller **AzureMLExecutePipeline** |
+| Aktivitetstyp | Typ av aktivitet, till exempel **copy**, **ExecuteDataFlow** eller **AzureMLExecutePipeline** |
 | Åtgärder | Ikoner som gör att du kan se information om JSON-indata, JSON-utdata eller detaljerade verksamhetsspecifika övervaknings upplevelser | 
 | Kör Start | Start datum och-tid för aktivitets körningen (MM/DD/ÅÅÅÅ, HH: MM: SS fm/em) |
 | Varaktighet | Körnings tid (HH: MM: SS) |
-| Status | **Misslyckades** , **lyckades** , **pågår** eller **avbröts** |
+| Status | **Misslyckades**, **lyckades**, **pågår** eller **avbröts** |
 | Integration Runtime | Som Integration Runtime aktiviteten kördes på |
 | Egenskaper för användare | Användardefinierade egenskaper för aktiviteten |
 | Fel | Om aktiviteten misslyckades, körs fel |
@@ -79,7 +79,7 @@ Listvyn visar aktivitets körningar som motsvarar varje pipeline-körning. Hovra
 
 Om en aktivitet Miss lyckas kan du se det detaljerade fel meddelandet genom att klicka på ikonen i fel kolumnen. 
 
-![Listvy för övervakning av aktivitets körningar](media/monitor-visually/activity-run-error.png)
+![Ett meddelande visas med fel information, inklusive felkod, fel typ och fel information.](media/monitor-visually/activity-run-error.png)
 
 ### <a name="promote-user-properties-to-monitor"></a>Befordra användar egenskaper för övervakning
 

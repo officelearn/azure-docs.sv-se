@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mikhegn
 ms.openlocfilehash: 1db6cea0af229664b07e88463e279b2a64d7e267
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256058"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008522"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Konfigurera uppgraderingen av ett Service Fabric program i Visual Studio
 Visual Studio Tools för Azure Service Fabric ger uppgraderings stöd för publicering till lokala eller fjärranslutna kluster. Det finns tre scenarier där du vill uppgradera programmet till en nyare version i stället för att ersätta programmet under testning och fel sökning:
@@ -22,7 +22,7 @@ Visual Studio Tools för Azure Service Fabric ger uppgraderings stöd för publi
 ## <a name="parameters-needed-to-upgrade"></a>Parametrar som behövs för att uppgradera
 Du kan välja mellan två typer av distribution: regelbunden eller uppgradering. En vanlig distribution raderar eventuell tidigare distributions information och data i klustret, medan en uppgraderings distribution bevarar den. När du uppgraderar ett Service Fabric-program i Visual Studio måste du ange parametrar för program uppgradering och principer för hälso kontroll. Parametrarna för program uppgradering hjälper till att kontrol lera uppgraderingen, medan hälso kontroll principerna avgör om uppgraderingen lyckades. Se [Service Fabric program uppgradering: uppgraderings parametrar](service-fabric-application-upgrade-parameters.md) för mer information.
 
-Det finns tre uppgraderings lägen: *övervakad*, *UnmonitoredAuto*och *UnmonitoredManual*.
+Det finns tre uppgraderings lägen: *övervakad*, *UnmonitoredAuto* och *UnmonitoredManual*.
 
 * En övervakad uppgradering automatiserar uppgraderings-och program hälso kontrollen.
 * En UnmonitoredAuto-uppgradering automatiserar uppgraderingen, men hoppar över program hälso kontrollen.

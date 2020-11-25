@@ -10,11 +10,11 @@ ms.date: 07/14/2017
 ms.author: cynthn
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 779a09532790ea272d8c95ac28f8c152216efc5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002971"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008658"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en virtuell Azure-dator med C# och en Resource Manager-mall
 
@@ -36,7 +36,7 @@ I det här steget ser du till att Visual Studio är installerat och du skapar et
 
 NuGet-paket är det enklaste sättet att installera de bibliotek som du behöver för att slutföra de här stegen. Gör så här för att hämta de bibliotek som du behöver i Visual Studio:
 
-1. Klicka på **verktyg**  >  **NuGet Package Manager**och klicka sedan på **Package Manager-konsolen**.
+1. Klicka på **verktyg**  >  **NuGet Package Manager** och klicka sedan på **Package Manager-konsolen**.
 2. Skriv följande kommandon i-konsolen:
 
     ```powershell
@@ -50,7 +50,7 @@ I det här steget skapar du en mallfil som distribuerar resurserna och en parame
 
 ### <a name="create-the-template-file"></a>Skapa mallfilen
 
-1. I Solution Explorer högerklickar du på *myDotnetProject*  >  **Lägg till**  >  **nytt objekt**och väljer sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *CreateVMTemplate.jspå*och klicka sedan på **Lägg till**.
+1. I Solution Explorer högerklickar du på *myDotnetProject*  >  **Lägg till**  >  **nytt objekt** och väljer sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *CreateVMTemplate.jspå* och klicka sedan på **Lägg till**.
 2. Lägg till den här JSON-koden till filen som du skapade:
 
     ```json
@@ -162,7 +162,7 @@ I det här steget skapar du en mallfil som distribuerar resurserna och en parame
 
 Om du vill ange värden för resurs parametrarna i mallen skapar du en parameter fil som innehåller värdena.
 
-1. I Solution Explorer högerklickar du på *myDotnetProject*  >  **Lägg till**  >  **nytt objekt**och väljer sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *Parameters.jspå*och klicka sedan på **Lägg till**.
+1. I Solution Explorer högerklickar du på *myDotnetProject*  >  **Lägg till**  >  **nytt objekt** och väljer sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *Parameters.jspå* och klicka sedan på **Lägg till**.
 2. Lägg till den här JSON-koden till filen som du skapade:
 
     ```json
@@ -182,7 +182,7 @@ Om du vill ange värden för resurs parametrarna i mallen skapar du en parameter
 
 Innan du kan distribuera en mall ser du till att du har åtkomst till ett [Active Directory tjänstens huvud namn](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). Från tjänstens huvud namn hämtar du en token för att autentisera begär anden till Azure Resource Manager. Du bör också registrera program-ID, autentiseringsnyckel och klient-ID som du behöver i verifierings filen.
 
-1. I Solution Explorer högerklickar du på *myDotnetProject*  >  **Lägg till**  >  **nytt objekt**och väljer sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *azureauth. Properties*och klicka sedan på **Lägg till**.
+1. I Solution Explorer högerklickar du på *myDotnetProject*  >  **Lägg till**  >  **nytt objekt** och väljer sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *azureauth. Properties* och klicka sedan på **Lägg till**.
 2. Lägg till följande egenskaper för auktorisering:
 
     ```
@@ -196,7 +196,7 @@ Innan du kan distribuera en mall ser du till att du har åtkomst till ett [Activ
     graphURL=https://graph.microsoft.com/
     ```
 
-    Ersätt ** &lt; prenumerations- &gt; ID** med prenumerations-ID, ** &lt; program &gt; -ID** med Active Directory-program-ID, ** &lt; autentisering- &gt; nyckel** med program nyckeln och klient-ID med klient- ** &lt; ID: t &gt; ** .
+    Ersätt **&lt; prenumerations- &gt; ID** med prenumerations-ID, **&lt; program &gt; -ID** med Active Directory-program-ID, **&lt; autentisering- &gt; nyckel** med program nyckeln och klient-ID med klient- **&lt; ID: t &gt;** .
 
 3. Spara filen azureauth. Properties.
 4. Ange en miljö variabel i Windows med namnet AZURE_AUTH_LOCATION med den fullständiga sökvägen till den auktoriserade filen som du har skapat, till exempel kan du använda följande PowerShell-kommando:

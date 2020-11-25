@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184626"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009712"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Felsöka problem som gäller Azure VM-tillägg
 
@@ -67,7 +67,7 @@ Den virtuella dator agenten kan ha skadats eller också har tjänsten stoppats. 
 
 1. Ta reda på om tjänsten Windows Azure gästa Gent körs i VM-tjänsterna (Services. msc). Starta om tjänsten Windows Azure gästa Gent.    
 1. Om tjänsten Windows Azure gästa Gent inte visas i tjänster öppnar du kontroll panelen. Gå till **program och funktioner** för att se om tjänsten Windows gästa Gent är installerad.
-1. Om Windows Azures gästa Gent visas i **program och funktioner**avinstallerar du Windows Azures gästa Gent.
+1. Om Windows Azures gästa Gent visas i **program och funktioner** avinstallerar du Windows Azures gästa Gent.
 1. Hämta och installera den [senaste versionen av agent-MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörs behörighet för att slutföra installationen.
 1. Kontrol lera att tjänsten Windows Azure gästa Gent visas i tjänster.
 1. Starta om skydds jobbet.

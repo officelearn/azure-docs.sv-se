@@ -12,11 +12,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b83a8bfbc79af344c4d158ee65134034db714e9c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783971"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008913"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Hantera samtidighet i Microsoft Azure Storage
 
@@ -85,7 +85,7 @@ catch (StorageException ex)
 }
 ```
 
-Azure Storage innehåller även stöd för villkorliga huvuden som **If-Modified-sedan** , **IF-Unmodified-sedan** , **If-None-Match** och kombination av dessa huvuden. Mer information finns i [ange villkorliga huvuden för BLOB service-åtgärder](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
+Azure Storage innehåller även stöd för villkorliga huvuden som **If-Modified-sedan**, **IF-Unmodified-sedan**, **If-None-Match** och kombination av dessa huvuden. Mer information finns i [ange villkorliga huvuden för BLOB service-åtgärder](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
 
 I följande tabell sammanfattas de behållar åtgärder som accepterar villkorliga huvuden som **If-Match** i begäran och som returnerar ett ETag-värde i svaret.
 
@@ -96,7 +96,7 @@ I följande tabell sammanfattas de behållar åtgärder som accepterar villkorli
 | Hämta metadata för behållare |Ja |Nej |
 | Ange metadata för behållare |Ja |Ja |
 | Hämta ACL för behållare |Ja |Nej |
-| Ange behållar-ACL |Ja |Ja (*) |
+| Ange behållar-ACL |Yes |Ja (*) |
 | Ta bort container |Nej |Ja |
 | Lease container |Ja |Ja |
 | Lista blobbar |Nej |Nej |
@@ -115,7 +115,7 @@ I följande tabell sammanfattas de BLOB-åtgärder som accepterar villkorliga hu
 | Ange BLOB-metadata |Ja |Ja |
 | Låna BLOB (*) |Ja |Ja |
 | Ta ögonblicksbild av blob |Ja |Ja |
-| Kopiera blob |Ja |Ja (för käll-och mål-BLOB) |
+| Kopiera blob |Yes |Ja (för käll-och mål-BLOB) |
 | Avbryt kopiering av BLOB |Nej |Nej |
 | Ta bort blob |Nej |Ja |
 | Spärra block |Nej |Nej |
@@ -130,7 +130,7 @@ I följande tabell sammanfattas de BLOB-åtgärder som accepterar villkorliga hu
 
 Du kan låsa en BLOB för exklusiv användning genom att skaffa ett [lån](/rest/api/storageservices/Lease-Blob) på den. När du skaffar ett lån anger du en tids period för lånet. Tids perioden sträcker sig från 15 till 60 sekunder eller oändlig, vilket uppgår till ett exklusivt lås. Förnya ett begränsat lån för att utöka det. Frigör ett lån när du är klar. Blob Storage automatiskt frigör begränsade lån när de upphör att gälla.
 
-Lån möjliggör olika typer av synkronisering. Strategierna omfattar *exklusiv Skriv-/delad läsning* , *exklusiv skrivning/exklusiv läsning* och *delad skrivning/exklusiv läsning* . Om det finns ett lån måste Azure Storage tillämpa exklusiva skrivningar (åtgärder för att lägga till, ange och ta bort), men för att se till att alla klient program använder ett låne-ID och att endast en klient i taget har ett giltigt låne-ID. Läs åtgärder som inte innehåller ett låne-ID resulterar i delade läsningar.
+Lån möjliggör olika typer av synkronisering. Strategierna omfattar *exklusiv Skriv-/delad läsning*, *exklusiv skrivning/exklusiv läsning* och *delad skrivning/exklusiv läsning*. Om det finns ett lån måste Azure Storage tillämpa exklusiva skrivningar (åtgärder för att lägga till, ange och ta bort), men för att se till att alla klient program använder ett låne-ID och att endast en klient i taget har ett giltigt låne-ID. Läs åtgärder som inte innehåller ett låne-ID resulterar i delade läsningar.
 
 Följande C#-kodfragment visar ett exempel på att förvärva ett exklusivt lån i 30 sekunder på en BLOB, uppdatera innehållet i blobben och sedan släppa lånet. Om det redan finns ett giltigt lån i blobben när du försöker hämta ett nytt lån, returnerar Blob Service status resultatet "HTTP (409) konflikt". I följande kodfragment används ett **AccessCondition** -objekt för att kapsla in låne informationen när en begäran om att uppdatera bloben i lagrings tjänsten görs.  Du kan hämta hela exemplet här: [Hantera samtidighet med Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -184,7 +184,7 @@ Följande BLOB-åtgärder kan använda lån för att hantera pessimistisk samtid
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Pessimistisk samtidighet för behållare
 
-Lån i behållare gör det möjligt för samma synkroniserings strategier att stödjas på blobbar ( *exklusiv Skriv-/delad läsning* , *exklusiv skrivning/exklusiv läsning* och *delad Skriv-/exklusiv läsning* ) men till skillnad från blobar lagrings tjänsten tillämpar exklusivitet vid borttagnings åtgärder. Om du vill ta bort en behållare med ett aktivt lån måste en klient inkludera det aktiva låne-ID: t med begäran om borttagning. Alla andra behållar åtgärder lyckas på en lånad behållare utan att inkludera låne-ID i vilket fall de delas. Om exklusivitet av uppdatering (placering eller uppsättning) eller Läs åtgärder krävs bör utvecklarna se till att alla klienter använder ett låne-ID och att endast en klient i taget har ett giltigt låne-ID.
+Lån i behållare gör det möjligt för samma synkroniserings strategier att stödjas på blobbar (*exklusiv Skriv-/delad läsning*, *exklusiv skrivning/exklusiv läsning* och *delad Skriv-/exklusiv läsning*) men till skillnad från blobar lagrings tjänsten tillämpar exklusivitet vid borttagnings åtgärder. Om du vill ta bort en behållare med ett aktivt lån måste en klient inkludera det aktiva låne-ID: t med begäran om borttagning. Alla andra behållar åtgärder lyckas på en lånad behållare utan att inkludera låne-ID i vilket fall de delas. Om exklusivitet av uppdatering (placering eller uppsättning) eller Läs åtgärder krävs bör utvecklarna se till att alla klienter använder ett låne-ID och att endast en klient i taget har ett giltigt låne-ID.
 
 Följande behållar åtgärder kan använda lån för att hantera pessimistisk samtidighet:
 

@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: d87f57873a4bb84b20df3da3880017d9ef2484a5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342118"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008420"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Förbereda för att skapa Avere vFXT
 
@@ -100,7 +100,7 @@ Skapa lagrings tjänstens slut punkt från Azure Portal.
 1. Klicka på **Lägg till** längst upp.
 1. Välj tjänsten ``Microsoft.Storage`` .
 1. Välj klustrets undernät.
-1. Klicka på **Lägg till**längst ned på sidan.
+1. Klicka på **Lägg till** längst ned på sidan.
 
    ![Azure Portal skärm bild med anteckningar för stegen för att skapa tjänst slut punkten](media/avere-vfxt-service-endpoint.png)
 

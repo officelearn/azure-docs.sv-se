@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
 ms.openlocfilehash: b76c41787d7a35fb3024fa18c0122bc966243bbc
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514545"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008403"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Trend Micro Web Security (TMWS)
 
@@ -49,7 +49,7 @@ Om du vill konfigurera integreringen av TMWS i Azure AD måste du lägga till TM
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I den vänstra rutan väljer du tjänsten **Azure Active Directory** .
 1. Välj **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. Välj **nytt program** om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** , anger du **Trend Micro Web Security (TMWS)** i sökrutan.
 1. Välj **Trend Micro Web Security (TMWS)** i Sök resultaten och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
@@ -95,7 +95,7 @@ Slutför de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Förutom attributen i föregående skärm förväntar TMWS två fler attribut att skickas tillbaka i SAML-svaret. Dessa attribut visas i följande tabell. Attributen är färdiga, men du kan ändra dem så att de uppfyller dina krav.
     
-    | Namn | Källattribut|
+    | Name | Källattribut|
     | --------------- | --------- |
     | sAMAccountName | User. egna namnet onpremisessamaccountname |
     | uPN | user.userprincipalname |
@@ -112,19 +112,19 @@ Slutför de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare som heter B. Simon i Azure Portal.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**. Välj **användare**och välj sedan **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**. Välj **användare** och välj sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I rutan **namn** anger du `B.Simon` .  
-   1. I rutan **användar namn** anger du **_username_ @ *companydomain *.* tillägg * * *. Till exempel `B.Simon@contoso.com`.
-   1. Välj **Visa lösen ord**och skriv sedan ned värdet som visas i rutan **lösen ord** .
+   1. I rutan **användar namn** anger du **_username_ @* companydomain *.* tillägg * * *. Exempelvis `B.Simon@contoso.com`.
+   1. Välj **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
 ### <a name="grant-the-azure-ad-test-user-access-to-tmws"></a>Ge Azure AD-testa användar åtkomst till TMWS
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till TMWS.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I Azure Portal väljer du **företags program** och väljer sedan **alla program**.
 1. I listan program väljer du **Trend Micro Web Security (TMWS)**.
 1. I avsnittet **Hantera** på appens översikts sida väljer du **användare och grupper**:
 
@@ -142,13 +142,13 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Välj **Azure Active Directory** i den vänstra rutan.
 
-1. Under **Hantera**väljer du **Appregistreringar**och väljer sedan ditt nya företags program under **alla program**.
+1. Under **Hantera** väljer du **Appregistreringar** och väljer sedan ditt nya företags program under **alla program**.
 
-1. Under **Hantera**väljer du **certifikat & hemligheter**.
+1. Under **Hantera** väljer du **certifikat & hemligheter**.
 
 1. I avsnittet **klient hemligheter** väljer du **ny klient hemlighet**.
 
-1. På sidan **Lägg till en klient hemlighet**kan du också lägga till en beskrivning och välja en förfallo period för klient hemligheten och sedan välja **Lägg till**. Den nya klient hemligheten visas i avsnittet **klient hemligheter** .
+1. På sidan **Lägg till en klient hemlighet** kan du också lägga till en beskrivning och välja en förfallo period för klient hemligheten och sedan välja **Lägg till**. Den nya klient hemligheten visas i avsnittet **klient hemligheter** .
 
 1. Registrera klientens hemliga värde. Senare kan du ange den i TMWS.
 
@@ -175,7 +175,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 Slutför de här stegen för att konfigurera TMWS SSO på program sidan.
 
-1. Logga in på TMWS-hanterings konsolen och gå till **administrations**  >  **användare &**  >  **Directory-tjänster**för autentisering.
+1. Logga in på TMWS-hanterings konsolen och gå till **administrations**  >  **användare &**  >  **Directory-tjänster** för autentisering.
 
 1. Välj **här** på den övre delen av skärmen.
 

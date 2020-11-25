@@ -10,20 +10,20 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: c658f0a4f700a4588b238f2bb009b263da94e753
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: b897690e08f07f2506aa79c873af03b604f94664
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759987"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009593"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: extrahera kvitto data med hjälp av formulär tolken REST API med python
 
 I den här snabb starten använder du Azures formulär igenkännings REST API med python för att extrahera och identifiera relevant information i amerikanska försäljnings kvitton.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
@@ -84,7 +84,7 @@ Du börjar analysera ett kvitto genom att anropa API för att **[analysera kvitt
         quit()
 ```
     
-# <a name="v21-preview1"></a>[v 2.1 – för hands version. 1](#tab/v2-1)    
+# <a name="v21-preview2"></a>[v 2.1 – för hands version. 2](#tab/v2-1)    
 ```python
     ########### Python Form Recognizer Async Receipt #############
 
@@ -95,7 +95,7 @@ Du börjar analysera ett kvitto genom att anropa API för att **[analysera kvitt
     # Endpoint URL
     endpoint = r"<Endpoint>"
     apim_key = "<subscription key>"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.2/prebuilt/receipt/analyze"
     source = r"<path to your receipt>"
     
     headers = {
@@ -133,7 +133,7 @@ Du börjar analysera ett kvitto genom att anropa API för att **[analysera kvitt
 
 1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-Receipts.py*.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-receipts.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python form-recognizer-receipts.py`.
 
 Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` Åtgärds-ID: t.
 
@@ -143,7 +143,7 @@ https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b07
 ```
 # <a name="v21-preview1"></a>[v 2.1 – för hands version. 1](#tab/v2-1)    
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 ---
 
@@ -179,7 +179,7 @@ while n_try < n_tries:
 ```
 
 1. Spara skriptet.
-1. Använd kommandot igen `python` för att köra exemplet. Till exempel `python form-recognizer-receipts.py`.
+1. Använd kommandot igen `python` för att köra exemplet. Exempelvis `python form-recognizer-receipts.py`.
 
 ### <a name="examine-the-response"></a>Granska svaret
 

@@ -10,11 +10,11 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 09957461fd92114d1181a570550ee1a189edd8ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80876481"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009927"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Skapa en Azure Container instance-resurs
 
@@ -22,12 +22,12 @@ ms.locfileid: "80876481"
 
 2. På fliken **grundläggande** anger du följande information:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |--|--|
     |Prenumeration|Välj din prenumeration.|
     |Resursgrupp|Välj en tillgänglig resurs grupp eller skapa en ny, till exempel `cognitive-services` .|
     |Containerns namn|Ange ett namn som `cognitive-container-instance` . Namnet måste innehålla nedre CAPS.|
-    |Location|Välj en region för distribution.|
+    |Plats|Välj en region för distribution.|
     |Avbildningstyp|Om behållar avbildningen lagras i ett behållar register som inte kräver autentiseringsuppgifter väljer du `Public` . Om åtkomsten till behållar avbildningen kräver autentiseringsuppgifter väljer du `Private` . Se [behållar databaser och avbildningar](../../cognitive-services-container-support.md#container-repositories-and-images) för information om huruvida behållar avbildningen är `Public` eller `Private` ("offentlig för hands version). |
     |Avbildningens namn|Ange plats för Cognitive Services behållare. Platsen är det som används som argument till `docker pull` kommandot. Referera till [behållar databaserna och avbildningarna](../../cognitive-services-container-support.md#container-repositories-and-images) för de tillgängliga avbildnings namnen och deras motsvarande lagrings plats.<br><br>Avbildningens namn måste vara fullständigt kvalificerade och ange tre delar. Först, behållar registret, sedan databasen, sist avbildningens namn: `<container-registry>/<repository>/<image-name>` .<br><br>Här är ett exempel som `mcr.microsoft.com/azure-cognitive-services/keyphrase` representerar extrahering av diskussionsämne avbildningen i Microsoft container Registry under Azure Cognitive Services-lagringsplatsen. Ett annat exempel är, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` som representerar tal till text bild i Microsoft-lagringsplatsen för för hands versionen av container-registret. |
     |OS-typ|`Linux`|
@@ -35,7 +35,7 @@ ms.locfileid: "80876481"
 
 3. På fliken **nätverk** anger du följande information:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |--|--|
     |Portar|Ange TCP-port till `5000` . Exponerar behållaren på port 5000.|
 

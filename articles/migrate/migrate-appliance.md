@@ -4,11 +4,11 @@ description: Innehåller en sammanfattning av stödet för den Azure Migrate-enh
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450041"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008709"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -69,8 +69,8 @@ I följande tabell sammanfattas kraven för Azure Migrate-installationen för VM
 **Identifierings gränser** | En apparat kan identifiera upp till 5000 virtuella Hyper-V-datorer.<br/> En apparat kan ansluta till upp till 300 Hyper-V-värdar.
 **VHD-mall** | Zippad mapp inklusive VHD. Ladda ned från portalen eller [härifrån.](https://go.microsoft.com/fwlink/?linkid=2140422)<br/><br/> Hämtnings storleken är 8,91 GB.<br/><br/> Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
 **PowerShell-skript** | Läs mer i den här [artikeln](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
-**Program vara/maskin vara***   |  Installationen ska köras på datorn med Windows Server 2016, 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen som en virtuell Hyper-V-dator behöver du tillräckligt med resurser på Hyper-V-värden för att allokera maskin varu krav.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven. 
-**Krav för Hyper-V** | Om du distribuerar installationen med VHD-mallen, är den virtuella Azure Migrate datorns virtuella Hyper-V-dator version 5,0.<br/><br/> Hyper-V-värden måste köra Windows Server 2012 R2 eller senare. 
+**Program vara/maskin vara** _   |  Installationen ska köras på datorn med Windows Server 2016, 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen som en virtuell Hyper-V-dator behöver du tillräckligt med resurser på Hyper-V-värden för att allokera maskin varu krav.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven. 
+_ *Hyper-V-krav** | Om du distribuerar installationen med VHD-mallen, är den virtuella Azure Migrate datorns virtuella Hyper-V-dator version 5,0.<br/><br/> Hyper-V-värden måste köra Windows Server 2012 R2 eller senare. 
 **Hash-värde – VHD** | [Verifiera](tutorial-discover-hyper-v.md#verify-security) Hash-värden för VHD-mall.
 **Hash-värde – PowerShell-skript** | [Kontrol lera](deploy-appliance-script.md#verify-file-security) hash-värdena för PowerShell-skriptet.
 
@@ -98,7 +98,7 @@ Azure Migrate-utrustningen behöver anslutning till Internet.
 
 ### <a name="public-cloud-urls"></a>Offentliga moln-URL: er
 
-**URL** | **Information**  
+**URL** | **Detaljer**  
 --- | --- |
 *.portal.azure.com  | Gå till Azure-portalen.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *. live.com <br/> *. office.com | Logga in på din Azure-prenumeration.
@@ -115,7 +115,7 @@ download.microsoft.com/download | Tillåt hämtning från Microsoft Download.
 
 ### <a name="government-cloud-urls"></a>Offentliga moln-URL: er
 
-**URL** | **Information**  
+**URL** | **Detaljer**  
 --- | --- |
 *. portal.azure.us  | Gå till Azure-portalen.
 graph.windows.net | Logga in på din Azure-prenumeration.
@@ -152,8 +152,8 @@ VM-ID | vm.Config. InstanceUuid
 VM-namn | vm.Config. Namn
 vCenter Server-ID | VMwareClient. instance. uuid
 Beskrivning av virtuell dator | vm.Summary.Config. Antecknings
-Licens produkt namn | datorn. Client. ServiceContent. about. LicenseProductName
-Typ av operativsystem | datorn. SummaryConfig.GuestFullName
+Licens produkt namn | VM. client. ServiceContent. about. LicenseProductName
+Typ av operativsystem | VM. SummaryConfig. GuestFullName
 Start typ | vm.Config. Inbyggd program vara
 Antal kärnor | vm.Config. Maskin vara. NumCPU
 Minne (MB) | vm.Config. Maskin vara. MemoryMB
@@ -175,12 +175,12 @@ Skriv data flöde (MB per sekund) | virtualDisk. Write. Average
 **Per NIC-information** | 
 Nätverkskortets namn | NIC. Knapp
 MAC-adress | ((VirtualEthernetCard) NIC). MacAddress
-IPv4-adresser | datorn. Guest.Net
-IPv6-adresser | datorn. Guest.Net
+IPv4-adresser | vm.Guest.Net
+IPv6-adresser | vm.Guest.Net
 Läs data flöde (MB per sekund) | net. Received. Average
 Skriv data flöde (MB per sekund) | net. överföring. genomsnitt
 **Information om lager Sök väg** | 
-Namn | fönster. GetType (). Namn
+Name | fönster. GetType (). Namn
 Typ av underordnat objekt | fönster. ChildType
 Referens information | fönster. MoRef
 Överordnad information | Container. parent
@@ -227,7 +227,7 @@ Här är de funktions data som installationen samlar in från varje virtuell dat
 
 **Data**  | **PowerShell-cmdlet** | **Egenskap**
 --- | --- | ---
-Namn  | Get-WindowsFeature  | Namn
+Name  | Get-WindowsFeature  | Name
 Funktions typ | Get-WindowsFeature  | FeatureType
 Överordnad  | Get-WindowsFeature  | Överordnad
 
@@ -237,7 +237,7 @@ Här är SQL Server-metadata som enheten samlar in från virtuella datorer som k
 
 **Data**  | **Registerplats**  | **Nyckel**
 --- | --- | ---
-Namn  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
+Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
 Utgåva  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Utgåva 
 Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | SP
 Version  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Version 
@@ -248,7 +248,7 @@ Här är de operativ Systems data som installations programmet samlar in varje v
 
 Data  | WMI-klass  | Egenskap för WMI-klass
 --- | --- | ---
-Namn  | Win32_operatingsystem  | Caption
+Name  | Win32_operatingsystem  | Caption
 Version  | Win32_operatingsystem  | Version
 Arkitektur  | Win32_operatingsystem  | OSArchitecture
 
@@ -258,7 +258,7 @@ Här är de installerade program data som installationen samlar in från varje v
 
 Data  | Kommando
 --- | --- 
-Namn | RPM, dpkg-fråga, fäst
+Name | RPM, dpkg-fråga, fäst
 Version | RPM, dpkg-fråga, fäst
 Leverantör | RPM, dpkg-fråga, fäst
 
@@ -268,7 +268,7 @@ Här är de operativ Systems data som installations programmet samlar in varje v
 
 **Data**  | **Kommando** 
 --- | --- | ---
-Namn <br/> version | Samlas in från en eller flera av följande filer:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Name <br/> version | Samlas in från en eller flera av följande filer:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Arkitektur | uname
 
 
@@ -471,7 +471,7 @@ Ta bort register nyckeln:
 
 1. Öppna Registereditorn på den dator som kör-enheten.
 2. Navigera till **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
-3. Ta bort den automatiska **uppdateringen**av register nyckeln som tidigare har skapats för att inaktivera automatisk uppdatering.
+3. Ta bort den automatiska **uppdateringen** av register nyckeln som tidigare har skapats för att inaktivera automatisk uppdatering.
 
 Om du vill aktivera från installations Configuration Manager efter att identifieringen har slutförts:
 
@@ -485,12 +485,12 @@ Om du vill aktivera från installations Configuration Manager efter att identifi
 Du kan kontrol lera versionen av versions tjänsterna med någon av följande metoder:
 
 - I Konfigurations hanteraren för utrustning går du till **Konfigurera krav** panelen.
-- I **Control Panel**  >  **program och funktioner**på kontroll panelen på datorn.
+- I **Control Panel**  >  **program och funktioner** på kontroll panelen på datorn.
 
 För att kontrol lera installations hanteraren för installationen:
 
 1. I Konfigurations hanteraren för installation går du till **Konfigurera krav** panelen
-2. Klicka på **Visa apparat tjänster**i den senaste uppdaterings kontrollen.
+2. Klicka på **Visa apparat tjänster** i den senaste uppdaterings kontrollen.
 
     ![Kontrol lera version](./media/migrate-appliance/versions.png)
 

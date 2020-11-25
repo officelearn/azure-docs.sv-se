@@ -7,11 +7,11 @@ ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: cb8cc98a020cb382a6941c1e410eab4543594629
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279006"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009763"
 ---
 # <a name="example-powershell-scripts"></a>PowerShell-exempelskript
 
@@ -133,7 +133,7 @@ Du kan **åsidosätta enskilda inställningar** från konfigurations filen:
 .\RenderingSession.ps1 -Region <region> -VmSize <vmsize> -MaxLeaseTime <hh:mm:ss>
 ```
 
-Om du bara vill **starta en session utan avsökning**kan du använda:
+Om du bara vill **starta en session utan avsökning** kan du använda:
 
 ```PowerShell
 .\RenderingSession.ps1 -CreateSession
@@ -225,7 +225,7 @@ Så här använder du en **alternativ konfigurations** fil:
 .\Conversion.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-Om du bara vill **Starta modell konvertering utan avsökning**kan du använda:
+Om du bara vill **Starta modell konvertering utan avsökning** kan du använda:
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset

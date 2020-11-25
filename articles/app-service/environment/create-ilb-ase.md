@@ -8,11 +8,11 @@ ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503529"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009559"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Skapa och Använd en intern Load Balancer App Service-miljön 
 
@@ -96,7 +96,7 @@ Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanl
 
 ### <a name="web-jobs-functions-and-the-ilb-ase"></a>Webbjobb, Functions och ILB ASE 
 
-Både Functions och webbjobb går att använda på en ILB ASE, men för att portalen ska fungera med dem måste du ha nätverksåtkomst till SCM-webbplatsen.  Det innebär att din webbläsare antingen måste vara på en värd som är i eller anslutet till det virtuella nätverket. Om din ILB-ASE har ett domän namn som inte slutar med *appserviceenvironment.net*måste du be webbläsaren att lita på https-certifikatet som används av din SCM-webbplats.
+Både Functions och webbjobb går att använda på en ILB ASE, men för att portalen ska fungera med dem måste du ha nätverksåtkomst till SCM-webbplatsen.  Det innebär att din webbläsare antingen måste vara på en värd som är i eller anslutet till det virtuella nätverket. Om din ILB-ASE har ett domän namn som inte slutar med *appserviceenvironment.net* måste du be webbläsaren att lita på https-certifikatet som används av din SCM-webbplats.
 
 ## <a name="dns-configuration"></a>DNS-konfiguration 
 
@@ -123,13 +123,13 @@ Zonen med namnet. &lt; asename &gt; . appserviceenvironment.net är globalt unik
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicera med en ILB ASE
 
-För varje app som skapas finns det två slutpunkter. I en ILB-ASE har du ett * &lt; namn på appen &gt; . &lt; ILB ASE- &gt; domän* och * &lt; app-namn &gt; . scm. &lt; ILB ASE- &gt; domän*. 
+För varje app som skapas finns det två slutpunkter. I en ILB-ASE har du ett *&lt; namn på appen &gt; . &lt; ILB ASE- &gt; domän* och *&lt; app-namn &gt; . scm. &lt; ILB ASE- &gt; domän*. 
 
 SCM-webbplatsens namn tar dig till Kudu-konsolen som heter **Avancerad portal** inom Azure-portalen. Med Kudu-konsolen kan du visa miljövariabler, utforska disken, använda en konsol och mycket mer. Mer information finns i [Kudu console for Azure App Service][Kudu] (Kudu-konsol för Azure App Service). 
 
 Internetbaserade CI-system, t.ex GitHub och Azure DevOps, fungerar fortfarande med en ILB ASE om Build Agent är tillgänglig via Internet och på samma nätverk som ILB ASE. För Azure DevOps gäller att om Build Agent har skapats på samma virtuella nätverk som ILB ASE (olika undernät går bra) kan den hämta koden från Azure DevOps-git och distribuera till ILB ASE. Om du inte vill skapa en egen Build Agent måste du använda ett CI-system som använder en pull-modell, till exempel Dropbox.
 
-Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Den här domänen visas i appens publicerings profil och i appens Portal blad (**Översikt**  >  **Essentials** och även **Egenskaper**). Om du har en ILB-ASE med domänsuffix * &lt; ASE name &gt; . appserviceenvironment.net*och en app som heter *test*använder du test av *test. &lt; ASE name &gt; . appserviceenvironment.net* för FTP och *mytest.scm.contoso.net* för webb distribution.
+Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Den här domänen visas i appens publicerings profil och i appens Portal blad (**Översikt**  >  **Essentials** och även **Egenskaper**). Om du har en ILB-ASE med domänsuffix *&lt; ASE name &gt; . appserviceenvironment.net* och en app som heter *test* använder du test av *test. &lt; ASE name &gt; . appserviceenvironment.net* för FTP och *mytest.scm.contoso.net* för webb distribution.
 
 ## <a name="configure-an-ilb-ase-with-a-waf-device"></a>Konfigurera en ILB-ASE med en WAF-enhet ##
 

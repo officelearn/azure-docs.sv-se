@@ -4,11 +4,11 @@ description: Den här artikeln beskriver några vanliga problem med att uppgrade
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75377930"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009355"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Felsök programuppgraderingar
 
@@ -26,7 +26,7 @@ Den här informationen är tillgänglig när Service Fabric identifierar felet o
 
 ### <a name="identify-the-failure-type"></a>Identifiera typ av problem
 
-I utdata från **Get-ServiceFabricApplicationUpgrade**identifierar **FailureTimestampUtc** tidsstämpeln (i UTC) då ett uppgraderings problem upptäcktes av Service Fabric och **FailureAction** utlöstes. **FailureReason** identifierar en av tre möjliga orsaker till att fel uppstår på hög nivå:
+I utdata från **Get-ServiceFabricApplicationUpgrade** identifierar **FailureTimestampUtc** tidsstämpeln (i UTC) då ett uppgraderings problem upptäcktes av Service Fabric och **FailureAction** utlöstes. **FailureReason** identifierar en av tre möjliga orsaker till att fel uppstår på hög nivå:
 
 1. UpgradeDomainTimeout – anger att en viss uppgraderings domän tog för lång tid att slutföra och **UpgradeDomainTimeout** har upphört att gälla.
 2. OverallUpgradeTimeout – anger att den totala uppgraderingen tog för lång tid att slutföras och **UpgradeTimeout** har upphört att gälla.
@@ -80,7 +80,7 @@ Kommandot **Get-ServiceFabricNode** kan användas för att kontrol lera att dess
 
 En *UpgradePhase* av *PreUpgradeSafetyCheck* innebär att det uppstod problem när uppgraderings domänen skulle förberedas innan den utfördes. De vanligaste problemen i det här fallet är tjänst fel i stängnings-eller degradering från primära kod Sök vägar.
 
-Den aktuella **UpgradeState** är *RollingBackCompleted*, så den ursprungliga uppgraderingen måste ha genomförts med en rollback- **FailureAction**, vilket automatiskt återställde uppgraderingen vid ett haveri. Om den ursprungliga uppgraderingen utfördes med en manuell **FailureAction**skulle uppgraderingen i stället vara i ett inaktiverat tillstånd för att tillåta Live-felsökning av programmet.
+Den aktuella **UpgradeState** är *RollingBackCompleted*, så den ursprungliga uppgraderingen måste ha genomförts med en rollback- **FailureAction**, vilket automatiskt återställde uppgraderingen vid ett haveri. Om den ursprungliga uppgraderingen utfördes med en manuell **FailureAction** skulle uppgraderingen i stället vara i ett inaktiverat tillstånd för att tillåta Live-felsökning av programmet.
 
 I sällsynta fall kan fältet **UpgradeDomainProgressAtFailure** vara tomt om den totala uppgraderings tiden är på samma sätt som systemet har slutfört allt arbete för den aktuella uppgraderings domänen. Om detta inträffar kan du försöka med att öka värdena för **UpgradeTimeout** och **UpgradeDomainTimeout** och försöka uppgradera igen.
 
@@ -148,7 +148,7 @@ Uppgraderingen avbröts vid misslyckande genom att ange en **FailureAction** man
 
 ### <a name="recover-from-a-suspended-upgrade"></a>Återställa från en pausad uppgradering
 
-Med en **FailureAction**återställs ingen återställning eftersom uppgraderingen automatiskt återställs vid misslyckande. Det finns flera återställnings alternativ med en manuell **FailureAction**:
+Med en **FailureAction** återställs ingen återställning eftersom uppgraderingen automatiskt återställs vid misslyckande. Det finns flera återställnings alternativ med en manuell **FailureAction**:
 
 1.  Utlös en återställning
 2. Fortsätt genom resten av uppgraderingen manuellt

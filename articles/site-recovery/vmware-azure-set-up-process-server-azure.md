@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
 ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74083959"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008503"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Konfigurera en processerver i Azure för återställning efter fel
 
@@ -28,14 +28,14 @@ Läs mer om [återställnings](vmware-azure-failback.md) [-och](vmware-azure-rep
 
 ## <a name="deploy-a-process-server-in-azure"></a>Distribuera en processerver i Azure
 
-1. I valvet > **Site Recovery infrastruktur** >  **Hantera**  >  **konfigurations servrar**väljer du konfigurations servern.
+1. I valvet > **Site Recovery infrastruktur** >  **Hantera**  >  **konfigurations servrar** väljer du konfigurations servern.
 2. På sidan Server klickar du på **+ processerver**
 3. På sidan **Lägg till processerver** och välj att distribuera processervern i Azure.
 4. Ange Azure-inställningar, inklusive den prenumeration som används för redundans, en resurs grupp, Azure-regionen som används för redundans och det virtuella nätverk där de virtuella Azure-datorerna finns. Om du har använt flera Azure-nätverk behöver du en processerver i var och en.
 
    ![Lägg till Server Galleri objekt för processervern](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
-4. I **Server namn**, **användar namn**och **lösen ord**anger du ett namn för processervern och autentiseringsuppgifter som ska tilldelas administratörs behörighet på servern.
+4. I **Server namn**, **användar namn** och **lösen ord** anger du ett namn för processervern och autentiseringsuppgifter som ska tilldelas administratörs behörighet på servern.
 5. Ange ett lagrings konto som ska användas för de virtuella server diskarna, under nätet där den virtuella datorns virtuella process Server ska placeras och serverns IP-adress som ska tilldelas när den virtuella datorn startas.
 6. Klicka på **OK** för att börja distribuera den virtuella process servern. Processervern kommer att distribueras på Standard_A8_v2 SKU. Se till att den här VM-SKU: n är tillgänglig för din prenumeration.
 

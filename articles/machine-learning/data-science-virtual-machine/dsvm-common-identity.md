@@ -11,11 +11,11 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: 3dc6fb64f6e8695d84e292322293998e2f4cb0a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324778"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009236"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Konfigurera en gemensam identitet på en Data Science Virtual Machine
 
@@ -49,7 +49,7 @@ Azure AD DS gör det enkelt att hantera dina identiteter genom att tillhandahål
     
    1. Kopiera eller anteckna det genererade användarlösenordet på annat sätt så att du kan ge det till användaren när den här processen är klar.
     
-   1. Du kan också öppna och fylla i informationen i **Profil** , **Grupper** eller **Katalogroll** för användaren. 
+   1. Du kan också öppna och fylla i informationen i **Profil**, **Grupper** eller **Katalogroll** för användaren. 
     
    1. Under **användare** väljer du **skapa**.
     

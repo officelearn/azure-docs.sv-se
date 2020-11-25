@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: b97ae5d4ba4295ebbb51c960e4cbb76c53dc88a8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148061"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009696"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så använder du Azure WebJobs SDK för händelsedriven bakgrundsbearbetning
 
@@ -23,14 +23,14 @@ Den här artikeln innehåller rikt linjer för hur du arbetar med Azure WebJobs 
 Detta är de viktigaste skillnaderna mellan version 3. *x* och version 2. *x* av WebJobs-SDK:
 
 * Version 3. *x* lägger till stöd för .net Core.
-* I version 3. *x*måste du uttryckligen installera lagrings bindnings tillägget som krävs av WebJobs SDK. I version 2. *x*inkluderades lagrings bindningarna i SDK.
-* Visual Studio-verktyg för .NET Core (3).* x*)-projekt skiljer sig från verktyg för .NET Framework (2.* x*)-projekt. Mer information finns i [utveckla och distribuera WebJobs med Visual Studio-Azure App Service](webjobs-dotnet-deploy-vs.md).
+* I version 3. *x* måste du uttryckligen installera lagrings bindnings tillägget som krävs av WebJobs SDK. I version 2. *x* inkluderades lagrings bindningarna i SDK.
+* Visual Studio-verktyg för .NET Core (3).*x*)-projekt skiljer sig från verktyg för .NET Framework (2.*x*)-projekt. Mer information finns i [utveckla och distribuera WebJobs med Visual Studio-Azure App Service](webjobs-dotnet-deploy-vs.md).
 
 När det är möjligt finns exempel exempel för både version 3. *x* och version 2. *x*.
 
 > [!NOTE]
 > [Azure Functions](../azure-functions/functions-overview.md) bygger på WebJobs SDK och den här artikeln innehåller länkar till Azure Functions dokumentation för vissa ämnen. Observera skillnaderna mellan Functions och WebJobs SDK:
-> * Azure Functions version 2. *x* motsvarar WebJobs SDK version 3. *x*och Azure Functions 1. *x* motsvarar WebJobs SDK 2. *x*. Käll kods databaser använder WebJobs SDK-numrering.
+> * Azure Functions version 2. *x* motsvarar WebJobs SDK version 3. *x* och Azure Functions 1. *x* motsvarar WebJobs SDK 2. *x*. Käll kods databaser använder WebJobs SDK-numrering.
 > * Exempel kod för Azure Functions C#-klass bibliotek är som WebJobs SDK-kod, förutom att du inte behöver ett `FunctionName` attribut i ett WebJobs SDK-projekt.
 > * Vissa bindnings typer stöds bara i functions, t. ex. HTTP (Webhooks) och Event Grid (som baseras på HTTP).
 >
@@ -38,7 +38,7 @@ När det är möjligt finns exempel exempel för både version 3. *x* och versio
 
 ## <a name="webjobs-host"></a>WebJobs-värd
 
-Värden är en runtime-behållare för functions.  Den lyssnar efter utlösare och anropar funktioner. I version 3. *x*är värden en implementering av `IHost` . I version 2. *x*, använder du `JobHost` objektet. Du skapar en värd instans i koden och skriver kod för att anpassa dess beteende.
+Värden är en runtime-behållare för functions.  Den lyssnar efter utlösare och anropar funktioner. I version 3. *x* är värden en implementering av `IHost` . I version 2. *x*, använder du `JobHost` objektet. Du skapar en värd instans i koden och skriver kod för att anpassa dess beteende.
 
 Detta är en viktig skillnad mellan att använda WebJobs SDK direkt och använda den indirekt via Azure Functions. I Azure Functions kontrollerar tjänsten värden och du kan inte anpassa värden genom att skriva kod. Med Azure Functions kan du anpassa värd beteendet genom inställningarna i host.jspå filen. Dessa inställningar är strängar, inte kod, och detta begränsar de typer av anpassningar som du kan göra.
 
@@ -120,11 +120,11 @@ static void Main()
 }
 ```
 
-### <a name="managing-concurrent-connections-version-2x"></a><a name="jobhost-servicepointmanager-settings"></a>Hantera samtidiga anslutningar (version 2.* x*)
+### <a name="managing-concurrent-connections-version-2x"></a><a name="jobhost-servicepointmanager-settings"></a>Hantera samtidiga anslutningar (version 2.*x*)
 
 I version 3. *x*, anslutnings gränsen som standard är oändlig anslutning. Om du av någon anledning behöver ändra den här gränsen kan du använda [`MaxConnectionsPerServer`](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) egenskapen för [`WinHttpHandler`](/dotnet/api/system.net.http.winhttphandler) klassen.
 
-I version 2. *x*styr du antalet samtidiga anslutningar till en värd med hjälp av [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) -API: et. I 2. *x*ska du öka värdet från standardvärdet 2 innan du startar dina WebJobs-värden.
+I version 2. *x* styr du antalet samtidiga anslutningar till en värd med hjälp av [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) -API: et. I 2. *x* ska du öka värdet från standardvärdet 2 innan du startar dina WebJobs-värden.
 
 Alla utgående HTTP-begäranden som du gör från en funktion med hjälp av `HttpClient` Flow `ServicePointManager` . När du har nått värdet i `DefaultConnectionLimit` börjar du `ServicePointManager` köa förfrågningar innan du skickar dem. Anta `DefaultConnectionLimit` att du har angett till 2 och att din kod gör 1 000 HTTP-begäranden. Inlednings vis tillåts bara två begär anden till operativ systemet. Övriga 998 placeras i kö tills det finns utrymme för dem. Det innebär att din `HttpClient` tid kan ta slut eftersom det verkar som om begäran har gjorts, men begäran aldrig skickades av operativ systemet till mål servern. Det kan hända att du ser ett beteende som inte verkar vara meningsfullt: din lokala `HttpClient` tar 10 sekunder på sig att slutföra en begäran, men din tjänst returnerar varje begäran i 200 MS. 
 
@@ -369,7 +369,7 @@ Du kan konfigurera följande bindningar:
 * [SendGrid-bindning](#sendgrid-binding-configuration-version-3x)
 * [Service Bus utlösare](#service-bus-trigger-configuration-version-3x)
 
-### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Konfiguration av Azure CosmosDB-utlösare (version 3.* x*)
+### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Konfiguration av Azure CosmosDB-utlösare (version 3.*x*)
 
 Det här exemplet visar hur du konfigurerar Azure Cosmos DB-utlösaren:
 
@@ -398,7 +398,7 @@ static async Task Main()
 
 Mer information finns i artikeln om [bindning för Azure CosmosDB](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) .
 
-### <a name="event-hubs-trigger-configuration-version-3x"></a>Event Hubs utlösarens konfiguration (version 3.* x*)
+### <a name="event-hubs-trigger-configuration-version-3x"></a>Event Hubs utlösarens konfiguration (version 3.*x*)
 
 Det här exemplet visar hur du konfigurerar Event Hubs-utlösaren:
 
@@ -473,7 +473,7 @@ static void Main(string[] args)
 
 Mer information finns i [ referensenhost.jspå v1. x](../azure-functions/functions-host-json-v1.md#queues).
 
-### <a name="sendgrid-binding-configuration-version-3x"></a>SendGrid bindnings konfiguration (version 3.* x*)
+### <a name="sendgrid-binding-configuration-version-3x"></a>SendGrid bindnings konfiguration (version 3.*x*)
 
 Det här exemplet visar hur du konfigurerar SendGrid utgående bindning:
 
@@ -500,7 +500,7 @@ static async Task Main()
 
 Mer information finns i artikeln om [SendGrid-bindning](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings) .
 
-### <a name="service-bus-trigger-configuration-version-3x"></a>Service Bus utlösarens konfiguration (version 3.* x*)
+### <a name="service-bus-trigger-configuration-version-3x"></a>Service Bus utlösarens konfiguration (version 3.*x*)
 
 Det här exemplet visar hur du konfigurerar Service Bus-utlösaren:
 
@@ -833,7 +833,7 @@ Varje logg som skapats av en `ILogger` instans har en associerad `Category` och 
 |Varning     | 3 |
 |Fel       | 4 |
 |Kritiskt    | 5 |
-|Inga        | 6 |
+|Inget        | 6 |
 
 Du kan filtrera varje kategori separat till en viss [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) . Du kanske till exempel vill se alla loggar för bearbetning av BLOB-utlösare, men endast `Error` och högre för allt annat.
 
@@ -847,7 +847,7 @@ Version 3. *x* av SDK är beroende av filtreringen som är inbyggd i .net Core. 
 using Microsoft.Azure.WebJobs.Logging; 
 ```
 
-I följande exempel skapas ett filter som som standard filtrerar alla loggar på `Warning` nivån. `Function`Kategorierna och `results` (motsvarar `Host.Results` i version 2.* x*) filtreras på `Error` nivån. Filtret jämför den aktuella kategorin med alla registrerade nivåer i `LogCategories` instansen och väljer den längsta matchningen. Det innebär att `Debug` nivån som registrerats för `Host.Triggers` matchningar `Host.Triggers.Queue` eller `Host.Triggers.Blob` . På så sätt kan du styra bredare kategorier utan att behöva lägga till var och en.
+I följande exempel skapas ett filter som som standard filtrerar alla loggar på `Warning` nivån. `Function`Kategorierna och `results` (motsvarar `Host.Results` i version 2.*x*) filtreras på `Error` nivån. Filtret jämför den aktuella kategorin med alla registrerade nivåer i `LogCategories` instansen och väljer den längsta matchningen. Det innebär att `Debug` nivån som registrerats för `Host.Triggers` matchningar `Host.Triggers.Queue` eller `Host.Triggers.Blob` . På så sätt kan du styra bredare kategorier utan att behöva lägga till var och en.
 
 ```cs
 static async Task Main(string[] args)
@@ -878,7 +878,7 @@ static async Task Main(string[] args)
 
 I version 2. *x* i SDK använder du `LogCategoryFilter` klassen för att styra filtreringen. `LogCategoryFilter`Har en `Default` egenskap med ett initialt värde `Information` , vilket innebär att alla meddelanden på `Information` nivåerna,, `Warning` `Error` eller `Critical` är loggade, men alla meddelanden på eller- `Debug` `Trace` nivåerna filtreras bort.
 
-Som `LogCategories` i version 3.* x*kan `CategoryLevels` du med egenskapen ange logg nivåer för vissa kategorier så att du kan finjustera loggnings resultatet. Om ingen matchning hittas i `CategoryLevels` ord listan går filtret tillbaka till `Default` värdet när du bestämmer om meddelandet ska filtreras.
+Som `LogCategories` i version 3.*x* kan `CategoryLevels` du med egenskapen ange logg nivåer för vissa kategorier så att du kan finjustera loggnings resultatet. Om ingen matchning hittas i `CategoryLevels` ord listan går filtret tillbaka till `Default` värdet när du bestämmer om meddelandet ska filtreras.
 
 I följande exempel skapas ett filter som som standard filtrerar alla loggar på `Warning` nivån. `Function`Kategorierna och `Host.Results` filtreras på `Error` nivån. Den `LogCategoryFilter` aktuella kategorin jämförs med alla registrerade `CategoryLevels` och väljer den längsta matchningen. Den `Debug` nivå som registrerats för `Host.Triggers` kommer att matcha `Host.Triggers.Queue` eller `Host.Triggers.Blob` . På så sätt kan du styra bredare kategorier utan att behöva lägga till var och en.
 
@@ -956,7 +956,7 @@ static async Task Main()
 
 När [`TelemetryConfiguration`] är konstruerad inkluderas alla registrerade typer [`ITelemetryInitializer`] . Läs mer i [Application Insights API för anpassade händelser och mått](../azure-monitor/app/api-custom-events-metrics.md).
 
-I version 3. *x*behöver du inte längre rensa [`TelemetryClient`] när värden stoppas. .NET Core-beroende inmatnings systemet tas automatiskt bort från den registrerade `ApplicationInsightsLoggerProvider` , vilket tömmer [`TelemetryClient`] .
+I version 3. *x* behöver du inte längre rensa [`TelemetryClient`] när värden stoppas. .NET Core-beroende inmatnings systemet tas automatiskt bort från den registrerade `ApplicationInsightsLoggerProvider` , vilket tömmer [`TelemetryClient`] .
 
 #### <a name="version-2x"></a>Version 2. *x*
 

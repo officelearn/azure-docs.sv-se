@@ -12,11 +12,11 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 522cf801e7c1bfdd3ed1f452c123a2db701c0c42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936358"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008811"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Exempel: utforska en app för bild bearbetning med C #
 
@@ -28,7 +28,7 @@ Utforska ett grundläggande Windows-program som använder Visuellt innehåll fö
 > * Köra exempelappen och interagera med den för att utföra olika scenarier
 > * Utforska de olika scenarier som ingår i exempelappen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du utforskar exempelappen ska du uppfylla följande förutsättningar:
 

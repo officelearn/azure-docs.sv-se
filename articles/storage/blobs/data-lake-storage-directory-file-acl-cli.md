@@ -10,16 +10,16 @@ ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ee461193be81297c6577ce4c264cabbf08e72417
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 42359eb8a2bfdad23589e0302b80e7806b388510
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359450"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913614"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd Azure CLI för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
 
-Den här artikeln visar hur du använder [CLI (Azure Command-Line Interface)](https://docs.microsoft.com/cli/azure/) för att skapa och hantera kataloger, filer och behörigheter i lagrings konton som har ett hierarkiskt namn område. 
+Den här artikeln visar hur du använder [CLI (Azure Command-Line Interface)](/cli/azure/) för att skapa och hantera kataloger, filer och behörigheter i lagrings konton som har ett hierarkiskt namn område. 
 
 [Exempel](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)  |  [Ge feedback](https://github.com/Azure/azure-cli-extensions/issues)
 
@@ -27,19 +27,19 @@ Den här artikeln visar hur du använder [CLI (Azure Command-Line Interface)](ht
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Ett lagrings konto med hierarkiskt namn område (HNS) aktiverat. Följ [de här](data-lake-storage-quickstart-create-account.md) anvisningarna för att skapa en.
+> * Ett lagrings konto med hierarkiskt namn område (HNS) aktiverat. Följ [de här](../common/storage-account-create.md) anvisningarna för att skapa en.
 > * Azure CLI-version `2.6.0` eller högre.
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>Kontrol lera att du har rätt version av Azure CLI installerad
 
-1. Öppna [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), eller om du har [installerat](https://docs.microsoft.com/cli/azure/install-azure-cli) Azure CLI lokalt öppnar du ett kommando konsol program, till exempel Windows PowerShell.
+1. Öppna [Azure Cloud Shell](../../cloud-shell/overview.md), eller om du har [installerat](/cli/azure/install-azure-cli) Azure CLI lokalt öppnar du ett kommando konsol program, till exempel Windows PowerShell.
 
 2. Kontrol lera att den version av Azure CLI som har installerats är `2.6.0` eller högre genom att använda följande kommando.
 
    ```azurecli
     az --version
    ```
-   Om din version av Azure CLI är lägre än `2.6.0` kan du installera en senare version. Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   Om din version av Azure CLI är lägre än `2.6.0` kan du installera en senare version. Se [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="connect-to-the-account"></a>Anslut till kontot
 
@@ -53,7 +53,7 @@ Den här artikeln visar hur du använder [CLI (Azure Command-Line Interface)](ht
 
    Annars öppnar du en webb sida på [https://aka.ms/devicelogin](https://aka.ms/devicelogin) och anger den auktoriseringskod som visas i din terminal. Logga sedan in med dina konto uppgifter i webbläsaren.
 
-   Mer information om olika autentiseringsmetoder finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](../common/authorize-data-operations-cli.md).
+   Mer information om olika autentiseringsmetoder finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](./authorize-data-operations-cli.md).
 
 2. Om din identitet är associerad med fler än en prenumeration ställer du in din aktiva prenumeration på prenumerationen på det lagrings konto som ska vara värd för din statiska webbplats.
 
@@ -64,7 +64,7 @@ Den här artikeln visar hur du använder [CLI (Azure Command-Line Interface)](ht
    Ersätt `<subscription-id>` placeholder-värdet med ID: t för din prenumeration.
 
 > [!NOTE]
-> Exemplet som presenteras i den här artikeln visar Azure Active Directory (AD) auktorisering. Mer information om autentiseringsmetoder finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](../common/authorize-data-operations-cli.md).
+> Exemplet som presenteras i den här artikeln visar Azure Active Directory (AD) auktorisering. Mer information om autentiseringsmetoder finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](./authorize-data-operations-cli.md).
 
 ## <a name="create-a-container"></a>Skapa en container
 
@@ -221,7 +221,7 @@ az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --accou
 Du kan hämta, ange och uppdatera åtkomst behörigheter för kataloger och filer.
 
 > [!NOTE]
-> Om du använder Azure Active Directory (Azure AD) för att auktorisera kommandon kontrollerar du att ditt säkerhets objekt har tilldelats rollen som ägare av [lagrings-BLOB-data](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns i  [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Om du använder Azure Active Directory (Azure AD) för att auktorisera kommandon kontrollerar du att ditt säkerhets objekt har tilldelats rollen som ägare av [lagrings-BLOB-data](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns i  [åtkomst kontroll i Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="get-an-acl"></a>Hämta en ACL
 
@@ -319,5 +319,3 @@ Du kan lägga till, uppdatera och ta bort ACL rekursivt på befintliga underordn
 * [Exempel](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 * [Lämna feedback](https://github.com/Azure/azure-cli-extensions/issues)
 * [Kända problem](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-
-

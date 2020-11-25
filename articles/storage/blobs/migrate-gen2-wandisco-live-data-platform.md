@@ -9,12 +9,12 @@ ms.date: 11/06/2020
 ms.service: storage
 ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 9da6ea7abf57ffecc900a6dbef065a8c6b123e61
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: db95f22a17c3776d84f12249693fb23b3d2d94e6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94811062"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95914447"
 ---
 # <a name="meet-demanding-migration-requirements-with-wandisco-livedata-platform-for-azure-preview"></a>Uppfylla kraven för krav på migrering med WANdisco LiveData-plattformen för Azure (för hands version)
 
@@ -30,7 +30,7 @@ Plattformen består av två tjänster: [livedata Migrator för Azure](https://ww
 
 Du kan hantera båda tjänsterna med hjälp av Azure Portal och Azure CLI, och båda följa samma fakturerings modell som du betalar per användning som alla andra Azure-tjänster. LiveData-plattformen för Azure-förbrukning visas på samma månatliga Azure-faktura och ger ett konsekvent och bekvämt sätt att spåra och övervaka din användning.
 
-Till skillnad från migrering av data _offline_ genom [att kopiera statisk information till Azure Data Box](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster), eller genom att använda Hadoop-verktyg som [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), kan du behålla hela driften av dina affärs system under en _online_ -migrering med WANdisco livedata för Azure. Håll dina stora data miljöer operativa även när du flyttar sina data till Azure.
+Till skillnad från migrering av data _offline_ genom [att kopiera statisk information till Azure Data Box](./data-lake-storage-migrate-on-premises-hdfs-cluster.md), eller genom att använda Hadoop-verktyg som [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), kan du behålla hela driften av dina affärs system under en _online_ -migrering med WANdisco livedata för Azure. Håll dina stora data miljöer operativa även när du flyttar sina data till Azure.
 
 ## <a name="key-features-of-wandisco-livedata-platform-for-azure"></a>Viktiga funktioner i WANdisco LiveData-plattformen för Azure
 

@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: e9c56f59d6dd64002632a5f74e9f39c51293caab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13228ec762db195d0c460e84871b75323f6b98e5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836368"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913716"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob filesystem-drivrutinen (ABFS): en dedikerad Azure Storage driv rutin för Hadoop
 
@@ -25,7 +25,7 @@ Windows Azure Storage Blob driv rutinen eller [WASB-drivrutinen](https://hadoop.
 
 ## <a name="the-azure-blob-file-system-driver"></a>Azure Blob File System-drivrutinen
 
-[Azure Data Lake Storage REST-gränssnittet](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) har utformats för att stödja semantiska fil system över Azure Blob Storage. Eftersom Hadoop-filsystem också är utformat för att stödja samma semantik finns det inget krav på en komplex mappning i driv rutinen. Därför är Azure Blob-filsystemets driv rutin (eller ABFS) en klient-Shim för REST API.
+[Azure Data Lake Storage REST-gränssnittet](/rest/api/storageservices/data-lake-storage-gen2) har utformats för att stödja semantiska fil system över Azure Blob Storage. Eftersom Hadoop-filsystem också är utformat för att stödja samma semantik finns det inget krav på en komplex mappning i driv rutinen. Därför är Azure Blob-filsystemets driv rutin (eller ABFS) en klient-Shim för REST API.
 
 Det finns dock vissa funktioner som driv rutinen fortfarande måste utföra:
 

@@ -6,20 +6,23 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.author: euang
+ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 6f777b605c5050b7fa4b3b9e3671f3638ad67372
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8d478b35b702e02f303358972526c091ceb3657e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016266"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95917133"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Hantera bibliotek för Apache Spark i Azure Synapse Analytics
 
 Bibliotek ger återanvändbar kod som du kanske vill inkludera i dina program eller projekt. Om du vill göra tredje part eller lokalt skapad kod tillgänglig för dina program kan du installera ett bibliotek på någon av dina Server lös Apache Spark pooler (för hands version). När ett bibliotek har installerats för en spark-pool är det tillgängligt för alla sessioner som använder samma pool. 
 
+## <a name="before-you-begin"></a>Innan du börjar
+- Om du vill installera och uppdatera bibliotek måste du ha behörighet för **Storage BLOB-data deltagare** eller **lagrings-BLOB-data** på det primära Gen2 lagrings konto som är länkat till Azure Synapse Analytics-arbetsytan.
+  
 ## <a name="default-installation"></a>Standard installation
 Apache Spark i Azure Synapse Analytics har en fullständig Anacondas-installation plus ytterligare bibliotek. Du hittar den fullständiga biblioteks listan på [Apache Spark versions stöd](apache-spark-version-support.md). 
 
@@ -35,6 +38,7 @@ När du har identifierat de bibliotek som du vill använda för Spark-programmet
 > - Om paketet som du installerar är stort eller tar lång tid att installera, påverkar detta start tiden för Spark-instansen.
 > - Paket som kräver stöd för kompilator vid installations tillfället, till exempel GCC, stöds inte.
 > - Paket kan inte nedgraderas, bara läggas till eller uppgraderas.
+> - Om du vill installera bibliotek måste du ha behörigheter för Storage BLOB-data deltagare eller lagrings-BLOB-data på det primära Gen2-lagrings kontot som är kopplat till Synapse-arbetsytan.
 
 ### <a name="requirements-format"></a>Krav format
 

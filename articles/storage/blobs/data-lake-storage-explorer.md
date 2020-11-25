@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 214cdbd5ad30ad096cb6c9d1442936eefb2b2054
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e46bb87788de27916860720284087643db7153dc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674874"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913410"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använda Azure Storage Explorer till att hantera kataloger, filer och åtkomstkontrollistor i Azure Data Lake Storage Gen2
 
@@ -23,12 +23,12 @@ Den här artikeln visar hur du använder [Azure Storage Explorer](https://azure.
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Ett lagrings konto med hierarkiskt namn område (HNS) aktiverat. Följ [de här](data-lake-storage-quickstart-create-account.md) anvisningarna för att skapa en.
+> * Ett lagrings konto med hierarkiskt namn område (HNS) aktiverat. Följ [de här](../common/storage-account-create.md) anvisningarna för att skapa en.
 > * Azure Storage Explorer installerat på den lokala datorn. Information om hur du installerar Azure Storage Explorer för Windows, Macintosh och Linux finns i [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="sign-in-to-storage-explorer"></a>Logga in på Storage Explorer
 
-När du först startar Storage Explorer visas fönstret **Microsoft Azure Storage Explorer – anslut** . Storage Explorer erbjuder flera sätt att ansluta till lagringskonton, men för närvarande stöds bara ett sätt för att hantera ACL: er.
+När du först startar Storage Explorer visas fönstret **Microsoft Azure Storage Explorer – anslut**. Storage Explorer erbjuder flera sätt att ansluta till lagringskonton, men för närvarande stöds bara ett sätt för att hantera ACL: er.
 
 |Uppgift|Syfte|
 |---|---|
@@ -36,7 +36,7 @@ När du först startar Storage Explorer visas fönstret **Microsoft Azure Storag
 |Använda en anslutningssträng eller en signatur-URI för delad åtkomst | Kan användas för direkt åtkomst till en container eller ett lagringskonto med en SAS-token eller en delad anslutningssträng. |
 |Använda lagringskontots namn och nyckel| Använd lagringskontonamnet och nyckeln för ditt lagringskonto för att ansluta till Azure Storage.|
 
-Välj **Lägg till ett Azure-konto** och klicka på **Logga in..** . Logga in på ditt Azure-konto genom att följa anvisningarna på skärmen.
+Välj **Lägg till ett Azure-konto** och klicka på **Logga in..**. Logga in på ditt Azure-konto genom att följa anvisningarna på skärmen.
 
 ![Skärm bild som visar Microsoft Azure Storage Explorer och markerar alternativet Lägg till ett Azure-konto och knappen Logga in.](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -78,28 +78,28 @@ Om du vill hämta filer med hjälp av **Azure Storage Explorer** väljer du **La
 
 ## <a name="managing-access"></a>Hantera åtkomst
 
-Du kan ange behörigheter i roten för din behållare. För att göra det måste du vara inloggad på Azure Storage Explorer med ditt enskilda konto med behörighet att göra detta (till skillnad från med en anslutnings sträng). Högerklicka på din behållare och välj **Hantera behörigheter** , så visas dialog rutan **Hantera behörighet** .
+Du kan ange behörigheter i roten för din behållare. För att göra det måste du vara inloggad på Azure Storage Explorer med ditt enskilda konto med behörighet att göra detta (till skillnad från med en anslutnings sträng). Högerklicka på din behållare och välj **Hantera behörigheter**, så visas dialog rutan **Hantera behörighet** .
 
 ![Microsoft Azure Storage Explorer – Hantera katalogåtkomst](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
 I dialogrutan **Hantera behörighet** kan du hantera behörigheter för ägare och ägargruppen. Du kan även lägga till nya användare och grupper i åtkomstkontrollistan, som du sedan kan lägga till behörigheter för.
 
-Du kan lägga till en ny användare eller grupp i åtkomstkontrollistan genom att välja fältet **Lägg till användare eller grupp** .
+Du kan lägga till en ny användare eller grupp i åtkomstkontrollistan genom att välja fältet **Lägg till användare eller grupp**.
 
-Ange motsvarande Azure Active Directory-post (AAD) du vill lägga till i listan och välj sedan **Lägg till** .
+Ange motsvarande Azure Active Directory-post (AAD) du vill lägga till i listan och välj sedan **Lägg till**.
 
-Användaren eller gruppen visas nu i fältet **Användare och grupper:** , där du kan börja hantera deras behörigheter.
+Användaren eller gruppen visas nu i fältet **Användare och grupper:**, där du kan börja hantera deras behörigheter.
 
 > [!NOTE]
 > Vi rekommenderar bästa praxis att skapa en säkerhetsgrupp i AAD och hantera behörigheter för gruppen istället för enskilda användare. Information om den här rekommendationen, samt andra metodtips, finns i [metodtipsen för Data Lake Storage Gen2](data-lake-storage-best-practices.md).
 
 Det finns två kategorier av behörigheter du kan tilldela: åtkomst-ACL och standard-ACL.
 
-* **Åtkomst** : åtkomst kontrol listor styr åtkomst till ett objekt. Filer och kataloger har båda åtkomst-ACL:er.
+* **Åtkomst**: åtkomst kontrol listor styr åtkomst till ett objekt. Filer och kataloger har båda åtkomst-ACL:er.
 
-* **Standard** : en mall för ACL: er som är kopplade till en katalog som fastställer åtkomst-ACL: er för underordnade objekt som skapas under den katalogen. Filer har inte standard-ACL:er.
+* **Standard**: en mall för ACL: er som är kopplade till en katalog som fastställer åtkomst-ACL: er för underordnade objekt som skapas under den katalogen. Filer har inte standard-ACL:er.
 
-I båda dessa kategorier finns tre behörigheter som du kan tilldela till filer eller kataloger: **läsa** , **skriva** och **köra** .
+I båda dessa kategorier finns tre behörigheter som du kan tilldela till filer eller kataloger: **läsa**, **skriva** och **köra**.
 
 >[!NOTE]
 > När du gör val här anges inte behörigheter för några befintliga objekt i katalogen. Du måste gå till varje enskilt objekt och ange behörigheterna manuellt, om filen redan finns.
@@ -111,4 +111,4 @@ Du kan hantera behörigheter för enskilda kataloger, och enskilda filer, vilket
 Lär dig mer om åtkomst kontrol listor i Data Lake Storage Gen2.
 
 > [!div class="nextstepaction"]
-> [Åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+> [Åtkomstkontroll i Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md)

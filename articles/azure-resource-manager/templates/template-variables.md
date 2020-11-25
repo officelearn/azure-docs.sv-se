@@ -2,19 +2,21 @@
 title: Variabler i mallar
 description: Beskriver hur du definierar variabler i en Azure Resource Manager mall.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: cf135959d30702ea58b7a1d4fdd82625a39245d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 7758451747503cb8c42566dc081a91f84bafa375
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75483822"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95916011"
 ---
 # <a name="variables-in-azure-resource-manager-template"></a>Variabler i Azure Resource Manager-mallar
 
 I den här artikeln beskrivs hur du definierar och använder variabler i din Azure Resource Manager-mall. Du kan använda variabler för att förenkla din mall. I stället för att upprepa komplexa uttryck i hela mallen definierar du en variabel som innehåller det komplexa uttrycket. Sedan kan du referera till variabeln efter behov i hela mallen.
 
 Resource Manager löser variabler innan distributions åtgärderna påbörjas. Oavsett var variabeln används i mallen ersätter Resource Manager den med det matchade värdet.
+
+Formatet för varje variabel måste matcha en av [data typerna](template-syntax.md#data-types).
 
 ## <a name="define-variable"></a>Definiera variabel
 
@@ -85,7 +87,7 @@ Använd variabeln och parametern tillsammans för att hämta inställningarna f�
 
 Följande exempel visar scenarier för att använda variabler.
 
-|Mall  |Beskrivning  |
+|Mall  |Description  |
 |---------|---------|
 | [variabel definitioner](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Visar de olika typerna av variabler. Mallen distribuerar inga resurser. Den skapar variabel värden och returnerar dessa värden. |
 | [konfigurations variabel](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Visar användningen av en variabel som definierar konfigurations värden. Mallen distribuerar inga resurser. Den skapar variabel värden och returnerar dessa värden. |

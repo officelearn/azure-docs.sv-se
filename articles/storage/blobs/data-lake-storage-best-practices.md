@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0efcdfd1b14479edf84dc1892e7e1d9afabd5a81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104885"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913563"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Metod tips för att använda Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ I den här artikeln får du lära dig mer om bästa praxis och överväganden f�
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 
-Azure Data Lake Storage Gen2 har POSIX-åtkomst kontroller för Azure Active Directory (Azure AD)-användare, grupper och tjänst huvud namn. Dessa åtkomst kontroller kan ställas in på befintliga filer och kataloger. Åtkomst kontrollerna kan också användas för att skapa standard behörigheter som kan tillämpas automatiskt på nya filer eller kataloger. Mer information om Data Lake Storage Gen2 ACL: er finns på [åtkomst kontroll i Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
+Azure Data Lake Storage Gen2 har POSIX-åtkomst kontroller för Azure Active Directory (Azure AD)-användare, grupper och tjänst huvud namn. Dessa åtkomst kontroller kan ställas in på befintliga filer och kataloger. Åtkomst kontrollerna kan också användas för att skapa standard behörigheter som kan tillämpas automatiskt på nya filer eller kataloger. Mer information om Data Lake Storage Gen2 ACL: er finns på [åtkomst kontroll i Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="use-security-groups-versus-individual-users"></a>Använd säkerhets grupper jämfört med enskilda användare
 
@@ -31,7 +31,7 @@ När en säkerhets grupp har tilldelats behörigheter behöver inte några uppda
 
 ### <a name="security-for-groups"></a>Säkerhet för grupper
 
-När du eller dina användare behöver åtkomst till data i ett lagrings konto med hierarkiskt namn område aktiverat, är det bäst att använda Azure Active Directory säkerhets grupper. Vissa rekommenderade grupper att starta med kan vara **ReadOnlyUsers**, **WriteAccessUsers**och **FullAccessUsers** för roten i behållaren och till och med separera dem för nyckel under kataloger. Om det finns andra förväntade grupper av användare som kan läggas till senare, men ännu inte har identifierats, kan du överväga att skapa dummy-säkerhetsgrupper som har åtkomst till vissa mappar. Med hjälp av säkerhets gruppen ser du till att du kan undvika lång bearbetnings tid när du tilldelar nya behörigheter till tusentals filer.
+När du eller dina användare behöver åtkomst till data i ett lagrings konto med hierarkiskt namn område aktiverat, är det bäst att använda Azure Active Directory säkerhets grupper. Vissa rekommenderade grupper att starta med kan vara **ReadOnlyUsers**, **WriteAccessUsers** och **FullAccessUsers** för roten i behållaren och till och med separera dem för nyckel under kataloger. Om det finns andra förväntade grupper av användare som kan läggas till senare, men ännu inte har identifierats, kan du överväga att skapa dummy-säkerhetsgrupper som har åtkomst till vissa mappar. Med hjälp av säkerhets gruppen ser du till att du kan undvika lång bearbetnings tid när du tilldelar nya behörigheter till tusentals filer.
 
 ### <a name="security-for-service-principals"></a>Säkerhet för tjänstens huvud namn
 
@@ -41,7 +41,7 @@ Azure Active Directory tjänstens huvud namn används vanligt vis av tjänster s
 
 Data Lake Storage Gen2 stöder möjligheten att aktivera en brand vägg och begränsa åtkomsten till Azure-tjänster, vilket rekommenderas för att begränsa den externa attackens vektor. Brand väggen kan aktive ras på ett lagrings konto i Azure Portal via **brand väggen**  >  **Aktivera brand vägg (på)**  >  **Tillåt åtkomst till alternativen för Azure-tjänster** .
 
-Om du vill komma åt ditt lagrings konto från Azure Databricks distribuerar du Azure Databricks till ditt virtuella nätverk och lägger sedan till det virtuella nätverket i brand väggen. Se [konfigurera Azure Storage brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Om du vill komma åt ditt lagrings konto från Azure Databricks distribuerar du Azure Databricks till ditt virtuella nätverk och lägger sedan till det virtuella nätverket i brand väggen. Se [konfigurera Azure Storage brand väggar och virtuella nätverk](../common/storage-network-security.md).
 
 ## <a name="resiliency-considerations"></a>Att tänka på om återhämtning
 

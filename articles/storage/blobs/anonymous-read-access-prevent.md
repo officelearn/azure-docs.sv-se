@@ -10,12 +10,12 @@ ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3d843440adc61b315616a05f223c5a13ebe271ed
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 01a5c696a41b9361c35e7af90f68088acea2944b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930840"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913784"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Förhindra anonym offentlig Läs behörighet till behållare och blobbar
 
@@ -59,7 +59,7 @@ Följ dessa steg om du vill skapa ett mått som spårar anonyma begär Anden:
 
 När du har konfigurerat måttet kommer anonyma begär Anden att visas i grafen. Följande bild visar de anonyma begär Anden som aggregerats under de senaste 30 minuterna.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera BLOB-transaktioner":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Skärm bild som visar sammanställda anonyma begär Anden mot Blob Storage":::
 
 Du kan också konfigurera en varnings regel för att meddela dig när ett visst antal anonyma begär Anden görs mot ditt lagrings konto. Mer information finns i [skapa, Visa och hantera mått aviseringar med hjälp av Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -67,9 +67,9 @@ Du kan också konfigurera en varnings regel för att meddela dig när ett visst 
 
 Azure Storage loggar fångar information om begär Anden som gjorts mot lagrings kontot, inklusive hur en begäran har auktoriserats. Du kan analysera loggarna för att avgöra vilka behållare som tar emot anonyma begär Anden.
 
-Om du vill logga begär anden till ditt Azure Storage konto för att utvärdera anonyma begär Anden, kan du använda Azure Storage inloggning Azure Monitor (för hands version). Mer information finns i [övervaka Azure Storage](../common/monitor-storage.md).
+Om du vill logga begär anden till ditt Azure Storage konto för att utvärdera anonyma begär Anden, kan du använda Azure Storage inloggning Azure Monitor (för hands version). Mer information finns i [övervaka Azure Storage](./monitor-blob-storage.md).
 
-Azure Storage loggning i Azure Monitor har stöd för att använda logg frågor för att analysera loggdata. Om du vill söka i loggar kan du använda en Azure Log Analytics-arbetsyta. Mer information om logg frågor finns i [Självstudier: komma igång med Log Analytics frågor](../../azure-monitor/log-query/get-started-portal.md).
+Azure Storage loggning i Azure Monitor har stöd för att använda logg frågor för att analysera loggdata. Om du vill söka i loggar kan du använda en Azure Log Analytics-arbetsyta. Mer information om logg frågor finns i [Självstudier: komma igång med Log Analytics frågor](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 > [!NOTE]
 > Förhands granskningen av Azure Storage loggning i Azure Monitor stöds bara i det offentliga Azure-molnet. Offentliga moln stöder inte loggning för Azure Storage med Azure Monitor.
@@ -83,16 +83,16 @@ Om du vill logga Azure Storage data med Azure Monitor och analysera dem med Azur
 1. Navigera till ditt lagringskonto i Azure-portalen.
 1. I avsnittet övervakning väljer du **diagnostikinställningar (för hands version)**.
 1. Välj **BLOB** för att logga förfrågningar som görs mot Blob Storage.
-1. Välj **Lägg till diagnostisk inställning**.
+1. Välj **Lägg till diagnostikinställning**.
 1. Ange ett namn för den diagnostiska inställningen.
-1. Under **kategori information**i avsnittet **logg** väljer du vilka typer av begär Anden som ska loggas. Alla anonyma begär Anden kommer att läsas, så välj **StorageRead** för att avbilda anonyma begär Anden.
-1. Under **mål information**väljer **du skicka till Log Analytics**. Välj din prenumeration och Log Analytics arbets ytan som du skapade tidigare, som du ser i följande bild.
+1. Under **kategori information** i avsnittet **logg** väljer du vilka typer av begär Anden som ska loggas. Alla anonyma begär Anden kommer att läsas, så välj **StorageRead** för att avbilda anonyma begär Anden.
+1. Under **mål information** väljer **du skicka till Log Analytics**. Välj din prenumeration och Log Analytics arbets ytan som du skapade tidigare, som du ser i följande bild.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera BLOB-transaktioner":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
 
 Efter att du har skapat den diagnostiska inställningen loggas begär anden till lagrings kontot sedan i enlighet med den inställningen. Mer information finns i [skapa diagnostisk inställning för insamling av resurs loggar och mått i Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-En referens för fält som är tillgängliga i Azure Storage loggar i Azure Monitor finns i [resurs loggar (för hands version)](../common/monitor-storage-reference.md#resource-logs-preview).
+En referens för fält som är tillgängliga i Azure Storage loggar i Azure Monitor finns i [resurs loggar (för hands version)](./monitor-blob-storage-reference.md#resource-logs-preview).
 
 #### <a name="query-logs-for-anonymous-requests"></a>Query-loggar för anonyma begär Anden
 
@@ -164,7 +164,7 @@ New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 
 ### <a name="check-the-public-access-setting-for-multiple-accounts"></a>Kontrol lera inställningen för offentlig åtkomst för flera konton
 
-Om du vill kontrol lera inställningen för offentlig åtkomst i en uppsättning lagrings konton med optimala prestanda kan du använda Azures resurs diagram Utforskaren i Azure Portal. Mer information om hur du använder resurs diagram Utforskaren finns i [snabb start: kör din första resurs diagram fråga med Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
+Om du vill kontrol lera inställningen för offentlig åtkomst i en uppsättning lagrings konton med optimala prestanda kan du använda Azures resurs diagram Utforskaren i Azure Portal. Mer information om hur du använder resurs diagram Utforskaren finns i [snabb start: kör din första resurs diagram fråga med Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
 
 När du kör följande fråga i resursens diagram Utforskaren returneras en lista över lagrings konton och den offentliga åtkomst inställningen för varje konto visas:
 
@@ -190,7 +190,7 @@ Följ dessa steg om du vill skapa en princip med en gransknings funktion för de
 1. Välj **Lägg till princip definition** för att skapa en ny princip definition.
 1. I fältet **definitions plats** väljer du knappen **mer** för att ange var gransknings princip resursen finns.
 1. Ange ett namn för principen. Du kan också ange en beskrivning och kategori.
-1. Under **princip regel**lägger du till följande princip definition i **policyRule** -avsnittet.
+1. Under **princip regel** lägger du till följande princip definition i **policyRule** -avsnittet.
 
     ```json
     {
@@ -244,7 +244,7 @@ Följ dessa steg om du vill visa Kompatibilitetsrapport i Azure Portal:
 1. Filtrera resultaten för namnet på princip tilldelningen som du skapade i föregående steg. Rapporten visar hur många resurser som inte är kompatibla med principen.
 1. Du kan öka detalj nivån i rapporten för ytterligare information, inklusive en lista över lagrings konton som inte är kompatibla.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera BLOB-transaktioner":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Skärm bild som visar Kompatibilitetsrapport för gransknings principen för offentlig BLOB-åtkomst":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Använd Azure Policy för att genomdriva auktoriserad åtkomst
 
@@ -280,7 +280,7 @@ När du har skapat principen med neka-inställningen och tilldelar den till ett 
 
 Följande bild visar det fel som uppstår om du försöker skapa ett lagrings konto som tillåter offentlig åtkomst (standard för ett nytt konto) när en princip med en neka-påverkan kräver att offentlig åtkomst inte tillåts.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera BLOB-transaktioner":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Skärm bild som visar felet som inträffar när du skapar ett lagrings konto som strider mot principen":::
 
 ## <a name="next-steps"></a>Nästa steg
 

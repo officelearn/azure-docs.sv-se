@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 6e183a1e8cac8eec2806a35603c40a44aadac502
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eea7fb073cdf99ee1f4257f6824375a6502a4fad
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84193512"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913631"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Använda Azure Data Lake Storage Gen2 för Big data-krav
 
@@ -27,7 +27,7 @@ Det finns fyra viktiga steg i stor data bearbetning:
 
 I den här artikeln beskrivs alternativen och verktygen för varje bearbetnings fas.
 
-En fullständig lista över Azure-tjänster som du kan använda med Azure Data Lake Storage Gen2 finns i [integrera Azure Data Lake Storage med Azure-tjänster](data-lake-storage-integrate-with-azure-services.md)
+En fullständig lista över Azure-tjänster som du kan använda med Azure Data Lake Storage Gen2 finns i [integrera Azure Data Lake Storage med Azure-tjänster](./data-lake-storage-supported-azure-services.md)
 
 ## <a name="ingest-the-data-into-data-lake-storage-gen2"></a>Mata in data i Data Lake Storage Gen2
 
@@ -54,8 +54,8 @@ Här är en lista med verktyg som du kan använda för att mata in strömmade da
 
 |Verktyg | Vägledning |
 |---|--|
-|Azure Stream Analytics|[Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Utgående till Azure Data Lake Gen2](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2)|
-|Azure HDInsight Storm | [Skriv till Apache Hadoop HDFS från Apache Storm på HDInsight](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-write-data-lake-store) |
+|Azure Stream Analytics|[Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Utgående till Azure Data Lake Gen2](../../stream-analytics/stream-analytics-define-outputs.md)|
+|Azure HDInsight Storm | [Skriv till Apache Hadoop HDFS från Apache Storm på HDInsight](../../hdinsight/storm/apache-storm-write-data-lake-store.md) |
 
 ### <a name="relational-data"></a>Relationsdata
 
@@ -65,7 +65,7 @@ Här är en lista med verktyg som du kan använda för att mata in relations dat
 
 |Verktyg | Vägledning |
 |---|--|
-|Azure Data Factory | [Kopieringsaktivitet i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Azure Data Factory | [Kopieringsaktivitet i Azure Data Factory](../../data-factory/copy-activity-overview.md) |
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Logg data för webb server (Ladda upp med anpassade program)
 
@@ -75,7 +75,7 @@ Här är en lista med verktyg som du kan använda för att mata in data från we
 
 |Verktyg | Vägledning |
 |---|--|
-|Azure Data Factory | [Kopieringsaktivitet i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
+|Azure Data Factory | [Kopieringsaktivitet i Azure Data Factory](../../data-factory/copy-activity-overview.md)  |
 |Azure CLI|[Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
 |Azure PowerShell|[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)|
 
@@ -89,9 +89,9 @@ Här är en lista med verktyg som du kan använda för att mata in data som är 
 
 |Verktyg | Vägledning |
 |---|--|
-|Apache DistCp | [Använd DistCp för att kopiera data mellan Azure Storage blobbar och Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
-|Verktyget AzCopy | [Överföra data med AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Azure Data Factory | [Kopiera data till eller från Azure Data Lake Storage Gen2 med Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
+|Apache DistCp | [Använd DistCp för att kopiera data mellan Azure Storage blobbar och Azure Data Lake Storage Gen2](./data-lake-storage-use-distcp.md) |
+|Verktyget AzCopy | [Överföra data med AzCopy](../common/storage-use-azcopy-v10.md) |
+|Azure Data Factory | [Kopiera data till eller från Azure Data Lake Storage Gen2 med Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md) |
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Data som lagras i lokala eller IaaS Hadoop-kluster
 
@@ -118,12 +118,12 @@ Här är en lista med verktyg som du kan använda för att köra data analys job
 
 |Verktyg | Vägledning |
 |---|--|
-|Azure HDInsight | [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Snabb start: analysera data i Azure Data Lake Storage Gen2 med Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Självstudie: Extrahera, transformera och läsa in data med hjälp av Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure HDInsight | [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
+|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Snabb start: analysera data i Azure Data Lake Storage Gen2 med Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Självstudie: Extrahera, transformera och läsa in data med hjälp av Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="visualize-the-data"></a>Visualisera datan
 
-Använd Power BI-anslutningen för att skapa visuella representationer av data som lagras i Data Lake Storage Gen2. Se [analysera data i Azure Data Lake Storage Gen2 med Power BI](https://docs.microsoft.com/power-query/connectors/datalakestorage).
+Använd Power BI-anslutningen för att skapa visuella representationer av data som lagras i Data Lake Storage Gen2. Se [analysera data i Azure Data Lake Storage Gen2 med Power BI](/power-query/connectors/datalakestorage).
 
 ## <a name="download-the-data"></a>Ladda ned data
 
@@ -139,7 +139,7 @@ Här är en lista med verktyg som du kan använda för att hämta data från Dat
 
 |Verktyg | Vägledning |
 |---|--|
-|Azure Data Factory | [Kopieringsaktivitet i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
-|Apache DistCp | [Använd DistCp för att kopiera data mellan Azure Storage blobbar och Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
+|Azure Data Factory | [Kopieringsaktivitet i Azure Data Factory](../../data-factory/copy-activity-overview.md) |
+|Apache DistCp | [Använd DistCp för att kopiera data mellan Azure Storage blobbar och Azure Data Lake Storage Gen2](./data-lake-storage-use-distcp.md) |
 |Azure Lagringsutforskaren|[Använda Azure Storage Explorer till att hantera kataloger, filer och åtkomstkontrollistor i Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
 |Verktyget AzCopy|[Överföra data med AzCopy och Blob Storage](../common/storage-use-azcopy-blobs.md)|

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425696"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006838"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Sök aktivitet i Azure Data Factory
 
@@ -85,7 +85,7 @@ Sök resultatet returneras i `output` avsnittet i aktivitets körnings resultate
     }
     ```
 
-* **När `firstRowOnly` är inställt på `false` **visas utdataformatet som i följande kod. Ett `count` fält indikerar hur många poster som returneras. Detaljerade värden visas under en fast `value` matris. I sådana fall följs söknings aktiviteten av en [förgrunds aktivitet](control-flow-for-each-activity.md). Du skickar `value` matrisen till fältet för förgrunds aktiviteter `items` med hjälp av mönstret `@activity('MyLookupActivity').output.value` . Använd följande syntax för att få åtkomst till element i `value` matrisen: `@{activity('lookupActivity').output.value[zero based index].propertyname}` . Ett exempel är `@{activity('lookupActivity').output.value[0].schema}`.
+* **När `firstRowOnly` är inställt på `false`** visas utdataformatet som i följande kod. Ett `count` fält indikerar hur många poster som returneras. Detaljerade värden visas under en fast `value` matris. I sådana fall följs söknings aktiviteten av en [förgrunds aktivitet](control-flow-for-each-activity.md). Du skickar `value` matrisen till fältet för förgrunds aktiviteter `items` med hjälp av mönstret `@activity('MyLookupActivity').output.value` . Använd följande syntax för att få åtkomst till element i `value` matrisen: `@{activity('lookupActivity').output.value[zero based index].propertyname}` . Ett exempel är `@{activity('lookupActivity').output.value[0].schema}`.
 
     ```json
     {

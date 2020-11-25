@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: ba5dfbaba49be0521e07b2460c9920664790bf1e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 246d2677c784daee4cc6b083cff04b6993ab3818
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379306"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006497"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-c"></a>Snabb start: Azure Blob Storage klient bibliotek V12 för C++
 
@@ -30,14 +30,14 @@ Resurser:
 
 - [Referensdokumentation för API](https://azure.github.io/azure-sdk-for-cpp/storage.html)
 - [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)
-- [Exempel](/azure/storage/common/storage-samples-c-plus-plus?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Exempel](../common/storage-samples-c-plus-plus.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Azure-prenumeration](https://azure.microsoft.com/free/)
-- [Azure Storage-konto](/azure/storage/common/storage-quickstart-create-account)
+- [Azure Storage-konto](../common/storage-account-create.md)
 - [C++-kompilator](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
 - [CMake](https://cmake.org/)
 - [Vcpkg-C och C++ Package Manager](https://github.com/microsoft/vcpkg/blob/master/docs/index.md)
@@ -60,7 +60,7 @@ Följ anvisningarna på GitHub för att hämta och bygga [Azure SDK för C++](ht
 
 ### <a name="create-the-project"></a>Skapa projektet
 
-Skapa ett nytt C++-konsol program för Windows med namnet *BlobQuickstartV12*i Visual Studio.
+Skapa ett nytt C++-konsol program för Windows med namnet *BlobQuickstartV12* i Visual Studio.
 
 :::image type="content" source="./media/quickstart-blobs-c-plus-plus/vs-create-project.jpg" alt-text="Visual Studio-dialog ruta för att konfigurera en ny app med Windows-konsolen för C++":::
 

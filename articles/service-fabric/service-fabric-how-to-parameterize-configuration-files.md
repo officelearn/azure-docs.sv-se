@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75644638"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006055"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Så här Parameterisera du konfigurationsfiler i Service Fabric
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du Parameterisera en konfigurations fil i Service Fa
 
 I det här exemplet åsidosätter du ett konfigurations värde med hjälp av parametrarna i program distributionen.
 
-1. Öppna * \<MyService>\PackageRoot\Config\Settings.xml* -filen i ditt tjänst projekt.
+1. Öppna *\<MyService>\PackageRoot\Config\Settings.xml* -filen i ditt tjänst projekt.
 1. Ange ett namn och värde för konfigurations parametern, till exempel cache-storlek som motsvarar 25, genom att lägga till följande XML:
 
    ```xml
@@ -30,7 +30,7 @@ I det här exemplet åsidosätter du ett konfigurations värde med hjälp av par
    ```
 
 1. Spara och stäng filen.
-1. Öppna * \<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* -filen.
+1. Öppna *\<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* -filen.
 1. I ApplicationManifest.xml-filen deklarerar du en parameter och ett standardvärde i `Parameters` elementet.  Vi rekommenderar att parameter namnet innehåller namnet på tjänsten (till exempel "fjärrtjänst").
 
    ```xml

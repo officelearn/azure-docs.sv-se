@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 57cd9b55f529bde3f6bcb0a25a95c70333f6d8dd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130960"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005783"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Använda tjänsten StorSimple Enhetshanteraren för att logga en Supportbegäran för den virtuella StorSimple-matrisen
 
@@ -33,15 +33,15 @@ Beroende på ditt [support](https://azure.microsoft.com/support/plans/)avtal kan
 
 #### <a name="to-log-a-new-request"></a>Så här loggar du en ny begäran
 
-1. Gå till StorSimple Device Manager-tjänsten. I bladet tjänst Sammanfattning går du till avsnittet **support + fel sökning** och klickar sedan på **ny supportbegäran** .
+1. Gå till StorSimple Device Manager-tjänsten. I bladet tjänst Sammanfattning går du till avsnittet **support + fel sökning** och klickar sedan på **ny supportbegäran**.
    
     ![Skärm bild som visar fönstret grundläggande för en ny supportbegäran.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
 2. Gör följande på bladet **grundläggande** :
 
-    1. I list rutan **ärende typ** väljer du **teknisk** . 
+    1. I list rutan **ärende typ** väljer du **teknisk**. 
     
-    2. Den aktuella **prenumerationen** , **tjänst** typen och **resursen** (StorSimple Enhetshanteraren-tjänsten) väljs automatiskt. 
+    2. Den aktuella **prenumerationen**, **tjänst** typen och **resursen** (StorSimple Enhetshanteraren-tjänsten) väljs automatiskt. 
 
     3. Ange en eller flera enheter som är registrerade för din tjänst och som har problem.
 
@@ -51,7 +51,7 @@ Beroende på ditt [support](https://azure.microsoft.com/support/plans/)avtal kan
    
     ![Skärm bild som visar problem fönstret där du kan ange problem typ, kategori och information för din support förfrågan.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
-4. Ange din kontakt information i **steg 3** . Microsoft Support kommer att använda den här informationen för att kontakta dig för ytterligare information, diagnos och lösning.
+4. Ange din kontakt information i **steg 3**. Microsoft Support kommer att använda den här informationen för att kontakta dig för ytterligare information, diagnos och lösning.
    
     ![Skärm bild som visar rutan kontakt information.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 
@@ -61,7 +61,7 @@ När du har skapat ett supportärende kan du hantera ärendets livscykel på por
 
 #### <a name="to-manage-your-support-requests"></a>Så här hanterar du dina support ärenden
 
-Öppna sidan hjälp och support genom att gå till **bläddra > hjälp + support** .
+Öppna sidan hjälp och support genom att gå till **bläddra > hjälp + support**.
 
 ![Hantera support förfrågningar](./media/storsimple-virtual-array-log-support-ticket/manage-support-tickets.png)
 

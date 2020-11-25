@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: 5ad261064adf34945a600983296cb3e0ceaa5247
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90901064"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006669"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen
 
@@ -22,13 +22,13 @@ Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analyt
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-* Logga in på [Azure Portal](https://portal.azure.com/).
+* Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="prepare-the-input-data"></a>Förbereda indata
 
 Innan du definierar Stream Analytics jobbet bör du förbereda indata. Real tids sensor data matas in till IoT Hub, som senare har kon figurer ATS som indata för jobbet. Förbered de indata som krävs för jobbet genom att utföra följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj **skapa en resurs**  >  **Sakernas Internet**  >  **IoT Hub**.
 
@@ -77,7 +77,7 @@ Innan du definierar Stream Analytics jobbet bör du förbereda indata. Real tids
 
 ## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 
 2. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.  
 

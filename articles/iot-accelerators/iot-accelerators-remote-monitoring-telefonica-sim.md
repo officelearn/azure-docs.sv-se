@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: 21d84bea808ba5832b81d415001a3fc25a7e1630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323965"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006771"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrera SIM-data i lösningen för fjärrövervakning
 
@@ -21,7 +21,7 @@ IoT-enheter ansluter ofta till molnet med ett SIM-kort som gör det möjligt fö
 
 Fjärrövervakning ger direkt integrering med Telefónica IoT-anslutning, så att kunder som använder sin IoT Connectivity-plattform synkroniserar sina enheters SIMs anslutnings data till sina lösningar. Den här lösningen kan utökas till att stödja andra IoT Connectivity-providrar via GitHub- [lagringsplatsen](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 * Integrera Telefónica IoT SIM-data i lösningen för fjärrövervakning
 * Visa telemetri i realtid

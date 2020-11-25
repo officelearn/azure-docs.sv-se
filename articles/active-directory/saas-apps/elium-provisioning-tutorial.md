@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: e8f027ccc577df79e561fca7194c20b6cc7ef2c6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356815"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005511"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Elium för automatisk användar etablering
 
@@ -55,7 +55,7 @@ Innan du konfigurerar Elium för automatisk användar etablering med Azure AD m�
 
     ![Meny alternativet Inställningar i Elium](media/Elium-provisioning-tutorial/setting.png)
 
-1. I det nedre vänstra hörnet, under **Avancerat** , väljer du **säkerhet**.
+1. I det nedre vänstra hörnet, under **Avancerat**, väljer du **säkerhet**.
 
     ![Säkerhets länk i Elium](media/Elium-provisioning-tutorial/security.png)
 
@@ -79,7 +79,7 @@ Om du vill konfigurera Elium för automatisk användar etablering med Azure AD m
 
     ![Ny program länk](common/add-new-app.png)
 
-1. I rutan Sök skriver du **Elium** , väljer **Elium** i listan resultat och väljer sedan **Lägg** till för att lägga till programmet.
+1. I rutan Sök skriver du **Elium**, väljer **Elium** i listan resultat och väljer sedan **Lägg** till för att lägga till programmet.
 
     ![Sökruta för Galleri](common/search-new-app.png)
 

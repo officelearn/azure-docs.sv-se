@@ -5,11 +5,11 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
 ms.openlocfilehash: dce340db90c1528c46c1be0bc172751a04feaf31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294083"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006412"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera aviserings regler i Log Analytics med REST API 
 
@@ -136,7 +136,7 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupN
 ### <a name="alert-actions"></a>Aviserings åtgärder
 Ett schema bör ha en och endast en aviserings åtgärd.  Aviserings åtgärder har ett eller flera av avsnitten i följande tabell.  Var och en beskrivs i detalj nedan.
 
-| Section | Beskrivning | Användning |
+| Section | Description | Användning |
 |:--- |:--- |:--- |
 | Tröskelvärde |Villkor för när åtgärden körs.| Krävs för varje avisering, innan eller efter att de har utökats till Azure. |
 | Allvarlighetsgrad |Etikett som används för att klassificera avisering när den utlöses.| Krävs för varje avisering, innan eller efter att de har utökats till Azure. |

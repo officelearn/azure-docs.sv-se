@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 530aa17a165092fc9219629180c81014039c3dac
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: ab0ed536bd23aaf15d85af85e4f924bc2f51f3d4
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132694"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006635"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka loggdata till Azure Monitor med API: t för HTTP-datainsamling (offentlig för hands version)
 Den här artikeln visar hur du använder API: t för HTTP-datainsamling för att skicka logg data till Azure Monitor från en REST API-klient.  Här beskrivs hur du formaterar data som samlats in av ditt skript eller program, inkluderar dem i en begäran och har den begäran som auktoriserats av Azure Monitor.  Exempel finns för PowerShell, C# och python.
@@ -49,7 +49,7 @@ Om du vill använda API: et för HTTP-datainsamling skapar du en POST-begäran s
 | API-version |Den version av API: et som ska användas med den här begäran. För närvarande är det 2016-04-01. |
 
 ### <a name="request-headers"></a>Begärandehuvuden
-| Sidhuvud | Beskrivning |
+| Huvud | Description |
 |:--- |:--- |
 | Auktorisering |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC-SHA256-huvud. |
 | Log-Type |Ange post typen för de data som skickas. Får bara innehålla bokstäver, siffror och under streck (_) och får inte överstiga 100 tecken. |
@@ -128,7 +128,7 @@ Du kan gruppera flera poster tillsammans i en enskild begäran med hjälp av fö
 ## <a name="record-type-and-properties"></a>Post typ och egenskaper
 Du definierar en anpassad posttyp när du skickar data via Azure Monitor API för HTTP-datainsamling. För närvarande kan du inte skriva data till befintliga post typer som har skapats av andra data typer och lösningar. Azure Monitor läser inkommande data och skapar sedan egenskaper som matchar data typerna för de värden som du anger.
 
-Varje begäran till data insamlings-API: n måste innehålla ett **logg typs** huvud med namnet på post typen. Suffixet **_CL** läggs automatiskt till det namn som du anger för att skilja det från andra logg typer som en anpassad logg. Om du till exempel anger namnet **MyNewRecordType**skapar Azure Monitor en post med typen **MyNewRecordType_CL**. Detta säkerställer att det inte finns några konflikter mellan användardefinierade typnamn och de som levererats i aktuella eller framtida Microsoft-lösningar.
+Varje begäran till data insamlings-API: n måste innehålla ett **logg typs** huvud med namnet på post typen. Suffixet **_CL** läggs automatiskt till det namn som du anger för att skilja det från andra logg typer som en anpassad logg. Om du till exempel anger namnet **MyNewRecordType** skapar Azure Monitor en post med typen **MyNewRecordType_CL**. Detta säkerställer att det inte finns några konflikter mellan användardefinierade typnamn och de som levererats i aktuella eller framtida Microsoft-lösningar.
 
 Azure Monitor lägger till ett suffix till egenskaps namnet för att identifiera en egenskaps datatyp. Om en egenskap innehåller ett null-värde ingår inte egenskapen i posten. Den här tabellen visar data typen för egenskapen och motsvarande suffix:
 
@@ -148,7 +148,7 @@ Vilken datatyp som Azure Monitor används för varje egenskap beror på om post 
 * Om post typen inte finns skapar Azure Monitor en ny med hjälp av JSON-typens härledning för att fastställa data typen för varje egenskap för den nya posten.
 * Om post typen finns Azure Monitor försöker skapa en ny post utifrån befintliga egenskaper. Om data typen för en egenskap i den nya posten inte matchar och inte kan konverteras till den befintliga typen, eller om posten innehåller en egenskap som inte finns, skapar Azure Monitor en ny egenskap som har det relevanta suffixet.
 
-Denna överförings post skapar till exempel en post med tre egenskaper, **number_d**, **boolean_b**och **string_s**:
+Denna överförings post skapar till exempel en post med tre egenskaper, **number_d**, **boolean_b** och **string_s**:
 
 ![Exempel post 1](media/data-collector-api/record-01.png)
 
@@ -160,7 +160,7 @@ Men om du sedan gör nästa överföring skapar Azure Monitor de nya egenskapern
 
 ![Exempel post 3](media/data-collector-api/record-03.png)
 
-Om du sedan skickade följande post innan post typen skapades, skulle Azure Monitor skapa en post med tre egenskaper, **number_s**, **boolean_s**och **string_s**. I den här posten formateras var och en av de ursprungliga värdena som en sträng:
+Om du sedan skickade följande post innan post typen skapades, skulle Azure Monitor skapa en post med tre egenskaper, **number_s**, **boolean_s** och **string_s**. I den här posten formateras var och en av de ursprungliga värdena som en sträng:
 
 ![Exempel post 4](media/data-collector-api/record-04.png)
 
@@ -183,7 +183,7 @@ HTTP-statuskod 200 innebär att begäran har tagits emot för bearbetning. Detta
 
 Den här tabellen innehåller en fullständig uppsättning status koder som tjänsten kan returnera:
 
-| Kod | Status | Felkod | Beskrivning |
+| Kod | Status | Felkod | Description |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |Begäran har godkänts. |
 | 400 |Felaktig begäran |InactiveCustomer |Arbets ytan har stängts. |
@@ -202,7 +202,7 @@ Den här tabellen innehåller en fullständig uppsättning status koder som tjä
 | 503 |Tjänsten är inte tillgänglig |ServiceUnavailable |Tjänsten är för närvarande inte tillgänglig för att ta emot begär Anden. Försök att utföra begäran igen. |
 
 ## <a name="query-data"></a>Söka i data
-Om du vill fråga efter data som skickats av Azure Monitor HTTP-API för data insamling söker du efter poster med en **typ** som är lika med det **LogType** -värde som du angav, sist i **_CL**. Om du till exempel använde **MyCustomLog**returnerar du alla poster med `MyCustomLog_CL` .
+Om du vill fråga efter data som skickats av Azure Monitor HTTP-API för data insamling söker du efter poster med en **typ** som är lika med det **LogType** -värde som du angav, sist i **_CL**. Om du till exempel använde **MyCustomLog** returnerar du alla poster med `MyCustomLog_CL` .
 
 ## <a name="sample-requests"></a>Exempel förfrågningar
 I nästa avsnitt hittar du exempel på hur du skickar data till API: et för Azure Monitor HTTP-datainsamling genom att använda olika programmeringsspråk.
@@ -211,8 +211,8 @@ Utför följande steg för varje exempel för att ange variabler för Authorizat
 
 1. Leta upp Log Analytics arbets ytan i Azure Portal.
 2. Välj **agent hantering**.
-2. Till höger om **arbetsyte-ID**väljer du kopierings ikonen och klistrar in ID: t som värdet för variabeln **kund-ID** .
-3. Till höger om **primär nyckel**väljer du kopierings ikonen och klistrar sedan in ID: t som värdet för den **delade nyckel** variabeln.
+2. Till höger om **arbetsyte-ID** väljer du kopierings ikonen och klistrar in ID: t som värdet för variabeln **kund-ID** .
+3. Till höger om **primär nyckel** väljer du kopierings ikonen och klistrar sedan in ID: t som värdet för den **delade nyckel** variabeln.
 
 Du kan också ändra variablerna för logg typen och JSON-data.
 
@@ -647,11 +647,11 @@ public class ApiExample {
 ## <a name="alternatives-and-considerations"></a>Alternativ och överväganden
 Även om data insamlings-API: n ska innehålla de flesta av dina behov av att samla in information om fritt formulär till Azure-loggar, finns det instanser där ett alternativ kan krävas för att lösa vissa begränsningar i API: et. Alla alternativ är följande: viktiga överväganden ingår:
 
-| Andra | Beskrivning | Passar bäst för |
+| Andra | Description | Passar bäst för |
 |---|---|---|
 | [Anpassade händelser](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): inbyggd SDK-baserad inmatning i Application Insights | Application Insights, vanligt vis genom ett SDK i ditt program, ger dig möjlighet att skicka anpassade data via anpassade händelser. | <ul><li> Data som genereras i programmet, men som inte hämtats av SDK via någon av standard data typerna (begär Anden, beroenden, undantag och så vidare).</li><li> Data som ofta korreleras med andra program data i Application Insights </li></ul> |
 | API för data insamling i Azure Monitor loggar | API för data insamling i Azure Monitor loggar är ett helt öppet sätt att mata in data. Alla data som är formaterade i ett JSON-objekt kan skickas hit. När den har skickats bearbetas den och är tillgänglig i loggarna för att korreleras med andra data i loggarna eller mot andra Application Insights data. <br/><br/> Det är ganska enkelt att överföra data som filer till en Azure blob-blob, från var de här filerna ska bearbetas och överföras till Log Analytics. I [den här](./create-pipeline-datacollector-api.md) artikeln hittar du en exempel implementering av en sådan pipeline. | <ul><li> Data som inte nödvändigt vis genereras inom ett program som är instrumenterade i Application Insights.</li><li> Exempel är lookup-och fakta tabeller, referens data, församlad statistik och så vidare. </li><li> Avsedd för data som ska refereras till i andra Azure Monitor data (Application Insights, andra loggar data typer, Security Center, Azure Monitor för behållare/VM: ar). </li></ul> |
-| [Azure-datautforskaren](/azure/data-explorer/ingest-data-overview) | Azure Datautforskaren (ADX) är den data plattform som ger Application Insights analys-och Azure Monitors loggar. Nu är det allmänt tillgängligt ("GA"), med hjälp av data plattformen i sin RAW-form, och ger dig fullständig flexibilitet (men kräver hanterings kostnader) över klustret (RBAC, bevarande frekvens, schema och så vidare). ADX tillhandahåller många [ingestion options](/azure/data-explorer/ingest-data-overview#ingestion-methods) inmatnings alternativ [, till exempel CSV-, TSV-och JSON-](/azure/kusto/management/mappings?branch=master) filer. | <ul><li> Data som inte kommer att korreleras till andra data under Application Insights eller loggar. </li><li> Data som kräver avancerade inmatnings-eller bearbetnings funktioner som inte redan finns i Azure Monitor loggar. </li></ul> |
+| [Azure-datautforskaren](/azure/data-explorer/ingest-data-overview) | Azure Datautforskaren (ADX) är den data plattform som ger Application Insights analys-och Azure Monitors loggar. Nu är det allmänt tillgängligt ("GA"), med hjälp av data plattformen i sin RAW-form, och ger dig fullständig flexibilitet (men kräver hanterings belastning) över klustret (Kubernetes RBAC, bevarande frekvens, schema och så vidare). ADX tillhandahåller många [ingestion options](/azure/data-explorer/ingest-data-overview#ingestion-methods) inmatnings alternativ [, till exempel CSV-, TSV-och JSON-](/azure/kusto/management/mappings?branch=master) filer. | <ul><li> Data som inte kommer att korreleras till andra data under Application Insights eller loggar. </li><li> Data som kräver avancerade inmatnings-eller bearbetnings funktioner som inte redan finns i Azure Monitor loggar. </li></ul> |
 
 
 ## <a name="next-steps"></a>Nästa steg

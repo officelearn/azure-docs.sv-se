@@ -16,11 +16,11 @@ ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b159250e107fa73b9071eafe24fbe08ff1ea100b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896012"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006259"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av REST API-anrop
 
@@ -154,7 +154,7 @@ Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator som
    az account get-access-token
    ```
 
-2. Använd följande spiral kommando för att anropa Azure Resource Manager REST-slutpunkten för att aktivera systemtilldelad hanterad identitet på den virtuella datorn som identifieras i begär ande texten av värdet `{"identity":{"type":"SystemAssigned"}` för en virtuell dator med namnet *myVM* .  Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
+2. Använd följande spiral kommando för att anropa Azure Resource Manager REST-slutpunkten för att aktivera systemtilldelad hanterad identitet på den virtuella datorn som identifieras i begär ande texten av värdet `{"identity":{"type":"SystemAssigned"}` för en virtuell dator med namnet *myVM*.  Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
    
    > [!IMPORTANT]
    > För att se till att du inte tar bort befintliga hanterade identiteter som har tilldelats den virtuella datorn, måste du ange de användar tilldelade hanterade identiteterna med hjälp av det här spiral kommandot: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Om du har tilldelade tilldelade hanterade identiteter som har tilldelats den virtuella datorn som identifieras i `identity` värdet i svaret går du vidare till steg 3 som visar hur du behåller användarspecifika hanterade identiteter samtidigt som du aktiverar systemtilldelad hanterad identitet på den virtuella datorn.
@@ -264,7 +264,7 @@ Om du vill inaktivera systemtilldelad hanterad identitet på en virtuell dator m
    az account get-access-token
    ```
 
-2. Uppdatera den virtuella datorn med hjälp av spiral för att anropa Azure Resource Manager REST-slutpunkten för att inaktivera systemtilldelad hanterad identitet.  I följande exempel inaktive ras systemtilldelad hanterad identitet som identifieras i begär ande texten av värdet `{"identity":{"type":"None"}}` från en virtuell dator med namnet *myVM* .  Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
+2. Uppdatera den virtuella datorn med hjälp av spiral för att anropa Azure Resource Manager REST-slutpunkten för att inaktivera systemtilldelad hanterad identitet.  I följande exempel inaktive ras systemtilldelad hanterad identitet som identifieras i begär ande texten av värdet `{"identity":{"type":"None"}}` från en virtuell dator med namnet *myVM*.  Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
 
    > [!IMPORTANT]
    > För att se till att du inte tar bort befintliga hanterade identiteter som har tilldelats den virtuella datorn, måste du ange de användar tilldelade hanterade identiteterna med hjälp av det här spiral kommandot: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Om du har tilldelade tilldelade hanterade identiteter som har tilldelats den virtuella datorn som identifieras i `identity` värdet i svaret går du vidare till steg 3 som visar hur du behåller användarspecifika hanterade identiteter samtidigt som du inaktiverar systemtilldelad hanterad identitet på den virtuella datorn.
@@ -293,7 +293,7 @@ Om du vill inaktivera systemtilldelad hanterad identitet på en virtuell dator m
     }
    ```
 
-   Om du vill ta bort systemtilldelad hanterad identitet från en virtuell dator som har tilldelade hanterade identiteter tar `SystemAssigned` du bort från `{"identity":{"type:" "}}` värdet samtidigt som `UserAssigned` du behåller värdet och `userAssignedIdentities` värdena för ord listan om du använder **API version 2018-06-01** . Behåll matrisen om du använder **API version 2017-12-01** eller tidigare `identityIds` .
+   Om du vill ta bort systemtilldelad hanterad identitet från en virtuell dator som har tilldelade hanterade identiteter tar `SystemAssigned` du bort från `{"identity":{"type:" "}}` värdet samtidigt som `UserAssigned` du behåller värdet och `userAssignedIdentities` värdena för ord listan om du använder **API version 2018-06-01**. Behåll matrisen om du använder **API version 2017-12-01** eller tidigare `identityIds` .
 
 ## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
@@ -517,7 +517,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
 
 4. Om du inte har några tilldelade hanterade identiteter som tilldelats den virtuella datorn använder du följande spiral kommando för att anropa Azure Resource Manager REST-slutpunkten för att tilldela den första användarspecifika hanterade identiteten till den virtuella datorn.
 
-   I följande exempel tilldelas en användardefinierad hanterad identitet `ID1` till en virtuell dator med namnet *myVM* i resurs gruppen *myResourceGroup* .  Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
+   I följande exempel tilldelas en användardefinierad hanterad identitet `ID1` till en virtuell dator med namnet *myVM* i resurs gruppen *myResourceGroup*.  Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
 
    **API-VERSION 2018-06-01**
 

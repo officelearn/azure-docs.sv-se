@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 71dac0b6ea2202e712280607a73e860ae68bdb73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704879"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005596"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Konfigurera och få åtkomst till Server loggar med hjälp av Azure CLI
 Du kan hämta fel loggarna för PostgreSQL-servern med hjälp av kommando rads gränssnittet (Azure CLI). Åtkomst till transaktions loggar stöds dock inte. 
@@ -26,7 +26,7 @@ För att gå igenom den här instruktions guiden behöver du:
 ## <a name="configure-logging"></a>Konfigurera loggning
 Du kan konfigurera servern för att få åtkomst till Query-loggar och fel loggar. Fel loggar kan ha Auto-vakuum, anslutnings-och kontroll punkts information.
 1. Aktivera loggning.
-2. Om du vill aktivera loggning av frågor uppdaterar du **logg \_ satsen** och **loggen för \_ min \_ varaktighet \_ **.
+2. Om du vill aktivera loggning av frågor uppdaterar du **logg \_ satsen** och **loggen för \_ min \_ varaktighet \_**.
 3. Uppdaterings kvarhållningsperiod.
 
 Mer information finns i [Anpassa Server konfigurations parametrar](howto-configure-server-parameters-using-cli.md).

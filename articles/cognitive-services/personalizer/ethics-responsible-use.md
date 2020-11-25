@@ -9,11 +9,11 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132729"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005987"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Rikt linjer för ansvarig implementering av Personanpassare
 
@@ -73,7 +73,7 @@ Att anpassa innehållet är beroende av att ha användbar information om innehå
 
 Överväg effekterna av dessa funktioner:
 
-* **Användar demografiska**funktioner: funktioner för kön, kön, ålder, tävling, religion: dessa funktioner kan inte tillåtas i vissa program av reglerings skäl, och det kan inte vara etiska att anpassa dem på grund av att anpassningen skulle sprida generaliseringar och bias. Ett exempel på denna kompensations spridning är en jobb publicering för teknik som inte visas för äldre eller kön-baserade mål grupper.
+* **Användar demografiska** funktioner: funktioner för kön, kön, ålder, tävling, religion: dessa funktioner kan inte tillåtas i vissa program av reglerings skäl, och det kan inte vara etiska att anpassa dem på grund av att anpassningen skulle sprida generaliseringar och bias. Ett exempel på denna kompensations spridning är en jobb publicering för teknik som inte visas för äldre eller kön-baserade mål grupper.
 * **Språk information**: på många platser i världen kan plats information (till exempel ett post nummer, post nummer eller namn) vara mycket korrelerad med intäkter, ras och religion.
 * **Användar uppfattning om skälighet**: även i de fall där ditt program fattar ett ljud beslut, bör du tänka på hur användarna ser att innehållet visas i dina program ändringar på ett sätt som verkar korreleras med funktioner som skulle vara diskriminerande.
 * **Oavsiktlig förskjutning i funktioner**: det finns typer av fördomar som kan introduceras med hjälp av funktioner som bara påverkar en del av populationen. Detta kräver extra uppmärksamhet om funktionerna genereras algorithmically, till exempel när du använder bild analys för att extrahera objekt i en bild eller text analys för att identifiera entiteter i text. Ta reda på egenskaperna för de tjänster som du använder för att skapa de här funktionerna.
@@ -134,7 +134,7 @@ Följande är design områden för ansvariga implementeringar av AI. Lär dig me
 * Se till att användnings villkoren är tänkta att du använder information om användare och deras beteende för att anpassa upplevelsen.
 
 ### <a name="fairness"></a>Rättvisa
-*AI-system bör behandla alla personer*på ett ganska mycket.
+*AI-system bör behandla alla personer* på ett ganska mycket.
 
 * Använd inte Personanpassare för användnings fall där resultatet är långsiktigt, följd eller rör verklig skada.
 * Använd inte funktioner som inte är lämpliga för att anpassa innehåll med eller som kan hjälpa till att sprida oönskade kompensationer. Till exempel bör alla med liknande ekonomiska omständigheter se samma anpassade rekommendationer för finansiella produkter.
@@ -152,7 +152,7 @@ Följande är design områden för ansvariga implementeringar av AI. Lär dig me
 ### <a name="security-and-privacy"></a>Säkerhet och sekretess
 *AI-system bör vara säkra och respektera sekretess*. När du använder Personanpassare:
 
-* *Informera användarna om de data som samlas in och hur de används och få sitt samtycke i förväg*efter dina lokala och bransch bestämmelser.
+* *Informera användarna om de data som samlas in och hur de används och få sitt samtycke i förväg* efter dina lokala och bransch bestämmelser.
 * *Ge integritets skydd – skydda användar kontroller.* För program som lagrar personlig information bör du överväga att tillhandahålla en enkel att hitta-knapp för funktioner som:
    * `Show me all you know about me`
    * `Forget my last interaction`

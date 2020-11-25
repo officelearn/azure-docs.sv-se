@@ -4,11 +4,11 @@ description: Visar vilka typer av Azure-resurs typer som stöder taggar. Innehå
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.openlocfilehash: fb81ed303cf27add3a033021f017c03f4b9e9750
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427776"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005732"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
 I den här artikeln beskrivs om en resurs typ stöder [taggar](tag-resources.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten. Du kan visa kostnader efter taggar i [Cost Management kostnads analys](../../cost-management-billing/costs/group-filter.md) och Azure- [faktura och användnings data per dag](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -934,7 +934,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ExternalSubscriptions/fråga | Nej | Nej |
 > | Prognos | Nej | Nej |
 > | Insikter | Nej | Nej |
-> | Söka i data | Nej | Nej |
+> | Fråga | Nej | Nej |
 > | registrera | Nej | Nej |
 > | Reportconfigs | Nej | Nej |
 > | Rapporter | Nej | Nej |

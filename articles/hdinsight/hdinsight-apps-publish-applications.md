@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: ca84cb6cdd6b47976eadbc5298701a46fe677426
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547834"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007145"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicera ett HDInsight-program på Azure Marketplace
 Du kan installera ett Azure HDInsight-program i ett Linux-baserat HDInsight-kluster. I den här artikeln får du lära dig hur du publicerar ett HDInsight-program på Azure Marketplace. Allmän information om hur du publicerar på Azure Marketplace finns i [publicera ett erbjudande på Azure Marketplace](../marketplace/overview.md).
@@ -63,7 +63,7 @@ När ett program installeras i ett kluster (antingen på ett befintligt kluster 
   > * Ett bindestreck, för läsbarhet.
   > * En unik sträng funktion med program namnet som parameter.
   > 
-  > I listan bestående skript åtgärd visas föregående exempel som **nyans-install-v0-4wkahss55hlas** . Se ett [exempel](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json)på en JSON-nyttolast.
+  > I listan bestående skript åtgärd visas föregående exempel som **nyans-install-v0-4wkahss55hlas**. Se ett [exempel](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json)på en JSON-nyttolast.
   > 
 
 Installations skriptet måste ha följande egenskaper:
@@ -88,13 +88,13 @@ Så här publicerar du ett HDInsight-program:
 
 1. Logga in på [Azure Publishing](https://publish.windowsazure.com/).
 2. Välj **Solution templates** i den vänstra menyn.
-3. Ange en rubrik och välj sedan **skapa en ny lösnings mall** .
-4. Om du inte redan har registrerat din organisation väljer du **skapa dev Center-konto och ansluter till Azure-programmet** .  Mer information finns i [skapa ett Microsoft Developer-konto](../marketplace/overview.md).
-5. Välj **definiera vissa topologier för att komma igång** . En lösnings mal len är "överordnad" till alla dess topologier. Du kan definiera flera topologier i ett erbjudande eller en lösnings mall. När ett erbjudande skickas till mellanlagringen, skickas det med alla topologier. 
+3. Ange en rubrik och välj sedan **skapa en ny lösnings mall**.
+4. Om du inte redan har registrerat din organisation väljer du **skapa dev Center-konto och ansluter till Azure-programmet**.  Mer information finns i [skapa ett Microsoft Developer-konto](../marketplace/overview.md).
+5. Välj **definiera vissa topologier för att komma igång**. En lösnings mal len är "överordnad" till alla dess topologier. Du kan definiera flera topologier i ett erbjudande eller en lösnings mall. När ett erbjudande skickas till mellanlagringen, skickas det med alla topologier. 
 6. Ange ett Topology-namn och välj sedan **+** .
 7. Ange en ny version och välj sedan **+** .
 8. Ladda upp zip-filen som du skapade när du paketerade programmet.  
-9. Välj **begär certifiering** . Microsofts certifierings team granskar filerna och certifierar topologin.
+9. Välj **begär certifiering**. Microsofts certifierings team granskar filerna och certifierar topologin.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [installerar HDInsight-program](hdinsight-apps-install-applications.md) i klustren.

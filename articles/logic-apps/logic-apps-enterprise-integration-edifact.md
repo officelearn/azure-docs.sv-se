@@ -9,11 +9,11 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: b0df55e59bd519a816c4022f2434edfcd4460780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570774"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006531"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Utbyta EDIFACT-meddelanden för B2B-företagsintegrering i Azure Logic Apps med Enterprise-integrationspaket
 
@@ -45,7 +45,7 @@ När du har [skapat ett integrations konto](../logic-apps/logic-apps-enterprise-
    > [!TIP]
    > Om **alla tjänster** inte visas kan du behöva expandera menyn först. Överst på menyn komprimerad väljer du **Visa text etiketter**.
 
-3. Under **integrations konton**väljer du det integrations konto där du vill skapa avtalet.
+3. Under **integrations konton** väljer du det integrations konto där du vill skapa avtalet.
 
    ![Välj integrations konto där du vill skapa avtalet](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
@@ -57,13 +57,13 @@ När du har [skapat ett integrations konto](../logic-apps/logic-apps-enterprise-
 
    ![Välj "Lägg till"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
-6. Under **Lägg till**anger du ett **namn** för ditt avtal. För **avtals typ**väljer du **EDIFACT**. Välj **värd partner**, **värd identitet**, **gäst partner**och **gäst identitet** för ditt avtal.
+6. Under **Lägg till** anger du ett **namn** för ditt avtal. För **avtals typ** väljer du **EDIFACT**. Välj **värd partner**, **värd identitet**, **gäst partner** och **gäst identitet** för ditt avtal.
 
    ![Ange avtals information](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
    | Egenskap | Beskrivning |
    | --- | --- |
-   | Namn |Avtalets namn |
+   | Name |Avtalets namn |
    | Avtals typ | Ska vara EDIFACT |
    | Värd partner |Ett avtal måste både vara värd-och gäst partner. Värd partnern representerar den organisation som konfigurerar avtalet. |
    | Värd identitet |En identifierare för värd partnern |
@@ -81,7 +81,7 @@ Nu när du har angett avtals egenskaperna kan du konfigurera hur det här avtale
 > EDIFACT-anslutningen har endast stöd för UTF-8-tecken.
 > Om utdata innehåller oväntade tecken, kontrol lera att EDIFACT-meddelanden använder UTF-8-teckenuppsättningen.
 
-1. Under **Lägg till**väljer du **ta emot inställningar**.
+1. Under **Lägg till** väljer du **ta emot inställningar**.
 Konfigurera dessa egenskaper utifrån ditt avtal med den partner som utbyter meddelanden med dig. För egenskaps beskrivningar, se tabellerna i det här avsnittet.
 
    **Ta emot inställningar** är indelat i följande avsnitt: identifierare, bekräftelse, scheman, kontroll nummer, verifiering och interna inställningar.
@@ -155,7 +155,7 @@ När du Slutför varje validerings rad läggs en ny automatiskt till. Om du inte
 
 Du kan konfigurera hur det här avtalet identifierar och hanterar utgående meddelanden som du skickar till dina partner genom detta avtal.
 
-1.  Under **Lägg till**väljer du **Skicka inställningar**.
+1.  Under **Lägg till** väljer du **Skicka inställningar**.
 Konfigurera dessa egenskaper utifrån ditt avtal med din partner som utbyter meddelanden med dig. För egenskaps beskrivningar, se tabellerna i det här avsnittet.
 
     **Sändnings inställningarna** är indelade i följande avsnitt: identifierare, bekräftelse, scheman, kuvert, teckenuppsättningar och avgränsare, kontroll nummer och valideringar.
@@ -202,7 +202,7 @@ Nu är ditt avtal redo att hantera utgående meddelanden som överensstämmer me
 | UNB10 (kommunikations avtal) |Ange ett alfanumeriskt värde med minst ett tecken och högst 40 tecken. |
 | UNB11 (test indikator) |Markera den här kryss rutan om du vill ange att den genererade Interchange-filen är test data |
 | Tillämpa UNA-segment (tjänst Strängs råd) |Markera den här kryss rutan om du vill generera ett UNA-segment för det utbyte som ska skickas. |
-| Använda UNG segment (funktions grupps huvud) |Markera den här kryss rutan om du vill skapa grupperade segment i funktions grupps huvudet i meddelanden som skickas till gäst partnern. Följande värden används för att skapa UNG-segment: <p>För **UNG1**anger du ett alfanumeriskt värde med minst ett tecken och högst sex tecken. <p>För **ung 2.1**anger du ett alfanumeriskt värde med minst ett tecken och högst 35 tecken. <p>För **ung 2.2**anger du ett alfanumeriskt värde med högst fyra tecken. <p>För **ung 3.1**anger du ett alfanumeriskt värde med minst ett tecken och högst 35 tecken. <p>För **ung 3.2**anger du ett alfanumeriskt värde med högst fyra tecken. <p>För **UNG6**anger du ett alfanumeriskt värde med minst en och högst tre tecken. <p>För **ung 7.1**anger du ett alfanumeriskt värde med minst ett tecken och högst tre tecken. <p>För **ung 7,2**anger du ett alfanumeriskt värde med minst ett tecken och högst tre tecken. <p>För **ung 7.3**anger du ett alfanumeriskt värde med minst 1 tecken och högst 6 tecken. <p>För **UNG8**anger du ett alfanumeriskt värde med minst ett tecken och högst 14 tecken. |
+| Använda UNG segment (funktions grupps huvud) |Markera den här kryss rutan om du vill skapa grupperade segment i funktions grupps huvudet i meddelanden som skickas till gäst partnern. Följande värden används för att skapa UNG-segment: <p>För **UNG1** anger du ett alfanumeriskt värde med minst ett tecken och högst sex tecken. <p>För **ung 2.1** anger du ett alfanumeriskt värde med minst ett tecken och högst 35 tecken. <p>För **ung 2.2** anger du ett alfanumeriskt värde med högst fyra tecken. <p>För **ung 3.1** anger du ett alfanumeriskt värde med minst ett tecken och högst 35 tecken. <p>För **ung 3.2** anger du ett alfanumeriskt värde med högst fyra tecken. <p>För **UNG6** anger du ett alfanumeriskt värde med minst en och högst tre tecken. <p>För **ung 7.1** anger du ett alfanumeriskt värde med minst ett tecken och högst tre tecken. <p>För **ung 7,2** anger du ett alfanumeriskt värde med minst ett tecken och högst tre tecken. <p>För **ung 7.3** anger du ett alfanumeriskt värde med minst 1 tecken och högst 6 tecken. <p>För **UNG8** anger du ett alfanumeriskt värde med minst ett tecken och högst 14 tecken. |
 
 ### <a name="character-sets-and-separators"></a>Teckenuppsättningar och avgränsare
 
@@ -245,7 +245,7 @@ När du Slutför varje validerings rad läggs en ny automatiskt till. Om du inte
 
     Ditt nyligen tillagda avtal visas nu i **avtals** listan.
 
-2.  Du kan också visa dina avtal i Översikt över integrations kontot. På integrations konto menyn väljer du **Översikt**och väljer sedan **avtals** panelen. 
+2.  Du kan också visa dina avtal i Översikt över integrations kontot. På integrations konto menyn väljer du **Översikt** och väljer sedan **avtals** panelen. 
 
     ![Skärm bild som visar avtals panelen.](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 

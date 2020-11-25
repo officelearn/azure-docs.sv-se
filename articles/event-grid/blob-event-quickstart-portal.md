@@ -4,11 +4,11 @@ description: 'Snabb start: Använd Azure Event Grid och Azure Portal för att sk
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: 46cd88558334239a1a9971c63b8b2608def3c4d3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87421611"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005698"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Snabb start: dirigera Blob Storage-händelser till webb slut punkt med Azure Portal
 
@@ -34,7 +34,7 @@ När du är klar kan se du att händelsedata som har skickats till webbappen.
    
 1. Utför följande steg på sidan **skapa lagrings konto** :
     1. Välj din Azure-prenumeration. 
-    2. För **resurs grupp**skapar du en ny resurs grupp eller väljer en befintlig. 
+    2. För **resurs grupp** skapar du en ny resurs grupp eller väljer en befintlig. 
     3. Ange namnet på lagringskontot. 
     4. Välj **Granska + skapa**. 
 
@@ -52,8 +52,8 @@ Innan du prenumererar på händelserna för Blob Storage-kontot ska vi skapa slu
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 2. Utför följande steg på sidan **Anpassad distribution** : 
-    1. För **resurs grupp**väljer du den resurs grupp som du skapade när du skapade lagrings kontot. Det blir enklare för dig att rensa efter att du är klar med självstudien genom att ta bort resurs gruppen.  
-    2. För **webbplats namn**anger du ett namn för webbappen.
+    1. För **resurs grupp** väljer du den resurs grupp som du skapade när du skapade lagrings kontot. Det blir enklare för dig att rensa efter att du är klar med självstudien genom att ta bort resurs gruppen.  
+    2. För **webbplats namn** anger du ett namn för webbappen.
     3. Ange ett namn för den App Service plan som ska användas som värd för webbappen för **värd Plans namn**.
     4. Markera kryss rutan för **Jag accepterar villkoren som anges ovan**. 
     5. Välj **Köp**. 
@@ -92,7 +92,7 @@ Du prenumererar på ett ämne därför att du vill ange för Event Grid vilka h�
     2. Välj **Web Hook** för **slut punkts typ**. 
 
        ![Välj typ av webhook-slutpunkt](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)
-4. För **slut punkt**klickar du på **Välj en slut punkt**och anger URL: en för din webbapp och lägger till `api/updates` på Start sidans URL (t. ex `https://spegridsite.azurewebsites.net/api/updates` .:) och väljer sedan **Bekräfta markering**.
+4. För **slut punkt** klickar du på **Välj en slut punkt** och anger URL: en för din webbapp och lägger till `api/updates` på Start sidans URL (t. ex `https://spegridsite.azurewebsites.net/api/updates` .:) och väljer sedan **Bekräfta markering**.
 
    ![Bekräfta slut punkts val](./media/blob-event-quickstart-portal/confirm-endpoint-selection.png)
 5. Gå nu till sidan **Skapa händelse prenumeration** och välj **skapa** för att skapa händelse prenumerationen. 

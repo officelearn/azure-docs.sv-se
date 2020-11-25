@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 889e298f64689748340713de6318f8ffcd181001
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123854"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006463"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garantera Stream Analytics jobbets tillförlitlighet under tjänst uppdateringar
 
@@ -23,7 +23,7 @@ En del av att vara en fullständigt hanterad tjänst är möjligheten att inför
 
 Stream Analytics garanterar att jobb i kopplade regioner uppdateras i separata batchar. Det finns därför en tillräckligt lång lucka mellan uppdateringarna för att identifiera potentiella problem och åtgärda dem.
 
-_Med undantag för central Indien_ (vars kopplade region, södra Indien, inte har Stream Analytics närvaro), sker distributionen av en uppdatering till Stream Analytics inte samtidigt i en uppsättning kopplade regioner. Distributioner i flera regioner **i samma grupp** kan förekomma **samtidigt** .
+_Med undantag för central Indien_ (vars kopplade region, södra Indien, inte har Stream Analytics närvaro), sker distributionen av en uppdatering till Stream Analytics inte samtidigt i en uppsättning kopplade regioner. Distributioner i flera regioner **i samma grupp** kan förekomma **samtidigt**.
 
 I artikeln om **[tillgänglighet och kopplade regioner](../best-practices-availability-paired-regions.md)** får du den senaste informationen om vilka regioner som paras ihop.
 

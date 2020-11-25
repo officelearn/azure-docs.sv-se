@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/29/2019
 ms.openlocfilehash: d110f4ee0248b6ea069c6033dd69840eec1a18f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741607"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007162"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installera anpassade Apache Hadoop-program i Azure HDInsight
 
@@ -49,9 +49,9 @@ Filer som behövs för att distribuera programmet (Hue):
 
 1. Ange namnet på det kluster där du vill installera programmet. Det här klustret måste vara ett befintligt kluster.
 
-1. Markera kryss rutan för **Jag accepterar de villkor som anges ovan** .
+1. Markera kryss rutan för **Jag accepterar de villkor som anges ovan**.
 
-1. Välj **Köp** .
+1. Välj **Köp**.
 
 Du kan se installationsstatus via ikonen som är fäst på portalens instrumentpanel och i portalmeddelandet (klicka på klockikonen överst i portalen).  Det tar cirka 10 minuter att installera programmet.
 
@@ -128,8 +128,8 @@ Om en programinstallation Miss lyckas kan du se fel meddelandena och felsökning
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj det kluster där du installerade programmet.
 1. Välj **program** på menyn **Inställningar** .
-1. Högerklicka på det program som du vill ta bort och välj sedan **ta bort** .
-1. Bekräfta genom att välja **Ja** .
+1. Högerklicka på det program som du vill ta bort och välj sedan **ta bort**.
+1. Bekräfta genom att välja **Ja**.
 
 ### <a name="azure-cli"></a>Azure CLI
 

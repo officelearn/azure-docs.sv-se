@@ -16,11 +16,11 @@ ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.openlocfilehash: 4b3b2b8c39b5b2552b5ce9f508bacd1ea86b2638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269598"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006377"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Widevine-direktuppspelning offline för Android
 
@@ -131,7 +131,7 @@ Utvecklare bör referera till [ExoPlayer Developer-guiden](https://google.github
 
 ### <a name="working-with-older-android-devices"></a>Arbeta med äldre Android-enheter
 
-För vissa äldre Android-enheter måste du ange värden för följande **policy_overrides** egenskaper (definieras i [Widevine-licens mal len](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**och **license_duration_seconds**. Du kan också ställa in dem på noll, vilket innebär oändlig/obegränsad varaktighet.  
+För vissa äldre Android-enheter måste du ange värden för följande **policy_overrides** egenskaper (definieras i [Widevine-licens mal len](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds** och **license_duration_seconds**. Du kan också ställa in dem på noll, vilket innebär oändlig/obegränsad varaktighet.  
 
 Värdena måste anges för att undvika en heltals spill bugg. Mer information om problemet finns i https://github.com/google/ExoPlayer/issues/3150 och https://github.com/google/ExoPlayer/issues/3112 . <br/>Om du inte anger värdena explicit, tilldelas mycket stora värden för  **PlaybackDurationRemaining** och **LicenseDurationRemaining** (till exempel 9223372036854775807, vilket är det högsta positiva värdet för ett 64-bitars heltal). Det innebär att Widevine-licensen har upphört att gälla och därför att dekrypteringen inte sker. 
 

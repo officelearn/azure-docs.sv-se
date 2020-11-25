@@ -4,11 +4,11 @@ description: Översikt över skissexemplet på CIS Microsoft Azure Foundations B
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: 6c09e539e192db8422b25079264b9f4e8965d994
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054618"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005613"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Exempel på benchmark-plan för CIS-Microsoft Azure
 
@@ -60,7 +60,7 @@ Din kopia av skissexemplet har nu skapats i din miljö. Den skapas i läget **Ut
 
 ### <a name="assign-the-sample-copy"></a>Tilldela exempelkopian
 
-När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. I det här steget anges parametrar för att göra varje distribution av skissexemplets kopia unik.
+När kopieringen av skiss exemplet har **publicerats** kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. I det här steget anges parametrar för att göra varje distribution av skissexemplets kopia unik.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 

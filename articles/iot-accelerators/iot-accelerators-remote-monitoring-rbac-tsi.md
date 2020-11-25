@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9d5d572c3e32e3645e65ba8d6fc28b567b3c1e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "65827241"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005970"
 ---
 # <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Konfigurera åtkomst kontroller för Time Series Insights telemetri Explorer
 
@@ -31,7 +31,7 @@ Följ dessa steg om du vill bevilja data åtkomst för ett huvud konto för anv�
 
 3. Välj Time Series Insights-miljön från listan.
 
-4. Välj **data åtkomst principer**och välj sedan **+ Lägg till**.
+4. Välj **data åtkomst principer** och välj sedan **+ Lägg till**.
     ![Hantera Time Series Insights-källan – miljö](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access1.png)
 
 5. Välj **Välj användare**.  Sök efter användar namnet eller e-postadressen för att hitta den användare som du vill lägga till. Bekräfta valet genom att klicka på **Välj** . 

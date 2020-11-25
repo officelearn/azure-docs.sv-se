@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 56170ffbbfe14248bcfd1f94549a3565873f8646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514015"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005902"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Använd tjänsten StorSimple Enhetshanteraren för att hantera mallar för StorSimple-bandbredd
 
@@ -89,7 +89,7 @@ Utför följande steg för att redigera en bandbredds mall.
 ### <a name="to-edit-a-bandwidth-template"></a>Redigera en bandbredds mall
 
 1. Gå till StorSimple Enhetshanteraren-tjänsten och klicka på **mallar för bandbredd**.
-2. Välj den mall som du vill ta bort i listan med mallar för bandbredd. Högerklicka och välj **ta bort**på snabb menyn.
+2. Välj den mall som du vill ta bort i listan med mallar för bandbredd. Högerklicka och välj **ta bort** på snabb menyn.
 3. När du uppmanas att bekräfta klickar du på **OK**. Detta bör ta bort bandbredds mal len. 
 4. Listan över uppdateringar av Bandwidth-mallar som visar borttagningen.
 

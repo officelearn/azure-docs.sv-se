@@ -5,15 +5,15 @@ services: container-service
 ms.topic: article
 ms.date: 04/08/2020
 ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900083"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006941"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera nodpooler för ett kluster i Azure Kubernetes Service (AKS)
 
-I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsammans i *noder i pooler* . De här noderna innehåller de underliggande virtuella datorerna som kör dina program. Det ursprungliga antalet noder och deras storlek (SKU) definieras när du skapar ett AKS-kluster, vilket skapar en [pool för system-Node][use-system-pool]. För att stödja program som har olika beräknings-eller lagrings krav kan du skapa ytterligare *pooler för användar-noder* . System Node-pooler fungerar som ett primärt syfte att vara värd för kritiska system poddar, till exempel CoreDNS och tunnelfront. Pooler för användar-noder fungerar som ett primärt syfte att vara värd för din applikations poddar. Programpoddar kan dock schemaläggas på system-nodkonfigurationer om du bara vill ha en pool i ditt AKS-kluster. Användar-resurspooler är där du placerar dina programspecifika poddar. Du kan till exempel använda dessa ytterligare resurspooler för användare för att tillhandahålla GPU: er för beräknings intensiva program eller åtkomst till SSD-lagring med höga prestanda.
+I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsammans i *noder i pooler*. De här noderna innehåller de underliggande virtuella datorerna som kör dina program. Det ursprungliga antalet noder och deras storlek (SKU) definieras när du skapar ett AKS-kluster, vilket skapar en [pool för system-Node][use-system-pool]. För att stödja program som har olika beräknings-eller lagrings krav kan du skapa ytterligare *pooler för användar-noder*. System Node-pooler fungerar som ett primärt syfte att vara värd för kritiska system poddar, till exempel CoreDNS och tunnelfront. Pooler för användar-noder fungerar som ett primärt syfte att vara värd för din applikations poddar. Programpoddar kan dock schemaläggas på system-nodkonfigurationer om du bara vill ha en pool i ditt AKS-kluster. Användar-resurspooler är där du placerar dina programspecifika poddar. Du kan till exempel använda dessa ytterligare resurspooler för användare för att tillhandahålla GPU: er för beräknings intensiva program eller åtkomst till SSD-lagring med höga prestanda.
 
 > [!NOTE]
 > Den här funktionen ger bättre kontroll över hur du skapar och hanterar flera noder i pooler. Därför krävs separata kommandon för att skapa/uppdatera/ta bort. Tidigare kluster åtgärder via `az aks create` eller `az aks update` använde managedCluster API och var det enda alternativet att ändra ditt kontroll plan och en enskild Node-pool. Den här funktionen exponerar en separat åtgärds uppsättning för agent-pooler via Agentpoolegenskap-API: et och kräver `az aks nodepool` att kommando uppsättningen används för att köra åtgärder på en enskild Node-pool.
@@ -93,7 +93,7 @@ Om du vill se status för dina nodkonfigurationer använder du kommandot [AZ AKS
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-Följande exempel på utdata visar att *mynodepool* har skapats med tre noder i Node-poolen. När AKS-klustret skapades i föregående steg skapades en standard- *nodepool1* med antalet noder *2* .
+Följande exempel på utdata visar att *mynodepool* har skapats med tre noder i Node-poolen. När AKS-klustret skapades i föregående steg skapades en standard- *nodepool1* med antalet noder *2*.
 
 ```output
 [
@@ -161,7 +161,7 @@ Eftersom det finns två nodkonfigurationer i det här exemplet måste vi använd
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Nu ska vi uppgradera *mynodepool* . Använd kommandot [AZ AKS nodepool Upgrade][az-aks-nodepool-upgrade] för att uppgradera Node-poolen, som visas i följande exempel:
+Nu ska vi uppgradera *mynodepool*. Använd kommandot [AZ AKS nodepool Upgrade][az-aks-nodepool-upgrade] för att uppgradera Node-poolen, som visas i följande exempel:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -172,7 +172,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-Ange status för dina nodkonfigurationer igen med kommandot [AZ AKS Node pool List][az-aks-nodepool-list] . I följande exempel visas att *mynodepool* är i *uppgraderings* läge för att *KUBERNETES_VERSION* :
+Ange status för dina nodkonfigurationer igen med kommandot [AZ AKS Node pool List][az-aks-nodepool-list] . I följande exempel visas att *mynodepool* är i *uppgraderings* läge för att *KUBERNETES_VERSION*:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -214,7 +214,7 @@ Som bästa praxis bör du uppgradera alla resurspooler i ett AKS-kluster till sa
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Uppgradera ett kluster kontroll plan med flera noder i pooler
 
 > [!NOTE]
-> Kubernetes använder standard versions schema för [semantisk versions hantering](https://semver.org/) . Versions numret uttrycks som *x. y. z* , där *x* är huvud versionen, *y* är den lägre versionen och *z* är korrigerings versionen. I version *1.12.6* 1 är till exempel den högre versionen, 12 är den lägre versionen och 6 är korrigerings versionen. Kubernetes-versionen av kontroll planet och den första nodens resurspool anges när klustret skapas. Alla ytterligare noder i pooler har Kubernetes-versionen när de läggs till i klustret. Kubernetes-versionerna kan variera mellan olika resurspooler samt mellan en Node-pool och kontroll planet.
+> Kubernetes använder standard versions schema för [semantisk versions hantering](https://semver.org/) . Versions numret uttrycks som *x. y. z*, där *x* är huvud versionen, *y* är den lägre versionen och *z* är korrigerings versionen. I version *1.12.6* 1 är till exempel den högre versionen, 12 är den lägre versionen och 6 är korrigerings versionen. Kubernetes-versionen av kontroll planet och den första nodens resurspool anges när klustret skapas. Alla ytterligare noder i pooler har Kubernetes-versionen när de läggs till i klustret. Kubernetes-versionerna kan variera mellan olika resurspooler samt mellan en Node-pool och kontroll planet.
 
 Ett AKS-kluster har två kluster resurs objekt med associerade Kubernetes-versioner.
 
@@ -249,7 +249,7 @@ När ditt programs arbets belastnings behov ändras kan du behöva skala antalet
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-Om du vill skala antalet noder i en Node-pool använder du kommandot [AZ AKS Node pool Scale][az-aks-nodepool-scale] . I följande exempel skalas antalet noder i *mynodepool* till *5* :
+Om du vill skala antalet noder i en Node-pool använder du kommandot [AZ AKS Node pool Scale][az-aks-nodepool-scale] . I följande exempel skalas antalet noder i *mynodepool* till *5*:
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -367,7 +367,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-I följande exempel visas utdata från kommandot [AZ AKS Node pool List][az-aks-nodepool-list] som visar att *gpunodepool* *skapar* noder med den angivna *VmSize* :
+I följande exempel visas utdata från kommandot [AZ AKS Node pool List][az-aks-nodepool-list] som visar att *gpunodepool* *skapar* noder med den angivna *VmSize*:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -425,7 +425,7 @@ az aks nodepool add \
 > [!NOTE]
 > En bismak kan bara ställas in för Node-pooler när en resurspool skapas.
 
-I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *taintnp* *skapar* noder med angivna *nokvarhållning* :
+I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *taintnp* *skapar* noder med angivna *nokvarhållning*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -510,7 +510,7 @@ Events:
   Normal  Started    4m40s  kubelet             Started container
 ```
 
-Endast poddar som har den här tolereraren som används kan schemaläggas på noder i *taintnp* . Andra pod skulle schemaläggas i *nodepool1* Node-pool. Om du skapar ytterligare noder kan du använda ytterligare utsmakar och tolererar för att begränsa vilka poddar som kan schemaläggas för dessa resurs resurser.
+Endast poddar som har den här tolereraren som används kan schemaläggas på noder i *taintnp*. Andra pod skulle schemaläggas i *nodepool1* Node-pool. Om du skapar ytterligare noder kan du använda ytterligare utsmakar och tolererar för att begränsa vilka poddar som kan schemaläggas för dessa resurs resurser.
 
 ### <a name="setting-nodepool-labels"></a>Ange nodepool-etiketter
 
@@ -531,7 +531,7 @@ az aks nodepool add \
 > [!NOTE]
 > Det går bara att ange etiketten för Node-pooler när en resurspool skapas. Etiketter måste också vara ett nyckel/värde-par och ha en [giltig syntax][kubernetes-label-syntax].
 
-I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *labelnp* *skapar* noder med angivet *nodeLabels* :
+I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *labelnp* *skapar* noder med angivet *nodeLabels*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -577,9 +577,9 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> Du kan också använda `--tags` parametern när du använder kommandot [AZ AKS nodepool Update][az-aks-nodepool-update] och när klustret skapas. När klustret skapas `--tags` använder parametern taggen på den första noden som skapats med klustret. Alla taggnamn måste följa de begränsningar som [används vid användning av taggar för att organisera dina Azure-resurser][tag-limitation]. Uppdatering av en Node-pool med `--tags` parametern uppdaterar eventuella befintliga tagg värden och lägger till nya taggar. Om till exempel din Node-pool hade *avd = IT* och *CostCenter = 9999* för taggar och du har uppdaterat den med *team = dev* och *CostCenter = 111* for taggar kan du nodepool ha *avd = IT* , *CostCenter = 111* och *team = dev* för taggar.
+> Du kan också använda `--tags` parametern när du använder kommandot [AZ AKS nodepool Update][az-aks-nodepool-update] och när klustret skapas. När klustret skapas `--tags` använder parametern taggen på den första noden som skapats med klustret. Alla taggnamn måste följa de begränsningar som [används vid användning av taggar för att organisera dina Azure-resurser][tag-limitation]. Uppdatering av en Node-pool med `--tags` parametern uppdaterar eventuella befintliga tagg värden och lägger till nya taggar. Om till exempel din Node-pool hade *avd = IT* och *CostCenter = 9999* för taggar och du har uppdaterat den med *team = dev* och *CostCenter = 111* for taggar kan du nodepool ha *avd = IT*, *CostCenter = 111* och *team = dev* för taggar.
 
-I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *tagnodepool* *skapar* noder med den angivna *taggen* :
+I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *tagnodepool* *skapar* noder med den angivna *taggen*:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -613,8 +613,8 @@ När du använder en Azure Resource Manager mall för att skapa och hanterade re
 Skapa en mall som `aks-agentpools.json` och klistra in följande exempel manifest. I den här exempel mal len konfigureras följande inställningar:
 
 * Uppdaterar *Linux* Node-poolen med namnet *myagentpool* för att köra tre noder.
-* Ställer in noderna i Node-poolen att köra Kubernetes-version *1.15.7* .
-* Definierar nodens storlek som *Standard_DS2_v2* .
+* Ställer in noderna i Node-poolen att köra Kubernetes-version *1.15.7*.
+* Definierar nodens storlek som *Standard_DS2_v2*.
 
 Redigera de här värdena som behövs för att uppdatera, lägga till eller ta bort noder i pooler efter behov:
 

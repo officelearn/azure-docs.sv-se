@@ -11,11 +11,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784362"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005561"
 ---
 # <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -98,7 +98,7 @@ az login
 
 # <a name="template"></a>[Mall](#tab/template)
 
-E.t.
+Ej tillämpligt
 
 ---
 
@@ -199,7 +199,7 @@ Om du vill skapa ett allmänt-syfte v2-lagrings konto med ett annat replikerings
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Du kan använda antingen Azure PowerShell eller Azure CLI för att distribuera en Resource Manager-mall för att skapa ett lagrings konto. Mallen som används i den här instruktions artikeln är från [Azure Resource Manager snabb starts mallar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Om du vill köra skripten väljer du **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in** .
+Du kan använda antingen Azure PowerShell eller Azure CLI för att distribuera en Resource Manager-mall för att skapa ett lagrings konto. Mallen som används i den här instruktions artikeln är från [Azure Resource Manager snabb starts mallar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Om du vill köra skripten väljer du **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -236,7 +236,7 @@ Om du tar bort ett lagrings konto raderas hela kontot, inklusive alla data i kon
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navigera till lagrings kontot i [Azure Portal](https://portal.azure.com).
-1. Klicka på **Ta bort** .
+1. Klicka på **Ta bort**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

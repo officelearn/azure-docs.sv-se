@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
 ms.openlocfilehash: 4f72c22ee26375e025af7b3a391fdd45187e7041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84703748"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006276"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-azure-powershell"></a>Flytta Azures offentliga IP-konfiguration till en annan region med hjälp av Azure PowerShell
 
@@ -21,7 +21,7 @@ Det finns olika scenarier där du vill flytta dina befintliga offentliga Azure-I
 **Offentliga Azure-IP-adresser är regions information och kan inte flyttas från en region till en annan.** Du kan dock använda en Azure Resource Manager-mall för att exportera den befintliga konfigurationen av en offentlig IP-adress.  Du kan sedan mellanlagra resursen i en annan region genom att exportera den offentliga IP-adressen till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen.  Mer information om Resource Manager och mallar finns i [Exportera resurs grupper till mallar](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Se till att den offentliga Azure-IP-adressen finns i den Azure-region som du vill flytta från.
 
@@ -62,7 +62,7 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. Den hämtade filen får namnet efter resurs gruppen som resursen exporterades från.  Leta upp filen som exporterades från kommandot med namnet ** \<resource-group-name> . JSON** och öppna den i valfritt redigerings program:
+4. Den hämtade filen får namnet efter resurs gruppen som resursen exporterades från.  Leta upp filen som exporterades från kommandot med namnet **\<resource-group-name> . JSON** och öppna den i valfritt redigerings program:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -118,7 +118,7 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
     ```
 8. Du kan också ändra andra parametrar i mallen om du väljer, och de är valfria beroende på dina krav:
 
-    * **SKU** – du kan ändra SKU: n för den offentliga IP-adressen i konfigurationen från standard till Basic eller Basic till standard genom att ändra egenskapen **SKU**-  >  **namn** i ** \<resource-group-name> JSON** -filen:
+    * **SKU** – du kan ändra SKU: n för den offentliga IP-adressen i konfigurationen från standard till Basic eller Basic till standard genom att ändra egenskapen **SKU**-  >  **namn** i **\<resource-group-name> JSON** -filen:
 
          ```json
             "resources": [
@@ -163,14 +163,14 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
         Mer information om fördelnings metoder och tids gräns värden för inaktivitet finns i [skapa, ändra eller ta bort en offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
-9. Spara ** \<resource-group-name> . JSON** -filen.
+9. Spara **\<resource-group-name> . JSON** -filen.
 
 10. Skapa en resurs grupp i mål regionen för den offentliga mål-IP-adressen som ska distribueras med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Distribuera den redigerade ** \<resource-group-name> . JSON** -filen till resurs gruppen som skapades i föregående steg med [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Distribuera den redigerade **\<resource-group-name> . JSON** -filen till resurs gruppen som skapades i föregående steg med [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

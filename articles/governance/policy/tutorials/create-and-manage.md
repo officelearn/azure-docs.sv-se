@@ -4,11 +4,11 @@ description: I den här självstudien använder du principer för att genomdriva
 ms.date: 10/05/2020
 ms.topic: tutorial
 ms.openlocfilehash: bf3da82abcdcada1fc38df29efc988a1805c3020
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876393"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005443"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Självstudie: skapa och hantera principer för att genomdriva efterlevnad
 
@@ -36,11 +36,11 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 
 1. Välj **Tilldelningar** till vänster på sidan Azure Policy. En tilldelning är en princip som tilldelats ett specifikt område.
 
-   :::image type="content" source="../media/create-and-manage/select-assignments.png" alt-text="Skärm bild av sökning efter princip i Sök fältet." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assignments.png" alt-text="Skärm bild av att välja noden tilldelningar på sidan princip översikt." border="false":::
 
 1. Välj **Tilldela princip** längst upp på sidan **Princip – Tilldelningar**.
 
-   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Skärm bild av sökning efter princip i Sök fältet." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Skärm bild av val av knappen tilldela princip på sidan tilldelningar." border="false":::
 
 1. På fliken **tilldela princip** sidan och **grunderna** väljer du **omfattningen** genom att välja ellipsen och välja antingen en hanterings grupp eller en prenumeration. Du kan även välja en resursgrupp. Ett omfång avgör vilka resurser eller grupper med resurser som principtilldelningen används i.
    Välj sedan **Välj** längst ned på sidan **omfång** .
@@ -54,17 +54,17 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 1. Välj **Ärv en tagg från resurs gruppen om det saknas**. Om du inte kan hitta den direkt skriver du **Ärv en tagg** till sökrutan och trycker sedan på RETUR eller väljer ut från sökrutan.
    Välj **Välj** längst ned på sidan **tillgängliga definitioner** när du har hittat och valt princip definitionen.
 
-   :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Skärm bild av sökning efter princip i Sök fältet.":::
+   :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Skärm bild av Sök filtret när du väljer en princip definition.":::
 
 1. **Tilldelningsnamn** fylls i automatiskt med namnet på principen som du valde, men du kan ändra det om du vill. I det här exemplet ska du lämna _Ärv en tagg från resurs gruppen om den saknas_. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om den här principtilldelningen.
 
-1. Lämna **princip tvång** som _aktive rad_. När den här inställningen är _inaktive rad_kan du testa resultatet av principen utan att utlösa resultatet. Mer information finns i [tvingande läge](../concepts/assignment-structure.md#enforcement-mode).
+1. Lämna **princip tvång** som _aktive rad_. När den här inställningen är _inaktive rad_ kan du testa resultatet av principen utan att utlösa resultatet. Mer information finns i [tvingande läge](../concepts/assignment-structure.md#enforcement-mode).
 
 1. **Tilldelad av** fylls automatiskt i baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
 
 1. Välj fliken **parametrar** överst i guiden.
 
-1. Ange _miljö_för **taggnamn**.
+1. Ange _miljö_ för **taggnamn**.
 
 1. Välj fliken **reparation** överst i guiden.
 
@@ -82,7 +82,7 @@ Nu när du har tilldelat en inbyggd principdefinition kan du göra mer med Azure
 
 1. Välj **Definitioner** under **Redigering** till vänster på sidan Azure Policy.
 
-   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Skärm bild av sökning efter princip i Sök fältet." border="false":::
+   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Skärm bild av sidan definitioner under redigerings grupp." border="false":::
 
 1. Välj **+ Principdefinition** överst på sidan. Den här knappen öppnar sidan **Principdefinition**.
 
@@ -342,11 +342,11 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 1. Välj **Definitioner** under **Redigering** till vänster på sidan Azure Policy.
 
-   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Skärm bild av sökning efter princip i Sök fältet.":::
+   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Skärm bild av sidan definitioner under redigerings gruppen.":::
 
 1. Välj **+ initiativ definition** överst på sidan för att öppna guiden **initiativ definition** .
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="Skärm bild av sökning efter princip i Sök fältet.":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="Skärm bild av sidan för initiativ definition och egenskaper att ange.":::
 
 1. Använd ellipsen för **initiativ platsen** och välj en hanterings grupp eller prenumeration för att lagra definitionen. Om den föregående sidan är begränsad till en enda hanterings grupp eller prenumeration fylls **initiativ platsen** i automatiskt.
 
@@ -373,9 +373,9 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
    - Lägga till eller ersätta en tagg för resurser (Lägg till den här princip definitionen två gånger)
 
    När du har valt varje princip definition i listan väljer du **Lägg till** längst ned i listan.
-   Eftersom den har lagts till två gånger får du ett annat _referens-ID_genom att _lägga till eller ersätta en tagg på resurs_ princip definitioner.
+   Eftersom den har lagts till två gånger får du ett annat _referens-ID_ genom att _lägga till eller ersätta en tagg på resurs_ princip definitioner.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Skärm bild av sökning efter princip i Sök fältet.":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Skärm bild av de valda princip definitionerna med referens-ID och grupp på sidan initiativ definition.":::
 
    > [!NOTE]
    > De valda princip definitionerna kan läggas till i grupper genom att välja en eller flera definitioner som lagts till och välja **Lägg till valda principer i en grupp**. Gruppen måste finnas först och kan skapas på fliken **grupper** i guiden.
@@ -391,9 +391,14 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 1. Princip definition som läggs till i initiativet som har parametrar visas i ett rutnät. _Värde typen_ kan vara standardvärdet, set Value eller use Initiative parameter. Om Ange värde är valt anges det relaterade värdet under _värde (n)_. Om parametern i princip definitionen har en lista över tillåtna värden är rutan post en listruta för listruta. Om alternativet Använd initiativ parameter är markerat anges en listruta med namn på initiativ parametrar som skapats på fliken **initiativ parametrar** .
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Skärm bild av sökning efter princip i Sök fältet." på resurser i omfånget för tilldelningen.
+   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Skärm bild av alternativen för tillåtna värden för definitions parametern för tillåtna platser på fliken princip parametrar på sidan initiativ definition.":::
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-4.png" alt-text="Skärm bild av sökning efter princip i Sök fältet.":::
+   > [!NOTE]
+   > När det gäller vissa parametrar av typen `strongType` går det inte att automatiskt fastställa listan med värden. I de här fallen visas en ellips till höger om parameterraden. Om du markerar den öppnas sidan parameter omfattning ( &lt; parameter namn &gt; ). På den här sidan väljer du den prenumeration som ska användas för att tillhandahålla värdealternativen. Det här parameterområdet används bara när initiativdefinitionen skapas. Den påverkar inte principutvärderingen eller initiativets omfattning efter tilldelningen.
+
+   Ange _värde typen_ "tillåtna platser" till "Ange värde" och välj "östra USA 2" från List rutan. För de två instanserna av _taggen Lägg till eller Ersätt en tagg i en resurs_ princip, anger du **taggens namn** parametrar till "kuvert" och "CostCenter och parametrarna för **tagg värde** till" test "och" labb "enligt nedan. Lämna övriga som standardvärde. Med samma definition två gånger i initiativet, men med olika parametrar, lägger den här konfigurationen till eller ersätter en "kuvert"-tagg med värdet "test" och en "CostCenter"-tagg med värdet "labb" på resurser i omfånget för tilldelningen.
+
+   :::image type="content" source="../media/create-and-manage/initiative-definition-4.png" alt-text="Skärm bild av de angivna alternativen för tillåtna värden för definitions parametern för tillåtna platser och värden för båda tag parameter uppsättningarna på fliken princip parametrar på sidan initiativ definition.":::
 
 1. Välj **Granska + skapa** längst ned på sidan eller längst upp i guiden.
 
@@ -446,11 +451,11 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Leta upp initiativdefinitionen **Get Secure** som du skapade tidigare och markera den. Välj **Tilldela** överst på sidan för att öppna sidan **Bli säker: tilldela initiativ**.
 
-   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Skärm bild av sökning efter princip i Sök fältet." border="false":::
+   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Skärm bild av knappen tilldela på sidan initiativ definition." border="false":::
 
    Du kan också högerklicka på den markerade raden eller välja ellipsen i slutet av raden för en snabb meny. Välj sedan **tilldela**.
 
-   :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Skärm bild av sökning efter princip i Sök fältet." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Skärm bild av snabb menyn för ett initiativ för att välja funktionen tilldela." border="false":::
 
 1. Fyll i sidan **Get Secure: Assign Initiative** genom att ange följande exempelinformation. Du kan använda din egen information.
 
@@ -477,11 +482,11 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 1. Leta upp **säkerhets initiativet get** . Det är sannolikt fortfarande i _Efterlevnadstillståndet_**Inte startat**.
    Välj initiativet för att få fullständig information om tilldelningen.
 
-   :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="Skärm bild av sökning efter princip i Sök fältet." border="false":::
+   :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="Skärm bild av sidan för regelefterlevnad som visar tilldelnings utvärderingar i läget inte startad." border="false":::
 
 1. När initiativtilldelningen har slutförts, uppdateras sidan för efterlevnad med den _Efterlevnadstillståndet_**Efterlever**.
 
-   :::image type="content" source="../media/create-and-manage/compliance-status-compliant.png" alt-text="Skärm bild av sökning efter princip i Sök fältet." border="false":::
+   :::image type="content" source="../media/create-and-manage/compliance-status-compliant.png" alt-text="Skärm bild av sidan för regelefterlevnad som visar att tilldelnings utvärderingar har slutförts och är i ett kompatibelt tillstånd." border="false":::
 
 1. Om du väljer en princip på sidan efterlevnad öppnas sidan kompatibilitetsinformation för principen. Den här sidan ger information på resursnivån för efterlevnad.
 
@@ -494,13 +499,13 @@ När du har tilldelat ett princip initiativ för att kräva en särskild plats n
 
 Distributioner som förhindras av en tilldelad princip eller ett initiativ kan visas i resurs gruppen som är målet för distributionen: Välj **distributioner** till vänster på sidan och välj **distributions namnet** för den misslyckade distributionen. Resursen som nekades visas med statusen _Förbjuden_. Om du vill fastställa principen eller initiativet och tilldelningen som nekade resursen väljer du **misslyckades. Klicka här om du vill ha mer information – >** på sidan distributions översikt. Ett fönster öppnas till höger om sidan med felinformationen. Under **Felinformation** finns GUID för de relaterade principobjekten.
 
-:::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="Skärm bild av sökning efter princip i Sök fältet." border="false":::
+:::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="Skärm bild av en misslyckad distribution som nekades av en princip tilldelning." border="false":::
 
 På sidan Azure Policy: Välj **efterlevnad** på vänster sida av sidan och välj initiativet **Hämta säker** princip. På den här sidan finns det en ökning av antalet **nekade** resurser för blockerade resurser. Under fliken **händelser** finns information om vem som försökte skapa eller distribuera resursen som nekades av princip definitionen.
 
-:::image type="content" source="../media/create-and-manage/compliance-overview.png" alt-text="Skärm bild av sökning efter princip i Sök fältet." border="false":::
+:::image type="content" source="../media/create-and-manage/compliance-overview.png" alt-text="Skärm bild av fliken händelser och information om princip händelser på sidan efterlevnad för initiativ." border="false":::
 
-I det här exemplet utförde Trent Baker, en av Contosos seniora virtualiseringsspecialister, obligatoriskt arbete. Vi måste bevilja Trent ett utrymme för ett undantag. Skapade en ny resurs grupp, **LocationsExcluded**och sedan ett undantag till den här princip tilldelningen.
+I det här exemplet utförde Trent Baker, en av Contosos seniora virtualiseringsspecialister, obligatoriskt arbete. Vi måste bevilja Trent ett utrymme för ett undantag. Skapade en ny resurs grupp, **LocationsExcluded** och sedan ett undantag till den här princip tilldelningen.
 
 ### <a name="update-assignment-with-exclusion"></a>Uppdatera tilldelning med undantag
 
@@ -510,7 +515,7 @@ I det här exemplet utförde Trent Baker, en av Contosos seniora virtualiserings
 
 1. Ange **undantag** genom att välja ellipsen och välja den resurs grupp som ska undantas, _LocationsExcluded_ i det här exemplet. Välj **Lägg till i det valda omfånget** och välj sedan **Spara**.
 
-   :::image type="content" source="../media/create-and-manage/request-exclusion.png" alt-text="Skärm bild av sökning efter princip i Sök fältet." border="false":::
+   :::image type="content" source="../media/create-and-manage/request-exclusion.png" alt-text="Skärm bild av alternativet undantag på sidan för initiativ tilldelning för att lägga till en undantagen resurs grupp i princip tilldelningen." border="false":::
 
    > [!NOTE]
    > Beroende på princip definitionen och dess påverkan kan undantaget också beviljas till vissa resurser inom en resurs grupp inom tilldelningens omfattning. Som en **neka** -inverkan användes i den här självstudien, men det var inte klokt att ange undantaget för en speciell resurs som redan finns.

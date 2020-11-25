@@ -4,11 +4,11 @@ description: Använd Azure Resource Graph för att köra vissa avancerade frågo
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057152"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005409"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Exempel på avancerade resurs diagram frågor
 
@@ -378,7 +378,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 ## <a name="list-all-extensions-installed-on-a-virtual-machine"></a><a name="join-vmextension"></a>Lista alla tillägg som är installerade på en virtuell dator
 
 Först används den här frågan `extend` på resurs typen virtuella datorer för att hämta ID: t i versaler ( `toupper()` ) ID, Hämta operativ systemets namn och typ och hämta storleken på den virtuella datorn.
-Att få resurs-ID i versaler är ett bra sätt att förbereda för att ansluta till en annan egenskap. Frågan använder sedan `join` med **sort** som _leftouter_ för att hämta tillägg till virtuella datorer genom att matcha en övre bokstäver `substring` av tilläggs-ID: t. Den del av ID: t \<ExtensionName\> som är "/Extensions/" har samma format som de virtuella datorernas ID, så vi använder den här egenskapen för `join` . `summarize` används sedan med `make_list` namnet på det virtuella dator tillägget för att kombinera namnet på varje tillägg där _ID_, _OSName_, _OSType_och _VMSize_ är samma i en enskild mat ris egenskap. Slutligen är vi `order by` den nedre bokstäver- _OSNameen_ med **ASC**. Som standard `order by` är fallande.
+Att få resurs-ID i versaler är ett bra sätt att förbereda för att ansluta till en annan egenskap. Frågan använder sedan `join` med **sort** som _leftouter_ för att hämta tillägg till virtuella datorer genom att matcha en övre bokstäver `substring` av tilläggs-ID: t. Den del av ID: t \<ExtensionName\> som är "/Extensions/" har samma format som de virtuella datorernas ID, så vi använder den här egenskapen för `join` . `summarize` används sedan med `make_list` namnet på det virtuella dator tillägget för att kombinera namnet på varje tillägg där _ID_, _OSName_, _OSType_ och _VMSize_ är samma i en enskild mat ris egenskap. Slutligen är vi `order by` den nedre bokstäver- _OSNameen_ med **ASC**. Som standard `order by` är fallande.
 
 ```kusto
 Resources
@@ -578,7 +578,7 @@ Ett alternativ till att hämta prenumerations namnet är att använda `join` ope
 
 > [!NOTE]
 > Om frågan inte använder **Project** för att ange de returnerade egenskaperna, inkluderas **subscriptionDisplayName** och **tenantDisplayName** automatiskt i resultaten.
-> Om frågan använder **Project**måste var och en av _DisplayName_ -fälten uttryckligen tas med i **projektet** , annars returneras de inte i resultaten, även om parametern **include** används. Parametern **include** fungerar inte med [tabeller](../concepts/query-language.md#resource-graph-tables).
+> Om frågan använder **Project** måste var och en av _DisplayName_ -fälten uttryckligen tas med i **projektet** , annars returneras de inte i resultaten, även om parametern **include** används. Parametern **include** fungerar inte med [tabeller](../concepts/query-language.md#resource-graph-tables).
 
 ---
 

@@ -4,11 +4,11 @@ description: Den här artikeln innehåller information om hur du konfigurerar di
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 9f073c42373e75fc1cb34d1c752350f9d2c61872
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843221"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006140"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal
 Azure Event Hubs tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Event Hubs förlitar sig på Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
@@ -94,7 +94,7 @@ Följ dessa steg om du vill aktivera loggar för Kundhanterade nycklar.
 ## <a name="log-schema"></a>Logg schema 
 Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post innehåller sträng fält som använder det format som beskrivs i följande tabell. 
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 | ---- | ----------- | 
 | /TN | Beskrivning av uppgiften som misslyckades. |
 | ActivityId | Internt ID som används för spårning. |
@@ -400,7 +400,7 @@ Vi rekommenderar att du alltid aktiverar loggar som visas i föregående avsnitt
 
 Nedan visas vanliga felkoder som du kan titta efter när BYOK-kryptering är aktiverat.
 
-| Action | Felkod | Resulterande data tillstånd |
+| Åtgärd | Felkod | Resulterande data tillstånd |
 | ------ | ---------- | ----------------------- | 
 | Ta bort behörigheten wrap/unwrap från ett nyckel valv | 403 |    Otillgänglig |
 | Ta bort AAD-rollens medlemskap från ett AAD-huvud som beviljats behörigheten wrap/unwrap | 403 |  Otillgänglig |

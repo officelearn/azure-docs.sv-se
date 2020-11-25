@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368652"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006208"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Självstudie: visualisera avvikelser med batch-identifiering och Power BI
 
@@ -125,7 +125,7 @@ Du kan få ett varnings meddelande när du försöker köra frågan eftersom den
 
 ![En bild som visar en varning som skapats av Power BI](../media/tutorials/blocked-function.png)
 
-Åtgärda detta genom att klicka på **Arkiv** , **alternativ och inställningar**. Klicka sedan på **alternativ**. Under den **aktuella filen** väljer du **Sekretess** och **ignorerar sekretess nivåerna och kan förbättra prestandan**.
+Åtgärda detta genom att klicka på **Arkiv**, **alternativ och inställningar**. Klicka sedan på **alternativ**. Under den **aktuella filen** väljer du **Sekretess** och **ignorerar sekretess nivåerna och kan förbättra prestandan**.
 
 Dessutom kan du få ett meddelande där du uppmanas att ange hur du vill ansluta till API: et.
 

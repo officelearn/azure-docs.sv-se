@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 263a67fd8fba2c336d1ed4d91475386a8ae175dd
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359025"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005800"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Självstudie: Konfigurera dynamisk signal för automatisk användar etablering
 
@@ -53,7 +53,7 @@ Innan du konfigurerar dynamisk signal för automatisk användar etablering med A
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök anger du **dynamisk signal** , väljer **dynamisk signal** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I rutan Sök anger du **dynamisk signal**, väljer **dynamisk signal** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Dynamic Signal i resultatlistan](common/search-new-app.png)
 

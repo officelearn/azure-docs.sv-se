@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
 ms.openlocfilehash: d39e00a80ab167936a749c73867b4343e6ed9d76
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358821"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006446"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Självstudie: konfigurera attributet Skriv-back från Azure AD till SAP SuccessFactors
 Syftet med den här självstudien är att Visa stegen för att skriva tillbaka attribut från Azure AD till SAP SuccessFactors personal Central. 
@@ -308,7 +308,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från Success
    > Om alternativet **Redigera attributlistan för SuccessFactors** inte visas i Azure Portal använder du URL: en *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* för att komma åt sidan. 
 
 1. I kolumnen **API-uttryck** i den här vyn visas de JSON-sökvägar som används av anslutningen. 
-1. Uppdatera JSON Path-uttryck för företags telefon och mobil telefon för att använda ID-värdet ( *businessPhoneType* och *cellPhoneType* ) som motsvarar din miljö. 
+1. Uppdatera JSON Path-uttryck för företags telefon och mobil telefon för att använda ID-värdet (*businessPhoneType* och *cellPhoneType*) som motsvarar din miljö. 
 
     >[!div class="mx-imgBorder"]
     >![Ändra sökväg till telefon-JSON](./media/sap-successfactors-inbound-provisioning/phone-json-path-change.png)
@@ -325,8 +325,8 @@ När SuccessFactors-konfigurationen har slutförts kan du aktivera etablerings t
 1. På fliken **etablering** ställer du in **etablerings status** på **på**.
 
 1. Välj **omfång**. Du kan välja något av följande alternativ: 
-   * **Synkronisera alla användare och grupper** : Välj det här alternativet om du planerar att skriva tillbaka mappade attribut för alla användare från Azure AD till SuccessFactors, enligt de definitions regler som definierats under **mappningar**  ->  **käll objekt omfånget**. 
-   * **Synkronisera endast tilldelade användare och grupper** : Välj det här alternativet om du planerar att skriva tillbaka mappade attribut för endast användare som du har tilldelat till **Application** det här programmet i  ->  **Manage**  ->  meny alternativet hantera **användare och grupper** i programmet. Dessa användare omfattas också av de definitions regler som definierats under **mappningar**  ->  **käll objekt omfånget**.
+   * **Synkronisera alla användare och grupper**: Välj det här alternativet om du planerar att skriva tillbaka mappade attribut för alla användare från Azure AD till SuccessFactors, enligt de definitions regler som definierats under **mappningar**  ->  **käll objekt omfånget**. 
+   * **Synkronisera endast tilldelade användare och grupper**: Välj det här alternativet om du planerar att skriva tillbaka mappade attribut för endast användare som du har tilldelat till **Application** det här programmet i  ->  **Manage**  ->  meny alternativet hantera **användare och grupper** i programmet. Dessa användare omfattas också av de definitions regler som definierats under **mappningar**  ->  **käll objekt omfånget**.
 
    > [!div class="mx-imgBorder"]
    > ![Välj intervall för tillbakaskrivning](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)

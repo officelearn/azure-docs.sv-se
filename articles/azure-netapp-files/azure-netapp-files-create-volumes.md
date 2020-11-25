@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
 ms.openlocfilehash: e88cf0c063b3ba42dadd72c19c23be8fcf919b86
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930738"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006618"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Skapa en NFS-volym för Azure NetApp Files
 
@@ -56,7 +56,7 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
 
     ![Navigera till volymer](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  I fönstret Skapa en volym klickar du på **skapa**och anger information för följande fält under fliken grundläggande:   
+2.  I fönstret Skapa en volym klickar du på **skapa** och anger information för följande fält under fliken grundläggande:   
     * **Volym namn**      
         Ange namnet på den volym du skapar.   
 
@@ -98,7 +98,7 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
 
         ![Visa avancerad markering](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
-3. Klicka på **protokoll**och utför följande åtgärder:  
+3. Klicka på **protokoll** och utför följande åtgärder:  
     * Välj **NFS** som protokoll typ för volymen.   
     * Ange den **fil Sök väg** som ska användas för att skapa export Sök vägen för den nya volymen. Exportvägen används för att sätta upp och komma åt volymen.
 

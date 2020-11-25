@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 5094bd4aa5ac68c24f284cfb74e410fbdf089af7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677178"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006888"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Konfigurera Läs OCR Docker-behållare
 
@@ -31,14 +31,14 @@ Du konfigurerar Visuellt innehåll läsa OCR-behållarens körnings miljö med h
 
 Behållaren har också följande behållar konfigurations inställningar:
 
-|Krävs|Inställning|Syfte|
+|Obligatorisk|Inställning|Syfte|
 |--|--|--|
-|Nej|ReadEngineConfig:ResultExpirationPeriod| endast v 2.0-behållare. Resultat förfallo period i timmar. Standardvärdet är 48 timmar. Inställningen anger när systemet ska rensa igenkännings resultat. Om till exempel `resultExpirationPeriod=1` systemet rensar igenkännings resultatet 1 timme efter processen. Om `resultExpirationPeriod=0` rensas igenkännings resultatet i systemet när resultatet har hämtats.|
-|Nej|Cache: Redis| endast v 2.0-behållare. Aktiverar Redis-lagring för lagring av resultat. Det *krävs* ett cacheminne om flera Läs behållare placeras bakom en belastningsutjämnare.|
-|Nej|Kö: RabbitMQ|endast v 2.0-behållare. Aktiverar RabbitMQ för att skicka uppgifter. Inställningen är användbar när flera Läs behållare placeras bakom en belastningsutjämnare.|
-|Nej|Kö: Azure: QueueVisibilityTimeoutInMilliseconds | endast v3. x-behållare. Tiden som ett meddelande ska vara osynligt när en annan arbets process bearbetar det. |
-|Nej|Lagring::D ocumentStore:: MongoDB|endast v 2.0-behållare. Aktiverar MongoDB för lagring med permanent resultat. |
-|Nej|Lagring: ObjectStore: AzureBlob: ConnectionString| endast v3. x-behållare. Anslutnings sträng för Azure Blob Storage. |
+|No|ReadEngineConfig:ResultExpirationPeriod| endast v 2.0-behållare. Resultat förfallo period i timmar. Standardvärdet är 48 timmar. Inställningen anger när systemet ska rensa igenkännings resultat. Om till exempel `resultExpirationPeriod=1` systemet rensar igenkännings resultatet 1 timme efter processen. Om `resultExpirationPeriod=0` rensas igenkännings resultatet i systemet när resultatet har hämtats.|
+|No|Cache: Redis| endast v 2.0-behållare. Aktiverar Redis-lagring för lagring av resultat. Det *krävs* ett cacheminne om flera Läs behållare placeras bakom en belastningsutjämnare.|
+|No|Kö: RabbitMQ|endast v 2.0-behållare. Aktiverar RabbitMQ för att skicka uppgifter. Inställningen är användbar när flera Läs behållare placeras bakom en belastningsutjämnare.|
+|No|Kö: Azure: QueueVisibilityTimeoutInMilliseconds | endast v3. x-behållare. Tiden som ett meddelande ska vara osynligt när en annan arbets process bearbetar det. |
+|No|Lagring::D ocumentStore:: MongoDB|endast v 2.0-behållare. Aktiverar MongoDB för lagring med permanent resultat. |
+|No|Lagring: ObjectStore: AzureBlob: ConnectionString| endast v3. x-behållare. Anslutnings sträng för Azure Blob Storage. |
 
 ## <a name="apikey-configuration-setting"></a>Konfigurations inställning för ApiKey
 
@@ -62,7 +62,7 @@ Du hittar den här inställningen på följande plats:
 
 Kom ihåg att lägga till `vision/v1.0` operationsföljden i slut punkts-URI: n enligt följande tabell. 
 
-|Krävs| Namn | Datatyp | Beskrivning |
+|Obligatorisk| Name | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | URI för fakturerings slut punkt<br><br>Exempel:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -90,19 +90,19 @@ Visuellt innehåll behållare använder inte indata eller utdata monteras för a
 
 Den exakta syntaxen för värd monterings platsen varierar beroende på värd operativ systemet. Dessutom kanske [värd datorns](computer-vision-how-to-install-containers.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
 
-|Valfri| Namn | Datatyp | Beskrivning |
+|Valfritt| Name | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
 |Inte tillåten| `Input` | Sträng | Visuellt innehåll behållare använder inte detta.|
-|Valfri| `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`. Detta är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Valfritt| `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`. Detta är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel på Docker-körnings kommandon
 
 I följande exempel används konfigurations inställningarna för att illustrera hur du skriver och använder `docker run` kommandon.  När den körs fortsätter behållaren att köras tills du [stoppar](computer-vision-how-to-install-containers.md#stop-the-container) den.
 
-* **Rad fortsättnings bokstav** : Docker-kommandona i följande avsnitt använder omvänt snedstreck, `\` som ett fortsättnings steg. Ersätt eller ta bort detta baserat på värd operativ systemets krav. 
-* **Argument ordning** : Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
+* **Rad fortsättnings bokstav**: Docker-kommandona i följande avsnitt använder omvänt snedstreck, `\` som ett fortsättnings steg. Ersätt eller ta bort detta baserat på värd operativ systemets krav. 
+* **Argument ordning**: Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
 
-Ersätt { _argument_name_ } med dina egna värden:
+Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
@@ -120,13 +120,13 @@ Ersätt { _argument_name_ } med dina egna värden:
 Följande Docker-exempel är för Read-behållaren.
 
 
-# <a name="version-31-preview"></a>[Version 3,1 – för hands version](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Version 3,2 – för hands version](#tab/version-3-2)
 
 ### <a name="basic-example"></a>Basic-exempel
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -137,7 +137,7 @@ ApiKey={API_KEY}
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

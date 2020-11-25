@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 509a3ac383cebd91821e9c4b872c253ab3b0a947
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956202"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005868"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Haveriberedskap och redundansväxling av enhet för StorSimple Virtual Array via Azure-portalen
 
@@ -44,7 +44,7 @@ Haveri beredskap dirigeras via funktionen enhets växling vid fel och initieras 
 
 ## <a name="prerequisites-for-device-failover"></a>Förhandskrav för enhetsredundans
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att följande krav är uppfyllda för en enhets växling vid fel:
 

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 288d1e6cec8ddcf7d4afe5a35f28a022c2a7be10
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357087"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006720"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Självstudie: Konfigurera samstämmande rekryterings program vara för automatisk användar etablering
 
@@ -53,7 +53,7 @@ Innan du konfigurerar samstämmande av rekryterings program vara för automatisk
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **samstämmande rekryterings program vara** , väljer **Samstämmande rekryterings program vara** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **samstämmande rekryterings program vara**, väljer **Samstämmande rekryterings program vara** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Comeet Recruiting Software i resultatlistan](common/search-new-app.png)
 

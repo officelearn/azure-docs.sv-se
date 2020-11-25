@@ -13,24 +13,24 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 670aef4f6f866788ef7a1a4502de242e765f5cc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89e0d6873ebfd8f8396c36185730c57a66af0dd9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017659"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007057"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Kom igång med Azure Blob Storage-och Visual Studio-anslutna tjänster (Cloud Services-projekt)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Översikt
-Den här artikeln beskriver hur du kommer igång med Azure Blob Storage när du har skapat eller refererat till ett Azure Storage-konto med hjälp av Visual Studio dialog rutan **Lägg till anslutna tjänster** i ett projekt i Visual Studio Cloud Services. Vi visar dig hur du får åtkomst till och skapar BLOB-behållare och hur du utför vanliga åtgärder som att ladda upp, lista och hämta blobbar. Exemplen skrivs i C \# och använder [Microsoft Azure Storage klient biblioteket för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Den här artikeln beskriver hur du kommer igång med Azure Blob Storage när du har skapat eller refererat till ett Azure Storage-konto med hjälp av Visual Studio dialog rutan **Lägg till anslutna tjänster** i ett projekt i Visual Studio Cloud Services. Vi visar dig hur du får åtkomst till och skapar BLOB-behållare och hur du utför vanliga åtgärder som att ladda upp, lista och hämta blobbar. Exemplen skrivs i C \# och använder [Microsoft Azure Storage klient biblioteket för .net](/previous-versions/azure/dn261237(v=azure.100)).
 
 Azure Blob Storage är en tjänst för att lagra stora mängder ostrukturerade data som kan nås från var som helst i världen via HTTP eller HTTPS. En enda BLOB kan vara vilken storlek som helst. Blobbar kan vara saker som bilder, ljud-och videofiler, rå data och dokument-filer.
 
 Precis som filer Live i mappar, Storage blobbar i behållare. När du har skapat ett lagrings utrymme skapar du en eller flera behållare i lagrings utrymmet. I ett lagrings utrymme med namnet "klipp bok" kan du till exempel skapa behållare i lagrings utrymmet som kallas "bilder" för att lagra bilder och en annan som kallas "ljud" för att lagra ljudfiler. När du har skapat behållarna kan du överföra enskilda BLOB-filer till dem.
 
-* Mer information om program mässig manipulering av blobbar finns i [Kom igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+* Mer information om program mässig manipulering av blobbar finns i [Kom igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 * Allmän information om Azure Storage finns i [lagrings dokumentation](https://azure.microsoft.com/documentation/services/storage/).
 * Allmän information om Azure Cloud Services finns i [Cloud Services dokumentation](https://azure.microsoft.com/documentation/services/cloud-services/).
 * Mer information om programmering av ASP.NET-program finns i [ASP.net](https://www.asp.net).
@@ -73,7 +73,7 @@ För att program mässigt få åtkomst till blobbar i moln tjänst projekt måst
 
 ## <a name="create-a-container-in-code"></a>Skapa en behållare i kod
 > [!NOTE]
-> Vissa API: er som utför anrop till Azure Storage i ASP.NET är asynkrona. Se [asynkron programmering med async och await](https://msdn.microsoft.com/library/hh191443.aspx) för mer information. Koden i följande exempel förutsätter att du använder asynkrona programmerings metoder.
+> Vissa API: er som utför anrop till Azure Storage i ASP.NET är asynkrona. Se [asynkron programmering med async och await](/previous-versions/hh191443(v=vs.140)) för mer information. Koden i följande exempel förutsätter att du använder asynkrona programmerings metoder.
 > 
 > 
 
@@ -188,7 +188,7 @@ Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/
 Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 ```
 
-Mer information finns i [CloudBlobContainer. ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).
+Mer information finns i [CloudBlobContainer. ListBlobs](/rest/api/storageservices/List-Blobs).
 
 ## <a name="download-blobs"></a>Ladda ned blobbar
 Om du vill ladda ned blobbar börjar du med att hämta en blobbreferens och anropar sedan **DownloadToStream**-metoden. I följande exempel används metoden **DownloadToStream** för att överföra blobbinnehållet till ett dataströmsobjekt som du sedan kan spara till en lokal fil.
@@ -270,4 +270,3 @@ async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer cont
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
-

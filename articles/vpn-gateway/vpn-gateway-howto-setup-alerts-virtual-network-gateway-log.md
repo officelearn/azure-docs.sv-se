@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: alzam
 ms.openlocfilehash: 1f10799ab32b6cb26a8b3b5b343f65b960d71357
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94889107"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007009"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Konfigurera aviseringar för resurs logg händelser från VPN Gateway
 
@@ -20,7 +20,7 @@ Den här artikeln hjälper dig att ställa in aviseringar baserat på resurs log
 
 Följande resurs loggar är tillgängliga i Azure:
 
-|***Namn** _ | _*_Beskrivning_*_ |
+|***Namn** _ | _*_Description_*_ |
 |---        | ---               |
 |GatewayDiagnosticLog | Innehåller resurs loggar för konfigurations händelser för gateway, primära ändringar och underhålls händelser |
 |TunnelDiagnosticLog | Innehåller ändringar av tunnel tillstånds händelser. Tunnel anslutning/från kopplings händelser har en sammanfattande orsak för tillstånds ändringen om det är tillämpligt |

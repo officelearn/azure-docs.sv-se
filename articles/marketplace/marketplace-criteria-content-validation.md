@@ -8,11 +8,11 @@ author: trkeya
 ms.author: trkeya
 ms.date: 09/04/2020
 ms.openlocfilehash: 3b2fc1ea37b09f6e4813d2a3c2333bc6d744293d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491502"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006514"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Rikt linjer för Azure Marketplace-lista
 
@@ -28,10 +28,10 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 | 4 |  Beskrivning av erbjudande | <ul><li> Innehåller 2-3 stycken.</li><li>Lösnings erbjudandet är enkelt att förstå.</li><li>Är utan stavfel.</li><li>Är omfattande och fångar mål grupp, typ av användare och varför det är värdefullt (värde förslag).</li><li>Är i stycke form med korta meningar som är lätta att förstå.</li></ul> | <ul><li> Mål branschen anges (om det är relevant).</li><li>Teckenformatering med varje stycke rubrik som innehåller en mening eller en fras som sammanfattar det innehåll som följer och använder punkter, vid behov, för att betona viktiga fördelar. Målet är att läsaren snabbt ska förstå erbjudandet i ett lättanvänt format och inte behöver läsa långa stycken.</li><li>Det finns avstånd mellan varje stycke. Den läser som en bil broschyr. Det innebär att den är omfattande och beskriver bara erbjudandet, utan teknisk jargong. | 
 | 5 | Kategorier och branscher | <ul><li>Kategorier och under Kategorier måste matcha erbjudande funktioner </li><li>Välj inte kategorier/under kategorier som inte passar för dina erbjudande funktioner. </li></ul> | <ul><li>Välj upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).</li><li>Välj upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori har valts kommer ditt erbjudande fortfarande att kunna identifieras i den valda kategorin.</li></ul> |
 | 6 | Avbildningar | <ul><li>Avbildnings kraven visas i Partner Center.</li><li>Texten som ingår i skärm bilden är läslig och bilden är klar. | Lösnings erbjudandet är enkelt att förstå. |
-| 7 | Videoklipp | <ul><li>Ingen video krävs, men om den anges måste den spelas upp utan fel.</li><li>Om den anges får den inte referera till konkurrent-företag *om* den inte demonstrerar en migrations lösning. |<ul><li>Vi rekommenderar att längden är 3 min. eller mer.</li><li>Lösnings erbjudandet är enkelt att förstå med video innehåll.</li><li>Tillhandahåller demo av lösnings funktioner. |
+| 7 | Video | <ul><li>Ingen video krävs, men om den anges måste den spelas upp utan fel.</li><li>Om den anges får den inte referera till konkurrent-företag *om* den inte demonstrerar en migrations lösning. |<ul><li>Vi rekommenderar att längden är 3 min. eller mer.</li><li>Lösnings erbjudandet är enkelt att förstå med video innehåll.</li><li>Tillhandahåller demo av lösnings funktioner. |
 | 8 | Lista status (list alternativ) | <ul><li>Måste vara märkt som en av följande typer: <ul><li>*Kontakta mig*</li><li>*Utvärdering* / *Hämta utvärderings version nu* / *Starta utvärdering* / *Test enhet*</li><li>*Köp nu* / *Hämta nu*</li></ul></ul> | Kunden kan enkelt förstå vad nästa steg är: <ol><li>Testa utvärderings versionen.</li><li>Köp nu.</li><li>Kontakta via e-post eller telefonnummer för att ordna för POC (proof of Concept), bedömning eller kortfattade.</li></ol> | 
 | 9 | Prissättning för lösning | Måste ha fliken prissättning/information i lösningen och priserna måste vara i den lokala valutan för partner lösnings erbjudandet. | Flera fakturerings alternativ bör vara tillgängliga med nivå priser för att ge kund alternativ. |
-| 10 | Mer information | Länkar längst ned (under beskrivningen, inte Azure Marketplace-länkarna till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt. |    Länkar till särskilda objekt (till exempel Specifikations sidor på partner platsen) och inte bara partnerns start sida. | 
+| 10 | Läs mer | Länkar längst ned (under beskrivningen, inte Azure Marketplace-länkarna till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt. |    Länkar till särskilda objekt (till exempel Specifikations sidor på partner platsen) och inte bara partnerns start sida. | 
 | 11 | Lösnings support och hjälp | Länka till minst ett av följande: <ul><li>Telefonnummer</li><li>Stöd för e-post</li><li>Chatt-agenter</li><li>Community-forum |<ul><li>Alla support metoder visas.</li><li>Avgiftsbelagd support erbjuds kostnads fritt under *utvärderings* perioden eller *test enhets* perioden. |
 | 12 | Juridisk information | Principer eller villkor är tillgängliga via en offentlig URL. |  |
 |||
@@ -40,7 +40,7 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 
 | Nej. | List element | Bas krav | Optimalt krav | 
 |:--- |:--- |:--- |:--- |
-|  | Lista status (list alternativ) | Länken måste leda till en *utvärderings version* av kund LED. | Andra List alternativ (till exempel *Köp nu* ) är också tillgängliga. | 
+|  | Lista status (list alternativ) | Länken måste leda till en *utvärderings version* av kund LED. | Andra List alternativ (till exempel *Köp nu*) är också tillgängliga. | 
 |||
 
 ## <a name="saas-application-requirements"></a>Krav för SaaS-program
@@ -48,7 +48,7 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 | Nej. | List element | Bas krav | Optimalt krav | 
 |:--- |:--- |:--- |:--- |
 | 1 | Erbjudande rubrik |<ul><li>Får bara bestå av gemena bokstäver, alfanumeriska tecken, bindestreck eller under streck. Det går inte att ändra rubriken när den har publicerats.</li><li>Beskriver lösnings erbjudande.</li><li>Matchar online-befordran av lösningen på partnerns webbplats. | Innehåller ord för nyckels ökning. |
-| 2 | Teknisk information: konfiguration |<ul><li>För SaaS-appar (program vara som en tjänst) väljer du om du bara vill visa en lista över din app eller om du vill att kunderna ska kunna köpa din app via Azure.</li><li>Välj den text som du vill använda på erbjudandet för erbjudandet: *kostnads fri* , *kostnads fri utvärdering* eller *kontakta mig*.</li><li>I popup-fönstret väljer du bara en lämplig produkt om din app använder tekniken: Cortana Intelligence, Power BI Solution templates eller Power Apps. |  |
+| 2 | Teknisk information: konfiguration |<ul><li>För SaaS-appar (program vara som en tjänst) väljer du om du bara vill visa en lista över din app eller om du vill att kunderna ska kunna köpa din app via Azure.</li><li>Välj den text som du vill använda på erbjudandet för erbjudandet: *kostnads fri*, *kostnads fri utvärdering* eller *kontakta mig*.</li><li>I popup-fönstret väljer du bara en lämplig produkt om din app använder tekniken: Cortana Intelligence, Power BI Solution templates eller Power Apps. |  |
 | 3 | Test enhet | Välj *Ja* eller *Nej* | Kunden kan enkelt förstå vad nästa steg är: <ol><li>Testa utvärderings versionen.</li><li>Köp nu.</li><li>Kontakta via e-post eller telefonnummer för att ordna för POC, utvärdering eller korthet.</li></ol> |
 | 4 | Information om onlinebutik: erbjudande Sammanfattning | Visas på appens Sök sida och innehåller högst 100 tecken. | |
 | 5 | Information om onlinebutik: branscher | Branscher (max. 2): Välj de branscher som din app är bäst justerad och tillämplig för. | |
@@ -85,7 +85,7 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 | 9 | Kompetenser | Måste ha kompetens i minst ett av följande:<ul><li>Apputveckling</li><li>Programintegrering</li><li>Hantering av programlivscykel</li><li>Moln plattform<li>Dataanalys</li><li>Datacenter</li><li>Data plattform</li><li>DevOps |
 | 10 | Produkter | Måste vara Azure-produkter. | |
 | 11 | Land/region | Se till att landet/regionen stämmer överens med den valda valutan. | |
-| 12 | Mer information  | <ul><li>Länkar längst ned (under beskrivningen, inte Azure Marketplace-länkarna till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt.</li><li>Länkar måste ha ett eget namn och visas inte som fil namn för några hämtningar. | |
+| 12 | Läs mer  | <ul><li>Länkar längst ned (under beskrivningen, inte Azure Marketplace-länkarna till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt.</li><li>Länkar måste ha ett eget namn och visas inte som fil namn för några hämtningar. | |
 ||||
 
 ## <a name="next-steps"></a>Nästa steg

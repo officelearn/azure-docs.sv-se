@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019, devx-track-python
 ms.openlocfilehash: e511b8b5505f1fa8713d81d0ce959df32ef28503
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89439120"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013334"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Snabbstart: Skapa en datafabrik och pipeline med Python
 
@@ -44,7 +44,7 @@ Pipelines kan mata in data från olika data lager. Pipelines bearbetar eller tra
 
 * [Azure Storage Explorer](https://storageexplorer.com/) (valfritt).
 
-* [Ett program i Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Anteckna följande värden som du kan använda i senare steg: **program-ID**, **autentiseringsnyckel**och **klient-ID**. Tilldela program rollen **deltagare** genom att följa anvisningarna i samma artikel.
+* [Ett program i Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Anteckna följande värden som du kan använda i senare steg: **program-ID**, **autentiseringsnyckel** och **klient-ID**. Tilldela program rollen **deltagare** genom att följa anvisningarna i samma artikel.
 
 ## <a name="create-and-upload-an-input-file"></a>Skapa och ladda upp en indatafil
 
@@ -58,7 +58,7 @@ Pipelines kan mata in data från olika data lager. Pipelines bearbetar eller tra
 
 ## <a name="install-the-python-package"></a>Installera Python-paketet
 
-1. Öppna en terminal eller kommandotolk med administratörsbehörighet. 
+1. Öppna en terminal eller kommandotolk med administratörsbehörighet. 
 2. Installera först Python-paketet för hanteringsresurser i Azure:
 
     ```python

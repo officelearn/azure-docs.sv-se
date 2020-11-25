@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 24dc2cad8d299d150adddc03de5e9006fc831fc6
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 6a862a051d0040ac99746d81f10ae63d5af7545f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93061662"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013740"
 ---
-Konfigurations inställningar för [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
+Konfigurations inställningar för [Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md).
 
 > [!NOTE]
 > Alla huvud versioner av Durable Functions stöds i alla versioner av Azure Functions Runtime. Men schemat för host.jsi konfigurationen skiljer sig något beroende på vilken version av Azure Functions Runtime och den Durable Functions tilläggs version som du använder. Följande exempel är för användning med Azure Functions 2,0 och 3,0. Om du använder Azure Functions 1,0 i båda exemplen är de tillgängliga inställningarna samma, men avsnittet "durableTask" i host.jspå bör ligga i roten av host.jspå konfigurationen i stället för som ett fält under "Extensions".
@@ -97,11 +97,11 @@ Konfigurations inställningar för [Durable Functions](../articles/azure-functio
 }
 ```
 
-Namn på uppgifts hubbar måste börja med en bokstav och får bara bestå av bokstäver och siffror. Om inget värde anges är standard namnet på uppgifts navet för en Function-app **DurableFunctionsHub** . Mer information finns i [aktivitets nav](../articles/azure-functions/durable-functions-task-hubs.md).
+Namn på uppgifts hubbar måste börja med en bokstav och får bara bestå av bokstäver och siffror. Om inget värde anges är standard namnet på uppgifts navet för en Function-app **DurableFunctionsHub**. Mer information finns i [aktivitets nav](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Description |
 |---------|---------|---------|
-|hubName|DurableFunctionsHub|Alternativa [aktivitets Hubbs](../articles/azure-functions/durable-functions-task-hubs.md) namn kan användas för att isolera flera Durable Functions program från varandra, även om de använder samma lagrings Server del.|
+|hubName|DurableFunctionsHub|Alternativa [aktivitets Hubbs](../articles/azure-functions/durable/durable-functions-task-hubs.md) namn kan användas för att isolera flera Durable Functions program från varandra, även om de använder samma lagrings Server del.|
 |controlQueueBatchSize|32|Antalet meddelanden att hämta från kontroll kön i taget.|
 |controlQueueBufferThreshold|256|Antalet kontrollmeddelanden som kan buffras i minnet i taget, vid vilken tidpunkt Dispatchern väntar innan eventuella ytterligare meddelanden tas ur kö.|
 |partitionCount |4|Antalet partitioner för kontroll kön. Kan vara ett positivt heltal mellan 1 och 16.|
@@ -124,4 +124,4 @@ Namn på uppgifts hubbar måste börja med en bokstav och får bara bestå av bo
 |useLegacyPartitionManagement|true|När det är inställt på `false` , används en algoritm för partitions hantering som minskar risken för duplicerad funktions körning vid utskalning.  Tillgänglig från och med v-2.3.0. Standardvärdet kommer att ändras till `false` i en framtida version.|
 |useGracefulShutdown|falskt|Förhandsgranskningsvyn Aktivera Stäng av på ett smidigt sätt för att minska risken för att det inte går att stänga av värden i process funktionens körningar.|
 
-Många av de här inställningarna är för att optimera prestanda. Mer information finns i [prestanda och skalning](../articles/azure-functions/durable-functions-perf-and-scale.md).
+Många av de här inställningarna är för att optimera prestanda. Mer information finns i [prestanda och skalning](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

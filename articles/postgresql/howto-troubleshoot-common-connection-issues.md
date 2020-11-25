@@ -8,11 +8,11 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708024"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014626"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Felsöka anslutnings problem till Azure Database for PostgreSQL-enskild server
 
@@ -48,7 +48,7 @@ Om programmet inte kan ansluta till Azure Database for PostgreSQL, indikerar det
 
 * Konfiguration av Server brand vägg: kontrol lera att Azure Database for PostgreSQL Server-brandväggen är konfigurerad för att tillåta anslutningar från klienten, inklusive proxyservrar och gatewayer.
 * Konfiguration av klient brand väggen: brand väggen på klienten måste tillåta anslutningar till din databas server. IP-adresser och portar på den server som du inte kan tillåta måste vara tillåtna samt program namn som PostgreSQL i vissa brand väggar.
-* Användar fel: du kan ange anslutnings parametrar som inte har angetts, till exempel Server namnet i anslutnings strängen eller ett * \@ servername* -suffix som saknas i användar namnet.
+* Användar fel: du kan ange anslutnings parametrar som inte har angetts, till exempel Server namnet i anslutnings strängen eller ett *\@ servername* -suffix som saknas i användar namnet.
 * Om fel _servern inte har kon figurer ATS för att tillåta IPv6-anslutningar_, Observera att den grundläggande nivån inte stöder slut punkter för VNet-tjänster. Du måste ta bort Microsoft. SQL-slutpunkten från det undernät som försöker ansluta till den grundläggande servern.
 * Om du ser fel meddelandet _sslmode "* * *" som är ogiltigt när SSL-stöd inte har kompilerats_ , innebär det att din postgresql-klient inte stöder SSL. Det vanligaste är att libpq på klient sidan inte har kompilerats med flaggan "--with-openssl". Försök att ansluta till en PostgreSQL-klient som har SSL-stöd. 
 

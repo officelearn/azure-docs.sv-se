@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362205"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013623"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Hur fungerar Hyper-V-replikering?
 
@@ -70,9 +70,9 @@ Du kan begränsa mängden bandbredd som används för att ladda upp data till Az
 
 
 1. Logga in på Hyper-V-värden eller klusternoden.
-2. Kör **C:\Program\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc**för att öppna snapin-modulen Windows Azure Backup MMC.
-3. Välj **ändra egenskaper**i snapin-modulen.
-4. Under **begränsning**väljer du **Aktivera användnings begränsning för Internet bandbredd för säkerhets kopierings åtgärder**. Ange gränserna för arbets tid och ledig tid. Giltiga intervall är mellan 512 och 1 023 Mbit/s.
+2. Kör **C:\Program\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc** för att öppna snapin-modulen Windows Azure Backup MMC.
+3. Välj **ändra egenskaper** i snapin-modulen.
+4. Under **begränsning** väljer du **Aktivera användnings begränsning för Internet bandbredd för säkerhets kopierings åtgärder**. Ange gränserna för arbets tid och ledig tid. Giltiga intervall är mellan 512 och 1 023 Mbit/s.
 I
 
 ### <a name="influence-upload-efficiency"></a>Påverka uppladdnings effektiviteten

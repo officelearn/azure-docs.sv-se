@@ -8,11 +8,11 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 194b0f2ff94197fe11c189e97dbc65c9d0367932
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630591"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013929"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Hantera registrerade servrar med Azure File Sync
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -20,7 +20,7 @@ Med Azure File Sync kan du centralisera din organisations filresurser i Azure Fi
 Följande artikel visar hur du registrerar och hanterar en server med en tjänst för synkronisering av lagring. Information om hur du distribuerar Azure File Sync slut punkt till slut punkt finns i [distribuera Azure File Sync](storage-sync-files-deployment-guide.md) .
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registrera/avregistrera en server med tjänsten Storage Sync
-När du registrerar en server med Azure File Sync upprättas en förtroende relation mellan Windows Server och Azure. Den här relationen kan sedan användas för att skapa *Server slut punkter* på servern som representerar vissa mappar som ska synkroniseras med en Azure-filresurs (kallas även för en *moln slut punkt* ). 
+När du registrerar en server med Azure File Sync upprättas en förtroende relation mellan Windows Server och Azure. Den här relationen kan sedan användas för att skapa *Server slut punkter* på servern som representerar vissa mappar som ska synkroniseras med en Azure-filresurs (kallas även för en *moln slut punkt*). 
 
 ### <a name="prerequisites"></a>Förutsättningar
 Om du vill registrera en server med en lagrings tjänst för synkronisering måste du först förbereda servern med nödvändiga komponenter:

@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: 85e974d51f49bbb6742683ed253c077bb3ff69de
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545556"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014660"
 ---
 # <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Felsöka WASB fil åtgärder i Azure HDInsight
 
@@ -28,13 +28,13 @@ En genererad logg ser ut ungefär så här:
 
 1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs` , där `CLUSTERNAME` är namnet på ditt Spark-kluster.
 
-1. Gå till **avancerade spark2-log4j-Properties** .
+1. Gå till **avancerade spark2-log4j-Properties**.
 
     1. Ändra `log4j.appender.console.Threshold=INFO` till `log4j.appender.console.Threshold=DEBUG` .
 
     1. Lägg till `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG` .
 
-1. Gå till **avancerade livy2-log4j-Properties** .
+1. Gå till **avancerade livy2-log4j-Properties**.
 
     Lägg till `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG` .
 

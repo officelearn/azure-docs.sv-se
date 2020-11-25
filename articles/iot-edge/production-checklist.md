@@ -12,11 +12,11 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669614"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013300"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Förbered för att distribuera din IoT Edge-lösning i produktion
 
@@ -108,7 +108,7 @@ Om du distribuerar begränsade enheter med begränsat minne tillgängligt kan du
 
 IoT Edge hubben är optimerad för prestanda som standard och försöker allokera stora mängder minne. Den här konfigurationen kan orsaka stabilitets problem på mindre enheter, t. ex. Raspberry Pi. Om du distribuerar enheter med begränsade resurser kanske du vill ange **OptimizeForPerformance** -miljövariabeln till **false** på IoT Edge Hub.
 
-När **OptimizeForPerformance** är inställt på **True**använder MQTT-protokollets huvud PooledByteBufferAllocator, vilket ger bättre prestanda men allokerar mer minne. Allokeraren fungerar inte bra på 32-bitars operativ system eller på enheter med ont om minne. När RocksDb allokeras för prestanda, allokerar dessutom mer minne för rollen som den lokala lagrings leverantören.
+När **OptimizeForPerformance** är inställt på **True** använder MQTT-protokollets huvud PooledByteBufferAllocator, vilket ger bättre prestanda men allokerar mer minne. Allokeraren fungerar inte bra på 32-bitars operativ system eller på enheter med ont om minne. När RocksDb allokeras för prestanda, allokerar dessutom mer minne för rollen som den lokala lagrings leverantören.
 
 Mer information finns i [stabilitets problem på mindre enheter](troubleshoot-common-errors.md#stability-issues-on-smaller-devices).
 
@@ -132,7 +132,7 @@ Standardvärdet för parametern timeToLiveSecs är 7200 sekunder, vilket är tv�
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>Använd inte fel söknings versioner av module-avbildningar
 
-Kom ihåg att ta bort fel söknings konfigurationerna från distributions manifest när du flyttar från test scenarier till produktions scenarier. Kontrol lera att ingen av modulens bilder i distributions manifesten har ** \. fel söknings** -suffixet. Om du har lagt till skapa alternativ för att exponera portar i modulerna för fel sökning tar du även bort de här alternativen för att skapa.
+Kom ihåg att ta bort fel söknings konfigurationerna från distributions manifest när du flyttar från test scenarier till produktions scenarier. Kontrol lera att ingen av modulens bilder i distributions manifesten har **\. fel söknings** -suffixet. Om du har lagt till skapa alternativ för att exponera portar i modulerna för fel sökning tar du även bort de här alternativen för att skapa.
 
 ## <a name="container-management"></a>Hantering av containrar
 
@@ -163,7 +163,7 @@ Om du vill autentisera med ett huvud namn för tjänsten anger du det ID för tj
 * Ange lösen ordet för tjänstens huvud namn för lösen ordet eller klient hemligheten.
 
 > [!NOTE]
-> När du har implementerat en utökad säkerhetsautentisering inaktiverar du **användar inställningen administratör** så att standard åtkomsten för användar namn/lösen ord inte längre är tillgänglig. I behållar registret i Azure Portal väljer du **åtkomst nycklar**från menyn i den vänstra rutan under **Inställningar**.
+> När du har implementerat en utökad säkerhetsautentisering inaktiverar du **användar inställningen administratör** så att standard åtkomsten för användar namn/lösen ord inte längre är tillgänglig. I behållar registret i Azure Portal väljer du **åtkomst nycklar** från menyn i den vänstra rutan under **Inställningar**.
 
 ### <a name="use-tags-to-manage-versions"></a>Använda taggar för att hantera versioner
 

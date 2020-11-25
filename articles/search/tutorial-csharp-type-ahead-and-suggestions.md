@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 202a7f6b01423045fe7c72db5b42c29ae58f648d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739671"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013844"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Självstudie: Lägg till komplettera automatiskt och förslag med hjälp av .NET SDK
 
 Lär dig hur du implementerar funktionen Komplettera automatiskt (typeahead frågor och föreslagna resultat) när en användare börjar skriva i en sökruta. I den här självstudien visar vi automatiskt slutförda frågor och föreslagna resultat separat och sedan tillsammans. En användare kan bara skriva två eller tre tecken för att hitta alla resultat som är tillgängliga.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Lägg till förslag
 > * Lägg till markering i förslagen
@@ -35,7 +35,7 @@ En färdig version av koden i den här självstudien finns i följande projekt:
 
 * [3-Add-typeahead (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/3-add-typeahead)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [GitHub-lösning (2a-Add-Siding)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2a-add-paging) . Projektet kan antingen vara din egen version som skapats från den föregående själv studie kursen eller en kopia från GitHub.
 
@@ -51,7 +51,7 @@ Vi börjar med det enklaste fallet med att erbjuda alternativ till användaren: 
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-1. Följ den här instruktionen, efter den avslutande ** &lt; /div &gt; **, anger du det här skriptet. Det här skriptet använder [widgeten Autoavsluta](https://api.jqueryui.com/autocomplete/) från jQuery UI-bibliotek med öppen källkod för att presentera den nedrullningsbara listan över föreslagna resultat.
+1. Följ den här instruktionen, efter den avslutande **&lt; /div &gt;**, anger du det här skriptet. Det här skriptet använder [widgeten Autoavsluta](https://api.jqueryui.com/autocomplete/) från jQuery UI-bibliotek med öppen källkod för att presentera den nedrullningsbara listan över föreslagna resultat.
 
     ```javascript
     <script>
@@ -151,7 +151,7 @@ Vi börjar med det enklaste fallet med att erbjuda alternativ till användaren: 
 
 4. I Visa skript, ange **&fuzzy** till true och kör appen igen. Skriv nu "Po". Observera att sökningen förutsätter att du fick ett brev fel.
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Inmatning * Po * visar två förslag" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Skriva * pa * med fuzzy-inställt på Sant" border="false":::
 
     Om du är intresse rad av [Lucene-frågesyntaxen i Azure kognitiv sökning](./query-lucene-syntax.md) beskrivs den logik som används i fuzzy-sökningar i detalj.
 
@@ -196,7 +196,7 @@ Vi kan förbättra visningen av förslag till användaren genom att ange paramet
 
 1. Kör appen igen och se att din angivna text är fet i förslagen. Prova att skriva "pa".
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Inmatning * Po * visar två förslag" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Skriva * pa * med markering" border="false":::
 
    Logiken som används i markerings skriptet ovan är inte foolproof. Om du anger en term som visas två gånger i samma namn är de fetstilta resultaten inte riktigt vad du vill ha. Försök att skriva "Mo".
 
@@ -255,7 +255,7 @@ En annan variation, något annorlunda från förslag, är ifyllning (kallas ibla
 
 1. Kör appen. Observera hur intervallet för de alternativ som visas i list rutan är enkla ord. Försök att skriva ord som börjar med "re". Observera hur antalet alternativ minskar när fler bokstäver skrivs.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Inmatning * Po * visar två förslag" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Skriva med grundläggande autoifyllning" border="false":::
 
     I takt med att det finns rekommenderar vi att du har kört det här skriptet. Om du vill göra detta mer användarvänligt kan du överväga att använda det med föreslagna resultat.
 
@@ -451,7 +451,7 @@ Det finns bibliotek som erbjuder den här funktionen – ofta kallat "intern ify
 
 1. Kör nu appen. Ange "pa" i sökrutan. Får du "Palace" som förslag på Autoavsluta, tillsammans med två hotell som innehåller "pa"?
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Inmatning * Po * visar två förslag" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Skriva med Komplettera automatiskt och förslag" border="false":::
 
 1. Försök att tabba för att godkänna Autoavsluta-förslaget och försök att välja förslag med piltangenterna och TABB-tangenten och försök igen med musen och med ett enkelt klick. Kontrol lera att skriptet hanterar alla dessa situationer prydligt.
 

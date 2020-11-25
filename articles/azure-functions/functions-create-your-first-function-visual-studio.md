@@ -3,14 +3,14 @@ title: 'Snabb start: skapa din första funktion i Azure med Visual Studio'
 description: I den här snabb starten får du lära dig hur du skapar och publicerar en HTTP-utlösare Azure-funktion med hjälp av Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 03/06/2020
+ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: d7cfcd02c5e6c9ff57241288bd79efb45d4ac7ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c9ddd6e74e25d8de415e24038e99da9d21dab867
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88213985"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "96014488"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Snabb start: skapa din första funktion i Azure med Visual Studio
 
@@ -36,7 +36,7 @@ Visual Studio skapar ett projekt och en klass som innehåller en exempel kod fö
 
 `FunctionName`Attributet Method anger namnet på funktionen, som som standard genereras som `Function1` . Eftersom verktyget inte tillåter att du åsidosätter standard funktions namnet när du skapar projektet ska du ta en minut för att skapa ett bättre namn för funktions klassen, filen och metadata.
 
-1. Högerklicka på filen Function1.cs i **Utforskaren**och Byt namn på den till `HttpExample.cs` .
+1. Högerklicka på filen Function1.cs i **Utforskaren** och Byt namn på den till `HttpExample.cs` .
 
 1. I koden byter du namn på Function1-klassen till ' HttpExample '.
 
@@ -60,7 +60,7 @@ Innan du kan publicera ditt projekt måste du ha en Function-app i din Azure-pre
 
 ## <a name="test-your-function-in-azure"></a>Testa din funktion i Azure
 
-1. I Cloud Explorer ska din nya Function-app väljas. Om inte, expanderar du prenumerationen > **app Services**och väljer sedan den nya Function-appen.
+1. I Cloud Explorer ska din nya Function-app väljas. Om inte, expanderar du prenumerationen > **app Services** och väljer sedan den nya Function-appen.
 
 1. Högerklicka på Function-appen och välj **Öppna i webbläsare**. Detta öppnar roten för din Function-app i din standard webbläsare och visar sidan som visar att funktions programmet körs. 
 
@@ -74,13 +74,13 @@ Innan du kan publicera ditt projekt måste du ha en Function-app i din Azure-pre
 
 2. Gå till denna URL så ser du ett svar i webbläsaren till den fjärranslutna GET-begäran som returnerades av funktionen, som ser ut som i följande exempel:
 
-    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Function-appen körs":::
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Funktionssvar i webbläsaren":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. Om du planerar att arbeta med efterföljande snabb starter, självstudier eller med någon av de tjänster som du har skapat i den här snabb starten ska du inte rensa resurserna.
 
-*Resurser* i Azure avser funktionsappar, funktioner, lagringskonton och så vidare. De är grupperade i *resurs grupper*och du kan ta bort allt i en grupp genom att ta bort gruppen. 
+*Resurser* i Azure avser funktionsappar, funktioner, lagringskonton och så vidare. De är grupperade i *resurs grupper* och du kan ta bort allt i en grupp genom att ta bort gruppen. 
 
 Du skapade resurser för att slutföra de här snabbstarterna. Det är möjligt att du debiteras för de här resurserna beroende på din [kontostatus](https://azure.microsoft.com/account/) och dina [servicepriser](https://azure.microsoft.com/pricing/). Om du inte behöver resurserna längre så visar vi hur du tar bort dem här:
 
@@ -88,7 +88,7 @@ Du skapade resurser för att slutföra de här snabbstarterna. Det är möjligt 
 
 1. På sidan Function-app väljer du fliken **Översikt** och väljer sedan länken under **resurs grupp**.
 
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Function-appen körs":::
+   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Välj den resurs grupp som ska tas bort från sidan funktions program":::
 
 2. På sidan **resurs grupp** granskar du listan över resurser som ingår och kontrollerar att de är de som du vill ta bort.
  

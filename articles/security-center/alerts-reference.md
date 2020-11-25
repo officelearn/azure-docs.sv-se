@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3cc64d2721f73da36fdc4fce009cccb5fdfd6b6b
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 6d001e638b00cace1dd81d9631f498a911ca19a4
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372701"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96014609"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhetsaviseringar – en referensguide
 
@@ -160,6 +160,9 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 |**Användning av xorg sårbarhet [sett flera gånger]**|Analys av värd data på% {komprometterad värd} identifierade användaren av xorg med misstänkta argument. Angripare kan använda den här metoden i försök att eskalera privilegier. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|Medium|
 |**Exponerad Docker-daemon identifierad**|Dator loggar indikerar att Docker daemon (dockerd) exponerar en TCP-socket. Som standard använder Docker-konfigurationen inte kryptering eller autentisering när en TCP-socket är aktive rad. Detta möjliggör fullständig åtkomst till Docker daemon, av alla som har åtkomst till den relevanta porten.|-|Medium|
 |**Misslyckad SSH brute force-attack**|Misslyckade angrepp med brute force upptäcktes från följande angripare:% {angripare}. Angripare försökte komma åt värden med följande användar namn:% {konton som används vid misslyckade inloggningar till värd försök}.|-|Medium|
+| **Ett fil system som inte går att hitta identifieras**<br>(AppServices_FilelessAttackBehaviorDetection)| Minnet för den angivna processen nedan innehåller beteenden som ofta används av fil lösa attacker.<br>Vissa funktioner är: {lista över observerade beteenden}                                                                                                                                                                                                                                                                                                                             | Körnings-                             | Medium   |
+| **Filbaserad attack teknik upptäcktes**<br>(VM_FilelessAttackTechnique. Linux)| Minnet för den angivna processen nedan innehåller tecken på en fil som inte är en fil med skadligt angrepp. Fil lös attacker används av angripare för att köra kod medan evading identifieras av säkerhets program.<br>Vissa funktioner är: {lista över observerade beteenden}                                                                                                                                                                                                                            | Körnings-                             | Hög     |
+| **Filbaserad attack Toolkit upptäcktes**<br>(VM_FilelessAttackToolkit. Linux)| Minnet för den angivna processen nedan innehåller en filbaserad attack-Toolkit: {ToolKitName}. Filbaserade angrepps verktyg har vanligt vis ingen närvaro på fil systemet, vilket gör det svårt att identifiera vanliga antivirus program.<br>Vissa funktioner är: {lista över observerade beteenden}                                                                                                                                                                                    | DefenseEvasion, körning             | Hög     |
 |**Körning av dold fil upptäcktes**|Analys av värd data indikerar att en dold fil kördes av% {User Name}. Den här aktiviteten kan antingen vara en legitim aktivitet eller en indikation på en komprometterad värd.|-|Information|
 |**Indikatorer som är associerade med DDOS Toolkit upptäcktes [sett flera gånger]**|Analys av värd data på% {komprometterad värd} identifierade fil namn som är en del av ett verktyg som är associerat med skadlig kod och som kan starta DDoS attacker, öppna portar och tjänster och få fullständig kontroll över det infekterade systemet. Detta kan även vara en legitim aktivitet. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|Medium|
 |**Indikatorer som är associerade med DDOS Toolkit upptäcktes**|Analys av värd data på% {komprometterad värd} identifierade fil namn som är en del av ett verktyg som är associerat med skadlig kod och som kan starta DDoS attacker, öppna portar och tjänster och få fullständig kontroll över det infekterade systemet. Detta kan även vara en legitim aktivitet.|-|Medium|

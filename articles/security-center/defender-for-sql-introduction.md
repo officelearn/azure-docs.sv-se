@@ -3,17 +3,17 @@ title: Azure Defender för SQL – fördelar och funktioner
 description: Lär dig mer om fördelarna och funktionerna i Azure Defender för SQL.
 author: memildin
 ms.author: memildin
-ms.date: 11/17/2020
+ms.date: 11/22/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: b4f046339c027a5ae66f7f7510d8d2b311abd6df
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: bb24c04681b142aaa1c80738090afe2a13949495
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693468"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96014556"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introduktion till Azure Defender för SQL
 
@@ -25,8 +25,8 @@ Azure Defender för SQL innehåller två Azure Defender-planer som utökar Azure
 |----|:----|
 |Versions tillstånd:|**Azure Defender för Azure SQL Database-servrar** – allmänt tillgängliga (ga)<br>**Azure Defender för SQL-servrar på datorer – för** hands version<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Priset|De två planer som utgör **Azure Defender för SQL** debiteras enligt [pris sidan](security-center-pricing.md)|
-|Skyddade SQL-versioner:|Azure SQL Database <br>Hanterad Azure SQL-instans<br>Dedikerad SQL-pool i Azure Synapse (tidigare SQL DW)<br>SQL Server (alla versioner som stöds)|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
+|Skyddade SQL-versioner:|SQL på virtuella Azure-datorer – [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) och [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md)<br>[Arc-aktiverade SQL-servrar](https://docs.microsoft.com/sql/sql-server/azure-arc/overview) (inklusive lokala SQL-servrar)<br>Enkla Azure SQL- [databaser](../azure-sql/database/single-database-overview.md) och [elastiska pooler](../azure-sql/database/elastic-pool-overview.md)<br>[Hanterad Azure SQL-instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics (tidigare SQL DW) dedikerad SQL-pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 ## <a name="what-does-azure-defender-for-sql-protect"></a>Vad skyddar Azure Defender för SQL?

@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
 ms.openlocfilehash: d564b96807574dd7a275d6959aea085ad16e9e2e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565950"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013419"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Snabbstart: Skapa en datafabrik och pipeline med .NET SDK
 
@@ -45,7 +45,7 @@ Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
 
-Från avsnitten i *How to: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser* , följer du anvisningarna för att utföra dessa uppgifter:
+Från avsnitten i *How to: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser*, följer du anvisningarna för att utföra dessa uppgifter:
 
 1. Skapa ett program i [skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)som representerar det .NET-program som du skapar i den här självstudien. För inloggnings-URL kan du ange en låtsas-URL enligt artikeln (`https://contoso.org/exampleapp`).
 2. I [Hämta värden för att logga in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), hämtar du **program-ID** och **klient-ID** och noterar de här värdena som du använder senare i den här självstudien. 
@@ -74,7 +74,7 @@ Skapa sedan ett C# .NET-konsol program i Visual Studio:
 
 ## <a name="create-a-data-factory-client"></a>Skapa en datafabriksklient
 
-1. Öppna **Program.cs** , lägg till följande instruktioner för att lägga till referenser till namnområden.
+1. Öppna **Program.cs**, lägg till följande instruktioner för att lägga till referenser till namnområden.
 
     ```csharp
     using System;
@@ -87,7 +87,7 @@ Skapa sedan ett C# .NET-konsol program i Visual Studio:
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Lägg till följande kod till **Main** -metoden som anger variablerna. Ersätt plats hållarna med dina egna värden. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory** : [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Data lag ren (Azure Storage, Azure SQL Database och mer) och beräkningarna (HDInsight och andra) som används av Data Factory kan finnas i andra regioner.
+2. Lägg till följande kod till **Main**-metoden som anger variablerna. Ersätt plats hållarna med dina egna värden. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Data lag ren (Azure Storage, Azure SQL Database och mer) och beräkningarna (HDInsight och andra) som används av Data Factory kan finnas i andra regioner.
 
    ```csharp
    // Set variables
@@ -130,7 +130,7 @@ Skapa sedan ett C# .NET-konsol program i Visual Studio:
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-Lägg till följande kod som skapar en **datafabrik** till **Main** -metoden. 
+Lägg till följande kod som skapar en **datafabrik** till **Main**-metoden. 
 
 ```csharp
 // Create a data factory
@@ -153,7 +153,7 @@ while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
 
 ## <a name="create-a-linked-service"></a>Skapa en länkad tjänst
 
-Lägg till följande kod i **Main** -metoden som skapar en **länkad Azure Storage-tjänst**.
+Lägg till följande kod i **Main**-metoden som skapar en **länkad Azure Storage-tjänst**.
 
 Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I den här snabb starten behöver du bara skapa en Azure Storage länkad tjänst för både kopierings källan och mottagar lagret. den heter "AzureStorageLinkedService" i exemplet.
 
@@ -206,7 +206,7 @@ Console.WriteLine(
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-Lägg till följande kod som skapar och **aktiverar en pipeline** till **Main** -metoden.
+Lägg till följande kod som skapar och **aktiverar en pipeline** till **Main**-metoden.
 
 I det här exemplet innehåller den här pipelinen en aktivitet och använder två parametrar: sökväg för indata-blob och utgående BLOB-sökväg. Värdena för dessa parametrar anges när pipeline utlöses/körs. Kopieringsaktiviteten refererar till samma blobdatauppsättning som skapats i föregående steg som indata och utdata. När datauppsättningen används som indatauppsättning anges indatasökvägen. Och när datauppsättningen används som utdatauppsättning anges utdatasökvägen. 
 
@@ -258,7 +258,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.Serialization
 
 ## <a name="create-a-pipeline-run"></a>Skapa en pipelinekörning
 
-Lägg till följande kod i **Main** -metoden för att **utlösa en pipelinekörning**.
+Lägg till följande kod i **Main**-metoden för att **utlösa en pipelinekörning**.
 
 Den här koden anger också värden för parametrarna **inputPath** och **outputPath** som anges i pipelinen med de faktiska värdena för käll-och mottagar-BLOB-sökvägar.
 
@@ -278,7 +278,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="monitor-a-pipeline-run"></a>Övervaka en pipelinekörning
 
-1. Lägg till följande kod i **Main** -metoden för att kontinuerligt kontrollera status tills den har slutat att kopiera data.
+1. Lägg till följande kod i **Main**-metoden för att kontinuerligt kontrollera status tills den har slutat att kopiera data.
 
    ```csharp
    // Monitor the pipeline run

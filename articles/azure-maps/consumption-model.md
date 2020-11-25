@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: b44186d783a249192a8c13ee97063034ee319df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88036767"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013147"
 ---
 # <a name="consumption-model"></a>Förbrukningsmodell
 
 Routningstjänsten innehåller en uppsättning parametrar för en detaljerad beskrivning av den fordonsbaserade förbruknings modellen.
-Beroende på värdet för **vehicleEngineType**stöds två huvudsakliga förbruknings modeller: _förbränning_ och _elektrisk_. Det är fel att ange parametrar som tillhör olika modeller i samma begäran. Dessutom kan inte förbruknings modell parametrar användas med följande **travelMode** -värden: _cykel_ och _gående_.
+Beroende på värdet för **vehicleEngineType** stöds två huvudsakliga förbruknings modeller: _förbränning_ och _elektrisk_. Det är fel att ange parametrar som tillhör olika modeller i samma begäran. Dessutom kan inte förbruknings modell parametrar användas med följande **travelMode** -värden: _cykel_ och _gående_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Parameter begränsningar för förbruknings modell
 
@@ -29,7 +29,7 @@ I båda förbruknings modellerna finns det vissa beroenden när du anger paramet
 * Om **accelerationEfficiency** och **decelerationEfficiency** har angetts får produkten av deras värden inte vara större än 1 (för att förhindra beständig rörelse).
 * **uphillEfficiency** och **downhillEfficiency** måste alltid anges som ett par (det vill säga båda eller inga).
 * Om **uphillEfficiency** och **downhillEfficiency** har angetts får produkten av deras värden inte vara större än 1 (för att förhindra beständig rörelse).
-* Om \* __effektivitets__ parametrarna anges av användaren måste även **vehicleWeight** anges. När **vehicleEngineType** är _förbränning_måste även **fuelEnergyDensityInMJoulesPerLiter** anges.
+* Om \* __effektivitets__ parametrarna anges av användaren måste även **vehicleWeight** anges. När **vehicleEngineType** är _förbränning_ måste även **fuelEnergyDensityInMJoulesPerLiter** anges.
 * **maxChargeInkWh** och **currentChargeInkWh** måste alltid anges som ett par (dvs. båda eller inga).
 
 > [!NOTE]

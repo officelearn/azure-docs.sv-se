@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 018570019b306dced76760fefa4441ee7d86ad2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88189839"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013963"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2,0 – viktig information och migrations guide
 Med följande information kan du migrera till 2,0-versionen av Azure Key Vault-biblioteket för C# och .NET.  Appar som är skrivna för tidigare versioner måste uppdateras för att stödja den senaste versionen.  De här ändringarna krävs för att fullständigt stödja nya och förbättrade funktioner, till exempel **Key Vault certifikat**.
@@ -54,7 +54,7 @@ Key Vault certifikat hanterar x509-certifikat och stöder följande beteenden:
 
 ## <a name="return-types"></a>Retur typer
 
-* I **list** -och **SecretList** returneras nu *iPage \<T> * i stället för *ListKeysResponseMessage*
+* I **list** -och **SecretList** returneras nu *iPage \<T>* i stället för *ListKeysResponseMessage*
 * Den genererade **BackupKeyAsync** returnerar nu *BackupKeyResult*, som innehåller *värde* (back upp BLOB). Tidigare har metoden omslutits och returnerade bara värdet.
 
 ## <a name="exceptions"></a>Undantag
@@ -99,7 +99,7 @@ När en klient bearbetar ett Key Vault beroende hämtas följande paket:
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft. Azure. Management. NuGet för nyckel valv
 
-* För de åtgärder som returnerade ett *valv*var retur typen en klass som innehöll en **valv** egenskap. Retur typen är nu *valv*.
+* För de åtgärder som returnerade ett *valv* var retur typen en klass som innehöll en **valv** egenskap. Retur typen är nu *valv*.
 * *PermissionsToKeys* och *PermissionsToSecrets* är nu *behörigheter. nycklar* och *behörigheter. hemligheter*
 * Vissa ändringar av retur typer gäller även för kontroll planet.
 

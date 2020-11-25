@@ -2,17 +2,17 @@
 title: Felsöka integration runtime med egen värd i Azure Data Factory
 description: Lär dig hur du felsöker problem med integration runtime med egen värd i Azure Data Factory.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: e3a517497a480995b8ce63d36d0427e3bfadfe43
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844143"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96013468"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka integration runtime med egen värd
 
@@ -320,7 +320,7 @@ Om felet visas som ovan *UnauthorizedAccessException* följer du anvisningarna n
         1. Rensa den aktuella IR-filen med egen värd.
         1. Installera IR-BITS med egen värd.
         1. Följ anvisningarna nedan om du vill ändra tjänst kontot: 
-            1. Gå till selfhosted IR: s installationsmapp, växla till mappen: *Microsoft integration Runtime\4.0\Shared*.
+            1. Gå till installationsmappen för den egna värdbaserade IR-filen och växla till mappen: *Microsoft integration Runtime\4.0\Shared*.
             1. Starta en kommando rad med utökade privilegier. Ersätt *\<user>* och *\<password>* med ditt eget användar namn och lösen ord och kör sedan följande kommando:
                        
                 ```
@@ -731,7 +731,7 @@ Två möjliga orsaker till det här problemet:
 - Rot certifikat utfärdaren för ADF service Server-certifikatet är inte betrott på den dator där SHIR är installerat. 
 - Du använder proxy i din miljö och Server certifikatet för ADF-tjänsten ersätts av proxyservern, medan det ersatta Server certifikatet inte är betrott av den dator där SHIR är installerat.
 
-#### <a name="solution"></a>Lösning
+#### <a name="resolution"></a>Lösning
 
 - För orsak 1 kontrollerar du att ADF-servercertifikatet och certifikat kedjan är betrodd av den dator där SHIR är installerat.
 - För orsak 2 kan du antingen lita på den ersatta rot certifikat utfärdaren på SHIR dator eller konfigurera proxyn så att den inte ersätter ADF-servercertifikat.
@@ -744,6 +744,7 @@ Vi håller på att lansera ett nytt SSL-certifikat, som är signerat från DigiC
   ![DigiCert global root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
 
 Om inte, laddar du ned det [här](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
+
 
 ## <a name="self-hosted-ir-sharing"></a>Delning av lokalt installerad integrationskörning (IR)
 

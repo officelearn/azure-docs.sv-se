@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.custom: devx-track-js
 ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614112"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013606"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Skapa ett Node.js-program i Azure med Node.js
 
@@ -61,7 +61,7 @@ Programprojektet (**MyGuestApp**) innehåller ingen kod direkt. Projektet refere
 * **Publicera profiler**  
 Verktygsinställningar för olika miljöer.
 
-* **Alfabet**  
+* **Skript**  
 PowerShell-skript för distribution/uppgradering av program.
 
 * **Programdefinition**  
@@ -90,7 +90,7 @@ För exemplet Node.js-appen som vi distribuerar används port **80** och vi beh�
 
 Om du trycker på **F5** och kör projektet distribueras det till det lokala klustret. Men vi vill distribuera till Azure i stället.
 
-Högerklicka på projektet och välj **Publicera... **, vilket öppnar en dialogruta för att publicera till Azure.
+Högerklicka på projektet och välj **Publicera...**, vilket öppnar en dialogruta för att publicera till Azure.
 
 ![Dialogrutan Publicera till azure för en service fabric-tjänst][publish]
 
@@ -98,13 +98,13 @@ Välj målprofilen **PublishProfiles\Cloud.xml**.
 
 Om du inte gjort detta tidigare väljer du ett Azure-konto för distribution. Om du inte har en ännu, kan du [registrera dig för en][create-account].
 
-Under **Anslutningens slutpunkt** väljer du Service Fabric-klustret att distribuera till. Om du inte har en sådan väljer du ** &lt; Skapa nytt kluster.. &gt; .** som öppnar webbläsarfönstret till Azure Portal. Mer information finns i [Skapa ett kluster i portalen](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Under **Anslutningens slutpunkt** väljer du Service Fabric-klustret att distribuera till. Om du inte har en sådan väljer du **&lt; Skapa nytt kluster.. &gt; .** som öppnar webbläsarfönstret till Azure Portal. Mer information finns i [Skapa ett kluster i portalen](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 När du skapar Service Fabric-kluster, se till att ange **Anpassade slutpunkter** till **80**.
 
 ![Service Fabric-nod-typkonfiguration med anpassad slutpunkt][custom-endpoint]
 
-Det tar en stund att skapa ett nytt Service Fabric-kluster. När den har skapats går du tillbaka till dialog rutan publicera och väljer ** &lt; uppdatera &gt; **. Det nya klustret visas i listrutan. Markera det.
+Det tar en stund att skapa ett nytt Service Fabric-kluster. När den har skapats går du tillbaka till dialog rutan publicera och väljer **&lt; uppdatera &gt;**. Det nya klustret visas i listrutan. Markera det.
 
 Tryck på **Publicera** och vänta tills distributionen är klar.
 

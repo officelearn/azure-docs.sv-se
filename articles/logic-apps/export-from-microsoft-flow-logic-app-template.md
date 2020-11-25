@@ -7,11 +7,11 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269564"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014422"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportera flöden från Power Automate och distribuera till Azure Logic Apps
 
@@ -44,11 +44,11 @@ Mer information finns i [öka upp till Azure Logic Apps](https://flow.microsoft.
 
 1. Logga in [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
-1. Skriv i rutan Sök på Azures start sida `custom template` . Välj **distribuera en anpassad mall**  >  **skapa**i resultaten.
+1. Skriv i rutan Sök på Azures start sida `custom template` . Välj **distribuera en anpassad mall**  >  **skapa** i resultaten.
 
    ![Sök efter och välj "Malldistribution"](./media/export-from-microsoft-flow-logic-app-template/select-template-deployment.png)
 
-1. Under **Anpassad distribution**väljer du **Bygg en egen mall i redigeraren**.
+1. Under **Anpassad distribution** väljer du **Bygg en egen mall i redigeraren**.
 
    ![Välj "Bygg din egen mall i redigeraren"](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 
@@ -100,9 +100,9 @@ Mer information finns i [öka upp till Azure Logic Apps](https://flow.microsoft.
 
    1. Logga in på varje tjänst eller ange de autentiseringsuppgifter som krävs för att auktorisera anslutningen.
 
-   1. När du har uppdaterat anslutningarna väljer du **Spara**i verktygsfältet designer.
+   1. När du har uppdaterat anslutningarna väljer du **Spara** i verktygsfältet designer.
 
-1. När du är redo att aktivera din Logi Kap par väljer du **Översikt**på menyn Logic Apps och väljer sedan **Aktivera**.
+1. När du är redo att aktivera din Logi Kap par väljer du **Översikt** på menyn Logic Apps och väljer sedan **Aktivera**.
 
    ![Aktivera Logic app](./media/export-from-microsoft-flow-logic-app-template/enable-logic-app.png)
 
@@ -166,7 +166,7 @@ Om du har konfigurerat Visual Studio med [förutsättningarna](../logic-apps/qui
 
    När distributionen är klar publiceras din Logic app, men den aktive ras inte i Azure Portal.
 
-1. När du är redo att aktivera din Logi Kap par i Azure Portal kan du söka efter och öppna din Logic app i Logic App Designer. Välj **Översikt**på menyn Logic Apps och välj sedan **Aktivera**.
+1. När du är redo att aktivera din Logi Kap par i Azure Portal kan du söka efter och öppna din Logic app i Logic App Designer. Välj **Översikt** på menyn Logic Apps och välj sedan **Aktivera**.
 
 1. Undvik att köra dubbla arbets flöden genom att inaktivera eller ta bort det ursprungliga flödet.
 

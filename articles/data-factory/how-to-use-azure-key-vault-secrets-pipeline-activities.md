@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: 1766705e73afab5d15cdb5aa2c5bb1487ad3d7c5
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634291"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013895"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Använda Azure Key Vault-hemligheter i pipeline-aktiviteter
 
@@ -39,7 +39,7 @@ Den här funktionen använder den hanterade identiteten för Data Factory.  Lär
 
     ![Key Vault åtkomst principer](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 
-    Klicka på **Lägg till** och sedan på **Spara** .
+    Klicka på **Lägg till** och sedan på **Spara**.
 
 3. Navigera till Key Vault hemlighet och kopiera den hemliga identifieraren.
 

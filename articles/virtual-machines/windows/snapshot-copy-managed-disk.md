@@ -10,11 +10,11 @@ ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: c0fddca70ca09f0a3abb3c84672e20a42551ecd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322321"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014320"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-powershell"></a>Skapa en ögonblicks bild med hjälp av portalen eller PowerShell
 
@@ -31,7 +31,7 @@ Utför följande steg för att skapa en ögonblicks bild:
 4. Ange ett **namn** för ögonblicks bilden.
 5. Välj en befintlig [resurs grupp](../../azure-resource-manager/management/overview.md#resource-groups) eller ange namnet på en ny resurs grupp. 
 6. Välj en **Plats** för ett Azure-datacenter.  
-7. För **käll disk**väljer du den hanterade disk som ska avbildas.
+7. För **käll disk** väljer du den hanterade disk som ska avbildas.
 8. Välj den **Kontotyp** som ska användas för att lagra ögonblicks bilden. Välj **Standard_HDD**, om du inte behöver att ögonblicks bilden lagras på en hög presterande disk.
 9. Välj **Skapa**.
 

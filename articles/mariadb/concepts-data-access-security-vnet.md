@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
 ms.openlocfilehash: 0863ccda9f292f3da9f7064a78ba700ab5962eb2
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533471"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014643"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Använda tjänstslutpunkter för virtuellt nätverk och regler för Azure Database for MariaDB
 
@@ -34,7 +34,7 @@ Du kan också överväga att använda [privat länk](concepts-data-access-securi
 
 **Undernät:** Ett virtuellt nätverk innehåller **undernät**. Alla virtuella datorer i Azure (VM) som du har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra Compute-noder. Compute-noder utanför det virtuella nätverket kan inte komma åt ditt virtuella nätverk om du inte konfigurerar din säkerhet att tillåta åtkomst.
 
-**Virtual Network tjänst slut punkt:** En [Virtual Network tjänst slut punkt][vm-virtual-network-service-endpoints-overview-649d] är ett undernät vars egenskaps värden innehåller ett eller flera formella namn för Azure-tjänst typ. I den här artikeln är vi intresserade av typ namnet **Microsoft. SQL** , som refererar till Azure-tjänsten med namnet SQL Database. Den här tjänst tag gen gäller även för Azure Database for MariaDB-, MySQL-och PostgreSQL-tjänster. Det är viktigt att du noterar när du använder service tag-koden för **Microsoft. SQL** på en slut punkt för VNet-tjänsten som konfigurerar tjänst slut punkts trafik för alla Azure SQL Database, Azure Database for MariaDB, Azure Database for MySQL och Azure Database for PostgreSQL servrar i under nätet.
+**Virtual Network tjänst slut punkt:** En [Virtual Network tjänst slut punkt][vm-virtual-network-service-endpoints-overview-649d] är ett undernät vars egenskaps värden innehåller ett eller flera formella namn för Azure-tjänst typ. I den här artikeln är vi intresserade av typ namnet **Microsoft. SQL**, som refererar till Azure-tjänsten med namnet SQL Database. Den här tjänst tag gen gäller även för Azure Database for MariaDB-, MySQL-och PostgreSQL-tjänster. Det är viktigt att du noterar när du använder service tag-koden för **Microsoft. SQL** på en slut punkt för VNet-tjänsten som konfigurerar tjänst slut punkts trafik för alla Azure SQL Database, Azure Database for MariaDB, Azure Database for MySQL och Azure Database for PostgreSQL servrar i under nätet.
 
 **Regel för virtuellt nätverk:** En regel för virtuella nätverk för din Azure Database for MariaDB-Server är ett undernät som listas i åtkomst kontrol listan (ACL) för din Azure Database for MariaDB-Server. För att finnas i ACL: en för din Azure Database for MariaDB-Server måste under nätet innehålla namnet **Microsoft. SQL** -typ.
 

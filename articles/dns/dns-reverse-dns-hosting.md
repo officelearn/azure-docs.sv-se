@@ -8,11 +8,11 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489684"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014031"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Värd zoner för omvänd DNS-sökning i Azure DNS
 
@@ -29,7 +29,7 @@ Den här artikeln vägleder dig genom stegen för att skapa din första DNS-zon 
 ## <a name="create-a-reverse-lookup-dns-zone"></a>Skapa en DNS-zon för omvänd sökning
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. På menyn **hubb** väljer du **nytt**  >  **nätverk**och väljer sedan **DNS-zon**.
+1. På menyn **hubb** väljer du **nytt**  >  **nätverk** och väljer sedan **DNS-zon**.
 
    ![Val av DNS-zon](./media/dns-reverse-dns-hosting/figure1.png)
 
@@ -122,8 +122,8 @@ Följande exempel vägleder dig genom processen att skapa en PTR-post i en omvä
 1. Namnet på post uppsättningen för en PTR-post måste vara resten av IPv4-adressen i omvänd ordning. 
 
    I det här exemplet är de tre första oktetterna redan ifyllda som en del av zon namnet (. 2.0.192). Därför anges bara den sista oktetten i rutan **namn** . Du kan till exempel namnge posten uppsättning **15** för en resurs vars IP-adress är 192.0.2.15.  
-1. I **typ**väljer du **PTR**.  
-1. För **domän namn**anger du det fullständigt kvalificerade domän namnet (FQDN) för den resurs som använder IP-adressen.
+1. I **typ** väljer du **PTR**.  
+1. För **domän namn** anger du det fullständigt kvalificerade domän namnet (FQDN) för den resurs som använder IP-adressen.
 1. Klicka på **OK** längst ned i fönstret för att skapa DNS-posten.
 
    ![Fönstret Lägg till uppsättning av poster med ifyllda rutor i](./media/dns-reverse-dns-hosting/figure5.png)
@@ -158,8 +158,8 @@ Följande exempel vägleder dig genom processen med att skapa en ny PTR-post. In
 2. Namnet på post uppsättningen för en PTR-post måste vara resten av IPv6-adressen i omvänd ordning. Det får inte innehålla noll komprimering. 
 
    I det här exemplet är de första 64 bitarna i IPv6 redan ifyllda som en del av zon namnet (0.0.0.0. c. d. b. a. 8. b. d. 0.1.0.0.2. ip6. arpa). Därför anges bara de sista 64 bitarna i rutan **namn** . De sista 64 bitarna i IP-adressen anges i omvänd ordning med en punkt som avgränsare mellan varje hexadecimalt tal. Du kan till exempel namnge din post uppsättning **e. 5.0.4.9. f. a. 1. c. b. 0.1.4.2.5. f** för en resurs vars IP-adress är 2001:0DB8: ABDC: 0000: f524:10bc: 1af9:405e.  
-3. I **typ**väljer du **PTR**.  
-4. För **domän namn**anger du FQDN för den resurs som använder IP-adressen.
+3. I **typ** väljer du **PTR**.  
+4. För **domän namn** anger du FQDN för den resurs som använder IP-adressen.
 5. Klicka på **OK** längst ned i fönstret för att skapa DNS-posten.
 
 ![Skärm bild som visar fönstret Lägg till post uppsättning med en pil som pekar på värdet i fältet typ.](./media/dns-reverse-dns-hosting/figure7.png)
@@ -240,7 +240,7 @@ azure network dns record-set list MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.
 az network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="can-i-host-reverse-dns-lookup-zones-for-my-isp-assigned-ip-blocks-on-azure-dns"></a>Kan jag vara värd för omvänd DNS-sökning zoner för mina Internet-tilldelade IP-block på Azure DNS?
 

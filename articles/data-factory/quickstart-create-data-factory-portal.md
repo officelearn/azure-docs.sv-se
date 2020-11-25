@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 454bdaeb83e329ae059d6450b928d1286cd9552a
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 9d3c3dc3b9a83973e41bf5d7dd204316508c2cb4
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555761"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96013402"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Snabbstart: Skapa en datafabrik via gränssnittet i Azure Data Factory 
 
@@ -47,7 +47,7 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. På sidan **Ny datafabrik** anger du **ADFTutorialDataFactory** som **Namn**. 
  
-   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ändrar du namnet på data fabriken (till exempel **&lt; dittnamn &gt; ADFTutorialDataFactory** ) och försöker skapa igen. Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
+   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ändrar du namnet på data fabriken (till exempel **&lt; dittnamn &gt; ADFTutorialDataFactory**) och försöker skapa igen. Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
   
    ![Fel när ett namn inte är tillgängligt](./media/doc-common-process/name-not-available-error.png)
 1. Välj den Azure-prenumeration där du vill skapa den nya datafabriken för **Prenumeration**. 
@@ -104,9 +104,9 @@ I den här proceduren skapar du en länkad tjänst för att länka ditt Azure St
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 I den här proceduren skapar du två datauppsättningar: **InputDataset** och **OutputDataset**. Dessa datauppsättningar är av typen **AzureBlob**. De refererar till den länkade Azure Storage-tjänst du skapade i föregående avsnitt. 
 
-Datauppsättningen för indata representerar källdata i indatamappen. I definitionen av datauppsättningen för indata anger du blobcontainern ( **adftutorial** ), mappen ( **input** ) och filen ( **emp.txt** ) som innehåller källdata. 
+Datauppsättningen för indata representerar källdata i indatamappen. I definitionen av datauppsättningen för indata anger du blobcontainern (**adftutorial**), mappen (**input**) och filen (**emp.txt**) som innehåller källdata. 
 
-Datauppsättningen för utdata representerar de data som kopieras till målet. I definitionen av datauppsättningen för utdata anger du blobcontainern ( **adftutorial** ), mappen ( **output** ) och filen som data ska kopieras till. Varje pipelinekörning har ett unikt ID tilldelat. Du kan komma åt detta ID via systemvariabeln **RunId**. Namnet på utdatafilen utvärderas dynamiskt baserat på pipelinens körnings-ID.   
+Datauppsättningen för utdata representerar de data som kopieras till målet. I definitionen av datauppsättningen för utdata anger du blobcontainern (**adftutorial**), mappen (**output**) och filen som data ska kopieras till. Varje pipelinekörning har ett unikt ID tilldelat. Du kan komma åt detta ID via systemvariabeln **RunId**. Namnet på utdatafilen utvärderas dynamiskt baserat på pipelinens körnings-ID.   
 
 I de länkade tjänst inställningarna angav du det Azure Storage konto som innehåller källdata. I inställningarna för källdatauppsättningen anger du exakt var källdata finns (blobcontainer, mapp och fil). I inställningarna för mottagaruppsättningen anger du var du vill kopiera data (blobcontainer, mapp och fil). 
  
@@ -156,6 +156,7 @@ I den här proceduren skapar och verifierar du en pipeline med en kopieringsakti
 1. I panelen Allmänt under **Egenskaper** anger du **CopyPipeline** som **namn**. Komprimera sedan panelen genom att klicka på egenskaps ikonen i det övre högra hörnet.
 
 1. Gå till verktygsfältet **Aktiviteter** och expandera **Flytta och transformera**. Dra aktiviteten **Kopiera data** från **aktivitets verktygs lådan** till pipelinens designer-yta. Du kan också söka efter aktiviteter i verktygslådan **Aktiviteter**. Ange **CopyFromBlobToBlob** som **Namn**.
+
    ![Skapa en kopierings data aktivitet](./media/quickstart-create-data-factory-portal/copy-activity.png)
 
 1. Växla till fliken **Källa** i inställningarna för kopieringsaktiviteten och välj **InputDataset** som **Källdatauppsättning**.
@@ -163,6 +164,7 @@ I den här proceduren skapar och verifierar du en pipeline med en kopieringsakti
 1. Växla till fliken **Mottagare** i inställningarna för kopieringsaktiviteten och välj **OutputDataset** som **Datauppsättning för mottagare**.
 
 1. Verifiera pipelineinställningarna genom att klicka på **Verifiera** i verktygsfältet för pipelinen. Bekräfta att pipelinen har verifierats. Klicka på **>>** knappen (högerpil) för att stänga verifierings resultatet. 
+
    ![Verifiera en pipeline](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
 
 ## <a name="debug-the-pipeline"></a>Felsöka pipeline
@@ -180,6 +182,7 @@ I det här steget felsöker du pipelinen innan du distribuerar den till Data Fac
 I den här proceduren distribuerar du entiteter (länkade tjänster, datauppsättningar, pipeliner) till Azure Data Factory. Sedan utlöser du en pipelinekörning manuellt. 
 
 1. Innan du utlöser en pipeline måste du publicera entiteter i Data Factory. Om du vill publicera väljer du **publicera alla** överst. 
+
     ![Publicera alla](./media/quickstart-create-data-factory-portal/publish-all.png)
 
 1. Om du vill utlösa pipelinen manuellt väljer du **Lägg till utlösare** i pipeline-verktygsfältet och väljer sedan **Utlös nu**. På sidan **pipeline-körning** väljer du **Slutför**.
@@ -206,7 +209,7 @@ Den här proceduren är valfri i den här självstudien. Du kan skapa en *schema
 
 1. På sidan **Add Triggers** (Lägg till utlösare) väljer du **Choose trigger** (Välj utlösare) och sedan **Ny**. 
 
-1. På sidan **Ny utlösare** under **slut** väljer du **på datum** , anger en slut tid några minuter efter aktuell tid och väljer sedan **OK**. 
+1. På sidan **Ny utlösare** under **slut** väljer du **på datum**, anger en slut tid några minuter efter aktuell tid och väljer sedan **OK**. 
 
    Den tillkommer en kostnad för varje pipelinekörning, så ange sluttiden bara några minuter efter starttiden. Kontrollera att det är samma dag. Se dock till att det finns tillräckligt med tid för pipelinen att köras mellan publicerings tiden och slut tiden. Utlösaren träder endast i kraft när du har publicerat lösningen till Data Factory, och inte när du sparar utlösaren i användargränssnittet. 
 
@@ -219,7 +222,7 @@ Den här proceduren är valfri i den här självstudien. Du kan skapa en *schema
 
 1. Växla till fliken **Övervaka** till vänster. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera). Du ser att pipelinen körs varje minut från publiceringstiden till sluttiden. 
 
-   Observera värdena i kolumnen **utlöst av** . Den manuella körningen av utlösaren var från steget ( **Trigger Now** ) (Utlös nu) du gjorde tidigare. 
+   Observera värdena i kolumnen **utlöst av** . Den manuella körningen av utlösaren var från steget (**Trigger Now**) (Utlös nu) du gjorde tidigare. 
 
 1. Växla till vyn **Utlös ande körningar** . 
 

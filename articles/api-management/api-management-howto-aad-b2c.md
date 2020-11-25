@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7b586edd7adce8bcea61419005a3ce8cfc814fb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254953"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013572"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Så här auktoriserar du utvecklarkonton med Azure Active Directory B2C i Azure API Management
 
@@ -56,7 +56,7 @@ Azure Active Directory B2C är en lösning för moln identitets hantering för w
 
    ![Registrera ett nytt program 2][api-management-howto-aad-b2c-add-button]
 
-1. På bladet **ny program** anger du ett namn för programmet. Välj **Ja** under **Web App/Web API**och välj **Ja** under **Tillåt implicit flöde**. Klistra sedan in **omdirigerings-URL: en** som kopierades i steg 3 i text rutan **svars-URL** .
+1. På bladet **ny program** anger du ett namn för programmet. Välj **Ja** under **Web App/Web API** och välj **Ja** under **Tillåt implicit flöde**. Klistra sedan in **omdirigerings-URL: en** som kopierades i steg 3 i text rutan **svars-URL** .
 
    ![Registrera ett nytt program 3][api-management-howto-aad-b2c-app-details]
 

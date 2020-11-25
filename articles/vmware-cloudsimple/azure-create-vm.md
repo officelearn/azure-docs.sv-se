@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ee3029de9826aee17dc76d0e69f08b3c1068423b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847163"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014509"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>Skapa en virtuell dator i Azure med hjälp av mallar för virtuella datorer i VMware-infrastrukturen
 
@@ -40,17 +40,17 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
     ![Skapa CloudSimple virtuella datorer – grunder](media/create-cloudsimple-virtual-machine-basic-info.png)
 
-    | Field | Beskrivning |
+    | Fält | Beskrivning |
     | ------------ | ------------- |
     | Prenumeration | Azure-prenumeration som är associerad med ditt privata moln.  |
     | Resursgrupp | Resurs grupp som den virtuella datorn ska tilldelas till. Du kan välja en befintlig grupp eller skapa en ny. |
     | Name | Namn för att identifiera den virtuella datorn.  |
-    | Location | Azure-region där den här virtuella datorn finns.  |
+    | Plats | Azure-region där den här virtuella datorn finns.  |
     | Privata moln | CloudSimple privata moln där du vill skapa den virtuella datorn. |
     | Resurspool | Mappad resurspool för den virtuella datorn. Välj bland tillgängliga resurspooler. |
     | vSphere-mall | vSphere-mall för den virtuella datorn.  |
     | Användarnamn | Användar namn för VM-administratören (för Windows-mallar)|
-    | lösenordsinställning <br>Bekräfta lösenordet | Lösen ord för VM-administratören (för Windows-mallar).  |
+    | Lösenord <br>Bekräfta lösenordet | Lösen ord för VM-administratören (för Windows-mallar).  |
 
 5. Välj antalet kärnor och minnes kapacitet för den virtuella datorn och klicka på **Nästa: konfigurationer**. Markera kryss rutan om du vill exponera full CPU-virtualisering till gäst operativ systemet så att program som kräver virtualisering av maskin vara kan köras på virtuella datorer utan binär översättning eller paravirtualiseringsegenskaperna. Mer information finns i VMware-artikeln [exponerar VMware-maskinvarustödd virtualisering](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html).
 

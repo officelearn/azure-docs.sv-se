@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 11/09/2020
 ms.openlocfilehash: 282917a6bbf7edb962a87ad87810adde56206d97
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564726"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013521"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Snabb start: Använd Kopiera data-verktyget för att kopiera data
 
@@ -37,13 +37,13 @@ I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Gå till [Azure-portalen](https://portal.azure.com). 
-1. Från Azure Portal-menyn väljer du **skapa en resurs**  >  **integration**  >  **Data Factory** :
+1. Från Azure Portal-menyn väljer du **skapa en resurs**  >  **integration**  >  **Data Factory**:
 
     ![Skapa ny datafabrik](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. På sidan **Ny datafabrik** anger du **ADFTutorialDataFactory** som **Namn**. 
  
-   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ändrar du namnet på data fabriken (till exempel **&lt; dittnamn &gt; ADFTutorialDataFactory** ) och försöker skapa igen. Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
+   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ändrar du namnet på data fabriken (till exempel **&lt; dittnamn &gt; ADFTutorialDataFactory**) och försöker skapa igen. Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
   
    ![Fel när ett namn inte är tillgängligt](./media/doc-common-process/name-not-available-error.png)
 1. Välj den Azure-prenumeration där du vill skapa den nya datafabriken för **Prenumeration**. 
@@ -73,7 +73,7 @@ I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik
 1. På sidan **Egenskaper** sida i verktyget Kopiera data kan du ange ett namn för din pipeline och dess beskrivning och sedan välja **Nästa**. 
 
    ![Sidan Egenskaper](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
-1. Gör följande på sidan **Källdatalager** :
+1. Gör följande på sidan **Källdatalager**:
 
     a. Klicka på **+ Skapa ny anslutning** för att lägga till en anslutning.
 
@@ -88,7 +88,7 @@ I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik
     d. Välj den nyligen skapade länkade tjänsten som källa och klicka sedan på **Nästa**.
 
 
-1. Gör följande på sidan för att **välja indatafil eller -mapp** :
+1. Gör följande på sidan för att **välja indatafil eller -mapp**:
 
    a. Klicka på **Bläddra** för att navigera till mappen **adftutorial/indata** , Välj **emp.txt** -filen och klicka sedan på **Välj**. 
 

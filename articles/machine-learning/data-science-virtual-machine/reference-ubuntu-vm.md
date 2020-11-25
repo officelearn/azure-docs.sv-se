@@ -10,11 +10,11 @@ ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
 ms.openlocfilehash: 6fb7b7c2e9022b6b629a039a48bb559b36393f79
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335000"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013861"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referens: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -206,11 +206,11 @@ Mer information finns i [SQUIRREL SQL](http://squirrel-sql.sourceforge.net/index
 
 ODBC driv rutins paketet för SQL Server levereras också med två kommando rads verktyg:
 
-- **BCP** : BCP-verktyget kopierar data mellan en instans av Microsoft SQL Server och en datafil i ett användardefinierat format. Du kan använda BCP-verktyget för att importera ett stort antal nya rader till SQL Server tabeller eller för att exportera data från tabeller till datafiler. Om du vill importera data till en tabell måste du använda en format fil som skapats för tabellen. Eller så måste du förstå tabell strukturen och vilka typer av data som är giltiga för kolumnerna.
+- **BCP**: BCP-verktyget kopierar data mellan en instans av Microsoft SQL Server och en datafil i ett användardefinierat format. Du kan använda BCP-verktyget för att importera ett stort antal nya rader till SQL Server tabeller eller för att exportera data från tabeller till datafiler. Om du vill importera data till en tabell måste du använda en format fil som skapats för tabellen. Eller så måste du förstå tabell strukturen och vilka typer av data som är giltiga för kolumnerna.
 
   Mer information finns i [ansluta med BCP](/sql/connect/odbc/linux-mac/connecting-with-bcp).
 
-- **SQLCMD** : du kan ange Transact-SQL-uttryck med hjälp av SQLCMD-verktyget. Du kan också ange system procedurer och skriptfiler i kommando tolken. Verktyget använder ODBC för att köra Transact-SQL-batchar.
+- **SQLCMD**: du kan ange Transact-SQL-uttryck med hjälp av SQLCMD-verktyget. Du kan också ange system procedurer och skriptfiler i kommando tolken. Verktyget använder ODBC för att köra Transact-SQL-batchar.
 
   Mer information finns i [ansluta till SQLCMD](/sql/connect/odbc/linux-mac/connecting-with-sqlcmd).
 
@@ -228,13 +228,13 @@ Bibliotek är tillgängliga i R och python för databas åtkomst:
 
 Följande Azure-verktyg är installerade på den virtuella datorn:
 
-* **Azure CLI** : du kan använda kommando rads gränssnittet i Azure för att skapa och hantera Azure-resurser via Shell-kommandon. Öppna Azure-verktygen genom att ange **Azure-hjälpen**. Mer information finns på sidan med [Azure CLI-dokumentation](/cli/azure/get-started-with-az-cli2).
-* **Azure Storage Explorer** : Azure Storage Explorer är ett grafiskt verktyg som du kan använda för att bläddra bland de objekt som du har lagrat på ditt Azure Storage-konto och för att ladda upp och ladda ned data till och från Azure-blobbar. Du kan komma åt Storage Explorer från Skriv bords gen vägs ikonen. Du kan också öppna den från en Shell-prompt genom att ange **StorageExplorer**. Du måste vara inloggad från en X2Go-klient eller konfigurera begäran om x11-vidarebefordring.
-* **Azure-bibliotek** : följande är några av de förinstallerade biblioteken.
+* **Azure CLI**: du kan använda kommando rads gränssnittet i Azure för att skapa och hantera Azure-resurser via Shell-kommandon. Öppna Azure-verktygen genom att ange **Azure-hjälpen**. Mer information finns på sidan med [Azure CLI-dokumentation](/cli/azure/get-started-with-az-cli2).
+* **Azure Storage Explorer**: Azure Storage Explorer är ett grafiskt verktyg som du kan använda för att bläddra bland de objekt som du har lagrat på ditt Azure Storage-konto och för att ladda upp och ladda ned data till och från Azure-blobbar. Du kan komma åt Storage Explorer från Skriv bords gen vägs ikonen. Du kan också öppna den från en Shell-prompt genom att ange **StorageExplorer**. Du måste vara inloggad från en X2Go-klient eller konfigurera begäran om x11-vidarebefordring.
+* **Azure-bibliotek**: följande är några av de förinstallerade biblioteken.
   
-  * **Python** : Azure-relaterade bibliotek i python är *Azure* , *azureml* , *pydocumentdb* och *pyodbc*. Med de tre första biblioteken kan du komma åt Azure Storage-tjänster, Azure Machine Learning och Azure Cosmos DB (en NoSQL-databas på Azure). Det fjärde biblioteket, pyodbc (tillsammans med Microsoft ODBC-drivrutinen för SQL Server), ger åtkomst till SQL Server, Azure SQL Database och Azure Synapse-analys från python med hjälp av ett ODBC-gränssnitt. Ange **pip-listan** för att visa alla bibliotek i listan. Se till att köra det här kommandot i både python 2,7-och 3,5-miljöerna.
-  * **R** : Azure-relaterade bibliotek i R är AZUREML och RODBC.
-  * **Java** : listan med Azure Java-bibliotek finns i katalogen/dsvm/SDK/AzureSDKJava på den virtuella datorn. Nyckel biblioteken är API: er för Azure Storage och hantering, Azure Cosmos DB och JDBC driv rutiner för SQL Server.  
+  * **Python**: Azure-relaterade bibliotek i python är *Azure*, *azureml*, *pydocumentdb* och *pyodbc*. Med de tre första biblioteken kan du komma åt Azure Storage-tjänster, Azure Machine Learning och Azure Cosmos DB (en NoSQL-databas på Azure). Det fjärde biblioteket, pyodbc (tillsammans med Microsoft ODBC-drivrutinen för SQL Server), ger åtkomst till SQL Server, Azure SQL Database och Azure Synapse-analys från python med hjälp av ett ODBC-gränssnitt. Ange **pip-listan** för att visa alla bibliotek i listan. Se till att köra det här kommandot i både python 2,7-och 3,5-miljöerna.
+  * **R**: Azure-relaterade bibliotek i R är AZUREML och RODBC.
+  * **Java**: listan med Azure Java-bibliotek finns i katalogen/dsvm/SDK/AzureSDKJava på den virtuella datorn. Nyckel biblioteken är API: er för Azure Storage och hantering, Azure Cosmos DB och JDBC driv rutiner för SQL Server.  
 
 Du kan komma åt [Azure Portal](https://portal.azure.com) från den förinstallerade Firefox-webbläsaren. På Azure Portal kan du skapa, hantera och övervaka Azure-resurser.
 
@@ -246,7 +246,7 @@ När du har loggat in på Azure Machine Learning Studio kan du använda en exper
 
 Operationalisera de maskin inlärnings modeller som du har skapat genom att figursätta dem i ett webb tjänst gränssnitt. Genom att använda Machine Learning-modeller kan klienter skrivna på valfritt språk för att anropa förutsägelser från dessa modeller. Mer information finns i Machine Learning- [dokumentationen](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-Du kan också bygga dina modeller i R eller python på den virtuella datorn och sedan distribuera dem i produktion på Azure Machine Learning. Vi har installerat bibliotek i R ( **azureml** ) och python ( **azureml** ) för att aktivera den här funktionen.
+Du kan också bygga dina modeller i R eller python på den virtuella datorn och sedan distribuera dem i produktion på Azure Machine Learning. Vi har installerat bibliotek i R (**azureml**) och python (**azureml**) för att aktivera den här funktionen.
 
 > [!NOTE]
 > Dessa instruktioner skrevs för Windows-versionen av Data Science Virtual Machine. Men informationen som ges vid distribution av modeller till Azure Machine Learning är tillämplig på den virtuella Linux-datorn.
@@ -255,12 +255,12 @@ Du kan också bygga dina modeller i R eller python på den virtuella datorn och 
 
 Den virtuella datorn levereras med Machine Learning-verktyg och algoritmer som har förkompilerats och redan installerats lokalt. Dessa omfattar:
 
-* **Vowpal Wabbit** : en snabb onlineutbildning för inlärning.
-* **xgboost** : ett verktyg som tillhandahåller optimerade, förstärkta träd algoritmer.
-* **Rattle** : ett R-baserat grafiskt verktyg för enkel utforskning och modellering av data.
-* **Python** : Anaconda python kommer att paketeras med Machine Learning-algoritmer med bibliotek som Scikit-lär. Du kan installera andra bibliotek med hjälp av `pip install` kommandot.
-* **LightGBM** : ett snabb, distribuerat, högpresterande tonings ramverk som bygger på algoritmer för besluts träd.
-* **R** : ett omfattande bibliotek med Machine Learning-funktioner är tillgängligt för R. förinstallerade bibliotek är lm, GLM, randomForest och rpart. Du kan installera andra bibliotek genom att köra det här kommandot:
+* **Vowpal Wabbit**: en snabb onlineutbildning för inlärning.
+* **xgboost**: ett verktyg som tillhandahåller optimerade, förstärkta träd algoritmer.
+* **Rattle**: ett R-baserat grafiskt verktyg för enkel utforskning och modellering av data.
+* **Python**: Anaconda python kommer att paketeras med Machine Learning-algoritmer med bibliotek som Scikit-lär. Du kan installera andra bibliotek med hjälp av `pip install` kommandot.
+* **LightGBM**: ett snabb, distribuerat, högpresterande tonings ramverk som bygger på algoritmer för besluts träd.
+* **R**: ett omfattande bibliotek med Machine Learning-funktioner är tillgängligt för R. förinstallerade bibliotek är lm, GLM, randomForest och rpart. Du kan installera andra bibliotek genom att köra det här kommandot:
 
     ```r
     install.packages(<lib name>)

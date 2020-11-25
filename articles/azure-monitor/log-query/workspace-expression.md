@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 255888acf5da6149b6a964b23ed038b99715481c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75364959"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014048"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>uttryck för arbets yta () i Azure Monitor logg fråga
 
@@ -34,7 +34,7 @@ ms.locfileid: "75364959"
 | Resurs-ID för Azure | Identifierare för Azure-resursen | arbets yta ("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 
-## <a name="notes"></a>Obs!
+## <a name="notes"></a>Kommentarer
 
 * Du måste ha Läs behörighet till arbets ytan.
 * Ett relaterat uttryck är `app` att du kan fråga över Application Insights-program.

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 44de30438d59252a431bf37ac6919a9bc186c8ed
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315745"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013558"
 ---
 > [!NOTE]
 > Dokumentations innehållet är om den föråldrade Developer-portalen. Du kan fortsätta att använda det, enligt vanligt, tills det upphör att gälla i oktober 2023 när det tas bort från alla API Management tjänster. Den inaktuella portalen får bara kritiska säkerhets uppdateringar. Mer information finns i följande artiklar:

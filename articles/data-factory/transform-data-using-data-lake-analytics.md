@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: d890f73ea8b2294755b14055cb11904d50160cc4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632132"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014014"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Bearbeta data genom att köra U-SQL-skript på Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -38,11 +38,11 @@ Följande tabell innehåller beskrivningar av de allmänna egenskaper som använ
 
 | Egenskap                 | Beskrivning                              | Krävs                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **bastyp**                 | Egenskapen Type ska anges till: **AzureDataLakeAnalytics** . | Ja                                      |
-| **accountName**          | Azure Data Lake Analytics konto namn.  | Ja                                      |
-| **dataLakeAnalyticsUri** | Azure Data Lake Analytics-URI.           | Nej                                       |
-| **subscriptionId**       | ID för Azure-prenumeration                    | Nej                                       |
-| **resourceGroupName**    | Azure-resursgruppsnamn                | Nej                                       |
+| **bastyp**                 | Egenskapen Type ska anges till: **AzureDataLakeAnalytics**. | Yes                                      |
+| **accountName**          | Azure Data Lake Analytics konto namn.  | Yes                                      |
+| **dataLakeAnalyticsUri** | Azure Data Lake Analytics-URI.           | No                                       |
+| **subscriptionId**       | ID för Azure-prenumeration                    | No                                       |
+| **resourceGroupName**    | Azure-resursgruppsnamn                | No                                       |
 
 ### <a name="service-principal-authentication"></a>Autentisering av tjänstens huvudnamn
 Den Azure Data Lake Analytics länkade tjänsten kräver en tjänstens huvud namns autentisering för att ansluta till Azure Data Lake Analyticss tjänsten. Om du vill använda tjänstens huvud namns autentisering registrerar du en programentitet i Azure Active Directory (Azure AD) och ger den åtkomst till både Data Lake Analytics och Data Lake Store den använder. Detaljerade anvisningar finns i [tjänst-till-tjänst-autentisering](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
@@ -57,9 +57,9 @@ Använd tjänstens huvud namns autentisering genom att ange följande egenskaper
 
 | Egenskap                | Beskrivning                              | Krävs |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | Ange programmets klient-ID.     | Ja      |
-| **servicePrincipalKey** | Ange programmets nyckel.           | Ja      |
-| **tenant**              | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja      |
+| **servicePrincipalId**  | Ange programmets klient-ID.     | Yes      |
+| **servicePrincipalKey** | Ange programmets nyckel.           | Yes      |
+| **tenant**              | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Yes      |
 
 **Exempel: autentisering av tjänstens huvud namn**
 ```json
@@ -121,17 +121,17 @@ I följande tabell beskrivs namn och beskrivningar av egenskaper som är unika f
 
 | Egenskap            | Beskrivning                              | Krävs |
 | :------------------ | :--------------------------------------- | :------- |
-| name                | Namn på aktiviteten i pipelinen     | Ja      |
-| description         | Text som beskriver vad aktiviteten gör.  | Nej       |
-| typ                | För Data Lake Analytics U-SQL-aktivitet är aktivitets typen  **DataLakeAnalyticsU-SQL** . | Ja      |
-| linkedServiceName   | Länkad tjänst till Azure Data Lake Analytics. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .  |Ja       |
-| scriptPath          | Sökväg till mapp som innehåller U-SQL-skriptet. Filens namn är Skift läges känsligt. | Ja      |
-| scriptLinkedService | Länkad tjänst som länkar **Azure Data Lake Store** eller **Azure Storage** som innehåller skriptet till data fabriken | Ja      |
-| degreeOfParallelism | Det maximala antalet noder som används samtidigt för att köra jobbet. | Nej       |
-| prioritet            | Bestämmer vilka jobb som inte är i kö som ska väljas för att köras först. Ju lägre siffra, desto högre prioritet. | Nej       |
-| parametrar          | Parametrar för att skicka till U-SQL-skriptet.    | Nej       |
-| runtimeVersion      | Körnings version av U-SQL-motorn som ska användas. | Nej       |
-| compilationMode     | <p>Compiler-läge för U-SQL. Måste vara något av följande värden: **semantik:** utför endast semantiska kontroller och nödvändiga Sanity-kontroller, **fullständig:** utför fullständig kompilering, inklusive syntaxkontroll, optimering, kodgenerering för kod osv., **enkel:** utföra fullständig kompilering med TargetType-inställning till en enda. Om du inte anger något värde för den här egenskapen, fastställer servern det optimala kompilerings läget. | Nej |
+| name                | Namn på aktiviteten i pipelinen     | Yes      |
+| beskrivning         | Text som beskriver vad aktiviteten gör.  | No       |
+| typ                | För Data Lake Analytics U-SQL-aktivitet är aktivitets typen  **DataLakeAnalyticsU-SQL**. | Yes      |
+| linkedServiceName   | Länkad tjänst till Azure Data Lake Analytics. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .  |Yes       |
+| scriptPath          | Sökväg till mapp som innehåller U-SQL-skriptet. Filens namn är Skift läges känsligt. | Yes      |
+| scriptLinkedService | Länkad tjänst som länkar **Azure Data Lake Store** eller **Azure Storage** som innehåller skriptet till data fabriken | Yes      |
+| degreeOfParallelism | Det maximala antalet noder som används samtidigt för att köra jobbet. | No       |
+| prioritet            | Bestämmer vilka jobb som inte är i kö som ska väljas för att köras först. Ju lägre siffra, desto högre prioritet. | No       |
+| parametrar          | Parametrar för att skicka till U-SQL-skriptet.    | No       |
+| runtimeVersion      | Körnings version av U-SQL-motorn som ska användas. | No       |
+| compilationMode     | <p>Compiler-läge för U-SQL. Måste vara något av följande värden: **semantik:** utför endast semantiska kontroller och nödvändiga Sanity-kontroller, **fullständig:** utför fullständig kompilering, inklusive syntaxkontroll, optimering, kodgenerering för kod osv., **enkel:** utföra fullständig kompilering med TargetType-inställning till en enda. Om du inte anger något värde för den här egenskapen, fastställer servern det optimala kompilerings läget. | No |
 
 Se [SearchLogProcessing.txt](#sample-u-sql-script) för skript definitionen. 
 

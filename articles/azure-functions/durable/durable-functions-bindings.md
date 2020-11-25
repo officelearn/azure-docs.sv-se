@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081856"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013743"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för Durable Functions (Azure Functions)
 
@@ -533,7 +533,7 @@ Om du använder skript språk (till exempel *. CSX* -eller *. js* -filer) för u
 
 I .NET-funktioner binder du normalt till `IDurableEntityClient` , vilket ger dig fullständig åtkomst till alla klient-API: er som stöds av varaktiga enheter. Du kan också binda till `IDurableOrchestrationClient` gränssnittet, som ger åtkomst till klient-API: er för både entiteter och dirigeringar. API: er för klient objekt är:
 
-* **ReadEntityStateAsync \<T> **: läser status för en entitet. Det returnerar ett svar som anger om målentiteten finns, och i så fall, vad dess tillstånd är.
+* **ReadEntityStateAsync \<T>**: läser status för en entitet. Det returnerar ett svar som anger om målentiteten finns, och i så fall, vad dess tillstånd är.
 * **SignalEntityAsync**: skickar ett envägs meddelande till en entitet och väntar på att det ska placeras i kö.
 * **ListEntitiesAsync**: frågar efter status för flera entiteter. Entiteter kan efter frågas efter *namn* och *senaste åtgärds tid*.
 

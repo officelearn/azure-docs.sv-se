@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -9,17 +9,17 @@ ms.topic: include
 ms.custom: include file
 ms.date: 06/27/2019
 ms.openlocfilehash: a979cd0a4c2ee6466edebadf61e8a98b8f17c9f3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86544344"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013385"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-subscription"></a>Azure-prenumeration
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ### <a name="azure-roles"></a>Azure-roller
 
@@ -46,7 +46,7 @@ Du använder ett allmänt Azure Storage konto (särskilt Blob Storage) som både
 Du behöver namnet på ditt Azure Storage-konto för den här snabb starten. Följande procedur innehåller steg för att hämta namnet på ditt lagrings konto: 
 
 1. I en webbläsare går du till [Azure Portal](https://portal.azure.com) och loggar in med ditt användar namn och lösen ord för Azure.
-2. Välj **alla tjänster**på Azure Portal-menyn och välj **lagrings**  >  **lagrings konton**. Du kan också söka efter och välja *lagrings konton* från vilken sida som helst.
+2. Välj **alla tjänster** på Azure Portal-menyn och välj **lagrings**  >  **lagrings konton**. Du kan också söka efter och välja *lagrings konton* från vilken sida som helst.
 3. På sidan **lagrings konton** filtrerar du ditt lagrings konto (om det behövs) och väljer sedan ditt lagrings konto. 
 
 Du kan också söka efter och välja *lagrings konton* från vilken sida som helst.
@@ -55,7 +55,7 @@ Du kan också söka efter och välja *lagrings konton* från vilken sida som hel
 
 I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Azure Blob Storage.
 
-1. Välj **Översikt**behållare på sidan lagrings konto  >  **Containers**.
+1. Välj **Översikt** behållare på sidan lagrings konto  >  **Containers**.
 2. På *\<Account name>*  -  **behållarens** verktygsfält väljer du **behållare**.
 3. I dialogrutan **Ny container** anger du **adftutorial** som namn och väljer **OK**. *\<Account name>*  -  **Behållare** sidan uppdateras till att inkludera **adftutorial** i listan över behållare.
 
@@ -75,11 +75,11 @@ Spara filen i mappen **C:\ADFv2QuickStartPSH** (Om mappen inte redan finns skapa
 1. På *\<Account name>*  -  sidan **behållare** där du slutade väljer du **adftutorial** från den uppdaterade listan över behållare.
 
    1. Om du stängde fönstret eller gick till en annan sida loggar du in på [Azure Portal](https://portal.azure.com) igen.
-   1. Välj **alla tjänster**på Azure Portal-menyn och välj **lagrings**  >  **lagrings konton**. Du kan också söka efter och välja *lagrings konton* från vilken sida som helst.
+   1. Välj **alla tjänster** på Azure Portal-menyn och välj **lagrings**  >  **lagrings konton**. Du kan också söka efter och välja *lagrings konton* från vilken sida som helst.
    1. Välj ditt lagrings konto och välj sedan **containers**  >  **adftutorial**.
 
 2. I verktygsfältet för **adftutorial** container-sidan väljer du **Ladda upp**.
-3. På sidan **Ladda upp BLOB** väljer du rutan **filer** och bläddrar sedan till och väljer **emp.txts ** filen.
+3. På sidan **Ladda upp BLOB** väljer du rutan **filer** och bläddrar sedan till och väljer **emp.txts** filen.
 4. Expandera den **avancerade** rubriken. Sidan visas nu som på det sätt som visas:
 
    ![Välj länken Avancerat](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)

@@ -6,11 +6,11 @@ ms.topic: conceptual
 description: Beskriver processerna för att köra din kod i Azure Kubernetes service med Azure dev Spaces
 keywords: azds. yaml, Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
 ms.openlocfilehash: 1cace325f9415d46210636e5c04cc2d75589cc11
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975475"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014439"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Hur du kör din kod med Azure dev Spaces fungerar
 
@@ -64,13 +64,13 @@ När en tjänst körs har Azure dev Spaces möjlighet att uppdatera tjänsten om
 
 Vissa projektfiler som är statiska till gångar, till exempel HTML-, CSS-och cshtml-filer, kan uppdateras direkt i programmets behållare utan att du behöver starta om något. Om en statisk till gång ändras, synkroniseras den nya filen med dev-utrymmet och används sedan av behållaren som körs.
 
-Ändringar i filer som källkod eller programkonfigurationsfiler kan tillämpas genom att starta om programmets process inom den pågående behållaren. När de här filerna har synkroniserats startas programmets process om inom den behållare som körs med hjälp av processen *devhostagent* . När du skapar programmets behållare i första hand, ersätter kontrollanten Start kommandot för programmet med en annan process som heter *devhostagent*. Programmets faktiska process körs sedan som en underordnad process under *devhostagent*och dess utdata är skickas ut med *devhostagent*utdata. Processen *devhostagent* är också en del av dev Spaces och kan köra kommandon i den behållare som körs på uppdrag av dev Spaces. När du utför en omstart, *devhostagent*:
+Ändringar i filer som källkod eller programkonfigurationsfiler kan tillämpas genom att starta om programmets process inom den pågående behållaren. När de här filerna har synkroniserats startas programmets process om inom den behållare som körs med hjälp av processen *devhostagent* . När du skapar programmets behållare i första hand, ersätter kontrollanten Start kommandot för programmet med en annan process som heter *devhostagent*. Programmets faktiska process körs sedan som en underordnad process under *devhostagent* och dess utdata är skickas ut med *devhostagent* utdata. Processen *devhostagent* är också en del av dev Spaces och kan köra kommandon i den behållare som körs på uppdrag av dev Spaces. När du utför en omstart, *devhostagent*:
 
 * Stoppar den aktuella processen eller de processer som är associerade med programmet
 * Återskapar programmet
 * Startar om processen eller processerna som är associerade med programmet
 
-Hur *devhostagent* kör föregående steg har [kon figurer ATS i `azds.yaml` ][azds-yaml-section].
+Hur *devhostagent* kör föregående steg har [kon figurer ATS i `azds.yaml`][azds-yaml-section].
 
 Uppdateringar av projektfiler som Dockerfiles, CSPROJ-filer eller någon del av Helm-diagrammet kräver att programmets behållare återskapas och distribueras om. När en av dessa filer synkroniseras till dev-utrymmet kör kontrollanten [Helm Upgrade][helm-upgrade] -kommandot och programmets behållare återskapas och distribueras om.
 
@@ -132,11 +132,11 @@ Med egenskapen *install. Set* kan du konfigurera ett eller flera värden som du 
 
 I exemplet ovan anger egenskapen *install. Set. replicaCount* kontrollanten hur många instanser av programmet som ska köras i ditt dev-utrymme. Beroende på ditt scenario kan du öka det här värdet, men det påverkar hur du kopplar en fel sökare till programmets pod. Mer information finns i [fel söknings artikeln][troubleshooting].
 
-I det genererade Helm-diagrammet är behållar avbildningen inställd på *{{. Values. image. databas}}: {{. Values. image. tag}}*. `azds.yaml`Filen definierar *install. Set. image. tag* -egenskapen som *$ (tag)* som standard som används som värde för *{{. Values. image. tag}}*. Genom att ställa in egenskapen *install. Set. image. tag* på det här sättet tillåter den att behållar avbildningen för programmet taggas på ett tydligt sätt när du kör Azure dev Spaces. I det här fallet är avbildningen Taggad som * \<value from image.repository> : $ (tag)*. Du måste använda variabeln *$ (tag)* som värdet för metoden   *install. Set. image. tag* för att dev Spaces ska kunna identifiera och hitta behållaren i AKS-klustret.
+I det genererade Helm-diagrammet är behållar avbildningen inställd på *{{. Values. image. databas}}: {{. Values. image. tag}}*. `azds.yaml`Filen definierar *install. Set. image. tag* -egenskapen som *$ (tag)* som standard som används som värde för *{{. Values. image. tag}}*. Genom att ställa in egenskapen *install. Set. image. tag* på det här sättet tillåter den att behållar avbildningen för programmet taggas på ett tydligt sätt när du kör Azure dev Spaces. I det här fallet är avbildningen Taggad som *\<value from image.repository> : $ (tag)*. Du måste använda variabeln *$ (tag)* som värdet för metoden   *install. Set. image. tag* för att dev Spaces ska kunna identifiera och hitta behållaren i AKS-klustret.
 
 I ovanstående exempel `azds.yaml` definierar *install. Set. ingress. hosts*. Egenskapen *install. Set. ingress. hosts* anger ett värdnamn för offentliga slut punkter. Den här egenskapen använder också *$ (spacePrefix)*, *$ (rootSpacePrefix)* och *$ (hostSuffix)*, som är värden som tillhandahålls av kontrollanten.
 
-*$ (SpacePrefix)* är namnet på den underordnade dev-ytan, som tar formen av *SPACENAME. s*. *$ (RootSpacePrefix)* är namnet på det överordnade utrymmet. Om *azureuser* till exempel är ett underordnat utrymme som *standard*är värdet för *$ (rootSpacePrefix)* *standard* och värdet för *$ (spacePrefix)* är *azureuser. s*. Om utrymmet inte är ett underordnat utrymme är *$ (spacePrefix)* tomt. Om *standard* utrymmet till exempel inte har något överordnat utrymme är värdet för *$ (rootSpacePrefix)* *standard* och värdet för *$ (spacePrefix)* är tomt. *$ (HostSuffix)* är ett DNS-suffix som pekar på ingångs styrenheten för Azure dev Spaces som körs i ditt AKS-kluster. Det här DNS-suffixet motsvarar en DNS-post med jokertecken, till exempel * \* . RANDOM_VALUE. EUs. azds. io*, som skapades när Azure dev Spaces-styrenheten lades till i ditt AKS-kluster.
+*$ (SpacePrefix)* är namnet på den underordnade dev-ytan, som tar formen av *SPACENAME. s*. *$ (RootSpacePrefix)* är namnet på det överordnade utrymmet. Om *azureuser* till exempel är ett underordnat utrymme som *standard* är värdet för *$ (rootSpacePrefix)* *standard* och värdet för *$ (spacePrefix)* är *azureuser. s*. Om utrymmet inte är ett underordnat utrymme är *$ (spacePrefix)* tomt. Om *standard* utrymmet till exempel inte har något överordnat utrymme är värdet för *$ (rootSpacePrefix)* *standard* och värdet för *$ (spacePrefix)* är tomt. *$ (HostSuffix)* är ett DNS-suffix som pekar på ingångs styrenheten för Azure dev Spaces som körs i ditt AKS-kluster. Det här DNS-suffixet motsvarar en DNS-post med jokertecken, till exempel *\* . RANDOM_VALUE. EUs. azds. io*, som skapades när Azure dev Spaces-styrenheten lades till i ditt AKS-kluster.
 
 I ovanstående `azds.yaml` fil kan du också uppdatera *install. Set. ingress. hosts* om du vill ändra värd namnet för ditt program. Om du till exempel vill förenkla värd namnet för ditt program från *$ (spacePrefix) $ (rootSpacePrefix) webfrontend $ (hostSuffix)* till *$ (spacePrefix) $ (rootSpacePrefix) Web $ (hostSuffix)*.
 

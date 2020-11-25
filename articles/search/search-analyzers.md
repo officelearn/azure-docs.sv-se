@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 544509a8c90c9273b748591509b1fa86510d71c3
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421744"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013827"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analys verktyg för text bearbetning i Azure Kognitiv sökning
 
@@ -48,10 +48,10 @@ I följande lista beskrivs vilka analys verktyg som är tillgängliga i Azure Ko
 | Kategori | Beskrivning |
 |----------|-------------|
 | [Standard Lucene Analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Standard. Ingen specifikation eller konfiguration krävs. Den här generella analysen fungerar bra för många språk och scenarier.|
-| Fördefinierade analys verktyg | Erbjuds som en färdig produkt som är avsedd att användas i befintligt skick. <br/>Det finns två typer: specialiserade och språk. Vad gör dem "fördefinierade" är att du refererar till dem efter namn, utan konfiguration eller anpassning. <br/><br/>[Specialiserade oberoende-analyser (Language-)](index-add-custom-analyzers.md#AnalyzerTable) används när text inmatningar kräver specialiserad bearbetning eller minimal bearbetning. Icke-språkdefinierade analys verktyg omfattar **Asciifolding** , **nyckelord** , **mönster** , **enkel** , **stopp** , **blank steg**.<br/><br/>[Språk analys](index-add-language-analyzers.md) verktyg används när du behöver omfattande språk stöd för enskilda språk. Azure Kognitiv sökning stöder 35 Lucene-språkanalyser och 50 Microsoft Natural Language Processing-analyser. |
+| Fördefinierade analys verktyg | Erbjuds som en färdig produkt som är avsedd att användas i befintligt skick. <br/>Det finns två typer: specialiserade och språk. Vad gör dem "fördefinierade" är att du refererar till dem efter namn, utan konfiguration eller anpassning. <br/><br/>[Specialiserade oberoende-analyser (Language-)](index-add-custom-analyzers.md#AnalyzerTable) används när text inmatningar kräver specialiserad bearbetning eller minimal bearbetning. Icke-språkdefinierade analys verktyg omfattar **Asciifolding**, **nyckelord**, **mönster**, **enkel**, **stopp**, **blank steg**.<br/><br/>[Språk analys](index-add-language-analyzers.md) verktyg används när du behöver omfattande språk stöd för enskilda språk. Azure Kognitiv sökning stöder 35 Lucene-språkanalyser och 50 Microsoft Natural Language Processing-analyser. |
 |[Anpassade analysverktyg](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refererar till en användardefinierad konfiguration av en kombination av befintliga element, som består av ett tokenizer (obligatoriskt) och valfria filter (Char eller token).|
 
-Några fördefinierade analyser, till exempel **mönster** eller **stopp** , stöder en begränsad uppsättning konfigurations alternativ. Om du vill ange de här alternativen skapar du en anpassad analys som består av den fördefinierade analysen och ett av de alternativa alternativen som dokumenteras i den [fördefinierade analys referensen](index-add-custom-analyzers.md#AnalyzerTable). Som med valfri anpassad konfiguration kan du ange en ny konfiguration med ett namn, till exempel *myPatternAnalyzer* , för att skilja den från Lucene Pattern Analyzer.
+Några fördefinierade analyser, till exempel **mönster** eller **stopp**, stöder en begränsad uppsättning konfigurations alternativ. Om du vill ange de här alternativen skapar du en anpassad analys som består av den fördefinierade analysen och ett av de alternativa alternativen som dokumenteras i den [fördefinierade analys referensen](index-add-custom-analyzers.md#AnalyzerTable). Som med valfri anpassad konfiguration kan du ange en ny konfiguration med ett namn, till exempel *myPatternAnalyzer* , för att skilja den från Lucene Pattern Analyzer.
 
 ## <a name="how-to-specify-analyzers"></a>Ange analys verktyg
 

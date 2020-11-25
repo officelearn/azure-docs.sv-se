@@ -4,11 +4,11 @@ description: 'Snabb start: Använd Azure Event Grid och Azure Portal för att pu
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87421050"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013674"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Snabb start: dirigera anpassade händelser till webb slut punkten med Azure Portal och Event Grid
 
@@ -24,31 +24,31 @@ Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använ
 Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar dina händelser. 
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. I Sök fältet i avsnittet skriver du **Event Grid ämnen**och väljer **Event Grid ämnen** i list rutan. 
+2. I Sök fältet i avsnittet skriver du **Event Grid ämnen** och väljer **Event Grid ämnen** i list rutan. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Sök efter och välj Event Grid ämnen":::
 3. På sidan **Event Grid ämnen** väljer du **+ Lägg till** i verktygsfältet. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Sök efter och välj Event Grid ämnen":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Knappen Lägg till Event Grid ämne":::
 4. Följ dessa steg på sidan **skapa ämne** :
     1. Välj din Azure- **prenumeration**.
-    2. Välj en befintlig resurs grupp eller Välj **Skapa ny**och ange ett **namn** för **resurs gruppen**.
+    2. Välj en befintlig resurs grupp eller Välj **Skapa ny** och ange ett **namn** för **resurs gruppen**.
     3. Ange ett unikt **namn** för det anpassade ämnet. Ämnesnamnet måste vara unikt eftersom det representeras av en DNS-post. Använd inte det namn som visas på bilden. I stället skapar du ett eget namn som måste bestå av 3–50 tecken och enbart får innehålla a-z, A-Z, 0-9 och ”-”.
     4. Välj en **plats** för Event Grid-ämnet.
     5. Välj **Granska + skapa** längst ned på sidan. 
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/create-custom-topic.png" alt-text="Sök efter och välj Event Grid ämnen":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/create-custom-topic.png" alt-text="Sidan skapa ämne":::
     6. På fliken **Granska + skapa** på sidan **skapa ämne** väljer du **skapa**. 
     
-        :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Sök efter och välj Event Grid ämnen":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Granska inställningar och skapa":::
 5. När distributionen har slutförts skriver du **Event Grid ämnen** i Sök fältet igen och väljer **Event Grid ämnen** i list rutan som du gjorde tidigare. 
 6. Välj det avsnitt som du skapade i listan. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Sök efter och välj Event Grid ämnen":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Välj ditt ämne i listan":::
 
 7. Du ser sidan **Event Grid ämne** för ditt ämne. Behåll sidan öppen. Du använder det senare i snabb starten. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Sök efter och välj Event Grid ämnen":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Start sida för Event Grid ämne":::
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 Innan du skapar en prenumeration för det anpassade ämnet skapar du en slut punkt för händelse meddelandet. Slutpunkten utför vanligtvis åtgärder baserat på informationen om händelsen. För att förenkla den här snabbstarten kan du distribuera en [förskapad webbapp](https://github.com/Azure-Samples/azure-event-grid-viewer) som visar meddelanden om händelser. Den distribuerade lösningen innehåller en App Service-plan,en webbapp för App Service och källkod från GitHub.
@@ -69,16 +69,16 @@ Du prenumererar på ett Event Grid-ämne därför att du vill ange för Event Gr
 
 1. På sidan **Event Grid ämne** för ditt anpassade ämne väljer du **+ händelse prenumeration** i verktygsfältet.
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Sök efter och välj Event Grid ämnen":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Knappen Lägg till händelse prenumeration":::
 2. Följ dessa steg på sidan **Skapa händelse prenumeration** :
     1. Ange ett **namn** för händelse prenumerationen.
     3. Välj **Web Hook** som **typ av slut punkt**. 
     4. Välj **Välj en slut punkt**. 
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/provide-subscription-values.png" alt-text="Sök efter och välj Event Grid ämnen":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-subscription-values.png" alt-text="Ange värden för händelseprenumerationen":::
     5. För webhookens slutpunkt anger du webbappens webbadress och lägger till `api/updates` till startsidans webbadress. Välj **Bekräfta val**.
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Sök efter och välj Event Grid ämnen":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Ange slutpunktens webbadress":::
     6. Gå tillbaka till sidan **Skapa händelse prenumeration** och välj **skapa**.
 
 3. Visa ditt webbprogram igen och observera att en händelse för verifieringen av prenumerationen har skickats till den. Välj ögonikonen för att utöka informationen om händelsen. Händelserutnätet skickar valideringshändelsen så att slutpunkten kan bekräfta att den vill ta emot händelsedata. Webbappen inkluderar kod för att verifiera prenumerationen.
@@ -95,7 +95,7 @@ I det första exemplet används Azure CLI. URL och nyckel för det anpassade äm
 ### <a name="azure-cli"></a>Azure CLI
 1. I Azure Portal väljer du **Cloud Shell**. Cloud Shell öppnas i den nedre rutan i webbläsaren. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Sök efter och välj Event Grid ämnen":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Välj Cloud Shell ikon":::
 1. Välj **bash** i det övre vänstra hörnet i Cloud Shells fönstret. 
 
     ![Cloud Shell-bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
@@ -125,8 +125,8 @@ I det andra exemplet används PowerShell för att utföra liknande steg.
 
 1. I Azure Portal väljer du **Cloud Shell** (du kan också gå till `https://shell.azure.com/` ). Cloud Shell öppnas i den nedre rutan i webbläsaren. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Sök efter och välj Event Grid ämnen":::
-1. I **Cloud Shell**väljer du **PowerShell** i det övre vänstra hörnet i Cloud Shells fönstret. Se exemplet på **Cloud Shell** fönstret i Azure CLI-avsnittet.
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Välj Cloud Shell ikon":::
+1. I **Cloud Shell** väljer du **PowerShell** i det övre vänstra hörnet i Cloud Shells fönstret. Se exemplet på **Cloud Shell** fönstret i Azure CLI-avsnittet.
 2. Ange följande variabler. När du har kopierat och klistrat in varje kommando uppdaterar du **ämnes namnet** och **resurs gruppens namn** innan du kör kommandot:
 
     **Resurs grupp**:
@@ -178,7 +178,7 @@ I det andra exemplet används PowerShell för att utföra liknande steg.
 ### <a name="verify-in-the-event-grid-viewer"></a>Verifiera i Event Grid Viewer
 Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt som du konfigurerade när du prenumererade. Visa din webbapp om du vill se händelsen som du har skickat.
 
-:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Sök efter och välj Event Grid ämnen":::
+:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Event Grid Viewer":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 Om du planerar att fortsätta arbeta med den här händelsen ska du inte rensa upp bland de resurser som skapades i den här artikeln. I annat fall tar du bort alla resurser som du har skapat i den här artikeln.

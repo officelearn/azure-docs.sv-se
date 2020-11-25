@@ -7,14 +7,14 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2471a19cf795d969644cb92e23b7a2926f2ee1a9
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372616"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96014590"
 ---
-# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Använd Azure Defender för behållar register för att söka igenom dina avbildningar efter sårbarheter
+# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Använd Azure Defender för containerregister för att genomsöka dina avbildningar efter säkerhetsrisker
 
 På den här sidan förklaras hur du använder den inbyggda sårbarhets-skannern för att skanna behållar avbildningar som lagras i Azure Resource Manager-baserade Azure Container Registry.
 
@@ -22,17 +22,7 @@ När **Azure Defender för containerregister** är aktiverat genomsöks alla avb
 
 När skannern rapporterar sårbarheter för att Security Center, Security Center visar resultaten och relaterad information som rekommendationer. Dessutom innehåller undersökningarna relaterad information, till exempel reparations steg, relevanta CVEs, CVSS resultat och mycket annat. Du kan visa identifierade sårbarheter för en eller flera prenumerationer eller för ett enskilt register.
 
-## <a name="availability"></a>Tillgänglighet
-
-|Aspekt|Information|
-|----|:----|
-|Versions tillstånd:|Allmänt tillgänglig (GA)|
-|Priset|**Azure Defender för behållar register** faktureras enligt [pris sidan](security-center-pricing.md)|
-|Register och avbildningar som stöds:|Linux-avbildningar i ACR-register som är tillgängliga från det offentliga Internet med shell-åtkomst|
-|Register och avbildningar som inte stöds:|Windows-avbildningar<br>Privata register<br>Register med begränsad åtkomst med en brand vägg, en tjänst slut punkt eller privata slut punkter som Azure Private-länk<br>Super-minimalist bilder, till exempel [Docker Scratch](https://hub.docker.com/_/scratch/) images, eller "Distroless"-avbildningar som bara innehåller ett program och dess körnings beroenden utan paket hanteraren, Shell eller OS|
-|Nödvändiga roller och behörigheter:|Rollen **säkerhets läsare** och [Azure Container Registry läsare](../container-registry/container-registry-roles.md)|
-|Moln|![Ja ](./media/icons/yes-icon.png) kommersiella moln<br>![Ja ](./media/icons/yes-icon.png) US gov – det finns för närvarande stöd för genomsökningen av push-funktionen. Läs mer i [när skannas bilder?](defender-for-container-registries-introduction.md#when-are-images-scanned)<br>![Ingen ](./media/icons/no-icon.png) Kina gov, andra gov|
-|||
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identifiera sårbarheter i avbildningar i Azure Container register 

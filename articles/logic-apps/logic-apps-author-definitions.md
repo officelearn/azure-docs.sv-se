@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 9163071237041d7c8510a644c573e3763434bb0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87060672"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014405"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Skapa, redigera eller utöka JSON för logikappars definitioner av arbetsflöden i Azure Logic Apps
 
@@ -30,7 +30,7 @@ Om du inte har använt Logic Apps igen kan du läsa [hur du skapar din första L
 
 1. Logga in på <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>.
 
-2. Välj **alla tjänster**på den vänstra menyn.
+2. Välj **alla tjänster** på den vänstra menyn.
 I sökrutan söker du efter "Logic Apps" och väljer sedan din Logi Kap par i resultaten.
 
 3. På din Logic Apps-meny, under **utvecklingsverktyg**, väljer du **vyn Logic app-kod**.
@@ -57,11 +57,11 @@ Välj **Öppna med Logic App Designer**.
    > [!TIP]
    > Om du inte har det här kommandot i Visual Studio 2019 kontrollerar du att du har de senaste uppdateringarna för Visual Studio.
 
-4. Välj **kodvyn**längst ned i designern.
+4. Välj **kodvyn** längst ned i designern.
 
    Kodvyn öppnas och visar din Logic app-definition i JSON-format.
 
-5. Om du vill återgå till designvyn väljer du **design**längst ned i kodvyn.
+5. Om du vill återgå till designvyn väljer du **design** längst ned i kodvyn.
 
 ## <a name="parameters"></a>Parametrar
 
@@ -221,7 +221,7 @@ Först hämtar arbets flödet en lista över artiklar. Sedan använder arbets fl
 
 ## <a name="get-data-with-date-functions"></a>Hämta data med datum funktioner
 
-Om du vill hämta data från en data källa som inte har inbyggt stöd för *utlösare*kan du använda datum funktioner för att arbeta med tider och datum i stället.
+Om du vill hämta data från en data källa som inte har inbyggt stöd för *utlösare* kan du använda datum funktioner för att arbeta med tider och datum i stället.
 Det här uttrycket hittar till exempel hur länge arbets flödets steg tar, som arbetar från insidan till utsidan:
 
 ``` json

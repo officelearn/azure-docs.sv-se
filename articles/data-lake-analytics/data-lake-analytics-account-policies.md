@@ -6,11 +6,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 04/30/2018
 ms.openlocfilehash: ba69098f32e131714a15923aef64c3f6ba17e18f
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219504"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013317"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Hantera Azure Data Lake Analytics att använda konto principer
 
@@ -26,7 +26,7 @@ Så här ändrar du antalet Australien för ditt Data Lake Analytics-konto:
 
 1. I Azure Portal går du till ditt Data Lake Analytics-konto.
 2. Klicka på **gränser och principer**.
-3. Under **maximal Australien**flyttar du skjutreglaget för att välja ett värde eller anger värdet i text rutan.
+3. Under **maximal Australien** flyttar du skjutreglaget för att välja ett värde eller anger värdet i text rutan.
 4. Klicka på **Spara**.
 
    > [!NOTE]
@@ -40,7 +40,7 @@ Den här principen begränsar hur många jobb som kan köras samtidigt. Som stan
 
 1. I Azure Portal går du till ditt Data Lake Analytics-konto.
 2. Klicka på **gränser och principer**.
-3. Under **maximalt antal jobb som körs**flyttar du skjutreglaget för att välja ett värde eller anger värdet i text rutan.
+3. Under **maximalt antal jobb som körs** flyttar du skjutreglaget för att välja ett värde eller anger värdet i text rutan.
 4. Klicka på **Spara**.
 
    > [!NOTE]
@@ -78,7 +78,7 @@ Det finns en standard princip uppsättning för varje konto. Standard principen 
 
 2. Klicka på **gränser och principer**.
 
-3. Under **jobb överförings gränser**klickar du på knappen **Lägg till princip** . Välj eller ange följande inställningar:
+3. Under **jobb överförings gränser** klickar du på knappen **Lägg till princip** . Välj eller ange följande inställningar:
 
    1. **Namn på beräknings princip**: Ange ett princip namn för att påminna dig om syftet med principen.
 
@@ -98,7 +98,7 @@ Det finns en standard princip uppsättning för varje konto. Standard principen 
 
 2. Klicka på **gränser och principer**.
 
-3. Under **jobb överförings gränser**söker du efter den princip som du vill redigera.
+3. Under **jobb överförings gränser** söker du efter den princip som du vill redigera.
 
 4. Om du vill se alternativen för att **ta bort** och **Redigera** i kolumnen längst till höger i tabellen, klickar du på `...` . # # ytterligare resurser för jobb principer
 

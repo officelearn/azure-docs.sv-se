@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
 ms.openlocfilehash: 5a9fcf3e13c2f86a11e9626be486a585ec659044
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325227"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013776"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Självstudie: skapa ett Apache Spark program med IntelliJ med hjälp av en Synapse-arbetsyta
 
@@ -24,7 +24,7 @@ Den här självstudien visar hur du använder Azure Toolkit for IntelliJ plugin-
 - Få åtkomst till dina Spark-pooler resurser.
 - Utveckla och kör ett Scala Spark-program lokalt.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 >
 > - Använd plugin-programmet Azure Toolkit for IntelliJ
@@ -88,7 +88,7 @@ Logga in på Azure-prenumerationen för att ansluta till dina Spark-pooler.
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Logga in på din Azure-prenumeration
 
-1. Gå till **Visa** -  >  **verktyget Windows**  >  **Azure Explorer** från meny raden.
+1. Gå till **Visa**-  >  **verktyget Windows**  >  **Azure Explorer** från meny raden.
 
    ![IntelliJ idé visar Azure Explorer](./media/intellij-tool-synapse/show-azure-explorer1.png)
 
@@ -136,13 +136,13 @@ När du har skapat ett Scala-program kan du köra det på distans.
 
     ![Skicka Spark-programmet till HDInsight-kommando 2](./media/intellij-tool-synapse/create-synapse-configuration02.png)
 
-3. I fönstret **Kör/Felsök konfigurationer** anger du följande värden och väljer sedan **OK** :
+3. I fönstret **Kör/Felsök konfigurationer** anger du följande värden och väljer sedan **OK**:
 
     |Egenskap |Värde |
     |----|----|
     |Spark-pooler|Välj de Spark-pooler som du vill köra programmet på.|
     |Välj en artefakt som ska skickas|Lämna standardvärdet.|
-    |Huvud klass namn|Standardvärdet är huvud klassen från den valda filen. Du kan ändra klassen genom att välja ellipsen ( **...** ) och välja en annan klass.|
+    |Huvud klass namn|Standardvärdet är huvud klassen från den valda filen. Du kan ändra klassen genom att välja ellipsen (**...**) och välja en annan klass.|
     |Jobb konfiguration|Du kan ändra standard nyckel och standardvärden. Mer information finns i [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Kommando rads argument|Du kan ange argument avgränsade med blank steg för huvud klassen om det behövs.|
     |Refererade jar v7 och refererade filer|Du kan ange sökvägar för refererade jar v7 och filer om det finns några. Du kan också bläddra i filer i det virtuella Azure-filsystemet, som för närvarande endast stöder ADLS Gen2 kluster. Mer information: [Apache Spark Configuration] https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) och [hur du överför resurser till kluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
@@ -166,7 +166,7 @@ Du kan följa anvisningarna nedan för att konfigurera din lokala körnings-och 
 
 ### <a name="scenario-1-do-local-run"></a>Scenario 1: utför lokal körning
 
-1. Öppna dialog rutan **Kör/Felsök konfigurationer** och välj plus tecknet ( **+** ). Välj sedan alternativet **Apache Spark på Synapse** . Ange information om **namn** , **huvud klass namn** som ska sparas.
+1. Öppna dialog rutan **Kör/Felsök konfigurationer** och välj plus tecknet ( **+** ). Välj sedan alternativet **Apache Spark på Synapse** . Ange information om **namn**, **huvud klass namn** som ska sparas.
 
     ![IntelliJ kör felsöka konfigurationer lokal körning 1](./media/intellij-tool-synapse/local-run-synapse.png)
 
@@ -191,7 +191,7 @@ Du kan följa anvisningarna nedan för att konfigurera din lokala körnings-och 
 
 ## <a name="access-and-manage-synapse-workspace"></a>Komma åt och hantera Synapse-arbetsyta
 
-Du kan utföra olika åtgärder i Azure Explorer i Azure Toolkit for IntelliJ. Gå till **Visa** -  >  **verktyget Windows**  >  **Azure Explorer** från meny raden.
+Du kan utföra olika åtgärder i Azure Explorer i Azure Toolkit for IntelliJ. Gå till **Visa**-  >  **verktyget Windows**  >  **Azure Explorer** från meny raden.
 
 ### <a name="launch-workspace"></a>Starta arbets yta
 
@@ -199,7 +199,7 @@ Du kan utföra olika åtgärder i Azure Explorer i Azure Toolkit for IntelliJ. G
 
     ![IntelliJ idé Azure Explorer Main View](./media/intellij-tool-synapse/azure-explorer-workspace.png)
 
-2. Högerklicka på en arbets yta och välj sedan **Starta arbets yta** , så öppnas webbplatsen.
+2. Högerklicka på en arbets yta och välj sedan **Starta arbets yta**, så öppnas webbplatsen.
 
     ![Spark-jobb Visa program information 1](./media/intellij-tool-synapse/launch-workspace-synapse.png)
 
@@ -216,7 +216,7 @@ Se till att du har uppfyllt kraven för WINUTILS.EXE.
 1. Gå till meny raden och navigera till **Kör**  >  **Redigera konfigurationer...**.
 2. I fönstret **Kör/Felsök-konfigurationer** går du till vänster-fönstret och navigerar till **Apache Spark på Synapse**  >  **[Spark på Synapse] MyApp**.
 3. Välj fliken **lokalt körning** i huvud fönstret.
-4. Ange följande värden och välj sedan **OK** :
+4. Ange följande värden och välj sedan **OK**:
 
     |Egenskap |Värde |
     |----|----|
@@ -247,7 +247,7 @@ Det stöds endast på IntelliJ 2018,2 och 2018,3.
 
 3. Välj fliken **fjärrkörning på kluster** i huvud fönstret.
 
-4. Ange följande värden och välj sedan **OK** :
+4. Ange följande värden och välj sedan **OK**:
 
     |Egenskap |Värde |
     |----|----|

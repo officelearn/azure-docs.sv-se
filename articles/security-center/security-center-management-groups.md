@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339738"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013810"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få överblick över hela organisationen för Azure Security Center
 Den här artikeln förklarar hur du hanterar din organisations säkerhets position i stor skala genom att använda säkerhets principer för alla Azure-prenumerationer som är kopplade till din Azure Active Directory-klient.
@@ -54,7 +54,7 @@ Du kan organisera prenumerationer i hanterings grupper och tillämpa dina styrni
 ### <a name="view-management-groups-in-the-azure-portal"></a>Visa hanterings grupper i Azure Portal
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Om du vill visa hanterings grupper väljer du **alla tjänster** på huvud menyn i Azure.
-3. Under **Allmänt**väljer du **hanteringsgrupper**.
+3. Under **Allmänt** väljer du **hanteringsgrupper**.
 
     ![Skapa en hanteringsgrupp](./media/security-center-management-groups/all-services.png)
 
@@ -72,7 +72,7 @@ En Azure Active Directory klient organisations administratör har inte direkt å
 
    ![Egenskaper för Azure AD – skärm bild](./media/security-center-management-groups/aad-properties.png)
 
-3. Under **åtkomst hantering för Azure-resurser**ställer du in växeln på **Ja**.
+3. Under **åtkomst hantering för Azure-resurser** ställer du in växeln på **Ja**.
 
    ![Åtkomst hantering för Azure-resurser – skärm bild](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
@@ -146,7 +146,7 @@ När du har förhöjd åtkomst, öppna eller uppdatera Azure Security Center fö
     ![Skärm bild för prenumerations väljare](./media/security-center-management-groups/subscription-selector.png)
 
 1. Välj **alla tjänster** på huvud menyn i Azure och välj sedan **Security Center**.
-2. I **översikten**finns ett prenumerations täcknings diagram.
+2. I **översikten** finns ett prenumerations täcknings diagram.
 
     ![Skärm bild av prenumerationens täcknings diagram](./media/security-center-management-groups/security-center-subscription-coverage.png)
 
@@ -161,7 +161,7 @@ När Azure-rollerna har tilldelats till användarna bör klient administratören
 
 2. Klicka på **Azure Active Directory** i navigerings listan och klicka sedan på **Egenskaper**.
 
-3. Under **åtkomst hantering för Azure-resurser**anger du växeln till **Nej**.
+3. Under **åtkomst hantering för Azure-resurser** anger du växeln till **Nej**.
 
 4. Spara inställningen genom att klicka på **Spara** .
 
@@ -170,7 +170,7 @@ När Azure-rollerna har tilldelats till användarna bör klient administratören
 ## <a name="adding-subscriptions-to-a-management-group"></a>Lägga till prenumerationer i en hanterings grupp
 Du kan lägga till prenumerationer i hanterings gruppen som du skapade. De här stegen är inte obligatoriska för att få insyn i hela klienten och global princip-och åtkomst hantering.
 
-1. Under **hanteringsgrupper**väljer du en hanterings grupp som du vill lägga till din prenumeration i.
+1. Under **hanteringsgrupper** väljer du en hanterings grupp som du vill lägga till din prenumeration i.
 
     ![Välj en hanterings grupp för att lägga till prenumerationen](./media/security-center-management-groups/management-group-subscriptions.png)
 

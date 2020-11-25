@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 1da86e36cf20dc15152aea74be6c43a4cb43d3b4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539776"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014252"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Övervaka kluster prestanda i Azure HDInsight
 
@@ -27,7 +27,7 @@ Hadoop-kluster kan ge optimala prestanda när belastningen på klustret är jäm
 
 För att få en överblick på noderna i klustret och deras inläsningar loggar du in på [Ambari-WEBBgränssnittet](hdinsight-hadoop-manage-ambari.md)och väljer sedan fliken **värdar** . Dina värdar visas i listan med sina fullständigt kvalificerade domän namn. Varje värds drift status visas med en färgad hälso indikator:
 
-| Färg | Beskrivning |
+| Color (Färg) | Description |
 | --- | --- |
 | Röd | Minst en huvud komponent på värden är inte tillgänglig. Hovra för att se en knapp beskrivning som visar påverkade komponenter. |
 | Orange | Minst en sekundär komponent på värden är avstängd. Hovra för att se en knapp beskrivning som visar påverkade komponenter. |
@@ -66,13 +66,13 @@ Om du vill ha en mer detaljerad titt på dina köer går du till Ambari-instrume
 
 ![Länkar till Resource Manager-webbgränssnitt](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
-I Resource Manager-ANVÄNDARGRÄNSSNITTET väljer du **Scheduler** på menyn till vänster. Du ser en lista över dina köer under *program köer* . Här kan du se kapaciteten som används för var och en av dina köer, hur väl jobben distribueras mellan dem och om några jobb är resurs begränsningar.
+I Resource Manager-ANVÄNDARGRÄNSSNITTET väljer du **Scheduler** på menyn till vänster. Du ser en lista över dina köer under *program köer*. Här kan du se kapaciteten som används för var och en av dina köer, hur väl jobben distribueras mellan dem och om några jobb är resurs begränsningar.
 
 ![Användar gränssnitts menyn Apache HAdoop Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>Lagringsbegränsning
 
-Ett klusters prestanda Flask hals kan ske på lagrings nivå. Den här typen av flask hals är oftast på grund av *spärrning* av indata/utdata (i/o)-åtgärder, vilket sker när dina pågående aktiviteter skickar mer i/o än lagrings tjänsten kan hantera. Den här blockeringen skapar en kö med IO-begäranden som väntar på att bearbetas tills aktuell IOs har bearbetats. Blocken är på grund av *lagrings begränsning* , som inte är en fysisk gräns, utan i stället en gräns som har angetts av lagrings tjänsten med ett service avtal (SLA). Den här gränsen säkerställer att ingen enskild klient eller klient organisation kan monopolisera tjänsten. SLA begränsar antalet IOs per sekund (IOPS) för Azure Storage – mer information finns i [skalbarhets-och prestanda mål för standard lagrings konton](../storage/common/scalability-targets-standard-account.md).
+Ett klusters prestanda Flask hals kan ske på lagrings nivå. Den här typen av flask hals är oftast på grund av *spärrning* av indata/utdata (i/o)-åtgärder, vilket sker när dina pågående aktiviteter skickar mer i/o än lagrings tjänsten kan hantera. Den här blockeringen skapar en kö med IO-begäranden som väntar på att bearbetas tills aktuell IOs har bearbetats. Blocken är på grund av *lagrings begränsning*, som inte är en fysisk gräns, utan i stället en gräns som har angetts av lagrings tjänsten med ett service avtal (SLA). Den här gränsen säkerställer att ingen enskild klient eller klient organisation kan monopolisera tjänsten. SLA begränsar antalet IOs per sekund (IOPS) för Azure Storage – mer information finns i [skalbarhets-och prestanda mål för standard lagrings konton](../storage/common/scalability-targets-standard-account.md).
 
 Om du använder Azure Storage, för information om övervakning av lagrings problem, inklusive begränsning, se [övervaka, diagnostisera och felsök Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 

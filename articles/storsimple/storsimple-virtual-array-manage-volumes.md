@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 79e3ce8c1605e5d68ff44901f53854d2f5f10abc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129957"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014388"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Använda StorSimple Device Manager-tjänsten för att hantera volymer i StorSimple Virtual Array
 
@@ -33,8 +33,8 @@ Tjänsten StorSimple Enhetshanteraren är ett tillägg i Azure Portal som gör a
 
 StorSimple-volymer kan vara:
 
-* **Lokalt fäst** : data i de här volymerna förblir i matrisen alltid och spiller inte i molnet.
-* **Skiktat** : data i dessa volymer kan spilla till molnet. När du skapar en nivå volym etablerades cirka 10% av utrymmet på den lokala nivån och 90% av utrymmet i molnet. Om du till exempel har etablerad en volym på 1 TB skulle 100 GB finnas i det lokala utrymmet och 900 GB används i molnet när data nivåerna. Detta innebär i sin tur att om du tar bort allt lokalt utrymme på enheten kan du inte etablera en nivå volym (eftersom 10% som krävs på den lokala nivån inte är tillgänglig).
+* **Lokalt fäst**: data i de här volymerna förblir i matrisen alltid och spiller inte i molnet.
+* **Skiktat**: data i dessa volymer kan spilla till molnet. När du skapar en nivå volym etablerades cirka 10% av utrymmet på den lokala nivån och 90% av utrymmet i molnet. Om du till exempel har etablerad en volym på 1 TB skulle 100 GB finnas i det lokala utrymmet och 900 GB används i molnet när data nivåerna. Detta innebär i sin tur att om du tar bort allt lokalt utrymme på enheten kan du inte etablera en nivå volym (eftersom 10% som krävs på den lokala nivån inte är tillgänglig).
 
 ### <a name="provisioned-capacity"></a>Etablerad kapacitet
 Se följande tabell för den högsta etablerade kapaciteten för varje volymtyp.
@@ -55,7 +55,7 @@ En volym består av en serie attribut:
 
 * **Volym namn** – ett beskrivande namn som måste vara unikt och som hjälper dig att identifiera volymen.
 * **Status** – kan vara online eller offline. Om en volym är offline är den inte synlig för initierare (servrar) som har behörighet att använda volymen.
-* **Typ** – anger om volymen är i **nivå** av (standard) eller **lokalt fäst** .
+* **Typ** – anger om volymen är i **nivå** av (standard) eller **lokalt fäst**.
 * **Kapacitet** – anger mängden data som används jämfört med den totala mängden data som kan lagras av initieraren (servern).
 * **Säkerhets kopiering** – i händelse av den virtuella StorSimple-matrisen aktive ras alla volymer automatiskt för säkerhets kopiering.
 * **Anslutna värdar** – anger initierare (servrar) som har åtkomst till den här volymen.
@@ -77,10 +77,10 @@ Följ anvisningarna i den här självstudien för att utföra följande uppgifte
 2. Gör följande på bladet **Lägg till volym** :
    
    * Ange ett unikt namn för din volym i fältet **volym namn** . Namnet måste vara en sträng som innehåller mellan 3 och 127 tecken.
-   * I list rutan **typ** anger du om du vill skapa en **nivåAD** eller **lokalt fäst** volym. För arbets belastningar som kräver lokala garantier, låg latens och högre prestanda, väljer du **lokalt fästa volym** . För alla andra data väljer du **nivå** volym.
+   * I list rutan **typ** anger du om du vill skapa en **nivåAD** eller **lokalt fäst** volym. För arbets belastningar som kräver lokala garantier, låg latens och högre prestanda, väljer du **lokalt fästa volym**. För alla andra data väljer du **nivå** volym.
    * I fältet **kapacitet** anger du storleken på volymen. En nivå volym måste vara mellan 500 GB och 5 TB och en lokalt fäst volym måste vara mellan 50 GB och 500 GB.
-   * * Klicka på **anslutna värdar** , Välj en åtkomst kontroll post (ACR) som motsvarar den iSCSI-initierare som du vill ansluta till den här volymen och klicka sedan på **Välj** .
-3. Om du vill lägga till en ny ansluten värd klickar du på **Lägg till ny** , anger ett namn för värden och dess iSCSI-kvalificerade namn (IQN) och klickar sedan på **Lägg till** .
+   * * Klicka på **anslutna värdar**, Välj en åtkomst kontroll post (ACR) som motsvarar den iSCSI-initierare som du vill ansluta till den här volymen och klicka sedan på **Välj**.
+3. Om du vill lägga till en ny ansluten värd klickar du på **Lägg till ny**, anger ett namn för värden och dess iSCSI-kvalificerade namn (IQN) och klickar sedan på **Lägg till**.
    
     ![Skärm bild som visar fönstret anslutna värdar där du kan lägga till nya.](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
 4. Klicka på **skapa** när du är klar med konfigurationen av volymen. En volym skapas med de angivna inställningarna och du får ett meddelande om att det har skapats. Som standard kommer säkerhets kopiering att aktive ras för volymen.
@@ -135,7 +135,7 @@ Utför följande steg för att ta bort en volym.
    
     ![Ta bort volym](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
 3. Kontrol lera status för den volym som du vill ta bort. Om den volym som du vill ta bort inte är offline kopplar du först från genom att följa stegen i koppla från [en volym](#take-a-volume-offline).
-4. När du uppmanas att bekräfta i bladet **ta bort** godkänner du bekräftelsen och klickar på **ta bort** . Volymen tas nu bort och **volym bladet visar den uppdaterade** listan över volymer i den virtuella matrisen.
+4. När du uppmanas att bekräfta i bladet **ta bort** godkänner du bekräftelsen och klickar på **ta bort**. Volymen tas nu bort och **volym bladet visar den uppdaterade** listan över volymer i den virtuella matrisen.
 
 ## <a name="next-steps"></a>Nästa steg
 

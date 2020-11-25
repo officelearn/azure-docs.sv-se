@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 08/21/2020
 ms.author: tamram
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 3aa21fb99ac5ab24674bf5d4b62fd3fca98de632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45df30f4f1444b6148af9f3c7d47b94909ccef3d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88853669"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025588"
 ---
 ## <a name="what-is-queue-storage"></a>Vad är Queue Storage?
 
@@ -23,7 +23,7 @@ Azure-Kötjänst innehåller följande komponenter:
 ![Azure Kötjänst-komponenter](./media/storage-queue-concepts-include/azure-queue-service-components.png)
 
 * **Lagringskonto:** All åtkomst till Azure Storage görs genom ett lagringskonto. Mer information om lagrings konton finns i [Översikt över lagrings konto](../articles/storage/common/storage-account-overview.md).
-* **Kö:** en kö innehåller en uppsättning meddelanden. Alla meddelanden måste vara i en kö. Observera att könamnet måste vara helt i gemener. Mer information om namngivning av köer finns i [namngivning av köer och metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+* **Kö:** en kö innehåller en uppsättning meddelanden. Alla meddelanden måste vara i en kö. Observera att könamnet måste vara helt i gemener. Mer information om namngivning av köer finns i [namngivning av köer och metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
 * **Meddelande:** ett meddelande i valfritt format, som är upp till 64 KB. Den maximala tid som ett meddelande kan finnas i kön är 7 dagar. För version 2017-07-29 eller senare kan den maximala tiden till Live vara ett positivt tal eller-1 som anger att meddelandet inte upphör att gälla. Om den här parametern utelämnas, är standardvärdet för Time-to-Live sju dagar.
 * **URL-format:** Köer är adresser bara med följande URL-format: http:// `<storage account>` . Queue.Core.Windows.net/`<queue>`
 

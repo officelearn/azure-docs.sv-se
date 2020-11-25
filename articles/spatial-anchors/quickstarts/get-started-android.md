@@ -1,19 +1,19 @@
 ---
 title: 'Snabb start: skapa en Android-app'
 description: I den här snabbstarten får du lära dig hur du skapar en Android-app med hjälp av Spatial Anchors.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6b7f924c7f115e8eddda93ea0c096ab94411da72
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b7be4e257fc884c655fe380f69b08797a907fbbb
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87810402"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96022657"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Android-app med Azures spatiala ankare
 
@@ -38,7 +38,7 @@ Kontrollera att du har följande så att du kan utföra den här snabbstarten:
   - Om du vill bygga NDK-exemplet måste du också installera NDK-och CMake 3,6 eller fler SDK-verktyg i Android Studio.
 - En <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">utvecklaraktiverad</a> och <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore-kapabel</a> Android-enhet.
   - Ytterligare enhets driv rutiner kan krävas för att datorn ska kunna kommunicera med din Android-enhet. Mer information och anvisningar finns [här](https://developer.android.com/studio/run/device.html) .
-- Din app måste ha ARCore- **1.11.0**som mål.
+- Din app måste ha ARCore- **1.11.0** som mål.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

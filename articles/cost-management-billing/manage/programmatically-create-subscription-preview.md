@@ -5,26 +5,34 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3ffdeb0add8622e1b9f28f9603dc146b78f742cd
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 68d890386d53b4115c773b128f8678bac9579e53
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043299"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844370"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Skapa Azure-prenumerationer via programmering med förhandsversioner av API:er
 
-Den här artikeln beskriver hur du skapar Azure-prenumerationer via programmering med vårt äldre förhandsversions-API. Vi har gett ut en [nyare API-version](programmatically-create-subscription.md). Du kan använda informationen i den här artikeln om du inte vill använda den senaste versionen. I den här artikeln får du lära dig hur du skapar prenumerationer programmatiskt med hjälp av Azure Resource Manager.
+Den här artikeln beskriver hur du skapar Azure-prenumerationer via programmering med vårt äldre förhandsversions-API. I den här artikeln får du lära dig hur du skapar prenumerationer programmatiskt med hjälp av Azure Resource Manager.
+
+Vi har nya artiklar för den senaste API-versionen som kan användas med olika typer av Azure-prenumerationsavtal:
+
+- [Skapa EA-prenumerationer programmatiskt med det senaste API:et](programmatically-create-subscription-enterprise-agreement.md)
+- [Skapa MCA-prenumerationer programmatiskt med det senaste API:et](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Skapa MPA-prenumerationer programmatiskt med det senaste API:et](Programmatically-create-subscription-microsoft-customer-agreement.md)
+
+Du kan dock fortfarande använda informationen i den här artikeln om du inte vill använda den senaste API-versionen.
 
 Azure-kunder med ett faktureringskonto för följande avtalstyper kan skapa prenumerationer via programmering:
 
-- [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [Microsoft-kundavtal (MCA)](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
-- [Microsoft-partneravtal (MPA)](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement)
+- Enterprise-avtal
+- Microsoft-kundavtal (MCA)
+- Microsoft-partneravtal (MPA)
 
 När du skapar en Azure-prenumeration via programmering regleras den av det avtal som du ingick när du köpte Azure-tjänsterna från Microsoft eller en auktoriserad återförsäljare. Mer information finns i [Juridisk information för Microsoft Azure](https://azure.microsoft.com/support/legal/).
 
@@ -45,7 +53,7 @@ För att kunna skapa en prenumeration måste du ha en ägarroll för ett registr
 
 När du har lagt till ett registreringskonto som är associerat med en kontoägare använder Azure konto-till-registrering-relationen för att ta reda på var prenumerationsavgifterna ska debiteras. Alla prenumerationer som skapats under kontot debiteras till den EA-registrering som kontot ingår i. För att kunna skapa prenumerationer måste du ange värden om registreringskontot och användarens huvudnamn så att du är ägare för prenumerationen.
 
-För att kunna köra följande kommandon måste du vara inloggad i kontoägarens *hemkatalog* , som är den katalog som prenumerationer skapas i som standard.
+För att kunna köra följande kommandon måste du vara inloggad i kontoägarens *hemkatalog*, som är den katalog som prenumerationer skapas i som standard.
 
 ### <a name="rest"></a>[REST](#tab/rest)
 
@@ -177,7 +185,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 | Elementnamn  | Krävs | Typ   | Beskrivning |
 |---------------|----------|--------|----|
-| `Name` | Nej      | Sträng | Prenumerationens visningsnamn. Ange namnet på erbjudandet, till exempel *Microsoft Azure Enterprise* , om det inte redan har angetts. |
+| `Name` | Nej      | Sträng | Prenumerationens visningsnamn. Ange namnet på erbjudandet, till exempel *Microsoft Azure Enterprise*, om det inte redan har angetts. |
 | `OfferType`   | Ja      | Sträng | Prenumerationserbjudandet. De två alternativen för EA är [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (användning i produktion) och [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (utveckling/testning, måste [aktiveras med EA-portalen](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `EnrollmentAccountObjectId`      | Ja       | Sträng | Objekt-ID:t för det registreringskonto som prenumerationen skapades under och som debiteras. Värdet är ett GUID som du får från `Get-AzEnrollmentAccount`. |
 | `OwnerObjectId`      | Inga       | Sträng | Objekt-ID:t för en användare som ska läggas till som Azure RBAC-ägare för prenumerationen när den skapas.  |
@@ -198,7 +206,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 
 | Elementnamn  | Krävs | Typ   | Beskrivning |
 |---------------|----------|--------|------------|
-| `display-name` | Nej      | Sträng | Prenumerationens visningsnamn. Ange namnet på erbjudandet, till exempel *Microsoft Azure Enterprise* , om det inte redan har angetts.|
+| `display-name` | Nej      | Sträng | Prenumerationens visningsnamn. Ange namnet på erbjudandet, till exempel *Microsoft Azure Enterprise*, om det inte redan har angetts.|
 | `offer-type`   | Ja      | Sträng | Prenumerationens erbjudande. De två alternativen för EA är [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (användning i produktion) och [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (utveckling/testning, måste [aktiveras med EA-portalen](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `enrollment-account-object-id`      | Ja       | Sträng | Objekt-ID:t för det registreringskonto som prenumerationen skapades under och som debiteras. Värdet är ett GUID som du får från `az billing enrollment-account list`. |
 | `owner-object-id`      | Inga       | Sträng | Objekt-ID:t för en användare som ska läggas till som Azure RBAC-ägare för prenumerationen när den skapas.  |
@@ -504,7 +512,7 @@ Använd egenskapen `description` för att identifiera den återförsäljare som 
 
 ### <a name="create-a-subscription-for-a-customer"></a>Skapa en prenumeration för en kund
 
-I följande exempel skapas en prenumeration med namnet *Dev Team subscription* (Prenumeration för utvecklingsteam) för *Fabrikam toys* , och återförsäljaren *Wingtip* associeras med prenumerationen. 
+I följande exempel skapas en prenumeration med namnet *Dev Team subscription* (Prenumeration för utvecklingsteam) för *Fabrikam toys*, och återförsäljaren *Wingtip* associeras med prenumerationen. 
 
 Skicka följande begäran och ersätt `<customerId>` med `id` som kopierats från det andra steget (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Skicka det valfria *resellerId* som kopierades från det andra steget i parametrarna för begäran till API:et.
 

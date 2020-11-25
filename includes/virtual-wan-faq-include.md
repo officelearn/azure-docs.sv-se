@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: da2535a9764c909af3a491402311fe263dbb48fb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c476fe2af1fb4bddff4799609b164aab14f57b00
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330986"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023505"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Är Azure Virtual WAN i GA?
 
@@ -273,3 +273,7 @@ Se avsnittet [virtuella WAN-gränser](../articles/azure-resource-manager/managem
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Vad är skillnaderna mellan de virtuella WAN-typerna (Basic och standard)?
 
 Se [Basic och standard Virtual WAN](../articles/virtual-wan/virtual-wan-about.md#basicstandard). Information om priser finns på sidan med [priser](https://azure.microsoft.com/pricing/details/virtual-wan/) .
+
+### <a name="does-virtual-wan-store-customer-data"></a>Kan virtuella WAN-data lagra kund information? 
+
+Nej. Det virtuella WAN-nätverket lagrar ingen kund information.

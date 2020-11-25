@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
 ms.openlocfilehash: cad12a55332a6c7898f9709776c58d7dba8dd81a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526443"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022844"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Vanliga fel i Azures serie konsol
 Det finns en uppsättning kända fel i Azures serie konsol. Det här är en lista över dessa fel och åtgärder för att minska problemen.
@@ -36,7 +36,7 @@ Du har inte de behörigheter som krävs för att använda den här virtuella dat
 Det gick inte att hitta lagrings kontot som används för startdiagnostik på den här virtuella datorn. Kontrol lera att startdiagnostik har Aktiver ATS för den här virtuella datorn, att lagrings kontot inte har tagits bort och att du har åtkomst till det här lagrings kontot. | Dubbelkolla att du inte har tagit bort lagrings kontot för startdiagnostik för din virtuella dator eller skalnings uppsättning för virtuella datorer
 Den seriella konsolens anslutning till den virtuella datorn påträffade ett fel: "felaktig begäran (400) | Detta kan inträffa om startdiagnostik-URI: n är felaktig. Exempelvis användes "http://" i stället för "https://". Startdiagnostik-URI: n kan åtgärdas med följande kommando: `az vm boot-diagnostics enable --name vmName --resource-group rgName --storage https://<storageAccountUri>.blob.core.windows.net/`
 Du har inte de behörigheter som krävs för att skriva till lagrings kontot för startdiagnostik för den här virtuella datorn. Kontrol lera att du har minst behörigheter för VM-deltagare | Seriell konsol åtkomst kräver åtkomst till deltagar nivå på lagrings kontot för startdiagnostik. Mer information finns på [sidan Översikt](serial-console-overview.md).
-Det gick inte att fastställa resurs gruppen för startdiagnostikens lagrings konto * &lt; STORAGEACCOUNTNAME &gt; *. Kontrol lera att startdiagnostik har Aktiver ATS för den här virtuella datorn och att du har åtkomst till det här lagrings kontot. | Seriell konsol åtkomst kräver åtkomst till deltagar nivå på lagrings kontot för startdiagnostik. Mer information finns på [sidan Översikt](serial-console-overview.md).
+Det gick inte att fastställa resurs gruppen för startdiagnostikens lagrings konto *&lt; STORAGEACCOUNTNAME &gt;*. Kontrol lera att startdiagnostik har Aktiver ATS för den här virtuella datorn och att du har åtkomst till det här lagrings kontot. | Seriell konsol åtkomst kräver åtkomst till deltagar nivå på lagrings kontot för startdiagnostik. Mer information finns på [sidan Översikt](serial-console-overview.md).
 Etableringen av den här virtuella datorn har ännu inte slutförts. Kontrol lera att den virtuella datorn är fullständigt distribuerad och försök att ansluta till serie konsolen igen. | Den virtuella datorn eller skalnings uppsättningen för den virtuella datorn kan fortfarande tillhandahållas. Vänta en stund och försök igen.
 Webb-socket är stängt eller kunde inte öppnas. | Du kan behöva lägga till brand Väggs åtkomst till `*.console.azure.com` . En mer detaljerad men längre metod är att tillåta brand Väggs åtkomst till [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653), som ändras relativt regelbundet.
 Seriell konsol fungerar inte med ett lagrings konto med hjälp av Azure Data Lake Storage Gen2 med hierarkiska namn områden. | Detta är ett känt problem med hierarkiska namn områden. Du kan undvika detta genom att kontrol lera att lagrings kontot för startdiagnostik för den virtuella datorn inte har skapats med hjälp av Azure Data Lake Storage Gen2. Det här alternativet kan bara anges när lagrings kontot skapas. Du kan behöva skapa ett separat lagrings konto för startdiagnostik utan Azure Data Lake Storage Gen2 aktiverat för att undvika det här problemet.

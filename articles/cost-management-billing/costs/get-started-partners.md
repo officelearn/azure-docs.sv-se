@@ -3,18 +3,18 @@ title: Kom igång med Azure Cost Management för partner
 description: I den här artikeln förklaras hur partner använder Azure Cost Management-funktioner och hur de ger Cost Management-åtkomst för sina kunder.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827578"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657320"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
@@ -126,7 +126,7 @@ Oavsett principen kan leverantörens globala administratörer och administratör
 
 Du måste vara medlem i gruppen **adminagent** för att kunna visa och uppdatera policyn. Använd följande information när du ska aktivera policyn så att kunder kan visa användningsavgifter för Azure.
 
-Logga in på partnerklienten i Azure Portal och välj **Cost Management + Fakturering**. Välj önskat faktureringsomfång i området Faktureringsomfång och välj sedan **Kunder**. Listan över kunder är kopplad till faktureringskontot.
+Logga in på *partnerklienten* i Azure Portal och välj **Cost Management + Fakturering**. Välj önskat faktureringsomfång i området Faktureringsomfång och välj sedan **Kunder**. Listan över kunder är kopplad till faktureringskontot. *Om du loggar in av misstag på kundklienten visas inte **listan** Kunder.*
 
 I listan över kunder väljer du den kund som du vill tillåta visning av kostnader.
 
@@ -188,7 +188,7 @@ Följande datafält finns i filer för detaljerad användningsinformation och AP
 | costCenter | Kostnadsställe som är associerat med prenumerationen. | Ej tillämpligt |
 | billingPeriodStartDate | Faktureringsperiodens startdatum, som visas på fakturan. | Ej tillämpligt |
 | billingPeriodEndDate | Faktureringsperiodens slutdatum, som visas på fakturan. | Ej tillämpligt |
-| servicePeriodStartDate | Startdatum för klassificeringsperioden när tjänsteanvändningen bedömdes för avgifter. Priserna för Azure-tjänster bestäms för klassificeringsperioden. | ChargeStartDate i Partner Center. Startdatum för faktureringscykeln, förutom när du presenterar datum för tidigare odebiterade fördröjda användningsdata från en tidigare faktureringsperiod. Tiden är alltid början på dagen, 0:00. |
+| servicePeriodStartDate | Startdatum för klassificeringsperioden när tjänsteanvändningen bedömdes för avgifter. Priserna för Azure-tjänster bestäms för klassificeringsperioden. | ChargeStartDate i Partner Center.  Startdatum för faktureringscykeln, förutom när du presenterar datum för tidigare odebiterade fördröjda användningsdata från en tidigare faktureringsperiod. Tiden är alltid början på dagen, 0:00. |
 | servicePeriodEndDate | Slutdatum för perioden när tjänsteanvändningen bedömdes för avgifter. Priserna för Azure-tjänster bestäms baserat på klassificeringsperioden. | Ej tillämpligt |
 | date | För Azure-förbrukningsdata, som visar användningsdatum enligt klassificering. För reserverad instans visas inköpsdatum. För återkommande avgifter och engångsavgifter, till exempel Marketplace och support, visas inköpsdatumet. | Ej tillämpligt |
 | productID | Identifierare för den produkt som har upplupna kostnader per förbrukning eller inköp. Det är den sammanfogade nyckeln productID och SKuID, som visas i Partner Center. | ID för produkten. |

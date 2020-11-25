@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535101"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022708"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Felsöka ett jobb som är långsamt eller som inte fungerar i ett HDInsight-kluster
 
@@ -115,7 +115,7 @@ I följande avsnitt beskrivs hur du kontrollerar hälsan för varje nod och det 
 
 ### <a name="check-your-webhcat-service"></a>Kontrol lera din WebHCat-tjänst
 
-Ett vanligt scenario för Apache Hive-, Apache gris-eller Apache Sqoop-jobb Miss lyckas är ett problem med [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) -tjänsten (eller *Templeton* ). WebHCat är ett REST-gränssnitt för fjärrkörning av jobb, till exempel Hive, gris, bilden och MapReduce. WebHCat översätter jobb sändnings begär anden till Apache Hadoop garn program, och returnerar en status som härletts från form av garn program.  I följande avsnitt beskrivs vanliga status koder för WebHCat HTTP.
+Ett vanligt scenario för Apache Hive-, Apache gris-eller Apache Sqoop-jobb Miss lyckas är ett problem med [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) -tjänsten (eller *Templeton*). WebHCat är ett REST-gränssnitt för fjärrkörning av jobb, till exempel Hive, gris, bilden och MapReduce. WebHCat översätter jobb sändnings begär anden till Apache Hadoop garn program, och returnerar en status som härletts från form av garn program.  I följande avsnitt beskrivs vanliga status koder för WebHCat HTTP.
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (502 status kod)
 
@@ -172,7 +172,7 @@ På garn nivån finns det två typer av tids gränser:
 
     Om du öppnar `/var/log/webhcat/webhcat.log` logg filen och söker efter "köade jobb" kan du se flera poster där körnings tiden är alltför lång (>2000 MS), med poster som visar ökande vänte tider.
 
-    Tiden för de köade jobben fortsätter att öka eftersom den hastighet med vilken nya jobb skickas är högre än den hastighet med vilken de gamla jobben har slutförts. När garn minnet har 100% använt kan joblauncher- *kön* inte längre låna kapacitet från *standard kön* . Därför kan inga fler nya jobb accepteras i joblauncher-kön. Det här beteendet kan orsaka att vänte tiden blir längre och längre, vilket orsakar ett tids gräns fel som vanligt vis följs av många andra.
+    Tiden för de köade jobben fortsätter att öka eftersom den hastighet med vilken nya jobb skickas är högre än den hastighet med vilken de gamla jobben har slutförts. När garn minnet har 100% använt kan joblauncher- *kön* inte längre låna kapacitet från *standard kön*. Därför kan inga fler nya jobb accepteras i joblauncher-kön. Det här beteendet kan orsaka att vänte tiden blir längre och längre, vilket orsakar ett tids gräns fel som vanligt vis följs av många andra.
 
     Följande bild visar joblauncher-kön vid 714,4% överanvändning. Detta är acceptabelt så länge det fortfarande finns ledig kapacitet i standard kön till låna från. Men när klustret används fullt ut och garn minnet har en kapacitet på 100%, måste nya jobb vänta, vilket kan orsaka timeout.
 
@@ -206,7 +206,7 @@ Så här diagnostiserar du problemen:
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Steg 4: granska miljö stacken och versionerna
 
-Ambari-GRÄNSSNITTets **stack-och version** -sida innehåller information om kluster tjänstens konfiguration och tjänst versions historik.  Felaktiga Hadoop service Library-versioner kan vara orsaken till kluster fel.  I Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Administratörs** menyn och sedan  **stackar och versioner** .  Välj fliken **versioner** på sidan för att se information om tjänst version:
+Ambari-GRÄNSSNITTets **stack-och version** -sida innehåller information om kluster tjänstens konfiguration och tjänst versions historik.  Felaktiga Hadoop service Library-versioner kan vara orsaken till kluster fel.  I Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Administratörs** menyn och sedan  **stackar och versioner**.  Välj fliken **versioner** på sidan för att se information om tjänst version:
 
 ![Apache Ambari stack och versioner](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 

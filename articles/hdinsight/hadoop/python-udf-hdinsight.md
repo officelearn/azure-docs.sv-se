@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
 ms.openlocfilehash: 0179fd10e75af0ced55b4bb41f9525dc26b3efe5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540388"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023082"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Använda python-användardefinierade funktioner (UDF) med Apache Hive och Apache-gris i HDInsight
 
@@ -27,8 +27,8 @@ HDInsight innehåller även jython, som är en python-implementering som skrivit
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Ett Hadoop-kluster i HDInsight** . Se [Kom igång med HDInsight på Linux](apache-hadoop-linux-tutorial-get-started.md).
-* **En SSH-klient** . Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Ett Hadoop-kluster i HDInsight**. Se [Kom igång med HDInsight på Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **En SSH-klient**. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * [URI-schemat](../hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Detta gäller `wasb://` Azure Storage för `abfs://` Azure Data Lake Storage Gen2 eller adl://för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Azure Storage skulle URI: n bli wasbs://.  Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
 * **Möjlig ändring av lagrings konfigurationen.**  Se [lagrings konfiguration](#storage-configuration) om du använder typ av lagrings konto `BlobStorage` .
 * Valfritt.  Om du planerar att använda PowerShell behöver du AZ- [modulen](/powershell/azure/new-azureps-module-az) installerad.
@@ -100,7 +100,7 @@ Det här skriptet utför följande åtgärder:
 1. Läser en rad med data från STDIN.
 2. Det avslutande rad matnings tecknet tas bort med hjälp av `string.strip(line, "\n ")` .
 3. Vid data bearbetning innehåller en enskild rad alla värden med ett tabbtecken mellan varje värde. `string.split(line, "\t")`Du kan använda den för att dela upp inmatade värden på varje flik och bara returnera fälten.
-4. När bearbetningen är klar måste utdata skrivas till STDOUT som en enskild linje, med en flik mellan varje fält. Till exempel `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
+4. När bearbetningen är klar måste utdata skrivas till STDOUT som en enskild linje, med en flik mellan varje fält. Exempelvis `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
 5. `while`Loopen upprepas tills ingen `line` läses.
 
 Skriptets utdata är en sammanfogning av indatavärdena för `devicemake` och `devicemodel` , och en hash av det sammanfogade värdet.
@@ -300,8 +300,8 @@ Ett Python-skript kan användas som ett UDF-skript från gris- `GENERATE` instru
 
 Om du vill ange python-tolken använder du `register` när du refererar till python-skriptet. I följande exempel registreras skript med gris som `myfuncs` :
 
-* **Så här använder du jython** : `register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Använda C python** : `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Så här använder du jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Använda C python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > När du använder jython kan sökvägen till pig_jython-filen vara antingen en lokal sökväg eller en WASBS://-sökväg. Men när du använder C python måste du referera till en fil i det lokala fil systemet på den nod som du använder för att skicka gris-jobbet.
@@ -343,7 +343,7 @@ def create_structure(input):
 
 I det latinska exemplet i gris `LINE` definieras indatamängden som en chararray eftersom det inte finns något konsekvent schema för indatamängden. Python-skriptet omvandlar data till ett konsekvent schema för utdata.
 
-1. `@outputSchema`Instruktionen definierar formatet på de data som returneras till gris. I det här fallet är det en **data uppsättning** , som är en data typ av gris. Säcken innehåller följande fält, som alla är chararray (strängar):
+1. `@outputSchema`Instruktionen definierar formatet på de data som returneras till gris. I det här fallet är det en **data uppsättning**, som är en data typ av gris. Säcken innehåller följande fält, som alla är chararray (strängar):
 
    * Datum – datum då logg posten skapades
    * tid – tiden då logg posten skapades

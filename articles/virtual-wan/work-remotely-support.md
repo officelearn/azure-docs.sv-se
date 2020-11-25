@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: fc048f3da3156f5e17cfa32479b834b7320a60a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84753769"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023506"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>Azure Virtual WAN och stöd för fjärran sluten arbete
 
@@ -53,7 +53,7 @@ Basic Virtual WAN tillhandahåller endast plats-till-plats-VPN. För att fjärra
 
 Virtuellt WAN stöder ett hubb per region/plats. Plats information finns i artikeln [virtuella WAN-partners och platser](virtual-wan-locations-partners.md) . Varje hubb har stöd för upp till 10 000 fjärran vändare, 1 000 gren anslutning, fyra ExpressRoute-kretsar och upp till 500 Virtual Network anslutningar. När du skalar upp fjärranslutna användare, om du har några frågor, behöver du inte ovilliga för att söka efter hjälp genom att skicka ett e-postmeddelande till azurevirtualwan@microsoft.com . Om du behöver teknisk support måste du öppna ett support ärende från Azure Portal så kommer hjälpen att vara på väg.
 
-## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a><a name="faq"></a>Vanliga frågor
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

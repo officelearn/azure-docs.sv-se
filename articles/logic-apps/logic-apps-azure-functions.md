@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 75693c57a8d120aad53a15d03ae4054bac8262af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269309"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023065"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Anropa Azure-funktioner från Azure Logic Apps
 
@@ -61,11 +61,11 @@ För en rikare upplevelse när du arbetar med funktions parametrar i Logic Apps 
 
 1. I din Function-app ställer du in [resurs delning mellan ursprung (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) så att alla ursprung tillåts genom att följa dessa steg:
 
-   1. I listan **Function Apps** väljer du din Function-app. Välj **Platform features**CORS i den högra rutan  >  **CORS**.
+   1. I listan **Function Apps** väljer du din Function-app. Välj **Platform features** CORS i den högra rutan  >  **CORS**.
 
       ![Välj din Function-app > "plattforms funktioner" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-   1. Under **CORS**lägger du till jokertecknet asterisk ( **`*`** ), men tar bort alla andra ursprung i listan och väljer **Spara**.
+   1. Under **CORS** lägger du till jokertecknet asterisk ( **`*`** ), men tar bort alla andra ursprung i listan och väljer **Spara**.
 
       ![Ange "CORS * till jokertecknet" * "](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
@@ -132,7 +132,7 @@ Innan du kan skapa en Azure-funktion måste du dock redan ha en Azure Function-a
 
    ![Definiera din funktion](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-   I mallens kod refererar * `context` objektet* till meddelandet som din Logic App skickar via fältet **begär ande text** i ett senare steg. Använd följande syntax för att komma åt `context` objektets egenskaper inifrån din funktion:
+   I mallens kod refererar *`context` objektet* till meddelandet som din Logic App skickar via fältet **begär ande text** i ett senare steg. Använd följande syntax för att komma åt `context` objektets egenskaper inifrån din funktion:
 
    `context.body.<property-name>`
 
@@ -167,7 +167,7 @@ Om du vill anropa befintliga Azure Functions från dina Logic Apps kan du lägga
 
 1. Under steget där du vill lägga till funktionen väljer du **nytt steg**.
 
-1. Under **Välj en åtgärd**i rutan Sök anger du "Azure Functions" som filter. I listan åtgärder väljer du åtgärden **Välj en Azure-funktion** .
+1. Under **Välj en åtgärd** i rutan Sök anger du "Azure Functions" som filter. I listan åtgärder väljer du åtgärden **Välj en Azure-funktion** .
 
    ![Hitta "Azure Functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -195,7 +195,7 @@ Om du vill anropa befintliga Azure Functions från dina Logic Apps kan du lägga
 
 ## <a name="call-logic-apps-from-azure-functions"></a>Anropa Logic Apps från Azure Functions
 
-När du vill utlösa en Logi Kap par från en Azure-funktion måste Logic-appen börja med en utlösare som tillhandahåller en anropad slut punkt. Du kan till exempel starta Logic-appen med **http**, **Request**, Azure- **köer**eller **Event Grid** utlösare. Inuti din funktion skickar du en HTTP POST-begäran till utlösarens URL och inkluderar den nytto last som du vill att Logic app ska bearbeta. Mer information finns i [anropa, Utlös ande eller kapsla Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+När du vill utlösa en Logi Kap par från en Azure-funktion måste Logic-appen börja med en utlösare som tillhandahåller en anropad slut punkt. Du kan till exempel starta Logic-appen med **http**, **Request**, Azure- **köer** eller **Event Grid** utlösare. Inuti din funktion skickar du en HTTP POST-begäran till utlösarens URL och inkluderar den nytto last som du vill att Logic app ska bearbeta. Mer information finns i [anropa, Utlös ande eller kapsla Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 <a name="enable-authentication-functions"></a>
 
@@ -222,15 +222,15 @@ Om du vill använda din Logic Apps-hanterade identitet i din Azure-funktion har 
 
 1. Leta upp och välj din Function-app i [Azure Portal](https://portal.azure.com). I de här stegen används "FabrikamFunctionApp" som exempel på Function-appen.
 
-1. I fönstret Function-app väljer du **plattforms funktioner**. Under **utvecklingsverktyg**väljer du **Avancerade verktyg (kudu)**.
+1. I fönstret Function-app väljer du **plattforms funktioner**. Under **utvecklingsverktyg** väljer du **Avancerade verktyg (kudu)**.
 
    ![Öppna avancerade verktyg för kudu](./media/logic-apps-azure-functions/open-advanced-tools-kudu.png)
 
-1. På kudu-webbplatsens namn List väljer du **cmd**på menyn för **fel söknings konsolen** .
+1. På kudu-webbplatsens namn List väljer du **cmd** på menyn för **fel söknings konsolen** .
 
    ![Från menyn Felsök konsol väljer du alternativet "CMD"](./media/logic-apps-azure-functions/open-debug-console-kudu.png)
 
-1. När nästa sida visas väljer du **plats**  >  **wwwroot**  >  *-funktionen*i mapplistan. I dessa steg används "FabrikamAzureFunction" som exempel funktion.
+1. När nästa sida visas väljer du **plats**  >  **wwwroot**  >  *-funktionen* i mapplistan. I dessa steg används "FabrikamAzureFunction" som exempel funktion.
 
    ![Välj "plats" > "wwwroot" > din funktion](./media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png)
 
@@ -283,11 +283,11 @@ Nu är du redo att konfigurera Azure AD-autentisering för din Function-app.
 
 1. Leta upp och välj din Function-app i [Azure Portal](https://portal.azure.com).
 
-1. I fönstret Function-app väljer du **plattforms funktioner**. Under **nätverk**väljer du **autentisering/auktorisering**.
+1. I fönstret Function-app väljer du **plattforms funktioner**. Under **nätverk** väljer du **autentisering/auktorisering**.
 
    ![Visa inställningar för autentisering och auktorisering](./media/logic-apps-azure-functions/view-authentication-authorization-settings.png)
 
-1. Ändra inställningen för **App Service autentisering** till **på**. Välj **Logga in med Azure Active Directory**i listan **åtgärd som ska vidtas när begäran inte är autentiserad** . Under **autentiseringsproviders**väljer du **Azure Active Directory**.
+1. Ändra inställningen för **App Service autentisering** till **på**. Välj **Logga in med Azure Active Directory** i listan **åtgärd som ska vidtas när begäran inte är autentiserad** . Under **autentiseringsproviders** väljer du **Azure Active Directory**.
 
    ![Aktivera autentisering med Azure AD](./media/logic-apps-azure-functions/turn-on-authentication-azure-active-directory.png)
 

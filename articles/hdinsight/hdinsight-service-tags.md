@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
 ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535254"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022759"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>NSG service-taggar för Azure HDInsight
 
@@ -26,9 +26,9 @@ Om du vill använda en viss region och service tag-numret inte har dokumenterats
 
 Du har två alternativ för att använda tjänst Taggar i dina nätverks säkerhets grupper:
 
-- **Använd en enda global HDInsight-Service tag** : det här alternativet öppnar det virtuella nätverket för alla IP-adresser som HDInsight-tjänsten använder för att övervaka kluster i alla regioner. Det här alternativet är den enklaste metoden, men det kanske inte är lämpligt om du har begränsade säkerhets krav.
+- **Använd en enda global HDInsight-Service tag**: det här alternativet öppnar det virtuella nätverket för alla IP-adresser som HDInsight-tjänsten använder för att övervaka kluster i alla regioner. Det här alternativet är den enklaste metoden, men det kanske inte är lämpligt om du har begränsade säkerhets krav.
 
-- **Använd flera regionala service Taggar** : med det här alternativet öppnas det virtuella nätverket till de IP-adresser som HDInsight använder i den aktuella regionen. Om du använder flera regioner måste du dock lägga till flera service märken i det virtuella nätverket.
+- **Använd flera regionala service Taggar**: med det här alternativet öppnas det virtuella nätverket till de IP-adresser som HDInsight använder i den aktuella regionen. Om du använder flera regioner måste du dock lägga till flera service märken i det virtuella nätverket.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Använd en enda global HDInsight Service-tagg
 
@@ -36,11 +36,11 @@ Det enklaste sättet att börja använda service märken med ditt HDInsight-klus
 
 1. Välj din nätverks säkerhets grupp från [Azure Portal](https://portal.azure.com/).
 
-1. Under **Inställningar** väljer du **inkommande säkerhets regler** och väljer sedan **+ Lägg till** .
+1. Under **Inställningar** väljer du **inkommande säkerhets regler** och väljer sedan **+ Lägg till**.
 
-1. I list rutan **källa** väljer du **service tag** .
+1. I list rutan **källa** väljer du **service tag**.
 
-1. I list rutan **käll tjänst tag** väljer du **HDInsight** .
+1. I list rutan **käll tjänst tag** väljer du **HDInsight**.
 
     ![Lägg till en service tag från Azure Portal](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 

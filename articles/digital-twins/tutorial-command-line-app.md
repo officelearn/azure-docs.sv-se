@@ -8,11 +8,11 @@ ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: d7c95317667999ac17803f08575e68641100b967
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460792"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023284"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Självstudie: utforska digitala Azure-enheter med ett exempel på en klient
 
@@ -24,7 +24,7 @@ I den här självstudien kommer du att...
 > [!div class="checklist"]
 > * Konfigurera en digital Azure-instans
 > * Konfigurera det exempel kommando rads program som ska samverka med instansen
-> * Använd kommando rads appen för att utforska Azures digitala dubbla, inklusive **modeller**, **digitala dubbla**, **relationer**och **frågor**
+> * Använd kommando rads appen för att utforska Azures digitala dubbla, inklusive **modeller**, **digitala dubbla**, **relationer** och **frågor**
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -32,13 +32,13 @@ I den här självstudien kommer du att...
 
 ## <a name="explore-with-the-sample-solution"></a>Utforska med exempel lösningen
 
-Nu när instansen och exempel appen har kon figurer ATS använder du exempelprojektet och en kod i förväg skriven exempel kod för att bygga ut och utforska en grundläggande Azure digital-lösning. De viktigaste lösnings komponenterna är **modeller**, **digitala, dubbla**och **relationer**, vilket resulterar i ett fråge bara, **dubbel diagram** över en miljö.
+Nu när instansen och exempel appen har kon figurer ATS använder du exempelprojektet och en kod i förväg skriven exempel kod för att bygga ut och utforska en grundläggande Azure digital-lösning. De viktigaste lösnings komponenterna är **modeller**, **digitala, dubbla** och **relationer**, vilket resulterar i ett fråge bara, **dubbel diagram** över en miljö.
 
 ### <a name="model-a-physical-environment-with-dtdl"></a>Modellera en fysisk miljö med DTDL
 
 Det första steget i att skapa en Azure digital-lösning med dubbla lösningar är att definiera dubbla [**modeller**](concepts-models.md) för din miljö. 
 
-Modeller liknar klasser i objektorienterade programmeringsspråk. de ger användardefinierade mallar för [digitala dubbla](concepts-twins-graph.md) och kan följa och instansiera senare. De är skrivna i ett JSON-liknande språk som kallas **DTDL (Digital Endefinierad Definition Language)** och kan definiera ett dubbelt *Egenskaper*, *telemetri*, *relationer*och *komponenter*.
+Modeller liknar klasser i objektorienterade programmeringsspråk. de ger användardefinierade mallar för [digitala dubbla](concepts-twins-graph.md) och kan följa och instansiera senare. De är skrivna i ett JSON-liknande språk som kallas **DTDL (Digital Endefinierad Definition Language)** och kan definiera ett dubbelt *Egenskaper*, *telemetri*, *relationer* och *komponenter*.
 
 > [!NOTE]
 > DTDL kan också användas för definition av *kommandon* på digitala dubbla. Men det finns för närvarande inte stöd för kommandon i Azures digitala dubbla-tjänster.
@@ -47,7 +47,7 @@ I Visual Studio-fönstret där _**AdtE2ESample**_ -projektet är öppet använde
 
 Välj *Room.jspå* för att öppna den i redigerings fönstret och ändra den på följande sätt:
 
-* **Uppdatera versions numret**för att indikera att du tillhandahåller en mer uppdaterad version av den här modellen. Gör detta genom att ändra *1* i slutet av `@id` värdet till *2*. Alla tal som är större än det aktuella versions numret fungerar också.
+* **Uppdatera versions numret** för att indikera att du tillhandahåller en mer uppdaterad version av den här modellen. Gör detta genom att ändra *1* i slutet av `@id` värdet till *2*. Alla tal som är större än det aktuella versions numret fungerar också.
 * **Redigera en egenskap**. Ändra namnet på `Humidity` egenskapen till *HumidityLevel* (eller något annat om du vill. Om du använder något annat än *HumidityLevel*, kom ihåg vad du använde och fortsätta att använda det i stället för *HumidityLevel* i hela kursen.
 * **Lägg till en egenskap**. Under den `HumidityLevel` egenskap som slutar på rad 15 klistrar du in följande kod för att lägga till en `RoomName` egenskap till rummet:
 
@@ -85,18 +85,18 @@ Se till att spara filen innan du fortsätter.
 
 Nu när du har definierat en modell kan de återstående stegen använda exempel appen för att interagera med din Azure Digital-instansen. Kör projektet med den här knappen i verktygsfältet:
 
-:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation":::
+:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="Start knappen i Visual Studio (SampleClientApp-projekt)":::
 
 Ett konsol fönster öppnas, utför autentisering och vänta på ett kommando. 
 * Autentiseringen hanteras via webbläsaren: din standard webbläsare öppnas med en autentiserings-prompt. Använd den här frågan för att logga in med dina Azure-autentiseringsuppgifter. Sedan kan du stänga webbläsarens flik eller fönster.
 
 Här är en skärm bild av hur projekt konsolen ser ut:
 
-:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation":::
+:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Välkomst meddelande från kommando rads appen":::
 
 > [!TIP]
 > En lista över alla möjliga kommandon som du kan använda med det här projektet får du genom `help` att skriva i projekt konsolen och trycka på RETUR.
-> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation":::
+> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Utdata från hjälp kommandot":::
 
 Se till att projekt konsolen körs för resten av stegen i den här självstudien.
 
@@ -117,7 +117,7 @@ Utdatan anger att modellerna har skapats.
 
 Kontrol lera att modellerna har skapats genom att köra kommandot `GetModels true` . Detta kommer att fråga Azure Digitals-instansen för alla modeller som har laddats upp och skriva ut all information. Leta efter den redigerade *rums* modellen i resultaten:
 
-:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation":::
+:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Resultat av GetModels, som visar den uppdaterade rums modellen":::
 
 #### <a name="errors"></a>Fel
 
@@ -165,9 +165,9 @@ CreateDigitalTwin dtmi:example:Floor;1 floor1
 
 Utdata från de här kommandona ska ange att de dubbla värdena har skapats. 
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation":::
+:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Utdrag från resultaten av CreateDigitalTwin-kommandon, som visar floor0, floor1, room0 och room1":::
 
-Du kan också kontrol lera att de dubblarna har skapats genom att köra `Query` kommandot. Det här kommandot frågar din Azure Digital-instansen för alla digitala dubbla som den innehåller. Leta efter *floor0*, *floor1*, *room0*och *room1* -dubbla i resultaten.
+Du kan också kontrol lera att de dubblarna har skapats genom att köra `Query` kommandot. Det här kommandot frågar din Azure Digital-instansen för alla digitala dubbla som den innehåller. Leta efter *floor0*, *floor1*, *room0* och *room1* -dubbla i resultaten.
 
 #### <a name="modify-a-digital-twin"></a>Ändra en digital delad
 
@@ -179,7 +179,7 @@ UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
 
 Resultatet bör indikera att den dubbla uppdateringen har uppdaterats.
 
-Du kan också kontrol lera genom att köra det här kommandot för att se *room0*information:
+Du kan också kontrol lera genom att köra det här kommandot för att se *room0* information:
 
 ```cmd/sh
 GetDigitalTwin room0
@@ -205,7 +205,7 @@ CreateRelationship floor1 contains room1 relationship1
 
 Utdata från de här kommandona bekräftar att relationerna har skapats:
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation":::
+:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Utdrag från resultaten av CreateRelationship-kommandon, som visar relationship0 och relationship1":::
 
 Du kan också kontrol lera relationerna med något av följande kommandon, som frågar relationerna i din Azure Digital-instansen.
 * Om du vill se alla relationer som kommer från varje våning (som visar relationerna från ena sidan),
@@ -225,7 +225,7 @@ Du kan också kontrol lera relationerna med något av följande kommandon, som f
 
 De dubbla och relationer som du har skapat i den här självstudien utgör följande konceptuella diagram:
 
-:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation" border="false":::
+:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="Ett diagram som visar floor0 som är anslutna via relationship0 till room0 och floor1 som är anslutna via relationship1 till room1" border="false":::
 
 ### <a name="query-the-twin-graph-to-answer-environment-questions"></a>Fråga den dubbla grafen för att svara på frågor om miljön
 
@@ -239,7 +239,7 @@ En huvud funktion i Azure Digitals flätas är möjligheten att [fråga](concept
 
     På så sätt kan du snabbt ta en titt på din miljö och se till att allt är representerat på det sätt som du vill att det ska vara i Azure Digitals. Resultatet av detta är en utmatning som innehåller varje digital enhet med information. Här är ett utdrag:
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Partiella resultat av en delad fråga som visar room0 och floor1":::
 
     >[!NOTE]
     >Kommandot `Query` utan några ytterligare argument är detsamma som i exempelprojektet `Query SELECT * FROM DIGITALTWINS` . Om du vill fråga alla dubbla i din instans med hjälp av [fråge-API: erna](/rest/api/digital-twins/dataplane/query) eller [CLI-kommandona](how-to-use-cli.md)använder du frågan längre (slutförd).
@@ -252,7 +252,7 @@ En huvud funktion i Azure Digitals flätas är möjligheten att [fråga](concept
 
     Du kan begränsa frågan till flera av en viss typ, för att få mer specifik information om vad som visas. Resultatet av detta är *room0* och *room1*, men visar **inte** *floor0* eller *floor1* (eftersom de är golv, inte rum).
     
-    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Resultat av modell frågan, som endast visar room0 och room1":::
 
 * **Vilka är alla rum på *floor0*?** (fråga efter relation)
 
@@ -262,7 +262,7 @@ En huvud funktion i Azure Digitals flätas är möjligheten att [fråga](concept
 
     Du kan fråga baserat på relationer i diagrammet för att få information om hur dubbla anslutningar är anslutna eller begränsa din fråga till ett visst område. Endast *room0* är på *floor0*, så det är det enda rummet i resultatet.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Resultat av Relations frågan, som visar room0":::
 
 * **Vad är alla dubbla i min miljö med en temperatur över 75?** (fråga efter egenskap)
 
@@ -272,7 +272,7 @@ En huvud funktion i Azure Digitals flätas är möjligheten att [fråga](concept
 
     Du kan fråga diagrammet utifrån egenskaper för att besvara en rad olika frågor, inklusive att hitta avvikande extrem värden i din miljö som kan behöva åtgärdas. Andra jämförelse operatorer ( *<* ,, *>* *=* eller *! =*) stöds också. *room1* visas i resultatet, eftersom det har en temperatur på 80.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Resultat för egenskaps fråga, som endast visar room1":::
 
 * **Vilka är alla rum på *floor0* med en temperatur över 75?** (sammansatt fråga)
 
@@ -282,7 +282,7 @@ En huvud funktion i Azure Digitals flätas är möjligheten att [fråga](concept
 
     Du kan också kombinera de tidigare frågorna som du skulle göra i SQL, med kombinations operatorer som `AND` , `OR` , `NOT` . Den här frågan använder `AND` för att göra den föregående frågan om dubbla temperaturer mer detaljerad. Resultatet innehåller nu bara rum med temperaturer över 75 som finns på *floor0*, vilket i det här fallet inte är något av dem. Resultat uppsättningen är tom.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Resultat av sammansatt fråga som visar inga resultat":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

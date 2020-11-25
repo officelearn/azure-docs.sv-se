@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.custom: contperfq1
 ms.date: 08/21/2020
 ms.openlocfilehash: 02192f3960b8021ee32203620893620c7b96f076
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539453"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024001"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Självstudie: Skapa ett Scala Maven-program för Apache Spark i HDInsight med hjälp av IntelliJ
 
@@ -25,7 +25,7 @@ I den här självstudien lär du dig att skapa ett Apache Spark-program som skri
 * Generera en jar-fil som kan skickas till HDInsight Spark-kluster.
 * Kör programmet på ett Spark-kluster med Livy.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Installera plugin-programmet Scala för IntelliJ IDEA
 > * Använda IntelliJ till att utveckla ett Scala Maven-program
@@ -59,7 +59,7 @@ Utför följande steg för att installera Scala-plugin-programmet:
 
 ## <a name="use-intellij-to-create-application"></a>Använda IntelliJ till att skapa program
 
-1. Starta IntelliJ IDEA och välj **Skapa nytt projekt** för att öppna fönstret **Nytt projekt** .
+1. Starta IntelliJ IDEA och välj **Skapa nytt projekt** för att öppna fönstret **Nytt projekt**.
 
 2. Välj **Apache Spark/HDInsight** i det vänstra fönstret.
 
@@ -71,7 +71,7 @@ Utför följande steg för att installera Scala-plugin-programmet:
 
    ![IntelliJ dialog rutan nytt projekt](./media/apache-spark-create-standalone-application/intellij-project-apache-spark.png)
 
-5. Välj **Nästa** .
+5. Välj **Nästa**.
 
 6. I fönstret **Nytt projekt** anger du följande information:  
 
@@ -80,19 +80,19 @@ Utför följande steg för att installera Scala-plugin-programmet:
   	|Projektnamn| Ange ett namn.|  
   	|Projektplats| Ange den plats där du vill spara projektet.|
   	|Projekt-SDK| Det här fältet är tomt vid din första användning av idén.  Välj **Nytt...** och navigera till din JDK.|
-  	|Spark-version|Skapandeguiden integrerar rätt version för Spark SDK och Scala SDK. Om Sparks klusterversion är äldre än 2.0 väljer du **Spark 1.x** . Annars väljer du **Spark 2.x** . I det här exemplet används **Spark 2.3.0 (Scala 2.11.8)** .|
+  	|Spark-version|Skapandeguiden integrerar rätt version för Spark SDK och Scala SDK. Om Sparks klusterversion är äldre än 2.0 väljer du **Spark 1.x**. Annars väljer du **Spark 2.x**. I det här exemplet används **Spark 2.3.0 (Scala 2.11.8)**.|
 
     ![IntelliJ idé att välja Spark SDK](./media/apache-spark-create-standalone-application/hdi-scala-new-project.png)
 
-7. Välj **Slutför** .
+7. Välj **Slutför**.
 
 ## <a name="create-a-standalone-scala-project"></a>Skapa ett fristående Scala-projekt
 
-1. Starta IntelliJ IDEA och välj **Skapa nytt projekt** för att öppna fönstret **Nytt projekt** .
+1. Starta IntelliJ IDEA och välj **Skapa nytt projekt** för att öppna fönstret **Nytt projekt**.
 
 2. Välj **Maven** i den vänstra rutan.
 
-3. Ange en **Projekt-SDK** . Om det är tomt väljer du **Nytt...** och går till installationskatalogen för Java.
+3. Ange en **Projekt-SDK**. Om det är tomt väljer du **Nytt...** och går till installationskatalogen för Java.
 
 4. Markera kryssrutan **Create from archetype** (Skapa från arketyp).  
 
@@ -100,32 +100,32 @@ Utför följande steg för att installera Scala-plugin-programmet:
 
     ![Skärm bild som visar den valda archetype i fönstret nytt projekt.](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
 
-6. Välj **Nästa** .
+6. Välj **Nästa**.
 
-7. Expandera **artefakt koordinater** . Ange relevanta **värden för** **ArtifactId** . **Namn** och **plats** fylls i automatiskt. I den här självstudien används följande värden:
+7. Expandera **artefakt koordinater**. Ange relevanta **värden för** **ArtifactId**. **Namn** och **plats** fylls i automatiskt. I den här självstudien används följande värden:
 
     - **GroupId:** com.microsoft.spark.example
     - **ArtifactId:** SparkSimpleApp
 
     ![Skärm bild som visar alternativet artefakt koordinater i fönstret nytt projekt.](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
 
-8. Välj **Nästa** .
+8. Välj **Nästa**.
 
-9. Kontrollera inställningarna och välj sedan **Nästa** .
+9. Kontrollera inställningarna och välj sedan **Nästa**.
 
-10. Kontrollera projektets namn och plats och välj sedan **Slutför** .  Projektet kan ta några minuter att importeras.
+10. Kontrollera projektets namn och plats och välj sedan **Slutför**.  Projektet kan ta några minuter att importeras.
 
-11. När projektet har importer ATS går du till det vänstra fönstret och navigerar till **SparkSimpleApp**  >  **src**  >  **test**  >  **Scala**  >  **com**  >  **Microsoft**  >  **Spark** -  >  **exempel** .  Högerklicka på **specifikation** och välj sedan **ta bort...** . Du behöver inte den här filen för programmet.  Välj **OK** i dialogrutan.
+11. När projektet har importer ATS går du till det vänstra fönstret och navigerar till **SparkSimpleApp**  >  **src**  >  **test**  >  **Scala**  >  **com**  >  **Microsoft**  >  **Spark**-  >  **exempel**.  Högerklicka på **specifikation** och välj sedan **ta bort...**. Du behöver inte den här filen för programmet.  Välj **OK** i dialogrutan.
   
 12. I de senare stegen uppdaterar du **pom.xml** för att definiera beroenden för Spark Scala-programmet. För att dessa beroenden ska kunna hämtas och lösas automatiskt måste du konfigurera Maven.
 
-13. Från **Arkiv-menyn** väljer du **Inställningar** för att öppna fönstret **Inställningar** .
+13. Från **Arkiv-menyn** väljer du **Inställningar** för att öppna fönstret **Inställningar**.
 
-14. I fönstret **Inställningar** går du till **Build, Execution, Deployment (Skapa, köra och distribuera)** > **Build Tools** > **Maven** > **Import** .
+14. I fönstret **Inställningar** går du till **Build, Execution, Deployment (Skapa, köra och distribuera)** > **Build Tools** > **Maven** > **Import**.
 
 15. Markera kryssrutan **Import Maven projects automatically** (Importera Maven-projekt automatiskt).
 
-16. Tryck på **Tillämpa** och välj sedan **OK** .  Sedan kommer du tillbaka till projekt fönstret.
+16. Tryck på **Tillämpa** och välj sedan **OK**.  Sedan kommer du tillbaka till projekt fönstret.
 
     ![Konfigurera Maven för automatisk nedladdning](./media/apache-spark-create-standalone-application/configure-maven-download.png)
 
@@ -157,7 +157,7 @@ Utför följande steg för att installera Scala-plugin-programmet:
     }
     ```
 
-19. I den vänstra rutan dubbelklickar du på **pom.xml** .  
+19. I den vänstra rutan dubbelklickar du på **pom.xml**.  
 
 20. I `<project>\<properties>` lägger du till följande segment:
 
@@ -181,7 +181,7 @@ Utför följande steg för att installera Scala-plugin-programmet:
 
 22. Skapa .jar-filen. Med IntelliJ IDEA går det att skapa JAR-filen som en artefakt av ett projekt. Följ dessa steg.
 
-    1. På **Arkiv-menyn** väljer du **Projektstruktur...** .
+    1. På **Arkiv-menyn** väljer du **Projektstruktur...**.
 
     2. I fönstret **Projektstruktur** går du till **Artefakter** > **plustecknet +** > **JAR** > **From modules with dependencies...** (Från moduler med beroenden...).
 
@@ -189,21 +189,21 @@ Utför följande steg för att installera Scala-plugin-programmet:
 
     3. I fönstret **Skapa JAR från moduler** väljer du mappikonen i textrutan **Main Class** (Main-klass).
 
-    4. I fönstret **Select Main Class** (Välj Main-klass) väljer du den klass som visas som standard och sedan **OK** .
+    4. I fönstret **Select Main Class** (Välj Main-klass) väljer du den klass som visas som standard och sedan **OK**.
 
         ![' IntelliJ idé projekt struktur Välj klass '](./media/apache-spark-create-standalone-application/hdinsight-create-jar2.png)
 
-    5. I fönstret **Create JAR from Modules** (Skapa JAR-fil från moduler) kontrollerar du att alternativet **Extract to the target JAR** (Extrahera till mål-JAR) är markerat. Välj sedan **OK** .  Den här inställningen skapar en enda JAR-fil med alla beroenden.
+    5. I fönstret **Create JAR from Modules** (Skapa JAR-fil från moduler) kontrollerar du att alternativet **Extract to the target JAR** (Extrahera till mål-JAR) är markerat. Välj sedan **OK**.  Den här inställningen skapar en enda JAR-fil med alla beroenden.
 
         ![IntelliJ idé projekt struktur jar från modul](./media/apache-spark-create-standalone-application/hdinsight-create-jar3.png)
 
-    6. På fliken **utmatnings layout** visas alla jar v7 som ingår som en del av maven-projektet. Du kan markera och ta bort sådana som Scala-programmet inte har något direkt beroende till. När du skapar ett program kan du ta bort alla utom det sista ( **SparkSimpleApp compile output** ). Välj den jar v7 som ska tas bort och välj sedan den negativa symbolen **-** .
+    6. På fliken **utmatnings layout** visas alla jar v7 som ingår som en del av maven-projektet. Du kan markera och ta bort sådana som Scala-programmet inte har något direkt beroende till. När du skapar ett program kan du ta bort alla utom det sista (**SparkSimpleApp compile output**). Välj den jar v7 som ska tas bort och välj sedan den negativa symbolen **-** .
 
         !["IntelliJ idé projekt struktur ta bort utdata"](./media/apache-spark-create-standalone-application/hdi-delete-output-jars.png)
 
-        Se till att kryss rutan **inkludera i Project build** är markerad. Det här alternativet säkerställer att jar skapas varje gång projektet byggs eller uppdateras. Välj **Applicera** och sedan **OK** .
+        Se till att kryss rutan **inkludera i Project build** är markerad. Det här alternativet säkerställer att jar skapas varje gång projektet byggs eller uppdateras. Välj **Applicera** och sedan **OK**.
 
-    7. Om du vill skapa en jar-version navigerar **du till skapa**  >  **build-artefakter**  >  **Build** . Projektet kompileras inom cirka 30 sekunder.  Utdatans jar-fil skapas under **\out\artifacts** .
+    7. Om du vill skapa en jar-version navigerar **du till skapa**  >  **build-artefakter**  >  **Build**. Projektet kompileras inom cirka 30 sekunder.  Utdatans jar-fil skapas under **\out\artifacts**.
 
         ![IntelliJ idé projekt artefakt utdata](./media/apache-spark-create-standalone-application/hdi-artifact-output-jar.png)
 
@@ -221,13 +221,13 @@ Om du inte kommer att fortsätta att använda det här programmet, tar du bort d
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. I rutan **Sök** längst upp skriver du **HDInsight** .
+1. I rutan **Sök** längst upp skriver du **HDInsight**.
 
-1. Välj **HDInsight-kluster** under **Tjänster** .
+1. Välj **HDInsight-kluster** under **Tjänster**.
 
 1. I listan med HDInsight-kluster som visas väljer du **...** bredvid det kluster som du skapade för den här självstudien.
 
-1. Välj **Ta bort** . Välj **Ja** .
+1. Välj **Ta bort**. Välj **Ja**.
 
 !["HDInsight Azure Portal ta bort kluster"](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "Ta bort HDInsight-kluster")
 

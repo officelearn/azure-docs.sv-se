@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.openlocfilehash: c57a3920dac3e18e248109fafdf61fdfa871c54d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123718"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023405"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelse identifiering i Azure Stream Analytics
 
@@ -114,9 +114,9 @@ FROM AnomalyDetectionStep
 
 Prestandan för dessa modeller beror på Historik storlek, fönster varaktighet, händelse belastning och om partitionering på funktions nivå används. I det här avsnittet beskrivs dessa konfigurationer och innehåller exempel på hur du kan upprätthålla förbruknings frekvensen på 1 KB, 5 K och 10 000 händelser per sekund.
 
-* **Historik storlek** – dessa modeller utför linjärt med **Historik storlek** . Om historikens storlek är längre, tar det längre tid för modeller att skapa en ny händelse. Detta beror på att modellerna jämför den nya händelsen med var och en av de tidigare händelserna i kommandobufferten.
+* **Historik storlek** – dessa modeller utför linjärt med **Historik storlek**. Om historikens storlek är längre, tar det längre tid för modeller att skapa en ny händelse. Detta beror på att modellerna jämför den nya händelsen med var och en av de tidigare händelserna i kommandobufferten.
 * **Fönster varaktighet** – **fönstrets varaktighet** ska motsvara hur lång tid det tar att ta emot så många händelser som anges i historik storleken. Utan att många händelser visas i fönstret Azure Stream Analytics skulle tillräkna saknade värden. CPU-förbrukningen är därför en funktion av historik storleken.
-* **Händelse inläsning** – den större **händelse inläsningen** , desto mer arbete som utförs av modellerna, vilket påverkar CPU-förbrukningen. Jobbet kan skalas ut genom att göra det köras parallellt, förutsatt att affärs logiken använder fler ingångs partitioner.
+* **Händelse inläsning** – den större **händelse inläsningen**, desto mer arbete som utförs av modellerna, vilket påverkar CPU-förbrukningen. Jobbet kan skalas ut genom att göra det köras parallellt, förutsatt att affärs logiken använder fler ingångs partitioner.
 * Partitionering på funktions **nivå**  -  **Partitionering på funktions nivå** görs med hjälp av ```PARTITION BY``` funktions anropet avvikelse identifiering. Den här typen av partitionering lägger till en överordnad status som måste behållas för flera modeller på samma tidpunkt. Partitionering på funktions nivå används i scenarier som partitionering på enhets nivå.
 
 ### <a name="relationship"></a>Relation

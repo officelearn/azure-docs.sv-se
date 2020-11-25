@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079062"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023540"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>ExpressRoute-kryptering: IPsec över ExpressRoute för virtuellt WAN
 
@@ -76,7 +76,7 @@ Plats resursen är samma som icke-ExpressRoute VPN-platser för ett virtuellt WA
 >
 
 1. Gå till Azure Portal i webbläsaren. 
-1. Välj den hubb som du skapade. På sidan Virtual WAN Hub under **anslutning**väljer du **VPN-platser**.
+1. Välj den hubb som du skapade. På sidan Virtual WAN Hub under **anslutning** väljer du **VPN-platser**.
 1. På sidan **VPN-webbplatser** väljer du **+ Skapa webbplats**.
 1. Fyll i följande fält på sidan **Skapa webbplats**:
    * **Prenumeration**: verifiera prenumerationen.
@@ -95,7 +95,7 @@ Plats resursen är samma som icke-ExpressRoute VPN-platser för ett virtuellt WA
 
    Om BGP är aktiverat kommer det att gälla alla anslutningar som skapats för den här platsen i Azure. Konfiguration av BGP på ett virtuellt WAN-nätverk motsvarar att konfigurera BGP på en Azure VPN-gateway. 
    
-   Din lokala BGP-peer-adress *får inte* vara samma som IP-adressen för ditt VPN till enheten eller adress utrymmet för det virtuella nätverket för VPN-platsen. Använd en annan IP-adress på VPN-enheten för din BGP-peer-IP. Det kan vara en adress som tilldelats till loopback-gränssnittet på enheten. Det kan dock *inte* vara en APIPA (169,254.* x*. *x*). Ange den här adressen i motsvarande lokala nätverksgateway som representerar platsen. För BGP-krav, se [om BGP med Azure VPN gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   Din lokala BGP-peer-adress *får inte* vara samma som IP-adressen för ditt VPN till enheten eller adress utrymmet för det virtuella nätverket för VPN-platsen. Använd en annan IP-adress på VPN-enheten för din BGP-peer-IP. Det kan vara en adress som tilldelats till loopback-gränssnittet på enheten. Det kan dock *inte* vara en APIPA (169,254.*x*. *x*). Ange den här adressen i motsvarande lokala nätverksgateway som representerar platsen. För BGP-krav, se [om BGP med Azure VPN gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Välj **Nästa: granska + skapa >** för att kontrol lera inställnings värden och skapa VPN-platsen. Om du har valt **hubbar** för anslutning upprättas anslutningen mellan det lokala nätverket och HUBBENS VPN-gateway.
 
@@ -105,16 +105,16 @@ När du har skapat VPN-platsen och anslutit till hubben använder du följande s
 
 1. Gå tillbaka till sidan för den virtuella WAN-resursen och välj Hub-resursen. Eller navigera från VPN-platsen till det anslutna hubben.
 
-   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="VPN över ExpressRoute":::
-1. Under **anslutning**väljer du **VPN (plats-till-plats)**.
+   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="Välj en hubb":::
+1. Under **anslutning** väljer du **VPN (plats-till-plats)**.
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="VPN över ExpressRoute":::
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="Välj VPN (plats-till-plats)":::
 1. Välj ellipsen (**...**) på VPN-platsen via ExpressRoute och välj **Redigera VPN-anslutning till den här hubben**.
 
-   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="VPN över ExpressRoute":::
-1. Välj **Ja**för **Använd AZUREs privata IP-adress**. Inställningen konfigurerar hubbens VPN-gateway att använda privata IP-adresser inom hubbens adress intervall på gatewayen för den här anslutningen, i stället för offentliga IP-adresser. Detta säkerställer att trafiken från det lokala nätverket passerar de ExpressRoute privata peering-vägarna i stället för att använda det offentliga Internet för VPN-anslutningen. Följande skärm bild visar inställningen:
+   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="Ange konfigurations menyn":::
+1. Välj **Ja** för **Använd AZUREs privata IP-adress**. Inställningen konfigurerar hubbens VPN-gateway att använda privata IP-adresser inom hubbens adress intervall på gatewayen för den här anslutningen, i stället för offentliga IP-adresser. Detta säkerställer att trafiken från det lokala nätverket passerar de ExpressRoute privata peering-vägarna i stället för att använda det offentliga Internet för VPN-anslutningen. Följande skärm bild visar inställningen:
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="VPN över ExpressRoute" border="false":::
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="Inställning för att använda en privat IP-adress för VPN-anslutningen" border="false":::
 1. Välj **Spara**.
 
 När du har sparat ändringarna använder Hub VPN-gatewayen de privata IP-adresserna på VPN-gatewayen för att upprätta IPsec/IKE-anslutningarna med den lokala VPN-enheten över ExpressRoute.

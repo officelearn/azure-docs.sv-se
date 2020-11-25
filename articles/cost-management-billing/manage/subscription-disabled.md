@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cad3082981bcfc699bc230badf44e2ffc2e1bed3
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308970"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744433"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Återaktivera en inaktiverad Azure-prenumeration
 
@@ -54,6 +54,10 @@ Om du är kontoadministratör och oavsiktligt har avbrutit en enskild prenumerat
     ![Skärmbild som visar återaktiveringslänkar i den högra rutan](./media/subscription-disabled/reactivate-sub.png)
 
 För andra prenumerationstyper kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) och få prenumerationen återaktiverad.
+
+## <a name="after-reactivation"></a>Efter återaktivering
+
+När din prenumeration har återaktiverats kan det uppstå en fördröjning i att skapa eller hantera resurser. Om fördröjningen överstiger 30 minuter kontaktar du [Azure faktureringsstöd](https://go.microsoft.com/fwlink/?linkid=2083458) för hjälp. De flesta Azure-resurser återupptas automatiskt och kräver ingen åtgärd. Vi rekommenderar dock att du kontrollerar dina Azure-tjänstresurser och startar om alla som inte återupptas automatiskt.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

@@ -14,11 +14,11 @@ ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 85acd8e26ca10730638332047a37d281358d205f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526562"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022895"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Felsöka distributionsproblem relaterade till omstart eller storleksändring av en befintlig virtuell Windows-dator i Azure
 När du försöker starta en stoppad virtuell Azure-dator (VM) eller ändra storlek på en befintlig virtuell Azure-dator uppstår ett allokeringsfel. Det här felet uppstår när klustret eller regionen inte har tillgängliga resurser eller inte stöder den begärda virtuella dator storleken.
@@ -59,7 +59,7 @@ Begäran om att ändra storlek på den virtuella datorn måste göras vid det ur
      
      * Klicka på **resurs grupper**  >  *resurs gruppen*  >  **resurser**  >  *din tillgänglighets uppsättning*  >  **Virtual Machines**  >  *den virtuella datorn*  >  **stoppas**.
   2. När alla virtuella datorer har stoppats ändrar du storlek på önskad virtuell dator till en större storlek.
-  3. Välj den ändrade virtuella datorn och klicka på **Starta**och starta sedan var och en av de stoppade virtuella datorerna.
+  3. Välj den ändrade virtuella datorn och klicka på **Starta** och starta sedan var och en av de stoppade virtuella datorerna.
 
 ## <a name="next-steps"></a>Nästa steg
 Om du stöter på problem när du skapar en ny virtuell Windows-dator i Azure kan du läsa [Felsöka distributions problem med att skapa en ny virtuell Windows-dator i Azure](./troubleshoot-deployment-new-vm-windows.md).

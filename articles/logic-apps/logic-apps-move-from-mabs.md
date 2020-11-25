@@ -9,11 +9,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: 6c07ab4b18c017bd29723d2640129b8e67374e3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837388"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023660"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migrera appar och lösningar från BizTalk Services till Azure Logic Apps
 
@@ -34,7 +34,7 @@ I den här tabellen mappas BizTalk Services-funktioner till Logic Apps.
 
 | BizTalk Services   | Logic Apps            | Syfte                      |
 | ------------------ | --------------------- | ---------------------------- |
-| Anslutningsprogram          | Anslutningsprogram             | Skicka och ta emot data   |
+| Anslutning          | Anslutning             | Skicka och ta emot data   |
 | Bridge             | Logikapp             | Pipeline-processor           |
 | Validera fas     | XML-validerings åtgärd | Verifiera ett XML-dokument mot ett schema | 
 | Utöka steg       | Datatoken           | Befordra egenskaper till meddelanden eller för routnings beslut |
@@ -87,13 +87,13 @@ När inkommande data har konverterats till XML (eller om XML-meddelandet togs em
 
 I BizTalk Services konverterar Transform-steget ett XML-baserat meddelande format till ett annat. Detta arbete görs genom att använda en karta med hjälp av den TRFM-baserade mapper. I Logic Apps är processen liknande. Transformations åtgärden kör en karta från ditt integrations konto. Den största skillnaden är att Maps i Logic Apps är i XSLT-format. XSLT innehåller möjlighet att återanvända befintlig XSLT som du redan har, inklusive kartor som skapats för BizTalk Server som innehåller functoids. 
 
-### <a name="routing-rules"></a>Hanteringsregler
+### <a name="routing-rules"></a>Dirigeringsregler
 
 BizTalk Services fattar ett Dirigerings beslut där slut punkten eller anslutningen skickar inkommande meddelanden eller data. Möjligheten att välja från förkonfigurerade slut punkter är möjlig med hjälp av filter alternativet för Routning:
 
 ![Skärm bild som visar alternativet routing filter.](media/logic-apps-move-from-mabs/route-filter.png)
 
-I BizTalk Services, om det *bara finns två alternativ, är det* bästa sättet att konvertera vägvals filter i BizTalk Services. Använd en **växel**om det finns fler än två.
+I BizTalk Services, om det *bara finns två alternativ, är det* bästa sättet att konvertera vägvals filter i BizTalk Services. Använd en **växel** om det finns fler än två.
 
 Logic Apps innehåller avancerade Logic-funktioner plus avancerat kontroll flöde och routning med [villkors uttryck](../logic-apps/logic-apps-control-flow-conditional-statement.md) och [switch-instruktioner](../logic-apps/logic-apps-control-flow-switch-statement.md).
 

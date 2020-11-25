@@ -11,11 +11,11 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82100914"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023831"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -115,7 +115,7 @@ De här felen är användare åtgärds bara. Baserat på filtypen, och felkod, M
 
 | Typ av fil | Felkod | Felmeddelande                                                                           | Rekommenderade steg för felsökning                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Alla          | 701        | Läsning [beredskap] har [numberOfBases] basers, men gränsen är [maxReadLength]           | Den vanligaste orsaken till det här felet är att filen skadas, vilket leder till sammanfogning av två läsningar. Kontrol lera dina indatafiler. |
+| Valfri          | 701        | Läsning [beredskap] har [numberOfBases] basers, men gränsen är [maxReadLength]           | Den vanligaste orsaken till det här felet är att filen skadas, vilket leder till sammanfogning av två läsningar. Kontrol lera dina indatafiler. |
 | BAM          | 200        |   Det gick inte att läsa filen [yourFileName].                                                                                       | Kontrol lera formatet på BAM-filen. Skicka arbets flödet igen med en korrekt formaterad fil.                                                                           |
 | BAM          | 201        |  Det gick inte att läsa BAM-filen [File_name].                                                                                      |Kontrol lera formatet på BAM-filen.  Skicka arbets flödet med en korrekt formaterad fil.                                                                            |
 | BAM          | 202        | Det gick inte att läsa BAM-filen [File_name]. Filen är för liten och saknar sidhuvud.                                                                                        | Kontrol lera formatet på BAM-filen.  Skicka arbets flödet med en korrekt formaterad fil.                                                                            |

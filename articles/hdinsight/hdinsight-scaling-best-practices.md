@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 22ce91a81964ed52830fc19dbbbd52e7f170b0d4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535407"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022776"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
 
@@ -128,9 +128,9 @@ Du kan prova tre saker för att undvika att köra jobb som inte körs under en n
 Om du vill se en lista över väntande och pågående jobb kan du använda garn **Resource Manager-gränssnittet** med hjälp av följande steg:
 
 1. Välj ditt kluster från [Azure Portal](https://portal.azure.com/).  Klustret öppnas på en ny Portal sida.
-2. I huvudvyn navigerar du till **kluster instrument paneler**  >  **Ambari start** . Ange dina autentiseringsuppgifter för klustret.
+2. I huvudvyn navigerar du till **kluster instrument paneler**  >  **Ambari start**. Ange dina autentiseringsuppgifter för klustret.
 3. Välj **garn** i listan över tjänster på den vänstra menyn i AMBARI-användargränssnittet.  
-4. På sidan garn väljer du **snabb länkar** och hovring över den aktiva Head-noden och väljer sedan **Resource Manager-användargränssnittet** .
+4. På sidan garn väljer du **snabb länkar** och hovring över den aktiva Head-noden och väljer sedan **Resource Manager-användargränssnittet**.
 
     ![Apache Ambari snabb länkar Resource Manager UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 

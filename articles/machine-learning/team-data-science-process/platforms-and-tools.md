@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d3f6a48815519499ddc39dcc12cafe0fe95e70e0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320240"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023813"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plattformar och verktyg för data vetenskaps projekt
 
@@ -101,14 +101,14 @@ R Services (in-Database) tillhandahåller en plattform för utveckling och distr
 
 R Services (in-Database) stöder R-språket med öppen källkod med en omfattande uppsättning SQL Server verktyg och tekniker. De erbjuder överlägsen prestanda, säkerhet, tillförlitlighet och hanterbarhet. Du kan distribuera R-lösningar med hjälp av praktiska och välbekanta verktyg. Dina produktions program kan anropa R-körningsmiljön och hämta förutsägelser och visuella objekt med hjälp av Transact-SQL. Du kan också använda skalnings biblioteken för att förbättra skalningen och prestandan för dina R-lösningar. Mer information finns i [SQL Server R Services](/sql/advanced-analytics/r/sql-server-r-services).
 
-TDSP-teamet från Microsoft har publicerat två slut för ande genom gångar som visar hur du skapar data vetenskaps lösningar i SQL Server 2016 R-tjänster: en för R-programmerare och en för SQL-utvecklare. För **R-programmerare** , se [genom gång av data vetenskap från slut punkt till slut punkt](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). För **SQL-utvecklare** , se [Avancerad analys i databasen för SQL-utvecklare (självstudie)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
+TDSP-teamet från Microsoft har publicerat två slut för ande genom gångar som visar hur du skapar data vetenskaps lösningar i SQL Server 2016 R-tjänster: en för R-programmerare och en för SQL-utvecklare. För **R-programmerare**, se [genom gång av data vetenskap från slut punkt till slut punkt](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). För **SQL-utvecklare**, se [Avancerad analys i databasen för SQL-utvecklare (självstudie)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
 ## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Bilaga: verktyg för att konfigurera data vetenskaps projekt
 
 ### <a name="install-git-credential-manager-on-windows"></a>Installera git Credential Manager i Windows
 
-Om du följer TDSP i **Windows** måste du installera **git CREDENTIAL Manager (GCM)** för att kommunicera med git-databaserna. Om du vill installera GCM måste du först installera **Chocolaty**. Om du vill installera Chocolaty och GCM kör du följande kommandon i Windows PowerShell som **administratör** :  
+Om du följer TDSP i **Windows** måste du installera **git CREDENTIAL Manager (GCM)** för att kommunicera med git-databaserna. Om du vill installera GCM måste du först installera **Chocolaty**. Om du vill installera Chocolaty och GCM kör du följande kommandon i Windows PowerShell som **administratör**:  
 
 ```powershell
 iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex

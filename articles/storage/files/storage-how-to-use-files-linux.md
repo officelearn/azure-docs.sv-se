@@ -8,11 +8,11 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c271107b85e4903153c29b58aadadd37fb051b76
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626764"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022572"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner med [SMB-kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en Azure-fil resurs: på begäran med `mount` kommandot och i start genom att skapa en post i `/etc/fstab` .
@@ -47,7 +47,7 @@ uname -r
     sudo apt install cifs-utils
     ```
 
-    På **Fedora** , **Red Hat Enterprise Linux 8 +** , och **CentOS 8 +** , använder du `dnf` Package Manager:
+    På **Fedora**, **Red Hat Enterprise Linux 8 +**, och **CentOS 8 +**, använder du `dnf` Package Manager:
 
     ```bash
     sudo dnf install cifs-utils
@@ -69,7 +69,7 @@ uname -r
 
 * **Den senaste versionen av kommando rads gränssnittet för Azure (CLI).** Mer information om hur du installerar Azure CLI finns i [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) och välj operativ system. Om du föredrar att använda Azure PowerShell-modulen i PowerShell 6 + kan du se till att anvisningarna nedan visas för Azure CLI.
 
-* **Se till att port 445 är öppen** : SMB kommunicerar via TCP-port 445 – kontrol lera om brand väggen inte blockerar TCP-portarna 445 från klient datorn.  Ersätt `<your-resource-group>` och `<your-storage-account>` kör sedan följande skript:
+* **Se till att port 445 är öppen**: SMB kommunicerar via TCP-port 445 – kontrol lera om brand väggen inte blockerar TCP-portarna 445 från klient datorn.  Ersätt `<your-resource-group>` och `<your-storage-account>` kör sedan följande skript:
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -99,7 +99,7 @@ Om du vill använda en Azure-filresurs med din Linux-distribution måste du skap
 Du kan montera samma Azure-filresurs till flera monterings punkter om du vill.
 
 ### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montera Azure-filresursen på begäran med `mount`
-1. **Skapa en mapp för monterings punkten** : Ersätt `<your-resource-group>` , `<your-storage-account>` och `<your-file-share>` med lämplig information för din miljö:
+1. **Skapa en mapp för monterings punkten**: Ersätt `<your-resource-group>` , `<your-storage-account>` och `<your-file-share>` med lämplig information för din miljö:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -135,7 +135,7 @@ Du kan montera samma Azure-filresurs till flera monterings punkter om du vill.
 När du är färdig med Azure-filresursen kan du använda `sudo umount $mntPath` för att demontera resursen.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Skapa en permanent monterings punkt för Azure-filresursen med `/etc/fstab`
-1. **Skapa en mapp för monterings punkten** : en mapp för en monterings punkt kan skapas var som helst i fil systemet, men det är en vanlig konvention för att skapa den under/mnt. Följande kommando skapar till exempel en ny katalog, ersätter `<your-resource-group>` , `<your-storage-account>` och `<your-file-share>` med lämplig information för din miljö:
+1. **Skapa en mapp för monterings punkten**: en mapp för en monterings punkt kan skapas var som helst i fil systemet, men det är en vanlig konvention för att skapa den under/mnt. Följande kommando skapar till exempel en ny katalog, ersätter `<your-resource-group>` , `<your-storage-account>` och `<your-file-share>` med lämplig information för din miljö:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -207,7 +207,7 @@ När du är färdig med Azure-filresursen kan du använda `sudo umount $mntPath`
     sudo apt update
     sudo apt install autofs
     ```
-    På **Fedora** , **Red Hat Enterprise Linux 8 +** , och **CentOS 8 +** , använder du `dnf` Package Manager:
+    På **Fedora**, **Red Hat Enterprise Linux 8 +**, och **CentOS 8 +**, använder du `dnf` Package Manager:
     ```bash
     sudo dnf install autofs
     ```
@@ -219,7 +219,7 @@ När du är färdig med Azure-filresursen kan du använda `sudo umount $mntPath`
     ```bash
     sudo zypper install autofs
     ```
-2. **Skapa en monterings punkt för resurs (er)** :
+2. **Skapa en monterings punkt för resurs (er)**:
    ```bash
     sudo mkdir /fileshares
     ```
@@ -250,22 +250,22 @@ Från och med linux kernel 4,18, anropar SMB-kernel-modulen, som kallas `cifs` f
 
 | Distribution | Kan inaktivera SMB 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | Nej |
-| Ubuntu 18.04 | Ja |
-| Ubuntu 19.04 + | Ja |
-| Debian 8-9 | Nej |
-| Debian 10 + | Ja |
-| Fedora 29 + | Ja |
-| CentOS 7 | Nej | 
-| CentOS 8 + | Ja |
-| Red Hat Enterprise Linux 6. x-7. x | Nej |
-| Red Hat Enterprise Linux 8 + | Ja |
-| openSUSE skottår 15,0 | Nej |
-| openSUSE skottår 15.1 + | Ja |
-| openSUSE Tumbleweed | Ja |
-| SUSE Linux Enterprise 11. x-12. x | Nej |
-| SUSE Linux Enterprise 15 | Nej |
-| SUSE Linux Enterprise 15,1 | Nej |
+| Ubuntu 14.04-16.04 | No |
+| Ubuntu 18.04 | Yes |
+| Ubuntu 19.04 + | Yes |
+| Debian 8-9 | No |
+| Debian 10 + | Yes |
+| Fedora 29 + | Yes |
+| CentOS 7 | No | 
+| CentOS 8 + | Yes |
+| Red Hat Enterprise Linux 6. x-7. x | No |
+| Red Hat Enterprise Linux 8 + | Yes |
+| openSUSE skottår 15,0 | No |
+| openSUSE skottår 15.1 + | Yes |
+| openSUSE Tumbleweed | Yes |
+| SUSE Linux Enterprise 11. x-12. x | No |
+| SUSE Linux Enterprise 15 | No |
+| SUSE Linux Enterprise 15,1 | No |
 
 Du kan kontrol lera om din Linux-distribution stöder `disable_legacy_dialects` modulen modul via följande kommando.
 

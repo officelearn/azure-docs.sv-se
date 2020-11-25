@@ -9,15 +9,15 @@ ms.date: 07/15/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 764d75872eb1bad0647235cd70f9984ebd7789bd
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95556512"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025725"
 ---
 I följande tabell visas kvot information som är speciell för Azure Service Bus meddelande tjänster. För information om priser och andra kvoter för Service Bus, se [Service Bus prissättning](https://azure.microsoft.com/pricing/details/service-bus/).
 
-| Kvot namn | Omfång | Anteckningar | Värde |
+| Kvot namn | Omfång | Kommentarer | Värde |
 | --- | --- | --- | --- |
 | Maximalt antal Basic-eller standard-namnområden per Azure-prenumeration |Namnområde |Efterföljande förfrågningar om fler Basic-eller standard-namnområden avvisas av Azure Portal. |100|
 | Maximalt antal Premium-namnområden per Azure-prenumeration |Namnområde |Efterföljande begär Anden om ytterligare Premium-namnområden avvisas av portalen. |100 |

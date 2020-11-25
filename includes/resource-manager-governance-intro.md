@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: d1e7fa1ed1649508f0d4923db8817d17ad556ca1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55b545471cbe45fe35e28879270e4340cf9d3834
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187273"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025850"
 ---
 När du distribuerar resurser till Azure får du en enorm flexibilitet för att bestämma vilka typer av resurser som ska distribueras, var de finns och hur du konfigurerar dem. Den flexibiliteten kan dock möjliggöra fler alternativ än vad du vill tillåta i din organisation. När du planerar att distribuera resurser till Azure undrar du kanske:
 
@@ -30,4 +30,4 @@ Den här artikeln tar upp dessa frågor. Mer specifikt kan du:
 > * Låsa resurser som är viktiga för systemet.
 > * Tagga resurser så att du kan spåra dem med värden som är lämpliga för din organisation.
 
-Den här artikeln handlar om de uppgifter som du utför för att implementera styrning. En bredare beskrivning av begreppen finns i [Styrning i Azure](../articles/security/governance-in-azure.md). 
+Den här artikeln handlar om de uppgifter som du utför för att implementera styrning. En bredare beskrivning av begreppen finns i [Styrning i Azure](../articles/governance/index.yml).

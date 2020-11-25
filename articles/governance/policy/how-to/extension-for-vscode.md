@@ -4,11 +4,11 @@ description: Lär dig hur du använder Azure Policy-tillägget för Visual Studi
 ms.date: 10/20/2020
 ms.topic: how-to
 ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317619"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022436"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Använd Azure Policy-tillägg för Visual Studio Code
 
@@ -25,7 +25,7 @@ Azure Policy-tillägget för Visual Studio Code kan installeras på alla plattfo
 
 Följande objekt krävs för att slutföra stegen i den här artikeln:
 
-- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - [Visual Studio Code](https://code.visualstudio.com).
 
 ## <a name="install-azure-policy-extension"></a>Installera Azure Policy tillägg
@@ -34,7 +34,7 @@ När du uppfyller kraven kan du installera Azure Policy tillägget för Visual S
 
 1. Öppna Visual Studio Code.
 
-1. Gå till **Visa**  >  **tillägg**i meny raden.
+1. Gå till **Visa**  >  **tillägg** i meny raden.
 
 1. I rutan Sök anger du **Azure policy**.
 
@@ -64,13 +64,13 @@ Om du vill utvärdera resurser och uppslags-alias måste du ansluta till ditt Az
 
      Från Azure Policy-tillägget väljer **du logga in på Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Skärm bild av valet av netazure Cloud-inloggning för Visual Studio Code." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Skärm bild av Visual Studio Code och ikonen för Azure Policy-tillägget." border="false":::
 
    - Kommando palett
 
-     I meny raden går du till **Visa**  >  **kommando-palett**och anger **Azure: Logga**in.
+     I meny raden går du till **Visa**  >  **kommando-palett** och anger **Azure: Logga** in.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Skärm bild av valet av netazure Cloud-inloggning för Visual Studio Code." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Skärm bild av Azure Clouds inloggnings alternativ för Visual Studio Code från paletten Command." border="false":::
 
 1. Följ anvisningarna för inloggning för att logga in på Azure. När du är ansluten visas namnet på ditt Azure-konto i statusfältet längst ned i Visual Studio Code-fönstret.
 
@@ -82,11 +82,11 @@ Första gången du loggar in, läses endast standard prenumerations resurser och
 
    - Kommando palett: 
 
-     I meny raden går du till **Visa** > **kommando-palett**och anger **Azure: Välj prenumerationer**.
+     I meny raden går du till **Visa** > **kommando-palett** och anger **Azure: Välj prenumerationer**.
 
    - Fönster fot
 
-     I fönster foten längst ned på skärmen väljer du det segment som matchar **Azure: \<your account\> **.
+     I fönster foten längst ned på skärmen väljer du det segment som matchar **Azure: \<your account\>**.
 
 1. Använd filter rutan för att snabbt hitta prenumerationer efter namn. Markera eller ta bort kontrollen från varje prenumeration för att ange de prenumerationer som visas i Azure Policy tillägget. När du har lagt till eller tagit bort prenumerationer som ska visas väljer du **OK**.
 
@@ -96,7 +96,7 @@ I Azure Policy-tillägget visas resurser i de valda prenumerationerna per resurs
 
 - **Resursprovidrar**
   - Varje registrerad resurs leverantör med resurser och relaterade underordnade resurser som har princip-alias
-- **Resurs grupper**
+- **Resursgrupper**
   - Alla resurser av resurs gruppen som de befinner sig i
 
 Som standard filtrerar tillägget "Resource Provider"-delen av befintliga resurser och resurser som har princip-alias. Ändra det här beteendet i **Inställningar**  >  **tillägg**  >  **Azure policy** om du vill se alla resurs leverantörer utan att filtrera.
@@ -111,7 +111,7 @@ Kunder med hundratals eller tusentals resurser i en enda prenumeration kan före
 
    - Kommando palett:
 
-     I meny raden går du till **Visa** > **kommando-palett**och anger **resurser: Sök efter resurser**.
+     I meny raden går du till **Visa** > **kommando-palett** och anger **resurser: Sök efter resurser**.
 
 1. Om fler än en prenumeration har valts för visning använder du filtret för att välja vilken prenumeration som ska genomsökas.
 
@@ -125,7 +125,7 @@ När en resurs väljs, oavsett om Sök gränssnittet eller genom att markera det
 
 När en resurs är öppen visas Azure Policy alias om ett sådant finns under hovring över resurs hanterarens egenskaps namn eller värde. I det här exemplet är resursen en `Microsoft.Compute/virtualMachines` resurs typ och egenskapen **Properties. StorageProfile. imageReference. erbjudande** hovras över. Vid hovring visas matchande alias.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Skärm bild av valet av netazure Cloud-inloggning för Visual Studio Code." border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Skärm bild av Azure Policy-tillägget för Visual Studio-kod som hovrar på en egenskap för att visa namnen på alias." border="false":::
 
 > [!NOTE]
 > VS Code-tillägget visar endast Resource Manager-läges egenskaper och visar inga egenskaper för [resurs leverantörs läge](../concepts/definition-structure.md#mode) .
@@ -142,7 +142,7 @@ I Azure Policy-tillägget visas princip typer och princip tilldelningar som en T
 
    - Kommando palett:
 
-     I meny raden går du till **Visa** > **kommando-palett**och anger **principer: Sök principer**.
+     I meny raden går du till **Visa** > **kommando-palett** och anger **principer: Sök principer**.
 
 1. Om fler än en prenumeration har valts för visning använder du filtret för att välja vilken prenumeration som ska genomsökas.
 
@@ -199,7 +199,7 @@ Utvärderings resultaten innehåller information om princip definitionen och pri
 
 ## <a name="sign-out"></a>Logga ut
 
-I meny raden går du till **Visa**  >  **kommando-palett**och anger sedan **Azure: Logga ut**.
+I meny raden går du till **Visa**  >  **kommando-palett** och anger sedan **Azure: Logga ut**.
 
 ## <a name="next-steps"></a>Nästa steg
 

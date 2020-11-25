@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
@@ -9,18 +9,18 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 1aff5780aa5f4cf21d862a5cee3b140179dac03c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e584b6eff16636f0657c586f6c630dbf8bbb99b2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88703327"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025786"
 ---
 Följande sammanfattar viktiga gränser i Azure Time Series Insights gen1.
 
 ### <a name="sku-ingress-rates-and-capacities"></a>Pris nivåer och kapaciteter för SKU
 
-Ingångs priser och kapaciteter för S1 och S2 SKU ger flexibilitet när du konfigurerar en ny Azure Time Series Insightss miljö. SKU-kapaciteten anger din dagliga ingångs taxa baserat på antalet händelser eller byte som lagras, beroende på vilket som kommer först. Observera att inkommande trafik mäts *per minut*och att **begränsningen** tillämpas med hjälp av token-Bucket. Ingress mäts i block om 1 KB. Till exempel skulle en faktisk 0,8-KB-händelse mätas som en händelse, och en händelse på 2,6 KB räknas som tre händelser.
+Ingångs priser och kapaciteter för S1 och S2 SKU ger flexibilitet när du konfigurerar en ny Azure Time Series Insightss miljö. SKU-kapaciteten anger din dagliga ingångs taxa baserat på antalet händelser eller byte som lagras, beroende på vilket som kommer först. Observera att inkommande trafik mäts *per minut* och att **begränsningen** tillämpas med hjälp av token-Bucket. Ingress mäts i block om 1 KB. Till exempel skulle en faktisk 0,8-KB-händelse mätas som en händelse, och en händelse på 2,6 KB räknas som tre händelser.
 
 | S1 SKU-kapacitet | Ingress-pris | Maximal lagrings kapacitet
 | --- | --- | --- |
@@ -44,7 +44,7 @@ S2 SKU-miljöer stöder betydligt fler händelser per månad och har en mycket h
 
 ### <a name="property-limits"></a>Egenskaps gränser
 
-Gen1 egenskaps gränser beror på den SKU-miljö som är markerad. Angivna händelse egenskaper har motsvarande JSON-, CSV-och diagram kolumner som kan visas i [Azure Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart).
+Gen1 egenskaps gränser beror på den SKU-miljö som är markerad. Angivna händelse egenskaper har motsvarande JSON-, CSV-och diagram kolumner som kan visas i [Azure Time Series Insights Explorer](../articles/time-series-insights/time-series-quickstart.md).
 
 | SKU | Maximalt antal egenskaper |
 | --- | --- |
@@ -55,9 +55,9 @@ Gen1 egenskaps gränser beror på den SKU-miljö som är markerad. Angivna händ
 
 Högst två händelse källor stöds per instans.
 
-* Lär dig hur du [lägger till en Event Hub-källa](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
-* Konfigurera [en IoT Hub-källa](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
+* Lär dig hur du [lägger till en Event Hub-källa](../articles/time-series-insights/how-to-ingest-data-event-hub.md).
+* Konfigurera [en IoT Hub-källa](../articles/time-series-insights/how-to-ingest-data-iot-hub.md).
 
 ### <a name="api-limits"></a>API-gränser
 
-REST API gränser för Azure Time Series Insights gen1 anges i [REST API referens dokumentation](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability).
+REST API gränser för Azure Time Series Insights gen1 anges i [REST API referens dokumentation](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability).

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 11/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0aace1041eba771a26bed4c85361ea2551c71ba6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257440"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659428"
 ---
 ::: zone target="docs"
 
@@ -66,18 +66,18 @@ Utför följande steg om du returnerar enheten i USA eller Kanada.
     - Om du inte uppger spårningsnumret kräver UPS att du betalar en extra avgift vid upphämtningen.
     - I stället för att schemalägga upphämtningen kan du även lämna in Data Box Disk-enheten på närmaste inlämningsställe.
 
-### <a name="europe"></a>[Europa](#tab/in-europe)
 
-Utför följande steg om du returnerar enheten i Europa.
+### <a name="europe-or-uk"></a>[Europa eller Storbritannien](#tab/in-europe-or-uk)
+
+Utför följande steg om du returnerar enheten i Europa eller Storbritannien.
 
 1. Använd returetiketten i den genomskinliga plastficka som sitter på lådan. Om etiketten är skadad eller förlorad:
     - Gå till **Översikt > Ladda ned adressetikett** och ladda ned en returetikett.
     - Fäst etiketten på enheten.
 
 2. Försegla fraktlådan och se till att adressetiketten är väl synlig.
-3. Om du returnerar enheten i Europa via DHL bokar du upphämtning på DHL:s webbplats.
-4. Navigera till DHL-webbplatsen för ditt land/din region. Under Våra divisioner klickar du på DHL Express. Välj **Skicka > Skicka online**.
-5. Identifiera ditt fraktsedelsnummer och klicka på **Boka upphämtning**.
+3. Gå till DHL Express-webbplatsen för aktuellt land/region och välj **Schemalägg en upphämtning**. Under **Behöver du en frakthandling** väljer du **Nej** > **Jag har ett DHL-fraktsedelsnummer**.
+4. Ange fraktsedelsnumret och ordna hämtningen genom att klicka på **Boka upphämtning**.
 
 ### <a name="australia"></a>[Australien](#tab/in-australia)
 

@@ -12,11 +12,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: effa0d3ba9f7098b691605bfbd76bff9ea3d5e66
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593764"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023439"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa en Azure-SSIS integration runtime i Azure Data Factory
 
@@ -112,7 +112,7 @@ Utför följande steg på sidan **allmänna inställningar** i installations fö
 
    ![Allmänna inställningar](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
 
-   1. För **Namn** , ange namnet på din integreringsruntime.
+   1. För **Namn**, ange namnet på din integreringsruntime.
 
    2. För **beskrivning** anger du en beskrivning av integrationskörningen.
 
@@ -148,7 +148,7 @@ Om du markerar kryss rutan utför du följande steg för att ta med din egen dat
 
    1. Vi rekommenderar att du väljer samma **plats** för din databasserver som värd för SSISDB. Vi rekommenderar att du väljer samma plats för din integreringskörning.
 
-   1. För **Serverslutpunkt för katalogdatabas** , välj en slutpunkt på din databasserver som värd för SSISDB. 
+   1. För **Serverslutpunkt för katalogdatabas**, välj en slutpunkt på din databasserver som värd för SSISDB. 
    
       Baserat på den valda databas servern kan SSISDB-instansen skapas för din räkning som en enda databas, som en del av en elastisk pool eller i en hanterad instans. Det kan vara tillgängligt i ett offentligt nätverk eller genom att ansluta till ett virtuellt nätverk. Information om hur du väljer vilken typ av databas server som ska vara värd för SSISDB finns i [jämför SQL Database och SQL-hanterad instans](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).   
 
@@ -186,7 +186,7 @@ Utför följande steg i fönstret **Lägg till paket arkiv** .
    1. För **länkad tjänst för paket arkiv** väljer du den befintliga länkade tjänsten som lagrar åtkomst informationen för fil system/Azure Files/Azure SQL-hanterad instans där dina paket distribueras eller skapar en ny genom att välja **ny**. Utför följande steg i fönstret **ny länkad tjänst** .
    
       > [!NOTE]
-      > Du kan använda antingen **Azure File Storage** -eller **fil system** länkade tjänster för att komma åt Azure Files. Om du använder **Azure File Storage** länkade tjänsten stöder Azure-SSIS IR paket lagret bara autentiseringsmetoden **Basic** (inte **konto nyckel** eller **SAS-URI** ) för tillfället. Om du vill använda **grundläggande** autentisering på **Azure File Storage** länkade tjänsten kan du lägga till i `?feature.upgradeAzureFileStorage=false` URL: en för ADF-portalen i webbläsaren. Alternativt kan du använda **fil systemets** länkade tjänst för att komma åt Azure Files i stället. 
+      > Du kan använda antingen **Azure File Storage** -eller **fil system** länkade tjänster för att komma åt Azure Files. Om du använder **Azure File Storage** länkade tjänsten stöder Azure-SSIS IR paket lagret bara autentiseringsmetoden **Basic** (inte **konto nyckel** eller **SAS-URI**) för tillfället. Om du vill använda **grundläggande** autentisering på **Azure File Storage** länkade tjänsten kan du lägga till i `?feature.upgradeAzureFileStorage=false` URL: en för ADF-portalen i webbläsaren. Alternativt kan du använda **fil systemets** länkade tjänst för att komma åt Azure Files i stället. 
 
       ![Distributions inställningar för länkade tjänster](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
 
@@ -194,7 +194,7 @@ Utför följande steg i fönstret **Lägg till paket arkiv** .
          
       1. För **Beskrivning** anger du en beskrivning av den länkade tjänsten. 
          
-      1. För **typ** väljer du **Azure File Storage** , **Azure SQL-hanterad instans** eller **fil system**.
+      1. För **typ** väljer du **Azure File Storage**, **Azure SQL-hanterad instans** eller **fil system**.
 
       1. Du kan ignorera **Connect via integration runtime** eftersom vi alltid använder Azure-SSIS IR för att hämta åtkomst informationen för paket arkiv.
 
@@ -202,9 +202,9 @@ Utför följande steg i fönstret **Lägg till paket arkiv** .
 
          1. För **Val av konto** väljer du **från Azure-prenumeration** eller **anger manuellt**.
          
-         1. Om du väljer **från Azure-prenumeration** väljer du den **aktuella Azure-prenumerationen** , **lagrings konto namnet** och **fil resursen**.
+         1. Om du väljer **från Azure-prenumeration** väljer du den **aktuella Azure-prenumerationen**, **lagrings konto namnet** och **fil resursen**.
             
-         1. Om du väljer **ange manuellt** anger du `\\<storage account name>.file.core.windows.net\<file share name>` för **värd** , `Azure\<storage account name>` för **användar namn** och `<storage account key>` **lösen ord** eller väljer din **Azure Key Vault** där den lagras som en hemlighet.
+         1. Om du väljer **ange manuellt** anger du `\\<storage account name>.file.core.windows.net\<file share name>` för **värd**, `Azure\<storage account name>` för **användar namn** och `<storage account key>` **lösen ord** eller väljer din **Azure Key Vault** där den lagras som en hemlighet.
 
       1. Om du väljer en **hanterad Azure SQL-instans** utför du följande steg. 
 
@@ -216,7 +216,7 @@ Utför följande steg i fönstret **Lägg till paket arkiv** .
 
             1. För **databas namn** anger du `msdb` .
                
-            1. För **Autentiseringstyp** väljer du **SQL-autentisering** , **hanterad identitet** eller **tjänstens huvud namn**.
+            1. För **Autentiseringstyp** väljer du **SQL-autentisering**, **hanterad identitet** eller **tjänstens huvud namn**.
 
             1. Om du väljer **SQL-autentisering** anger du relevant **användar namn** och **lösen ord** , eller så väljer du **Azure Key Vault** där det lagras som en hemlighet.
 
@@ -224,7 +224,7 @@ Utför följande steg i fönstret **Lägg till paket arkiv** .
 
             1. Om du väljer **tjänstens huvud namn** anger du det relevanta **tjänstens huvud namn-ID** och **tjänstens huvud** namns nyckel eller väljer din **Azure Key Vault** där den lagras som en hemlighet.
 
-      1. Om du väljer **fil system** anger du UNC-sökvägen till mappen där dina paket distribueras för **värden** , samt det relevanta **användar namnet** och **lösen ordet** eller väljer din **Azure Key Vault** där den lagras som en hemlighet.
+      1. Om du väljer **fil system** anger du UNC-sökvägen till mappen där dina paket distribueras för **värden**, samt det relevanta **användar namnet** och **lösen ordet** eller väljer din **Azure Key Vault** där den lagras som en hemlighet.
 
       1. Välj **Testa anslutning** när det är tillämpligt och om det lyckas väljer du **skapa**.
 
@@ -248,7 +248,7 @@ Utför följande steg på sidan **Avancerade inställningar** i installations f�
    
       1. För den **anpassade SAS-URI: n för installations behållaren** anger du SAS-URI för din behållare där du lagrar skript och tillhör ande filer för standard anpassade inställningar.
 
-      1. För **Express-anpassad installation** väljer du **ny** för att öppna panelen **Lägg till anpassad installation för Express** och väljer sedan någon typ i list rutan **snabb anpassad Installations typ** , t. ex. **Kör cmdkey-kommando** , **Lägg till miljövariabel** , **Installera licensierad komponent** osv.
+      1. För **Express-anpassad installation** väljer du **ny** för att öppna panelen **Lägg till anpassad installation för Express** och väljer sedan någon typ i list rutan **snabb anpassad Installations typ** , t. ex. **Kör cmdkey-kommando**, **Lägg till miljövariabel**, **Installera licensierad komponent** osv.
 
          Om du väljer **komponenten installera licensierad komponent** kan du sedan välja integrerade komponenter från våra ISV-partner under menyn **komponent namn** och om det behövs anger du produkt licens nyckeln/Ladda upp den produkt licens fil som du har köpt från dem i rutan licens fil för **licens nyckel** / **License file** .
   

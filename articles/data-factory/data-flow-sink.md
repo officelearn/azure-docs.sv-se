@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: d45f5d5d1d61372ed959334519aa865c22d70748
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fa048473f0f285b793dad88c7defdb6189ca1ccd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832542"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023014"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Omvandling av mottagare i data flöde för mappning
 
@@ -107,6 +107,10 @@ Som standard skrivs data till flera handfat i en icke deterministisk ordning. K�
 ## <a name="error-row-handling"></a>Felhantering av poster
 
 När du skriver till databaser kan vissa rader med data Miss lyckas på grund av begränsningar som anges av målet. En data flödes körning fungerar som standard för det första fel som det får. I vissa anslutningar kan du välja att **fortsätta vid fel** som gör att ditt data flöde kan slutföras även om enskilda rader har fel. Den här funktionen är för närvarande bara tillgänglig i Azure SQL Database. Mer information finns i [fel rad hantering i Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
+
+Nedan visas en video kurs om hur du använder databas fel rad hantering automatiskt i din Sink-omvandling.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
 
 ## <a name="data-preview-in-sink"></a>Förhands granskning av data i mottagare
 

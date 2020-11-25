@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 006c995217ced91690798ae68f04e3b6c3148228
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 27594ff4d7673038e9de38c5969a615be60aeadf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131963"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844701"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Skapa ytterligare en Azure-prenumeration
 
@@ -73,7 +73,11 @@ Du behöver följande behörigheter för att skapa prenumerationer:
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>Skapa ytterligare en Azure-prenumeration programmatiskt
 
-Du kan också skapa ytterligare prenumerationer programmatiskt. Du kan läsa mer i [Skapa Azure-prenumerationer programmatiskt](programmatically-create-subscription.md).
+Du kan också skapa ytterligare prenumerationer programmatiskt. Mer information finns i:
+
+- [Skapa EA-prenumerationer programmatiskt med det senaste API:et](programmatically-create-subscription-enterprise-agreement.md)
+- [Skapa MCA-prenumerationer programmatiskt med det senaste API:et](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Skapa MPA-prenumerationer programmatiskt med det senaste API:et](Programmatically-create-subscription-microsoft-customer-agreement.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

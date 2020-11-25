@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
 ms.openlocfilehash: e99d68d31f1da4dcb3ef1086a2bbd90f0ab30410
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489004"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023133"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Använd C#-användardefinierade funktioner med Apache Hive och Apache gris på Apache Hadoop i HDInsight
 
@@ -38,7 +38,7 @@ Både Hive och gris kan skicka data till externa program för bearbetning. Den h
 
 ## <a name="net-on-hdinsight"></a>.NET på HDInsight
 
-*Linux-baserade HDInsight-* kluster använder [mono ( https://mono-project.com) ](https://mono-project.com) för att köra .NET-program. Mono version 4.2.1 ingår i HDInsight version 3,6.
+*Linux-baserade HDInsight-* kluster använder [mono ( https://mono-project.com)](https://mono-project.com) för att köra .NET-program. Mono version 4.2.1 ingår i HDInsight version 3,6.
 
 Mer information om mono-kompatibilitet med .NET Framework-versioner finns i [mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -58,7 +58,7 @@ Så här skapar du ett C#-projekt för en Apache Hive UDF:
 
 3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj sedan **Nästa**.
 
-4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *HiveCSharp*och navigerar till eller skapar en **plats där** du vill spara det nya projektet i. Välj sedan **Skapa**.
+4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *HiveCSharp* och navigerar till eller skapar en **plats där** du vill spara det nya projektet i. Välj sedan **Skapa**.
 
 5. I Visual Studio IDE ersätter du innehållet i *program.cs* med följande kod:
 
@@ -125,7 +125,7 @@ Så här skapar du ett C#-projekt för en Apache Hive UDF:
 
 3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj sedan **Nästa**.
 
-4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *PigUDF*och går till eller skapar en **plats där** du sparar det nya projektet i. Välj sedan **Skapa**.
+4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *PigUDF* och går till eller skapar en **plats där** du sparar det nya projektet i. Välj sedan **Skapa**.
 
 5. I Visual Studio IDE ersätter du innehållet i *program.cs* med följande kod:
 
@@ -168,9 +168,9 @@ Så här skapar du ett C#-projekt för en Apache Hive UDF:
 
 Sedan laddar du upp Hive-och gris-UDF-programmen till lagringen i ett HDInsight-kluster.
 
-1. Gå till **Visa**  >  **Server Explorer**i Visual Studio.
+1. Gå till **Visa**  >  **Server Explorer** i Visual Studio.
 
-1. Från **Server Explorer**högerklickar du på **Azure**, väljer **Anslut till Microsoft Azure prenumeration**och slutför inloggnings processen.
+1. Från **Server Explorer** högerklickar du på **Azure**, väljer **Anslut till Microsoft Azure prenumeration** och slutför inloggnings processen.
 
 1. Expandera det HDInsight-kluster som du vill distribuera programmet till. En post med texten **(standard lagrings kontot)** visas.
 
@@ -182,21 +182,21 @@ Sedan laddar du upp Hive-och gris-UDF-programmen till lagringen i ett HDInsight-
 
 1. Använd någon av följande metoder för att ladda upp exe-filerna:
 
-    * Om du använder ett **Azure Storage konto**väljer du ikonen **Ladda upp BLOB** .
+    * Om du använder ett **Azure Storage konto** väljer du ikonen **Ladda upp BLOB** .
 
         ![HDInsight upload-ikon för nytt projekt](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
 
-        Välj **Bläddra**under **fil namn**i dialog rutan **Ladda upp ny fil** . I dialog rutan **Ladda upp BLOB** går du till mappen *bin\debug* för *HiveCSharp* -projektet och väljer sedan filen *HiveCSharp.exe* . Klicka slutligen på **Öppna** och sedan på **OK** för att slutföra överföringen.
+        Välj **Bläddra** under **fil namn** i dialog rutan **Ladda upp ny fil** . I dialog rutan **Ladda upp BLOB** går du till mappen *bin\debug* för *HiveCSharp* -projektet och väljer sedan filen *HiveCSharp.exe* . Klicka slutligen på **Öppna** och sedan på **OK** för att slutföra överföringen.
 
-    * Om du använder **Azure Data Lake Storage**högerklickar du på ett tomt utrymme i fil listan och väljer sedan **Ladda upp**. Välj slutligen *HiveCSharp.exe* -filen och välj **Öppna**.
+    * Om du använder **Azure Data Lake Storage** högerklickar du på ett tomt utrymme i fil listan och väljer sedan **Ladda upp**. Välj slutligen *HiveCSharp.exe* -filen och välj **Öppna**.
 
-    När *HiveCSharp.exe* uppladdning har avslut ATS upprepar du överförings processen för *PigUDF.exes * filen.
+    När *HiveCSharp.exe* uppladdning har avslut ATS upprepar du överförings processen för *PigUDF.exes* filen.
 
 ## <a name="run-an-apache-hive-query"></a>Köra en Apache Hive fråga
 
 Nu kan du köra en Hive-fråga som använder ditt Hive UDF-program.
 
-1. Gå till **Visa**  >  **Server Explorer**i Visual Studio.
+1. Gå till **Visa**  >  **Server Explorer** i Visual Studio.
 
 2. Expandera **Azure** och expandera därefter **HDInsight**.
 
@@ -224,7 +224,7 @@ Nu kan du köra en Hive-fråga som använder ditt Hive UDF-program.
 
     Den här frågan väljer `clientid` `devicemake` fälten, och `devicemodel` från `hivesampletable` , och skickar sedan fälten till *HiveCSharp.exe* -programmet. Frågan förväntar sig att programmet ska returnera tre fält, som lagras som `clientid` , `phoneLabel` och `phoneHash` . Frågan förväntar sig också att hitta *HiveCSharp.exe* i roten för standard lagrings behållaren.
 
-5. Ändra standardinställningen för **interaktiv** till **batch**och välj sedan **Skicka** för att skicka jobbet till HDInsight-klustret. Fönstret **Sammanfattning av Hive-jobb** öppnas.
+5. Ändra standardinställningen för **interaktiv** till **batch** och välj sedan **Skicka** för att skicka jobbet till HDInsight-klustret. Fönstret **Sammanfattning av Hive-jobb** öppnas.
 
 6. Välj **Uppdatera** för att uppdatera sammanfattningen tills **jobbets status** ändras till **slutförd**. Om du vill visa jobbets utdata väljer du **jobbets utdata**.
 

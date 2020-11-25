@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: abnarain
 ms.openlocfilehash: f7b11f813232f593be3598a87b6f1ad7a57054b0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95562608"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023370"
 ---
-| Domännamn                  | Utgående portar | Beskrivning                              |
+| Domännamn                  | Utgående portar | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | Krävs av integration runtime med egen värd för interaktiv redigering. |
 | `{datafactory}.{region}.datafactory.azure.net`<br> eller `*.frontend.clouddatahub.net` | 443            | Krävs av integration runtime med egen värd för att ansluta till tjänsten Data Factory. <br>För nya Data Factory som skapats ska du hitta det fullständiga domän namnet från din egen värd Integration Runtime nyckel som är i formatet {DataFactory}. {region}. DataFactory. Azure. net. Om du inte ser det fullständiga domän namnet i den egna värdbaserade integrerings nyckeln använder du *. frontend.clouddatahub.net i stället för gammal data fabrik. |

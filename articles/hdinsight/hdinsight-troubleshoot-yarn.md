@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288986"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022674"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop YARN med Azure HDInsight
 
@@ -24,7 +24,7 @@ Lär dig mer om de vanligaste problemen och deras lösningar när du arbetar med
 
 Använd följande steg i Ambari för att skapa en ny garn-kö och sedan utjämna kapacitets tilldelningen bland alla köer.
 
-I det här exemplet ändras två befintliga köer ( **standard** -och **thriftsvr** ) från 50% kapacitet till 25% kapacitet, vilket ger den nya kön (Spark) 50% kapacitet.
+I det här exemplet ändras två befintliga köer (**standard** -och **thriftsvr**) från 50% kapacitet till 25% kapacitet, vilket ger den nya kön (Spark) 50% kapacitet.
 
 | Kö | Kapacitet | Maximal kapacitet |
 | --- | --- | --- |
@@ -129,7 +129,7 @@ Dessa ändringar visas omedelbart i användar gränssnittet för garn Scheduler.
 
     Det här kommandot skapar en loggfil med namnet containerlogs.txt.
 
-### <a name="additional-reading"></a><a name="additional-reading-2"></a>Mer att läsa
+### <a name="additional-reading"></a><a name="additional-reading-2"></a>Ytterligare läsning
 
 - [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop garn koncept och program](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)

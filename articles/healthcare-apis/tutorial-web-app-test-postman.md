@@ -10,11 +10,11 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: 1c64468a2e420734ca51a5b9308bb52e13712c51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852930"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023320"
 ---
 # <a name="testing-the-fhir-api"></a>Testa FHIR-API: et
 I de föregående två stegen har du distribuerat Azure API för FHIR och registrerat ditt klient program. Nu är du redo att testa att ditt Azure API för FHIR har kon figurer ATS med klient programmet. 
@@ -36,7 +36,7 @@ För att få åtkomst måste du ha en åtkomsttoken.
 1. Välj **Hämta ny åtkomsttoken**
 1. Fyll i fälten och välj **token för begäran**. Nedan kan du se värdena för varje fält för den här självstudien.
 
-|Field                |Värde                                                               |
+|Fält                |Värde                                                               |
 |---------------------|--------------------------------------------------------------------|
 |Token Name (Tokennamn)           |Ett namn för din token                                               |
 |Grant Type (Typ av beviljande)           |Auktoriseringskod                                                  |

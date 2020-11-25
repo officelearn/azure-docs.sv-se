@@ -7,11 +7,11 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710209"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023558"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Behålla IP-adresser vid redundans
 
@@ -46,7 +46,7 @@ Här är arkitekturen före redundansväxlingen.
             - **Undernät 2**: 10.1.2.0/24
             - **Undernät 3**: 10.1.3.0/24
     - Sekundär (mål) region är Azure Sydostasien
-        - Sydostasien har ett återställnings-VNet (**återställnings-VNet**) identiskt med det **virtuella käll**nätverket
+        - Sydostasien har ett återställnings-VNet (**återställnings-VNet**) identiskt med det **virtuella käll** nätverket
         - Sydostasien har ytterligare ett VNet (**Azure VNet**) med adress utrymme 10.2.0.0/16.
         - **Azure VNet** innehåller ett undernät (**undernät 4**) med adress utrymmet 10.2.4.0/24.
         - Replik-noder för SQL Server Always on, domänkontrollant osv. finns i **undernät 4**.
@@ -134,7 +134,7 @@ Så här ser nätverks arkitekturen ut före redundansväxlingen.
     - **Undernät 2**: 10.1.2.0/24
     - **Undernät 3**: 10.1.3.0/24, använder ett virtuellt Azure-nätverk med adress utrymme 10.1.0.0/16. Det här virtuella nätverket har namnet **Source VNet**
       - Den sekundära (mål) regionen är Azure Sydostasien:
-  - Sydostasien har ett återställnings-VNet (**återställnings-VNet**) identiskt med det **virtuella käll**nätverket
+  - Sydostasien har ett återställnings-VNet (**återställnings-VNet**) identiskt med det **virtuella käll** nätverket
 - Virtuella datorer i Asien, östra är anslutna till ett lokalt Data Center med Azure ExpressRoute eller VPN för plats till plats.
 - För att minska RTO, etablerar företag B gateways på återställnings-VNet i Azure Sydostasien före redundansväxlingen.
 - Företag B tilldelar/verifierar mål-IP-adresser för replikerade virtuella datorer. Mål-IP-adressen är samma som käll-IP-adressen för varje virtuell dator.

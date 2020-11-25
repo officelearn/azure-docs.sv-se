@@ -2,14 +2,14 @@
 title: Ta emot händelser från Azure Event Grid till en HTTP-slutpunkt
 description: Beskriver hur du verifierar en HTTP-slutpunkt och sedan tar emot och deserialiserar händelser från Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 42cf237f0c2fbe091307625fde70613ab9173b0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75c80fb85d39298f1130537971bc700897c039d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326481"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96023741"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ta emot händelser till en HTTP-slutpunkt
 
@@ -140,9 +140,11 @@ Testa funktionen verifierings svar genom att klistra in exempel händelsen i fä
 }]
 ```
 
-När du klickar på Kör ska utdata vara 200 OK och `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` i texten:
+När du klickar på Kör ska utdata vara 200 OK och `{"validationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` i texten:
 
-![verifierings svar](./media/receive-events/validation-response.png)
+:::image type="content" source="./media/receive-events/validation-request.png" alt-text="Verifieringsbegäran":::
+
+:::image type="content" source="./media/receive-events/validation-output.png" alt-text="Verifiering av utdata":::
 
 ## <a name="handle-blob-storage-events"></a>Hantera Blob Storage-händelser
 
@@ -394,6 +396,8 @@ Testa slutligen att din funktion nu kan hantera din anpassade händelse typ:
 ```
 
 Du kan också testa den här funktionen Live genom att [skicka en anpassad händelse med en sväng från portalen](./custom-event-quickstart-portal.md) eller genom [att publicera till ett anpassat ämne](./post-to-custom-topic.md)  med valfri tjänst eller program som kan publicera till en slut punkt, till exempel [Postman](https://www.getpostman.com/). Skapa ett anpassat ämne och en händelse prenumeration med slut punkten som angetts som funktions webb adress.
+
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

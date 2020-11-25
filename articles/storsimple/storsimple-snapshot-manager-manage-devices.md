@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dbb7e835d110bcb6cb81fd5425a2aafbb578e692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054858"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022980"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Använda StorSimple Snapshot Manager för att ansluta och hantera StorSimple-enheter
 ## <a name="overview"></a>Översikt
@@ -33,7 +33,7 @@ Beroende på dina **visnings** val visar **resultat** fönstret följande inform
 
 | Resultat kolumn | Beskrivning |
 |:--- |:--- |
-| Namn |Namnet på enheten enligt konfigurationen i den klassiska Azure-portalen |
+| Name |Namnet på enheten enligt konfigurationen i den klassiska Azure-portalen |
 | Modell |Enhetens modell nummer |
 | Version |Versionen av program varan som är installerad på enheten |
 | Status |Om enheten är tillgänglig |
@@ -110,7 +110,7 @@ Använd följande procedur för att synkronisera anslutna StorSimple-enheter med
 
 #### <a name="to-refresh-connected-devices"></a>Uppdatera anslutna enheter
 1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
-2. I fönstret **omfattning** högerklickar du på **enheter**och klickar sedan på **Uppdatera enheter**. Detta synkroniserar de anslutna enheterna med StorSimple Snapshot Manager så att du kan visa volym grupper och säkerhets kopior, inklusive eventuella nyligen tillagda tillägg. 
+2. I fönstret **omfattning** högerklickar du på **enheter** och klickar sedan på **Uppdatera enheter**. Detta synkroniserar de anslutna enheterna med StorSimple Snapshot Manager så att du kan visa volym grupper och säkerhets kopior, inklusive eventuella nyligen tillagda tillägg. 
    
     ![Uppdatera StorSimple-enheterna](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Refresh_devices.png)
 
@@ -191,18 +191,18 @@ Om en StorSimple-enhet Miss lyckas och har ersatts av en växlings enhet (redund
 1. Stoppa Microsoft StorSimple Management Service:
    
    1. Starta Serverhanteraren.
-   2. På instrument panelen för Serverhanteraren väljer du **tjänster**på **verktyg** -menyn.
+   2. På instrument panelen för Serverhanteraren väljer du **tjänster** på **verktyg** -menyn.
    3. I fönstret **tjänster** väljer du **hanterings tjänsten för Microsoft-StorSimple**.
-   4. Klicka på **stoppa tjänsten**under **Microsoft StorSimple Management Service**i den högra rutan.
+   4. Klicka på **stoppa tjänsten** under **Microsoft StorSimple Management Service** i den högra rutan.
 2. Ta bort konfigurations informationen som är relaterad till den gamla enheten:
    
    1. Bläddra till C:\ProgramData\Microsoft\StorSimple\BACatalog. i Utforskaren
    2. Ta bort filerna i mappen BACatalog
 3. Starta om Microsoft StorSimple Management-tjänsten:
    
-   1. På instrument panelen för Serverhanteraren väljer du **tjänster**på **verktyg** -menyn.
+   1. På instrument panelen för Serverhanteraren väljer du **tjänster** på **verktyg** -menyn.
    2. I fönstret **tjänster** väljer du **hanterings tjänsten för Microsoft-StorSimple**.
-   3. Klicka på **starta om tjänsten**under **Microsoft StorSimple Management Service**i den högra rutan.
+   3. Klicka på **starta om tjänsten** under **Microsoft StorSimple Management Service** i den högra rutan.
 4. Starta StorSimple Snapshot Manager.
 5. Konfigurera den nya StorSimple-enheten genom att slutföra stegen i steg 2: ansluta en StorSimple-enhet i [distribuera StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 6. Högerklicka på noden på den översta nivån i fönstret **omfång** (StorSimple Snapshot Manager i exemplet) och klicka sedan på **Växla import visning**. 

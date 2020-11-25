@@ -1,19 +1,19 @@
 ---
 title: 'Snabb start: skapa en Xamarin Android-app'
 description: I den här snabb starten får du lära dig hur du skapar en Android-app med Xamarin med hjälp av spatiala ankare.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 07/22/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ab414b877bd2d098c6e340267ff579fb58aec9d9
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 1626dfa739df6b7cf971aa570f14d36ac6c532e7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097328"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96022623"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Xamarin Android-app med Azures spatiala ankare
 
@@ -28,7 +28,7 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 - En Windows-eller macOS-dator:
@@ -69,7 +69,7 @@ Leta upp `SpatialAnchorsAccountDomain` fältet och Ersätt `Set me` med konto do
 
 Starta Android-enheten, logga in och Anslut den till datorn med en USB-kabel.
 
-Ställ in startprojektet på **SampleXamarin. Android**, ändra **lösningens konfiguration** till **version**och välj den enhet som du vill distribuera till i list rutan enhets väljare.
+Ställ in startprojektet på **SampleXamarin. Android**, ändra **lösningens konfiguration** till **version** och välj den enhet som du vill distribuera till i list rutan enhets väljare.
 
 # <a name="windows"></a>[Windows](#tab/deploy-windows)
 

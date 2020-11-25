@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: d979a68f4e3aa0071fb7654647610af1fbf95e90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86078824"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023984"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Använd HDInsight Spark-kluster för att läsa och skriva data till Azure SQL Database
 
 Lär dig hur du ansluter ett Apache Spark kluster i Azure HDInsight med Azure SQL Database. Läs, skriv och strömma data till SQL-databasen. Anvisningarna i den här artikeln använder en Jupyter Notebook för att köra Scala-kodfragment. Du kan dock skapa ett fristående program i Scala eller python och utföra samma uppgifter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure HDInsight Spark kluster.  Följ instruktionerna i [skapa ett Apache Spark kluster i HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -36,7 +36,7 @@ Lär dig hur du ansluter ett Apache Spark kluster i Azure HDInsight med Azure SQ
 Börja med att skapa en Jupyter Notebook som är associerad med Spark-klustret. Du använder den här antecknings boken för att köra kodfragment som används i den här artikeln.
 
 1. Öppna klustret från [Azure Portal](https://portal.azure.com/).
-1. Välj **Jupyter Notebook** under **kluster instrument paneler** på höger sida.  Om du inte ser **kluster instrument paneler**väljer du **Översikt** på den vänstra menyn. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
+1. Välj **Jupyter Notebook** under **kluster instrument paneler** på höger sida.  Om du inte ser **kluster instrument paneler** väljer du **Översikt** på den vänstra menyn. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
     ![Jupyter Notebook på Apache Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter Notebook på Spark")
 
@@ -45,7 +45,7 @@ Börja med att skapa en Jupyter Notebook som är associerad med Spark-klustret. 
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-1. I den Jupyter Notebook, i det övre högra hörnet, klickar du på **nytt**och sedan på **Spark** för att skapa en Scala-anteckningsbok. Jupyter-anteckningsböcker i HDInsight Spark-kluster tillhandahåller även **PySpark** -kärnan för Python2-program och **PySpark3** -kärnan för python3-program. I den här artikeln skapar vi en Scala Notebook.
+1. I den Jupyter Notebook, i det övre högra hörnet, klickar du på **nytt** och sedan på **Spark** för att skapa en Scala-anteckningsbok. Jupyter-anteckningsböcker i HDInsight Spark-kluster tillhandahåller även **PySpark** -kärnan för Python2-program och **PySpark3** -kärnan för python3-program. I den här artikeln skapar vi en Scala Notebook.
 
     ![Kernels för Jupyter Notebook på Spark](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Kernels för Jupyter Notebook på Spark")
 
@@ -172,7 +172,7 @@ I det här avsnittet använder vi en exempel-CSV-fil som är tillgänglig i klus
 
     ![Ansluta till SQL Database med SSMS1](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Ansluta till SQL Database med SSMS1")
 
-    b. Från **Object Explorer**expanderar du databasen och noden tabell för att se **dbo. hvactable** som skapats.
+    b. Från **Object Explorer** expanderar du databasen och noden tabell för att se **dbo. hvactable** som skapats.
 
     ![Ansluta till SQL Database med SSMS2](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Ansluta till SQL Database med SSMS2")
 

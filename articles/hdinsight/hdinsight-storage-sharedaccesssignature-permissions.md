@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
 ms.openlocfilehash: eb8201ea888b98250d452e0b0e1c48f30cbb1efc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742053"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022742"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Använd signaturer för delad åtkomst för Azure Blob Storage för att begränsa åtkomsten till data i HDInsight
 
@@ -207,7 +207,7 @@ Du kan behöva köra `pip install --upgrade azure-storage` om du får fel meddel
 
 1. Öppna lösningen i Visual Studio.
 
-2. I Solution Explorer högerklickar du på projektet **SASExample** och väljer **Egenskaper** .
+2. I Solution Explorer högerklickar du på projektet **SASExample** och väljer **Egenskaper**.
 
 3. Välj **Inställningar** och Lägg till värden för följande poster:
 
@@ -353,27 +353,27 @@ Om du har ett befintligt kluster kan du lägga till SAS i **Core-site-** konfigu
 
 1. Öppna Ambari-webbgränssnittet för klustret. Adressen till den här sidan är `https://YOURCLUSTERNAME.azurehdinsight.net` . När du uppmanas till detta ska du autentisera till klustret med administratörs namnet (admin) och lösen ordet som du använde när du skapade klustret.
 
-1. Navigera till **HDFS**  >  **configs**  >  **Advanced**  >  **anpassad Core-site** .
+1. Navigera till **HDFS**  >  **configs**  >  **Advanced**  >  **anpassad Core-site**.
 
-1. Expandera avsnittet **anpassad Core-site** , bläddra till slutet och välj sedan **Lägg till egenskap...** . Använd följande värden för **nyckel** och **värde** :
+1. Expandera avsnittet **anpassad Core-site** , bläddra till slutet och välj sedan **Lägg till egenskap...**. Använd följande värden för **nyckel** och **värde**:
 
-    * **Nyckel** : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-    * **Värde** : den SAS som returnerades av en av metoderna som kördes tidigare.
+    * **Nyckel**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Värde**: den SAS som returnerades av en av metoderna som kördes tidigare.
 
     Ersätt `CONTAINERNAME` med namnet på den behållare som du använde med C#-eller SAS-programmet. Ersätt `STORAGEACCOUNTNAME` med det lagrings konto namn som du använde.
 
     Välj **Lägg till** för att spara den här nyckeln och värdet
 
-1. Välj knappen **Spara** för att spara konfigurations ändringarna. När du uppmanas till det lägger du till en beskrivning av ändringen ("lägga till SAS-åtkomstkontroll" till exempel) och väljer sedan **Spara** .
+1. Välj knappen **Spara** för att spara konfigurations ändringarna. När du uppmanas till det lägger du till en beskrivning av ändringen ("lägga till SAS-åtkomstkontroll" till exempel) och väljer sedan **Spara**.
 
     Välj **OK** när ändringarna har slutförts.
 
    > [!IMPORTANT]  
    > Du måste starta om flera tjänster innan ändringen börjar gälla.
 
-1. List rutan **starta om** visas. Välj **starta om alla som påverkas** från List rutan och bekräfta sedan __starta om alla__ .
+1. List rutan **starta om** visas. Välj **starta om alla som påverkas** från List rutan och bekräfta sedan __starta om alla__.
 
-    Upprepa den här processen för **MapReduce2** och **garn** .
+    Upprepa den här processen för **MapReduce2** och **garn**.
 
 1. När tjänsterna har startats om väljer du var och en och inaktiverar underhålls läget från List rutan **service åtgärder** .
 
@@ -411,7 +411,7 @@ Använd följande steg för att kontrol lera att du bara kan läsa och lista obj
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    Det här kommandot laddar ned filen till en lokal fil med namnet **testfile.txt** .
+    Det här kommandot laddar ned filen till en lokal fil med namnet **testfile.txt**.
 
 5. Använd följande kommando för att överföra den lokala filen till en ny fil med namnet **testupload.txt** på SAS-lagringen:
 

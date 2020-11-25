@@ -4,11 +4,11 @@ description: I den här artikeln beskrivs några avancerade ämnen som rör uppg
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86248092"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022997"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric program uppgradering: avancerade ämnen
 
@@ -28,13 +28,13 @@ Undvik detta genom att konfigurera funktionen *RequestDrain* genom att lägga ti
 
 Det finns flera sätt att konfigurera fördröjningen på tjänst sidan.
 
- * **När du skapar en ny tjänst**anger du en `-InstanceCloseDelayDuration` :
+ * **När du skapar en ny tjänst** anger du en `-InstanceCloseDelayDuration` :
 
     ```powershell
     New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>
     ```
 
- * **När du definierar tjänsten i avsnittet standarder i applikations manifestet**tilldelar du `InstanceCloseDelayDurationSeconds` egenskapen:
+ * **När du definierar tjänsten i avsnittet standarder i applikations manifestet** tilldelar du `InstanceCloseDelayDurationSeconds` egenskapen:
 
     ```xml
           <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]" InstanceCloseDelayDurationSeconds="15">
@@ -42,13 +42,13 @@ Det finns flera sätt att konfigurera fördröjningen på tjänst sidan.
           </StatelessService>
     ```
 
- * **När du uppdaterar en befintlig tjänst**anger du en `-InstanceCloseDelayDuration` :
+ * **När du uppdaterar en befintlig tjänst** anger du en `-InstanceCloseDelayDuration` :
 
     ```powershell
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
     ```
 
- * **När du skapar eller uppdaterar en befintlig tjänst via arm-mallen**anger du `InstanceCloseDelayDuration` värdet (lägsta API-version som stöds: 2019-11-01-för hands version):
+ * **När du skapar eller uppdaterar en befintlig tjänst via arm-mallen** anger du `InstanceCloseDelayDuration` värdet (lägsta API-version som stöds: 2019-11-01-för hands version):
 
     ```ARM template to define InstanceCloseDelayDuration of 30seconds
     {
@@ -205,7 +205,7 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## <a name="roll-back-application-upgrades"></a>Återställa program uppgraderingar
 
-Även om uppgraderingar kan skickas framåt i ett av tre lägen (*övervakad*, *UnmonitoredAuto*eller *UnmonitoredManual*) kan de bara återställas i antingen *UnmonitoredAuto* -eller *UnmonitoredManual* -läge. Att återställa i *UnmonitoredAuto* -läget fungerar på samma sätt som när du följer undantaget att standardvärdet för *UpgradeReplicaSetCheckTimeout* är olika – se [program uppgraderings parametrar](service-fabric-application-upgrade-parameters.md). Återställningen av *UnmonitoredManual* -läget fungerar på samma sätt som bakåt. återställningen inaktive ras automatiskt när du har slutfört varje UD och måste återupptas direkt med hjälp av [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) för att fortsätta med återställningen.
+Även om uppgraderingar kan skickas framåt i ett av tre lägen (*övervakad*, *UnmonitoredAuto* eller *UnmonitoredManual*) kan de bara återställas i antingen *UnmonitoredAuto* -eller *UnmonitoredManual* -läge. Att återställa i *UnmonitoredAuto* -läget fungerar på samma sätt som när du följer undantaget att standardvärdet för *UpgradeReplicaSetCheckTimeout* är olika – se [program uppgraderings parametrar](service-fabric-application-upgrade-parameters.md). Återställningen av *UnmonitoredManual* -läget fungerar på samma sätt som bakåt. återställningen inaktive ras automatiskt när du har slutfört varje UD och måste återupptas direkt med hjälp av [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) för att fortsätta med återställningen.
 
 Återställningar kan aktive ras automatiskt när hälso principerna för en uppgradering i det *övervakade* läget med en *FailureAction* *återställning* bryter mot (se [program uppgraderings parametrar](service-fabric-application-upgrade-parameters.md)) eller uttryckligen använder [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
 

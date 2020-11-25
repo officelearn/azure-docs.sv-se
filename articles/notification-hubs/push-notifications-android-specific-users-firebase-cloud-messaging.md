@@ -18,11 +18,11 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
 ms.openlocfilehash: 870842074bb4a0012a48115586a8ad571275d470
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281039"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022419"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa Android-appar med hjälp av Azure Notification Hubs
 
@@ -37,7 +37,7 @@ I den här självstudien gör du följande:
 > * Uppdatera Android-programmet.
 > * Testa appen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [självstudien: push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md) innan du gör den här kursen.
 
@@ -485,7 +485,7 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
 
 1. Kör programmet på en enhet eller i en emulator med Android Studio.
 2. Ange ett användarnamn och lösenord i Android-appen. De måste båda ha samma strängvärde och får inte innehålla blanksteg eller specialtecken.
-3. Klicka på **Logga**in i Android-appen. Vänta på ett popup-meddelande om att tillstånd har **loggat in och registrerats**. Detta aktiverar knappen **Skicka meddelande**.
+3. Klicka på **Logga** in i Android-appen. Vänta på ett popup-meddelande om att tillstånd har **loggat in och registrerats**. Detta aktiverar knappen **Skicka meddelande**.
 
     ![Skärm bild av en emulator som visar hur appen Notification Hubs Avisera användare ser ut när du har loggat in.][A2]
 4. Klicka på växlingsknapparna för att aktivera alla plattformar där du körde appen och registrerade en användare.

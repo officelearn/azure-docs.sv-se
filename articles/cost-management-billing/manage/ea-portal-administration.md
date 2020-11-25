@@ -3,18 +3,18 @@ title: Administration i Azure EA-portalen
 description: I den här artikeln förklaras några vanliga uppgifter som administratörer utför i Azure EA-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/27/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: e83af5baa4ca38a8e81dffa8bb81ab3da64e1e95
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411080"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683653"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
@@ -135,28 +135,20 @@ Så här bekräftar du kontoägarskapet:
    Statusen bör ändras från **Väntar** till **Start-/slutdatum**. Start-/slutdatum är det datum då användaren först loggade in samt avtalets slutdatum.
 1. När **varningsmeddelandet** visas måste kontoinnehavaren välja **Fortsätt** för att aktivera kontot första gången kontoinnehavaren loggar in på Azure Enterprise-portalen.
 
-## <a name="change-account-owner"></a>Ändra kontoägare
+## <a name="change-azure-subscription-or-account-ownership"></a>Ändra Azure-prenumeration eller -kontoinnehavare
 
-Företagsadministratörer kan använda Azure Enterprise-portalen för att överföra ägarskapet för prenumerationskonto i en registrering. Åtgärden flyttar alla prenumerationer från ett källanvändarkonto till ett målanvändarkonto.
+Företagsadministratörer kan använda Azure Enterprise-portalen för att överföra kontoägarskapet för utvalda eller alla prenumerationer i en registrering.
 
-Tänk på den här viktiga informationen när du överför konton:
+När du har överfört en prenumeration eller ett kontoägarskap uppdaterar Microsoft kontoinnehavaren.
 
-- Du kan göra dessa överföringar:
-  - Från ett arbets- eller skolkonto till ett annat arbets- eller skolkonto.
-  - Från ett Microsoft-konto till ett arbets- eller skolkonto.
-  - Från ett Microsoft-konto till ett annat Microsoft-konto.
+Innan du utför överföringen av ägarskapet behöver du förstå dessa principer för rollbaserad åtkomst i Azure (Azure RBAC):
 
-    Målkontot måste vara ett giltigt Azure Commerce-konto för att vara ett giltigt mål för överföringar. För nya konton uppmanas du att skapa ett Azure Commerce-konto när du loggar in på Azure Enterprise-portalen. För befintliga konton måste du först skapa en ny Azure-prenumeration innan kontot blir berättigat.
-
-- Du kan inte göra en överföring från ett arbets- eller skolkonto till ett Microsoft-konto.
-
-- När du slutför en prenumerationsöverföring uppdaterar Microsoft kontoägaren.
-
-Förstå dessa principer för rollbaserad åtkomstkontroll (RBAC):
-
-- När du utför prenumerationsöverföringar mellan två organisations-ID:n i samma klientorganisation bevaras RBAC-principer och befintliga roller för tjänstadministratör och medadministratör.
-- Andra prenumerationsöverföringar leder till att dina RBAC-principer och rolltilldelningar går förlorade.
+- När du utför överföringar av prenumerationer eller kontoägarskap mellan två organisations-ID:n i samma klientorganisation bevaras Azure RBAC-principer och befintliga roller för tjänstadministratör och medadministratör.
+- Överföringar av prenumerationer eller kontoägarskap mellan flera klientorganisationer leder till att dina Azure RBAC-principer och rolltilldelningar går förlorade.
 - Principer och administratörsroller överförs inte mellan olika kataloger. Tjänstadministratörer uppdateras till ägare av målkontot.
+- För att undvika förlust av RBAC-principer och rolltilldelningar vid överföring av prenumeration mellan klienter kontrollerar du att kryssrutan **Flytta prenumerationerna till mottagarens Azure AD-klient** fortfarande är **omarkerad**. På så sätt behålls tjänsterna, RBAC-rollerna och principerna på den aktuella Azure AD-klienten och endast faktureringsägarskapet för kontot överförs.  
+    :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Bild som visar omarkerad kryssruta för att flytta prenumerationer till Azure AD-klientorganisation" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+
 
 Innan du ändrar en kontoägare:
 
@@ -168,26 +160,25 @@ Så här överför du kontoägarskap för alla prenumerationer:
 1. Logga in på Azure Enterprise-portalen.
 1. I det vänstra navigeringsfältet väljer du **Hantera**.
 1. Välj fliken **Konto** och hovra över ett konto.
-1. Välj ikonen för ändring av kontoägare till höger. Ikonen ser ut som en person.
-1. Välj ett berättigat konto och välj sedan **Nästa**.
+1. Välj ikonen för ändring av kontoägare till höger. Ikonen ser ut som en person.  
+    ![Bild som visar symbolen för ändring av kontoägare](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
+1. Välj målkontot som du vill överföra till och välj sedan **Nästa**.
+1. Om du vill överföra kontoägarskapet mellan flera Azure AD-klienter markerar du kryssrutan **Flytta prenumerationerna till mottagarens Azure AD-klient** .  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Bild som visar markerad kryssruta för att flytta prenumerationer till Azure AD-klient" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Bekräfta överföringen och välj **Skicka**.
-
-![Bild som visar symbolen för ändring av kontoägare](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 
 Så här överför du kontoägarskap för en enskild prenumeration:
 
 1. Logga in på Azure Enterprise-portalen.
 1. I det vänstra navigeringsfältet väljer du **Hantera**.
 1. Välj fliken **Konto** och hovra över ett konto.
-1. Välj ikonen för överföring av prenumerationer till höger. Ikonen ser ut som en sida.
-1. Välj en berättigad prenumeration och välj sedan **Nästa**.
+1. Välj ikonen för överföring av prenumerationer till höger. Ikonen ser ut som en sida.  
+    ![Bild som visar symbolen för överföring av prenumerationer](./media/ea-portal-administration/ea-transfer-subscriptions.png)
+1. Välj målkontot som prenumerationen ska överföras till och välj sedan **Nästa**.
+1. Om du vill överföra ägarskapet för prenumerationen mellan flera Azure AD-klienter markerar du kryssrutan **Flytta prenumerationerna till mottagarens Azure AD-klient** .  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Bild som visar markerad kryssruta för att flytta prenumerationer till Azure AD-klient" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Bekräfta överföringen och välj sedan **Skicka**.
 
-![Bild som visar symbolen för överföring av prenumerationer](./media/ea-portal-administration/ea-transfer-subscriptions.png)
-
-Titta på den här videon för att se användarhantering i Azure Enterprise-portalen:
-
-> [!VIDEO https://www.youtube.com/embed/621jVkvmwm8]
 
 ## <a name="associate-an-account-to-a-department"></a>Associera ett konto med en avdelning
 
@@ -400,7 +391,7 @@ Så här lägger du till en kontakt:
 2. Ange e-postadressen och bekräfta den.
 3. Välj **Spara**.
 
-Den nya meddelandekontakten visas i avsnittet **Meddelandekontakt**. Om du vill ändra meddelandefrekvensen markerar du meddelandekontakten och väljer pennsymbolen till höger om den markerade raden. Ställ in frekvensen som **varje dag** , **varje vecka** , **varje månad** eller **aldrig**.
+Den nya meddelandekontakten visas i avsnittet **Meddelandekontakt**. Om du vill ändra meddelandefrekvensen markerar du meddelandekontakten och väljer pennsymbolen till höger om den markerade raden. Ställ in frekvensen som **varje dag**, **varje vecka**, **varje månad** eller **aldrig**.
 
 Du kan välja att hoppa över livscykelmeddelandena _täckningsperiodens slutdatum närmar sig_ och _datumet för inaktivering och avetablering närmar sig_. Om du hoppar över livscykelmeddelandena skickas inga meddelanden om slutdatumet för täckningsperioden eller avtalet.
 
@@ -474,29 +465,29 @@ Om du vill skapa en prenumeration för ett Azure-erbjudande för företag måste
 
 ## <a name="azure-ea-term-glossary"></a>Ordlista för Azure EA
 
-- **Konto** : En organisationsenhet i Azure Enterprise-portalen. Den används för att administrera prenumerationer samt för rapportering.
-- **Kontoinnehavare** : Den person som hanterar prenumerationer och tjänstadministratörer i Azure. Den kan visa användningsdata för det här kontot och dess associerade prenumerationer.
-- **Ändringsprenumeration** : En ettårig eller sammanfallande prenumeration under registreringsändringen.
-- **Förskottsbetalning** : Förskottsbetalning av ett årligt penningbelopp för Azure-tjänster till ett rabatterat förskottsbetalningspris för användning mot denna förskottsbetalning.
-- **Avdelningsadministratör** : Den person som hanterar avdelningar, skapar nya konton och kontoinnehavare, visar användningsinformation för de avdelningar som den hanterar samt kan visa kostnader när den beviljas behörigheter.
-- **Registreringsnummer** : En unik identifierare som tillhandahålls av Microsoft för att identifiera den specifika registrering associerad med ett Enterprise-avtal.
-- **Företagsadministratör** : Den person som hanterar avdelningar, avdelningsägare, konton och kontoinnehavare i Azure. De kan hantera företagsadministratörer och visa data, fakturerade kvantiteter och ej fakturerade kostnader för alla konton och prenumerationer associerade med företagsregistreringen.
-- **Enterprise-avtal** : Ett Microsoft-licensavtal för kunder med centraliserade inköp som vill standardisera hela organisationen på Microsoft-teknik och underhålla en IT-infrastruktur på en standard med Microsoft-programvara.
-- **Enterprise-avtalsregistrering** : En registrering i Enterprise-avtalsprogrammet som tillhandahåller Microsoft-produkter i volym till rabatterade priser.
-- **Microsoft-konto** : En webbaserad tjänst som gör att deltagande webbplatser kan autentisera en användare med en enskild uppsättning autentiseringsuppgifter.
+- **Konto**: En organisationsenhet i Azure Enterprise-portalen. Den används för att administrera prenumerationer samt för rapportering.
+- **Kontoinnehavare**: Den person som hanterar prenumerationer och tjänstadministratörer i Azure. Den kan visa användningsdata för det här kontot och dess associerade prenumerationer.
+- **Ändringsprenumeration**: En ettårig eller sammanfallande prenumeration under registreringsändringen.
+- **Förskottsbetalning**: Förskottsbetalning av ett årligt penningbelopp för Azure-tjänster till ett rabatterat förskottsbetalningspris för användning mot denna förskottsbetalning.
+- **Avdelningsadministratör**: Den person som hanterar avdelningar, skapar nya konton och kontoinnehavare, visar användningsinformation för de avdelningar som den hanterar samt kan visa kostnader när den beviljas behörigheter.
+- **Registreringsnummer**: En unik identifierare som tillhandahålls av Microsoft för att identifiera den specifika registrering associerad med ett Enterprise-avtal.
+- **Företagsadministratör**: Den person som hanterar avdelningar, avdelningsägare, konton och kontoinnehavare i Azure. De kan hantera företagsadministratörer och visa data, fakturerade kvantiteter och ej fakturerade kostnader för alla konton och prenumerationer associerade med företagsregistreringen.
+- **Enterprise-avtal**: Ett Microsoft-licensavtal för kunder med centraliserade inköp som vill standardisera hela organisationen på Microsoft-teknik och underhålla en IT-infrastruktur på en standard med Microsoft-programvara.
+- **Enterprise-avtalsregistrering**: En registrering i Enterprise-avtalsprogrammet som tillhandahåller Microsoft-produkter i volym till rabatterade priser.
+- **Microsoft-konto**: En webbaserad tjänst som gör att deltagande webbplatser kan autentisera en användare med en enskild uppsättning autentiseringsuppgifter.
 - **Microsoft Azure Enterprise-registreringsändring (registreringsändring)** : En ändring som har signerats av ett företag, vilket ger åtkomst till Azure som en del av deras företagsregistrering.
-- **Azure Enterprise-portalen** : Den portal som våra företagskunder använder för att hantera sina Azure-konton och tillhörande prenumerationer.
-- **Förbrukad resurskvantitet** : Kvantiteten för en enskild Azure-tjänst som användes under en månad.
-- **Tjänstadministratör** : Den person som kommer åt och hanterar prenumerationer och utvecklingsprojekt i Azure Enterprise-portalen.
-- **Prenumeration** : Representerar en Azure Enterprise-portalprenumeration och är en container för Azure-tjänster som hanteras av samma tjänstadministratör.
-- **Arbets- eller skolkonto** : För organisationer som har konfigurerat Azure Active Directory med federation till molnet och där alla konton finns i en enda klientorganisation.
+- **Azure Enterprise-portalen**: Den portal som våra företagskunder använder för att hantera sina Azure-konton och tillhörande prenumerationer.
+- **Förbrukad resurskvantitet**: Kvantiteten för en enskild Azure-tjänst som användes under en månad.
+- **Tjänstadministratör**: Den person som kommer åt och hanterar prenumerationer och utvecklingsprojekt i Azure Enterprise-portalen.
+- **Prenumeration**: Representerar en Azure Enterprise-portalprenumeration och är en container för Azure-tjänster som hanteras av samma tjänstadministratör.
+- **Arbets- eller skolkonto**: För organisationer som har konfigurerat Azure Active Directory med federation till molnet och där alla konton finns i en enda klientorganisation.
 
 ### <a name="enrollment-statuses"></a>Registreringsstatusar
 
-- **Nytt** : Den här statusen tilldelas till en registrering som har skapats inom 24 timmar och kommer att uppdateras till väntande status inom 24 timmar.
-- **Väntar** : Registreringsadministratören måste logga in på Azure Enterprise-portalen. Efter inloggningen växlar registreringen till aktiv status.
-- **Aktiv** : Registreringen är aktiv och konton och prenumerationer kan skapas i Azure Enterprise-portalen. Registreringen är aktiv tills Enterprise-avtalets slutdatum.
-- **Obegränsad utökad giltighet** : En obegränsad utökad giltighet sker efter Enterprise-avtalets slutdatum. Med den kan Azure EA-kunder som har valt den utökade perioden fortsätta använda Azure-tjänster på obegränsad tid i slutet av deras Enterprise-avtal.
+- **Nytt**: Den här statusen tilldelas till en registrering som har skapats inom 24 timmar och kommer att uppdateras till väntande status inom 24 timmar.
+- **Väntar**: Registreringsadministratören måste logga in på Azure Enterprise-portalen. Efter inloggningen växlar registreringen till aktiv status.
+- **Aktiv**: Registreringen är aktiv och konton och prenumerationer kan skapas i Azure Enterprise-portalen. Registreringen är aktiv tills Enterprise-avtalets slutdatum.
+- **Obegränsad utökad giltighet**: En obegränsad utökad giltighet sker efter Enterprise-avtalets slutdatum. Med den kan Azure EA-kunder som har valt den utökade perioden fortsätta använda Azure-tjänster på obegränsad tid i slutet av deras Enterprise-avtal.
 
    Innan Azure EA-registreringen når Enterprise-avtalets slutdatum bör registreringsadministratören välja vilket av följande alternativ som ska ske:
 
@@ -504,8 +495,8 @@ Om du vill skapa en prenumeration för ett Azure-erbjudande för företag måste
   - Överföra till en ny registrering.
   - Migrera till MOSP-programmet (Microsoft Online Subscription program).
   - Bekräfta inaktiveringen av alla tjänster som är associerade med registreringen.
-- **Upphört** : Azure EA-kunden avanmäls från den utökade giltigheten, och Azure EA-registreringen har nått Enterprise-avtalets slutdatum. Registreringen upphör att gälla och alla associerade tjänster kommer att inaktiveras.
-- **Överförd** : Registreringar där alla associerade konton och tjänster har överförts till en ny registrering visas med en överförd status.
+- **Upphört**: Azure EA-kunden avanmäls från den utökade giltigheten, och Azure EA-registreringen har nått Enterprise-avtalets slutdatum. Registreringen upphör att gälla och alla associerade tjänster kommer att inaktiveras.
+- **Överförd**: Registreringar där alla associerade konton och tjänster har överförts till en ny registrering visas med en överförd status.
   >[!NOTE]
   > Registreringar överförs inte automatiskt om ett nytt registreringsnummer genereras under förnyandet. Du måste inkludera ditt tidigare registreringsnummer i dina förnyelseuppgifter för att medge automatisk överföring.
 

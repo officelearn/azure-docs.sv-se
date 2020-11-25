@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: alkohli
 ms.openlocfilehash: 309fa85d0a4d877522a89dd8f1e6e71fb2074744
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964974"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022946"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Använd StorSimple Snapshot Manager för att visa och hantera volymer
 ## <a name="overview"></a>Översikt
@@ -93,7 +93,7 @@ Använd följande procedur för att visa information om lokala och Azure StorSim
    
    | Resultat kolumn | Beskrivning |
    |:--- |:--- |
-   |  Namn |Kolumnen **namn** innehåller den enhets beteckning som tilldelats varje identifierad volym. |
+   |  Name |Kolumnen **namn** innehåller den enhets beteckning som tilldelats varje identifierad volym. |
    |  Enhet |Kolumnen **enhet** innehåller IP-adressen för enheten som är ansluten till värddatorn. |
    |  Enhetens volym namn |Kolumnen **enhetens volym namn** innehåller namnet på den enhets volym som den valda volymen tillhör. Detta är volym namnet som definierats i Azure Portal för den aktuella volymen. |
    |  Åtkomst Sök vägar |I kolumnen **åtkomst Sök vägar** visas åtkomst Sök vägen till volymen. Detta är enhets beteckningen eller monterings punkten där volymen är tillgänglig på värddatorn. |

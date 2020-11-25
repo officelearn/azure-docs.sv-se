@@ -1,19 +1,19 @@
 ---
 title: 'Snabb start: skapa en HoloLens-app med Unity'
 description: I den här snabbstarten lär du dig att skapa en HoloLens-app med Unity med hjälp av Spatial Anchors.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 09/29/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 143bc89518ff1811ad6789f71fcf7a9267e99f73
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 11d8e8d918b408881f211605ce6c713615f0aa93
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097447"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96022640"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Snabb start: skapa en enhets-HoloLens-app som använder Azure spatiala ankare
 
@@ -29,14 +29,14 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
 - Du behöver en Windows-dator med <a href="https://unity3d.com/get-unity/download" target="_blank">unity 2019,4 (LTS)</a> och <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> eller senare installerat. Din Visual Studio-installation måste omfatta arbets belastningen **universell Windows-plattform utveckling** och **Windows 10 SDK-komponenten (10.0.18362.0 eller senare)** . Du måste också installera <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a> och <a href="https://git-lfs.github.com/">git LF</a>.
-- Du behöver en HoloLens-enhet där [utvecklarläge](/windows/mixed-reality/using-visual-studio) är aktiverat. [Windows 10 maj 2020 uppdatering](/windows/mixed-reality/whats-new/release-notes-may-2020) måste installeras på enheten. Om du vill uppdatera till den senaste versionen av HoloLens öppnar du appen **Inställningar** , går till **Uppdatera & säkerhet**och väljer sedan **Sök efter uppdateringar**.
-- I din app måste du aktivera **SpatialPerception** -funktionen. Den här inställningen finns **Build Settings**i inställningar för  >  **Player Settings**  >  **publicerings inställningar**för inställnings  >  **hantering**i versions spelaren.
-- I din app måste du aktivera **virtuell verklighet som stöds** med **Windows Mixed Reality SDK**. Den här inställningen finns **i inställningar för inställningar för**  >  **Player Settings**  >  **XR**inställningar.
+- Du behöver en HoloLens-enhet där [utvecklarläge](/windows/mixed-reality/using-visual-studio) är aktiverat. [Windows 10 maj 2020 uppdatering](/windows/mixed-reality/whats-new/release-notes-may-2020) måste installeras på enheten. Om du vill uppdatera till den senaste versionen av HoloLens öppnar du appen **Inställningar** , går till **Uppdatera & säkerhet** och väljer sedan **Sök efter uppdateringar**.
+- I din app måste du aktivera **SpatialPerception** -funktionen. Den här inställningen finns **Build Settings** i inställningar för  >  **Player Settings**  >  **publicerings inställningar** för inställnings  >  **hantering** i versions spelaren.
+- I din app måste du aktivera **virtuell verklighet som stöds** med **Windows Mixed Reality SDK**. Den här inställningen finns **i inställningar för inställningar för**  >  **Player Settings**  >  **XR** inställningar.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -70,9 +70,9 @@ När exporten är klar visas en mapp som innehåller det exporterade HoloLens-pr
 
 I mappen dubbelklickar du på **HEJE U3D. SLN** för att öppna projektet i Visual Studio.
 
-Ändra **lösnings konfigurationen** till **version**, ändra **lösnings plattformen** till **x86**och välj **enhet** från alternativ för distributions mål.
+Ändra **lösnings konfigurationen** till **version**, ändra **lösnings plattformen** till **x86** och välj **enhet** från alternativ för distributions mål.
 
-Om du använder HoloLens 2 använder du **arm64** som **lösnings plattform**i stället för **x86**.
+Om du använder HoloLens 2 använder du **arm64** som **lösnings plattform** i stället för **x86**.
 
    ![Visual Studio-konfiguration](./media/get-started-unity-hololens/visual-studio-configuration.png)
 

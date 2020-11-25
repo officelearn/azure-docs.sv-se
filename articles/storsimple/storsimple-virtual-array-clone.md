@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: b6cc89cb082cd0ed32abd88e3a6683c60a27ba90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742187"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023048"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Klona från en säkerhets kopia av din virtuella StorSimple-matris
 
@@ -38,7 +38,7 @@ Den här artikeln beskriver steg för steg hur du klonar en säkerhets kopia av 
    ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/cloneshare1.png)
 2. På bladet **klona** klickar du på **säkerhets kopierings > väljer** och gör sedan följande: 
    
-   a.    Filtrera en säkerhets kopia på den här enheten baserat på tidsintervallet. Du kan välja mellan **de senaste 7 dagarna**, **senaste 30 dagarna**och **föregående år**.
+   a.    Filtrera en säkerhets kopia på den här enheten baserat på tidsintervallet. Du kan välja mellan **de senaste 7 dagarna**, **senaste 30 dagarna** och **föregående år**.
    
    b.    I listan över filtrerade säkerhets kopior som visas väljer du en säkerhets kopia att klona från.
    
@@ -78,7 +78,7 @@ Om du vill klona från en säkerhets kopia måste du i Azure Portal utföra steg
    ![Klona en volym](./media/storsimple-virtual-array-clone/clonevolume1.png)
 2. På bladet **klona** klickar du på **säkerhets kopiering** och gör sedan följande: 
    
-   a.    Filtrera en säkerhets kopia på den här enheten baserat på tidsintervallet. Du kan välja mellan **de senaste 7 dagarna**, **senaste 30 dagarna**och **föregående år**. 
+   a.    Filtrera en säkerhets kopia på den här enheten baserat på tidsintervallet. Du kan välja mellan **de senaste 7 dagarna**, **senaste 30 dagarna** och **föregående år**. 
    
    b.    I listan över filtrerade säkerhets kopior som visas väljer du en säkerhets kopia att klona från.
    
@@ -93,7 +93,7 @@ Om du vill klona från en säkerhets kopia måste du i Azure Portal utföra steg
    
    c. Volym typen ställs automatiskt in på den ursprungliga volymen. En nivå volym klonas i nivå och en lokalt fäst volym som fästs lokalt.
    
-   d. För de **anslutna värdarna**klickar du på **Välj**.
+   d. För de **anslutna värdarna** klickar du på **Välj**.
    
    ![Klona en volym 3](./media/storsimple-virtual-array-clone/clonevolume4.png)
 4. På bladet **anslutna värdar** väljer du från en befintlig ACR eller lägger till en ny ACR. Om du vill lägga till en ny ACR måste du ange ett ACR-namn och värd-IQN. Klicka på **Välj**.

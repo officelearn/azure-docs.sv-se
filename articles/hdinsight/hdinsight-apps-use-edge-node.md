@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: ddd1a6fa2fc25add30664da5b739338e87e7e74f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547851"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010120"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Använd tomma Edge-noder på Apache Hadoop kluster i HDInsight
 
@@ -109,9 +109,9 @@ I det här avsnittet använder du en Resource Manager-mall för att skapa HDInsi
     |Resursgrupp|Skapa en ny resurs grupp som används för klustret.|
     |Plats|Välj en plats för resursgruppen.|
     |Klusternamn|Ange ett namn för det nya klustret som ska skapas.|
-    |Användarnamn för klusterinloggning|Ange användar namnet för Hadoop HTTP.  Standardnamnet är **admin** .|
+    |Användarnamn för klusterinloggning|Ange användar namnet för Hadoop HTTP.  Standardnamnet är **admin**.|
     |Lösenord för klusterinloggning|Ange användarens lösen ord för Hadoop HTTP.|
-    |Användar namn för SSH|Ange användar namnet för SSH. Standard namnet är **sshuser** .|
+    |Användar namn för SSH|Ange användar namnet för SSH. Standard namnet är **sshuser**.|
     |SSH-lösenord|Ange lösen ordet för SSH-användaren.|
     |Installera skript åtgärd|Behåll standardvärdet för att gå igenom den här artikeln.|
 
@@ -133,7 +133,7 @@ Edge-noden visas som ett program på Azure Portal.  Portalen ger dig information
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Öppna HDInsight-klustret med en Edge-nod.
-3. Välj **program** . Du ser noden Edge.  Standard namnet är **New-edgenode** .
+3. Välj **program**. Du ser noden Edge.  Standard namnet är **New-edgenode**.
 4. Välj noden Edge. Du ska se SSH-slutpunkten.
 
 **Använda Hive på Edge-noden**
@@ -158,8 +158,8 @@ Du kan ta bort en Edge-nod från Azure Portal.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Öppna HDInsight-klustret med en Edge-nod.
-3. Välj **program** . Du ska se en lista över Edge-noder.  
-4. Högerklicka på den Edge-nod som du vill ta bort och välj sedan **ta bort** .
+3. Välj **program**. Du ska se en lista över Edge-noder.  
+4. Högerklicka på den Edge-nod som du vill ta bort och välj sedan **ta bort**.
 5. Välj **Ja** för att bekräfta.
 
 ## <a name="next-steps"></a>Nästa steg

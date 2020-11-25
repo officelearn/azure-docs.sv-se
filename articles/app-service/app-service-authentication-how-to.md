@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: ad83e7ad5e1ffc03bf7c62df9b28512e19a62100
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739789"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010205"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -31,7 +31,7 @@ Portal konfigurationen ger inte till gång till en metod för att presentera fle
 
 På sidan **autentisering/auktorisering** i Azure Portal konfigurerar du först var och en av identitets leverantören som du vill aktivera.
 
-I **åtgärd som ska vidtas när begäran inte autentiseras** väljer du **Tillåt anonyma begär Anden (ingen åtgärd)** .
+I **åtgärd som ska vidtas när begäran inte autentiseras** väljer du **Tillåt anonyma begär Anden (ingen åtgärd)**.
 
 På inloggnings sidan eller i navigerings fältet eller på någon annan plats i appen lägger du till en inloggnings länk till alla providers som du har aktiverat ( `/.auth/login/<provider>` ). Exempel:
 
@@ -170,21 +170,21 @@ Skicka en HTTP- `GET` begäran till `/.auth/me` ([token Store](overview-authenti
 
 När din leverantörs åtkomsttoken (inte [sessionstoken](#extend-session-token-expiration-grace-period)) går ut måste du autentisera om användaren innan du använder denna token igen. Du kan undvika att token upphör att gälla genom att `GET` ringa till `/.auth/refresh` slut punkten för ditt program. När den anropas uppdaterar App Service automatiskt åtkomsttoken i [tokenarkivet](overview-authentication-authorization.md#token-store) för den autentiserade användaren. Efterföljande begär Anden om token från din app-kod hämtar de uppdaterade tokens. För att token-uppdateringen ska fungera måste dock tokenarkivet innehålla [uppdateringstoken](https://auth0.com/learn/refresh-tokens/) för providern. Sättet att hämta uppdateringstoken dokumenteras av varje provider, men följande lista är en kort sammanfattning:
 
-- **Google** : Lägg till en `access_type=offline` frågesträngparametern till ditt `/.auth/login/google` API-anrop. Om du använder Mobile Apps SDK kan du lägga till parametern i en av `LogicAsync` överlagringarna (se [Google Refresh-token](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
-- **Facebook** : tillhandahåller inte uppdaterade tokens. Token för lång livs längd upphör att gälla om 60 dagar (se [Facebook-förfallo tid och tillägg för](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)åtkomsttoken).
-- **Twitter** : åtkomsttoken upphör inte att gälla (se [vanliga frågor och svar om Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
-- **Microsoft-konto** : Välj omfånget när du [konfigurerar autentiseringsinställningar för Microsoft-konton](configure-authentication-provider-microsoft.md) `wl.offline_access` .
-- **Azure Active Directory** : i [https://resources.azure.com](https://resources.azure.com) utför du följande steg:
+- **Google**: Lägg till en `access_type=offline` frågesträngparametern till ditt `/.auth/login/google` API-anrop. Om du använder Mobile Apps SDK kan du lägga till parametern i en av `LogicAsync` överlagringarna (se [Google Refresh-token](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
+- **Facebook**: tillhandahåller inte uppdaterade tokens. Token för lång livs längd upphör att gälla om 60 dagar (se [Facebook-förfallo tid och tillägg för](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)åtkomsttoken).
+- **Twitter**: åtkomsttoken upphör inte att gälla (se [vanliga frågor och svar om Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Microsoft-konto**: Välj omfånget när du [konfigurerar autentiseringsinställningar för Microsoft-konton](configure-authentication-provider-microsoft.md) `wl.offline_access` .
+- **Azure Active Directory**: i [https://resources.azure.com](https://resources.azure.com) utför du följande steg:
     1. Välj **Läs/skriv** längst upp på sidan.
-    2. I den vänstra webbläsaren navigerar du till **prenumerationer** > * * _\<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * > **providers**  >  **Microsoft. Web**  >  **Sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings** . 
-    3. Klicka på **Redigera** .
+    2. I den vänstra webbläsaren navigerar du till **prenumerationer** > * *_\<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * > **providers**  >  **Microsoft. Web**  >  **Sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
+    3. Klicka på **Redigera**.
     4. Ändra följande egenskap. Ersätt _\<app\_id>_ med Azure Active Directory program-ID för den tjänst som du vill komma åt.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    5. Klicka på **Lägg** . 
+    5. Klicka på **Lägg**. 
 
 När din provider har kon figurer ATS [hittar du uppdateringstoken och förfallo tid för](#retrieve-tokens-in-app-code) åtkomsttoken i tokenarkivet. 
 
@@ -221,11 +221,11 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Begränsa domänen för inloggnings konton
 
-Med både Microsoft-konto och Azure Active Directory kan du logga in från flera domäner. Till exempel kan Microsoft-konto tillåta _Outlook.com_ -, _live.com_ -och _hotmail.com_ -konton. Azure AD tillåter valfritt antal anpassade domäner för inloggnings kontona. Men du kanske vill påskynda dina användare direkt till din egen anpassade Azure AD-inloggnings sida (till exempel `contoso.com` ). Följ dessa steg om du vill föreslå domän namnet för inloggnings kontona.
+Med både Microsoft-konto och Azure Active Directory kan du logga in från flera domäner. Till exempel kan Microsoft-konto tillåta _Outlook.com_-, _live.com_-och _hotmail.com_ -konton. Azure AD tillåter valfritt antal anpassade domäner för inloggnings kontona. Men du kanske vill påskynda dina användare direkt till din egen anpassade Azure AD-inloggnings sida (till exempel `contoso.com` ). Följ dessa steg om du vill föreslå domän namnet för inloggnings kontona.
 
-I [https://resources.azure.com](https://resources.azure.com) navigerar du till **prenumerationer** > * * _\<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * > **providers**  >  **Microsoft. Web**  >  **Sites** > *_ * \<app\_name> _ * * > **config**  >  **authsettings** . 
+I [https://resources.azure.com](https://resources.azure.com) navigerar du till **prenumerationer** > * *_\<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * > **providers**  >  **Microsoft. Web**  >  **Sites** > *_* \<app\_name> _ * * > **config**  >  **authsettings**. 
 
-Klicka på **Redigera** , ändra följande egenskap och klicka sedan på **Lägg** till. Se till att ersätta _\<domain\_name>_ med den domän som du vill använda.
+Klicka på **Redigera**, ändra följande egenskap och klicka sedan på **Lägg** till. Se till att ersätta _\<domain\_name>_ med den domän som du vill använda.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
@@ -247,13 +247,13 @@ Medan App Service tar hand om det enklaste auktoriserings fallet (dvs. neka oaut
 
 ### <a name="server-level-windows-apps-only"></a>Server nivå (endast Windows-appar)
 
-För alla Windows-appar kan du definiera behörighets beteendet för IIS-webbservern genom att redigera *Web.config* -filen. Linux-appar använder inte IIS och kan inte konfigureras via *Web.config* .
+För alla Windows-appar kan du definiera behörighets beteendet för IIS-webbservern genom att redigera *Web.config* -filen. Linux-appar använder inte IIS och kan inte konfigureras via *Web.config*.
 
 1. Navigera till `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
-1. I webbläsarens Utforskaren för dina App Service-filer navigerar du till *plats/wwwroot* . Om en *Web.config* inte finns skapar du den genom att välja **+**  >  **ny fil** . 
+1. I webbläsarens Utforskaren för dina App Service-filer navigerar du till *plats/wwwroot*. Om en *Web.config* inte finns skapar du den genom att välja **+**  >  **ny fil**. 
 
-1. Välj blyertspennan för *Web.config* för att redigera den. Lägg till följande konfigurations kod och klicka på **Spara** . Om *Web.config* redan finns, lägger du bara till `<authorization>` elementet med allt i det. Lägg till de konton som du vill tillåta i `<allow>` elementet.
+1. Välj blyertspennan för *Web.config* för att redigera den. Lägg till följande konfigurations kod och klicka på **Spara**. Om *Web.config* redan finns, lägger du bara till `<authorization>` elementet med allt i det. Lägg till de konton som du vill tillåta i `<allow>` elementet.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>

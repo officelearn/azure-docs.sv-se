@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
 ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108141"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010239"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>Självstudie: transformera och skydda ditt API
 
@@ -31,7 +31,7 @@ I de här självstudierna får du lära dig att
 
 :::image type="content" source="media/transform-api/api-management-management-console.png" alt-text="Principer i portalen":::
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 -   Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 -   Förstå [begreppet principer i Azure API Management](api-management-howto-policies.md).
@@ -51,14 +51,14 @@ I det här avsnittet visas hur du döljer de HTTP-huvuden som du inte vill visa 
 
 Visa det ursprungliga svaret:
 
-1. Välj **API: er**i API Management tjänst instans.
+1. Välj **API: er** i API Management tjänst instans.
 1. Välj **demo konferens-API** från din API-lista.
 1. Välj fliken **test** överst på skärmen.
 1. Välj åtgärden **GetSpeakers** och välj **Skicka**.
 
 Det ursprungliga svaret bör se ut ungefär så här:
 
-:::image type="content" source="media/transform-api/original-response.png" alt-text="Principer i portalen":::
+:::image type="content" source="media/transform-api/original-response.png" alt-text="Ursprungligt API-svar":::
 
 Som du kan se innehåller svaret **x-ASPNET-versionen** och **x-Powered-by-** huvudena.
 
@@ -67,12 +67,12 @@ Som du kan se innehåller svaret **x-ASPNET-versionen** och **x-Powered-by-** hu
 1. Välj **demo konferens API**  >  **design**  >  **alla åtgärder**.
 4. I avsnittet **utgående bearbetning** väljer du ikonen kod redigerare ( **</>** ).
 
-   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Principer i portalen" border="false":::
+   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Navigera till utgående princip" border="false":::
 
-1. Placera markören inuti det ** &lt; utgående &gt; ** elementet och välj **Visa kodfragment** i det övre högra hörnet.
-1. I det högra fönstret under **omvandlings principer**väljer du **Ange HTTP-huvud** två gånger (för att infoga två princip kod avsnitt).
+1. Placera markören inuti det **&lt; utgående &gt;** elementet och välj **Visa kodfragment** i det övre högra hörnet.
+1. I det högra fönstret under **omvandlings principer** väljer du **Ange HTTP-huvud** två gånger (för att infoga två princip kod avsnitt).
 
-   :::image type="content" source="media/transform-api/transform-api.png" alt-text="Principer i portalen":::
+   :::image type="content" source="media/transform-api/transform-api.png" alt-text="Ange HTTP-huvud princip":::
 
 1. Ändra **\<outbound>** koden så att den ser ut så här:
 
@@ -81,7 +81,7 @@ Som du kan se innehåller svaret **x-ASPNET-versionen** och **x-Powered-by-** hu
    <set-header name="X-AspNet-Version" exists-action="delete" />
    ```
 
-   :::image type="content" source="media/transform-api/set-policy.png" alt-text="Principer i portalen":::
+   :::image type="content" source="media/transform-api/set-policy.png" alt-text="Ange HTTP-huvud":::
 
 1. Välj **Spara**.
 
@@ -98,15 +98,15 @@ Visa det ursprungliga svaret:
 
     Som du kan se innehåller svaret de ursprungliga URL: erna för Server delen:
 
-    :::image type="content" source="media/transform-api/original-response2.png" alt-text="Principer i portalen":::
+    :::image type="content" source="media/transform-api/original-response2.png" alt-text="Ursprungliga URL: er som svar":::
 
 
 ### <a name="set-the-transformation-policy"></a>Ange en transformationsprincip
 
 1.  Välj **demo konferens API**  >  **alla drifts**  >  **design**.
 1.  I avsnittet **utgående bearbetning** väljer du ikonen kod redigerare ( **</>** ).
-1.  Placera markören inuti det ** &lt; utgående &gt; ** elementet och välj **Visa kodfragment** i det övre högra hörnet.
-1.  I det högra fönstret under **omvandlings principer**väljer du **maskera URL: er i innehåll**. 
+1.  Placera markören inuti det **&lt; utgående &gt;** elementet och välj **Visa kodfragment** i det övre högra hörnet.
+1.  I det högra fönstret under **omvandlings principer** väljer du **maskera URL: er i innehåll**. 
 1.  Välj **Spara**.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Skydda ett API genom att lägga till en princip för frekvensbegränsningar (begränsning)
@@ -115,11 +115,11 @@ I det här avsnittet visas hur du lägger till skydd för ditt serverdels-API ge
 
 1.  Välj **demo konferens API**  >  **alla drifts**  >  **design**.
 1.  I avsnittet **inkommande bearbetning** väljer du ikonen kod redigerare ( **</>** ).
-1.  Placera markören inuti det ** &lt; inkommande &gt; ** elementet och välj **Visa kodfragment** i det övre högra hörnet.
+1.  Placera markören inuti det **&lt; inkommande &gt;** elementet och välj **Visa kodfragment** i det övre högra hörnet.
 
-    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Principer i portalen" border="false":::
+    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Ange princip för inkommande" border="false":::
 
-1.  I det högra fönstret under **åtkomst begränsnings principer**väljer du **+ begränsa anrops frekvens per nyckel**.
+1.  I det högra fönstret under **åtkomst begränsnings principer** väljer du **+ begränsa anrops frekvens per nyckel**.
 1.  Ändra din **hastighets begränsning efter nyckel** kod (i- **\<inbound\>** elementet) till följande kod:
 
     ```
@@ -160,7 +160,7 @@ I resten av det här avsnittet testas principtransformationer som du anger i den
 
     Som du kan se har rubrikerna tagits bort:
 
-    :::image type="content" source="media/transform-api/final-response1.png" alt-text="Principer i portalen":::
+    :::image type="content" source="media/transform-api/final-response1.png" alt-text="Rensade svars rubriker":::
 
 ### <a name="test-the-replaced-url"></a>Testa den ersatta URL:en
 
@@ -169,7 +169,7 @@ I resten av det här avsnittet testas principtransformationer som du anger i den
 
     Som du kan se har URL: en ersatts.
 
-    :::image type="content" source="media/transform-api/final-response2.png" alt-text="Principer i portalen":::
+    :::image type="content" source="media/transform-api/final-response2.png" alt-text="Ersatt URL":::
 
 ### <a name="test-the-rate-limit-throttling"></a>Testa frekvensgränsen (begränsningen)
 
@@ -178,7 +178,7 @@ I resten av det här avsnittet testas principtransformationer som du anger i den
 
     När du har skickat begäran 3 gånger får du svaret **429 för många begär Anden** .
 
-    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Principer i portalen":::
+    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="För många begär Anden":::
 
 1. Vänta i 15 sekunder och välj **Skicka** igen. Den här gången bör få svaret **200 OK**.
 

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
 ms.openlocfilehash: 329c4b40f11b36de80581d4a1396813bc8de5c73
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097336"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010324"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Bli social med Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Boende i ett massivt sammankopplat samhälle innebär att du vid en viss tidpunkt kommer att bli en del av ett **socialt nätverk** . Du använder sociala nätverk för att hålla kontakt med vänner, kollegor, familj eller ibland att dela din passion med personer som har vanliga intressen.
+Boende i ett massivt sammankopplat samhälle innebär att du vid en viss tidpunkt kommer att bli en del av ett **socialt nätverk**. Du använder sociala nätverk för att hålla kontakt med vänner, kollegor, familj eller ibland att dela din passion med personer som har vanliga intressen.
 
 Som ingenjörer eller utvecklare kan du ha funderat på hur dessa nätverk lagrar och sammankopplar dina data. Eller så kanske du har gjort en uppgift för att skapa eller skapa ett nytt socialt nätverk för en bestämd nischmarknader-marknad. Det är när den viktiga frågan uppstår: Hur lagras alla dessa data?
 
@@ -172,7 +172,7 @@ Vi tar med användar information som exempel:
 
 Genom att titta på den här informationen kan du snabbt identifiera vilken som är viktig och inte, vilket innebär att du skapar en "stege":
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="Diagram som illustrerar en relativ Relations modell" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="Diagram över ett steg-mönster" border="false":::
 
 Det minsta steget kallas för en UserChunk, den minsta delen av information som identifierar en användare och den används för dataduplicering. Genom att minska den duplicerade data storleken till endast den information som du kommer att "Visa" kan du minska risken för enorma uppdateringar.
 
@@ -239,9 +239,9 @@ Ett annat tillgängligt alternativ är att använda [Azure Cognitive Services](h
 
 ## <a name="a-planet-scale-social-experience"></a>En social upplevelse på planet nivå
 
-Det finns en sista, men minst, viktig artikel som jag måste åtgärda: **skalbarhet** . När du utformar en arkitektur bör varje komponent skalas separat. Du kommer att behöva bearbeta mer data, eller så vill du ha en större geografisk täckning. Thankfully för att uppnå båda uppgifterna är en **nyckel färdig upplevelse** med Cosmos dB.
+Det finns en sista, men minst, viktig artikel som jag måste åtgärda: **skalbarhet**. När du utformar en arkitektur bör varje komponent skalas separat. Du kommer att behöva bearbeta mer data, eller så vill du ha en större geografisk täckning. Thankfully för att uppnå båda uppgifterna är en **nyckel färdig upplevelse** med Cosmos dB.
 
-Cosmos DB stöder dynamisk partitionering direkt. Det skapar automatiskt partitioner baserat på en viss **partitionsnyckel** , som definieras som ett attribut i dina dokument. Du måste göra en korrekt partitionsnyckel i design läge. Mer information finns i [partitionering i Azure Cosmos DB](partitioning-overview.md).
+Cosmos DB stöder dynamisk partitionering direkt. Det skapar automatiskt partitioner baserat på en viss **partitionsnyckel**, som definieras som ett attribut i dina dokument. Du måste göra en korrekt partitionsnyckel i design läge. Mer information finns i [partitionering i Azure Cosmos DB](partitioning-overview.md).
 
 För en social erfarenhet måste du justera din partitionerings strategi med hur du frågar och skriver. (Läsningar inom samma partition är till exempel önskvärda och Undvik "heta fläckar" genom att sprida skrivningar på flera partitioner.) Vissa alternativ är: partitioner baserade på en temporal nyckel (dag/månad/vecka), efter innehålls kategori, efter geografiskt område eller per användare. Allt det är verkligen beroende av hur du ska fråga data och visa data i din sociala erfarenhet.
 
@@ -249,23 +249,23 @@ Cosmos DB kommer att köra dina frågor (inklusive [agg regeringar](https://azur
 
 Med tiden kan du komma att växa i trafik och resursförbrukning (mätt i [ru: er](request-units.md)eller enheter för programbegäran) ökar. Du kommer att läsa och skriva oftare när användar basen växer. Användar basen kommer att börja skapa och läsa mer innehåll. Det är därför viktigt att kunna **skala ditt data flöde** . Det är enkelt att öka din ru: er. Du kan göra det med några klick på Azure Portal eller genom [att utfärda kommandon via API: et](/rest/api/cosmos-db/replace-an-offer).
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Diagram som illustrerar en relativ Relations modell":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Skala upp och definiera en partitionsnyckel":::
 
 Vad händer om saker fortfarande kommer att bli bättre? Anta att användare från en annan region, ett land eller ett kontinents meddelande till din plattform och börjar använda den. Vad är en fantastisk överraskning!
 
-Men vänta! Du inser snart att deras upplevelse med din plattform inte är optimal. De är så långt bort från din operativa region att svars tiden är Terrible. Det är självklart att du inte vill avsluta. Om det bara fanns ett enkelt sätt att **Utöka din globala räckvidd** ? Det finns!
+Men vänta! Du inser snart att deras upplevelse med din plattform inte är optimal. De är så långt bort från din operativa region att svars tiden är Terrible. Det är självklart att du inte vill avsluta. Om det bara fanns ett enkelt sätt att **Utöka din globala räckvidd**? Det finns!
 
 Med Cosmos DB kan du [Replikera dina data globalt](../cosmos-db/tutorial-global-distribution-sql-api.md) och transparent med ett par klick och automatiskt välja bland de tillgängliga regionerna från din [klient kod](../cosmos-db/tutorial-global-distribution-sql-api.md). Den här processen innebär också att du kan ha [flera områden för växling vid fel](high-availability.md).
 
 När du replikerar dina data globalt måste du se till att dina klienter kan dra nytta av den. Om du använder en webb-frontend eller åtkomst till API: er från mobila klienter kan du distribuera [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) och klona dina Azure App Service på alla önskade regioner, med hjälp av en prestanda konfiguration som stöder din utökade globala täckning. När klienterna har åtkomst till klient-eller API: er kommer de att dirigeras till närmast App Service, vilket i sin tur ansluter till den lokala Cosmos DB repliken.
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Diagram som illustrerar en relativ Relations modell" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Lägga till global täckning på din sociala plattform" border="false":::
 
 ## <a name="conclusion"></a>Slutsats
 
 Den här artikeln tar lite lätt till alternativen för att skapa sociala nätverk helt och hållet i Azure med tjänster med låg kostnad. den ger resultat genom att uppmuntra användningen av en lagrings lösning med flera lager och data distribution som kallas "stega".
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagram som illustrerar en relativ Relations modell" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagram över interaktion mellan Azure-tjänster för sociala nätverk" border="false":::
 
 Sanningen är att det inte finns någon silver punkt för den här typen av scenarier. Det är den synergieffekt som skapats av kombinationen av fantastiska tjänster som gör det möjligt för oss att skapa fantastiska upplevelser: hastigheten och friheten hos Azure Cosmos DB att tillhandahålla ett bra socialt program, intelligensen bakom en lösning för första klass som Azure Kognitiv sökning, flexibiliteten i Azure App tjänster som värd för inte ens oberoende program men kraftfulla bakgrunds processer och den utbyggbara Azure Storage och Azure SQL Database för lagring av enorma mängder data och den analytiska kraften hos Azure Machine Lär dig att skapa kunskap och information som kan ge feedback till dina processer och hjälpa oss att leverera rätt innehåll till rätt användare.
 

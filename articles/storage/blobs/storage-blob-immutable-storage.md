@@ -9,12 +9,12 @@ ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 39fdde572e269bb4f5648e91bf85539d02236ff6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658561"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010069"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Lagra affärs kritiska BLOB-data med oföränderlig lagring
 
@@ -76,7 +76,7 @@ Följande begränsningar gäller för bevarande principer:
 
 ### <a name="allow-protected-append-blobs-writes"></a>Tillåt att skyddade bifogade blobbar skrivs
 
-Tillägg av blobar består av data block och optimerade för data tilläggs åtgärder som krävs av gransknings-och loggnings scenarier. Genom att lägga till blobar tillåts du bara lägga till nya block till slutet av blobben. Oavsett oföränderlighets, är det grundläggande inte tillåtet att ändra eller ta bort befintliga block i en tilläggs-blob. Mer information om hur du lägger till blobar finns i avsnittet [om att lägga till blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
+Tillägg av blobar består av data block och optimerade för data tilläggs åtgärder som krävs av gransknings-och loggnings scenarier. Genom att lägga till blobar tillåts du bara lägga till nya block till slutet av blobben. Oavsett oföränderlighets, är det grundläggande inte tillåtet att ändra eller ta bort befintliga block i en tilläggs-blob. Mer information om hur du lägger till blobar finns i avsnittet [om att lägga till blobbar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
 Endast tidsbaserade bevarande principer har en `allowProtectedAppendWrites` inställning som gör det möjligt att skriva nya block till en append-BLOB samtidigt som oföränderlighets skydd och efterlevnad upprätthålls. Om den här inställningen är aktive rad, kan du skapa en tilläggs-BLOB direkt i den skyddade behållaren och fortsätta att lägga till nya data block i slutet av befintliga tilläggs-blobar med hjälp av *AppendBlock* -API: et. Det går bara att lägga till nya block och befintliga block kan inte ändras eller tas bort. Oföränderlighets-skydd för tids kvarhållning gäller fortfarande, vilket förhindrar borttagning av tilläggs-bloben tills den gällande kvarhållningsperioden har förflutit. Aktivering av den här inställningen påverkar inte oföränderlighets beteendet för block-blobbar eller Page blobbar.
 
@@ -103,7 +103,7 @@ Följande begränsningar gäller för juridiska undantag:
 
 ## <a name="scenarios"></a>Scenarier
 
-I följande tabell visas de typer av Blob Storage-åtgärder som har inaktiverats för olika scenarier. Mer information finns i REST API dokumentationen för [Azure Blob service](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) .
+I följande tabell visas de typer av Blob Storage-åtgärder som har inaktiverats för olika scenarier. Mer information finns i REST API dokumentationen för [Azure Blob service](/rest/api/storageservices/blob-service-rest-api) .
 
 | Scenario | BLOB-tillstånd | Nekade BLOB-åtgärder | Skydd av behållare och konto |
 |--|--|--|--|
@@ -116,7 +116,7 @@ I följande tabell visas de typer av Blob Storage-åtgärder som har inaktiverat
 <sup>2</sup> append-block tillåts endast för tidsbaserade bevarande principer med `allowProtectedAppendWrites` egenskapen aktive rad. Mer information finns i avsnittet [Tillåt att skyddade bifogade blobbar skrivs](#allow-protected-append-blobs-writes) .
 
 > [!IMPORTANT]
-> Vissa arbets belastningar, till exempel [SQL-säkerhetskopiering till URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url), skapar en blob och lägger sedan till den. Om behållaren har en aktiv tidsbaserad bevarande princip eller ett juridiskt undantag, kommer det här mönstret inte att fungera.
+> Vissa arbets belastningar, till exempel [SQL-säkerhetskopiering till URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url), skapar en blob och lägger sedan till den. Om behållaren har en aktiv tidsbaserad bevarande princip eller ett juridiskt undantag, kommer det här mönstret inte att fungera.
 
 ## <a name="pricing"></a>Prissättning
 
@@ -170,11 +170,11 @@ Ja. När en tidsbaserad bevarande princip först skapas är den i ett *låst* l�
 
 **Kan jag använda mjuk borttagning tillsammans med oföränderliga BLOB-principer?**
 
-Ja, om dina krav för efterlevnad tillåter att mjuk borttagning aktive ras. [Mjuk borttagning för Azure Blob Storage](storage-blob-soft-delete.md) gäller för alla behållare i ett lagrings konto, oavsett en juridisk undantags-eller tidsbaserad bevarande princip. Vi rekommenderar att du aktiverar mjuk borttagning för ytterligare skydd innan eventuella mask principer som inte kan användas och bekräftas.
+Ja, om dina krav för efterlevnad tillåter att mjuk borttagning aktive ras. [Mjuk borttagning för Azure Blob Storage](./soft-delete-blob-overview.md) gäller för alla behållare i ett lagrings konto, oavsett en juridisk undantags-eller tidsbaserad bevarande princip. Vi rekommenderar att du aktiverar mjuk borttagning för ytterligare skydd innan eventuella mask principer som inte kan användas och bekräftas.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Ange och hantera oföränderlighets-principer för Blob Storage](storage-blob-immutability-policies-manage.md)
 - [Ange regler för att automatiskt nivå och ta bort BLOB-data med livs cykel hantering](storage-lifecycle-management-concepts.md)
-- [Mjuk borttagning för Azure Storage-blobar](../blobs/storage-blob-soft-delete.md)
+- [Mjuk borttagning för Azure Storage-blobar](./soft-delete-blob-overview.md)
 - [Skydda prenumerationer, resurs grupper och resurser med Azure Resource Manager lås](../../azure-resource-manager/management/lock-resources.md).

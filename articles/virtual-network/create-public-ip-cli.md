@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 3e6e060f4af2addba66ed02e82d76dd520375f25
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 76af225b6f93e0a47799234e3e2b430344f68787
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516415"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010001"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Snabb start: skapa en offentlig IP-adress med hjälp av Azure CLI
 
@@ -37,6 +37,9 @@ Skapa en resurs grupp med [AZ Group Create](https://docs.microsoft.com/cli/azure
     --name myResourceGroup \
     --location eastus2
 ```
+
+## <a name="create-public-ip"></a>Skapa offentlig IP
+
 ---
 # <a name="standard-sku---using-zones"></a>[**Standard-SKU – använda zoner**](#tab/option-create-public-ip-standard-zones)
 
@@ -56,7 +59,7 @@ Använd [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/netwo
 > För versioner av API: t som är äldre än 2020-08-01 kör du kommandot ovan utan att ange en zon parameter för att skapa en zon-redundant IP-adress. 
 >
 
-Använd följande kommando för att skapa en standard zonindelade offentlig IP-adress i Zon 2 med namnet **myStandardZonalPublicIP** i **myResourceGroup** :
+Använd följande kommando för att skapa en standard zonindelade offentlig IP-adress i Zon 2 med namnet **myStandardZonalPublicIP** i **myResourceGroup**:
 
 ```azurecli-interactive
   az network public-ip create \

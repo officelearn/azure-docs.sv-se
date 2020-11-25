@@ -11,11 +11,11 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 5b0bcdd66e17fb93a560b6073c13e3170e3ab37b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81409265"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010154"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
 
@@ -31,9 +31,9 @@ I den här självstudiekursen får du göra följande:
 > * Utlös en pipelinekörning.
 > * Övervaka pipelinekörningen.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -71,7 +71,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
     if __name__ == "__main__":
         main()
     ```
-1. Ersätt * &lt; storageAccountName &gt; * med namnet på ditt Azure Storage-konto. Spara sedan filen. 
+1. Ersätt *&lt; storageAccountName &gt;* med namnet på ditt Azure Storage-konto. Spara sedan filen. 
 1. Skapa en container med namnet **adftutorial** i Azure Blob Storage om den inte redan finns. 
 1. Skapa en mapp med namnet **spark**.
 1. Skapa en undermapp med namnet **script** under mappen **spark**. 
@@ -93,14 +93,14 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
       
    ![Fönstret Ny datafabrik](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
-   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ska du ändra namnet på datafabriken. (Använd till exempel ** &lt; dittnamn &gt; ADFTutorialDataFactory**). Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
+   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ska du ändra namnet på datafabriken. (Använd till exempel **&lt; dittnamn &gt; ADFTutorialDataFactory**). Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
   
    ![Fel när ett namn inte är tillgängligt](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
 1. Välj den Azure-prenumeration där du vill skapa den nya datafabriken för **Prenumeration**. 
 1. Gör något av följande för **Resursgrupp**:
      
-   - Välj **Använd befintlig**och välj en befintlig resurs grupp i den nedrullningsbara listan. 
-   - Välj **Skapa ny**och ange namnet på en resurs grupp.   
+   - Välj **Använd befintlig** och välj en befintlig resurs grupp i den nedrullningsbara listan. 
+   - Välj **Skapa ny** och ange namnet på en resurs grupp.   
          
    Några av stegen i den här snabb starten förutsätter att du använder namnet **ADFTutorialResourceGroup** för resurs gruppen. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
 1. För **Version** väljer du **V2**.
@@ -149,13 +149,13 @@ Du skapar två länkade tjänster i det här avsnittet:
    
    b. För **Typ** kontrollerar du att **HDInsight på begäran** är valt.
    
-   c. För **Azure Storage länkad tjänst**väljer du **AzureBlobStorage1**. Du skapade den här länkade tjänsten tidigare. Ange rätt namn här om du tidigare använde ett annat namn. 
+   c. För **Azure Storage länkad tjänst** väljer du **AzureBlobStorage1**. Du skapade den här länkade tjänsten tidigare. Ange rätt namn här om du tidigare använde ett annat namn. 
    
    d. För **Klustertyp** väljer du **spark**.
    
    e. För **ID för tjänstens huvudnamn** anger du det ID för tjänsten huvudman som har behörighet att skapa ett HDInsight-kluster. 
    
-      Tjänstens huvudnamn måste vara medlem i rollen Deltagare för prenumerationen eller resursgruppen som klustret har skapats i. Mer information finns i [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md) (Skapa ett Azure Active Directory-program och ett huvudnamn för tjänsten). **Tjänstens huvud namn-ID** motsvarar *program-ID: t*och en **huvud nyckel för tjänsten** motsvarar värdet för en *klient hemlighet*.
+      Tjänstens huvudnamn måste vara medlem i rollen Deltagare för prenumerationen eller resursgruppen som klustret har skapats i. Mer information finns i [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md) (Skapa ett Azure Active Directory-program och ett huvudnamn för tjänsten). **Tjänstens huvud namn-ID** motsvarar *program-ID: t* och en **huvud nyckel för tjänsten** motsvarar värdet för en *klient hemlighet*.
    
    f. Ange nyckeln i **Nyckel för tjänstens huvudnamn**. 
    
@@ -191,7 +191,7 @@ Du skapar två länkade tjänster i det här avsnittet:
    ![Ange den länkade HDInsight-tjänsten](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Växla till fliken **Skript/Jar** och utför följande steg: 
 
-   a. För **länkad jobb tjänst**väljer du **AzureBlobStorage1**.
+   a. För **länkad jobb tjänst** väljer du **AzureBlobStorage1**.
    
    b. Välj **Bläddra i lagring**.
 

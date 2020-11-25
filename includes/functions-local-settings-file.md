@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: ca8d8edd334d89e03624793a35c49971ba8161ec
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d944d1d3e9c72471fab2435430a7d13e1770e807
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94884852"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010490"
 ---
 ## <a name="local-settings-file"></a>Fil för lokala inställningar
 
@@ -46,7 +46,7 @@ De här inställningarna stöds när du kör projekt lokalt:
 | **`LocalHttpPort`** | Anger standard porten som används när du kör den lokala funktionens värd ( `func host start` och `func run` ). `--port`Kommando rads alternativet har företräde framför den här inställningen. |
 | **`CORS`** | Definierar de ursprung som tillåts för [resurs delning mellan ursprung (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Ursprung anges som en kommaavgränsad lista utan blank steg. Jokertecknet ( \* ) stöds, vilket tillåter begär Anden från alla ursprung. |
 | **`CORSCredentials`** |  När den är inställd på `true` tillåter `withCredentials` begär Anden. |
-| **`ConnectionStrings`** | En samling. Använd inte den här samlingen för de anslutnings strängar som används av funktions bindningarna. Den här samlingen används endast av ramverk som vanligt vis hämtar anslutnings strängar från `ConnectionStrings` avsnittet i en konfigurations fil, t. ex. [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Anslutnings strängar i det här objektet läggs till i miljön med providertypen för [system. data. SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Objekt i den här samlingen publiceras inte i Azure med andra AppData. Du måste uttryckligen lägga till de här värdena i `Connection strings` samlingen av dina funktions program inställningar. Om du skapar en [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) i funktions koden bör du lagra värdet för anslutnings strängen med dina andra anslutningar i **program inställningarna** i portalen. |
+| **`ConnectionStrings`** | En samling. Använd inte den här samlingen för de anslutnings strängar som används av funktions bindningarna. Den här samlingen används endast av ramverk som vanligt vis hämtar anslutnings strängar från `ConnectionStrings` avsnittet i en konfigurations fil, t. ex. [Entity Framework](/ef/ef6/). Anslutnings strängar i det här objektet läggs till i miljön med providertypen för [system. data. SqlClient](/dotnet/api/system.data.sqlclient). Objekt i den här samlingen publiceras inte i Azure med andra AppData. Du måste uttryckligen lägga till de här värdena i `Connection strings` samlingen av dina funktions program inställningar. Om du skapar en [`SqlConnection`](/dotnet/api/system.data.sqlclient.sqlconnection) i funktions koden bör du lagra värdet för anslutnings strängen med dina andra anslutningar i **program inställningarna** i portalen. |
 
 Följande program inställningar kan inkluderas i **`Values`** matrisen när de körs lokalt:
 

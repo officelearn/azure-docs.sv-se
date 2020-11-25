@@ -4,11 +4,11 @@ description: Den här artikeln beskriver hur du kan felsöka och lösa problem m
 ms.topic: conceptual
 ms.date: 07/21/2020
 ms.openlocfilehash: 5727702ff973523ce7ab6400c1c7748e0584acbf
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890368"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010596"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Felsöka Azure Monitor för containrar
 
@@ -23,9 +23,9 @@ Under onboarding-eller uppdaterings processen görs försök att tilldela **öve
 Du kan också bevilja rollen manuellt från Azure Portalen genom att utföra följande steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. Skriv **Kubernetes** i listan över resurser. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Azure-Kubernetes** .
+2. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. Skriv **Kubernetes** i listan över resurser. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Azure-Kubernetes**.
 3. I listan över Kubernetes-kluster väljer du en i listan.
-2. I den vänstra menyn klickar du på **åtkomst kontroll (IAM)** .
+2. I den vänstra menyn klickar du på **åtkomst kontroll (IAM)**.
 3. Välj **+ Lägg** till för att lägga till en roll tilldelning och välj **utgivar rollen övervaknings mått** och välj **AKS** i rutan **Välj** typ för att filtrera resultaten för bara de kluster tjänstens huvud namn som definierats i prenumerationen. Välj den från listan som är speciell för klustret.
 4. Välj **Spara** för att slutföra tilldelningen av rollen.
 
@@ -112,7 +112,7 @@ Azure Monitor for containers agent poddar använder cAdvisor-slutpunkten på Nod
 
 ## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>Icke-Azure Kubernetes-kluster visas inte i Azure Monitor för behållare
 
-Om du vill visa icke-Azure Kubernetes-kluster i Azure Monitor för behållare, krävs Läs behörighet på arbets ytan Log Analytics som stöder den här insikten och på ContainerInsights för container Insights **-lösning ( *arbets yta* )** .
+Om du vill visa icke-Azure Kubernetes-kluster i Azure Monitor för behållare, krävs Läs behörighet på arbets ytan Log Analytics som stöder den här insikten och på ContainerInsights för container Insights **-lösning (*arbets yta*)**.
 
 ## <a name="next-steps"></a>Nästa steg
 

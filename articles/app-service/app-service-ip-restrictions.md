@@ -8,11 +8,11 @@ ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e1549dda367105db34272eab8a90c1760dd5bb5c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576452"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010188"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Konfigurera Azure App Service åtkomst begränsningar
 
@@ -65,14 +65,14 @@ I fönstret **Lägg till IP-begränsning** när du skapar en regel gör du följ
 1. Du kan också ange ett namn och en beskrivning av regeln.  
 1. I list rutan **typ** väljer du typ av regel.  
 1. I rutan **prioritet** anger du ett prioritets värde.  
-1. I list rutorna **prenumeration** , **Virtual Network** och **undernät** väljer du vad du vill begränsa åtkomsten till.  
+1. I list rutorna **prenumeration**, **Virtual Network** och **undernät** väljer du vad du vill begränsa åtkomsten till.  
 
 ### <a name="set-an-ip-address-based-rule"></a>Ange en IP-adress-baserad regel
 
 Följ proceduren som beskrivs i föregående avsnitt, men med följande variation:
 * I list rutan **typ** i steg 3 väljer du **IPv4** eller **IPv6**. 
 
-Ange IP-adressen i CIDR-notation (Classless Inter-Domain routing) för både IPv4-och IPv6-adresser. Om du vill ange en adress kan du använda något som *1.2.3.4/32* , där de första fyra oktetterna representerar din IP-adress och */32* är masken. IPv4 CIDR-noteringen för alla adresser är 0.0.0.0/0. Mer information om CIDR-notering finns i [klass lös Inter-Domain routning](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+Ange IP-adressen i CIDR-notation (Classless Inter-Domain routing) för både IPv4-och IPv6-adresser. Om du vill ange en adress kan du använda något som *1.2.3.4/32*, där de första fyra oktetterna representerar din IP-adress och */32* är masken. IPv4 CIDR-noteringen för alla adresser är 0.0.0.0/0. Mer information om CIDR-notering finns i [klass lös Inter-Domain routning](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
 ## <a name="use-service-endpoints"></a>Använda tjänstens slutpunkter
 
@@ -112,7 +112,7 @@ Du kan redigera eller ta bort en befintlig regel för begränsning av åtkomst.
 
 ### <a name="delete-a-rule"></a>Ta bort en regel
 
-Om du vill ta bort en regel väljer du ellipsen ( **...** ) bredvid den regel som du vill ta bort på sidan **åtkomst begränsningar** och väljer sedan **ta bort**.
+Om du vill ta bort en regel väljer du ellipsen (**...**) bredvid den regel som du vill ta bort på sidan **åtkomst begränsningar** och väljer sedan **ta bort**.
 
 ![Skärm bild av sidan "åtkomst begränsningar" som visar ellipsen "ta bort" bredvid regeln för åtkomst begränsning som ska tas bort.](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
@@ -153,7 +153,7 @@ Du kan också ange värden manuellt genom att göra något av följande:
 
 * Använd en [Azure REST API](/rest/api/azure/) -åtgärd i appens konfiguration i Azure Resource Manager. Platsen för den här informationen i Azure Resource Manager:
 
-  management.azure.com/subscriptions/ **prenumerations-ID** /resourceGroups/ **resurs grupper** /providers/Microsoft.Web/Sites/ **Web App Name** /config/Web? API-version = 2018-02-01
+  management.azure.com/subscriptions/**prenumerations-ID**/resourceGroups/**resurs grupper**/providers/Microsoft.Web/Sites/**Web App Name**/config/Web? API-version = 2018-02-01
 
 * Använd en ARM-mall. Som exempel kan du använda resources.azure.com och redigera ipSecurityRestrictions-blocket för att lägga till den nödvändiga JSON-filen.
 

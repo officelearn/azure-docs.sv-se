@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 08/19/2020
 ms.custom: include file
 ms.openlocfilehash: efdd4a065e1eab55f5af420585a44754d42a43e9
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94503944"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010387"
 ---
 1. Från Azure Portal-menyn eller **Start sidan** väljer du **skapa en resurs**.
 
@@ -38,7 +38,7 @@ ms.locfileid: "94503944"
     > Du kan ha upp till en kostnads fri nivå Azure Cosmos DB ett konto per Azure-prenumeration och måste välja när du skapar kontot. Om du inte ser alternativet för att tillämpa rabatten på den kostnads fria nivån innebär det att ett annat konto i prenumerationen redan har Aktiver ATS med den kostnads fria nivån.
    
     > [!NOTE]
-    > Följande alternativ är inte tillgängliga om du väljer **Server** lös som **kapacitets läge** :
+    > Följande alternativ är inte tillgängliga om du väljer **Server** lös som **kapacitets läge**:
     > - Tillämpa rabatt för kostnadsfri nivå
     > - Geo-redundans
     > - Skrivåtgärder för flera regioner

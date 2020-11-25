@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167907"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010529"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Utveckla Azure Functions med hjälp av Visual Studio Code
 
@@ -60,7 +60,7 @@ Andra resurser som du behöver, till exempel ett Azure Storage-konto, skapas i p
 
 Med funktionen Functions kan du skapa ett app-projekt med funktioner, tillsammans med din första funktion. Följande steg visar hur du skapar en HTTP-utlöst funktion i ett nytt Functions-projekt. [Http-utlösare](functions-bindings-http-webhook.md) är den enklaste funktions utlösaren att demonstrera.
 
-1. Från **Azure: Functions**väljer du ikonen **skapa funktion** :
+1. Från **Azure: Functions** väljer du ikonen **skapa funktion** :
 
     ![Skapa en funktion](./media/functions-develop-vs-code/create-function.png)
 
@@ -311,7 +311,7 @@ I det här avsnittet används [Azure Storage tillägget för Visual Studio Code]
 
 Så här anger du anslutnings strängen för lagrings kontot:
 
-1. Öppna **Cloud Explorer**i Visual Studio, expandera **lagrings konto**  >  **ditt lagrings konto**och välj sedan **Egenskaper** och kopiera värdet för **primär anslutnings sträng** .
+1. Öppna **Cloud Explorer** i Visual Studio, expandera **lagrings konto**  >  **ditt lagrings konto** och välj sedan **Egenskaper** och kopiera värdet för **primär anslutnings sträng** .
 
 2. I projektet öppnar du local.settings.jspå filen och anger värdet för nyckeln **AzureWebJobsStorage** till den anslutnings sträng som du kopierade.
 
@@ -373,7 +373,7 @@ Om den lokala filen är krypterad, dekrypteras, uppdateras och krypteras igen, s
 
 När du [Kör funktioner lokalt](#run-functions-locally)strömmas loggdata till Terminal-konsolen. Du kan också hämta logg data när ditt Functions-projekt körs i en Function-app i Azure. Du kan antingen ansluta till strömmande loggar i Azure om du vill se logg data nästan i real tid, eller så kan du aktivera Application Insights för en mer fullständig förståelse för hur din Function-app fungerar.
 
-### <a name="streaming-logs"></a>Strömmande loggar
+### <a name="streaming-logs"></a>Direktuppspelningsloggar
 
 När du utvecklar ett program är det ofta användbart att se loggnings information i nära real tid. Du kan visa en ström med loggfiler som genereras av dina funktioner. Dessa utdata är ett exempel på strömmande loggar för en begäran till en HTTP-utlöst funktion:
 
@@ -408,7 +408,7 @@ När du har slutfört de här stegen inkluderar anrop till de underliggande kär
 
 Azure Functions-tillägget ger ett användbart grafiskt gränssnitt i avsnittet för att interagera med dina funktions program i Azure. Samma funktion är också tillgänglig som kommandon på kommando paletten (F1). Följande Azure Functions kommandon är tillgängliga:
 
-|Azure Functions kommando  | Beskrivning  |
+|Azure Functions kommando  | Description  |
 |---------|---------|
 |**Lägg till nya inställningar**  |  Skapar en ny program inställning i Azure. Läs mer i [Publicera program inställningar](#publish-application-settings). Du kan också behöva [Ladda ned den här inställningen till dina lokala inställningar](#download-settings-from-azure). |
 | **Konfigurera distributions källa** | Ansluter din Function-app i Azure till en lokal git-lagringsplats. Läs mer i [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md). |

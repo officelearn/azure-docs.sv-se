@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: a487e6989792c63aaf5baf9ddb3875df549561a4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7cb427c83345a4603c6fe7727c1cc42c1943c456
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143983"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908259"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Använda kund hanterade lagrings konton i Azure Monitor Log Analytics
 
-Log Analytics förlitar sig på Azure Storage i många olika scenarier. Den här användningen hanteras vanligt vis automatiskt. Vissa fall kräver dock att du anger och hanterar ditt eget lagrings konto, även kallat ett kundhanterat lagrings konto. Det här dokumentet innehåller information om användningen av kundhanterad lagring för inmatning av WAD/LAD-loggar, privat länk specifika scenarier och CMK kryptering. 
+Log Analytics förlitar sig på Azure Storage i många olika scenarier. Den här användningen hanteras vanligt vis automatiskt. Vissa fall kräver dock att du anger och hanterar ditt eget lagrings konto, även kallat ett kundhanterat lagrings konto. Det här dokumentet innehåller information om användningen av kundhanterad lagring för inmatning av WAD/LAD-loggar, privat länk specifika scenarier och CMK-kryptering (Customer Key). 
 
 > [!NOTE]
 > Vi rekommenderar att du inte tar ett beroende på innehållet Log Analytics uppladdningar till kundhanterad lagring, eftersom formatering och innehåll kan ändras.

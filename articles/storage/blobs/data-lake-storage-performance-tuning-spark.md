@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 8ae9f96b42c0eb36a9380589780d141711c7ae4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c99d57ddd86ecff71c35ad6c0f2c2561e279b4b0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034742"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912815"
 ---
 # <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>Justera prestanda: Spark, HDInsight & Azure Data Lake Storage Gen2
 
@@ -23,9 +23,9 @@ När du justerar prestanda för Spark måste du fundera över antalet appar som 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett Azure Data Lake Storage Gen2 konto**. Anvisningar om hur du skapar ett finns i [snabb start: skapa ett Azure Data Lake Storage Gen2 lagrings konto](data-lake-storage-quickstart-create-account.md).
-* **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage Gen2-konto. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Se till att aktivera fjärr skrivbord för klustret.
-* **Kör Spark-kluster på data Lake Storage Gen2**.  Mer information finns i [använda HDInsight Spark-kluster för att analysera data i data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
+* **Ett Azure Data Lake Storage Gen2 konto**. Anvisningar om hur du skapar ett finns i [snabb start: skapa ett Azure Data Lake Storage Gen2 lagrings konto](../common/storage-account-create.md).
+* **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage Gen2-konto. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md). Se till att aktivera fjärr skrivbord för klustret.
+* **Kör Spark-kluster på data Lake Storage Gen2**.  Mer information finns i [använda HDInsight Spark-kluster för att analysera data i data Lake Storage Gen2](../../hdinsight/spark/apache-spark-use-with-data-lake-store.md)
 * **Rikt linjer för prestanda justering på data Lake Storage Gen2**.  Allmänna prestanda koncept finns i [vägledning för data Lake Storage Gen2 prestanda justering](data-lake-storage-performance-tuning-guidance.md) 
 
 ## <a name="parameters"></a>Parametrar
@@ -124,4 +124,3 @@ utförar-kärnor = 4
 - antal körningar = min (minnes begränsning, processor begränsning)
 - antal körningar = min (16, 16)
 - antal körningar = 16
-

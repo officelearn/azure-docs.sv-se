@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 406371325ddf8b555ede481582e19635b85abe49
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 10a2ae71d8c26d82a4a730bab3ba16e7c62d1243
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461574"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911744"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Samla in anpassade loggar med Log Analytics agent i Azure Monitor
 
@@ -30,6 +30,7 @@ De loggfiler som ska samlas in måste matcha följande kriterier.
 
 - Logg filen får inte tillåta cirkulär loggning eller logg rotation, där filen skrivs över med nya poster.
 - Logg filen måste använda ASCII-eller UTF-8-kodning.  Andra format, till exempel UTF-16, stöds inte.
+- För Linux stöds inte tids zons converesion för tidsstämplar i loggarna.
 
 >[!NOTE]
 > Om det finns dubbla poster i logg filen, Azure Monitor samla in dem. Frågeresultatet kommer dock att vara inkonsekvent där filter resultaten visar fler händelser än antalet resultat. Det är viktigt att du validerar loggen för att avgöra om programmet som skapar den orsakar detta beteende och kan åtgärda det om möjligt innan du skapar den anpassade logg samlings definitionen.  
@@ -91,7 +92,7 @@ Följande tabell innehåller exempel på giltiga mönster för att ange olika lo
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Steg 4. Ange ett namn och en beskrivning av loggen
 Det namn som du anger kommer att användas för logg typen enligt beskrivningen ovan.  Den avslutas alltid med _CL för att särskilja den som en anpassad logg.
 
-1. Ange ett namn för loggen.  ** \_ R** -suffixet anges automatiskt.
+1. Ange ett namn för loggen.  **\_ R** -suffixet anges automatiskt.
 2. Lägg till en valfri **Beskrivning**.
 3. Klicka på **Nästa** för att spara den anpassade logg definitionen.
 

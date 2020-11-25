@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 41ad20de6b7a800ff1f97a7ff371c8e0012fed27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78455659d76d259c626745c93770428c25042b2d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166985"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908820"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>NFS (Network File System) 3,0 protokoll stöd i Azure Blob Storage (för hands version)
 
@@ -58,19 +58,19 @@ En klient kan ansluta via en offentlig eller [privat slut punkt](../common/stora
 
 - Det virtuella nätverk som du konfigurerar för ditt lagrings konto. 
 
-  I den här artikeln hänvisar vi till det virtuella nätverket som det *primära virtuella*nätverket. Läs mer i [bevilja åtkomst från ett virtuellt nätverk](../common/storage-network-security.md#grant-access-from-a-virtual-network).
+  I den här artikeln hänvisar vi till det virtuella nätverket som det *primära virtuella* nätverket. Läs mer i [bevilja åtkomst från ett virtuellt nätverk](../common/storage-network-security.md#grant-access-from-a-virtual-network).
 
 - Ett peer-kopplat VNet som finns i samma region som det primära virtuella nätverket.
 
   Du måste konfigurera ditt lagrings konto för att tillåta åtkomst till detta peered VNet. Läs mer i [bevilja åtkomst från ett virtuellt nätverk](../common/storage-network-security.md#grant-access-from-a-virtual-network).
 
-- Ett lokalt nätverk som är anslutet till ditt primära VNet med hjälp av [VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) eller en [ExpressRoute-Gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager). 
+- Ett lokalt nätverk som är anslutet till ditt primära VNet med hjälp av [VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) eller en [ExpressRoute-Gateway](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md). 
 
   Mer information finns i [Konfigurera åtkomst från lokala nätverk](../common/storage-network-security.md#configuring-access-from-on-premises-networks).
 
 - Ett lokalt nätverk som är anslutet till ett peer-nätverk.
 
-  Detta kan göras med hjälp av [VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) eller en [ExpressRoute-Gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) tillsammans med [Gateway-överföring](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit). 
+  Detta kan göras med hjälp av [VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) eller en [ExpressRoute-Gateway](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) tillsammans med [Gateway-överföring](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit). 
 
 > [!IMPORTANT]
 > Om du ansluter från ett lokalt nätverk kontrollerar du att klienten tillåter utgående kommunikation via portarna 111 och 2048. NFS 3,0-protokollet använder dessa portar.
@@ -114,8 +114,3 @@ En transaktion debiteras inte under för hands versionen. Prissättningen för t
 ## <a name="next-steps"></a>Nästa steg
 
 För att komma igång, se [montera Blob Storage med hjälp av Network File System (NFS) 3,0-protokollet (för hands version)](network-file-system-protocol-support-how-to.md).
-
-
-
-
-

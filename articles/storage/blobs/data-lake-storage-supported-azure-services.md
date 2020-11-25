@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: c3a5f3a984c95af400c9e0c1543e3c1883290668
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e96fa932185a6689c360fe86d519a45581059118
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442964"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912645"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Azure-tjänster som stöder Azure Data Lake Storage Gen2
 
@@ -28,22 +28,22 @@ I den här tabellen visas de Azure-tjänster som du kan använda med Azure Data 
 
 |Azure-tjänst |Support nivå |Azure AD |Delad nyckel| Relaterade artiklar |
 |---------------|-------------------|---|---|---|
-|Azure Data Factory|Allmänt tillgänglig|Ja|Ja|[Läs in data i Azure Data Lake Storage Gen2 med Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Azure Databricks|Allmänt tillgänglig|Ja|Ja|[Använda med Azure Databricks](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) <br> [Snabb start: analysera data i Azure Data Lake Storage Gen2 med Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md) <br>[Självstudie: Extrahera, transformera och läsa in data med hjälp av Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse) <br>[Självstudie: komma åt Data Lake Storage Gen2 data med Azure Databricks med Spark](data-lake-storage-use-databricks-spark.md)|
-|Azure Event Hub|Allmänt tillgänglig|Inga|Ja|[Avbilda händelser via Azure Event Hubs i Azure Blob Storage eller Azure Data Lake Storage](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|
+|Azure Data Factory|Allmänt tillgänglig|Ja|Ja|[Läs in data i Azure Data Lake Storage Gen2 med Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Databricks|Allmänt tillgänglig|Ja|Ja|[Använda med Azure Databricks](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) <br> [Snabb start: analysera data i Azure Data Lake Storage Gen2 med Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md) <br>[Självstudie: Extrahera, transformera och läsa in data med hjälp av Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) <br>[Självstudie: komma åt Data Lake Storage Gen2 data med Azure Databricks med Spark](data-lake-storage-use-databricks-spark.md)|
+|Azure Event Hub|Allmänt tillgänglig|Nej|Ja|[Avbilda händelser via Azure Event Hubs i Azure Blob Storage eller Azure Data Lake Storage](../../event-hubs/event-hubs-capture-overview.md)|
 |Azure Event Grid|Allmänt tillgänglig|Ja|Ja|[Självstudie: Implementera Data Lake Capture-mönstret för att uppdatera en Databricks delta tabell](data-lake-storage-events.md)|
-|Azure Logic Apps|Allmänt tillgänglig|Inga|Ja|[Översikt – vad är Azure Logic Apps?](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)|
-|Azure Machine Learning|Allmänt tillgänglig|Ja|Ja|[Få åtkomst till data i Azure Storage-tjänster](https://docs.microsoft.com/azure/machine-learning/how-to-access-data)|
-|Azure Stream Analytics|Allmänt tillgänglig|Ja|Ja|[Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Utgående till Azure Data Lake Gen2](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2)|
-|Data Box|Allmänt tillgänglig|Inga|Ja|[Använd Azure Data Box för att migrera data från en lokal HDFS-lagring till Azure Storage](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|
-|HDInsight |Allmänt tillgänglig|Ja|Ja|[Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Använda HDFS CLI med Data Lake Storage Gen2](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[Självstudie: extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)|
-|IoT Hub |Allmänt tillgänglig|Inga|Ja|[Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|
-|Power BI|Allmänt tillgänglig|Ja|Ja|[Analysera data i Data Lake Storage Gen2 med Power BI](https://docs.microsoft.com/power-query/connectors/datalakestorage)|
-|Azure Synapse Analytics (tidigare SQL Data Warehouse)|Allmänt tillgänglig|Ja|Ja|[Använd med Azure Synapse Analytics (tidigare SQL Data Warehouse)](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase)|
-|SQL Server Integration Services (SSIS)|Allmänt tillgänglig|Ja|Ja|[Azure Storage anslutnings hanteraren](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
-|Azure-datautforskaren|Allmänt tillgänglig|Ja|Ja|[Fråga efter data i Azure Data Lake med Azure Datautforskaren](https://docs.microsoft.com/azure/data-explorer/data-lake-query-data)|
-|Azure Cognitive Search|Förhandsgranskning|Ja|Ja|[Index och Sök Azure Data Lake Storage Gen2 dokument (förhands granskning)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
-|Azure Content Delivery Network|Stöds inte ännu|Inte tillämpligt|Inte tillämpligt|[Index och Sök Azure Data Lake Storage Gen2 dokument (förhands granskning)](https://docs.microsoft.com/azure/cdn/cdn-overview)|
+|Azure Logic Apps|Allmänt tillgänglig|Nej|Ja|[Översikt – vad är Azure Logic Apps?](../../logic-apps/logic-apps-overview.md)|
+|Azure Machine Learning|Allmänt tillgänglig|Ja|Ja|[Få åtkomst till data i Azure Storage-tjänster](../../machine-learning/how-to-access-data.md)|
+|Azure Stream Analytics|Allmänt tillgänglig|Ja|Ja|[Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Utgående till Azure Data Lake Gen2](../../stream-analytics/stream-analytics-define-outputs.md)|
+|Data Box|Allmänt tillgänglig|Nej|Ja|[Använd Azure Data Box för att migrera data från en lokal HDFS-lagring till Azure Storage](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|
+|HDInsight |Allmänt tillgänglig|Ja|Ja|[Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Använda HDFS CLI med Data Lake Storage Gen2](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[Självstudie: extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)|
+|IoT Hub |Allmänt tillgänglig|Nej|Ja|[Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
+|Power BI|Allmänt tillgänglig|Ja|Ja|[Analysera data i Data Lake Storage Gen2 med Power BI](/power-query/connectors/datalakestorage)|
+|Azure Synapse Analytics (tidigare SQL Data Warehouse)|Allmänt tillgänglig|Ja|Ja|[Använd med Azure Synapse Analytics (tidigare SQL Data Warehouse)](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|SQL Server Integration Services (SSIS)|Allmänt tillgänglig|Ja|Ja|[Azure Storage anslutnings hanteraren](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
+|Azure-datautforskaren|Allmänt tillgänglig|Ja|Ja|[Fråga efter data i Azure Data Lake med Azure Datautforskaren](/azure/data-explorer/data-lake-query-data)|
+|Azure Cognitive Search|Förhandsgranskning|Ja|Ja|[Index och Sök Azure Data Lake Storage Gen2 dokument (förhands granskning)](../../search/search-howto-index-azure-data-lake-storage.md)|
+|Azure Content Delivery Network|Stöds inte ännu|Inte tillämpligt|Inte tillämpligt|[Index och Sök Azure Data Lake Storage Gen2 dokument (förhands granskning)](../../cdn/cdn-overview.md)|
 
 ## <a name="see-also"></a>Se även
 

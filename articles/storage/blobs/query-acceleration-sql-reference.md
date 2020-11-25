@@ -10,12 +10,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: affddf7367f58107106ae07a07b8baedac73e251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2eda67e377a3b61e696e732b916d788c00a18eae
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659571"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908786"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Språk referens för Query acceleration SQL
 
@@ -63,7 +63,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 |TIMESTAMP|En tidpunkt.                           |
 |BOOLESKT  |Sant eller falskt.                             |
 
-När du läser värden från CSV-formaterade data läses alla värden som strängar.  Sträng värden kan konverteras till andra typer med hjälp av CAST-uttryck.  Värden kan vara implicit omvandlas till andra typer beroende på kontext. Mer information finns i [data typs prioritet (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
+När du läser värden från CSV-formaterade data läses alla värden som strängar.  Sträng värden kan konverteras till andra typer med hjälp av CAST-uttryck.  Värden kan vara implicit omvandlas till andra typer beroende på kontext. Mer information finns i [data typs prioritet (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 ## <a name="expressions"></a>Uttryck
 
@@ -79,34 +79,34 @@ Följande standard-SQL-operatorer stöds:
 
 |Operator|Beskrivning|
 |--|--|
-|[=](https://docs.microsoft.com/sql/t-sql/language-elements/equals-transact-sql)    |Jämför likheten mellan två uttryck (en jämförelse operator).|
-|[!=](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Testar om ett uttryck inte är lika med ett annat uttryck (en jämförelse operator).|
-|[<>](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Jämför två uttryck som inte är lika med (en jämförelse operator).|
-|[<](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-transact-sql)    |Jämför två uttryck för mindre än (en jämförelse operator).|
-|[<=](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Jämför två uttryck för mindre än eller lika med (en jämförelse operator).|
-|[>](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-transact-sql)    |Jämför två uttryck för större än (en jämförelse operator). |
-|[>=](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Jämför två uttryck för större än eller lika med (en jämförelse operator).|
-|[+](https://docs.microsoft.com/sql/t-sql/language-elements/add-transact-sql)    |Adderar två tal. Denna additiona aritmetiska operator kan också lägga till ett tal, i dagar, till ett datum.|
-|[-](https://docs.microsoft.com/sql/t-sql/language-elements/subtract-transact-sql)    |Subtraherar två tal (en aritmetisk under traktions operator). |
-|[/](https://docs.microsoft.com/sql/t-sql/language-elements/divide-transact-sql)    |Dividerar ett tal med ett annat (en aritmetisk divisions operator).|
-|[*](https://docs.microsoft.com/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplicerar två uttryck (en aritmetisk operator för multiplikation).|
-|[%](https://docs.microsoft.com/sql/t-sql/language-elements/modulo-transact-sql)    |Returnerar resten av ett tal dividerat med ett annat.|
-|[AND](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Utför en bitvis logisk och åtgärd mellan två heltals värden.|
-|[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Utför en bitvis logisk eller åtgärd mellan två angivna heltals värden som översatta till binära uttryck i Transact-SQL-uttryck.|
-|[NOT](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Negerar en boolesk Indatatyp.|
-|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Konverterar ett uttryck med en datatyp till en annan.|
-|[DELAS](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Anger ett intervall som ska testas.|
-|[FÖR](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Anger om ett angivet värde matchar ett värde i en under fråga eller en lista.|
-|[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |Returnerar ett null-värde om de två angivna uttrycken är lika.|
-|[COALESCE](https://docs.microsoft.com/sql/t-sql/language-elements/coalesce-transact-sql)    |Utvärderar argumenten i ordning och returnerar det aktuella värdet för det första uttrycket som ursprungligen inte utvärderas till NULL.|
+|[=](/sql/t-sql/language-elements/equals-transact-sql)    |Jämför likheten mellan två uttryck (en jämförelse operator).|
+|[!=](/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Testar om ett uttryck inte är lika med ett annat uttryck (en jämförelse operator).|
+|[<>](/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Jämför två uttryck som inte är lika med (en jämförelse operator).|
+|[<](/sql/t-sql/language-elements/less-than-transact-sql)    |Jämför två uttryck för mindre än (en jämförelse operator).|
+|[<=](/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Jämför två uttryck för mindre än eller lika med (en jämförelse operator).|
+|[>](/sql/t-sql/language-elements/greater-than-transact-sql)    |Jämför två uttryck för större än (en jämförelse operator). |
+|[>=](/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Jämför två uttryck för större än eller lika med (en jämförelse operator).|
+|[+](/sql/t-sql/language-elements/add-transact-sql)    |Adderar två tal. Denna additiona aritmetiska operator kan också lägga till ett tal, i dagar, till ett datum.|
+|[-](/sql/t-sql/language-elements/subtract-transact-sql)    |Subtraherar två tal (en aritmetisk under traktions operator). |
+|[/](/sql/t-sql/language-elements/divide-transact-sql)    |Dividerar ett tal med ett annat (en aritmetisk divisions operator).|
+|[*](/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplicerar två uttryck (en aritmetisk operator för multiplikation).|
+|[%](/sql/t-sql/language-elements/modulo-transact-sql)    |Returnerar resten av ett tal dividerat med ett annat.|
+|[AND](/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Utför en bitvis logisk och åtgärd mellan två heltals värden.|
+|[OR](/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Utför en bitvis logisk eller åtgärd mellan två angivna heltals värden som översatta till binära uttryck i Transact-SQL-uttryck.|
+|[NOT](/sql/t-sql/language-elements/not-transact-sql)    |Negerar en boolesk Indatatyp.|
+|[CAST](/sql/t-sql/functions/cast-and-convert-transact-sql)    |Konverterar ett uttryck med en datatyp till en annan.|
+|[DELAS](/sql/t-sql/language-elements/between-transact-sql)    |Anger ett intervall som ska testas.|
+|[FÖR](/sql/t-sql/language-elements/in-transact-sql)    |Anger om ett angivet värde matchar ett värde i en under fråga eller en lista.|
+|[NULLIF](/sql/t-sql/language-elements/nullif-transact-sql)    |Returnerar ett null-värde om de två angivna uttrycken är lika.|
+|[COALESCE](/sql/t-sql/language-elements/coalesce-transact-sql)    |Utvärderar argumenten i ordning och returnerar det aktuella värdet för det första uttrycket som ursprungligen inte utvärderas till NULL.|
 
-Om data typer till vänster och höger om en operator skiljer sig åt kommer den automatiska konverteringen att utföras enligt de regler som anges här: [data typs prioritet (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
+Om data typer till vänster och höger om en operator skiljer sig åt kommer den automatiska konverteringen att utföras enligt de regler som anges här: [data typs prioritet (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 SQL-språket för Query acceleration stöder bara en liten del av de data typer som beskrivs i artikeln.  Se avsnittet [data typer](#data-types) i den här artikeln.
 
 ### <a name="casts"></a>Sändningar
 
-SQL-språket för frågespråk stöder CAST-operatorn, enligt reglerna här: [data typs konvertering (databas motor)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine).  
+SQL-språket för frågespråk stöder CAST-operatorn, enligt reglerna här: [data typs konvertering (databas motor)](/sql/t-sql/data-types/data-type-conversion-database-engine).  
 
 SQL-språket för frågespråk stöder bara en liten delmängd av de data typer som beskrivs i artikeln.  Se avsnittet [data typer](#data-types) i den här artikeln.
 
@@ -118,12 +118,12 @@ SQL-språket för frågespråk stöder följande SQL-standardfunktioner:
 |--|--|
 |CHAR_LENGTH    | Returnerar längden i tecken i sträng uttrycket, om sträng uttrycket är av en tecken data typ; annars returneras längden i byte för sträng uttrycket (det minsta heltal som inte är mindre än antalet bitar dividerat med 8). (Den här funktionen är samma som CHARACTER_LENGTH-funktionen.)|
 |CHARACTER_LENGTH    |Returnerar längden i tecken i sträng uttrycket, om sträng uttrycket är av en tecken data typ; annars returneras längden i byte för sträng uttrycket (det minsta heltal som inte är mindre än antalet bitar dividerat med 8). (Den här funktionen är samma som funktionen CHAR_LENGTH|
-|[LOWER](https://docs.microsoft.com/sql/t-sql/functions/lower-transact-sql)    |Returnerar ett tecken uttryck efter konvertering av versaler till gemener.|
-|[UPPER](https://docs.microsoft.com/sql/t-sql/functions/upper-transact-sql)    |Returnerar ett tecken uttryck med gemena tecken som konverterats till versaler.|
-|[UNDER sträng](https://docs.microsoft.com/sql/t-sql/functions/substring-transact-sql)    |Returnerar en del av ett tecken-, binär-, text-eller bild uttryck i SQL Server.|
-|[TRIM](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql)    |Tar bort blank steg tecken (32) eller andra angivna tecken från början och slutet av en sträng.|
-|LEDANDE    |Beskrivning|
-|AVSLUTANDE    |Beskrivning|
+|[LOWER](/sql/t-sql/functions/lower-transact-sql)    |Returnerar ett tecken uttryck efter konvertering av versaler till gemener.|
+|[UPPER](/sql/t-sql/functions/upper-transact-sql)    |Returnerar ett tecken uttryck med gemena tecken som konverterats till versaler.|
+|[UNDER sträng](/sql/t-sql/functions/substring-transact-sql)    |Returnerar en del av ett tecken-, binär-, text-eller bild uttryck i SQL Server.|
+|[TRIM](/sql/t-sql/functions/trim-transact-sql)    |Tar bort blank steg tecken (32) eller andra angivna tecken från början och slutet av en sträng.|
+|LEDANDE    |Description|
+|AVSLUTANDE    |Description|
 
 Här är några exempel:
 
@@ -340,4 +340,3 @@ I de flesta fall är storleken på varje grupp något högre än det tal som du 
 
 - [Azure Data Lake Storage fråga om acceleration](data-lake-storage-query-acceleration.md)
 - [Filtrera data med hjälp av Azure Data Lake Storage fråga om acceleration](data-lake-storage-query-acceleration-how-to.md)
-

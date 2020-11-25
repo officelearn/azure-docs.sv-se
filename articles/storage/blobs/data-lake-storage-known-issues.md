@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 909d64d3d32e8b9a314f7afb06b9c0121f624cec
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 32f8ab3f7e222108bec4ec81b14c113705370096
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358492"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913070"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -41,21 +41,21 @@ BLOB-API: er och Data Lake Storage Gen2-API: er kan köras på samma data.
 
 I det här avsnittet beskrivs problem och begränsningar med att använda BLOB-API: er och Data Lake Storage Gen2 API: er för att använda samma data.
 
-* Du kan inte använda BLOB API och Data Lake Storage-API: er för att skriva till samma instans av en fil. Om du skriver till en fil med hjälp av Data Lake Storage Gen2 API: er visas inte filens block för anrop till BLOB-API: t [Get block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list) . Det enda undantaget är när du använder du skriver över. Du kan skriva över en fil/BLOB med antingen API.
+* Du kan inte använda BLOB API och Data Lake Storage-API: er för att skriva till samma instans av en fil. Om du skriver till en fil med hjälp av Data Lake Storage Gen2 API: er visas inte filens block för anrop till BLOB-API: t [Get block List](/rest/api/storageservices/get-block-list) . Det enda undantaget är när du använder du skriver över. Du kan skriva över en fil/BLOB med antingen API.
 
-* När du använder [list-bloben](https://docs.microsoft.com/rest/api/storageservices/list-blobs) utan att ange en avgränsare, kommer resultatet att inkludera både kataloger och blobbar. Om du väljer att använda en avgränsare använder du bara ett snedstreck ( `/` ). Detta är den enda avgränsare som stöds.
+* När du använder [list-bloben](/rest/api/storageservices/list-blobs) utan att ange en avgränsare, kommer resultatet att inkludera både kataloger och blobbar. Om du väljer att använda en avgränsare använder du bara ett snedstreck ( `/` ). Detta är den enda avgränsare som stöds.
 
-* Om du använder [Delete BLOB](https://docs.microsoft.com/rest/api/storageservices/delete-blob) API för att ta bort en katalog tas katalogen bara bort om den är tom. Det innebär att du inte kan använda BLOB API-borttagningarna rekursivt.
+* Om du använder [Delete BLOB](/rest/api/storageservices/delete-blob) API för att ta bort en katalog tas katalogen bara bort om den är tom. Det innebär att du inte kan använda BLOB API-borttagningarna rekursivt.
 
 Dessa BLOB REST-API: er stöds inte:
 
-* [Lägg till BLOB (sida)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Placerings sida](https://docs.microsoft.com/rest/api/storageservices/put-page)
-* [Hämta sid intervall](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
-* [BLOB för stegvis kopiering](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
-* [Lägg till sida från URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Lägg till block](https://docs.microsoft.com/rest/api/storageservices/append-block)
-* [Lägg till block från URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+* [Lägg till BLOB (sida)](/rest/api/storageservices/put-blob)
+* [Placerings sida](/rest/api/storageservices/put-page)
+* [Hämta sid intervall](/rest/api/storageservices/get-page-ranges)
+* [BLOB för stegvis kopiering](/rest/api/storageservices/incremental-copy-blob)
+* [Lägg till sida från URL](/rest/api/storageservices/put-page-from-url)
+* [Lägg till block](/rest/api/storageservices/append-block)
+* [Lägg till block från URL](/rest/api/storageservices/append-block-from-url)
 
 
 Ohanterade VM-diskar stöds inte i konton som har ett hierarkiskt namn område. Om du vill aktivera ett hierarkiskt namn område på ett lagrings konto placerar du ohanterade virtuella dator diskar i ett lagrings konto där funktionen för hierarkiskt namn område inte är aktive rad.
@@ -70,7 +70,7 @@ Möjligheten att tillämpa ACL-ändringar rekursivt från överordnad katalog ti
 
 ## <a name="azcopy"></a>AzCopy
 
-Använd endast den senaste versionen av AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Tidigare versioner av AzCopy, till exempel AzCopy v 8.1, stöds inte.
+Använd endast den senaste versionen av AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Tidigare versioner av AzCopy, till exempel AzCopy v 8.1, stöds inte.
 
 <a id="storage-explorer"></a>
 
@@ -92,7 +92,7 @@ Program från tredje part som använder REST-API: er för arbete fortsätter att
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Åtkomst kontrol listor (ACL) och anonym Läs åtkomst
 
-Om [Anonym Läs åtkomst](storage-manage-access-to-resources.md) har beviljats till en behållare, har ACL: er ingen påverkan på den behållaren eller filerna i den behållaren.
+Om [Anonym Läs åtkomst](./anonymous-read-access-configure.md) har beviljats till en behållare, har ACL: er ingen påverkan på den behållaren eller filerna i den behållaren.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 

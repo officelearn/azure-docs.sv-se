@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: ed6d3b927254d44863b7fd0a597528813be791cf
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 10ae9e1356cea954435d15441d74f4f86a804578
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736619"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893988"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
@@ -40,11 +40,14 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 - **Nytt språk som stöds: japanska** – följande nya språk stöds nu: for `AnalyzeLayout` och `AnalyzeCustomForm` : Japanese ( `ja` ). [Stöd för språk](language-support.md)
 - **Text linje formats indikering (handskriven/övrigt) (endast latinska språk)** – formulär tolken visar nu ett `appearance` objekt som klassificerar om varje textrad är handskriven eller inte, tillsammans med ett säkerhets resultat. Den här funktionen stöds bara för latinska språk.
 - **Kvalitets förbättringar** – extraherings förbättringar, inklusive förbättringar av en enda siffer extrahering.
-- **Ny funktion för try-inaktivitet i formulär tolkens exempel på etikett verktyg** – möjlighet att testa färdiga fakturor, inbetalnings-och visitkorts modeller och layout-API med hjälp av formulär tolkens exempel etikett verktyg. Se hur dina data extraheras utan att du behöver skriva någon kod.
+- **Ny funktion för try-inaktivitet i formulär tolkens exempel-och etikett verktyg** – möjlighet att testa färdiga fakturor, inleverans-och visitkorts modeller och layout-API med hjälp av formulär tolkens exempel etikett verktyg. Se hur dina data extraheras utan att du behöver skriva någon kod.
 
   > [Prova verktyget formulär igenkännings exempel](https://fott-preview.azurewebsites.net/)
 
   ![FOTT-exempel](./media/ui-preview.jpg)
+  
+- **Feedback-slinga** – när du analyserar filer via verktyget exempel etikettering kan du nu även lägga till det i tränings uppsättningen och adujst etiketter om det behövs och träna för att förbättra modellen.
+- **AutoLabel Documets** -Automitcally etiketterar ytterligare dokument baserat på tidigare märkta dokument i projektet. 
 
 ## <a name="august-2020"></a>Augusti 2020
 

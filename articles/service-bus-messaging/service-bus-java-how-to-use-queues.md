@@ -5,18 +5,18 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 11/09/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 3b540858b5a844c00c05fff471ba09002bdb2cb0
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: a91ed2a358a9595a4d22dd629b8d470423b786d6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95809098"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95909534"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Skicka meddelanden till och ta emot meddelanden från Azure Service Bus köer (Java)
 I den här snabb starten ska du skapa en Java-app för att skicka meddelanden till och ta emot meddelanden från en Azure Service Bus kö. 
 
 > [!IMPORTANT]
-> I den här snabb starten används det nya paketet Azure-Messaging-Service Bus. En snabb start som använder det gamla Azure-Service Bus-paketet finns i [skicka och ta emot meddelanden med Azure-Service Bus](service-bus-java-how-to-use-queues-legacy.md).
+> I den här snabb starten används det nya paketet Azure-Messaging-Service Bus, som är en för **hands version**. En snabb start som använder Azure-Service Bus-paketet med aktuella allmänt tillgängliga (GA) finns i [skicka och ta emot meddelanden med Azure-Service Bus](service-bus-java-how-to-use-queues-legacy.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 - En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).

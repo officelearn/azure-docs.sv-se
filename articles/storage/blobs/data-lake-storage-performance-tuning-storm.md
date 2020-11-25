@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 85499839992f872896153e360507d7d1ba7fea38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4db85357ee970d13d6b4fcce195cae66932bed18
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037209"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912798"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Justera prestanda: storm, HDInsight & Azure Data Lake Storage Gen2
 
@@ -22,9 +22,9 @@ Förstå faktorerna som bör övervägas när du justerar prestandan för en Azu
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett Azure Data Lake Storage Gen2 konto**. Anvisningar om hur du skapar ett finns i [snabb start: skapa ett lagrings konto för analys](data-lake-storage-quickstart-create-account.md).
-* **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage Gen2-konto. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Se till att aktivera fjärr skrivbord för klustret.
-* **Köra ett Storm-kluster på data Lake Storage Gen2**. Mer information finns i [storm på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Ett Azure Data Lake Storage Gen2 konto**. Anvisningar om hur du skapar ett finns i [snabb start: skapa ett lagrings konto för analys](../common/storage-account-create.md).
+* **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage Gen2-konto. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md). Se till att aktivera fjärr skrivbord för klustret.
+* **Köra ett Storm-kluster på data Lake Storage Gen2**. Mer information finns i [storm på HDInsight](../../hdinsight/storm/apache-storm-overview.md).
 * **Rikt linjer för prestanda justering på data Lake Storage Gen2**.  Allmänna prestanda koncept finns i [rikt linjer för data Lake Storage Gen2 prestanda justering](data-lake-storage-performance-tuning-guidance.md).   
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Justera topologins parallellitet
@@ -110,10 +110,10 @@ Om du når gränserna för bandbredden som tillhandahålls av Data Lake Storage 
 
 Om du vill kontrol lera om du får en begränsning aktiverar du fel söknings loggning på klient sidan:
 
-1. I **Ambari**  >  **Storm**  >  **config**  >  **Advanced Storm-Work-log4j**, ändra ** &lt; rot nivå = "info" &gt; ** till ** &lt; rotnivån = "debug" &gt; **. Starta om alla noder/tjänster för att konfigurationen ska börja gälla.
+1. I **Ambari**  >  **Storm**  >  **config**  >  **Advanced Storm-Work-log4j**, ändra **&lt; rot nivå = "info" &gt;** till **&lt; rotnivån = "debug" &gt;**. Starta om alla noder/tjänster för att konfigurationen ska börja gälla.
 2. Övervaka loggfilerna för Storm-topologin på arbetsnoder (under/var/log/Storm/Worker-Artifacts/ &lt; TopologyName &gt; / &lt; port &gt; /Worker.log) för data Lake Storage Gen2 begränsnings undantag.
 
 ## <a name="next-steps"></a>Nästa steg
-Ytterligare prestanda justering för Storm kan refereras till i [den här bloggen](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
+Ytterligare prestanda justering för Storm kan refereras till i [den här bloggen](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
 Ytterligare ett exempel på hur du kör finns i [den här GitHub](https://github.com/hdinsight/storm-performance-automation).

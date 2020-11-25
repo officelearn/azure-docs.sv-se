@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96d1eaff4d1b93ad3bb489f177020c351fe4d13d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818349"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904043"
 ---
 # <a name="conditional-access-conditions"></a>Villkorlig åtkomst: villkor
 
@@ -57,7 +57,7 @@ Om du blockerar äldre autentisering med hjälp av **andra klient** villkor kan 
 
 När du konfigurerar plats som ett villkor kan organisationer välja att ta med eller undanta platser. Dessa namngivna platser kan innehålla information om offentliga IPv4-nätverk, land eller region eller till och med okända områden som inte mappas till vissa länder eller regioner. Endast IP-adressintervall kan markeras som betrodda platser.
 
-När du inkluderar **valfri plats**inkluderar det här alternativet alla IP-adresser på Internet som inte precis har konfigurerat namngivna platser. När du väljer **en plats**kan administratörer välja att undanta **alla betrodda** eller **valda platser**.
+När du inkluderar **valfri plats** inkluderar det här alternativet alla IP-adresser på Internet som inte precis har konfigurerat namngivna platser. När du väljer **en plats** kan administratörer välja att undanta **alla betrodda** eller **valda platser**.
 
 Vissa organisationer kan till exempel välja att inte kräva Multi-Factor Authentication när deras användare är anslutna till nätverket på en betrodd plats, till exempel deras fysiska huvud kontor. Administratörer kan skapa en princip som inkluderar vilken plats som helst, men undantar de valda platserna för sina huvud kontors nätverk.
 
@@ -174,7 +174,7 @@ Den här inställningen påverkar åtkomst försök som görs från följande mo
 
 ### <a name="exchange-activesync-clients"></a>Exchange ActiveSync-klienter
 
-- Organisationer kan bara välja Exchange ActiveSync-klienter när de tilldelar principer till användare eller grupper. Om du markerar **alla användare**, **alla gäst-och externa användare**eller **katalog roller** kommer alla användare att bli blockerade.
+- Organisationer kan bara välja Exchange ActiveSync-klienter när de tilldelar principer till användare eller grupper. Om du markerar **alla användare**, **alla gäst-och externa användare** eller **katalog roller** kommer alla användare att bli blockerade.
 - När du skapar en princip som är tilldelad till Exchange ActiveSync-klienter bör **Exchange Online** vara det enda moln program som tilldelats principen. 
 - Organisationer kan begränsa omfånget för den här principen till specifika plattformar med hjälp av villkor för **enhets plattformar** .
 
@@ -187,14 +187,14 @@ Mer information finns i följande artiklar:
 
 ### <a name="other-clients"></a>Övriga klienter
 
-Genom att välja **andra klienter**kan du ange ett villkor som påverkar appar som använder grundläggande autentisering med e-postprotokoll som IMAP, MAPI, pop, SMTP och äldre Office-appar som inte använder modern autentisering.
+Genom att välja **andra klienter** kan du ange ett villkor som påverkar appar som använder grundläggande autentisering med e-postprotokoll som IMAP, MAPI, pop, SMTP och äldre Office-appar som inte använder modern autentisering.
 
 ## <a name="device-state-preview"></a>Enhets tillstånd (för hands version)
 
 Enhets tillstånds villkoret kan användas för att utesluta enheter som är hybrid Azure AD-anslutna och/eller enheter som marker ATS som kompatibla med en Microsoft Intune efterlevnadsprincip från en organisations principer för villkorlig åtkomst.
 
 Till exempel *alla användare* som har åtkomst till appen för *Microsoft Azure hanterings* moln, inklusive **alla enhets tillstånd** exklusive **enhets hybriden Azure AD** som är ansluten och **enhet markerad som kompatibel** och för *åtkomst kontroller*, **blockera**. 
-   - Det här exemplet skulle skapa en princip som endast tillåter åtkomst till Microsoft Azure hantering från enheter som är anslutna till Azure AD och/eller enheter som är markerade som kompatibla.
+   - Det här exemplet skulle skapa en princip som endast tillåter åtkomst till Microsoft Azure hantering från enheter som antingen är hybrid Azure AD-anslutna eller enheter som är markerade som kompatibla.
 
 ## <a name="next-steps"></a>Nästa steg
 

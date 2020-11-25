@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/24/2020
 ms.author: jgao
-ms.openlocfilehash: a04377289b78c23a83fc696ebebb9b5808e904c9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: dcc968353edf0e9cf3d63408d02baf94c6cabd9f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321639"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95902465"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributions skript i mallar (förhands granskning)
 
@@ -107,7 +107,7 @@ Följande JSON är ett exempel.  Du hittar det senaste mallnamnet [här](/azure/
       "storageAccountName": "myStorageAccount",
       "storageAccountKey": "myKey"
     },
-    "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
+    "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80",
     "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
@@ -135,13 +135,13 @@ Följande JSON är ett exempel.  Du hittar det senaste mallnamnet [här](/azure/
 
 Information om egenskaps värde:
 
-- **Identitet** : distributions skript tjänsten använder en användardefinierad hanterad identitet för att köra skripten. För närvarande stöds endast användardefinierad hanterad identitet.
-- **typ** : ange typ av skript. Azure PowerShell-och Azure CLI-skript stöds för närvarande. Värdena är **AzurePowerShell** och **AzureCLI**.
-- **forceUpdateTag** : om du ändrar det här värdet mellan mallens distributioner tvingas distributions skriptet att köras igen. Använd funktionen newGuid () eller utcNow () som måste anges som defaultValue för en parameter. Mer information finns i [Kör skript mer än en gång](#run-script-more-than-once).
-- **containerSettings** : Ange inställningarna för att anpassa Azure Container instance.  **containerGroupName** används för att ange behållar gruppens namn.  Om inget anges skapas grupp namnet automatiskt.
-- **storageAccountSettings** : Ange inställningarna för att använda ett befintligt lagrings konto. Om inget anges skapas ett lagrings konto automatiskt. Se [Använd ett befintligt lagrings konto](#use-existing-storage-account).
-- **azPowerShellVersion** / **azCliVersion** : Ange den version av modulen som ska användas. En lista över PowerShell-och CLI-versioner som stöds finns i [krav](#prerequisites).
-- **argument** : ange parameter värden. Värdena avgränsas med blank steg.
+- **Identitet**: distributions skript tjänsten använder en användardefinierad hanterad identitet för att köra skripten. För närvarande stöds endast användardefinierad hanterad identitet.
+- **typ**: ange typ av skript. För närvarande stöds Azure PowerShell-och Azure CLI-skript. Värdena är **AzurePowerShell** och **AzureCLI**.
+- **forceUpdateTag**: om du ändrar det här värdet mellan mallens distributioner tvingas distributions skriptet att köras igen. Om du använder funktionen newGuid () eller utcNow () kan båda funktionerna endast användas i standardvärdet för en parameter. Mer information finns i [Kör skript mer än en gång](#run-script-more-than-once).
+- **containerSettings**: Ange inställningarna för att anpassa Azure Container instance.  **containerGroupName** används för att ange behållar gruppens namn.  Om inget anges skapas grupp namnet automatiskt.
+- **storageAccountSettings**: Ange inställningarna för att använda ett befintligt lagrings konto. Om inget anges skapas ett lagrings konto automatiskt. Se [Använd ett befintligt lagrings konto](#use-existing-storage-account).
+- **azPowerShellVersion** / **azCliVersion**: Ange den version av modulen som ska användas. En lista över PowerShell-och CLI-versioner som stöds finns i [krav](#prerequisites).
+- **argument**: ange parameter värden. Värdena avgränsas med blank steg.
 
     Distributions skript delar argumenten i en sträng mat ris genom att anropa system anropet [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Detta är nödvändigt eftersom argumenten skickas som en [kommando egenskap](/rest/api/container-instances/containergroups/createorupdate#containerexec) till Azure Container instance, och kommando egenskapen är en sträng mat ris.
 
@@ -155,13 +155,13 @@ Information om egenskaps värde:
 
     Om du vill se en exempel mall väljer du [här](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
 
-- **environmentVariables** : Ange de miljövariabler som ska överföras till skriptet. Mer information finns i [utveckla distributions skript](#develop-deployment-scripts).
-- **scriptContent** : ange skript innehållet. Använd i stället om du vill köra ett externt skript `primaryScriptUri` . Exempel finns i [använda infogat skript](#use-inline-scripts) och [Använd externt skript](#use-external-scripts).
-- **primaryScriptUri** : Ange en offentligt tillgänglig URL till det primära distributions skriptet med fil namns tillägg som stöds.
-- **supportingScriptUris** : Ange en matris med offentligt tillgängliga URL: er till stöd för filer som anropas i antingen `ScriptContent` eller `PrimaryScriptUri` .
-- **timeout** : Ange högsta tillåtna körnings tid för skript som anges i [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601). Standardvärdet är **P1D**.
-- **cleanupPreference**. Ange inställningen för att rensa distributions resurser när skript körningen blir i ett Terminal-tillstånd. Standardinställningen är **Always** , vilket innebär att resurserna tas bort trots att terminalens tillstånd (lyckades, misslyckades, avbröts). Mer information finns i [Rensa distribution skript resurser](#clean-up-deployment-script-resources).
-- **retentionInterval** : Ange intervallet som tjänsten behåller distributions skript resurserna efter när distributions skript körningen har nått ett terminalfönster. Distributions skript resurserna tas bort när denna varaktighet upphör att gälla. Varaktigheten baseras på [ISO 8601-mönstret](https://en.wikipedia.org/wiki/ISO_8601). Kvarhållningsintervallet är mellan 1 och 26 timmar (PT26H). Den här egenskapen används när cleanupPreference är inställt på *OnExpiration*. Egenskapen *OnExpiration* har inte Aktiver ATS för närvarande. Mer information finns i [Rensa distribution skript resurser](#clean-up-deployment-script-resources).
+- **environmentVariables**: Ange de miljövariabler som ska överföras till skriptet. Mer information finns i [utveckla distributions skript](#develop-deployment-scripts).
+- **scriptContent**: ange skript innehållet. Använd i stället om du vill köra ett externt skript `primaryScriptUri` . Exempel finns i [använda infogat skript](#use-inline-scripts) och [Använd externt skript](#use-external-scripts).
+- **primaryScriptUri**: Ange en offentligt tillgänglig URL till det primära distributions skriptet med fil namns tillägg som stöds.
+- **supportingScriptUris**: Ange en matris med offentligt tillgängliga URL: er till stöd för filer som anropas i antingen `ScriptContent` eller `PrimaryScriptUri` .
+- **timeout**: Ange högsta tillåtna körnings tid för skript som anges i [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601). Standardvärdet är **P1D**.
+- **cleanupPreference**. Ange inställningen för att rensa distributions resurser när skript körningen blir i ett Terminal-tillstånd. Standardinställningen är **Always**, vilket innebär att resurserna tas bort trots att terminalens tillstånd (lyckades, misslyckades, avbröts). Mer information finns i [Rensa distribution skript resurser](#clean-up-deployment-script-resources).
+- **retentionInterval**: Ange intervallet som tjänsten behåller distributions skript resurserna efter när distributions skript körningen har nått ett terminalfönster. Distributions skript resurserna tas bort när denna varaktighet upphör att gälla. Varaktigheten baseras på [ISO 8601-mönstret](https://en.wikipedia.org/wiki/ISO_8601). Kvarhållningsintervallet är mellan 1 och 26 timmar (PT26H). Den här egenskapen används när cleanupPreference är inställt på *OnExpiration*. Egenskapen *OnExpiration* har inte Aktiver ATS för närvarande. Mer information finns i [Rensa distribution skript resurser](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Ytterligare exempel
 
@@ -287,8 +287,8 @@ Om du vill ange ett befintligt lagrings konto lägger du till följande JSON til
 },
 ```
 
-- **storageAccountName** : Ange namnet på lagrings kontot.
-- **storageAccountKey "** : Ange en av lagrings konto nycklarna. Du kan använda [`listKeys()`](./template-functions-resource.md#listkeys) funktionen för att hämta nyckeln. Exempel:
+- **storageAccountName**: Ange namnet på lagrings kontot.
+- **storageAccountKey "**: Ange en av lagrings konto nycklarna. Du kan använda [`listKeys()`](./template-functions-resource.md#listkeys) funktionen för att hämta nyckeln. Exempel:
 
     ```json
     "storageAccountSettings": {
@@ -305,7 +305,7 @@ När ett befintligt lagrings konto används skapar skript tjänsten en fil resur
 
 ### <a name="handle-non-terminating-errors"></a>Hantera icke-avslutande fel
 
-Du kan styra hur PowerShell svarar på icke-avslutande fel med hjälp av **$ErrorActionPreference** -variabeln i distributions skriptet. Om variabeln inte anges i distributions skriptet använder skript tjänsten standardvärdet **Continue (Fortsätt** ).
+Du kan styra hur PowerShell svarar på icke-avslutande fel med hjälp av **$ErrorActionPreference** -variabeln i distributions skriptet. Om variabeln inte anges i distributions skriptet använder skript tjänsten standardvärdet **Continue (Fortsätt**).
 
 Skript tjänsten anger resurs etablerings statusen till **misslyckad** när skriptet påträffar ett fel trots inställningen för $ErrorActionPreference.
 
@@ -331,7 +331,7 @@ När du har distribuerat en distributions skript resurs visas resursen under res
 
 ![Översikt över distribution av skript portalen för Resource Manager-mall](./media/deployment-script-template/resource-manager-deployment-script-portal.png)
 
-På sidan Översikt visas viktig information om resursen, till exempel **etablerings status** , **lagrings konto** , **behållar instans** och **loggar**.
+På sidan Översikt visas viktig information om resursen, till exempel **etablerings status**, **lagrings konto**, **behållar instans** och **loggar**.
 
 På den vänstra menyn kan du Visa distributions skriptets innehåll, argumenten som skickas till skriptet och utdata.  Du kan också exportera en mall för distributions skriptet, inklusive distributions skriptet.
 
@@ -519,7 +519,7 @@ Följande REST API returnerar loggen:
 
 Den fungerar bara innan distributions skript resurserna tas bort.
 
-Om du vill se deploymentScripts-resursen i portalen väljer du **Visa dolda typer** :
+Om du vill se deploymentScripts-resursen i portalen väljer du **Visa dolda typer**:
 
 ![Distributions skript för Resource Manager-mall, Visa dolda typer, Portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
@@ -529,13 +529,13 @@ Ett lagrings konto och en behållar instans krävs för skript körning och fel 
 
 Livs cykeln för de här resurserna styrs av följande egenskaper i mallen:
 
-- **cleanupPreference** : rensnings inställning när skript körningen får statusen Terminal. De värden som stöds är:
+- **cleanupPreference**: rensnings inställning när skript körningen får statusen Terminal. De värden som stöds är:
 
-  - **Always** : ta bort de automatiskt skapade resurserna när skript körningen blir i ett Terminal-tillstånd. Om ett befintligt lagrings konto används, tar skript tjänsten bort fil resursen som skapats i lagrings kontot. Eftersom deploymentScripts-resursen kanske fortfarande finns när resurserna har rensats, behåller skript tjänsten skript körnings resultatet, till exempel STDOUT, utdata, retur värde osv. innan resurserna tas bort.
-  - **OnSuccess** : ta bara bort de automatiskt skapade resurserna när skript körningen har slutförts. Om ett befintligt lagrings konto används tar skript tjänsten bara bort fil resursen när skript körningen har slutförts. Du kan fortfarande komma åt resurserna för att hitta felsöknings information.
-  - **OnExpiration** : ta bort de automatiskt skapade resurserna endast när **retentionInterval** -inställningen har upphört att gälla. Om ett befintligt lagrings konto används, tar skript tjänsten bort fil resursen, men behåller lagrings kontot.
+  - **Always**: ta bort de automatiskt skapade resurserna när skript körningen blir i ett Terminal-tillstånd. Om ett befintligt lagrings konto används, tar skript tjänsten bort fil resursen som skapats i lagrings kontot. Eftersom deploymentScripts-resursen kanske fortfarande finns när resurserna har rensats, behåller skript tjänsten skript körnings resultatet, till exempel STDOUT, utdata, retur värde osv. innan resurserna tas bort.
+  - **OnSuccess**: ta bara bort de automatiskt skapade resurserna när skript körningen har slutförts. Om ett befintligt lagrings konto används tar skript tjänsten bara bort fil resursen när skript körningen har slutförts. Du kan fortfarande komma åt resurserna för att hitta felsöknings information.
+  - **OnExpiration**: ta bort de automatiskt skapade resurserna endast när **retentionInterval** -inställningen har upphört att gälla. Om ett befintligt lagrings konto används, tar skript tjänsten bort fil resursen, men behåller lagrings kontot.
 
-- **retentionInterval** : Ange det tidsintervall som en skript resurs kommer att behållas och därefter upphör att gälla och tas bort.
+- **retentionInterval**: Ange det tidsintervall som en skript resurs kommer att behållas och därefter upphör att gälla och tas bort.
 
 > [!NOTE]
 > Vi rekommenderar inte att du använder lagrings kontot och behållar instansen som genereras av skript tjänsten för andra skäl. De två resurserna kan tas bort beroende på skript livs cykeln.
@@ -562,7 +562,7 @@ När skriptet har testats kan du använda det som ett distributions skript i mal
 
 ## <a name="deployment-script-error-codes"></a>Fel koder för distributions skript
 
-| Felkod | Beskrivning |
+| Felkod | Description |
 |------------|-------------|
 | DeploymentScriptInvalidOperation | Resurs definitionen för distributions skriptet i mallen innehåller ogiltiga egenskaps namn. |
 | DeploymentScriptResourceConflict | Det går inte att ta bort en distributions skript resurs som är i icke-terminal-tillstånd och körningen har inte överskridit 1 timme. Eller kan inte köra samma distributions skript igen med samma resurs-ID (samma prenumeration, resurs grupp namn och resurs namn), men olika skript innehåll på samma gång. |

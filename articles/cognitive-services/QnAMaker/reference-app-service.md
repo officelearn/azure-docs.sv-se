@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: d2095919d6f6be482390250fd8d0ee20e9015237
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 1dfe14d96efd37e3dec7faeae1dfff21122958bc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444868"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95894209"
 ---
 # <a name="service-configuration"></a>Tjänstkonfiguration
 
@@ -26,7 +26,7 @@ De här inställningarna är tillgängliga i Azure Portal för App Service. Inst
 
 Du kan ange en enskild inställning antingen via listan program inställningar eller ändra flera inställningar genom att välja **Avancerad redigering**.
 
-|Resurs|Inställningen|
+|Resurs|Inställning|
 |--|--|
 |AzureSearchAdminKey|Kognitiv sökning – används för QnA par Storage och Ranger #1|
 |AzureSearchName|Kognitiv sökning – används för QnA par Storage och Ranger #1|
@@ -47,7 +47,7 @@ App Service anpassningar gäller inte för QnA Maker Managed (för hands version
 
 Tjänsten QnA Maker tillhandahåller konfiguration för följande användare att samar beta på en enskild QnA Maker tjänst och alla dess kunskaps baser.
 
-Lär dig [hur du lägger till medarbetare](./how-to/collaborate-knowledge-base.md) till din tjänst.
+Lär dig [hur du lägger till medarbetare](./reference-role-based-access-control.md) till din tjänst.
 
 ## <a name="change-azure-cognitive-search"></a>Ändra Azure-Kognitiv sökning
 

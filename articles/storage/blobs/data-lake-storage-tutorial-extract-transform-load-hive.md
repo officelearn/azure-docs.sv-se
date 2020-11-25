@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7640b7a6053532360da4c908089aecfe163bd3de
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045305"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912662"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av Azure HDInsight
 
 I den här självstudien ska du utföra en ETL-åtgärd: extrahera, transformera och läsa in data. Du tar en rå CSV-datafil, importerar den till ett Azure HDInsight-kluster, omvandlar den till Apache Hive och läser in den i Azure SQL Database med Apache Sqoop.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Extrahera och ladda upp data till ett HDInsight-kluster.
@@ -28,19 +28,19 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Ett Azure Data Lake Storage Gen2-lagringskonto som har konfigurerats för HDInsight**
 
-    Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
+    Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 * **Ett Linux-baserat Hadoop-kluster i HDInsight**
 
-    Se [snabb start: kom igång med Apache Hadoop och Apache Hive i Azure HDInsight med hjälp av Azure Portal](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
+    Se [snabb start: kom igång med Apache Hadoop och Apache Hive i Azure HDInsight med hjälp av Azure Portal](../../hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md).
 
-* **Azure SQL Database**: du använder Azure SQL Database som mål data lager. Om du inte har en databas i SQL Database kan du läsa [skapa en databas i Azure SQL Database i Azure Portal](../../sql-database/sql-database-get-started.md).
+* **Azure SQL Database**: du använder Azure SQL Database som mål data lager. Om du inte har en databas i SQL Database kan du läsa [skapa en databas i Azure SQL Database i Azure Portal](../../azure-sql/database/single-database-create-quickstart.md).
 
-* **Azure CLI**: om du inte har installerat Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* **Azure CLI**: om du inte har installerat Azure CLI kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 * **En SSH-klient (Secure Shell)**: Mer information finns i [ansluta till HDInsight (Hadoop) med hjälp av SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -344,4 +344,4 @@ Alla resurser som använts i den här självstudien fanns redan. Ingen rensning 
 Mer information om att arbeta med data i HDInsight finns i följande artikel:
 
 > [!div class="nextstepaction"]
-> [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

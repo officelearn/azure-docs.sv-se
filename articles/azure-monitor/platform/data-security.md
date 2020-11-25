@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/04/2019
-ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.openlocfilehash: 5aa379f6601bc324bd08c53f251b2097141eec69
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319804"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911642"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics data säkerhet
 Det här dokumentet är avsett att ge information som är speciell för Log Analytics, som är en funktion i Azure Monitor, för att komplettera informationen på [Azure Säkerhetscenter](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -27,11 +27,17 @@ Tjänsten Log Analytics hanterar dina molnbaserade data på ett säkert sätt me
 * Efterlevnad
 * Säkerhets standard certifieringar
 
+Du kan också använda ytterligare säkerhetsfunktioner som är inbyggda i Azure Monitor och Log Analytics. Dessa funktioner kräver mer administratörs hantering. 
+* Kundhanterade nycklar (Security)
+* Privat Azure-lagring
+* Private Link-nätverk 
+* Åtkomst gränser för Azure-support som anges av Azure-databasen
+
 Kontakta oss med frågor, förslag eller frågor om någon av följande uppgifter, inklusive våra säkerhets principer på [Support alternativ för Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="sending-data-securely-using-tls-12"></a>Skicka data på ett säkert sätt med TLS 1,2 
 
-För att säkerställa säkerheten för data som överförs till Log Analytics rekommenderar vi starkt att du konfigurerar agenten att använda minst Transport Layer Security (TLS) 1,2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har befunnits vara sårbara och även om de fortfarande arbetar för att tillåta bakåtkompatibilitet, rekommenderas de **inte**och branschen flyttas snabbt till överge support för dessa äldre protokoll. 
+För att säkerställa säkerheten för data som överförs till Log Analytics rekommenderar vi starkt att du konfigurerar agenten att använda minst Transport Layer Security (TLS) 1,2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har befunnits vara sårbara och även om de fortfarande arbetar för att tillåta bakåtkompatibilitet, rekommenderas de **inte** och branschen flyttas snabbt till överge support för dessa äldre protokoll. 
 
 [PCI Security Standards-rådet](https://www.pcisecuritystandards.org/) har ställt in en [tids gräns på den 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) för att inaktivera äldre versioner av TLS/SSL och uppgradera till säkrare protokoll. Om dina agenter inte kan kommunicera via minst TLS 1,2 kan du inte skicka data till Log Analytics när Azure släpper äldre support. 
 
@@ -170,6 +176,15 @@ Kvarhållningsperioden för insamlade data som lagras i databasen beror på den 
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Använd Log Analytics för att komma åt data
 För att komma åt din Log Analytics-arbetsyta loggar du in på Azure Portal med hjälp av organisations kontot eller Microsoft-konto som du har skapat tidigare. All trafik mellan portalen och Log Analytics tjänsten skickas via en säker HTTPS-kanal. När du använder portalen genereras ett sessions-ID på användar klienten (webbläsaren) och data lagras i en lokal cache tills sessionen avslutas. När den avbröts tas cacheminnet bort. Cookies på klient sidan, som inte innehåller personligt identifierbar information, tas inte bort automatiskt. Sessionscookies är markerade som HTTPOnly och skyddas. Azure Portal sessionen avslutas efter en fördefinierad inaktiv period.
+
+
+## <a name="additional-security-features"></a>Ytterligare säkerhetsfunktioner
+Du kan använda dessa ytterligare säkerhetsfunktioner för att skydda din Azure Monitor/Log Analytics-miljö ytterligare. Dessa funktioner kräver mer administratörs hantering. 
+- [Kundhanterade nycklar (Security)](customer-managed-keys.md) – du kan använda Kundhanterade nycklar för att kryptera data som skickas till dina Log Analytics-arbetsytor. Det kräver att Azure Key Vault används. 
+- [Privat/kundhanterad lagring](private-storage.md) – hantera ditt personligt krypterade lagrings konto och be Log Analytics att använda det för att lagra övervaknings data 
+- [Privat länk nätverk](private-link-security.md) – med Azure Private Link kan du på ett säkert sätt länka Azure PaaS Services (inklusive Azure Monitor) till ditt virtuella nätverk med hjälp av privata slut punkter. 
+- [Azure Customer lock](/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview) -Customer Lockbox för Microsoft Azure ger ett gränssnitt för kunder att granska och godkänna eller avvisa förfrågningar om kund data åtkomst. Den används i fall där en Microsoft-tekniker behöver åtkomst till kundinformation under en supportförfrågan.
+
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du samlar in data med Log Analytics för dina virtuella Azure-datorer enligt snabb starten för [Azure VM](../learn/quick-collect-azurevm.md).  

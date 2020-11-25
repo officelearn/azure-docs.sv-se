@@ -11,19 +11,19 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e029de19e6bdb635dfc4797367de29dfb87e32ce
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: da6387c55200bad3458705cf570f60ca40db1be0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325399"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95900624"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Azure Synapse Analytics-partner för data hantering
 
 I den här artikeln beskrivs Microsofts partner företag med data hanterings verktyg och lösningar som stöder Azure-Synapse.
 
 ## <a name="data-management-partners"></a>Data hanterings partner
-| Partner | Beskrivning | Länk till webbplats/produkt |
+| Partner | Description | Länk till webbplats/produkt |
 | ------- | ----------- | -------------------- |
 | ![Aginity](./media/sql-data-warehouse-partner-data-management/aginity-logo.png) |**Aginity**<br>Aginity är ett analys verktyg för analys, som ger hela kraften hos Microsofts Synapse-plattform med praktiska analytiker och tekniker. Med den snygga och intuitiva utvecklings miljön i SQL kan grupp medlemmar ansluta till över en dussin ledande analys plattform, mata in data i en rad olika format och snabbt bygga komplexa affärs beräkningar för att hantera resultaten i Business Intelligence och Machine Learning användnings fall. Hela programmet är byggt runt en central katalog som gör samarbetet över Analytics-teamet till en verklighet och de avancerade hanterings funktionerna och en detaljerad säkerhet gör styrningen till en enkelt. |[Produkt sida](https://www.aginity.com/databases/microsoft/)<br> |
 | ![Alation](./media/sql-data-warehouse-partner-data-management/alation-logo.png) |**Alation**<br>Alation-datakatalogen förbättrar produktiviteten, ökar noggrannheten och driver säker data drivna besluts fattande för analytiker. Alation Data Catalog ger alla i organisationen möjlighet att hitta, förstå och styra data. |[Produkt sida](https://www.alation.com/product/data-catalog/)<br> |
@@ -34,6 +34,7 @@ I den här artikeln beskrivs Microsofts partner företag med data hanterings ver
 | ![Redpoint global](./media/sql-data-warehouse-partner-data-management/redpoint-global-logo.png) |**RedPoint Datahantering**<br>RedPoint Datahantering gör det möjligt för marknads förare att tillämpa alla sina data för att driva kund engagemang i flera kanaler samtidigt som du gör strukturerade och ostrukturerade data hantering. Med RedPoint kan du maximera värdet för dina strukturerade och ostrukturerade data för att leverera de anpassade, kontextuella interaktioner som krävs för att engagera dagens Omni-kanalers kund. Dra-och-släpp-gränssnittet gör det enkelt att utforma och köra data hanterings processer. |[Produkt sida](https://www.redpointglobal.com/customer-data-management)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redpoint-global.redpoint-rpdm)<br> |
 | ![Sentry en](./media/sql-data-warehouse-partner-data-management/sql-sentry-logo.png) |**SentryOne (DW Sentry)**<br>Med instrument panelen för intelligent data förflyttning och händelse kalendern vet du alltid exakt vad som påverkar din arbets belastning. Har utformats för att ge dig insyn i dina frågor och jobb som körs för att läsa in, säkerhetskopiera eller återställa dina data, men oroa dig inte för att få ut mesta möjliga av dina Azure-resurser. |[Produkt sida](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br>[Azure Marketplace](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br> |
 | ![SqlDBM](./media/sql-data-warehouse-partner-data-management/sqldbm-logo.png) |**SqlDBM**<br>SqlDBM är ett molnbaserad verktyg för data modellering som ger dig ett enkelt och bekvämt sätt att utveckla databasen var som helst i valfri webbläsare. Allt samtidigt som de nödvändiga databas reglerna och objekten, till exempel databas nycklar, scheman, index, kolumn begränsningar och relationer. |[Produkt sida](http://sqldbm.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sqldbm1583438206845.sqldbm-data-modeling-tool?tab=Overview)<br>|
+| ![Tamr](./media/sql-data-warehouse-partner-data-management/tamr-logo.png) |**Tamr**<br>Med Tamr kan organisationer tillhandahålla Azure-Synapse med Mastered data, så att de får ut mesta möjliga av Azures Synapse analys funktioner. Tamr data mastering-lösningar i molnet använder sig av Machine Learning för att göra den tunga lyftet att kombinera, rengöra och kategorisera data, med intuitiva arbets flöden för mänsklig feedback för att överbrygga klyftan mellan data och affärs resultat. Tamr integreras med Azures data tjänster, inklusive Azure Synapse Analytics, Azure Databricks, Azure HDInsight, Azure Data Catalog, Azure Data Lake Storage och Azure Data Factory. Det möjliggör data hantering i stor skala med en lägre totalkostnad genom att dra nytta av flexibiliteten och skalan i Azure. |[Produkt sida](https://www.tamr.com/tamr-partners/microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tamrinc.unify_v_2019?tab=Overview) |
 | ![Teleran](./media/sql-data-warehouse-partner-data-management/teleran-logo.jpg) |**Teleran**<br>Teleran ' s fråga Control förhindrar olämpliga och dåligt utformade frågor från att nå Synapse och slösa beräknings resurser. Den skickar intelligenta meddelanden för att analysera användare som använder dem för att effektivt interagera med data. Målet är att säkerställa bästa affärs resultat utan att onödan driver Azure-kostnader. Användnings analys av Teleran ger en analys av aktiviteter för användare, program, frågor och data användning. Det gör att du alltid får hela bilden av vad som händer. Det gör att du kan förbättra tjänsten, öka affärs produktiviteten och optimera Synapse förbruknings kostnader. |[Produkt sida](https://teleran.com/azure-synapse-optimization-cost-control/)<br>|
 
 ## <a name="next-steps"></a>Nästa steg

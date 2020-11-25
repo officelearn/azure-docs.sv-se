@@ -8,18 +8,18 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 4cf7d6fdc02affc425fd02eba794d573a59d2a45
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 5f2f3cfc5ccbdd6a3d3d3ede5bb39a3f6f548b19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579376"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913104"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introduktion till Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 är en uppsättning funktioner som är avsedda för stor data analys och bygger på [Azure Blob Storage](storage-blobs-introduction.md). 
 
-Data Lake Storage Gen2 konvergerar funktionerna i [Azure Data Lake Storage gen1](https://docs.microsoft.com/azure/data-lake-store/index) med Azure Blob Storage. Data Lake Storage Gen2 innehåller till exempel fil systemets semantik, säkerhet på filnivå och skalning. Eftersom dessa funktioner bygger på Blob Storage får du också låg kostnad, nivå lagring med hög tillgänglighet och haveri beredskap.
+Data Lake Storage Gen2 konvergerar funktionerna i [Azure Data Lake Storage gen1](../../data-lake-store/index.yml) med Azure Blob Storage. Data Lake Storage Gen2 innehåller till exempel fil systemets semantik, säkerhet på filnivå och skalning. Eftersom dessa funktioner bygger på Blob Storage får du också låg kostnad, nivå lagring med hög tillgänglighet och haveri beredskap.
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Utformad för företags Big data Analytics
 
@@ -39,13 +39,13 @@ Data Lake Storage Gen2 är också mycket kostnads effektiv eftersom det bygger p
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Viktiga funktioner i Data Lake Storage Gen2
 
--   **Hadoop-kompatibel åtkomst** : data Lake Storage Gen2 gör att du kan hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [ABFS-drivrutinen](data-lake-storage-abfs-driver.md) (som används för att komma åt data) är tillgänglig i alla Apache Hadoop miljöer. I dessa miljöer ingår [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index)och [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics).
+-   **Hadoop-kompatibel åtkomst**: data Lake Storage Gen2 gör att du kan hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [ABFS-drivrutinen](data-lake-storage-abfs-driver.md) (som används för att komma åt data) är tillgänglig i alla Apache Hadoop miljöer. I dessa miljöer ingår [Azure HDInsight](../../hdinsight/index.yml)*,* [Azure Databricks](/azure/databricks/)och [Azure Synapse Analytics](/azure/synapse-analytics).
 
--   **En supermängd av POSIX-behörigheter** : säkerhets modellen för data Lake Gen2 stöder ACL-och POSIX-behörigheter tillsammans med viss extra detaljerad information som är speciell för data Lake Storage Gen2. Inställningarna kan konfigureras via Storage Explorer eller genom ramverk som Hive och Spark.
+-   **En supermängd av POSIX-behörigheter**: säkerhets modellen för data Lake Gen2 stöder ACL-och POSIX-behörigheter tillsammans med viss extra detaljerad information som är speciell för data Lake Storage Gen2. Inställningarna kan konfigureras via Storage Explorer eller genom ramverk som Hive och Spark.
 
--   **Kostnads effektiv** : data Lake Storage Gen2 erbjuder lagrings kapacitet och transaktioner med låg kostnad. Funktioner som [Azure Blob Storage-livscykel](storage-lifecycle-management-concepts.md) optimerar kostnader som data över gångar genom livs cykeln.
+-   **Kostnads effektiv**: data Lake Storage Gen2 erbjuder lagrings kapacitet och transaktioner med låg kostnad. Funktioner som [Azure Blob Storage-livscykel](storage-lifecycle-management-concepts.md) optimerar kostnader som data över gångar genom livs cykeln.
 
--   **Optimerad driv rutin** : ABFS-drivrutinen har [optimerats specifikt](data-lake-storage-abfs-driver.md) för stor data analys. Motsvarande REST-API: er visas genom slut punkten `dfs.core.windows.net` .
+-   **Optimerad driv rutin**: ABFS-drivrutinen har [optimerats specifikt](data-lake-storage-abfs-driver.md) för stor data analys. Motsvarande REST-API: er visas genom slut punkten `dfs.core.windows.net` .
 
 ### <a name="scalability"></a>Skalbarhet
 
@@ -86,5 +86,3 @@ Flera plattformar med öppen källkod har stöd för Data Lake Storage Gen2. En 
 
 - [Kända problem med Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Åtkomst till flera protokoll på Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
-
-

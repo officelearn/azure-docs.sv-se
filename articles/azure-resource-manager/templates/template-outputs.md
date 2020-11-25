@@ -2,17 +2,19 @@
 title: Utdata i mallar
 description: Beskriver hur du definierar utdata i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 8f782a78e523ebc55faac98344643982172476fa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79460032"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911438"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Utdata i Azure Resource Manager mall
 
 I den här artikeln beskrivs hur du definierar utdataparametrar i Azure Resource Manager-mallen. Du använder utdata när du behöver returnera värden från de distribuerade resurserna.
+
+Formatet för varje utmatnings värde måste matcha en av [data typerna](template-syntax.md#data-types).
 
 ## <a name="define-output-values"></a>Definiera värden för utdata
 
@@ -110,7 +112,7 @@ az deployment group show \
 
 Följande exempel visar scenarier för att använda utdata.
 
-|Mall  |Beskrivning  |
+|Mall  |Description  |
 |---------|---------|
 |[Kopiera variabler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Skapar komplexa variabler och matar ut dessa värden. Distribuerar inte några resurser. |
 |[Offentlig IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Skapar en offentlig IP-adress och matar ut resurs-ID: t. |

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280478"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95895731"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Utföra en tidpunkts återställning på block BLOB-data
 
@@ -29,19 +29,19 @@ Om du vill veta mer om återställning av punkt-i-tid kan du läsa mer om att å
 
 Innan du aktiverar och konfigurerar återställning av tidpunkt, aktiverar du dess krav för lagrings kontot: mjuk borttagning, ändrings flöde och blob-versioner. Mer information om hur du aktiverar var och en av dessa funktioner finns i följande artiklar:
 
-- [Aktivera mjuk borttagning för blobar](soft-delete-enable.md)
+- [Aktivera mjuk borttagning för blobar](./soft-delete-blob-enable.md)
 - [Aktivera och inaktivera ändrings flödet](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Aktivera och hantera BLOB-versioner](versioning-enable.md)
 
 > [!IMPORTANT]
 > Om du aktiverar mjuk borttagning, ändrings flöde och blob-versioner kan ytterligare kostnader uppstå. Mer information finns i [mjuk borttagning för blobbar](soft-delete-blob-overview.md), [ändra feed-stöd i Azure Blob Storage](storage-blob-change-feed.md)och blob- [versioner](versioning-overview.md).
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Följ dessa steg om du vill konfigurera tidpunkts återställning med Azure Portal:
 
 1. Navigera till ditt lagringskonto i Azure-portalen.
-1. Under **Inställningar**väljer du **data skydd**.
+1. Under **Inställningar** väljer du **data skydd**.
 1. Välj **Aktivera återställning av tidpunkt** . När du väljer det här alternativet aktive ras även mjuk borttagning för blobbar, versions hantering och ändrings flöden.
 1. Ange den maximala återställnings punkten för återställning vid tidpunkt, i dagar. Antalet måste vara minst en dag under den angivna kvarhållningsperioden för BLOB-mjuk borttagning.
 1. Spara ändringarna.
@@ -112,17 +112,17 @@ Endast block blobbar återställs. Page blobbar och bifogade blobbar ingår inte
 
 Du kan återställa alla behållare i lagrings kontot för att returnera dem till sitt tidigare tillstånd vid en viss tidpunkt.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Följ dessa steg om du vill återställa alla behållare och blobbar i lagrings kontot med Azure Portal:
 
 1. Navigera till listan över behållare för ditt lagrings konto.
-1. I verktygsfältet väljer du **återställnings behållare**och sedan **Återställ alla**.
+1. I verktygsfältet väljer du **återställnings behållare** och sedan **Återställ alla**.
 1. I fönstret **Återställ alla behållare** anger du återställnings punkten genom att ange ett datum och en tid.
 1. Bekräfta att du vill fortsätta genom att markera rutan.
 1. Välj **Återställ** för att påbörja återställnings åtgärden.
 
-    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Skärm bild som visar hur du konfigurerar återställning av tidpunkt i Azure Portal":::
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Skärm bild som visar hur du återställer alla behållare till en angiven återställnings punkt":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -158,35 +158,35 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 Du kan återställa en eller flera lexicographical-intervall med blobbar i en enda behållare eller över flera behållare för att returnera dessa blobbar till sitt tidigare tillstånd vid en viss tidpunkt.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Följ dessa steg om du vill återställa ett intervall av blobbar i en eller flera behållare med Azure Portal:
 
 1. Navigera till listan över behållare för ditt lagrings konto.
 1. Välj den behållare eller de behållare som ska återställas.
-1. I verktygsfältet väljer du **återställnings behållare**och sedan **Återställ markerade**.
+1. I verktygsfältet väljer du **återställnings behållare** och sedan **Återställ markerade**.
 1. I rutan **Återställ valda behållare** anger du återställnings punkten genom att ange ett datum och en tid.
 1. Ange de intervall som ska återställas. Använd ett snedstreck (/) för att avgränsa behållar namnet från BLOB-prefixet.
 1. Som standard anger rutan **Återställ valda behållare** ett intervall som innehåller alla blobbar i behållaren. Ta bort det här intervallet om du inte vill återställa hela behållaren. Standard intervallet visas i följande bild.
 
-    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Skärm bild som visar hur du konfigurerar återställning av tidpunkt i Azure Portal":::
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Skärm bild som visar det standard-BLOB-intervall som ska tas bort innan det anpassade intervallet anges":::
 
 1. Bekräfta att du vill fortsätta genom att markera rutan.
 1. Välj **Återställ** för att påbörja återställnings åtgärden.
 
 Följande bild visar en återställnings åtgärd för en uppsättning intervall.
 
-:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Skärm bild som visar hur du konfigurerar återställning av tidpunkt i Azure Portal":::
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Skärm bild som visar hur du återställer intervall av blobbar i en eller flera behållare":::
 
 Återställnings åtgärden som visas i avbildningen utför följande åtgärder:
 
 - Återställer det fullständiga innehållet i *container1*.
-- Återställer blobbar i lexicographical-intervallet *blob1* via *blob5* i *container2*. Det här intervallet återställer blobbar med namn som *blob1*, *blob11*, *blob100*, *blob2*och så vidare. Eftersom slutet på intervallet är exklusivt återställs blobbar vars namn börjar med *blob4*, men återställer inte blobbar vars namn börjar med *blob5*.
+- Återställer blobbar i lexicographical-intervallet *blob1* via *blob5* i *container2*. Det här intervallet återställer blobbar med namn som *blob1*, *blob11*, *blob100*, *blob2* och så vidare. Eftersom slutet på intervallet är exklusivt återställs blobbar vars namn börjar med *blob4*, men återställer inte blobbar vars namn börjar med *blob5*.
 - Återställer alla blobbar i *container3* och *container4*. Eftersom slutet på intervallet är exklusivt återställs inte *container5*.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Om du vill återställa en enda uppsättning blobbar anropar du kommandot **restore-AzStorageBlobRange** och anger ett lexicographical-intervall med behållare och blob-namn för `-BlobRestoreRange` parametern. Om du till exempel vill återställa Blobbarna i en enda behållare med namnet *container1*kan du ange ett intervall som börjar med *container1* och slutar med *container2*. Det finns inga krav på att behållarna med namnet i Start-och slut intervall ska finnas. Eftersom slutet på intervallet är exklusivt, även om lagrings kontot innehåller en behållare med namnet *container2*, kommer endast behållaren med namnet *container1* att återställas:
+Om du vill återställa en enda uppsättning blobbar anropar du kommandot **restore-AzStorageBlobRange** och anger ett lexicographical-intervall med behållare och blob-namn för `-BlobRestoreRange` parametern. Om du till exempel vill återställa Blobbarna i en enda behållare med namnet *container1* kan du ange ett intervall som börjar med *container1* och slutar med *container2*. Det finns inga krav på att behållarna med namnet i Start-och slut intervall ska finnas. Eftersom slutet på intervallet är exklusivt, även om lagrings kontot innehåller en behållare med namnet *container2*, kommer endast behållaren med namnet *container1* att återställas:
 
 ```powershell
 $range = New-AzStorageBlobRangeToRestore -StartRange container1 `
@@ -248,6 +248,6 @@ Om du vill köra återställnings åtgärden synkront och blockera vid körning 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Återställning av tidpunkter för block-blobar](point-in-time-restore-overview.md)
-- [Mjuk borttagning](soft-delete-overview.md)
-- [Ändra feed](storage-blob-change-feed.md)
+- [Mjuk borttagning](./soft-delete-blob-overview.md)
+- [Ändringsfeed](storage-blob-change-feed.md)
 - [BLOB-versioner](versioning-overview.md)

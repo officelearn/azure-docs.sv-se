@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: a50f85e76f16f1e5ba8823adb1ea1aa02157fcee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e58137dd680ff9a2be2bd657f0969304b526873f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032568"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913121"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrera från lokal HDFS-butiken till Azure Storage med Azure Data Box
 
@@ -37,9 +37,9 @@ Du behöver dessa saker för att slutföra migreringen.
 
 * En [Azure Data Box enhet](https://azure.microsoft.com/services/storage/databox/).
 
-  * [Beställ data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) eller [data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). 
+  * [Beställ data Box-enhet](../../databox/data-box-deploy-ordered.md) eller [data Box Heavy](../../databox/data-box-heavy-deploy-ordered.md). 
 
-  * Kabeln och ansluter [data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) eller [data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) till ett lokalt nätverk.
+  * Kabeln och ansluter [data Box-enhet](../../databox/data-box-deploy-set-up.md) eller [data Box Heavy](../../databox/data-box-heavy-deploy-set-up.md) till ett lokalt nätverk.
 
 Låt oss börja om du är klar.
 
@@ -59,7 +59,7 @@ Följ dessa steg om du vill kopiera data via REST-API: er för BLOB/objekt-lagri
 
 2. I dialog rutan åtkomst till lagrings konto och ladda upp data kopierar du **BLOB service slut punkten** och **lagrings konto nyckeln**. Från BLOB service-slutpunkten utelämnar `https://` och avslutande snedstreck.
 
-    I det här fallet är slut punkten: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/` . Värd delen av den URI som du ska använda är: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com` . Ett exempel finns i så här [ansluter du till rest över http](/azure/databox/data-box-deploy-copy-data-via-rest). 
+    I det här fallet är slut punkten: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/` . Värd delen av den URI som du ska använda är: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com` . Ett exempel finns i så här [ansluter du till rest över http](../../databox/data-box-deploy-copy-data-via-rest.md). 
 
      ![Dialog rutan "åtkomst till lagrings konto och uppladdning av data"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
@@ -161,7 +161,7 @@ Följ dessa steg om du vill kopiera data via REST-API: er för BLOB/objekt-lagri
 
 Följ de här stegen för att förbereda och leverera Data Box-enhet-enheten till Microsoft.
 
-1. Börja  [med att Förbered för att skicka på data Box-enhet eller data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest).
+1. Börja  [med att Förbered för att skicka på data Box-enhet eller data Box Heavy](../../databox/data-box-deploy-copy-data-via-rest.md).
 
 2. När enhets förberedelsen är klar laddar du ned filerna. Du kommer att använda dessa STRUKTURLISTE-eller manifest-filer senare för att kontrol lera de data som överförs till Azure.
 
@@ -169,9 +169,9 @@ Följ de här stegen för att förbereda och leverera Data Box-enhet-enheten til
 
 4. Schemalägg en upphämtning med UPS.
 
-    * För Data Box-enhet enheter, se [leverera din data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+    * För Data Box-enhet enheter, se [leverera din data Box-enhet](../../databox/data-box-deploy-picked-up.md).
 
-    * För Data Box Heavy enheter, se [leverera din data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
+    * För Data Box Heavy enheter, se [leverera din data Box Heavy](../../databox/data-box-heavy-deploy-picked-up.md).
 
 5. När Microsoft har tagit emot enheten är den ansluten till data Center nätverket och data överförs till det lagrings konto du angav när du placerade enhets ordningen. Verifiera mot de BOM-filer som alla dina data laddas upp till Azure. 
 
@@ -184,11 +184,11 @@ Du har redan data till ditt Azure Storage-konto. Nu ska du tillämpa åtkomst be
 
 ### <a name="create-a-service-principal-for-your-azure-data-lake-storage-gen2-account"></a>Skapa ett huvud namn för tjänsten för ditt Azure Data Lake Storage Gen2-konto
 
-Information om hur du skapar ett huvud namn för tjänsten finns i [How to: använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Information om hur du skapar ett huvud namn för tjänsten finns i [How to: använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-* När du utför stegen i avsnittet [Tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) i artikeln ska du tilldela rollen **Storage Blob Data-deltagare** till tjänstens huvudnamn.
+* När du utför stegen i avsnittet [Tilldela programmet till en roll](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) i artikeln ska du tilldela rollen **Storage Blob Data-deltagare** till tjänstens huvudnamn.
 
-* När du utför stegen i avsnittet [Hämta värden för signering i](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artikeln sparar du program-ID: t och klientens hemliga värden i en textfil. Du kommer att behöva dem snart.
+* När du utför stegen i avsnittet [Hämta värden för signering i](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) artikeln sparar du program-ID: t och klientens hemliga värden i en textfil. Du kommer att behöva dem snart.
 
 ### <a name="generate-a-list-of-copied-files-with-their-permissions"></a>Generera en lista över kopierade filer med deras behörigheter
 

@@ -11,19 +11,19 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 33571283b876506e419ed675dde0988974c3841e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 96d1a3ed6bfe3fa90cdfa11f1b1081f12e4af990
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317875"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904364"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics Business Intelligence partners
 
 Om du vill skapa din data lager lösning kan du välja mellan olika typer av branschledande verktyg. I den här artikeln beskrivs Microsoft-partner med Business Intelligence-lösningar (BI) som officiellt stöder Azure Synapse Analytics.
 
 ## <a name="our-business-intelligence-partners"></a>Våra Business Intelligence-partner
-| Partner | Beskrivning | Länk till webbplats/produkt |
+| Partner | Description | Länk till webbplats/produkt |
 | ------- | ----------- | -------------------- |
 | ![AtScale](./media/sql-data-warehouse-partner-business-intelligence/atscale-logo.png) |**AtScale**<br>AtScale tillhandahåller en enda, säker och styrd arbets yta för distribuerade data. AtScale för moln-OLAP, autonom data teknik™ och universellt semantiskt lager™s Business Intelligence resultat för snabbare och mer exakta affärs beslut. |[Produkt sida](https://www.atscale.com/partners/microsoft/)<br> |
 | ![Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Birst**<br>Birst ansluter hela organisationen genom ett nätverk av vävs virtualiserade BI-instanser ovanpå en delad gemensam analys infrastruktur|[Produkt sida](https://www.birst.com/)<br> |
@@ -36,6 +36,7 @@ Om du vill skapa din data lager lösning kan du välja mellan olika typer av bra
 | ![Looker](./media/sql-data-warehouse-partner-business-intelligence/looker_logo.png) |**Looker BI**<br>Looker ger alla i företaget möjlighet att utforska och förstå de data som driver ditt företag. Looker ger också dataanalytikern ett flexibelt och återanvändbart modell lager för att kontrol lera och granska dessa data.  Företag har huvudsakligen omvandlat sin kultur med looker som katalysator.|[Produkt sida](https://looker.com/partners/microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/looker.looker-analytics-platform-6_20)<br> |
 | ![Mikrostrategi](./media/sql-data-warehouse-partner-business-intelligence/microstrategy_logo.png) |**Mikrostrategi**<br>Mikrostrategi plattformen erbjuder en fullständig uppsättning Business Intelligence-och analys funktioner som gör det möjligt för organisationer att få värde från sina affärs data. Mikrostrategins kraftfulla analytiska motor, omfattande verktyg, många olika data anslutningar och öppen arkitektur garanterar att du har allt du behöver för att utöka åtkomsten till Analytics i varje team.|[Produkt sida](https://www.microstrategy.com/us/product/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microstrategy.microstrategy_enterprise_platform_vm)<br> |
 | ![Läges analys](./media/sql-data-warehouse-partner-business-intelligence/mode-logo.png) |**Läge**<br>Mode är en modern analys och BI-lösning som hjälper team att fatta beslut genom orimligt snabba och oväntade trevlig data analyser. Data team går snabbare genom ett prioriterat arbets flöde som kombinerar SQL, python, R och visuell analys, medan intressenter arbetar tillsammans med att utforska och dela data på egen hand. Med data som är mer tillgängliga för alla kan vi förkorta avståndet från frågor till svar och hjälpa företag att fatta bättre beslut, snabbare.|[Produkt sida](https://mode.com/)<br> |
+| ![Pyramid analys](./media/sql-data-warehouse-partner-business-intelligence/pyramid-logo.png) |**Pyramid analys**<br>Pyramid 2020 är den betrodda analys plattform som ansluter dina team, enheter säkrar beslut och ger vinnande resultat. Företags användare kan utföra avancerad analys och data vetenskap i moln skala utan IT-hjälp – i valfri webbläsare eller enhet. Data forskare kan dra nytta av Machine Learning-algoritmer och skript för att förstå svåra affärs problem. Privilegierade användare kan förbereda och modellera sina egna data för att skapa ett upplyst analys innehåll. Icke-tekniska användare kan dra nytta av fantastiska visualiseringar och interaktiva analys presentationer. Det är nästa generations självbetjänings analys med styrning. |[Produkt sida](https://www.pyramidanalytics.com/analytics-os)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pyramidanalytics.pyramid2020v4) |
 | ![Qlik](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) |**Qlik Sense Enterprise**<br>Identifiera insikts identifiering med data visualiserings appen som alla kan använda. Med Qlik Sense kan alla i organisationen enkelt skapa flexibla, interaktiva visualiseringar och fatta meningsfulla beslut. |[Produkt sida](https://www.qlik.com/us/products/qlik-sense/enterprise)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qlik.qlik-sense) |
 | ![SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**SiSense**<br>SiSense är en program vara med full stack Business Intelligence som innehåller verktyg som ett företag behöver för att analysera och visualisera data: en analys databas med hög prestanda, möjlighet att ansluta till flera källor, ETL (Simple data Extract) och webbaserad data visualisering. Börja analysera och visualisera stora data uppsättningar med SiSense BI och Analytics idag. |[Produkt sida](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>Tableau för självbetjänings analys hjälper alla att se och förstå sina data i många olika typer av data från flata filer till databaser. Tableau har en inbyggd, optimerad koppling till Synapse SQL-pool som stöder både real tids data och minnes intern analys. |[Produkt sida](https://www.tableau.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tableau.tableau-server)<br>|

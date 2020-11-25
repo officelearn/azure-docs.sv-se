@@ -12,17 +12,20 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 38be8b97b3255e4e63301e693d2a5f295e8d801b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8881dc3f67ac1c9f699bd2bf7bcf1dbbcd5e9c0c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779976"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905335"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och Azure CLI: Aktivera transparent datakryptering med kundhanterad nyckel från Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault för transparent datakryptering (TDE) i Azure SQL Database eller Azure Synapse Analytics (tidigare SQL Data Warehouse). Om du vill veta mer om TDE med stöd för Azure Key Vault integration-Bring Your Own Key (BYOK) går du till [TDE med Kundhanterade nycklar i Azure Key Vault](transparent-data-encryption-byok-overview.md).
+
+> [!NOTE] 
+> Azure SQL stöder nu användning av en RSA-nyckel som lagras i en hanterad HSM som TDE-skydd. Den här funktionen finns i **offentlig för hands version**. Azure Key Vault hanterad HSM är en fullständigt hanterad moln tjänst med hög tillgänglighet, en standard som är kompatibel med en enda klient, som gör att du kan skydda kryptografiska nycklar för dina moln program med hjälp av FIPS 140-2 nivå 3-verifierade HSM: er. Läs mer om [hanterade HSM: er](../../key-vault/managed-hsm/index.yml).
 
 ## <a name="prerequisites-for-powershell"></a>Krav för PowerShell
 
@@ -36,7 +39,8 @@ Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault fö
 - Nyckeln måste ha följande attribut för att kunna användas för TDE:
   - Inget förfallo datum
   - Inte inaktiverat
-  - Kan utföra *Get* -, *wrap* -och *unwrap Key* -åtgärder
+  - Kan utföra *Get*-, *wrap*-och *unwrap Key* -åtgärder
+- **(För hands version)** Om du vill använda en hanterad HSM-nyckel följer du anvisningarna för att [skapa och aktivera en hanterad HSM med Azure CLI](../../key-vault/managed-hsm/quick-create-cli.md)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -70,6 +74,8 @@ Använd cmdleten [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
+Om du vill lägga till behörigheter till servern på en hanterad HSM lägger du till den lokala RBAC-rollen "hanterad HSM-krypto" på servern. Detta gör att servern kan utföra get, wrapping Key, upwrap Key Operations på nycklarna i den hanterade HSM.
+[Instruktioner för etablering av Server åtkomst på hanterad HSM](../../key-vault/managed-hsm/role-management.md)
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Lägg till Key Vault-nyckeln till servern och ange TDE-skyddet
 
@@ -79,10 +85,15 @@ Använd cmdleten [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set
 - Använd cmdleten [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) för att bekräfta att TDE-skyddet har kon figurer ATS som avsett.
 
 > [!NOTE]
+> **(För hands version)** För hanterade HSM-nycklar använder du AZ. SQL 2.11.1-versionen av PowerShell.
+
+> [!NOTE]
 > Den kombinerade längden för Key Vault-namnet och nyckel namnet får inte överskrida 94 tecken.
 
 > [!TIP]
-> Ett exempel på en KeyId från Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Ett exempel på en KeyId från Key Vault:<br/>https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+>
+> Ett exempel på KeyId från hanterad HSM:<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
 ```powershell
 # add the key from Key Vault to the server
@@ -239,7 +250,7 @@ Kontrol lera följande om ett problem inträffar:
 
 - Om den nya nyckeln inte kan läggas till på servern, eller om den nya nyckeln inte kan uppdateras som TDE-skydd, kontrollerar du följande:
    - Nyckeln ska inte ha ett utgångs datum
-   - Nyckeln måste ha de *Get* -, *wrap* -och *unwrap* -nycklar som är aktiverade.
+   - Nyckeln måste ha de *Get*-, *wrap*-och *unwrap* -nycklar som är aktiverade.
 
 ## <a name="next-steps"></a>Nästa steg
 

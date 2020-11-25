@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e9d638a7ed17d08b585c71b1dac4a0177f4a2939
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b95d37e1725940799750dbd3c29174d9855390d6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88030528"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912934"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Justera prestanda: MapReduce, HDInsight & Azure Data Lake Storage Gen2
 
@@ -22,9 +22,9 @@ Förstå de faktorer som du bör tänka på när du finjusterar prestandan för 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett Azure Data Lake Storage Gen2 konto**. Anvisningar om hur du skapar ett finns i [snabb start: skapa ett Azure Data Lake Storage Gen2 lagrings konto](data-lake-storage-quickstart-create-account.md).
-* **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage Gen2-konto. Se [använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
-* **Använda MapReduce på HDInsight**.  Mer information finns i [använda MapReduce i Hadoop på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
+* **Ett Azure Data Lake Storage Gen2 konto**. Anvisningar om hur du skapar ett finns i [snabb start: skapa ett Azure Data Lake Storage Gen2 lagrings konto](../common/storage-account-create.md).
+* **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage Gen2-konto. Se [använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* **Använda MapReduce på HDInsight**.  Mer information finns i [använda MapReduce i Hadoop på HDInsight](../../hdinsight/hadoop/hdinsight-use-mapreduce.md)
 * **Rikt linjer för prestanda justering på data Lake Storage Gen2**.  Allmänna prestanda koncept finns i [vägledning för data Lake Storage Gen2 prestanda justering](data-lake-storage-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parametrar

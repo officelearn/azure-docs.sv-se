@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: d7c5bd2d1918ecebe2d2aabc213de43e7cdb1fef
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 595b3a57594401df6b61db1fcf8ee16be98ef364
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306980"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95900437"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Självstudie: Bygg en Machine Learning-app med Apache Spark MLlib och Azure Synapse Analytics
 
 I den här artikeln får du lära dig hur du använder Apache Spark [MLlib](https://spark.apache.org/mllib/) för att skapa ett maskin inlärnings program som gör enkel förutsägelse analys på en öppen Azure Open-datauppsättning. Spark innehåller inbyggda Machine Learning-bibliotek. I det här exemplet används *klassificering* via logistik regression.
 
-MLlib är ett Core Spark-bibliotek som innehåller många verktyg som är användbara för Machine Learning-uppgifter, inklusive verktyg som är lämpliga för:
+SparkML och MLlib är Core Spark-bibliotek som innehåller många verktyg som är användbara för Machine Learning-uppgifter, inklusive verktyg som är lämpliga för:
 
 - Klassificering
 - Regression
@@ -31,7 +31,7 @@ MLlib är ett Core Spark-bibliotek som innehåller många verktyg som är använ
 
 ## <a name="understand-classification-and-logistic-regression"></a>Förstå klassificering och logistik regression
 
-*Klassificering* , en populär maskin inlärnings uppgift, är processen att sortera indata i kategorier. Det är jobbet i en klassificerings algoritm för att ta reda på hur du tilldelar *Etiketter* till inmatade data som du anger. Du kan till exempel tänka på en Machine Learning-algoritm som tar emot aktie information som indata och delar upp lagret i två kategorier: aktier som du bör sälja och de bestånd som du bör behålla.
+*Klassificering*, en populär maskin inlärnings uppgift, är processen att sortera indata i kategorier. Det är jobbet i en klassificerings algoritm för att ta reda på hur du tilldelar *Etiketter* till inmatade data som du anger. Du kan till exempel tänka på en Machine Learning-algoritm som tar emot aktie information som indata och delar upp lagret i två kategorier: aktier som du bör sälja och de bestånd som du bör behålla.
 
 *Logistisk regression* är en algoritm som du kan använda för klassificering. Spark: s logistik Regressions-API är användbart för *binär klassificering* eller klassificerar indata till en av två grupper. Mer information om logistiska regressioner finns i [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
@@ -46,7 +46,7 @@ I det här exemplet ska du använda Spark för att utföra vissa förutsägelse 
 
 I följande steg utvecklar du en modell för att förutsäga om en viss resa innehåller ett tips eller inte.
 
-## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Skapa en Apache Spark MLlib Machine Learning-appen
+## <a name="create-an-apache-spark--machine-learning-model"></a>Skapa en Apache Spark Machine Learning-modell
 
 1. Skapa en bärbar dator med PySpark-kärnan. Anvisningar finns i [skapa en antecknings bok](../quickstart-apache-spark-notebook.md#create-a-notebook).
 2. Importera de typer som krävs för det här programmet. Kopiera och klistra in följande kod i en tom cell och tryck sedan på **SKIFT + RETUR** eller kör cellen med hjälp av den blå uppspelnings ikonen till vänster om koden.
@@ -110,44 +110,6 @@ Att skapa en temporär tabell eller vy ger olika åtkomst vägar till data, men 
 sampled_taxi_df.createOrReplaceTempView("nytaxi")
 ```
 
-## <a name="understand-the-data"></a>Förstå data
-
-Normalt skulle du gå igenom en fas av *analys av prov data* (EDA) i det här skedet för att utveckla en förståelse för data. Följande kod visar tre olika visualiseringar av data som är relaterade till tips som leder till slut satser om datans status och kvalitet.
-
-```python
-# The charting package needs a Pandas dataframe or numpy array do the conversion
-sampled_taxi_pd_df = sampled_taxi_df.toPandas()
-
-# Look at tips by amount count histogram
-ax1 = sampled_taxi_pd_df['tipAmount'].plot(kind='hist', bins=25, facecolor='lightblue')
-ax1.set_title('Tip amount distribution')
-ax1.set_xlabel('Tip Amount ($)')
-ax1.set_ylabel('Counts')
-plt.suptitle('')
-plt.show()
-
-# How many passengers tipped by various amounts
-ax2 = sampled_taxi_pd_df.boxplot(column=['tipAmount'], by=['passengerCount'])
-ax2.set_title('Tip amount by Passenger count')
-ax2.set_xlabel('Passenger count')
-ax2.set_ylabel('Tip Amount ($)')
-plt.suptitle('')
-plt.show()
-
-# Look at the relationship between fare and tip amounts
-ax = sampled_taxi_pd_df.plot(kind='scatter', x= 'fareAmount', y = 'tipAmount', c='blue', alpha = 0.10, s=2.5*(sampled_taxi_pd_df['passengerCount']))
-ax.set_title('Tip amount by Fare amount')
-ax.set_xlabel('Fare Amount ($)')
-ax.set_ylabel('Tip Amount ($)')
-plt.axis([-2, 80, -2, 20])
-plt.suptitle('')
-plt.show()
-```
-
-![Listruta för att ](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-histogram.png)
- ![ Rita ](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
- ![ punkt diagram](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
-
 ## <a name="prepare-the-data"></a>Förbereda data
 
 Datan i RAW-formuläret är ofta inte lämplig för att skickas direkt till en modell. En serie åtgärder måste utföras på data för att det ska gå till ett tillstånd där modellen kan använda den.
@@ -193,7 +155,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Skapa en logistik Regressions modell
 
-Den sista uppgiften är att konvertera etiketterade data till ett format som kan analyseras av Logistisk regression. Indata till en logistik Regressions algoritm måste vara en uppsättning med *etikett funktions vektor par* , där *funktions vektorn* är en Vector med tal som representerar ingångs punkten. Därför måste vi konvertera kategoriska-kolumnerna till siffror. `trafficTimeBins` `weekdayString` Kolumnerna och behöver konverteras till heltals representationer. Det finns flera metoder för att utföra konverteringen, men metoden som tas i det här exemplet är *OneHotEncoding* , ett vanligt tillvägagångs sätt.
+Den sista uppgiften är att konvertera etiketterade data till ett format som kan analyseras av Logistisk regression. Indata till en logistik Regressions algoritm måste vara en uppsättning med *etikett funktions vektor par*, där *funktions vektorn* är en Vector med tal som representerar ingångs punkten. Därför måste vi konvertera kategoriska-kolumnerna till siffror. `trafficTimeBins` `weekdayString` Kolumnerna och behöver konverteras till heltals representationer. Det finns flera metoder för att utföra konverteringen, men metoden som tas i det här exemplet är *OneHotEncoding*, ett vanligt tillvägagångs sätt.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
@@ -272,7 +234,7 @@ plt.ylabel('True Positive Rate')
 plt.show()
 ```
 
-![ROC kurva för logistisk Regressions tips modell](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-nyctaxi-roc.png "ROC kurva för logistisk Regressions tips modell")
+![ROC kurva för logistisk Regressions tips modell](./media/apache-spark-machine-learning-mllib-notebook/nyc-taxi-roc.png)
 
 ## <a name="shut-down-the-spark-instance"></a>Stäng av Spark-instansen
 

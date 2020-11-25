@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 734ad2d45dbb27894e5da4fbeb11c0e8b60df8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e69a97a86a357fb36dde572f292b5cac7963d14a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035679"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912492"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Använd DistCp för att kopiera data mellan Azure Storage blobbar och Azure Data Lake Storage Gen2
 
@@ -27,7 +27,7 @@ DistCp innehåller en rad kommando rads parametrar och vi rekommenderar att du l
 * Ett befintligt Azure Storage-konto utan Data Lake Storage Gen2 funktioner (hierarkiskt namn område) aktiverat.
 * Ett Azure Storage konto med Data Lake Storage Gen2 funktioner (hierarkiskt namn område) aktiverat. Anvisningar om hur du skapar ett finns i [skapa ett Azure Storage konto](../common/storage-account-create.md)
 * En behållare som har skapats i lagrings kontot med hierarkiskt namn område aktiverat.
-* Ett Azure HDInsight-kluster med åtkomst till ett lagrings konto med funktionen hierarkiskt namn område aktive rad. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Se till att aktivera fjärr skrivbord för klustret.
+* Ett Azure HDInsight-kluster med åtkomst till ett lagrings konto med funktionen hierarkiskt namn område aktive rad. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Se till att aktivera fjärr skrivbord för klustret.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Använda DistCp från ett HDInsight Linux-kluster
 

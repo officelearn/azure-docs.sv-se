@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 8f4d16931f09f94af81dd4e0f178ce6e0f990881
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 744bcfe196629f76c5505f36ef9c8c224fefe601
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426212"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95909075"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Vanliga frågor och svar om Azure API för FHIR
 
@@ -65,6 +65,10 @@ Om du vill se en del av vad som är lanserat i Azure API för FHIR, se [lanserin
 
 SMARTA (utbytbara medicinska program och återanvändbar teknik) på FHIR är en uppsättning öppna specifikationer för att integrera partner program med FHIR-servrar och andra hälso-IT-system, till exempel elektroniska hälso poster och hälso informations utbyten. Genom att skapa ett SMART on FHIR-program kan du se till att ditt program kan nås och utnyttjas av en mängd olika med olika system.
 Autentisering och Azure API för FHIR. Om du vill veta mer om SMART kan du gå till [Smart hälsa](https://smarthealthit.org/).
+
+### <a name="where-can-i-find-what-version-of-fhir-is-running-on-my-database"></a>Var hittar jag vilken version av FHIR som körs på databasen. 
+
+Du kan hitta den exakta FHIR-versionen som visas i kapacitets instruktionen under egenskapen "fhirVersion".
 
 ## <a name="fhir-implementations-and-specifications"></a>FHIR-implementeringar och specifikationer
 

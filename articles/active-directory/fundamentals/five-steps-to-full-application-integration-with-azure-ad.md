@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 26dd255e6edff7c339ab9766bb71889cf4e2deaa
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8f184de8953e8e8bfe982d2502ca476fb54a66c9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577651"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95903720"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Fem steg för att integrera alla dina appar med Azure AD
 
@@ -46,7 +46,7 @@ Slutligen kan du även integrera de appar som du utvecklar internt. Detta beskri
 
 Sedan identifierar du de program anställda ofta använder och prioriterar ditt arbete för att integrera dem med Azure AD.
 
-Du kan börja med att använda Microsoft Cloud App Security&#39;s [Cloud Discovery-verktyg](/cloud-app-security/tutorial-shadow-it) för att identifiera och hantera &quot; skugg- &quot; IT i nätverket (det vill säga appar som inte hanteras av IT-avdelningen). Du kan [använda Microsoft Defender Avancerat skydd (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) för att förenkla och utöka identifierings processen.
+Du kan börja med att använda Microsoft Cloud App Securityens [Cloud Discovery-verktyg](/cloud-app-security/tutorial-shadow-it) för att identifiera och hantera "skugga" i nätverket (det vill säga appar som inte hanteras av IT-avdelningen). Du kan [använda Microsoft Defender Avancerat skydd (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) för att förenkla och utöka identifierings processen.
 
 Dessutom kan du använda [rapporten AD FS program aktivitet](../manage-apps/migrate-adfs-application-activity.md) i Azure Portal för att identifiera alla AD FS appar i organisationen, antalet unika användare som har loggat in på dem och kompatibilitet för att integrera dem med Azure AD.
 
@@ -66,7 +66,7 @@ Under identifierings processen kan du ha hittat program som inte spåras av IT-a
 - Spara pengar genom att eliminera behovet av lokal användar etablering och-autentisering samt licens avgifter som betalas till andra moln identitets leverantörer för samma tjänst.
 - Minska den administrativa belastningen och ge bättre säkerhet med färre uppsägningar i identitets-och åtkomst hanterings processen.
 - Ge anställda möjlighet att få säker åtkomst till enkel inloggning till alla program som de behöver via portalen för mina [appar](../manage-apps/access-panel-collections.md).
-- Förbättra intelligensen i Azure AD&#39;s [Identity Protection](../identity-protection/overview-identity-protection.md) -relaterade tjänster som villkorlig åtkomst genom att öka mängden data som den får från din app-användning och utöka fördelarna med de nyligen tillagda apparna.
+- Förbättra intelligensen för Azure ADs tjänst för [identitets skydd](../identity-protection/overview-identity-protection.md) som villkorlig åtkomst genom att öka mängden data som den får från din app-användning och utöka fördelarna med de nyligen tillagda apparna.
 
 Vi har publicerat vägledning för att hantera affärs processen för att integrera appar med Azure AD, inklusive en [affisch](https://aka.ms/AppOnePager) och [presentation](https://aka.ms/AppGuideline) som du kan använda för att göra affärs-och program ägare medvetna och intresserade. Du kan ändra dessa exempel med din egen anpassning och publicera dem i din organisation via företags portalen, nyhets brevet eller något annat medium i takt med att du går igenom processen.
 
@@ -103,7 +103,7 @@ Dessutom kan du integrera program leverans kontroller som F5 Big-IP APM eller Zs
 
 För appar som har skapats inom företaget kan utvecklarna använda [Microsoft Identity Platform](../develop/index.yml) för att implementera autentisering och auktorisering. Program som är integrerade med plattformen och [registreras med Azure AD](../develop/quickstart-register-app.md) och hanteras precis som andra appar i din portfölj.
 
-Utvecklare kan använda plattformen för både interna användnings appar och kund riktade appar, och det finns andra fördelar med att använda plattformen. [Microsoft Authentication libraries (MSAL)](../develop/msal-overview.md), som är en del av plattformen, gör det möjligt för utvecklare att aktivera moderna upplevelser som Multi-Factor Authentication och att använda säkerhets nycklar för att komma åt sina appar utan att behöva implementera dem själva. Dessutom kan appar som är integrerade med Microsoft Identity Platform komma åt [Microsoft Graph](../develop/microsoft-graph-intro.md) – en enhetlig API-slutpunkt som tillhandahåller Microsoft 365 data som beskriver mönstren för produktivitet, identitet och säkerhet i en organisation. Utvecklare kan använda den här informationen för att implementera funktioner som ökar produktiviteten för dina användare. Till exempel genom att identifiera de personer som användaren har interagerat med nyligen och visa dem i appen&#39;s UI.
+Utvecklare kan använda plattformen för både interna användnings appar och kund riktade appar, och det finns andra fördelar med att använda plattformen. [Microsoft Authentication libraries (MSAL)](../develop/msal-overview.md), som är en del av plattformen, gör det möjligt för utvecklare att aktivera moderna upplevelser som Multi-Factor Authentication och att använda säkerhets nycklar för att komma åt sina appar utan att behöva implementera dem själva. Dessutom kan appar som är integrerade med Microsoft Identity Platform komma åt [Microsoft Graph](../develop/microsoft-graph-intro.md) – en enhetlig API-slutpunkt som tillhandahåller Microsoft 365 data som beskriver mönstren för produktivitet, identitet och säkerhet i en organisation. Utvecklare kan använda den här informationen för att implementera funktioner som ökar produktiviteten för dina användare. Till exempel genom att identifiera de personer som användaren har interagerat med nyligen och visa dem i appens användar gränssnitt.
 
 Vi har en [video serie](https://www.youtube.com/watch?v=zjezqZPPOfc&amp;list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX) som ger en omfattande introduktion till plattformen samt [många kod exempel](../develop/sample-v2-code.md) i språk och plattformar som stöds.
 

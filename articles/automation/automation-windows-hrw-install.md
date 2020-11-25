@@ -3,14 +3,14 @@ title: Distribuera en Windows-Hybrid Runbook Worker i Azure Automation
 description: Den här artikeln beskriver hur du distribuerar en Hybrid Runbook Worker som du kan använda för att köra Runbooks på Windows-baserade datorer i ditt lokala data Center eller i moln miljön.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb501b954897beb73ae05bfdc7b5ded2221dc114
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 31bb0fac302a81c2523a2d2855ca1930cb266ac4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95493935"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95906627"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows-Hybrid Runbook Worker
 
@@ -50,7 +50,7 @@ Funktionen Hybrid Runbook Worker stöder följande operativ system:
 
 Minimi kraven för ett Windows-system och användar Hybrid Runbook Worker:
 
-* Windows PowerShell 5,1 eller senare ([Hämta WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616))
+* Windows PowerShell 5,1 ([Hämta WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616)). PowerShell Core stöds inte.
 * .NET Framework 4.6.2 eller senare
 * Två kärnor
 * 4 GB RAM

@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7419e8667f07eec03e860634c7b3fddcac0e186b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816107"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95901561"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montera Blob Storage med hjälp av Network File System (NFS) 3,0-protokollet (för hands version)
 
@@ -71,7 +71,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumH
 
 ## <a name="step-3-create-an-azure-virtual-network-vnet"></a>Steg 3: skapa ett Azure-Virtual Network (VNet)
 
-Ditt lagrings konto måste finnas i ett VNet. Ett VNet gör det möjligt för klienter att ansluta på ett säkert sätt till ditt lagrings konto. Mer information om VNet och hur du skapar ett finns i [Virtual Network-dokumentationen](https://docs.microsoft.com/azure/virtual-network/).
+Ditt lagrings konto måste finnas i ett VNet. Ett VNet gör det möjligt för klienter att ansluta på ett säkert sätt till ditt lagrings konto. Mer information om VNet och hur du skapar ett finns i [Virtual Network-dokumentationen](../../virtual-network/index.yml).
 
 > [!NOTE]
 > Klienter i samma VNet kan montera behållare i ditt konto. Du kan också montera en behållare från en klient som körs i ett lokalt nätverk, men du måste först ansluta ditt lokala nätverk till ditt VNet. Se [nätverks anslutningar som stöds](network-file-system-protocol-support.md#supported-network-connections).
@@ -90,9 +90,9 @@ I för hands versionen av den här funktionen stöds NFS 3,0-protokollet endast 
 
 När du konfigurerar kontot väljer du dessa värden:
 
-|Inställningen | Värde|
+|Inställning | Värde|
 |----|---|
-|Location|En av följande regioner: USA, östra, centrala USA, västra centrala, sydöstra Australien, norra Europa, Storbritannien, västra, Korea, centrala, Korea, södra och centrala Kanada |
+|Plats|En av följande regioner: USA, östra, centrala USA, västra centrala, sydöstra Australien, norra Europa, Storbritannien, västra, Korea, centrala, Korea, södra och centrala Kanada |
 |Prestanda|Premium|
 |Typ av konto|BlockBlobStorage|
 |Replikering|Lokalt redundant lagring (LRS)|
@@ -109,11 +109,11 @@ Skapa en behållare i ditt lagrings konto genom att använda något av dessa ver
 
 |Verktyg|SDK:er|
 |---|---|
-|[Azure Portal](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
+|[Azure-portalen](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+||[REST](/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Steg 7: montera behållaren
 
@@ -144,7 +144,7 @@ Skapa en katalog på ditt Windows-eller Linux-system och montera sedan en behål
 
    ![Funktionen klient för Network File System](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
 
-2. Montera en behållare med hjälp av [monterings](https://docs.microsoft.com/windows-server/administration/windows-commands/mount) kommandot.
+2. Montera en behållare med hjälp av [monterings](/windows-server/administration/windows-commands/mount) kommandot.
 
    ```
    mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
@@ -175,10 +175,3 @@ Skapa en katalog på ditt Windows-eller Linux-system och montera sedan en behål
 ## <a name="see-also"></a>Se även
 
 [NFS (Network File System) 3,0 protokoll stöd i Azure Blob Storage (för hands version)](network-file-system-protocol-support.md)
-
-
-
-
-
-
-

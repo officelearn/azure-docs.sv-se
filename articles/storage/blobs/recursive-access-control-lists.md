@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: ffd72ffb02e4875305177cf12fd19f538735b7d6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 380d2615f62de52474b1d4316dec1dab63e5f0d5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844241"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912339"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Ange åtkomst kontrol listor (ACL) rekursivt för Azure Data Lake Storage Gen2
 
@@ -30,11 +30,11 @@ ACL-arv är redan tillgängligt för nya underordnade objekt som skapas under en
 
 - Rätt behörighet för att köra den rekursiva ACL-processen. Rätt behörighet inkluderar något av följande: 
 
-  - Ett etablerat Azure Active Directory (AD) [säkerhets objekt](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) som har tilldelats rollen som ägare av [lagrings-BLOB-data](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) i omfånget för antingen mål behållaren, den överordnade resurs gruppen eller prenumerationen.   
+  - Ett etablerat Azure Active Directory (AD) [säkerhets objekt](../../role-based-access-control/overview.md#security-principal) som har tilldelats rollen som ägare av [lagrings-BLOB-data](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) i omfånget för antingen mål behållaren, den överordnade resurs gruppen eller prenumerationen.   
 
   - Ägande användare av den mål behållare eller katalog till vilken du planerar att tillämpa den rekursiva ACL-processen. Detta inkluderar alla underordnade objekt i mål behållaren eller katalogen. 
 
-- En förståelse för hur ACL: er tillämpas på kataloger och filer. Se [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+- En förståelse för hur ACL: er tillämpas på kataloger och filer. Se [åtkomst kontroll i Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md). 
 
 Se avsnittet **Konfigurera ditt projekt** i den här artikeln för att Visa installations vägledning för PowerShell, .NET SDK och python SDK.
 
@@ -50,7 +50,7 @@ Installera de nödvändiga biblioteken.
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Information om hur du uppgraderar din version av PowerShell finns i [uppgradera befintliga Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell)
+   Information om hur du uppgraderar din version av PowerShell finns i [uppgradera befintliga Windows PowerShell](/powershell/scripting/install/installing-windows-powershell)
     
 2. Installera **AZ. Storage** -modulen.
 
@@ -58,18 +58,18 @@ Installera de nödvändiga biblioteken.
    Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
-   Mer information om hur du installerar PowerShell-moduler finns i [installera modulen Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+   Mer information om hur du installerar PowerShell-moduler finns i [installera modulen Azure PowerShell](/powershell/azure/install-az-ps)
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. Öppna [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), eller om du har [installerat](https://docs.microsoft.com/cli/azure/install-azure-cli) Azure CLI lokalt öppnar du ett kommando konsol program, till exempel Windows PowerShell.
+1. Öppna [Azure Cloud Shell](../../cloud-shell/overview.md), eller om du har [installerat](/cli/azure/install-azure-cli) Azure CLI lokalt öppnar du ett kommando konsol program, till exempel Windows PowerShell.
 
 2. Kontrol lera att den version av Azure CLI som har installerats är `2.14.0` eller högre genom att använda följande kommando.
 
    ```azurecli
     az --version
    ```
-   Om din version av Azure CLI är lägre än `2.14.0` kan du installera en senare version. Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   Om din version av Azure CLI är lägre än `2.14.0` kan du installera en senare version. Se [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -201,7 +201,7 @@ $ctx = $storageAccount.Context
 
    Annars öppnar du en webb sida på [https://aka.ms/devicelogin](https://aka.ms/devicelogin) och anger den auktoriseringskod som visas i din terminal. Logga sedan in med dina konto uppgifter i webbläsaren.
 
-   Mer information om olika autentiseringsmetoder finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](../common/authorize-data-operations-cli.md).
+   Mer information om olika autentiseringsmetoder finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](./authorize-data-operations-cli.md).
 
 2. Om din identitet är associerad med fler än en prenumeration ställer du in din aktiva prenumeration på prenumerationen på det lagrings konto som ska vara värd för din statiska webbplats.
 
@@ -212,11 +212,11 @@ $ctx = $storageAccount.Context
    Ersätt `<subscription-id>` placeholder-värdet med ID: t för din prenumeration.
 
 > [!NOTE]
-> Exemplet som presenteras i den här artikeln visar Azure Active Directory (AD) auktorisering. Mer information om autentiseringsmetoder finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](../common/authorize-data-operations-cli.md).
+> Exemplet som presenteras i den här artikeln visar Azure Active Directory (AD) auktorisering. Mer information om autentiseringsmetoder finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](./authorize-data-operations-cli.md).
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Om du vill använda kodfragmenten i den här artikeln måste du skapa en [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) -instans som representerar lagrings kontot.
+Om du vill använda kodfragmenten i den här artikeln måste du skapa en [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) -instans som representerar lagrings kontot.
 
 #### <a name="connect-by-using-azure-active-directory-ad"></a>Anslut med hjälp av Azure Active Directory (AD)
 
@@ -235,7 +235,7 @@ Hämta ett klient-ID, en klient hemlighet och ett klient-ID. Information om hur 
 |[Storage Blob Data-ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Alla kataloger och filer i kontot.|
 |[Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Endast kataloger och filer som ägs av säkerhets objekt.|
 
-I det här exemplet skapas en [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) -instans med hjälp av ett klient-ID, en klient hemlighet och ett klient-ID.  
+I det här exemplet skapas en [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) -instans med hjälp av ett klient-ID, en klient hemlighet och ett klient-ID.  
 
 ```cs
 public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient, 
@@ -256,7 +256,7 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 
 Den här metoden är det enklaste sättet att ansluta till ett konto. 
 
-I det här exemplet skapas en [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) -instans med hjälp av en konto nyckel.
+I det här exemplet skapas en [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) -instans med hjälp av en konto nyckel.
 
 ```cs
 public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
@@ -415,11 +415,11 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 > [!NOTE]
 > Om du vill ange en **standard** -ACL-post använder du parametern **-DefaultScope** när du kör kommandot **set-AzDataLakeGen2ItemAclObject** . Till exempel: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
 
-Om du vill se ett exempel som anger ACL rekursivt i batchar genom att ange en batchstorlek, se artikeln [set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) referens.
+Om du vill se ett exempel som anger ACL rekursivt i batchar genom att ange en batchstorlek, se artikeln [set-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive) referens.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Ange en ACL rekursivt med hjälp av kommandot [AZ Storage FS-åtkomst uppsättning-rekursivt](https://docs.microsoft.com/cli/azure/storage/fs/access#az_storage_fs_access_set_recursive) .
+Ange en ACL rekursivt med hjälp av kommandot [AZ Storage FS-åtkomst uppsättning-rekursivt](/cli/azure/storage/fs/access#az_storage_fs_access_set_recursive) .
 
 I det här exemplet anges ACL: en för en katalog med namnet `my-parent-directory` . Dessa poster ger den ägande användaren Läs-, skriv-och körnings behörighet, ger den ägande gruppen endast Läs-och kör behörigheter och ger alla andra ingen åtkomst. Den sista ACL-posten i det här exemplet ger en speciell användare med objekt-ID: t "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" Läs-och körnings behörighet.
 
@@ -608,11 +608,11 @@ Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Pat
 > [!NOTE]
 > Om du vill uppdatera en **standard** -ACL-post använder du parametern **-DefaultScope** när du kör kommandot **set-AzDataLakeGen2ItemAclObject** . Till exempel: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`.
 
-Om du vill se ett exempel som uppdaterar ACL rekursivt i batchar genom att ange en batchstorlek, se artikeln [Update-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/update-azdatalakegen2aclrecursive) referens.
+Om du vill se ett exempel som uppdaterar ACL rekursivt i batchar genom att ange en batchstorlek, se artikeln [Update-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/update-azdatalakegen2aclrecursive) referens.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Uppdatera en ACL rekursivt med hjälp av kommandot  [AZ Storage FS Access Update-rekursivt](https://docs.microsoft.com/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive) . 
+Uppdatera en ACL rekursivt med hjälp av kommandot  [AZ Storage FS Access Update-rekursivt](/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive) . 
 
 Det här exemplet uppdaterar en ACL-post med Skriv behörighet. 
 
@@ -749,11 +749,11 @@ Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Ac
 > [!NOTE]
 > Om du vill ta bort en **standard** -ACL-post använder du parametern **-DefaultScope** när du kör kommandot **set-AzDataLakeGen2ItemAclObject** . Till exempel: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`.
 
-Om du vill se ett exempel som tar bort ACL rekursivt i batchar genom att ange en batchstorlek, se artikeln [Remove-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/remove-azdatalakegen2aclrecursive) referens.
+Om du vill se ett exempel som tar bort ACL rekursivt i batchar genom att ange en batchstorlek, se artikeln [Remove-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/remove-azdatalakegen2aclrecursive) referens.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Ta bort ACL-poster med hjälp av kommandot [AZ Storage FS Access Remove-recursive](https://docs.microsoft.com/cli/azure/storage/fs/access#az_storage_fs_access_remove_recursive) . 
+Ta bort ACL-poster med hjälp av kommandot [AZ Storage FS Access Remove-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_remove_recursive) . 
 
 Det här exemplet tar bort en ACL-post från rot katalogen för behållaren.  
 
@@ -880,7 +880,7 @@ $result
 
 ```
 
-Om du vill se ett exempel som anger ACL rekursivt i batchar genom att ange en batchstorlek, se artikeln [set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) referens.
+Om du vill se ett exempel som anger ACL rekursivt i batchar genom att ange en batchstorlek, se artikeln [set-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive) referens.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -1005,7 +1005,7 @@ echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
 echo "FailedEntries:"$($result.FailedEntries | ft) 
 ```
 
-Om du vill se ett exempel som anger ACL rekursivt i batchar genom att ange en batchstorlek, se artikeln [set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) referens.
+Om du vill se ett exempel som anger ACL rekursivt i batchar genom att ange en batchstorlek, se artikeln [set-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive) referens.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -1115,11 +1115,11 @@ Det här avsnittet innehåller länkar till bibliotek och kod exempel.
 #### <a name="libraries"></a>Bibliotek
 
 - [PowerShell](https://www.powershellgallery.com/packages/Az.Storage/3.0.0)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/storage/fs/access)
+- [Azure CLI](/cli/azure/storage/fs/access)
 - [.NET](https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json)
 - [Java](/java/api/overview/azure/storage-file-datalake-readme)
 - [Python](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2Fazure_storage_file_datalake-12.1.0b99-py2.py3-none-any.whl%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A47%253A01Z%26se%3D2021-08-25T07%253A47%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DH1XYw4FTLJse%252BYQ%252BfamVL21UPVIKRnnh2mfudA%252BfI0I%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C95a5966d938a4902560e08d84912fe32%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339693209725909&sdata=acv4KWZdzkITw1lP0%2FiA3lZuW7NF5JObjY26IXttfGI%3D&reserved=0)
-- [REST](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)
+- [REST](/rest/api/storageservices/datalakestoragegen2/path/update)
 
 #### <a name="code-samples"></a>Kodexempel
 
@@ -1127,7 +1127,7 @@ Det här avsnittet innehåller länkar till bibliotek och kod exempel.
 
 - Azure CLI: [exempel](https://github.com/Azure/azure-cli/blob/2a55a5350696a3a93a13f364f2104ec8bc82cdd3/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 
-- NET: [README](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520net%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A20%253A42Z%26se%3D2021-08-26T23%253A20%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DKrnHvasHoSoVeUyr2g%252FSc2aDVW3De4A%252Fvx0lFWZs494%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503767961&sdata=gd%2B2LphTtDFVb7pZko9rkGO9OG%2FVvmeXprHB9IOEYXE%3D&reserved=0)-  |  [exempel](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)
+- NET: [README](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520net%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A20%253A42Z%26se%3D2021-08-26T23%253A20%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DKrnHvasHoSoVeUyr2g%2fSc2aDVW3De4A%2fvx0lFWZs494%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503767961&sdata=gd%2B2LphTtDFVb7pZko9rkGO9OG%2FVvmeXprHB9IOEYXE%3D&reserved=0)-  |  [exempel](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)
 
 - Python: [README](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520python%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A21%253A47Z%26se%3D2021-08-26T23%253A21%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DRq6Bl5lXrtYk79thy8wX7UTbjyd2f%252B6xzVBFFVYbdYg%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503777915&sdata=3e46Lp2miOHj755Gh0odH3M0%2BdTF3loGCCBENrulVTM%3D&reserved=0)-  |  [exempel](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)
 
@@ -1141,7 +1141,7 @@ Ett körnings fel kan uppstå i många olika orsaker (till exempel: ett avbrott 
 
 #### <a name="handling-permission-errors-403"></a>Hantering av behörighets fel (403)
 
-Om du stöter på ett åtkomst kontroll undantag när du kör en rekursiv ACL-process kanske ditt [säkerhets objekt](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) i AD inte har tillräcklig behörighet för att tillämpa en ACL på ett eller flera av de underordnade objekten i mapphierarkin. När ett behörighets fel inträffar stoppas processen och en fortsättnings-token anges. Åtgärda behörighets problemet och Använd sedan den fortsättnings-token för att bearbeta den återstående data mängden. De kataloger och filer som redan har bearbetats behöver inte bearbetas igen. Du kan också välja att starta om den rekursiva ACL-processen. ACL: er kan återanvändas på objekt utan att orsaka negativ påverkan. 
+Om du stöter på ett åtkomst kontroll undantag när du kör en rekursiv ACL-process kanske ditt [säkerhets objekt](../../role-based-access-control/overview.md#security-principal) i AD inte har tillräcklig behörighet för att tillämpa en ACL på ett eller flera av de underordnade objekten i mapphierarkin. När ett behörighets fel inträffar stoppas processen och en fortsättnings-token anges. Åtgärda behörighets problemet och Använd sedan den fortsättnings-token för att bearbeta den återstående data mängden. De kataloger och filer som redan har bearbetats behöver inte bearbetas igen. Du kan också välja att starta om den rekursiva ACL-processen. ACL: er kan återanvändas på objekt utan att orsaka negativ påverkan. 
 
 #### <a name="credentials"></a>Autentiseringsuppgifter 
 
@@ -1153,11 +1153,9 @@ För att minska svars tiden rekommenderar vi att du kör den rekursiva ACL-proce
 
 #### <a name="acl-limits"></a>ACL-gränser
 
-Det maximala antalet ACL: er som du kan tillämpa på en katalog eller fil är 32 åtkomst-ACL: er och 32 standard-ACL: er. Mer information finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+Det maximala antalet ACL: er som du kan tillämpa på en katalog eller fil är 32 åtkomst-ACL: er och 32 standard-ACL: er. Mer information finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ## <a name="see-also"></a>Se även
 
-- [Åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+- [Åtkomstkontroll i Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md)
 - [Kända problem](data-lake-storage-known-issues.md)
-
-

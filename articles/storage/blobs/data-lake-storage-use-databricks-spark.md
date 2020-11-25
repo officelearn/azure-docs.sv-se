@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: 394e735be5da65ffa75e10200589a4adb4e7cad2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5fce5871b4bd6c3e2353f7df04018e88b86ec4c7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313924"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912526"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Självstudie: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
@@ -35,20 +35,20 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
   Se [skapa ett lagrings konto som ska användas med Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
-* Se till att ditt användarkonto har tilldelats rollen [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac).
+* Se till att ditt användarkonto har tilldelats rollen [Storage Blob Data-deltagare](../common/storage-auth-aad-rbac-portal.md).
 
-* Installera AzCopy v10. Läs mer i [Överföra data med AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* Installera AzCopy v10. Läs mer i [Överföra data med AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-* Skapa ett huvudnamn för tjänsten. Se [så här gör du: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Skapa ett huvudnamn för tjänsten. Se [så här gör du: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   Det finns några saker som du måste göra när du utför stegen i den här artikeln.
 
-  : heavy_check_mark: när du utför stegen i avsnittet [tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) i artikeln, se till att tilldela rollen **Storage BLOB data Contributor** till tjänstens huvud namn.
+  : heavy_check_mark: när du utför stegen i avsnittet [tilldela programmet till en roll](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) i artikeln, se till att tilldela rollen **Storage BLOB data Contributor** till tjänstens huvud namn.
 
   > [!IMPORTANT]
   > Se till att tilldela rollen i omfånget för Data Lake Storage Gen2-lagringskontot. Du kan tilldela en roll till den överordnade resursgruppen eller prenumerationen, men du får behörighetsrelaterade fel tills de rolltilldelningarna propageras till lagringskontot.
 
-  : heavy_check_mark: när du utför stegen i avsnittet [Hämta värden för signering i](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artikeln klistrar du in klient-ID, app-ID och klientens hemliga värden i en textfil. Du kommer att behöva dem snart.
+  : heavy_check_mark: när du utför stegen i avsnittet [Hämta värden för signering i](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) artikeln klistrar du in klient-ID, app-ID och klientens hemliga värden i en textfil. Du kommer att behöva dem snart.
 
 ### <a name="download-the-flight-data"></a>Ladda ned flygdata
 
@@ -110,7 +110,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Kopiera källdata till lagringskontot
 
-Använd AzCopy till att kopiera data från *.csv* -filen till Data Lake Storage Gen2-kontot.
+Använd AzCopy till att kopiera data från *.csv*-filen till Data Lake Storage Gen2-kontot.
 
 1. Öppna en kommandotolk och ange följande kommandon för att logga in på lagringskontot.
 
@@ -120,7 +120,7 @@ Använd AzCopy till att kopiera data från *.csv* -filen till Data Lake Storage 
 
    Följ anvisningarna som visas i kommando tolkens fönster för att autentisera ditt användar konto.
 
-2. Kopiera data från *.csv* -filen med följande kommando.
+2. Kopiera data från *.csv*-filen med följande kommando.
 
    ```bash
    azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
@@ -195,7 +195,7 @@ from pyspark.sql import SQLContext
 display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
-Kör det här skriptet om du vill skapa en ny fil och visa en lista med filerna i mappen *parquet/flights* :
+Kör det här skriptet om du vill skapa en ny fil och visa en lista med filerna i mappen *parquet/flights*:
 
 ```python
 dbutils.fs.put("/mnt/flightdata/1.txt", "Hello, World!", True)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a779fee89d52442207358cf90c8cf87e7ef221c2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5ef2d233024ab3e9cd086e8285e681dc9f42f3f7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837659"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904026"
 ---
 # <a name="conditional-access-grant"></a>Villkorlig åtkomst: bevilja
 
@@ -70,7 +70,7 @@ När du använder [enhets kod OAuth-flödet](../develop/v2-oauth2-device-code.md
 
 Organisationer kan kräva att ett åtkomst försök till de valda molnappar måste göras från en godkänd klient app. Dessa godkända klient program har stöd för [Intune App Protection-principer](/intune/app-protection-policy) oberoende av alla lösningar för hantering av mobila enheter (MDM).
 
-För att kunna utnyttja denna beviljande kontroll, kräver villkorlig åtkomst att enheten registreras i Azure Active Directory som kräver att en Service Broker-app används. Service Broker-appen kan vara Microsoft Authenticator för iOS eller antingen Microsoft Authenticator eller Microsofts företags Portal för Android-enheter. Om en Service Broker-app inte är installerad på enheten när användaren försöker autentisera, omdirigeras användaren till lämpligt app/Play-Arkiv för att installera den begärda Broker-appen.
+För att kunna utnyttja denna beviljande kontroll, kräver villkorlig åtkomst att enheten registreras i Azure Active Directory som kräver att en Service Broker-app används. Service Broker-appen kan vara Microsoft Authenticator för iOS eller antingen Microsoft Authenticator eller Microsofts företags Portal för Android-enheter. Om en Service Broker-app inte är installerad på enheten när användaren försöker autentisera, omdirigeras användaren till lämpligt App Store för att installera den begärda Service Broker-appen.
 
 Den här inställningen gäller för följande iOS-och Android-appar:
 

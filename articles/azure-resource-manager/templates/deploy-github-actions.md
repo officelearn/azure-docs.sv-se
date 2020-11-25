@@ -4,12 +4,12 @@ description: Beskriver hur du distribuerar Azure Resource Manager-mallar med hj�
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: adb0b9d9a7da19c45904a5d222573e1880915b12
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3dcb246956aae274f17cf938ee3d406562b22941
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841690"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905267"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Distribuera Azure Resource Manager-mallar med GitHub-åtgärder
 
@@ -112,7 +112,7 @@ Arbets flödes filen måste lagras i mappen **. GitHub/arbets flöden** i roten 
         steps:
 
           # Checkout code
-        - uses: actions/checkout@master
+        - uses: actions/checkout@main
 
           # Log into Azure
         - uses: azure/login@v1
@@ -137,7 +137,7 @@ Arbets flödes filen måste lagras i mappen **. GitHub/arbets flöden** i roten 
     Det första avsnittet i arbets flödes filen innehåller:
 
     - **namn**: namnet på arbets flödet.
-    - **på**: namnet på de GitHub-händelser som utlöser arbets flödet. Arbets flödet utlöses när det finns en push-händelse på huvud grenen, vilket ändrar minst en av de angivna två filerna. De två filerna är arbets flödes filen och mallfilen.
+    - **på**: namnet på de GitHub-händelser som utlöser arbets flödet. Arbets flödet utlöses när det finns en push-händelse i huvud grenen, som ändrar minst en av de angivna två filerna. De två filerna är arbets flödes filen och mallfilen.
 
 1. Välj **Start commit** (Starta incheckning).
 1. Välj **genomför direkt på huvud grenen**.
@@ -152,7 +152,6 @@ Eftersom arbets flödet har kon figurer ATS för att utlösas av antingen arbets
 1. Verifiera distributionen genom att välja **Kör arm Deploy** på menyn.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-
 När din resurs grupp och lagrings plats inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resurs gruppen och GitHub-lagringsplatsen. 
 
 ## <a name="next-steps"></a>Nästa steg

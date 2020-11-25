@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 5bdf1cd510ed0d997e5e59c6492117a4d567c43e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e289bea6b1a23f1622ced62656164d9865303298
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024610"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912832"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Snabb start: analysera data med Databricks
 
@@ -198,7 +198,7 @@ I den här artikeln skapade du ett Spark-kluster i Azure Databricks och körde e
 Gå till nästa artikel om du vill lära dig hur du utför en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Extrahera, transformera och läsa in data med Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md).
+>[Extrahera, transformera och läsa in data med Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse).
 
 - Information om hur du importerar data från andra data källor till Azure Databricks finns i [Spark-datakällor](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
 

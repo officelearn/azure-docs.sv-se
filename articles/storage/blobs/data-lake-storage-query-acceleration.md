@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc1d217dba64c36aa219abbd4d2220a494347689
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657644"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912764"
 ---
 # <a name="azure-data-lake-storage-query-acceleration"></a>Azure Data Lake Storage fråga om acceleration
 
@@ -50,7 +50,7 @@ Följande diagram illustrerar hur ett typiskt program använder Query-accelerati
 
 Med frågekörning optimeras prestanda genom att minska mängden data som överförs och bearbetas av ditt program.
 
-För att beräkna ett sammanställt värde hämtar program ofta **alla** data från en fil och bearbetar och filtrerar sedan data lokalt. En analys av indata/utdata-mönster för analys av arbets belastningar visar att program vanligt vis bara behöver 20% av de data som de har läst för att utföra någon bestämd beräkning. Den här statistiken är sann även när du har tillämpat metoder som [partition rensning](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). Det innebär att 80% av dessa data överförs onödan över nätverket, parsas och filtreras efter program. Det här mönstret, som är utformat för att ta bort onödiga data, medför en betydande beräknings kostnad.  
+För att beräkna ett sammanställt värde hämtar program ofta **alla** data från en fil och bearbetar och filtrerar sedan data lokalt. En analys av indata/utdata-mönster för analys av arbets belastningar visar att program vanligt vis bara behöver 20% av de data som de har läst för att utföra någon bestämd beräkning. Den här statistiken är sann även när du har tillämpat metoder som [partition rensning](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning). Det innebär att 80% av dessa data överförs onödan över nätverket, parsas och filtreras efter program. Det här mönstret, som är utformat för att ta bort onödiga data, medför en betydande beräknings kostnad.  
 
 Även om Azure har ett branschledande nätverk, vad gäller både genom strömning och latens, är onödan överföring av data i det nätverket fortfarande kostsamt för program prestanda. Genom att filtrera bort oönskade data under lagrings förfrågan eliminerar Query acceleration denna kostnad.
 
@@ -76,5 +76,3 @@ Trots ändringen av fakturerings modellen är pris sättnings modellen för frå
 
 - [Filtrera data med hjälp av Azure Data Lake Storage fråga om acceleration](data-lake-storage-query-acceleration-how-to.md)
 - [Språk referens för Query acceleration SQL](query-acceleration-sql-reference.md)
-
-

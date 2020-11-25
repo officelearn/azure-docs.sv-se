@@ -1,5 +1,5 @@
 ---
-title: Fel söknings guide för Azure-attestering
+title: Felsökningsguide för Azure Attestation
 description: Fel söknings guide för de problem som observerats ofta
 services: attestation
 author: msmbaldwin
@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 46e3521a54f6bfdfbfb25634a09b8c8e0cfdcac0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: fe347983e2143c7a4bdf00ca0207356c881c66ac
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93343238"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95891290"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Microsoft Azure fel söknings guide för attestering
 
@@ -45,7 +45,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.SetAzureAttestationPolicy
   ```
 
-**Felsökningsanvisningar**
+**Fel söknings steg**
 
 För att kunna visa attesterings principer/princip undertecknare kräver en Azure AD-användare behörigheten för "åtgärder":
 - Microsoft. attestering/attestationProviders/attestering/läsning
@@ -64,7 +64,7 @@ Verifiera rollerna i PowerShell genom att köra följande:
 
 a. Starta PowerShell och logga in på Azure via cmdleten "Connect-AzAccount"
 
-b. Verifiera dina roll tilldelnings inställningar för RBAC
+b. Verifiera dina roll tilldelnings inställningar för Azure
 
 
   ```powershell
@@ -134,7 +134,7 @@ Se [exempel på attesterings princip](/azure/attestation/policy-examples)
 - Den angivna offerten var ogiltig eftersom den enhet där offerten genererades inte uppfyller kraven för Azures bas linje
 - Den angivna offerten var ogiltig eftersom den TCBInfo eller QEID som tillhandahölls av PCK Cache Service var ogiltig
 
-**Felsökningsanvisningar**
+**Fel söknings steg**
 
 Microsoft Azure attestering stöder attestering av SGX-offerter som genererats av Intel SDK och öppen enklaven SDK.
 

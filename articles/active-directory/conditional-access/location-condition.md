@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888ed2fa24b82c0dda3361df1c63bb802e58f5fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88055385"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904111"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Använda plats villkoret i en princip för villkorlig åtkomst 
 
@@ -64,13 +64,13 @@ Det här alternativet kan användas för att räkna i principer för villkorlig 
 Vissa organisationer kan välja att definiera hela länder eller regioner IP-gränser som namngivna platser för principer för villkorlig åtkomst. De kan använda dessa platser när de blockerar onödig trafik när de vet att giltiga användare aldrig kommer från en plats som Nord Korea. Dessa mappningar av IP-adresser till land uppdateras regelbundet. 
 
 > [!NOTE]
-> Länderna inkluderar inte IPv6-adressintervall, endast kända IPv4-adressintervall och kan inte markeras som betrodda.
+> Det går inte att mappa IPv6-adressintervall till länder. Endast IPv4-adresser mappas till länder.
 
 ![Skapa en ny lands-eller regions-baserad plats i Azure Portal](./media/location-condition/new-named-location-country-region.png)
 
 #### <a name="include-unknown-areas"></a>Inkludera okända områden
 
-Vissa IP-adresser mappas inte till ett visst land eller en viss region. Om du vill avbilda dessa IP-platser markerar du kryss rutan **Inkludera okända områden** när du definierar en plats. Med det här alternativet kan du välja om de här IP-adresserna ska tas med på den namngivna platsen. Använd den här inställningen när principen som använder den namngivna platsen ska gälla för okända platser.
+Vissa IP-adresser mappas inte till ett visst land eller en viss region, inklusive alla IPv6-adresser. Om du vill avbilda dessa IP-platser markerar du kryss rutan **Inkludera okända områden** när du definierar en plats. Med det här alternativet kan du välja om de här IP-adresserna ska tas med på den namngivna platsen. Använd den här inställningen när principen som använder den namngivna platsen ska gälla för okända platser.
 
 ### <a name="configure-mfa-trusted-ips"></a>Konfigurera MFA-betrodda IP-adresser
 
@@ -114,7 +114,7 @@ I för hands versionen finns det nu två alternativ för att skapa:
 - **Plats för IP-intervall**
 
 > [!NOTE]
-> Länderna inkluderar inte IPv6-adressintervall, endast kända IPv4-adressintervall och kan inte markeras som betrodda.
+> Det går inte att mappa IPv6-adressintervall till länder. Endast IPv4-adresser mappas till länder.
 
 ![Namngivna platser för hands versions gränssnitt](./media/location-condition/named-location-preview.png)
 
@@ -128,7 +128,7 @@ När du konfigurerar plats villkoret har du möjlighet att skilja mellan:
 
 ### <a name="any-location"></a>Valfri plats
 
-Som standard gör en princip att tillämpas på alla IP-adresser, vilket innebär vilken adress **som helst på** Internet. Den här inställningen är inte begränsad till IP-adresser som du har konfigurerat som namngiven plats. När du väljer **en plats**kan du fortfarande utesluta vissa platser från en princip. Du kan till exempel använda en princip för alla platser utom betrodda platser för att ange omfattningen till alla platser, förutom företags nätverket.
+Som standard gör en princip att tillämpas på alla IP-adresser, vilket innebär vilken adress **som helst på** Internet. Den här inställningen är inte begränsad till IP-adresser som du har konfigurerat som namngiven plats. När du väljer **en plats** kan du fortfarande utesluta vissa platser från en princip. Du kan till exempel använda en princip för alla platser utom betrodda platser för att ange omfattningen till alla platser, förutom företags nätverket.
 
 ### <a name="all-trusted-locations"></a>Alla betrodda platser
 
@@ -157,7 +157,7 @@ Merparten av den IPv6-trafik som hämtar proxy till Azure AD kommer från Micros
 Detta är de vanligaste orsakerna till att du kan behöva konfigurera IPv6-intervall på dina namngivna platser. Om du använder Azure-virtuella nätverk kommer du dessutom att ha trafik som kommer från en IPv6-adress. Om du har VNet-trafik blockerad av en princip för villkorlig åtkomst, kontrollerar du inloggnings loggen för Azure AD. När du har identifierat trafiken kan du hämta IPv6-adressen som används och utesluta den från principen. 
 
 > [!NOTE]
-> Om du vill ange ett IP-CIDR-intervall för en enskild adress använder du bit masken/32. Om du säger IPv6-adressen 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74A och vill utesluta den enkla adressen som ett intervall, använder du 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74A/32.
+> Om du vill ange ett IP-CIDR-intervall för en enskild adress använder du bit masken/128. Om du säger IPv6-adressen 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74A och vill utesluta den enkla adressen som ett intervall, använder du 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74A/128.
 
 ### <a name="identifying-ipv6-traffic-in-the-azure-ad-sign-in-activity-reports"></a>Identifiera IPv6-trafik i rapporter om inloggnings aktiviteter i Azure AD
 

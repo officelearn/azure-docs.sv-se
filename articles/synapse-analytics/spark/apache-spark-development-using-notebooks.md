@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: dcf34d896deafad77d16619f3883ddd103fc55d4
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: c35ee7bcdefa5091d9c887430182638f066cb9fa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95790718"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95900915"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Skapa, utveckla och underhålla antecknings böcker för Synapse Studio (för hands version) i Azure Synapse Analytics
 
@@ -104,7 +104,7 @@ Du kan ställa in det primära språket för nya tillagda celler i list rutan i 
 
 Du kan använda flera språk i en bärbar dator genom att ange rätt språk-Magic-kommando i början av en cell. I följande tabell visas Magic-kommandon för att växla mellan cell språk.
 
-|Magiskt kommando |Språk | Beskrivning |  
+|Magiskt kommando |Språk | Description |  
 |---|------|-----|
 |%% pyspark| Python | Kör en **python** -fråga mot Spark-kontext.  |
 |%% Spark| Scala | Kör en **Scala** -fråga mot Spark-kontext.  |  
@@ -152,7 +152,7 @@ IntelliSense-funktionerna finns på olika förfallo nivåer för olika språk. A
 |PySpark (python)|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Spark (Scala)|Ja|Ja|Ja|Ja|-|-|-|Ja|
 |SparkSQL|Ja|Ja|-|-|-|-|-|-|
-|.NET för Spark (C#)|Ja|-|-|-|-|-|-|-|
+|.NET för Spark (C#)|Yes|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Formatera en text cell med knappar i verktygsfältet
 
@@ -399,68 +399,6 @@ Du kan komma åt data i det primära lagrings kontot direkt. Du behöver inte an
 
 ![data till cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
-## <a name="visualize-data-in-a-notebook"></a>Visualisera data i en bärbar dator
-
-### <a name="produce-rendered-table-view"></a>Producera åter givnings tabell visning
-
-En vy med tabell resultat tillhandahålls med möjligheten att skapa ett stapeldiagram, linje diagram, cirkel diagram, punkt diagram och ytdiagram. Du kan visualisera dina data utan att behöva skriva kod. Diagrammen kan anpassas i **diagram alternativen**. 
-
-Utdata från **%% SQL** Magic-kommandon visas som standard i vyn renderad tabell. Du kan anropa <code>display(df)</code> Spark-DataFrames, Pandas DataFrames, list eller elastiska distribuerade data uppsättningar (RDD) för att skapa den åter givnings tabellen.
-
-   [![inbyggt – diagram](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
-
-### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>Visualisera inbyggda diagram från storskalig data uppsättning 
-
-Som standard <code>display(df)</code> tar funktionen bara de första 1000 raderna i data för att återge diagram. Kontrol lera **agg regeringen för alla resultat** och välj **Verkställ** om du vill använda diagrammets generering från hela data uppsättningen. Ett Spark-jobb utlöses när diagram inställningen ändras, det tar en stund att slutföra beräkningen och återge diagrammet. 
-    [![Builtin – diagram – agg regering – alla](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
-
-
-
-### <a name="visualize-data-statistic-information"></a>Visualisera information om data statistik
-Du kan använda <code>display(df, summary = True)</code> för att kontrol lera statistik sammanfattningen för en specifik Spark-DataFrame som innehåller kolumn namn, kolumn typ, unika värden och saknade värden för varje kolumn. Du kan också välja en speciell kolumn för att se dess minimala värde, maximalt värde, medelvärde och standard avvikelse.
-    [![Builtin – diagram – Sammanfattning ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
-
-### <a name="render-html-or-interactive-libraries"></a>Återge HTML eller interaktiva bibliotek
-
-Du kan återge HTML-kod, inklusive Java Script, CSS, D3 eller interaktiva bibliotek, t. ex. **bokeh**, med hjälp av **displayHTML ()**.
-
-Följande bild är ett exempel på hur du ritar glyfer över en karta med **bokeh**.
-
-   ![bokeh – exempel](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
-   
-
-Kör följande exempel kod för att rita bilden ovan.
-
-```python
-from bokeh.plotting import figure, output_file
-from bokeh.tile_providers import get_provider, Vendors
-from bokeh.embed import file_html
-from bokeh.resources import CDN
-from bokeh.models import ColumnDataSource
-
-tile_provider = get_provider(Vendors.CARTODBPOSITRON)
-
-# range bounds supplied in web mercator coordinates
-p = figure(x_range=(-9000000,-8000000), y_range=(4000000,5000000),
-           x_axis_type="mercator", y_axis_type="mercator")
-p.add_tile(tile_provider)
-
-# plot datapoints on the map
-source = ColumnDataSource(
-    data=dict(x=[ -8800000, -8500000 , -8800000],
-              y=[4200000, 4500000, 4900000])
-)
-
-p.circle(x="x", y="y", size=15, fill_color="blue", fill_alpha=0.8, source=source)
-
-# create an html document that embeds the Bokeh plot
-html = file_html(p, CDN, "my plot1")
-
-# display this html
-displayHTML(html)
-
-```
-
 ## <a name="save-notebooks"></a>Spara antecknings böcker
 
 Du kan spara en enskild bärbar dator eller alla antecknings böcker i din arbets yta.
@@ -539,11 +477,11 @@ I likhet med Jupyter-anteckningsböcker har Azure Synapse Studio-anteckningsboka
 
 1. En cell är i kommando läge när ingen text markör visas som anger att du skriver. När en cell är i kommando läge kan du redigera antecknings boken som helhet men inte skriva in enskilda celler. Ange kommando läge genom att trycka `ESC` eller använda musen för att välja utanför cellens redigerings området.
 
-   ![kommando läge](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
+   ![kommando läge](./media/apache-spark-development-using-notebooks/synapse-command-mode-2.png)
 
 2. Redigerings läget anges av en text markör där du ombeds ange redigerings ytan. När en cell är i redigerings läge kan du skriva i cellen. Ange redigerings läge genom att trycka `Enter` eller använda musen för att välja en cells redigerings yta.
    
-   ![redigerings-läge](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
+   ![redigerings-läge](./media/apache-spark-development-using-notebooks/synapse-edit-mode-2.png)
 
 ### <a name="shortcut-keys-under-command-mode"></a>Kortkommandon under kommando läge
 

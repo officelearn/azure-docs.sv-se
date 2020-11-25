@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dc695cc36113430cb1820d978ed41f5250cad33e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3e040146673ba16c07856f30b88771d0063713e9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94974897"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95896891"
 ---
 # <a name="azure-security-baseline-for-azure-hpc-cache"></a>Azures säkerhets bas linje för Azure HPC-cache
 
@@ -305,7 +305,7 @@ Azure Advanced Threat Protection (ATP) är en säkerhetslösning som kan använd
 
 **Vägledning**: HPC cache använder Azure RBAC för att isolera åtkomst till affärs kritiska system genom att begränsa vilka konton som har privilegie rad åtkomst till de prenumerationer och hanterings grupper som de finns i.
 
-Skapa standard operativa procedurer kring användningen av dedikerade administrativa konton. För att skapa ett cacheminne kräver HPC-cache att användarna har tillräcklig behörighet i prenumerationen för att skapa nätverkskort. Om du använder Blob Storage krävs de RBAC-rollerna för lagrings konto deltagare och lagrings-BLOB-data deltagare för HPC-cache för att få åtkomst till lagringen. 
+Skapa standard operativa procedurer kring användningen av dedikerade administrativa konton. För att skapa ett cacheminne kräver HPC-cache att användarna har tillräcklig behörighet i prenumerationen för att skapa nätverkskort. Om du använder Blob Storage krävs Azure-rollerna lagrings konto deltagare och lagrings data deltagare för HPC-cache för att få åtkomst till lagringen. 
 
 Se till att du också begränsar åtkomsten till hanterings-, identitets-och säkerhets system som har administrativ åtkomst till dina affärs kritiska till gångar, till exempel Active Directory-domän controllers (DCs), säkerhets verktyg och system hanterings verktyg med agenter som är installerade på affärs kritiska system. Angripare som angriper dessa hanterings-och säkerhets system kan omedelbart weaponize dem för att kompromettera affärs kritiska till gångar.
 

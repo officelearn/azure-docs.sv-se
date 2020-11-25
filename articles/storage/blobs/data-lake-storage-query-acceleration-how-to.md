@@ -9,12 +9,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b7f566f85ebdb6b481797823cba78aa968747e9f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b02f5a7c390c5594a7c5692798a0691c8d9a42d0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746425"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912781"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrera data med hjälp av Azure Data Lake Storage fråga om acceleration
 
@@ -26,13 +26,13 @@ Med hjälp av frågekörning kan program och analys ramverk dramatiskt optimera 
 
 - Du behöver en Azure-prenumeration för att få åtkomst till Azure Storage. Om du inte redan har en prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- Ett **Allmänt-syfte v2-** lagrings konto. Se [skapa ett lagrings konto](../common/storage-quickstart-create-account.md).
+- Ett **Allmänt-syfte v2-** lagrings konto. Se [skapa ett lagrings konto](../common/storage-account-create.md).
 
 - Välj en flik för att visa alla SDK-särskilda krav.
 
   ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-  Ej tillämpligt
+  Inte tillämpligt
 
   ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -92,7 +92,7 @@ Om du vill använda acceleration av frågor måste du först registrera funktion
 
 #### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. Öppna [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), eller om du har [installerat](https://docs.microsoft.com/cli/azure/install-azure-cli) Azure CLI lokalt öppnar du ett kommando konsol program, till exempel Windows PowerShell.
+1. Öppna [Azure Cloud Shell](../../cloud-shell/overview.md), eller om du har [installerat](/cli/azure/install-azure-cli) Azure CLI lokalt öppnar du ett kommando konsol program, till exempel Windows PowerShell.
 
 2. Om din identitet är associerad med fler än en prenumeration ställer du in din aktiva prenumeration på prenumerationen på lagrings kontot.
 
@@ -236,7 +236,7 @@ Installera Data Lake klient bibliotek för Java Script genom att öppna ett term
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Ej tillämpligt
+Inte tillämpligt
 
 #### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -328,7 +328,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Metoden async `BlobQuickQueryClient.QueryAsync` skickar frågan till API för frågans acceleration och skickar sedan tillbaka resultatet till programmet som ett [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream) -objekt.
+Metoden async `BlobQuickQueryClient.QueryAsync` skickar frågan till API för frågans acceleration och skickar sedan tillbaka resultatet till programmet som ett [Stream](/dotnet/api/system.io.stream) -objekt.
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)

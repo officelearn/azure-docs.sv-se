@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e76612c6c1b83ddb7e88377824902fe6290e7aaf
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6b522f234343cc6a50d76607d1629c46cd180b7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015247"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95894022"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -130,7 +130,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-Mer information finns i <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Mer information finns i <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```java
 speechConfig.setProperty(
@@ -561,7 +561,7 @@ Om du vill definiera hur flera entiteter ska läsas kan du skapa ett anpassat le
 
 `lexicon`Elementet innehåller minst ett- `lexeme` element. Varje `lexeme` -element innehåller minst ett `grapheme` element och ett eller flera `grapheme` element `alias` , och `phoneme` . `grapheme`Elementet innehåller text som beskriver <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> Orthography </a>. `alias`Elementen används för att ange uttal av en akronym eller en förkortad term. `phoneme`Elementet innehåller text som beskriver hur `lexeme` uttalas.
 
-Det är viktigt att Observera att du inte kan ange uttal av en fras direkt med hjälp av det anpassade lexikonet. Om du behöver ange uttal för en akronym eller en förkortad term, anger du först ett `alias` och sedan associerar du `phoneme` med det `alias` . Ett exempel:
+Det är viktigt att Observera att du inte kan ange uttal av en fras direkt med hjälp av det anpassade lexikonet. Om du behöver ange uttal för en akronym eller en förkortad term, anger du först ett `alias` och sedan associerar du `phoneme` med det `alias` . Exempel:
 
 ```xml
   <lexeme>
@@ -574,7 +574,7 @@ Det är viktigt att Observera att du inte kan ange uttal av en fras direkt med h
   </lexeme>
 ```
 
-Du kan också ange ett förväntat `alias` eller förkortat villkor för förkortningen. Ett exempel:
+Du kan också ange ett förväntat `alias` eller förkortat villkor för förkortningen. Exempel:
 ```xml
   <lexeme>
     <grapheme>Scotland MV</grapheme> 
@@ -658,7 +658,7 @@ Eftersom prosodic-attributvärden kan variera över ett brett intervall, tolkar 
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `pitch` | Anger textens bas linje bredd. Du kan uttrycka bredden som:<ul><li>Ett absolut värde, uttryckt som ett tal följt av "Hz" (Hertz). Exempelvis `<prosody pitch="600Hz">some text</prosody>`.</li><li>Ett relativt värde, uttryckt som ett tal som föregås av "+" eller "-" och följt av "Hz" eller "St", som anger ett belopp för att ändra bredden. Till exempel: `<prosody pitch="+80Hz">some text</prosody>` eller `<prosody pitch="-2st">some text</prosody>` . "St" anger att ändrings enheten är semitone, som är hälften av en ton (ett halv steg) i standard skalan för diatonic.</li><li>Ett konstant värde:<ul><li>x-låg</li><li>börjar</li><li>medel</li><li>hög</li><li>x – hög</li><li>standard</li></ul></li></ul> | Valfritt |
-| `contour` |Kon turen stöder nu både neurala-och standard röster. Kontur representerar ändringar i färgdjup. Dessa ändringar visas som en matris med mål vid angivna tids positioner i tal utmatningen. Varje mål definieras av uppsättningar av parameter par. Ett exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje parameter uppsättning anger platsen för bredd ändringen som en procent andel av längden på texten. Det andra värdet anger hur mycket du vill höja eller sänka avståndet med ett relativt värde eller ett uppräknings värde för färgdjup (se `pitch` ). | Valfritt |
+| `contour` |Kon turen stöder nu både neurala-och standard röster. Kontur representerar ändringar i färgdjup. Dessa ändringar visas som en matris med mål vid angivna tids positioner i tal utmatningen. Varje mål definieras av uppsättningar av parameter par. Exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje parameter uppsättning anger platsen för bredd ändringen som en procent andel av längden på texten. Det andra värdet anger hur mycket du vill höja eller sänka avståndet med ett relativt värde eller ett uppräknings värde för färgdjup (se `pitch` ). | Valfritt |
 | `range` | Ett värde som representerar text områdets avstånd. Du kan uttrycka `range` använda samma absoluta värden, relativa värden eller uppräknings värden som används för att beskriva `pitch` . | Valfritt |
 | `rate` | Anger textens tal hastighet. Du kan uttrycka `rate` som:<ul><li>Ett relativt värde, uttryckt som ett tal som fungerar som en multiplikator för standardvärdet. Värdet *1* resulterar till exempel i ingen ändring av hastigheten. Värdet *0,5* resulterar i en halving av hastigheten. Värdet *3* resulterar i en rese frekvens.</li><li>Ett konstant värde:<ul><li>x – långsam</li><li>långsam</li><li>medel</li><li>snabb</li><li>x-fast</li><li>standard</li></ul></li></ul> | Valfritt |
 | `duration` | Tids perioden som ska förflyta när tal syntes tjänsten läser texten, i sekunder eller millisekunder. Till exempel *2s* eller *1800ms*. Varaktighet stöder endast standard röster.| Valfritt |

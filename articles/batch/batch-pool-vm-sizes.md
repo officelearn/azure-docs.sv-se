@@ -1,30 +1,30 @@
 ---
-title: Välj VM-storlekar för pooler
-description: Hur du väljer bland tillgängliga VM-storlekar för datornoderna i Azure Batch pooler
+title: Välj VM-storlekar och avbildningar för pooler
+description: Hur du väljer mellan tillgängliga VM-storlekar och OS-versioner för datornoderna i Azure Batch pooler
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd093006a9eb0c9746a19cb5f91b280145ddfb7e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8bb54a4db62f56f442f7cec81e6768241a05ffee
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517063"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95895238"
 ---
-# <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek för Compute-noder i en Azure Batch pool
+# <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek och avbildning för Compute-noder i en Azure Batch pool
 
 När du väljer en Node-storlek för en Azure Batch pool kan du välja bland nästan alla VM-storlekar som är tillgängliga i Azure. Azure erbjuder ett antal storlekar för virtuella Linux-och Windows-datorer för olika arbets belastningar.
 
-Det finns några undantag och begränsningar för att välja en VM-storlek:
-
-* Vissa VM-serier eller VM-storlekar stöds inte i batch.
-* Vissa VM-storlekar är begränsade och måste vara särskilt aktiverade innan de kan allokeras.
-
 ## <a name="supported-vm-series-and-sizes"></a>VM-serien och storlekar som stöds
+
+Det finns några undantag och begränsningar för att välja storlek på en virtuell dator för batch-poolen:
+
+- Vissa VM-serier eller VM-storlekar stöds inte i batch.
+- Vissa VM-storlekar är begränsade och måste vara särskilt aktiverade innan de kan allokeras.
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Pooler i konfiguration av virtuell dator
 
-Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storlekar ([Linux](../virtual-machines/sizes.md), [Windows](../virtual-machines/sizes.md)). I följande tabell finns mer information om storlekar och begränsningar som stöds.
+Batch-pooler i den virtuella dator konfigurationen stöder nästan alla [VM-storlekar](../virtual-machines/sizes.md). I följande tabell finns mer information om storlekar och begränsningar som stöds.
 
 | VM-serie  | Storlekar som stöds |
 |------------|---------|
@@ -71,6 +71,7 @@ Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storl
 <sup>2</sup> dessa VM-serier kan bara användas med virtuella datorer i generation 2.
 
 ### <a name="using-generation-2-vm-images"></a>Använda virtuella dator avbildningar i generation 2
+
 Vissa VM-serier, till exempel [Mv2](../virtual-machines/mv2-series.md), kan bara användas med [virtuella datorer i generation 2](../virtual-machines/generation-2.md). Generation 2 VM-avbildningar anges som alla VM-avbildningar med hjälp av egenskapen SKU för [imageReference](/rest/api/batchservice/pool/add#imagereference) -konfigurationen. "SKU"-strängarna har ett suffix som "-G2" eller "-Gen2". Om du vill hämta en lista över virtuella dator avbildningar som stöds av batch, inklusive generation 2-avbildningar, använder du ["lista över stödda bilder"](/rest/api/batchservice/account/listsupportedimages) API, [POWERSHELL](/powershell/module/az.batch/get-azbatchsupportedimage)eller [Azure CLI](/cli/azure/batch/pool/supported-images).
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pooler i moln tjänst konfiguration
@@ -84,19 +85,27 @@ Batch-pooler i moln tjänst konfigurationen har stöd [för alla VM-storlekar f�
 
 ## <a name="size-considerations"></a>Överväganden gällande storlek
 
-* **Program krav** – beakta egenskaperna och kraven för det program som ska köras på noderna. Det är lämpligt att ha i åtanke när du väljer den lämpligaste och mest kostnadseffektiva nodstorleken huruvida programmet är flertrådat och hur mycket minne det förbrukar. För [MPI arbets belastningar](batch-mpi.md) eller CUDA-program med flera instanser bör du överväga specialiserade [HPC](../virtual-machines/sizes-hpc.md) [-eller GPU-aktiverade VM-](../virtual-machines/sizes-gpu.md) storlekar. (Se [använda RDMA-kompatibla eller GPU-aktiverade instanser i batch-pooler](batch-pool-compute-intensive-sizes.md).)
+- **Program krav** – beakta egenskaperna och kraven för det program som ska köras på noderna. Det är lämpligt att ha i åtanke när du väljer den lämpligaste och mest kostnadseffektiva nodstorleken huruvida programmet är flertrådat och hur mycket minne det förbrukar. För [MPI arbets belastningar](batch-mpi.md) eller CUDA-program med flera instanser bör du överväga specialiserade [HPC](../virtual-machines/sizes-hpc.md) [-eller GPU-aktiverade VM-](../virtual-machines/sizes-gpu.md) storlekar. Mer information finns i [använda RDMA-kompatibla eller GPU-aktiverade instanser i batch-pooler](batch-pool-compute-intensive-sizes.md).
 
-* **Aktiviteter per nod** – det är vanligt att välja en Node-storlek förutsatt att en aktivitet körs på en nod i taget. Det kan dock vara fördelaktigt att ha flera aktiviteter (och därför flera program instanser) [som körs parallellt](batch-parallel-node-tasks.md) på datornoderna under jobb körningen. I det här fallet är det vanligt att välja en storlek för flera kärnor för att hantera den ökade efter frågan av parallell körning.
+- **Aktiviteter per nod** – det är vanligt att välja en Node-storlek förutsatt att en aktivitet körs på en nod i taget. Det kan dock vara fördelaktigt att ha flera aktiviteter (och därför flera program instanser) [som körs parallellt](batch-parallel-node-tasks.md) på datornoderna under jobb körningen. I det här fallet är det vanligt att välja en storlek för flera kärnor för att hantera den ökade efter frågan av parallell körning.
 
-* **Belastnings nivåer för olika aktiviteter** -alla noder i en pool har samma storlek. Om du avser att köra program med olika systemkrav och/eller belastningsnivåer rekommenderar vi att du använder olika pooler.
+- **Belastnings nivåer för olika aktiviteter** -alla noder i en pool har samma storlek. Om du avser att köra program med olika systemkrav och/eller belastningsnivåer rekommenderar vi att du använder olika pooler.
 
-* **Region tillgänglighet** – en VM-serie eller storlek kanske inte är tillgänglig i de regioner där du skapar dina batch-konton. Information om hur du kontrollerar att en storlek är tillgänglig finns i [produkt tillgänglighet per region](https://azure.microsoft.com/regions/services/).
+- **Region tillgänglighet** – en VM-serie eller storlek kanske inte är tillgänglig i de regioner där du skapar dina batch-konton. Information om hur du kontrollerar att en storlek är tillgänglig finns i [produkt tillgänglighet per region](https://azure.microsoft.com/regions/services/).
 
-* **Kvoter** - [kärnor](batch-quota-limit.md#resource-quotas) i batch-kontot kan begränsa antalet noder i en särskild storlek som du kan lägga till i en batch-pool. Information om hur du begär en kvot ökning finns i [den här artikeln](batch-quota-limit.md#increase-a-quota). 
+- **Kvoter** - [kärnor](batch-quota-limit.md#resource-quotas) i batch-kontot kan begränsa antalet noder i en särskild storlek som du kan lägga till i en batch-pool. Vid behov kan du [begära en kvot ökning](batch-quota-limit.md#increase-a-quota).
 
-* **Konfiguration av pool** – i allmänhet har du fler alternativ för VM-storlek när du skapar en pool i konfigurationen för den virtuella datorn, jämfört med moln tjänst konfigurationen.
+- **Konfiguration av pool** – i allmänhet har du fler alternativ för VM-storlek när du skapar en pool i konfigurationen för den virtuella datorn, jämfört med moln tjänst konfigurationen.
+
+## <a name="supported-vm-images"></a>VM-avbildningar som stöds
+
+Använd något av följande API: er för att returnera en lista med virtuella Windows-och Linux VM-avbildningar som stöds av batch, inklusive Node-agentens SKU-ID: n för varje avbildning:
+
+- Batch-tjänst REST API: [lista över avbildningar som stöds](/rest/api/batchservice/account/listsupportedimages)
+- PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
+- Azure CLI: [AZ batch pool som stöds – avbildningar](/cli/azure/batch/pool/supported-images)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
-* Information om hur du använder beräknings intensiva VM-storlekar finns i [använda RDMA-kompatibla eller GPU-aktiverade instanser i batch-pooler](batch-pool-compute-intensive-sizes.md).
+- Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
+- Information om hur du använder beräknings intensiva VM-storlekar finns i [använda RDMA-kompatibla eller GPU-aktiverade instanser i batch-pooler](batch-pool-compute-intensive-sizes.md).

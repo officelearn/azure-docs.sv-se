@@ -2,19 +2,21 @@
 title: Parametrar i mallar
 description: Beskriver hur du definierar parametrar i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 89c6984c587e8dae59c1825a99d4f8da1c06dafb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76122431"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911421"
 ---
 # <a name="parameters-in-azure-resource-manager-templates"></a>Parametrar i Azure Resource Manager-mallar
 
 I den här artikeln beskrivs hur du definierar och använder parametrar i din Azure Resource Manager-mall. Genom att ange olika värden för parametrar kan du återanvända en mall för olika miljöer.
 
 Resource Manager matchar parameter värden innan distributions åtgärderna startas. Oavsett var parametern används i mallen ersätter Resource Manager den med det matchade värdet.
+
+Varje parameter måste anges till en av [data typerna](template-syntax.md#data-types).
 
 ## <a name="define-parameter"></a>Definiera parameter
 
@@ -152,7 +154,7 @@ Du refererar till egenskaperna för objektet med hjälp av punkt operatorn.
 
 I följande exempel demonstreras scenarier för att använda parametrar.
 
-|Mall  |Beskrivning  |
+|Mall  |Description  |
 |---------|---------|
 |[parametrar med funktioner för standardvärden](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Visar hur du använder mall funktioner när du definierar standardvärden för parametrar. Mallen distribuerar inga resurser. Den skapar parameter värden och returnerar dessa värden. |
 |[parameter objekt](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Visar hur man använder ett objekt för en parameter. Mallen distribuerar inga resurser. Den skapar parameter värden och returnerar dessa värden. |

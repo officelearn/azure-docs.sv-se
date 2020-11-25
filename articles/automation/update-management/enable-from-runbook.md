@@ -3,14 +3,14 @@ title: Aktivera Azure Automation Uppdateringshantering från Runbook
 description: Den här artikeln beskriver hur du aktiverar Uppdateringshantering från en Runbook.
 services: automation
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/24/2020
 ms.custom: mvc
-ms.openlocfilehash: ec102015355e3312f5dc15fa526fa543da75e0de
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5a9f12a823a22bfb48ccb4482d3402464aa77fea
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222978"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908376"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Aktivera Uppdateringshantering från en runbook
 
@@ -34,7 +34,7 @@ Den här metoden använder två Runbooks:
     * *LASolutionSubscriptionId*: PRENUMERATIONS-ID för den plats där Log Analytics arbets ytan finns.
     * *LASolutionWorkspaceId*: arbetsyte-ID för Log Analytics arbets ytan som är länkad till ditt Automation-konto.
 
-    Dessa variabler används för att konfigurera arbets ytan för den virtuella datorn. Om dessa inte anges söker skriptet först efter vilken virtuell dator som har registrerats för att Uppdateringshantering i prenumerationen, följt av den prenumeration som Automation-kontot finns i, följt av alla andra prenumerationer som ditt användar konto har åtkomst till. Om de inte är korrekt konfigurerade kan det leda till att dina datorer registreras på vissa slumpmässiga Log Analytics-arbetsytan.
+    Dessa variabler används för att konfigurera arbets ytan för den virtuella datorn och du måste skapa dem manuellt. Om dessa inte anges söker skriptet först efter vilken virtuell dator som har registrerats för att Uppdateringshantering i prenumerationen, följt av den prenumeration som Automation-kontot finns i, följt av alla andra prenumerationer som ditt användar konto har åtkomst till. Om de inte är korrekt konfigurerade kan det leda till att dina datorer registreras på vissa slumpmässiga Log Analytics-arbetsytan.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -52,7 +52,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="install-and-update-modules"></a>Installera och uppdatera moduler
 
-Du måste uppdatera till de senaste Azure-modulerna och importera modulen [AZ. OperationalInsights](/powershell/module/az.operationalinsights) för att kunna aktivera uppdateringshantering för dina virtuella datorer med runbooken.
+Du måste uppdatera till de senaste Azure-modulerna och importera modulen [AzureRM. OperationalInsights](/powershell/module/azurerm.operationalinsights) för att kunna aktivera uppdateringshantering för dina virtuella datorer med runbooken.
 
 1. I ditt Automation-konto väljer du **moduler** under **delade resurser**.
 
@@ -66,9 +66,9 @@ Du måste uppdatera till de senaste Azure-modulerna och importera modulen [AZ. O
 
 5. Välj **Bläddra i galleriet** för att öppna modulens Galleri.
 
-6. Sök efter `Az.OperationalInsights` och importera modulen till ditt Automation-konto.
+6. Sök efter `AzureRM.OperationalInsights` och importera modulen till ditt Automation-konto.
 
-    ![Importera modulen OperationalInsights](media/enable-from-runbook/import-operational-insights-module.png)
+    ![Importera modulen OperationalInsights](media/enable-from-runbook/import-operational-insights-module-azurerm.png)
 
 ## <a name="select-azure-vm-to-manage"></a>Välj den virtuella Azure-dator som ska hanteras
 
@@ -99,7 +99,7 @@ Med Uppdateringshantering aktiverat kan du lägga till en virtuell Azure-dator f
 
    ![Importera Runbook för installation](media/enable-from-runbook/import-from-gallery.png)
 
-6. På sidan **Runbook** väljer du Runbook **-flödet Enable-MultipleSolution** och klickar sedan på **Redigera**. Välj  **publicera**i text redigeraren.
+6. På sidan **Runbook** väljer du Runbook **-flödet Enable-MultipleSolution** och klickar sedan på **Redigera**. Välj  **publicera** i text redigeraren.
 
 7. När du uppmanas att bekräfta klickar du på **Ja** för att publicera runbooken.
 

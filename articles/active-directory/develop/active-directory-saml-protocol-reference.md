@@ -13,11 +13,11 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 06f80f94be25e42c9e8f0270e6cb15aca086ae18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87552806"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994408"
 ---
 # <a name="how-microsoft-identity-platform-uses-the-saml-protocol"></a>Hur Microsoft Identity Platform använder SAML-protokollet
 
@@ -27,7 +27,7 @@ SAML-protokollet kräver identitets leverantören (Microsoft Identity Platform) 
 
 När ett program har registrerats med Azure AD registrerar appens utvecklare en federationsserverproxy med Azure AD. Den här informationen inkluderar **omdirigerings-URI** och **metadata-URI** för programmet.
 
-Microsoft Identity Platform använder moln tjänstens **metadata-URI** för att hämta signerings nyckeln och utloggnings-URI: n. Kunden kan öppna appen i **Azure AD-> app Registration** och sedan i **Inställningar-> egenskaper**kan de uppdatera UTloggnings-URL: en. På så sätt kan Microsoft Identity Platform skicka svaret till rätt URL. 
+Microsoft Identity Platform använder moln tjänstens **metadata-URI** för att hämta signerings nyckeln och utloggnings-URI: n. Kunden kan öppna appen i **Azure AD-> app Registration** och sedan i **Inställningar-> egenskaper** kan de uppdatera UTloggnings-URL: en. På så sätt kan Microsoft Identity Platform skicka svaret till rätt URL. 
 
 Azure Active Directory exponerar klient-och common (klient oberoende) enkel inloggning och enkel inloggnings slut punkter. Dessa URL: er representerar adresser bara platser – de är inte bara identifierare – så att du kan gå till slut punkten för att läsa metadata.
 

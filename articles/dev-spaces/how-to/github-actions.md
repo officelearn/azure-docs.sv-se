@@ -8,11 +8,11 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, 
 manager: gwallace
 ms.custom: devx-track-js, devx-track-azurecli
 ms.openlocfilehash: 9bed61861c80f141270e50b644b32ae42fbe8e77
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748144"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995580"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub-åtgärder & Azure Kubernetes service (för hands version)
 
@@ -88,31 +88,31 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 > [!IMPORTANT]
 > Du måste ha aktiverat GitHub-åtgärder för din lagrings plats. Om du vill aktivera GitHub-åtgärder för din lagrings plats går du till din lagrings plats på GitHub, klickar på fliken åtgärder och väljer att aktivera åtgärder för den här lagrings platsen.
 
-Navigera till din förgrenade lagrings plats och klicka på *Inställningar* . Klicka på *hemligheter* i den vänstra panelen. Klicka på *Lägg till en ny hemlighet* för att lägga till varje ny hemlighet nedan:
+Navigera till din förgrenade lagrings plats och klicka på *Inställningar*. Klicka på *hemligheter* i den vänstra panelen. Klicka på *Lägg till en ny hemlighet* för att lägga till varje ny hemlighet nedan:
 
-1. *AZURE_CREDENTIALS* : hela utdata från tjänstens huvud namn skapas.
-1. *RESOURCE_GROUP* : resurs gruppen för ditt AKS-kluster, som i det här exemplet är *MyResourceGroup* .
-1. *CLUSTER_NAME* : namnet på ditt AKS-kluster, som i det här exemplet är *MyAKS* .
-1. *CONTAINER_REGISTRY* : *namnet* för ACR.
-1. *Värd* : värden för ditt dev Space, som tar formuläret *<MASTER_SPACE>. <APP_NAME>. <* HOST_SUFFIX>, som i det här exemplet är *dev.bikesharingweb.fedcab0987.EUs.azds.io* .
-1. *IMAGE_PULL_SECRET* : namnet på hemligheten som du vill använda, till exempel *demo-Secret* .
-1. *MASTER_SPACE* : namnet på det överordnade dev-utrymmet, som i det här exemplet är *dev* .
-1. *REGISTRY_USERNAME* : *clientId* från JSON-utdata från det att tjänstens huvud namn skapas.
-1. *REGISTRY_PASSWORD* : *clientSecret* från JSON-utdata från det att tjänstens huvud namn skapas.
+1. *AZURE_CREDENTIALS*: hela utdata från tjänstens huvud namn skapas.
+1. *RESOURCE_GROUP*: resurs gruppen för ditt AKS-kluster, som i det här exemplet är *MyResourceGroup*.
+1. *CLUSTER_NAME*: namnet på ditt AKS-kluster, som i det här exemplet är *MyAKS*.
+1. *CONTAINER_REGISTRY*: *namnet* för ACR.
+1. *Värd*: värden för ditt dev Space, som tar formuläret *<MASTER_SPACE>. <APP_NAME>. <* HOST_SUFFIX>, som i det här exemplet är *dev.bikesharingweb.fedcab0987.EUs.azds.io*.
+1. *IMAGE_PULL_SECRET*: namnet på hemligheten som du vill använda, till exempel *demo-Secret*.
+1. *MASTER_SPACE*: namnet på det överordnade dev-utrymmet, som i det här exemplet är *dev*.
+1. *REGISTRY_USERNAME*: *clientId* från JSON-utdata från det att tjänstens huvud namn skapas.
+1. *REGISTRY_PASSWORD*: *clientSecret* från JSON-utdata från det att tjänstens huvud namn skapas.
 
 > [!NOTE]
 > Alla dessa hemligheter används av GitHub-åtgärden och konfigureras i [. GitHub/arbets flöden/Bikes. yml][github-action-yaml].
 
-Om du vill uppdatera huvud utrymmet efter att din PR har slagits samman lägger du till *GATEWAY_HOST* hemlighet, som tar formuläret *<MASTER_SPACE>. GATEWAY. <HOST_SUFFIX>* , som i det här exemplet är *dev.Gateway.fedcab0987.EUs.azds.io* . När du har slagit samman ändringarna i huvud grenen i din förgrening, kommer en annan åtgärd att köras för att återskapa och köra hela programmet i huvud utvecklings utrymmet. I det här exemplet är huvud utrymmet *dev* . Den här åtgärden har kon figurer ATS i [. GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
+Om du vill uppdatera huvud utrymmet efter att din PR har slagits samman lägger du till *GATEWAY_HOST* hemlighet, som tar formuläret *<MASTER_SPACE>. GATEWAY. <HOST_SUFFIX>*, som i det här exemplet är *dev.Gateway.fedcab0987.EUs.azds.io*. När du har slagit samman ändringarna i huvud grenen i din förgrening, kommer en annan åtgärd att köras för att återskapa och köra hela programmet i huvud utvecklings utrymmet. I det här exemplet är huvud utrymmet *dev*. Den här åtgärden har kon figurer ATS i [. GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
-Dessutom, om du vill att ändringarna i din PR ska köras i ett grandchild-utrymme, uppdaterar du *MASTER_SPACE* och *värd* hemligheter. Om ditt program till exempel körs i *dev* med en *azureuser1 dev/* , så att PR-körningen kan köras i ett underordnat utrymme med *dev/azureuser1* :
+Dessutom, om du vill att ändringarna i din PR ska köras i ett grandchild-utrymme, uppdaterar du *MASTER_SPACE* och *värd* hemligheter. Om ditt program till exempel körs i *dev* med en *azureuser1 dev/*, så att PR-körningen kan köras i ett underordnat utrymme med *dev/azureuser1*:
 
-* Uppdatera *MASTER_SPACE* till det underordnade utrymmet som du vill ha som överordnat utrymme, i det här exemplet *azureuser1* .
-* Uppdatera *värd* till *<GRANDPARENT_SPACE>. <APP_NAME>.* <HOST_SUFFIX>, i det här exemplet *dev.bikesharingweb.fedcab0987.EUs.azds.io* .
+* Uppdatera *MASTER_SPACE* till det underordnade utrymmet som du vill ha som överordnat utrymme, i det här exemplet *azureuser1*.
+* Uppdatera *värd* till *<GRANDPARENT_SPACE>. <APP_NAME>.*<HOST_SUFFIX>, i det här exemplet *dev.bikesharingweb.fedcab0987.EUs.azds.io*.
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Skapa en ny gren för kod ändringar
 
-Navigera till `BikeSharingApp/` och skapa en ny gren med namnet *Bikes-bilder* .
+Navigera till `BikeSharingApp/` och skapa en ny gren med namnet *Bikes-bilder*.
 
 ```cmd
 cd dev-spaces/samples/BikeSharingApp/
@@ -162,7 +162,7 @@ När åtgärden har slutförts visas en kommentar med en URL till ditt nya under
 
 Navigera till *bikesharingweb* -tjänsten genom att öppna URL: en från kommentaren. Välj *Aurelia Briggs (kund)* som användare och välj sedan en cykel att hyra. Kontrol lera att du inte längre ser platshållarbilden för cykeln.
 
-Om du sammanfogar dina ändringar i *huvud* grenen i din förgrening, kommer en annan åtgärd att köras för att återskapa och köra hela programmet i det överordnade dev-utrymmet. I det här exemplet är det överordnade utrymmet *dev* . Den här åtgärden har kon figurer ATS i [. GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
+Om du sammanfogar dina ändringar i *huvud* grenen i din förgrening, kommer en annan åtgärd att köras för att återskapa och köra hela programmet i det överordnade dev-utrymmet. I det här exemplet är det överordnade utrymmet *dev*. Den här åtgärden har kon figurer ATS i [. GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
 

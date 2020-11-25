@@ -11,11 +11,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266317"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994782"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Självstudie: grundläggande Active Directory miljö
 
@@ -26,7 +26,7 @@ Den här självstudien vägleder dig genom att skapa en grundläggande Active Di
 Du kan använda den miljö som du skapar i självstudien för att testa olika aspekter av hybrid identitets scenarier och är ett krav för några av de här självstudierna.  Om du redan har en befintlig Active Directory miljö kan du använda den som en ersättning.  Den här informationen tillhandahålls för personer som mitt börjar från ingenting.
 
 Den här självstudien består av
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande är förutsättningar som krävs för den här självstudien
 - En dator med [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Ett [externt nätverkskort](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) så att den virtuella datorn kan kommunicera med Internet.

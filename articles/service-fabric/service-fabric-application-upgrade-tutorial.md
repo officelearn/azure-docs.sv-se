@@ -4,11 +4,11 @@ description: Den här artikeln beskriver hur du distribuerar ett Service Fabric 
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: acde2f4e51bee29d2eefb0d5fbb54fbe421a41f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82195875"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996244"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Själv studie kurs om Service Fabric program uppgradering med Visual Studio
 > [!div class="op_single_selector"]
@@ -19,10 +19,10 @@ ms.locfileid: "82195875"
 
 <br/>
 
-Azure Service Fabric fören klar processen med att uppgradera moln program genom att se till att endast ändrade tjänster uppgraderas och att program hälsan övervakas under uppgraderings processen. Det återställer också programmet automatiskt till den tidigare versionen när problem påträffas. Service Fabric program uppgraderingar är *noll avbrotts*tid, eftersom programmet kan uppgraderas utan drift avbrott. Den här självstudien beskriver hur du slutför en rullande uppgradering från Visual Studio.
+Azure Service Fabric fören klar processen med att uppgradera moln program genom att se till att endast ändrade tjänster uppgraderas och att program hälsan övervakas under uppgraderings processen. Det återställer också programmet automatiskt till den tidigare versionen när problem påträffas. Service Fabric program uppgraderingar är *noll avbrotts* tid, eftersom programmet kan uppgraderas utan drift avbrott. Den här självstudien beskriver hur du slutför en rullande uppgradering från Visual Studio.
 
 ## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Steg 1: Bygg och publicera exempel på visuella objekt
-Börja med att ladda ned [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) -programmet från GitHub. Sedan kan du bygga och publicera programmet genom att högerklicka på programprojektet, **VisualObjects**och välja kommandot **publicera** i meny alternativet Service Fabric.
+Börja med att ladda ned [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) -programmet från GitHub. Sedan kan du bygga och publicera programmet genom att högerklicka på programprojektet, **VisualObjects** och välja kommandot **publicera** i meny alternativet Service Fabric.
 
 ![Snabb meny för ett Service Fabric program][image1]
 
@@ -37,7 +37,7 @@ Nu kan du klicka på **publicera** i dialog rutan. Du kan använda [Service Fabr
 ## <a name="step-2-update-the-visual-objects-sample"></a>Steg 2: uppdatera det visuella objekt exemplet
 Du kanske märker att de visuella objekten inte roterar med den version som distribuerades i steg 1. Vi ska uppgradera det här programmet till ett ställe där de visuella objekten också roterar.
 
-Välj VisualObjects. ActorService-projektet i VisualObjects-lösningen och öppna **VisualObjectActor.cs** -filen. I den filen går du till metoden `MoveObject` , kommentera ut och ta bort `visualObject.Move(false)` kommentaren `visualObject.Move(true)` . Den här kod ändringen roterar objekten när tjänsten har uppgraderats.  **Nu kan du bygga (inte återskapa) lösningen**, som bygger de ändrade projekten. Om du väljer *återskapa alla*måste du uppdatera versionerna för alla projekt.
+Välj VisualObjects. ActorService-projektet i VisualObjects-lösningen och öppna **VisualObjectActor.cs** -filen. I den filen går du till metoden `MoveObject` , kommentera ut och ta bort `visualObject.Move(false)` kommentaren `visualObject.Move(true)` . Den här kod ändringen roterar objekten när tjänsten har uppgraderats.  **Nu kan du bygga (inte återskapa) lösningen**, som bygger de ändrade projekten. Om du väljer *återskapa alla* måste du uppdatera versionerna för alla projekt.
 
 Vi behöver också version av programmet. Om du vill göra versionen ändringar när du högerklickar på **VisualObjects** -projektet kan du använda alternativet Visual Studio **Edit manifest versions** . Om du väljer det här alternativet visas dialog rutan för versions versioner på följande sätt:
 

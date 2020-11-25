@@ -14,15 +14,15 @@ ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: 0c5b06fd14f526ca90b1b922be281af55ba00116
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077497"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995224"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Loggar in valfri Azure Active Directory-användare med programmönstret för flera klienter
 
-Om du erbjuder ett SaaS-program (program vara som en tjänst) till många organisationer kan du konfigurera ditt program så att det accepterar inloggningar från valfri Azure Active Directory (Azure AD)-klient. Den här konfigurationen kallas *att göra programmet till flera klienter* . Användare i en Azure AD-klient kommer att kunna logga in till ditt program när de har samtyckt till att använda sitt konto med ditt program.
+Om du erbjuder ett SaaS-program (program vara som en tjänst) till många organisationer kan du konfigurera ditt program så att det accepterar inloggningar från valfri Azure Active Directory (Azure AD)-klient. Den här konfigurationen kallas *att göra programmet till flera klienter*. Användare i en Azure AD-klient kommer att kunna logga in till ditt program när de har samtyckt till att använda sitt konto med ditt program.
 
 Om du har ett befintligt program som har ett eget konto system, eller stöder andra typer av inloggningar från andra moln leverantörer, är det enkelt att lägga till Azure AD-inloggning från en klient. Registrera bara din app, Lägg till inloggnings kod via OAuth2, OpenID Connect eller SAML och Lägg till [knappen "logga in med Microsoft"][AAD-App-Branding] i ditt program.
 
@@ -40,7 +40,7 @@ Nu ska vi titta närmare på varje steg. Du kan också gå direkt till exemplet 
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Uppdatera registreringen till att vara flera innehavare
 
-Som standard är Web App/API-registreringar i Azure AD en enda klient. Du kan registrera flera klient organisationer genom att söka efter de **konto typer som stöds** i fönstret **verifiering** i program registreringen i [Azure Portal][AZURE-portal] och ange dem som **konton i en organisations katalog** .
+Som standard är Web App/API-registreringar i Azure AD en enda klient. Du kan registrera flera klient organisationer genom att söka efter de **konto typer som stöds** i fönstret **verifiering** i program registreringen i [Azure Portal][AZURE-portal] och ange dem som **konton i en organisations katalog**.
 
 Innan ett program kan göras till flera klienter kräver Azure AD att app-ID-URI: n för programmet är globalt unik. App-ID-URI är en av de sätt som ett program identifieras i protokollmeddelanden. För ett program för en enskild klientorganisation räcker det att app-ID-URI är unikt i den klientorganisationen. För ett program för flera klientorganisationer måste den vara globalt unikt så att Azure AD kan hitta programmet bland alla klientorganisationer. Global unikhet framtvingas genom att det krävs att app-ID-URI har ett värdnamn som matchar en verifierad domän i Azure AD-klientorganisationen.
 
@@ -125,11 +125,11 @@ Vissa delegerade behörigheter kräver också en klient administratörs medgivan
 
 Om programmet använder behörigheter som kräver administratörs medgivande måste du ha en gest som en knapp eller länk där administratören kan initiera åtgärden. Begäran som ditt program skickar för den här åtgärden är den vanliga OAuth2/OpenID Connect-auktoriseringsbegäran som också innehåller frågesträngparametern `prompt=admin_consent` . När administratören har samtyckt och tjänstens huvud namn har skapats i kundens klient behöver efterföljande inloggnings begär Anden inte `prompt=admin_consent` parametern. Eftersom administratören har beslutat att de begärda behörigheterna är acceptabla, uppmanas inga andra användare i klienten att tillfrågas om godkännande från den punkten.
 
-En klientadministratör kan inaktivera möjligheten för vanliga användare att samtycka till program. Om den här funktionen har inaktiverats krävs alltid administratörens godkännande för program som ska användas i klienten. Om du vill testa att ditt program har inaktiverats för slutanvändare kan du hitta konfigurations växeln i [Azure Portal][AZURE-portal] i avsnittet **[användar inställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** under **företags program** .
+En klientadministratör kan inaktivera möjligheten för vanliga användare att samtycka till program. Om den här funktionen har inaktiverats krävs alltid administratörens godkännande för program som ska användas i klienten. Om du vill testa att ditt program har inaktiverats för slutanvändare kan du hitta konfigurations växeln i [Azure Portal][AZURE-portal] i avsnittet **[användar inställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** under **företags program**.
 
 `prompt=admin_consent`Parametern kan också användas av program som begär behörigheter som inte kräver administratörs medgivande. Ett exempel på när det används är om programmet kräver en upplevelse där klient administratören "registrerar sig" en gång, och inga andra användare tillfrågas om medgivande från den tidpunkten.
 
-Om ett program kräver administratörs medgivande och en administratör loggar in utan att den `prompt=admin_consent` parameter skickas, gäller när administratören har samtyckt till det program som den endast kommer att använda **för sitt användar konto** . Vanliga användare kommer fortfarande inte att kunna logga in eller godkänna programmet. Den här funktionen är användbar om du vill ge klient organisations administratören möjlighet att utforska ditt program innan andra användare får åtkomst.
+Om ett program kräver administratörs medgivande och en administratör loggar in utan att den `prompt=admin_consent` parameter skickas, gäller när administratören har samtyckt till det program som den endast kommer att använda **för sitt användar konto**. Vanliga användare kommer fortfarande inte att kunna logga in eller godkänna programmet. Den här funktionen är användbar om du vill ge klient organisations administratören möjlighet att utforska ditt program innan andra användare får åtkomst.
 
 ### <a name="consent-and-multi-tier-applications"></a>Medgivande och program på flera nivåer
 

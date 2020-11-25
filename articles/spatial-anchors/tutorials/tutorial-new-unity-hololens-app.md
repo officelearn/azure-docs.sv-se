@@ -1,25 +1,25 @@
 ---
 title: 'Självstudie: skapa en ny HoloLens Unit-app'
 description: I den här självstudien får du lära dig hur du skapar en ny HoloLens Unity-app med hjälp av Azure spatiala ankare.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 08/17/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e94ced70ad17286612328884d03d4d1253b7818b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: ee0bf9b4ce009f37dd1931d4ed030defa24e7d38
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096546"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95996276"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Självstudie: steg-för-steg-anvisningar för att skapa en ny HoloLens Unity-app med hjälp av Azure spatiala ankare
 
 I den här självstudien visas hur du skapar en ny HoloLens Unity-app med Azure spatiala ankare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa den här självstudien måste du ha:
 
@@ -48,7 +48,7 @@ Först ställer vi in kvalitets inställningar för programmet.
 
 Vi behöver konfigurera Unity-appen med en fördjupad vy i stället för en 2D-vy. Vi kan skapa en avancerad vy genom att aktivera stöd för Virtual Reality på Unity riktade mot Windows 10 SDK.
 1. Gå till **Redigera**  >  **projekt inställnings**  >  **spelare**.
-2. I **panelen kontrollant** för **Player-inställningar**väljer du **Windows** -ikonen.
+2. I **panelen kontrollant** för **Player-inställningar** väljer du **Windows** -ikonen.
 3. Expandera **inställnings gruppen XR** .
 4. I avsnittet **rendering** markerar du kryss rutan **Virtual verklighet support** för att lägga till en ny **Virtual verklighet SDK** -lista.
 5. Kontrol lera att **Windows Mixed Reality** visas i listan. Om inte väljer du **+** knappen längst ned i listan och väljer **Windows Mixed Reality**.
@@ -58,17 +58,17 @@ Vi behöver konfigurera Unity-appen med en fördjupad vy i stället för en 2D-v
 
 **Verifiera konfiguration av skript Server del**
 1. Gå till **Redigera**  >  **projekt inställnings**  >  **spelare** (du kanske fortfarande har en **spelare** öppen från föregående steg).
-2. I **panelen kontrollant** för **Player-inställningar**väljer du **Windows Store** -ikonen.
+2. I **panelen kontrollant** för **Player-inställningar** väljer du **Windows Store** -ikonen.
 3. I avsnittet **andra** konfigurations inställningar kontrollerar du att **skript Server delen** är inställd på **IL2CPP**.
 
 **Ange funktioner**
 1. Gå till **Redigera**  >  **projekt inställnings**  >  **spelare** (du kanske fortfarande har en **spelare** öppen från föregående steg).
-2. I **panelen kontrollant** för **Player-inställningar**väljer du **Windows Store** -ikonen.
+2. I **panelen kontrollant** för **Player-inställningar** väljer du **Windows Store** -ikonen.
 3. I avsnittet konfiguration av **publicerings inställningar** kontrollerar du **InternetClientServer** och **SpatialPerception**.
 
 **Konfigurera den virtuella huvud kameran**
-1. I **panelen hierarki**väljer du **huvud kamera**.
-2. I **kontrollen**anger du dess omvandlings position till **0, 0, 0**.
+1. I **panelen hierarki** väljer du **huvud kamera**.
+2. I **kontrollen** anger du dess omvandlings position till **0, 0, 0**.
 3. Hitta egenskapen **Clear Flags** och ändra List rutan från **Skybox** till **heldragen färg**.
 4. Klicka på **bakgrunds** fältet för att öppna en färg väljare.
 5. Ange **R, G, B och A** till **0**.
@@ -82,7 +82,7 @@ Vi behöver konfigurera Unity-appen med en fördjupad vy i stället för en 2D-v
 
 **Skapa sfär-Prefab**
 1. Gå till **GameObject**  ->  **3D Object**  ->  **Sphere**.
-2. I **kontrollen**anger du dess skala till **0,25, 0,25, 0,25**.
+2. I **kontrollen** anger du dess skala till **0,25, 0,25, 0,25**.
 3. Hitta **klot** -objektet i **hierarkifönstret** . Klicka på den och dra den till mappen **till gångar** i fönstret **projekt** .
 4. Högerklicka och **ta bort** den ursprungliga klotet som du skapade i **hierarkifönstret** .
 
@@ -103,12 +103,12 @@ Lägg sedan till följande medlemsvariabler-variabler i `AzureSpatialAnchorsScri
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-47,53-57,65-84)]
 
 Innan vi fortsätter måste vi ställa in sfär-Prefab som vi skapade i vår spherePrefab-medlems variabel. Gå tillbaka till **Unity**.
-1. I **Unity**väljer du **MixedRealityCloud** -objektet i fönstret **hierarki** .
+1. I **Unity** väljer du **MixedRealityCloud** -objektet i fönstret **hierarki** .
 2. Klicka på **sfär** -Prefab som du sparade i fönstret **projekt** . Dra **klotet** som du klickade på i **sfär Prefab** -området under **Azure spatial ankare skript (skript)** i fönstret **kontrollant** .
 
 Du bör nu ha **sfär** uppsättningen som Prefab i skriptet. Bygg från **Unity** och öppna sedan den resulterande **Visual Studio** -lösningen igen, precis som när du precis gjorde [det](#trying-it-out).
 
-I **Visual Studio**öppnar du `AzureSpatialAnchorsScript.cs` igen. Lägg till följande kod i din- `Start()` metod. Den här koden kommer att kopplas samman `GestureRecognizer` , vilket kommer att anropas `HandleTap` när den identifierar en Lufts tryckning.
+I **Visual Studio** öppnar du `AzureSpatialAnchorsScript.cs` igen. Lägg till följande kod i din- `Start()` metod. Den här koden kommer att kopplas samman `GestureRecognizer` , vilket kommer att anropas `HandleTap` när den identifierar en Lufts tryckning.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=86-95,98&highlight=4-10)]
 
@@ -164,7 +164,7 @@ Den här metoden är kompatibel med Unity-versioner 2019.1 +.
 > [!WARNING]
 > Fördelningen av paket till gångs paket för Azures spatialdata SDK kommer att bli föråldrad efter SDK-version 2.5.0.
 
-Nu ska vi ladda ned Azures spatiala ankare SDK. Gå till [sidan med GitHub-versioner för Azure spatial ankare](https://github.com/Azure/azure-spatial-anchors-samples/releases). Under **till gångar**laddar du ned **AzureSpatialAnchors. unitypackage**. Gå till **till gångar**i Unity, Välj **Importera paket**  >  **anpassat paket.**.. Navigera till paketet och välj **Öppna**.
+Nu ska vi ladda ned Azures spatiala ankare SDK. Gå till [sidan med GitHub-versioner för Azure spatial ankare](https://github.com/Azure/azure-spatial-anchors-samples/releases). Under **till gångar** laddar du ned **AzureSpatialAnchors. unitypackage**. Gå till **till gångar** i Unity, Välj **Importera paket**  >  **anpassat paket.**.. Navigera till paketet och välj **Öppna**.
 
 I fönstret nytt **import Uniting-paket** som öppnas, avmarkerar du **plugin** -program och väljer sedan **Importera** i det nedre högra hörnet.
 

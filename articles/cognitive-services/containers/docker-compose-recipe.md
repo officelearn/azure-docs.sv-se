@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: aahi
 ms.openlocfilehash: cedcf8a3fcd656c4af0ca7493c598791d35d20d9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130569"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996141"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Använda Docker Compose för att distribuera flera containrar
 
@@ -39,7 +39,7 @@ Den här proceduren kräver flera verktyg som måste installeras och köras loka
 
 ## <a name="docker-compose-file"></a>Docker Compose-fil
 
-YAML-filen definierar alla tjänster som ska distribueras. Dessa tjänster är beroende av antingen en `DockerFile` eller en befintlig behållar avbildning. I det här fallet ska vi använda två förhands gransknings bilder. Kopiera och klistra in följande YAML-fil och spara den som *Docker-Compose. yaml* . Ange lämpliga **apiKey** -, **fakturerings** -och **EndpointUri** -värden i filen.
+YAML-filen definierar alla tjänster som ska distribueras. Dessa tjänster är beroende av antingen en `DockerFile` eller en befintlig behållar avbildning. I det här fallet ska vi använda två förhands gransknings bilder. Kopiera och klistra in följande YAML-fil och spara den som *Docker-Compose. yaml*. Ange lämpliga **apiKey**-, **fakturerings**-och **EndpointUri** -värden i filen.
 
 ```yaml
 version: '3.7'

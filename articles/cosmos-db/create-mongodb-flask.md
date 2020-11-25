@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
 ms.openlocfilehash: 58f22a335f4c619a6348e9e127e60f5a79f658b2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099665"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994576"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: bygga en python-app med Azure Cosmos DB s API för MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -100,7 +100,7 @@ Följande kodfragment är alla hämtade från *app.py* -filen och använder ansl
 
 3. Ange sedan miljövariabeln för kolv-appen med `set FLASK_APP=app.py` , `$env:FLASK_APP = app.py` för PowerShell-redigerare eller `export FLASK_APP=app.py` om du använder en Mac-dator. 
 
-4. Kör appen med `flask run` och bläddra till *http: \/ /127.0.0.1:5000/* .
+4. Kör appen med `flask run` och bläddra till *http: \/ /127.0.0.1:5000/*.
 
 5. Lägg till och ta bort uppgifter och se hur de läggs till och ändras i samlingen.
 
@@ -114,15 +114,15 @@ Om du vill testa koden mot ett Live Azure Cosmos DB-konto går du till Azure Por
 
 Om du vill testa koden mot Live Azure Cosmos DB-kontot hämtar du information om anslutnings strängen. Kopiera den till appen.
 
-1. I ditt Azure Cosmos DB konto i Azure Portal klickar du på **anslutnings sträng** i den vänstra navigerings rutan och väljer sedan **Läs-och skriv nycklar** . Du använder kopierings knapparna till höger på skärmen för att kopiera användar namnet, anslutnings strängen och lösen ordet. 
+1. I ditt Azure Cosmos DB konto i Azure Portal klickar du på **anslutnings sträng** i den vänstra navigerings rutan och väljer sedan **Läs-och skriv nycklar**. Du använder kopierings knapparna till höger på skärmen för att kopiera användar namnet, anslutnings strängen och lösen ordet. 
 
 2. Öppna filen *app.py* i rotkatalogen.
 
-3. Kopiera ditt **användarnamn** från portalen (med kopieringsknappen) och gör det till värdet för **name** i filen *app.py* .
+3. Kopiera ditt **användarnamn** från portalen (med kopieringsknappen) och gör det till värdet för **name** i filen *app.py*.
 
 4. Kopiera sedan värdet för **anslutnings strängen** från portalen och gör det till värdet för **MongoClient** i *app.py* -filen.
 
-5. Kopiera slutligen **lösenordet** från portalen och gör det till värdet för **password** i filen *app.py* .
+5. Kopiera slutligen **lösenordet** från portalen och gör det till värdet för **password** i filen *app.py*.
 
 Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. Du kan köra den på samma sätt som innan.
 

@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
 ms.openlocfilehash: 99beddba470f73d6eadb448dfe1b77453ce6426d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541597"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996227"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replikera data till Azure Database for MySQL
 
@@ -44,7 +44,7 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 - Om käll servern har SSL aktiverat kontrollerar du att det SSL-CA-certifikat som har angetts för domänen har inkluderats i den `mysql.az_replication_change_master` lagrade proceduren. Se följande [exempel](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) och `master_ssl_ca` parametern.
 - Se till att käll serverns IP-adress har lagts till Azure Database for MySQL replik serverns brand Väggs regler. Uppdatera brandväggsregler med hjälp av [Azure-portalen](./howto-manage-firewall-using-portal.md) eller [Azure CLI](./howto-manage-firewall-using-cli.md).
 - Se till att den dator som är värd för käll servern tillåter både inkommande och utgående trafik på port 3306.
-- Kontrol lera att käll servern har en **offentlig IP-adress** , att DNS är offentligt tillgängligt eller har ett fullständigt kvalificerat domän namn (FQDN).
+- Kontrol lera att käll servern har en **offentlig IP-adress**, att DNS är offentligt tillgängligt eller har ett fullständigt kvalificerat domän namn (FQDN).
 
 ### <a name="other"></a>Övrigt
 - Datareplikering stöds bara i Generell användning och minnesoptimerade pris nivåer.

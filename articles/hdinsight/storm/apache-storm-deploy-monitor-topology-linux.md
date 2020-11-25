@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085743"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995598"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuera och hantera Apache Storm topologier på Azure HDInsight
 
 I det här dokumentet lär du dig grunderna för att hantera och övervaka [Apache Storm](https://storm.apache.org/) topologier som körs på storm i HDInsight-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Storm kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Storm** för **kluster typ**.
 
@@ -44,13 +44,13 @@ Du kan använda Data Lake verktyg för Visual Studio för att skicka C#-eller hy
 
 1. I fönstret **skapa ett nytt projekt** markerar du rutan Sök och anger `Storm` . Välj sedan **Storm-exempel** från resultat listan och välj **Nästa**.
 
-1. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn**och går till eller skapar en **plats där** du vill spara det nya projektet i. Välj sedan **Skapa**.
+1. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** och går till eller skapar en **plats där** du vill spara det nya projektet i. Välj sedan **Skapa**.
 
     ![Konfigurera det nya projekt fönstret, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
-1. Från **Server Explorer**högerklickar du på **Azure** och väljer **Anslut till Microsoft Azure prenumeration...** och slutför inloggnings processen.
+1. Från **Server Explorer** högerklickar du på **Azure** och väljer **Anslut till Microsoft Azure prenumeration...** och slutför inloggnings processen.
 
-1. Från **Solution Explorer**högerklickar du på projektet och väljer **Skicka till storm på HDInsight**.
+1. Från **Solution Explorer** högerklickar du på projektet och väljer **Skicka till storm på HDInsight**.
 
     > [!NOTE]  
     > Ange inloggnings uppgifter för din Azure-prenumeration om du uppmanas att göra det. Om du har mer än en prenumeration loggar du in på den som innehåller din storm i HDInsight-klustret.
@@ -172,7 +172,7 @@ Storm-ANVÄNDARGRÄNSSNITTET tillhandahåller ett webb gränssnitt för att arbe
 
 Huvud sidan i storm-ANVÄNDARGRÄNSSNITTET innehåller följande information:
 
-| Section | Beskrivning |
+| Section | Description |
 | --- | --- |
 | Klustersammanfattning| Grundläggande information om Storm-klustret. |
 | Sammanfattning av Nimbus | En lista med grundläggande Nimbus-information. |
@@ -188,7 +188,7 @@ Huvud sidan för Storm-gränssnittet liknar den här webb sidan:
 
 Om du väljer en länk från avsnittet **topologi Sammanfattning** visas följande information om topologin:
 
-| Section | Beskrivning |
+| Section | Description |
 | --- | --- |
 | Översikt över topologi | Grundläggande information om topologin. |
 | Åtgärder för topologi| Hanterings åtgärder som du kan utföra för topologin. De tillgängliga åtgärderna beskrivs senare i det här avsnittet. |
@@ -205,7 +205,7 @@ Sammanfattnings sidan för Storm-topologin liknar den här webb sidan:
 
 I avsnittet **topologi åtgärder** kan du välja följande knappar för att utföra en åtgärd:
 
-| Button (Knapp) | Beskrivning |
+| Button (Knapp) | Description |
 | --- | --- |
 | Aktivera | Återupptar bearbetning av en inaktive rad topologi. |
 | Inaktivera | Pausar en topologi som körs. |
@@ -219,14 +219,14 @@ I avsnittet **topologi åtgärder** kan du välja följande knappar för att utf
 
 Om du väljer en kanalen i avsnittet **kanaler** eller **bultar** visas följande information om det valda objektet:
 
-| Section | Beskrivning |
+| Section | Description |
 | --- | --- |
 | Sammanfattning av komponent | Grundläggande information om kanalen eller bult. |
 | Komponent åtgärder | **Felsök** och **stoppa fel söknings** knapparna. |
 | Kanalen stats statistik eller bult | Statistik om kanalen eller bult. Om du vill ange en tidsram för en post i det här avsnittet väljer du dess länk i **fönster** kolumnen. |
 | (Endast bult)<br/>Ingångs statistik *(tidsram)* | Information om de indata strömmar som förbrukas av bulten. |
 | Utmatnings statistik *(tidsram)* | Information om strömmar som genereras av kanalen eller bult. |
-| Profilering och fel sökning | Kontroller för profilering och fel sökning av komponenterna på den här sidan. Du kan ange värdet för **status/timeout (minuter)** och du kan välja knappar för **JStack**, **starta om Worker**och **heap**. |
+| Profilering och fel sökning | Kontroller för profilering och fel sökning av komponenterna på den här sidan. Du kan ange värdet för **status/timeout (minuter)** och du kan välja knappar för **JStack**, **starta om Worker** och **heap**. |
 | Körningar *(tidsram)* | Information om instanser av kanalen eller bult. Om du vill visa en logg med diagnostisk information som skapats för den här instansen väljer du **port** posten för en speciell utförar. Du kan också se de arbets resurser som är associerade med en speciell utförar genom att välja dess länk i kolumnen **värd** . |
 | Fel | Eventuell fel information för kanalen eller bult. |
 
@@ -249,10 +249,10 @@ Bas-URI: n för REST API på Linux-baserade HDInsight-kluster finns i URL-adress
 
 Du kan hitta det fullständigt kvalificerade domän namnet (FQDN) för noden kluster huvud på flera sätt:
 
-| Identifierings metod för fullständigt domän namn | Beskrivning |
+| Identifierings metod för fullständigt domän namn | Description |
 | --- | --- |
 | SSH-session | Använd kommandot `headnode -f` från en SSH-session till klustret. |
-| Ambari-webb | På Ambari-klustrets webb sida ( `https://CLUSTERNAME.azurehdinsight.net` ) väljer du **tjänster** överst på sidan och väljer sedan **Storm**. Välj **Storm UI Server**på fliken **Sammanfattning** . FQDN för den nod som är värd för Storm-ANVÄNDARGRÄNSSNITTET och REST API visas längst upp på sidan. |
+| Ambari-webb | På Ambari-klustrets webb sida ( `https://CLUSTERNAME.azurehdinsight.net` ) väljer du **tjänster** överst på sidan och väljer sedan **Storm**. Välj **Storm UI Server** på fliken **Sammanfattning** . FQDN för den nod som är värd för Storm-ANVÄNDARGRÄNSSNITTET och REST API visas längst upp på sidan. |
 | Ambari REST API | Använd kommandot `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` för att hämta information om noden som Storm-användargränssnittet och REST API körs på. Ersätt de två instanserna av *kluster* namn med kluster namnet. När du uppmanas till det anger du lösen ordet för användar kontot (admin). I svaret innehåller posten "host_name" för JSON-utdata FQDN för noden. |
 
 ### <a name="authentication"></a>Autentisering

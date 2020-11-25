@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
 ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294146"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995088"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Logg aviseringar i Azure Monitor
 
@@ -62,7 +62,7 @@ Tidsintervallet anges i regel villkors definitionen. I arbets ytor och Applicati
 
 Precis som i Log Analytics begränsar tidsintervallet frågedata till det angivna intervallet. Även om kommandot **sedan** används i frågan, kommer tidsintervallet att gälla.
 
-En fråga skannar till exempel 60 minuter, när tidsintervallet är 60 minuter, även om texten innehåller **sedan sedan (1d)**. Tidsintervallet och tids filtreringen för frågan måste matcha. I exempel fallet kan det **Period**  /  vara förväntat att ändra**tidsintervallet** för tids perioden för tids perioden till en dag.
+En fråga skannar till exempel 60 minuter, när tidsintervallet är 60 minuter, även om texten innehåller **sedan sedan (1d)**. Tidsintervallet och tids filtreringen för frågan måste matcha. I exempel fallet kan det **Period**  /  vara förväntat att ändra **tidsintervallet** för tids perioden för tids perioden till en dag.
 
 ### <a name="measure"></a>Mått
 
@@ -110,7 +110,7 @@ I arbets ytor och Application Insights stöds det bara i mått mått typen **må
 
 ### <a name="aggregation-granularity"></a>Agg regerings kornig het
 
-Anger det intervall som används för att aggregera flera poster till ett numeriskt värde. Om du till exempel har angett **5 minuter**grupperas poster efter 5-minuters intervall med hjälp av den angivna **agg regerings typen** .
+Anger det intervall som används för att aggregera flera poster till ett numeriskt värde. Om du till exempel har angett **5 minuter** grupperas poster efter 5-minuters intervall med hjälp av den angivna **agg regerings typen** .
 
 I arbets ytor och Application Insights stöds det bara i mått mått typen **mått** . Frågeresultatet måste innehålla [bin ()](/azure/kusto/query/binfunction) som anger intervall i frågeresultatet. I alla andra resurs typer kallas fältet som styr den här inställningen **agg regerings precision**.
 
@@ -162,7 +162,7 @@ När du har definierat frågan som ska köras och utvärderingen av resultaten m
 
 Frågeresultatet omvandlas till ett tal som jämförs med tröskelvärdet och operatorn.
 
-### <a name="frequency"></a>Frequency
+### <a name="frequency"></a>Frekvens
 
 Intervallet då frågan körs. Kan ställas in på 5 minuter till en dag. Måste vara lika med eller mindre än [frågans tidsintervall](#query-time-range) för att inte sakna logg poster.
 

@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
 ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235825"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994816"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Anvisningar: exportera etablerings konfigurationen och återställa till ett känt fungerande tillstånd
 
@@ -30,9 +30,9 @@ I den här artikeln får du lära dig att:
 
 Så här exporterar du konfigurationen:
 
-1. Välj **Azure Active Directory**på den vänstra navigerings panelen i [Azure Portal](https://portal.azure.com/).
+1. Välj **Azure Active Directory** på den vänstra navigerings panelen i [Azure Portal](https://portal.azure.com/).
 1. I fönstret **Azure Active Directory** väljer du **företags program** och väljer ditt program.
-1. I det vänstra navigerings fönstret väljer du **etablering**. På sidan etablerings konfiguration klickar du på **mappningar för attribut**, sedan på **Visa avancerade alternativ**och slutligen på **granska schemat**. Det tar dig till schema redigeraren.
+1. I det vänstra navigerings fönstret väljer du **etablering**. På sidan etablerings konfiguration klickar du på **mappningar för attribut**, sedan på **Visa avancerade alternativ** och slutligen på **granska schemat**. Det tar dig till schema redigeraren.
 1. Klicka på Hämta i kommando fältet längst upp på sidan för att ladda ned schemat.
 
 ### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Haveri beredskap – återställning till ett känt fungerande tillstånd
@@ -97,7 +97,7 @@ I Microsoft Graph Explorer konfigurerar du följande skicka fråga, ersätter [s
 
 På fliken "begär ande text" kopierar du innehållet i JSON-schemafilen.
 
-   [![Brödtext i begäran](./media/export-import-provisioning-configuration/wd_export_04.png)](./media/export-import-provisioning-configuration/wd_export_04.png#lightbox)
+   [![Begärandetext](./media/export-import-provisioning-configuration/wd_export_04.png)](./media/export-import-provisioning-configuration/wd_export_04.png#lightbox)
 
 På fliken "begär ande rubriker" lägger du till attributet Content-Type Head med värdet "Application/JSON"
 

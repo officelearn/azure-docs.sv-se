@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
 ms.openlocfilehash: f76d28018fdf55314593dabc44ef1e9a1dab9494
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403134"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995105"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Så här utlöser du komplexa åtgärder med Azure Monitor aviseringar
 
@@ -37,9 +37,9 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
 
 1.  I Azure Portal väljer du **skapa en resurs** i det övre vänstra hörnet.
 
-2.  Sök efter och välj **Logic app**och välj sedan **skapa**.
+2.  Sök efter och välj **Logic app** och välj sedan **skapa**.
 
-3.  **Namnge din Logic app, Välj**en **resurs grupp**och så vidare.
+3.  **Namnge din Logic app, Välj** en **resurs grupp** och så vidare.
 
     ![Skapa en Logic app](media/action-groups-logic-app/create-logic-app-dialog.png "Skapa en logikapp")
 
@@ -126,7 +126,7 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
 
     ![Microsoft Teams-åtgärd: publicera ett meddelande](media/action-groups-logic-app/teams-action-post-message.png "Microsoft Teams-åtgärd: publicera ett meddelande")
 
-14. Överst i **Logic Apps designer**väljer du **Spara** för att spara din Logic app.
+14. Överst i **Logic Apps designer** väljer du **Spara** för att spara din Logic app.
 
 15. Öppna den befintliga åtgärds gruppen och Lägg till en åtgärd som refererar till Logic app. Om du inte har en befintlig åtgärds grupp kan du läsa [skapa och hantera åtgärds grupper i Azure Portal](./action-groups.md) för att skapa en. Glöm inte att spara ändringarna.
 

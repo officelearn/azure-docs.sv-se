@@ -13,18 +13,20 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: cbfaf52a7c5bb5e44b85513d8e2c2ec5f1cea356
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 08ee000d8f801559fcf572b8ab489161fd090b77
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101991"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996210"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Självstudie: Logga in användare och anropa Microsoft Graph API från ett Android-program
 
-I den här självstudien får du lära dig hur du integrerar din Android-app med Microsoft Identity Platform med Microsoft Authentication Library (MSAL) för Android. Du lär dig hur du loggar in och loggar ut en användare, hämtar en åtkomsttoken och gör en begäran till Microsoft Graph API.
+I den här självstudien skapar du en Android-app som integreras med Microsoft Identity Platform för att logga in användare och hämta en åtkomsttoken för att anropa Microsoft Graph-API: et.
 
 När du har slutfört den här självstudien accepterar programmet inloggnings uppgifter för personliga Microsoft-konton (inklusive outlook.com, live.com och andra) samt arbets-eller skol konton från alla företag eller organisationer som använder Azure Active Directory.
+
+I de här självstudierna har du 
 
 > [!div class="checklist"]
 > * Skapa ett Android-PROG-projekt i *Android Studio*
@@ -33,7 +35,7 @@ När du har slutfört den här självstudien accepterar programmet inloggnings u
 > * Lägg till kod för att anropa API: et för Microsoft Graph
 > * Testa appen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Android Studio 3.5 +
 
@@ -90,7 +92,7 @@ Om du inte redan har ett Android-program följer du dessa steg för att skapa et
 
 1. I Android Studio projekt fönstret navigerar du till **app\src\main\res**.
 2. Högerklicka på **res** och välj **ny**  >  **katalog**. Ange `raw` som det nya katalog namnet och klicka på **OK**.
-3. I **app**  >  **src**  >  **main**  >  **res**  >  **RAW**skapar du en ny JSON-fil med namnet `auth_config_single_account.json` och klistrar in MSAL-konfigurationen som du sparade tidigare.
+3. I **app**  >  **src**  >  **main**  >  **res**  >  **RAW** skapar du en ny JSON-fil med namnet `auth_config_single_account.json` och klistrar in MSAL-konfigurationen som du sparade tidigare.
 
     Under omdirigerings-URI: n klistrar du in:
     ```json
@@ -119,7 +121,7 @@ Om du inte redan har ett Android-program följer du dessa steg för att skapa et
    >[!NOTE]
    >Den här kursen visar bara hur du konfigurerar en app i ett enda konto läge. Läs dokumentationen om du vill ha mer information om [Single vs. Multiple Account mode](./single-multi-account.md) och [Konfigurera appen](./msal-configuration.md)
 
-4. **app**  >  **src**  >  **main**  >  ** **Lägg till `BrowserTabActivity` aktiviteten under program texten i appens huvudAndroidManifest.xml. Med den här posten kan Microsoft anropa programmet igen när autentiseringen är klar:
+4. **app**  >  **src**  >  **main**  >  **** Lägg till `BrowserTabActivity` aktiviteten under program texten i appens huvudAndroidManifest.xml. Med den här posten kan Microsoft anropa programmet igen när autentiseringen är klar:
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->

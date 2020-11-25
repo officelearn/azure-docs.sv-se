@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 06/04/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 87337cf22bdb388c5873a2811bb9913c3e7f4d4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019784"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994969"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Säkerhets filter för att trimma Azure-Kognitiv sökning resultat med hjälp av Active Directory identiteter
 
@@ -46,7 +46,7 @@ I det här steget integreras ditt program med AAD i syfte att godkänna inloggni
 1. Gå till [**program registrerings portalen**](https://apps.dev.microsoft.com)  >   **konvergerad app**  >  **Lägg till en app**.
 2. Ange ett namn för ditt program och klicka sedan på **skapa**. 
 3. Välj ditt nyligen registrerade program på sidan mina program.
-4. På sidan program registrering > **plattformar**  >  **Lägg till plattform**väljer du **webb-API**.
+4. På sidan program registrering > **plattformar**  >  **Lägg till plattform** väljer du **webb-API**.
 5. Fortfarande på sidan program registrering går du till > **Microsoft Graph behörigheter**  >  **Lägg till**.
 6. I Välj behörigheter, lägger du till följande delegerade behörigheter och klickar sedan på **OK**:
 

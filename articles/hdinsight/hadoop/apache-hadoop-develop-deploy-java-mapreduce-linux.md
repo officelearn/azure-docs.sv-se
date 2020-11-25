@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 01/16/2020
 ms.openlocfilehash: 8b80616806f846951ebbaffcb2bf31ad77b96266
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546610"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996040"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Utveckla Java MapReduce-program för Apache Hadoop i HDInsight
 
@@ -38,13 +38,13 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Skapa ett Maven-projekt
 
-1. Ange följande kommando för att skapa ett Maven-projekt med namnet **wordcountjava** :
+1. Ange följande kommando för att skapa ett Maven-projekt med namnet **wordcountjava**:
 
    ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    Det här kommandot skapar en katalog med namnet som anges av `artifactID` parametern ( **wordcountjava** i det här exemplet). Den här katalogen innehåller följande objekt:
+    Det här kommandot skapar en katalog med namnet som anges av `artifactID` parametern (**wordcountjava** i det här exemplet). Den här katalogen innehåller följande objekt:
 
     * `pom.xml` – [Projekt objekts modellen (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) som innehåller information och konfigurations information som används för att bygga projektet.
     * src\main\java\org\apache\hadoop\examples: innehåller din program kod.

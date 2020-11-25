@@ -12,11 +12,11 @@ ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, devx-track-python, deploy
 ms.openlocfilehash: 9ec82dcd7578744dc7443d48dc28820413f14005
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491706"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996312"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Distribuera ML-modeller till Field-programmerbara grind mat ris (FPGAs) med Azure Machine Learning 
 
@@ -31,7 +31,7 @@ Du kan konfigurera om FPGAs för olika typer av Machine Learning-modeller. Den h
 
 ![Diagram över Azure Machine Learning FPGA-jämförelse](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|Processor| Förkortning |Beskrivning|
+|Processor| Förkortning |Description|
 |---|:-------:|------|
 |Programspecifika integrerade kretsar|ASICs|Anpassade kretsar, som Googles TensorFlow processor Units (TPU), ger högsta möjliga effektivitet. De kan inte konfigureras om när dina behov ändras.|
 |Fält-programmerbara grind mat ris|FPGA:er|FPGAs, till exempel de som är tillgängliga på Azure, ger prestanda nära ASICs. De är också flexibla och Omkonfigurerade över tid, för att implementera ny logik.|
@@ -349,7 +349,7 @@ for top in sorted_results[:5]:
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 
-Du undviker onödiga kostnader genom att rensa dina resurser **i följande ordning** : webb tjänsten och sedan bild och sedan modellen.
+Du undviker onödiga kostnader genom att rensa dina resurser **i följande ordning**: webb tjänsten och sedan bild och sedan modellen.
 
 ```python
 aks_service.delete()

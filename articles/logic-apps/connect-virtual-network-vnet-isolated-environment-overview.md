@@ -7,11 +7,11 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.openlocfilehash: 19c9ec39d85bfc56b118498aba62c3752d6d771c
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616934"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996329"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
@@ -65,9 +65,9 @@ När du skapar och kör Logi Kap par i en ISE får du samma användar upplevelse
 
   I sällsynta fall, om en ISE-anslutning är tillgänglig för ett lokalt system eller en data källa, kan du ansluta direkt utan att använda den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md). Mer information finns i [åtkomst till lokala system](#on-premises) senare i det här avsnittet.
 
-* Hanterade kopplingar som inte visar **ISE** -etiketten fungerar fortfarande för logi Kap par i en ISE. Dessa anslutningar *körs alltid i Logic Apps-tjänsten för flera innehavare* , inte i ISE.
+* Hanterade kopplingar som inte visar **ISE** -etiketten fungerar fortfarande för logi Kap par i en ISE. Dessa anslutningar *körs alltid i Logic Apps-tjänsten för flera innehavare*, inte i ISE.
 
-* Anpassade anslutningar som du skapar *utanför en ISE* , oavsett om de kräver den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md), fortsätter att fungera för logi Kap par i en ISE. Anpassade anslutningar som du skapar *i en ISE* fungerar dock inte med den lokala datagatewayen. Mer information finns i [åtkomst till lokala system](#on-premises).
+* Anpassade anslutningar som du skapar *utanför en ISE*, oavsett om de kräver den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md), fortsätter att fungera för logi Kap par i en ISE. Anpassade anslutningar som du skapar *i en ISE* fungerar dock inte med den lokala datagatewayen. Mer information finns i [åtkomst till lokala system](#on-premises).
 
 <a name="on-premises"></a>
 
@@ -83,7 +83,7 @@ Logic Apps som körs i en ISE kan direkt komma åt lokala system och data källo
 
 * En anpassad anslutningsapp
 
-  * Anpassade anslutningar som du skapar *utanför en ISE* , oavsett om de kräver den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md), fortsätter att fungera för logi Kap par i en ISE.
+  * Anpassade anslutningar som du skapar *utanför en ISE*, oavsett om de kräver den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md), fortsätter att fungera för logi Kap par i en ISE.
 
   * Anpassade anslutningar som du skapar *i en ISE* fungerar inte med den lokala datagatewayen. Dessa anslutningar kan dock direkt komma åt lokala system och data källor som finns i eller anslutna till det virtuella nätverk som är värd för din ISE. Därför behöver Logic Apps som ingår i en ISE vanligt vis inte datagatewayen vid åtkomst till dessa resurser.
 
@@ -117,7 +117,7 @@ När du skapar din ISE kan du välja att använda antingen interna eller externa
 > [!IMPORTANT]
 > Du kan bara välja åtkomst slut punkten under skapande av ISE och inte ändra det här alternativet senare.
 
-* **Internt** : privata slut punkter tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt indata och utdata från Logic Apps körnings historiken endast inifrån *det virtuella nätverket*.
+* **Internt**: privata slut punkter tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt indata och utdata från Logic Apps körnings historiken endast inifrån *det virtuella nätverket*.
 
   > [!IMPORTANT]
   > Om du behöver använda dessa webhook-baserade utlösare använder du externa slut punkter, *inte* interna slut punkter, när du skapar din ISE:
@@ -134,7 +134,7 @@ När du skapar din ISE kan du välja att använda antingen interna eller externa
   >
   > Klient datorn kan till exempel finnas i ISE: s virtuella nätverk eller i ett virtuellt nätverk som är anslutet till ISE: s virtuella nätverk via peering eller ett virtuellt privat nätverk. 
 
-* **Externt** : offentliga slut punkter tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt indata och utdata från Logic Apps kör historik *från utanför det virtuella nätverket*. Om du använder nätverks säkerhets grupper (NSG: er) kontrollerar du att de har kon figurer ATS med regler för inkommande trafik för att tillåta åtkomst till körnings historikens indata och utdata. Mer information finns i [Aktivera åtkomst för ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+* **Externt**: offentliga slut punkter tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt indata och utdata från Logic Apps kör historik *från utanför det virtuella nätverket*. Om du använder nätverks säkerhets grupper (NSG: er) kontrollerar du att de har kon figurer ATS med regler för inkommande trafik för att tillåta åtkomst till körnings historikens indata och utdata. Mer information finns i [Aktivera åtkomst för ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 
 Du kan ta reda på om din ISE använder en intern eller extern åtkomst slut punkt genom att välja **Egenskaper** under **Inställningar** på din ISE-meny, och sedan hitta **åtkomst slut punkts** egenskapen:
 

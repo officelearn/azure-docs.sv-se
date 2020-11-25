@@ -12,11 +12,11 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 3b77cc93385efb0bbb8a9b87d29de9bad5cd4ceb
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443338"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996021"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Daemon-app som anropar webb-API: er – app-registrering
 
@@ -40,7 +40,7 @@ Ett daemon-program kan endast begära program behörigheter till API: er (inte d
 ![App-behörigheter och administratörs medgivande](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
-> Det webb-API som du vill anropa måste definiera *program behörigheter (app roles)* , inte delegerade behörigheter. Mer information om hur du exponerar ett sådant API finns i [Protected Web API: app Registration – när ditt webb-API anropas av en daemon-app](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
+> Det webb-API som du vill anropa måste definiera *program behörigheter (app roles)*, inte delegerade behörigheter. Mer information om hur du exponerar ett sådant API finns i [Protected Web API: app Registration – när ditt webb-API anropas av en daemon-app](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
 
 Daemon-program kräver att en innehavaradministratör samtycker till programmet som anropar webb-API: et. Klient organisationens administratörer ger detta medgivande på samma **API-behörighet** genom att välja **bevilja administratörs medgivande till *vår organisation***
 

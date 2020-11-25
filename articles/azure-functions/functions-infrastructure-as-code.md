@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2403e3a4bfe7824659a9c34c407e55e6c56e6046
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107733"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994663"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distributionen för din Function-app i Azure Functions
 
@@ -28,8 +28,8 @@ En Azure Functions distribution består vanligt vis av följande resurser:
 
 | Resurs                                                                           | Krav | Syntax och egenskaper-referens                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| En Function-app                                                                     | Krävs    | [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)                             |
-| Ett [Azure Storage](../storage/index.yml) konto                                   | Krävs    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| En Function-app                                                                     | Obligatorisk    | [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)                             |
+| Ett [Azure Storage](../storage/index.yml) konto                                   | Obligatorisk    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | En [Application Insights](../azure-monitor/app/app-insights-overview.md) -komponent | Valfritt    | [Microsoft. Insights/komponenter](/azure/templates/microsoft.insights/components)         |
 | En [värd plan](./functions-scale.md)                                             | Valfria<sup>1</sup>    | [Microsoft. Web/Server grupper](/azure/templates/microsoft.web/serverfarms)                 |
 
@@ -112,7 +112,7 @@ Dessutom måste instrument ställnings nyckeln tillhandahållas till Function-ap
 Definitionen av värd planen varierar och kan vara något av följande:
 * [Förbruknings plan](#consumption) (standard)
 * [Premiumplan](#premium)
-* [App Service plan](#app-service-plan)
+* [App Service-plan](#app-service-plan)
 
 ### <a name="function-app"></a>Funktionsapp
 
@@ -137,7 +137,7 @@ Function app-resursen definieras genom att använda en resurs av typen **Microso
 
 En Function-app måste innehålla följande program inställningar:
 
-| Inställningsnamn                 | Beskrivning                                                                               | Exempelvärden                        |
+| Inställningsnamn                 | Description                                                                               | Exempelvärden                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | En anslutnings sträng till ett lagrings konto som Functions runtime använder för intern kö | Se [lagrings konto](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | Versionen av Azure Functions runtime                                                | `~2`                                  |

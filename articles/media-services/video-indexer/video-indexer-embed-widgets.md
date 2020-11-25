@@ -12,11 +12,11 @@ ms.date: 08/10/2020
 ms.author: juliako
 ms.custom: devx-track-js
 ms.openlocfilehash: 1bc751ae293abbb7aa330a99a4b66a917d150906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268629"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994986"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Bädda in Video Indexer widgetar i dina appar
 
@@ -30,7 +30,7 @@ Från och med version 2 innehåller widgeten bas-URL den region där det angivna
 
 En insiktswidget innehåller alla visuella insikter som extraherades från videoindexeringsprocessen. Widgeten kognitiv Insights stöder följande valfria URL-parametrar:
 
-|Namn|Definition|Beskrivning|
+|Name|Definition|Description|
 |---|---|---|
 |`widgets` | Strängar avgränsade med kommatecken | Gör att du kan styra de insikter som du vill återge.<br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` återger endast användare och nyckelord UI insikter.<br/>Tillgängliga alternativ: People, animatedCharacters, keywords, Labels, sentiment, känslor, topics, nyckel rutor, avskrift, OCR, talare, scener och namedEntities.|
 |`controls`|Strängar avgränsade med kommatecken|Gör att du kan styra de kontroller som du vill återge.<br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` återger bara sökalternativet och knappen Hämta.<br/>Tillgängliga alternativ: Sök, ladda ned, för inställningar, språk.|
@@ -43,7 +43,7 @@ En insiktswidget innehåller alla visuella insikter som extraherades från video
 
 Du kan använda Player-widgeten för att strömma video med hjälp av anpassningsbar bit hastighet. Widgeten Player stöder följande valfria URL-parametrar.
 
-|Namn|Definition|Beskrivning|
+|Name|Definition|Description|
 |---|---|---|
 |`t` | Sekunder från start | Gör att spelaren startar uppspelningen från den angivna tids punkten.<br/> Exempel: `t=60`. |
 |`captions` | En språkkod | Hämtar texten på det angivna språket när widget inläsningen ska vara tillgänglig på menyn under **texter** .<br/> Exempel: `captions=en-US`. |
@@ -57,7 +57,7 @@ Du kan använda Player-widgeten för att strömma video med hjälp av anpassning
 
 Du kan använda Editor-widgeten för att skapa nya projekt och hantera video insikter. Editor-widgeten stöder följande valfria URL-parametrar.
 
-|Namn|Definition|Beskrivning|
+|Name|Definition|Description|
 |---|---|---|
 |`accessToken`<sup>*</sup> | Sträng | Ger åtkomst till videor som bara finns i det konto som används för att bädda in widgeten.<br> Widgeten Editor kräver `accessToken` parametern. |
 |`language` | En språkkod | Kontrollerar Player-språket. Standardvärdet är `en-US`.<br/>Exempel: `language=de-DE`. |
@@ -70,7 +70,7 @@ Du kan använda Editor-widgeten för att skapa nya projekt och hantera video ins
 
 I det här avsnittet beskrivs hur du bäddar in offentligt och privat innehåll i appar.
 
-`location`Parametern måste inkluderas i de inbäddade länkarna, se [hur du hämtar namnet på din region](regions.md). Om ditt konto är i för hands version `trial` ska det användas för plats-värdet. `trial` är standardvärdet för `location` parametern. Exempel: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+`location`Parametern måste inkluderas i de inbäddade länkarna, se [hur du hämtar namnet på din region](regions.md). Om ditt konto är i för hands version `trial` ska det användas för plats-värdet. `trial` är standardvärdet för `location` parametern. Till exempel: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > Om du delar en länk för **Player** -eller **Insights** -widgeten ingår åtkomsttoken och beviljar Läs behörighet till ditt konto.
@@ -79,8 +79,8 @@ I det här avsnittet beskrivs hur du bäddar in offentligt och privat innehåll 
 
 1. Logga in på [video Indexer](https://www.videoindexer.ai/) webbplats.
 1. Välj den video som du vill arbeta med och tryck på **Play**.
-1. Välj vilken typ av widget du vill ha (**kognitiva insikter**, **spelare**eller **redigerare**).
-1. Klicka på ** &lt; / &gt; bädda in**.
+1. Välj vilken typ av widget du vill ha (**kognitiva insikter**, **spelare** eller **redigerare**).
+1. Klicka på **&lt; / &gt; bädda in**.
 5. Kopiera inbäddnings koden (visas i **Kopiera den inbäddade koden** i dialog rutan **resurs & bädda in** ).
 6. Lägg till koden i din app.
 
@@ -291,7 +291,7 @@ Som standard startar spelaren uppspelning av videon. Du kan välja att inte skic
 
 Se de [kod exempel](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) lagrings platsen som innehåller exempel för video INDEXER-API och widgetar:
 
-| Fil/mapp                       | Beskrivning                                |
+| Fil/mapp                       | Description                                |
 |-----------------------------------|--------------------------------------------|
 | `azure-media-player`              | Läs in video Indexer-video i en anpassad Azure Media Player.                        |
 | `azure-media-player-vi-insights`  | Bädda in VI insikter med en anpassad Azure Media Player.                             |

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 014c9759756a1da922a5141f064991827d593208
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a0b7330485d3152a588d43added7d9feaa5c2a14
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630268"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "95994508"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -74,27 +74,7 @@ Med den här parametern kan du ange ett ID som ska associeras med videon. ID:t k
 
 #### <a name="callbackurl"></a>callbackUrl
 
-En URL som används för att meddela kunder (med en POST-begäran) om följande händelser:
-
-- Indexering av tillståndsändring: 
-    - Egenskaper:    
-    
-        |Namn|Beskrivning|
-        |---|---|
-        |id|Video-ID|
-        |state|Videotillståndet|  
-    - Exempel: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&State = bearbetad
-- Person som identifierades i videon:
-  - Egenskaper
-    
-      |Namn|Beskrivning|
-      |---|---|
-      |id| Video-ID|
-      |faceId|Ansikts-ID som visas i videoindexet|
-      |knownPersonId|Person-ID som är unikt inom en ansikts-modell|
-      |personName|Namnet på personen|
-        
-    - Exempel: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&FaceID = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
+[!INCLUDE [callback url](./includes/callback-url.md)]
 
 ##### <a name="other-considerations"></a>Ytterligare överväganden
 
@@ -118,9 +98,9 @@ Priset beror på det valda indexeringsalternativet.
 
 #### <a name="priority"></a>prioritet
 
-Videor indexeras av Video Indexer enligt deras prioritet. Använd parametern **prioritet** för att ange prioritet för indexet. Följande värden är giltiga: **Låg** , **Normal** (standard), och **Hög**.
+Videor indexeras av Video Indexer enligt deras prioritet. Använd parametern **prioritet** för att ange prioritet för indexet. Följande värden är giltiga: **Låg**, **Normal** (standard), och **Hög**.
 
-**Prioritet** -parametern stöds endast för betalda konton.
+**Prioritet**-parametern stöds endast för betalda konton.
 
 #### <a name="streamingpreset"></a>streamingPreset
 
@@ -337,7 +317,7 @@ public class AccountContractSlim
 
 De statuskoder som visas i följande tabell kan returneras av uppladdingsåtgärden.
 
-|Statuskod|ErrorType (i svarstexten)|Beskrivning|
+|Statuskod|ErrorType (i svarstexten)|Description|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|Samma video håller redan på att bearbetas i det angivna kontot.|
 |400|VIDEO_ALREADY_FAILED|Samma video misslyckades med att bearbetas i det angivna kontot för mindre än 2 timmar sedan. API-klienter ska vänta minst 2 timmar innan en video laddas upp på nytt.|

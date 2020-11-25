@@ -7,11 +7,11 @@ ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, devx-track-python, devx-track-azurepowershell
 ms.openlocfilehash: ca9ce27583168dfee1a597fce559afad38a3a8c7
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422934"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994612"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Självstudie: använda Machine Learning-modeller i Azure Functions med python och TensorFlow
 
@@ -21,7 +21,7 @@ I den här artikeln får du lära dig hur du använder python, TensorFlow och Az
 > * Initiera en lokal miljö för att utveckla Azure Functions i python.
 > * Importera en anpassad TensorFlow Machine Learning-modell till en Function-app.
 > * Bygg en server lös HTTP API för att klassificera en avbildning som innehåller en hund eller en katt.
-> * Använda API: et från en webbapp.
+> * Använda API:et från en webbapp.
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
@@ -133,7 +133,7 @@ I Azure Functions är ett funktions projekt en behållare för en eller flera en
     func new --name classify --template "HTTP trigger"
     ```
 
-    Det här kommandot skapar en mapp som matchar namnet på funktionen, *klassificera*. I mappen finns två filer: *\_ \_ init \_ \_ . py* , som innehåller funktions koden och *function.jspå* , som beskriver funktionens utlösare och dess indata och utdata-bindningar. Mer information om innehållet i de här filerna finns i [Granska fil innehållet](./create-first-function-cli-python.md#optional-examine-the-file-contents) i python-snabb starten.
+    Det här kommandot skapar en mapp som matchar namnet på funktionen, *klassificera*. I mappen finns två filer: *\_ \_ init \_ \_ . py*, som innehåller funktions koden och *function.jspå*, som beskriver funktionens utlösare och dess indata och utdata-bindningar. Mer information om innehållet i de här filerna finns i [Granska fil innehållet](./create-first-function-cli-python.md#optional-examine-the-file-contents) i python-snabb starten.
 
 
 ## <a name="run-the-function-locally"></a>Köra funktionen lokalt

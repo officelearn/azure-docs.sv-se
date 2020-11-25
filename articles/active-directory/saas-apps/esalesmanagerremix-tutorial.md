@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.openlocfilehash: c06595b683092abf52300481068daab26394c4cb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358753"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995649"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrera Azure Active Directory med E-Remix för försäljnings chef
 
@@ -68,7 +68,7 @@ Om du vill konfigurera integreringen av Azure AD med E Sales Manager-Remix lägg
 
     ![Knappen Nytt program][3]
 
-1. I sökrutan skriver du **e Sales Manager Remix** , väljer **e Sales Manager-Remix** i resultat listan och väljer sedan **Lägg till**.
+1. I sökrutan skriver du **e Sales Manager Remix**, väljer **e Sales Manager-Remix** i resultat listan och väljer sedan **Lägg till**.
 
     ![E försäljnings hanterarens Remix i resultat listan](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
@@ -217,7 +217,7 @@ I det här avsnittet skapar du test User Britta Simon i Azure Portal genom att g
     
     ![Avsnittet "ny personal registrering"](./media/esalesmanagerremix-tutorial/user2.png)
 
-    a. I rutan **namn på anställd** skriver du namnet på användaren (till exempel **Britta** ).
+    a. I rutan **namn på anställd** skriver du namnet på användaren (till exempel **Britta**).
 
     b. Fyll i de återstående obligatoriska fälten.
     

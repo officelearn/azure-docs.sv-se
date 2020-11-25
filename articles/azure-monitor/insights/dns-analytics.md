@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
 ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499009"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994645"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in insikter om din DNS-infrastruktur med DNS-analys för hands versions lösning
 
@@ -35,10 +35,10 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 | **Ansluten källa** | **Support** | **Beskrivning** |
 | --- | --- | --- |
-| [Windows-agenter](../platform/agent-windows.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
-| [Linux-agenter](../learn/quick-collect-linux-computer.md) | Inga | Lösningen samlar inte in DNS-information från Direct Linux-agenter. |
-| [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten Operations Manager hanterings grupp. En direkt anslutning från Operations Manager agent till Azure Monitor krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
-| [Azure Storage-konto](../platform/resource-logs.md#send-to-log-analytics-workspace) | Inga | Azure Storage används inte av lösningen. |
+| [Windows-agenter](../platform/agent-windows.md) | Yes | Lösningen samlar in DNS-information från Windows-agenter. |
+| [Linux-agenter](../learn/quick-collect-linux-computer.md) | No | Lösningen samlar inte in DNS-information från Direct Linux-agenter. |
+| [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | Yes | Lösningen samlar in DNS-information från agenter i en ansluten Operations Manager hanterings grupp. En direkt anslutning från Operations Manager agent till Azure Monitor krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
+| [Azure Storage-konto](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Storage används inte av lösningen. |
 
 ### <a name="data-collection-details"></a>Information om data insamling
 
@@ -159,7 +159,7 @@ Du kan använda dessa frågor som utgångs punkt för att skapa egna frågor fö
 
 På sidan loggs ökning kan du skapa en fråga. Du kan filtrera Sök resultaten genom att använda fasett-kontroller. Du kan också skapa avancerade frågor för att transformera, filtrera och rapportera resultatet. Börja med följande frågor:
 
-1. I **rutan Sök fråga**skriver `DnsEvents` du för att visa alla DNS-händelser som genererats av DNS-servrarna som hanteras av lösningen. Resultatet visar logg data för alla händelser som rör Sök frågor, dynamiska registreringar och konfigurations ändringar.
+1. I **rutan Sök fråga** skriver `DnsEvents` du för att visa alla DNS-händelser som genererats av DNS-servrarna som hanteras av lösningen. Resultatet visar logg data för alla händelser som rör Sök frågor, dynamiska registreringar och konfigurations ändringar.
 
     ![Loggs ökning för DnsEvents](./media/dns-analytics/log-search-dnsevents.png)  
 
@@ -169,7 +169,7 @@ På sidan loggs ökning kan du skapa en fråga. Du kan filtrera Sök resultaten 
 
     c. Om du vill visa logg data för konfigurations ändringar väljer du **ConfigurationChange** som under **typs** filter från fasett-kontrollen till vänster. En tabell som visar alla konfigurations ändrings händelser för den valda tids perioden visas.
 
-1. I **rutan Sök fråga**skriver `DnsInventory` du för att visa alla DNS-lagerrelaterade data för DNS-servrarna som hanteras av lösningen. Resultatet visar logg data för DNS-servrar, DNS-zoner och resurs poster.
+1. I **rutan Sök fråga** skriver `DnsInventory` du för att visa alla DNS-lagerrelaterade data för DNS-servrarna som hanteras av lösningen. Resultatet visar logg data för DNS-servrar, DNS-zoner och resurs poster.
 
     ![Loggs ökning för DnsInventory](./media/dns-analytics/log-search-dnsinventory.png)
     

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295234"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996635"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synkronisering: Förstå standardkonfigurationen
 I den här artikeln beskrivs de inbyggda konfigurations reglerna. Den dokumenterar reglerna och hur dessa regler påverkar konfigurationen. Den vägleder dig också genom standard konfigurationen av Azure AD Connect Sync. Målet är att läsaren förstår hur konfigurations modellen, med namnet deklarativ etablering, fungerar i ett verkligt exempel. Den här artikeln förutsätter att du redan har installerat och konfigurerat Azure AD Connect Sync med hjälp av installations guiden.
@@ -96,7 +96,7 @@ Ett grupp objekt måste uppfylla följande för att kunna synkroniseras:
   * Om den har fler medlemmar innan synkroniseringen startar första gången, synkroniseras inte gruppen.
   * Om antalet medlemmar växer från början när det ursprungligen skapades, och när det når 50 000-medlemmar, stoppas synkroniseringen tills antalet medlemskap är lägre än 50 000.
   * Obs! antalet 50 000-medlemskap tillämpas också av Azure AD. Du kan inte synkronisera grupper med fler medlemmar även om du ändrar eller tar bort den här regeln.
-* Om gruppen är en **distributions grupp**måste den också vara e-postaktiverad. Se [kontakter färdiga regler](#contact-out-of-box-rules) för den här regeln tillämpas.
+* Om gruppen är en **distributions grupp** måste den också vara e-postaktiverad. Se [kontakter färdiga regler](#contact-out-of-box-rules) för den här regeln tillämpas.
 
 Följande grupp objekt synkroniseras **inte** till Azure AD:
 
@@ -148,7 +148,7 @@ Eftersom den här regeln är en regel som är inaktuell visas en varning när du
 
 En Synkroniseringsregel har fyra konfigurations avsnitt: Beskrivning, omfångs filter, kopplings regler och transformeringar.
 
-#### <a name="description"></a>Beskrivning
+#### <a name="description"></a>Description
 Det första avsnittet innehåller grundläggande information, till exempel ett namn och en beskrivning.
 
 ![Fliken Beskrivning i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
@@ -173,7 +173,7 @@ Det tredje avsnittet används för att konfigurera hur objekt i kopplings utrymm
 
 ![Fliken Anslut till regler i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
-Innehållet i kopplings regeln beror på vilket matchande alternativ som valts i installations guiden. För en regel för inkommande trafik börjar utvärderingen med ett objekt i käll kopplings utrymmet och varje grupp i kopplings reglerna utvärderas i följd. Om ett käll objekt utvärderas för att matcha exakt ett objekt i metaversum med någon av kopplings reglerna, är objekten anslutna. Om alla regler har utvärderats och det inte finns någon matchning, används länk typen på sidan beskrivning. Om den här konfigurationen är inställd på att **etableras**skapas ett nytt objekt i målet, metaversum, om minst ett attribut i kopplings villkoret finns (har ett värde). Att etablera ett nytt objekt i metaversum kallas även för att **projicera** ett objekt till metaversum.
+Innehållet i kopplings regeln beror på vilket matchande alternativ som valts i installations guiden. För en regel för inkommande trafik börjar utvärderingen med ett objekt i käll kopplings utrymmet och varje grupp i kopplings reglerna utvärderas i följd. Om ett käll objekt utvärderas för att matcha exakt ett objekt i metaversum med någon av kopplings reglerna, är objekten anslutna. Om alla regler har utvärderats och det inte finns någon matchning, används länk typen på sidan beskrivning. Om den här konfigurationen är inställd på att **etableras** skapas ett nytt objekt i målet, metaversum, om minst ett attribut i kopplings villkoret finns (har ett värde). Att etablera ett nytt objekt i metaversum kallas även för att **projicera** ett objekt till metaversum.
 
 Kopplings reglerna utvärderas bara en gång. När ett kopplings utrymmes objekt och ett metaversum-objekt kopplas, förblir de anslutna så länge omfånget för synkroniseringsregeln fortfarande är uppfyllt.
 
@@ -220,7 +220,7 @@ Prioriteten för regler för synkronisering anges i grupper av installations gui
 ### <a name="putting-it-all-together"></a>Färdigställa allt
 Vi vet nu nog om regler för synkronisering för att kunna förstå hur konfigurationen fungerar med de olika reglerna för synkronisering. Om du tittar på en användare och de attribut som har bidragit till metaversum tillämpas reglerna i följande ordning:
 
-| Namn | Kommentar |
+| Name | Kommentar |
 |:--- |:--- |
 | I från AD – användar anslutning |Regel för anslutning av anslutnings utrymmes objekt med metaversum. |
 | I från AD – UserAccount aktiverat |Attribut krävs för inloggning till Azure AD och Microsoft 365. Vi vill ha dessa attribut från det aktiverade kontot. |
@@ -237,6 +237,6 @@ Vi vet nu nog om regler för synkronisering för att kunna förstå hur konfigur
 
 **Översikts avsnitt**
 
-* [Azure AD Connect synkronisering: förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
 

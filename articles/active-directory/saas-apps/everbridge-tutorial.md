@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 732362ef7099e93697320d8e47180c1207e8cb32
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92453866"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Självstudie: Azure Active Directory integrering med EverBridge
 
@@ -52,7 +52,7 @@ Följ dessa steg om du vill lägga till EverBridge från Azure Marketplace.
 
     ![Knappen Azure Active Directory](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -60,7 +60,7 @@ Följ dessa steg om du vill lägga till EverBridge från Azure Marketplace.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **EverBridge**i rutan Sök. Välj **EverBridge** i resultat panelen och välj **Lägg till**.
+4. Skriv **EverBridge** i rutan Sök. Välj **EverBridge** i resultat panelen och välj **Lägg till**.
 
      ![EverBridge i resultat listan](common/search-new-app.png)
 
@@ -85,7 +85,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Följ dessa steg om du vill konfigurera enkel inloggning med EverBridge i Azure AD.
 
-1. Välj **enkel inloggning**på sidan **EverBridge** Application Integration i [Azure Portal](https://portal.azure.com/).
+1. Välj **enkel inloggning** på sidan **EverBridge** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -100,7 +100,7 @@ Följ dessa steg om du vill konfigurera enkel inloggning med EverBridge i Azure 
     >[!NOTE]
     >Konfigurera programmet antingen som chefs Portal *eller* som medlems Portal på både Azure Portal-och EverBridge-portalen.
 
-4. Följ dessa steg för att konfigurera **EverBridge** -programmet som **EverBridge Manager-portalen**i avsnittet **grundläggande SAML-konfiguration** :
+4. Följ dessa steg för att konfigurera **EverBridge** -programmet som **EverBridge Manager-portalen** i avsnittet **grundläggande SAML-konfiguration** :
 
     ![Information om enkel inloggning för EverBridge-domän och URL: er](common/idp-intiated.png)
 
@@ -111,7 +111,7 @@ Följ dessa steg om du vill konfigurera enkel inloggning med EverBridge i Azure 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska ID-och svars-URL-värden. Kontakta [EverBridge support-teamet](mailto:support@everbridge.com)om du vill hämta dessa värden. Du kan också referera till mönstren som visas i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-5. Följ dessa steg för att konfigurera **EverBridge** -programmet som **EverBridge-medlems Portal**i avsnittet **grundläggande SAML-konfiguration** :
+5. Följ dessa steg för att konfigurera **EverBridge** -programmet som **EverBridge-medlems Portal** i avsnittet **grundläggande SAML-konfiguration** :
 
   * Följ dessa steg om du vill konfigurera programmet i IDP läge:
 
@@ -148,7 +148,7 @@ Följ dessa steg om du vill konfigurera SSO på **EverBridge** som ett **EverBri
  
 1. Logga in på EverBridge som administratör i ett annat webbläsarfönster.
 
-1. I menyn högst upp väljer du fliken **Inställningar** . Under **säkerhet**väljer du **enkel inloggning**.
+1. I menyn högst upp väljer du fliken **Inställningar** . Under **säkerhet** väljer du **enkel inloggning**.
    
      ![Konfigurera enkel inloggning](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
@@ -158,17 +158,17 @@ Följ dessa steg om du vill konfigurera SSO på **EverBridge** som ett **EverBri
    
      c. Välj **Välj fil** för att ladda upp metadatafilen som du laddade ned från Azure Portal.
    
-     d. För **SAML-identitets platsen**väljer **du identitet i NameIdentifier-elementet för ämnes instruktionen**.
+     d. För **SAML-identitets platsen** väljer **du identitet i NameIdentifier-elementet för ämnes instruktionen**.
    
      e. I rutan **inloggnings-URL för identitetsprovider** klistrar du in URL-värdet för **inloggning** som du kopierade från Azure Portal.
    
-     f. Välj **http-omdirigering**för **tjänste leverantörens initierade begär ande bindning**.
+     f. Välj **http-omdirigering** för **tjänste leverantörens initierade begär ande bindning**.
 
      ex. Välj **Spara**.
 
 ### <a name="configure-everbridge-as-everbridge-member-portal-single-sign-on"></a>Konfigurera EverBridge som EverBridge-medlems Portal med enkel inloggning
 
-Om du vill konfigurera enkel inloggning på **EverBridge** som en **EverBridge-medlems Portal**skickar du den hämtade **XML-koden för federationsmetadata** till [EverBridge support-teamet](mailto:support@everbridge.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **EverBridge** som en **EverBridge-medlems Portal** skickar du den hämtade **XML-koden för federationsmetadata** till [EverBridge support-teamet](mailto:support@everbridge.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 

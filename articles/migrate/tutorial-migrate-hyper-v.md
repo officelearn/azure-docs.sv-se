@@ -7,11 +7,11 @@ ms.custom:
 - MVC
 - fasttrack-edit
 ms.openlocfilehash: 84f04d2f1f8c9b54a1f2a2a13cc97954ac5add90
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308539"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995326"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrera virtuella Hyper-V-datorer till Azure 
 
@@ -22,7 +22,7 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 > [!NOTE]
 > Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudierna använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. 
 
- I den här guiden får du lära dig att:
+ I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Lägg till verktyget Azure Migrate: Migreringsverktyg för Server.
@@ -31,7 +31,7 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 > * Kör en testmigrering för att se till att allt fungerar som förväntat.
 > * Kör en fullständig migrering av virtuella datorer.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -51,9 +51,9 @@ Lägg till verktyget Azure Migrate: Migreringsverktyg för Server. Om du inte re
 
 Om du har skapat ett projekt lägger du till verktyget enligt följande:
 
-1. Klicka på **Översikt**i Azure Migrate projektet. 
-2. I **identifiera, utvärdera**och migrera servrar klickar du på **utvärdera och migrera servrar**.
-3. I **Migreringsverktyg**väljer **du klicka här för att lägga till ett Migreringsverktyg när du är redo att migrera**.
+1. Klicka på **Översikt** i Azure Migrate projektet. 
+2. I **identifiera, utvärdera** och migrera servrar klickar du på **utvärdera och migrera servrar**.
+3. I **Migreringsverktyg** väljer **du klicka här för att lägga till ett Migreringsverktyg när du är redo att migrera**.
 
     ![Välj ett verktyg](./media/tutorial-migrate-hyper-v/select-migration-tool.png)
 
@@ -65,16 +65,16 @@ Om du har skapat ett projekt lägger du till verktyget enligt följande:
 
 För att migrera virtuella Hyper-V-datorer Azure Migrate: Server-migrering installerar program varu leverantörer (Microsoft Azure Site Recovery Provider och Microsoft Azure återställnings tjänst agent) på Hyper-V-värdar eller klusternoder. Observera att [Azure Migrate-apparaten](migrate-appliance.md) inte används för Hyper-V-migrering.
 
-1. I **Azure Migrate: Server-migrering**i Azure Migrate Project >- **servrar**klickar du på **identifiera**.
+1. I **Azure Migrate: Server-migrering** i Azure Migrate Project >- **servrar** klickar du på **identifiera**.
 2. I **identifiera datorer**  >  **är dina datorer virtualiserade?** väljer du **Ja, med Hyper-V**.
-3. I **mål region**väljer du den Azure-region som du vill migrera datorerna till.
+3. I **mål region** väljer du den Azure-region som du vill migrera datorerna till.
 6. Välj **Bekräfta att mål regionen för migrering är regions namn**.
 7. Klicka på **Skapa resurser**. Detta skapar ett Azure Site Recovery valv i bakgrunden.
     - Om du redan har konfigurerat migrering med Azure Migrate Server-migreringen visas inte det här alternativet eftersom resurserna tidigare har kon figurer ATS.
     - Du kan inte ändra mål region för projektet när du har klickat på den här knappen.
     - Alla efterföljande migreringar är till den här regionen.
     
-8. I **förbereda Hyper-v-värdservern**laddar du ned providern för Hyper-v-replikering och registrerings nyckel filen.
+8. I **förbereda Hyper-v-värdservern** laddar du ned providern för Hyper-v-replikering och registrerings nyckel filen.
     - Registrerings nyckeln krävs för att registrera Hyper-V-värden med Azure Migrate Server-migrering.
     - Nyckeln är giltig i fem dagar efter att du har genererat den.
 
@@ -82,7 +82,7 @@ För att migrera virtuella Hyper-V-datorer Azure Migrate: Server-migrering insta
 
 4. Kopiera installations filen för providern och registrerings nyckel filen till varje Hyper-V-värd (eller klusternod) som kör virtuella datorer som du vill replikera.
 5. Kör installations filen för providern på varje värd, enligt beskrivningen i nästa procedur.
-6. När du har installerat providern på värdarna i **identifiera datorer**klickar du på **Slutför registrering**.
+6. När du har installerat providern på värdarna i **identifiera datorer** klickar du på **Slutför registrering**.
 
     ![Slutför registrering](./media/tutorial-migrate-hyper-v/finalize-registration.png)
 
@@ -98,7 +98,7 @@ När identifieringen är klar kan du påbörja replikering av virtuella Hyper-V-
 > [!NOTE]
 > Du kan replikera upp till 10 datorer tillsammans. Om du behöver replikera mer replikerar du dem samtidigt i batchar med 10.
 
-1. I Azure Migrate Project >- **servrar** **Azure Migrate: Server-migrering**klickar du på **Replikera**.
+1. I Azure Migrate Project >- **servrar** **Azure Migrate: Server-migrering** klickar du på **Replikera**.
 2. I **Replikera**, > **käll inställningar**  >  **att datorerna har virtualiserats?** väljer du **Ja, med Hyper-V**. Klicka sedan på **Nästa: virtuella datorer**.
 3. I **Virtuella datorer** väljer du de datorer som du vill replikera.
     - Om du har kört en utvärdering av de virtuella datorerna, kan du tillämpa storleksändring av virtuella datorer och disktypsrekommendationer (premium/standard) från utvärderingsresultaten. Gör detta i **Vill du importera migreringsinställningar från en Azure Migrate-utvärdering?** och välj alternativet **Ja**.
@@ -111,10 +111,10 @@ När identifieringen är klar kan du påbörja replikering av virtuella Hyper-V-
 
     ![Välj virtuella datorer](./media/tutorial-migrate-hyper-v/select-vms.png)
 
-5. I **mål inställningar**väljer du den mål region dit du vill migrera, prenumerationen och resurs gruppen där de virtuella Azure-datorerna ska finnas efter migreringen.
-7. I **lagrings konto för replikering**väljer du det Azure Storage konto där replikerade data ska lagras i Azure.
-8. **Virtual Network**väljer du det virtuella Azure-nätverk som de virtuella Azure-datorerna ska kopplas till efter migreringen.
-9. I **tillgänglighets alternativ**väljer du:
+5. I **mål inställningar** väljer du den mål region dit du vill migrera, prenumerationen och resurs gruppen där de virtuella Azure-datorerna ska finnas efter migreringen.
+7. I **lagrings konto för replikering** väljer du det Azure Storage konto där replikerade data ska lagras i Azure.
+8. **Virtual Network** väljer du det virtuella Azure-nätverk som de virtuella Azure-datorerna ska kopplas till efter migreringen.
+9. I **tillgänglighets alternativ** väljer du:
     -  Tillgänglighets zon för att fästa den migrerade datorn i en angiven tillgänglighets zon i regionen. Använd det här alternativet för att distribuera servrar som utgör en program nivå med flera noder i Tillgänglighetszoner. Om du väljer det här alternativet måste du ange den tillgänglighets zon som ska användas för var och en av de valda datorerna på fliken beräkning. Det här alternativet är bara tillgängligt om det valda mål området för migreringen stöder Tillgänglighetszoner
     -  Tillgänglighets uppsättning för att placera den migrerade datorn i en tillgänglighets uppsättning. Den valda mål resurs gruppen måste ha en eller flera tillgänglighets uppsättningar för att kunna använda det här alternativet.
     - Inget alternativ för infrastrukturs redundans krävs om du inte behöver någon av dessa tillgänglighets konfigurationer för de migrerade datorerna.
@@ -125,7 +125,7 @@ När identifieringen är klar kan du påbörja replikering av virtuella Hyper-V-
 
     ![Mål inställningar](./media/tutorial-migrate-hyper-v/target-settings.png)
 
-11. I **Compute**granskar du VM-namn, storlek, OS-disktyp och tillgänglighets konfiguration (om det valts i föregående steg). De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
+11. I **Compute** granskar du VM-namn, storlek, OS-disktyp och tillgänglighets konfiguration (om det valts i föregående steg). De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
 
     - **VM-storlek**: om du använder utvärderings rekommendationer kommer List rutan VM-storlek att innehålla den rekommenderade storleken. Annars väljer Azure Migrate en storlek baserat på den närmaste matchningen i Azure-prenumerationen. Du kan också välja en storlek manuellt i **Storlek på virtuell Azure-dator**. 
     - **OS-disk**: Ange OS-disken (start) för den virtuella datorn. Operativsystemdisken är den disk där operativsystemets bootloader och installationsprogram finns. 
@@ -133,7 +133,7 @@ När identifieringen är klar kan du påbörja replikering av virtuella Hyper-V-
 
     ![Inställningar för VM-beräkning](./media/tutorial-migrate-hyper-v/compute-settings.png)
 
-12. I **diskar**anger du de virtuella dator diskar som behöver replikeras till Azure. Klicka på **Nästa**.
+12. I **diskar** anger du de virtuella dator diskar som behöver replikeras till Azure. Klicka på **Nästa**.
     - Du kan undanta diskar från replikering.
     - Om du undantar diskar kommer de inte att synas i den virtuella Azure-datorn efter migreringen. 
 
@@ -180,7 +180,7 @@ När delta-replikering börjar kan du köra en testmigrering för de virtuella d
 Gör en testmigrering enligt följande:
 
 
-1. I Server för **migrerings mål**  >  **Servers**  >  **Azure Migrate: Server migrering**klickar du på **test migrerade servrar**.
+1. I Server för **migrerings mål**  >  **Servers**  >  **Azure Migrate: Server migrering** klickar du på **test migrerade servrar**.
 
      ![Testmigrerade servrar](./media/tutorial-migrate-hyper-v/test-migrated-servers.png)
 
@@ -188,7 +188,7 @@ Gör en testmigrering enligt följande:
 
     ![Testmigrera](./media/tutorial-migrate-hyper-v/test-migrate.png)
 
-3. I **testa migrering**väljer du det virtuella Azure-nätverk där den virtuella Azure-datorn ska placeras efter migreringen. Vi rekommenderar att du använder ett virtuellt nätverk som inte är för produktion.
+3. I **testa migrering** väljer du det virtuella Azure-nätverk där den virtuella Azure-datorn ska placeras efter migreringen. Vi rekommenderar att du använder ett virtuellt nätverk som inte är för produktion.
 4. **Testmigreringen** startas. Övervaka jobbet i portalmeddelanden.
 5. När migreringen är klar kan du se den migrerade virtuella Azure-datorn i **Virtual Machines** i Azure Portal. Datornamnet har suffixet **-Test**.
 6. När testet är klart högerklickar du på den virtuella Azure-datorn i **Replikera datorer** och klickar på **Rensa upp i testmigreringen**.
@@ -200,12 +200,12 @@ Gör en testmigrering enligt följande:
 
 När du har kontrollerat att testmigreringen fungerar som förväntat kan du migrera de lokala datorerna.
 
-1. I Azure Migrate Project >- **servrar**  >  **Azure Migrate: Server-migrering**klickar du på **Replikera servrar**.
+1. I Azure Migrate Project >- **servrar**  >  **Azure Migrate: Server-migrering** klickar du på **Replikera servrar**.
 
     ![Servrarna replikeras](./media/tutorial-migrate-hyper-v/replicate-servers.png)
 
 2. I **Replikera datorer** högerklickar du på den virtuella datorn > **Migrera**.
-3. I **migrera**  >  **Stäng virtuella datorer och utför en planerad migrering utan data förlust**väljer du **Ja**  >  **OK**.
+3. I **migrera**  >  **Stäng virtuella datorer och utför en planerad migrering utan data förlust** väljer du **Ja**  >  **OK**.
     - Som standard stänger Azure Migrate av den lokala virtuella datorn och kör en replikering på begäran som synkroniserar eventuella VM-ändringar som har inträffat sedan den senaste replikeringen utfördes. Detta säkerställer att ingen dataförlust sker.
     - Om du inte vill stänga av den virtuella datorn väljer du **Nej**
 4. Ett migreringsjobb startas för den virtuella datorn. Spåra jobbet i Azure-meddelanden.

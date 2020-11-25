@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
 ms.openlocfilehash: 421993ac4aaba551b6fcbd002783d44559ce377d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545743"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995343"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Felsöka Apache Spark program i ett HDInsight-kluster med Azure Toolkit for IntelliJ via SSH
 
@@ -25,7 +25,7 @@ Den här artikeln innehåller steg-för-steg-anvisningar om hur du använder HDI
 
 * För Windows-användare: när du kör det lokala Spark Scala-programmet på en Windows-dator kan du få ett undantag, enligt beskrivningen i [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Undantaget beror på att WinUtils.exe saknas i Windows.
 
-    Lös problemet genom att ladda ned [Winutils.exe](https://github.com/steveloughran/winutils) till en plats, till exempel **C:\WinUtils\bin** . Lägg sedan till miljövariabeln **HADOOP_HOME** och ange värdet för variabeln till **C:\WinUtils** .
+    Lös problemet genom att ladda ned [Winutils.exe](https://github.com/steveloughran/winutils) till en plats, till exempel **C:\WinUtils\bin**. Lägg sedan till miljövariabeln **HADOOP_HOME** och ange värdet för variabeln till **C:\WinUtils**.
 
 * [INTELLIJ idé](https://www.jetbrains.com/idea/download/#section=windows) (community-versionen är kostnads fri.)
 
@@ -37,7 +37,7 @@ Den här artikeln innehåller steg-för-steg-anvisningar om hur du använder HDI
 
 ## <a name="create-a-spark-scala-application"></a>Skapa ett Spark Scala-program
 
-1. Starta IntelliJ IDEA och välj **Skapa nytt projekt** för att öppna fönstret **Nytt projekt** .
+1. Starta IntelliJ IDEA och välj **Skapa nytt projekt** för att öppna fönstret **Nytt projekt**.
 
 1. Välj **Apache Spark/HDInsight** i det vänstra fönstret.
 
@@ -50,7 +50,7 @@ Den här artikeln innehåller steg-för-steg-anvisningar om hur du använder HDI
 
      ![IntelliJ skapa nytt projekt Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-1. Välj **Nästa** .
+1. Välj **Nästa**.
 
 1. I nästa **nya projekt** fönster anger du följande information:
 
@@ -59,31 +59,31 @@ Den här artikeln innehåller steg-för-steg-anvisningar om hur du använder HDI
     |Projektnamn|Ange ett namn. Det här går igenom användningen `myApp` .|
     |Projekt plats|Ange önskad plats för att spara projektet.|
     |Projekt-SDK|Om det är tomt väljer du **ny...** och navigerar till din JDK.|
-    |Spark-version|Skapandeguiden integrerar rätt version för Spark SDK och Scala SDK. Om Sparks klusterversion är äldre än 2.0 väljer du **Spark 1.x** . Annars väljer du **Spark 2. x.** .. I det här exemplet används **Spark 2.3.0 (Scala 2.11.8)** .|
+    |Spark-version|Skapandeguiden integrerar rätt version för Spark SDK och Scala SDK. Om Sparks klusterversion är äldre än 2.0 väljer du **Spark 1.x**. Annars väljer du **Spark 2. x.**.. I det här exemplet används **Spark 2.3.0 (Scala 2.11.8)**.|
 
    ![IntelliJ nytt projekt Välj Spark-version](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-new-project.png)
 
-1. Välj **Slutför** . Det kan ta några minuter innan projektet blir tillgängligt. Se det nedre högra hörnet för att fortsätta.
+1. Välj **Slutför**. Det kan ta några minuter innan projektet blir tillgängligt. Se det nedre högra hörnet för att fortsätta.
 
-1. Expandera ditt projekt och gå till **src**  >  **huvud** exemplet för src-  >  **Scala**  >  **sample** . Dubbelklicka på **SparkCore_WasbIOTest** .
+1. Expandera ditt projekt och gå till **src**  >  **huvud** exemplet för src-  >  **Scala**  >  **sample**. Dubbelklicka på **SparkCore_WasbIOTest**.
 
 ## <a name="perform-local-run"></a>Utför lokal körning
 
 1. Från **SparkCore_WasbIOTest** -skriptet högerklickar du på skript redigeraren och väljer sedan alternativet **Kör SparkCore_WasbIOTest** för att utföra lokal körning.
 
-1. När den lokala körningen är klar kan du se utdatafilen Spara till din aktuella standard för Project Explorer- **data**  >  **__default__** .
+1. När den lokala körningen är klar kan du se utdatafilen Spara till din aktuella standard för Project Explorer- **data**  >  **__default__**.
 
     ![IntelliJ-projektets lokala körnings resultat](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 
-1. Våra verktyg har ställt in standard konfigurationen för lokal körning automatiskt när du utför den lokala körningen och lokal fel sökning. Öppna konfigurationen **[Spark på HDInsight] XXX** i det övre högra hörnet, så kan du se **[Spark på HDInsight] XXX** redan har skapats under **Apache Spark i HDInsight** . Växla till fliken **lokalt körning** .
+1. Våra verktyg har ställt in standard konfigurationen för lokal körning automatiskt när du utför den lokala körningen och lokal fel sökning. Öppna konfigurationen **[Spark på HDInsight] XXX** i det övre högra hörnet, så kan du se **[Spark på HDInsight] XXX** redan har skapats under **Apache Spark i HDInsight**. Växla till fliken **lokalt körning** .
 
     ![IntelliJ kör felsöka konfigurationer lokal körning](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
 
-    - [Miljövariabler](#prerequisites): om du redan har konfigurerat system miljö variabeln **HADOOP_HOME** till **C:\WinUtils** , kan den automatiskt identifiera att du inte behöver lägga till manuellt.
+    - [Miljövariabler](#prerequisites): om du redan har konfigurerat system miljö variabeln **HADOOP_HOME** till **C:\WinUtils**, kan den automatiskt identifiera att du inte behöver lägga till manuellt.
     - [WinUtils.exe plats](#prerequisites): om du inte har angett system miljö variabeln kan du hitta platsen genom att klicka på dess knapp.
     - Du behöver bara välja något av två alternativ och de behövs inte på MacOS och Linux.
 
-1. Du kan också ange konfigurationen manuellt innan du utför lokal körning och lokal fel sökning. Välj plus tecknet () i föregående skärm bild **+** . Välj sedan alternativet **Apache Spark på HDInsight** . Ange information om **namn** , **huvud klass namn** som ska sparas och klicka sedan på knappen lokal körning.
+1. Du kan också ange konfigurationen manuellt innan du utför lokal körning och lokal fel sökning. Välj plus tecknet () i föregående skärm bild **+** . Välj sedan alternativet **Apache Spark på HDInsight** . Ange information om **namn**, **huvud klass namn** som ska sparas och klicka sedan på knappen lokal körning.
 
 ## <a name="perform-local-debugging"></a>Utför lokal fel sökning
 
@@ -99,11 +99,11 @@ Den här artikeln innehåller steg-för-steg-anvisningar om hur du använder HDI
 
    ![IntelliJ Lägg till ny konfiguration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
 
-1. Växla till **fjärran sluten på kluster** -fliken. Ange information om **namn** , **Spark-kluster** och **huvud klass namn** . Klicka sedan på **Avancerad konfiguration (fjärrfelsökning)** . Våra verktyg stöder fel sökning med **körningar** . Standardvärdet är 5 i **numExectors** . Du är bättre på att inte ange högre än 3.
+1. Växla till **fjärran sluten på kluster** -fliken. Ange information om **namn**, **Spark-kluster** och **huvud klass namn**. Klicka sedan på **Avancerad konfiguration (fjärrfelsökning)**. Våra verktyg stöder fel sökning med **körningar**. Standardvärdet är 5 i **numExectors**. Du är bättre på att inte ange högre än 3.
 
    ![IntelliJ kör fel söknings konfiguration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-1. I delen **Avancerad konfiguration (Remote-felsökning)** väljer du **Aktivera Spark-fjärrfelsökning** . Ange SSH-användarnamnet och ange ett lösen ord eller Använd en privat nyckel fil. Om du vill utföra fjärrfelsökning måste du ange den. Du behöver inte ange det om du bara vill använda fjärran sluten.
+1. I delen **Avancerad konfiguration (Remote-felsökning)** väljer du **Aktivera Spark-fjärrfelsökning**. Ange SSH-användarnamnet och ange ett lösen ord eller Använd en privat nyckel fil. Om du vill utföra fjärrfelsökning måste du ange den. Du behöver inte ange det om du bara vill använda fjärran sluten.
 
    ![IntelliJ Avancerad konfiguration aktivera Spark-fjärrfelsökning](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
@@ -143,7 +143,7 @@ Den här artikeln innehåller steg-för-steg-anvisningar om hur du använder HDI
 
 1. Om du vill uppdatera variabelvärdet dynamiskt genom att använda IntelliJ fel söknings funktion väljer du **Felsök** igen. Fönstret **variabler** visas igen.
 
-1. Högerklicka på målet på fliken **Felsök** och välj sedan **Ange värde** . Ange sedan ett nytt värde för variabeln. Spara värdet genom att välja **RETUR** .
+1. Högerklicka på målet på fliken **Felsök** och välj sedan **Ange värde**. Ange sedan ett nytt värde för variabeln. Spara värdet genom att välja **RETUR** .
 
    ![IntelliJ fel söknings värde för fjärrspark jobb uppsättning](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value1.png)
 

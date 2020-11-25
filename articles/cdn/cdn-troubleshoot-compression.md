@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f49af1488a0c044639a72fc2ea52ba0a47727a24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433678"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996159"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Felsöka CDN-filkomprimering
 Den här artikeln hjälper dig att felsöka problem med [CDN-filkomprimering](cdn-improve-performance.md).
@@ -30,7 +30,7 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 Komprimeringen för slut punkten är aktive rad, men filerna returneras okomprimerade.
 
 > [!TIP]
-> Om du vill kontrol lera om filerna returneras som komprimerade måste du använda ett verktyg som [Fiddler](https://www.telerik.com/fiddler) eller webbläsarens [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Kontrol lera vilka HTTP-svarshuvuden som returneras med ditt cachelagrade CDN-innehåll.  Om det finns ett huvud som heter `Content-Encoding` **gzip**, **bzip2**eller **DEFLATE**, komprimeras innehållet.
+> Om du vill kontrol lera om filerna returneras som komprimerade måste du använda ett verktyg som [Fiddler](https://www.telerik.com/fiddler) eller webbläsarens [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Kontrol lera vilka HTTP-svarshuvuden som returneras med ditt cachelagrade CDN-innehåll.  Om det finns ett huvud som heter `Content-Encoding` **gzip**, **bzip2** eller **DEFLATE**, komprimeras innehållet.
 > 
 > ![Innehålls kodnings rubrik](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -54,7 +54,7 @@ Det finns flera möjliga orsaker, inklusive:
 Först bör vi göra en snabb Sanity kontroll av begäran.  Du kan använda webbläsarens [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) för att visa de begär Anden som görs.
 
 * Kontrol lera att begäran skickas till din slut punkts-URL, `<endpointname>.azureedge.net` och inte ditt ursprung.
-* Kontrol lera att begäran innehåller ett **Accept-Encoding-** huvud och att värdet för den rubriken innehåller **gzip**, **DEFLATE**eller **bzip2**.
+* Kontrol lera att begäran innehåller ett **Accept-Encoding-** huvud och att värdet för den rubriken innehåller **gzip**, **DEFLATE** eller **bzip2**.
 
 > [!NOTE]
 > **Azure CDN från Akamai** -profiler stöder endast **gzip** -kodning.
@@ -65,7 +65,7 @@ Först bör vi göra en snabb Sanity kontroll av begäran.  Du kan använda webb
 
 ### <a name="verify-compression-settings-standard-cdn-profiles"></a>Kontrol lera komprimerings inställningarna (standard-CDN-profiler)
 > [!NOTE]
-> Det här steget gäller bara om din CDN-profil är en **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**eller **Azure CDN Standard från Akamai** -profilen. 
+> Det här steget gäller bara om din CDN-profil är en **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon** eller **Azure CDN Standard från Akamai** -profilen. 
 > 
 > 
 

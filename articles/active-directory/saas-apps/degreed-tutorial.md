@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 96f2c96e7770ec7acc690a1d057fef16db5b88ed
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675971"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994442"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Självstudie: Azure Active Directory integrering med graderad
 
@@ -44,9 +44,9 @@ För att konfigurera Azure AD-integrering med Degreed behöver du följande:
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Degreed har stöd för **SP** -initierad enkel inloggning
+* Degreed har stöd för **SP**-initierad enkel inloggning
 
-* Degreed har stöd för **just-in-time** -användaretablering
+* Degreed har stöd för **just-in-time**-användaretablering
 
 * När du har konfigurerat förgraderad kan du framtvinga kontroll av sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
@@ -56,14 +56,14 @@ För att konfigurera integrering av Degreed i Azure AD behöver du lägga till D
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program** .
+1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program** om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** skriver du **graderat** i sökrutan.
 1. Välj **graderat** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Konfigurera och testa Azure AD SSO
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD till Degreed baserat på en testanvändare med namnet **Britta Simon** .
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD till Degreed baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Degreed upprättas.
 
 För att konfigurera och testa enkel inloggning för Azure AD med Degreed behöver du slutföra följande byggstenar:
@@ -79,8 +79,8 @@ För att konfigurera och testa enkel inloggning för Azure AD med Degreed behöv
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. På **sidan på sidan för program integrering** i [Azure Portal](https://portal.azure.com/)hittar du avsnittet **Hantera** och väljer **enkel inloggning** .
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML** .
+1. På **sidan på sidan för program integrering** i [Azure Portal](https://portal.azure.com/)hittar du avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
@@ -116,21 +116,21 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare med namnet B. Simon i Azure Portal.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** , väljer **användare** och väljer sedan **alla användare** .
-1. Överst på skärmen väljer du **ny användare** .
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare** och väljer sedan **alla användare**.
+1. Överst på skärmen väljer du **ny användare**.
 1. I **användar** egenskaperna följer du de här stegen:
-   1. I fältet **namn** anger du **B. Simon** .  
-   1. I fältet **användar namn** anger du `<username>@<companydomain>.<extension>` . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **namn** anger du **B. Simon**.  
+   1. I fältet **användar namn** anger du `<username>@<companydomain>.<extension>` . Till exempel: `B.Simon@contoso.com`.
    1. Markera kryss rutan **Visa lösen ord** och anteckna värdet som visas i rutan **lösen ord** .
-   1. Välj **Skapa** .
+   1. Välj **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till graderad.
 
-1. I Azure Portal väljer du **företags program** och väljer sedan **alla program** .
-1. I programlistan väljer du **Degreed** .
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper** .
+1. I Azure Portal väljer du **företags program** och väljer sedan **alla program**.
+1. I programlistan väljer du **Degreed**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -144,7 +144,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ### <a name="configure-degreed-sso"></a>Konfigurera graderad SSO
 
-För att konfigurera enkel inloggning på **Degreed** -sidan behöver du skicka nedladdad **federationsmetadata-XML** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Degreed](mailto:sso@degreed.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **Degreed**-sidan behöver du skicka nedladdad **federationsmetadata-XML** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Degreed](mailto:sso@degreed.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-degreed-test-user"></a>Skapa Degreed-testanvändare
 

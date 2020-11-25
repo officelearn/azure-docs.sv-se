@@ -14,11 +14,11 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 320d48535c4792a4d610888c6a7030568ccf16bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459852"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995190"
 ---
 # <a name="configuration-requirements-and-troubleshooting-tips-for-xamarin-android-with-msalnet"></a>Konfigurations krav och fel söknings tips för Xamarin Android med MSAL.NET
 
@@ -145,7 +145,7 @@ Mer information finns i [använda webbläsare för MSAL.net](msal-net-web-browse
 
 ### <a name="error-the-name-authenticationcontinuationhelper-doesnt-exist-in-the-current-context"></a>Fel: namnet AuthenticationContinuationHelper finns inte i den aktuella kontexten
 
-Om ett fel indikerar att `AuthenticationContinuationHelper` inte finns i den aktuella kontexten kan Visual Studio ha uppdaterat filen *Android. CSPROJ \* * felaktigt. Ibland innehåller fil Sök vägen i- `<HintPath>` elementet felaktigt i `netstandard13` stället för `monoandroid90` .
+Om ett fel indikerar att `AuthenticationContinuationHelper` inte finns i den aktuella kontexten kan Visual Studio ha uppdaterat filen *Android. CSPROJ \** felaktigt. Ibland innehåller fil Sök vägen i- `<HintPath>` elementet felaktigt i `netstandard13` stället för `monoandroid90` .
 
 Det här exemplet innehåller en korrekt fil Sök väg:
 
@@ -160,7 +160,7 @@ Det här exemplet innehåller en korrekt fil Sök väg:
 
 Mer information finns i exemplet på ett [Xamarin mobil program som använder Microsoft Identity Platform](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations). I följande tabell sammanfattas relevant information i README-filen.
 
-| Exempel | Plattform | Beskrivning |
+| Exempel | Plattform | Description |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin. iOS, Android, UWP | En enkel Xamarin. Forms-app som visar hur du använder MSAL för att autentisera Microsoft-personliga konton och Azure AD via Azure AD 2,0-slutpunkten. Appen visar också hur du kommer åt Microsoft Graph och visar den resulterande token. <br>![Diagram över Authentication Flow](media/msal-net-xamarin-android-considerations/topology.png) |
 

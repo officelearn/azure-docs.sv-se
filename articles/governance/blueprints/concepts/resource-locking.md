@@ -4,11 +4,11 @@ description: Lär dig mer om låsnings alternativen i Azure-ritningar för att s
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096002"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996108"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurs låsning i Azure-ritningar
 
@@ -19,10 +19,10 @@ Att skapa konsekventa miljöer i skala är bara riktigt värdefullt om det finns
 
 ## <a name="locking-modes-and-states"></a>Lås lägen och tillstånd
 
-Låsnings läget gäller för skiss tilldelningen och har tre alternativ: **Lås inte**, **skrivskyddad**eller **Ta inte bort**. Lås läget konfigureras under en artefakt distribution under en skiss tilldelning. Du kan ställa in ett annat lås läge genom att uppdatera skiss tilldelningen.
+Låsnings läget gäller för skiss tilldelningen och har tre alternativ: **Lås inte**, **skrivskyddad** eller **Ta inte bort**. Lås läget konfigureras under en artefakt distribution under en skiss tilldelning. Du kan ställa in ett annat lås läge genom att uppdatera skiss tilldelningen.
 Lås lägen kan dock inte ändras utanför Azure-ritningar.
 
-Resurser som har skapats av artefakter i en skiss tilldelning har fyra tillstånd: **inte låst**, **skrivskyddad**, **kan inte redigera/ta bort**eller **kan inte tas bort**. Varje artefakt typ kan vara i **låst** läge. Följande tabell kan användas för att fastställa en resurs status:
+Resurser som har skapats av artefakter i en skiss tilldelning har fyra tillstånd: **inte låst**, **skrivskyddad**, **kan inte redigera/ta bort** eller **kan inte tas bort**. Varje artefakt typ kan vara i **låst** läge. Följande tabell kan användas för att fastställa en resurs status:
 
 |Läge|Artefakt resurs typ|Stat|Beskrivning|
 |-|-|-|-|
@@ -109,7 +109,7 @@ En åtgärd för [att neka en Azure RBAC-](../../../role-based-access-control/de
 
 |Läge |Behörigheter. åtgärder |Behörigheter. NotActions |Huvud konton [i]. Bastyp |ExcludePrincipals [i]. Identitet | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Skrivskydd |**\*** |**\*/read**<br />**Microsoft. Authorization/lock/Delete**<br />**Microsoft. Network/virtualNetwork/subnets/Join/Action** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
+|Skrivskydd |**\** _ |_ *\* /Read **<br />** Microsoft. Authorization/lock/Delete **<br />** Microsoft. Network/virtualNetwork/subnets/JOIN/åtgärd** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
 |Ta inte bort |**\*/Delete** | **Microsoft. Authorization/lock/Delete**<br />**Microsoft. Network/virtualNetwork/subnets/Join/Action** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
 
 > [!IMPORTANT]

@@ -10,11 +10,11 @@ ms.author: matjazl
 author: matjazl
 ms.date: 04/02/2019
 ms.openlocfilehash: 2e13a9fc32964781dda07e5534e5cab79868ddf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87846983"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995547"
 ---
 # <a name="tutorial-azure-active-directory-smart-on-fhir-proxy"></a>Självstudie: Azure Active Directory SMART on FHIR proxy
 
@@ -24,7 +24,7 @@ Autentiseringen baseras på OAuth2. Men eftersom SMART på FHIR använder parame
 
 I den här självstudien beskrivs hur du använder proxyn för att aktivera SMART on FHIR-program med Azure-API: t för FHIR.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En instans av Azure API för FHIR
 - [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
@@ -126,7 +126,7 @@ När du har startat programmet SMART on FHIR app (starta) kan du peka din webbl�
 
 ![SMART on FHIR app starter](media/tutorial-smart-on-fhir/smart-on-fhir-app-launcher.png)
 
-När du anger **patient**, **stötande**eller **praktiserande** information ser du att **Start kontexten** har uppdaterats. När du använder Azure API för FHIR är start kontexten bara ett JSON-dokument som innehåller information om patient, läkare och annat. Den här start kontexten är Base64-kodad och skickas till SMART on FHIR-appen som `launch` Frågeparametern. Enligt SMART on FHIR-specifikationen är den här variabeln ogenomskinlig för SMART on FHIR-appen och skickas till identitets leverantören. 
+När du anger **patient**, **stötande** eller **praktiserande** information ser du att **Start kontexten** har uppdaterats. När du använder Azure API för FHIR är start kontexten bara ett JSON-dokument som innehåller information om patient, läkare och annat. Den här start kontexten är Base64-kodad och skickas till SMART on FHIR-appen som `launch` Frågeparametern. Enligt SMART on FHIR-specifikationen är den här variabeln ogenomskinlig för SMART on FHIR-appen och skickas till identitets leverantören. 
 
 SMART on FHIR-proxyn använder den här informationen för att fylla i fält i svar på token. Den smarta FHIR-appen *kan* använda dessa fält för att styra vilken patient som begär data för och hur den återger programmet på skärmen. SMART on FHIR-proxyn har stöd för följande fält:
 

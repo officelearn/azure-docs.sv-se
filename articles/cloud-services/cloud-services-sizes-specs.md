@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 52fad84c9ed145b4acec73ffad1fa470acf94532
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076954"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994595"
 ---
 # <a name="sizes-for-cloud-services"></a>Storlek för Cloud Services
 I det här avsnittet beskrivs tillgängliga storlekar och alternativ för moln tjänst roll instanser (webb roller och arbets roller). Den innehåller också distributions överväganden för att vara medveten om när du planerar att använda dessa resurser. Varje storlek har ett ID som du anger i [tjänst definitions filen](cloud-services-model-and-package.md#csdef). Priserna för varje storlek finns på sidan [Cloud Services priser](https://azure.microsoft.com/pricing/details/cloud-services/) .
@@ -62,8 +62,8 @@ Vi har skapat konceptet för Azure Compute Unit (ACU) för att tillhandahålla e
 | [D v2](#dv2-series) |160 – 190 * |
 | [D v3](#dv3-series) |160 – 190 * |
 | [E v3](#ev3-series) |160 – 190 * |
-| [Projektredovisnings](#g-series) |180 - 240* |
-| [&](#h-series) |290 - 300* |
+| [G](#g-series) |180 - 240* |
+| [H](#h-series) |290 - 300* |
 
 ACU:er som visas med * använder Intel® Turbo-teknik för att öka processorfrekvensen och prestanda. Prestandaökningens storlek kan variera beroende på storleken på den virtuella datorn, arbetsbelastningen och andra arbetsbelastningar som körs på samma värd.
 

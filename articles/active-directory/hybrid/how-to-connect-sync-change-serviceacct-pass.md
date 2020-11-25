@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319936"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996567"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Ändra lösen ordet för ADSync-tjänstkontot
 Om du ändrar lösen ordet för ADSync-tjänstkontot kan inte synkroniseringstjänsten starta korrekt förrän du har övergivit krypterings nyckeln och initierat om lösen ordet för ADSync-tjänstkontot. 
@@ -39,7 +39,7 @@ Det finns två saker som du måste utföra när du ändrar lösen ordet för tj�
 Först måste du ändra lösen ordet under Windows Service Control Manager.  Tills det här problemet har lösts visas följande fel:
 
 
-- Om du försöker starta synkroniseringstjänsten i Windows Service Control Manager får du ett fel meddelande om att**Windows inte kunde starta tjänsten Microsoft Azure AD Sync på den lokala datorn**. **Fel 1069: tjänsten startade inte på grund av ett inloggnings fel.**"
+- Om du försöker starta synkroniseringstjänsten i Windows Service Control Manager får du ett fel meddelande om att **Windows inte kunde starta tjänsten Microsoft Azure AD Sync på den lokala datorn**. **Fel 1069: tjänsten startade inte på grund av ett inloggnings fel.**"
 - Under Windows Loggboken innehåller system händelse loggen ett fel med **händelse-ID 7038** och meddelandet "**ADSync-tjänsten kunde inte logga in med det aktuella konfigurerade lösen ordet på grund av följande fel: användar namnet eller lösen ordet är felaktigt.**"
 
 För det andra, under vissa villkor, kan synkroniseringstjänsten inte längre hämta krypterings nyckeln via DPAPI om lösen ordet uppdateras. Utan krypterings nyckeln kan inte synkroniseringstjänsten dekryptera de lösen ord som krävs för att synkronisera till/från lokala AD och Azure AD.
@@ -97,7 +97,7 @@ Eftersom befintliga lösen ord som lagras i databasen inte längre kan dekrypter
 </br>![Synkronisera Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
 2. Gå till fliken **anslutningar** .
 3. Välj den **AD-anslutning** som motsvarar din lokala AD. Om du har fler än en AD-koppling upprepar du följande steg för var och en av dem.
-4. Under **åtgärder**väljer du **Egenskaper**.
+4. Under **åtgärder** väljer du **Egenskaper**.
 5. I popup-dialogrutan väljer **du Anslut till Active Directory skog**:
 6. Ange lösen ordet för AD DS-kontot i text rutan **lösen ord** . Om du inte känner till lösen ordet måste du ange det som ett känt värde innan du utför det här steget.
 7. Klicka på **OK** för att spara det nya lösen ordet och stänga popup-dialogrutan.
@@ -122,6 +122,6 @@ Nu när synkroniseringstjänsten har åtkomst till krypterings nyckeln och alla 
 ## <a name="next-steps"></a>Nästa steg
 **Översikts avsnitt**
 
-* [Azure AD Connect synkronisering: förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

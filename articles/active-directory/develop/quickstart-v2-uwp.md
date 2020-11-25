@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 28d912153b52580727e0fb5086e0a7ae55e8b545
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: ab8942b473ad980da22d451116bea6a759aeb461
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560935"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95995122"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (Universell Windows-plattform)
 
-I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett Universell Windows-plattform-program (UWP) kan logga in användare och skaffa en åtkomsttoken för att anropa Microsoft Graph API. 
+I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett Universell Windows-plattform-program (UWP) kan logga in användare och få en åtkomsttoken för att anropa Microsoft Graph API. 
 
 Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
@@ -98,7 +98,7 @@ Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 >    private const string ClientId = "Enter_the_Application_Id_here";
 >    ```
 >
->    Du hittar **program-ID: t (Client)** i appens **översikts** fönster i Azure Portal ( **Azure Active Directory**  >  **Appregistreringar**  >  *{Your app Registration}* ).
+>    Du hittar **program-ID: t (Client)** i appens **översikts** fönster i Azure Portal (**Azure Active Directory**  >  **Appregistreringar**  >  *{Your app Registration}*).
 > 1. Skapa och välj sedan ett nytt självsignerat test certifikat för paketet:
 >     1. I **Solution Explorer** dubbelklickar du på filen *Package. appxmanifest* .
 >     1. Välj **Paketera**  >  **Välj certifikat...**  >  **Skapa...**.
@@ -112,7 +112,7 @@ Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
 Så här kör du exempel programmet på den lokala datorn:
 
-1. I verktygsfältet Visual Studio väljer du rätt plattform (antagligen **x64** eller **x86** , inte arm). Mål enheten bör ändras från *enheten* till den *lokala datorn*.
+1. I verktygsfältet Visual Studio väljer du rätt plattform (antagligen **x64** eller **x86**, inte arm). Mål enheten bör ändras från *enheten* till den *lokala datorn*.
 1. Välj **Felsökning** > **Starta utan felsökning**.
     
     Om du uppmanas att göra det kanske du först måste aktivera **utvecklarläge** och sedan **starta utan att felsöka** igen för att starta appen.

@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/31/2020
 ms.openlocfilehash: 1f83f13564a64a0d9d8a5e0144ca95af6a769d6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76905096"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995054"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Felsöka och diagnostisera fel med arbetsflöden i Azure Logic Apps
 
@@ -27,7 +27,7 @@ Varje Logi Kap par körning börjar med ett Utlös ande försök, så om utlösa
 
    ![Visa utlösarens status och historik](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
-1. Kontrol lera utlösarens indata för att bekräfta att de visas som förväntat. Under **indata-länk**väljer du länken som visar fönstret **indata** .
+1. Kontrol lera utlösarens indata för att bekräfta att de visas som förväntat. Under **indata-länk** väljer du länken som visar fönstret **indata** .
 
    Trigger Inputs innehåller de data som utlösaren förväntar sig och kräver för att starta arbets flödet. Att granska dessa indata kan hjälpa dig att avgöra om utlösarens indata är korrekta och om villkoret uppfylldes så att arbets flödet kan fortsätta.
 
@@ -35,7 +35,7 @@ Varje Logi Kap par körning börjar med ett Utlös ande försök, så om utlösa
 
    ![Granska utlöser indata för fel](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
 
-1. Kontrol lera utlösare utdata, om det finns, för att bekräfta att de visas som förväntat. Under **länken utdata**väljer du länken som visar fönstret **utdata** .
+1. Kontrol lera utlösare utdata, om det finns, för att bekräfta att de visas som förväntat. Under **länken utdata** väljer du länken som visar fönstret **utdata** .
 
    Utlösa utdata inkluderar de data som utlösaren går vidare till nästa steg i arbets flödet. Att granska dessa utdata kan hjälpa dig att avgöra om rätt eller förväntade värden har överförts till nästa steg i arbets flödet, till exempel:
 
@@ -60,7 +60,7 @@ Varje gång utlösaren utlöses för ett objekt eller en händelse skapas och k�
 
 1. Kontrol lera indata för det misslyckade steget för att bekräfta om de visas som förväntat.
 
-1. Granska informationen för varje steg i en speciell körning. Under **körnings historik**väljer du den körning som du vill undersöka.
+1. Granska informationen för varje steg i en speciell körning. Under **körnings historik** väljer du den körning som du vill undersöka.
 
    ![Granska körningshistorik](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 

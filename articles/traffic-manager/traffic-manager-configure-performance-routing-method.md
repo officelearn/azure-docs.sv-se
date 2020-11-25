@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: duau
 ms.openlocfilehash: 46d71a38b79f449084f7353527f2dfb05d5b92a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401035"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994918"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Konfigurera cirkulations metoden för prestanda trafik
 
@@ -28,12 +28,12 @@ Med routningsmetoden för prestanda trafik kan du dirigera trafik till slut punk
 1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
 2. I portalens sökfält söker du efter **Traffic Manager profiler** och klickar sedan på det profil namn som du vill konfigurera routningsmetod för.
 3. På bladet **Traffic Manager profil** kontrollerar du att både de moln tjänster och webbplatser som du vill inkludera i konfigurationen finns.
-4. I avsnittet **Inställningar** klickar du på **konfiguration**och slutför i **konfigurations** bladet på följande sätt:
+4. I avsnittet **Inställningar** klickar du på **konfiguration** och slutför i **konfigurations** bladet på följande sätt:
     1. För routningsmetoden för **trafikroutning** **väljer du** **prestanda**.
     2. Ange **Inställningar för slut punkts övervakaren** identisk för alla slut punkter i den här profilen enligt följande:
-        1. Välj lämpligt **protokoll**och ange **port** numret. 
+        1. Välj lämpligt **protokoll** och ange **port** numret. 
         2. För **sökväg** anger du ett snedstreck */* . Om du vill övervaka slut punkter måste du ange en sökväg och ett fil namn. Ett snedstreck "/" är en giltig post för den relativa sökvägen och innebär att filen finns i rot katalogen (standard).
-        3. Klicka på **Spara**längst upp på sidan.
+        3. Klicka på **Spara** längst upp på sidan.
 5.  Testa ändringarna i konfigurationen på följande sätt:
     1.  Sök efter namnet på Traffic Manager profilen i portalens sökfält och klicka på Traffic Manager profilen i resultaten som visas.
     2.  I bladet **Traffic Manager** profil klickar du på **Översikt**.

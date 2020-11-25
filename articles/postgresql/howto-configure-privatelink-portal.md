@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636273"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995292"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Skapa och hantera privat länk för Azure Database for PostgreSQL-en server med hjälp av portalen
 
@@ -40,7 +40,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Namn | Ange *MyVirtualNetwork*. |
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
-    | Resursgrupp | Välj **Skapa ny** , ange *myResourceGroup* och välj sedan **OK**. |
+    | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
     | Plats | Välj **Europa, västra**.|
     | Undernät – Namn | Ange *undernät*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
@@ -131,7 +131,7 @@ I det här avsnittet ska du skapa en Azure Database for PostgreSQL-server i Azur
 I det här avsnittet ska du skapa en PostgreSQL-Server och lägga till en privat slut punkt till den. 
 
 1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs**  >  **nätverk**  >  **privat länk**.
-2. I **privat länk Center – översikt** , på alternativet för att **skapa en privat anslutning till en tjänst** , väljer du **Start**.
+2. I **privat länk Center – översikt**, på alternativet för att **skapa en privat anslutning till en tjänst**, väljer du **Start**.
 
     :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Översikt över privat länk":::
 
@@ -147,7 +147,7 @@ I det här avsnittet ska du skapa en PostgreSQL-Server och lägga till en privat
     |Region|Välj **Europa, västra**.|
     |||
 5. Välj **Nästa: resurs**.
-6. I **skapa en privat slut punkt – resurs** , anger eller väljer du den här informationen:
+6. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -190,7 +190,7 @@ När du har skapat **myVm** ansluter du till den från Internet på följande s�
 
 1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
-1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil ( *. RDP* ) och laddar ned den till datorn.
+1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil (*. RDP*) och laddar ned den till datorn.
 
 1. Öppna den *nedladdade RDP* -filen.
 

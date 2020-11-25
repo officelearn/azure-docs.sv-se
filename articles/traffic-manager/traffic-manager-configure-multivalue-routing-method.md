@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401052"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994935"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Konfigurera routningsmetod för multivärde i Traffic Manager
 
@@ -31,8 +31,8 @@ Logga in på Azure Portal på https://portal.azure.com.
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 Skapa en resurs grupp för Traffic Manager profilen.
 1. I den vänstra rutan i Azure Portal väljer du **resurs grupper**.
-2. Välj **Lägg till**i **resurs grupper**överst på sidan.
-3. I **resurs grupp namn**skriver du ett namn *myResourceGroupTM1*. För **resurs gruppens plats**väljer du **östra USA**och väljer sedan **OK**.
+2. Välj **Lägg till** i **resurs grupper** överst på sidan.
+3. I **resurs grupp namn** skriver du ett namn *myResourceGroupTM1*. För **resurs gruppens plats** väljer du **östra USA** och väljer sedan **OK**.
 
 ## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 Skapa en Traffic Manager profil som dirigerar användar trafiken genom att skicka dem till slut punkten med lägsta latens.
@@ -62,7 +62,7 @@ Lägg till två IP-adresser som externa slut punkter i Traffic Manager profilen 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Typ                    | Extern slut punkt                                   |
-    | Namn           | myEndpoint1                                        |
+    | Name           | myEndpoint1                                        |
     | Fullständigt kvalificerat domän namn (FQDN) eller IP           | Ange den offentliga IP-adressen för den slut punkt som du vill lägga till i den här Traffic Manager profilen                         |
     |        |           |
 

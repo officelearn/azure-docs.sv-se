@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979892"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996652"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Begär åtkomst till ett Access-paket i Azure AD-hantering av rättigheter
 
@@ -51,7 +51,7 @@ När du har hittat Access-paketet i My Access-portalen kan du skicka en begäran
 
 **Nödvändig roll:** Begär Ande
 
-1. Hitta Access-paketet i listan.  Om det behövs kan du söka genom att skriva en Sök sträng och sedan välja filtret **namn**, **katalog**eller **resurser** .
+1. Hitta Access-paketet i listan.  Om det behövs kan du söka genom att skriva en Sök sträng och sedan välja filtret **namn**, **katalog** eller **resurser** .
 
     ![Min åtkomst Portal – resurs sökning](./media/entitlement-management-request-access/my-access-resource-search.png)
 
@@ -63,7 +63,7 @@ När du har hittat Access-paketet i My Access-portalen kan du skicka en begäran
 
 1. Om rutan **affärs justering** visas anger du en motivering för att ha åtkomst.
 
-1. Välj **Ja** eller **Nej**om **begäran om angiven period?** är aktive rad.
+1. Välj **Ja** eller **Nej** om **begäran om angiven period?** är aktive rad.
 
 1. Ange vid behov start datum och slutdatum.
 

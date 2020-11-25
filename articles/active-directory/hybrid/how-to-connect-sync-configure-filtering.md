@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 595cf2c1dbc105634d33b426c67e5123b9751e6e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457970"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996550"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Genom att använda filtrering kan du styra vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standard konfigurationen tar alla objekt i alla domäner i de konfigurerade skogarna. I allmänhet är detta den rekommenderade konfigurationen. Användare som använder Microsoft 365 arbets belastningar, till exempel Exchange Online och Skype för företag, drar nytta av en fullständig global adress lista så att de kan skicka e-post och ringa alla. Med standard konfigurationen har de samma erfarenhet som de skulle ha med en lokal implementering av Exchange eller Lync.
@@ -109,7 +109,7 @@ Gör så här om du vill ange ett domän filter:
 
 1. Logga in på servern som kör Azure AD Connect Sync genom att använda ett konto som är medlem i säkerhets gruppen **ADSyncAdmins** .
 2. Starta **synkroniseringstjänsten** från **Start** -menyn.
-3. Välj **kopplingar**och i listan **anslutningar** väljer du anslutningen med typen **Active Directory Domain Services**. I **åtgärder**väljer du **Egenskaper**.  
+3. Välj **kopplingar** och i listan **anslutningar** väljer du anslutningen med typen **Active Directory Domain Services**. I **åtgärder** väljer du **Egenskaper**.  
    ![Kopplings egenskaper](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Klicka på **Konfigurera katalogpartitioner**.
 5. I listan **Välj katalogpartitioner** väljer du och avmarkerar domäner efter behov. Kontrol lera att bara de partitioner som du vill synkronisera är markerade.  
@@ -126,14 +126,14 @@ Gör så här om du vill ange ett domän filter:
 2.  Klicka på **Konfigurera**.
 3.  Välj **Anpassa alternativ för synkronisering** och klicka på **Nästa**.
 4.  Ange dina autentiseringsuppgifter för Azure AD
-5.  Klicka på **Nästa**på sidan **anslutna kataloger** .
+5.  Klicka på **Nästa** på sidan **anslutna kataloger** .
 6.  På **sidan domän-och OU-filtrering** klickar du på **Uppdatera**.  Nya domäner kommer nu att visas och borttagna domäner försvinner.
    ![Partitioner](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>Uppdatera körnings profilerna
 Om du har uppdaterat ditt domän filter måste du också uppdatera körnings profilerna.
 
-1. I listan **kopplingar** ser du till att den koppling som du ändrade i föregående steg är markerad. I **åtgärder**väljer du **Konfigurera körnings profiler**.  
+1. I listan **kopplingar** ser du till att den koppling som du ändrade i föregående steg är markerad. I **åtgärder** väljer du **Konfigurera körnings profiler**.  
    ![Anslutnings körnings profiler 1](./media/how-to-connect-sync-configure-filtering/connectorrunprofiles1.png)  
 2. Hitta och identifiera följande profiler:
     * Fullständig import
@@ -166,7 +166,7 @@ Gör så här om du vill konfigurera organisationsenhets-baserad filtrering:
 
 1. Logga in på servern som kör Azure AD Connect Sync genom att använda ett konto som är medlem i säkerhets gruppen **ADSyncAdmins** .
 2. Starta **synkroniseringstjänsten** från **Start** -menyn.
-3. Välj **kopplingar**och i listan **anslutningar** väljer du anslutningen med typen **Active Directory Domain Services**. I **åtgärder**väljer du **Egenskaper**.  
+3. Välj **kopplingar** och i listan **anslutningar** väljer du anslutningen med typen **Active Directory Domain Services**. I **åtgärder** väljer du **Egenskaper**.  
    ![Kopplings egenskaper](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Klicka på **Konfigurera katalogpartitioner**, Välj den domän som du vill konfigurera och klicka sedan på **behållare**.
 5. När du uppmanas till det anger du eventuella autentiseringsuppgifter med Läs behörighet till din lokala Active Directory. Det behöver inte vara den användare som är förifylld i dialog rutan.
@@ -212,7 +212,7 @@ Attribut-baserad filtrering är det mest flexibla sättet att filtrera objekt. D
 Du kan använda [inkommande](#inbound-filtering) filtrering från Active Directory till metaversum och [utgående](#outbound-filtering) filtrering från metaversum till Azure AD. Vi rekommenderar att du tillämpar inkommande filtrering eftersom det är det enklaste sättet att underhålla. Du bör endast använda utgående filtrering om det krävs för att ansluta objekt från fler än en skog innan utvärderingen kan utföras.
 
 ### <a name="inbound-filtering"></a>Inkommande filtrering
-Inkommande filtrering använder standard konfigurationen, där objekt som ska till Azure AD måste ha attributet metaversum cloudFiltered inte inställda på ett värde för att synkroniseras. Om det här attributets värde är inställt på **Sant**synkroniseras inte objektet. Det får inte vara inställt på **falskt**, avsiktligt. För att se till att andra regler har möjlighet att bidra till ett värde, ska det här attributet bara ha värdena **True** eller **Null** (saknas).
+Inkommande filtrering använder standard konfigurationen, där objekt som ska till Azure AD måste ha attributet metaversum cloudFiltered inte inställda på ett värde för att synkroniseras. Om det här attributets värde är inställt på **Sant** synkroniseras inte objektet. Det får inte vara inställt på **falskt**, avsiktligt. För att se till att andra regler har möjlighet att bidra till ett värde, ska det här attributet bara ha värdena **True** eller **Null** (saknas).
 
 I inkommande filtrering använder du **omfattnings** kraften för att avgöra vilka objekt som ska synkroniseras eller inte. Det är här du gör justeringar för att anpassa din organisations krav. Omfångs modulen har en **grupp** och en **sats** för att fastställa när en Synkroniseringsregel är i omfånget. En grupp innehåller en eller flera satser. Det finns ett logiskt "och" mellan flera satser och ett logiskt "eller" mellan flera grupper.
 
@@ -230,12 +230,12 @@ I följande exempel filtrerar du bort (inte synkroniserar) alla användare där 
 1. Logga in på servern som kör Azure AD Connect Sync genom att använda ett konto som är medlem i säkerhets gruppen **ADSyncAdmins** .
 2. Starta **Redigeraren för regler för synkronisering** från **Start** -menyn.
 3. Kontrol lera att **inkommande** är markerat och klicka på **Lägg till ny regel**.
-4. Ge regeln ett beskrivande namn, till exempel "*i från AD – User DoNotSyncFilter*". Välj rätt skog, Välj **användare** som **objekt typen CS**och välj **person** som **typ av objekt typen MV**. I **Länktyp**väljer du **Anslut**. I **prioritet**anger du ett värde som för närvarande inte används av en annan Synkroniseringsregel (till exempel 50) och klickar sedan på **Nästa**.  
+4. Ge regeln ett beskrivande namn, till exempel "*i från AD – User DoNotSyncFilter*". Välj rätt skog, Välj **användare** som **objekt typen CS** och välj **person** som **typ av objekt typen MV**. I **Länktyp** väljer du **Anslut**. I **prioritet** anger du ett värde som för närvarande inte används av en annan Synkroniseringsregel (till exempel 50) och klickar sedan på **Nästa**.  
    ![Ingående 1-Beskrivning](./media/how-to-connect-sync-configure-filtering/inbound1.png)  
-5. I **omfångs filter**, klickar du på **Lägg till grupp**och klickar sedan på **Lägg till sats**. I **attribut**väljer du **ExtensionAttribute15**. Kontrol lera att **operatorn** är inställd på **lika**och skriv värdet **nosync** i rutan **värde** . Klicka på **Nästa**.  
+5. I **omfångs filter**, klickar du på **Lägg till grupp** och klickar sedan på **Lägg till sats**. I **attribut** väljer du **ExtensionAttribute15**. Kontrol lera att **operatorn** är inställd på **lika** och skriv värdet **nosync** i rutan **värde** . Klicka på **Nästa**.  
    ![Inkommande 2-omfattning](./media/how-to-connect-sync-configure-filtering/inbound2.png)  
 6. Lämna **kopplings** reglerna tomma och klicka sedan på **Nästa**.
-7. Klicka på **Lägg till omvandling**, **Välj FlowType** som **konstant**och välj **cloudFiltered** som **target-attribut**. Skriv **Sant**i text rutan **källa** . Klicka på **Lägg till** för att spara regeln.  
+7. Klicka på **Lägg till omvandling**, **Välj FlowType** som **konstant** och välj **cloudFiltered** som **target-attribut**. Skriv **Sant** i text rutan **källa** . Klicka på **Lägg till** för att spara regeln.  
    ![Inkommande 3-transformering](./media/how-to-connect-sync-configure-filtering/inbound3.png)
 8. För att slutföra konfigurationen måste du köra en **fullständig synkronisering**. Fortsätt läsa avsnittet [tillämpa och verifiera ändringar](#apply-and-verify-changes).
 
@@ -249,19 +249,19 @@ I följande exempel synkroniserar du bara användar objekt där avdelnings attri
 1. Logga in på servern som kör Azure AD Connect Sync genom att använda ett konto som är medlem i säkerhets gruppen **ADSyncAdmins** .
 2. Starta **Redigeraren för regler för synkronisering** från **Start** -menyn.
 3. Kontrol lera att **inkommande** är markerat och klicka på **Lägg till ny regel**.
-4. Ge regeln ett beskrivande namn, till exempel "*i från AD – användare Sales Sync*". Välj rätt skog, Välj **användare** som **objekt typen CS**och välj **person** som **typ av objekt typen MV**. I **Länktyp**väljer du **Anslut**. I **prioritet**anger du ett värde som för närvarande inte används av en annan Synkroniseringsregel (till exempel 51) och klickar sedan på **Nästa**.  
+4. Ge regeln ett beskrivande namn, till exempel "*i från AD – användare Sales Sync*". Välj rätt skog, Välj **användare** som **objekt typen CS** och välj **person** som **typ av objekt typen MV**. I **Länktyp** väljer du **Anslut**. I **prioritet** anger du ett värde som för närvarande inte används av en annan Synkroniseringsregel (till exempel 51) och klickar sedan på **Nästa**.  
    ![Ingående 4-Beskrivning](./media/how-to-connect-sync-configure-filtering/inbound4.png)  
-5. I **omfångs filter**, klickar du på **Lägg till grupp**och klickar sedan på **Lägg till sats**. I **attribut**väljer du **avdelning**. Kontrol lera att operatorn är inställd på **lika**och skriv värdet **Sales** i rutan **värde** . Klicka på **Nästa**.  
+5. I **omfångs filter**, klickar du på **Lägg till grupp** och klickar sedan på **Lägg till sats**. I **attribut** väljer du **avdelning**. Kontrol lera att operatorn är inställd på **lika** och skriv värdet **Sales** i rutan **värde** . Klicka på **Nästa**.  
    ![Inkommande 5-omfattning](./media/how-to-connect-sync-configure-filtering/inbound5.png)  
 6. Lämna **kopplings** reglerna tomma och klicka sedan på **Nästa**.
-7. Klicka på **Lägg till omvandling**, Välj **konstant** som **FlowType**och välj **cloudFiltered** som Target- **attribut**. Skriv **falskt**i rutan **källa** . Klicka på **Lägg till** för att spara regeln.  
+7. Klicka på **Lägg till omvandling**, Välj **konstant** som **FlowType** och välj **cloudFiltered** som Target- **attribut**. Skriv **falskt** i rutan **källa** . Klicka på **Lägg till** för att spara regeln.  
    ![Inkommande 6-transformering](./media/how-to-connect-sync-configure-filtering/inbound6.png)  
    Detta är ett specialfall där du uttryckligen anger cloudFiltered till **false**.
-8. Nu måste vi skapa en regel för catch-all-synkronisering. Ge regeln ett beskrivande namn, till exempel "*i från AD – User catch-all filter*". Välj rätt skog, Välj **användare** som **objekt typen CS**och välj **person** som **typ av objekt typen MV**. I **Länktyp**väljer du **Anslut**. I **prioritet**anger du ett värde som för närvarande inte används av en annan Synkroniseringsregel (till exempel 99). Du har valt ett prioritets värde som är högre (lägre prioritet) än den tidigare synkroniseringsregeln. Men du har också lämnat lite plats så att du kan lägga till fler filtrerings regler för synkronisering senare när du vill börja synkronisera ytterligare avdelningar. Klicka på **Nästa**.  
+8. Nu måste vi skapa en regel för catch-all-synkronisering. Ge regeln ett beskrivande namn, till exempel "*i från AD – User catch-all filter*". Välj rätt skog, Välj **användare** som **objekt typen CS** och välj **person** som **typ av objekt typen MV**. I **Länktyp** väljer du **Anslut**. I **prioritet** anger du ett värde som för närvarande inte används av en annan Synkroniseringsregel (till exempel 99). Du har valt ett prioritets värde som är högre (lägre prioritet) än den tidigare synkroniseringsregeln. Men du har också lämnat lite plats så att du kan lägga till fler filtrerings regler för synkronisering senare när du vill börja synkronisera ytterligare avdelningar. Klicka på **Nästa**.  
    ![Ingående 7-Beskrivning](./media/how-to-connect-sync-configure-filtering/inbound7.png)  
 9. Lämna **omfångs filter** tomt och klicka på **Nästa**. Ett tomt filter anger att regeln ska tillämpas på alla objekt.
 10. Lämna **kopplings** reglerna tomma och klicka sedan på **Nästa**.
-11. Klicka på **Lägg till omvandling**, Välj **konstant** som **FlowType**och välj **cloudFiltered** som **target-attribut**. Skriv **Sant**i rutan **källa** . Klicka på **Lägg till** för att spara regeln.  
+11. Klicka på **Lägg till omvandling**, Välj **konstant** som **FlowType** och välj **cloudFiltered** som **target-attribut**. Skriv **Sant** i rutan **källa** . Klicka på **Lägg till** för att spara regeln.  
     ![Inkommande 3-transformering](./media/how-to-connect-sync-configure-filtering/inbound3.png)  
 12. För att slutföra konfigurationen måste du köra en **fullständig synkronisering**. Fortsätt läsa avsnittet [tillämpa och verifiera ändringar](#apply-and-verify-changes).
 
@@ -274,11 +274,11 @@ I det här exemplet ska du ändra filtreringen så att endast användare som har
 
 1. Logga in på servern som kör Azure AD Connect Sync genom att använda ett konto som är medlem i säkerhets gruppen **ADSyncAdmins** .
 2. Starta **Redigeraren för regler för synkronisering** från **Start** -menyn.
-3. Klicka på **utgående**under **typ av regel**.
-4. Beroende på vilken version av Connect du använder kan du antingen hitta regeln med namnet **till Azure AD – användare anslutning** eller **ut till Azure AD-User Join-SOAInAD**och klicka på **Redigera**.
+3. Klicka på **utgående** under **typ av regel**.
+4. Beroende på vilken version av Connect du använder kan du antingen hitta regeln med namnet **till Azure AD – användare anslutning** eller **ut till Azure AD-User Join-SOAInAD** och klicka på **Redigera**.
 5. I popup-fönstret svarar du **Ja** för att skapa en kopia av regeln.
 6. På sidan **Beskrivning** ändrar du **prioriteten** till ett oanvänt värde, till exempel 50.
-7. Klicka på **omfångs filter** i det vänstra navigerings fältet och klicka sedan på **Lägg till sats**. I **attribut**väljer du **e-post**. I **operator**väljer du **ENDSWITH**. I **värde**skriver du ** \@ contoso.com**och klickar sedan på **Lägg till sats**. I **attribut**väljer du **userPrincipalName**. I **operator**väljer du **ENDSWITH**. I **värde**skriver du ** \@ contoso.com**.
+7. Klicka på **omfångs filter** i det vänstra navigerings fältet och klicka sedan på **Lägg till sats**. I **attribut** väljer du **e-post**. I **operator** väljer du **ENDSWITH**. I **värde** skriver du **\@ contoso.com** och klickar sedan på **Lägg till sats**. I **attribut** väljer du **userPrincipalName**. I **operator** väljer du **ENDSWITH**. I **värde** skriver du **\@ contoso.com**.
 8. Klicka på **Spara**.
 9. För att slutföra konfigurationen måste du köra en **fullständig synkronisering**. Fortsätt läsa avsnittet [tillämpa och verifiera ändringar](#apply-and-verify-changes).
 
@@ -292,9 +292,9 @@ Om du har ändrat konfigurationen med hjälp av **attribut** filtrering måste d
 Gör så här:
 
 1. Starta **synkroniseringstjänsten** från **Start** -menyn.
-2. Välj **kopplingar**. I listan **kopplingar** väljer du den koppling där du gjorde en konfigurations ändring tidigare. I **åtgärder**väljer du **Kör**.  
+2. Välj **kopplingar**. I listan **kopplingar** väljer du den koppling där du gjorde en konfigurations ändring tidigare. I **åtgärder** väljer du **Kör**.  
    ![Kör koppling](./media/how-to-connect-sync-configure-filtering/connectorrun.png)  
-3. I **Kör profiler**väljer du den åtgärd som nämndes i föregående avsnitt. Om du behöver köra två åtgärder kör du den andra när den första har avslut ATS. (Kolumnen **State** är **inaktiv** för den valda kopplingen.)
+3. I **Kör profiler** väljer du den åtgärd som nämndes i föregående avsnitt. Om du behöver köra två åtgärder kör du den andra när den första har avslut ATS. (Kolumnen **State** är **inaktiv** för den valda kopplingen.)
 
 Efter synkroniseringen mellanlagras alla ändringar för att exporteras. Innan du gör ändringarna i Azure AD vill du kontrol lera att alla dessa ändringar är korrekta.
 
@@ -307,8 +307,8 @@ Efter synkroniseringen mellanlagras alla ändringar för att exporteras. Innan d
 
 När du är nöjd exporterar du ändringarna till Azure AD.
 
-1. Välj **kopplingar**. I listan **anslutningar** väljer du Azure AD-anslutaren. I **åtgärder**väljer du **Kör**.
-2. I **Kör profiler**väljer du **Exportera**.
+1. Välj **kopplingar**. I listan **anslutningar** väljer du Azure AD-anslutaren. I **åtgärder** väljer du **Kör**.
+2. I **Kör profiler** väljer du **Exportera**.
 3. Om konfigurationen ändras ta bort många objekt visas ett fel i exporten när antalet är större än det konfigurerade tröskelvärdet (som standard 500). Om du ser det här felet måste du tillfälligt inaktivera funktionen "[förhindra oavsiktliga borttagningar](how-to-connect-sync-feature-prevent-accidental-deletes.md)".
 
 Nu är det dags att aktivera Scheduler igen.

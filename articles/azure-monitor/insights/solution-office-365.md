@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
 ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999744"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995870"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-hanterings lösning i Azure (för hands version)
 
@@ -462,7 +462,7 @@ Dessa poster skapas som svar på fil åtgärder i SharePoint.
 
 Följande tabell innehåller exempel på logg frågor för uppdaterings poster som samlas in av den här lösningen.
 
-| Söka i data | Beskrivning |
+| Fråga | Description |
 | --- | --- |
 |Antal åtgärder på din Office 365-prenumeration |OfficeActivity &#124; sammanfatta antal () efter åtgärd |
 |Användning av SharePoint-webbplatser|OfficeActivity &#124; där OfficeWorkload = ~ "SharePoint" &#124; sammanfatta antal () efter SiteUrl \| Sortera efter antal ASC|

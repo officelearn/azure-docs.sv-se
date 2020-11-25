@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e6185c4bde71285fc163cae2af46f64ba052195
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366215"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994765"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Villkorlig åtkomst: Kräv MFA för alla användare
 
@@ -47,14 +47,14 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kr
 1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
-1. Under **tilldelningar**väljer **du användare och grupper**
-   1. Under **Inkludera**väljer du **alla användare**
-   1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Done** (Klar).
-1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **alla molnappar**.
-   1. Under **exkludera**väljer du alla program som inte kräver Multi-Factor Authentication.
+1. Under **tilldelningar** väljer **du användare och grupper**
+   1. Under **Inkludera** väljer du **alla användare**
+   1. Under **exkludera** väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
+   1. Välj **Klar**.
+1. Under **molnappar eller åtgärder**  >  **inkluderar** väljer du **alla molnappar**.
+   1. Under **exkludera** väljer du alla program som inte kräver Multi-Factor Authentication.
 1. Under **villkor**  >  **klient program (förhands granskning)** under **Välj de klient program som den här principen ska tillämpas på** lämna alla standardvärden markerade och välj **slutförd**.
-1. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och väljer **Välj**.
+1. Under **åtkomst kontroller**  >  **tilldelar** väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication** och väljer **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.
 
@@ -64,12 +64,12 @@ Organisationer kan välja att inkludera kända nätverks platser som kallas **na
 
 I exempel principen ovan kan en organisation välja att inte kräva Multi-Factor Authentication om åtkomst till en molnbaserad app från företags nätverket. I det här fallet kan de lägga till följande konfiguration i principen:
 
-1. Under **tilldelningar**väljer du **villkor**  >  **platser**.
+1. Under **tilldelningar** väljer du **villkor**  >  **platser**.
    1. Konfigurera **Ja**.
    1. Ta med **vilken plats som helst**.
    1. Undanta **alla betrodda platser**.
-   1. Välj **Done** (Klar).
-1. Välj **Done** (Klar).
+   1. Välj **Klar**.
+1. Välj **Klar**.
 1. **Spara** ändringarna i principen.
 
 ## <a name="next-steps"></a>Nästa steg

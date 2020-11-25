@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 340b910319cabe3379bdb1bad1c09bc71c17f072
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507542"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994952"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Använda StorSimple Device Manager-tjänsten för att hantera resurser i StorSimple Virtual Array
 
@@ -89,7 +89,7 @@ Följ anvisningarna i den här självstudien för att utföra följande uppgifte
    4. I fältet **kapacitet** anger du resursens storlek. En nivå resurs måste vara mellan 500 GB och 20 TB och en lokalt fäst resurs måste vara mellan 50 GB och 2 TB.
 
    5. I fältet **ange fullständiga standard behörigheter till** tilldelar du behörigheterna till användaren eller gruppen som har åtkomst till den här resursen. Ange namnet på användaren eller användar gruppen i _john@contoso.com_ formatet. Vi rekommenderar att du använder en användar grupp (i stället för en enskild användare) för att tillåta administratörs behörighet att få åtkomst till dessa resurser. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
-3. Klicka på **skapa**när du är klar med konfigurationen av resursen. En resurs skapas med de angivna inställningarna och ett meddelande visas. Som standard kommer säkerhets kopiering att aktive ras för resursen.
+3. Klicka på **skapa** när du är klar med konfigurationen av resursen. En resurs skapas med de angivna inställningarna och ett meddelande visas. Som standard kommer säkerhets kopiering att aktive ras för resursen.
 4. Du bekräftar att resursen har skapats genom att gå till bladet **resurser** . Du bör se resursen som visas.
    
     ![Resurs skapandet lyckades](./media/storsimple-virtual-array-manage-shares/share-success.png)
@@ -117,7 +117,7 @@ Du kan behöva koppla från en resurs när du planerar att ändra den eller ta b
    
     1. Från inställningen **resurser** på bladet StorSimple service Summary väljer du den virtuella matris där resursen som du vill ta offline finns.
 
-    2. **Välj** resursen och klicka på **...** (alternativt högerklicka på den här raden) och välj **ta offline**i snabb menyn.
+    2. **Välj** resursen och klicka på **...** (alternativt högerklicka på den här raden) och välj **ta offline** i snabb menyn.
      
         ![Offline-resurs](./media/storsimple-virtual-array-manage-shares/shares-offline.png)
 
@@ -136,7 +136,7 @@ Utför följande steg för att ta bort en resurs.
 #### <a name="to-delete-a-share"></a>Ta bort en resurs
 
 1. Från inställningen **resurser** på bladet StorSimple service Summary väljer du den virtuella matris där resursen som du vill ta bort finns.
-2. **Välj** resursen och klicka på **...** (alternativt högerklicka på den här raden) och välj **ta bort**på snabb menyn.
+2. **Välj** resursen och klicka på **...** (alternativt högerklicka på den här raden) och välj **ta bort** på snabb menyn.
    
     ![Ta bort resurs](./media/storsimple-virtual-array-manage-shares/share-delete.png)
 3. Kontrol lera statusen för den resurs som du vill ta bort. Om resursen som du vill ta bort inte är offline tar du den offline först. Följ stegen i koppla [från en resurs](#take-a-share-offline).

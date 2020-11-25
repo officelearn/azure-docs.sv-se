@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 10/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 325f39b695d80c14ed7097d071380b937458546c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150466"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021494"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>Snabb start: ansluta till en virtuell dator på ett säkert sätt via en webbläsare via privat IP-adress
 
@@ -56,7 +56,7 @@ Du kan använda följande exempel värden när du skapar den här konfiguratione
 
 |**Namn** | **Värde** |
 | --- | --- |
-| Namn | TestVNet1 – skydds |
+| Name | TestVNet1 – skydds |
 | + Under näts namn | AzureBastionSubnet |
 | AzureBastionSubnet-adresser | Ett undernät inom ditt VNet-adressutrymme med en/27-nätmask. Till exempel 10.0.1.0/27.  |
 | Offentlig IP-adress |  Skapa ny |
@@ -72,10 +72,10 @@ Det finns flera olika sätt att konfigurera en skydds-värd. I följande steg sk
 1. Navigera till den virtuella dator som du vill ansluta till och välj sedan **Anslut**.
 
    :::image type="content" source="./media/quickstart-host-portal/vm-settings.png" alt-text="inställningar för virtuell dator" lightbox="./media/quickstart-host-portal/vm-settings.png":::
-1. Välj **skydds**i list rutan.
-1. På **testvm | Sidan Anslut**väljer du **Använd skydds**.
+1. Välj **skydds** i list rutan.
+1. På **testvm | Sidan Anslut** väljer du **Använd skydds**.
 
-   :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="inställningar för virtuell dator" border="false":::
+   :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="Välj skydds" border="false":::
 
 1. På sidan **skydds** fyller du i följande inställnings fält:
 
@@ -84,20 +84,20 @@ Det finns flera olika sätt att konfigurera en skydds-värd. I följande steg sk
    * Välj **Hantera under näts konfiguration**.
 1. På sidan **undernät** väljer du **+ undernät**.
 
-   :::image type="content" source="./media/quickstart-host-portal/subnet.png" alt-text="inställningar för virtuell dator":::
+   :::image type="content" source="./media/quickstart-host-portal/subnet.png" alt-text="+ Undernät":::
     
-1. Skriv **AzureBastionSubnet**i **namn**på sidan **Lägg till undernät** .
+1. Skriv **AzureBastionSubnet** i **namn** på sidan **Lägg till undernät** .
    * För under näts adress intervall väljer du en under näts adress som ligger inom det virtuella nätverkets adress utrymme.
    * Justera inte andra inställningar. Välj **OK** för att acceptera och spara under näts ändringarna.
 
-   :::image type="content" source="./media/quickstart-host-portal/add-subnet.png" alt-text="inställningar för virtuell dator":::
+   :::image type="content" source="./media/quickstart-host-portal/add-subnet.png" alt-text="Lägga till undernät":::
 1. Klicka på knappen tillbaka i webbläsaren för att gå tillbaka till sidan **skydds** och fortsätt att ange värden.
    * **Offentlig IP-adress**: lämna som **Skapa ny**.
    * **Namn på offentlig IP-adress**: namnet på den offentliga IP-adressresursen.
    * **Tilldelning**: standardvärdet är statiskt. Du kan inte använda en dynamisk tilldelning för Azure-skydds.
    * **Resurs grupp**: samma resurs grupp som den virtuella datorn.
 
-   :::image type="content" source="./media/quickstart-host-portal/validate.png" alt-text="inställningar för virtuell dator":::
+   :::image type="content" source="./media/quickstart-host-portal/validate.png" alt-text="Skapa skydds-värden":::
 1. Välj **skapa** för att skapa skydds-värden. Azure verifierar inställningarna och skapar sedan värden. Värden och dess resurser tar ungefär 5 minuter att skapa och distribuera.
 
 ## <a name="connect"></a><a name="connect"></a>Anslut
@@ -106,10 +106,10 @@ När skydds har distribuerats till det virtuella nätverket ändras skärmen til
 
 1. Ange användar namn och lösen ord för den virtuella datorn. Välj sedan **Anslut**.
 
-   :::image type="content" source="./media/quickstart-host-portal/connect-vm.png" alt-text="inställningar för virtuell dator":::
+   :::image type="content" source="./media/quickstart-host-portal/connect-vm.png" alt-text="Skärm bild som visar dialog rutan Anslut med Azure skydds.":::
 1. RDP-anslutningen till den virtuella datorn öppnas direkt i Azure Portal (via HTML5) med port 443 och skydds-tjänsten.
 
-   :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="inställningar för virtuell dator":::
+   :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="RDP-anslutning":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

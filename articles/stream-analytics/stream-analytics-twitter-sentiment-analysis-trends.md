@@ -9,17 +9,17 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.openlocfilehash: 0941e3d5141b5b8841f5d37e3db0d0b1b1474547
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130280"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019828"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Attitydanalys för Twitter i realtid i Azure Stream Analytics
 
 Den här artikeln lär dig hur du skapar en sentiment analys lösning för sociala medier genom att ta real tids händelser i real tid till Azure Event Hubs. Du skriver en Azure Stream Analytics fråga för att analysera data och lagra resultatet för senare användning eller skapa en [Power BI](https://powerbi.com/) instrument panel för att ge insikter i real tid.
 
-Med hjälp av verktyg för sociala media Analytics kan organisationer förstå trender i ämnen. Avsnitt om trender är ämnen och Attitudes som har stora mängder inlägg på sociala medier. Sentiment-analys, som också kallas för att avhjälpa *utvinning* , använder verktyg för sociala medier för att fastställa Attitudes till en produkt eller idé. 
+Med hjälp av verktyg för sociala media Analytics kan organisationer förstå trender i ämnen. Avsnitt om trender är ämnen och Attitudes som har stora mängder inlägg på sociala medier. Sentiment-analys, som också kallas för att avhjälpa *utvinning*, använder verktyg för sociala medier för att fastställa Attitudes till en produkt eller idé. 
 
 Real tids analys av Twitter-trender är ett bra exempel på ett analys verktyg eftersom prenumerations modellen hashtagg gör att du kan lyssna på vissa nyckelord (hashtagg) och utveckla sentiment analys av flödet.
 
@@ -48,19 +48,19 @@ Exempel programmet genererar händelser och skickar dem till en Azure Event Hub.
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Skapa ett namn område för händelse hubb och händelsehubben
 I det här avsnittet skapar du ett namn område för Event Hub och lägger till en händelsehubben till det namn området. Namn områden för Event Hub används för att logiskt gruppera relaterade händelse buss instanser. 
 
-1. Logga in på Azure Portal och välj **skapa en resurs** . Dra. Sök efter **Event Hubs** och välj **skapa** .
+1. Logga in på Azure Portal och välj **skapa en resurs**. Dra. Sök efter **Event Hubs** och välj **skapa**.
 
 2. På sidan **skapa namn område** anger du ett namn på namn området. Du kan använda namn områdets namn, men namnet måste vara giltigt för en URL och det måste vara unikt i Azure. 
     
-3. Välj en pris nivå och en prenumeration och skapa eller Välj en resurs grupp. Välj sedan en plats och välj **skapa** . 
+3. Välj en pris nivå och en prenumeration och skapa eller Välj en resurs grupp. Välj sedan en plats och välj **skapa**. 
  
 4. När namn rymden har distribuerats går du till resurs gruppen och letar upp namn området för händelsehubben i listan med Azure-resurser. 
 
-5. I det nya namn området väljer du **+ &nbsp; händelsehubben** . 
+5. I det nya namn området väljer du **+ &nbsp; händelsehubben**. 
 
-6. Namnge den nya händelsehubben *socialtwitter-händelsehubbnamnområde* . Du kan använda ett annat namn. Om du gör det, gör du en anteckning om det, eftersom du behöver namnet senare. Du behöver inte ange andra alternativ för händelsehubben.
+6. Namnge den nya händelsehubben *socialtwitter-händelsehubbnamnområde*. Du kan använda ett annat namn. Om du gör det, gör du en anteckning om det, eftersom du behöver namnet senare. Du behöver inte ange andra alternativ för händelsehubben.
  
-7. Välj **Skapa** .
+7. Välj **Skapa**.
 
 ### <a name="grant-access-to-the-event-hub"></a>Bevilja åtkomst till händelsehubben
 
@@ -68,14 +68,14 @@ Innan en process kan skicka data till en händelsehubben, behöver händelsehubb
 
 1.  I navigerings fältet på vänster sida av Event Hub-namnområdet väljer du **Event Hubs** som finns i avsnittet **entiteter** . Välj sedan den händelsehubben som du nyss skapade.
 
-2.  I navigerings fältet på vänster sida väljer du principer för **delad åtkomst** som finns under **Inställningar** .
+2.  I navigerings fältet på vänster sida väljer du principer för **delad åtkomst** som finns under **Inställningar**.
 
     >[!NOTE]
     >Det finns ett alternativ för delade åtkomst principer under för Event Hub-namnområdet och för händelsehubben. Se till att du arbetar i kontexten för händelsehubben, inte i namn området för den totala händelsehubben.
 
-3.  På sidan åtkomst princip väljer du **+ Lägg till** . Ange sedan *socialtwitter-Access* som **princip namn** och markera kryss rutan **Hantera** .
+3.  På sidan åtkomst princip väljer du **+ Lägg till**. Ange sedan *socialtwitter-Access* som **princip namn** och markera kryss rutan **Hantera** .
  
-4.  Välj **Skapa** .
+4.  Välj **Skapa**.
 
 5.  När principen har distribuerats väljer du principen i listan över principer för delad åtkomst.
 
@@ -104,7 +104,7 @@ Om du inte redan har ett Twitter-program som du kan använda för den här instr
 > [!NOTE]
 > Den exakta processen i Twitter för att skapa ett program och hämta nycklar, hemligheter och token kan ändras. Om dessa anvisningar inte matchar det du ser på Twitter-webbplatsen, se dokumentationen om Twitter-utvecklare.
 
-1. I en webbläsare går du till [Twitter för utvecklare](https://developer.twitter.com/en/apps), skapar ett Developer-konto och väljer **skapa en app** . Du kan se ett meddelande om att du måste använda för ett Twitter-konto för utvecklare. Det är kostnads fritt att göra det och när ditt program har godkänts bör du se ett bekräftelse meddelande. Det kan ta flera dagar att godkännas för ett Developer-konto.
+1. I en webbläsare går du till [Twitter för utvecklare](https://developer.twitter.com/en/apps), skapar ett Developer-konto och väljer **skapa en app**. Du kan se ett meddelande om att du måste använda för ett Twitter-konto för utvecklare. Det är kostnads fritt att göra det och när ditt program har godkänts bör du se ett bekräftelse meddelande. Det kan ta flera dagar att godkännas för ett Developer-konto.
 
    ![Skärm bild som visar knappen Skapa en app.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Information om Twitter-program")
 
@@ -112,7 +112,7 @@ Om du inte redan har ett Twitter-program som du kan använda för den här instr
 
    ![Skärm bild som visar fönstret information om appar där du kan ange värden för din app.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Information om Twitter-program")
 
-3. På sidan program väljer du fliken **nycklar och tokens** och kopierar värdena för klient-API- **nyckel** och **hemlig nyckel för konsument-API** . Välj också **skapa** under **åtkomst-token och åtkomst till token Secret** för att generera åtkomsttoken. Kopiera värdena för **åtkomsttoken** och **åtkomsttokenhemligheten** .
+3. På sidan program väljer du fliken **nycklar och tokens** och kopierar värdena för klient-API- **nyckel** och **hemlig nyckel för konsument-API**. Välj också **skapa** under **åtkomst-token och åtkomst till token Secret** för att generera åtkomsttoken. Kopiera värdena för **åtkomsttoken** och **åtkomsttokenhemligheten**.
 
    Spara de värden som du hämtade för Twitter-programmet. Du behöver värdena senare.
 
@@ -142,29 +142,29 @@ Innan programmet körs krävs viss information från dig, t. ex. Twitter-nycklar
 
 Nu när tweet-händelser strömmas i real tid från Twitter, kan du konfigurera ett Stream Analytics jobb för att analysera händelserna i real tid.
 
-1. I Azure Portal navigerar du till din resurs grupp och väljer **+ Lägg till** . Sök sedan efter **Stream Analytics jobb** och välj **skapa** .
+1. I Azure Portal navigerar du till din resurs grupp och väljer **+ Lägg till**. Sök sedan efter **Stream Analytics jobb** och välj **skapa**.
 
 2. Namnge jobbet `socialtwitter-sa-job` och ange en prenumeration, en resurs grupp och en plats.
 
     Det är en bra idé att placera jobbet och händelsehubben i samma region för bästa prestanda och så att du inte betalar för att överföra data mellan regioner.
 
-3. Välj **Skapa** . Gå sedan till jobbet när distributionen är färdig.
+3. Välj **Skapa**. Gå sedan till jobbet när distributionen är färdig.
 
 ## <a name="specify-the-job-input"></a>Ange jobb ingången
 
-1. I ditt Stream Analytics jobb väljer du **indata** från den vänstra menyn under **jobb sto pol Ogin** .
+1. I ditt Stream Analytics jobb väljer du **indata** från den vänstra menyn under **jobb sto pol Ogin**.
 
-2. Välj **+ &nbsp; Lägg till Stream-indata** -händelsehubben  >  **Event Hub** . Fyll i det **nya indata** -formuläret med följande information:
+2. Välj **+ &nbsp; Lägg till Stream-indata**-händelsehubben  >  **Event Hub**. Fyll i det **nya indata** -formuläret med följande information:
 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Inmatat alias| *TwitterStream* | Ange ett alias för indatamängden. |
    |Prenumeration  | \<Your subscription\> |  Välj den Azure-prenumeration som du vill använda. |
    |Namnområde för händelsehubb | *ASA-Twitter-eventhub* |
-   |Namn på händelsehubb | *socialtwitter – händelsehubbnamnområde* | Välj *Använd befintlig* . Välj sedan den Händelsehubben som du skapade.|
+   |Namn på händelsehubb | *socialtwitter – händelsehubbnamnområde* | Välj *Använd befintlig*. Välj sedan den Händelsehubben som du skapade.|
    |Händelse komprimerings typ| GZip | Data komprimerings typen.|
 
-   Lämna kvar standardvärdena och välj **Spara** .
+   Lämna kvar standardvärdena och välj **Spara**.
 
 ## <a name="specify-the-job-query"></a>Ange jobb frågan
 
@@ -181,11 +181,11 @@ Om du vill jämföra antalet omnämnanden mellan ämnen kan du använda ett [rul
    FROM TwitterStream
    ```
 
-3. Händelse data från meddelandena ska visas i **förhands gransknings** fönstret under frågan. Se till att **vyn** är inställd på **JSON** . Om du inte ser några data kontrollerar du att data generatorn skickar händelser till händelsehubben och att du har valt **gzip** som komprimerings typ för indata.
+3. Händelse data från meddelandena ska visas i **förhands gransknings** fönstret under frågan. Se till att **vyn** är inställd på **JSON**. Om du inte ser några data kontrollerar du att data generatorn skickar händelser till händelsehubben och att du har valt **gzip** som komprimerings typ för indata.
 
 4. Välj **Testa fråga** och observera resultatet i fönstret **test resultat** under frågan.
 
-5. Ändra frågan i kod redigeraren till följande och välj **test fråga** :
+5. Ändra frågan i kod redigeraren till följande och välj **test fråga**:
 
    ```sql
    SELECT System.Timestamp as Time, text
@@ -193,7 +193,7 @@ Om du vill jämföra antalet omnämnanden mellan ämnen kan du använda ett [rul
    WHERE text LIKE '%Azure%'
    ```
 
-6. Den här frågan returnerar alla Tweets som innehåller nyckelordet *Azure* .
+6. Den här frågan returnerar alla Tweets som innehåller nyckelordet *Azure*.
 
 ## <a name="create-an-output-sink"></a>Skapa en utgående mottagare
 
@@ -203,16 +203,16 @@ I den här instruktions guiden skriver du de aggregerade tweet-händelserna frå
 
 ## <a name="specify-the-job-output"></a>Ange jobbets utdata
 
-1. I avsnittet **jobb sto pol Ogin** på den vänstra navigerings menyn väljer du **utdata** . 
+1. I avsnittet **jobb sto pol Ogin** på den vänstra navigerings menyn väljer du **utdata**. 
 
-2. På sidan **utdata** klickar du på **+ &nbsp; Lägg till** och **blob-lagring/data Lake Storage Gen2** :
+2. På sidan **utdata** klickar du på **+ &nbsp; Lägg till** och **blob-lagring/data Lake Storage Gen2**:
 
-   * **Utdata-alias** : Använd namnet `TwitterStream-Output` . 
-   * **Import alternativ** : Välj **Välj lagring från dina prenumerationer** .
-   * **Lagrings konto** . Välj ditt lagringskonto.
-   * **Container** . Välj **Skapa ny** och ange `socialtwitter` .
+   * **Utdata-alias**: Använd namnet `TwitterStream-Output` . 
+   * **Import alternativ**: Välj **Välj lagring från dina prenumerationer**.
+   * **Lagrings konto**. Välj ditt lagringskonto.
+   * **Container**. Välj **Skapa ny** och ange `socialtwitter` .
    
-4. Välj **Spara** .   
+4. Välj **Spara**.   
 
 ## <a name="start-the-job"></a>Starta jobbet
 
@@ -220,9 +220,9 @@ Du har angett jobbets indata, fråga och utdata. Du är redo att starta Stream A
 
 1. Kontrol lera att TwitterClientCore-programmet körs. 
 
-2. I jobb översikten väljer du **Start** .
+2. I jobb översikten väljer du **Start**.
 
-3. På sidan **starta jobb** väljer du **nu** **Start tid för jobbets utdata** och väljer sedan **Starta** .
+3. På sidan **starta jobb** väljer du **nu** **Start tid för jobbets utdata** och väljer sedan **Starta**.
 
 ## <a name="get-support"></a>Få support
 Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).

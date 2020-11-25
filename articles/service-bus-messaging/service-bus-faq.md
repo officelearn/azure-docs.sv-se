@@ -3,12 +3,12 @@ title: Azure Service Bus vanliga frågor och svar (FAQ) | Microsoft Docs
 description: Den här artikeln innehåller svar på några vanliga frågor och svar om Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 38745d1cc2b1961da10a0c9e9f2c90c3b7dc48a7
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: acd741101928f5a2dfd72eab1598af6e4556a3d1
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899534"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022155"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Service Bus
 
@@ -26,7 +26,7 @@ En [namnrymd](service-bus-create-namespace-portal.md) tillhandahåller en omfatt
 En [Service Bus kö](service-bus-queues-topics-subscriptions.md) är en entitet i vilken meddelanden lagras. Köer är användbara när du har flera program eller flera delar av ett distribuerat program som måste kommunicera med varandra. Kön liknar ett distributions Center i så att flera produkter (meddelanden) tas emot och sedan skickas från den platsen.
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Vad är Azure Service Bus ämnen och prenumerationer?
-Ett ämne kan visualiseras som en kö och när du använder flera prenumerationer blir det en rikare meddelande modell. i stort sett ett ett-till-många-kommunikations verktyg. Den här publicerings-/prenumerations modellen (eller *pub/sub* ) aktiverar ett program som skickar ett meddelande till ett ämne med flera prenumerationer för att få meddelandet mottaget av flera program.
+Ett ämne kan visualiseras som en kö och när du använder flera prenumerationer blir det en rikare meddelande modell. i stort sett ett ett-till-många-kommunikations verktyg. Den här publicerings-/prenumerations modellen (eller *pub/sub*) aktiverar ett program som skickar ett meddelande till ett ämne med flera prenumerationer för att få meddelandet mottaget av flera program.
 
 ### <a name="what-is-a-partitioned-entity"></a>Vad är en partitionerad entitet?
 En konventionell kö eller ett ämne hanteras av en enskild meddelande tjänst och lagras i ett meddelande arkiv. Stöds endast på nivån Basic och standard-meddelande nivåer, en [partitionerad kö eller ett ämne](service-bus-partitioning.md) hanteras av flera meddelande hanterare och lagras i flera meddelande arkiv. Den här funktionen innebär att det totala data flödet för en partitionerad kö eller ett ämne inte längre begränsas av prestandan för en enskild meddelande utjämning eller meddelande arkiv. Ett tillfälligt avbrott i ett meddelande arkiv återger inte heller en partitionerad kö eller ett ämne som inte är tillgängligt.
@@ -53,14 +53,9 @@ I följande tabell visas de utgående TCP-portarna som du måste öppna för att
 
 HTTPS-porten krävs vanligt vis för utgående kommunikation även när AMQP används över Port 5671, eftersom flera hanterings åtgärder som utförs av klient-SDK: er och förvärv av tokens från Azure Active Directory (när de används) körs över HTTPS. 
 
-De officiella Azure-SDK: erna använder vanligt vis AMQP-protokollet för att skicka och ta emot meddelanden från Service Bus. Protokoll alternativet AMQP-över-WebSockets körs via port TCP 443 precis som HTTP API, men är i övrigt identiskt med enkel AMQP. Det här alternativet har högre första anslutnings fördröjning på grund av extra hand skakning och något mer som kompromisser för att dela HTTPS-porten. Om det här läget är valt räcker TCP-port 443 för kommunikation. Med följande alternativ kan du välja läget för enkel AMQP eller AMQP WebSockets:
+De officiella Azure-SDK: erna använder vanligt vis AMQP-protokollet för att skicka och ta emot meddelanden från Service Bus. 
 
-| Språk | Alternativ   |
-| -------- | ----- |
-| .NET     | [ServiceBusConnection. TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype?view=azure-dotnet) -egenskapen med [TransportType. AMQP](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) eller [TransportType. AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) |
-| Java     | [com. Microsoft. Azure. Service Bus. ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings?view=azure-java-stable) med [com. Microsoft. Azure. Service Bus. primitivs. TransportType. AMQP](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) eller [com.Microsoft.Azure.ServiceBus.Primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) |
-| Node  | [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions?view=azure-node-latest) har ett `webSocket` konstruktor argument. |
-| Python | [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) med [TransportType. AMQP](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) eller [TransportType. AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) |
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
 Det äldre WindowsAzure. Service Bus-paketet för .NET Framework har ett alternativ för att använda det äldre "Service Bus Messaging Protocol" (SBMP), även kallat "netmessaging". Protokollet använder TCP-portarna 9350-9354. Standard läget för det här paketet är att automatiskt identifiera om dessa portar är tillgängliga för kommunikation och kommer att växla till WebSockets med TLS via port 443 om så inte är fallet. Du kan åsidosätta den här inställningen och framtvinga det här läget genom att ställa in `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) på [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) inställningen, som tillämpas globalt för programmet.
 

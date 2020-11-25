@@ -4,11 +4,11 @@ ms.author: areddish
 ms.service: cognitive-services
 ms.date: 09/15/2020
 ms.openlocfilehash: 1f07cda0afa7213ca9c803754950c86a3f246469
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625494"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021352"
 ---
 Den här guiden innehåller instruktioner och exempel kod som hjälper dig att komma igång med Custom Vision klient biblioteket för Go för att skapa en modell för objekt identifiering. Du skapar ett projekt, lägger till taggar, tränar projektet och använder projektets förutsäga slut punkts-URL för att program mässigt testa det. Använd det här exemplet som mall för att skapa en egen bild igenkännings app.
 
@@ -93,7 +93,7 @@ func main() {
 
 ## <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
 
-Om du vill skapa klassificeringstaggar i projektet lägger du till följande kod i slutet av *sample.go* :
+Om du vill skapa klassificeringstaggar i projektet lägger du till följande kod i slutet av *sample.go*:
 
 ```Go
 # Make two tags in the new project
@@ -273,7 +273,7 @@ Kör *sample.go*.
 go run sample.go
 ```
 
-Programmets utdata bör visas i konsolen. Du kan sedan kontrollera att testbilden (som finns i **samples/vision/images/Test** ) har taggats på rätt sätt och att regionidentifieringen är korrekt.
+Programmets utdata bör visas i konsolen. Du kan sedan kontrollera att testbilden (som finns i **samples/vision/images/Test**) har taggats på rätt sätt och att regionidentifieringen är korrekt.
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 

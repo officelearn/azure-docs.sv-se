@@ -3,12 +3,12 @@ title: Översikt över AMQP 1,0 i Azure Service Bus
 description: Lär dig hur Azure Service Bus stöder Advanced Message Queueing Protocol (AMQP), ett öppet standard protokoll.
 ms.topic: article
 ms.date: 11/20/2020
-ms.openlocfilehash: a643869d7d89b287e899b1eab89c5b9ec11856e5
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 85943344fd8f20cf3a73af5d637b65676584f93f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95396815"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022190"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>AMQP 1,0-stöd i Service Bus
 Azure Service Bus moln tjänsten använder [Advanced Message Queueing Protocol (AMQP) 1,0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) som primärt kommunikations sätt. Microsoft har samarbetat med partner över hela branschen, både kunder och leverantörer av konkurrerande meddelande hanterare, för att utveckla och utveckla AMQP under de senaste tio åren, med nya tillägg som utvecklas i [Oasis AMQP tekniska kommittén](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1,0 är en ISO-och IEC standard ([iso 19464:20149](https://www.iso.org/standard/64955.html)). 
@@ -70,20 +70,11 @@ Alla tillgängliga Service Bus klient bibliotek som stöds via Azure SDK använd
 - [Azure Service Bus moduler för Java Script och TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
 - [Azure Service Bus bibliotek för python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
 
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+
 Dessutom kan du använda Service Bus från valfri AMQP 1,0-kompatibel protokolls tack:
 
-| Språk | Bibliotek |
-| --- | --- |
-| Java | [Apache qpid Proton-J](https://qpid.apache.org/proton/index.html) |
-| C/C++ |[Azure UAMQP C](https://github.com/azure/azure-uamqp-c/), [Apache qpid Proton-C](https://qpid.apache.org/proton/index.html) |
-| Python |[Azure-uAMQP för python](https://github.com/azure/azure-uamqp-python/), [Apache qpid Proton python](https://qpid.apache.org/releases/qpid-proton-0.32.0/proton/python/docs/overview.html) |
-| PHP | [Azure-uAMQP för PHP](https://github.com/vsouz4/azure-uamqp-php/) |
-| Ruby | [Apache qpid Proton ruby](https://github.com/apache/qpid-proton/tree/master/ruby) |
-| Go | [Azure go-AMQP](https://github.com/Azure/go-amqp), [Apache qpid Proton go](https://github.com/apache/qpid-proton/tree/master/go/examples)
-| C#/F #/VB | [AMQP .net lite](https://github.com/Azure/amqpnetlite), [Apache NMS AMQP](https://github.com/apache/activemq-nms-amqp)|
-| Java Script/Node | [Rhea](https://github.com/grs/rhea) |
-
-**Bild 2: tabell över AMQP 1,0-klient bibliotek**
+[!INCLUDE [messaging-oss-amqp-stacks.md](../../includes/messaging-oss-amqp-stacks.md)]
 
 ## <a name="summary"></a>Sammanfattning
 * AMQP 1,0 är ett öppet, Reliable meddelande protokoll som du kan använda för att skapa hybrid program mellan plattformar. AMQP 1,0 är en OASIS-standard.

@@ -10,16 +10,16 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: ecb0b6a6577161a5349d9d701dd6c116f69411f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b734f54f39b0f442f398a60ad25a846b0f9a6322
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80876109"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96021817"
 ---
 # <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Distribuera Visuellt innehåll-behållaren till Azure Container Instances
 
-Lär dig hur du distribuerar Cognitive Services [visuellt innehåll](computer-vision-how-to-install-containers.md) -behållaren till Azure [container instances](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar att Visuellt innehåll-resursen skapas. Sedan diskuterar vi hämtningen av den tillhör ande behållar avbildningen. Slutligen fokuserar vi på att kunna utnyttja dirigeringen av de två från en webbläsare. Genom att använda behållare kan du byta utvecklares uppmärksamhet från att hantera infrastrukturen i stället för att fokusera på program utveckling.
+Lär dig hur du distribuerar Cognitive Services [visuellt innehåll](computer-vision-how-to-install-containers.md) -behållaren till Azure [container instances](../../container-instances/index.yml). Den här proceduren visar att Visuellt innehåll-resursen skapas. Sedan diskuterar vi hämtningen av den tillhör ande behållar avbildningen. Slutligen fokuserar vi på att kunna utnyttja dirigeringen av de två från en webbläsare. Genom att använda behållare kan du byta utvecklares uppmärksamhet från att hantera infrastrukturen i stället för att fokusera på program utveckling.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 

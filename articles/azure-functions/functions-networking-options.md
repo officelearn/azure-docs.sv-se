@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
 ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636477"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021016"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
@@ -180,8 +180,8 @@ När du integrerar en Function-app i en Premium-plan eller en App Service plan m
 ## <a name="automation"></a>Automation
 Med följande API: er kan du hantera regionala virtuella nätverks integreringar program mässigt:
 
-+ **Azure CLI** : Använd [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) kommandona för att lägga till, Visa eller ta bort en regional integrering av virtuella nätverk.  
-+ **Arm-mallar** : regional integrering av virtuella nätverk kan aktive ras med hjälp av en Azure Resource Manager mall. Ett fullständigt exempel finns i [snabb starts mal len för funktioner](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **Azure CLI**: Använd [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) kommandona för att lägga till, Visa eller ta bort en regional integrering av virtuella nätverk.  
++ **Arm-mallar**: regional integrering av virtuella nätverk kan aktive ras med hjälp av en Azure Resource Manager mall. Ett fullständigt exempel finns i [snabb starts mal len för funktioner](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Felsökning
 

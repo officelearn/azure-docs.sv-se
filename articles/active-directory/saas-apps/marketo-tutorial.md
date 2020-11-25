@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/04/2020
 ms.author: jeedes
 ms.openlocfilehash: fc98201ac97409edd9be8522532728d7bb9b15af
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927319"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021409"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Självstudie: Azure Active Directory integrering med Marketo
 
@@ -46,14 +46,14 @@ Om du vill konfigurera integrering av Marketo i Azure AD måste du lägga till M
 
 1. Logga in på Azure Portal med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program** .
+1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program** om du vill lägga till ett nytt program.
 1. Skriv **Marketo** i sökrutan i avsnittet **Lägg till från galleriet** .
 1. Välj **Marketo** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Konfigurera och testa Azure AD SSO
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Marketo baserat på en test användare som kallas **Britta Simon** .
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Marketo baserat på en test användare som kallas **Britta Simon**.
 För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Marketo upprättas.
 
 Utför följande steg för att konfigurera och testa enkel inloggning med Azure AD med Marketo:
@@ -69,8 +69,8 @@ Utför följande steg för att konfigurera och testa enkel inloggning med Azure 
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I Azure Portal på sidan **Marketo** -programintegration hittar du avsnittet **Hantera** och väljer **enkel inloggning** .
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML** .
+1. I Azure Portal på sidan **Marketo** -programintegration hittar du avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
@@ -81,12 +81,12 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. Skriv en URL i text rutan **svars-URL** med följande mönster: `https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
-    c. Skriv en URL med följande mönster i textrutan **Vidarebefordransstatus** : `https://<munchkinid>.marketo.com/`
+    c. Skriv en URL med följande mönster i textrutan **Vidarebefordransstatus**: `https://<munchkinid>.marketo.com/`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och relä status. Kontakta [Marketo-klientens support team](https://investors.marketo.com/contactus.cfm) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat** , klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
@@ -98,21 +98,21 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** , väljer **användare** och väljer sedan **alla användare** .
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare** och väljer sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn** -fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord** .
-   1. Klicka på **Skapa** .
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Marketo.
 
-1. I Azure Portal väljer du **företags program** och väljer sedan **alla program** .
-1. I listan program väljer du **Marketo** .
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper** .
+1. I Azure Portal väljer du **företags program** och väljer sedan **alla program**.
+1. I listan program väljer du **Marketo**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 1. Välj **Lägg till användare** och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Om du förväntar dig att en roll ska tilldelas användarna kan du välja den från List rutan **Välj en roll** . Om ingen roll har kon figurer ATS för den här appen ser du rollen "standard åtkomst" vald.
@@ -128,7 +128,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
    
     ![Konfigurera enskilda Sign-On1](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
-    c. Gå till integrations menyn och klicka på **länken Munchkin** .
+    c. Gå till integrations menyn och klicka på **länken Munchkin**.
    
     ![Konfigurera enskilda Sign-On2](./media/marketo-tutorial/tutorial_marketo_11.png)
    
@@ -144,7 +144,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
    
     ![Konfigurera enskilda Sign-On4](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
-    c. Gå till integrations menyn och klicka på **enkel inloggning** .
+    c. Gå till integrations menyn och klicka på **enkel inloggning**.
    
     ![Konfigurera enskilda Sign-On5](./media/marketo-tutorial/tutorial_marketo_07.png) 
    
@@ -158,7 +158,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
    
     ex. Ange URL: en som i text rutan **entitets-ID** `http://saml.marketo.com/sp` .
    
-    h. Välj elementet användar-ID plats som **namn identifierare** .
+    h. Välj elementet användar-ID plats som **namn identifierare**.
    
     ![Konfigurera enskilda Sign-On7](./media/marketo-tutorial/tutorial_marketo_09.png)
    
@@ -173,7 +173,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
    
     l. Klistra in **URL:** en för utloggning i text rutan för **utloggnings-URL** .
    
-    m. I **fel-URL** : en kopierar du din webbplats för **Marketo-instansen** och klickar på knappen **Spara** för att spara inställningarna.
+    m. I **fel-URL**: en kopierar du din webbplats för **Marketo-instansen** och klickar på knappen **Spara** för att spara inställningarna.
    
     ![Konfigurera enskilda Sign-On8](./media/marketo-tutorial/tutorial_marketo_10.png)
 
@@ -185,7 +185,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
    
     ![Konfigurera enskilda Sign-On9](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
-    c. Gå till menyn **säkerhet** och klicka på **inloggnings inställningar** .
+    c. Gå till menyn **säkerhet** och klicka på **inloggnings inställningar**.
    
     ![Konfigurera enskilda Sign-On10](./media/marketo-tutorial/tutorial_marketo_13.png)
    

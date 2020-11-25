@@ -12,11 +12,11 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392585"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020100"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Lägg till konton som inte kommer från Microsoft i Microsoft Authenticator-appen
 
@@ -159,7 +159,7 @@ Lägg till ditt Amazon-konto genom att aktivera tvåstegsverifiering och sedan l
 
 1. På datorn öppnar du Amazon, väljer List rutan **konto & listor** och väljer sedan **ditt konto**.
 
-2. Välj **Logga in & säkerhet** , logga in på ditt Amazon-konto och välj sedan **Redigera** i avsnittet **avancerade säkerhets inställningar** .
+2. Välj **Logga in & säkerhet**, logga in på ditt Amazon-konto och välj sedan **Redigera** i avsnittet **avancerade säkerhets inställningar** .
 
     Sidan **avancerade säkerhets inställningar** visas.
 

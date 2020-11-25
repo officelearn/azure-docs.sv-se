@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1da43d0ef208d61ced6c8ca8dbc7603e0ef51155
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541398"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96021579"
 ---
 # <a name="language-and-region-support-for-luis"></a>Språk-och region stöd för LUIS
 
@@ -28,7 +28,7 @@ Om du behöver ett LUIS-klient program med flera språk, till exempel en chattro
 
 LUIS förstår yttranden på följande språk:
 
-| Språk |Nationell inställning  |  Fördefinierad domän | Fördefinierad entitet | Rekommendationer för fras lista | **[Text analys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment och<br>Reserverade|
+| Språk |Nationell inställning  |  Fördefinierad domän | Fördefinierad entitet | Rekommendationer för fras lista | **[Text analys](../text-analytics/language-support.md)<br>(Sentiment och<br>Reserverade|
 |--|--|:--:|:--:|:--:|:--:|
 | Engelska (USA) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabiska (förhands granskning-modern standard arabisk) |`ar-AR`|-|-|-|-|
@@ -69,7 +69,7 @@ Språk stöd varierar för [färdiga entiteter](luis-reference-prebuilt-entities
 Se språk som [stöds](../speech-service/speech-to-text.md) av tal i tal för tallägen.
 
 ### <a name="bing-spell-check-supported-languages"></a>Stavningskontroll i Bing språk som stöds
-Se Stavningskontroll i Bing [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) för en lista över språk och status som stöds.
+Se Stavningskontroll i Bing [språk som stöds](../bing-spell-check/language-support.md) för en lista över språk och status som stöds.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Ovanliga eller främmande ord i ett program
 I `en-us` kulturen lär sig Luis att skilja ut de flesta engelska ord, inklusive slang. I `zh-cn` kulturen lär sig Luis att skilja på de flesta kinesiska tecknen. Om du använder ett sällsynt ord i `en-us` eller en bokstav i `zh-cn` , och du ser att Luis inte verkar särskilja ordet eller specialtecknet, kan du lägga till ordet eller symbolen i en [fras List funktion](luis-how-to-add-features.md). Till exempel ord utanför programmets kultur – det vill säga främmande ord – ska läggas till i en fras List funktion.

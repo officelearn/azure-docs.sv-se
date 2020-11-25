@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.custom: seodec18, H1Hack27Feb2017, devx-track-azurecli
 ms.openlocfilehash: 067b5749332c2c41b86d22e7de60083d5f61a442
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746621"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020066"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett privat Docker-containerregister med hjälp av Docker CLI
 
@@ -24,7 +24,7 @@ I följande steg kan du hämta en officiell [nginx-avbildning](https://store.doc
 
 ## <a name="log-in-to-a-registry"></a>Logga in i ett register
 
-Det finns [flera sätt att autentisera](container-registry-authentication.md) till ditt privata behållar register. Den rekommenderade metoden när du arbetar i en kommando rad är med Azure CLI-kommandot [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Om du till exempel vill logga in till ett register med namnet min *Registry* :
+Det finns [flera sätt att autentisera](container-registry-authentication.md) till ditt privata behållar register. Den rekommenderade metoden när du arbetar i en kommando rad är med Azure CLI-kommandot [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Om du till exempel vill logga in till ett register med namnet min *Registry*:
 
 ```azurecli
 az acr login --name myregistry
@@ -39,7 +39,7 @@ docker login myregistry.azurecr.io
 Båda kommandona returnerades `Login Succeeded` när de har slutförts.
 
 > [!TIP]
-> Ange alltid det fullständigt kvalificerade register namnet (alla gemener) när du använder `docker login` och när du taggar avbildningar för att överföra till registret. I exemplen i den här artikeln är det fullständigt kvalificerade namnet *myregistry.azurecr.io* .
+> Ange alltid det fullständigt kvalificerade register namnet (alla gemener) när du använder `docker login` och när du taggar avbildningar för att överföra till registret. I exemplen i den här artikeln är det fullständigt kvalificerade namnet *myregistry.azurecr.io*.
 
 ## <a name="pull-the-official-nginx-image"></a>Hämta den officiella nginx-avbildningen
 

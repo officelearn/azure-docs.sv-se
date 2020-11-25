@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 833ec0f706786ebb86a54fb3c5b13d9c6e5c6062
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: c6405e2fcddef9ae3228ede76dfa57f7542164c8
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616237"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96020185"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Självstudie: använda Custom Vision med en IoT-enhet för att rapportera visuella tillstånd
 
@@ -47,16 +47,16 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 Appen IoT Visual Alerts körs i en kontinuerlig slinga och växlar mellan fyra olika tillstånd efter behov:
 
-* **Ingen modell** : status No-op. Appen försätts i vilo läge för en sekund och kontrollerar kameran.
-* **Fånga utbildnings avbildningar** : i det här läget fångar appen en bild och laddar upp den som en utbildnings avbildning till mål Custom vision projektet. Appen är sedan i vilo läge för 500 ms och upprepar åtgärden tills det angivna mål antalet bilder har fångats. Sedan utlöses utbildningen av Custom Visions modellen.
-* **Väntar på tränad modell** : i det här läget anropar appen Custom vision-API varje sekund för att kontrol lera om mål projektet innehåller en utbildad iteration. När den hittar en hämtas motsvarande ONNX-modell till en lokal fil och växlar till **poängsättnings** tillstånd.
-* **Poäng** : i det här läget använder appen Windows ml för att utvärdera en enskild RAM från kameran mot den lokala ONNX-modellen. Den resulterande bild klassificeringen visas på skärmen och skickas som ett meddelande till IoT Hub. Appen försätts sedan i vilo läge för en sekund innan en ny bild påvärderas.
+* **Ingen modell**: status No-op. Appen försätts i vilo läge för en sekund och kontrollerar kameran.
+* **Fånga utbildnings avbildningar**: i det här läget fångar appen en bild och laddar upp den som en utbildnings avbildning till mål Custom vision projektet. Appen är sedan i vilo läge för 500 ms och upprepar åtgärden tills det angivna mål antalet bilder har fångats. Sedan utlöses utbildningen av Custom Visions modellen.
+* **Väntar på tränad modell**: i det här läget anropar appen Custom vision-API varje sekund för att kontrol lera om mål projektet innehåller en utbildad iteration. När den hittar en hämtas motsvarande ONNX-modell till en lokal fil och växlar till **poängsättnings** tillstånd.
+* **Poäng**: i det här läget använder appen Windows ml för att utvärdera en enskild RAM från kameran mot den lokala ONNX-modellen. Den resulterande bild klassificeringen visas på skärmen och skickas som ett meddelande till IoT Hub. Appen försätts sedan i vilo läge för en sekund innan en ny bild påvärderas.
 
 ## <a name="examine-the-code-structure"></a>Granska kod strukturen
 
 Följande filer hanterar appens huvud funktioner.
 
-| Fil | Beskrivning |
+| Fil | Description |
 |-------------|-------------|
 | [MainPage. XAML](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml) | Den här filen definierar XAML-användargränssnittet. Den är värd för webb kamera kontrollen och innehåller etiketterna som används för status uppdateringar.|
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | Den här koden styr beteendet för XAML-ANVÄNDARGRÄNSSNITTET. Den innehåller bearbetnings koden för tillstånds datorn.|
@@ -76,7 +76,7 @@ Följ de här stegen för att få appen IoT Visual Alerts att köras på din dat
     1. Uppdatera `targetCVSProjectGuid` variabeln med motsvarande ID för det Custom vision projekt som du vill använda. 
 1. Konfigurera IoT Hub resursen:
     1. I _IoTHub\IotHubWrapper.cs_ -skriptet uppdaterar du `s_connectionString` variabeln med rätt anslutnings sträng för enheten. 
-    1. På Azure Portal läser du in IoT Hub-instansen, klickar på **IoT-enheter** under **Utforskaren** , väljer på din målenhet (eller skapar en vid behov) och letar rätt på anslutnings strängen under **primär anslutnings sträng**. Strängen kommer att innehålla ditt IoT Hub namn, enhets-ID och den delade åtkomst nyckeln. Det har följande format: `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}` .
+    1. På Azure Portal läser du in IoT Hub-instansen, klickar på **IoT-enheter** under **Utforskaren**, väljer på din målenhet (eller skapar en vid behov) och letar rätt på anslutnings strängen under **primär anslutnings sträng**. Strängen kommer att innehålla ditt IoT Hub namn, enhets-ID och den delade åtkomst nyckeln. Det har följande format: `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}` .
 
 ## <a name="run-the-app"></a>Kör appen
 
@@ -108,7 +108,7 @@ Upprepa den här processen med ditt eget scenario:
 1. Hitta mål projektet, vilket nu bör ha alla utbildnings bilder som appen har laddat upp.
 1. För varje visuellt läge som du vill identifiera väljer du lämpliga avbildningar och tillämpar sedan taggen manuellt.
     * Om målet till exempel är att skilja mellan ett tomt rum och ett rum med personer i det rekommenderar vi att du lägger till fem eller fler bilder med personer som en ny klass, **människor** och tagga fem eller flera bilder utan personer som den **negativa** taggen. Detta hjälper modellen att skilja mellan de två tillstånden.
-    * Ett annat exempel är om målet är att uppskatta hur full hylla är, kan du använda taggar som **EmptyShelf** , **PartiallyFullShelf** och **FullShelf**.
+    * Ett annat exempel är om målet är att uppskatta hur full hylla är, kan du använda taggar som **EmptyShelf**, **PartiallyFullShelf** och **FullShelf**.
 1. När du är klar väljer du knappen **träna** .
 1. När inlärningen är klar kommer appen att identifiera att en utbildad iteration är tillgänglig. Processen för att exportera den tränade modellen kommer att startas till ONNX och hämtas till enheten.
 

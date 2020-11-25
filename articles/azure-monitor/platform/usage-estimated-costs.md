@@ -9,11 +9,11 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323408"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020202"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Övervakning av användning och uppskattade kostnader i Azure Monitor
 
@@ -65,7 +65,7 @@ Detta resulterar i en vy, till exempel:
 
 ![Azure Cost Management skärm bild](./media/usage-estimated-costs/010.png)
 
-Härifrån kan du gå vidare från denna ackumulerade kostnads Sammanfattning för att få mer information i vyn "kostnad per resurs". I de aktuella pris nivåerna debiteras Azure loggdata på samma uppsättning mätare, oavsett om den härstammar från Log Analytics eller Application Insights. Du kan lägga till ett filter för **resurs typen**om du vill avgränsa kostnaderna från Log Analytics eller Application Insights användning. Om du vill se alla Application Insights kostnader filtrerar du resurs typen till "Microsoft. Insights/Components" och för Log Analytics kostnader, filtrera resurs typ till "Microsoft. operationalinsights/arbetsyte". 
+Härifrån kan du gå vidare från denna ackumulerade kostnads Sammanfattning för att få mer information i vyn "kostnad per resurs". I de aktuella pris nivåerna debiteras Azure loggdata på samma uppsättning mätare, oavsett om den härstammar från Log Analytics eller Application Insights. Du kan lägga till ett filter för **resurs typen** om du vill avgränsa kostnaderna från Log Analytics eller Application Insights användning. Om du vill se alla Application Insights kostnader filtrerar du resurs typen till "Microsoft. Insights/Components" och för Log Analytics kostnader, filtrera resurs typ till "Microsoft. operationalinsights/arbetsyte". 
 
 Du kan få mer information om din användning genom [att ladda ned din användning från Azure Portal](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). I det hämtade kalkyl bladet kan du se användning per Azure-resurs per dag. I det här Excel-kalkylbladet kan du hitta användning från dina Application Insights-resurser genom att först filtrera fram kolumnen "mätnings kategori" för att Visa "Application Insights" och "Log Analytics" och sedan lägga till ett filter i kolumnen "instance ID" som innehåller Microsoft. Insights/komponenter.  De flesta Application Insights användningen rapporteras för mätare med Log Analyticss mätar kategori, eftersom det finns en enda loggar Server del för alla Azure Monitor-komponenter.  Endast Application Insights-resurser på äldre pris nivåer och webbtester med flera steg rapporteras med en mätnings kategori av Application Insights.  Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information som hjälper dig att [förstå Microsoft Azure-fakturan](../../cost-management-billing/understand/review-individual-bill.md). 
 

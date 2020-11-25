@@ -7,17 +7,17 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: b27ff631ce13d70d15a6fd2b6dd5ad5bccaf5450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442079"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021919"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Så här data källor för data källor i Azure Data Catalog
 
 ## <a name="introduction"></a>Introduktion
 
-**Microsoft Azure Data Catalog** är en fullständigt hanterad moln tjänst som fungerar som ett system för registrering och identifierings system för företags data källor. Med andra ord är **Azure Data Catalog** att hjälpa människor att upptäcka, förstå och använda data källor och hjälpa organisationer att få mer värde än befintliga data. När en data källa registreras med **Azure Data Catalog**kopieras och indexeras dess metadata av tjänsten, men artikeln slutar inte där.
+**Microsoft Azure Data Catalog** är en fullständigt hanterad moln tjänst som fungerar som ett system för registrering och identifierings system för företags data källor. Med andra ord är **Azure Data Catalog** att hjälpa människor att upptäcka, förstå och använda data källor och hjälpa organisationer att få mer värde än befintliga data. När en data källa registreras med **Azure Data Catalog** kopieras och indexeras dess metadata av tjänsten, men artikeln slutar inte där.
 
 **Data profilerings** funktionen i **Azure Data Catalog** undersöker data från data källor som stöds i katalogen och samlar in statistik och information om dessa data. Det är enkelt att inkludera en profil för dina data till gångar. När du registrerar en data till gång väljer du **inkludera data profil** i registrerings verktyget för data källor.
 
@@ -49,7 +49,7 @@ Om du inkluderar data profiler när du registrerar data till gångar kan använd
 
 ## <a name="how-to-include-a-data-profile-when-registering-a-data-source"></a>Så här lägger du till en data profil när du registrerar en data Källa
 
-Det är enkelt att inkludera en profil för din data källa. När du registrerar en data källa väljer du **inkludera data profil**i panelen **objekt som ska registreras** i registrerings verktyget för data källor.
+Det är enkelt att inkludera en profil för din data källa. När du registrerar en data källa väljer du **inkludera data profil** i panelen **objekt som ska registreras** i registrerings verktyget för data källor.
 
 ![Kryss rutan inkludera data profil](media/data-catalog-data-profile/data-catalog-register-profile.png)
 
@@ -74,7 +74,7 @@ En data profil i **Azure Data Catalog** visar profil information för tabeller o
 ### <a name="object-data-profile"></a>Objekt data profil
 
 * Antal rader
-* Tabell storlek
+* Tabellstorlek
 * När objektet senast uppdaterades
 
 ### <a name="column-data-profile"></a>Kolumn data profil

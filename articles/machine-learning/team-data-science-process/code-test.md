@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312684"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020610"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Data vetenskaps kod testning på Azure med team data science-processen och Azure DevOps-tjänster
 Den här artikeln innehåller preliminära rikt linjer för testning av kod i ett data vetenskaps flöde. Sådan testning ger data experter ett systematiskt och effektivt sätt att kontrol lera kvaliteten och förväntat resultat av koden. Vi använder ett TDSP-projekt (Team data science process) [som använder den data uppsättning för den sexuella](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) värde som vi publicerade tidigare för att visa hur kod testning kan göras. 
@@ -89,7 +89,7 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
 
       ![Kod för att kontrol lera förutsägelse värden](./media/code-test/check_prediction_values.PNG)
 
-1. Sätt ihop alla test funktioner i ett Python-skript med namnet **test_funcs. py** :
+1. Sätt ihop alla test funktioner i ett Python-skript med namnet **test_funcs. py**:
 
     ![Python-skript för test funktioner](./media/code-test/create_file_test_func.PNG)
 

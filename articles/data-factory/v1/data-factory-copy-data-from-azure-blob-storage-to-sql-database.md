@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 15bce219b96268124729de2f475e33fc386348a8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631741"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021222"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Självstudie: kopiera data från Blob Storage till SQL Database med Data Factory
 > [!div class="op_single_selector"]
@@ -45,42 +45,42 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
 ## <a name="prerequisites-for-the-tutorial"></a>Krav för självstudien
 Innan du påbörjar den här självstudien måste du ha följande krav:
 
-* **Azure-prenumeration** .  Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto på ett par minuter. Mer information finns i artikeln om [kostnads fri utvärdering](https://azure.microsoft.com/pricing/free-trial/) .
-* **Azure Storage konto** . Du använder Blob Storage som **käll** data lager i den här självstudien. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-account-create.md).
-* **Azure SQL Database** . Du använder Azure SQL Database som **mål** data lager i den här självstudien. Om du inte har en databas i Azure SQL Database som du kan använda i självstudien, se [så här skapar och konfigurerar du en databas i Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md) för att skapa en.
-* **SQL Server 2012/2014 eller Visual Studio 2013** . Du kan använda SQL Server Management Studio eller Visual Studio för att skapa en exempel databas och Visa resultat data i-databasen.  
+* **Azure-prenumeration**.  Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto på ett par minuter. Mer information finns i artikeln om [kostnads fri utvärdering](https://azure.microsoft.com/pricing/free-trial/) .
+* **Azure Storage konto**. Du använder Blob Storage som **käll** data lager i den här självstudien. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-account-create.md).
+* **Azure SQL Database**. Du använder Azure SQL Database som **mål** data lager i den här självstudien. Om du inte har en databas i Azure SQL Database som du kan använda i självstudien, se [så här skapar och konfigurerar du en databas i Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md) för att skapa en.
+* **SQL Server 2012/2014 eller Visual Studio 2013**. Du kan använda SQL Server Management Studio eller Visual Studio för att skapa en exempel databas och Visa resultat data i-databasen.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Samla in Blob Storage-kontots namn och nyckel
 Du behöver konto namnet och konto nyckeln för ditt Azure Storage-konto för att göra den här självstudien. Anteckna **konto namnet** och **konto nyckeln** för ditt Azure Storage-konto.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Klicka på **alla tjänster** på den vänstra menyn och välj **lagrings konton** .
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+2. Klicka på **alla tjänster** på den vänstra menyn och välj **lagrings konton**.
 
     ![Bläddra – lagrings konton](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. På bladet **lagrings konton** väljer du det **Azure Storage-konto** som du vill använda i den här självstudien.
-4. Välj länken **åtkomst nycklar** under **Inställningar** .
+4. Välj länken **åtkomst nycklar** under **Inställningar**.
 5. Klicka på knappen **Kopiera** (bild) bredvid text rutan **lagrings konto namn** och spara/klistra in den någonstans (till exempel: i en textfil).
-6. Upprepa föregående steg för att kopiera eller anteckna **KEY1** .
+6. Upprepa föregående steg för att kopiera eller anteckna **KEY1**.
 
     ![Lagrings åtkomst nyckel](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
-7. Stäng alla blad genom att klicka på **X** .
+7. Stäng alla blad genom att klicka på **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Samla in SQL Server, databas, användar namn
-Du behöver namnen på den logiska SQL-servern, databasen och användaren för att göra den här självstudien. Anteckna namn på **Server** , **databas** och **användare** för Azure SQL Database.
+Du behöver namnen på den logiska SQL-servern, databasen och användaren för att göra den här självstudien. Anteckna namn på **Server**, **databas** och **användare** för Azure SQL Database.
 
-1. Klicka på **alla tjänster** till vänster i **Azure Portal** och välj SQL- **databaser** .
-2. På **bladet SQL-databaser** väljer du den **databas** som du vill använda i den här självstudien. Anteckna namnet på **databasen** .  
+1. Klicka på **alla tjänster** till vänster i **Azure Portal** och välj SQL- **databaser**.
+2. På **bladet SQL-databaser** väljer du den **databas** som du vill använda i den här självstudien. Anteckna namnet på **databasen**.  
 3. Klicka på **Egenskaper** under **Inställningar** på **SQL Database** -bladet.
-4. Anteckna värdena för **Server namn** och **Server Administratörs inloggning** .
-5. Stäng alla blad genom att klicka på **X** .
+4. Anteckna värdena för **Server namn** och **Server Administratörs inloggning**.
+5. Stäng alla blad genom att klicka på **X**.
 
 ## <a name="allow-azure-services-to-access-sql-server"></a>Ge Azure-tjänster åtkomst till SQL Server
 Kontrol lera att inställningen **Tillåt åtkomst till Azure-tjänster** **är aktive** rad för servern så att Data Factory-tjänsten kan komma åt servern. Gör så här för att kontrollera och aktivera den här inställningen:
 
-1. Klicka på **alla tjänster** -hubben till vänster och klicka på **SQL-servrar** .
-2. Välj din server och klicka på **Brandvägg** under **INSTÄLLNINGAR** .
-3. På bladet **Brandväggsinställningar** klickar du på **På** för **Tillåt åtkomst till Azure-tjänster** .
-4. Stäng alla blad genom att klicka på **X** .
+1. Klicka på **alla tjänster** -hubben till vänster och klicka på **SQL-servrar**.
+2. Välj din server och klicka på **Brandvägg** under **INSTÄLLNINGAR**.
+3. På bladet **Brandväggsinställningar** klickar du på **På** för **Tillåt åtkomst till Azure-tjänster**.
+4. Stäng alla blad genom att klicka på **X**.
 
 ## <a name="prepare-blob-storage-and-sql-database"></a>Förbereda Blob Storage och SQL Database
 Förbered nu Azure Blob Storage och Azure SQL Database för självstudien genom att utföra följande steg:  

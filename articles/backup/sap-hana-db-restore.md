@@ -4,11 +4,11 @@ description: I den här artikeln får du lära dig hur du återställer SAP HANA
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: c502b7741acd343baefe5e2bf8b95cfc02e46688
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986105"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021681"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Återställa SAP HANA databaser på virtuella Azure-datorer
 
@@ -42,11 +42,11 @@ Observera följande innan du återställer en databas:
 
       ![Säkerhets kopiering i valvets instrument panel](media/sap-hana-db-restore/getting-started-backup.png)
 
-  1. Under **säkerhets kopiering**under **vad vill du säkerhetskopiera? väljer du** **SAP HANA i Azure VM**.
+  1. Under **säkerhets kopiering** under **vad vill du säkerhetskopiera? väljer du** **SAP HANA i Azure VM**.
 
       ![Välj SAP HANA i virtuell Azure-dator](media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. Under **identifiera databaser i virtuella datorer**väljer du **Visa information**.
+  1. Under **identifiera databaser i virtuella datorer** väljer du **Visa information**.
 
       ![Visa detaljer](media/sap-hana-db-restore/view-details.png)
 
@@ -62,13 +62,13 @@ För att återställa måste du ha följande behörigheter:
 
 * Behörighet för **säkerhets kopierings ansvarig** i valvet där du utför återställningen.
 * **Deltagar** åtkomst till den virtuella käll datorn som säkerhets kopie ras.
-* **Deltagar**åtkomst till den virtuella mål datorn:
+* **Deltagar** åtkomst till den virtuella mål datorn:
   * Om du återställer till samma virtuella dator är det här den virtuella käll datorn.
   * Om du återställer till en annan plats är detta den nya virtuella mål datorn.
 
 1. Öppna valvet där SAP HANA databas som ska återställas har registrerats
 
-1. Välj **säkerhets kopierings objekt** under **skyddade objekt**på instrument panelen för valvet
+1. Välj **säkerhets kopierings objekt** under **skyddade objekt** på instrument panelen för valvet
 
     ![Säkerhetskopiera objekt](media/sap-hana-db-restore/backup-items.png)
 
@@ -90,7 +90,7 @@ För att återställa måste du ha följande behörigheter:
 
 1. Välj **Återställ databas**
 
-1. Under **Återställ konfiguration**anger du var (eller hur) du vill återställa data:
+1. Under **Återställ konfiguration** anger du var (eller hur) du vill återställa data:
 
     * **Alternativ plats**: Återställ databasen till en annan plats och behåll den ursprungliga käll databasen.
 
@@ -100,7 +100,7 @@ För att återställa måste du ha följande behörigheter:
 
 ### <a name="restore-to-alternate-location"></a>Återställ till en annan plats
 
-1. I menyn **Återställ konfiguration** , under **återställnings**läge, väljer du **alternativ plats**.
+1. I menyn **Återställ konfiguration** , under **återställnings** läge, väljer du **alternativ plats**.
 
     ![Återställ till en annan plats](media/sap-hana-db-restore/restore-alternate-location.png)
 
@@ -116,7 +116,7 @@ För att återställa måste du ha följande behörigheter:
 
     ![Återställa konfiguration – slutlig skärm](media/sap-hana-db-restore/restore-configuration-last.png)
 
-1. I **Välj återställnings punkt**väljer du **loggar (tidpunkt)** för att [återställa till en viss tidpunkt](#restore-to-a-specific-point-in-time). Eller Välj **fullständig & differentiell** för att [återställa till en viss återställnings punkt](#restore-to-a-specific-recovery-point).
+1. I **Välj återställnings punkt** väljer du **loggar (tidpunkt)** för att [återställa till en viss tidpunkt](#restore-to-a-specific-point-in-time). Eller Välj **fullständig & differentiell** för att [återställa till en viss återställnings punkt](#restore-to-a-specific-recovery-point).
 
 ### <a name="restore-and-overwrite"></a>Återställ och skriv över
 
@@ -124,7 +124,7 @@ För att återställa måste du ha följande behörigheter:
 
     ![Åsidosätt databas](media/sap-hana-db-restore/overwrite-db.png)
 
-1. I **Välj återställnings punkt**väljer du **loggar (tidpunkt)** för att [återställa till en viss tidpunkt](#restore-to-a-specific-point-in-time). Eller Välj **fullständig & differentiell** för att [återställa till en viss återställnings punkt](#restore-to-a-specific-recovery-point).
+1. I **Välj återställnings punkt** väljer du **loggar (tidpunkt)** för att [återställa till en viss tidpunkt](#restore-to-a-specific-point-in-time). Eller Välj **fullständig & differentiell** för att [återställa till en viss återställnings punkt](#restore-to-a-specific-recovery-point).
 
 ### <a name="restore-as-files"></a>Återställ som filer
 
@@ -132,7 +132,7 @@ Om du vill återställa säkerhets kopierings data som filer i stället för en 
 
 1. I menyn **Återställ konfiguration** , under **var och hur du ska återställa**, väljer du **Återställ som filer**.
 1. Välj det **värdnamn** /Hana-servernamn som du vill återställa säkerhetskopieringsfilerna till.
-1. I **mål Sök vägen på servern**anger du mappsökvägen på den server som du valde i steg 2. Detta är den plats där tjänsten kommer att dumpa alla nödvändiga säkerhetskopieringsfiler.
+1. I **mål Sök vägen på servern** anger du mappsökvägen på den server som du valde i steg 2. Detta är den plats där tjänsten kommer att dumpa alla nödvändiga säkerhetskopieringsfiler.
 
     De filer som har dumpas är:
 

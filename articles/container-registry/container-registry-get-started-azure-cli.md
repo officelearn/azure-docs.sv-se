@@ -4,12 +4,12 @@ description: Lär dig snabbt att skapa ett privat Docker-containerregister med A
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.custom: seodec18, H1Hack27Feb2017, mvc, devx-track-azurecli
-ms.openlocfilehash: f4e69616d30c6a7b853c5cc854adee147ebde206
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 226e50aec8f7c76a1b4c81d1a07d57583059ef0e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87486552"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020083"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Snabb start: skapa ett privat behållar register med hjälp av Azure CLI
 
@@ -69,10 +69,16 @@ Anteckna `loginServer` i utdata, vilket är de fullständigt kvalificerade regis
 
 ## <a name="log-in-to-registry"></a>Logga in till registret
 
-Innan du skickar och hämtar containeravbildningar måste du logga in i registret. Det gör du med hjälp av kommandot [az acr login][az-acr-login].
+Innan du skickar och hämtar containeravbildningar måste du logga in i registret. Det gör du med hjälp av kommandot [az acr login][az-acr-login]. Ange bara register namnet när du loggar in med Azure CLI. Använd inte namnet på inloggnings servern, som innehåller ett domänsuffix som `azurecr.io` . 
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+Exempel:
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 Kommandot returnerar meddelandet `Login Succeeded` när det har slutförts.

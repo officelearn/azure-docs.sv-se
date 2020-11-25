@@ -7,11 +7,11 @@ ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.openlocfilehash: 48a732e3935d78bdbf8b81fe989b59be1fbe2203
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422815"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020440"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Använd Java och Gradle för att skapa och publicera en funktion i Azure
 
@@ -142,7 +142,7 @@ Du kan hämta den URL som krävs för att utlösa din funktion med funktions tan
 
 1. Bläddra till [Azure Portal], logga in, ange _APPNAME_ för din Function-app i **Sök** överst på sidan och tryck på RETUR.
  
-1. I din Function-app väljer du **funktioner** , väljer din funktion och klickar sedan på **</> Hämta funktions webb adress** längst upp till höger. 
+1. I din Function-app väljer du **funktioner**, väljer din funktion och klickar sedan på **</> Hämta funktions webb adress** längst upp till höger. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Kopiera funktionswebbadressen från Azure Portal":::
 

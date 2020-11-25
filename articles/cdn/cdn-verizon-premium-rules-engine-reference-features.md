@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84343208"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020423"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN från Verizon Premium Rules Engine-funktioner
 
@@ -59,7 +59,7 @@ Dessa funktioner är utformade för att anpassa när och hur innehållet ska cac
 | [Bandbredds begränsning](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | Begränsar bandbredden för svar som tillhandahålls av våra Edge-servrar. |
 | [Kringgå cacheminne](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | Bestämmer om begäran kan utnyttja vår caching-teknik. |
 | [Hantering av Cache-Control-huvud](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Styr genereringen av Cache-Control sidhuvuden för Edge-servern när den externa Max-Age funktionen är aktiv. |
-| [Cache-nyckel frågesträng](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Bestämmer om **cache-Key*** ska inkludera eller exkludera frågeparametrar som är associerade med en begäran. <br> _* En relativ sökväg som unikt identifierar en till gång för cachelagring.  Våra Edge-servrar använder den här relativa sökvägen vid kontroll av cachelagrat innehåll.  Som standard kommer en cache-nyckel inte att innehålla parametrar för frågesträng._ |
+| [Cache-nyckel frågesträng](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Bestämmer om **cache-Key** _ kommer att inkludera eller exkludera frågeparametrar som är associerade med en begäran. <br> _ _ En relativ sökväg som unikt identifierar en till gång för cachelagring.  Våra Edge-servrar använder den här relativa sökvägen vid kontroll av cachelagrat innehåll.  Som standard kommer en cache-nyckel inte att innehålla frågesträng parameters._ |
 | [Cache-omarbetning av nyckel](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) | Skriver om den cache-nyckel som är kopplad till en begäran. |
 | [Slutför cache-fyllning](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | Bestämmer vad som händer när en begäran resulterar i en partiell cache missar på en Edge-Server. |
 | [Komprimera filtyper](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | Definierar de fil format som ska komprimeras på servern. | 

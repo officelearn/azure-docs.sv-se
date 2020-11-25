@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
 ms.openlocfilehash: c05db2d9ba184da89665a236994c851355cc2644
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127441"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019862"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Använd Azure Stream Analytics CI/CD NuGet-paketet för integrering och utveckling 
 Den här artikeln beskriver hur du använder Azure Stream Analytics CI/CD NuGet-paketet för att skapa en kontinuerlig integrering och distributions process.
@@ -26,7 +26,7 @@ Det finns ett NuGet-paket: [Microsoft. Azure. Stream Analytics. CICD](https://ww
 Mer information finns i [Stream Analytics Tools för Visual Studio](./stream-analytics-quick-create-vs.md).
 
 ## <a name="msbuild"></a>MSBuild
-Precis som med standard Visual Studio MSBuild-upplevelsen kan du bygga ett projekt med två alternativ. Du kan högerklicka på projektet och välja **build** . Du kan också använda **MSBuild** i NuGet-paketet från kommando raden.
+Precis som med standard Visual Studio MSBuild-upplevelsen kan du bygga ett projekt med två alternativ. Du kan högerklicka på projektet och välja **build**. Du kan också använda **MSBuild** i NuGet-paketet från kommando raden.
 ```
 ./build/msbuild /t:build [Your Project Full Path] /p:CompilerTaskAssemblyFile=Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll  /p:ASATargetsFilePath="[NuGet Package Local Path]\build\StreamAnalytics.targets"
 
@@ -60,7 +60,7 @@ Om du vill använda hanterad identitet för Azure Data Lake Store gen1 som utgå
 ## <a name="command-line-tool"></a>Kommando rads verktyg
 
 ### <a name="build-the-project"></a>Bygga projektet
-NuGet-paketet har ett kommando rads verktyg som heter **SA.exe** . Den har stöd för projekt utveckling och lokal testning på en godtycklig dator, som du kan använda i den kontinuerliga integreringen och den kontinuerliga leverans processen. 
+NuGet-paketet har ett kommando rads verktyg som heter **SA.exe**. Den har stöd för projekt utveckling och lokal testning på en godtycklig dator, som du kan använda i den kontinuerliga integreringen och den kontinuerliga leverans processen. 
 
 Distributions-filerna placeras under den aktuella katalogen som standard. Du kan ange en sökväg för utdata genom att använda följande-OutputPath-parameter:
 

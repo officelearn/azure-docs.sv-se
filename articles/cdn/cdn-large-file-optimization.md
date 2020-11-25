@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148713"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020729"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimering av stor fil hämtning med Azure CDN
 
@@ -83,11 +83,11 @@ Optimering av stora filer är effektiv när vissa villkor är uppfyllda. Villkor
 
 Du kan konfigurera **Azure CDN Standard från Akamai** -slutpunkten för att optimera leveransen för stora filer via Azure Portal. Du kan också använda REST-API: erna eller klient-SDK: er för att göra detta. Följande steg visar processen via Azure Portal för en **Azure CDN Standard från Akamai** profil:
 
-1. Om du vill lägga till en ny slut punkt väljer du **slut punkt**på sidan Akamai **CDN Profile** .
+1. Om du vill lägga till en ny slut punkt väljer du **slut punkt** på sidan Akamai **CDN Profile** .
 
     ![Ny slut punkt](./media/cdn-large-file-optimization/cdn-new-akamai-endpoint.png)    
  
-2. Välj **stor fil hämtning**i list rutan **optimerad för** .
+2. Välj **stor fil hämtning** i list rutan **optimerad för** .
 
     ![Optimering av stora filer har valts](./media/cdn-large-file-optimization/cdn-large-file-select.png)
 
@@ -110,7 +110,7 @@ Optimering av stora filer använder olika standardvärden för cachelagring – 
 | Caching  | Allmän webb | Optimering av stora filer 
 --- | --- | --- 
 Cachelagring: positiv <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |1 dag  
-Cachelagring: negativ <br> HTTP 204, 305, 404, <br> och 405 | Inga | 1 sekund 
+Cachelagring: negativ <br> HTTP 204, 305, 404, <br> och 405 | Inget | 1 sekund 
 
 ### <a name="deal-with-origin-failure"></a>Hantera ursprungs problem
 

@@ -5,11 +5,11 @@ ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 0c6c80849f48cb4f859bcbaaeb4f072eb575ba74
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625529"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021308"
 ---
 Den här guiden innehåller instruktioner och exempel kod som hjälper dig att komma igång med Custom Vision klient biblioteket för Node.js för att skapa en modell för objekt identifiering. Du skapar ett projekt, lägger till taggar, tränar projektet och använder projektets förutsäga slut punkts-URL för att program mässigt testa det. Använd det här exemplet som mall för att skapa en egen bild igenkännings app.
 
@@ -85,7 +85,7 @@ Lägg också till fält för ditt projekt namn och en timeout-parameter för asy
 
 ## <a name="object-model"></a>Objekt modell
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |[TrainingAPIClient](/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) | Den här klassen hanterar skapandet, utbildningen och publiceringen av dina modeller. |
 |[PredictionAPIClient](/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest)| Den här klassen hanterar frågekörning för modeller för objekt identifierings förutsägelser.|
@@ -177,7 +177,7 @@ Kör programmet med `node` kommandot på snabb starts filen.
 node index.js
 ```
 
-Programmets utdata bör visas i konsolen. Sedan kan du kontrol lera att test avbildningen (hittas i **<sampleDataRoot> /test/** ) är korrekt formaterad och att identifierings området är korrekt. Du kan också gå tillbaka till [Custom Vision-webbplatsen](https://customvision.ai) och se det aktuella tillståndet för det nyskapade projektet.
+Programmets utdata bör visas i konsolen. Sedan kan du kontrol lera att test avbildningen (hittas i **<sampleDataRoot> /test/**) är korrekt formaterad och att identifierings området är korrekt. Du kan också gå tillbaka till [Custom Vision-webbplatsen](https://customvision.ai) och se det aktuella tillståndet för det nyskapade projektet.
 
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]

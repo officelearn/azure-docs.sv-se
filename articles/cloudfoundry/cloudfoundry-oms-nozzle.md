@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040771"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021596"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuera Azure Log Analytics munstycke för Cloud Foundry system övervakning
 
@@ -61,11 +61,11 @@ Du kan skapa Log Analytics arbets ytan manuellt eller genom att använda en mall
 1. Sök i listan över tjänster på Azure Marketplace i Azure Portal och välj sedan Log Analytics arbets ytor.
 2. Välj **skapa** och välj sedan alternativ för följande objekt:
 
-   * **Log Analytics arbets yta** : Ange ett namn för din arbets yta.
-   * **Prenumeration** : om du har flera prenumerationer väljer du den som är samma som din CF-distribution.
-   * **Resurs grupp** : du kan skapa en ny resurs grupp eller använda samma som i CF-distributionen.
-   * **Plats** : Ange platsen.
-   * **Pris nivå** : Välj **OK** för att slutföra.
+   * **Log Analytics arbets yta**: Ange ett namn för din arbets yta.
+   * **Prenumeration**: om du har flera prenumerationer väljer du den som är samma som din CF-distribution.
+   * **Resurs grupp**: du kan skapa en ny resurs grupp eller använda samma som i CF-distributionen.
+   * **Plats**: Ange platsen.
+   * **Pris nivå**: Välj **OK** för att slutföra.
 
 Mer information finns i [Kom igång med Azure Monitor loggar](../azure-monitor/overview.md).
 
@@ -76,13 +76,13 @@ Mer information finns i [Kom igång med Azure Monitor loggar](../azure-monitor/o
 1. Skriv "Cloud Foundry" i sökfönstret och välj Cloud Foundry övervaknings lösning.
 1. Sidan för mall för Cloud Foundry övervaknings lösning har lästs in och klicka på "skapa" för att starta bladet mall.
 1. Ange de parametrar som krävs:
-    * **Prenumeration** : Välj en Azure-prenumeration för Log Analytics arbets ytan, vanligt vis samma med Cloud Foundry-distribution.
-    * **Resurs grupp** : Välj en befintlig resurs grupp eller skapa en ny för arbets ytan Log Analytics.
-    * **Plats för resurs grupp** : Välj platsen för resurs gruppen.
-    * **OMS_Workspace_Name** : Ange ett namn på arbets ytan, om arbets ytan inte finns, kommer mallen att skapa en ny.
-    * **OMS_Workspace_Region** : Välj plats för arbets ytan.
-    * **OMS_Workspace_Pricing_Tier** : Välj Log Analytics-arbetsyteets SKU. Se [pris vägledningen](https://azure.microsoft.com/pricing/details/log-analytics/) för referens.
-    * **Juridiska villkor** : Klicka på juridiska villkor och klicka sedan på "skapa" för att godkänna den juridiska termen.
+    * **Prenumeration**: Välj en Azure-prenumeration för Log Analytics arbets ytan, vanligt vis samma med Cloud Foundry-distribution.
+    * **Resurs grupp**: Välj en befintlig resurs grupp eller skapa en ny för arbets ytan Log Analytics.
+    * **Plats för resurs grupp**: Välj platsen för resurs gruppen.
+    * **OMS_Workspace_Name**: Ange ett namn på arbets ytan, om arbets ytan inte finns, kommer mallen att skapa en ny.
+    * **OMS_Workspace_Region**: Välj plats för arbets ytan.
+    * **OMS_Workspace_Pricing_Tier**: Välj Log Analytics-arbetsyteets SKU. Se [pris vägledningen](https://azure.microsoft.com/pricing/details/log-analytics/) för referens.
+    * **Juridiska villkor**: Klicka på juridiska villkor och klicka sedan på "skapa" för att godkänna den juridiska termen.
 1. När du har angett alla parametrar klickar du på "skapa" för att distribuera mallen. När distributionen har slutförts visas statusen på fliken meddelande.
 
 
@@ -185,7 +185,7 @@ Om du har skapat Log Analytics arbets ytan manuellt följer du stegen nedan för
 
 I OMS-portalen bläddrar du till **Visa designer**  >  **Importera**  >  **Bläddra** och väljer en av omsview-filerna. Välj till exempel *Cloud Foundry. omsview* och spara vyn. Nu visas en panel på sidan **Översikt** . Markera det om du vill visa visualiserings mått.
 
-Du kan anpassa dessa vyer eller skapa nya vyer via **View Designer** .
+Du kan anpassa dessa vyer eller skapa nya vyer via **View Designer**.
 
 *"Cloud Foundry. omsview"* är en för hands version av Cloud Foundry OMS View-mallen. Det här är en fullständigt konfigurerad standard mall. Om du har förslag eller feedback om mallen kan du skicka dem till [avsnittet ärende](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
 

@@ -4,11 +4,11 @@ description: Översikt över hur du använder Azure Functions-proxyservrar
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385882"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020406"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions-proxyservrar
 
@@ -111,7 +111,7 @@ Inaktivera spår helt genom att lägga till `"debug":false` dem i en viss proxy 
 De proxyservrar som du konfigurerar lagras i en *proxies.jspå* en fil som finns i roten i en Function app-katalog. Du kan redigera den här filen manuellt och distribuera den som en del av din app när du använder någon av de [distributions metoder](./functions-continuous-deployment.md) som stöds av functions. 
 
 > [!TIP] 
-> Om du inte har konfigurerat någon av distributions metoderna kan du också arbeta med *proxies.js* filen i portalen. Gå till din Function-app, Välj **plattforms funktioner**och välj sedan **App Service Editor**. Genom att göra det kan du Visa hela fil strukturen för din Function-app och sedan göra ändringar.
+> Om du inte har konfigurerat någon av distributions metoderna kan du också arbeta med *proxies.js* filen i portalen. Gå till din Function-app, Välj **plattforms funktioner** och välj sedan **App Service Editor**. Genom att göra det kan du Visa hela fil strukturen för din Function-app och sedan göra ändringar.
 
 *Proxies.jspå* definieras av ett objekt i proxyn, som består av namngivna proxyservrar och deras definitioner. Om Redigeraren stöder det kan du också referera till ett JSON- [schema](http://json.schemastore.org/proxies) för kod komplettering. En exempel fil kan se ut så här:
 
@@ -241,7 +241,7 @@ En exempel konfiguration kan se ut så här:
 > [!NOTE] 
 > I det här exemplet anges svars texten direkt, så ingen `backendUri` egenskap krävs. Exemplet visar hur du kan använda Azure Functions-proxyservrar för att modellera API: er.
 
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com
 [HTTP-utlösare]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

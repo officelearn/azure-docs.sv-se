@@ -15,16 +15,16 @@ ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887730"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021970"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Skapa en Azure CDN-slutpunkt
 I den här artikeln beskrivs alla inställningar för att skapa en [Azure Content Delivery Network-slutpunkt (CDN)](cdn-overview.md) i en befintlig CDN-profil. När du har skapat en profil och en slut punkt kan du börja leverera innehåll till dina kunder. En snabb start för att skapa en profil och slut punkt finns i [snabb start: skapa en Azure CDN profil och slut punkt](cdn-create-new-endpoint.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du kan skapa en CDN-slutpunkt måste du ha skapat minst en CDN-profil, som kan innehålla en eller flera CDN-slutpunkter. Du kan organisera dina CDN-slutpunkter efter internetdomän, webbapp eller något annat kriterium genom att använda flera profiler. Eftersom CDN-prissättningen används på CDN-profilens nivå måste du skapa flera CDN-profiler om du vill använda en blandning av Azure CDN pris nivåer. Information om hur du skapar en CDN-profil finns i [skapa en ny CDN-profil](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
@@ -46,15 +46,15 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
 3. I **Namn** anger du ett unikt namn för den nya CDN-slutpunkten. Det här namnet används för att komma åt dina cachelagrade resurser på domänen _\<endpointname>_ . azureedge.net.
 
-4. För **typ av ursprung**väljer du någon av följande ursprungs typer: 
+4. För **typ av ursprung** väljer du någon av följande ursprungs typer: 
    - **Lagring** för Azure Storage
    - **Moln tjänst** för Azure-Cloud Services
    - **Web App** för Azure Web Apps
    - **Anpassat ursprung** för alla andra offentligt tillgängliga ursprungs webb servrar (som finns i Azure eller på annan plats)
 
-5. För **Ursprungligt värdnamn**väljer eller anger du din ursprungs Server domän. List rutan visar alla tillgängliga ursprungs servrar av den typ som du angav i steg 4. Om du valde **anpassat ursprung** som typ av ursprung anger du domänen för din anpassade ursprungs Server.
+5. För **Ursprungligt värdnamn** väljer eller anger du din ursprungs Server domän. List rutan visar alla tillgängliga ursprungs servrar av den typ som du angav i steg 4. Om du valde **anpassat ursprung** som typ av ursprung anger du domänen för din anpassade ursprungs Server.
     
-6. För **ursprungs Sök väg**anger du sökvägen till de resurser som du vill cachelagra. Lämna inställningen tom om du vill tillåta cachelagring av alla resurser i den domän du angav i steg 5.
+6. För **ursprungs Sök väg** anger du sökvägen till de resurser som du vill cachelagra. Lämna inställningen tom om du vill tillåta cachelagring av alla resurser i den domän du angav i steg 5.
     
 7. I **Ursprungsvärdadress** anger du värdhuvudet som du vill att Azure CDN ska skicka med varje begäran, eller så lämnar du standardvärdet.
    
@@ -62,7 +62,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
    > Vissa typer av ursprung, till exempel Azure Storage och Web Apps, kräver att värdhuvudet matchar ursprungets domän. Lämna standardvärdet såvida du inte har ett ursprung som kräver ett värdhuvud som skiljer sig från dess domän.
    > 
     
-8. För **protokoll** och **ursprungs port**anger du de protokoll och portar som ska användas för att komma åt dina resurser på ursprungs servern. Du måste välja minst ett protokoll (HTTP eller HTTPS). Använd den CDN-tillhandahållna domänen ( _\<endpointname>_ . azureedge.net) för att komma åt https-innehåll. 
+8. För **protokoll** och **ursprungs port** anger du de protokoll och portar som ska användas för att komma åt dina resurser på ursprungs servern. Du måste välja minst ett protokoll (HTTP eller HTTPS). Använd den CDN-tillhandahållna domänen ( _\<endpointname>_ . azureedge.net) för att komma åt https-innehåll. 
    
    > [!NOTE]
    > Värdet för **ursprungs porten** bestämmer bara porten som slut punkten använder för att hämta information från ursprungs servern. Själva slutpunkten är bara tillgänglig för slutklienter via HTTP- och HTTPS-standardportarna (80 och 443), oavsett värdet för **Ursprungsport**.  
@@ -71,7 +71,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
    > 
    > HTTPS-stöd för Azure CDN anpassade domäner stöds inte på **Azure CDN från Akamai** -produkter. Mer information finns i [Konfigurera HTTPS på en anpassad Azure CDN-domän](cdn-custom-ssl.md).
     
-9. För **optimerad för**väljer du en optimerings typ som bäst matchar det scenario och den typ av innehåll som du vill att slut punkten ska leverera. Mer information finns i [optimera Azure CDN för typ av innehålls leverans](cdn-optimization-overview.md).
+9. För **optimerad för** väljer du en optimerings typ som bäst matchar det scenario och den typ av innehåll som du vill att slut punkten ska leverera. Mer information finns i [optimera Azure CDN för typ av innehålls leverans](cdn-optimization-overview.md).
 
     Följande optimerings typs inställningar stöds, enligt profil typ:
     - **Azure CDN Standard från Microsoft** -profiler:

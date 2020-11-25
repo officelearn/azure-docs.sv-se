@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9797024315a8fdc744d08863a42fba0b0b16420
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fa502f5ca95b1726da7f00f987b35be362ae865a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660346"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021766"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Snabb start: skapa, ladda ned och lista blobar med Azure CLI
 
@@ -35,7 +35,7 @@ Azure CLI är Azures kommandoradsmiljö för att hantera Azure-resurser. Du kan 
 
 Du kan ge åtkomst till Blob Storage från Azure CLI antingen med Azure AD-autentiseringsuppgifter eller med hjälp av åtkomst nyckeln för lagrings kontot. Du rekommenderas att använda Azure AD-autentiseringsuppgifter. Den här artikeln visar hur du auktoriserar Blob Storage-åtgärder med hjälp av Azure AD.
 
-Azure CLI-kommandon för data åtgärder mot Blob Storage har stöd för `--auth-mode` parametern, vilket gör att du kan ange hur en specifik åtgärd ska auktoriseras. Ange att `--auth-mode` parametern ska `login` auktoriseras med Azure AD-autentiseringsuppgifter. Mer information finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure CLI-kommandon för data åtgärder mot Blob Storage har stöd för `--auth-mode` parametern, vilket gör att du kan ange hur en specifik åtgärd ska auktoriseras. Ange att `--auth-mode` parametern ska `login` auktoriseras med Azure AD-autentiseringsuppgifter. Mer information finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Endast Blob Storage-data åtgärder stöder `--auth-mode` parametern. Hanterings åtgärder, till exempel att skapa en resurs grupp eller ett lagrings konto, använder automatiskt Azure AD-autentiseringsuppgifter för auktorisering.
 
@@ -89,7 +89,7 @@ az storage container create \
 > [!IMPORTANT]
 > Det kan ta några minuter att sprida Azures roll tilldelningar.
 
-Du kan också använda lagrings konto nyckeln för att ge åtgärden att skapa behållaren. Mer information om hur du auktoriserar data åtgärder med Azure CLI finns i [bevilja åtkomst till BLOB-eller köa data med Azure CLI](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
+Du kan också använda lagrings konto nyckeln för att ge åtgärden att skapa behållaren. Mer information om hur du auktoriserar data åtgärder med Azure CLI finns i [bevilja åtkomst till BLOB-eller köa data med Azure CLI](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="upload-a-blob"></a>Ladda upp en blob
 
@@ -169,4 +169,4 @@ az group delete \
 I den här snabb starten har du lärt dig hur du överför filer mellan ett lokalt fil system och en behållare i Azure Blob Storage. Om du vill veta mer om att arbeta med Blob Storage med hjälp av Azure CLI kan du utforska Azure CLI-exempel för Blob Storage.
 
 > [!div class="nextstepaction"]
-> [Azure CLI-exempel för Blob Storage](/azure/storage/blobs/storage-samples-blobs-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Azure CLI-exempel för Blob Storage](./storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

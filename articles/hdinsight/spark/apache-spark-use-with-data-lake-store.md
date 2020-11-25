@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/13/2019
 ms.openlocfilehash: 6abdb3cc6981a4fbdd52b88a75457c37709597f5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534336"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020797"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Använd HDInsight Spark-kluster för att analysera data i Data Lake Storage Gen1
 
@@ -58,30 +58,30 @@ Om du har skapat ett HDInsight-kluster med Data Lake Storage som ytterligare lag
     Copy Completed. 1 file copied.
     ```
 
-    Data filen ( **HVAC.csv** ) kommer att kopieras under en mapp **/HVAC** i data Lake Storage-kontot.
+    Data filen (**HVAC.csv**) kommer att kopieras under en mapp **/HVAC** i data Lake Storage-kontot.
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Använd ett HDInsight Spark-kluster med Data Lake Storage Gen1
 
-1. Från [Azure Portal](https://portal.azure.com/), från start sidan, klickar du på panelen för ditt Apache Spark-kluster (om du har fäst det på Start sidan). Du kan också navigera till klustret under **Bläddra bland alla**  >  **HDInsight-kluster** .
+1. Från [Azure Portal](https://portal.azure.com/), från start sidan, klickar du på panelen för ditt Apache Spark-kluster (om du har fäst det på Start sidan). Du kan också navigera till klustret under **Bläddra bland alla**  >  **HDInsight-kluster**.
 
-2. Klicka på **Snabblänkar** på Spark-klusterbladet och sedan på **Jupyter Notebook** på **Klusterinstrumentpanel** -bladet. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
+2. Klicka på **Snabblänkar** på Spark-klusterbladet och sedan på **Jupyter Notebook** på **Klusterinstrumentpanel**-bladet. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
    > [!NOTE]  
    > Du kan också nå Jupyter Notebook för ditt kluster genom att öppna nedanstående URL i webbläsaren. Ersätt **CLUSTERNAME** med namnet på klustret:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-3. Skapa en ny anteckningsbok. Klicka på **Ny** och sedan på **PySpark** .
+3. Skapa en ny anteckningsbok. Klicka på **Ny** och sedan på **PySpark**.
 
     ![Skapa en ny Jupyter-anteckningsbok](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Skapa en ny Jupyter-anteckningsbok")
 
-4. Du behöver inte uttryckligen skapa några kontexter eftersom du har skapat anteckningsboken med hjälp av PySpark-kerneln. Spark- och Hive-kontexterna skapas automatiskt för dig när du kör den första kodcellen. Du kan börja med att importera de typer som krävs för det här scenariot. Det gör du genom att klistra in följande kodfragment i en cell och trycka på **SKIFT + RETUR** .
+4. Du behöver inte uttryckligen skapa några kontexter eftersom du har skapat anteckningsboken med hjälp av PySpark-kerneln. Spark- och Hive-kontexterna skapas automatiskt för dig när du kör den första kodcellen. Du kan börja med att importera de typer som krävs för det här scenariot. Det gör du genom att klistra in följande kodfragment i en cell och trycka på **SKIFT + RETUR**.
 
     ```scala
     from pyspark.sql.types import *
     ```
 
-    Varje gång du kör ett jobb i Jupyter kommer fönsterrubriken i din webbläsare att visa statusen **(Upptagen)** tillsammans med anteckningsbokens titel. Du kan även se en fylld cirkel bredvid **PySpark** -texten i det övre högra hörnet. När jobbet har slutförts ändras denna till en tom cirkel.
+    Varje gång du kör ett jobb i Jupyter kommer fönsterrubriken i din webbläsare att visa statusen **(Upptagen)** tillsammans med anteckningsbokens titel. Du kan även se en fylld cirkel bredvid **PySpark**-texten i det övre högra hörnet. När jobbet har slutförts ändras denna till en tom cirkel.
 
      ![Status för ett Jupyter-anteckningsboksjobb](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Status för ett Jupyter-anteckningsboksjobb")
 
@@ -105,7 +105,7 @@ Om du har skapat ett HDInsight-kluster med Data Lake Storage som ytterligare lag
         adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
         ```
 
-     I en tom cell klistrar du in följande kod exempel, ersätter **MYDATALAKESTORE** med ditt data Lake Storage konto namn och trycker på **SKIFT + RETUR** . Den här kodexemplet registrerar data i en tillfällig tabell som kallas **hvac** .
+     I en tom cell klistrar du in följande kod exempel, ersätter **MYDATALAKESTORE** med ditt data Lake Storage konto namn och trycker på **SKIFT + RETUR**. Den här kodexemplet registrerar data i en tillfällig tabell som kallas **hvac**.
 
       ```scala
       # Load the data. The path below assumes Data Lake Storage is   default storage for the Spark cluster
@@ -138,7 +138,7 @@ Om du har skapat ett HDInsight-kluster med Data Lake Storage som ytterligare lag
 
      ![Områdesdiagram över frågeresultat](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "Områdesdiagram över frågeresultat")
 
-8. När du har kört appen bör du stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil** -meny. Då avslutas anteckningsboken och stängs ned.
+8. När du har kört appen bör du stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Då avslutas anteckningsboken och stängs ned.
 
 
 ## <a name="next-steps"></a>Nästa steg

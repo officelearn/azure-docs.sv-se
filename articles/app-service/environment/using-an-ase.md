@@ -8,11 +8,11 @@ ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 86d0569d95df18924ed47682b75d7491c71d4483
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833562"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021035"
 ---
 # <a name="use-an-app-service-environment"></a>Använd App Service Environment
 
@@ -185,7 +185,7 @@ Du kan integrera din ASE med Azure Monitor för att skicka loggar om ASE till Az
 Så här aktiverar du loggning på din ASE:
 
 1. I portalen går du till **diagnostikinställningar**.
-1. Välj **Lägg till diagnostisk inställning**.
+1. Välj **Lägg till diagnostikinställning**.
 1. Ange ett namn för logg integreringen.
 1. Välj och konfigurera de logg destinationer som du vill använda.
 1. Välj **AppServiceEnvironmentPlatformLogs**.

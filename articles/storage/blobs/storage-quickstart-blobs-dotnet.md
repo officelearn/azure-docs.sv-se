@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fa37db7a5c63f7a5e8a84d98afbb81e007904974
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8cb8c193e09e841a8401cbb0a6ac78ce87afa01c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001441"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021715"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Snabbstart: Azure Blob Storage-klientbiblioteket v12 för .NET
 
@@ -32,14 +32,14 @@ Ytterligare resurser:
 * [Referensdokumentation för API](/dotnet/api/azure.storage.blobs)
 * [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
 * [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-* [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Exempel](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage-konto – [skapa ett lagrings konto](../common/storage-account-create.md)
 * Nuvarande [.net Core SDK](https://dotnet.microsoft.com/download/dotnet-core) för ditt operativ system. Se till att hämta SDK och inte körnings miljön.
 
 ## <a name="setting-up"></a>Konfigurera
@@ -62,7 +62,7 @@ Skapa ett .NET Core-program med namnet *BlobQuickstartV12*.
    cd BlobQuickstartV12
    ```
 
-1. Skapa en annan katalog med namnet *data*på sidan *BlobQuickstartV12* . Det är här som BLOB-datafilerna ska skapas och lagras.
+1. Skapa en annan katalog med namnet *data* på sidan *BlobQuickstartV12* . Det är här som BLOB-datafilerna ska skapas och lagras.
 
     ```console
     mkdir data

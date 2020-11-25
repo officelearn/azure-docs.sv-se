@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: f4a0739eb1ab14155a98b17e2427c5b08c9db788
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564431"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020678"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Installera och använda din Azure Data Box på ett säkert sätt
 ![Varnings ikon läsa ](./media/data-box-safety/warning_icon.png)
@@ -24,7 +24,7 @@ Läs all säkerhets information i den här artikeln innan du använder Azure Dat
 ## <a name="safety-icon-conventions"></a>Säkerhets ikon konventioner
 Här följer de ikoner som du hittar när du granskar de säkerhets åtgärder som ska observeras när du konfigurerar och kör din Data Box-enhet.
 
-| Ikon | Beskrivning |
+| Ikon | Description |
 |:--- |:--- |
 | ![Varnings ikon ](./media/data-box-safety/warning_icon.png) **!** |Indikerar en farlig situation som, om de inte undviks, leder till dödsfall eller allvarlig skada. Den här signalen är begränsad till de mest extrema situationerna. |
 | ![Varnings ikon ](./media/data-box-safety/warning_icon.png) **Varning!** |Indikerar en farlig situation som, om de inte undviks, kan leda till dödsfall eller allvarlig skada. |

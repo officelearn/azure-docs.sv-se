@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 11a3fdd5dbaef53af321342952f786ed8119689c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012406"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021069"
 ---
 # <a name="package-an-application"></a>Paketera ett program
 
@@ -49,7 +49,7 @@ Vanliga scenarier för att använda **SetupEntryPoint** är när du behöver kö
 * Konfigurera och initiera miljövariabler som tjänstens körbara fil behöver. Den är inte begränsad till enbart körbara filer som skrivits via Service Fabric programmerings modeller. npm.exe behöver till exempel vissa miljövariabler som har kon figurer ATS för att distribuera ett node.js-program.
 * Konfigurera åtkomst kontroll genom att installera säkerhets certifikat.
 
-Mer information om hur du konfigurerar **SetupEntryPoint**finns i [Konfigurera principen för en start punkt för tjänst konfiguration](service-fabric-application-runas-security.md)
+Mer information om hur du konfigurerar **SetupEntryPoint** finns i [Konfigurera principen för en start punkt för tjänst konfiguration](service-fabric-application-runas-security.md)
 
 <a id="Package-App"></a>
 

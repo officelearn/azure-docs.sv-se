@@ -16,11 +16,11 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9b616b03698e83d256a7b81e4548edbf21dba058
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264648"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021137"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Så här skapar du ett Smooth Streaming Windows Store-program
 
@@ -66,14 +66,14 @@ Mer information om hur du utvecklar Windows Store-program finns i [utveckla fant
 ### <a name="to-create-a-windows-store-project"></a>Skapa ett Windows Store-projekt
 
 1. Köra Visual Studio; version 2012 till 2015 stöds.
-1. Från menyn **Arkiv** klickar du på **nytt**och sedan på **projekt**.
+1. Från menyn **Arkiv** klickar du på **nytt** och sedan på **projekt**.
 1. I dialog rutan nytt projekt skriver eller väljer du följande värden:
 
-    | Namn | Värde |
+    | Name | Värde |
     | --- | --- |
     | Mallgrupp |Installerat/templates/Visual C#/Windows Store |
     | Mall |Tom app (XAML) |
-    | Namn |SSPlayer |
+    | Name |SSPlayer |
     | Plats |C:\SSTutorials |
     | Namn på lösning |SSPlayer |
     | Skapa katalog för lösning |välja |
@@ -82,10 +82,10 @@ Mer information om hur du utvecklar Windows Store-program finns i [utveckla fant
 
 ### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Lägga till en referens till Smooth Streaming-klient-SDK
 
-1. Från Solution Explorer högerklickar du på **SSPlayer**och klickar sedan på **Lägg till referens**.
+1. Från Solution Explorer högerklickar du på **SSPlayer** och klickar sedan på **Lägg till referens**.
 1. Ange eller välj följande värden:
 
-    | Namn | Värde |
+    | Name | Värde |
     | --- | --- |
     | Referens grupp |Windows/tillägg |
     | Referens |Välj Microsoft Smooth Streaming client SDK för Windows 8 och Microsoft Visual C++ runtime-paketet |
@@ -97,7 +97,7 @@ När du har lagt till referenserna måste du välja mål plattform (x64 eller x8
 ### <a name="to-design-the-player-user-interface"></a>Utforma användar gränssnittet för Player
 
 1. Från Solution Explorer dubbelklickar du på **mainpage. XAML** för att öppna den i designvyn.
-2. Leta upp märkordet ** &lt; Grid &gt; ** och ** &lt; /Grid &gt; ** och klistra in följande kod mellan de två taggarna:
+2. Leta upp märkordet **&lt; Grid &gt;** och **&lt; /Grid &gt;** och klistra in följande kod mellan de två taggarna:
 
    ```xml
          <Grid.RowDefinitions>
@@ -152,7 +152,7 @@ I den här XAML-filen är vissa händelse hanterare associerade med kontrollerna
 
 ### <a name="to-modify-the-code-behind-file"></a>Ändra koden bakom filen
 
-1. Från Solution Explorer högerklickar du på **mainpage. XAML**och klickar sedan på **Visa kod**.
+1. Från Solution Explorer högerklickar du på **mainpage. XAML** och klickar sedan på **Visa kod**.
 2. Lägg till följande using-instruktion högst upp i filen:
 
     ```csharp
@@ -225,7 +225,7 @@ Den färdiga koden bakom filen ska se ut så här:
 
 ### <a name="to-compile-and-test-the-application"></a>Kompilera och testa programmet
 
-1. Klicka på **Configuration Manager**på menyn **build** .
+1. Klicka på **Configuration Manager** på menyn **build** .
 2. Ändra **plattformen för aktiva lösningar** för att matcha din utvecklings plattform.
 3. Tryck på **F6** för att kompilera projektet. 
 4. Tryck på **F5** för att köra programmet.
@@ -253,7 +253,7 @@ Den här lektionen innehåller följande procedurer:
 
 ### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Registrera Smooth Streaming byte-Stream-hanteraren och skicka propertyset
 
-1. Från Solution Explorer högerklickar du på **mainpage. XAML**och klickar sedan på **Visa kod**.
+1. Från Solution Explorer högerklickar du på **mainpage. XAML** och klickar sedan på **Visa kod**.
 2. Lägg till följande using-instruktion i början av filen:
 
    ```csharp
@@ -298,7 +298,7 @@ Den här lektionen innehåller följande procedurer:
 
 ### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Så här lägger du till händelse hanteraren för den anpassningsbara käll hanterarens nivå
 
-1. Från Solution Explorer högerklickar du på **mainpage. XAML**och klickar sedan på **Visa kod**.
+1. Från Solution Explorer högerklickar du på **mainpage. XAML** och klickar sedan på **Visa kod**.
 2. I **mainpage** -klassen lägger du till följande data medlem:
 
    ```csharp
@@ -326,7 +326,7 @@ Den här lektionen innehåller följande procedurer:
 
 ### <a name="to-add-adaptive-source-level-event-handlers"></a>Så här lägger du till händelse hanterare för adaptiva käll nivåer
 
-1. Från Solution Explorer högerklickar du på **mainpage. XAML**och klickar sedan på **Visa kod**.
+1. Från Solution Explorer högerklickar du på **mainpage. XAML** och klickar sedan på **Visa kod**.
 2. I **mainpage** -klassen lägger du till följande data medlem:
 
    ```csharp
@@ -377,7 +377,7 @@ Samma händelser är tillgängliga på den anpassade käll hanterings nivån och
 
 ### <a name="to-add-media-element-event-handlers"></a>Lägga till händelse hanterare för medie element
 
-1. Från Solution Explorer högerklickar du på **mainpage. XAML**och klickar sedan på **Visa kod**.
+1. Från Solution Explorer högerklickar du på **mainpage. XAML** och klickar sedan på **Visa kod**.
 2. I slutet av **mainpage** -klassen lägger du till följande händelse hanterare:
 
    ```csharp
@@ -413,7 +413,7 @@ Samma händelser är tillgängliga på den anpassade käll hanterings nivån och
 
 ### <a name="to-add-slider-bar-related-code"></a>Så här lägger du till kod för skjutreglaget
 
-1. Från Solution Explorer högerklickar du på **mainpage. XAML**och klickar sedan på **Visa kod**.
+1. Från Solution Explorer högerklickar du på **mainpage. XAML** och klickar sedan på **Visa kod**.
 2. Lägg till följande using-instruktion i början av filen:
 
    ```csharp
@@ -563,7 +563,7 @@ Smooth Streaming kan strömma innehåll med flera språk ljud spår som kan väl
 
 ### <a name="to-modify-the-xaml-file"></a>Ändra XAML-filen
 
-1. Från Solution Explorer högerklickar du på **mainpage. XAML**och klickar sedan på **Visa designer**.
+1. Från Solution Explorer högerklickar du på **mainpage. XAML** och klickar sedan på **Visa designer**.
 2. Leta upp &lt; Grid. RowDefinitions &gt; och ändra RowDefinitions så att de ser ut så här:
 
    ```xml
@@ -606,7 +606,7 @@ Smooth Streaming kan strömma innehåll med flera språk ljud spår som kan väl
 
 ### <a name="to-modify-the-code-behind-file"></a>Ändra koden bakom filen
 
-1. Från Solution Explorer högerklickar du på **mainpage. XAML**och klickar sedan på **Visa kod**.
+1. Från Solution Explorer högerklickar du på **mainpage. XAML** och klickar sedan på **Visa kod**.
 2. I namn området SSPlayer lägger du till en ny klass:
 
    ```csharp
@@ -841,8 +841,8 @@ En Smooth Streaming presentation kan innehålla flera videofiler som är kodade 
 
 ### <a name="to-modify-the-xaml-file"></a>Ändra XAML-filen
 
-1. Från Solution Explorer högerklickar du på **mainpage. XAML**och klickar sedan på **Visa designer**.
-2. Leta upp &lt; Rutnäts &gt; tag gen med namnet **gridStreamAndBitrateSelection**och Lägg till följande kod i slutet av taggen:
+1. Från Solution Explorer högerklickar du på **mainpage. XAML** och klickar sedan på **Visa designer**.
+2. Leta upp &lt; Rutnäts &gt; tag gen med namnet **gridStreamAndBitrateSelection** och Lägg till följande kod i slutet av taggen:
    ```xml
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">
@@ -863,7 +863,7 @@ En Smooth Streaming presentation kan innehålla flera videofiler som är kodade 
 
 ### <a name="to-modify-the-code-behind-file"></a>Ändra koden bakom filen
 
-1. Från Solution Explorer högerklickar du på **mainpage. XAML**och klickar sedan på **Visa kod**.
+1. Från Solution Explorer högerklickar du på **mainpage. XAML** och klickar sedan på **Visa kod**.
 2. I namn området SSPlayer lägger du till en ny klass:
    ```csharp
         #region class Track

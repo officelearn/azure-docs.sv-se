@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9356cbb6eb210d6745d90e8ad001917e73592cd3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870722"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96022002"
 ---
 # <a name="about-the-speech-sdk"></a>Om Speech SDK
 
@@ -29,7 +29,7 @@ Tal-SDK: n visar många funktioner från tal tjänsten, men inte alla. Funktione
 
 ### <a name="speech-to-text"></a>Tal till text
 
-[Tal till text](speech-to-text.md) (kallas även *tal igenkänning*) drar av ljud strömmar till text som dina program, verktyg eller enheter kan använda eller Visa. Använd tal-till-text med [language Understanding (Luis)](../luis/index.yml) för att härleda användar avsikter från inställt tal och agera på röst kommandon. Använd [tal översättning](speech-translation.md) för att översätta tal ingångar till ett annat språk med ett enda anrop. Mer information finns i [grunderna för tal till text](speech-to-text-basics.md).
+[Tal till text](speech-to-text.md) (kallas även *tal igenkänning*) drar av ljud strömmar till text som dina program, verktyg eller enheter kan använda eller Visa. Använd tal-till-text med [language Understanding (Luis)](../luis/index.yml) för att härleda användar avsikter från inställt tal och agera på röst kommandon. Använd [tal översättning](speech-translation.md) för att översätta tal ingångar till ett annat språk med ett enda anrop. Mer information finns i [grunderna för tal till text](./get-started-speech-to-text.md).
 
 **Tal igenkänning (SR), fras lista, avsikt, översättning och lokala behållare** är tillgängliga på följande plattformar:
 
@@ -68,7 +68,7 @@ Tal-SDK: n visar många funktioner från tal tjänsten, men inte alla. Funktione
 
 #### <a name="keyword-spotting"></a>Nyckelord upptäcka
 
-Konceptet för [nyckelordet upptäcka](speech-devices-sdk-create-kws.md) stöds i tal-SDK: n. Nyckelordet upptäcka är en handling som identifierar ett nyckelord i tal, följt av en åtgärd för att höra nyckelordet. Till exempel "Hej Cortana" aktiverar Cortana-assistenten.
+Konceptet för [nyckelordet upptäcka](./custom-keyword-basics.md) stöds i tal-SDK: n. Nyckelordet upptäcka är en handling som identifierar ett nyckelord i tal, följt av en åtgärd för att höra nyckelordet. Till exempel "Hej Cortana" aktiverar Cortana-assistenten.
 
 **Nyckelordet upptäcka (KWS)** är tillgängligt på följande plattformar:
 
@@ -180,4 +180,4 @@ Anpassad text till tal, även kallat anpassad röst är en uppsättning online-v
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/cognitive-services/)
-* [Se känna igen tal i C #](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [Se känna igen tal i C #](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

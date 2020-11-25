@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758671"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020933"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrument-webbappar vid körning med Application Insights kod koppling
 
@@ -41,13 +41,13 @@ Här är en sammanfattning av vad du får med respektive väg:
 |  | Byggtid | Körtid |
 | --- | --- | --- |
 | **Begär & undantag** |Ja |Ja |
-| **[Mer detaljerade undantag](./asp-net-exceptions.md)** | |Ja |
+| **[Mer detaljerade undantag](./asp-net-exceptions.md)** | |Yes |
 | **[Beroendediagnostik](./asp-net-dependencies.md)** |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP verb|
 | **[Systemprestandaräknare](./performance-counters.md)** |Ja |Ja |
-| **[API för anpassad telemetri][api]** |Ja |Inga |
-| **[Spårningsloggsintegrering](./asp-net-trace-logs.md)** |Ja |Inga |
-| **[Sid visning & användar data](./javascript.md)** |Ja |Inga |
-| **Du måste återskapa koden** |Ja | Inga |
+| **[API för anpassad telemetri][api]** |Ja |Nej |
+| **[Spårningsloggsintegrering](./asp-net-trace-logs.md)** |Ja |Nej |
+| **[Sid visning & användar data](./javascript.md)** |Ja |Nej |
+| **Du måste återskapa koden** |Ja | Nej |
 
 
 

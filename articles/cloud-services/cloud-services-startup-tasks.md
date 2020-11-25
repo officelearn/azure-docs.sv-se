@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: f2417389de98f9998c189e7cbbbcdae77fbb8840
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075067"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020712"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Konfigurera och köra start åtgärder för en moln tjänst
 Du kan använda Start åtgärder för att utföra åtgärder innan en roll startar. Åtgärder som du kanske vill utföra är att installera en komponent, registrera COM-komponenter, ange register nycklar eller starta en tids krävande process.
@@ -31,7 +31,7 @@ Din start åtgärd kan logga information och fel i katalogen som anges av miljö
 
 Startåtgärder kan även köras flera gånger mellan omstarter. Startåtgärden körs till exempel varje gång rollen återanvänds och rollåteranvändningar kanske inte alltid innefattar en omstart. Start aktiviteter ska skrivas på ett sätt som gör att de kan köras flera gånger utan problem.
 
-Start aktiviteter måste avslutas med en **errorlevel** (eller avslutnings kod) på noll för att start processen ska slutföras. Om en start aktivitet slutar med en **errorlevel**som inte är noll startar inte rollen.
+Start aktiviteter måste avslutas med en **errorlevel** (eller avslutnings kod) på noll för att start processen ska slutföras. Om en start aktivitet slutar med en **errorlevel** som inte är noll startar inte rollen.
 
 ## <a name="role-startup-order"></a>Start ordning för roll
 Nedan visas en lista över roll start proceduren i Azure:
@@ -93,7 +93,7 @@ I följande avsnitt beskrivs attributen för **aktivitets** elementet i filen [s
 **ExecutionContext** -anger behörighets nivån för start aktiviteten. Behörighets nivån kan vara begränsad eller utökad:
 
 * **bara**  
-  Start aktiviteten körs med samma privilegier som rollen. När attributet **ExecutionContext** för [runtime] -elementet också är **begränsat**används användar behörigheter.
+  Start aktiviteten körs med samma privilegier som rollen. När attributet **ExecutionContext** för [runtime] -elementet också är **begränsat** används användar behörigheter.
 * **med**  
   Start aktiviteten körs med administratörs behörighet. Detta gör att start aktiviteter kan installera program, göra ändringar i IIS-konfigurationen, utföra ändringar i registret och andra åtgärder på administratörs nivå, utan att öka behörighets nivån för själva rollen.  
 
@@ -108,7 +108,7 @@ I följande avsnitt beskrivs attributen för **aktivitets** elementet i filen [s
   Aktiviteter körs synkront, en i taget, i den ordning som anges i filen [service definition. csdef] . När en **enkel** start åtgärd slutar med en **errorlevel** på noll körs nästa **enkla** start aktivitet. Om det inte finns några **enkla** start uppgifter att köra, kommer själva rollen att startas.   
   
   > [!NOTE]
-  > Om den **enkla** aktiviteten slutar med en **errorlevel**som inte är noll blockeras instansen. Efterföljande **enkla** start aktiviteter, och själva rollen, kommer inte att starta.
+  > Om den **enkla** aktiviteten slutar med en **errorlevel** som inte är noll blockeras instansen. Efterföljande **enkla** start aktiviteter, och själva rollen, kommer inte att starta.
   > 
   > 
   
@@ -156,7 +156,7 @@ Lär dig hur du utför några [vanliga start uppgifter](cloud-services-startup-t
 [Service definition. csdef]: cloud-services-model-and-package.md#csdef
 [Uppgift]: /previous-versions/azure/reference/gg557552(v=azure.100)#Task
 [Start]: /previous-versions/azure/reference/gg557552(v=azure.100)#Startup
-[Körmiljö]: /previous-versions/azure/reference/gg557552(v=azure.100)#Runtime
+[Körning]: /previous-versions/azure/reference/gg557552(v=azure.100)#Runtime
 [Miljö]: /previous-versions/azure/reference/gg557552(v=azure.100)#Environment
 [Variabel]: /previous-versions/azure/reference/gg557552(v=azure.100)#Variable
 [RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue

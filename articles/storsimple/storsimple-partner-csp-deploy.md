@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: dc0cf718ee51e23fb749bdf57d5344977de009d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88182229"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021868"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Distribuera virtuell StorSimple-matris för Cloud Solution Provider-program
 
@@ -44,7 +44,7 @@ Om du lägger till en kund skapas en prenumeration automatiskt. Om du vill lägg
 
      ![Instrument panel i Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. Klicka på **kunder**i det vänstra fönstret. I den högra rutan klickar du på **Lägg till kunder**. Ange information om kunden. Klicka på **Nästa: prenumerationer** för att skapa en kund prenumeration.
+2. Klicka på **kunder** i det vänstra fönstret. I den högra rutan klickar du på **Lägg till kunder**. Ange information om kunden. Klicka på **Nästa: prenumerationer** för att skapa en kund prenumeration.
 
     ![Lägg till kund](./media/storsimple-partner-csp-deploy/image2.png)
 
@@ -64,7 +64,7 @@ Om du lägger till en kund skapas en prenumeration automatiskt. Om du vill lägg
 
     ![Sök efter kunden](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. I den vänstra rutan väljer du **tjänst hantering**. I den högra rutan under **Administrera tjänster**klickar du på **Microsoft Azure-hanteringsportal** för att logga in som Azure-administratör för din kund.
+7. I den vänstra rutan väljer du **tjänst hantering**. I den högra rutan under **Administrera tjänster** klickar du på **Microsoft Azure-hanteringsportal** för att logga in som Azure-administratör för din kund.
 
     ![Logga in på Azure Portal](./media/storsimple-partner-csp-deploy/image9.png)
 
@@ -81,7 +81,7 @@ I vissa fall kan du ha en befintlig kund och du måste lägga till en prenumerat
 
      ![Instrument panel i Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. Klicka på **kunder**i det vänstra fönstret. Hitta eller navigera till kunden som du vill lägga till en prenumeration på. Klicka på ![ ikonen Expandera kontroll ikon ](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) för att expandera raden för företags namnet för din kund. I detalj klickar du på **Lägg till prenumerationer**.
+2. Klicka på **kunder** i det vänstra fönstret. Hitta eller navigera till kunden som du vill lägga till en prenumeration på. Klicka på ![ ikonen Expandera kontroll ikon ](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) för att expandera raden för företags namnet för din kund. I detalj klickar du på **Lägg till prenumerationer**.
 
     ![Kunder](./media/storsimple-partner-csp-deploy/image10.png)
 
@@ -93,7 +93,7 @@ I vissa fall kan du ha en befintlig kund och du måste lägga till en prenumerat
 
     ![Sök efter kunden](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. I den vänstra rutan väljer du **tjänst hantering**. I den högra rutan under **Administrera tjänster**klickar du på **Microsoft Azure-hanteringsportal** för att logga in som Azure-administratör för din kund.
+7. I den vänstra rutan väljer du **tjänst hantering**. I den högra rutan under **Administrera tjänster** klickar du på **Microsoft Azure-hanteringsportal** för att logga in som Azure-administratör för din kund.
 
     ![Logga in på Azure Portal](./media/storsimple-partner-csp-deploy/image9.png)
 

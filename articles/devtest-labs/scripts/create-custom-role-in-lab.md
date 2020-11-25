@@ -5,11 +5,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
 ms.openlocfilehash: 3757d6c16a762a0f76f4718f117da93322af074c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252824"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021205"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Använd PowerShell för att skapa en anpassad roll i ett labb i Azure DevTest Labs
 
@@ -19,7 +19,7 @@ Det här exemplet på PowerShell-skriptet skapar en anpassad roll som ska använ
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **Ett labb**. Skriptet kräver att du har ett befintligt labb. 
 
 ## <a name="sample-script"></a>Exempelskript
@@ -30,7 +30,7 @@ Det här exemplet på PowerShell-skriptet skapar en anpassad roll som ska använ
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Hämtar åtgärder för en Azure-resurs-Provider som kan skyddas med Azure RBAC. |
 | [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Visar en lista över alla Azure-roller som är tillgängliga för tilldelning. |

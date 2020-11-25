@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565644"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020916"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Kom igång med autoskalning i Azure
 I den här artikeln beskrivs hur du konfigurerar inställningarna för autoskalning för resursen i Microsoft Azure-portalen.
@@ -32,9 +32,9 @@ Du kan använda filter fönstret överst för att begränsa listan till att väl
 
 För varje resurs hittar du aktuella instans antal och status för autoskalning. Status för autoskalning kan vara:
 
-- **Inte konfigurerad** : du har inte aktiverat autoskalning än för den här resursen.
-- **Aktive rad** : du har aktiverat autoskalning för den här resursen.
-- **Inaktive rad** : du har inaktiverat autoskalning för den här resursen.
+- **Inte konfigurerad**: du har inte aktiverat autoskalning än för den här resursen.
+- **Aktive rad**: du har aktiverat autoskalning för den här resursen.
+- **Inaktive rad**: du har inaktiverat autoskalning för den här resursen.
 
 ## <a name="create-your-first-autoscale-setting"></a>Skapa din första inställning för autoskalning
 
@@ -121,7 +121,7 @@ Om du vill aktivera funktionen med ARM-mallar anger du `healthcheckpath` egenska
 
 ### <a name="health-check-path"></a>Hälso kontroll Sök väg
 
-Sökvägen måste svara inom en minut med en status kod mellan 200 och 299 (inklusive). Om sökvägen inte svarar inom en minut eller returnerar en status kod utanför intervallet, betraktas instansen som "ej felfri". App Service följer inte 302 omdirigeringar på hälso kontroll Sök vägen. Hälso kontrollen integreras med App Service funktioner för autentisering och auktorisering, systemet når slut punkten även om dessa secuity-funktioner är aktiverade. Om du använder ett eget autentiseringspaket måste sökvägen till hälso kontrollen tillåta anonym åtkomst. Om webbplatsen bara har HTTP **s** – aktive rad skickas Healthcheck-begäran via http **s**.
+Sökvägen måste svara inom en minut med en status kod mellan 200 och 299 (inklusive). Om sökvägen inte svarar inom en minut eller returnerar en status kod utanför intervallet, betraktas instansen som "ej felfri". App Service följer inte 302 omdirigeringar på hälso kontroll Sök vägen. Hälso kontrollen integreras med App Service funktioner för autentisering och auktorisering, systemet når slut punkten även om dessa secuity-funktioner är aktiverade. Om du använder ett eget autentiseringspaket måste sökvägen till hälso kontrollen tillåta anonym åtkomst. Om webbplatsen bara har HTTP **s**– aktive rad skickas Healthcheck-begäran via http **s**.
 
 Hälso kontroll Sök vägen bör kontrol lera de kritiska komponenterna i ditt program. Om ditt program till exempel är beroende av en databas och ett meddelande system bör hälso kontrollens slut punkt ansluta till dessa komponenter. Om programmet inte kan ansluta till en kritisk komponent, ska sökvägen returnera en svars kod på 500 nivå för att indikera att appen inte är felfri.
 

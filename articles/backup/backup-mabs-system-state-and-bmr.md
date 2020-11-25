@@ -4,11 +4,11 @@ description: Använd Azure Backup Server för att säkerhetskopiera system tills
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86538708"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021630"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Säkerhetskopiera system tillstånd och Återställ till Bare Metal genom att använda Azure Backup Server
 
@@ -47,7 +47,7 @@ När en säkerhets kopiering av system tillstånd körs kommunicerar backup-serv
 
 Du kan anpassa den enhet som säkerhets kopierings servern använder för säkerhets kopiering av system tillstånd:
 
-1. Gå till *C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources*på den skyddade servern.
+1. Gå till *C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources* på den skyddade servern.
 1. Öppna *PSDataSourceConfig.xml* -filen för redigering.
 1. Ändra värdet \<FilesToProtect\> för enhetsbeteckningen.
 1. Spara och stäng filen.
@@ -111,7 +111,7 @@ Säkerhetskopiera system tillstånd och Bare Metal:
 
 1. Om du vill öppna sidan Skapa guiden Ny skyddsgrupp går du till säkerhets kopierings servern administratörskonsol och väljer **skydds**  >  **åtgärder**  >  **skapa skydds grupp**.
 
-1. Välj **servrar**på sidan **Välj typ av skydds grupp** och välj sedan **Nästa**.
+1. Välj **servrar** på sidan **Välj typ av skydds grupp** och välj sedan **Nästa**.
 
 1. På sidan **Välj grupp medlemmar** expanderar du datorn och väljer sedan antingen **BMR** eller **system tillstånd**.
 
@@ -122,11 +122,11 @@ Säkerhetskopiera system tillstånd och Bare Metal:
     Kortsiktig säkerhets kopiering är alltid en disk först, med alternativet att säkerhetskopiera från disken till Azure med hjälp av Azure Backup (kortsiktig eller långsiktig). Ett alternativ till långsiktig säkerhets kopiering till molnet är att konfigurera långsiktig säkerhets kopiering till en fristående band enhet eller ett band bibliotek som är anslutet till säkerhets kopierings servern.
 
 1. På sidan **välj Short-Term mål** väljer du hur du vill säkerhetskopiera till kortsiktig lagring på disk:
-    * För **kvarhållningsintervall**väljer du hur länge du vill behålla data på disken.
-    * I **Synkroniseringsfrekvens**väljer du hur ofta du vill köra en stegvis säkerhets kopiering på disk. Om du inte vill ange ett intervall för säkerhets kopiering kan du välja **precis före en återställnings punkt**. Säkerhets kopierings servern kör en fullständig snabb säkerhets kopiering precis innan varje återställnings punkt har schemalagts.
+    * För **kvarhållningsintervall** väljer du hur länge du vill behålla data på disken.
+    * I **Synkroniseringsfrekvens** väljer du hur ofta du vill köra en stegvis säkerhets kopiering på disk. Om du inte vill ange ett intervall för säkerhets kopiering kan du välja **precis före en återställnings punkt**. Säkerhets kopierings servern kör en fullständig snabb säkerhets kopiering precis innan varje återställnings punkt har schemalagts.
 
 1. Om du vill lagra data på band för långsiktig lagring väljer du hur länge du vill behålla band data (1 till 99 år) på sidan **ange Long-Term mål** .
-    1. För **säkerhets kopierings frekvens**väljer du hur ofta säkerhets kopiering ska köras till band. Frekvensen baseras på det kvarhållningsintervall som du har valt:
+    1. För **säkerhets kopierings frekvens** väljer du hur ofta säkerhets kopiering ska köras till band. Frekvensen baseras på det kvarhållningsintervall som du har valt:
         * Om kvarhållningsintervallet är 1 till 99 år kan du säkerhetskopiera varje dag, varje vecka, varannan vecka, månads vis, kvartals vis, halvårs vis eller varje år.
         * När kvarhållningsintervallet är 1 till 11 månader kan du säkerhetskopiera varje dag, varje vecka, varannan vecka eller varje månad.
         * Om kvarhållningsintervallet är 1 till 4 veckor kan du säkerhetskopiera varje dag eller varje vecka.
@@ -159,7 +159,7 @@ Säkerhetskopiera system tillstånd och Bare Metal:
 
     Du kan replikera över nätverket eller säkerhetskopiera offline (offline-dirigering). En offline-säkerhetskopiering använder Azure import-funktionen. Mer information finns i [arbets flöde för säkerhets kopiering offline i Azure Backup](offline-backup-azure-data-box.md).
 
-1. På sidan  **Sammanfattning** granskar du inställningarna. När du har valt **Skapa grupp**sker inledande replikering av data. När datareplikeringen har slutförts på sidan **status** är skydds gruppens status **OK**. Säkerhets kopieringarna sker sedan i enlighet med inställningarna för skydds gruppen.
+1. På sidan  **Sammanfattning** granskar du inställningarna. När du har valt **Skapa grupp** sker inledande replikering av data. När datareplikeringen har slutförts på sidan **status** är skydds gruppens status **OK**. Säkerhets kopieringarna sker sedan i enlighet med inställningarna för skydds gruppen.
 
 ## <a name="recover-system-state-or-bmr"></a>Återställa systemtillstånd eller BMR
 
@@ -203,7 +203,7 @@ Så här återställer du systemet:
 
 1. På sidan **alternativ för system återställning** väljer **du Återställ datorn med hjälp av en system avbildning som du skapade tidigare**.
 
-1. På sidan **Välj en säkerhets kopia av system avbildning** väljer du **Välj en system**avbildning  >  **Avancerad**  >  **sökning för en system avbildning i nätverket**. Välj **Ja**om en varning visas. Gå till resurs Sök vägen, ange autentiseringsuppgifterna och välj sedan återställnings punkten. Systemet söker efter de säkerhets kopior som är tillgängliga i återställnings punkten. Välj den återställnings punkt som du vill använda.
+1. På sidan **Välj en säkerhets kopia av system avbildning** väljer du **Välj en system** avbildning  >  **Avancerad**  >  **sökning för en system avbildning i nätverket**. Välj **Ja** om en varning visas. Gå till resurs Sök vägen, ange autentiseringsuppgifterna och välj sedan återställnings punkten. Systemet söker efter de säkerhets kopior som är tillgängliga i återställnings punkten. Välj den återställnings punkt som du vill använda.
 
 1. På sidan **Välj hur du vill återställa säkerhets kopian** väljer du **Formatera och partitionera om diskar**. Verifiera inställningarna på nästa sida.
 

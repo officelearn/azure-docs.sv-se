@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
 ms.openlocfilehash: 3ce104e9340c3e93d64b68dcab6f5bd6d2f62493
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748741"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020643"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Skapa Apache Hadoop kluster med Azure-REST API
 
@@ -242,13 +242,13 @@ Följ stegen som beskrivs i [Kom igång med Azure CLI](/cli/azure/get-started-wi
 
    Värdet som returneras från det här kommandot är __app-ID:__ t för det nya programmet. Spara det här värdet.
 
-3. Använd följande kommando för att skapa ett huvud namn för tjänsten med **app-ID** .
+3. Använd följande kommando för att skapa ett huvud namn för tjänsten med **app-ID**.
 
    ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     Värdet som returneras från det här kommandot är __objekt-ID: t__ . Spara det här värdet.
+     Värdet som returneras från det här kommandot är __objekt-ID: t__. Spara det här värdet.
 
 4. Tilldela **ägar** rollen till tjänstens huvud namn med hjälp av värdet **objekt-ID** . Använd det **prenumerations-ID** som du fick tidigare.
 
@@ -274,7 +274,7 @@ Ange `$TENANTID` , `$APPID` och `$PASSWORD` till värdena som hämtats eller anv
 
 Om den här begäran lyckas får du ett svar på 200-serien och svars texten innehåller ett JSON-dokument.
 
-JSON-dokumentet som returnerades av den här begäran innehåller ett element med namnet **access_token** . Värdet för **access_token** används för att autentisera begär anden till REST API.
+JSON-dokumentet som returnerades av den här begäran innehåller ett element med namnet **access_token**. Värdet för **access_token** används för att autentisera begär anden till REST API.
 
 ```json
 {

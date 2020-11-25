@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
 ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393076"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021698"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Använda belastningsutjämningstjänster i Azure
 
@@ -65,7 +65,7 @@ Följande diagram visar arkitekturen för det här scenariot:
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Steg 1: skapa en Traffic Manager-profil
 
-1. Klicka på **skapa en resurs**  >  **nätverk**  >  **Traffic Manager profil**  >  **skapa**i Azure Portal.
+1. Klicka på **skapa en resurs**  >  **nätverk**  >  **Traffic Manager profil**  >  **skapa** i Azure Portal.
 2. Ange följande grundläggande information:
 
    * **Namn**: ge din Traffic Manager-profil ett DNS-prefix.
@@ -80,7 +80,7 @@ Följande diagram visar arkitekturen för det här scenariot:
 
 ### <a name="step-2-create-the-application-gateways"></a>Steg 2: skapa programgatewayer
 
-1. Klicka på **skapa en resurs**  >  **nätverks**  >  **Application Gateway**i den vänstra rutan i Azure Portal.
+1. Klicka på **skapa en resurs**  >  **nätverks**  >  **Application Gateway** i den vänstra rutan i Azure Portal.
 2. Ange följande grundläggande information om Application Gateway:
 
    * **Namn**: namnet på Application Gateway.
@@ -101,12 +101,12 @@ När du väljer en backend-pool, tar en Programgateway som kon figurer ATS med e
 ![Application Gateway webb nivå diagram](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
 1. Från resurs gruppen går du till den instans av Application Gateway som du skapade i föregående avsnitt.
-2. Under **Inställningar**väljer du **Server dels pooler**och väljer sedan **Lägg** till för att lägga till de virtuella datorer som du vill koppla till webb nivåns backend-pooler.
+2. Under **Inställningar** väljer du **Server dels pooler** och väljer sedan **Lägg** till för att lägga till de virtuella datorer som du vill koppla till webb nivåns backend-pooler.
 3. Ange namnet på backend-poolen och alla IP-adresser för de datorer som finns i poolen. I det här scenariot ansluter vi två backend-pooler för virtuella datorer.
 
    ![Application Gateway "Lägg till backend-pool"](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
-4. Under **Inställningar** för Application Gateway väljer du **regler**och klickar sedan på knappen **sökväg baserad** för att lägga till en regel.
+4. Under **Inställningar** för Application Gateway väljer du **regler** och klickar sedan på knappen **sökväg baserad** för att lägga till en regel.
 
    ![Knappen "sökväg baserad" för Application Gateway regler](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
@@ -136,7 +136,7 @@ När du väljer en backend-pool, tar en Programgateway som kon figurer ATS med e
 I det här scenariot är Traffic Manager anslutna till programgatewayer (enligt beskrivningen i föregående steg) som finns i olika regioner. Nu när programgatewayerna har kon figurer ATS är nästa steg att ansluta dem till din Traffic Manager-profil.
 
 1. Öppna din Traffic Manager-profil. Det gör du genom att titta i din resurs grupp eller söka efter namnet på den Traffic Manager profilen från **alla resurser**.
-2. I det vänstra fönstret väljer du **slut punkter**och klickar sedan på **Lägg** till för att lägga till en slut punkt.
+2. I det vänstra fönstret väljer du **slut punkter** och klickar sedan på **Lägg** till för att lägga till en slut punkt.
 
    ![Traffic Manager slut punkts knappen Lägg till](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
@@ -160,16 +160,16 @@ Mer information om hur du konfigurerar en intern belastningsutjämnare finns [i 
 
 1. I Azure Portal i det vänstra fönstret klickar du på **skapa en resurs**  >  **nätverks**  >  **belastnings utjämning**.
 2. Välj ett namn för belastningsutjämnaren.
-3. Ange **typen** **internt**och välj lämpligt virtuellt nätverk och undernät som belastningsutjämnaren ska finnas i.
-4. Under **IP-adresstilldelning**väljer du antingen **dynamisk** eller **statisk**.
-5. Under **resurs grupp**väljer du resurs gruppen för belastningsutjämnaren.
-6. Under **plats**väljer du lämplig region för belastningsutjämnaren.
+3. Ange **typen** **internt** och välj lämpligt virtuellt nätverk och undernät som belastningsutjämnaren ska finnas i.
+4. Under **IP-adresstilldelning** väljer du antingen **dynamisk** eller **statisk**.
+5. Under **resurs grupp** väljer du resurs gruppen för belastningsutjämnaren.
+6. Under **plats** väljer du lämplig region för belastningsutjämnaren.
 7. Klicka på **skapa** för att generera belastningsutjämnaren.
 
 #### <a name="connect-a-back-end-database-tier-to-the-load-balancer"></a>Anslut databas nivån på Server sidan till belastningsutjämnaren
 
 1. I din resurs grupp letar du reda på belastningsutjämnaren som skapades i föregående steg.
-2. Under **Inställningar**klickar du på **backend-pooler**och klickar sedan på **Lägg** till för att lägga till en backend-pool.
+2. Under **Inställningar** klickar du på **backend-pooler** och klickar sedan på **Lägg** till för att lägga till en backend-pool.
 
    ![Load Balancer "Lägg till backend-pool"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
@@ -178,32 +178,32 @@ Mer information om hur du konfigurerar en intern belastningsutjämnare finns [i 
 
 #### <a name="configure-a-probe"></a>Konfigurera en avsökning
 
-1. I belastningsutjämnaren väljer du **avsökningar**under **Inställningar**och klickar sedan på **Lägg** till för att lägga till en avsökning.
+1. I belastningsutjämnaren väljer du **avsökningar** under **Inställningar** och klickar sedan på **Lägg** till för att lägga till en avsökning.
 
    ![Load Balancer "Lägg till avsökning"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. Ange namnet på avsökningen.
 3. Välj **protokollet** för avsökningen. För en databas kanske du vill ha en TCP-avsökning i stället för en HTTP-avsökning. Mer information om belastnings Utjämnings avsökningar finns i [förstå belastnings Utjämnings avsökningar](../load-balancer/load-balancer-custom-probe-overview.md).
 4. Ange vilken **port** i databasen som ska användas för att komma åt avsökningen.
-5. Under **intervall**anger du hur ofta programmet ska avsökas.
-6. Under fel **tröskel**anger du antalet kontinuerliga avsöknings fel som måste inträffa för att backend-datorn ska anses vara ohälsosam.
+5. Under **intervall** anger du hur ofta programmet ska avsökas.
+6. Under fel **tröskel** anger du antalet kontinuerliga avsöknings fel som måste inträffa för att backend-datorn ska anses vara ohälsosam.
 7. Klicka på **OK** för att skapa avsökningen.
 
 #### <a name="configure-the-load-balancing-rules"></a>Konfigurera regler för belastnings utjämning
 
-1. Under **Inställningar** för belastningsutjämnaren väljer du **belastnings Utjämnings regler**och klickar sedan på **Lägg till** för att skapa en regel.
+1. Under **Inställningar** för belastningsutjämnaren väljer du **belastnings Utjämnings regler** och klickar sedan på **Lägg till** för att skapa en regel.
 2. Ange **namnet** på belastnings Utjämnings regeln.
-3. Välj **klient delens IP-adress** för belastningsutjämnaren, **protokoll**och **port**.
-4. Under **backend-port**anger du den port som ska användas i backend-poolen.
+3. Välj **klient delens IP-adress** för belastningsutjämnaren, **protokoll** och **port**.
+4. Under **backend-port** anger du den port som ska användas i backend-poolen.
 5. Välj **backend-poolen** och **avsökningen** som skapades i föregående steg för att tillämpa regeln på.
 6. Välj hur du vill att sessionerna ska behållas under **sessionen beständighet**.
-7. Under **tids gränser för inaktivitet**anger du antalet minuter innan tids gränsen för inaktivitet.
-8. Under **flytande IP**väljer du antingen **inaktive rad** eller **aktive rad**.
+7. Under **tids gränser för inaktivitet** anger du antalet minuter innan tids gränsen för inaktivitet.
+8. Under **flytande IP** väljer du antingen **inaktive rad** eller **aktive rad**.
 9. Skapa regeln genom att klicka på **OK**.
 
 ### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Steg 5: Anslut virtuella datorer på webb nivå till belastningsutjämnaren
 
-Nu konfigurerar vi IP-adressen och belastnings Utjämnings klientens frontend-port i de program som körs på dina virtuella datorer på webb nivå för alla databas anslutningar. Den här konfigurationen är speciell för de program som körs på de här virtuella datorerna. Information om hur du konfigurerar målets IP-adress och port finns i program dokumentationen. Du hittar IP-adressen för klient delen genom att gå till klient delens IP-pool på **belastnings Utjämnings inställningarna**i Azure Portal.
+Nu konfigurerar vi IP-adressen och belastnings Utjämnings klientens frontend-port i de program som körs på dina virtuella datorer på webb nivå för alla databas anslutningar. Den här konfigurationen är speciell för de program som körs på de här virtuella datorerna. Information om hur du konfigurerar målets IP-adress och port finns i program dokumentationen. Du hittar IP-adressen för klient delen genom att gå till klient delens IP-pool på **belastnings Utjämnings inställningarna** i Azure Portal.
 
 ![Navigerings fönstret för "klient delens IP-pool" Load Balancer](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 

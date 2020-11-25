@@ -6,11 +6,11 @@ ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
 ms.openlocfilehash: 12407d6344c69c747230e9db6fa4d53b4520dc82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331819"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020287"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Självstudie: Konfigurera fysiskt baserat åter givnings material i 3ds Max
 
@@ -50,7 +50,7 @@ För att starta ska vi skapa ett antal Box-objekt som representerar en annan typ
 
 Följande skärm bild visar stegen för att ställa in system enheter på mätare i max. 
 
-1. På huvud menyn går du till **Anpassa**enheter konfigurera installations programmet för  >  **Units Setup**  >  **system enheter**. I **system enhets skala**väljer du **mätare**: ![ skärm bild som visar hur du ställer in system enheter.](media/3dsmax/system-units.jpg)
+1. På huvud menyn går du till **Anpassa** enheter konfigurera installations programmet för  >  **Units Setup**  >  **system enheter**. I **system enhets skala** väljer du **mätare**: ![ skärm bild som visar hur du ställer in system enheter.](media/3dsmax/system-units.jpg)
 
 1. Nu kan vi börja skapa modeller. I exempel scenen skapar vi flera Box-objekt, som var och en representerar en annan material typ. Till exempel metall, gummi och plast. 
 
@@ -69,13 +69,13 @@ Nu när vi har några objekt i vår scen, i det här fallet ett antal kuber, kan
 
 1. I material redigeraren ser du ett antal sfärer. Dessa sfärer är materialet. Vi tilldelar ett sådant material till varje objekt (varje ruta) i scenen. Om du vill tilldela materialet väljer du först ett av objekten i huvud visnings området. Välj sedan den första sfären i material redigeraren. När det har tilldelats ett objekt markeras det valda materialet, som du ser i nästa bild.
 
-1. Välj **Tilldela material att välja**enligt vad som visas. Materialet tilldelas nu det valda objektet.
+1. Välj **Tilldela material att välja** enligt vad som visas. Materialet tilldelas nu det valda objektet.
 
    ![Skärm bild som visar hur du tilldelar material.](media/3dsmax/assign-material.jpg)
 
     I material redigeraren kan du välja bland ett brett urval av material typer, beroende på dina behov. Normalt är material typen **standard** inställd som standard. Det här materialet är ett grundläggande material som inte passar för PBR-installationen. Vi måste ändra material typen till ett PBR-material. Fysiskt material är det föredragna 3ds Max-materialet för Azure-fjärråtergivnings projekt.
 
-1. Välj fliken **standard** i material redigeraren. I **webbläsaren material/karta**väljer du **fysiskt material**. Den här åtgärden konverterar det tilldelade **standard** materialet till ett fysiskt PBR-material.
+1. Välj fliken **standard** i material redigeraren. I **webbläsaren material/karta** väljer du **fysiskt material**. Den här åtgärden konverterar det tilldelade **standard** materialet till ett fysiskt PBR-material.
 
    ![Skärm bild som visar hur du ändrar materialet.](media/3dsmax/physical-material.jpg)
 
@@ -128,7 +128,7 @@ Vi kommer nu att tilldela den normala kartan till PBR-materialet. Den här åtg�
 
 1. I avsnittet **särskilda kartor** i egenskaperna för fysiskt material (i material redigeraren) väljer du **ingen kart** plats bredvid **ojämnhets karta**. 
 
-1. Leta upp och välj **Normal ojämnhet**i **webbläsaren material/karta**. Den här åtgärden lägger till en **Normal ojämnhets** modifierare för materialet.
+1. Leta upp och välj **Normal ojämnhet** i **webbläsaren material/karta**. Den här åtgärden lägger till en **Normal ojämnhets** modifierare för materialet.
 
 1. I den **normala ojämnhets** modifieraren väljer du **ingen karta** bredvid **Normal**. Leta upp och Läs in din normala karta.
 
@@ -161,19 +161,19 @@ Den här åtgärden skapar en instans av objektet som du kan flytta, rotera elle
 
 En slutlig sak att tänka på innan vi går vidare med export processen är hur du kanske vill paketera din scen/till gång för delning. Vi rekommenderar att om du skickar till gången till klienter eller grupp medlemmar vill du att de ska kunna öppna och Visa till gången eftersom den bör ses med en minimal mängd du behöver. Det är därför viktigt att hålla din till gångs textur Sök vägar i förhållande till scen filen. Om textur Sök vägarna för din till gångs plats till en lokal enhet eller absolut sökväg/plats, läses de inte in i scenen om de öppnas på en annan dator, även om. Max-filen finns i samma mapp som strukturerna. Att göra textur Sök vägarna relativa i 3ds Max löser problemet och är ganska enkelt.
 
-1. I huvud verktygsfältet går du till **fil**  >  **referens**för  >  **till gångs spårning växla**. 
+1. I huvud verktygsfältet går du till **fil**  >  **referens** för  >  **till gångs spårning växla**. 
 
 1. I fönstret till gångs spårning ser du alla eller de flesta texturer som du har tillämpat på ditt PBR-material som anges i kolumnen **Maps/shaders** .
 
 1. Bredvid dem, i kolumnen **fullständig sökväg** , ser du sökvägen till texturens placering, förmodligen sökvägen till platsen på den lokala datorn.
 
-1. Slutligen visas en kolumn med namnet **status**. Den här kolumnen anger om en specifik textur har hittats och använts på din scen. Den flaggar texturen med någon av följande villkor: **OK**, **hittades**eller **filen saknas**. De två första anger att filen har hittats och lästs in. Det sista uppenbart innebär att spåraren inte kunde hitta filen.
+1. Slutligen visas en kolumn med namnet **status**. Den här kolumnen anger om en specifik textur har hittats och använts på din scen. Den flaggar texturen med någon av följande villkor: **OK**, **hittades** eller **filen saknas**. De två första anger att filen har hittats och lästs in. Det sista uppenbart innebär att spåraren inte kunde hitta filen.
  
    ![Skärm bild som visar fönstret till gångs spårning.](media/3dsmax/texture-paths.jpg)
 
 Du kanske märker att inte alla dina texturer visas i fönstret till gångs spårning när du öppnar det första gången. Detta är inget som är bekymrat över. Att köra genom Sök vägs processen en gång eller två gånger, hittar du vanligt vis alla en scens texturer. Processen för att söka efter Sök vägar är följande: 
 
-1. I fönstret till gångs spårning håller du ned **SKIFT** -tangenten och väljer den översta strukturen i listan **Maps/shaders** och fortsätter att hålla **SKIFT**och väljer den sista texturen i listan. Den här åtgärden markerar alla texturer i listan. De markerade texturerna är markerade i blått. (Se föregående skärm bild.)
+1. I fönstret till gångs spårning håller du ned **SKIFT** -tangenten och väljer den översta strukturen i listan **Maps/shaders** och fortsätter att hålla **SKIFT** och väljer den sista texturen i listan. Den här åtgärden markerar alla texturer i listan. De markerade texturerna är markerade i blått. (Se föregående skärm bild.)
 
 1. Högerklicka på markeringen och välj **Ange sökväg**.
 
@@ -212,7 +212,7 @@ Nu när vi har gjort textur Sök vägarna relativa kan vi gå vidare till FBX-ex
    >[!IMPORTANT]
    >Om den resulterande FBX-filen är större än 2,4 GB ska den lägsta version som anges i export inställningarna för FBX vara 2016 eller senare. (Se föregående skärm bild.) Nyare versioner har stöd för 64 bitar, så de har stöd för större filer.
 
-1. Om du vill exportera scenen med texturer som ingår väljer du **bädda in media**i fönstret * FBX export. 
+1. Om du vill exportera scenen med texturer som ingår väljer du **bädda in media** i fönstret * FBX export. 
 
 1. Välj resten av inställningarna och välj sedan **OK**:
 
@@ -236,4 +236,4 @@ I allmänhet ser den här typen av material mer realistisk eftersom den baseras 
 Nu vet du hur du konfigurerar material med avancerad belysning för objekt i en scen. Du vet också hur du exporterar objekt till FBX-format, som stöds av Azure Remote rendering. Nästa steg är att konvertera FBX-filen och visualisera den i Azure Remote rendering.
 
 >[!div class="nextstepaction"]
->[Snabb start: konvertera en modell för åter givning](../../quickstarts\convert-model.md)
+>[Snabbstart: Konvertera en modell för rendering](../../quickstarts\convert-model.md)

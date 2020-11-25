@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a8321ba8bac0ecaf577bce6c3c05d10508128e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534989"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96020169"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-till-tal (REST API)
 
@@ -34,7 +34,7 @@ Innan du använder det här API: et, förstå:
 * Text till tal-REST API kräver ett Authorization-huvud. Det innebär att du måste slutföra ett token Exchange för att få åtkomst till tjänsten. Mer information finns i [Autentisering](#authentication).
 
 > [!TIP]
-> Se Azures myndighets [dokumentation](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) för FairFax-slutpunkter (myndigheter).
+> Se Azures myndighets [dokumentation](../../azure-government/compare-azure-government-global-azure.md) för FairFax-slutpunkter (myndigheter).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -70,9 +70,9 @@ Med `voices/list` slut punkten kan du få en fullständig lista över röster f�
 
 I den här tabellen listas obligatoriska och valfria rubriker för text till tal-begäranden.
 
-| Sidhuvud | Beskrivning | Obligatorisk/valfri |
+| Huvud | Description | Obligatorisk/valfri |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer` . Mer information finns i [Autentisering](#authentication). | Krävs |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer` . Mer information finns i [Autentisering](#authentication). | Obligatorisk |
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -170,12 +170,12 @@ Dessa regioner stöds för text till tal med hjälp av REST API. Se till att du 
 
 I den här tabellen listas obligatoriska och valfria rubriker för text till tal-begäranden.
 
-| Sidhuvud | Beskrivning | Obligatorisk/valfri |
+| Huvud | Description | Obligatorisk/valfri |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer` . Mer information finns i [Autentisering](#authentication). | Krävs |
-| `Content-Type` | Anger innehålls typen för den angivna texten. Accepterat värde: `application/ssml+xml` . | Krävs |
-| `X-Microsoft-OutputFormat` | Anger formatet för ljud uppspelning. En fullständig lista över godkända värden finns i [ljud utmatningar](#audio-outputs). | Krävs |
-| `User-Agent` | Programnamnet. Det tillhandahållna värdet måste vara mindre än 255 tecken. | Krävs |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer` . Mer information finns i [Autentisering](#authentication). | Obligatorisk |
+| `Content-Type` | Anger innehålls typen för den angivna texten. Accepterat värde: `application/ssml+xml` . | Obligatorisk |
+| `X-Microsoft-OutputFormat` | Anger formatet för ljud uppspelning. En fullständig lista över godkända värden finns i [ljud utmatningar](#audio-outputs). | Obligatorisk |
+| `User-Agent` | Programnamnet. Det tillhandahållna värdet måste vara mindre än 255 tecken. | Obligatorisk |
 
 ### <a name="audio-outputs"></a>Ljud utmatningar
 
@@ -222,9 +222,9 @@ Authorization: Bearer [Base64 access_token]
 
 Se våra snabb starter för språkspecifika exempel:
 
-* [.NET Core, C #](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
-* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Node.js](quickstart-nodejs-text-to-speech.md)
+* [.NET Core, C #](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [Python](./get-started-text-to-speech.md?pivots=programming-language-python)
+* [Node.js](./get-started-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>HTTP-statuskoder
 
@@ -245,5 +245,5 @@ Om HTTP-statusen är `200 OK` , innehåller bröd texten i svaret en ljudfil i d
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/cognitive-services/)
-- [Asynkron syntes för lång Forms ljud](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Asynkron syntes för lång Forms ljud](./long-audio-api.md)
 - [Komma igång med Custom Voice](how-to-custom-voice.md)

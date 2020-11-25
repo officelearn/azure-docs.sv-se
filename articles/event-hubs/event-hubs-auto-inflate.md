@@ -4,11 +4,11 @@ description: Aktivera automatisk ökning på ett namn område för att automatis
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1be564472011622b71b3066495748dfdbe6cc791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537249"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020814"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Skala automatiskt upp Azure Event Hubs data flödes enheter
 Azure Event Hubs är en mycket skalbar data strömnings plattform. Därför ökar Event Hubs användningen ofta när tjänsten har startats. Sådan användning kräver att fördefinierade [data flödes enheter](event-hubs-scalability.md#throughput-units) ökar för att skala Event Hubs och hantera större överföringshastigheter. Funktionen för **Automatisk** ökning i Event Hubs skalas automatiskt upp genom att öka antalet data flödes enheter för att möta användnings behoven. Ökande data flödes enheter förhindrar begränsnings scenarier där:

@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
 ms.openlocfilehash: b5f2a86fb7c776436ea707ef293a66c033014c33
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966334"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021086"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Använd Azure Automation runbooks för att hantera StorSimple-enheter
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs hur Azure Automation runbooks används för att han
 
 Det här avsnittet tar ett exempel på Windows PowerShell-skript för StorSimple och beskriver de olika stegen som krävs för att importera skriptet till en Runbook och sedan publicera och köra runbooken.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att du har:
 

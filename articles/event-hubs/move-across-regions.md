@@ -4,11 +4,11 @@ description: Den här artikeln visar hur du flyttar ett Azure Event Hubs-namnomr
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375201"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019930"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Flytta ett Azure Event Hubs-namnområde till en annan region
 Den här artikeln visar hur du exporterar en Azure Resource Manager mall för ett befintligt Event Hubs-namnområde och sedan använder mallen för att skapa ett namn område med samma konfigurations inställningar i en annan region. Den här processen flyttar dock inte händelser som inte bearbetas än. Du måste bearbeta händelserna från det ursprungliga namn området innan du tar bort det.
@@ -26,7 +26,7 @@ Kom igång genom att exportera en Resource Manager-mall. Den här mallen innehå
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **alla resurser** och välj sedan din Event Hubs namn område.
-3. Välj **Settings**  >  **Exportera mall**för > inställningar.
+3. Välj **Settings**  >  **Exportera mall** för > inställningar.
 4. Välj **Hämta** på sidan **Exportera mall** .
 
     ![Ladda ned Resource Manager-mall](./media/move-across-regions/download-template.png)
@@ -41,9 +41,9 @@ Distribuera mallen för att skapa ett Event Hubs-namnområde i mål regionen.
 
 
 1. I Azure Portal väljer du **skapa en resurs**.
-2. I **Sök på Marketplace**skriver du **mall distribution**och väljer **malldistribution (distribuera med anpassade mallar)**.
+2. I **Sök på Marketplace** skriver du **mall distribution** och väljer **malldistribution (distribuera med anpassade mallar)**.
 5. Välj **Bygg en egen mall i redigeraren**.
-6. Välj **Läs in fil**och följ sedan anvisningarna för att läsa in **template.jspå** filen som du laddade ned i det sista avsnittet.
+6. Välj **Läs in fil** och följ sedan anvisningarna för att läsa in **template.jspå** filen som du laddade ned i det sista avsnittet.
 1. Uppdatera värdet för `location` egenskapen så att den pekar på den nya regionen. För att hämta plats koder, se [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/). Koden för en region är region namnet utan mellanslag, till exempel `West US` är lika med `westus` .
 1. Spara mallen genom att välja **Spara** . 
 1. Följ dessa steg på sidan **Anpassad distribution** : 
@@ -68,17 +68,17 @@ Distribuera mallen för att skapa ett Event Hubs-namnområde i mål regionen.
     1. På sidan **Granska + skapa** granskar du inställningarna och väljer sedan **skapa**.   
 
 ## <a name="discard-or-clean-up"></a>Ta bort eller rensa
-Efter distributionen kan du, om du vill börja om, ta bort **mål Event Hubs namn området**och upprepa stegen som beskrivs i avsnittet [förbereda](#prepare) och [Flytta](#move) i den här artikeln.
+Efter distributionen kan du, om du vill börja om, ta bort **mål Event Hubs namn området** och upprepa stegen som beskrivs i avsnittet [förbereda](#prepare) och [Flytta](#move) i den här artikeln.
 
 Om du vill genomföra ändringarna och slutföra flyttningen av en Event Hubs-namnrymd tar du bort **Event Hubs namn området** i den ursprungliga regionen. Se till att du bearbetade alla händelser i namn området innan du tar bort namn området. 
 
 Så här tar du bort ett Event Hubs-namnområde (källa eller mål) med hjälp av Azure Portal:
 
-1. I fönstret Sök högst upp i Azure Portal skriver du **Event Hubs**och väljer **Event Hubs** från Sök resultat. Du ser Event Hubs namnrum i en lista.
+1. I fönstret Sök högst upp i Azure Portal skriver du **Event Hubs** och väljer **Event Hubs** från Sök resultat. Du ser Event Hubs namnrum i en lista.
 2. Välj det mål namn område som ska tas bort och välj **ta bort** från verktygsfältet. 
 
     ![Ta bort namn område – knapp](./media/move-across-regions/delete-namespace-button.png)
-3. På sidan **ta bort namn område** bekräftar du borttagningen genom att skriva namn **områdets namn**och väljer sedan **ta bort**. 
+3. På sidan **ta bort namn område** bekräftar du borttagningen genom att skriva namn **områdets namn** och väljer sedan **ta bort**. 
 
 ## <a name="next-steps"></a>Nästa steg
 

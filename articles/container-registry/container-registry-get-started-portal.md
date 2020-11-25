@@ -4,12 +4,12 @@ description: Lär dig snabbt att skapa ett privat Azure Container Registry med h
 ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: f4f16506a36acfe8845e85caf2d337f992f0f332
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 00ed6b4569d22739051198c5b0c60987f783a87f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746677"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020049"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Snabb start: skapa ett Azure Container Registry med hjälp av Azure Portal
 
@@ -25,27 +25,27 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
-Välj **skapa en resurs**  >  **behållare**  >  **container Registry** .
+Välj **skapa en resurs**  >  **behållare**  >  **container Registry**.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="Navigera till behållar registret i portalen":::
 
-På fliken **grundläggande** anger du värden för **resurs grupp** och **register namn** . Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. För den här snabbstarten skapar du en ny resursgrupp på platsen `West US` med namnet `myResourceGroup`, och för **SKU** väljer du ”Basic”.
+På fliken **grundläggande** anger du värden för **resurs grupp** och **register namn**. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. För den här snabbstarten skapar du en ny resursgrupp på platsen `West US` med namnet `myResourceGroup`, och för **SKU** väljer du ”Basic”.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Navigera till behållar registret i portalen":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Skapa container Registry i portalen":::
 
-Acceptera standardvärden för återstående inställningar. Välj sedan **Granska + skapa** . När du har granskat inställningarna väljer du **skapa** .
+Acceptera standardvärden för återstående inställningar. Välj sedan **Granska + skapa**. När du har granskat inställningarna väljer du **skapa**.
 
-I den här snabbstarten skapar du ett *Basic* -register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänst nivåer (SKU: er) finns i [tjänste nivåer för container Registry][container-registry-skus].
+I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänst nivåer (SKU: er) finns i [tjänste nivåer för container Registry][container-registry-skus].
 
 När meddelandet **Distribueringen lyckades** visas väljer du containerregistret i portalen. 
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Navigera till behållar registret i portalen":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Översikt över container registret i portalen":::
 
-Anteckna register namnet och värdet för **inloggnings servern** . Du använder dessa värden i följande steg när du push-överför och hämtar bilder med Docker.
+Anteckna register namnet och värdet för **inloggnings servern**. Du använder dessa värden i följande steg när du push-överför och hämtar bilder med Docker.
 
 ## <a name="log-in-to-registry"></a>Logga in till registret
 
-Innan du skickar och hämtar behållar avbildningar måste du logga in på register instansen. [Logga in på Azure CLI][get-started-with-azure-cli] på den lokala datorn och kör sedan kommandot [AZ ACR login][az-acr-login] . (Ange bara register namnet när du loggar in med Azure CLI. Ta inte med domänsuffix "azurecr.io".)
+Innan du skickar och hämtar behållar avbildningar måste du logga in på register instansen. [Logga in på Azure CLI][get-started-with-azure-cli] på den lokala datorn och kör sedan kommandot [AZ ACR login][az-acr-login] . Ange bara register namnet när du loggar in med Azure CLI. Använd inte namnet på inloggnings servern, som innehåller ett domänsuffix som `azurecr.io` .
 
 ```azurecli
 az acr login --name <registry-name>
@@ -63,11 +63,11 @@ Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 ## <a name="list-container-images"></a>Visa lista över containeravbildningar
 
-Om du vill visa en lista över avbildningarna i registret går du till registret i portalen och väljer **databaser** . Välj sedan den  **Hello-världs** databas som du skapade med `docker push` .
+Om du vill visa en lista över avbildningarna i registret går du till registret i portalen och väljer **databaser**. Välj sedan den  **Hello-världs** databas som du skapade med `docker push` .
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Navigera till behållar registret i portalen":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Lista behållar avbildningar i portalen":::
 
-Genom att välja **Hello-World-** lagringsplatsen visas den `v1` -märkta bilden under **taggar** .
+Genom att välja **Hello-World-** lagringsplatsen visas den `v1` -märkta bilden under **taggar**.
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
@@ -75,7 +75,7 @@ Genom att välja **Hello-World-** lagringsplatsen visas den `v1` -märkta bilden
 
 Om du vill rensa dina resurser går du till resursgruppen **myResourceGroup** i portalen. När resurs gruppen har lästs in klickar du på **ta bort resurs** grupp för att ta bort resurs gruppen, behållar registret och behållar avbildningarna som lagras där.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Navigera till behållar registret i portalen":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Ta bort resurs grupp i portalen":::
 
 
 ## <a name="next-steps"></a>Nästa steg

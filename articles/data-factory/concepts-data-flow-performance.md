@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 08/12/2020
-ms.openlocfilehash: 055cdf7b6cec12eb8c3e7fde891d155b831a6523
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/24/2020
+ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637878"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022368"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -87,6 +87,12 @@ Om du har en god förståelse för data kardinalitet kan nyckel partitionering v
 > [!TIP]
 > Genom att ange partitionerings schema manuellt kan du blanda data och förskjuta fördelarna med Spark optimering. Vi rekommenderar att du inte anger partitionering manuellt om du inte behöver det.
 
+## <a name="logging-level"></a>Loggnings nivå
+
+Om du inte behöver varje pipeline-körning av dina data flödes aktiviteter för att fullständigt logga alla utförliga telemetri loggar kan du ange loggnings nivån till "Basic" eller "none". När du kör dina data flöden i "VERBOSE"-läge (standard) begär du att ADF ska logga in fullständigt på varje enskild partitions nivå under din data omvandling. Detta kan vara en dyr åtgärd, så att bara aktivera utförligt läge när fel sökning kan förbättra ditt totala data flöde och prestanda för pipelinen. "Grundläggande"-läget loggar bara omvandlings varaktigheter medan "ingen" bara innehåller en sammanfattning av varaktigheter.
+
+![Loggnings nivå](media/data-flow/logging.png "Ange loggnings nivå")
+
 ## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Optimera Azure Integration Runtime
 
 Data flöden körs i Spark-kluster som är i körnings läge. Konfigurationen för det använda klustret definieras i aktivitetens integration Runtime (IR). Det finns tre prestanda saker att göra när du definierar integration Runtime: kluster typ, kluster storlek och tid till Live.
@@ -155,7 +161,7 @@ Azure SQL Database har ett unikt partitionerings alternativ som kallas källa pa
 
 #### <a name="isolation-level"></a>Isolerings nivå
 
-Isolerings nivån för läsningen på ett Azure SQL-källdokument påverkar prestandan. Om du väljer Läs ej allokerat får du snabbast prestanda och förhindrar alla databas lås. Om du vill veta mer om isolerings nivåer för SQL kan du se [förstå isolerings nivåer](/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
+Isolerings nivån för läsningen på ett Azure SQL-källdokument påverkar prestandan. Om du väljer Läs ej allokerat får du snabbast prestanda och förhindrar alla databas lås. Om du vill veta mer om isolerings nivåer för SQL kan du se [förstå isolerings nivåer](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
 
 #### <a name="read-using-query"></a>Läsa med fråga
 
@@ -163,7 +169,7 @@ Du kan läsa från Azure SQL Database med hjälp av en tabell eller en SQL-fråg
 
 ### <a name="azure-synapse-analytics-sources"></a>Azure Synapse Analytics-källor
 
-När du använder Azure Synapse Analytics finns det en inställning som kallas **Aktivera mellanlagring** i käll alternativen. Detta gör att ADF kan läsa från Synapse med [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), vilket avsevärt förbättrar Läs prestanda. Om du aktiverar PolyBase måste du ange en Azure-Blob Storage eller Azure Data Lake Storage Gen2 mellanlagrings plats i data flödets aktivitets inställningar.
+När du använder Azure Synapse Analytics finns det en inställning som kallas **Aktivera mellanlagring** i käll alternativen. Detta gör att ADF kan läsa från Synapse med ```Polybase``` , vilket avsevärt förbättrar Läs prestanda. ```Polybase```Om du aktiverar måste du ange en Azure-Blob Storage eller Azure Data Lake Storage Gen2 mellanlagrings plats i data flödets aktivitets inställningar.
 
 ![Aktivera mellanlagring](media/data-flow/enable-staging.png "Aktivera mellanlagring")
 
@@ -183,6 +189,10 @@ När data flödar till handfat sker eventuell Anpassad partitionering omedelbart
 
 Med Azure SQL Database bör standard partitionering fungera i de flesta fall. Det finns en risk att din mottagare kan ha för många partitioner för att din SQL-databas ska kunna hantera. Om du kör i det här fallet minskar du antalet partitioner som anges av din SQL Database-mottagare.
 
+#### <a name="impact-of-error-row-handling-to-performance"></a>Effekt av fel rad hantering till prestanda
+
+När du aktiverar fel rad hantering ("Fortsätt vid fel") i Sink-omvandlingen, vidtar ADF ett ytterligare steg innan du skriver de kompatibla raderna till mål tabellen. Det här ytterligare steget kommer att ha en liten prestanda försämring som kan vara i intervallet på 5% som lagts till för det här steget med en ytterligare liten prestanda träff läggs också till om du anger alternativet till att även använda de inkompatibla raderna i en loggfil.
+
 #### <a name="disabling-indexes-using-a-sql-script"></a>Inaktivera index med ett SQL-skript
 
 Inaktive ring av index innan en belastning i en SQL-databas kan förbättra prestanda vid skrivning till tabellen. Kör kommandot nedan innan du skriver till din SQL-mottagare.
@@ -198,7 +208,7 @@ De kan båda göras inbyggda med pre-och post-SQL-skript i en Azure SQL DB-eller
 ![Inaktivera index](media/data-flow/disable-indexes-sql.png "Inaktivera index")
 
 > [!WARNING]
-> Vid inaktive ring av index tar data flödet effektiv kontroll över en databas och frågor är sannolikt inte att lyckas för tillfället. Därför utlöses många ETL-jobb mitt i natten för att undvika den här konflikten. Mer information finns i [begränsningarna vid inaktive ring av index](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
+> Vid inaktive ring av index tar data flödet effektiv kontroll över en databas och frågor är sannolikt inte att lyckas för tillfället. Därför utlöses många ETL-jobb mitt i natten för att undvika den här konflikten. Mer information finns i [begränsningarna vid inaktive ring av index](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints)
 
 #### <a name="scaling-up-your-database"></a>Skala upp databasen
 
@@ -226,7 +236,7 @@ Om du väljer **standard** alternativet skrivs det snabbast. Varje partition kom
 
 Om du anger ett namn **mönster** byts varje partition till ett mer användarvänligt namn. Den här åtgärden sker efter skrivning och är något långsammare än om du väljer standardvärdet. Per partition kan du namnge varje enskild partition manuellt.
 
-Om en kolumn motsvarar hur du vill att data ska matas ut, kan du välja **som data i kolumnen** . Detta blandar data och kan påverka prestanda om kolumnerna inte är jämnt fördelade.
+Om en kolumn motsvarar hur du vill att data ska matas ut, kan du välja **som data i kolumnen**. Detta blandar data och kan påverka prestanda om kolumnerna inte är jämnt fördelade.
 
 **Utdata till en enskild fil** kombinerar alla data till en enda partition. Detta leder till långa Skriv tider, särskilt för stora data uppsättningar. Azure Data Factorys teamet rekommenderar starkt att du **inte** väljer det här alternativet om det inte finns ett explicit affärs skäl.
 
@@ -240,14 +250,13 @@ När du skriver till CosmosDB kan du förbättra prestanda genom att ändra geno
 
 **Skriv data flödes budget:** Använd ett värde som är mindre än det totala antalet ru: er per minut. Om du har ett data flöde med ett stort antal Spark-partitioner, kan du ställa in en budget genom strömning för att öka balansen mellan dessa partitioner.
 
-
 ## <a name="optimizing-transformations"></a>Optimera omvandlingar
 
 ### <a name="optimizing-joins-exists-and-lookups"></a>Optimera kopplingar, finns och uppslag
 
 #### <a name="broadcasting"></a>Broadcasting
 
-I kopplingar, sökningar och exists-transformeringar, om en eller båda data strömmarna är tillräckligt små för att passa in i arbetsnodens minne, kan du optimera prestanda genom att aktivera **sändning** . Sändning är när du skickar små data ramar till alla noder i klustret. Detta gör att Spark-motorn kan utföra en koppling utan att reshuffling data i den stora data strömmen. Som standard bestämmer Spark-motorn om en sida av en anslutning ska sändas automatiskt eller inte. Om du är bekant med inkommande data och vet att en data ström kommer att vara betydligt mindre än den andra kan du välja **fast** sändning. Fast sändning tvingar Spark att sända den valda strömmen. 
+I kopplingar, sökningar och exists-transformeringar, om en eller båda data strömmarna är tillräckligt små för att passa in i arbetsnodens minne, kan du optimera prestanda genom att aktivera **sändning**. Sändning är när du skickar små data ramar till alla noder i klustret. Detta gör att Spark-motorn kan utföra en koppling utan att reshuffling data i den stora data strömmen. Som standard bestämmer Spark-motorn om en sida av en anslutning ska sändas automatiskt eller inte. Om du är bekant med inkommande data och vet att en data ström kommer att vara betydligt mindre än den andra kan du välja **fast** sändning. Fast sändning tvingar Spark att sända den valda strömmen. 
 
 Om storleken på de distribuerade data är för stor för Spark-noden kan du få ett slut på minnes fel. Använd **minnesoptimerade** kluster för att undvika minnes fel. Om du upplever sändnings tids gränser vid körning av data flöden kan du inaktivera sändnings optimering. Detta kommer dock att leda till långsammare data flöden.
 

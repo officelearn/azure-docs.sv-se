@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
 ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545641"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022259"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Felsöka Apache Spark med Azure HDInsight
 
@@ -25,31 +25,31 @@ Konfigurations värden för Spark kan justeras för att undvika ett Apache Spark
 
 1. Logga in på Ambari på `https://CLUSTERNAME.azurehdidnsight.net` med dina autentiseringsuppgifter för klustret. Den första skärmen visar en översikts instrument panel. Det finns små kosmetiska skillnader mellan HDInsight 3,6 och 4,0.
 
-1. Navigera till **Spark2** -  >  **konfigurationer** .
+1. Navigera till **Spark2**-  >  **konfigurationer**.
 
     ![Välj fliken konfigurationer](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. I listan med konfigurationer väljer och expanderar du **Custom-spark2-defaults** .
+1. I listan med konfigurationer väljer och expanderar du **Custom-spark2-defaults**.
 
-1. Leta efter den värde inställning som du behöver justera, till exempel **spark.executor. Memory** . I det här fallet är värdet för **9728m** för högt.
+1. Leta efter den värde inställning som du behöver justera, till exempel **spark.executor. Memory**. I det här fallet är värdet för **9728m** för högt.
 
     ![Välj Custom-Spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. Ange värdet till den rekommenderade inställningen. Värdet **2048** rekommenderas för den här inställningen.
 
-1. Spara värdet och spara konfigurationen. Välj **Spara** .
+1. Spara värdet och spara konfigurationen. Välj **Spara**.
 
     ![Ändra värdet till 2048](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
-    Skriv en anteckning om konfigurations ändringarna och välj sedan **Spara** .
+    Skriv en anteckning om konfigurations ändringarna och välj sedan **Spara**.
 
     ![Ange en anteckning om de ändringar du har gjort](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
-    Du får ett meddelande om eventuella konfigurationer behöver åtgärdas. Anteckna objekten och välj **Fortsätt ändå** .
+    Du får ett meddelande om eventuella konfigurationer behöver åtgärdas. Anteckna objekten och välj **Fortsätt ändå**.
 
     ![Välj Fortsätt ändå](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
-1. När en konfiguration sparas uppmanas du att starta om tjänsten. Välj **starta om** .
+1. När en konfiguration sparas uppmanas du att starta om tjänsten. Välj **starta om**.
 
     ![Välj Starta om](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
@@ -61,13 +61,13 @@ Konfigurations värden för Spark kan justeras för att undvika ett Apache Spark
 
     ![Granska processer som körs](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
-1. Du kan lägga till konfigurationer. I listan med konfigurationer väljer du **Custom-spark2-defaults** och väljer sedan **Lägg till egenskap** .
+1. Du kan lägga till konfigurationer. I listan med konfigurationer väljer du **Custom-spark2-defaults** och väljer sedan **Lägg till egenskap**.
 
     ![Välj Lägg till egenskap](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Definiera en ny egenskap. Du kan definiera en enskild egenskap med hjälp av en dialog ruta för vissa inställningar som datatyp. Du kan också definiera flera egenskaper med en definition per rad.
 
-    I det här exemplet definieras egenskapen **Spark. driver. Memory** med värdet **4G** .
+    I det här exemplet definieras egenskapen **Spark. driver. Memory** med värdet **4G**.
 
     ![Definiera ny egenskap](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 

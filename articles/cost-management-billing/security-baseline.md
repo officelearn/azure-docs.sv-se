@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 40baab2a4c577ee96bcebeb4880235a81810b2b4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3270dae1fd37913ba51ca1da63bbb44d715e7d31
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660329"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021787"
 ---
 # <a name="azure-security-baseline-for-cost-management"></a>Azures säkerhetsbaslinje för Cost Management
 
@@ -288,7 +288,7 @@ Ta bort Azure-resurser när de inte längre behövs.
 
 ## <a name="logging-and-threat-detection"></a>Loggning och hotidentifiering
 
-*Mer information finns i [Benchmark för Azure-säkerhet: Loggning och hotidentifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Mer information finns i [Benchmark för Azure-säkerhet: Loggning och hotidentifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Aktivera hotidentifiering för identitets- och åtkomsthantering i Azure
 
@@ -424,7 +424,7 @@ Markera även resurser med taggar och skapa ett namngivningssystem för att iden
 
 ## <a name="posture-and-vulnerability-management"></a>Status- och sårbarhetshantering
 
-*Mer information finns i [Benchmark för Azure-säkerhet: Status- och sårbarhetshantering](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*Mer information finns i [Benchmark för Azure-säkerhet: Status- och sårbarhetshantering](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
 ### <a name="pv-7-rapidly-and-automatically-remediate-software-vulnerabilities"></a>PV-7: Åtgärda sårbarheter för programvara snabbt och automatiskt
 
@@ -484,9 +484,9 @@ Mer information finns i följande resurser:
 
 - [Cloud Adoption Framework – bästa praxis för datasäkerhet och kryptering i Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Benchmark för Azure-säkerhet – tillgångshantering](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Benchmark för Azure-säkerhet – tillgångshantering](/azure/security/benchmarks/security-controls-v2-asset-management)
 
-- [Benchmark för Azure-säkerhet – dataskydd](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Benchmark för Azure-säkerhet – dataskydd](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Azure Security Center-övervakning**: Inte tillämpligt
 
@@ -514,7 +514,7 @@ Se till att segmenteringsstrategin implementeras konsekvent över olika kontroll
 
 **Riktlinjer**: Mät och minimera kontinuerligt risker för enskilda tillgångar och den miljö som de finns i. Prioritera tillgångar med högt värde och högexponerade attackytor, till exempel publicerade program, ingångs- och utgångspunkter för nätverk, slutpunkter för användare och administratörer osv.
 
-- [Benchmark för Azure-säkerhet – status- och sårbarhetshantering](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Benchmark för Azure-säkerhet – status- och sårbarhetshantering](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Azure Security Center-övervakning**: Inte tillämpligt
 
@@ -555,7 +555,7 @@ Strategin bör omfatta dokumenterad vägledning, principer och standarder för f
 Mer information finns i följande resurser:
 - [Bästa praxis för Azure-säkerhet 11 – arkitektur. En enhetlig säkerhetsstrategi](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Benchmark för Azure-säkerhet – nätverkssäkerhet](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Benchmark för Azure-säkerhet – nätverkssäkerhet](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Översikt över Azure-nätverkssäkerhet](../security/fundamentals/network-overview.md)
 
@@ -583,9 +583,9 @@ Strategin bör omfatta dokumenterad vägledning, principer och standarder för f
 
 Mer information finns i följande resurser:
 
-- [Benchmark för Azure-säkerhet – identitetshantering](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Benchmark för Azure-säkerhet – identitetshantering](/azure/security/benchmarks/security-controls-v2-identity-management)
 
-- [Benchmark för Azure-säkerhet – privilegierad åtkomst](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Benchmark för Azure-säkerhet – privilegierad åtkomst](/azure/security/benchmarks/security-controls-v2-privileged-access)
 
 - [Bästa praxis för Azure-säkerhet 11 – arkitektur. En enhetlig säkerhetsstrategi](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -617,9 +617,9 @@ Strategin bör omfatta dokumenterad vägledning, principer och standarder för f
 
 Mer information finns i följande resurser:
 
-- [Benchmark för Azure-säkerhet – loggning och hotidentifiering](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Benchmark för Azure-säkerhet – loggning och hotidentifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Benchmark för Azure-säkerhet – incidenthantering](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Benchmark för Azure-säkerhet – incidenthantering](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Bästa praxis för Azure-säkerhet 4 – process. Uppdatera incidenthanteringsprocesser för molnet](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

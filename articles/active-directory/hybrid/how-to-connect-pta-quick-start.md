@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bdfb1ca21860f1dc338f85a82caf643f9f7be6d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678159"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973209"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory direktautentisering: snabb start
 
@@ -72,9 +72,9 @@ Se till att följande krav är uppfyllda.
      | **8080** (valfritt) | Authentication agents rapporterar status var tionde minut via port 8080, om port 443 inte är tillgänglig. Den här statusen visas på Azure AD-portalen. Port 8080 används _inte_ för användar inloggningar. |
      
      Om brand väggen tillämpar regler enligt de ursprungliga användarna öppnar du portarna för trafik från Windows-tjänster som körs som en nätverks tjänst.
-   - Om din brand vägg eller proxy tillåter DNS-vit listning, lägger du till anslutningar till **\* . msappproxy.net** och **\* . ServiceBus.Windows.net** . Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka.
+   - Om din brand vägg eller proxy tillåter DNS-vit listning, lägger du till anslutningar till **\* . msappproxy.net** och **\* . ServiceBus.Windows.net**. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka.
    - Dina autentiserings agenter behöver åtkomst till **login.Windows.net** och **login.microsoftonline.com** för inledande registrering. Öppna brand väggen för dessa URL: er även.
-    - För certifikat validering, avblockera följande URL: er: **crl3.DigiCert.com:80** , **crl4.DigiCert.com:80** , **ocsp.digicert.com:80** , **www \. d-trust.net:80** , **root-C3-CA2-2009.OCSP.d-Trust.net:80** , **CRL.Microsoft.com:80** , **oneocsp.Microsoft.com:80** och **OCSP.msocsp.com:80** . Eftersom dessa URL: er används för certifikat validering med andra Microsoft-produkter kan dessa URL: er vara avblockerade.
+    - För certifikat validering, avblockera följande URL: er: **crl3.DigiCert.com:80**, **crl4.DigiCert.com:80**, **ocsp.digicert.com:80**, **www \. d-trust.net:80**, **root-C3-CA2-2009.OCSP.d-Trust.net:80**, **CRL.Microsoft.com:80**, **oneocsp.Microsoft.com:80** och **OCSP.msocsp.com:80**. Eftersom dessa URL: er används för certifikat validering med andra Microsoft-produkter kan dessa URL: er vara avblockerade.
 
 ### <a name="azure-government-cloud-prerequisite"></a>Förutsättning för Azure Government moln
 Innan du aktiverar direktautentisering genom Azure AD Connect med steg 2 laddar du ned den senaste versionen av PTA-agenten från Azure Portal.  Du måste se till att agenten är versions **1.5.1742.0.** eller senare.  För att verifiera agenten se [Upgrade Authentication agents](how-to-connect-pta-upgrade-preview-authentication-agents.md)
@@ -88,11 +88,11 @@ Aktivera direkt autentisering via [Azure AD Connect](whatis-hybrid-identity.md).
 >[!IMPORTANT]
 >Du kan aktivera direktautentisering på den Azure AD Connect primära eller mellanlagrings servern. Vi rekommenderar starkt att du aktiverar den från den primära servern. Om du ställer in en Azure AD Connect fristående server i framtiden **måste** du fortsätta att välja direktautentisering som inloggnings alternativ. Om du väljer ett annat alternativ **inaktive ras** direkt autentisering på klienten och åsidosätter inställningen på den primära servern.
 
-Om du installerar Azure AD Connect för första gången väljer du den [anpassade installations Sök vägen](how-to-connect-install-custom.md). På sidan **användar inloggning** väljer du **direktautentisering** som **inloggnings metod** . Vid lyckad slut för ande installeras en vidarekoppling på samma server som Azure AD Connect. Dessutom är funktionen för direkt autentisering aktive rad på din klient.
+Om du installerar Azure AD Connect för första gången väljer du den [anpassade installations Sök vägen](how-to-connect-install-custom.md). På sidan **användar inloggning** väljer du **direktautentisering** som **inloggnings metod**. Vid lyckad slut för ande installeras en vidarekoppling på samma server som Azure AD Connect. Dessutom är funktionen för direkt autentisering aktive rad på din klient.
 
 ![Azure AD Connect: användar inloggning](./media/how-to-connect-pta-quick-start/sso3.png)
 
-Om du redan har installerat Azure AD Connect med hjälp av [Express installation](how-to-connect-install-express.md) eller [anpassad installations](how-to-connect-install-custom.md) Sök väg väljer du uppgiften **ändra användar inloggning** på Azure AD Connect och väljer sedan **Nästa** . Välj sedan **direktautentisering** som inloggnings metod. Vid lyckad slut för ande installeras en vidarekoppling på samma server som Azure AD Connect och funktionen är aktive rad på din klient.
+Om du redan har installerat Azure AD Connect med hjälp av [Express installation](how-to-connect-install-express.md) eller [anpassad installations](how-to-connect-install-custom.md) Sök väg väljer du uppgiften **ändra användar inloggning** på Azure AD Connect och väljer sedan **Nästa**. Välj sedan **direktautentisering** som inloggnings metod. Vid lyckad slut för ande installeras en vidarekoppling på samma server som Azure AD Connect och funktionen är aktive rad på din klient.
 
 ![Azure AD Connect: ändra användar inloggning](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
@@ -105,9 +105,9 @@ Följ de här anvisningarna för att kontrol lera att du har aktiverat direktaut
 
 1. Logga in på [Azure Active Directory administrations Center](https://aad.portal.azure.com) med autentiseringsuppgifterna för global administratör för din klient organisation.
 2. Välj **Azure Active Directory** i det vänstra fönstret.
-3. Välj **Azure AD Connect** .
-4. Kontrol lera att funktionen för **direkt autentisering** visas som **aktive rad** .
-5. Välj **direktautentisering** . I fönstret genom **strömnings** fönstret visas de servrar där dina autentiseringsinställningar är installerade.
+3. Välj **Azure AD Connect**.
+4. Kontrol lera att funktionen för **direkt autentisering** visas som **aktive rad**.
+5. Välj **direktautentisering**. I fönstret genom **strömnings** fönstret visas de servrar där dina autentiseringsinställningar är installerade.
 
 ![Azure Active Directory administrations Center: Azure AD Connects fönstret](./media/how-to-connect-pta-quick-start/pta7.png)
 
@@ -134,7 +134,7 @@ Börja genom att följa de här anvisningarna för att hämta program varan för
 
 1. Om du vill hämta den senaste versionen av Autentiseringstjänsten (version 1.5.193.0 eller senare) loggar du in på [Azure Active Directory administrations Center](https://aad.portal.azure.com) med klient organisationens globala administratörs behörigheter.
 2. Välj **Azure Active Directory** i det vänstra fönstret.
-3. Välj **Azure AD Connect** , Välj **direktautentisering** och välj sedan **Hämta agent** .
+3. Välj **Azure AD Connect**, Välj **direktautentisering** och välj sedan **Hämta agent**.
 4. Välj knappen **acceptera villkor & hämtning** .
 
 ![Azure Active Directory administrations Center: knappen Hämta Authentication agent](./media/how-to-connect-pta-quick-start/pta9.png)
@@ -166,7 +166,7 @@ Sedan kan du skapa och köra ett obevakat distributions skript. Detta är använ
   ```
 
 >[!IMPORTANT]
->Om en autentiseringstjänst är installerad på en virtuell dator kan du inte klona den virtuella datorn för att konfigurera en annan agent för autentisering. Den här metoden **stöds inte** .
+>Om en autentiseringstjänst är installerad på en virtuell dator kan du inte klona den virtuella datorn för att konfigurera en annan agent för autentisering. Den här metoden **stöds inte**.
 
 ## <a name="step-5-configure-smart-lockout-capability"></a>Steg 5: Konfigurera funktionen för smart utelåsning
 

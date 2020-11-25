@@ -17,11 +17,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458040"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973226"
 ---
 # <a name="risky-ip-report-public-preview"></a>Riskfylld IP-rapport (offentlig för hands version)
 AD FS kunder kan exponera slut punkter för autentisering av lösen ord till Internet för att tillhandahålla autentiseringstjänster för slutanvändare att få åtkomst till SaaS-program som Microsoft 365. I det här fallet är det möjligt för någon obehörig att försöka logga in på ditt AD FS-system genom att gissa slutanvändarens lösenord och få åtkomst till programresurser. AD FS har innehållit en utelåsningsfunktion för extranätskonton som förhindrar dessa typer av angrepp sedan AD FS i Windows Server 2012 R2. Om du har en lägre version rekommenderar vi starkt att du uppgraderar ditt AD FS-system till Windows Server 2016. <br />
@@ -97,7 +97,7 @@ Aviseringströskelvärdet kan uppdateras i Tröskelinställningar. Systemet har 
 >
 >
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 **Varför ser jag privata IP-adressintervall i rapporten?**  <br />
 Privata IP-adresser (<i>10. x. x, 172. x. x. x & 192.168. x. x</i>) och Exchange IP-adresser filtreras och markeras som true i listan över godkända IP-adresser. Om du ser privata IP-adressintervall är det mycket troligt att en extern lastbalanserare inte skickar klientens IP-adress när den skickar sin begäran till servern för webbprogramproxyn.
 

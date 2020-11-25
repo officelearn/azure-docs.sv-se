@@ -14,15 +14,15 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370873"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973906"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Lägg till ditt anpassade domän namn med hjälp av Azure Active Directory portalen
 
-Varje ny Azure AD-klient kommer med ett första domän namn, * \<domainname> . onmicrosoft.com*. Du kan inte ändra eller ta bort det ursprungliga domän namnet, men du kan lägga till organisationens namn. Genom att lägga till anpassade domän namn kan du skapa användar namn som är bekanta för dina användare, till exempel *alain \@ contoso.com*.
+Varje ny Azure AD-klient kommer med ett första domän namn, *\<domainname> . onmicrosoft.com*. Du kan inte ändra eller ta bort det ursprungliga domän namnet, men du kan lägga till organisationens namn. Genom att lägga till anpassade domän namn kan du skapa användar namn som är bekanta för dina användare, till exempel *alain \@ contoso.com*.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -54,12 +54,12 @@ När du har skapat din katalog kan du lägga till ditt anpassade domän namn.
 
     ![Sidan anpassade domän namn med Lägg till anpassad domän visas](media/add-custom-domain/add-custom-domain.png)
 
-1. I **eget domän namn**anger du organisationens nya namn, i det här exemplet *contoso.com*. Välj **Lägg till domän**.
+1. I **eget domän namn** anger du organisationens nya namn, i det här exemplet *contoso.com*. Välj **Lägg till domän**.
 
     ![Sidan anpassade domän namn med sidan Lägg till anpassad domän](media/add-custom-domain/add-custom-domain-blade.png)
 
     >[!IMPORTANT]
-    >Du måste inkludera *. com*, *.net*eller något annat tillägg på den översta nivån för att detta ska fungera korrekt.
+    >Du måste inkludera *. com*, *.net* eller något annat tillägg på den översta nivån för att detta ska fungera korrekt.
 
     Den overifierade domänen har lagts till. Sidan **contoso.com** visas med din DNS-information. Spara den här informationen. Du behöver den senare för att kunna skapa en TXT-post för att konfigurera DNS.
 
@@ -84,7 +84,7 @@ Följ dessa steg om du vill verifiera ditt anpassade domän namn:
 
 1. Sök efter och välj *Azure Active Directory* från vilken sida som helst, och välj sedan **anpassade domän namn**.
 
-1. I **anpassade domän namn**väljer du det anpassade domän namnet. I det här exemplet väljer du **contoso.com**.
+1. I **anpassade domän namn** väljer du det anpassade domän namnet. I det här exemplet väljer du **contoso.com**.
 
     ![Sidan Fabrikam – anpassade domän namn med contoso markerat](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
 

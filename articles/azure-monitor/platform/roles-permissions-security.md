@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 7d92cbc25411f5cc2d528ccf6ecec4539494d380
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84ae5f6adfe2a02f62b5d4b1e776d8b5ac1d731b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533282"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95975364"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Roller, behörigheter och säkerhet i Azure Monitor
 
@@ -68,9 +68,9 @@ Personer som har tilldelats rollen övervaknings deltagare kan visa alla överva
 > 
 
 ## <a name="monitoring-permissions-and-azure-custom-roles"></a>Övervaknings behörigheter och Azure-anpassade roller
-Om de inbyggda rollerna ovan inte uppfyller de exakta behoven för ditt team, kan du [skapa en anpassad Azure-roll](../../role-based-access-control/custom-roles.md) med mer detaljerade behörigheter. Nedan visas de vanliga Azure Monitor RBAC-åtgärder med beskrivningar.
+Om de inbyggda rollerna ovan inte uppfyller de exakta behoven för ditt team, kan du [skapa en anpassad Azure-roll](../../role-based-access-control/custom-roles.md) med mer detaljerade behörigheter. Nedan visas vanliga Azure RBAC-åtgärder för Azure Monitor med deras beskrivningar.
 
-| Åtgärd | Beskrivning |
+| Åtgärd | Description |
 | --- | --- |
 | Microsoft. Insights/ActionGroups/[läsa, skriva, ta bort] |Läs-/skriv-/ta bort åtgärds grupper. |
 | Microsoft. Insights/ActivityLogAlerts/[läsa, skriva, ta bort] |Läs/skriv/ta bort aktivitets logg aviseringar. |
@@ -135,7 +135,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 Du kan sedan ge token till den entitet som behöver läsa från det lagrings kontot, och den kan visa och läsa från alla blobbar i det lagrings kontot.
 
-Alternativt, om du behöver kontrol lera den här behörigheten med RBAC, kan du bevilja den entiteten Microsoft. Storage/storageAccounts/listnycklar/åtgärd-behörighet för just det lagrings kontot. Detta är nödvändigt för användare som behöver kunna ange en diagnostisk inställning eller logg profil för att arkivera till ett lagrings konto. Du kan till exempel skapa följande anpassade Azure-roll för en användare eller ett program som bara behöver läsa från ett lagrings konto:
+Alternativt, om du behöver kontrol lera den här behörigheten med Azure RBAC, kan du bevilja den entiteten Microsoft. Storage/storageAccounts/listnycklar/åtgärd-behörighet för just det lagrings kontot. Detta är nödvändigt för användare som behöver kunna ange en diagnostisk inställning eller logg profil för att arkivera till ett lagrings konto. Du kan till exempel skapa följande anpassade Azure-roll för en användare eller ett program som bara behöver läsa från ett lagrings konto:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -159,7 +159,7 @@ New-AzRoleDefinition -Role $role
 Ett liknande mönster kan följas av Event Hub, men först måste du skapa en dedikerad regel för lyssning. Om du vill bevilja åtkomst till ett program som bara behöver lyssna på övervaknings-relaterade Event Hub, gör du följande:
 
 1. Skapa en princip för delad åtkomst för de händelse hubbar som har skapats för strömmande övervaknings data med endast lyssnande anspråk. Detta kan göras i portalen. Du kan till exempel kalla det "monitoringReadOnly". Om möjligt ska du ge den nyckeln direkt till konsumenten och hoppa över nästa steg.
-2. Om konsumenten behöver kunna hämta nyckeln ad hoc ger du användaren Listnycklar-åtgärden för den händelsehubben. Detta är också nödvändigt för användare som behöver kunna ange en diagnostisk inställning eller logg profil för att strömma till händelse nav. Du kan till exempel skapa en RBAC-regel:
+2. Om konsumenten behöver kunna hämta nyckeln ad hoc ger du användaren Listnycklar-åtgärden för den händelsehubben. Detta är också nödvändigt för användare som behöver kunna ange en diagnostisk inställning eller logg profil för att strömma till händelse nav. Du kan till exempel skapa en Azure RBAC-regel:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"
@@ -187,6 +187,6 @@ Azure Monitor behöver åtkomst till dina Azure-resurser för att tillhandahåll
 Mer information finns i [nätverks säkerhet och Azure Storage](../../storage/common/storage-network-security.md)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs om RBAC och behörigheter i Resource Manager](../../role-based-access-control/overview.md)
+* [Läs om Azure RBAC och behörigheter i Resource Manager](../../role-based-access-control/overview.md)
 * [Läs översikten över övervakning i Azure](../overview.md)
 

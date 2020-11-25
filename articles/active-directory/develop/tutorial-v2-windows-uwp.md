@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: cbfb5c598a2a56b0b14a3a90cf29ce23366b9b6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 774c17af88e45e25cf1e8edc0df60ab55fe53e0e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627677"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95974344"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Självstudie: anropa Microsoft Graph API från ett Universell Windows-plattform-program (UWP)
 
-Den här guiden förklarar hur ett internt Universell Windows-plattform-program (UWP) kan begära en åtkomsttoken. Programmet anropar sedan Microsoft Graph-API: et. Guiden gäller även andra API: er som kräver åtkomsttoken från Microsoft Identity Platform-slutpunkten.
+I den här självstudien skapar du en UWP-app (Native Universell Windows-plattform) som loggar in användare och hämtar en åtkomsttoken för att anropa Microsoft Graph-API: et. 
 
 I slutet av den här guiden anropar programmet ett skyddat API med hjälp av personliga konton. Exempel är outlook.com, live.com och andra. Ditt program anropar också arbets-och skol konton från alla företag eller organisationer som har Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ I de här självstudierna har du
 > * Lägg till kod för anrop Microsoft Graph API
 > * Testa appen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) med arbets belastningen [universell Windows-plattform utveckling](/windows/uwp/get-started/get-set-up) installerad
 
@@ -48,7 +48,7 @@ Den här guiden skapar ett exempel på ett UWP-program som frågar Microsoft Gra
 
 I den här guiden används följande NuGet-paket:
 
-|Bibliotek|Beskrivning|
+|Bibliotek|Description|
 |---|---|
 |[Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsofts autentiseringsbibliotek|
 |[Microsoft. Graph](https://www.nuget.org/packages/Microsoft.Graph)|Microsoft Graph klient bibliotek|
@@ -65,9 +65,9 @@ Den här guiden skapar ett program som visar en knapp som frågar Microsoft Grap
 ### <a name="create-your-application"></a>Skapa ditt program
 
 1. Öppna Visual Studio och välj **skapa ett nytt projekt**.
-1. I **skapa ett nytt projekt**väljer du **Tom app (Universal Windows)** för C# och väljer **sedan nästa**.
-1. I **Konfigurera ditt nya projekt**namnger du appen och väljer **skapa**.
-1. Om du uppmanas att göra det väljer du en version för **mål** och **lägsta** versioner i **nytt universell Windows-plattform projekt**och väljer **OK**.
+1. I **skapa ett nytt projekt** väljer du **Tom app (Universal Windows)** för C# och väljer **sedan nästa**.
+1. I **Konfigurera ditt nya projekt** namnger du appen och väljer **skapa**.
+1. Om du uppmanas att göra det väljer du en version för **mål** och **lägsta** versioner i **nytt universell Windows-plattform projekt** och väljer **OK**.
 
    ![Minimi-och mål versioner](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
 
@@ -107,7 +107,7 @@ Visual Studio skapar *mainpage. XAML* som en del av projekt mal len. Öppna den 
 
 Det här avsnittet visar hur du använder Microsoft Authentication Library för att hämta en token för Microsoft Graph-API: et. Gör ändringar i *mainpage.XAML.cs* -filen.
 
-1. I *mainpage.XAML.cs*lägger du till följande referenser:
+1. I *mainpage.XAML.cs* lägger du till följande referenser:
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -349,21 +349,21 @@ Nu måste du registrera ditt program:
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **Azure Active Directory**  >  **Appregistreringar**.
 1. Välj **ny registrering**. Ange ett meningsfullt program namn som ska visas för användarna av appen, till exempel *UWP-app-Calling-MSGraph*.
-1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox)**. Välj **Registrera** för att fortsätta.
-1. På sidan Översikt hittar du **ID-värdet för programmet (klienten)** och kopierar det. Gå tillbaka till Visual Studio, öppna *mainpage.XAML.cs*och Ersätt värdet för `ClientId` med det här värdet.
+1. Under **konto typer som stöds** väljer du **konton i valfri organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox)**. Välj **Registrera** för att fortsätta.
+1. På sidan Översikt hittar du **ID-värdet för programmet (klienten)** och kopierar det. Gå tillbaka till Visual Studio, öppna *mainpage.XAML.cs* och Ersätt värdet för `ClientId` med det här värdet.
 
 Konfigurera autentisering för ditt program:
 
-1. Gå tillbaka till [Azure Portal](https://portal.azure.com)under **Hantera**och välj **autentisering**.
+1. Gå tillbaka till [Azure Portal](https://portal.azure.com)under **Hantera** och välj **autentisering**.
 1. I avsnittet **omdirigerings-URI: er**  |  **föreslagna omdirigerings-URI: er för offentliga klienter (Mobile, Desktop)** kontrollerar du https://login.microsoftonline.com/common/oauth2/nativeclient .
 1. Välj **Spara**.
 
 Konfigurera API-behörigheter för ditt program:
 
 1. Under **Hantera**, Välj **API-behörigheter**.
-1. Välj **Lägg till en behörighet**och kontrol lera att du har valt **Microsoft API: er**.
+1. Välj **Lägg till en behörighet** och kontrol lera att du har valt **Microsoft API: er**.
 1. Välj **Microsoft Graph**.
-1. Välj **delegerade behörigheter**, Sök efter *användare. Läs*och kontrol lera att **User. Read** är markerat.
+1. Välj **delegerade behörigheter**, Sök efter *användare. Läs* och kontrol lera att **User. Read** är markerat.
 1. Om du har gjort några ändringar väljer du **Lägg till behörigheter** för att spara dem.
 
 ## <a name="enable-integrated-authentication-on-federated-domains-optional"></a>Aktivera integrerad autentisering på federerade domäner (valfritt)
@@ -371,7 +371,7 @@ Konfigurera API-behörigheter för ditt program:
 Om du vill aktivera integrerad Windows-autentisering när den används med en federerad Azure AD-domän måste applikations manifestet aktivera ytterligare funktioner. Gå tillbaka till programmet i Visual Studio.
 
 1. Öppna *Package. appxmanifest*.
-1. Välj **funktioner**och aktivera följande inställningar:
+1. Välj **funktioner** och aktivera följande inställningar:
 
    * **Enterprise-autentisering**
    * **Privata nätverk (klient & Server)**
@@ -384,7 +384,7 @@ Om du vill aktivera integrerad Windows-autentisering när den används med en fe
 
 I det aktuella exemplet `WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")` används metoden. `WithDefaultRedirectURI()`Slutför följande steg för att använda:
 
-1. I *mainpage.XAML.cs*ersätter du `WithRedirectUri` med `WithDefaultRedirectUri` :
+1. I *mainpage.XAML.cs* ersätter du `WithRedirectUri` med `WithDefaultRedirectUri` :
 
    **Aktuell kod**
 
@@ -464,7 +464,7 @@ Du ser information om användar profiler som returneras av Microsoft Graph API-a
 
 Du ser också grundläggande information om den token som hämtats via `AcquireTokenInteractive` eller `AcquireTokenSilent` i rutan **token-information** :
 
-|Egenskap  |Format  |Beskrivning |
+|Egenskap  |Format  |Description |
 |---------|---------|---------|
 |`Username` |`user@domain.com` |Det användar namn som identifierar användaren.|
 |`Token Expires` |`DateTime` |Tiden då token upphör att gälla. Microsoft Authentication Library utökar förfallo datumet genom att förnya token vid behov.|

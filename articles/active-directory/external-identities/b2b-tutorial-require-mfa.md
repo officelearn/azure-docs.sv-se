@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f5f7f823d6c5f5860c2e78fe8cacdd1d788c581
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892703"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974127"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Självstudier: Använda multifaktorautentisering för B2B-gästanvändare
 
@@ -32,7 +32,7 @@ Exempel:
 3.  Användaren uppmanas att slutföra en MFA-kontroll. 
 4.  Användaren ställer in MFA med företag A och väljer sina MFA-alternativ. Användaren får åtkomst till programmet.
 
-I den här självstudien kommer vi att:
+I de här självstudierna får du:
 
 > [!div class="checklist"]
 > * Testa inloggningen innan du påbörjar MFA-installationen.
@@ -47,15 +47,15 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 För att slutföra scenariot i den här självstudien behöver du:
 
- - **Åtkomst till Azure AD Premium Edition** , som innehåller princip funktioner för villkorlig åtkomst. Om du vill framtvinga MFA måste du skapa en princip för villkorlig åtkomst för Azure AD. Observera att MFA-principer alltid tillämpas i din organisation, oavsett om partnern har MFA-funktioner eller inte. Om du konfigurerar MFA i organisationen måste du se till att du har tillräckligt med Azure AD Premium-licenser för din gästanvändare. 
+ - **Åtkomst till Azure AD Premium Edition**, som innehåller princip funktioner för villkorlig åtkomst. Om du vill framtvinga MFA måste du skapa en princip för villkorlig åtkomst för Azure AD. Observera att MFA-principer alltid tillämpas i din organisation, oavsett om partnern har MFA-funktioner eller inte. Om du konfigurerar MFA i organisationen måste du se till att du har tillräckligt med Azure AD Premium-licenser för din gästanvändare. 
  - **Ett giltigt externt e-postkonto** som du kan lägga till i din klientkatalog som gästanvändare och använda för att logga in. Om du inte vet hur du skapar ett gästkonto, så gå till [Lägga till en B2B-gästanvändare i Azure Portal](add-users-administrator.md).
 
 ## <a name="create-a-test-guest-user-in-azure-ad"></a>Skapa en testgästanvändare i Azure AD
 
 1. Logga in till [Azure-portalen](https://portal.azure.com/) som Azure AD-administratör.
 2. Välj **Azure Active Directory** i den vänstra rutan.
-3.  Under **Hantera** väljer du  **Användare** .
-4.  Välj **Ny gästanvändare** .
+3.  Under **Hantera** väljer du **Användare**.
+4.  Välj **Ny gästanvändare**.
 
     ![Skärm bild som visar var du väljer alternativet ny gäst användare](media/tutorial-mfa/tutorial-mfa-user-3.png)
 
@@ -73,53 +73,53 @@ För att slutföra scenariot i den här självstudien behöver du:
 
 ## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>Skapa en princip för villkorlig åtkomst som kräver MFA
 1.  Logga in på [Azure Portal](https://portal.azure.com/) som säkerhets administratör eller administratör för villkorlig åtkomst.
-2.  I Azure Portal väljer du **Azure Active Directory** . 
+2.  Välj **Azure Active Directory** i Azure Portal. 
 3.  På sidan **Azure Active Directory** väljer du **villkorlig åtkomst** i avsnittet **säkerhet** .
-4.  Välj **Ny princip** i verktygsfältet högst upp på sidan **Villkorsstyrd åtkomst** .
-5.  Skriv **Kräver MFA för B2B-portalåtkomst** i textrutan **Namn** på sidan **Ny** .
-6.  Välj **Användare och grupper** i avsnittet **Tilldelningar** .
-7.  Välj **Välj användare och grupper** på sidan **Användare och grupper** och välj sedan **Alla gästanvändare (förhandsversion)** .
+4.  Välj **Ny princip** i verktygsfältet högst upp på sidan **Villkorsstyrd åtkomst**.
+5.  Skriv **Kräver MFA för B2B-portalåtkomst** i textrutan **Namn** på sidan **Ny**.
+6.  Välj **Användare och grupper** i avsnittet **Tilldelningar**.
+7.  Välj **Välj användare och grupper** på sidan **Användare och grupper** och välj sedan **Alla gästanvändare (förhandsversion)**.
 
     ![Skärm bild som visar val av alla gäst användare](media/tutorial-mfa/tutorial-mfa-policy-6.png)
-9.  Välj **Done** (Klar).
-10. Välj **Molnappar** i avsnittet **Tilldelningar** på sidan **Ny** .
-11. Välj **Välj appar** på sidan **Molnappar** och välj sedan **Välj** .
+9.  Välj **Klar**.
+10. Välj **Molnappar** i avsnittet **Tilldelningar** på sidan **Ny**.
+11. Välj **Välj appar** på sidan **Molnappar** och välj sedan **Välj**.
 
     ![Skärm bild som visar sidan molnappar och alternativet Välj](media/tutorial-mfa/tutorial-mfa-policy-10.png)
 
-12. Välj **Microsoft Azure-hantering** på sidan **Välj** och välj sedan **Välj** .
+12. Välj **Microsoft Azure-hantering** på sidan **Välj** och välj sedan **Välj**.
 
     ![Skärm bild som markerar alternativet Microsoft Azure hantering.](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
-13. Välj **Klar** på sidan **Molnappar** .
-14. Välj **Bevilja** i avsnittet **Åtkomstkontroller** på sidan **Ny** .
-15. Välj **Bevilja åtkomst** på sidan **Bevilja** , markera kryssrutan **Kräv multifaktorautentisering** och välj sedan **Välj** .
+13. Välj **Klar** på sidan **Molnappar**.
+14. Välj **Bevilja** i avsnittet **Åtkomstkontroller** på sidan **Ny**.
+15. Välj **Bevilja åtkomst** på sidan **Bevilja**, markera kryssrutan **Kräv multifaktorautentisering** och välj sedan **Välj**.
 
     ![Skärm bild som visar alternativet Kräv Multi-Factor Authentication](media/tutorial-mfa/tutorial-mfa-policy-13.png)
 
-16. Under **Aktivera princip** väljer du **På** .
+16. Under **Aktivera princip** väljer du **På**.
 
     ![Skärm bild som visar alternativet Aktivera princip inställd på på](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
-17. Välj **Skapa** .
+17. Välj **Skapa**.
 
 ## <a name="use-the-what-if-option-to-simulate-sign-in"></a>Simulera inloggningen med hjälp av What If-alternativet
 
-1.  På sidan **villkorlig åtkomst – principer** väljer du **What If** . 
+1.  På sidan **villkorlig åtkomst – principer** väljer du **What If**. 
 
     ![Skärm bild som visar var du väljer alternativet vad händer på sidan villkorlig åtkomst – principer.](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
-2.  Välj **Användare** , marker din testgästanvändare och välj sedan **Välj** .
+2.  Välj **Användare**, marker din testgästanvändare och välj sedan **Välj**.
 
     ![Skärm bild som visar en gäst användare vald](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
-3.  Välj **Molnappar** .
-4.  Välj **Välj appar** på sidan **Molnappar** och klicka sedan på **Välj** . Välj **Microsoft Azure-hantering** i listan över program och klicka sedan på **Välj** . 
+3.  Välj **Molnappar**.
+4.  Välj **Välj appar** på sidan **Molnappar** och klicka sedan på **Välj**. Välj **Microsoft Azure-hantering** i listan över program och klicka sedan på **Välj**. 
 
     ![Skärm bild som visar den valda Microsoft Azure hanterings appen](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 
-5.  Välj **Klar** på sidan **Molnappar** .
-6.  Välj **What If** och verifiera att den nya principen visas under **Utvärderingsresultat** på fliken **Principer som gäller** .
+5.  Välj **Klar** på sidan **Molnappar**.
+6.  Välj **What If** och verifiera att den nya principen visas under **Utvärderingsresultat** på fliken **Principer som gäller**.
 
     ![Skärm bild som visar var du väljer alternativet vad om](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
@@ -135,11 +135,11 @@ För att slutföra scenariot i den här självstudien behöver du:
 När de inte längre behövs tar du bort test användaren och principen testa villkorlig åtkomst.
 1.  Logga in till [Azure-portalen](https://portal.azure.com/) som Azure AD-administratör.
 2.  Välj **Azure Active Directory** i den vänstra rutan.
-3.  Under **Hantera** väljer du  **Användare** .
-4.  Välj testanvändaren och välj sedan **Ta bort användare** .
+3.  Under **Hantera** väljer du **Användare**.
+4.  Välj testanvändaren och välj sedan **Ta bort användare**.
 5.  Välj **Azure Active Directory** i den vänstra rutan.
-6.  Välj **Villkorsstyrd åtkomst** under **Säkerhet** .
-7.  I listan **princip namn** väljer du snabb menyn (...) för test principen och väljer sedan **ta bort** . Välj **Ja** för att bekräfta.
+6.  Välj **Villkorsstyrd åtkomst** under **Säkerhet**.
+7.  I listan **princip namn** väljer du snabb menyn (...) för test principen och väljer sedan **ta bort**. Välj **Ja** för att bekräfta.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien har du skapat en princip för villkorlig åtkomst som kräver att gäst användare använder MFA när de loggar in till en av dina molnappar. Läs mer om att lägga till gästanvändare för samarbete i [Lägga till B2B-samarbetsanvändare för Azure Active Directory i Azure Portal](add-users-administrator.md).

@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 8d11eaa76f2133b9fdc66ba4e6bc91e2cc38c51c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379544"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972871"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Fel sökning och frågor och svar för Application Insights för Java SDK
 
@@ -89,7 +89,7 @@ Med XML-metoden måste du starta om programmet när du ändrar värdet.
 **Hur kan jag ändra vilken Azure-resurs mitt projekt skickar data till?**
 
 * [Hämta Instrumentation-nyckeln för den nya resursen.][java]
-* Om du har lagt till Application Insights i projektet med Azure Toolkit for Eclipse högerklickar du på ditt webb projekt, väljer **Azure** , **konfigurerar Application Insights** och ändrar nyckeln.
+* Om du har lagt till Application Insights i projektet med Azure Toolkit for Eclipse högerklickar du på ditt webb projekt, väljer **Azure**, **konfigurerar Application Insights** och ändrar nyckeln.
 * Om du har konfigurerat Instrumentation-nyckeln som miljö variabel uppdaterar du värdet för miljövariabeln med New iKey.
 * Annars uppdaterar du nyckeln i ApplicationInsights.xml i mappen resurser i projektet.
 

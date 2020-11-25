@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b82193fda64f2cf265c879c5cda9141be1b576f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0408d43fe897882fe09f6dd61a22d46349f2978e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627898"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95974399"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Självstudie: anropa Microsoft Graph-API: et från en Windows Desktop-app
 
-Den här guiden visar hur ett ursprungligt Windows Desktop .NET-program (XAML) använder en åtkomsttoken för att anropa Microsoft Graph-API: et. Appen kan också komma åt andra API: er som kräver åtkomsttoken från Microsoft Identity Platform.
+I den här självstudien skapar du en intern Windows Desktop .NET-app (XAML) som loggar in användare och hämtar en åtkomsttoken för att anropa Microsoft Graph-API: et. 
 
 När du har slutfört guiden kommer programmet att kunna anropa ett skyddat API som använder personliga konton (inklusive outlook.com, live.com och andra). Programmet kommer också att använda arbets-och skol konton från alla företag eller organisationer som använder Azure Active Directory.
 
@@ -57,7 +57,7 @@ MSAL hanterar cachelagring och uppdaterar åtkomsttoken åt dig, så att ditt pr
 
 I den här guiden används följande NuGet-paket:
 
-|Bibliotek|Beskrivning|
+|Bibliotek|Description|
 |---|---|
 |[Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library (MSAL.NET)|
 
@@ -74,7 +74,7 @@ Det program som du skapar med den här guiden visar en knapp som används för a
 Gör så här för att skapa ditt program:
 
 1. I Visual Studio väljer du **fil**  >  **nytt**  >  **projekt**.
-2. Under **mallar**väljer du **Visual C#**.
+2. Under **mallar** väljer du **Visual C#**.
 3. Välj **WPF-app (.NET Framework)**, beroende på vilken version av Visual Studio-versionen som du använder.
 
 ## <a name="add-msal-to-your-project"></a>Lägg till MSAL i projektet

@@ -14,11 +14,11 @@ ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ffa0059e78ee193cb12a4838282f7f9fb282edd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836605"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973702"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Vill du arkivera vad som är nytt i Azure Active Directory?
 
@@ -3930,7 +3930,7 @@ Mer information finns i:
 
 Nu kan du gå till åtkomst panelen och Visa användnings villkoren som du har accepterat tidigare.
 
-Följ de här stegen:
+Gör så här:
 
 1. Gå till portalen för mina [appar](https://myapps.microsoft.com)och logga in.
 

@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a56cd23494f65b1c74e44868496855c6e4a32bf7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365824"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974093"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Distribuera en säker, Azure-hanterad arbets Station
 
@@ -33,16 +33,16 @@ Välj en profil innan du distribuerar lösningen. Du kan använda flera profiler
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Användare i Azure AD | Ja | Ja | Ja | Ja | Ja | Ja |
 | Intune-hanterad | Ja | Ja | Ja | Ja | Ja | Ja |
-| Enhet – Azure AD har registrerats | Ja |  |  |  |  | |   |
+| Enhet – Azure AD har registrerats | Yes |  |  |  |  | |   |
 | Enhet – Azure AD-ansluten |   | Ja | Ja | Ja | Ja | Ja |
-| Säkerhets bas linje för Intune tillämpad |   | Ja <br> Förbättring | Ja <br> (HighSecurity) | Ja <br> (NCSC) | Ja <br> Ordentligt | Ej tillämpligt |
+| Säkerhets bas linje för Intune tillämpad |   | Yes <br> Förbättring | Yes <br> (HighSecurity) | Yes <br> (NCSC) | Yes <br> Ordentligt | NA |
 | Maskin vara uppfyller säkra Windows 10-standarder |   | Ja | Ja | Ja | Ja | Ja |
 | Microsoft Defender ATP aktiverat |   | Ja  | Ja | Ja | Ja | Ja |
 | Borttagning av administratörs behörighet |   |   | Ja  | Ja | Ja | Ja |
 | Distribution med Microsoft autopilot |   |   | Ja  | Ja | Ja | Ja |
 | Appar som installeras endast av Intune |   |   |   | Ja | Ja |Ja |
 | URL: er begränsade till godkänd lista |   |   |   | Ja | Ja |Ja |
-| Blockerad Internet (inkommande/utgående) |   |   |   |  |  |Ja |
+| Blockerad Internet (inkommande/utgående) |   |   |   |  |  |Yes |
 
 > [!NOTE]
 > I guiderna för säker arbets Station **kommer att tilldelas** profiler och principer. Användarna har inte tillämpat principerna direkt, vilket gör att enhets delning (delade enheter) börjar gälla. Om en säker arbets Station inte delas i din distribution, eller om enskilda användar principer krävs, kan tilldelning av användar princip profiler tilldelas till användaren och enheten. 
@@ -65,7 +65,7 @@ Kräv Multi-Factor Authentication, minst för dina administratörer. Se [distrib
 
 1. Från Azure Portal bläddrar du till **Azure Active Directory**  >  **användare**  >  **ny användare**.
 1. Skapa din enhets administratör genom att följa stegen i [själv studie kursen skapa användare](/Intune/quickstart-create-user).
-1. Skriv:
+1. Ange:
 
    * **Namn** – säker arbets Stations administratör
    * **Användar namn** - `secure-ws-admin@identityitpro.com`
@@ -102,7 +102,7 @@ Från Azure Portal bläddrar du till **Azure Active Directory**  >  **grupper** 
 Konfigurera inställningarna för enheter i Active Directory så att din administrativa säkerhets grupp kan ansluta enheter till din domän. Så här konfigurerar du den här inställningen från Azure Portal:
 
 1. Gå till **Azure Active Directory** > **Enheter** > **Enhetsinställningar**.
-1. Välj **markerad** under **användare kan ansluta enheter till Azure AD**och välj sedan gruppen "skydda arbets Stations användare".
+1. Välj **markerad** under **användare kan ansluta enheter till Azure AD** och välj sedan gruppen "skydda arbets Stations användare".
 
 #### <a name="removal-of-local-admin-rights"></a>Borttagning av lokal administratörs behörighet
 
@@ -121,7 +121,7 @@ För att ytterligare förstärka processen med att ansluta enheter till Azure AD
 
 #### <a name="configure-mobile-device-management"></a>Konfigurera hantering av mobila enheter
 
-Från Azure Portal:
+Från Azure-portalen:
 
 1. Bläddra till **Azure Active Directory**  >  **Mobility (MDM och MAM)**  >  **Microsoft Intune**.
 1. Ändra inställningen för **användar omfång för MDM** till **alla**.
@@ -143,7 +143,7 @@ För att säkerställa att enheterna är fullständigt konfigurerade innan de an
 
 Från **Azure Portal**:
 
-1. Gå till **Microsoft Intune**  >  **enhets registrering**  >  **Windows-registrering**  >  Inställningar för**registrerings status sidan**  >  **standardinställningar**  >  **Settings**.
+1. Gå till **Microsoft Intune**  >  **enhets registrering**  >  **Windows-registrering**  >  Inställningar för **registrerings status sidan**  >  **standardinställningar**  >  **Settings**.
 1. Ställ in **Visa installations förloppet för appens profil** till **Ja**.
 1. Ange att **blockering av enhet ska användas tills alla appar och profiler har installerats** på **Ja**.
 
@@ -154,7 +154,7 @@ När du har skapat en enhets grupp måste du skapa en distributions profil för 
 I Intune i Azure Portal:
 
 1. Välj **enhets registrering**  >  **Windows-registrering**  >  **profiler**  >  **Skapa profil**.
-1. Skriv:
+1. Ange:
 
    * Namn – **distributions profil för säker arbets Station**.
    * Beskrivning – **distribution av säkra arbets stationer**.
@@ -162,7 +162,7 @@ I Intune i Azure Portal:
 
 1. Välj **Nästa**.
 
-   * För **distributions läge**väljer du **själv distribution (för hands version)**. Enheter med den här profilen är associerade med den användare som registrerar enheten. Autentiseringsuppgifter krävs för att registrera enheten. Det är viktigt att Observera att om du distribuerar en enhet i **själv distributions** läge kan du distribuera bärbara datorer i en delad modell. Ingen användar tilldelning sker förrän enheten tilldelas till en användare för första gången. Det innebär att alla användar principer som BitLocker inte aktive ras förrän en användar tilldelning har slutförts. Mer information om hur du loggar in på en säker enhet finns i [valda profiler](/intune/device-profile-assign).
+   * För **distributions läge** väljer du **själv distribution (för hands version)**. Enheter med den här profilen är associerade med den användare som registrerar enheten. Autentiseringsuppgifter krävs för att registrera enheten. Det är viktigt att Observera att om du distribuerar en enhet i **själv distributions** läge kan du distribuera bärbara datorer i en delad modell. Ingen användar tilldelning sker förrän enheten tilldelas till en användare för första gången. Det innebär att alla användar principer som BitLocker inte aktive ras förrän en användar tilldelning har slutförts. Mer information om hur du loggar in på en säker enhet finns i [valda profiler](/intune/device-profile-assign).
    * Rutan **Anslut till Azure AD as** ska visa **Azure AD-ansluten** och vara nedtonad.
    * Välj ditt språk (region), användar konto typ **standard**. 
 
@@ -171,7 +171,7 @@ I Intune i Azure Portal:
    * Välj en omfattnings tagg om du har förkonfigurerat en.
 
 1. Välj **Nästa**.
-1. Välj **tilldelningar**  >  **tilldela till**  >  **valda grupper**. I **Välj grupper att inkludera**väljer du **säkra arbets stationer**.
+1. Välj **tilldelningar**  >  **tilldela till**  >  **valda grupper**. I **Välj grupper att inkludera** väljer du **säkra arbets stationer**.
 1. Välj **Nästa**.
 1. Välj **Skapa** för att skapa profilen. Nu kan Autopilot-distributionsprofilen tilldelas till enheter.
 
@@ -186,7 +186,7 @@ Den här vägledningen rekommenderar att du skapar en ny uppdaterings ring och �
 I Azure-portalen:
 
 1. Gå till **Microsoft Intune**  >  **program uppdateringar**  >  **Windows 10 uppdaterings ringar**.
-1. Skriv:
+1. Ange:
 
    * Namn – **Azure-hanterade arbets Stations uppdateringar**
    * Service kanal – **Windows Insider – fast**
@@ -212,11 +212,11 @@ Windows Defender ATP och Microsoft Intune samar beta för att hjälpa till att f
 Om du vill konfigurera integrering av Windows Defender ATP och Intune går du till Azure Portal.
 
 1. Bläddra till **Microsoft Intune**  >  **enhetens kompatibilitet**  >  **Windows Defender ATP**.
-1. I steg 1 under **Konfigurera Windows Defender ATP**väljer **du Anslut Windows defender ATP till Microsoft Intune i Windows Defender Security Center**.
+1. I steg 1 under **Konfigurera Windows Defender ATP** väljer **du Anslut Windows defender ATP till Microsoft Intune i Windows Defender Security Center**.
 1. I Windows Defender Säkerhetscenter:
 
    1. Välj **Inställningar** > **Avancerade funktioner**.
-   1. För **Microsoft Intune anslutning**väljer du **på**.
+   1. För **Microsoft Intune anslutning** väljer du **på**.
    1. Välj **Spara inställningar**.
 
 1. När en anslutning har upprättats går du tillbaka till Intune och väljer **Uppdatera** högst upp.
@@ -288,13 +288,13 @@ I vissa situationer krävs program som en Google Chrome-webbläsare på den säk
 1. Ladda ned installations [paketet för offline installer för Windows 64-bitars](https://cloud.google.com/chrome-enterprise/browser/download/).
 1. Extrahera filerna och Anteckna platsen för `GoogleChromeStandaloneEnterprise64.msi` filen.
 1. I **Azure Portal** Bläddra till **Microsoft Intune**  >  **klient Apps**  >  **appar**  >  **Lägg till**.
-1. Välj **verksamhets nivå**under **typ av app**.
-1. Under **app Package-fil**väljer du `GoogleChromeStandaloneEnterprise64.msi` filen från den extraherade platsen och väljer **OK**.
-1. Under **app-information**anger du en beskrivning och en utgivare. Välj **OK**.
+1. Välj **verksamhets nivå** under **typ av app**.
+1. Under **app Package-fil** väljer du `GoogleChromeStandaloneEnterprise64.msi` filen från den extraherade platsen och väljer **OK**.
+1. Under **app-information** anger du en beskrivning och en utgivare. Välj **OK**.
 1. Välj **Lägg till**.
 1. På fliken **tilldelningar** väljer du **tillgänglig för registrerade enheter** under **tilldelnings typ**.
 1. Lägg till gruppen **säkra arbets stationer** under **inkluderade grupper**.
-1. Välj **OK**och välj sedan **Spara**.
+1. Välj **OK** och välj sedan **Spara**.
 
 Mer information om hur du konfigurerar Chrome-inställningar finns i [hantera Chrome-webbläsare med Microsoft Intune](https://support.google.com/chrome/a/answer/9102677).
 
@@ -360,7 +360,7 @@ Med [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptcente
      > Skriptet kräver förhöjd behörighet. Den körs som fjärr signerad. `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`Kommandot tillåter att skriptet körs på rätt sätt.
 
    * Du kan samla in den här informationen genom att logga in på en enhet med Windows 10 version 1809 eller senare. Din maskin varu åter försäljare kan också tillhandahålla den här informationen.
-1. I **Azure Portal**går du till **Microsoft Intune**  >  **enhets registrering**  >  **Windows registrerings**  >  **enheter – hantera Windows autopilot-enheter**.
+1. I **Azure Portal** går du till **Microsoft Intune**  >  **enhets registrering**  >  **Windows registrerings**  >  **enheter – hantera Windows autopilot-enheter**.
 1. Välj **Importera** och välj CSV-fil.
 1. Lägg till enheten i säkerhets gruppen **säker arbets Station** .
 1. På den Windows 10-enhet som du vill konfigurera går du till **Windows-inställningar**  >  **uppdatering & säkerhets**  >  **återställning**.
@@ -385,9 +385,9 @@ Vi kommer att använda **Azure Sentinel** för att:
 
 Kontroll övervakning kräver att anslutningar till dina data källor, till exempel Azure AD konfigureras.
 
-1. I **Azure Portal**går du till **Azure Sentinel (för hands version)** > Välj **Lägg till**
+1. I **Azure Portal** går du till **Azure Sentinel (för hands version)** > Välj **Lägg till**
 1. I fönstret **Välj en arbets yta att lägga till i Azure Sentinel väljer du** **skapa en ny arbets yta**
-1. Skriv:
+1. Ange:
    * **Log Analytics arbets yta** -"säker arbets Stations övervakning"
    * **Prenumeration** – välj din aktiva prenumeration
    * **Resurs grupp** – Välj * * Skapa ny * * > säker arbets station RG > **OK**
@@ -397,7 +397,7 @@ Kontroll övervakning kräver att anslutningar till dina data källor, till exem
 
 Nu ska vi ansluta Tillgängliga data källor för säker arbets station till övervakningen.
 
-1. I **Azure Portal**går du till **Azure Sentinel-arbetsytan** > Välj arbets yta för **säker arbets Stations övervakning**
+1. I **Azure Portal** går du till **Azure Sentinel-arbetsytan** > Välj arbets yta för **säker arbets Stations övervakning**
 1. Välj **data kopplingar**
 1. Välj **Azure Active Directory** > öppna kopplings sidan > efter att ha granskat förutsättningen. Fortsätt till konfigurationen och välj **Anslut** för både inloggnings loggar för Azure AD, samt gransknings loggar för Azure AD.
 1. Välj **Azure Activity** > sidan öppna koppling > efter att ha granskat förutsättningen. Fortsätt med att konfigurera Azure-aktivitets loggar > välj din prenumeration > Välj **Anslut**
@@ -435,10 +435,10 @@ Distribuera MMA-agenten med Intune PowerShell-skriptet
    1. Välj **Spara**.
 
 Härnäst måste du konfigurera Log Analytics för att ta emot de nya loggarna
-1. I **Azure Portal**går du till **Log Analytics arbets yta** > Select-"säker arbets Stations övervakning"
+1. I **Azure Portal** går du till **Log Analytics arbets yta** > Select-"säker arbets Stations övervakning"
 1. Välj **Avancerade inställningar**  >  **data**  >  **Windows händelse loggar**
 1. I **samla in händelser från följande händelse loggar** 
-1. Skriv:
+1. Ange:
    * "Microsoft-Windows-AppLocker/EXE och DLL" > avmarkerar **information**
    * "Microsoft-Windows-AppLocker/MSI och skript" > avmarkerar **information**
    * "Microsoft-Windows-AppLocker/paketerad app-Deployment" > avmarkerar **information**

@@ -10,11 +10,11 @@ ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
 ms.openlocfilehash: 44d17bafe534fea2d408c92a3a01efb699250a78
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317787"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974433"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Mata in data i en dedikerad SQL-pool
 
@@ -22,9 +22,9 @@ I den här artikeln får du lära dig hur du matar in data från ett Azure Data 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Azure-prenumeration** : om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure Storage-konto** : du använder Azure Data Lake Storage gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att skapa ett.
-* **Azure Synapse Analytics** : du använder en dedikerad SQL-pool som data lager för *mottagare* . Om du inte har en Azure Synapse Analytics-instans kan du läsa [skapa en dedikerad SQL-pool](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för steg för att skapa en.
+* **Azure-prenumeration**: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* **Azure Storage-konto**: du använder Azure Data Lake Storage gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att skapa ett.
+* **Azure Synapse Analytics**: du använder en dedikerad SQL-pool som data lager för *mottagare* . Om du inte har en Azure Synapse Analytics-instans kan du läsa [skapa en dedikerad SQL-pool](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för steg för att skapa en.
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 

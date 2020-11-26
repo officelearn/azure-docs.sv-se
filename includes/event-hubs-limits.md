@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 1b5905046fdde4d5574fd4d39f40dce1bbf11e32
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 262783e83bdb846a3ea7e3015212c01048a00125
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026189"
+ms.locfileid: "96152668"
 ---
 Följande tabeller innehåller kvoter och begränsningar som är begränsade till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om Event Hubs priser finns i [Event Hubs prissättning](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-## <a name="common-limits-for-all-tiers"></a>Vanliga gränser för alla nivåer
+### <a name="common-limits-for-all-tiers"></a>Vanliga gränser för alla nivåer
 Följande begränsningar är gemensamma för alla nivåer. 
 
-| Gräns |  Kommentarer | Värde |
+| Gräns |  Obs! | Värde |
 | --- |  --- | --- |
 | Antal Event Hubs namn rymder per prenumeration |- |100 |
 | Antal Event Hub per namnrymd | Efterföljande begär Anden om att skapa en ny händelsehubben avvisas. |10 |
@@ -33,10 +33,10 @@ Följande begränsningar är gemensamma för alla nivåer.
 | Antal virtuella nätverk (VNet) och IP config-regler | - | 128 | 
 
 
-## <a name="basic-vs-standard-tiers"></a>Basic vs. standard-nivåer
+### <a name="basic-vs-standard-tiers"></a>Basic vs. standard-nivåer
 I följande tabell visas de gränser som kan vara olika för nivåerna Basic och standard. 
 
-| Gräns | Kommentarer | Basic | Standard |
+| Gräns | Obs! | Basic | Standard |
 |---|---|--|---|
 | Maximal storlek för Event Hubs händelse| &nbsp; | 256 kB | 1 MB |
 | Antal konsument grupper per Event-hubb | &nbsp; |1 |20 |
@@ -44,7 +44,7 @@ I följande tabell visas de gränser som kan vara olika för nivåerna Basic och
 | Högsta kvarhållningsperiod för händelse data | &nbsp; |1 dag |1-7 dagar |
 | Maximalt antal data flödes enheter |Att överskrida den här gränsen gör att dina data begränsas och genererar en [Server upptagen undantag](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Om du vill begära ett större antal data flödes enheter för en standard-nivå kan du skicka en [support förfrågan](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). [Ytterligare data flödes enheter](../articles/event-hubs/event-hubs-auto-inflate.md) är tillgängliga i block om 20 på ett dedikerat köp. |20 | 20 | 
 
-## <a name="dedicated-tier-vs-standard-tier"></a>Dedikerad nivå kontra standard nivå
+### <a name="dedicated-tier-vs-standard-tier"></a>Dedikerad nivå kontra standard nivå
 Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst fyra timmars användning. Den dedikerade nivån innehåller alla funktioner i standard planen, men med kapacitet för företags skala och gränser för kunder med krävande arbets belastningar. 
 
 Läs det här [dokumentet](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md) om hur du skapar dedikerat Event Hubs kluster med Azure Portal.
@@ -63,11 +63,11 @@ Läs det här [dokumentet](../articles/event-hubs/event-hubs-dedicated-cluster-c
 | Capture | Betala per timme | Ingår |
 
 
-## <a name="schema-registry-limitations"></a>Begränsningar för schema registret
+### <a name="schema-registry-limitations"></a>Begränsningar för schema registret
 
-### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Begränsningar som är desamma för **standard** -och **dedikerade** nivåer 
+#### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Begränsningar som är desamma för standard-och dedikerade nivåer 
 | Funktion | Gräns | 
-|---|---|--|
+|---|---|
 | Maximal längd på ett schema grupps namn | 50 |  
 | Maximal längd för ett schema namn | 100 |    
 | Storlek i byte per schema | 1 MB |   
@@ -76,10 +76,10 @@ Läs det här [dokumentet](../articles/event-hubs/event-hubs-dedicated-cluster-c
 | Storlek i byte per grupp egenskaps värde | 1024 | 
 
 
-### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Begränsningar som skiljer sig mellan **standard** -och **dedikerade** nivåer 
+#### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Begränsningar som skiljer sig mellan standard-och dedikerade nivåer 
 
 | Gräns | Standard | Dedikerad | 
-|---|---|--|---|
+|---|---|--|
 | Storlek på schema registret (namnrymd) i megabyte | 25 |  1024 |
 | Antal schema grupper i ett schema register eller namnrymd | 1 – exklusive standard gruppen | 1000 |
 | Antal schema versioner i alla schema grupper | 25 | 10000 |

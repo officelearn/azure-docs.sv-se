@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: jeedes
-ms.openlocfilehash: ef49a8a3ac1779071a4d4906bfd053530063102d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: b70c50e7c2900f884dd4d91c6650205bc626326e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984472"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96178049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Självstudie: Azure Active Directory integrering med lösen ords hanteraren i Keepr & digitalt valv
 
@@ -102,7 +102,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Dessutom förväntar sig lösen ords hanteraren & Digital Vault applikation att några fler attribut skickas tillbaka i SAML-svar. Dessa visas i följande tabell. Dessa attribut har också fyllts i automatiskt, men du kan granska dem enligt dina krav.
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | ------------| --------- |
     | Första | user.givenname |
     | Sista | user.surname |
@@ -157,7 +157,7 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 * Du kan gå direkt till inloggnings-URL: en för programmet och initiera inloggningen därifrån.
 
-* Du kan använda Microsoft Access-panelen. När du väljer panelen för **lösen ords hanteraren & Digital Vault** i åtkomst panelen omdirigeras du till inloggnings-URL: en för programmet. Mer information om åtkomst panelen finns i [Logga in och starta appar från portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Du kan använda Microsoft Access-panelen. När du väljer panelen för **lösen ords hanteraren & Digital Vault** i åtkomst panelen omdirigeras du till inloggnings-URL: en för programmet. Mer information om åtkomst panelen finns i [Logga in och starta appar från portalen Mina appar](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: Zhchia
-ms.openlocfilehash: f6a03a65b18d09000e93a1e0fa4a194321912211
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 75da1e2b2f1954b0126b08232046fe09b1c2b6e7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354263"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96177971"
 ---
 # <a name="tutorial-configure-invision-for-automatic-user-provisioning"></a>Självstudie: Konfigurera insikter för automatisk användar etablering
 
@@ -39,7 +39,7 @@ I den här självstudien beskrivs de steg som du måste utföra i både insikter
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * [En Azure AD-klient](../develop/quickstart-create-new-tenant.md) 
-* Ett användarkonto i Azure AD med [behörighet](../users-groups-roles/directory-assign-admin-roles.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör). 
+* Ett användarkonto i Azure AD med [behörighet](../roles/permissions-reference.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör). 
 * Ett [insikt företags konto](https://www.invisionapp.com/enterprise) med SSO aktiverat.
 * Ett användar konto i insikter med administratörs behörighet.
 
@@ -102,7 +102,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etableringsläge](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** kan du läsa in scim API URL-värdet som hämtades tidigare i **klient-URL** : en. Mata in token för autentisering som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till en insikt. Om anslutningen Miss lyckas kontrollerar du att ditt insikts konto har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** kan du läsa in scim API URL-värdet som hämtades tidigare i **klient-URL**: en. Mata in token för autentisering som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till en insikt. Om anslutningen Miss lyckas kontrollerar du att ditt insikts konto har administratörs behörighet och försöker igen.
 
     ![Admin-autentiseringsuppgifter](./media/inVision-provisioning-tutorial/provisioning.png)
 

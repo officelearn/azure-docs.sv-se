@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9335869797509171c71caffb0062aeccca207803
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 1658e6adf0c9de0cbd7412b963fb9a134f633430
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358923"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179729"
 ---
 # <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Clarizen en för automatisk användar etablering
 
-I den här självstudien beskrivs de steg du behöver utföra i både Clarizen en och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD har kon figurer ATS etablerar och avetablerar Azure AD automatiskt användare och grupper för att [Clarizen en](https://www.clarizen.com/) med hjälp av Azure AD Provisioning-tjänsten. Information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program (program vara som en tjänst) med Azure AD](../manage-apps/user-provisioning.md).
+I den här självstudien beskrivs de steg du behöver utföra i både Clarizen en och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD har kon figurer ATS etablerar och avetablerar Azure AD automatiskt användare och grupper för att [Clarizen en](https://www.clarizen.com/) med hjälp av Azure AD Provisioning-tjänsten. Information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program (program vara som en tjänst) med Azure AD](../app-provisioning/user-provisioning.md).
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
 
@@ -33,21 +33,21 @@ I den här självstudien beskrivs de steg du behöver utföra i både Clarizen e
 > * Ta bort användare i Clarizen en när de inte behöver åtkomst längre.
 > * Behåll användarattribut synkroniserade mellan Azure AD och Clarizen One.
 > * Etablera grupper och grupp medlemskap i Clarizen One.
-> * [Enkel inloggning (SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/clarizen-tutorial) till Clarizen rekommenderas.
+> * [Enkel inloggning (SSO)](./clarizen-tutorial.md) till Clarizen rekommenderas.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
-* [En Azure AD-klientorganisation](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
-* Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etableringen. Exempel är program administratör, moln program administratör, program ägare eller global administratör.
+* [En Azure AD-klientorganisation](../develop/quickstart-create-new-tenant.md).
+* Ett användar konto i Azure AD med [behörighet](../roles/permissions-reference.md) att konfigurera etableringen. Exempel är program administratör, moln program administratör, program ägare eller global administratör.
 * Ett användar konto i Clarizen med **Administratörs** [behörigheter](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support)för **integrations användare** och lite.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablering av distributionen
 
-1. Lär dig mer om [hur etableringstjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-1. Ta reda på vem som finns i [etableringsomfånget](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-1. Ta reda på vilka data som ska [mappas mellan Azure AD och Clarizen](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+1. Lär dig mer om [hur etableringstjänsten fungerar](../app-provisioning/user-provisioning.md).
+1. Ta reda på vem som finns i [etableringsomfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Ta reda på vilka data som ska [mappas mellan Azure AD och Clarizen](../app-provisioning/customize-application-attributes.md).
 
 ## <a name="step-2-configure-clarizen-one-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera Clarizen som stöder etablering med Azure AD
 
@@ -61,14 +61,14 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="step-3-add-clarizen-one-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till Clarizen från Azure AD-programgalleriet
 
-Lägg till Clarizen från Azure AD-programgalleriet för att börja hantera etableringen till Clarizen One. Om du tidigare har konfigurerat Clarizen en för enkel inloggning kan du använda samma program. Skapa en separat app när du testar integreringen från början. Mer information om hur du lägger till ett program från galleriet finns i [lägga till ett program i Azure AD-klienten](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Lägg till Clarizen från Azure AD-programgalleriet för att börja hantera etableringen till Clarizen One. Om du tidigare har konfigurerat Clarizen en för enkel inloggning kan du använda samma program. Skapa en separat app när du testar integreringen från början. Mer information om hur du lägger till ett program från galleriet finns i [lägga till ett program i Azure AD-klienten](../manage-apps/add-application-portal.md).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska finnas i etableringsomfånget
 
-Med Azure AD Provisioning-tjänsten kan du omfånget som ska tillhandahållas baserat på tilldelning till programmet eller baserat på attribut för användaren eller gruppen. Om du väljer att omfånget som ska tillhandahållas till din app baserat på tilldelning följer du stegen i [hantera användar tilldelning för en app i Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget som endast ska tillhandahållas baserat på användarens eller gruppens attribut använder du ett omfångs filter enligt beskrivningen i [attribut-baserad program etablering med omfångs filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+Med Azure AD Provisioning-tjänsten kan du omfånget som ska tillhandahållas baserat på tilldelning till programmet eller baserat på attribut för användaren eller gruppen. Om du väljer att omfånget som ska tillhandahållas till din app baserat på tilldelning följer du stegen i [hantera användar tilldelning för en app i Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget som endast ska tillhandahållas baserat på användarens eller gruppens attribut använder du ett omfångs filter enligt beskrivningen i [attribut-baserad program etablering med omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* När du tilldelar användare och grupper till Clarizen en måste du välja en annan roll än **standard åtkomst**. Användare med standard åtkomst rollen undantas från etablering och markeras som inte faktiskt berättigade i etablerings loggarna. Om den enda rollen som är tillgänglig i programmet är standard åtkomst rollen kan du [Uppdatera applikations manifestet](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) för att lägga till fler roller.
-* Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När omfång för etablering har angetts till tilldelade användare och grupper, kan du behålla kontrollen genom att tilldela en eller två användare eller grupper till appen. När omfång är inställt på alla användare och grupper, kan du ange ett [attribut-baserat omfångs filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+* När du tilldelar användare och grupper till Clarizen en måste du välja en annan roll än **standard åtkomst**. Användare med standard åtkomst rollen undantas från etablering och markeras som inte faktiskt berättigade i etablerings loggarna. Om den enda rollen som är tillgänglig i programmet är standard åtkomst rollen kan du [Uppdatera applikations manifestet](../develop/howto-add-app-roles-in-azure-ad-apps.md) för att lägga till fler roller.
+* Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När omfång för etablering har angetts till tilldelade användare och grupper, kan du behålla kontrollen genom att tilldela en eller två användare eller grupper till appen. När omfång är inställt på alla användare och grupper, kan du ange ett [attribut-baserat omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-clarizen-one"></a>Steg 5. Konfigurera automatisk användar etablering för att Clarizen en
 
@@ -104,7 +104,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 1. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare att Clarizen ett**.
 
-1. Granska de användarattribut som synkroniseras från Azure AD till Clarizen ett i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Clarizen ett för uppdaterings åtgärder. Om du ändrar det [matchande målattributet](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att CLARIZEN ett API stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** för att spara ändringarna.
+1. Granska de användarattribut som synkroniseras från Azure AD till Clarizen ett i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Clarizen ett för uppdaterings åtgärder. Om du ändrar det [matchande målattributet](../app-provisioning/customize-application-attributes.md)måste du se till att CLARIZEN ett API stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** för att spara ändringarna.
 
    |Attribut|Typ|
    |---|---|
@@ -158,7 +158,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
       |externalId|Sträng|
       |medlemmar|Referens|
 
-1. Information om hur du konfigurerar omfångs filter finns i kursen i avsnittet  [omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Information om hur du konfigurerar omfångs filter finns i kursen i avsnittet  [omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Om du vill aktivera Azure AD Provisioning-tjänsten för Clarizen, ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -178,9 +178,9 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 När du har konfigurerat etableringen använder du följande resurser för att övervaka distributionen.
 
-1. Använd [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller har misslyckats.
-1. Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras.
-1. Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Mer information om karantän tillstånd finns i [program etablering i karantän status](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Använd [etablerings loggarna](../reports-monitoring/concept-provisioning-logs.md) för att avgöra vilka användare som har etablerats eller har misslyckats.
+1. Kontrol lera [förlopps indikatorn](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) för att se status för etablerings cykeln och hur nära den är att slutföras.
+1. Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Mer information om karantän tillstånd finns i [program etablering i karantän status](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
 
@@ -196,9 +196,9 @@ När du tilldelar en användare till Clarizen en Galleri-app väljer du bara **a
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

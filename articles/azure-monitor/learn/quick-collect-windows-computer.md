@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 726caa0c4a7bbd6b8d0c17ffdfade5f9cc3c2a34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9cd92075c7e0c4450dbee750fd31efb394dd24f7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89020379"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186753"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Samla in data från en Windows-dator i en hybrid miljö med Azure Monitor
 
@@ -26,7 +26,7 @@ ms.locfileid: "89020379"
 
 Information om vilka konfigurationer som stöds finns i konfiguration av [operativ system](../platform/agents-overview.md#supported-operating-systems) och [nätverks brand vägg](../platform/log-analytics-agent.md#network-requirements)som stöds.
  
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 
@@ -38,7 +38,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
     ![Azure Portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
-2. Välj **skapa**och välj sedan alternativ för följande objekt:
+2. Välj **skapa** och välj sedan alternativ för följande objekt:
 
    * Ange ett namn för den nya **Log Analytics-arbetsytan**, som *DefaultLAWorkspace*.  
    * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
@@ -112,7 +112,7 @@ Azure Monitor kan samla in händelser som du anger i händelse loggen och presta
  
 3. Välj **Data** och sedan **Windows-händelseloggar**.  
 
-4. Du lägger till en händelse logg genom att ange namnet på loggen. Ange **system**och välj sedan plus tecknet ( **+** ).  
+4. Du lägger till en händelse logg genom att ange namnet på loggen. Ange **system** och välj sedan plus tecknet ( **+** ).  
 
 5. I tabellen väljer du **fel** -och **varnings** allvarlighets grader.
 
@@ -132,7 +132,7 @@ Azure Monitor kan samla in händelser som du anger i händelse loggen och presta
 
 Nu när du har aktiverat data insamling ska vi köra en enkel loggs ökning för att se vissa data från mål datorn.  
 
-1. I den valda arbets ytan väljer du **loggar**i den vänstra rutan.
+1. I den valda arbets ytan väljer du **loggar** i den vänstra rutan.
 
 2. På sidan loggar fråga skriver `Perf` du i Frågeredigeraren och väljer **Kör**.
  
@@ -152,9 +152,9 @@ Slutför följande steg för att ta bort agenten:
 
 2. Öppna **Program och funktioner**.
 
-3. I **program och funktioner**väljer du **Microsoft Monitoring Agent** och väljer sedan **Avinstallera**.
+3. I **program och funktioner** väljer du **Microsoft Monitoring Agent** och väljer sedan **Avinstallera**.
 
-Om du vill ta bort Log Analytics arbets ytan som du skapade tidigare, markerar du den och väljer **ta bort**på sidan resurs:
+Om du vill ta bort Log Analytics arbets ytan som du skapade tidigare, markerar du den och väljer **ta bort** på sidan resurs:
 
 ![Ta bort Log Analytics arbets yta](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
@@ -165,5 +165,4 @@ Nu när du samlar in drift-och prestanda data från din Windows-dator kan du enk
 Om du vill veta mer om hur du visar och analyserar data fortsätter du till självstudien:
 
 > [!div class="nextstepaction"]
-> [Visa eller analysera data i Log Analytics](../log-query/get-started-portal.md)
-
+> [Visa eller analysera data i Log Analytics](../log-query/log-analytics-tutorial.md)

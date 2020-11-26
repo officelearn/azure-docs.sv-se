@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 26a29524e0bf329a368b3cd2281dd9b070b42a14
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 369847810cdb7f7e93a13f5d410f226d3663080d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660822"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188589"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Snabbstart: Kom igång med Azure Sentinel
 
@@ -91,12 +91,11 @@ Du kan skapa en ny arbets bok från början eller använda en inbyggd arbets bok
 I följande exempel fråga kan du jämföra trender för trafik över flera veckor. Du kan enkelt byta enhets leverantör och data källa som du kör frågan på. I det här exemplet används SecurityEvent från Windows, du kan växla den till att köras på AzureActivity eller CommonSecurityLog på någon annan brand vägg.
 
 ```console
- |where DeviceVendor == "Palo Alto Networks":
-  // week over week query
-  SecurityEvent
-  | where TimeGenerated > ago(14d)
-  | summarize count() by bin(TimeGenerated, 1d)
-  | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
+// week over week query
+SecurityEvent
+| where TimeGenerated > ago(14d)
+| summarize count() by bin(TimeGenerated, 1d)
+| extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
 ```
 
 Du kanske vill skapa en fråga som införlivar data från flera källor. Du kan skapa en fråga som tittar på Azure Active Directory gransknings loggar för nya användare som precis har skapats och sedan kontrollerar dina Azure-loggar för att se om användaren har börjat göra ändringar i roll tilldelningen inom 24 timmar från skapandet. Den misstänkta aktiviteten visas på den här instrument panelen:

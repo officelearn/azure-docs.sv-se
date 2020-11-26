@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d12244bce117d6a631fdb67dc460af18bc77028c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f8edeb452f01af88f0305cd0a3e3a2332ec09e4e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995755"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186957"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohorter
 
@@ -39,11 +39,11 @@ Ditt team definierar en engagerad användare som alla som använder appen fem el
 3. Välj **engagerade användare – efter dagar som används**.
 
     Det finns tre parametrar för den här kohort:
-    * **Aktiviteter**där du väljer vilka händelser och sid visningar som ska räknas som "användning".
+    * **Aktiviteter** där du väljer vilka händelser och sid visningar som ska räknas som "användning".
     * **Period**, definitionen för en månad.
     * **UsedAtLeastCustom**, antalet gånger som användare måste använda något inom en period för att räknas som sysselsatt.
 
-4. Ändra **UsedAtLeastCustom** till **5 + dagar**och lämna **period** på standardvärdet 28 dagar.
+4. Ändra **UsedAtLeastCustom** till **5 + dagar** och lämna **period** på standardvärdet 28 dagar.
 
     ![Engagerade användare](./media/usage-cohorts/003.png)
 
@@ -129,9 +129,9 @@ Kohorter och filter är olika. Anta att du har en kohort av användare från Sto
 * Kohort-versionen visar alla händelser från användare som har skickat en eller flera händelser från Storbritannien under det aktuella tidsintervallet. Om du delar efter land eller region ser du förmodligen många länder och regioner.
 * Filter versionen visar bara händelser från Storbritannien. Men om du delar efter land eller region visas endast Storbritannien.
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Mer information
 
-* [Analytics-frågespråk](../log-query/get-started-portal.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+* [Analytics-frågespråk](../log-query/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Användare, sessioner, händelser](usage-segmentation.md)
-* [Användar flöden](usage-flows.md)
+* [Användarflöden](usage-flows.md)
 * [Översikt över användning](usage-overview.md)

@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 07/10/2020
+ms.date: 11/25/2020
 ms.author: chrande
-ms.openlocfilehash: d0bd94037a75db8d69cfd44820a80ae8b403c9ea
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 56ed1e653547b3c0e3469f820eb33155aedb1bcb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357087"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187212"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introduktion till Gremlin-API i Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -24,6 +24,9 @@ ms.locfileid: "93357087"
 Den här artikeln innehåller en översikt över API för Azure Cosmos DB Gremlin och förklarar hur du använder dem för att lagra enorma grafer med miljard tals hörn och kanter. Du kan fråga graferna med millisekunder och snabbt utveckla diagram strukturen. Azure Cosmos DBens Gremlin-API bygger på [Apache TinkerPop](https://tinkerpop.apache.org), ett ramverk för diagram bearbetning. Gremlin-API: et i Azure Cosmos DB använder Gremlin-frågespråket.
 
 Azure Cosmos DBens Gremlin-API kombinerar kraften i graf Database-algoritmer med en mycket skalbar, hanterad infrastruktur för att tillhandahålla en unik, flexibel lösning för de vanligaste data problemen som är kopplade till bristande flexibilitet och Relations metoder.
+
+> [!NOTE]
+> [Läget för Server lös kapacitet](serverless.md) är nu tillgängligt på Azure Cosmos DBens GREMLIN-API.
 
 ## <a name="features-of-azure-cosmos-dbs-gremlin-api"></a>Funktioner i Azure Cosmos DBs Gremlin-API
  
@@ -111,19 +114,19 @@ Nu ska vi använda ett exempeldiagram för att förstå hur frågor kan uttrycka
 
 Det här diagrammet har följande *hörn* typer (dessa kallas även "etikett" i Gremlin):
 
-* **Personer** : grafen har tre personer, Robin, Thomas och ben
-* **Intressen** : deras intressen, i det här exemplet spel på fotboll
-* **Enheter** : enheterna som människor använder
-* **Operativ system** : de operativ system som enheterna kör på
-* **Plats** : platser som enheterna ska nås från
+* **Personer**: grafen har tre personer, Robin, Thomas och ben
+* **Intressen**: deras intressen, i det här exemplet spel på fotboll
+* **Enheter**: enheterna som människor använder
+* **Operativ system**: de operativ system som enheterna kör på
+* **Plats**: platser som enheterna ska nås från
 
 Vi representerar relationerna mellan dessa entiteter via följande *gräns* typer:
 
-* **Känner** : till exempel "Thomas vet Robin"
-* **Intresse rad** : att representera deltagarnas intressen i vårt diagram, till exempel "ben är intresserade av fotboll"
-* **Körs** : den bärbara datorn kör Windows OS
-* **Använder** : för att representera vilken enhet en person använder. Till exempel Robin använder en Motorola-telefon med serienummer 77
-* **Finns** : för att representera platsen som enheterna används från
+* **Känner**: till exempel "Thomas vet Robin"
+* **Intresse rad**: att representera deltagarnas intressen i vårt diagram, till exempel "ben är intresserade av fotboll"
+* **Körs**: den bärbara datorn kör Windows OS
+* **Använder**: för att representera vilken enhet en person använder. Till exempel Robin använder en Motorola-telefon med serienummer 77
+* **Finns**: för att representera platsen som enheterna används från
 
 Gremlin-konsolen är en interaktiv Terminal som erbjuds av Apache TinkerPop och den här terminalen används för att interagera med Graf-data. Mer information finns i snabb starts dokumentet om [hur du använder Gremlin-konsolen](create-graph-gremlin-console.md). Du kan också utföra dessa åtgärder med hjälp av Gremlin-drivrutinerna i den plattform du vill (Java, Node.js, Python eller .NET). I följande exempel visas hur du kör frågor mot dessa diagram data med hjälp av Gremlin-konsolen.
 

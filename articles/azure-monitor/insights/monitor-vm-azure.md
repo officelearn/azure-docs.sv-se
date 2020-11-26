@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: fc89790c7d268bcfa0c08bd26249bc91979d7fca
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738109"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186906"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Övervaka virtuella Azure-datorer med Azure Monitor
 Den här artikeln beskriver hur du använder Azure Monitor för att samla in och analysera övervaknings data från virtuella Azure-datorer för att upprätthålla deras hälsa. Virtuella datorer kan övervakas för tillgänglighet och prestanda med Azure Monitor som [andra Azure](monitor-azure-resource.md)-resurser, men de är unika för andra resurser eftersom du också behöver övervaka gäst operativ systemet och de arbets belastningar som körs i den. 
@@ -58,13 +58,13 @@ Om du vill aktivera alla funktioner i Azure Monitor för övervakning av en virt
 | Ingen konfiguration | -Värd plattforms mått som samlas in på mått.<br>– Aktivitets logg insamlad. | – Metrics Explorer för värden.<br>– Mått aviseringar för värden.<br>– Aktivitets logg aviseringar. |
 | [Aktivera Azure Monitor for VMs](#enable-azure-monitor-for-vms) | -Log Analytics-agenten installerad.<br>-Beroende agent installerad.<br>– Gäst prestanda data som samlas in i loggar.<br>– Bearbeta och beroende information som samlas in i loggar. | – Prestanda diagram och arbets böcker för gäst prestanda data.<br>-Logga frågor om prestanda data för gäst.<br>– Logg aviseringar för prestanda data för gäst.<br>-Beroende karta. |
 | [Installera Diagnostics-tillägget och teleympkvistar-agenten](#enable-diagnostics-extension-and-telegraf-agent) | – Gäst prestanda data som samlas in på mått. | – Metrics Explorer för gäst.<br>– Mått aviseringar för gäst.  |
-| [Konfigurera Log Analytics arbets yta](#configure-log-analytics-workspace) | -Händelser som samlas in från gäst. | – Logga frågor om gäst händelser.<br>– Logga aviseringar för gäst händelser. |
+| [Konfigurera Log Analytics-arbetsyta](#configure-log-analytics-workspace) | -Händelser som samlas in från gäst. | – Logga frågor om gäst händelser.<br>– Logga aviseringar för gäst händelser. |
 | [Skapa diagnostisk inställning för virtuell dator](#collect-platform-metrics-and-activity-log) | -Plattforms mått som samlas in i loggar.<br>– Aktivitets logg som samlas in i loggar. | -Logga frågor för värd mått.<br>– Logg aviseringar för värd mått.<br>-Logga frågor för aktivitets loggen.
 
 Vart och ett av dessa konfigurations steg beskrivs i följande avsnitt.
 
 ### <a name="enable-azure-monitor-for-vms"></a>Aktivera Azure Monitor for VMs
-[Azure Monitor for VMS](vminsights-overview.md) är en [inblick](insights-overview.md) i Azure Monitor som är det viktigaste verktyget för att övervaka virtuella datorer i Azure Monitor. Det ger följande ytterligare värde över standard Azure Monitor funktionerna.
+[Azure Monitor for VMS](vminsights-overview.md) är en [inblick](../monitor-reference.md) i Azure Monitor som är det viktigaste verktyget för att övervaka virtuella datorer i Azure Monitor. Det ger följande ytterligare värde över standard Azure Monitor funktionerna.
 
 - Förenklad onboarding av Log Analytics agent och beroende agent för att aktivera övervakning av en virtuell dators gäst operativ system och arbets belastningar. 
 - Fördefinierade prestanda diagram och arbets böcker som du kan använda för att analysera kärn prestanda mått från den virtuella datorns gäst operativ system.
@@ -79,7 +79,7 @@ Aktivera Azure Monitor for VMs från alternativet **insikter** på menyn för de
 
 ![Aktivera Azure Monitor for VMs](media/monitor-vm-azure/enable-vminsights.png)
 
-### <a name="configure-log-analytics-workspace"></a>Konfigurera Log Analytics arbets yta
+### <a name="configure-log-analytics-workspace"></a>Konfigurera Log Analytics-arbetsyta
 Log Analytics-agenten som används av Azure Monitor for VMs skickar data till en [Log Analytics-arbetsyta](../platform/data-platform-logs.md). Du kan aktivera insamling av ytterligare prestanda data, händelser och andra övervaknings data från agenten genom att konfigurera Log Analytics arbets ytan. Den behöver bara konfigureras en gång, eftersom en agent som ansluter till arbets ytan automatiskt kommer att hämta konfigurationen och börja samla in de data som definierats omedelbart. 
 
 Du kan komma åt konfigurationen för arbets ytan direkt från Azure Monitor for VMs genom att välja **arbets ytans konfiguration** från **Kom igång**. Klicka på arbets ytans namn för att öppna dess meny.
@@ -140,7 +140,7 @@ När du har konfigurerat insamling av övervaknings data för en virtuell dator 
 | Diagnostikinställningar | Aktivera och konfigurera [diagnostik-tillägg](../platform/diagnostics-extension-overview.md) för den aktuella virtuella datorn. |
 | Advisor-rekommendationer | Rekommendationer för den aktuella virtuella datorn från [Azure Advisor](../../advisor/index.yml). |
 | Loggar | Öppna [Log Analytics](../log-query/log-analytics-overview.md) med [scopet](../log-query/scope.md) inställt på den aktuella virtuella datorn. |
-| Anslutnings övervakare | Öppna [Network Watcher anslutnings övervakare](../../network-watcher/connection-monitor-preview.md) för att övervaka anslutningar mellan den aktuella virtuella datorn och andra virtuella datorer. |
+| Anslutnings övervakare | Öppna [Network Watcher anslutnings övervakare](../../network-watcher/connection-monitor-overview.md) för att övervaka anslutningar mellan den aktuella virtuella datorn och andra virtuella datorer. |
 
 
 ## <a name="analyzing-metric-data"></a>Analysera mått data
@@ -242,4 +242,3 @@ Information om hur du ansluter din befintliga Operations Manager hanterings grup
 
 * [Lär dig hur du analyserar data i Azure Monitor loggar med hjälp av logg frågor.](../log-query/get-started-queries.md)
 * [Lär dig mer om aviseringar med hjälp av mått och loggar i Azure Monitor.](../platform/alerts-overview.md)
-

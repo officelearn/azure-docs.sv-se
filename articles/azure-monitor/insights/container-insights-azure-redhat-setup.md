@@ -3,12 +3,12 @@ title: Konfigurera Azure Red Hat OpenShift v3. x med Azure Monitor för behålla
 description: Den här artikeln beskriver hur du konfigurerar övervakning av ett Kubernetes-kluster med Azure Monitor som finns i Azure Red Hat OpenShift version 3 och senare.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1186056559d6497b2b48cb3533a0967d6d61f38e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2cd39c13ce7d67b2bfcfaca0a6f627e19d289783
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216376"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186923"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Konfigurera Azure Red Hat OpenShift v3 med Azure Monitor för behållare
 
@@ -18,7 +18,7 @@ ms.locfileid: "92216376"
 > Från och med oktober 2020 kommer du inte längre att kunna skapa nya 3,11-kluster.
 > Befintliga 3,11-kluster fortsätter att köras fram till den 2022 juni men kommer inte längre att kunna användas efter det datumet.
 >
-> Följ den här guiden för att [skapa ett Azure Red Hat OpenShift 4-kluster](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster).
+> Följ den här guiden för att [skapa ett Azure Red Hat OpenShift 4-kluster](../../openshift/tutorial-create-cluster.md).
 > Om du har frågor kan du [kontakta oss](mailto:aro-feedback@microsoft.com).
 
 Azure Monitor for containers innehåller omfattande övervaknings funktioner för AKS-och AKS-motorns kluster. Den här artikeln beskriver hur du aktiverar övervakning av Kubernetes-kluster som finns i [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 3 och den senaste version som stöds av version 3, för att uppnå en liknande övervaknings upplevelse.

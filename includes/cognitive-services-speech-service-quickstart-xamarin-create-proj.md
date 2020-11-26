@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: 6d20df031633df4642ce9fb5cbbc469fd7f0a5da
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097243"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188505"
 ---
 Om du vill skapa ett Visual Studio-projekt för plattforms oberoende mobil program .NET-utveckling med Xamarin måste du:
 - Konfigurera alternativ för Visual Studio-utveckling.
@@ -44,9 +44,9 @@ Starta genom att kontrol lera att du är korrekt konfigurerad i Visual Studio f�
 
    ![Skärm bild som visar hur du konfigurerar det nya projektet i Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)
 
-1. Ange *HelloWorld*i **projekt namn**.
+1. Ange *HelloWorld* i **projekt namn**.
 
-1. På **plats**går du till och väljer eller skapar mappen där du sparar projektet i.
+1. På **plats** går du till och väljer eller skapar mappen där du sparar projektet i.
 
 1. Välj **skapa** för att gå till **projekt fönstret nytt Xamarin formulär i Mobile App** .
 
@@ -54,7 +54,7 @@ Starta genom att kontrol lera att du är korrekt konfigurerad i Visual Studio f�
 
 1. Välj den **tomma** mallen.
 
-1. I **plattform**väljer du rutorna för **Android**, **iOS**och **Windows (UWP)**.
+1. I **plattform** väljer du rutorna för **Android**, **iOS** och **Windows (UWP)**.
 
 1. Välj **OK**. Du kommer tillbaka till Visual Studio IDE, där det nya projektet skapas och visas i rutan **Solution Explorer** .
 
@@ -72,18 +72,18 @@ Installera [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)och refere
 
    ![Skärm bild av dialog rutan Hantera paket för lösning när du installerar talet SDK.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
-1. I **paket källa**väljer du NuGet.org.
+1. I **paket källa** väljer du NuGet.org.
 
-1. Skriv *Microsoft. CognitiveServices. Speech*i rutan **Sök** . Välj sedan det paketet efter att det visas i Sök resultaten.
+1. Skriv *Microsoft. CognitiveServices. Speech* i rutan **Sök** . Välj sedan det paketet efter att det visas i Sök resultaten.
 
    ![Skärm bild som visar paketet Microsoft. CognitiveServices. Speech.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
 
    > [!NOTE] 
    > IOS-biblioteket i `Microsoft.CognitiveServices.Speech` NuGet har inte bitcode aktiverat. Om du behöver bitcode-biblioteket aktiverat för ditt program ska du använda `Microsoft.CognitiveServices.Speech.Xamarin.iOS` NuGet för iOS-projektet specifikt.
 
-1. I fönstret paket status bredvid Sök resultaten väljer du alla projekt: **HelloWorld**, **HelloWorld. Android**, **HelloWorld. iOS**och **HelloWorld. UWP**.
+1. I fönstret paket status bredvid Sök resultaten väljer du alla projekt: **HelloWorld**, **HelloWorld. Android**, **HelloWorld. iOS** och **HelloWorld. UWP**.
 
-1. Välj **installera**.
+1. Välj **Installera**.
 
 1. I dialog rutan **Förhandsgranska ändringar** väljer du **OK**.
 

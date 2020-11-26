@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: 3f1a24db459cabd65d9ce17b89105c3b9ab8abb7
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097192"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188492"
 ---
 1. Starta Visual Studio 2019.
 
-1. Kontrollera att arbetsbelastningen ** .NET cross-platform development** (Plattformsoberoende .NET-utveckling) är tillgänglig. Välj **verktyg**  >  **Hämta verktyg och funktioner** från meny raden i Visual Studio för att öppna Visual Studio Installer. Om den här arbetsbelastningen redan är aktiverad stänger du dialogrutan.
+1. Kontrollera att arbetsbelastningen **.NET cross-platform development** (Plattformsoberoende .NET-utveckling) är tillgänglig. Välj **verktyg**  >  **Hämta verktyg och funktioner** från meny raden i Visual Studio för att öppna Visual Studio Installer. Om den här arbetsbelastningen redan är aktiverad stänger du dialogrutan.
 
    ![Skärmbild av Visual Studio-installationsprogrammet med fliken Arbetsbelastningar markerad](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-net-core-workload.png)
 

@@ -3,12 +3,12 @@ title: Exportera till Power BI från Azure Application Insights | Microsoft Docs
 description: Analys frågor kan visas i Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 804da7d3aaa2fd1b7973a686bc9ca5cb5ee973a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e88d60cd9a9d0e6267998237b33a361b12ffd84
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979167"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187008"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Flödes Power BI från Application Insights
 [Power BI](https://www.powerbi.com/) är en uppsättning affärs verktyg som hjälper dig att analysera data och dela insikter. Det finns omfattande instrument paneler på alla enheter. Du kan kombinera data från många källor, inklusive analys frågor från [Azure Application insikter](./app-insights-overview.md).
@@ -31,12 +31,12 @@ Om du vill importera din Application Insights fråga använder du Skriv bords ve
 Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportera en Analytics-fråga
-1. [Öppna Analytics och skriv frågan](../log-query/get-started-portal.md).
+1. [Öppna Analytics och skriv frågan](../log-query/log-analytics-tutorial.md).
 2. Testa och förfina frågan tills du är nöjd med resultatet. Kontrol lera att frågan körs korrekt i Analytics innan du exporterar den.
 3. På menyn **Exportera** väljer du **Power BI (M)**. Spara textfilen.
    
     ![Skärm bild av analys, med exportera-menyn markerad](./media/export-power-bi/analytics-export-power-bi.png)
-4. I Power BI Desktop väljer du **Hämta data**  >  **Tom fråga**. Sedan väljer du **avancerad redigerare**i Frågeredigeraren under **Visa**.
+4. I Power BI Desktop väljer du **Hämta data**  >  **Tom fråga**. Sedan väljer du **avancerad redigerare** i Frågeredigeraren under **Visa**.
 
     Klistra in det exporterade språk skriptet för M i Avancerad redigerare.
 
@@ -61,7 +61,7 @@ Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Skärm bild av knappen Power BI](./media/export-power-bi/button.png)
 
-3. I Power BI Desktop väljer du **Hämta data**  >  **Tom fråga**. Sedan väljer du **avancerad redigerare**i Frågeredigeraren under **Visa**.
+3. I Power BI Desktop väljer du **Hämta data**  >  **Tom fråga**. Sedan väljer du **avancerad redigerare** i Frågeredigeraren under **Visa**.
 
    ![Skärm bild av Power BI Desktop, där knappen tom fråga är markerad](./media/export-power-bi/blankquery.png)
 
@@ -146,5 +146,4 @@ Efter den första importen fortsätter instrument panelen och rapporterna att up
 
 ## <a name="next-steps"></a>Nästa steg
 * [Power BI – lär dig](https://www.powerbi.com/learning/)
-* [Självstudie för analys](../log-query/get-started-portal.md)
-
+* [Självstudie för analys](../log-query/log-analytics-tutorial.md)

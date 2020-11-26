@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: 967861363d5056a5a466aa88840cda2aafbeb86b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097175"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188489"
 ---
 Om du vill skapa ett Visual Studio-projekt för C++ Desktop-utveckling måste du konfigurera alternativ för Visual Studio-utveckling, skapa projektet, välja mål arkitekturen och installera talet SDK.
 
@@ -31,7 +31,7 @@ Starta genom att kontrol lera att du är korrekt konfigurerad i Visual Studio f�
 
 1. På fliken **enskilda komponenter** letar du upp kryss rutan **NuGet Package Manager** . Markera kryss rutan om den inte redan är markerad.
 
-1. Välj knappen i hörnet som är märkt antingen **Stäng** eller **ändra**. (Knapp namnet varierar beroende på om du har valt några funktioner för installation.) Om du väljer **ändra**startar installationen, vilket kan ta en stund.
+1. Välj knappen i hörnet som är märkt antingen **Stäng** eller **ändra**. (Knapp namnet varierar beroende på om du har valt några funktioner för installation.) Om du väljer **ändra** startar installationen, vilket kan ta en stund.
 
 1. Stäng Visual Studio Installer.
 
@@ -49,9 +49,9 @@ Skapa sedan ditt projekt:
 
    ![Konfigurera det nya projektet, C++-Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-configure-your-new-project.png)
 
-1. I **projekt namn**anger du `helloworld` .
+1. I **projekt namn** anger du `helloworld` .
 
-1. I **plats**navigerar du till och väljer eller skapar mappen där du vill spara projektet i.
+1. I **plats** navigerar du till och väljer eller skapar mappen där du vill spara projektet i.
 
 Välj nu mål plattforms arkitektur. I Visual Studio-verktygsfältet hittar du List rutan med **plattforms plattformar** . (Om du inte ser det väljer du **Visa**  >  **Verktygsfält**  >  **Standard** för att visa det verktygsfält som innehåller **lösnings plattformar**.) Om du kör 64-bitars Windows väljer du **x64** i list rutan. 64-bitars Windows kan också köra 32-bitars program, så du kan välja **x86** om du föredrar det.
 
@@ -59,13 +59,13 @@ Välj nu mål plattforms arkitektur. I Visual Studio-verktygsfältet hittar du L
 
 Slutligen installerar du [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)och refererar till tal-SDK: n i projektet:
 
-1. I **Solution Explorer**högerklickar du på din lösning och väljer **Hantera NuGet-paket för lösning** för att gå till fönstret **NuGet-lösning** .
+1. I **Solution Explorer** högerklickar du på din lösning och väljer **Hantera NuGet-paket för lösning** för att gå till fönstret **NuGet-lösning** .
 
 1. Välj **Bläddra**.
 
    ![NuGet – fliken lösning, Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
 
-1. I **paket källa**väljer du **NuGet.org**.
+1. I **paket källa** väljer du **NuGet.org**.
 
 1. I **sökrutan anger du** `Microsoft.CognitiveServices.Speech` och väljer sedan det paketet efter att det visas i Sök resultatet.
 
@@ -73,7 +73,7 @@ Slutligen installerar du [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nu
 
 1. I fönstret paket status bredvid Sök resultaten väljer du ditt **HelloWorld** -projekt.
 
-1. Välj **installera**.
+1. Välj **Installera**.
 
 1. I dialog rutan **Förhandsgranska ändringar** väljer du **OK**.
 

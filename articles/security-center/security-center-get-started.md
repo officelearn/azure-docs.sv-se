@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3a523421c128ea26503c0848ad8fcf7d74636a04
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: bd8c5c31579ac22cd6c77dffd31103680e393f69
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341337"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187178"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Snabb start: Konfigurera Azure Security Center
 
@@ -27,7 +27,7 @@ Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i 
 
 I den här artikeln uppgraderar du till Azure Defender för ytterligare säkerhet och installerar Log Analytics-agenten på dina datorer för att övervaka säkerhets problem och hot.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 Om du vill aktivera Azure Defender för en prenumeration måste du ha tilldelats rollen som prenumerations ägare, prenumerations deltagare eller säkerhets administratör.
@@ -47,7 +47,7 @@ Om du vill aktivera Azure Defender för en prenumeration måste du ha tilldelats
 
 Du kan visa och filtrera listan över prenumerationer genom att välja meny alternativet **prenumerationer** . Security Center kommer att justera visningen så att den återspeglar säkerhets position för de valda prenumerationerna. 
 
-Inom några minuter efter att du har startat Security Center för första gången kanske du ser:
+Inom några minuter efter start Security Center första gången kan du se:
 
 - **Rekommendationer** för hur du kan förbättra säkerheten för dina anslutna resurser.
 - En förteckning över dina resurser som nu utvärderas av Security Center, tillsammans med säkerhets position för var och en.
@@ -61,9 +61,9 @@ Om du vill dra full nytta av Security Center måste du slutföra stegen nedan f�
 
 I syfte att Security Center snabb starter och självstudier måste du aktivera Azure Defender. En kostnads fri 30-dagars utvärderings version är tillgänglig. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. Välj **komma igång**från Security Center marginal List.
+1. Välj **komma igång** från Security Center marginal List.
 
-    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Översikts instrument panel för Security Center"::: 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Fliken uppgradera på sidan komma igång"::: 
 
     På fliken **Uppgradera** visas de prenumerationer och arbets ytor som är berättigade till onboarding.
 
@@ -84,7 +84,7 @@ Så här aktiverar du automatisk etablering av Log Analytics agent:
 1. På sidan **data insamling** ställer du in **Automatisk etablering** till **på**.
 1. Välj **Spara**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Översikts instrument panel för Security Center":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Aktivera automatisk etablering av Log Analytics agenten":::
 
 >[!TIP]
 > Om en arbets yta behöver tillhandahållas kan Agent installationen ta upp till 25 minuter.

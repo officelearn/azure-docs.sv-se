@@ -6,16 +6,16 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.openlocfilehash: aa2530f817bf20af40ab2913df9f16e7d1974ef3
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375476"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187144"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>Självstudie: skapa en robot för vanliga frågor och svar med Azure Bot Service
 Skapa en bot-robot med QnA Maker och Azure [bot service](https://azure.microsoft.com/services/bot-service/) utan kod.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -73,7 +73,7 @@ När du gör ändringar i kunskaps basen och återpublicerar behöver du inte vi
 
 1. När roboten har skapats öppnar du **bot-tjänstens** resurs.
 1. Under **bot-hantering** väljer du **test i Web Chat**.
-1. Skriv följande i Chat-prompten för att **skriva ditt meddelande** :
+1. Skriv följande i Chat-prompten för att **skriva ditt meddelande**:
 
     `Azure services?`
 

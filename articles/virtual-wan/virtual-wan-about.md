@@ -9,11 +9,11 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ms.openlocfilehash: 69525173aa5c4af536105a4e897ee4860f021b6c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91267439"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187448"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Vad är Azure Virtual WAN?
 
@@ -95,7 +95,7 @@ Det virtuella WAN-nätverket tillåter överföring av anslutningar mellan virtu
 
 Routern kan ha fyra Dirigerings status: etablerad, etablering, misslyckad eller ingen. **Routningsstatus** finns i Azure Portal genom att gå till sidan virtuellt nav.
 
-* **Ingen** status anger att den virtuella hubben inte etablerade routern. Detta kan inträffa om det virtuella WAN-nätverket är av typen *Basic*eller om den virtuella hubben distribuerades innan tjänsten är tillgänglig.
+* **Ingen** status anger att den virtuella hubben inte etablerade routern. Detta kan inträffa om det virtuella WAN-nätverket är av typen *Basic* eller om den virtuella hubben distribuerades innan tjänsten är tillgänglig.
 * Statusen **misslyckades anger att det** inte gick att instansiera. För att instansiera eller återställa routern kan du leta upp alternativet **Återställ router** genom att gå till översikts sidan för virtuella hubbar i Azure Portal.
 
 Varje virtuell hubb-router stöder ett sammanställt data flöde på upp till 50 Gbit/s. Anslutning mellan virtuella nätverks anslutningar förutsätter totalt 2000 VM-arbetsbelastning över alla virtuella nätverk som är anslutna till en enda virtuell hubb.
@@ -128,7 +128,7 @@ Routningstabeller har nu funktioner för Association och spridning. En fördefin
 
 * **Grundläggande virtuella WAN-kunder med befintliga vägar i virtuell hubb**: om du har befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan **Uppgradera** ditt grundläggande virtuella WAN-nätverk till standard. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
 
-## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a><a name="faq"></a>Vanliga frågor
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: df9dbdf61dbc7d83f1cf74871ddc864488ed9d47
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097226"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188347"
 ---
 Om du vill skapa ett Visual Studio-projekt för Universell Windows-plattform (UWP)-utveckling måste du ställa in alternativ för Visual Studio-utveckling, skapa projektet, välja mål arkitektur, konfigurera ljud fångst och installera tal-SDK.
 
@@ -27,7 +27,7 @@ Starta genom att kontrol lera att du är korrekt konfigurerad i Visual Studio f�
 
    ![Skärm bild som visar fliken "arbets belastningar" i dialog rutan "ändra" med "Universell Windows-plattform utveckling" markerad.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-workload.png)
 
-1. På fliken **arbets belastningar** under **Windows**hittar du arbets belastningen **universell Windows-plattform utveckling** . Om kryss rutan bredvid arbets belastningen redan är vald stänger du dialog rutan **ändra** och går till steg 6.
+1. På fliken **arbets belastningar** under **Windows** hittar du arbets belastningen **universell Windows-plattform utveckling** . Om kryss rutan bredvid arbets belastningen redan är vald stänger du dialog rutan **ändra** och går till steg 6.
 
 1. Markera kryss rutan **universell Windows-plattform utveckling** , Välj **ändra**. i dialog rutan **innan vi kom igång** väljer du **Fortsätt** för att installera UWP Development-arbetsbelastningen. Det kan ta en stund att installera den nya funktionen.
 
@@ -47,9 +47,9 @@ Skapa sedan ditt projekt:
 
    ![Skärm bild som visar skärmen "Konfigurera ditt nya projekt" med fälten "projekt namn" och "plats" och "skapa" markerat.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
 
-1. I **projekt namn**anger du `helloworld` .
+1. I **projekt namn** anger du `helloworld` .
 
-1. I **plats**navigerar du till och väljer eller skapar mappen där du vill spara projektet i.
+1. I **plats** navigerar du till och väljer eller skapar mappen där du vill spara projektet i.
 
 1. Välj **skapa** för att gå till det **nya universell Windows-plattform projekt** fönstret.
 
@@ -72,7 +72,7 @@ Välj nu mål plattforms arkitektur. I Visual Studio-verktygsfältet hittar du L
 
 Tillåt att projektet fångar in ljud indata:
 
-1. I **Solution Explorer**dubbelklickar du på **Package. appxmanifest** för att öppna paket applikations manifestet.
+1. I **Solution Explorer** dubbelklickar du på **Package. appxmanifest** för att öppna paket applikations manifestet.
 
 1. Välj fliken **Funktioner**.
 
@@ -86,13 +86,13 @@ Tillåt att projektet fångar in ljud indata:
 
 Slutligen installerar du [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)och refererar till tal-SDK: n i projektet:
 
-1. I **Solution Explorer**högerklickar du på din lösning och väljer **Hantera NuGet-paket för lösning** för att gå till fönstret **NuGet-lösning** .
+1. I **Solution Explorer** högerklickar du på din lösning och väljer **Hantera NuGet-paket för lösning** för att gå till fönstret **NuGet-lösning** .
 
 1. Välj **Bläddra**.
 
    ![Skärm bild som visar dialog rutan "Hantera paket för lösning" med fliken "Bläddra", "Sök"-rutan och "paket källa" markerad.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
-1. I **paket källa**väljer du **NuGet.org**.
+1. I **paket källa** väljer du **NuGet.org**.
 
 1. I **sökrutan anger du** `Microsoft.CognitiveServices.Speech` och väljer sedan det paketet efter att det visas i Sök resultatet.
 
@@ -100,7 +100,7 @@ Slutligen installerar du [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nu
 
 1. I fönstret paket status bredvid Sök resultaten väljer du ditt **HelloWorld** -projekt.
 
-1. Välj **installera**.
+1. Välj **Installera**.
 
 1. I dialog rutan **Förhandsgranska ändringar** väljer du **OK**.
 

@@ -11,12 +11,12 @@ author: mumian
 ms.author: jgao
 ms.reviewer: sstein
 ms.date: 06/24/2020
-ms.openlocfilehash: 6e56d6558b3a80707a9f845740980f8ebbc87e35
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b7883144509760c9670decd50062d2595b8dc495
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791502"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187093"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>Snabb start: skapa en enda databas i Azure SQL Database med en ARM-mall
 
@@ -24,7 +24,7 @@ Att skapa en [enskild databas](single-database-overview.md) är det snabbaste oc
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure** . Mallen öppnas på Azure-portalen.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-database%2Fazuredeploy.json)
 
@@ -85,7 +85,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 - Skapa en brandväggsregel på servernivå för att ansluta till den enkla databasen från lokala eller fjärranslutna verktyg. Mer information finns i [Skapa en brandväggsregel på servernivå](firewall-create-server-level-portal-quickstart.md).
 - När du har skapat en brandväggsregel på servernivå [ansluter du till och kör frågor mot](connect-query-content-reference-guide.md) databasen med hjälp av flera olika verktyg och språk.
   - [Ansluta och köra frågor med SQL Server Management Studio](connect-query-ssms.md)
-  - [Ansluta och köra frågor med Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)
+  - [Ansluta och köra frågor med Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%2fazure%2fsql-database%2ftoc.json)
 - Information om hur du skapar en enskild databas med Azure CLI finns i [Azure CLI-exempel](az-cli-script-samples-content-guide.md).
 - Om du vill skapa en enskild databas med hjälp av Azure PowerShell, se [Azure PowerShell exempel](powershell-script-content-guide.md).
 - Information om hur du skapar ARM-mallar finns i [skapa din första mall](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).

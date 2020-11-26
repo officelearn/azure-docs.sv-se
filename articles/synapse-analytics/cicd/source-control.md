@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: b7248a3a66e0eeca4d86568f80af82bf2d89701f
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: a5cb5831090987f1b620593843ddba817d8e68d4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031361"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188130"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Käll kontroll i Azure Synapse Studio
 
@@ -38,7 +38,7 @@ I redigerings arbets ytan i Synapse Studio väljer du List rutan **Synapse Live*
 
 ![Konfigurera kod lagrings inställningarna från redigering](media/configure-repo-1.png)
 
-### <a name="configuration-method-2-management-hub"></a>Konfigurations metod 2: hanterings hubb
+### <a name="configuration-method-2-manage-hub"></a>Konfigurations metod 2: hantera hubb
 
 Gå till hanterings hubben för Synapse Studio. Välj **git-konfiguration** i avsnittet **käll kontroll** . Om du inte har någon databas ansluten klickar du på **Konfigurera**.
 
@@ -61,7 +61,7 @@ När du ansluter till git-lagringsplatsen väljer du först din databas typ som 
 
 I konfigurations fönstret visas följande git-inställningar för Azure DevOps:
 
-| Inställning | Beskrivning | Värde |
+| Inställningen | Beskrivning | Värde |
 |:--- |:--- |:--- |
 | **Typ av databas** | Typen av Azure databaser Code-lagringsplatsen.<br/> | Azure DevOps git eller GitHub |
 | **Azure Active Directory** | Ditt Azure AD-klient namn. | `<your tenant name>` |
@@ -114,7 +114,7 @@ I konfigurations fönstret visas följande inställningar för GitHub-lagringspl
 |:--- |:--- |:--- |
 | **Typ av databas** | Typen av Azure databaser Code-lagringsplatsen. | GitHub |
 | **Använda GitHub Enterprise** | Kryss ruta för att välja GitHub Enterprise | omarkerat (standard) |
-| **GitHub Enterprise-URL** | GitHub Enterprise-rot-URL (måste vara HTTPS för den lokala GitHub Enterprise Server). Till exempel: `https://github.mydomain.com`. Krävs endast om **Använd GitHub Enterprise** är valt | `<your GitHub enterprise url>` |                                                           
+| **GitHub Enterprise-URL** | GitHub Enterprise-rot-URL (måste vara HTTPS för den lokala GitHub Enterprise Server). Exempel: `https://github.mydomain.com`. Krävs endast om **Använd GitHub Enterprise** är valt | `<your GitHub enterprise url>` |                                                           
 | **GitHub-konto** | Namnet på GitHub-kontot. Det här namnet kan hittas från https: \/ /GitHub.com/{account Name}/{repository Name}. Om du navigerar till den här sidan uppmanas du att ange GitHub OAuth-autentiseringsuppgifter för ditt GitHub-konto. | `<your GitHub account name>` |
 | **Namn på databas**  | Ditt GitHub kod lagrings namn. GitHub-konton innehåller git-databaser för att hantera din käll kod. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i ditt konto. | `<your repository name>` |
 | **Samarbets gren** | Din GitHub Collaboration-gren som används för publicering. Som standard är originalet. Ändra den här inställningen om du vill publicera resurser från en annan gren. | `<your collaboration branch>` |
@@ -217,6 +217,11 @@ Om publicerings grenen inte är synkroniserad med samarbets grenen och innehåll
 
 1. Skapa en pull-begäran för att slå samman ändringarna i samarbets grenen 
 
+## <a name="unsupported-features"></a>Funktioner som inte stöds
+
+- Synapse Studio tillåter inte körsbär-plockning av incheckningar eller selektiv publicering av resurser. 
+- Synapse Studio stöder inte ett anpassat inchecknings meddelande.
+- Efter design kommer borttagnings åtgärder i Studio att allokeras till git direkt
 
 ## <a name="next-steps"></a>Nästa steg
 

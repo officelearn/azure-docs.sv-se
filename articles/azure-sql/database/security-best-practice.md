@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: b309ce01595e2e62bea7f78ae728d83bc7d9b9be
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 803c9a98f0dc10ff8218ac7b7c20dcb117700034
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992173"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187110"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -614,7 +614,7 @@ DDoS-attacker (distributed denial of Service) försöker av en obehörig använd
 
 DDoS Protection aktive ras automatiskt som en del av Azure-plattformen. Det omfattar alltid trafik övervakning och real tids minskning av attacker på nätverks nivå på offentliga slut punkter.
 
-- Använd [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md) för att övervaka offentliga IP-adresser som är kopplade till resurser som har distribuerats i virtuella nätverk.
+- Använd [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) för att övervaka offentliga IP-adresser som är kopplade till resurser som har distribuerats i virtuella nätverk.
 
 - Använd [Avancerat skydd för Azure SQL Database](threat-detection-overview.md) för att identifiera DOS-attacker (Denial of Service) mot databaser.
 

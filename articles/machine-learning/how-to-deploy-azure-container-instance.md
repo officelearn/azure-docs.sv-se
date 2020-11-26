@@ -11,15 +11,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 580459f3a5da8485bd92395f9b0b9745e28c023c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a0e9401842284cad29b297be5ce572fa53cfe774
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325254"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188096"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Distribuera en modell till Azure Container Instances
-
 
 Lär dig hur du använder Azure Machine Learning för att distribuera en modell som en webb tjänst på Azure Container Instances (ACI). Använd Azure Container Instances om något av följande villkor är uppfyllt:
 
@@ -29,7 +28,7 @@ Lär dig hur du använder Azure Machine Learning för att distribuera en modell 
 Information om kvot-och regions tillgänglighet för ACI finns i [kvoter och regions tillgänglighet för Azure Container instances](../container-instances/container-instances-quotas.md) artikel.
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att felsöka lokalt innan du distribuerar till webb tjänsten. mer information finns i [Felsöka lokalt](./how-to-troubleshoot-deployment.md#debug-locally)
+> Vi rekommenderar starkt att felsöka lokalt innan du distribuerar till webb tjänsten. mer information finns i [Felsöka lokalt](./how-to-troubleshoot-deployment-local.md)
 >
 > Du kan också läsa Azure Machine Learning – [Distribuera till lokal notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 

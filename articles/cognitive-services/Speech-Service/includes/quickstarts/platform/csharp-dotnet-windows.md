@@ -12,17 +12,17 @@ ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: f63c97fd23d56ff508de8d5953eefac6b15ae1aa
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097073"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188457"
 ---
 Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för .NET Framework (Windows). Om du bara vill att paket namnet ska komma igång med ditt eget kör `Install-Package Microsoft.CognitiveServices.Speech` du i NuGet-konsolen.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -40,7 +40,7 @@ Du måste installera [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)
 
 1. Välj **konsol program (.NET Framework)** i fönstret **skapa ett nytt projekt** och välj sedan **Nästa**.
 
-1. I fönstret **Konfigurera ditt nya projekt** anger du *HelloWorld* i **projekt namn**, väljer eller skapar sökvägen till katalogen på **platsen**och väljer sedan **skapa**.
+1. I fönstret **Konfigurera ditt nya projekt** anger du *HelloWorld* i **projekt namn**, väljer eller skapar sökvägen till katalogen på **platsen** och väljer sedan **skapa**.
 
 1. I meny raden i Visual Studio väljer du **verktyg**  >  **Hämta verktyg och funktioner**, som öppnar Visual Studio Installer och visar dialog rutan **ändra** .
 
@@ -76,7 +76,7 @@ Du måste installera [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)
 
 Skapa och kör konsol programmet genom att skapa en plattforms konfiguration som matchar datorns arkitektur.
 
-1. Välj **build**  >  **Configuration Manager**på Meny raden. Dialog rutan **Configuration Manager** visas.
+1. Välj **build**  >  **Configuration Manager** på Meny raden. Dialog rutan **Configuration Manager** visas.
 
    ![Configuration Manager dialog ruta](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 

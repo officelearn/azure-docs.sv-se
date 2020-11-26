@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.custom: seo-nov-2020
-ms.openlocfilehash: f698c1ac7ab3ad2dbd86710bea9a48d962603d86
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 23401885580a3883dc49eccc97c17bbedd9080ab
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334660"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187331"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,34 +31,34 @@ För att hantera och planera kapacitet ser Azure Cosmos DB till att antalet RU:e
 
 Vilken typ av Azure Cosmos-konto du använder avgör hur förbrukade ru: er får debiteras. Det finns tre lägen där du kan skapa ett konto:
 
-1. **Etablerat data flödes läge** : i det här läget etablerar du antalet ru: er för ditt program per sekund i steg om 100 ru: er per sekund. Om du vill skala det etablerade data flödet för ditt program kan du när som helst öka eller minska antalet ru: er i steg om eller minskningar av 100 ru: er. Du kan göra ändringarna med hjälp av programmering eller via Azure-portalen. Du debiteras per timme för den mängd ru: er per sekund som du har etablerad. Mer information finns i artikeln om [etablerade data flöden](set-throughput.md) .
+1. **Etablerat data flödes läge**: i det här läget etablerar du antalet ru: er för ditt program per sekund i steg om 100 ru: er per sekund. Om du vill skala det etablerade data flödet för ditt program kan du när som helst öka eller minska antalet ru: er i steg om eller minskningar av 100 ru: er. Du kan göra ändringarna med hjälp av programmering eller via Azure-portalen. Du debiteras per timme för den mängd ru: er per sekund som du har etablerad. Mer information finns i artikeln om [etablerade data flöden](set-throughput.md) .
 
    Du kan etablera data flöde med två olika granularitet:
 
-   * **Behållare** : Mer information finns i [etablera data flöde på en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
-   * **Databaser** : Mer information finns i [etablera data flöde på en Azure Cosmos-databas](how-to-provision-database-throughput.md).
+   * **Behållare**: Mer information finns i [etablera data flöde på en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
+   * **Databaser**: Mer information finns i [etablera data flöde på en Azure Cosmos-databas](how-to-provision-database-throughput.md).
 
-2. **Läge utan server** : i det här läget behöver du inte etablera några data flöden när du skapar resurser i ditt Azure Cosmos-konto. I slutet av fakturerings perioden debiteras du för den mängd enheter för programbegäran som har använts av databas åtgärderna. Mer information finns i artikeln om [data flöde utan server](serverless.md) . 
+2. **Läge utan server**: i det här läget behöver du inte etablera några data flöden när du skapar resurser i ditt Azure Cosmos-konto. I slutet av fakturerings perioden debiteras du för den mängd enheter för programbegäran som har använts av databas åtgärderna. Mer information finns i artikeln om [data flöde utan server](serverless.md) . 
 
-3. **Autoskalning-läge** : i det här fallet kan du automatiskt och snabbt skala data flödet (ru/s) i din databas eller behållare baserat på dess användning, utan att påverka tillgänglighet, svars tid, data flöde eller prestanda för arbets belastningen. Det här läget passar bra för verksamhets kritiska arbets belastningar som har varierande eller oförutsägbara trafik mönster, och kräver service avtal för hög prestanda och skalning. Mer information finns i artikeln om [autoskalning av data flöde](provision-throughput-autoscale.md) . 
+3. **Autoskalning-läge**: i det här läget kan du automatiskt och skala data flödet (ru/s) i din databas eller behållare baserat på dess användning, utan att påverka tillgänglighet, svars tid, data flöde eller prestanda för arbets belastningen. Det här läget passar bra för verksamhets kritiska arbets belastningar som har varierande eller oförutsägbara trafik mönster, och kräver service avtal för hög prestanda och skalning. Mer information finns i artikeln om [autoskalning av data flöde](provision-throughput-autoscale.md) . 
 
 ## <a name="request-unit-considerations"></a>Överväganden för enhet för programbegäran
 
 När du uppskattar antalet ru: er som konsumeras av arbets belastningen bör du tänka på följande faktorer:
 
-* **Objektstorlek** : När storleken på ett objekt ökar, ökar även antalet enheter för programbegäran som används för att läsa eller skriva objektet.
+* **Objektstorlek**: När storleken på ett objekt ökar, ökar även antalet enheter för programbegäran som används för att läsa eller skriva objektet.
 
-* **Objektindexering** : Som standard indexeras alla objekt automatiskt. Färre enheter för programbegäran används om du väljer att inte indexera vissa av objekten i en container.
+* **Objektindexering**: Som standard indexeras alla objekt automatiskt. Färre enheter för programbegäran används om du väljer att inte indexera vissa av objekten i en container.
 
-* **Antal objektegenskaper** : Om standardindexering används för alla egenskaper ökar det antal enheter för programbegäran som används för att skriva ett objekt allt eftersom antalet objektegenskaper ökar.
+* **Antal objektegenskaper**: Om standardindexering används för alla egenskaper ökar det antal enheter för programbegäran som används för att skriva ett objekt allt eftersom antalet objektegenskaper ökar.
 
-* **Indexerade egenskaper** : En indexeringsprincip för varje container avgör vilka egenskaper som indexeras som standard. Om du vill minska förbrukningen av enheter för programbegäran för skrivåtgärder bör du begränsa antalet indexerade egenskaper.
+* **Indexerade egenskaper**: En indexeringsprincip för varje container avgör vilka egenskaper som indexeras som standard. Om du vill minska förbrukningen av enheter för programbegäran för skrivåtgärder bör du begränsa antalet indexerade egenskaper.
 
-* **Data konsekvens** : de starka och gränsade inaktuella konsekvens nivåerna förbrukar ungefär två gånger mer ru: er medan Läs åtgärder utförs jämfört med andra avslappnade konsekvens nivåer.
+* **Data konsekvens**: de starka och gränsade inaktuella konsekvens nivåerna förbrukar ungefär två gånger mer ru: er medan Läs åtgärder utförs jämfört med andra avslappnade konsekvens nivåer.
 
-* **Typ av läsningar** : Poäng läsningar kostar betydligt färre ru: er än frågor.
+* **Typ av läsningar**: Poäng läsningar kostar betydligt färre ru: er än frågor.
 
-* **Frågemönster** : Komplexiteten i en fråga påverkar hur många enheter för programbegäran som förbrukas för en åtgärd. Faktorer som påverkar kostnaden för frågeåtgärder omfattar: 
+* **Frågemönster**: Komplexiteten i en fråga påverkar hur många enheter för programbegäran som förbrukas för en åtgärd. Faktorer som påverkar kostnaden för frågeåtgärder omfattar: 
  
   * Antalet frågeresultat
   * Antalet predikat
@@ -70,7 +70,7 @@ När du uppskattar antalet ru: er som konsumeras av arbets belastningen bör du 
 
   Samma fråga på samma data kostar alltid att ha samma antal ru: er vid upprepade körningar.
 
-* **Skript användning** : som med frågor, lagrade procedurer och utlösare använder ru: er baserat på komplexiteten för de åtgärder som utförs. När du utvecklar ditt program kan du läsa [rubriken för begärandekostnad](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request) för att få mer information om hur mycket RU-kapacitet varje åtgärd förbrukar.
+* **Skript användning**: som med frågor, lagrade procedurer och utlösare använder ru: er baserat på komplexiteten för de åtgärder som utförs. När du utvecklar ditt program kan du läsa [rubriken för begärandekostnad](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request) för att få mer information om hur mycket RU-kapacitet varje åtgärd förbrukar.
 
 ## <a name="request-units-and-multiple-regions"></a>Enheter för programbegäran och flera regioner
 
@@ -78,7 +78,7 @@ Om du etablerar *r* -ru: er på en Cosmos-behållare (eller databas) säkerstäl
 
 Förutsatt att en Cosmos-behållare har kon figurer ATS med *"R"* -ru: er och det finns *' N '* regioner kopplade till Cosmos-kontot, är det totala antalet tillgängliga ru: er globalt på behållaren = *R* x *N*.
 
-Ditt val av [konsekvens modell](consistency-levels.md) påverkar också data flödet. Du kan få ungefär dubbelt dubbelt läsnings data flöde för mer avslappnad konsekvens nivåer (t. ex. *session* , *konsekvent prefix* och *eventuell* konsekvens) jämfört med starkare konsekvens nivåer (t. ex. *avgränsad föråldrad* eller *stark* konsekvens).
+Ditt val av [konsekvens modell](consistency-levels.md) påverkar också data flödet. Du kan få ungefär dubbelt dubbelt läsnings data flöde för mer avslappnad konsekvens nivåer (t. ex. *session*, *konsekvent prefix* och *eventuell* konsekvens) jämfört med starkare konsekvens nivåer (t. ex. *avgränsad föråldrad* eller *stark* konsekvens).
 
 ## <a name="next-steps"></a>Nästa steg
 

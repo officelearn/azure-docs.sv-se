@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 2a19183f5ba5b1ea4d50cd5cfba6115f7dede6cd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1d3a7be429f730dd4dbd71bade1e3e51ea73c10f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540054"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188657"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräkningsmål i Azure Machine Learning?
 
@@ -119,6 +119,12 @@ I följande tabell finns mer information om vilka serier och begränsningar som 
 
 
 Även om Azure Machine Learning stöder dessa VM-serier är de kanske inte tillgängliga i alla Azure-regioner. Information om hur du kontrollerar om VM-serien är tillgänglig finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+
+> [!NOTE]
+> Azure Machine Learning stöder inte alla VM-storlekar som stöds av Azure Compute. Använd någon av följande metoder för att visa en lista över tillgängliga VM-storlekar:
+> * [REST-API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
+> * [Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+>
 
 ### <a name="compute-isolation"></a>Beräknings isolering
 

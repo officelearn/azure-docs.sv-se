@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.openlocfilehash: 3827fa7a98cef9358db0ee102925586bce97fae6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965246"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188691"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program med flera SID-guide
 
@@ -179,7 +179,7 @@ I det här exemplet antar vi att system- **NW1** redan har distribuerats i klust
 
 Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
 
-### <a name="prerequisites"></a>Krav 
+### <a name="prerequisites"></a>Förutsättningar 
 
 > [!IMPORTANT]
 > Innan du följer anvisningarna för att distribuera ytterligare SAP-system i klustret, följer du anvisningarna för att distribuera det första SAP-systemet i klustret, eftersom det finns steg som bara behövs under den första system distributionen.  

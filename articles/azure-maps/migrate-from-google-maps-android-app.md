@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d7ec1edb779ddaf53cef02dd6e83bb3e719d0b4e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b096b24acd5cf65f6ad3e9eabb1d536b3aae0168
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503563"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187076"
 ---
 # <a name="tutorial---migrate-an-android-app-from-google-maps"></a>Självstudie – migrera en Android-app från Google Maps
 
@@ -35,7 +35,7 @@ Mer information om hur du utvecklar med Android SDK genom att Azure Maps finns i
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 2. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
 3. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
@@ -769,7 +769,7 @@ Läs mer om Azure Maps Android SDK:
 > [Lägga till ett symbol lager i en Android-karta](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Lägga till former i en Android-karta](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Lägga till former i en Android-karta](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Ändra kart format i Android Maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Ändra kart format i Android Maps](./set-android-map-styles.md)

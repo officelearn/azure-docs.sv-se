@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: fb7a32199117be76e411155910d558ef187398ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6cc9c6af4592956b6498e826ef65b556e5780f34
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91448254"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186838"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Samla in data från en virtuell Azure-dator med Azure Monitor
 
@@ -30,7 +30,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
     ![Azure Portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
-2. Välj **skapa**och välj sedan alternativ för följande objekt:
+2. Välj **skapa** och välj sedan alternativ för följande objekt:
 
    * Ange ett namn för den nya **Log Analytics-arbetsytan**, som *DefaultLAWorkspace*.  
    * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
@@ -117,7 +117,7 @@ Azure Monitor kan samla in händelser från Windows-händelseloggen eller Linux 
 
 Nu när du har aktiverat insamling av data kan du köra en enkel loggsökning för att se vissa data från de virtuella måldatorerna.  
 
-1. I den valda arbets ytan väljer du **loggar**i den vänstra rutan.
+1. I den valda arbets ytan väljer du **loggar** i den vänstra rutan.
 
 2. På sidan loggar fråga skriver `Perf` du i Frågeredigeraren och väljer **Kör**.
 
@@ -141,4 +141,4 @@ Nu när du kan samla in funktions- och prestandadata från dina virtuella Window
 Om du vill lära dig hur du visar och analyserar data kan du fortsätta till självstudiekursen.
 
 > [!div class="nextstepaction"]
-> [Visa eller analysera data i Log Analytics](../log-query/get-started-portal.md)
+> [Visa eller analysera data i Log Analytics](../log-query/log-analytics-tutorial.md)

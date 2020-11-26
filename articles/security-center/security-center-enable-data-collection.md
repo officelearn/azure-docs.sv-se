@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 7d96b03598f90b45b7ecf88027be7408d8f161ea
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 53130e395995b3533a45a96f897a0c6bcf1e4c71
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638775"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187195"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Automatiska etablerings agenter och tillägg från Azure Security Center
 
@@ -24,7 +24,7 @@ Data insamling krävs för att ge insyn i saknade uppdateringar, felkonfigurerad
 Data samlas in med:
 
 - **Log Analytics agenten** läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Exempel på sådana data är: operativ systemets typ och version, operativ system loggar (Windows-händelseloggar), processer som körs, dator namn, IP-adresser och inloggad användare.
-- **Säkerhets tillägg** , till exempel [Azure policy-tillägg för Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), som också kan tillhandahålla data för att Security Center om specialiserade resurs typer.
+- **Säkerhets tillägg**, till exempel [Azure policy-tillägg för Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), som också kan tillhandahålla data för att Security Center om specialiserade resurs typer.
 
 > [!TIP]
 > Som Security Center har växt, har de typer av resurser som kan övervakas också växt. Antalet tillägg har också växt. Automatisk etablering har utökats för att stödja ytterligare resurs typer genom att använda funktionerna i Azure Policy.
@@ -232,7 +232,7 @@ Om den konfigurerade arbets ytan är en användar arbets yta (inte Security Cent
   
 - **System Center Operations Manager agenten är installerad på datorn** – Security Center kommer att installera Log Analytics agent-tillägget vid sidan av den befintliga Operations Manager. Den befintliga Operations Manager-agenten fortsätter att rapportera till Operations Manager servern på normalt sätt. Den Operations Manager agenten och Log Analytics agent delar vanliga kör tids bibliotek, som kommer att uppdateras till den senaste versionen under den här processen. Om Operations Manager agent version 2012 är installerad ska **du inte** aktivera automatisk etablering.
 
-- **Det finns redan ett befintligt VM-tillägg** :
+- **Det finns redan ett befintligt VM-tillägg**:
     - När övervaknings agenten installeras som ett tillägg tillåter tilläggs konfigurationen rapportering till endast en enda arbets yta. Security Center åsidosätter inte befintliga anslutningar till användar arbets ytor. Security Center kommer att lagra säkerhets data från den virtuella datorn i arbets ytan som redan är ansluten, förutsatt att lösningen "säkerhet" eller "securityFree" har installerats på den. Security Center kan uppgradera tilläggs versionen till den senaste versionen i den här processen.  
     - Om du vill se vilken arbets yta som det befintliga tillägget skickar data till kör du testet för att [Verifiera anslutningen med Azure Security Center](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Du kan också öppna Log Analytics arbets ytor, välja en arbets yta, välja den virtuella datorn och titta på Log Analytics agent-anslutningen. 
     - Om du har en miljö där Log Analytics-agenten är installerad på klient arbets stationer och rapporterar till en befintlig Log Analytics arbets yta, granskar du listan över [operativ system som stöds av Azure Security Center](security-center-os-coverage.md) för att kontrol lera att operativ systemet stöds. Mer information finns i [befintliga Log Analytics-kunder](./faq-azure-monitor-logs.md).

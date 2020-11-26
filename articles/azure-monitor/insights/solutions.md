@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c38fa77951aaeb5559dc2030f1401a896d7c238d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f9ced3dfeccdbac5f0eb220cf0e104679f263aac
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841928"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186872"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Övervaknings lösningar i Azure Monitor
 
@@ -29,7 +29,7 @@ Använd List rutorna längst upp på skärmen för att ändra arbets ytan eller 
 
 [![Skärm bild som visar Azure Portal menyn med lösningar som har valts och lösningar som visas i fönstret lösningar.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
-Övervaknings lösningar kan innehålla flera typer av Azure-resurser och du kan visa alla resurser som ingår i en lösning precis som andra resurser. Till exempel visas alla logg frågor som ingår i lösningen under **lösnings frågor** i [query Explorer](../log-query/get-started-portal.md#load-queries) . du kan använda dessa frågor när du utför ad hoc-analyser med [logg frågor](../log-query/log-query-overview.md).
+Övervaknings lösningar kan innehålla flera typer av Azure-resurser och du kan visa alla resurser som ingår i en lösning precis som andra resurser. Alla logg frågor som ingår i lösningen visas till exempel under **lösnings frågor** i [query Explorer](../log-query/log-analytics-tutorial.md). Du kan använda dessa frågor när du utför ad hoc-analys med [logg frågor](../log-query/log-query-overview.md).
 
 ## <a name="list-installed-monitoring-solutions"></a>Lista installerade övervaknings lösningar
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b684123068889e422080605fb9c50ef9aed0cb76
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e446ec08d63c44566b2f45c1427999536d0be703
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630166"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188725"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Felsöka Azure Files problem i Windows (SMB)
 
@@ -176,7 +176,7 @@ Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurera
 Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtkomst kontroll (IAM)** och kontrol lera att ditt användar konto har åtkomst till lagrings kontot. Mer information finns i [så här skyddar du ditt lagrings konto med rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
-## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Det går inte att ta bort en fil eller katalog i en Azure-filresurs
+## <a name="unable-to-modify-moverename-or-delete-a-file-or-directory"></a>Det går inte att ändra, flytta/byta namn på eller ta bort en fil eller katalog
 Ett av nyckel syftet med en fil resurs är att flera användare och program samtidigt kan interagera med filer och kataloger i resursen. För att hjälpa till med den här interaktionen ger fil resurser flera sätt att åtgärda åtkomst till filer och kataloger.
 
 När du öppnar en fil från en monterad Azure-filresurs via SMB begär ditt program/operativ system en fil referens, som är en referens till filen. Bland annat anger ditt program ett fildelnings läge när det begär en fil referens, som anger exklusivitet för din åtkomst till filen som tillämpas av Azure Files: 

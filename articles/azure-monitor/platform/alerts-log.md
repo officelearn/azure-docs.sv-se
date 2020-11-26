@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 61aba3e5792d1cc20da16686d052de91744dab76
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018213"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186787"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, Visa och hantera logg aviseringar med Azure Monitor
 
 ## <a name="overview"></a>Översikt
 
-Logg aviseringar gör att användare kan använda en [Log Analytics](../log-query/get-started-portal.md) fråga för att utvärdera resurser loggar varje uppsättnings frekvens och utlösa en avisering baserat på resultaten. Regler kan utlösa en eller flera åtgärder med hjälp av [Åtgärds grupper](./action-groups.md). [Lär dig mer om funktioner och terminologi för logg aviseringar](alerts-unified-log.md).
+Logg aviseringar gör att användare kan använda en [Log Analytics](../log-query/log-analytics-tutorial.md) fråga för att utvärdera resurser loggar varje uppsättnings frekvens och utlösa en avisering baserat på resultaten. Regler kan utlösa en eller flera åtgärder med hjälp av [Åtgärds grupper](./action-groups.md). [Lär dig mer om funktioner och terminologi för logg aviseringar](alerts-unified-log.md).
 
 Den här artikeln visar hur du skapar och hanterar logg aviseringar med hjälp av Azure Monitor. Varnings regler definieras av tre komponenter:
 - Mål: en specifika Azure-resurs som ska övervakas.
@@ -27,7 +27,7 @@ Den här artikeln visar hur du skapar och hanterar logg aviseringar med hjälp a
 Du kan också skapa logg aviserings regler med Azure Resource Manager mallar, som beskrivs i [en separat artikel](alerts-log-create-templates.md).
 
 > [!NOTE]
-> Loggdata från en [Log Analytics arbets yta](../log-query/get-started-portal.md) kan skickas till Azure Monitor Metrics-lagret. Mått aviseringar har [olika beteende](alerts-metric-overview.md), vilket kan vara mer önskvärt beroende på vilka data du arbetar med. Information om vad och hur du kan skicka loggar till mått finns i [mått avisering för loggar](alerts-metric-logs.md).
+> Loggdata från en [Log Analytics arbets yta](../log-query/log-analytics-tutorial.md) kan skickas till Azure Monitor Metrics-lagret. Mått aviseringar har [olika beteende](alerts-metric-overview.md), vilket kan vara mer önskvärt beroende på vilka data du arbetar med. Information om vad och hur du kan skicka loggar till mått finns i [mått avisering för loggar](alerts-metric-logs.md).
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Skapa en logg varnings regel med Azure Portal
 
@@ -35,7 +35,7 @@ Här är stegen för att komma igång med att skriva frågor för aviseringar:
 
 1. Gå till den resurs som du vill Avisera om.
 1. Under **övervaka** väljer du **loggar**.
-1. Efterfråga de loggdata som kan indikera problemet. Du kan använda [aviserings frågans exempel ämne](../log-query/saved-queries.md) för att förstå vad du kan identifiera eller [komma igång med att skriva en egen fråga](../log-query/get-started-portal.md). Du kan också [lära dig hur du skapar optimerade aviseringsfrågor](alerts-log-query.md).
+1. Efterfråga de loggdata som kan indikera problemet. Du kan använda [aviserings frågans exempel ämne](../log-query/example-queries.md) för att förstå vad du kan identifiera eller [komma igång med att skriva en egen fråga](../log-query/log-analytics-tutorial.md). Du kan också [lära dig hur du skapar optimerade aviseringsfrågor](alerts-log-query.md).
 1. Tryck på knappen + Ny varnings regel för att starta flödet för att skapa aviseringar.
 
     ![Log Analytics-Ställ in avisering](media/alerts-log/AlertsAnalyticsCreate.png)
@@ -55,7 +55,7 @@ Här är stegen för att komma igång med att skriva frågor för aviseringar:
 
 1. Logg aviseringar kan baseras på två typer av [**mått**](alerts-unified-log.md#measure):
     1. **Antal resultat** – antalet poster som returneras av frågan.
-    1. **Mått mått**  -  *Sammanställt värde* som beräknas med sammanfatta grupperat efter uttrycks val och [bin ()](/azure/kusto/query/binfunction) . Exempel:
+    1. **Mått mått**  -  *Sammanställt värde* som beräknas med sammanfatta grupperat efter uttrycks val och [bin ()](/azure/kusto/query/binfunction) . Ett exempel:
 
     ```Kusto
     // Reported errors
@@ -327,4 +327,3 @@ Vid lyckad generering returneras 201. Vid lyckad uppdatering returneras 200.
 * Skapa logg aviseringar med [Azure Resource Manager mallar](./alerts-log-create-templates.md).
 * Förstå [webhook-åtgärder för logg aviseringar](./alerts-log-webhook.md).
 * Läs mer om [logg frågor](../log-query/log-query-overview.md).
-

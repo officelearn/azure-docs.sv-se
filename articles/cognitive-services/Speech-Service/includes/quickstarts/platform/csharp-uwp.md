@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: 67e08abc9d66d69628e923cdb6b39073a0705b2f
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097022"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188361"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för C# universell Windows-plattform (UWP). Om du bara vill att paket namnet ska komma igång med ditt eget kör `Install-Package Microsoft.CognitiveServices.Speech` du i NuGet-konsolen.
 
@@ -24,7 +24,7 @@ Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-servic
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 

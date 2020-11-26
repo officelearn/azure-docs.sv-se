@@ -12,17 +12,17 @@ ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-js
 ms.openlocfilehash: 79320144264766a504a71c554c2a138779c55331
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097141"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188409"
 ---
 Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för Java Script för användning med NodeJS. Om du bara vill att paket namnet ska komma igång på egen hand kan du köra `npm install microsoft-cognitiveservices-speech-sdk` det från ditt befintliga projekt.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 

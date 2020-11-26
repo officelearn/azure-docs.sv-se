@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d7bb697879f40b45c886cd90bbb1e34906d35f66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530513"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187382"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Ta emot och svara på meddelanden om nyckel valv med Azure Event Grid
 
@@ -25,7 +25,7 @@ I den här guiden beskrivs hur du tar emot Key Vault-meddelanden via Event Grid 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - Ett nyckel valv i din Azure-prenumeration. Du kan snabbt skapa ett nytt nyckel valv genom att följa stegen i [Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure CLI](../secrets/quick-create-cli.md).
 
 ## <a name="concepts"></a>Begrepp
@@ -133,7 +133,7 @@ Skapa en Event Grid-prenumeration via [Azure Portal](https://portal.azure.com).
 
 1.  **Ämnes resurs** ska vara det nyckel valv som du vill övervaka för status ändringar.
 
-1.  För **filtrera till händelse typer låter du**alla alternativ vara markerade (**9 valda**).
+1.  För **filtrera till händelse typer låter du** alla alternativ vara markerade (**9 valda**).
 
 1.  Som **Typ av slutpunkt** väljer du **Webhook**.
 

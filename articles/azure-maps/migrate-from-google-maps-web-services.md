@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f97d04ca40e69ba2516744adfc9f1f455cba97c0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0bb252e227e4f23388929f2fca18769e0bd02e19
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896352"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187042"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Självstudie – migrera webb tjänsten från Google Maps
 
@@ -116,7 +116,7 @@ Den här tabellen kors referenser till Google Maps API-parametrar med jämförba
 | `key`                       | `subscription-key` – Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
 | `language`                  | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .  |
 | `latlng`                    | `query`  |
-| `location_type`             | *Saknas*     |
+| `location_type`             | *E.t.*     |
 | `result_type`               | `entityType`    |
 
 Granska [metod tips för sökning](how-to-use-best-practices-for-search.md).
@@ -132,7 +132,7 @@ Azure Maps omvänte-API för omväntitet har vissa ytterligare funktioner som in
 Du kan söka efter intressanta data i Google Maps med platser Sök-API. Detta API tillhandahåller tre olika sätt att söka efter intressanta punkter:
 
 - **Hitta plats från text:** Söker efter en orienterings punkt baserat på dess namn, adress eller telefonnummer.
-- **Närliggande sökning** : söker efter anslags punkter som ligger inom ett visst avstånd från en plats.
+- **Närliggande sökning**: söker efter anslags punkter som ligger inom ett visst avstånd från en plats.
 - **Texts ökning:** Söker efter platser med hjälp av en fri Forms text som innehåller orienterings punkt och plats information. Till exempel "pizza i New York" eller "restauranger nära Main St".
 
 Azure Maps tillhandahåller flera Sök-API: er för intressanta punkter:
@@ -160,9 +160,9 @@ Tabellen kors refererar till Google Maps API-parametrar med de jämförbara Azur
 
 | Google Maps API-parameter | Jämförbar Azure Maps API-parameter |
 |---------------------------|-------------------------------------|
-| `fields`                  | *Saknas*                               |
+| `fields`                  | *E.t.*                               |
 | `input`                   | `query`                             |
-| `inputtype`               | *Saknas*                               |
+| `inputtype`               | *E.t.*                               |
 | `key`                     | `subscription-key` – Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
 | `language`                | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .  |
 | `locationbias`            | `lat`, `lon` och `radius`<br/>`topLeft` och `btmRight`<br/>`countrySet`  |
@@ -179,13 +179,13 @@ I tabellen visas Google Maps API-parametrar med de jämförbara Azure Maps API-p
 | `keyword`                   | `categorySet` och `brandSet`        |
 | `language`                  | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .  |
 | `location`                  | `lat` och `lon`                     |
-| `maxprice`                  | *Saknas*                               |
-| `minprice`                  | *Saknas*                               |
+| `maxprice`                  | *E.t.*                               |
+| `minprice`                  | *E.t.*                               |
 | `name`                      | `categorySet` och `brandSet`        |
-| `opennow`                   | *Saknas*                               |
+| `opennow`                   | *E.t.*                               |
 | `pagetoken`                 | `ofs` och `limit`                   |
 | `radius`                    | `radius`                            |
-| `rankby`                    | *Saknas*                               |
+| `rankby`                    | *E.t.*                               |
 | `type`                      | `categorySet –` Se dokumentation om [Sök kategorier som stöds](supported-search-categories.md) .   |
 
 ## <a name="calculate-routes-and-directions"></a>Beräkna vägar och vägbeskrivningar
@@ -265,10 +265,10 @@ Tabellen kors refererar till Google Maps API-parametrar med de jämförbara API-
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
 | `region`                    | *Ej tillämpligt* – det här är en funktion för att koda en funktion. Använd `countrySet` parametern när du använder API: et för Azure Maps-kodning.  |
-| `scale`                     | *Saknas*                              |
+| `scale`                     | *E.t.*                              |
 | `size`                      | `width` och `height` – kan vara upp till 8192x8192 i storlek. |
-| `style`                     | *Saknas*                              |
-| `visible`                   | *Saknas*                              |
+| `style`                     | *E.t.*                              |
+| `visible`                   | *E.t.*                              |
 | `zoom`                      | `zoom`                             |
 
 > [!NOTE]
@@ -337,7 +337,7 @@ I Azure Maps måste PIN-platsen vara i formatet "longitud latitud". Google Maps 
 - `custom` – Anger att en anpassad ikon ska användas. En URL som pekar på ikon bilden kan läggas till i slutet av `pins` parametern efter PIN-kodens plats information.
 - `{udid}` – Ett unikt data-ID (UDID) för en ikon som lagras i Azure Maps data lagrings plattform.
 
-Lägg till PIN-format med `optionNameValue` formatet. Separera flera format med pipe ( \| )-tecknen. Till exempel `iconType|optionName1Value1|optionName2Value2`. Alternativ namn och värden är inte separerade. Använd följande format alternativ namn till format markörer:
+Lägg till PIN-format med `optionNameValue` formatet. Separera flera format med pipe ( \| )-tecknen. Exempel: `iconType|optionName1Value1|optionName2Value2`. Alternativ namn och värden är inte separerade. Använd följande format alternativ namn till format markörer:
 
 - `al` – Anger markörens opacitet (alfa). Välj ett tal mellan 0 och 1.
 - `an` – Anger fäst punkten. Ange X-och y-pixelvärdena i formatet "X y".
@@ -501,10 +501,10 @@ Läs mer om Azure Maps REST-tjänster:
 > [Metod tips för routning](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
-> [Dokumentation om Azure Maps REST service API-referens](https://docs.microsoft.com/rest/api/maps/)
+> [Dokumentation om Azure Maps REST service API-referens](/rest/api/maps/)
 
 > [!div class="nextstepaction"]
-> [Kodexempel](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Kodexempel](/samples/browse/?products=azure-maps)
 
 > [!div class="nextstepaction"]
 > [Så här använder du modulen tjänster (Web SDK)](how-to-use-best-practices-for-routing.md)

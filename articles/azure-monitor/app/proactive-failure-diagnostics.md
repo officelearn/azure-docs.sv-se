@@ -4,12 +4,12 @@ description: Varnar dig om ovanliga ändringar av antalet misslyckade förfrågn
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 0f93c7b185b292f8d9792a11807b7c99ad846d37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 329f5bc6f5c3523bc76876f946474eaeb897cfe9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565845"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186974"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart identifiering – fel avvikelser
 [Application Insights](./app-insights-overview.md) automatiskt varna dig i nära real tid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en ovanlig ökning i frekvensen av HTTP-begäranden eller beroende anrop som rapporteras som misslyckade. För förfrågningar har misslyckade förfrågningar vanligt vis svars koder på 400 eller högre. För att hjälpa dig att prioritering och diagnostisera problemet finns en analys av egenskaperna för fel och relaterade program data i aviserings informationen. Det finns också länkar till Application Insights Portal för ytterligare diagnos. Funktionen behöver inte konfigureras eller konfigureras eftersom den använder Machine Learning-algoritmer för att förutsäga den normala felfrekvensen.
@@ -60,7 +60,7 @@ Aviseringarna utlöses av vår leverantörsspecifika Machine Learning-algoritm s
 * Det finns logik som automatiskt kan lösa det utlösma aviserings övervaknings villkoret, om problemet inte längre upptäcks i 8-24 timmar.
   Obs: i den aktuella designen. ett meddelande eller en åtgärd skickas inte när en avisering om Smart identifiering har åtgärd ATS. Du kan kontrol lera om en avisering om Smart identifiering har lösts i Azure Portal.
 
-## <a name="configure-alerts"></a>Konfigurera aviseringar
+## <a name="configure-alerts"></a>Konfigurera varningar
 
 Du kan inaktivera aviserings regeln för smart identifiering från portalen eller använda Azure Resource Manager ([se mall exempel](./proactive-arm-config.md)).
 
@@ -73,11 +73,11 @@ Den här varnings regeln skapas med en associerad [Åtgärds grupp](../platform/
 
 Öppna sidan aviseringar. Aviserings regler för fel avvikelser inkluderas tillsammans med eventuella aviseringar som du har angett manuellt, och du kan se om det är i aviserings tillstånd.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Exempel på Smart identifierings avisering som visar kluster analys kring fel." lightbox="./media/proactive-failure-diagnostics/021.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="På sidan Application Insights resurs klickar du på panelen aviseringar och hanterar sedan aviserings regler." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Klicka på aviseringen för att konfigurera den.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Exempel på Smart identifierings avisering som visar kluster analys kring fel." lightbox="./media/proactive-failure-diagnostics/032.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Regel konfigurations skärmen." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Observera att du kan inaktivera eller ta bort en varnings regel för fel avvikelser, men du kan inte skapa en annan på samma Application Insights-resurs.
 
@@ -299,7 +299,7 @@ Du kan också öppna [Azure Portal](https://portal.azure.com), navigera till App
 
 Om du klickar på diagnostisera fel får du mer information och kan lösa problemet.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Exempel på Smart identifierings avisering som visar kluster analys kring fel." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Diagnostisk sökning." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 I procent av begär Anden och antalet användare som påverkas kan du bestämma hur brådskande problemet är. I exemplet ovan jämförs fel frekvensen på 78,5% med en normal taxa på 2,2%, vilket innebär att något är skadat. Å andra sidan påverkades bara 46 användare. Om det var din app kan du utvärdera hur allvarligt det är.
 
@@ -307,13 +307,13 @@ I många fall kommer du att kunna diagnostisera problemet snabbt från namn, und
 
 I det här exemplet uppstod ett undantag från SQL Database på grund av att gränsen för begäran har uppnåtts.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Exempel på Smart identifierings avisering som visar kluster analys kring fel." lightbox="./media/proactive-failure-diagnostics/052.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Information om misslyckade förfrågningar." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>Granska nya aviseringar
 
 Klicka på **aviseringar** på sidan Application Insights resurs för att få de senaste utlösta aviseringarna:
 
-:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Exempel på Smart identifierings avisering som visar kluster analys kring fel." lightbox="./media/proactive-failure-diagnostics/070.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Aviserings Sammanfattning." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>Vad är skillnaden...
 Smart identifiering av fel avvikelser kompletterar andra liknande, men distinkta funktioner i Application Insights.
@@ -356,10 +356,9 @@ De här diagnostikverktygen hjälper dig att inspektera data från din app:
 
 * [Metric Explorer](../platform/metrics-charts.md)
 * [Sök Utforskaren](./diagnostic-search.md)
-* [Analys-kraftfullt frågespråk](../log-query/get-started-portal.md)
+* [Analys-kraftfullt frågespråk](../log-query/log-analytics-tutorial.md)
 
 Smart identifiering är automatiskt. Men kanske vill du konfigurera ytterligare aviseringar?
 
 * [Manuellt konfigurerade mått varningar](../platform/alerts-log.md)
 * [Webbtester för tillgänglighet](./monitor-web-app-availability.md)
-

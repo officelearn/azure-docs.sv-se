@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: ee88a7cc187644c89aca5656df9ab9ae48a5a056
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096920"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187771"
 ---
 1. Starta Eclipse.
 
@@ -35,7 +35,7 @@ ms.locfileid: "92096920"
 
    ![Skärmbild av Paketutforskaren](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
-1. Fönstret **Create new POM** (Skapa ny POM) visas. I fältet **grupp-ID** anger du *com. Microsoft. cognitiveservices. Speech. Samples*och i fältet **artefakt-ID** anger du *snabb start*. Välj sedan **Slutför**.
+1. Fönstret **Create new POM** (Skapa ny POM) visas. I fältet **grupp-ID** anger du *com. Microsoft. cognitiveservices. Speech. Samples* och i fältet **artefakt-ID** anger du *snabb start*. Välj sedan **Slutför**.
 
    ![Skärmbild av fönstret Create new POM (Skapa ny POM)](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-05-configure-maven-pom.png)
 

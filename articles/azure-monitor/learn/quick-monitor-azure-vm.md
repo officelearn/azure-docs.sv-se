@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 11475de159cf3d59923d6f2129aa46ddf0ef8f2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ef0e3a451a5687278acaf1e857012027a5e657a3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90084438"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186770"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Snabb start: övervaka en virtuell Azure-dator med Azure Monitor
 [Azure Monitor](../overview.md) börjar samla in data från virtuella Azure-datorer så snart de har skapats. I den här snabb starten tar du en kort genom gång av de data som samlas in automatiskt för en virtuell Azure-dator och hur du visar den i Azure Portal. Sedan aktiverar du [Azure Monitor for VMS](../insights/vminsights-overview.md) för din virtuella dator som gör det möjligt för agenter på den virtuella datorn att samla in och analysera data från gäst operativ systemet, inklusive processer och deras beroenden.
@@ -107,4 +107,4 @@ När du skapar en ny Log Analytics arbets yta måste den konfigureras för att s
 I den här snabb starten har du aktiverat Azure Monitor for VMs för en virtuell dator och konfigurerat arbets ytan Log Analytics för att samla in händelser för gäst operativ systemet. Om du vill lära dig hur du visar och analyserar data kan du fortsätta till självstudiekursen.
 
 > [!div class="nextstepaction"]
-> [Visa eller analysera data i Log Analytics](../log-query/get-started-portal.md)
+> [Visa eller analysera data i Log Analytics](../log-query/log-analytics-tutorial.md)

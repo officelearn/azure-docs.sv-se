@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: travisw
 ms.openlocfilehash: 2efe17bdf597b7e3ba7d0277f06d4b24e9b51db3
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096886"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187766"
 ---
 1. Starta Android Studio och välj **starta ett nytt Android Studio projekt** i **välkomst** fönstret.
 
@@ -19,7 +19,7 @@ ms.locfileid: "92096886"
 
    ![Skärm bild av guiden Välj projekt](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-02-target-android-devices.png)
 
-1. På skärmen **Konfigurera ditt projekt** anger du *snabb start* som **namn** och anger *samples.Speech.cognitiveservices.Microsoft.com* som **paket namn**. Välj sedan en projekt katalog. För **lägsta API-nivå**väljer du **API 23: Android 6,0 (Marshmallow)**. Låt alla andra kryss rutor vara tydliga och välj **Slutför**.
+1. På skärmen **Konfigurera ditt projekt** anger du *snabb start* som **namn** och anger *samples.Speech.cognitiveservices.Microsoft.com* som **paket namn**. Välj sedan en projekt katalog. För **lägsta API-nivå** väljer du **API 23: Android 6,0 (Marshmallow)**. Låt alla andra kryss rutor vara tydliga och välj **Slutför**.
 
    ![Skärm bild av guiden Konfigurera ditt projekt](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-03-create-android-project.png)
 
@@ -38,7 +38,7 @@ Konfigurera ditt projekt för att använda Speech SDK. Öppna fönstret **projek
 
    ![Skärmbild av projektstrukturfönstret](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-06-add-maven-repository.png)
 
-1. På samma skärm väljer du **app**på vänster sida. Välj sedan fliken **Beroenden** högst upp i fönstret. Välj det gröna plus tecknet ( **+** ) och välj **beroende för bibliotek** på den nedrullningsbara menyn.
+1. På samma skärm väljer du **app** på vänster sida. Välj sedan fliken **Beroenden** högst upp i fönstret. Välj det gröna plus tecknet ( **+** ) och välj **beroende för bibliotek** på den nedrullningsbara menyn.
 
    ![Skärm bild av biblioteks beroende](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 

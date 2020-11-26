@@ -3,16 +3,16 @@ title: Konfigurera PV-övervakning med Azure Monitor för behållare | Microsoft
 description: I den här artikeln beskrivs hur du kan konfigurera övervakning av Kubernetes-kluster med beständiga volymer med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: 30e99c2abbc66de257f9623dedc901fca51976c1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e7c547c137fc84e6e6dfb2807b871ef0329a3c13
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92492205"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186855"
 ---
 # <a name="configure-pv-monitoring-with-azure-monitor-for-containers"></a>Konfigurera PV-övervakning med Azure Monitor för behållare
 
-Från och med agent version *ciprod10052020*har Azure Monitor for containers Integrated agent nu stöd för övervakning av PV (beständig volym).
+Från och med agent version *ciprod10052020* har Azure Monitor for containers Integrated agent nu stöd för övervakning av PV (beständig volym).
 
 ## <a name="pv-metrics"></a>PV-mått
 
@@ -30,4 +30,4 @@ Azure Monitor för behållare innehåller förkonfigurerade diagram för måttet
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om de insamlade PV-måtten [här](https://aka.ms/ci/pvconfig).
+- Läs mer om de insamlade PV-måtten [här](./container-insights-agent-config.md).

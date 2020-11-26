@@ -12,11 +12,11 @@ ms.date: 10/15/2020
 ms.custom: devx-track-java
 ms.author: erhopf
 ms.openlocfilehash: 142d4504ab12e7df5cc1e009038554a5b90dff0c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135664"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188425"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för 64-bitars Java 8-JRE. Om du bara vill att paket namnet ska komma igång på egen hand är Java SDK inte tillgängligt i maven Central-lagringsplatsen. Oavsett om du använder Gradle eller en `pom.xml` beroende fil måste du lägga till en anpassad databas som pekar på `https://csspeechstorage.blob.core.windows.net/maven/` (se nedan för paketets namn).
 

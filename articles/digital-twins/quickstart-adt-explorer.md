@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d203cb5ccef90fd09659ba64b7bcbc8b9be9e47a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d42a32e236eb73f2aa9f2f61d9708314783564dd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358107"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187315"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Snabb start – utforska ett exempel på Azure Digitals dubbla scenarier med ADT Explorer
 
@@ -66,6 +66,7 @@ Annars kan du installera den lokala Azure CLI med följande steg:
 1. Följ processen på [den här installations länken](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) för att slutföra installationen som matchar ditt operativ system.
 1. Öppna ett konsol fönster på din dator.
 1. Kör `az login` och följ de begärda autentiseringarna för att logga in på ditt Azure-konto.
+1. Möjligt sista steget: om du använder flera Azure-prenumerationer under det här kontot anger du autentiserings kontexten till den Azure-prenumeration som innehåller din Azure Digital-instansen genom att köra `az account set --subscription "<your-subscription-name-or-ID>"` (antingen namnet eller ID-värdet för prenumerationen fungerar).
 
 När du har loggat in ska ADT Explorer hämta dina Azure-autentiseringsuppgifter automatiskt när du kör det i nästa avsnitt.
 
@@ -90,7 +91,7 @@ Kör sedan ADT Explorer-programmet och konfigurera det för din Azure Digital-in
 
    :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer markerar ikonen Logga in längst upp i fönstret. Ikonen visar en enkel Silhouette av en person som har en Silhouette av en nyckel." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-1. Ange den URL som du har samlat in tidigare i avsnittet [krav](#prerequisites) , i formatet *https://{instans värd namn}* för Azure Digital.
+1. Ange den URL som du har samlat in tidigare i avsnittet [Konfigurera en digital Azure Digitals-instans](#set-up-an-azure-digital-twins-instance) i formatet *https://{instans värd namn}*.
 
 >[!NOTE]
 > Du kan gå tillbaka eller redigera informationen när som helst genom att välja samma ikon för att öppna **inloggnings** rutan igen. Den behåller de värden som du har skickat.
@@ -108,7 +109,7 @@ Därefter importerar du exempel scenariot och grafen till ADT Explorer. Exempel 
 
 Det första steget i en digital Azure-lösning är att definiera ord listan för din miljö. Du skapar anpassade [modeller](concepts-models.md) som beskriver vilka typer av entiteter som finns i din miljö.
 
-Varje modell skrivs på ett språk som JSON-LD som kallas digitalt DTDL (Digital Definition Language). Varje modell beskriver en enskild typ av entitet med avseende på dess *Egenskaper* , *telemetri* , *relationer* och *komponenter*. Senare använder du dessa modeller som grund för digitala dubbla, som representerar vissa instanser av dessa typer.
+Varje modell skrivs på ett språk som JSON-LD som kallas digitalt DTDL (Digital Definition Language). Varje modell beskriver en enskild typ av entitet med avseende på dess *Egenskaper*, *telemetri*, *relationer* och *komponenter*. Senare använder du dessa modeller som grund för digitala dubbla, som representerar vissa instanser av dessa typer.
 
 När du skapar en modell utför du normalt tre steg:
 
@@ -208,7 +209,7 @@ Nu kan du se det överförda diagrammet i exempel scenariot.
 
 :::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av diagramvyn med en dubbel graf inuti. En cirkel med etiketten &quot;floor1&quot; är kopplad till en cirkel med etiketten &quot;contains&quot; till en cirkel med etiketten &quot;room1&quot;. En cirkel med etiketten &quot;floor0&quot; är kopplad till en cirkel med etiketten &quot;contains&quot; till en cirkel med etiketten &quot;room0&quot;.":::
 
-Cirklarna (graf "Nodes") representerar digitala dubbla. Linjerna representerar relationer. **Floor0** -den dubbla innehåller **Room0** , och **Floor1** -den dubbla innehåller **Room1**.
+Cirklarna (graf "Nodes") representerar digitala dubbla. Linjerna representerar relationer. **Floor0** -den dubbla innehåller **Room0**, och **Floor1** -den dubbla innehåller **Room1**.
 
 Om du använder en mus kan du dra delar av grafen för att flytta runt dem.
 
@@ -313,7 +314,7 @@ Om du planerar att fortsätta med självstudierna för Azure Digitals dubbla, ka
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Slutligen tar du bort projekt exempel mappen **Azure_Digital_Twins__ADT__explorer** , som du laddade ned till din lokala dator. Du kanske måste ta bort både zippade och zippade versioner.
+Slutligen tar du bort projekt exempel mappen **Azure_Digital_Twins__ADT__explorer**, som du laddade ned till din lokala dator. Du kanske måste ta bort både zippade och zippade versioner.
 
 ## <a name="next-steps"></a>Nästa steg
 

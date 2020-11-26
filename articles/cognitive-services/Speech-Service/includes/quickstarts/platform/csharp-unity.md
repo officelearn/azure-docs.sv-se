@@ -12,11 +12,11 @@ ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fd592b6f565cb23d7a922af2a68e6328911c2dc0
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096937"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188412"
 ---
 Den här guiden visar hur du installerar [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för [Unity](https://unity3d.com/).
 
@@ -25,7 +25,7 @@ Den här guiden visar hur du installerar [Speech SDK](~/articles/cognitive-servi
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 68daec6bb6682d2b488abacb2f79bdfadc4ae628
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bedf4dd2a955a8ffe648b47c1691e77ac1fdb8f5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076580"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187807"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Felsöka moln tjänst roller som inte startar
 Här följer några vanliga problem och lösningar som rör Azure Cloud Services roller som inte startar.
@@ -27,11 +27,11 @@ Här följer några vanliga problem och lösningar som rör Azure Cloud Services
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-dlls-or-dependencies"></a>DLL-filer eller beroenden som saknas
-Roller och roller som inte svarar mellan **initiering**, **upptaget**och **stopp** tillstånd kan orsakas av saknade DLL-filer eller sammansättningar.
+Roller och roller som inte svarar mellan **initiering**, **upptaget** och **stopp** tillstånd kan orsakas av saknade DLL-filer eller sammansättningar.
 
 Symtom på saknade DLL-filer eller sammansättningar kan vara:
 
-* Din roll instans används för att **initiera**, **upptagen**och **stoppa** tillstånd.
+* Din roll instans används för att **initiera**, **upptagen** och **stoppa** tillstånd.
 * Din roll instans har flyttats till **klar** , men om du navigerar till ditt webb program visas inte sidan.
 
 Det finns flera rekommenderade metoder för att undersöka de här problemen.
@@ -47,7 +47,7 @@ Mer fullständig fel information kan visas genom att konfigurera web.config för
 Så här visar du fullständiga fel utan att använda fjärr skrivbord:
 
 1. Öppna lösningen i Microsoft Visual Studio.
-2. Leta upp web.config-filen i **Solution Explorer**och öppna den.
+2. Leta upp web.config-filen i **Solution Explorer** och öppna den.
 3. Leta upp avsnittet system. Web i web.config-filen och Lägg till följande rad:
 
     ```xml
@@ -77,7 +77,7 @@ Att navigera till webbplatsen kommer nu att returnera fler explicita fel meddela
 * Beskrivning: ett ohanterat undantag inträffade under körningen av den aktuella webb förfrågan. Läs stack spårningen om du vill ha mer information om felet och var det kom i koden.
 * Undantags information: system. IO. FIleNotFoundException: det gick inte att läsa in filen eller sammansättningen "Microsoft. WindowsAzure. StorageClient, version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35" eller något av dess beroenden. Det går inte att hitta den angivna filen.
 
-Exempel:
+Ett exempel:
 
 ![Explicit Server fel i programmet '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 

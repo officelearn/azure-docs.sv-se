@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
 ms.openlocfilehash: 0e2324f7e524567b07f0228e046605b781bc4916
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425180"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188521"
 ---
 Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för python. Om du bara vill att paket namnet ska komma igång med ditt eget kör du `pip install azure-cognitiveservices-speech` .
 
@@ -79,7 +79,7 @@ import azure.cognitiveservices.speech as speechsdk
    ![Installera Python-tillägget](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
 1. I Visual Studio Code ska du också installera python-paketet för tal-SDK från den integrerade kommando raden:
-   1. Öppna en Terminal (från List menyerna, **Terminal**  >  **New Terminal** )
+   1. Öppna en Terminal (från List menyerna, **Terminal**  >  **New Terminal**)
    1. I terminalen som öppnas anger du kommandot `python -m pip install azure-cognitiveservices-speech`
 
 Om du är nybörjare på Visual Studio Code kan du läsa mer i [dokumentationen för Visual Studio Code](https://code.visualstudio.com/docs). Mer information om Visual Studio Code och python finns i [själv studie kursen om Visual Studio Code python](https://code.visualstudio.com/docs/python/python-tutorial).

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: ecf4229c95ff9103cd27fd161fdd19c9e7a0f76b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 8c51450fb6ce5c381784e6aaf9b1a66c3c4ff153
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636970"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188555"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -50,7 +50,7 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-datatyper:
 | blob  | Ja |
 | boolean  | Ja |
 | räknare  | Ja |
-| datum  | Ja |
+| date  | Ja |
 | decimal  | Ja |
 | double  | Ja |
 | flyt  | Ja |
@@ -177,7 +177,7 @@ Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton
 | LIST ROLLER | Nej |
 | LISTA användare (föråldrade i ursprunglig Apache-Cassandra) | Nej |
 | REVOKE | Nej |
-| VÄLJ | Ja |
+| SELECT | Ja |
 | Välj (Lightweight-transaktioner med IF-villkor)| Nej |
 | UPDATE | Ja |
 | Uppdatera (Lightweight-transaktioner med IF-villkor)| Nej |
@@ -205,7 +205,7 @@ Azure Cosmos DB Cassandra API är en hanterad tjänst-plattform. Det krävs inga
 
 ## <a name="hosted-cql-shell-preview"></a>Värdbaserad CQL Shell (för hands version)
 
-Du kan öppna en värdbaserad Cassandra Shell (CQLSH v 5.0.1) direkt från Datautforskaren i [Azure Portal](data-explorer.md) eller i [Azure Cosmos Explorer](https://cosmos.azure.com/). Innan du aktiverar CQL-gränssnittet måste du [aktivera funktionen Notebooks](enable-notebooks.md) i ditt konto (om den inte redan är aktive rad uppmanas du att klicka på `Open Cassandra Shell` ). Markera den markerade anteckningen i [Aktivera antecknings böcker för Azure Cosmos DB konton](enable-notebooks.md) för Azure-regioner som stöds.
+Du kan öppna en värdbaserad Cassandra Shell (CQLSH v 5.0.1) direkt från Datautforskaren i [Azure Portal](data-explorer.md) eller [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Innan du aktiverar CQL-gränssnittet måste du [aktivera funktionen Notebooks](enable-notebooks.md) i ditt konto (om den inte redan är aktive rad uppmanas du att klicka på `Open Cassandra Shell` ). Markera den markerade anteckningen i [Aktivera antecknings böcker för Azure Cosmos DB konton](enable-notebooks.md) för Azure-regioner som stöds.
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Öppna CQLSH":::
 

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 766837cacb4ef2acf874c2872b347b6d35633faa
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 862fa839c56746042c072ae3100832fb2b78451a
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701005"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296937"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Käll kontrolls integrering för dedikerad SQL-pool i Azure Synapse Analytics
 
@@ -38,11 +38,13 @@ I den här självstudien beskrivs hur du integrerar ditt SQL Server Data Tools (
    ![Hantera anslutningar](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Hantera anslutningar")
 
 3. Anslut till projektet genom att välja **hantera anslutningar** och sedan **ansluta till ett projekt**.
- ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Anslut")
+ 
+    ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Anslut")
 
 
 4. Leta upp projektet som du skapade i steg ett, Välj **Anslut**.
-![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Anslut")
+ 
+    ![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Anslut")
 
 
 3. Klona din Azure DevOps-lagringsplats från projektet till din lokala dator.
@@ -85,7 +87,7 @@ Mer information om hur du ansluter projekt med Visual Studio finns i avsnittet [
 
    ![Verifiera](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verifiera ändringarna")
 
-4. (**Valfritt**) Använd schema jämför och uppdatera ändringarna i mål informations lagret med hjälp av SSDT för att se till att objekt definitionerna i Azure lagrings platsen-lagringsplatsen och den lokala lagrings platsen återspeglar ditt informations lager.
+4. (**Valfritt**) Använd schema jämför och uppdatera ändringarna i din dedikerade SQL-pool med hjälp av SSDT för att se till att objekt definitionerna i Azure lagrings platsen-lagringsplatsen och den lokala lagrings platsen återspeglar din dedikerade SQL-pool.
 
 ## <a name="next-steps"></a>Nästa steg
 

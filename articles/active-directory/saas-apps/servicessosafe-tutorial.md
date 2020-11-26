@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: jeedes
-ms.openlocfilehash: ccc32011f336fc664bcae47af390b30d3bb7ce56
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ef0c1b95e89916c8fd71d5e0b6c60370e95d8417
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182296"
+ms.locfileid: "96297085"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sosafe"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SoSafe
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar SoSafe med Azure Ac
 * Gör det möjligt för användarna att logga in automatiskt till SoSafe med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -157,8 +157,8 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 * Klicka på **testa det här programmet** i Azure Portal så bör du loggas in automatiskt på den SoSafe som du har konfigurerat SSO för. 
 
-Du kan också använda Microsoft Access-panelen för att testa programmet i vilket läge som helst. När du klickar på panelen Services@SoSafe i åtkomst panelen, om det kon figurer ATS i SP-läge, kommer du att omdirigeras till programmets inloggnings sida för att initiera inloggnings flödet och om det kon figurer ATS i IDP-läge, bör du loggas in automatiskt på den Services@SoSafe för vilken du konfigurerar SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
+Du kan också använda Microsoft Access-panelen för att testa programmet i vilket läge som helst. När du klickar på panelen SoSafe i åtkomst panelen, om den har kon figurer ATS i SP-läge omdirigeras du till programmets inloggnings sida för att initiera inloggnings flödet och om det kon figurer ATS i IDP-läge, bör du loggas in automatiskt på SoSafe som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du Services@SoSafe har konfigurerat kan du framtvinga kontroll över sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+När du har konfigurerat SoSafe kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

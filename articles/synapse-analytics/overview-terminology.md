@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8fd7562d1f8e38c79f739fdd2db7031e772874bc
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 0e637a09a5305e314a32b1cac34b2da669eec614
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122635"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296207"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Azure Synapse Analytics-terminologi
 
@@ -51,9 +51,9 @@ Det finns två sätt i Synapse att använda Spark:
 
 Pipelines är hur Azure Synapse tillhandahåller data integrering – så att du kan flytta data mellan tjänster och dirigera aktiviteter.
 
-* **Data flöden** ger en codine upplevelse för att utföra datatransformering som använder Synapse Spark under-The-Cover.
-* **Pipeline** – logisk gruppering av aktiviteter som utför en aktivitet tillsammans.
-* **Activity** -definierar åtgärder som ska utföras på data, till exempel kopiera data, köra en bärbar dator eller ett SQL-skript.
+* **Pipeline** är logisk gruppering av aktiviteter som utför en aktivitet tillsammans.
+* **Aktiviteter** definierar åtgärder i en pipeline för att utföra data, till exempel kopiera data, köra en bärbar dator eller ett SQL-skript.
+* **Data flöden** är en viss typ av aktivitet som ger en kod utan kod för att utföra datatransformering som använder Synapse Spark under-The-Cover.
 * **Trigger** – kör en pipeline. Den kan köras manuellt eller automatiskt (schema, rullande Window eller event-based)
 * **Integrations data uppsättning** – namngiven vy av data som bara pekar eller refererar till de data som ska användas i en aktivitet som indata och utdata. Den tillhör en länkad tjänst.
 

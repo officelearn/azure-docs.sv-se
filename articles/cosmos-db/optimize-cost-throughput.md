@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 86de3e1199b00dff4e03f3b4292f86e6c19ea491
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097472"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296547"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera kostnaden för etablerat dataflöde i Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,7 @@ Du kan etablera dataflöden för databaser och containrar, och de olika strategi
 
 Här följer några rikt linjer som du kan välja för en etablerad data flödes strategi:
 
-**Överväg att tillhandahålla data flöde för en Azure Cosmos-databas (som innehåller en uppsättning behållare) om** :
+**Överväg att tillhandahålla data flöde för en Azure Cosmos-databas (som innehåller en uppsättning behållare) om**:
 
 1. Du har några dussin Azure Cosmos-behållare och vill dela data flödet i vissa eller alla. 
 
@@ -59,9 +59,9 @@ Som du ser i följande tabell, beroende på valet av API, kan du etablera data f
 |----|----|----|
 |API för SQL|Databas|Container|
 |API för Azure Cosmos DB för MongoDB|Databas|Samling|
-|Cassandra-API|Keyspace|Tabeller|
+|Cassandra-API|Keyspace|Tabell|
 |Gremlin-API|Databaskonto|Graph|
-|Tabell-API|Databaskonto|Tabeller|
+|Tabell-API|Databaskonto|Tabell|
 
 Genom att tillhandahålla data flöde på olika nivåer kan du optimera dina kostnader baserat på arbets Belastningens egenskaper. Som tidigare nämnts kan du program mässigt och när som helst öka eller minska ditt etablerade data flöde för antingen enskilda behållare eller kollektivt i en uppsättning behållare. Genom att elastiskt skala data flöde när din arbets belastning ändras betalar du bara för det data flöde som du har konfigurerat. Om din behållare eller en uppsättning behållare distribueras över flera regioner, garanteras det data flöde som du konfigurerar på behållaren eller en uppsättning behållare som görs tillgängliga i alla regioner.
 
@@ -137,7 +137,7 @@ Eftersom du debiteras för det data flöde som har allokerats kan du med hjälp 
 
 Du kan använda följande steg för att fastställa det etablerade data flödet för en ny arbets belastning: 
 
-1. Genomför en första, grov utvärdering med kapacitets planeraren och justera dina uppskattningar med hjälp av Azure Cosmos Explorer i Azure Portal. 
+1. Genomför en första, grov utvärdering med kapacitets planeraren och justera dina uppskattningar med hjälp av Azure Cosmos DB Explorer i Azure Portal. 
 
 2. Vi rekommenderar att du skapar behållarna med högre data flöde än förväntat och sedan skalar ned efter behov. 
 

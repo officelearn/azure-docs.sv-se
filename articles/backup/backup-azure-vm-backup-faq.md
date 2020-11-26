@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du s�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e6e14209a8df7160d103cb036d38c9fee29b34dd
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925585"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296071"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -87,11 +87,11 @@ Ja, Azure Backup stöder [standard-SSD Managed disks](https://docs.microsoft.com
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kan vi säkerhetskopiera en virtuell dator med en Skrivningsaccelerator (WA)-aktiverad disk?
 
-Ögonblicks bilder kan inte utföras på den WA-aktiverade disken. Azure Backups tjänsten kan dock utesluta den WA-aktiverade disken från säkerhets kopian.
+Ögonblicks bilder kan bara utföras på data diskar som är WA-aktiverade och inte OS-diskar. Därför kan endast data diskar som är WA-aktiverade skyddas.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Jag har en virtuell dator med Skrivningsaccelerator-diskar (WA) och SAP HANA installerade. Hur gör jag för att säkerhetskopiera?
 
-Azure Backup kan inte säkerhetskopiera den WA-aktiverade disken, men kan utesluta den från en säkerhets kopia. Säkerhets kopieringen ger dock inte databas konsekvens eftersom information på den WA-aktiverade disken inte säkerhets kopie ras. Du kan säkerhetskopiera diskar med den här konfigurationen om du vill ha säkerhets kopiering av operativ system diskar och säkerhets kopiering av diskar som inte är WA-aktiverade.
+Azure Backup kan säkerhetskopiera den WA-aktiverade data disken. Säkerhets kopieringen ger dock inte databas konsekvens.
 
 Azure Backup tillhandahåller en strömmande säkerhets kopierings lösning för SAP HANA databaser med en återställning på 15 minuter. Det är Backint certifierat av SAP för att ge en inbyggd säkerhets kopierings support som utnyttjar SAP HANA inbyggda API: er. Läs mer [om hur du säkerhetskopierar SAP HANA databaser på virtuella Azure-datorer](./sap-hana-db-about.md).
 
@@ -149,7 +149,7 @@ Ja. Även om du tar bort den virtuella datorn kan du gå till motsvarande säker
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Hur gör jag för att återställa en virtuell dator till samma tillgänglighets uppsättningar?
 
-För hanterade virtuella Azure-datorer aktive ras återställning till tillgänglighets uppsättningarna genom att tillhandahålla ett alternativ i mallen när de återställs som hanterade diskar. Den här mallen har Indataparametern inheter **tillgänglighets uppsättningar** .
+För hanterade virtuella Azure-datorer aktive ras återställning till tillgänglighets uppsättningarna genom att tillhandahålla ett alternativ i mallen när de återställs som hanterade diskar. Den här mallen har Indataparametern inheter **tillgänglighets uppsättningar**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Hur får vi snabbare återställning av prestanda?
 
@@ -185,7 +185,7 @@ Den virtuella datorn säkerhets kopie ras med inställningarna för schemaläggn
 
    1. Hitta platsen för den virtuella datorn.
    2. Hitta en resurs grupp med följande namn mönster: `AzureBackupRG_<location of your VM>_1` . Till exempel *AzureBackupRG_westus2_1*
-   3. I Azure Portal markerar du **Visa dolda typer** .
+   3. I Azure Portal markerar du **Visa dolda typer**.
    4. Hitta resursen med typen **Microsoft. Compute/restorePointCollections** som har namngivnings mönstret `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Ta bort den här resursen. Den här åtgärden tar bara bort direkta återställnings punkter, inte säkerhetskopierade data i valvet.
    6. När borttagnings åtgärden har slutförts kan du flytta den virtuella datorn.

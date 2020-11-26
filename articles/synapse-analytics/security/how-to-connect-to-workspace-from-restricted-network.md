@@ -8,18 +8,18 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55ec8be176dc7274a3b9a1feca53726d57eeb422
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2e96cbf0c1464e27b0a384e8a813118056103b91
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024473"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296716"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Ansluta till arbets ytans resurser från ett begränsat nätverk
 
 Anta att du är IT-administratör som hanterar organisationens begränsade nätverk. Du vill aktivera nätverks anslutningen mellan Azure Synapse Analytics Studio och en arbets station inom det här begränsade nätverket. Den här artikeln visar hur du gör.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Synapse Analytics-arbetsyta**: du kan skapa en från Azure Synapse Analytics. Du behöver namnet på arbets ytan i steg 4.
@@ -46,14 +46,11 @@ Mer information finns i [Översikt över tjänst etiketter](/azure/virtual-netwo
 
 Skapa sedan privata länk hubbar från Azure Portal. Du hittar det här i portalen genom att söka efter *Azure Synapse Analytics (privata länk hubbar)* och sedan fylla i den information som krävs för att skapa den. 
 
-> [!Note]
-> Se till att **region** svärdet är samma som det där din Azure Synapse Analytics-arbetsyta är.
-
 ![Skärm bild av skapa Synapse Private Link Hub.](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-## <a name="step-3-create-a-private-endpoint-for-your-gateway"></a>Steg 3: skapa en privat slut punkt för din gateway
+## <a name="step-3-create-a-private-endpoint-for-your-synapse-studio"></a>Steg 3: skapa en privat slut punkt för din Synapse Studio
 
-För att få åtkomst till Azure Synapse Analytics Studio-gatewayen måste du skapa en privat slut punkt från Azure Portal. Sök efter *privat länk* för att hitta det här i portalen. I det **privata länk centret** väljer du **skapa privat slut punkt** och fyller sedan i den information som krävs för att skapa den. 
+För att få åtkomst till Azure Synapse Analytics Studio måste du skapa en privat slut punkt från Azure Portal. Sök efter *privat länk* för att hitta det här i portalen. I det **privata länk centret** väljer du **skapa privat slut punkt** och fyller sedan i den information som krävs för att skapa den. 
 
 > [!Note]
 > Se till att **region** svärdet är samma som det där din Azure Synapse Analytics-arbetsyta är.
@@ -118,6 +115,43 @@ Om du vill att din bärbara dator ska ha åtkomst till de länkade lagrings resu
 När du har skapat den här slut punkten visar godkännande tillståndet status **väntar**. Begär godkännande från ägaren av det här lagrings kontot, på fliken **anslutningar för privata slut punkter** för det här lagrings kontot i Azure Portal. När den har godkänts kan din bärbara dator komma åt de länkade lagrings resurserna under det här lagrings kontot.
 
 Nu är all uppsättning. Du kan komma åt din resurs för Azure Synapse Analytics Studio-arbetsytan.
+
+## <a name="appendix-dns-registration-for-private-endpoint"></a>Bilaga: DNS-registrering för privat slut punkt
+
+Om "integrera med privat DNS-zon" inte är aktive rad när den privata slut punkten skapas som skärm bild, måste du skapa "**privat DNS Zone**" för var och en av dina privata slut punkter.
+![Skärm bild av Create Synapse Private DNS zon 1.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-1.png)
+
+Sök efter *privat DNS zon* för att hitta **privat DNS zonen** i portalen. I **privat DNS zon** fyller du i den information som krävs nedan för att skapa den.
+
+* För **namn** skriver du in det reserverade namnet för den privata DNS-zonen för en särskild privat slut punkt enligt nedan:
+  * **`privatelink.azuresynapse.net`** är för den privata slut punkten för åtkomst till Azure Synapse Analytics Studio-Gateway. Se den här typen av skapande av privat slut punkt i steg 3.
+  * **`privatelink.sql.azuresynapse.net`** är för den här typen av privat slut punkt för SQL-frågekörningen i SQL-poolen och en inbyggd pool. Se hur du skapar en slut punkt i steg 4.
+  * **`privatelink.dev.azuresynapse.net`** är för den här typen av privat slut punkt för att komma åt allt annat i Azure Synapse Analytics Studio-arbetsytor. Se den här typen av skapande av privat slut punkt i steg 4.
+  * **`privatelink.dfs.core.windows.net`** är för den privata slut punkten för åtkomst till arbets ytans länkade Azure Data Lake Storage Gen2. Se den här typen av skapande av privat slut punkt i steg 5.
+  * **`privatelink.blob.core.windows.net`** är för den privata slut punkten för åtkomst till arbets ytans länkade Azure-Blob Storage. Se den här typen av skapande av privat slut punkt i steg 5.
+
+![Skärm bild av Create Synapse Private DNS zon 2.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-2.png)
+
+När **privat DNS zon** har skapats anger du den skapade privata DNS-zonen och väljer de **virtuella nätverks länkarna** för att lägga till länken i ditt virtuella nätverk. 
+
+![Skärm bild av Create Synapse Private DNS Zone 3.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-3.png)
+
+Fyll i de obligatoriska fälten enligt nedan:
+* För **länk namn** skriver du in länkens namn.
+* För **virtuellt nätverk** väljer du ditt virtuella nätverk.
+
+![Skärm bild av Create Synapse Private DNS zone 4.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-4.png)
+
+När du har lagt till den virtuella nätverks länken måste du lägga till DNS-postuppsättningen i **privat DNS zon** som du skapade tidigare.
+
+* För **namn** skriver du in de dedikerade namn strängarna för olika privata slut punkter: 
+  * **Web** är för den privata slut punkten för åtkomst till Azure Synapse Analytics Studio.
+  * "***YourWorkSpaceName * * _" är för den privata slut punkten för SQL-frågekörningen i SQL-poolen och även för den privata slut punkten för att få åtkomst till allt annat i Azure Synapse Analytics Studio-arbetsytor. _ "*** YourWorkSpaceName *-OnDemand * *" gäller den privata slut punkten för SQL-frågekörningen i den inbyggda poolen.
+* I **typ** väljer du DNS-posttypen endast **en** . 
+* För **IP-adress**, skriver du in motsvarande IP-adress för varje privat slut punkt. Du kan hämta IP-adressen i **nätverks gränssnittet** från din privata slut punkts översikt.
+
+![Skärm bild av Create Synapse Private DNS Zone 5.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-5.png)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

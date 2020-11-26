@@ -3,12 +3,12 @@ title: Om SAP HANA Database Backup i virtuella Azure-datorer
 description: I den här artikeln lär du dig hur du säkerhetskopierar SAP HANA databaser som körs på virtuella Azure-datorer.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e30510817401fd8db23dc9f1d62fab495fac7ab2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efb9c3f786e429df404e261f053a9c9a9b032e11
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022317"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296462"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Om SAP HANA Database Backup i virtuella Azure-datorer
 
@@ -21,7 +21,7 @@ Azure Backup är [Backint certifierat](https://www.sap.com/dmc/exp/2013_09_adpd/
 Om du använder Azure Backup för att säkerhetskopiera och återställa SAP HANA-databaser ger följande fördelar:
 
 * **15 minuters återställnings punkt mål (återställnings punkt mål)**: det går nu att återställa kritiska data på upp till 15 minuter.
-* Återställningar med **ett klick, vid en tidpunkt: det**är enkelt att återställa produktions data till alternativa Hana-servrar. Länkning av säkerhets kopiering och kataloger för att utföra återställningar hanteras allt av Azure bakom kulisserna.
+* Återställningar med **ett klick, vid en tidpunkt: det** är enkelt att återställa produktions data till alternativa Hana-servrar. Länkning av säkerhets kopiering och kataloger för att utföra återställningar hanteras allt av Azure bakom kulisserna.
 * **Långsiktig kvarhållning**: för rigorösa efterlevnads-och gransknings behov. Behåll dina säkerhets kopior för år, baserat på Retentions tiden, utöver vilken återställnings punkterna rensas automatiskt av den inbyggda funktionen för livs cykel hantering.
 * **Säkerhets kopierings hantering från Azure**: Använd Azure backups hanterings-och övervaknings funktioner för förbättrad hanterings upplevelse. Azure CLI stöds också.
 
@@ -60,15 +60,12 @@ Förutom att använda den SAP HANA säkerhets kopian i Azure som tillhandahålle
 
 [Backint Certified Azure SAP HANA backup-lösningen](#backup-architecture) kan användas för säkerhets kopiering och återställning av databasen.
 
-[Azure VM backup](backup-azure-vms-introduction.md) kan användas för att säkerhetskopiera operativ systemet och andra diskar som inte är databas. Säkerhets kopian av den virtuella datorn görs en gång varje dag och den säkerhetskopierar alla diskar (utom **Skrivningsaccelerator (WA) diskar** och **Ultra disks**). Eftersom databasen säkerhets kopie ras med hjälp av Azure SAP HANA backup-lösningen kan du ta en filkonsekvent säkerhets kopia av bara operativ systemen OS och icke-databas med hjälp av funktionen [för säkerhets kopiering och återställning av selektiva diskar för virtuella Azure-datorer](selective-disk-backup-restore.md) .
-
->[!NOTE]
-> Genom att använda fördefinierade skript med den virtuella Azure-säkerhetskopieringen kan du använda programkonsekventa säkerhets kopior av databasens data volymer. Men om logg avsnittet finns på WA-diskar kanske en ögonblicks bild av diskarna inte garanterar konsekvens för logg områden. HANA har ett uttryckligt sätt att generera logg säkerhets kopior av den här anledningen. Aktivera samma i SAP HANA och de kan säkerhets kopie ras med Azure SAP HANA backup.
+[Azure VM backup](backup-azure-vms-introduction.md) kan användas för att säkerhetskopiera operativ systemet och andra diskar som inte är databas. VM-säkerhetskopieringen tas en gång varje dag och säkerhets kopie ras alla diskar (utom **Skrivningsaccelerator-OS-diskar** och **Ultra disks**). Eftersom databasen säkerhets kopie ras med hjälp av Azure SAP HANA backup-lösningen kan du ta en filkonsekvent säkerhets kopia av bara operativ systemen OS och icke-databas med hjälp av funktionen [för säkerhets kopiering och återställning av selektiva diskar för virtuella Azure-datorer](selective-disk-backup-restore.md) .
 
 Följ dessa steg om du vill återställa en virtuell dator som kör SAP HANA:
 
 * [Återställ en ny virtuell dator från Azure VM backup](backup-azure-arm-restore-vms.md) från den senaste återställnings punkten. Eller skapa en ny tom virtuell dator och koppla diskarna från den senaste återställnings punkten.
-* Eftersom WA-diskar inte säkerhets kopie ras återställs de inte. Skapa tomma WA-diskar och logg områden.
+* Om WA-diskar undantas återställs de inte. I det här fallet skapar du tomma WA-diskar och logg områden.
 * När alla andra konfigurationer (t. ex. IP, system namn och så vidare) har angetts är den virtuella datorn inställd på att ta emot databas data från Azure Backup.
 * Återställ nu databasen till den virtuella datorn från [Azure SAP HANA DB-säkerhetskopiering](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) till önskad tidpunkt.
 

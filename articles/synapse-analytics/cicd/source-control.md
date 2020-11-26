@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: a5cb5831090987f1b620593843ddba817d8e68d4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 111b2b5b660133c20afdb3c56e1c3e3ed607398c
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188130"
+ms.locfileid: "96297073"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Käll kontroll i Azure Synapse Studio
 
@@ -30,17 +30,17 @@ För att tillhandahålla funktioner för käll kontroll gör Synapse Studio att 
 
 ## <a name="configure-git-repository-in-synapse-studio"></a>Konfigurera git-lagringsplatsen i Synapse Studio 
 
-När du har startat Synapse Studio kan du konfigurera git-lagringsplatsen på arbets ytan. En Synapse Studio-arbetsyta kan bara kopplas till en git-lagringsplats i taget. 
+När du har startat Synapse Studio kan du konfigurera en git-lagringsplats i din arbets yta. En Synapse Studio-arbetsyta kan bara kopplas till en git-lagringsplats i taget. 
 
-### <a name="configuration-method-1-authoring-canvas"></a>Konfigurations metod 1: redigera arbets yta
+### <a name="configuration-method-1-global-bar"></a>Konfigurations metod 1: globalt fält
 
-I redigerings arbets ytan i Synapse Studio väljer du List rutan **Synapse Live** och väljer sedan **Konfigurera kod lagrings plats**.
+I det globala fältet i Synapse Studio väljer du List rutan **Synapse Live** och väljer sedan **Konfigurera kod lagrings plats**.
 
 ![Konfigurera kod lagrings inställningarna från redigering](media/configure-repo-1.png)
 
 ### <a name="configuration-method-2-manage-hub"></a>Konfigurations metod 2: hantera hubb
 
-Gå till hanterings hubben för Synapse Studio. Välj **git-konfiguration** i avsnittet **käll kontroll** . Om du inte har någon databas ansluten klickar du på **Konfigurera**.
+Gå till hantera hubben för Synapse Studio. Välj **git-konfiguration** i avsnittet **käll kontroll** . Om du inte har någon databas ansluten klickar du på **Konfigurera**.
 
 ![Konfigurera kod lagrings inställningarna från hanterings hubben](media/configure-repo-2.png)
 
@@ -51,7 +51,7 @@ Du kan ansluta antingen Azure DevOps eller GitHub git-lagringsplatsen på din ar
 
 ## <a name="connect-with-azure-devops-git"></a>Ansluta till Azure DevOps git 
 
-Du kan associera en Synapse-arbetsyta med en Azure DevOps-lagringsplats för käll kontroll, samarbete, versions hantering och så vidare. Om du inte har en Azure DevOps-lagringsplats följer du [de här anvisningarna](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) för att skapa dina lagrings resurser först.
+Du kan associera en Synapse-arbetsyta med en Azure DevOps-lagringsplats för käll kontroll, samarbete, versions hantering och så vidare. Om du inte har en Azure DevOps-lagringsplats följer du [de här anvisningarna](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) för att skapa dina lagrings resurser.
 
 ### <a name="azure-devops-git-repository-settings"></a>Inställningar för Azure DevOps git-lagringsplats
 
@@ -61,7 +61,7 @@ När du ansluter till git-lagringsplatsen väljer du först din databas typ som 
 
 I konfigurations fönstret visas följande git-inställningar för Azure DevOps:
 
-| Inställningen | Beskrivning | Värde |
+| Inställning | Beskrivning | Värde |
 |:--- |:--- |:--- |
 | **Typ av databas** | Typen av Azure databaser Code-lagringsplatsen.<br/> | Azure DevOps git eller GitHub |
 | **Azure Active Directory** | Ditt Azure AD-klient namn. | `<your tenant name>` |
@@ -94,7 +94,7 @@ Om du vill använda en personlig Microsoft-konto för git-integrering kan du lä
 
 Efter dessa konfigurations steg är din personliga lagrings platsen tillgänglig när du konfigurerar git-integrering i Synapse Studio.
 
-Mer information om hur du ansluter Azure-databaser till din organisations Active Directory finns i [ansluta din Azure DevOps-organisation till Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
+Mer information om hur du ansluter Azure-databaser till din organisations Active Directory finns i [ansluta din organisation till Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## <a name="connect-with-github"></a>Anslut med GitHub 
 

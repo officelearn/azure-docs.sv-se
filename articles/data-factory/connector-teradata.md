@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 11/26/2020
 ms.author: jingwang
-ms.openlocfilehash: 182e04625f829304168bfdefe000bb8797646c75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48ac86e8f9814adef9be2360b2446335d368447
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87926900"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296564"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Kopiera data från Teradata-Vantage med hjälp av Azure Data Factory
 
@@ -41,10 +41,10 @@ Du kan kopiera data från Teradata-Vantage till alla mottagar data lager som st�
 Mer specifikt stöder den här Teradata-anslutaren:
 
 - Teradata **version 14,10, 15,0, 15,10, 16,0, 16,10 och 16,20**.
-- Kopiera data med hjälp av **Basic** -eller **Windows** -autentisering.
+- Kopiera data med hjälp av **Basic**-, **Windows**-eller **LDAP-** autentisering.
 - Parallell kopiering från en Teradata-källa. Mer information finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -64,17 +64,18 @@ Den länkade tjänsten Teradata stöder följande egenskaper:
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till **Teradata**. | Ja |
 | Begär | Anger den information som krävs för att ansluta till Teradata-instansen. Se följande exempel.<br/>Du kan också ange ett lösen ord i Azure Key Vault och hämta `password` konfigurationen från anslutnings strängen. Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) . | Ja |
-| användarnamn | Ange ett användar namn för att ansluta till Teradata. Gäller när du använder Windows-autentisering. | Inga |
-| password | Ange ett lösen ord för det användar konto som du har angett som användar namn. Du kan också välja att [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). <br>Gäller när du använder Windows-autentisering eller refererar till ett lösen ord i Key Vault för grundläggande autentisering. | Inga |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Inga |
+| användarnamn | Ange ett användar namn för att ansluta till Teradata. Gäller när du använder Windows-autentisering. | Nej |
+| password | Ange ett lösen ord för det användar konto som du har angett som användar namn. Du kan också välja att [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). <br>Gäller när du använder Windows-autentisering eller refererar till ett lösen ord i Key Vault för grundläggande autentisering. | Nej |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
 
 Fler anslutnings egenskaper som du kan ange i anslutnings strängen per ärende:
 
 | Egenskap | Beskrivning | Standardvärde |
 |:--- |:--- |:--- |
-| UseDataEncryption | Anger om all kommunikation med Teradata-databasen ska krypteras. Tillåtna värden är 0 eller 1.<br><br/>- **0 (inaktive rad, standard)**: krypterar endast autentiseringsinformation.<br/>- **1 (aktive rad)**: krypterar alla data som skickas mellan driv rutinen och databasen. | Inga |
-| CharacterSet | Den teckenuppsättning som ska användas för sessionen. T. ex., `CharacterSet=UTF16` .<br><br/>Det här värdet kan vara en användardefinierad teckenuppsättning eller någon av följande fördefinierade teckenuppsättningar: <br/>– ASCII<br/>– UTF8<br/>– UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, DOS-kompatibel, KANJISJIS_0S)<br/>– EUC (UNIX-kompatibel, KANJIEC_0U)<br/>– IBM-stordator (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>– BIG5 (TCHBIG5_1R0)<br/>– GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | Standardvärdet är `ASCII`. |
-| MaxRespSize |Maximal storlek för svars buffert för SQL-begäranden i kilobyte (KB). T. ex., `MaxRespSize=‭10485760‬` .<br/><br/>För Teradata-databas version 16,00 eller senare är det maximala värdet 7361536. För anslutningar som använder tidigare versioner är det maximala värdet 1048576. | Standardvärdet är `65536`. |
+| UseDataEncryption | Anger om all kommunikation med Teradata-databasen ska krypteras. Tillåtna värden är 0 eller 1.<br><br/>- **0 (inaktive rad, standard)**: krypterar endast autentiseringsinformation.<br/>- **1 (aktive rad)**: krypterar alla data som skickas mellan driv rutinen och databasen. | `0` |
+| CharacterSet | Den teckenuppsättning som ska användas för sessionen. T. ex., `CharacterSet=UTF16` .<br><br/>Det här värdet kan vara en användardefinierad teckenuppsättning eller någon av följande fördefinierade teckenuppsättningar: <br/>– ASCII<br/>– UTF8<br/>– UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, DOS-kompatibel, KANJISJIS_0S)<br/>– EUC (UNIX-kompatibel, KANJIEC_0U)<br/>– IBM-stordator (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>– BIG5 (TCHBIG5_1R0)<br/>– GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | `ASCII` |
+| MaxRespSize |Maximal storlek för svars buffert för SQL-begäranden i kilobyte (KB). T. ex., `MaxRespSize=‭10485760‬` .<br/><br/>För Teradata-databas version 16,00 eller senare är det maximala värdet 7361536. För anslutningar som använder tidigare versioner är det maximala värdet 1048576. | `65536` |
+| MechanismName | Om du vill använda LDAP-protokollet för att autentisera anslutningen anger du `MechanismName=LDAP` . | Ej tillämpligt |
 
 **Exempel med grundläggande autentisering**
 
@@ -105,6 +106,24 @@ Fler anslutnings egenskaper som du kan ange i anslutnings strängen per ärende:
             "connectionString": "DBCName=<server>",
             "username": "<username>",
             "password": "<password>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exempel med LDAP-autentisering**
+
+```json
+{
+    "name": "TeradataLinkedService",
+    "properties": {
+        "type": "Teradata",
+        "typeProperties": {
+            "connectionString": "DBCName=<server>;MechanismName=LDAP;Uid=<username>;Pwd=<password>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -206,11 +225,11 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att k
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste vara inställd på `TeradataSource` . | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerad belastning måste du koppla alla motsvarande inbyggda partitionsalternativ i frågan. Exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej (om tabellen i data uppsättningen har angetts) |
-| partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Teradata. <br>Tillåt värden är: **ingen** (standard), **hash** -och **DynamicRange**.<br>När ett partitions alternativ är aktiverat (dvs. inte `None` ), kontrol leras graden av parallellitet för att data ska läsas in från Teradata av [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) inställningen på kopierings aktiviteten. | Inga |
-| partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när partition alternativet inte är `None` . | Inga |
-| partitionColumnName | Ange namnet på den käll kolumn som ska användas av intervall partition eller hash-partition för parallell kopiering. Om inget anges identifieras primärt index för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `Hash` eller `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook `?AdfHashPartitionCondition` eller  `?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [Parallel Copy från Teradata](#parallel-copy-from-teradata) -avsnittet. | Inga |
-| partitionUpperBound | Det maximala värdet för partition-kolumnen för att kopiera data. <br>Använd när partition alternativet är `DynamicRange` . Om du använder Query för att hämta källdata, Hook `?AdfRangePartitionUpbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Inga |
-| partitionLowerBound | Det minimala värdet för kolumnen partition som ut data ska kopieras. <br>Använd när alternativet partition är `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook `?AdfRangePartitionLowbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Inga |
+| partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Teradata. <br>Tillåt värden är: **ingen** (standard), **hash** -och **DynamicRange**.<br>När ett partitions alternativ är aktiverat (dvs. inte `None` ), kontrol leras graden av parallellitet för att data ska läsas in från Teradata av [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) inställningen på kopierings aktiviteten. | Nej |
+| partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när partition alternativet inte är `None` . | Nej |
+| partitionColumnName | Ange namnet på den käll kolumn som ska användas av intervall partition eller hash-partition för parallell kopiering. Om inget anges identifieras primärt index för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `Hash` eller `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook `?AdfHashPartitionCondition` eller  `?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [Parallel Copy från Teradata](#parallel-copy-from-teradata) -avsnittet. | Nej |
+| partitionUpperBound | Det maximala värdet för partition-kolumnen för att kopiera data. <br>Använd när partition alternativet är `DynamicRange` . Om du använder Query för att hämta källdata, Hook `?AdfRangePartitionUpbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej |
+| partitionLowerBound | Det minimala värdet för kolumnen partition som ut data ska kopieras. <br>Använd när alternativet partition är `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook `?AdfRangePartitionLowbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej |
 
 > [!NOTE]
 >
@@ -304,11 +323,11 @@ När du kopierar data från Teradata gäller följande mappningar. Information o
 | ByteInt |Int16 |
 | Char |Sträng |
 | CLOB |Sträng |
-| Date |DateTime |
+| Datum |DateTime |
 | Decimal |Decimal |
 | Double |Double |
 | Infoga |Stöds inte. Använd explicit Cast i käll frågan. |
-| Integer |Int32 |
+| Heltal |Int32 |
 | Intervall dag |Stöds inte. Använd explicit Cast i käll frågan. |
 | Intervall, dag till timme |Stöds inte. Använd explicit Cast i käll frågan. |
 | Intervall, dag till minut |Stöds inte. Använd explicit Cast i käll frågan. |

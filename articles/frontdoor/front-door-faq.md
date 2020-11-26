@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 18e32a0387119d235294d1126d869186ae28d2b2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: abc4529d6076496b34859eec2b931a8dcbd1ce93
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488987"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296598"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Vanliga frågor och svar om Azures front dörr
 
@@ -235,14 +235,14 @@ Ja, OCSP-häftnings funktion stöds som standard av front dörren och ingen konf
 
 ### <a name="does-azure-front-door-also-support-re-encryption-of-traffic-to-the-backend"></a>Stöder Azures front dörr återkryptering av trafik till Server delen?
 
-Ja, Azure-frontend stöder TLS/SSL-avlastning och slut punkt till slut punkt TLS, som omkrypterar trafiken till Server delen. Eftersom anslutningarna till Server delen sker över den offentliga IP-adressen rekommenderar vi i själva verket att du konfigurerar din front dörr att använda HTTPS som protokoll för vidarebefordran.
+Ja, Azure-frontend stöder TLS/SSL-avlastning och slut punkt till slut punkt TLS, som omkrypterar trafiken till Server delen. Eftersom anslutningarna till Server delen sker över den offentliga IP-adressen rekommenderar vi att du konfigurerar din front dörr att använda HTTPS som protokoll för vidarebefordran.
 
 ### <a name="does-front-door-support-self-signed-certificates-on-the-backend-for-https-connection"></a>Stöder front dörren självsignerade certifikat på Server delen för HTTPS-anslutningen?
 
 Nej, självsignerade certifikat stöds inte på frontend-dörren och begränsningen gäller för båda:
 
-1. Server **delar: du**kan inte använda självsignerade certifikat när du vidarebefordrar trafiken som https-eller https-hälsoavsökare eller fyller i cachen för från ursprung för routningsregler med cachelagring aktiverat.
-2. **Klient**del: du kan inte använda självsignerade certifikat när du använder ditt eget anpassade TLS/SSL-certifikat för att aktivera https på den anpassade domänen.
+1. Server **delar: du** kan inte använda självsignerade certifikat när du vidarebefordrar trafiken som https-eller https-hälsoavsökare eller fyller i cachen för från ursprung för routningsregler med cachelagring aktiverat.
+2. **Klient** del: du kan inte använda självsignerade certifikat när du använder ditt eget anpassade TLS/SSL-certifikat för att aktivera https på den anpassade domänen.
 
 ### <a name="why-is-https-traffic-to-my-backend-failing"></a>Varför fungerar inte HTTPS-trafik till min server del?
 

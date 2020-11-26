@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 43aadee627c7dc12a37a8f3895ba4dfed472808c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 627d5b15a861c3d564cb4db33b366d3227092d37
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182911"
+ms.locfileid: "96296275"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Självstudie: aktivera tillägg för ingångs kontroll (för hands version) för ett nytt AKS-kluster med en ny Application Gateway instans
 
@@ -34,7 +34,10 @@ I de här självstudierna får du lära dig att
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - I den här självstudien krävs version 2.0.4 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
+ - I den här självstudien krävs version 2.0.4 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad. Om du använder Azure CLI måste du installera förhands gransknings tillägget i CLI med hjälp av följande kommando, om det inte redan finns:
+    ```azurecli-interactive
+    az extension add --name aks-preview
+    ```
 
  - Registrera funktions flaggan *AKS-IngressApplicationGatewayAddon* med hjälp av kommandot [AZ Feature register](/cli/azure/feature#az-feature-register) , som du ser i följande exempel. Du behöver bara göra detta en gång per prenumeration medan tillägget fortfarande finns i en för hands version.
     ```azurecli-interactive

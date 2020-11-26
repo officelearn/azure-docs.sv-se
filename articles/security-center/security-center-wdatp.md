@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5645a2e0449a1929421f9444bf645f08ad0525e9
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368101"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296819"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Skydda dina slut punkter med Security Center Integrated EDR-lösning: Microsoft Defender för slut punkt
 
@@ -44,7 +44,7 @@ Microsoft Defender för slut punkt är en holistisk, Cloud-levererad slut punkts
 | Priset                        | Kräver [Azure Defender för servrar](security-center-pricing.md)                                                                                                                                                                                                                                             |
 | Plattformar som stöds:            | ![Ja](./media/icons/yes-icon.png) Azure-datorer som kör Windows<br>![Ja](./media/icons/yes-icon.png) Azure Arc-datorer som kör Windows|
 | Versioner av Windows som stöds:  | Defender för slut punkten är inbyggt i Windows 10 1703 (och senare) och Windows Server 2019.<br>Security Center stöder identifiering på Windows Server 2016, 2012 R2 och 2008 R2 SP1.<br>Server slut punkts övervakning med denna integrering har inaktiverats för Office 365 GCC-kunder. |
-| Nödvändiga roller och behörigheter: | Aktivera/inaktivera integrering: **säkerhets administratör** eller **ägare**<br>Så här visar du MDATP-aviseringar i Security Center: **säkerhets läsare**, **läsare**, **resurs grupps deltagare**, **resurs grupp ägare**, **säkerhets administratör**, **prenumerations ägare**eller **prenumerations deltagare**                         |
+| Nödvändiga roller och behörigheter: | Aktivera/inaktivera integrering: **säkerhets administratör** eller **ägare**<br>Så här visar du MDATP-aviseringar i Security Center: **säkerhets läsare**, **läsare**, **resurs grupps deltagare**, **resurs grupp ägare**, **säkerhets administratör**, **prenumerations ägare** eller **prenumerations deltagare**                         |
 | Moln                         | ![Ja](./media/icons/yes-icon.png) Kommersiella moln.<br>![Nej](./media/icons/no-icon.png) GCC kunder som kör arbets belastningar i globala Azure-moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
@@ -61,7 +61,7 @@ Microsoft Defender för slut punkt innehåller:
 
 Genom att integrera Defender för slut punkt med Security Center kan du dra nytta av följande ytterligare funktioner:
 
-- **Automatiserad onboarding**. Security Center aktiverar automatiskt Microsoft Defender för slut punkts sensor för alla Windows-servrar som övervakas av Security Center (om de inte kör Windows Server 2019).
+- **Automatiserad onboarding**. Security Center aktiverar automatiskt Microsoft Defender för slut punkts sensor för alla Windows-servrar som övervakas av Security Center. Förutom för de som kör Windows Server 2019, som måste registreras via lokalt skript, grupprincip objekt (GPO) eller [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/) (tidigare SCCM).
 
 - **En ruta i glaset**. I Security Center-konsolen visas Microsoft Defender för slut punkts varningar. Om du vill undersöka ytterligare använder du Microsoft Defender för slut punktens egna Portal sidor där du kan se ytterligare information som varnings process trädet och incident diagrammet. Du kan också se en detaljerad dator tids linje som visar varje beteende för en historisk period på upp till sex månader.
 
@@ -85,9 +85,9 @@ När du har konfigurerat platsen kan du inte ändra den. Om du behöver flytta d
 1. Från Security Center menyn väljer du **pris & inställningar**.
 1. Välj den prenumeration som du vill ändra.
 1. Välj **hot identifiering**.
-1. Välj **Tillåt Microsoft Defender för slut punkt för att komma åt mina data**och välj **Spara**.
+1. Välj **Tillåt Microsoft Defender för slut punkt för att komma åt mina data** och välj **Spara**.
 
-    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Microsoft Defender för slutpunktens egna Security Center":::
+    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Aktivera integrationen mellan Azure Security Center och Microsofts EDR-lösning, Microsoft Defender för slut punkt":::
 
     Azure Security Center kommer automatiskt att publicera dina servrar till Microsoft Defender för slut punkt. Onboarding kan ta upp till 24 timmar.
 
@@ -112,7 +112,7 @@ Så här skapar du en ofarlig Microsoft Defender för slut punkts test avisering
     ```powershell
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
-    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Microsoft Defender för slutpunktens egna Security Center":::
+    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Ett kommando tolks fönster med kommandot för att generera en test avisering.":::
 
 1. Om kommandot lyckas visas en ny avisering på instrument panelen för Azure Security Center och Microsoft Defender för slut punkts portalen. Den här aviseringen kan ta några minuter innan den visas.
 1. Om du vill granska aviseringen i Security Center går du till **säkerhets varningar**  >  ,**misstänkt PowerShell-kommandorad**.

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 8195c4d072acce5345fa9752f97713aed22d962f
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96013468"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296962"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka integration runtime med egen värd
 
@@ -167,7 +167,7 @@ När vi hanterar fall som rör SSL/TLS-handskakning kan vi stöta på problem so
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-Exempel: 
+Ett exempel: 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -458,6 +458,22 @@ Före och efter konvertering:
 ![Innan certifikat ändringen](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
 
 ![Efter ändring av certifikat](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+
+### <a name="self-hosted-integration-runtime-version-5x"></a>Egen värd Integration Runtime version 5. x
+För uppgraderingen till version 5. x av Azure Data Factory integration runtime med egen värd, kräver vi **.NET Framework runtime-4.7.2** eller senare. I nedladdnings sidan kommer du att ladda ned Länkar för de nyaste 4. x-versionerna och de nyaste två 5. x versionerna. 
+
+
+För ADF v2-kunder:
+- Om automatisk uppdatering är aktiverat och du redan har uppgraderat .NET Framework-körningsmiljön till 4.7.2 eller senare, uppgraderas den lokala integrerings körningen automatiskt till den senaste 5. x-versionen.
+- Om automatisk uppdatering är aktiverat och du inte har uppgraderat .NET Framework-körningsmiljön till 4.7.2 eller senare, uppgraderas inte den lokala integrerings körningen automatiskt till den senaste 5. x-versionen. Integration runtime med egen värd finns kvar i den aktuella 4. x-versionen. Du kan se en varning för runtime-uppgraderingen av .NET Framework i portalen och klienten för lokal integration Runtime.
+- Om automatisk uppdatering är inaktiverat och du redan har uppgraderat .NET Framework-körningsmiljön till 4.7.2 eller senare, kan du hämta det senaste 5. x manuellt och installera det på datorn.
+- Om automatisk uppdatering är inaktive rad och du inte har uppgraderat .NET Framework-körningsmiljön till 4.7.2 eller senare. När du försöker installera SHIR 5. x och registrera nyckeln måste du först uppgradera .NET Framework-körningsmiljön.
+
+
+För ADF v1-kunder:
+- Integration runtime 5 med egen värd stöder inte ADF v1.
+- Den egna värdbaserade integrerings körningen uppgraderas automatiskt till den senaste versionen av 4. x. Och den senaste versionen av 4. x upphör inte att gälla. 
+- Om du försöker installera den automatiskt värdbaserade integrerings körningen 5. x och registrera nyckeln får du ett meddelande om att integrerings körningen för egen värd är 5. x inte stöder v1.
 
 
 ## <a name="self-hosted-ir-connectivity-issues"></a>Problem med IR-anslutning via egen värd
@@ -757,6 +773,7 @@ Du kan märka andra data fabriker (på olika klienter) vid försök att dela den
 #### <a name="cause"></a>Orsak
 
 IR med egen värd kan inte delas mellan klienter.
+
 
 
 ## <a name="next-steps"></a>Nästa steg

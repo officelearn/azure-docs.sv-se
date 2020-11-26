@@ -8,22 +8,22 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 33d837f63fca2062ec930fcf0d64ee01ea822c99
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: d36cf2344891bb70ab5499e77699b111429a936b
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989538"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121831"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Så här ansluter du enheter med X. 509-certifikat med hjälp av Node.js Device SDK för IoT Central program
 
-IoT Central stöder de båda certifikaten för signaturer för delad åtkomst (SAS) och X. 509 för att skydda kommunikationen mellan en enhet och ditt program. Självstudien [skapa och Anslut ett klient program till Azure IoT Central-programmet](./tutorial-connect-device-nodejs.md) använder SAS. I den här artikeln får du lära dig hur du ändrar kod exemplet för att använda X. 509.  X. 509-certifikat rekommenderas i produktions miljöer. Mer information finns i [Anslut till Azure IoT Central](./concepts-get-connected.md).
+IoT Central stöder de båda certifikaten för signaturer för delad åtkomst (SAS) och X. 509 för att skydda kommunikationen mellan en enhet och ditt program. Självstudien [skapa och Anslut ett klient program till Azure IoT Central-programmet](./tutorial-connect-device.md) använder SAS. I den här artikeln får du lära dig hur du ändrar kod exemplet för att använda X. 509.  X. 509-certifikat rekommenderas i produktions miljöer. Mer information finns i [Anslut till Azure IoT Central](./concepts-get-connected.md).
 
 Den här artikeln visar två sätt att använda X. 509 – [grupp registreringar](how-to-connect-devices-x509.md#use-a-group-enrollment) som vanligt vis används i en produktions miljö och [enskilda registreringar](how-to-connect-devices-x509.md#use-an-individual-enrollment) är användbara för testning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Slut för ande av [skapa och Anslut ett klient program till din Azure IoT Central program-självstudie (Node.js)](./tutorial-connect-device-nodejs.md) .
+- Slut för ande av guiden [skapa och Anslut ett klient program till din Azure IoT Central program (Java Script)](./tutorial-connect-device.md) .
 - [Git](https://git-scm.com/download/).
 - Hämta och installera [openssl](https://www.openssl.org/). Om du använder Windows kan du använda binärfilerna från [openssl-sidan på SourceForge](https://sourceforge.net/projects/openssl/).
 
@@ -97,7 +97,7 @@ När du har sparat registrerings gruppen ska du anteckna ID-omfånget.
 
 ## <a name="run-sample-device-code"></a>Kör exempel på enhets kod
 
-1. Kopiera filen **sampleDevice01_key. pem** och **sampleDevice01_cert. pem** till mappen _Azure-IoT-SDK-Node/Device/samples/PnP_ som innehåller **simple_thermostat.js** programmet. Du använde det här programmet när du har slutfört [guiden Anslut en enhet (Node.js)](./tutorial-connect-device-nodejs.md).
+1. Kopiera filen **sampleDevice01_key. pem** och **sampleDevice01_cert. pem** till mappen _Azure-IoT-SDK-Node/Device/samples/PnP_ som innehåller **simple_thermostat.js** programmet. Du använde det här programmet när du har slutfört [guiden Anslut en enhet (Java Script)](./tutorial-connect-device.md).
 
 1. Gå till mappen _Azure-IoT-SDK-Node/Device/samples/PnP_ som innehåller **simple_thermostat.js** programmet och kör följande kommando för att installera X. 509-paketet:
 
@@ -149,7 +149,7 @@ När du har sparat registrerings gruppen ska du anteckna ID-omfånget.
     ```
 
     > [!TIP]
-    > Du ställer in de andra nödvändiga miljövariablerna när du har slutfört guiden [skapa och ansluta ett klient program till Azure IoT Central Application](./tutorial-connect-device-nodejs.md) .
+    > Du ställer in de andra nödvändiga miljövariablerna när du har slutfört guiden [skapa och ansluta ett klient program till Azure IoT Central Application](./tutorial-connect-device.md) .
 
 1. Kör skriptet och kontrol lera att enheten har allokerats:
 
@@ -197,7 +197,7 @@ Enheten har nu tillhandahållits med X. 509-certifikat.
 
 ## <a name="run-a-sample-individual-enrollment-device"></a>Kör ett exempel på en enskild registrerings enhet
 
-1. Kopiera filen _mytestselfcertprimary_key. pem_ och _mytestselfcertprimary_cert. pem_ till mappen _Azure-IoT-SDK-Node/Device/samples/PnP_ som innehåller **simple_thermostat.js** programmet. Du använde det här programmet när du har slutfört [guiden Anslut en enhet (Node.js)](./tutorial-connect-device-nodejs.md).
+1. Kopiera filen _mytestselfcertprimary_key. pem_ och _mytestselfcertprimary_cert. pem_ till mappen _Azure-IoT-SDK-Node/Device/samples/PnP_ som innehåller **simple_thermostat.js** programmet. Du använde det här programmet när du har slutfört [guiden Anslut en enhet (Java Script)](./tutorial-connect-device.md).
 
 1. Ändra de miljövariabler som du använde i på följande sätt:
 

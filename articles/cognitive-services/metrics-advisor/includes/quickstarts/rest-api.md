@@ -1,5 +1,5 @@
 ---
-title: Mått övervakare REST API snabb start
+title: Mått rådgivare REST API snabb start
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 416f28f51a3ebe00e7227503f189898406229c8a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 42ea166119d3cc405b3d73e184c44dbfd6708a97
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047477"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96231488"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -38,7 +38,7 @@ Du behöver två nycklar för att börja använda REST API:
 
 ## <a name="add-a-data-feed-from-a-sample-or-data-source"></a>Lägga till en datafeed från ett exempel eller en data Källa
 
-Om du vill börja övervaka dina tids serie data måste du lägga till en datafeed. Om du vill lägga till en datafeed måste du ange ett data schema enligt typen och parametrarna för data källan. Spara nedanstående JSON-begärantext i en fil med namnet *body.jspå*och kör kommandot vändning.
+Om du vill börja övervaka dina tids serie data måste du lägga till en datafeed. Om du vill lägga till en datafeed måste du ange ett data schema enligt typen och parametrarna för data källan. Spara nedanstående JSON-begärantext i en fil med namnet *body.jspå* och kör kommandot vändning.
 
 ```json
 {
@@ -197,7 +197,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/datafeeds/REPLACE-WI
 
 ## <a name="check-ingestion-status"></a>Kontrol lera inmatnings status
 
-När du har lagt till datafeed, om du vill kontrol lera förloppet för ett inmatnings jobb, kan du kontrol lera status för det. Spara nedanstående JSON-begärantext i en fil med namnet *body.jspå*och kör kommandot vändning.
+När du har lagt till datafeed, om du vill kontrol lera förloppet för ett inmatnings jobb, kan du kontrol lera status för det. Spara nedanstående JSON-begärantext i en fil med namnet *body.jspå* och kör kommandot vändning.
 
 ```json
 {
@@ -246,7 +246,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/datafeeds/REPLACE-WI
 
 ##  <a name="configure-anomaly-detection-configuration"></a>Konfigurera konfiguration av avvikelse identifiering
 
-Även om en standard konfiguration automatiskt tillämpas på varje mått, kan du justera identifierings lägena som används på dina data. Spara nedanstående JSON-begärantext i en fil med namnet *body.jspå*och kör kommandot vändning.
+Även om en standard konfiguration automatiskt tillämpas på varje mått, kan du justera identifierings lägena som används på dina data. Spara nedanstående JSON-begärantext i en fil med namnet *body.jspå* och kör kommandot vändning.
 
 ```json
 {
@@ -338,7 +338,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/enrichment/anomalyDe
 
 Innan du konfigurerar avisering behöver du skapa en Hook som ska användas för att meddela aviseringar. Det finns två sätt att få ett meddelande om en avisering utlöses, d.v.s. webhook och e-post. Du kan ange någon av dem i Hook-konfiguration som Hook-typ när du skapar en Hook.
 
-Spara nedanstående JSON-begärantext i en fil med namnet *body.jspå*och kör kommandot vändning.
+Spara nedanstående JSON-begärantext i en fil med namnet *body.jspå* och kör kommandot vändning.
 
 ```json
 {
@@ -414,7 +414,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/hooks/REPLACE-WITH-Y
 }
 ```
 
-Genom att konfigurera aviserings konfiguration kan du ange ett identifierings villkor som kan användas för att utlösa aviseringar. Spara nedanstående JSON-begärantext i en fil med namnet *body.jspå*och kör kommandot vändning.
+Genom att konfigurera aviserings konfiguration kan du ange ett identifierings villkor som kan användas för att utlösa aviseringar. Spara nedanstående JSON-begärantext i en fil med namnet *body.jspå* och kör kommandot vändning.
 
 ```json
 {
@@ -538,7 +538,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/alert/anomaly/config
 }
 ```
 
-I ovanstående svar fick vi en avisering. Med den här **alertID**kan vi fråga alla relaterade avvikelser om den här aviseringen.
+I ovanstående svar fick vi en avisering. Med den här **alertID** kan vi fråga alla relaterade avvikelser om den här aviseringen.
 
 (Ett annat sätt att hämta en avisering är att konfigurera webhook och en avisering som tas emot passivt när den hittas)
 

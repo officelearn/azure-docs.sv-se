@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 89c51e69a4274affcecb4d967deb96dcebcfd70f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 0229b1941e40345f35cb7409533e54b0c4ea7d5d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253378"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182622"
 ---
 # <a name="azure-active-directory-authorization---rest-api-reference"></a>Azure Active Directory Authorization-REST API referens
 
@@ -43,4 +43,4 @@ HTTP/1.1 403 Forbidden
 
 ## <a name="managing-role-assignments"></a>Hantera roll tilldelningar
 
-Du kan hantera roll tilldelningar med hjälp av [RBAC-procedurer](https://docs.microsoft.com/azure/role-based-access-control/overview) som är standard i alla Azure-tjänster. Du kan göra detta via Azure CLI, PowerShell och Azure Portal. Mer information finns i [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Du kan hantera roll tilldelningar med hjälp av [RBAC-procedurer](../role-based-access-control/overview.md) som är standard i alla Azure-tjänster. Du kan göra detta via Azure CLI, PowerShell och Azure Portal. Mer information finns i [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](../role-based-access-control/role-assignments-portal.md).

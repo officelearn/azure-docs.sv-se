@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: d0113ea684b9b2fb26eac1fb5ceec5b53aef677f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e690a761efcd16428f9da8fe53e5dd8d26e9ff79
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359756"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181296"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets ytan efter Facebook för automatisk användar etablering
 
@@ -35,7 +35,7 @@ I den här självstudien beskrivs de steg du behöver utföra i båda arbets pla
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * [En Azure AD-klient](../develop/quickstart-create-new-tenant.md) 
-* Ett användar konto i Azure AD med [behörighet](../users-groups-roles/directory-assign-admin-roles.md) att konfigurera etablering (t. ex. program administratör, moln program administratör, program ägare eller global administratör)
+* Ett användar konto i Azure AD med [behörighet](../roles/permissions-reference.md) att konfigurera etablering (t. ex. program administratör, moln program administratör, program ägare eller global administratör)
 * En arbets plats per Facebook-aktiverad prenumeration med enkel inloggning
 
 > [!NOTE]
@@ -133,7 +133,7 @@ Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, basera
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|Sträng|
    |urn: scim: schemas: tillägg: Facebook: auth_method: 1.0: auth_method|Sträng|
    |urn: scim: schemas: tillägg: Facebook: Frontline: 1.0.is_frontline|Boolesk|
-   |urn: scim: schemas: tillägg: Facebook: starttermdates: 1.0. StartDate|Integer|
+   |urn: scim: schemas: tillägg: Facebook: starttermdates: 1.0. StartDate|Heltal|
 
 
 10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

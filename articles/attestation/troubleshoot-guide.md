@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fe347983e2143c7a4bdf00ca0207356c881c66ac
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 72d7a40c38f3629a70260f223074b456dff9ce38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95891290"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182843"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Microsoft Azure fel söknings guide för attestering
 
@@ -95,7 +95,7 @@ b. Verifiera dina roll tilldelnings inställningar för Azure
  
   ```
 
-c. Om du inte hittar en lämplig roll tilldelning i listan följer du anvisningarna i [här](/azure/role-based-access-control/role-assignments-powershell)
+c. Om du inte hittar en lämplig roll tilldelning i listan följer du anvisningarna i [här](../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="2-http--400-errors"></a>2. HTTP – 400 fel
 
@@ -123,7 +123,7 @@ G:\Az\security\Attestation\src\AttestationServices\Instance\Enclave\api.cpp(840)
 
 Skicka en begäran till attesterings-API genom att ange princip text i parametern "draftPolicyForAttestation". AttestSgxEnclave-API: et kommer att använda det här princip dokumentet under attesterings anropet och kan användas för att testa attesterings principer innan de används. Attesterings-token som genererades när det här fältet finns blir oskyddat.
 
-Se [exempel på attesterings princip](/azure/attestation/policy-examples)
+Se [exempel på attesterings princip](./policy-examples.md)
 
 ### <a name="22-attestation-failure-due-to-invalid-input"></a>2.2. Attesteringen kunde inte utföras på grund av ogiltiga ininformation
 
@@ -163,7 +163,7 @@ Kontrol lera att rot certifikatets tillägg för grundläggande begränsningar �
 
 Annars anses certifikat kedjan vara ogiltig.
 
-Se [princip undertecknare](/azure/attestation/policy-signer-examples) och [princip](/azure/attestation/policy-examples) exempel 
+Se [princip undertecknare](./policy-signer-examples.md) och [princip](./policy-examples.md) exempel 
 
 ### <a name="24-adddelete-policy-signer-failure"></a>2.4. Lägg till/ta bort princip signerings problem
 
@@ -209,7 +209,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.AddAzureAttestationPolicySigner
 ```
 
-**Fel söknings steg** Om du vill lägga till/ta bort ett nytt princip signerings certifikat använder du RFC7519 JSON Web Token (JWT) med ett anspråk med namnet "x-MS-policyCertificate". Värdet för anspråket är en RFC7517 JSON-webbnyckel som innehåller det certifikat som ska läggas till. JWT måste vara signerat med en privat nyckel för alla giltiga princip registrerings certifikat som är associerade med providern. Se [exempel på princip registrering](/azure/attestation/policy-signer-examples).
+**Fel söknings steg** Om du vill lägga till/ta bort ett nytt princip signerings certifikat använder du RFC7519 JSON Web Token (JWT) med ett anspråk med namnet "x-MS-policyCertificate". Värdet för anspråket är en RFC7517 JSON-webbnyckel som innehåller det certifikat som ska läggas till. JWT måste vara signerat med en privat nyckel för alla giltiga princip registrerings certifikat som är associerade med providern. Se [exempel på princip registrering](./policy-signer-examples.md).
 
 ### <a name="25-attestation-policy-configuration-failure"></a>2.5. Konfigurations problem för attesterings princip
 
@@ -255,7 +255,7 @@ Om du vill konfigurera en princip i text format anger du princip texten direkt.
 
 I PowerShell anger du PolicyFormat som JWT för att konfigurera principen i JWT-format. Standard princip formatet är text.
 
-Se exempel på attesterings [princip](/azure/attestation/policy-examples) och [hur du skapar en princip för attestering](/azure/attestation/author-sign-policy) 
+Se exempel på attesterings [princip](./policy-examples.md) och [hur du skapar en princip för attestering](./author-sign-policy.md) 
 
 ## <a name="3-azattestation-installation-issues-in-powershell"></a>3. AZ. installations problem för attestering i PowerShell
 
@@ -301,4 +301,3 @@ Get-InstalledModule
 Om versionerna inte matchar minimi kravet kör Update-Module-kommandon
 
 t. ex.-Update-Module-Name AZ. attestering
-

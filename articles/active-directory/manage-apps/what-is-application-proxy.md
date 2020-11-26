@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bc3352dd57a76cbb0b38455adfa11987ec93781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d73cf3336afad83fadf6f56606161f523e202280
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003029"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180548"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Använda Azure AD-programproxy för att publicera lokala appar för fjärranslutna användare
 
@@ -95,7 +95,7 @@ App proxy fungerar med appar som använder följande interna autentiseringsproto
 
 App proxy stöder även följande autentiseringsprotokoll med integration från tredje part eller i vissa konfigurations scenarier:
 
-* [**Rubrik baserad autentisering**](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers). Den här inloggnings metoden använder en tredjeparts autentiseringstjänst som kallas PingAccess och används när programmet använder rubriker för autentisering. I det här scenariot hanteras autentiseringen av PingAccess.
+* [**Rubrik baserad autentisering**](./application-proxy-configure-single-sign-on-with-headers.md). Den här inloggnings metoden använder en tredjeparts autentiseringstjänst som kallas PingAccess och används när programmet använder rubriker för autentisering. I det här scenariot hanteras autentiseringen av PingAccess.
 * [**Formulär-eller lösenordsbaserad autentisering**](application-proxy-configure-single-sign-on-password-vaulting.md). Med den här autentiseringsmetoden loggar användare in på programmet med ett användar namn och lösen ord första gången de använder den. Efter den första inloggningen skickar Azure AD användar namn och lösen ord till programmet. I det här scenariot hanteras autentiseringen av Azure AD.
 * [**SAML-autentisering**](application-proxy-configure-single-sign-on-on-premises-apps.md). SAML-baserad enkel inloggning stöds för program som använder antingen SAML 2,0 eller WS-Federation protokoll. Med enkel inloggning i SAML autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto.
 

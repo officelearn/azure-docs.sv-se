@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 031b3bfd30e0272589c5c7ee2c546b9459767b33
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997059"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183200"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Självstudie: övervaka publicerade API: er
 
@@ -90,7 +90,7 @@ Så här konfigurerar du ett exempel på en varnings regel baserat på ett begä
 
 1. Ange ett namn och en beskrivning av varnings regeln och välj allvarlighets grad. 
 1. Välj **Skapa varningsregel**.
-1. Testa nu varnings regeln genom att anropa konferens-API: et utan en API-nyckel. Exempel:
+1. Testa nu varnings regeln genom att anropa konferens-API: et utan en API-nyckel. Ett exempel:
 
     ```bash
     curl GET https://apim-hello-world.azure-api.net/conference/speakers HTTP/1.1 
@@ -149,7 +149,7 @@ Om du aktiverar insamling av GatewayLogs eller mått i en Log Analytics arbets y
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Skärm bild av objektet loggar i menyn övervakning":::
 
-Kör frågor för att visa data. Det finns flera [exempel frågor](../azure-monitor/log-query/saved-queries.md) eller så kör du egna. Följande fråga hämtar till exempel de senaste 24 timmarna av data från tabellen GatewayLogs:
+Kör frågor för att visa data. Det finns flera [exempel frågor](../azure-monitor/log-query/example-queries.md) eller så kör du egna. Följande fråga hämtar till exempel de senaste 24 timmarna av data från tabellen GatewayLogs:
 
 ```kusto
 ApiManagementGatewayLogs
@@ -158,7 +158,7 @@ ApiManagementGatewayLogs
 
 Mer information om hur du använder resurs loggar för API Management finns i:
 
-* [Kom igång med Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md)eller testa [Log Analytics demo miljön](https://portal.loganalytics.io/demo).
+* [Kom igång med Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)eller testa [Log Analytics demo miljön](https://portal.loganalytics.io/demo).
 
 * [Översikt över logg frågor i Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 

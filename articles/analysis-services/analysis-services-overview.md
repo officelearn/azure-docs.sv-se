@@ -8,12 +8,12 @@ ms.date: 10/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: a05da5fae748e799d7965c51415956c2e2a524b1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d8c7965a1d77d443b538392a4c190a8f578d8e18
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201519"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183217"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -160,7 +160,7 @@ Kompatibilitetsnivån avser release-/regionsspecifika beteenden i Analysis Servi
 
 ## <a name="your-data-is-secure"></a>Dina data är skyddade
 
-Azure Analysis Services tillhandahåller säkerhet för känsliga data på flera nivåer. Som en Azure-tjänst innehåller Analysis Services den **grundläggande** nivån för distribuerade överbelastningsattacker, vilken aktiveras automatiskt som en del av Azure-plattformen. Mer information finns i [Översikt över Azure DDoS Protection Standard](../virtual-network/ddos-protection-overview.md). 
+Azure Analysis Services tillhandahåller säkerhet för känsliga data på flera nivåer. Som en Azure-tjänst innehåller Analysis Services den **grundläggande** nivån för distribuerade överbelastningsattacker, vilken aktiveras automatiskt som en del av Azure-plattformen. Mer information finns i [Översikt över Azure DDoS Protection Standard](../ddos-protection/ddos-protection-overview.md). 
 
 På servernivå har Analysis Services en brandvägg, Azure-autentisering, serveradministratörsroller och kryptering för serversidan. På datamodellnivå säkerställer användarroller, säkerhet på radnivå och säkerhet på objektnivå att dina data är säkra och endast ses av de användare som är avsedda att se den.
 

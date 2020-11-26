@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: d3706c26d9b15e9ea607996ace222b29ccd84458
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 4125a4493b72fa60203067f3eba1ccebdc820b02
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999662"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182979"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Självstudie: åtkomst Microsoft Graph från en säker app som användare
 
@@ -78,7 +78,7 @@ Din webbapp har nu de behörigheter som krävs och lägger även till Microsoft 
 > [!NOTE]
 > Microsoft. Identity. Web-biblioteket krävs inte i din webbapp för grundläggande autentisering/auktorisering eller för att autentisera begär Anden med Microsoft Graph. Det är möjligt att på [ett säkert sätt anropa underordnade API: er](tutorial-auth-aad.md#call-api-securely-from-server-code) med endast modulen App Service autentisering/auktorisering aktive rad.
 > 
-> App Service autentisering/auktorisering är dock utformat för flera grundläggande autentiserings scenarier. För mer komplexa scenarier (till exempel hantering av anpassade anspråk) behöver du Microsoft. Identity. Web Library eller [Microsoft Authentication Library](/azure/active-directory/develop/msal-overview). Det finns lite mer konfigurations-och konfigurations arbete i början, men Microsoft. Identity. Web-biblioteket kan köras tillsammans med modulen App Service autentisering/auktorisering. Senare, när din webbapp behöver hantera mer komplexa scenarier, kan du inaktivera modulen App Service autentisering/auktorisering och Microsoft. identitet. Web är redan en del av din app.
+> App Service autentisering/auktorisering är dock utformat för flera grundläggande autentiserings scenarier. För mer komplexa scenarier (till exempel hantering av anpassade anspråk) behöver du Microsoft. Identity. Web Library eller [Microsoft Authentication Library](../active-directory/develop/msal-overview.md). Det finns lite mer konfigurations-och konfigurations arbete i början, men Microsoft. Identity. Web-biblioteket kan köras tillsammans med modulen App Service autentisering/auktorisering. Senare, när din webbapp behöver hantera mer komplexa scenarier, kan du inaktivera modulen App Service autentisering/auktorisering och Microsoft. identitet. Web är redan en del av din app.
 
 ### <a name="install-client-library-packages"></a>Installera klient biblioteks paket
 

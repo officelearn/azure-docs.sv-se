@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0c4fde22b1b8d72ae8ae775c090e0da25ce0665f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056148"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181177"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analysera Azure AD-aktivitets loggar med Azure Monitor loggar
 
@@ -49,7 +49,7 @@ För att följa med måste du:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
-2. Välj **Azure Active Directory**och välj sedan **loggar** i avsnittet **övervakning** för att öppna arbets ytan Log Analytics. Arbets ytan öppnas med en standard fråga.
+2. Välj **Azure Active Directory** och välj sedan **loggar** i avsnittet **övervakning** för att öppna arbets ytan Log Analytics. Arbets ytan öppnas med en standard fråga.
 
     ![Standard fråga](./media/howto-analyze-activity-logs-log-analytics/defaultquery.png)
 
@@ -104,9 +104,9 @@ Du kan också ställa in aviseringar på din fråga. Om du till exempel vill kon
 
 Arbets böckerna innehåller flera rapporter om vanliga scenarier som rör granskning, inloggning och etablering av händelser. Du kan också varna för någon av de data som anges i rapporterna med hjälp av stegen som beskrivs i föregående avsnitt.
 
-* **Etablerings analys**: i den här [arbets boken](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) visas rapporter som rör etablering av etablerings aktiviteter, till exempel antalet nya användare som har skapats och etablerings felen, antalet användare som har uppdaterats och uppdaterings felen samt antalet användare som har upprättat och motsvarande problem.    
+* **Etablerings analys**: i den här [arbets boken](../app-provisioning/application-provisioning-log-analytics.md) visas rapporter som rör etablering av etablerings aktiviteter, till exempel antalet nya användare som har skapats och etablerings felen, antalet användare som har uppdaterats och uppdaterings felen samt antalet användare som har upprättat och motsvarande problem.    
 * **Inloggnings händelser**: den här arbets boken visar de mest relevanta rapporterna som rör övervakning av inloggnings aktiviteter, till exempel inloggningar av program, användare, enhet, samt en sammanfattningsvy som spårar antalet inloggningar över tid.
-* **Villkorlig åtkomst insikter**: med [arbets boken](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) villkorlig åtkomst insikter och rapportering kan du förstå effekten av principer för villkorlig åtkomst i organisationen över tid. 
+* **Villkorlig åtkomst insikter**: med [arbets boken](../conditional-access/howto-conditional-access-insights-reporting.md) villkorlig åtkomst insikter och rapportering kan du förstå effekten av principer för villkorlig åtkomst i organisationen över tid. 
 
 ## <a name="next-steps"></a>Nästa steg
 

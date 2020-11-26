@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, tillstånds konfiguration, uppdater
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 24aeb37cf868bed5d4211bc9b459a4736ceea4b2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e3986b7e8fc70f8662bed40b076897caa6165744
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205344"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182826"
 ---
 # <a name="an-introduction-to-azure-automation"></a>En introduktion till Azure Automation
 
@@ -43,7 +43,7 @@ Konfigurations hantering i Azure Automation ger åtkomst till två funktioner:
 
 ## <a name="update-management"></a>Hantering av uppdateringar
 
-Azure Automation innehåller funktionen [uppdateringshantering](update-management/update-mgmt-overview.md) för Windows-och Linux-system i hybrid miljöer. Uppdateringshantering ger dig insyn i att uppdatera kompatibiliteten mellan Azure och andra moln och lokalt. Med funktionen kan du skapa schemalagda distributioner som dirigerar installationen av uppdateringar i en definierad underhålls period. Om en uppdatering inte bör installeras på en dator kan du använda Uppdateringshantering-funktionen för att undanta den från en distribution.
+Azure Automation innehåller funktionen [uppdateringshantering](./update-management/overview.md) för Windows-och Linux-system i hybrid miljöer. Uppdateringshantering ger dig insyn i att uppdatera kompatibiliteten mellan Azure och andra moln och lokalt. Med funktionen kan du skapa schemalagda distributioner som dirigerar installationen av uppdateringar i en definierad underhålls period. Om en uppdatering inte bör installeras på en dator kan du använda Uppdateringshantering-funktionen för att undanta den från en distribution.
 
 ## <a name="shared-capabilities"></a>Delade funktioner
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 58fe99164c390d8a9435e5aa65e55fe7fca5d6db
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 92c2ae13b840d7a73d86365ce88584bcafc878e8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359484"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181466"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Slack för automatisk användarförsörjning
 
@@ -36,7 +36,7 @@ Syftet med den här självstudien är att visa vilka steg du behöver utföra i 
 Det scenario som beskrivs i självstudien förutsätter att du redan har följande objekt:
 
 * [En Azure AD-klientorganisation](../develop/quickstart-create-new-tenant.md).
-* Ett användarkonto i Azure AD med [behörighet](../users-groups-roles/directory-assign-admin-roles.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör).
+* Ett användarkonto i Azure AD med [behörighet](../roles/permissions-reference.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör).
 * En Slack-klientorganisation med [plusplan](https://aadsyncfabric.slack.com/pricing) eller bättre aktiverat.
 * Ett användarkonto i Slack med teamadministratörsbehörighet.
 
@@ -178,7 +178,7 @@ När du har konfigurerat etableringen använder du följande resurser till att �
 
   * Uppdateringar görs endast om de här två inställningarna har konfigurerats i Slacks arbetsplats/organisation – **Profilsynkronisering har aktiverats** och **Användarna inte kan ändra sina visningsnamn**.
 
-* Slacks **userName** -attribut måste kortare än 21 tecken och ha ett unikt värde.
+* Slacks **userName**-attribut måste kortare än 21 tecken och ha ett unikt värde.
 
 * Slack tillåter endast matchning med attributen **userName** och **email**.  
   

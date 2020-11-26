@@ -5,12 +5,12 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 770b1076f1a711cd863c5d3d468a3ec87ea54e7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a6f154dc3c7a2984c687d55af2cf51a60169d6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212727"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182571"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Skapa din första funktion i Azure Portal
 
@@ -19,9 +19,9 @@ Med Azure Functions kan du köra din kod i en miljö utan server utan att först
 Vi rekommenderar att du [utvecklar dina funktioner lokalt](functions-develop-local.md) och publicerar dem i en Function-app i Azure.  
 Använd någon av följande länkar för att komma igång med din valda lokala utvecklings miljö och ditt språk:
 
-| Visual Studio-koden | Terminal/kommando-prompt | Visual Studio |
+| Visuell Studio-kod | Terminal/kommando-prompt | Visual Studio |
 | --- | --- | --- |
-|  &bull;&nbsp;[Kom igång med C #](./functions-create-first-function-vs-code.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Kom igång med Java](./functions-create-first-function-vs-code.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Kom igång med Java Script](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Kom igång med PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Kom igång med python](./functions-create-first-function-vs-code.md?pivots=programming-language-python) |&bull;&nbsp;[Kom igång med C #](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Kom igång med Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Kom igång med Java Script](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Kom igång med PowerShell](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Kom igång med python](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python) | [Kom igång med C #](functions-create-your-first-function-visual-studio.md) |
+|  &bull;&nbsp;[Kom igång med C #](./create-first-function-vs-code-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Kom igång med Java](./create-first-function-vs-code-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Kom igång med Java Script](./create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Kom igång med PowerShell](./create-first-function-vs-code-csharp.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Kom igång med python](./create-first-function-vs-code-csharp.md?pivots=programming-language-python) |&bull;&nbsp;[Kom igång med C #](./create-first-function-cli-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Kom igång med Java](./create-first-function-cli-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Kom igång med Java Script](./create-first-function-cli-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Kom igång med PowerShell](./create-first-function-cli-csharp.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Kom igång med python](./create-first-function-cli-csharp.md?pivots=programming-language-python) | [Kom igång med C #](functions-create-your-first-function-visual-studio.md) |
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,13 +39,13 @@ Skapa sedan en funktion i appen ny funktion.
 
 ## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Skapa en HTTP-utlösnings funktion
 
-1. På den vänstra menyn i fönstret **funktioner** väljer du **Functions**och väljer sedan **Lägg till** på den översta menyn. 
+1. På den vänstra menyn i fönstret **funktioner** väljer du **Functions** och väljer sedan **Lägg till** på den översta menyn. 
  
-1. Välj **http-utlösare**i fönstret **ny funktion** .
+1. Välj **http-utlösare** i fönstret **ny funktion** .
 
     ![Välj funktionen HTTP-utlösare](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. I fönstret **ny funktion** godkänner du standard namnet för **ny funktion**eller anger ett nytt namn. 
+1. I fönstret **ny funktion** godkänner du standard namnet för **ny funktion** eller anger ett nytt namn. 
 
 1. Välj **Anonym** i list rutan **Autentiseringsnivå** och välj sedan **skapa funktion**.
 
@@ -80,4 +80,3 @@ Skapa sedan en funktion i appen ny funktion.
 ## <a name="next-steps"></a>Nästa steg
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-

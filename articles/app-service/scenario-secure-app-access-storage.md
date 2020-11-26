@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 250e95b33b985aedcc1b1537f57338d29e848451
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: c596b0d218c0b935fa1f3e971067160e52d87af1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96020219"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183132"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Självstudie: åtkomst Azure Storage från en webbapp
 
@@ -23,7 +23,7 @@ Lär dig att komma åt Azure Storage för en webbapp (inte en inloggad användar
 
 :::image type="content" alt-text="Diagram som visar hur du kommer åt lagringen." source="./media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
 
-Du vill lägga till åtkomst till Azure-dataplanen (Azure Storage, Azure SQL Database, Azure Key Vault eller andra tjänster) från din webbapp. Du kan använda en delad nyckel, men du måste bekymra dig om drifts säkerhet för vem som kan skapa, distribuera och hantera hemligheten. Det är också möjligt att nyckeln kan kontrol leras i GitHub, vilka hackare vet hur de ska genomsökas. Ett säkrare sätt att ge din webbapp åtkomst till data är att använda [hanterade identiteter](/azure/active-directory/managed-identities-azure-resources/overview).
+Du vill lägga till åtkomst till Azure-dataplanen (Azure Storage, Azure SQL Database, Azure Key Vault eller andra tjänster) från din webbapp. Du kan använda en delad nyckel, men du måste bekymra dig om drifts säkerhet för vem som kan skapa, distribuera och hantera hemligheten. Det är också möjligt att nyckeln kan kontrol leras i GitHub, vilka hackare vet hur de ska genomsökas. Ett säkrare sätt att ge din webbapp åtkomst till data är att använda [hanterade identiteter](../active-directory/managed-identities-azure-resources/overview.md).
 
 Med en hanterad identitet från Azure Active Directory (Azure AD) kan App Service komma åt resurser via rollbaserad åtkomst kontroll (RBAC), utan att kräva autentiseringsuppgifter för appen. När du har tilldelat en hanterad identitet till din webbapp tar Azure hand om skapandet och distributionen av ett certifikat. Människor behöver inte oroa sig för att hantera hemligheter eller autentiseringsuppgifter för appen.
 
@@ -77,7 +77,7 @@ Följ dessa steg om du vill skapa ett allmänt-syfte v2-lagrings konto i Azure P
 
 1. Lämna dessa fält med respektive standardvärde:
 
-    |Fält|Värde|
+    |Field|Värde|
     |--|--|
     |Distributionsmodell|Resource Manager|
     |Prestanda|Standard|

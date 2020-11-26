@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31bb0fac302a81c2523a2d2855ca1930cb266ac4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e77a90617d79dab8c71cdf0c7a6a4fb21e052fbd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95906627"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182792"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows-Hybrid Runbook Worker
 
@@ -65,7 +65,7 @@ Nätverks krav för Hybrid Runbook Worker finns i [Konfigurera nätverket](autom
 Du kan lägga till arbets datorn i en Hybrid Runbook Worker grupp i ett av dina Automation-konton. För datorer som är värdar för system hybrid Runbook Worker som hanteras av Uppdateringshantering kan de läggas till i en Hybrid Runbook Worker grupp. Men du måste använda samma Automation-konto för både Uppdateringshantering och Hybrid Runbook Worker grupp medlemskapet.
 
 >[!NOTE]
->Azure Automation [uppdateringshantering](update-management/update-mgmt-overview.md) installerar automatiskt system hybrid Runbook Worker på en Azure-eller icke-Azure-dator som är aktive rad för uppdateringshantering. Den här arbetaren är dock inte registrerad med några Hybrid Runbook Worker grupper i ditt Automation-konto. Om du vill köra Runbooks på dessa datorer måste du lägga till dem i en Hybrid Runbook Worker grupp. Följ steg 6 under avsnittet [manuell distribution](#manual-deployment) för att lägga till det i en grupp.
+>Azure Automation [uppdateringshantering](./update-management/overview.md) installerar automatiskt system hybrid Runbook Worker på en Azure-eller icke-Azure-dator som är aktive rad för uppdateringshantering. Den här arbetaren är dock inte registrerad med några Hybrid Runbook Worker grupper i ditt Automation-konto. Om du vill köra Runbooks på dessa datorer måste du lägga till dem i en Hybrid Runbook Worker grupp. Följ steg 6 under avsnittet [manuell distribution](#manual-deployment) för att lägga till det i en grupp.
 
 ## <a name="enable-for-management-with-azure-automation-state-configuration"></a>Aktivera för hantering med Azure Automation tillstånds konfiguration
 

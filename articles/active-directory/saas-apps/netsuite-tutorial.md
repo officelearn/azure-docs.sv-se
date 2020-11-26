@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 9bebb11c3a1162a0a7b72140f7d3812f86f793ce
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 9272114dd472717e59680b40c07d8435dea19682
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95791373"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181976"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Självstudie: integrera enkel inloggning med Azure AD (SSO) med Netsuite
 
@@ -104,7 +104,7 @@ Gör så här om du vill aktivera Azure AD SSO i Azure Portal:
 
 1. Utöver ovan förväntar Netsuite-programmet fler attribut som ska skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name | Källattribut |
+    | Namn | Källattribut |
     | ---------------| --------------- |
     | konto  | `account id` |
 
@@ -253,7 +253,7 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 - Klicka på testa det här programmet i Azure Portal så bör du loggas in automatiskt till Netsuite som du ställer in SSO för.
 
-- Du kan använda Microsoft Mina appar. När du klickar på Netsuite-panelen i Mina appar, bör du loggas in automatiskt till Netsuite som du ställer in SSO för. Mer information om Mina appar finns i [Introduktion till Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+- Du kan använda Microsoft Mina appar. När du klickar på Netsuite-panelen i Mina appar, bör du loggas in automatiskt till Netsuite som du ställer in SSO för. Mer information om Mina appar finns i [Introduktion till Mina appar](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

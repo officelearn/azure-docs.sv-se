@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: e70ee06d696539f0b41c0a070f6f5b43391fda52
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ab261d4ca04fed04c8a3e1046c0a4c563767ad4c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357169"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182010"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Mixpanel för automatisk användar etablering
 
@@ -35,7 +35,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både Mixpanel o
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 * [En Azure AD-klient](../develop/quickstart-create-new-tenant.md) 
-* Ett användarkonto i Azure AD med [behörighet](../users-groups-roles/directory-assign-admin-roles.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör). 
+* Ett användarkonto i Azure AD med [behörighet](../roles/permissions-reference.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör). 
 * En Mixpanel organisation på företags nivå
 * Ett Mixpanel-konto med administratörs behörighet för denna organisation
 * SSO aktiverat i Mixpanel med en begärd domän

@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 846599414c0bca95a3f41e127dc01e06d0fd43f9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 30481fee949df16c70718d0a9cbc6df9ca54d11e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747108"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182554"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad container
 
@@ -18,7 +18,7 @@ I den här självstudien skapar du och distribuerar din kod till Azure Functions
 
 Distribution av funktions koden i en anpassad Linux-behållare kräver [Premium-plan](functions-premium-plan.md#features) eller [dedikerad (App Service) plan-](functions-scale.md#app-service-plan) värd. Genom att slutföra den här självstudien debiteras du kostnader för några amerikanska dollar i ditt Azure-konto, som du kan minimera genom att [Rensa resurser](#clean-up-resources) när du är klar.
 
-Du kan också använda en standard-Azure App Service-behållare enligt beskrivningen i [skapa din första funktion på Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Bas avbildningar som stöds för Azure Functions finns i [Azure Functions Base images-lagrings platsen](https://hub.docker.com/_/microsoft-azure-functions-base).
+Du kan också använda en standard-Azure App Service-behållare enligt beskrivningen i [skapa din första funktion på Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Bas avbildningar som stöds för Azure Functions finns i [Azure Functions Base images-lagrings platsen](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 I de här självstudierna får du lära dig att
 
@@ -112,7 +112,7 @@ Ange följande värden när du uppmanas till det:
 
 Skriv `Y` eller tryck på RETUR för att bekräfta.
 
-Maven skapar projektfilerna i en ny mapp med namnet _artifactId_ , som i det här exemplet är `fabrikam-functions` . 
+Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, som i det här exemplet är `fabrikam-functions` . 
 ::: zone-end
 `--docker`Alternativet genererar en `Dockerfile` för projektet, som definierar en lämplig anpassad behållare för användning med Azure Functions och den valda körningen.
 
@@ -128,7 +128,7 @@ cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-Lägg till en funktion i projektet med hjälp av följande kommando, där `--name` argumentet är det unika namnet för din funktion och `--template` argumentet anger funktionens utlösare. `func new` skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *function.jspå* .
+Lägg till en funktion i projektet med hjälp av följande kommando, där `--name` argumentet är det unika namnet för din funktion och `--template` argumentet anger funktionens utlösare. `func new` skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *function.jspå*.
 
 ```
 func new --name HttpExample --template "HTTP trigger"
@@ -180,7 +180,7 @@ docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-När avbildningen körs i en lokal behållare öppnar du en webbläsare till `http://localhost:8080` , som ska Visa platshållarbilden som visas nedan. Avbildningen visas nu eftersom din funktion körs i den lokala behållaren, som i Azure, vilket innebär att den skyddas av en åtkomst nyckel som definierats i *function.jspå* med `"authLevel": "function"` egenskapen. Behållaren har inte publicerats i en Function-app i Azure, men nyckeln är inte tillgänglig ännu. Om du vill testa mot den lokala behållaren, stoppa Docker, ändra egenskapen Authorization till `"authLevel": "anonymous"` , återskapa avbildningen och starta om Docker. Återställ sedan `"authLevel": "function"` i *function.jspå* . Mer information finns i [Authorization Keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
+När avbildningen körs i en lokal behållare öppnar du en webbläsare till `http://localhost:8080` , som ska Visa platshållarbilden som visas nedan. Avbildningen visas nu eftersom din funktion körs i den lokala behållaren, som i Azure, vilket innebär att den skyddas av en åtkomst nyckel som definierats i *function.jspå* med `"authLevel": "function"` egenskapen. Behållaren har inte publicerats i en Function-app i Azure, men nyckeln är inte tillgänglig ännu. Om du vill testa mot den lokala behållaren, stoppa Docker, ändra egenskapen Authorization till `"authLevel": "anonymous"` , återskapa avbildningen och starta om Docker. Återställ sedan `"authLevel": "function"` i *function.jspå*. Mer information finns i [Authorization Keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ![Platshållarbild som visar att behållaren körs lokalt](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -189,7 +189,7 @@ När avbildningen körs i en lokal behållare öppnar du en webbläsare till `ht
 När avbildningen körs i en lokal behållare bläddrar du till `http://localhost:8080/api/HttpExample?name=Functions` , som ska visa samma "Hej"-meddelande som tidigare. Eftersom maven-archetype genererar en HTTP-utlöst funktion som använder anonym auktorisering, kan du fortfarande anropa funktionen även om den körs i behållaren. 
 ::: zone-end  
 
-När du har verifierat Function-appen i behållaren, stoppa Docker med **CTRL** + **+ C** .
+När du har verifierat Function-appen i behållaren, stoppa Docker med **CTRL** + **+ C**.
 
 ## <a name="push-the-image-to-docker-hub"></a>Push-överför avbildningen till Docker Hub
 
@@ -302,7 +302,7 @@ Med den avbildning som distribueras till Function-appen på Azure kan du nu anro
 
     # <a name="portal"></a>[Portal](#tab/portal)
 
-    1. Logga in på Azure Portal och Sök sedan efter och välj **Funktionsapp** .
+    1. Logga in på Azure Portal och Sök sedan efter och välj **Funktionsapp**.
 
     1. Välj den funktion som du vill verifiera.
 
@@ -311,7 +311,7 @@ Med den avbildning som distribueras till Function-appen på Azure kan du nu anro
         ![Välj din funktion i Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
 
     
-    1. Välj **Hämta funktions webb adress** .
+    1. Välj **Hämta funktions webb adress**.
 
         ![Hämta funktions webb adressen från Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
@@ -375,7 +375,7 @@ Du kan aktivera Azure Functions att automatiskt uppdatera distributionen av en a
 
 1. Kopiera distributions-webhook-URL: en till Urklipp.
 
-1. Öppna [Docker Hub](https://hub.docker.com/), logga in och välj **databaser** i navigerings fältet. Leta upp och välj bild, Välj fliken **Webhooks** , ange ett **webhook-namn** , klistra in URL: en i **webhook-URL** och välj sedan **skapa** :
+1. Öppna [Docker Hub](https://hub.docker.com/), logga in och välj **databaser** i navigerings fältet. Leta upp och välj bild, Välj fliken **Webhooks** , ange ett **webhook-namn**, klistra in URL: en i **webhook-URL** och välj sedan **skapa**:
 
     ![Lägg till webhooken i din DockerHub-lagrings platsen](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
@@ -441,7 +441,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. Med SSH 
 
 ## <a name="write-to-an-azure-storage-queue"></a>Skriv till en Azure Storage kö
 
-Med Azure Functions kan du ansluta dina funktioner till andra Azure-tjänster och-resurser utan att behöva skriva din egen integrerings kod. Dessa *bindningar* , som representerar både indata och utdata, deklareras i funktions definitionen. Data från bindningar skickas som parametrar till funktionen. En *utlösare* är en särskild typ av ingående bindning. Även om en funktion bara har en utlösare, kan den ha flera indata och utdata-bindningar. Mer information finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
+Med Azure Functions kan du ansluta dina funktioner till andra Azure-tjänster och-resurser utan att behöva skriva din egen integrerings kod. Dessa *bindningar*, som representerar både indata och utdata, deklareras i funktions definitionen. Data från bindningar skickas som parametrar till funktionen. En *utlösare* är en särskild typ av ingående bindning. Även om en funktion bara har en utlösare, kan den ha flera indata och utdata-bindningar. Mer information finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
 
 I det här avsnittet visas hur du integrerar din funktion med en Azure Storage kö. Den utgående bindning som du lägger till i den här funktionen skriver data från en HTTP-begäran till ett meddelande i kön.
 

@@ -2,24 +2,19 @@
 title: Lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell-Azure RBAC
 description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av Azure PowerShell och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 11/25/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: f3fc54829be301c063440bd3508472287b6db265
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c4082f7fc535807ec996034ba695549a51969a99
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648335"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182418"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure PowerShell
 
@@ -34,122 +29,225 @@ Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 - `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
 - [PowerShell i Azure Cloud Shell](../cloud-shell/overview.md) eller [Azure PowerShell](/powershell/azure/install-az-ps)
 
-## <a name="get-object-ids"></a>Hämta objekt-ID: n
+## <a name="steps-to-add-a-role-assignment"></a>Steg för tillägg av en rolltilldelning
 
-Om du vill lägga till eller ta bort roll tilldelningar kan du behöva ange ett unikt ID för ett objekt. ID: t har formatet: `11111111-1111-1111-1111-111111111111` . Du kan hämta ID: t med hjälp av Azure Portal eller Azure PowerShell.
+I Azure RBAC för att bevilja åtkomst lägger du till en roll tilldelning. En rolltilldelning består av tre delar: säkerhetsobjekt, rolldefinition och omfång. Följ dessa steg om du vill lägga till en roll tilldelning.
 
-### <a name="user"></a>Användare
+### <a name="step-1-determine-who-needs-access"></a>Steg 1: Bestäm vem som behöver åtkomst
 
-För att hämta objekt-ID för en Azure AD-användare kan du använda [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
+Du kan tilldela en roll till en användare, grupp, tjänstens huvud namn eller en hanterad identitet. Om du vill lägga till en roll tilldelning kan du behöva ange det unika ID: t för objektet. ID: t har formatet: `11111111-1111-1111-1111-111111111111` . Du kan hämta ID: t med hjälp av Azure Portal eller Azure PowerShell.
 
-```azurepowershell
-Get-AzADUser -StartsWith <string_in_quotes>
-(Get-AzADUser -DisplayName <name_in_quotes>).id
-```
+**Användare**
 
-### <a name="group"></a>Grupp
-
-För att hämta objekt-ID för en Azure AD-grupp, kan du använda [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
+För en Azure AD-användare hämtar du User Principal Name, till exempel *patlong \@ contoso.com* eller User Object ID. Du kan hämta objekt-ID genom att använda [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
 
 ```azurepowershell
-Get-AzADGroup -SearchString <group_name_in_quotes>
-(Get-AzADGroup -DisplayName <group_name_in_quotes>).id
+Get-AzADUser -StartsWith <userName>
+(Get-AzADUser -DisplayName <userName>).id
 ```
 
-### <a name="application"></a>Program
+**Grupper**
 
-För att hämta objekt-ID för ett Azure AD-tjänstens huvud namn (identitet som används av ett program) kan du använda [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). För ett huvud namn för tjänsten använder du objekt-ID: t och **inte** program-ID: t.
+För en Azure AD-grupp behöver du grupp objekt-ID: t. Du kan hämta objekt-ID genom att använda [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
 
 ```azurepowershell
-Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
-(Get-AzADServicePrincipal -DisplayName <service_name_in_quotes>).id
+Get-AzADGroup -SearchString <groupName>
+(Get-AzADGroup -DisplayName <groupName>).id
 ```
 
-## <a name="add-a-role-assignment"></a>Lägg till en rolltilldelning
+**Tjänstens huvudnamn**
 
-I Azure RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
-
-### <a name="user-at-a-resource-group-scope"></a>Användare vid en resurs grupps omfång
-
-Om du vill lägga till en roll tilldelning för en användare i ett resurs grupps omfång använder du [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+För ett Azure AD-tjänstens huvud namn (identitet som används av ett program) behöver du ett objekt-ID för tjänstens huvud namn. Du kan hämta objekt-ID genom att använda [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). För ett huvud namn för tjänsten använder du objekt-ID: t och **inte** program-ID: t.
 
 ```azurepowershell
-New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -ResourceGroupName <resource_group_name>
+Get-AzADServicePrincipal -SearchString <principalName>
+(Get-AzADServicePrincipal -DisplayName <principalName>).id
 ```
 
-```Example
-PS C:\> New-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
+**Hanterade identiteter**
 
+För en systemtilldelad eller användardefinierad hanterad identitet behöver du objekt-ID: t. Du kan hämta objekt-ID genom att använda [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 
-RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/pr
-                     oviders/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
-DisplayName        : Alain Charon
-SignInName         : alain@example.com
-RoleDefinitionName : Virtual Machine Contributor
-RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
-ObjectId           : 44444444-4444-4444-4444-444444444444
-ObjectType         : User
+```azurepowershell
+Get-AzADServicePrincipal -SearchString <principalName>
+(Get-AzADServicePrincipal -DisplayName <principalName>).id
+```
+    
+### <a name="step-2-find-the-appropriate-role"></a>Steg 2: hitta rätt roll
+
+Behörigheter grupperas tillsammans i roller. Du kan välja från en lista över flera [inbyggda Azure-roller](built-in-roles.md) eller så kan du använda dina egna anpassade roller. Vi rekommenderar att du beviljar åtkomst med den minsta behörighet som krävs, så undvik att tilldela en bredare roll.
+
+Om du vill visa en lista över roller och hämta det unika roll-ID: t kan du använda [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+
+```azurepowershell
+Get-AzRoleDefinition | FT Name, IsCustom, Id
+```
+
+Så här visar du information om en viss roll.
+
+```azurepowershell
+Get-AzRoleDefinition <roleName>
+```
+
+Mer information finns i [lista över Azure-roll definitioner](role-definitions-list.md#azure-powershell).
+ 
+### <a name="step-3-identify-the-needed-scope"></a>Steg 3: identifiera omfattningen som krävs
+
+Azure tillhandahåller fyra nivåer av omfång: resurs, [resurs grupp](../azure-resource-manager/management/overview.md#resource-groups), prenumeration och [hanterings grupp](../governance/management-groups/overview.md). Vi rekommenderar att du beviljar åtkomst med den minsta behörighet som krävs, så undvik att tilldela en roll i ett större omfattning. Mer information om omfång finns i [förstå omfattning](scope-overview.md).
+
+**Resursomfång**
+
+För resurs omfång behöver du resurs-ID för resursen. Du hittar resurs-ID genom att titta på resursens egenskaper i Azure Portal. Ett resurs-ID har följande format.
+
+```
+/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/<providerName>/<resourceType>/<resourceSubType>/<resourceName>
+```
+
+**Omfånget för resursgrupp**
+
+För resurs grupp omfånget behöver du namnet på resurs gruppen. Du hittar namnet på sidan **resurs grupper** i Azure Portal eller så kan du använda [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup).
+
+```azurepowershell
+Get-AzResourceGroup
+```
+
+**Prenumerations omfång** 
+
+Du behöver prenumerations-ID för prenumerations omfång. Du hittar ID på sidan **prenumerationer** i Azure Portal eller så kan du använda [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
+
+```azurepowershell
+Get-AzSubscription
+```
+
+**Hanterings gruppens omfattning** 
+
+För hanterings gruppens omfattning behöver du hanterings gruppens namn. Du hittar namnet på sidan **hanterings grupper** i Azure Portal eller så kan du använda [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+
+```azurepowershell
+Get-AzManagementGroup
+```
+    
+### <a name="step-4-add-role-assignment"></a>Steg 4: Lägg till roll tilldelning
+
+Om du vill lägga till en roll tilldelning använder du kommandot [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Beroende på omfattningen har kommandot vanligt vis något av följande format.
+
+**Resursomfång**
+
+```azurepowershell
+New-AzRoleAssignment -ObjectId <objectId> `
+-RoleDefinitionName <roleName> `
+-Scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/<providerName>/<resourceType>/<resourceSubType>/<resourceName>
+```
+
+```azurepowershell
+New-AzRoleAssignment -ObjectId <objectId> `
+-RoleDefinitionId <roleId> `
+-ResourceName <resourceName> `
+-ResourceType <resourceType> `
+-ResourceGroupName <resourceGroupName>
+```
+
+**Omfånget för resursgrupp**
+
+```azurepowershell
+New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
+-RoleDefinitionName <roleName> `
+-ResourceGroupName <resourceGroupName>
+```
+
+```azurepowershell
+New-AzRoleAssignment -ObjectId <objectId> `
+-RoleDefinitionName <roleName> `
+-ResourceGroupName <resourceGroupName>
+```
+
+**Prenumerations omfång** 
+
+```azurepowershell
+New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
+-RoleDefinitionName <roleName> `
+-Scope /subscriptions/<subscriptionId>
+```
+
+```azurepowershell
+New-AzRoleAssignment -ObjectId <objectId> `
+-RoleDefinitionName <roleName> `
+-Scope /subscriptions/<subscriptionId>
+```
+
+**Hanterings gruppens omfattning** 
+
+```azurepowershell
+New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
+-RoleDefinitionName <roleName> `
+-Scope /providers/Microsoft.Management/managementGroups/<groupName>
+``` 
+
+```azurepowershell
+New-AzRoleAssignment -ObjectId <objectId> `
+-RoleDefinitionName <roleName> `
+-Scope /providers/Microsoft.Management/managementGroups/<groupName>
+``` 
+    
+## <a name="add-role-assignment-examples"></a>Lägg till Roll tilldelnings exempel
+
+#### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>Lägg till roll tilldelning för alla BLOB-behållare i ett lagrings konto resurs omfång
+
+Tilldelar rollen [Storage BLOB data Contributor](built-in-roles.md#storage-blob-data-contributor) till ett huvud namn för tjänsten med objekt-ID *55555555-5555-5555-5555-555555555555* i en resurs omfattning för ett lagrings konto med namnet *storage12345*.
+
+```azurepowershell
+PS C:\> New-AzRoleAssignment -ObjectId 55555555-5555-5555-5555-555555555555 `
+-RoleDefinitionName "Storage Blob Data Contributor" `
+-Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/providers/Microsoft.Authorization/roleAssignments/cccccccc-cccc-cccc-cccc-cccccccccccc
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345
+DisplayName        : example-identity
+SignInName         :
+RoleDefinitionName : Storage Blob Data Contributor
+RoleDefinitionId   : ba92f5b4-2d11-453d-a403-e96b0029c9fe
+ObjectId           : 55555555-5555-5555-5555-555555555555
+ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="using-the-unique-role-id"></a>Använda det unika roll-ID: t
+#### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>Lägg till roll tilldelning för en angiven resurs omfattning för BLOB container
 
-Det finns ett par gånger när ett roll namn kan ändras, till exempel:
-
-- Du använder din egen anpassade roll och du bestämmer dig för att ändra namnet.
-- Du använder en förhands gransknings roll som har **(förhands granskning)** i namnet. När rollen släpps får rollen ett nytt namn.
-
-> [!IMPORTANT]
-> En för hands version tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Även om en roll får ett nytt namn ändras inte roll-ID: t. Om du använder skript eller automatisering för att skapa roll tilldelningar, är det en bra idé att använda det unika roll-ID: t i stället för roll namnet. Därför är skripten mer sannolika om du byter namn på en roll.
-
-Om du vill lägga till en roll tilldelning med det unika roll-ID: t i stället för roll namnet använder du [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+Tilldelar rollen [Storage BLOB data Contributor](built-in-roles.md#storage-blob-data-contributor) till ett huvud namn för tjänsten med objekt-ID *55555555-5555-5555-5555-555555555555* i en resurs omfattning för en BLOB-behållare med namnet *BLOB-container-01*.
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -Scope <resource_group_name/resource/management groups>
-```
+PS C:\> New-AzRoleAssignment -ObjectId 55555555-5555-5555-5555-555555555555 `
+-RoleDefinitionName "Storage Blob Data Contributor" `
+-Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
 
-I följande exempel tilldelas rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) till *Alain \@ example.com* -användare i resurs grupps omfånget *Pharma-Sales* . Om du vill hämta det unika roll-ID: t kan du använda [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) eller se [inbyggda Azure-roller](built-in-roles.md).
-
-```Example
-PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
-
-RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
-DisplayName        : Alain Charon
-SignInName         : alain@example.com
-RoleDefinitionName : Virtual Machine Contributor
-RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
-ObjectId           : 44444444-4444-4444-4444-444444444444
-ObjectType         : User
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01/providers/Microsoft.Authorization/roleAssignm
+                     ents/dddddddd-dddd-dddd-dddd-dddddddddddd
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01
+DisplayName        : example-identity
+SignInName         :
+RoleDefinitionName : Storage Blob Data Contributor
+RoleDefinitionId   : ba92f5b4-2d11-453d-a403-e96b0029c9fe
+ObjectId           : 55555555-5555-5555-5555-555555555555
+ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="group-at-a-resource-scope"></a>Gruppera i ett resurs omfång
+#### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>Lägg till roll tilldelning för en grupp i ett angivet virtuellt nätverks resurs omfång
 
-Om du vill lägga till en roll tilldelning för en grupp i ett resurs omfång använder du [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Information om hur du hämtar objekt-ID för gruppen finns i [Hämta objekt](#get-object-ids)-ID: n.
+Tilldelar rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) till gruppen *Pharma Sales admins* med ID aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa vid en resurs omfattning för ett virtuellt nätverk med namnet *Pharma-Sales-Project-Network*.
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -ResourceName <resource_name> -ResourceType <resource_type> -ParentResource <parent resource> -ResourceGroupName <resource_group_name>
-```
-
-```Example
-PS C:\> Get-AzADGroup -SearchString "Pharma"
-
-SecurityEnabled DisplayName         Id                                   Type
---------------- -----------         --                                   ----
-           True Pharma Sales Admins aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa Group
-
-PS C:\> New-AzRoleAssignment -ObjectId aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa -RoleDefinitionName "Virtual Machine Contributor" -ResourceName RobertVirtualNetwork -ResourceType Microsoft.Network/virtualNetworks -ResourceGroupName RobertVirtualNetworkResourceGroup
+PS C:\> New-AzRoleAssignment -ObjectId aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa `
+-RoleDefinitionName "Virtual Machine Contributor" `
+-ResourceName pharma-sales-project-network `
+-ResourceType Microsoft.Network/virtualNetworks `
+-ResourceGroupName MyVirtualNetworkResourceGroup
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyVirtualNetworkResourceGroup
-                     /providers/Microsoft.Network/virtualNetworks/RobertVirtualNetwork/providers/Microsoft.Authorizat
+                     /providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network/providers/Microsoft.Authorizat
                      ion/roleAssignments/bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyVirtualNetworkResourceGroup
-                     /providers/Microsoft.Network/virtualNetworks/RobertVirtualNetwork
+                     /providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
 DisplayName        : Pharma Sales Admins
 SignInName         :
 RoleDefinitionName : Virtual Machine Contributor
@@ -159,21 +257,105 @@ ObjectType         : Group
 CanDelegate        : False
 ```
 
-### <a name="application-at-a-subscription-scope"></a>Program i ett prenumerations omfång
+#### <a name="add-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Lägg till en roll tilldelning för en användare i ett resurs grupps omfång
 
-Om du vill lägga till en roll tilldelning för ett program i ett prenumerations omfång använder du [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Information om hur du hämtar objekt-ID för programmet finns i [Hämta objekt](#get-object-ids)-ID: n.
+Tilldelar rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) till *patlong \@ contoso.com* -användare i resurs grupps omfånget *Pharma-Sales* .
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
+PS C:\> New-AzRoleAssignment -SignInName patlong@contoso.com `
+-RoleDefinitionName "Virtual Machine Contributor" `
+-ResourceGroupName pharma-sales
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/pr
+                     oviders/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+DisplayName        : Pat Long
+SignInName         : patlong@contoso.com
+RoleDefinitionName : Virtual Machine Contributor
+RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
+ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectType         : User
+CanDelegate        : False
 ```
 
-```Example
-PS C:\> New-AzRoleAssignment -ObjectId 77777777-7777-7777-7777-777777777777 -RoleDefinitionName "Reader" -Scope /subscriptions/00000000-0000-0000-0000-000000000000
+Alternativt kan du ange den fullständigt kvalificerade resurs gruppen med `-Scope` parametern:
+
+```azurepowershell
+PS C:\> New-AzRoleAssignment -SignInName patlong@contoso.com `
+-RoleDefinitionName "Virtual Machine Contributor" `
+-Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+DisplayName        : Pat Long
+SignInName         : patlong@contoso.com
+RoleDefinitionName : Virtual Machine Contributor
+RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
+ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectType         : User
+CanDelegate        : False
+```
+
+#### <a name="add-role-assignment-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>Lägg till roll tilldelning för en användare med hjälp av det unika roll-ID: t i en resurs grupp omfånget
+
+Det finns ett par gånger när ett roll namn kan ändras, till exempel:
+
+- Du använder din egen anpassade roll och du bestämmer dig för att ändra namnet.
+- Du använder en förhands gransknings roll som har **(förhands granskning)** i namnet. När rollen släpps får rollen ett nytt namn.
+
+Även om en roll får ett nytt namn ändras inte roll-ID: t. Om du använder skript eller automatisering för att skapa roll tilldelningar, är det en bra idé att använda det unika roll-ID: t i stället för roll namnet. Därför är skripten mer sannolika om du byter namn på en roll.
+
+I följande exempel tilldelas rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) till *patlong \@ contoso.com* -användaren i resurs grupps omfånget *Pharma-Sales* .
+
+```azurepowershell
+PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 `
+-RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c `
+-Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+DisplayName        : Pat Long
+SignInName         : patlong@contoso.com
+RoleDefinitionName : Virtual Machine Contributor
+RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
+ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectType         : User
+CanDelegate        : False
+```
+
+#### <a name="add-role-assignment-for-an-application-at-a-resource-group-scope"></a>Lägg till roll tilldelning för ett program i en resurs grupp omfånget
+
+Tilldelar rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) till ett program med tjänstens huvud OBJEKTS-ID 77777777-7777-7777-7777-777777777777 i resurs grupps omfånget *Pharma-Sales* .
+
+```azurepowershell
+PS C:\> New-AzRoleAssignment -ObjectId 77777777-7777-7777-7777-777777777777 `
+-RoleDefinitionName "Virtual Machine Contributor" `
+-ResourceGroupName pharma-sales
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/66666666-6666-6666-6666-666666666666
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+DisplayName        : MyApp1
+SignInName         :
+RoleDefinitionName : Virtual Machine Contributor
+RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
+ObjectId           : 77777777-7777-7777-7777-777777777777
+ObjectType         : ServicePrincipal
+CanDelegate        : False
+```
+
+#### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>Lägg till roll tilldelning för en användare med ett prenumerations omfång
+
+Tilldelar [läsaren](built-in-roles.md#reader) rollen till *annm \@ example.com* -användaren i ett prenumerations omfång.
+
+```azurepowershell
+PS C:\> New-AzRoleAssignment -SignInName annm@example.com `
+-RoleDefinitionName "Reader" `
+-Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/66666666-6666-6666-6666-666666666666
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
-DisplayName        : MyApp1
-SignInName         :
+DisplayName        : Ann M
+SignInName         : annm@example.com
 RoleDefinitionName : Reader
 RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
 ObjectId           : 77777777-7777-7777-7777-777777777777
@@ -181,16 +363,14 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="user-at-a-management-group-scope"></a>Användare i en hanterings grupps omfattning
+#### <a name="add-role-assignment-for-a-user-at-a-management-group-scope"></a>Lägg till roll tilldelning för en användare i en hanterings grupps omfattning
 
-Om du vill lägga till en roll tilldelning för en användare i en hanterings grupps omfattning använder du [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Om du vill hämta ID för hanterings grupp kan du hitta det på bladet **hanterings grupper** i Azure Portal eller så kan du använda [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+Tilldelar rollen för [fakturerings läsare](built-in-roles.md#billing-reader) till *Alain \@ example.com* -användaren i ett hanterings grupps omfång.
 
 ```azurepowershell
-New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
-```
-
-```Example
-PS C:\> New-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Billing Reader" -Scope /providers/Microsoft.Management/managementGroups/marketing-group
+PS C:\> New-AzRoleAssignment -SignInName alain@example.com `
+-RoleDefinitionName "Billing Reader" `
+-Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 
 RoleAssignmentId   : /providers/Microsoft.Management/managementGroups/marketing-group/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
 Scope              : /providers/Microsoft.Management/managementGroups/marketing-group
@@ -207,22 +387,28 @@ CanDelegate        : False
 
 I Azure RBAC tar du bort en roll tilldelning genom att använda [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment)för att ta bort åtkomst.
 
-I följande exempel tas roll tilldelningen för *virtuell dator deltagare* bort från *Alain \@ example.com* -användaren på resurs gruppen *Pharma-Sales* :
-
-```Example
-PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
-```
-
-I följande exempel tas <role_name> rollen bort från <object_id> i ett prenumerations omfång.
+I följande exempel tas roll tilldelningen för [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) bort från *patlong \@ contoso.com* -användaren på resurs gruppen *Pharma-Sales* :
 
 ```azurepowershell
-Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
+PS C:\> Remove-AzRoleAssignment -SignInName patlong@contoso.com `
+-RoleDefinitionName "Virtual Machine Contributor" `
+-ResourceGroupName pharma-sales
 ```
 
-I följande exempel tar du bort <role_name> rollen från <object_id> i hanterings gruppens omfång.
+Tar bort rollen [läsare](built-in-roles.md#reader) från *Ann Mack team* Group med ID 22222222-2222-2222-2222-222222222222 i ett prenumerations omfång.
 
 ```azurepowershell
-Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
+PS C:\> Remove-AzRoleAssignment -ObjectId 22222222-2222-2222-2222-222222222222 `
+-RoleDefinitionName "Reader" `
+-Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
+```
+
+Tar bort rollen för [fakturerings läsare](built-in-roles.md#billing-reader) från *Alain \@ example.com* -användaren i hanterings gruppens omfång.
+
+```azurepowershell
+PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com `
+-RoleDefinitionName "Billing Reader" `
+-Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
 Om du får fel meddelandet "den tillhandahållna informationen inte mappas till en roll tilldelning", se till att du även anger `-Scope` `-ResourceGroupName` parametrarna eller. Mer information finns i [Felsöka Azure RBAC](troubleshooting.md#role-assignments-with-identity-not-found).
@@ -231,5 +417,4 @@ Om du får fel meddelandet "den tillhandahållna informationen inte mappas till 
 
 - [Visa en lista med Azure Role-tilldelningar med Azure PowerShell](role-assignments-list-powershell.md)
 - [Självstudie: bevilja en grupp åtkomst till Azure-resurser med hjälp av Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Självstudie: skapa en anpassad Azure-roll med hjälp av Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Hantera resurser med Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: b87b9d9e7cab0334f1b1996feb99dc69396527b7
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 31e5393cb5de627ebf8832e43302583d6eacbf59
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94352973"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181503"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>Självstudie: konfigurera SAP Analytics-moln för automatisk användar etablering
 
@@ -39,7 +39,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både SAP Analyt
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * [En Azure AD-klient](../develop/quickstart-create-new-tenant.md) 
-* Ett användarkonto i Azure AD med [behörighet](../users-groups-roles/directory-assign-admin-roles.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör). 
+* Ett användarkonto i Azure AD med [behörighet](../roles/permissions-reference.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör). 
 * En SAP Analytics Cloud-klient
 * Ett användar konto på en SAP Identity-etablerings administratörs konsol med administratörs behörighet. Se till att du har åtkomst till proxy-systemen i administratörs konsolen för identitets etablering. Om du inte ser panelen **proxyservrar** skapar du en incident för komponenten **BC-IAM-IP-adresser** för att begära åtkomst till den här panelen.
 * En OAuth-klient med auktoriserings-klientautentiseringsuppgifter i SAP Analytics-molnet. Läs mer i: [Hantera OAuth-klienter och betrodda identitets leverantörer](https://help.sap.com/viewer/00f68c2e08b941f081002fd3691d86a7/release/en-US/4f43b54398fc4acaa5efa32badfe3df6.html)

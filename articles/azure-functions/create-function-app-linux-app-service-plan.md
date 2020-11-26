@@ -3,12 +3,12 @@ title: Skapa en Function-app på Linux från Azure Portal
 description: Lär dig hur du skapar din första Azure-funktion på Linux med hjälp av Azure Portal.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 53edee15d9c9dfa66e57bb1eb03b1d8f66aa1ee2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20390239ed58e42749e9a3bae472a2f3f6324bb2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970736"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181262"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Skapa en Function-app i Linux i ett Azure App Service plan
 
@@ -44,7 +44,7 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux.
     |**Version**| Versionsnummer | Välj den version av den installerade körnings miljön.  |
     |**Region**| Önskad region | Välj en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner kommer åt. |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Skapa en funktionsapp i Azure-portalen":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Sidan Grundinställningar":::
 
 1. Välj **Nästa: värd**. Ange följande inställningar på sidan **värd** .
 
@@ -54,15 +54,15 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux.
     |**Operativsystem**| **Linux** | Ett operativ system är i förväg valt för dig baserat på ditt val av körnings stack, men du kan ändra inställningen om det behövs. |
     | **[Planera](../azure-functions/functions-scale.md)** | **Förbrukning (serverlös)** | Värdplan som definierar hur resurser allokeras till din funktionsapp. I standardplanen för **Förbrukning** läggs resurser till dynamiskt när de krävs av funktionerna. I den här värdbaserade [servern](https://azure.microsoft.com/overview/serverless-computing/) betalar du bara för den tid som dina funktioner körs. När du använder en App Service-plan måste du hantera [funktionsappens skalning](../azure-functions/functions-scale.md).  |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Skapa en funktionsapp i Azure-portalen":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Värd sida":::
 
 1. Välj **Nästa: övervakning**. Ange följande inställningar på sidan **övervakning** .
 
     | Inställning      | Föreslaget värde  | Beskrivning |
     | ------------ | ---------------- | ----------- |
-    | **[Application Insights](../azure-functions/functions-monitoring.md)** | **Ja** (standard) | Skapar en Application Insights resurs av samma *app-namn* i den närmaste region som stöds. Genom att utöka den här inställningen eller välja **Skapa ny**kan du ändra Application Insights namn eller välja en annan region i ett [Azure-geografiskt](https://azure.microsoft.com/global-infrastructure/geographies/) område där du vill lagra dina data. |
+    | **[Application Insights](../azure-functions/functions-monitoring.md)** | **Ja** (standard) | Skapar en Application Insights resurs av samma *app-namn* i den närmaste region som stöds. Genom att utöka den här inställningen eller välja **Skapa ny** kan du ändra Application Insights namn eller välja en annan region i ett [Azure-geografiskt](https://azure.microsoft.com/global-infrastructure/geographies/) område där du vill lagra dina data. |
 
-   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Skapa en funktionsapp i Azure-portalen":::
+   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Sidan övervakning":::
 
 1. Välj **Granska + skapa** för att granska konfigurations valen för appen.
 
@@ -83,15 +83,15 @@ Därefter skapar du en funktion i den nya funktionsappen.
 Det här avsnittet visar hur du skapar en funktion i din nya Function-app i portalen.
 
 > [!NOTE]
-> Portal utvecklings upplevelsen kan vara användbar för att testa Azure Functions. I de flesta fall bör du överväga att utveckla dina funktioner lokalt och publicera projektet till din Function-app med hjälp av [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) eller [Azure Functions Core tools](functions-run-local.md#create-a-local-functions-project).  
+> Portal utvecklings upplevelsen kan vara användbar för att testa Azure Functions. I de flesta fall bör du överväga att utveckla dina funktioner lokalt och publicera projektet till din Function-app med hjälp av [Visual Studio Code](./create-first-function-vs-code-csharp.md#create-an-azure-functions-project) eller [Azure Functions Core tools](functions-run-local.md#create-a-local-functions-project).  
 
-1. På den vänstra menyn i fönstret **funktioner** väljer du **Functions**och väljer sedan **Lägg till** på den översta menyn. 
+1. På den vänstra menyn i fönstret **funktioner** väljer du **Functions** och väljer sedan **Lägg till** på den översta menyn. 
  
-1. Välj **http-utlösare**i fönstret **ny funktion** .
+1. Välj **http-utlösare** i fönstret **ny funktion** .
 
     ![Välj funktionen HTTP-utlösare](./media/create-function-app-linux-app-service-plan/function-app-select-http-trigger.png)
 
-1. I fönstret **ny funktion** godkänner du standard namnet för **ny funktion**eller anger ett nytt namn. 
+1. I fönstret **ny funktion** godkänner du standard namnet för **ny funktion** eller anger ett nytt namn. 
 
 1. Välj **Anonym** i list rutan **Autentiseringsnivå** och välj sedan **skapa funktion**.
 

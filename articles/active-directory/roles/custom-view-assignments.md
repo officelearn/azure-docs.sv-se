@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7311f4faf4d8e93c4d3d2724bb9810342a769473
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 7c1e46fd55cd7beda931db2e24cc2210753ee26f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379238"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180412"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Visa anpassade roll tilldelningar i Azure Active Directory
 
@@ -32,14 +32,14 @@ Den här artikeln beskriver hur du visar anpassade roller som du har tilldelat i
 Den här proceduren beskriver hur du visar tilldelningar för en roll med omfattning i hela organisationen.
 
 1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med privilegierade roll administratörer eller globala administratörs behörigheter i Azure AD-organisationen.
-1. Välj **Azure Active Directory** , Välj **roller och administratörer** och välj sedan en roll för att öppna den och visa dess egenskaper.
+1. Välj **Azure Active Directory**, Välj **roller och administratörer** och välj sedan en roll för att öppna den och visa dess egenskaper.
 1. Välj **tilldelningar** för att Visa rollernas tilldelningar.
 
     ![Visa roll tilldelningar och behörigheter när du öppnar en roll i listan](./media/custom-view-assignments/role-assignments.png)
 
 ## <a name="view-role-assignments-using-azure-ad-powershell"></a>Visa roll tilldelningar med hjälp av Azure AD PowerShell
 
-I det här avsnittet beskrivs hur du visar tilldelningar för en roll med omfattning i hela organisationen. Den här artikeln använder modulen [Azure Active Directory PowerShell version 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) . Om du vill visa omfattnings tilldelningar för enskilda program med hjälp av PowerShell kan du använda cmdletarna i [tilldela anpassade roller med PowerShell](../users-groups-roles/roles-assign-powershell.md).
+I det här avsnittet beskrivs hur du visar tilldelningar för en roll med omfattning i hela organisationen. Den här artikeln använder modulen [Azure Active Directory PowerShell version 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) . Om du vill visa omfattnings tilldelningar för enskilda program med hjälp av PowerShell kan du använda cmdletarna i [tilldela anpassade roller med PowerShell](./custom-assign-powershell.md).
 
 ### <a name="prepare-powershell"></a>Förbered PowerShell
 
@@ -78,7 +78,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 
 ## <a name="view-role-assignments-using-microsoft-graph-api"></a>Visa roll tilldelningar med Microsoft Graph API
 
-I det här avsnittet beskrivs hur du visar tilldelningar för en roll med omfattning i hela organisationen.  Om du vill visa omfattnings tilldelningar för enskilda program med hjälp av Graph API kan du använda åtgärderna i [tilldela anpassade roller med Graph API](../users-groups-roles/roles-assign-graph.md).
+I det här avsnittet beskrivs hur du visar tilldelningar för en roll med omfattning i hela organisationen.  Om du vill visa omfattnings tilldelningar för enskilda program med hjälp av Graph API kan du använda åtgärderna i [tilldela anpassade roller med Graph API](./custom-assign-graph.md).
 
 HTTP-begäran om att få en roll tilldelning för en specifik roll definition.
 

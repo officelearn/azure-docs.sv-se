@@ -3,12 +3,12 @@ title: Förbättra prestanda för Azure Apps med Advisor
 description: Använd prestanda rekommendationer i Azure Advisor för att förbättra hastighet och svars tider för affärs kritiska program.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 6a008411d4422853e6a98fad59bd4519b42a9548
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 55f5ac6784bf613170fd10060799ab5ad1290a62
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308679"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183353"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Förbättra prestanda för Azure-program med hjälp av Azure Advisor
 
@@ -146,7 +146,7 @@ Advisor identifierar Azure Cosmos DB konton som har trafik från en region som i
 
 ## <a name="configure-your-azure-cosmos-db-indexing-policy-by-using-custom-included-or-excluded-paths"></a>Konfigurera Azure Cosmos DB indexerings princip med hjälp av egna inkluderade eller undantagna sökvägar
 
-Advisor identifierar Azure Cosmos DB behållare som använder standard indexerings principen, men kan dra nytta av en anpassad indexerings princip. Den här bestämningen baseras på arbets belastnings mönstret. Standard indexerings principen indexerar alla egenskaper. En anpassad indexerings princip med explicit inkluderade eller undantagna sökvägar som används i Frågefilter kan minska ru: er och lagring som förbrukas för indexering. [Läs mer om hur du ändrar index principer.](/azure/cosmos-db/index-policy)
+Advisor identifierar Azure Cosmos DB behållare som använder standard indexerings principen, men kan dra nytta av en anpassad indexerings princip. Den här bestämningen baseras på arbets belastnings mönstret. Standard indexerings principen indexerar alla egenskaper. En anpassad indexerings princip med explicit inkluderade eller undantagna sökvägar som används i Frågefilter kan minska ru: er och lagring som förbrukas för indexering. [Läs mer om hur du ändrar index principer.](../cosmos-db/index-policy.md)
 
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Ange sid storlek för Azure Cosmos DB (MaxItemCount) till-1 
 

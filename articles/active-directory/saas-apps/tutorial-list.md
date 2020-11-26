@@ -12,12 +12,12 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 19889c05447db05cc20c8f46e97bd8d16ff43bdf
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f74cdb700013dc9b124c6a2df195456f08e4b60a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445667"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182146"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Självstudier för att integrera SaaS-appar med Azure Active Directory
 
@@ -25,7 +25,7 @@ Vi har utvecklat en samling med självstudier som vägleder dig genom konfigurat
 
 En lista över alla SaaS-appar som har förintegrerats i Azure AD finns på [Active Directory Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps).
 
-Använd [programmets nätverks Portal](../azuread-dev/howto-app-gallery-listing.md) för att begära att ett [scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) aktiverat program läggs till i galleriet för automatisk etablering eller ett SAML/OIDC-aktiverat program som ska läggas till i galleriet för SSO.
+Använd [programmets nätverks Portal](../develop/v2-howto-app-gallery-listing.md) för att begära att ett [scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) aktiverat program läggs till i galleriet för automatisk etablering eller ett SAML/OIDC-aktiverat program som ska läggas till i galleriet för SSO.
 
 ## <a name="quick-links"></a>Snabblänkar
 

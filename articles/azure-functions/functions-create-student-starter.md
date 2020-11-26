@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en Azure-funktion från en Azure for student
 Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: ecb2cc20bec602101d683dbfdd3f82a2e199aa16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f40405c9325743da5d1963e3baea781606d2d8d9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386970"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182537"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Skapa en funktion med Start programmet för Azure för studenter
 
@@ -41,13 +41,13 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 ## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Skapa en HTTP-utlösnings funktion
 
-1. På den vänstra menyn i fönstret **funktioner** väljer du **Functions**och väljer sedan **Lägg till** på den översta menyn. 
+1. På den vänstra menyn i fönstret **funktioner** väljer du **Functions** och väljer sedan **Lägg till** på den översta menyn. 
  
-1. Välj **http-utlösare**i fönstret **ny funktion** .
+1. Välj **http-utlösare** i fönstret **ny funktion** .
 
     ![Välj funktionen HTTP-utlösare](./media/functions-create-student-starter/function-app-select-http-trigger.png)
 
-1. I fönstret **ny funktion** godkänner du standard namnet för **ny funktion**eller anger ett nytt namn. 
+1. I fönstret **ny funktion** godkänner du standard namnet för **ny funktion** eller anger ett nytt namn. 
 
 1. Välj **Anonym** i list rutan **Autentiseringsnivå** och välj sedan **skapa funktion**.
 
@@ -100,7 +100,7 @@ I Start programmet för Azure för studenter har du till gång till de flesta fu
 Nu har du skapat en Function-app med en enkel HTTP-utlösnings funktion. Härnäst kan du utforska lokala verktyg, fler språk, övervakning och integreringar.
 
  * [Skapa din första funktion med Visual Studio](./functions-create-your-first-function-visual-studio.md)
- * [Skapa din första funktion med Visual Studio Code](./functions-create-first-function-vs-code.md)
+ * [Skapa din första funktion med Visual Studio Code](./create-first-function-vs-code-csharp.md)
  * [Azure Functions JavaScript-guide för utvecklare](./functions-reference-node.md)
  * [Använd Azure Functions för att ansluta till en Azure SQL Database](./functions-scenario-database-table-cleanup.md)
  * [Läs mer om hur du Azure Functions HTTP-bindningar](./functions-bindings-http-webhook.md).

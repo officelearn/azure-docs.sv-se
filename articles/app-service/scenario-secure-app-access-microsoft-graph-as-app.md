@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: a7b8ca309bf5710ddbd88413935bef5e97a1ed9f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: bdd6dbf790bcf2ec97be33504e51ca3db2eb3ef7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999679"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182996"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Självstudie: åtkomst Microsoft Graph från en säker app som appen
 
@@ -23,7 +23,7 @@ Lär dig hur du kommer åt Microsoft Graph från en webbapp som körs på Azure 
 
 :::image type="content" alt-text="Diagram som visar åtkomst Microsoft Graph." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-Du vill anropa Microsoft Graph för webb programmet. Ett säkert sätt att ge din webbapp åtkomst till data är att använda en [systemtilldelad hanterad identitet](/azure/active-directory/managed-identities-azure-resources/overview). En hanterad identitet från Azure Active Directory ger App Service åtkomst till resurser via RBAC (rollbaserad åtkomst kontroll), utan att kräva autentiseringsuppgifter för appen. När du har tilldelat en hanterad identitet till din webbapp tar Azure hand om skapandet och distributionen av ett certifikat. Du behöver inte bekymra dig om att hantera autentiseringsuppgifter för hemligheter eller appar.
+Du vill anropa Microsoft Graph för webb programmet. Ett säkert sätt att ge din webbapp åtkomst till data är att använda en [systemtilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md). En hanterad identitet från Azure Active Directory ger App Service åtkomst till resurser via RBAC (rollbaserad åtkomst kontroll), utan att kräva autentiseringsuppgifter för appen. När du har tilldelat en hanterad identitet till din webbapp tar Azure hand om skapandet och distributionen av ett certifikat. Du behöver inte bekymra dig om att hantera autentiseringsuppgifter för hemligheter eller appar.
 
 I de här självstudierna får du lära dig att
 

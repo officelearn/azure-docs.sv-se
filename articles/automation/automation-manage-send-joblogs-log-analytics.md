@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8578f8aef779ff80f3965fc21b24b785f11226d0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2e7e798967541748b5572994d48cb5bdf7474cb1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024151"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182877"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Vidarebefordra jobbdata från Azure Automation till Azure Monitor-loggar
 
@@ -177,7 +177,7 @@ AzureDiagnostics
 
 ### <a name="filter-job-status-output-converted-into-a-json-object"></a>Filtrera jobb status utdata som konverterats till ett JSON-objekt
 
-Nyligen ändrade vi beteendet för hur Automation-loggdata skrivs till `AzureDiagnostics` tabellen i Log Analytics-tjänsten, där den inte längre delar upp JSON-egenskaperna i separata fält. Om du har konfigurerat din Runbook för att formatera objekt i utdataströmmen i JSON-format som separata kolumner, är det nödvändigt att konfigurera om dina frågor för att parsa fältet till ett JSON-objekt för att få åtkomst till dessa egenskaper. Detta görs med hjälp av [parseJSON](https://docs.microsoft.com/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#parsejson) för att komma åt ett visst JSON-element i en känd sökväg.
+Nyligen ändrade vi beteendet för hur Automation-loggdata skrivs till `AzureDiagnostics` tabellen i Log Analytics-tjänsten, där den inte längre delar upp JSON-egenskaperna i separata fält. Om du har konfigurerat din Runbook för att formatera objekt i utdataströmmen i JSON-format som separata kolumner, är det nödvändigt att konfigurera om dina frågor för att parsa fältet till ett JSON-objekt för att få åtkomst till dessa egenskaper. Detta görs med hjälp av [parseJSON](/azure/data-explorer/kusto/query/samples?pivots=#parsejson) för att komma åt ett visst JSON-element i en känd sökväg.
 
 En Runbook formaterar till exempel egenskapen *ResultDescription* i UTDATASTRÖMMEN i JSON-format med flera fält. Om du vill söka efter status för jobb som är i ett felaktigt tillstånd enligt vad som anges i ett fält med namnet **status**, använder du den här exempel frågan för att söka i *ResultDescription* med statusen **misslyckades**:
 

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 88481346f22176b8e307b53774b42d753838f90b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5179a619b1adba432910605c75fae0789efd3397
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554831"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182724"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabb start: Lägg till funktions flaggor i en ASP.NET Core app
 
@@ -106,7 +106,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    Med den föregående ändringen har [konfigurations leverantören för app-konfigurationen](https://go.microsoft.com/fwlink/?linkid=2074664) registrerats med API för .net Core-konfiguration.
+    Med den föregående ändringen har [konfigurations leverantören för app-konfigurationen](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) registrerats med API för .net Core-konfiguration.
 
 1. I *startup.cs* lägger du till en referens till .net Core Feature Manager:
 
@@ -173,7 +173,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
     }
     ```
 
-1. I *vyer/_ViewImports. cshtml* , registrera Feature Manager-taggnings hjälpen med ett `@addTagHelper` direktiv:
+1. I *vyer/_ViewImports. cshtml*, registrera Feature Manager-taggnings hjälpen med ett `@addTagHelper` direktiv:
 
     ```cshtml
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
@@ -235,7 +235,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det för att hantera funktioner i en ASP.NET Core-webbapp via [biblioteken för funktions hantering](https://go.microsoft.com/fwlink/?linkid=2074664).
+I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det för att hantera funktioner i en ASP.NET Core-webbapp via [biblioteken för funktions hantering](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 * Läs mer om [funktions hantering](./concept-feature-management.md).
 * [Hantera funktions flaggor](./manage-feature-flags.md).

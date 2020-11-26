@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4171155f5a9f72ef0c021bd0e37fe4ec2f206646
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: bd1667f6c17922b6c0b0bfba7a7329a3fc96b62e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253363"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182639"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>HMAC-autentisering – REST API referens
 
@@ -22,7 +22,7 @@ Du kan autentisera HTTP-begäranden med hjälp av autentiseringsschemat HMAC-SHA
 - **Certifiering** - \<Access Key ID\>
 - **Hemligt** Base64-kodat åtkomst nyckel värde. ``base64_decode(<Access Key Value>)``
 
-Värdena för Credential (även kallat `id` ) och hemlighet (även kallade `value` ) måste hämtas från instansen av Azure App-konfigurationen. Du kan göra detta med hjälp av [Azure Portal](https://portal.azure.com) eller [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
+Värdena för Credential (även kallat `id` ) och hemlighet (även kallade `value` ) måste hämtas från instansen av Azure App-konfigurationen. Du kan göra detta med hjälp av [Azure Portal](https://portal.azure.com) eller [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest).
 
 Ange varje begäran med alla HTTP-huvuden som krävs för autentisering. Minimi kravet är:
 
@@ -49,7 +49,7 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 ``Authorization``: **HMAC-SHA256**```Credential```=\<value\>&```SignedHeaders```=\<value\>&```Signature```=\<value\>
 
-|  Argument | Description  |
+|  Argument | Beskrivning  |
 | ------ | ------ |
 | **HMAC-SHA256** | Authorization-schema. _kunna_ |
 | **Autentiseringsuppgift** | ID för den åtkomst nyckel som används för att beräkna signaturen. _kunna_ |
@@ -87,7 +87,7 @@ _Sträng-till-tecken =_
 
 **HTTP_METHOD** + \n + **path_and_query** + \n + **signed_headers_values**
 
-|  Argument | Description  |
+|  Argument | Beskrivning  |
 | ------ | ------ |
 | **HTTP_METHOD** | Versaler HTTP-metod namn som används med begäran. Mer information finns i [avsnitt 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). |
 |**path_and_query** | Sammanfogning av begär ande absolut URI-sökväg och frågesträng. Mer information finns i [avsnitt 3,3](https://tools.ietf.org/html/rfc3986#section-3.3).

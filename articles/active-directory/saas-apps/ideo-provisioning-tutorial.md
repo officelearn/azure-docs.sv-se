@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: Zhchia
-ms.openlocfilehash: 10b7b79ba5081e6133f2e5e94840eddfe403caef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4d877468e87edb11b606668739d8d539ef0cc1dd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013186"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180863"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Självstudie: Konfigurera IDEO för automatisk användar etablering
 
@@ -39,7 +39,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * [En Azure AD-klientorganisation](../develop/quickstart-create-new-tenant.md).
-* Ett användarkonto i Azure AD med [behörighet](../users-groups-roles/directory-assign-admin-roles.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör).
+* Ett användarkonto i Azure AD med [behörighet](../roles/permissions-reference.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör).
 * [En IDEO-klient](https://www.shape.space/product/pricing)
 * Ett användar konto på IDEO | Form med administratörs behörighet.
 

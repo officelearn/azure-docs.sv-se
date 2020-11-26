@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5f96b48b8fec07ab207ea3962a201bbff68a5339
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8033235cde5b7ebe298bb1fa8d4222e208df998b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200856"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183013"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt över Azure App Service-plan
 
@@ -27,7 +27,7 @@ När du skapar en App Service plan i en viss region (till exempel Västeuropa) s
 _Pris nivån_ för en app service plan avgör vilka App Service funktioner du får och hur mycket du betalar för planen. Det finns ett antal kategorier för prisnivåer:
 
 - **Delad beräkning**: **kostnads fri** och **delad**, de två bas nivåerna kör en app på samma virtuella Azure-dator som andra App Service appar, inklusive appar från andra kunder. Dessa nivåer allokerar CPU-kvoter till varje app som körs på de delade resurserna, och de resurserna kan inte skalas om.
-- **Dedikerad beräkning**: nivåerna **Basic**, **standard**, **Premium**, **PremiumV2**och **PremiumV3** kör appar på dedikerade virtuella Azure-datorer. Det är bara appar i samma App Service-plan som delar samma beräkningsresurser. Ju högre nivå, desto fler VM-instanser blir tillgängliga som du kan skala ut.
+- **Dedikerad beräkning**: nivåerna **Basic**, **standard**, **Premium**, **PremiumV2** och **PremiumV3** kör appar på dedikerade virtuella Azure-datorer. Det är bara appar i samma App Service-plan som delar samma beräkningsresurser. Ju högre nivå, desto fler VM-instanser blir tillgängliga som du kan skala ut.
 - **Isolerad**: den här nivån kör dedikerade virtuella Azure-datorer på dedikerade virtuella Azure-nätverk. Den ger nätverks isolering ovanpå beräknings isoleringen för dina appar. Den här nivån har flest möjligheter till utskalning.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
@@ -37,13 +37,13 @@ Varje nivå tillhandahåller också en viss delmängd av App Service funktioner.
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> Den nya pris nivån för **PremiumV3** garanterar datorer med snabbare processorer (minst 195 [ACU](https://docs.microsoft.com/azure/virtual-machines/acu) per virtuell processor), SSD-lagring och fyr dubbelt minne-till-kärna-förhållande jämfört med **standard** nivån. **PremiumV3** har också stöd för högre skala via ökade instans antal samtidigt som alla avancerade funktioner som finns i **standard** -nivån fortfarande tillhandahålls. Alla funktioner som är tillgängliga i den befintliga **PremiumV2** -nivån ingår i **PremiumV3**.
+> Den nya pris nivån för **PremiumV3** garanterar datorer med snabbare processorer (minst 195 [ACU](../virtual-machines/acu.md) per virtuell processor), SSD-lagring och fyr dubbelt minne-till-kärna-förhållande jämfört med **standard** nivån. **PremiumV3** har också stöd för högre skala via ökade instans antal samtidigt som alla avancerade funktioner som finns i **standard** -nivån fortfarande tillhandahålls. Alla funktioner som är tillgängliga i den befintliga **PremiumV2** -nivån ingår i **PremiumV3**.
 >
 > På samma sätt som andra dedikerade nivåer är tre VM-storlekar tillgängliga för den här nivån:
 >
 > - Liten (2 CPU-kärna, 8 GiB minne) 
 > - Medium (4 processor kärnor, 16 GiB minne) 
-> - Stor (8 CPU-kärnor, 32 GiB minne)  
+> - Stor (8 CPU-kärnor, 32 GiB minne)  
 >
 > Information om **PremiumV3** -priser finns i [App Service prissättning](https://azure.microsoft.com/pricing/details/app-service/).
 >

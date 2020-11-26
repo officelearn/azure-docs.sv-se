@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fdb3b2b23d07b79a8e9979450bee653d646196c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987216"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182809"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Konfigurera Starta/stoppa virtuella datorer när de inte används
 
@@ -63,7 +63,7 @@ I en miljö som innehåller två eller flera komponenter på flera virtuella dat
 
 ### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Rikta in dig på Start-och stopp åtgärder mot en prenumeration och resurs grupp
 
-1. Lägg till en `sequencestart` och en- `sequencestop` tagg med positiva heltals värden för virtuella datorer som är riktade till- `External_Start_ResourceGroupNames` och `External_Stop_ResourceGroupNames` variabler. Start-och stopp åtgärderna utförs i stigande ordning. Information om hur du taggar en virtuell dator finns i [tagga en virtuell Windows-dator i Azure](../virtual-machines/windows/tag.md) och [tagga en virtuell Linux-dator i Azure](../virtual-machines/linux/tag.md).
+1. Lägg till en `sequencestart` och en- `sequencestop` tagg med positiva heltals värden för virtuella datorer som är riktade till- `External_Start_ResourceGroupNames` och `External_Stop_ResourceGroupNames` variabler. Start-och stopp åtgärderna utförs i stigande ordning. Information om hur du taggar en virtuell dator finns i [tagga en virtuell Windows-dator i Azure](../virtual-machines/tag-portal.md) och [tagga en virtuell Linux-dator i Azure](../virtual-machines/tag-cli.md).
 
 2. Ändra schemana **Sequenced-StartVM** och **Sequenced-StopVM** till det datum och den tid som uppfyller dina krav och aktivera schemat.
 
@@ -137,19 +137,19 @@ Om du vill ändra e-postaviseringar när Starta/stoppa virtuella datorer när de
 > [!NOTE]
 > Prenumerationer i Azure Government molnet stöder inte e-postfunktionen för den här funktionen.
 
-1. I Azure Portal går du till **övervaka**och sedan **Åtgärds grupper**. Välj den åtgärds grupp som heter **StartStop_VM_Notication**.
+1. I Azure Portal går du till **övervaka** och sedan **Åtgärds grupper**. Välj den åtgärds grupp som heter **StartStop_VM_Notication**.
 
     :::image type="content" source="media/automation-solution-vm-management/azure-monitor.png" alt-text="Skärm bild av sidan övervaka åtgärds grupper.":::
 
 2. På sidan StartStop_VM_Notification klickar du på **Redigera information** under **information**. Då öppnas sidan e-post/SMS/push/Voice. Uppdatera e-postadressen och spara ändringarna genom att klicka på **OK** .
 
-    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Skärm bild av sidan övervaka åtgärds grupper.":::
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Skärm bild av sidan e-post/SMS/push/Voice som visar ett exempel på en e-postadress som uppdaterats.":::
 
     Alternativt kan du lägga till ytterligare åtgärder i åtgärds gruppen och läsa mer om åtgärds grupper i [Åtgärds grupper](../azure-monitor/platform/action-groups.md)
 
 Följande är ett exempel på ett e-postmeddelande som skickas när funktionen stänger av virtuella datorer.
 
-:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Skärm bild av sidan övervaka åtgärds grupper.":::
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Skärm bild av ett exempel på ett e-postmeddelande som skickas när funktionen stänger av virtuella datorer.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Lägg till eller exkludera virtuella datorer
 

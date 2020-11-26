@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: a51a4a95d3580912d9b727d1580e6f278831f677
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ffbf3fa3e2d404b7bc5888ef01707cbd816600b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891510"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182860"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure automanage för virtuella datorer
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du hanterar Azure automanage för virtuella dato
 
 ## <a name="overview"></a>Översikt
 
-Automatisk hantering av Azure för virtuella datorer är en tjänst som eliminerar behovet av att upptäcka, veta hur du ska publicera och hur du konfigurerar vissa tjänster i Azure som kan dra nytta av den virtuella datorn. Dessa tjänster bidrar till att öka tillförlitligheten, säkerheten och hanteringen för virtuella datorer och betraktas som Azure-tjänster för bästa praxis, till exempel [azure uppdateringshantering](../automation/update-management/update-mgmt-overview.md) och [Azure Backup](../backup/backup-overview.md) – bara för att ge några.
+Automatisk hantering av Azure för virtuella datorer är en tjänst som eliminerar behovet av att upptäcka, veta hur du ska publicera och hur du konfigurerar vissa tjänster i Azure som kan dra nytta av den virtuella datorn. Dessa tjänster bidrar till att öka tillförlitligheten, säkerheten och hanteringen för virtuella datorer och betraktas som Azure-tjänster för bästa praxis, till exempel [azure uppdateringshantering](../automation/update-management/overview.md) och [Azure Backup](../backup/backup-overview.md) – bara för att ge några.
 
 När du har registrerat dina virtuella datorer i Azure automanage konfigurerar den automatiskt varje tjänst för bästa praxis till de rekommenderade inställningarna. Bästa praxis är olika för var och en av tjänsterna. Ett exempel kan vara Azure Backup, där bästa praxis kan vara att säkerhetskopiera den virtuella datorn en gång om dagen och ha en kvarhållningsperiod på sex månader.
 
@@ -69,7 +69,7 @@ För alla dessa tjänster kommer vi automatiskt att registreras, konfigureras au
 
 I Azure Portal kan du aktivera automanage på en befintlig virtuell dator eller när du skapar en ny virtuell dator. Om du vill ha kortare steg i den här processen kan du gå till [snabb starten för virtuella datorer](quick-create-virtual-machines-portal.md).
 
-Om det är första gången du aktiverar automatisk hantering för din virtuella dator kan du söka i den Azure Portal för automatisk **hantering – metod tips för Azure virtuella datorer** . Klicka på **Aktivera på befintlig virtuell dator** , Välj de virtuella datorer som du vill publicera, klicka på **Välj** , klicka på **Aktivera** och du är klar.
+Om det är första gången du aktiverar automatisk hantering för din virtuella dator kan du söka i den Azure Portal för automatisk **hantering – metod tips för Azure virtuella datorer**. Klicka på **Aktivera på befintlig virtuell dator**, Välj de virtuella datorer som du vill publicera, klicka på **Välj**, klicka på **Aktivera** och du är klar.
 
 Den enda tid som du kan behöva interagera med den här virtuella datorn för att hantera dessa tjänster är i händelse av att vi försökte åtgärda den virtuella datorn, men det gick inte att göra det. Om vi har åtgärdat den virtuella datorn kommer vi att se till att de är kompatibla igen utan att du varnar dig.
 
@@ -114,7 +114,7 @@ När du aktiverar autohantering på de virtuella datorerna i Azure Portals upple
 
 I Azure Portal går du till sidan för att **Hantera virtuella datorer med bästa praxis** för att visa en lista över alla dina automatiskt hanterade virtuella datorer. Här visas övergripande status för varje virtuell dator.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Intelligenta onboard-tjänster.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Lista över konfigurerade virtuella datorer.":::
 
 Följande information visas för varje virtuell dator i listan: namn, konfigurations profil, konfigurations inställning, status, konto, prenumeration och resurs grupp.
 
@@ -123,7 +123,7 @@ Följande information visas för varje virtuell dator i listan: namn, konfigurat
 - *Konfigurerad* – den virtuella datorn har kon figurer ATS och ingen avvikelse har upptäckts
 - *Misslyckades* – den virtuella datorn har inträffat och vi kunde inte åtgärda det
 
-Om du ser **status** som *misslyckad* kan du felsöka distributionen via resurs gruppen som den virtuella datorn finns i. Gå till **resurs grupper** , välj din resurs grupp, klicka på **distributioner** och se statusen *misslyckades* där, med fel information.
+Om du ser **status** som *misslyckad* kan du felsöka distributionen via resurs gruppen som den virtuella datorn finns i. Gå till **resurs grupper**, välj din resurs grupp, klicka på **distributioner** och se statusen *misslyckades* där, med fel information.
 
 
 ## <a name="disabling-automanage-for-vms"></a>Inaktiverar autohantering för virtuella datorer
@@ -132,9 +132,9 @@ Du kan välja en dag för att inaktivera autohantering på vissa virtuella dator
 
 Om du vill göra det i Azure Portal går du till sidan för att **Hantera virtuella Azure-datorer med de bästa metoderna** för att visa en lista över alla dina automatiskt hanterade virtuella datorer. Markera kryss rutan bredvid den virtuella dator som du vill inaktivera från autohantering och klicka sedan på knappen **inaktivera autohantering** .
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Intelligenta onboard-tjänster.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Inaktiverar autohantering på en virtuell dator.":::
 
-Läs noggrant igenom meddelande tjänsten i det resulterande popup-meddelandet innan du godkänner **inaktive ring** .
+Läs noggrant igenom meddelande tjänsten i det resulterande popup-meddelandet innan du godkänner **inaktive ring**.
 
 > [!NOTE]
 > Genom att inaktivera automanagement i en virtuell dator får du följande beteende:

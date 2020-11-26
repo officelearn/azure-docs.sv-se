@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7f5f920f14a556d63f433b36658d7b265d51a28d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 033f06aa61baf04b5c74fbbe9cc8f925d5d4e3d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340384"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182316"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Säkerhetsaviseringar i Azure Security Center
 
@@ -25,7 +25,7 @@ Säkerhets aviseringar utlöses av avancerade identifieringar och är bara tillg
 
 ## <a name="respond-to-todays-threats"></a>Svara på dagens hot <a name="respond-threats"> </a>
 
-Hoten i dag ser helt annorlunda ut mot för 20 år sedan. Tidigare hade företag vanligt vis bara bekymrat sig om att det finns en webbplats för enskilda angripare som främst hade intresse av att se vad de kunde göra. Dagens angripare är mycket mer sofistikerade och organiserade. De har ofta specifika ekonomiska och strategiska mål. De har också fler resurser till hands eftersom de kan finansieras av stater eller kriminella organisationer.
+Hoten i dag ser helt annorlunda ut mot för 20 år sedan. Tidigare hade företag vanligt vis bara bekymrat sig om att det finns en webbplats för enskilda angripare som främst hade intresse av att se vad de kunde göra. Dagens angripare är mycket mer sofistikerade och organiserade. De har ofta specifika ekonomiska och strategiska mål. De har också till gång till fler resurser, eftersom de kan finansieras av Nations stater eller organiserad brottslighet.
 
 Dessa förändringar av verklighet har lett till en oöverträffad nivå av yrkesutbildning i angrepps rang. Dagens angripare är inte intresserade av att bara vanställa en webbplats. De är nu intresserade av att stjäla information, finansiella konton och privata data – alla som de kan använda för att generera kontanter på den öppna marknaden eller för att utnyttja ett visst affärs-, politisk-eller militärt läge. Ännu mer oroande än angripare med ekonomiska mål är de som bryter sig in i nätverk för att skada infrastruktur och individer.
 

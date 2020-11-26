@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 185b61f77b275ed78050f5d8efb820c5333f6e1f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d813757d5adb8cee9b83e0486baed80ae1bac874
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358583"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180939"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Självstudie: Konfigurera DocuSign för automatisk användar etablering
 
@@ -95,7 +95,7 @@ Den första synkroniseringen av alla användare som tilldelats DocuSign i avsnit
 Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
-* Etablering av en roll-eller behörighets profil för en användare i DocuSign kan utföras med hjälp av ett uttryck i dina mappningar av attribut med hjälp av funktionerna [switch](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) och [singleAppRoleAssignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment) . Uttrycket nedan etablerar till exempel ID "8032066" när en användare har rollen "DS-administratör" tilldelad i Azure AD. Ingen behörighets profil etableras om användaren inte har tilldelats någon roll på Azure AD-sidan. ID: t kan hämtas från DocuSign- [portalen](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles).
+* Etablering av en roll-eller behörighets profil för en användare i DocuSign kan utföras med hjälp av ett uttryck i dina mappningar av attribut med hjälp av funktionerna [switch](../app-provisioning/functions-for-customizing-application-data.md#switch) och [singleAppRoleAssignment](../app-provisioning/functions-for-customizing-application-data.md#singleapproleassignment) . Uttrycket nedan etablerar till exempel ID "8032066" när en användare har rollen "DS-administratör" tilldelad i Azure AD. Ingen behörighets profil etableras om användaren inte har tilldelats någon roll på Azure AD-sidan. ID: t kan hämtas från DocuSign- [portalen](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles).
 
 Switch (SingleAppRoleAssignment ([appRoleAssignments]), "", "8032066", "DS-administratör")
 

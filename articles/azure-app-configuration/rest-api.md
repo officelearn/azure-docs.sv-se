@@ -6,16 +6,16 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 2e89b372e3ee8d71e99baa4072cd577fa4fb8d7c
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e2753f0f8926ac15f5d32020c8891d1b612d2bb3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424375"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182605"
 ---
 # <a name="azure-app-configuration-rest-api"></a>Azure App konfigurations REST API
 
-Dokumentation på hög nivå på REST API för Azure App konfiguration finns i huvud [dokumentationen för Azure rest](https://docs.microsoft.com/rest/api/appconfiguration/). Det här avsnittet innehåller mer information om utvecklare som arbetar med appens konfiguration REST API.
+Dokumentation på hög nivå på REST API för Azure App konfiguration finns i huvud [dokumentationen för Azure rest](/rest/api/appconfiguration/). Det här avsnittet innehåller mer information om utvecklare som arbetar med appens konfiguration REST API.
 
 Följande referens sidor är tillgängliga för att beskriva Azure App API-ytan för konfiguration i detalj.
 

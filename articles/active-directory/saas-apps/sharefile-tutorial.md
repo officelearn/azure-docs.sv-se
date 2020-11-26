@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/04/2020
 ms.author: jeedes
-ms.openlocfilehash: ac7382f60d5c49ac8c784566af4d9db8ea78956b
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: e0cabcbaaf8e84ac1bdfd13c0ef4ab14f326fcf7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331349"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182299"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Självstudie: Azure Active Directory integrering med Citrix ShareFile
 
@@ -38,7 +38,7 @@ För att kunna konfigurera Azure AD-integrering med Citrix ShareFile behöver du
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Citrix ShareFile har stöd för **SP** -initierad enkel inloggning
+* Citrix ShareFile har stöd för **SP**-initierad enkel inloggning
 
 ## <a name="adding-citrix-sharefile-from-the-gallery"></a>Lägga till Citrix ShareFile från galleriet
 
@@ -97,7 +97,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [Citrix ShareFile-kundsupporten](https://www.citrix.co.in/products/citrix-content-collaboration/support.html) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat** , klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
@@ -109,10 +109,10 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** , väljer **användare** och väljer sedan **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare** och väljer sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn** -fältet skriver du `B.Simon`.  
+   1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
@@ -131,7 +131,7 @@ Om du förväntar dig att en roll ska tilldelas användarna kan du välja den fr
 
 ## <a name="configure-citrix-sharefile-sso"></a>Konfigurera Citrix ShareFile SSO
 
-1. Öppna ett annat webbläsarfönster och logga in på din **Citrix ShareFile** -företagswebbplats som administratör.
+1. Öppna ett annat webbläsarfönster och logga in på din **Citrix ShareFile**-företagswebbplats som administratör.
 
 1. I **instrument panelen** klickar du på **Inställningar** och väljer **Administratörs inställningar**
 
@@ -149,7 +149,7 @@ Om du förväntar dig att en roll ska tilldelas användarna kan du välja den fr
 
     b. Kopiera **ShareFile-utfärdaren/entitets-ID-** värdet och klistra in det i rutan **identifiera URL** i dialog rutan för den **grundläggande SAML-konfigurationen** i Azure Portal.
     
-    c. I textrutan **Your IDP Issuer/ Entity ID** (Utfärdare av identitetsprovider/entitets-ID) klistrar du in värdet för **Azure Ad-identifierare** , som du har kopierat från Azure-portalen.
+    c. I textrutan **Your IDP Issuer/ Entity ID** (Utfärdare av identitetsprovider/entitets-ID) klistrar du in värdet för **Azure Ad-identifierare**, som du har kopierat från Azure-portalen.
 
     d. Klicka på **Ändra** bredvid fältet **X.509-certifikat** och ladda sedan upp certifikatet du har laddat ned från Azure-portalen.
     
@@ -161,13 +161,13 @@ Om du förväntar dig att en roll ska tilldelas användarna kan du välja den fr
 
 ## <a name="create-citrix-sharefile-test-user"></a>Skapa Citrix ShareFile-testanvändare
 
-1. Logga in på din **Citrix ShareFile** -klient.
+1. Logga in på din **Citrix ShareFile**-klient.
 
 2. Klicka på **personer**  ->  **Hantera användare start**  ->  **skapa nya användare**  ->  **skapa anställd**.
    
     ![Skapa anställd](./media/sharefile-tutorial/create-user.png "Skapa anställd")
 
-3. Gör följande i avsnittet **Grundläggande information** :
+3. Gör följande i avsnittet **Grundläggande information**:
    
     ![Grundläggande information](./media/sharefile-tutorial/user-form.png "Grundläggande information")
    
@@ -190,7 +190,7 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 2. Gå till Citrix ShareFile-inloggnings-URL: en direkt och starta inloggnings flödet därifrån.
 
-3. Du kan använda Microsoft Access-panelen. När du klickar på panelen Citrix ShareFile på åtkomst panelen omdirigeras detta till Citrix ShareFile-inloggnings-URL. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Du kan använda Microsoft Access-panelen. När du klickar på panelen Citrix ShareFile på åtkomst panelen omdirigeras detta till Citrix ShareFile-inloggnings-URL. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

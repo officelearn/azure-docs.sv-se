@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: e706649957bf427cd577d7995fb9ce104c687f4b
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379000"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182027"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med mobil program för arbets dagar
 
@@ -33,13 +33,13 @@ I den här självstudien får du lära dig hur du integrerar Azure Active Direct
 Så här kommer du igång:
 
 * Integrera arbets dagar med Azure AD.
-* Läs [Azure Active Directory enkel inloggning (SSO) med Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+* Läs [Azure Active Directory enkel inloggning (SSO) med Workday](./workday-tutorial.md).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du principer för villkorlig åtkomst för Azure AD och Intune med mobil program för arbets dagar.
 
-För att aktivera enkel inloggning (SSO) kan du konfigurera ett externt arbets dag program med Azure AD. Mer information finns i [Azure Active Directory integration med enkel inloggning (SSO) med Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+För att aktivera enkel inloggning (SSO) kan du konfigurera ett externt arbets dag program med Azure AD. Mer information finns i [Azure Active Directory integration med enkel inloggning (SSO) med Workday](./workday-tutorial.md).
 
 > [!NOTE] 
 > Workday stöder inte app Protection-principerna i Intune. Du måste använda hantering av mobila enheter för att använda villkorlig åtkomst.
@@ -86,7 +86,7 @@ Utför följande steg för att konfigurera en arbets dag som en hanterad enhet:
 
 1. I **hanterade enheter** väljer du endast **hanterade enheter** under **namn** och väljer sedan **molnappar eller åtgärder**.
 
-1. I **molnappar eller-åtgärder** :
+1. I **molnappar eller-åtgärder**:
 
     a. Växla **Välj vad den här principen gäller** för **molnappar**.
 
@@ -108,7 +108,7 @@ Utför följande steg för att **bevilja** åtkomst:
 
 1. Välj endast **hanterade enheter** under **namn** i **hanterade enheter**. Under **Åtkomstkontroller** väljer du **Bevilja**.
 
-1. I **bevilja** :
+1. I **bevilja**:
 
     a. Välj de kontroller som ska tillämpas som **beviljad åtkomst**.
 
@@ -182,4 +182,3 @@ För att säkerställa att iOS-enheter bara kan logga in via arbets dagar som ha
 6. Under **plattform** väljer du **Android**.
 7. Under **associerad app** väljer du den arbets dag för Android-app som du har lagt till.
 8. Välj **konfigurations inställningar**. Under **konfigurations inställnings format** väljer du **Ange JSON-data**.
-

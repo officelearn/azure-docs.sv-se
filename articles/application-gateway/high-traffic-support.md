@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: 2c5c017ac0faf443a38fc43dfd27c7e776cb52a0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: a5f7569fc46d4678ca0c12299e33caa3c78df849
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683438"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182928"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Stöd för höga trafikvolymer i Application Gateway
 
@@ -23,7 +23,7 @@ Du kan använda Application Gateway med brand vägg för webbaserade program (WA
 
 Det är viktigt att du skalar Application Gateway enligt din trafik och med en bit-till-buffert så att du är för beredd för trafik toppar eller toppar och minimerar påverkan som den kan ha i din QoS. Följande rekommendationer hjälper dig att konfigurera Application Gateway med WAF för att hantera extra trafik.
 
-Se [statistik dokumentationen](./application-gateway-metrics.md) för en fullständig lista över mått som erbjuds av Application Gateway. Se [visualisera mått](./application-gateway-metrics.md#metrics-visualization) i Azure Portal och [Azure Monitor-dokumentationen](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric) om hur du ställer in aviseringar för mått.
+Se [statistik dokumentationen](./application-gateway-metrics.md) för en fullständig lista över mått som erbjuds av Application Gateway. Se [visualisera mått](./application-gateway-metrics.md#metrics-visualization) i Azure Portal och [Azure Monitor-dokumentationen](../azure-monitor/platform/alerts-metric.md) om hur du ställer in aviseringar för mått.
 
 ## <a name="scaling-for-application-gateway-v1-sku-standardwaf-sku"></a>Skalning för Application Gateway v1 SKU (standard/WAF SKU)
 
@@ -65,7 +65,7 @@ Kontrol lera dina beräknings enhets mått under den senaste månaden. Compute U
 
 ## <a name="monitoring-and-alerting"></a>Övervakning och avisering
 
-Om du vill få meddelanden om trafik eller användnings avvikelser kan du ställa in aviseringar för vissa mått. Se [statistik dokumentation](./application-gateway-metrics.md) för en fullständig lista över mått som erbjuds av Application Gateway. Se [visualisera mått](./application-gateway-metrics.md#metrics-visualization) i Azure Portal och [Azure Monitor-dokumentationen](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric) om hur du ställer in aviseringar för mått.
+Om du vill få meddelanden om trafik eller användnings avvikelser kan du ställa in aviseringar för vissa mått. Se [statistik dokumentation](./application-gateway-metrics.md) för en fullständig lista över mått som erbjuds av Application Gateway. Se [visualisera mått](./application-gateway-metrics.md#metrics-visualization) i Azure Portal och [Azure Monitor-dokumentationen](../azure-monitor/platform/alerts-metric.md) om hur du ställer in aviseringar för mått.
 
 ## <a name="alerts-for-application-gateway-v1-sku-standardwaf"></a>Aviseringar för Application Gateway v1 SKU (standard/WAF)
 

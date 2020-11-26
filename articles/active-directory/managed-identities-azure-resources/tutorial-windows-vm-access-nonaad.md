@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85da26c9ff302c526ea6210dde776f3a34929ccd
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: fa17a18de8e71b099d6ed717974486203c4379f4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360388"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180514"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Key Vault 
 
@@ -40,7 +40,7 @@ Lär dig att:
 - Ett Azure-konto kan du [Registrera dig för ett kostnads fritt konto](https://azure.microsoft.com/free/).
 - Ägarens behörigheter i lämpligt omfång (din prenumeration eller resurs grupp) för att utföra nödvändiga steg för att skapa resurser och roll hantering. Information om rolltilldelning finns i [Använda rollbaserad åtkomstkontroll för att hantera åtkomsten till dina Azure-prenumerationsresurser](../../role-based-access-control/role-assignments-portal.md).
 - Du behöver också en virtuell Windows-dator som har systemtilldelade hanterade identiteter aktiverade.
-  - Om du behöver skapa en virtuell dator för den här självstudien kan du följa artikeln [skapa en virtuell dator med systemtilldelad identitet aktive rad](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
+  - Om du behöver skapa en virtuell dator för den här självstudien kan du följa artikeln [skapa en virtuell dator med systemtilldelad identitet aktive rad](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
 ## <a name="create-a-key-vault"></a>Skapa en Key Vault-lösning  
 
@@ -135,7 +135,7 @@ När du har hämtat hemligheten från Key Vault kan du använda den och autentis
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du vill rensa resurserna går du till [Azure Portal](https://portal.azure.com), väljer **resurs grupper** , letar upp och väljer den resurs grupp som skapades i processen för den här självstudien (till exempel `mi-test` ) och använder sedan kommandot **ta bort resurs grupp** .
+När du vill rensa resurserna går du till [Azure Portal](https://portal.azure.com), väljer **resurs grupper**, letar upp och väljer den resurs grupp som skapades i processen för den här självstudien (till exempel `mi-test` ) och använder sedan kommandot **ta bort resurs grupp** .
 
 Alternativt kan du också göra detta via [PowerShell eller CLI](../../azure-resource-manager/management/delete-resource-group.md)
 

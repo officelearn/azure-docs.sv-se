@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: fd1ca218d9c079e26f8424a36b90b9b657690b41
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d44f9109540c3899ab50bd5c4c02afa19045bafb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397713"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182945"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Felsöka felaktig gateway i Application Gateway
 
@@ -95,7 +95,7 @@ I följande tabell visas de värden som är associerade med standard hälso avs�
 * Om BackendHttpSetting anger en annan port än 80, ska standard platsen konfigureras för att lyssna på den porten.
 * Anropet till `http://127.0.0.1:port` ska returnera en HTTP-resultat kod på 200. Detta bör returneras inom 30 sekunders tids period.
 * Kontrol lera att den konfigurerade porten är öppen och att det inte finns några brand Väggs regler eller Azure-nätverks säkerhets grupper, som blockerar inkommande eller utgående trafik på den konfigurerade porten.
-* Om de klassiska virtuella Azure-datorerna eller moln tjänsten används med ett fullständigt domän namn eller en offentlig IP-adress kontrollerar du att motsvarande [slut punkt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%252fazure%252fapplication-gateway%252ftoc.json) är öppen.
+* Om de klassiska virtuella Azure-datorerna eller moln tjänsten används med ett fullständigt domän namn eller en offentlig IP-adress kontrollerar du att motsvarande [slut punkt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%2fazure%2fapplication-gateway%2ftoc.json) är öppen.
 * Om den virtuella datorn har kon figurer ATS via Azure Resource Manager och är utanför det virtuella nätverk där programgatewayen distribueras, måste en [nätverks säkerhets grupp](../virtual-network/network-security-groups-overview.md) konfigureras för att tillåta åtkomst på önskad port.
 
 ## <a name="problems-with-custom-health-probe"></a>Problem med anpassad hälso avsökning
@@ -108,7 +108,7 @@ Följande ytterligare egenskaper läggs till:
 
 | Egenskapen avsökning | Beskrivning |
 | --- | --- |
-| Name |Namn på avsökningen. Det här namnet används för att referera till avsökningen i HTTP-inställningarna på backend-sidan. |
+| Namn |Namn på avsökningen. Det här namnet används för att referera till avsökningen i HTTP-inställningarna på backend-sidan. |
 | Protokoll |Protokoll som används för att skicka avsökningen. Avsökningen använder protokollet som definierats i Server delens HTTP-inställningar |
 | Värd |Värdnamn för att skicka avsökningen. Gäller endast när flera platser har kon figurer ATS på Application Gateway. Detta skiljer sig från värd namnet för den virtuella datorn. |
 | Sökväg |Den relativa sökvägen för avsökningen. Den giltiga sökvägen börjar från/. Avsökningen skickas till \<protocol\> :// \<host\> :\<port\>\<path\> |

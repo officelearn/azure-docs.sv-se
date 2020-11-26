@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: jeedes
 ms.openlocfilehash: 822e28402d0b7829b835ad03a3b3cf7d05c3d343
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455818"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181012"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-cloud-academy---sso"></a>Självstudie: Azure Active Directory integration med enkel inloggning med Cloud Academy – SSO
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Cloud Academy-SSO m
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är enkel inloggning?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -50,7 +50,7 @@ Om du vill konfigurera integrering av Cloud Academy-SSO i Azure AD måste du lä
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto eller med en personlig Microsoft-konto.
 1. Välj **Azure Active Directory** i den vänstra rutan.
 1. Gå till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett program.
+1. Välj **nytt program** om du vill lägga till ett program.
 1. I avsnittet **Lägg till från galleriet** , ange **Cloud Academy-SSO** i sökrutan.
 1. Välj **Cloud Academy – SSO** i resultat panelen och Lägg till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
@@ -88,25 +88,25 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal:
 
 I det här avsnittet ska du skapa en test användare som heter B. Simon i Azure Portal.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**. Välj **användare**och välj sedan **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**. Välj **användare** och välj sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna slutför du de här stegen:
    1. I rutan **namn** anger du **B. Simon**.  
-   1. I rutan **användar namn** anger du \<username> @ \<companydomain> . \<extension> . Till exempel `B.Simon@contoso.com`.
-   1. Välj **Visa lösen ord**och skriv sedan ned värdet som visas i rutan **lösen ord** .
+   1. I rutan **användar namn** anger du \<username> @ \<companydomain> . \<extension> . Exempelvis `B.Simon@contoso.com`.
+   1. Välj **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
 ### <a name="grant-access-to-the-test-user"></a>Bevilja åtkomst till test användaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja användaren åtkomst till Cloud Academy-SSO.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I Azure Portal väljer du **företags program** och väljer sedan **alla program**.
 1. I listan program väljer du **Cloud Academy-SSO**.
 1. I avsnittet **Hantera** på appens översikts sida väljer du **användare och grupper**:
 
    ![Skärm bild som visar alternativet användare och grupper.](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** :
+1. Välj **Lägg till användare** och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** :
 
     ![Skärm bild som visar knappen Lägg till användare.](common/add-assign-user.png)
 

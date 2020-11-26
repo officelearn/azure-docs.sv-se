@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
 ms.openlocfilehash: 291ac7804109b098b556e38c57ca493ba74f1b14
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528898"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183116"
 ---
 # <a name="what-is-the-speech-service"></a>Vad är Speech Service?
 

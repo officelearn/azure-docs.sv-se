@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 62f163b9ce649cd5ddb52b4325682570633dfb92
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088887"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183166"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>CI/CD för API Management med Azure Resource Manager-mallar
 
@@ -36,19 +36,19 @@ Följande bild illustrerar den föreslagna metoden.
 
 :::image type="content" source="media/devops-api-development-templates/apim-devops.png" alt-text="Diagram som illustrerar DevOps med API Management.":::
 
-I det här exemplet finns det två distributions miljöer: *utveckling* och *produktion* . Var och en har sin egen API Management instans. 
+I det här exemplet finns det två distributions miljöer: *utveckling* och *produktion*. Var och en har sin egen API Management instans. 
 
 * API-utvecklare har åtkomst till utvecklings instansen och kan använda den för att utveckla och testa API: er. 
 * Ett särskilt team som kallas för *API-utgivare* hanterar produktions instansen.
 
-Nyckeln i den här föreslagna metoden är att behålla alla API Management konfigurationer i [Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md). Organisationen bör behålla dessa mallar i ett käll kontroll system, t. ex. git. Som illustreras i bilden innehåller en publicerings databas alla konfigurationer av produktions API Managements instansen i en samling mallar:
+Nyckeln i den här föreslagna metoden är att behålla alla API Management konfigurationer i [Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md). Organisationen bör behålla dessa mallar i ett käll kontroll system, t. ex. git. Som illustreras i bilden innehåller en publicerings databas alla konfigurationer av produktions API Managements instansen i en samling mallar:
 
 |Mall  |Beskrivning  |
 |---------|---------|
 |Tjänstmall     | Konfigurationer på tjänst nivå för API Management-instansen, till exempel pris nivå och anpassade domäner.         |
 |Delade mallar     |  Delade resurser i en API Management instans, till exempel grupper, produkter och loggar.    |
 |API-mallar     |  Konfigurationer av API: er och deras under resurser: åtgärder, principer, diagnostikinställningar.        |
-|Huvud-mall (Main)     |   Länkar allt samman genom att [Länka](../azure-resource-manager/resource-group-linked-templates.md) till alla mallar och distribuera dem i rätt ordning. Distribuera huvud mal len för att distribuera alla konfigurationer till en API Management-instans. Du kan också distribuera varje mall individuellt.       |
+|Huvud-mall (Main)     |   Länkar allt samman genom att [Länka](../azure-resource-manager/templates/linked-templates.md) till alla mallar och distribuera dem i rätt ordning. Distribuera huvud mal len för att distribuera alla konfigurationer till en API Management-instans. Du kan också distribuera varje mall individuellt.       |
 
 API-utvecklare delar in utgivar databasen till ett utvecklings lager och arbetar med ändringarna för deras API: er. I de flesta fall fokuserar de på API-mallarna för sina API: er och behöver inte ändra de delade mallarna eller tjänst mallarna.
 

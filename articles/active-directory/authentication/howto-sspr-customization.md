@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bef201cbd14a4de0c785b5f86d534f27bfedb31
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e121a6a45ab20055591a3670152114b8d03529cf
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363716"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174002"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Anpassa användar upplevelsen för Azure Active Directory återställning av lösen ord för självbetjäning
 
@@ -91,4 +91,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwor
 
 Information om användningen av SSPR i din miljö finns i [rapporterings alternativ för lösen ords hantering i Azure AD](howto-sspr-reporting.md).
 
-Om du eller användare har problem med SSPR kan du läsa mer i [Felsöka lösen ords återställning via självbetjäning](active-directory-passwords-troubleshoot.md)
+Om du eller användare har problem med SSPR kan du läsa mer i [Felsöka lösen ords återställning via självbetjäning](./troubleshoot-sspr.md)

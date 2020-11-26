@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7caeefb741e6916d69894ede3a7c64eb2e8f623f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840108"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174504"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Vanliga frågor och svar om lösen ords återställning via självbetjäning
 
@@ -289,4 +289,4 @@ Vanliga frågor och svar är indelade i följande avsnitt:
 * [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](./tutorial-enable-sspr-writeback.md)
 * [Hur gör jag för att rapportera på aktivitet i SSPR?](howto-sspr-reporting.md)
 * [Vad är alla alternativ i SSPR och vad betyder de?](concept-sspr-howitworks.md)
-* [Jag tror att något är brutet. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
+* [Jag tror att något är brutet. Hur gör jag för att felsöka SSPR?](./troubleshoot-sspr.md)

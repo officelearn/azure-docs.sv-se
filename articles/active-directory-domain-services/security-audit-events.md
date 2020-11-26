@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: b9656b62e2c689d0993fb16c1f1d66b14d3430c6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b4fb5c1dcb2bb34b472c2a3eda88ca4c219303d0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967740"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175176"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Aktivera säkerhets granskningar för Azure Active Directory Domain Services
 
@@ -50,7 +50,7 @@ Slutför följande steg för att aktivera Azure AD DS-säkerhetsgransknings hän
 > Granskningar av Azure AD DS-säkerhet är inte retroaktivt. Du kan inte hämta eller spela upp händelser tidigare. Azure AD DS kan bara skicka händelser som inträffar när säkerhets granskning har Aktiver ATS.
 
 1. Logga in på Azure Portal på https://portal.azure.com.
-1. Sök efter och välj **Azure AD Domain Services**överst i Azure Portal. Välj din hanterade domän, till exempel *aaddscontoso.com*.
+1. Sök efter och välj **Azure AD Domain Services** överst i Azure Portal. Välj din hanterade domän, till exempel *aaddscontoso.com*.
 1. I fönstret Azure AD DS väljer du **diagnostikinställningar** på vänster sida.
 1. Ingen diagnostik konfigureras som standard. Kom igång genom att välja **Lägg till diagnostisk inställning**.
 
@@ -63,15 +63,15 @@ Slutför följande steg för att aktivera Azure AD DS-säkerhetsgransknings hän
     ![Aktivera det obligatoriska målet och typen av gransknings händelser som ska samlas in](./media/security-audit-events/diagnostic-settings-page.png)
 
     * **Azure Storage**
-        * Välj **Arkiv till ett lagrings konto**och välj sedan **Konfigurera**.
+        * Välj **Arkiv till ett lagrings konto** och välj sedan **Konfigurera**.
         * Välj den **prenumeration** och det **lagrings konto** som du vill använda för att arkivera säkerhets gransknings händelser.
         * När du är klar väljer du **OK**.
     * **Azure Event Hub**
-        * Välj **Stream till en Event Hub**och välj sedan **Konfigurera**.
+        * Välj **Stream till en Event Hub** och välj sedan **Konfigurera**.
         * Välj **prenumerationen** och **Event Hub-namnområdet**. Om det behövs kan du även välja ett **namn på händelsehubben** och sedan **Event Hub-Principens namn**.
         * När du är klar väljer du **OK**.
     * **Azure logg analys arbets ytor**
-        * Välj **Skicka till Log Analytics**och välj sedan den **prenumeration** och **Log Analytics arbets yta** som du vill använda för att lagra säkerhets gransknings händelser.
+        * Välj **Skicka till Log Analytics** och välj sedan den **prenumeration** och **Log Analytics arbets yta** som du vill använda för att lagra säkerhets gransknings händelser.
 
 1. Välj de logg kategorier som du vill inkludera för den specifika mål resursen. Om du skickar gransknings händelser till ett Azure Storage konto kan du också konfigurera en bevarande princip som definierar antalet dagar som data ska bevaras. Standardvärdet *0* behåller alla data och roterar inte händelser efter en viss tids period.
 
@@ -95,7 +95,7 @@ Slutför följande steg för att aktivera Azure AD DS-säkerhetsgransknings hän
 1. Skapa mål resursen för säkerhets gransknings händelser.
 
     * **Azure Storage**  -  [Skapa ett lagrings konto med hjälp av Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
-    * **Azure Event Hub**  -  [Skapa en händelsehubben med Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Du kan också behöva använda cmdleten [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) för att skapa en auktoriseringsregel som ger Azure AD DS-behörigheter till *namn området*för Event Hub. Auktoriseringsregeln måste innehålla rättigheterna **Hantera**, **Lyssna**och **Skicka** .
+    * **Azure Event Hub**  -  [Skapa en händelsehubben med Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Du kan också behöva använda cmdleten [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) för att skapa en auktoriseringsregel som ger Azure AD DS-behörigheter till *namn området* för Event Hub. Auktoriseringsregeln måste innehålla rättigheterna **Hantera**, **Lyssna** och **Skicka** .
 
         > [!IMPORTANT]
         > Se till att du anger auktoriseringsregeln för Event Hub-namnområdet och inte själva händelsehubben.
@@ -141,7 +141,7 @@ Slutför följande steg för att aktivera Azure AD DS-säkerhetsgransknings hän
 Med logg analys arbets ytor kan du Visa och analysera säkerhets gransknings händelser med hjälp av Azure Monitor och Kusto-frågespråket. Det här frågespråket är utformat för skrivskyddad användning som har funktioner för Power-analys med en lättläst syntax. Mer information om hur du kommer igång med Kusto finns i följande artiklar:
 
 * [Dokumentation för Azure Monitor](../azure-monitor/index.yml)
-* [Kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 * [Kom igång med loggfrågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Skapa och dela instrumentpaneler för Log Analytics-data](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -237,10 +237,10 @@ Följande kategorier av gransknings händelser är tillgängliga:
 |:---|:---|
 |Konto inloggnings säkerhet|4767, 4774, 4775, 4776, 4777|
 |Konto hanterings säkerhet|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|Informations spårnings säkerhet|Ingen|
+|Informations spårnings säkerhet|Inget|
 |Åtkomst säkerhet för DS|5136, 5137, 5138, 5139, 5141|
 |Logon-Logoff säkerhet|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|Objekt åtkomst säkerhet|Ingen|
+|Objekt åtkomst säkerhet|Inget|
 |Princip ändrings säkerhet|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |Privilegiet Använd säkerhet|4985|
 |Systemsäkerhet|4612, 4621|

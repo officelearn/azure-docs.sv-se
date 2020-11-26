@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 224ccaeace91288171db42d2b8b8cf8c21a352e0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 99da9b787bfe06bece8b8dafdafc257336dddf63
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652526"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176196"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory-direktautentisering
 
@@ -72,7 +72,7 @@ För att bekräfta att detta är problemet, måste du först testa att direktaut
  ``` 
 4. När du uppmanas att ange autentiseringsuppgifter anger du samma användar namn och lösen ord som används för att logga in på ( https://login.microsoftonline.com) .
 
-Om du får samma användar namn/lösen ord-fel innebär det att direktautentisering fungerar som den ska och att problemet kan vara att det lokala UPN: et inte är dirigerbart. Mer information finns i [Konfigurera alternativt inloggnings-ID]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+Om du får samma användar namn/lösen ord-fel innebär det att direktautentisering fungerar som den ska och att problemet kan vara att det lokala UPN: et inte är dirigerbart. Mer information finns i [Konfigurera alternativt inloggnings-ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 > [!IMPORTANT]
 > Om Azure AD Connect servern inte är domänansluten, ett krav som anges i [Azure AD Connect: krav](./how-to-connect-install-prerequisites.md#installation-prerequisites), uppstår ett ogiltigt användar namn och lösen ord.

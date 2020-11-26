@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b4c06e53d3ddfb5f344a759e31d83cb22ce6d4d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839581"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174144"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planera distribution av lösenordsskyddad autentisering i Azure Active Directory
 
@@ -78,7 +78,7 @@ Organisationer måste uppfylla följande krav innan en lösenordsskyddad distrib
 
 Kraven för Windows Hello är mycket beroende av om du distribuerar i en lokal, hybrid eller molnbaserad konfiguration. Mer information finns i [fullständig lista över krav för Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-### <a name="azure-ad-multi-factor-authentication"></a>Azure AD-Multi-Factor Authentication
+### <a name="azure-ad-multi-factor-authentication"></a>Azure AD-multifaktorautentisering
 
 Användarna registrerar sin metod för lösen ords begränsning som en del av registrerings flödet för Azure AD-Multi-Factor Authentication. Multi-Factor Authentication med ett användar namn och lösen ord tillsammans med en annan registrerad metod kan användas som en reserv om de inte kan använda sin telefon-eller säkerhets nyckel i vissa situationer.
 
@@ -126,7 +126,7 @@ När du distribuerar lösenordsbaserad autentisering bör du först aktivera en 
 
 Grupper kan synkroniseras från en lokal katalog eller från Azure AD. När du är nöjd med resultatet från piloten kan du växla till lösen ords avinstallationen för alla användare.
 
-Se [metod tips för en pilot](https://aka.ms/deploymentplans) på sidan distributions planer.
+Se [metod tips för en pilot](../fundamentals/active-directory-deployment-plans.md) på sidan distributions planer.
 
 ## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Planera lösenordsbaserad autentisering med Microsoft Authenticator-appen
 

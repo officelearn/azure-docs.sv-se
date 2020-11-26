@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: cc183a047023e5377d7a45088b7c9ae2407f6829
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 52a97b824824d8e9eaf79cfa4a447494bf1525cf
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967128"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175159"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: skapa en virtuell hanterings dator för att konfigurera och administrera en Azure Active Directory Domain Services hanterad domän
 
@@ -85,7 +85,7 @@ I den föregående själv studie kursen har en virtuell Windows Server-dator ska
 Kom igång genom att ansluta till den virtuella Windows Server-datorn enligt följande:
 
 1. I Azure Portal väljer du **resurs grupper** på den vänstra sidan. Välj den resurs grupp där den virtuella datorn skapades, till exempel *myResourceGroup*, och välj sedan den virtuella datorn, till exempel *myVM*.
-1. I **översikts** fönstret för den virtuella datorn väljer du **Anslut**och sedan **skydds**.
+1. I **översikts** fönstret för den virtuella datorn väljer du **Anslut** och sedan **skydds**.
 
     ![Ansluta till en virtuell Windows-dator med skydds i Azure Portal](./media/join-windows-vm/connect-to-vm.png)
 
@@ -103,8 +103,8 @@ Slutför följande steg för att installera Active Directory administrations ver
 
 1. Om **Serverhanteraren** inte öppnas som standard när du loggar in på den virtuella datorn väljer du **Start** -menyn och väljer **Serverhanteraren**.
 1. I fönstret *instrument panel* i fönstret **Serverhanteraren** väljer du **Lägg till roller och funktioner**.
-1. På sidan **innan du börjar** i *guiden Lägg till roller och funktioner*väljer du **Nästa**.
-1. För *installations typen*låter du alternativet för **rollbaserad eller funktions baserad installation** vara markerat och väljer **Nästa**.
+1. På sidan **innan du börjar** i *guiden Lägg till roller och funktioner* väljer du **Nästa**.
+1. För *installations typen* låter du alternativet för **rollbaserad eller funktions baserad installation** vara markerat och väljer **Nästa**.
 1. På sidan **Server val** väljer du den aktuella virtuella datorn från serverpoolen, till exempel *myvm.aaddscontoso.com*, och väljer sedan **Nästa**.
 1. På sidan **Server roller** klickar du på **Nästa**.
 1. På sidan **funktioner** expanderar du noden **verktyg för fjärrserveradministration** och expandera sedan noden **roll administrations verktyg** .
@@ -120,7 +120,7 @@ Slutför följande steg för att installera Active Directory administrations ver
 
 När de administrativa verktygen är installerade ska vi se hur de används för att administrera den hanterade domänen. Kontrol lera att du är inloggad på den virtuella datorn med ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
-1. Välj **Windows administrations verktyg**på **Start** -menyn. De administrations verktyg för AD som installeras i föregående steg visas.
+1. Välj **Windows administrations verktyg** på **Start** -menyn. De administrations verktyg för AD som installeras i föregående steg visas.
 
     ![Lista över administrations verktyg som är installerade på servern](./media/tutorial-create-management-vm/list-admin-tools.png)
 
@@ -139,7 +139,7 @@ När de administrativa verktygen är installerade ska vi se hur de används för
 
 Vanliga Active Directory Administrationscenter åtgärder som att återställa användar kontots lösen ord eller hantera grupp medlemskap är tillgängliga. Dessa åtgärder fungerar bara för användare och grupper som skapats direkt i den hanterade domänen. Identitets information synkroniseras bara *från* Azure AD till Azure AD DS. Det går inte att skriva tillbaka från Azure AD DS till Azure AD. Du kan inte ändra lösen ord eller hanterad grupp medlemskap för användare som synkroniseras från Azure AD och som synkroniseras igen.
 
-Du kan också använda *Active Directory-modulen för Windows PowerShell*som installeras som en del av administrations verktygen för att hantera vanliga åtgärder i din hanterade domän.
+Du kan också använda *Active Directory-modulen för Windows PowerShell* som installeras som en del av administrations verktygen för att hantera vanliga åtgärder i din hanterade domän.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -160,4 +160,4 @@ För att på ett säkert sätt interagera med din hanterade domän från andra p
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md

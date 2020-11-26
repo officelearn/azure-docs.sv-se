@@ -4,12 +4,12 @@ description: Lär dig hur du ansluter din Function-app för att Application Insi
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: f5b1b00c534abf1e7f82d2aca69dd4763b40d5ad
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0b8aae707f0fb055677af111f1e88c0a2e19b227
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833086"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175754"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Så här konfigurerar du övervakning för Azure Functions
 
@@ -230,7 +230,7 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 För att en Function-app ska skicka data till Application Insights måste den känna till Instrumentation-nyckeln för en Application Insights resurs. Nyckeln måste vara i en app-inställning med namnet **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
-När du skapar en Function-app [i Azure Portal](functions-create-first-azure-function.md), från kommando raden med hjälp av [Azure Functions Core tools](functions-create-first-azure-function-azure-cli.md)eller genom att använda [Visual Studio Code](functions-create-first-function-vs-code.md), aktive ras Application Insights integration som standard. Application Insights resursen har samma namn som din Function-app, och den skapas antingen i samma region eller i den närmaste regionen.
+När du skapar en Function-app [i Azure Portal](functions-create-first-azure-function.md), från kommando raden med hjälp av [Azure Functions Core tools](./create-first-function-cli-csharp.md)eller genom att använda [Visual Studio Code](./create-first-function-vs-code-csharp.md), aktive ras Application Insights integration som standard. Application Insights resursen har samma namn som din Function-app, och den skapas antingen i samma region eller i den närmaste regionen.
 
 ### <a name="new-function-app-in-the-portal"></a>Ny function-app i portalen
 

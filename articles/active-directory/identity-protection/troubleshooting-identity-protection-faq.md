@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58f0ffa8bd43a8428603334b6c89fa1cf36315b5
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: ba22745923f1b157c477dce0b5704c7e278e748e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987345"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176009"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Vanliga frågor om identitets skydd i Azure Active Directory
 
@@ -38,7 +38,7 @@ Om du är Azure AD Identity Protection kund går du till vyn [riskfyllda använd
 ## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Varför har min inloggning blockerats men identitets skydd genererade inte någon risk identifiering?
 Inloggningar kan blockeras av flera orsaker. Det är viktigt att Observera att identitets skydd endast genererar risk identifiering när rätt autentiseringsuppgifter används i autentiseringsbegäran. Om en användare använder felaktiga autentiseringsuppgifter, kommer den inte att flaggas av identitets skydd eftersom det inte finns risk för komprometterande autentiseringsuppgifter om inte en felaktig aktör använder rätt autentiseringsuppgifter. Vissa orsaker till att en användare kan blockeras från signering som inte genererar en identifiering av identitets skydd är:
 * **IP-adressen kan ha blockerats** på grund av skadlig aktivitet från IP-adressen. Det blockerade IP-meddelandet särskiljer inte om autentiseringsuppgifterna var korrekta eller inte. Om IP-adressen är blockerad och rätt autentiseringsuppgifter inte används genererar den ingen identifiering av identitets skydd
-* **[Smart utelåsning](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** kan blockera kontot från att logga in efter flera misslyckade försök
+* **[Smart utelåsning](../authentication/howto-password-smart-lockout.md)** kan blockera kontot från att logga in efter flera misslyckade försök
 * En **princip för villkorlig åtkomst** kan tillämpas som använder andra villkor än risk nivån för att blockera en autentiseringsbegäran
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Hur kan jag få en rapport om identifieringar av en speciell typ?
@@ -93,6 +93,4 @@ Med tanke på att användar risken är kumulativ och inte upphör att gälla, ka
 
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Varför har en inloggning en "inloggnings risk (agg regering)" på hög nivå när de identifieringar som är associerade med den är av låg eller medelhög risk?
 
-Hög mängd risk poängen kan baseras på andra funktioner i inloggningen eller det faktum att fler än en identifiering har Aktiver ATS för den inloggningen. En inloggning kan dessutom ha en inloggnings risk (agg regering) av medel, även om identifieringarna som är associerade med inloggningen är av hög risk. 
-
-
+Hög mängd risk poängen kan baseras på andra funktioner i inloggningen eller det faktum att fler än en identifiering har Aktiver ATS för den inloggningen. En inloggning kan dessutom ha en inloggnings risk (agg regering) av medel, även om identifieringarna som är associerade med inloggningen är av hög risk.

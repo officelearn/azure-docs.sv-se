@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: 02c4679016ea80a4ac8bb53b502292945cbe9d7b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5d19cddc82d9fb092887c5cdeba36b8ab7127f94
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967077"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175142"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Granska säkerhets gransknings händelser i Azure Active Directory Domain Services att använda Azure Monitor arbets böcker
 
@@ -103,7 +103,7 @@ Som i rapporten säkerhets översikt kan du öka detalj nivån i de olika panele
 
 De två mallarna för arbets böcker som tillhandahålls av Azure AD DS är en bra plats för att börja med din egen data analys. Om du behöver få mer detaljerad information i data frågorna och utredningarna kan du spara dina egna arbets böcker och redigera frågorna.
 
-1. Om du vill spara en kopia av en arbetsboksmall väljer du **redigera > Spara som > delade rapporter**och anger sedan ett namn och sparar den.
+1. Om du vill spara en kopia av en arbetsboksmall väljer du **redigera > Spara som > delade rapporter** och anger sedan ett namn och sparar den.
 1. Från din egen kopia av mallen väljer du **Redigera** för att ange redigerings läget. Du kan välja den blå **redigerings** knappen bredvid vilken del som helst av rapporten och ändra den.
 
 Alla diagram och tabeller i Azure Monitor arbets böcker genereras med hjälp av Kusto-frågor. Mer information om hur du skapar egna frågor finns i självstudier för [Azure Monitor logg frågor][azure-monitor-queries] och [Kusto frågor][kusto-queries].
@@ -122,5 +122,5 @@ Om du har problem med användare kan du läsa om hur du felsöker [problem med i
 [password-policy]: password-policy.md
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
-[azure-monitor-queries]: ../azure-monitor/log-query/query-language.md
+[azure-monitor-queries]: /azure/data-explorer/kusto/query/
 [kusto-queries]: /azure/kusto/query/tutorial?pivots=azuredataexplorer

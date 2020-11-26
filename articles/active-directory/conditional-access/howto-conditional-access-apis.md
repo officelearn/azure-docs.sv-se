@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d681eba53aa85fe5df05f8404bcddb7c6877477
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 607df39833a5ae787e9acb8d3b4df3c52dd7709d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992789"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173693"
 ---
 # <a name="conditional-access-programmatic-access"></a>Villkorlig åtkomst: program mässig åtkomst
 
@@ -62,7 +62,7 @@ I det här exemplet finns en mekanism för att utföra en stegvis distribution a
 
 - [Distribuera principer för villkorlig åtkomst till produktions miljöer med arbets flöden för godkännande](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/03-deploy)
 
-## <a name="monitor"></a>Övervaka
+## <a name="monitor"></a>Monitor
 
 Det här exemplet innehåller en mekanism för att övervaka ändringar i princip för villkorlig åtkomst över tid och kan utlösa aviseringar när nyckel principer ändras.
 
@@ -78,7 +78,7 @@ Automatisera säkerhets kopiering och återställning av principer för villkorl
 
 ### <a name="emergency-access-accounts"></a>Konton för nöd åtkomst
 
-Flera administratörer kan skapa principer för villkorlig åtkomst och kan glömma att lägga till [konton för nöd åtkomst](../users-groups-roles/directory-emergency-access.md) som ett undantag till dessa principer. I det här exemplet ser du till att alla principer uppdateras för att inkludera de utsedda åtkomst kontona.
+Flera administratörer kan skapa principer för villkorlig åtkomst och kan glömma att lägga till [konton för nöd åtkomst](../roles/security-emergency-access.md) som ett undantag till dessa principer. I det här exemplet ser du till att alla principer uppdateras för att inkludera de utsedda åtkomst kontona.
 
 - [Hantera tilldelningen av nödfalls åtkomst konton till principer för villkorlig åtkomst med hjälp av Microsoft Graph API-anrop](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/02-emergency-access)
 

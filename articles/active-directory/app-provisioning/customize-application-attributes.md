@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: f65fb37a4cc6640bc998af1c56e7852cccaba234
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5f6e5de61c9f43d5958e68c545105c4373996f7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955538"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175074"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Självstudie – anpassa användar etablering attribut-mappningar för SaaS-program i Azure Active Directory
 
@@ -128,7 +128,7 @@ När du redigerar listan över attribut som stöds anges följande egenskaper:
   - *Reference* -Attribute innehåller ett ID som refererar till ett värde som lagras i en annan tabell i mål programmet.
   - *String*  -Attribute innehåller en text sträng.
 - **Primär nyckel?** – Anger om attributet definieras som ett primär nyckel fält i målobjektets schema.
-- **Obligatoriskt?** – Anger om attributet måste fyllas i mål programmet eller systemet.
+- **Kunna?** – Anger om attributet måste fyllas i mål programmet eller systemet.
 - **Flera värden?** – Anger om attributet stöder flera värden.
 - **Exakt fall?** – Om attributvärdena utvärderas på ett skift läges känsligt sätt.
 - **API-uttryck** – Använd inte, om det inte instrueras att göra det i dokumentationen för en speciell etablerings anslutning (till exempel Workday).
@@ -239,7 +239,7 @@ Använd stegen nedan för att etablera roller för en användare till ditt progr
    }
    ]
    ```  
-Förfrågnings formatet i korrigerings filen och POST skiljer sig. För att säkerställa att inlägget och KORRIGERINGen skickas i samma format kan du använda funktions flaggan som beskrivs [här](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior). 
+Förfrågnings formatet i korrigerings filen och POST skiljer sig. För att säkerställa att inlägget och KORRIGERINGen skickas i samma format kan du använda funktions flaggan som beskrivs [här](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
 
 - **AppRoleAssignmentsComplex** 
   - **När du ska använda:** Använd AppRoleAssignmentsComplex-uttrycket för att etablera flera roller för en användare. 

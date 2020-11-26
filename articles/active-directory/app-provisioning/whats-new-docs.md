@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 21307deb509d0735e4367f2b41603086f301bdeb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 51a2facfdaccc6cb29264873e9ffd60fc48735da
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533539"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174670"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory applikations etablering: Nyheter
 
@@ -59,7 +59,7 @@ Välkommen till nyheter i Azure Active Directory Application Provisioning-dokume
 
 
 ### <a name="updated-articles"></a>Uppdaterade artiklar
-- [Konfigurera etablering med hjälp av Microsoft Graph API: er](application-provisioning-configure-api.md)
+- [Konfigurera etablering med hjälp av Microsoft Graph API: er](/graph/application-provisioning-configure-api)
 - [Kända problem och lösningar med SCIM 2,0 protokoll kompatibilitet för Azure AD-tjänsten för användar etablering](application-provisioning-config-problem-scim-compatibility.md)
 
 ## <a name="july-2020"></a>Juli 2020

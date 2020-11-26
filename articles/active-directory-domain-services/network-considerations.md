@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 4ced7331daa116e237d9628d12d16a67687db5b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 43731f84066943b991b566ff5936e4288aa669eb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968097"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175227"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Design överväganden för virtuellt nätverk och konfigurations alternativ för Azure Active Directory Domain Services
 
@@ -104,15 +104,15 @@ En hanterad domän skapar vissa nätverks resurser under distributionen. De här
 
 ## <a name="network-security-groups-and-required-ports"></a>Nätverks säkerhets grupper och nödvändiga portar
 
-En [nätverks säkerhets grupp (NSG)](../virtual-network/security-overview.md) innehåller en lista över regler som tillåter eller nekar nätverks trafik till trafik i ett virtuellt Azure-nätverk. En nätverks säkerhets grupp skapas när du distribuerar en hanterad domän som innehåller en uppsättning regler som gör att tjänsten tillhandahåller autentiserings-och hanterings funktioner. Den här standard nätverks säkerhets gruppen är associerad med det virtuella nätverkets undernät som den hanterade domänen har distribuerats till.
+En [nätverks säkerhets grupp (NSG)](../virtual-network/network-security-groups-overview.md) innehåller en lista över regler som tillåter eller nekar nätverks trafik till trafik i ett virtuellt Azure-nätverk. En nätverks säkerhets grupp skapas när du distribuerar en hanterad domän som innehåller en uppsättning regler som gör att tjänsten tillhandahåller autentiserings-och hanterings funktioner. Den här standard nätverks säkerhets gruppen är associerad med det virtuella nätverkets undernät som den hanterade domänen har distribuerats till.
 
 Följande regler för nätverks säkerhets grupper krävs för att den hanterade domänen ska kunna tillhandahålla autentiserings-och hanterings tjänster. Redigera inte eller ta bort dessa regler för nätverks säkerhets grupper för det virtuella nätverkets undernät som din hanterade domän distribueras till.
 
-| Portnummer | Protokoll | Källa                             | Mål | Åtgärd | Krävs | Syfte |
+| Portnummer | Protokoll | Källa                             | Mål | Åtgärd | Obligatoriskt | Syfte |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Ja      | Synkronisering med din Azure AD-klient. |
-| 3389        | TCP      | CorpNetSaw                         | Alla         | Tillåt  | Ja      | Hantering av din domän. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Ja      | Hantering av din domän. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Valfri         | Tillåt  | Ja      | Synkronisering med din Azure AD-klient. |
+| 3389        | TCP      | CorpNetSaw                         | Valfri         | Tillåt  | Ja      | Hantering av din domän. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Valfri         | Tillåt  | Ja      | Hantering av din domän. |
 
 En Azure standard Load Balancer skapas som kräver att dessa regler placeras. Den här nätverks säkerhets gruppen säkrar Azure AD DS och krävs för att den hanterade domänen ska fungera korrekt. Ta inte bort den här nätverks säkerhets gruppen. Belastningsutjämnaren fungerar inte korrekt utan den.
 
@@ -123,7 +123,7 @@ Om det behövs kan du [skapa den nätverks säkerhets grupp och de regler som kr
 >
 > Om du använder säker LDAP kan du lägga till den TCP-port 636-regel som krävs för att tillåta extern trafik om det behövs. Om du lägger till den här regeln placeras inte reglerna för nätverks säkerhets gruppen i ett tillstånd som inte stöds. Mer information finns i [låsa säker LDAP-åtkomst via Internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 >
-> Standard reglerna för *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*och *DenyAllOutBound* finns också för nätverks säkerhets gruppen. Redigera inte eller ta bort dessa standard regler.
+> Standard reglerna för *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound* och *DenyAllOutBound* finns också för nätverks säkerhets gruppen. Redigera inte eller ta bort dessa standard regler.
 >
 > Azure service avtal gäller inte för distributioner där en felaktigt konfigurerad nätverks säkerhets grupp och/eller användardefinierade väg tabeller har tillämpats som blockerar Azure AD DS från att uppdatera och hantera din domän.
 
@@ -140,7 +140,7 @@ Om det behövs kan du [skapa den nätverks säkerhets grupp och de regler som kr
 * Standard regeln för nätverks säkerhets gruppen använder *CorpNetSaw* -tjänst tag gen för att ytterligare begränsa trafiken.
     * Den här Service tag-koden tillåter endast säker åtkomst till arbets stationer på Microsofts företags nätverk för att använda fjärr skrivbord till den hanterade domänen.
     * Åtkomst tillåts endast med affärs justering, till exempel för hanterings-eller fel söknings scenarier.
-* Den här regeln kan anges som *neka*och är bara inställd på *Tillåt* vid behov. De flesta hanterings-och övervaknings aktiviteter utförs med PowerShell-fjärrkommunikation. RDP används endast i sällsynta fall som Microsoft måste fjärrans luta till din hanterade domän för avancerad fel sökning.
+* Den här regeln kan anges som *neka* och är bara inställd på *Tillåt* vid behov. De flesta hanterings-och övervaknings aktiviteter utförs med PowerShell-fjärrkommunikation. RDP används endast i sällsynta fall som Microsoft måste fjärrans luta till din hanterade domän för avancerad fel sökning.
 
 > [!NOTE]
 > Du kan inte manuellt välja *CorpNetSaw* service tag från portalen om du försöker redigera den här regeln för nätverks säkerhets gruppen. Du måste använda Azure PowerShell eller Azure CLI för att manuellt konfigurera en regel som använder *CorpNetSaw* service tag.
@@ -154,7 +154,7 @@ Om det behövs kan du [skapa den nätverks säkerhets grupp och de regler som kr
 * Används för att utföra hanterings uppgifter med PowerShell-fjärrkommunikation i din hanterade domän.
 * Utan åtkomst till den här porten kan din hanterade domän inte uppdateras, konfigureras, säkerhets kopie ras eller övervakas.
 * För hanterade domäner som använder ett Resource Manager-baserat virtuellt nätverk kan du begränsa inkommande åtkomst till den här porten till *AzureActiveDirectoryDomainServices* -tjänst tag gen.
-    * För äldre hanterade domäner med hjälp av ett klassiskt virtuellt nätverk kan du begränsa inkommande åtkomst till den här porten till följande käll-IP-adresser: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*och *104.40.87.209*.
+    * För äldre hanterade domäner med hjälp av ett klassiskt virtuellt nätverk kan du begränsa inkommande åtkomst till den här porten till följande käll-IP-adresser: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18* och *104.40.87.209*.
 
     > [!NOTE]
     > I 2017 blev Azure AD Domain Services tillgänglig som värd i ett Azure Resource Manager nätverk. Sedan dess har vi kunnat bygga en säkrare tjänst med Azure Resource Manager moderna funktioner. Eftersom Azure Resource Manager distributioner fullständigt ersätter klassiska distributioner, kommer Azure AD DS klassiska virtuella nätverks distributioner att dras tillbaka den 1 mars 2023.
@@ -176,4 +176,4 @@ Mer information om vissa nätverks resurser och anslutnings alternativ som anvä
 
 * [Peering för Azure Virtual Network](../virtual-network/virtual-network-peering-overview.md)
 * [Azure VPN-gatewayer](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
-* [Azure-nätverkssäkerhetsgrupper](../virtual-network/security-overview.md)
+* [Azure-nätverkssäkerhetsgrupper](../virtual-network/network-security-groups-overview.md)

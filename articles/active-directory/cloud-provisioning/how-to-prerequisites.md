@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f6c5985c16875e263f2494f56636abb4d4e980d
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 8eb8de2424012d12f216f154eb077028a8f82d76
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237263"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173710"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Krav för Azure AD Connect-molnetablering
 Den här artikeln innehåller rikt linjer för hur du väljer och använder Azure Active Directory (Azure AD) Anslut moln etablering som din identitets lösning.
@@ -30,11 +30,11 @@ Du behöver följande för att kunna använda Azure AD Connect Cloud-etablering:
 - Konfigurationer för lokala brand väggar.
 
 ## <a name="group-managed-service-accounts"></a>Grupphanterade tjänstkonton
-Ett grupphanterat tjänst konto är ett hanterat domän konto som tillhandahåller automatisk lösen ords hantering, förenklad hantering av tjänst huvud namn (SPN), möjlighet att delegera hanteringen till andra administratörer och även utöka den här funktionaliteten över flera servrar.  Azure AD Connect Cloud Sync stöder och använder en gMSA för att köra agenten.  Du uppmanas att ange administratörs behörighet under installationen för att kunna skapa det här kontot.  Kontot visas som (domain\provAgentgMSA $).  Mer information om en gMSA finns i [gruppera hanterade tjänst konton](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+Ett grupphanterat tjänst konto är ett hanterat domän konto som tillhandahåller automatisk lösen ords hantering, förenklad hantering av tjänst huvud namn (SPN), möjlighet att delegera hanteringen till andra administratörer och även utöka den här funktionaliteten över flera servrar.  Azure AD Connect Cloud Sync stöder och använder en gMSA för att köra agenten.  Du uppmanas att ange administratörs behörighet under installationen för att kunna skapa det här kontot.  Kontot visas som (domain\provAgentgMSA $).  Mer information om en gMSA finns i [gruppera hanterade tjänst konton](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### <a name="prerequisites-for-gmsa"></a>Krav för gMSA:
 1.  Active Directory-schemat i gMSA-domänens skog måste uppdateras till Windows Server 2012
-2.  [PowerShell-moduler för RSAT](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) på en domänkontrollant
+2.  [PowerShell-moduler för RSAT](/windows-server/remote/remote-server-administration-tools) på en domänkontrollant
 3.  Minst en domänkontrollant i domänen måste köra Windows Server 2012.
 4.  En domänansluten server där agenten installeras måste vara antingen Windows Server 2012 eller senare.
 

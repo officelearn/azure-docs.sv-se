@@ -10,11 +10,11 @@ ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: a9f58a9cdf8dea9631443d499548f2aee61eda69
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553683"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175414"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Använda externa tabeller med Synapse SQL
 
@@ -95,7 +95,7 @@ data_source_name
 
 Anger det användardefinierade namnet för data källan. Namnet måste vara unikt i databasen.
 
-#### <a name="location"></a>Plats
+#### <a name="location"></a>Location
 LOCATION = `'<prefix>://<path>'`   -tillhandahåller anslutnings protokollet och sökvägen till den externa data källan. Följande mönster kan användas på platsen:
 
 | Extern data Källa        | Location-prefix | Sökväg till plats                                         |
@@ -332,7 +332,7 @@ Skapa extern tabell stöder möjligheten att konfigurera kolumn namn, datatyp, n
 
 När du läser från Parquet-filer kan du bara ange de kolumner som du vill läsa och hoppa över resten.
 
-PLATS = *folder_or_filepath*
+PLATS =*folder_or_filepath*
 
 Anger mappen eller sökvägen och fil namnet för faktiska data i Azure Blob Storage. Platsen börjar från rotmappen. Rotmappen är den dataplats som anges i den externa datakällan.
 

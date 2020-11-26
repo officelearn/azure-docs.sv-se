@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e741bd6c87ea32b0d92b1dd53112a1bed3e4cd38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041124"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174925"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution med automatisk användaretablering
 
@@ -34,13 +34,13 @@ Användar etablering skapar en grund för pågående identitets styrning och fö
 
 De främsta fördelarna med att aktivera automatisk användar etablering är:
 
-* **Ökad produktivitet** . Du kan hantera användar identiteter i SaaS-program med ett enda hanterings gränssnitt för användar etablering. Det här gränssnittet har en enda uppsättning etablerings principer.
+* **Ökad produktivitet**. Du kan hantera användar identiteter i SaaS-program med ett enda hanterings gränssnitt för användar etablering. Det här gränssnittet har en enda uppsättning etablerings principer.
 
-* **Hantera risker** . Du kan öka säkerheten genom att automatisera ändringar baserat på medarbetarnas status eller grupp medlemskap som definierar roller och/eller åtkomst.
+* **Hantera risker**. Du kan öka säkerheten genom att automatisera ändringar baserat på medarbetarnas status eller grupp medlemskap som definierar roller och/eller åtkomst.
 
-* **Hantera efterlevnad och styrning** . Azure AD har stöd för interna gransknings loggar för varje användar etablerings förfrågan. Begär Anden körs både i käll-och mål systemen. På så sätt kan du spåra vem som har åtkomst till program från en enda skärm.
+* **Hantera efterlevnad och styrning**. Azure AD har stöd för interna gransknings loggar för varje användar etablerings förfrågan. Begär Anden körs både i käll-och mål systemen. På så sätt kan du spåra vem som har åtkomst till program från en enda skärm.
 
-* **Minska kostnaderna** . Automatisk användar etablering minskar kostnaderna genom att undvika ineffektivitet och mänskligt fel som är kopplat till manuell etablering. Det minskar behovet av anpassade användar etablerings lösningar, skript och gransknings loggar.
+* **Minska kostnaderna**. Automatisk användar etablering minskar kostnaderna genom att undvika ineffektivitet och mänskligt fel som är kopplat till manuell etablering. Det minskar behovet av anpassade användar etablerings lösningar, skript och gransknings loggar.
 
 ### <a name="licensing"></a>Licensiering
 
@@ -157,7 +157,7 @@ De faktiska stegen som krävs för att aktivera och konfigurera automatisk etabl
 
 Annars följer du stegen nedan:
 
-1. [Skapa en begäran](../azuread-dev/howto-app-gallery-listing.md) för en för hands integrerad användar etablerings anslutning. Vårt team kommer att samar beta med dig och programutvecklaren för att publicera ditt program på vår plattform om det stöder SCIM.
+1. [Skapa en begäran](../develop/v2-howto-app-gallery-listing.md) för en för hands integrerad användar etablerings anslutning. Vårt team kommer att samar beta med dig och programutvecklaren för att publicera ditt program på vår plattform om det stöder SCIM.
 
 1. Använd [BYOA scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) Generic User Provisioning-stöd för appen. Detta är ett krav för att Azure AD ska kunna etablera användare till appen utan en förintegrerad etablerings anslutning.
 
@@ -292,7 +292,7 @@ Administratörer bör kontrol lera sammanfattnings rapporten för etablering fö
 
 Vi rekommenderar att du förbrukar ägande rätt till och använder dessa rapporter på en takt som uppfyller organisationens krav. Azure AD behåller de flesta gransknings data i 30 dagar.
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Se följande länkar för att felsöka eventuella problem som kan uppstå under etableringen:
 
@@ -300,11 +300,11 @@ Se följande länkar för att felsöka eventuella problem som kan uppstå under 
 
 * [Synkronisera ett attribut från din lokala Active Directory till Azure AD för etablering till ett program](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
-* [Problem med att spara administratörsautentiseringsuppgifter när du konfigurerar användar etablering till ett Azure Active Directory Galleri program](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
+* [Problem med att spara administratörsautentiseringsuppgifter när du konfigurerar användar etablering till ett Azure Active Directory Galleri program](./user-provisioning.md)
 
 * [Inga användare tillhandahålls till ett Azure AD Gallery-program](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
-* [Fel uppsättning användare tillhandahålls till ett Azure AD Gallery-program](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
+* [Fel uppsättning användare tillhandahålls till ett Azure AD Gallery-program](../manage-apps/add-application-portal-assign-users.md)
 
 ### <a name="helpful-documentation"></a>Användbar dokumentation
 

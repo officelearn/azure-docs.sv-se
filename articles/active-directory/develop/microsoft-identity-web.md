@@ -13,12 +13,12 @@ ms.date: 10/09/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 77cb3b0c13a6bfe41c6f7a1a5a0f9d7278aea1db
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b82e300128a41f8315132e1ff93af33c853edb15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930160"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173523"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Microsoft Identity Web Authentication Library
 
@@ -58,14 +58,14 @@ dotnet new --install Microsoft.Identity.Web.ProjectTemplates::1.0.0
 
 Följande diagram visar en övergripande vy över de typer av appar som stöds och deras relevanta argument:
 
-:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagram över tillgängliga dot-projektmallar för net CLI för Microsoft Identity Web&quot;:::
+:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagram över tillgängliga dot-projektmallar för net CLI för Microsoft Identity Web":::
 <br /><sup><b>*</b></sup>`MultiOrg`stöds inte med `webapi2` , men kan aktive ras i *appsettings.jspå* genom att ställa in klient till `common` eller`organizations`
 <br /><sup><b>**</b></sup>`--calls-graph`stöds inte för Azure AD B2C
 
 Det här exemplet på .NET CLI-kommandot, som vi tar från vår [själv studie kurs](tutorial-blazor-server.md), genererar ett nytt snabb Server projekt som innehåller rätt paket och start kod (plats hållare-värden som visas):
 
 ```dotnetcli
-dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id &quot;00000000-0000-0000-0000-000000000000&quot; --tenant-id &quot;11111111-1111-1111-1111-111111111111" --output my-blazor-app
+dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-0000-0000-0000-000000000000" --tenant-id "11111111-1111-1111-1111-111111111111" --output my-blazor-app
 ```
 
 #### <a name="github"></a>GitHub
@@ -82,14 +82,14 @@ Microsoft Identity Web innehåller flera funktioner som inte tillhandahålls om 
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | [Logga in användare](scenario-web-app-sign-user-app-configuration.md) i Web Apps             | <li>Arbets- eller skolkonton<li>Sociala identiteter (med Azure AD B2C) | <li>Arbets- eller skolkonton<li>Personliga Microsoft-konton<li>Sociala identiteter (med Azure AD B2C)     |
 | [Skydda webb-API: er](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>Arbets- eller skolkonton<li>Sociala identiteter (med Azure AD B2C) | <li>Arbets- eller skolkonton<li>Personliga Microsoft-konton<li>Sociala identiteter (med Azure AD B2C)     |
-| Verifiering av utfärdare i appar för flera klient organisationer                                                   | Inga                                                                   | Ja, för [alla moln](authentication-national-cloud.md) och [Azure AD B2C](/azure/active-directory-b2c) |
-| Webbapp/API [anrop Microsoft Graph] [scenario-API-anrop-Graph]                             | Inga                                                                   | Ja                                                                                                     |
-| Webbapp/API [anropar webb-API] [scenario-API-anrop-API]                                       | Inga                                                                   | Ja                                                                                                     |
-| Har stöd för autentiseringsuppgifter för certifikat                                                         | Inga                                                                   | Ja, inklusive Azure Key Vault                                                                          |
-| Stegvist godkännande och stöd för villkorlig åtkomst i Web Apps                           | Inga                                                                   | Ja, i MVC, kniv sidor och blixt                                                                    |
-| Token krypterings certifikat i webb-API: er                                                | Inga                                                                   | Ja                                                                                                     |
-| [Verifiering av omfattningar/app-roll] [scenario – API-validering] i webb-API: er                        | Inga                                                                   | Ja                                                                                                     |
-| `WWW-Authenticate` Skapa sidhuvud i webb-API: er                                         | Inga                                                                   | Ja                                                                                                     |
+| Verifiering av utfärdare i appar för flera klient organisationer                                                   | Nej                                                                   | Ja, för [alla moln](authentication-national-cloud.md) och [Azure AD B2C](../../active-directory-b2c/index.yml) |
+| Webbapp/API [anrop Microsoft Graph] [scenario-API-anrop-Graph]                             | Nej                                                                   | Ja                                                                                                     |
+| Webbapp/API [anropar webb-API] [scenario-API-anrop-API]                                       | Nej                                                                   | Ja                                                                                                     |
+| Har stöd för autentiseringsuppgifter för certifikat                                                         | Nej                                                                   | Ja, inklusive Azure Key Vault                                                                          |
+| Stegvist godkännande och stöd för villkorlig åtkomst i Web Apps                           | Nej                                                                   | Ja, i MVC, kniv sidor och blixt                                                                    |
+| Token krypterings certifikat i webb-API: er                                                | Nej                                                                   | Ja                                                                                                     |
+| [Verifiering av omfattningar/app-roll] [scenario – API-validering] i webb-API: er                        | Nej                                                                   | Ja                                                                                                     |
+| `WWW-Authenticate` Skapa sidhuvud i webb-API: er                                         | Nej                                                                   | Ja                                                                                                     |
 
 ## <a name="next-steps"></a>Nästa steg
 

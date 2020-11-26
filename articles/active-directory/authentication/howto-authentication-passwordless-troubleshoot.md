@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 690d4761657b8bf6e5ba63ddfbce7163584e64e2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964578"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174042"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Fel sökning för Hybrid distributioner av FIDO2-säkerhetsnycklar i Azure AD (för hands version)
 
@@ -76,9 +76,9 @@ Utför följande steg för att samla in data som hjälper till att felsöka prob
 
 1. Välj kategorin *säkerhet och sekretess* , sedan *Fido* -underkategorin.
 1. Markera kryss rutan för *Skicka bifogade filer och diagnostik till Microsoft tillsammans med min feedback*.
-1. Välj *Återskapa mina problem*och starta sedan *avbildningen*.
+1. Välj *Återskapa mina problem* och starta sedan *avbildningen*.
 1. Lås och lås upp datorn med säkerhets nyckeln FIDO2. Försök att låsa upp med andra autentiseringsuppgifter om problemet uppstår.
-1. Gå tillbaka till **feedback Hub**, Välj **Avbryt fångst**och skicka din feedback.
+1. Gå tillbaka till **feedback Hub**, Välj **Avbryt fångst** och skicka din feedback.
 1. Gå till *feedback* -sidan, sedan fliken *min feedback* . Välj din nyligen skickade feedback.
 1. Välj knappen *dela* i det övre högra hörnet för att få en länk till feedbacken. Ta med den här länken när du öppnar ett support ärende eller svarar på teknikern som tilldelats ett befintligt support ärende.
 

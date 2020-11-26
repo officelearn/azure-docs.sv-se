@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994170"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173944"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planera en Azure Active Directory distribution av lösen ords återställning via självbetjäning
 
@@ -105,7 +105,7 @@ För att återställa lösen ordet går användarna till [portalen för återst�
 
 Obs! för användare som har [hash-synkronisering för lösen ord (PHS)](../hybrid/whatis-phs.md) inaktive rad lagrar SSPR lösen orden endast i lokal-Active Directory.
 
-### <a name="best-practices"></a>Bästa praxis
+### <a name="best-practices"></a>Rekommenderade metoder
 
 Du kan hjälpa användarna att registrera sig snabbt genom att distribuera SSPR tillsammans med en annan populär applikation eller tjänst i organisationen. Den här åtgärden genererar en stor volym av inloggningar och kommer att driva registrering.
 
@@ -123,7 +123,7 @@ Den kombinerade registrerings upplevelsen kräver inte att organisationer aktive
 
 ### <a name="engage-the-right-stakeholders"></a>Engagera rätt intressenter
 
-När teknik projekt inte fungerar, gör de vanligt vis på grund av felaktiga förväntningar på påverkan, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du engagerar rätt intressenter](https://aka.ms/deploymentplans) och att från intressenter-rollerna i projektet är väl förstå genom att dokumentera intressenterna och deras ingångs-och Accountabilities i projektet.
+När teknik projekt inte fungerar, gör de vanligt vis på grund av felaktiga förväntningar på påverkan, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du engagerar rätt intressenter](../fundamentals/active-directory-deployment-plans.md) och att från intressenter-rollerna i projektet är väl förstå genom att dokumentera intressenterna och deras ingångs-och Accountabilities i projektet.
 
 #### <a name="required-administrator-roles"></a>Nödvändiga administratörs roller
 
@@ -149,19 +149,19 @@ Information om hur du skapar en grupp finns i så här [skapar du en grupp och l
 
 Följande inställningar krävs för att aktivera SSPR tillsammans med rekommenderade värden.
 
-| Område | Inställning | Värde |
+| Område | Inställningen | Värde |
 | --- | --- | --- |
 | **Egenskaper för SSPR** | Återställning av lösen ord för självbetjäning har Aktiver ATS | **Vald** grupp för pilot/ **alla** för produktion |
 | **Autentiseringsmetoder** | Autentiseringsmetoder som krävs för registrering | Alltid 1 mer än vad som krävs för återställning |
 |   | Autentiseringsmetoder som krävs för att återställa | En eller två |
-| **Registrering** | Kräv att användare registrerar sig vid inloggning | Yes |
+| **Registrering** | Kräv att användare registrerar sig vid inloggning | Ja |
 |   | Antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation | 90 – 180 dagar |
-| **Aviseringar** | Meddela användare om lösenordsåterställning | Yes |
-|   | Meddela alla administratörer när andra administratörer återställer sina lösenord | Yes |
-| **Anpassning** | Anpassa supportavdelningen-länk | Yes |
+| **Aviseringar** | Meddela användare om lösenordsåterställning | Ja |
+|   | Meddela alla administratörer när andra administratörer återställer sina lösenord | Ja |
+| **Anpassning** | Anpassa supportavdelningen-länk | Ja |
 |   | E-post eller URL för anpassad helpdesk | Support webbplats eller e-postadress |
-| **Lokal integration** | Skriv tillbaka lösen ord till lokal AD | Yes |
-|   | Tillåt att användare låser upp kontot utan att återställa lösen ordet | Yes |
+| **Lokal integration** | Skriv tillbaka lösen ord till lokal AD | Ja |
+|   | Tillåt att användare låser upp kontot utan att återställa lösen ordet | Ja |
 
 ### <a name="sspr-properties"></a>Egenskaper för SSPR
 
@@ -254,7 +254,7 @@ Medan SSPR vanligt vis inte skapar användar problem är det viktigt att förber
 
 Om du vill göra det möjligt för support teamet att lyckas kan du skapa vanliga frågor och svar baserat på frågor som du får från användarna. Några exempel:
 
-| Scenarier| Description |
+| Scenarier| Beskrivning |
 | - | - |
 | Användaren har inga registrerade autentiseringsmetoder tillgängliga| En användare försöker återställa sitt lösen ord men har inte någon av de autentiseringsmetoder som de registrerade är tillgängliga (exempel: de lämnade sin mobil telefon hemma och har inte åtkomst till e-post) |
 | Användaren får inte någon text eller ett anrop på deras telefonnummer till kontoret eller mobil telefonen| En användare försöker verifiera sin identitet via text eller anrop, men får ingen text/ett anrop. |
@@ -325,7 +325,7 @@ Med [användning och insikter](./howto-authentication-methods-usage-insights.md)
 
 ### <a name="troubleshoot"></a>Felsöka
 
-* Se [fel sökning av lösen ords återställning via självbetjäning](./active-directory-passwords-troubleshoot.md) 
+* Se [fel sökning av lösen ords återställning via självbetjäning](./troubleshoot-sspr.md) 
 
 * Följ [vanliga frågor och svar om lösen ords hantering](./active-directory-passwords-faq.md) 
 

@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f462a78790e73f3e0f67f55b6417589c7826a75d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275760"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173676"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: anpassa anspråk som utfärdats i SAML-token för företags program
 
@@ -56,7 +56,7 @@ I list rutan **Välj namn identifierare format** kan du välja något av följan
 
 | NameID-format | Beskrivning |
 |---------------|-------------|
-| **Standard** | Microsoft Identity Platform använder standard käll formatet. |
+| **Objekt** | Microsoft Identity Platform använder standard käll formatet. |
 | **Permanent** | Microsoft Identity Platform kommer att använda beständigt som NameID-format. |
 | **EmailAddress** | Microsoft Identity Platform kommer att använda EmailAddress som NameID-format. |
 | **Ospecificerat** | Microsoft Identity Platform kommer att använda ospecificerat som NameID-format. |
@@ -109,7 +109,7 @@ Du kan också använda funktionerna för anspråks omvandlingar.
 
 Så här lägger du till programspecifika anspråk:
 
-1. I användarattribut **& anspråk**väljer du **Lägg till nytt anspråk** för att öppna sidan **hantera användar anspråk** .
+1. I användarattribut **& anspråk** väljer du **Lägg till nytt anspråk** för att öppna sidan **hantera användar anspråk** .
 1. Ange anspråkets **namn** . Värdet behöver inte absolut följa ett URI-mönster, enligt SAML-specifikationen. Om du behöver ett URI-mönster kan du ange det i fältet **namn område** .
 1. Välj **källan** där anspråket ska hämta sitt värde. Du kan välja ett användarattribut från List rutan källattribut eller tillämpa en omvandling till användarattribut innan du avger det som ett anspråk.
 
@@ -117,7 +117,7 @@ Så här lägger du till programspecifika anspråk:
 
 Så här använder du en omvandling till ett användar-attribut:
 
-1. I **Hantera anspråk**väljer du *omvandling* som anspråks källa för att öppna sidan **Hantera omvandling** .
+1. I **Hantera anspråk** väljer du *omvandling* som anspråks källa för att öppna sidan **Hantera omvandling** .
 2. Välj funktionen i list rutan för omvandling. Beroende på vilken funktion du väljer måste du ange parametrar och ett konstant värde som ska utvärderas i omvandlingen. Se tabellen nedan för mer information om tillgängliga funktioner.
 3. Om du vill använda flera omvandlingar klickar du på **Lägg till omvandling**. Du kan använda högst två omvandlingar till ett anspråk. Du kan till exempel först extrahera e-postprefixet för `user.mail` . Skapa sedan strängen versaler.
 
@@ -162,7 +162,7 @@ Ett scenario där detta är användbart är när källan till ett anspråk är a
 
 Så här lägger du till ett anspråks villkor:
 
-1. I **Hantera anspråk**expanderar du anspråks villkoren.
+1. I **Hantera anspråk** expanderar du anspråks villkoren.
 2. Välj användar typ.
 3. Välj de grupper som användaren ska tillhöra. Du kan välja upp till 50 unika grupper i alla anspråk för ett angivet program. 
 4. Välj **källan** där anspråket ska hämta sitt värde. Du kan välja ett användarattribut från List rutan källattribut eller tillämpa en omvandling till användarattribut innan du avger det som ett anspråk.
@@ -178,5 +178,5 @@ Först verifierar Microsoft Identity Platform om Britta användar typ är `All g
 ## <a name="next-steps"></a>Nästa steg
 
 * [Program hantering i Azure AD](../manage-apps/what-is-application-management.md)
-* [Konfigurera enkel inloggning för program som inte finns i Azure AD-programgalleriet](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Felsöka SAML-baserad enkel inloggning](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Konfigurera enkel inloggning för program som inte finns i Azure AD-programgalleriet](../manage-apps/configure-saml-single-sign-on.md)
+* [Felsöka SAML-baserad enkel inloggning](../manage-apps/debug-saml-sso-issues.md)

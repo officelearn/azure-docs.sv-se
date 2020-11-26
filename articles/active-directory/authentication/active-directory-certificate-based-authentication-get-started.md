@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 96f1e3983f3c093cdf643e7674221b04631eeabd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ddff11caba9d83e9ed21748fd50a3480d866d8a9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965632"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174572"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Komma igång med certifikatbaserad autentisering i Azure Active Directory
 
@@ -31,7 +31,7 @@ Genom att konfigurera den här funktionen slipper du ange en kombination av anv�
 Det här avsnittet:
 
 - Innehåller anvisningar om hur du konfigurerar och använder certifikatbaserad autentisering för användare av klienter i Office 365 Enterprise, Business, Education och amerikanska myndigheters planer. Den här funktionen är tillgänglig i för hands versionen i Office 365 Kina, USA: s försvars myndigheter och amerikanska federala myndigheter.
-- Förutsätter att du redan har en [PKI (Public Key Infrastructure)](https://go.microsoft.com/fwlink/?linkid=841737) och [AD FS](../hybrid/how-to-connect-fed-whatis.md) konfigurerat.
+- Förutsätter att du redan har en [PKI (Public Key Infrastructure)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)) och [AD FS](../hybrid/how-to-connect-fed-whatis.md) konfigurerat.
 
 ## <a name="requirements"></a>Krav
 
@@ -154,7 +154,7 @@ Om du vill ändra en betrodd certifikat utfärdare använder du cmdleten [set-Az
 
 ## <a name="step-3-configure-revocation"></a>Steg 3: Konfigurera åter kallelse
 
-Om du vill återkalla ett klient certifikat hämtar Azure Active Directory listan över återkallade certifikat (CRL) från de URL: er som laddats upp som en del av certifikat utfärdarens information och cachelagrar den. Den senaste publicerings tids stämplingen (egenskapen**effektiv datum** ) i listan över återkallade certifikat används för att se till att CRL fortfarande är giltig. CRL: en refereras regelbundet för att återkalla åtkomsten till certifikat som ingår i listan.
+Om du vill återkalla ett klient certifikat hämtar Azure Active Directory listan över återkallade certifikat (CRL) från de URL: er som laddats upp som en del av certifikat utfärdarens information och cachelagrar den. Den senaste publicerings tids stämplingen (egenskapen **effektiv datum** ) i listan över återkallade certifikat används för att se till att CRL fortfarande är giltig. CRL: en refereras regelbundet för att återkalla åtkomsten till certifikat som ingår i listan.
 
 Om det krävs ett omedelbart återkallning (till exempel om en användare förlorar en enhet) kan användarens autentiseringstoken bli ogiltig. Om du vill ogiltig verifiera token anger du fältet **StsRefreshTokenValidFrom** för den aktuella användaren med hjälp av Windows PowerShell. Du måste uppdatera fältet **StsRefreshTokenValidFrom** för varje användare som du vill återkalla åtkomsten för.
 

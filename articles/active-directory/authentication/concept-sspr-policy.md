@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 695d47c839a9436f4fad9399f7995b3197e1c0eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b1583307771dd58053128d71cb0ae5dd7e709f68
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965003"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174389"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Lösen ords principer och konto begränsningar i Azure Active Directory
 
@@ -180,4 +180,4 @@ När modulen har installerats använder du följande steg för att slutföra var
 
 För att komma igång med SSPR, se [Självstudier: gör det möjligt för användare att låsa upp kontot eller återställa lösen ord med hjälp av Azure Active Directory självbetjäning för återställning av lösen ord](tutorial-enable-sspr.md).
 
-Om du eller användare har problem med SSPR kan du läsa mer i [Felsöka lösen ords återställning via självbetjäning](active-directory-passwords-troubleshoot.md)
+Om du eller användare har problem med SSPR kan du läsa mer i [Felsöka lösen ords återställning via självbetjäning](./troubleshoot-sspr.md)

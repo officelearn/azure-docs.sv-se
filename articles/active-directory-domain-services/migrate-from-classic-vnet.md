@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: joflore
-ms.openlocfilehash: a66268c0cd0c2382b412873ec7f78b87d3491594
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aae665b5982ab2b5c1163bb9297eda5f2e5d344a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968182"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175380"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrera Azure Active Directory Domain Services från den klassiska virtuella nätverks modellen till Resource Manager
 
@@ -153,11 +153,11 @@ Migreringen till distributions modellen för Resource Manager och det virtuella 
 
 | Steg    | Utförd genom  | Beräknad tid  | Driftstopp  | Återställa/återställa? |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [Steg 1 – uppdatera och leta upp det nya virtuella nätverket](#update-and-verify-virtual-network-settings) | Azure Portal | 15 minuter | Ingen stillestånds tid krävs | Saknas |
+| [Steg 1 – uppdatera och leta upp det nya virtuella nätverket](#update-and-verify-virtual-network-settings) | Azure Portal | 15 minuter | Ingen stillestånds tid krävs | E.t. |
 | [Steg 2 – förbereda den hanterade domänen för migrering](#prepare-the-managed-domain-for-migration) | PowerShell | 15 – 30 minuter i genomsnitt | Stillestånds tiden för Azure AD DS startar när kommandot har slutförts. | Återställa och återställa tillgängligt. |
 | [Steg 3 – flytta den hanterade domänen till ett befintligt virtuellt nätverk](#migrate-the-managed-domain) | PowerShell | 1 – 3 timmar i genomsnitt | En domänkontrollant är tillgänglig när kommandot har slutförts. avbrotts tiden är slut. | Vid ett haveri är både återställning (självbetjäning) och återställning tillgängligt. |
 | [Steg 4 – testa och vänta på replik domänkontrollanten](#test-and-verify-connectivity-after-the-migration)| PowerShell och Azure Portal | 1 timme eller mer, beroende på antalet tester | Båda domän kontrol Lanterna är tillgängliga och bör fungera normalt. | Ej tillämpligt. När den första virtuella datorn har migrerats finns det inget alternativ för att återställa eller återställa. |
-| [Steg 5 – valfria konfigurations steg](#optional-post-migration-configuration-steps) | Azure Portal och virtuella datorer | Saknas | Ingen stillestånds tid krävs | Saknas |
+| [Steg 5 – valfria konfigurations steg](#optional-post-migration-configuration-steps) | Azure Portal och virtuella datorer | E.t. | Ingen stillestånds tid krävs | E.t. |
 
 > [!IMPORTANT]
 > Du undviker ytterligare nedtid genom att läsa igenom all den här artikel och vägledningen för migrering innan du påbörjar migreringsprocessen. Migreringsprocessen påverkar tillgängligheten för Azure AD DS-domänkontrollanter under en viss tids period. Användare, tjänster och program kan inte autentisera mot den hanterade domänen under migreringsprocessen.
@@ -166,7 +166,7 @@ Migreringen till distributions modellen för Resource Manager och det virtuella 
 
 Innan du påbörjar migreringsprocessen slutför du följande inledande kontroller och uppdateringar. De här stegen kan inträffa när som helst innan migreringen och påverkar inte driften av den hanterade domänen.
 
-1. Uppdatera din lokala Azure PowerShell-miljö till den senaste versionen. Du måste ha minst version *2.3.2*för att slutföra migreringen.
+1. Uppdatera din lokala Azure PowerShell-miljö till den senaste versionen. Du måste ha minst version *2.3.2* för att slutföra migreringen.
 
     Information om hur du kontrollerar och uppdaterar din PowerShell-version finns i [Azure PowerShell översikt][azure-powershell].
 
@@ -230,7 +230,7 @@ Domänen kan migreras med den hanterade domänen för beredd och säkerhets kopi
 
 Kör `Migrate-Aadds` cmdleten med parametern *-commit* . Ange *-ManagedDomainFqdn* för din egen hanterade domän som förbereds i föregående avsnitt, t. ex. *aaddscontoso.com*:
 
-Ange mål resurs gruppen som innehåller det virtuella nätverk som du vill migrera Azure AD DS till, till exempel *myResourceGroup*. Ange det virtuella mål nätverket, till exempel *myVnet*och under nätet, till exempel *DomainServices*.
+Ange mål resurs gruppen som innehåller det virtuella nätverk som du vill migrera Azure AD DS till, till exempel *myResourceGroup*. Ange det virtuella mål nätverket, till exempel *myVnet* och under nätet, till exempel *DomainServices*.
 
 När det här kommandot har körts kan du inte återställa igen:
 
@@ -302,7 +302,7 @@ Vid behov kan du uppdatera den detaljerade lösen ords principen så att den är
 
 1. [Konfigurera lösen ords principen][password-policy] för färre begränsningar på den hanterade domänen och observera händelserna i gransknings loggarna.
 1. Om några tjänst konton använder utgångna lösen ord som identifieras i gransknings loggarna uppdaterar du dessa konton med rätt lösen ord.
-1. Om en virtuell dator exponeras för Internet kan du läsa om allmänna konto namn som *administratör*, *användare*eller *gäst* med höga inloggnings försök. Uppdatera om möjligt de virtuella datorerna så att de använder mindre generiska, namngivna konton.
+1. Om en virtuell dator exponeras för Internet kan du läsa om allmänna konto namn som *administratör*, *användare* eller *gäst* med höga inloggnings försök. Uppdatera om möjligt de virtuella datorerna så att de använder mindre generiska, namngivna konton.
 1. Använd ett nätverks spår på den virtuella datorn för att hitta källan till angreppen och blockera de här IP-adresserna från att kunna försöka logga in.
 1. Om det uppstår minimala problem med utelåsning bör du uppdatera den detaljerade lösen ords principen så restriktivt som det behövs.
 
@@ -360,7 +360,7 @@ Med din hanterade domän migrerad till distributions modellen för Resource Mana
 [notifications]: notifications.md
 [password-policy]: password-policy.md
 [secure-ldap]: tutorial-configure-ldaps.md
-[migrate-iaas]: ../virtual-machines/windows/migration-classic-resource-manager-overview.md
+[migrate-iaas]: ../virtual-machines/migration-classic-resource-manager-overview.md
 [join-windows]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [troubleshoot-domain-join]: troubleshoot-domain-join.md

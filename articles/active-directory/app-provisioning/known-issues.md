@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 8a1c789759f1119a6170fffc2c70874cd9a32fde
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: e0a77e1e4757c8951756c3e41479628c293dfd8f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919698"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174840"
 ---
 # <a name="known-issues-application-provisioning"></a>Kända problem: program etablering
 Kända problem som kan vara medvetna om när du arbetar med app-etablering. Du kan ge feedback om program etablerings tjänsten på UserVoice, se [Azure AD Application-etablering UserVoice](https://aka.ms/appprovisioningfeaturerequest). Vi tittar på UserVoice så att vi kan förbättra tjänsten. 
@@ -28,7 +28,7 @@ Kända problem som kan vara medvetna om när du arbetar med app-etablering. Du k
 
 **Det går inte att spara efter lyckad anslutnings test**
 
-Om du kan testa en anslutning, men inte spara, har du överskridit den tillåtna lagrings gränsen för autentiseringsuppgifter. Mer information finns i problem med att [Spara administratörs behörighet](application-provisioning-config-problem-storage-limit.md).
+Om du kan testa en anslutning, men inte spara, har du överskridit den tillåtna lagrings gränsen för autentiseringsuppgifter. Mer information finns i problem med att [Spara administratörs behörighet](./user-provisioning.md).
 
 **Det går inte att spara**
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: a487d984fe4b8f5d6313e181863872c4ea150059
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3355b502033451f58ac2289a81414e62823e459b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334547"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175958"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurera och använda Azure Synapse-länken för Azure Cosmos DB (förhands granskning)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -63,7 +63,7 @@ Du kan aktivera analys lager på en Azure Cosmos-behållare när du skapar behå
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) eller [Azure Cosmos Explorer](https://cosmos.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/) eller [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
 1. Gå till ditt Azure Cosmos DB-konto och öppna fliken **datautforskaren** .
 
@@ -75,7 +75,7 @@ Du kan aktivera analys lager på en Azure Cosmos-behållare när du skapar behå
 
 1. Välj **OK** för att skapa en Azure Cosmos-behållare som är analytiskt lagrad.
 
-1. När behållaren har skapats kontrollerar du att analys lagret har Aktiver ATS genom att klicka på **Inställningar** , högerklicka på dokument i datautforskaren och kontrol lera om alternativet **analys lager Time to Live** är aktiverat.
+1. När behållaren har skapats kontrollerar du att analys lagret har Aktiver ATS genom att klicka på **Inställningar**, högerklicka på dokument i datautforskaren och kontrol lera om alternativet **analys lager Time to Live** är aktiverat.
 
 ### <a name="net-sdk"></a>.NET SDK
 
@@ -171,7 +171,7 @@ När analysarkivet har aktiverats med ett visst TTL-värde kan du uppdatera det 
 
 Om du har skapat en aktive rad behållare för analys lager via Azure Portal, innehåller den ett standard-analytiskt TTL-värde på-1. Använd följande steg för att uppdatera det här värdet:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) eller [Azure Cosmos Explorer](https://cosmos.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/) eller [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
 1. Gå till ditt Azure Cosmos DB-konto och öppna fliken **datautforskaren** .
 

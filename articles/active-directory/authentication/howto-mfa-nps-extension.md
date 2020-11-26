@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 576b9c11f167f7c0d5fcb06e484347c643589a66
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: abdfbc92af3617a7a13a2e4f603de9c1cc3959af
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839071"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174338"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>Integrera din befintliga infrastruktur för nätverks Policy Server (NPS) med Azure AD Multi-Factor Authentication
 
@@ -72,7 +72,7 @@ NPS-tillägget är avsett att fungera med din befintliga infrastruktur. Kontrol 
 
 ### <a name="licenses"></a>Licenser
 
-NPS-tillägget för Azure AD Multi-Factor Authentication är tillgängligt för kunder med [licenser för Azure ad Multi-Factor Authentication](multi-factor-authentication.md). Användnings licenser för Azure AD Multi-Factor Authentication, till exempel per användare eller per autentisering, är inte kompatibla med NPS-tillägget.
+NPS-tillägget för Azure AD Multi-Factor Authentication är tillgängligt för kunder med [licenser för Azure ad Multi-Factor Authentication](./concept-mfa-howitworks.md). Användnings licenser för Azure AD Multi-Factor Authentication, till exempel per användare eller per autentisering, är inte kompatibla med NPS-tillägget.
 
 ### <a name="software"></a>Programvara
 

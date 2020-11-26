@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.openlocfilehash: 9736e1b71f5e129989aba9a045581bae8a1c5f93
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9815237617566eda4759ecc31718786b6cb2cac8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997553"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176060"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planera en distribution av Azure AD-programproxy
 
@@ -323,7 +323,7 @@ I följande artiklar beskrivs vanliga scenarier som också kan användas för at
 * [Konfigurera enkel inloggning till min app](application-proxy-config-sso-how-to.md)
 * [Problem med att skapa en app i administratörsportalen](application-proxy-config-problem.md)
 * [Konfigurera begränsad Kerberos-delegering](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Konfigurera med PingAccess](/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide)
+* [Konfigurera med PingAccess](./application-proxy-ping-access-publishing-guide.md)
 * [Fel: Det går inte att få åtkomst till det här företagsprogrammet](application-proxy-sign-in-bad-gateway-timeout-error.md)
 * [Problem med att installera anslutningsappen för programproxyagenten](application-proxy-connector-installation-problem.md)
 * [Inloggningsproblem](application-sign-in-problem-on-premises-application-proxy.md)

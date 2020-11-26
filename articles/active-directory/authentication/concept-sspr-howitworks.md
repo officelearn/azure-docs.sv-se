@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fae9872593b48355d4ad3711e8e5092481b16213
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994272"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174538"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Självbetjäning av lösenordsåterställning i Azure AD
 
@@ -195,9 +195,9 @@ Azure AD kontrollerar din aktuella hybrid anslutning och tillhandahåller något
 * Din lokala tillbakaskrivning-klient är igång.
 * Azure AD är online och är ansluten till din lokala tillbakaskrivning-klient. Det ser dock ut som att den installerade versionen av Azure AD Connect är inaktuell. Överväg att [uppgradera Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) för att säkerställa att du har de senaste anslutnings funktionerna och viktiga fel korrigeringar.
 * Tyvärr kan vi inte kontrol lera din lokala tillbakaskrivning av tillbakaskrivning-klientens status eftersom den installerade versionen av Azure AD Connect är inaktuell. [Uppgradera Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) för att kunna kontrol lera anslutnings status.
-* Tyvärr ser det ut som att vi inte kan ansluta till din lokala tillbakaskrivning-klient just nu. [Felsök Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) för att återställa anslutningen.
+* Tyvärr ser det ut som att vi inte kan ansluta till din lokala tillbakaskrivning-klient just nu. [Felsök Azure AD Connect](./troubleshoot-sspr-writeback.md) för att återställa anslutningen.
 * Tyvärr kan vi inte ansluta till din lokala tillbakaskrivning-klient eftersom tillbakaskrivning av lösen ord inte har kon figurer ATS korrekt. [Konfigurera tillbakaskrivning av lösen ord](./tutorial-enable-sspr-writeback.md) för att återställa anslutningen.
-* Tyvärr ser det ut som att vi inte kan ansluta till din lokala tillbakaskrivning-klient just nu. Detta kan bero på tillfälliga problem på vår sida. Om problemet kvarstår [felsöker du Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) för att återställa anslutningen.
+* Tyvärr ser det ut som att vi inte kan ansluta till din lokala tillbakaskrivning-klient just nu. Detta kan bero på tillfälliga problem på vår sida. Om problemet kvarstår [felsöker du Azure AD Connect](./troubleshoot-sspr-writeback.md) för att återställa anslutningen.
 
 Kom igång med SSPR tillbakaskrivning genom att följa de här självstudierna:
 

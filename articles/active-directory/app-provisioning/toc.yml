@@ -51,7 +51,7 @@
         - name: Etableringsrapporter
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Automatisera konfiguration med MS Graph
-      href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
+      href: /graph/application-provisioning-configure-api
     - name: Felsöka programetablering
       items:
         - name: Kända problem

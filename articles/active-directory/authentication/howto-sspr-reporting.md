@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6aa31d0b8c68f38d2b4fc41a6bbaaeab8a3ffac
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3f2c5b37c713b69df56e938fdaa2a9134402d765
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363614"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173910"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapporteringsalternativ för Azure AD-lösenordshantering
 
@@ -181,7 +181,7 @@ I följande lista beskrivs den här aktiviteten i detalj:
 * [Vilka principalternativ finns för SSPR?](concept-sspr-policy.md)
 * [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](./tutorial-enable-sspr-writeback.md)
 * [Vad är alla alternativ i SSPR och vad betyder de?](concept-sspr-howitworks.md)
-* [Jag tror att något är brutet. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
+* [Jag tror att något är brutet. Hur gör jag för att felsöka SSPR?](./troubleshoot-sspr.md)
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Exempel på gransknings loggar för SSPR-aktivitet i Azure AD"

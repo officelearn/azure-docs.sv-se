@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 31c9dcaf6c6f26d28d70e3d1664665c2dbc37ce6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 48188adfc3648db76f2ca362f59de6986c7c1339
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393089"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174959"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
 
@@ -43,7 +43,7 @@ Om du vill begära en automatisk Azure AD Provisioning-anslutning för en app so
 
 ## <a name="authorization"></a>Auktorisering
 
-Autentiseringsuppgifter krävs för att Azure AD ska kunna ansluta till programmets användar hanterings-API. När du konfigurerar automatisk användar etablering för ett program måste du ange giltiga autentiseringsuppgifter. För Galleri program kan du hitta autentiseringstypen och kraven för programmet genom att titta på självstudierna för appen. För program som inte är gallerier kan du läsa [scim](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#authorization-for-provisioning-connectors-in-the-application-gallery) -dokumentationen för att förstå typ och krav för autentiseringsuppgifter. I Azure Portal kan du testa autentiseringsuppgifterna genom att låta Azure AD försöka ansluta till appens etablerings app med de angivna autentiseringsuppgifterna.
+Autentiseringsuppgifter krävs för att Azure AD ska kunna ansluta till programmets användar hanterings-API. När du konfigurerar automatisk användar etablering för ett program måste du ange giltiga autentiseringsuppgifter. För Galleri program kan du hitta autentiseringstypen och kraven för programmet genom att titta på självstudierna för appen. För program som inte är gallerier kan du läsa [scim](./use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery) -dokumentationen för att förstå typ och krav för autentiseringsuppgifter. I Azure Portal kan du testa autentiseringsuppgifterna genom att låta Azure AD försöka ansluta till appens etablerings app med de angivna autentiseringsuppgifterna.
 
 ## <a name="mapping-attributes"></a>Mappar attribut
 
@@ -51,7 +51,7 @@ När du aktiverar användar etablering för ett SaaS-program från tredje part s
 
 Det finns en förkonfigurerad uppsättning attribut och mappningar av attribut mellan Azure AD-användarkonton och varje SaaS-Apps användar objekt. Vissa appar hanterar andra typer av objekt tillsammans med användare, t. ex. grupper.
 
-När du konfigurerar etablering är det viktigt att granska och konfigurera de mappningar och arbets flöden som definierar vilka användar egenskaper (eller grupp) som flödar från Azure AD till programmet. Granska och konfigurera den matchande egenskapen ( **matcha objekt med det här attributet** ) som används för att unikt identifiera och matcha användare/grupper mellan de två systemen.
+När du konfigurerar etablering är det viktigt att granska och konfigurera de mappningar och arbets flöden som definierar vilka användar egenskaper (eller grupp) som flödar från Azure AD till programmet. Granska och konfigurera den matchande egenskapen (**matcha objekt med det här attributet**) som används för att unikt identifiera och matcha användare/grupper mellan de två systemen.
 
 Du kan anpassa standardattributen – mappningar efter dina affärs behov. Så du kan ändra eller ta bort befintliga attribut-mappningar eller skapa nya attribut-mappningar. Mer information finns i [Anpassa användar etablering attribut-mappningar för SaaS-program](./customize-application-attributes.md).
 
@@ -62,7 +62,7 @@ När du konfigurerar etablering till ett SaaS-program är en av de typer av mapp
 
 För utgående etablering från Azure AD till ett SaaS-program är det vanligaste sättet att avgöra [vilka användare som](../manage-apps/assign-user-or-group-access-portal.md) befinner sig i omfång för etablering. Eftersom användar tilldelningar också används för att aktivera enkel inloggning, kan samma metod användas för att hantera både åtkomst och etablering. Tilldelnings omfång gäller inte för inkommande etablerings scenarier som Workday och SuccessFactors.
 
-* **Användargrupp.** Med en Azure AD Premium licens plan kan du använda grupper för att tilldela åtkomst till ett SaaS-program. När etablerings omfånget är inställt på **Synkronisera endast tilldelade användare och grupper** , etablerar eller avetablerar Azure AD Provisioning-tjänsten användare baserat på om de är medlemmar i en grupp som är tilldelad till programmet. Själva gruppobjektet tillhandahålls inte om programmet inte stöder grupp objekt. Kontrol lera att de grupper som har tilldelats ditt program har egenskapen "SecurityEnabled" inställd på "true".
+* **Användargrupp.** Med en Azure AD Premium licens plan kan du använda grupper för att tilldela åtkomst till ett SaaS-program. När etablerings omfånget är inställt på **Synkronisera endast tilldelade användare och grupper**, etablerar eller avetablerar Azure AD Provisioning-tjänsten användare baserat på om de är medlemmar i en grupp som är tilldelad till programmet. Själva gruppobjektet tillhandahålls inte om programmet inte stöder grupp objekt. Kontrol lera att de grupper som har tilldelats ditt program har egenskapen "SecurityEnabled" inställd på "true".
 
 * **Dynamiska grupper.** Azure AD-tjänsten för användar etablering kan läsa och etablera användare i [dynamiska grupper](../enterprise-users/groups-create-rule.md). Tänk på dessa varningar och rekommendationer i åtanke:
 
@@ -133,7 +133,7 @@ Efter den första cykeln kommer alla andra cykler att:
 10. Spara en ny vattenstämpel i slutet av den stegvisa cykeln, som ger start punkten för de senare stegvisa cyklerna.
 
 > [!NOTE]
-> Du kan välja att inaktivera åtgärderna **skapa** , **Uppdatera** eller **ta bort** genom att använda kryss rutorna **mål objekt åtgärder** i avsnittet [mappningar](customize-application-attributes.md) . Logiken för att inaktivera en användare under en uppdatering styrs också via en attributmappning från ett fält som "accountEnabled".
+> Du kan välja att inaktivera åtgärderna **skapa**, **Uppdatera** eller **ta bort** genom att använda kryss rutorna **mål objekt åtgärder** i avsnittet [mappningar](customize-application-attributes.md) . Logiken för att inaktivera en användare under en uppdatering styrs också via en attributmappning från ett fält som "accountEnabled".
 
 Etablerings tjänsten fortsätter att köra stegvisa stegvisa cykler på obestämd tid, med intervall som definierats i [självstudien som är specifik för varje program](../saas-apps/tutorial-list.md). Stegvisa cykler fortsätter tills någon av följande händelser inträffar:
 

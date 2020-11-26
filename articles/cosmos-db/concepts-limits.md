@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: f1a7ffc8225ea20b48df4e1d9a049655ca4776a4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: de74d7e3cf854f36d122be6a32c7fb4d449c5fe5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964668"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175924"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -91,7 +91,6 @@ Utan [Server](serverless.md) kan du använda dina Azure Cosmos DB resurser på e
 
 | Resurs | Gräns |
 | --- | --- |
-| Maximalt RU/s per behållare | 5 000 |
 | Maximalt RU/s per (logisk) partition | 5 000 |
 | Maximalt lagrings utrymme för alla objekt per (logisk) partition | 20 GB |
 | Maximalt antal distinkta (logiska) sessionsnycklar | Obegränsat |
@@ -253,7 +252,7 @@ I följande tabell visas gränserna för try- [Azure Cosmos dB för kostnads fri
 | Maximalt antal behållare per prenumeration (MongoDB-API) | 3 |
 | Maximalt data flöde per behållare | 5000 |
 | Maximalt data flöde per delat data flödes databas | 20000 |
-| Maximalt totalt lagrings utrymme per konto | 10 GB |
+| Maximalt totalt lagrings utrymme per konto | 10 GB |
 
 Testa Cosmos DB stöder global distribution bara i Central USA, Nord Europa och Sydostasien regioner. Det går inte att skapa biljetter för Azure-Support för try Azure Cosmos DB-konton. Support ges dock för prenumeranter med befintliga support avtal.
 

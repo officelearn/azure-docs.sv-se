@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 167ed7e5c00452db4ee77e10236fec3ff86f0439
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145590"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175108"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Förstå hur etablering integreras med Azure Monitor loggar
 
@@ -30,13 +30,13 @@ När du har konfigurerat Azure-övervakning kan du aktivera loggar för program 
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Åtkomst till diagnostikinställningar" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Åtkomst till diagnostikinställningar" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Aktivera program etablerings loggar" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
 
 > [!NOTE]
 > Om du nyss har skapat en arbets yta kan det ta lite tid innan du kan skicka loggar till den. Om du får ett fel meddelande om att prenumerationen inte är registrerad för att använda *Microsoft. Insights* kan du kontrol lera igen om några minuter.
  
 ## <a name="understanding-the-data"></a>Förstå data
-Den underliggande data strömmen som etableringen skickar loggar till är nästan identisk. Azure Monitor loggar får nästan samma data ström som Azure Portal UI och Azure API. Det finns bara några **skillnader** i logg fälten som beskrivs i följande tabell. Mer information om de här fälten finns i [lista provisioningObjectSummary](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http&preserve-view=true).
+Den underliggande data strömmen som etableringen skickar loggar till är nästan identisk. Azure Monitor loggar får nästan samma data ström som Azure Portal UI och Azure API. Det finns bara några **skillnader** i logg fälten som beskrivs i följande tabell. Mer information om de här fälten finns i [lista provisioningObjectSummary](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta).
 
 |Azure Monitor-loggar   |Azure Portal användar gränssnitt   |Azure-API |
 |----------|-----------|------------|
@@ -51,9 +51,9 @@ Azure Monitor arbets böcker ger en flexibel arbets yta för data analys. De inn
 
 Program etableringen levereras med en uppsättning färdiga arbets böcker. Du hittar dem på sidan arbets böcker. Om du vill visa data måste du se till att alla filter (timeRange, jobID, appName) är ifyllda. Du måste också kontrol lera att du har skapat en app, annars finns det inga data i loggarna.
 
-:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Åtkomst till diagnostikinställningar" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Arbets böcker för program etablering" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Åtkomst till diagnostikinställningar" lightbox="media/application-provisioning-log-analytics/report.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Instrument panel för program etablering" lightbox="media/application-provisioning-log-analytics/report.png":::
 
 ## <a name="custom-queries"></a>Anpassade frågor
 
@@ -100,15 +100,15 @@ Mer information om aviseringar finns i [svara på händelser med Azure Monitor a
 
 Avisera när det finns en ökning av felen. Ersätt jobID med jobID för ditt program.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Åtkomst till diagnostikinställningar" lightbox="media/application-provisioning-log-analytics/alert1.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Avisera när det finns en ökning av felen." lightbox="media/application-provisioning-log-analytics/alert1.png":::
 
 Det kan finnas ett problem som gjorde att etablerings tjänsten slutade köras. Använd följande avisering för att identifiera när det inte finns några etablerings händelser under ett angivet tidsintervall.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Åtkomst till diagnostikinställningar" lightbox="media/application-provisioning-log-analytics/alert2.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Det kan finnas ett problem som gjorde att etablerings tjänsten slutade köras." lightbox="media/application-provisioning-log-analytics/alert2.png":::
 
 Avisera när det finns en insamling i inaktivitet eller borttagningar.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Åtkomst till diagnostikinställningar" lightbox="media/application-provisioning-log-analytics/alert3.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Avisera när det finns en insamling i inaktivitet eller borttagningar." lightbox="media/application-provisioning-log-analytics/alert3.png":::
 
 
 ## <a name="community-contributions"></a>Communitybidrag
@@ -121,4 +121,4 @@ Vi tar en öppen källkod och community-baserad metod för program etablerings f
 - [Kom igång med frågor i Azure Monitor loggar](../../azure-monitor/log-query/get-started-queries.md)
 - [Skapa och hantera aviserings grupper i Azure Portal](../../azure-monitor/platform/action-groups.md)
 - [Installera och Använd Log Analytics-vyerna för Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [API för etablerings loggar](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta.md&preserve-view=true)
+- [API för etablerings loggar](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

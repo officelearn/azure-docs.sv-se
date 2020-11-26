@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 64418a727ecb9a300912a4766a9ea2066328ad31
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363665"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174908"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planera molnet HR Application för att Azure Active Directory användar etablering
 
@@ -52,7 +52,7 @@ Cloud HR app-integrering med Azure AD-användar etablering passar utmärkt för 
 - Kräv anslutning till, flytta och lämna användare för att synkroniseras till en eller flera Active Directory skogar, domäner och organisationsenheter enbart baserat på ändrings information som identifieras i Cloud HR-appen.
 - Använd Microsoft 365 för e-post.
 
-## <a name="learn"></a>Läs mer
+## <a name="learn"></a>Learn
 
 Användar etablering skapar en grund för pågående identitets styrning. Det förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
@@ -79,7 +79,7 @@ Om du vill konfigurera Cloud HR-appen till Azure AD-integrering av användar eta
 
 Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations licens för varje användare som kommer att skickas från Cloud HR-appen och tillhandahålls till antingen Active Directory eller Azure AD. Ett felaktigt antal licenser som ägs i Cloud HR-appen kan leda till fel vid användar etablering.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Azure AD [hybrid Identity-administratör](../roles/permissions-reference.md#hybrid-identity-administrator)  för att konfigurera Azure AD Connect etablerings agenten.
 - Azure AD- [programadministratörs](../roles/permissions-reference.md#application-administrator) roll för att konfigurera etablerings appen i Azure Portal
@@ -92,11 +92,11 @@ Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations li
 
 | **Resurser** | **Länk och beskrivning** |
 |:-|:-|
-| Videoklipp | [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) |
+| Video | [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) |
 | | [Så här distribuerar du användar etablering i Active Azure-katalogen](https://youtu.be/pKzyts6kfrw) |
 | Självstudier | [Lista över självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md) |
 | | [Självstudie: Konfigurera arbets dag för automatisk användar etablering](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
-| VANLIGA FRÅGOR OCH SVAR | [Automatiserad användar etablering](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+| Vanliga frågor | [Automatiserad användar etablering](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Etablering från Workday till Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>Lösningsarkitekturen
@@ -303,7 +303,7 @@ Det är ett vanligt krav att placera Active Directory användar konton i behåll
 
 Använd funktionen [switch ()](../app-provisioning/functions-for-customizing-application-data.md#switch) för att konfigurera affärs logiken för OU-tilldelningen och mappa den till Active Directory attributet **parentDistinguishedName**.
 
-Om du till exempel vill skapa användare i OU baserat på **kommunen**HR kan du använda följande uttryck:
+Om du till exempel vill skapa användare i OU baserat på **kommunen** HR kan du använda följande uttryck:
 
 `
 Switch([Municipality], "OU=Default,OU=Users,DC=contoso,DC=com", "Dallas", "OU=Dallas,OU=Users,DC=contoso,DC=com", "Austin", "OU=Austin,OU=Users,DC=contoso,DC=com", "Seattle", "OU=Seattle,OU=Users,DC=contoso,DC=com", "London", "OU=London,OU=Users,DC=contoso,DC=com")
@@ -404,9 +404,9 @@ Information om hur du felsöker problem som kan uppstå under etableringen finns
 
 - [Problem med att konfigurera användar etablering i ett Azure AD Gallery-program](application-provisioning-config-problem.md)
 - [Synkronisera ett attribut från din lokala Active Directory till Azure AD för etablering till ett program](user-provisioning-sync-attributes-for-mapping.md)
-- [Problem med att spara administratörsautentiseringsuppgifter när du konfigurerar användar etablering till ett Azure Active Directory Galleri program](application-provisioning-config-problem-storage-limit.md)
+- [Problem med att spara administratörsautentiseringsuppgifter när du konfigurerar användar etablering till ett Azure Active Directory Galleri program](./user-provisioning.md)
 - [Inga användare tillhandahålls till ett Azure AD Gallery-program](application-provisioning-config-problem-no-users-provisioned.md)
-- [Fel uppsättning användare tillhandahålls till ett Azure AD Gallery-program](application-provisioning-config-problem-wrong-users-provisioned.md)
+- [Fel uppsättning användare tillhandahålls till ett Azure AD Gallery-program](../manage-apps/add-application-portal-assign-users.md)
 - [Konfigurera Windows Loggboken för agent fel sökning](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
 - [Konfigurera Azure Portal gransknings loggar för fel sökning av tjänst](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [Förstå loggar för skapande åtgärder i AD-användarkontot](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)

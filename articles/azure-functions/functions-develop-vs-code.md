@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 573177615ff898326eb29649a7f766b5df34b587
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010529"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168466"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Utveckla Azure Functions med hjälp av Visual Studio Code
 
@@ -34,7 +34,7 @@ Tillägget kan användas med följande språk, som stöds av Azure Functions run
 
 I den här artikeln är exempel för närvarande endast tillgängliga för Java Script (Node.js) och C#-klass biblioteks funktioner.  
 
-Den här artikeln innehåller information om hur du använder Azure Functions-tillägget för att utveckla funktioner och publicera dem i Azure. Innan du läser den här artikeln bör du [skapa din första funktion med hjälp av Visual Studio Code](functions-create-first-function-vs-code.md).
+Den här artikeln innehåller information om hur du använder Azure Functions-tillägget för att utveckla funktioner och publicera dem i Azure. Innan du läser den här artikeln bör du [skapa din första funktion med hjälp av Visual Studio Code](./create-first-function-vs-code-csharp.md).
 
 > [!IMPORTANT]
 > Blanda inte lokal utveckling och Portal utveckling för en enda Function-app. När du publicerar från ett lokalt projekt till en Function-app skriver distributions processen över alla funktioner som du har utvecklat i portalen.
@@ -233,7 +233,7 @@ När du publicerar från Visual Studio Code kan du utnyttja [zip Deploy](functio
 
 ### <a name="quick-function-app-create"></a>Snabb funktion appen skapa
 
-När du väljer **+ Skapa ny function-app i Azure...** genererar tillägget automatiskt värden för de Azure-resurser som krävs av din Function-app. Dessa värden baseras på det funktionens program namn som du väljer. Ett exempel på hur du använder standardvärden för att publicera projektet till en ny function-app i Azure finns i [artikeln snabb start för Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
+När du väljer **+ Skapa ny function-app i Azure...** genererar tillägget automatiskt värden för de Azure-resurser som krävs av din Function-app. Dessa värden baseras på det funktionens program namn som du väljer. Ett exempel på hur du använder standardvärden för att publicera projektet till en ny function-app i Azure finns i [artikeln snabb start för Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure).
 
 Om du vill ange explicita namn för de skapade resurserna måste du välja den avancerade skapa sökvägen.
 
@@ -408,7 +408,7 @@ När du har slutfört de här stegen inkluderar anrop till de underliggande kär
 
 Azure Functions-tillägget ger ett användbart grafiskt gränssnitt i avsnittet för att interagera med dina funktions program i Azure. Samma funktion är också tillgänglig som kommandon på kommando paletten (F1). Följande Azure Functions kommandon är tillgängliga:
 
-|Azure Functions kommando  | Description  |
+|Azure Functions kommando  | Beskrivning  |
 |---------|---------|
 |**Lägg till nya inställningar**  |  Skapar en ny program inställning i Azure. Läs mer i [Publicera program inställningar](#publish-application-settings). Du kan också behöva [Ladda ned den här inställningen till dina lokala inställningar](#download-settings-from-azure). |
 | **Konfigurera distributions källa** | Ansluter din Function-app i Azure till en lokal git-lagringsplats. Läs mer i [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md). |

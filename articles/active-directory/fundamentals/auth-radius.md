@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ec8062eb864c877b0f3659ca2dd8f103e935071
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 97c524e1f4c05787f1dd61dea5a463e8fa83511a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836792"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168635"
 ---
 # <a name="radius-authentication-with-azure-active-directory"></a>RADIUS-autentisering med Azure Active Directory
 
@@ -59,13 +59,12 @@ Du måste lägga till Multi-Factor Authentication till program som
 
 ## <a name="implement-radius-with-azure-ad"></a>Implementera RADIUS med Azure AD 
 
-* [Tillhandahåll Azure AD Multi-Factor Authentication-funktioner med NPS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
+* [Tillhandahåll Azure AD Multi-Factor Authentication-funktioner med NPS](../authentication/howto-mfa-nps-extension.md) 
 
-* [Konfigurera Azure AD Multi-Factor Authentication NPS-tillägget](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-advanced) 
+* [Konfigurera Azure AD Multi-Factor Authentication NPS-tillägget](../authentication/howto-mfa-nps-extension-advanced.md) 
 
-* [VPN med Azure AD Multi-Factor Authentication att använda NPS-tillägget](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-vpn) 
+* [VPN med Azure AD Multi-Factor Authentication att använda NPS-tillägget](../authentication/howto-mfa-nps-extension-vpn.md) 
 
   
 ‎ 
 
- 

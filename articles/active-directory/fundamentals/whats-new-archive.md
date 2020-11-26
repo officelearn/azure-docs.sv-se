@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ffa0059e78ee193cb12a4838282f7f9fb282edd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a55fdf781de80834bf5463fb9bec3730e6e39a76
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973702"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168703"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Vill du arkivera vad som är nytt i Azure Active Directory?
 
@@ -131,7 +131,7 @@ I april 2020 har vi lagt till dessa 31 nya appar med stöd för federation i app
 
 [SincroPool-appar](https://www.sincropool.com/), [SmartDB](https://hibiki.dreamarts.co.jp/smartdb/trial/), [float](../saas-apps/float-tutorial.md), [LMS365](https://lms.365.systems/), [IWT anskaffnings Svit](../saas-apps/iwt-procurement-suite-tutorial.md) [Trend Micro Web Security(TMWS)](https://review.docs.microsoft.com/azure/active-directory/saas-apps/trend-micro-tutorial) , Lunni, [EasySSO för JIRA](../saas-apps/easysso-for-jira-tutorial.md), [Virtual Training Academy](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft), [Meraki Dashboard](../saas-apps/meraki-dashboard-tutorial.md), [Microsoft 365 flytta](https://app.mover.io/login), [högtalare](https://speakerengage.com/login.php), [belys](../saas-apps/honestly-tutorial.md) [, Ally, DutyFlow](../saas-apps/ally-tutorial.md) [, AlertMedia](https://app.dutyflow.nl/) [, gr8](../saas-apps/alertmedia-tutorial.md), Pendo [,](../saas-apps/highground-tutorial.md)Highground [,](../saas-apps/harmony-tutorial.md)Timetabling [, SynchroNet](../saas-apps/timetabling-solutions-tutorial.md), [Fortes](../saas-apps/synchronet-click-tutorial.md), [Litmus, GroupTalk](../saas-apps/gr8-people-tutorial.md) [, Frontify](../saas-apps/pendo-tutorial.md), MongoDB, TickitLMS, Coco [, Nitro](../saas-apps/frontify-tutorial.md), TMWS [empower](https://www.made-in-office.com/en/) [,](../saas-apps/nitro-productivity-suite-tutorial.md) [,](../saas-apps/fortes-change-cloud-tutorial.md), [GroupTalk](https://recorder.grouptalk.com/),, [,](../saas-apps/mongodb-cloud-tutorial.md) [TickitLMS Learn](../saas-apps/tickitlms-learn-tutorial.md) [,,](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/) [,](../saas-apps/litmus-tutorial.md), [Lunni](https://lunni.fi/)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -215,7 +215,7 @@ Med hjälp av administrativa enheter kan en central administratör:
 - Tilldela en roll med administrativ behörighet enbart över Azure AD-användare i en administrativ enhet
 - Fyll i de administrativa enheterna med användare och grupper efter behov
 
-Mer information finns i [hantering av administrativa enheter i Azure Active Directory (för hands version)](../users-groups-roles/directory-administrative-units.md).
+Mer information finns i [hantering av administrativa enheter i Azure Active Directory (för hands version)](../roles/administrative-units.md).
 
 ---
 
@@ -286,7 +286,7 @@ Om du vill ha mer information kan du läsa följande:
 
 **Produkt kapacitet:**
 
-Min personal ger firstline-ansvariga, till exempel en butiks chef, för att säkerställa att deras personal medlemmar kan komma åt sina Azure AD-konton. I stället för att förlita dig på en central helpdesk kan organisationer delegera vanliga uppgifter, till exempel att återställa lösen ord eller ändra telefonnummer till en firstline Manager. Med min personal kan en användare som inte har åtkomst till sitt konto återfå åtkomst på bara några klick, utan supportavdelningen eller IT-personal som krävs. Mer information finns i [Hantera dina användare med min personal (för hands version)](../users-groups-roles/my-staff-configure.md) och [delegera användar hantering med min personal (för hands version)](../user-help/my-staff-team-manager.md).
+Min personal ger firstline-ansvariga, till exempel en butiks chef, för att säkerställa att deras personal medlemmar kan komma åt sina Azure AD-konton. I stället för att förlita dig på en central helpdesk kan organisationer delegera vanliga uppgifter, till exempel att återställa lösen ord eller ändra telefonnummer till en firstline Manager. Med min personal kan en användare som inte har åtkomst till sitt konto återfå åtkomst på bara några klick, utan supportavdelningen eller IT-personal som krävs. Mer information finns i [Hantera dina användare med min personal (för hands version)](../roles/my-staff-configure.md) och [delegera användar hantering med min personal (för hands version)](../user-help/my-staff-team-manager.md).
 
 ---
 
@@ -451,7 +451,7 @@ I mars 2020 har vi lagt till dessa 51 nya appar med stöd för federation i app-
 
 [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md), [Zoho, en Kina](../saas-apps/zoho-one-china-tutorial.md), [PlusPlus](https://test.plusplus.app/auth/login/azuread-outlook/), [profit.co SAML-App](../saas-apps/profitco-saml-app-tutorial.md), [iPoint-tjänsteleverantör](../saas-apps/ipoint-service-provider-tutorial.md), [Contexxt.AI-sfär](https://contexxt-sphere.com/login), [ingengörskunskap av Invictus](../saas-apps/wisdom-by-invictus-tutorial.md), [överstrålning, digitalt signerat](https://spark-dev.pixelnebula.com/login), [Logz.io – molnets användarvänlighet för ingenjörer](../saas-apps/logzio-cloud-observability-for-engineers-tutorial.md), [SPECTRUMU](../saas-apps/spectrumu-tutorial.md), [BizzContact](https://bizzcontact.app/), [Elqano SSO](../saas-apps/elqano-sso-tutorial.md), [MarketSignShare](http://www.signshare.com/), CrossKnowledge [Learning Suite](../saas-apps/crossknowledge-learning-suite-tutorial.md), [Netvision kompositioner](../saas-apps/netvision-compas-tutorial.md), [FCM Hub](../saas-apps/fcm-hub-tutorial.md), [revben A/S Byggeweb Mobile](https://apps.apple.com/us/app/docia/id529058757), [GoLinks](../saas-apps/golinks-tutorial.md), [Datadog](../saas-apps/datadog-tutorial.md), [Zscaler B2B User Portal](../saas-apps/zscaler-b2b-user-portal-tutorial.md), [Aster](https://demo.asterapp.io/login) [hiss](../saas-apps/lift-tutorial.md), [Planview Enterprise One](../saas-apps/planview-enterprise-one-tutorial.md) [, WatchTeams och Aster](https://www.devfinition.com/), [kompetens arbets flöde](../saas-apps/skills-workflow-tutorial.md) [,](https://admin.nodeinsight.com/AADLogin.aspx) [IP-plattform](../saas-apps/ip-platform-tutorial.md), [insikt](../saas-apps/invision-tutorial.md), [PipeDrive](../saas-apps/pipedrive-tutorial.md), [Showcase-workshop](https://app.showcaseworkshop.com/), [GreenLight integration Platform](../saas-apps/greenlight-integration-platform-tutorial.md), [GreenLight-kompatibel åtkomst hantering](../saas-apps/greenlight-compliant-access-management-tutorial.md), [grok Learning](../saas-apps/grok-learning-tutorial.md), [Miradore online](https://login.online.miradore.com/), [Khoros Care](../saas-apps/khoros-care-tutorial.md) [, AskYourTeam, TruNarrative](../saas-apps/askyourteam-tutorial.md) [, Smartwaiver](../saas-apps/trunarrative-tutorial.md), [Bizagi Studio för digital process Automation](../saas-apps/bizagi-studio-for-digital-process-automation-tutorial.md), [insuiteX](https://www.insuite.jp/) [, Sybo](https://www.systexsoftware.com.tw/) [, Britive](../saas-apps/britive-tutorial.md) [,](../saas-apps/whosoffice-tutorial.md) [WhosOffice,](https://www.smartwaiver.com/m/user/sw_login.php?wms_login) [E-dagar](../saas-apps/e-days-tutorial.md), [Kollective SDN](https://portal.kollective.app/login), [Witivio](https://app.witivio.com/), [PlayVox](https://my.playvox.com/login), [korn fartyg 360](../saas-apps/korn-ferry-360-tutorial.md), [Campus kafé](../saas-apps/campus-cafe-tutorial.md) [, Catchpoint](../saas-apps/catchpoint-tutorial.md) [, Code42](../saas-apps/code42-tutorial.md)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -602,7 +602,7 @@ I februari 2020 har vi lagt till dessa 31 nya appar med stöd för federation i 
 [IamIP patent Platform](../saas-apps/iamip-patent-platform-tutorial.md), [Experience Cloud](../saas-apps/experience-cloud-tutorial.md), [ns1 SSO för Azure](../saas-apps/ns1-sso-azure-tutorial.md), [Barracuda e-mail Security Service](https://ess.barracudanetworks.com/sso/azure), [ABA repor ting](https://myaba.co.uk/client-access/signin/auth/msad), [i händelse av kris – online portal](../saas-apps/in-case-of-crisis-online-portal-tutorial.md), [BIC Cloud design](../saas-apps/bic-cloud-design-tutorial.md), [Biodlings Azure AD data Connector](../saas-apps/beekeeper-azure-ad-data-connector-tutorial.md), [Korns](https://www.kornferry.com/solutions/kf-digital/kf-assess) [Verkada-kommando](../saas-apps/verkada-command-tutorial.md), [Splashtop](../saas-apps/splashtop-tutorial.md), [Syxsense](../saas-apps/syxsense-tutorial.md), [EAB navigera](../saas-apps/eab-navigate-tutorial.md), [New Relic (begränsad utgåva)](../saas-apps/new-relic-limited-release-tutorial.md), [Thulium](https://admin.thulium.com/login/instance), [Tick Manager](../saas-apps/ticketmanager-tutorial.md), [mall väljare för team](https://links.officeatwork.com/templatechooser-download-teams), [bin](https://www.beesy.me/index.php/site/login), [hälso support system](../saas-apps/health-support-system-tutorial.md), [MURAL](https://app.mural.co/signup), [Hive](../saas-apps/hive-tutorial.md), [LavaDo](https://appsource.microsoft.com/product/web-apps/lavaloon.lavado_standard?tab=Overview), Wakelet, [Wakelet](https://wakelet.com/login)Firmex [vdr](../saas-apps/firmex-vdr-tutorial.md), [ThingLink för lärare och skolor](https://www.thinglink.com/) [,](../saas-apps/teamviewer-tutorial.md) [CODA](../saas-apps/coda-tutorial.md), [NearpodApp](https://nearpod.com/signup/?oc=Microsoft&utm_campaign=Microsoft&utm_medium=site&utm_source=product), [WEDO](../saas-apps/wedo-tutorial.md) [, InvitePeople,](https://invitepeople.com/login) [,](../saas-apps/reprints-desk-article-galaxy-tutorial.md)
 
  
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
  
@@ -713,7 +713,7 @@ I januari 2020 har vi lagt till dessa 33 nya appar med stöd för federation i a
 
 [JOSA](../saas-apps/josa-tutorial.md), [snabbt Edge-moln](../saas-apps/fastly-edge-cloud-tutorial.md), [terraform Enterprise](../saas-apps/terraform-enterprise-tutorial.md), [Spintr SSO](../saas-apps/spintr-sso-tutorial.md), [Abibot Netlogistik](https://azuremarketplace.microsoft.com/marketplace/apps/aad.abibotnetlogistik), [SkyKick](https://login.skykick.com/login?state=g6Fo2SBTd3M5Q0xBT0JMd3luS2JUTGlYN3pYTE1remJQZnR1c6N0aWTZIDhCSkwzYVQxX2ZMZjNUaWxNUHhCSXg2OHJzbllTcmYto2NpZNkgM0h6czk3ZlF6aFNJV1VNVWQzMmpHeFFDbDRIMkx5VEc&client=3Hzs97fQzhSIWUMUd32jGxQCl4H2LyTG&protocol=oauth2&audience=https://papi.skykick.com&response_type=code&redirect_uri=https://portal.skykick.com/callback&scope=openid%20profile%20offline_access), [LeaveBot](../saas-apps/upshotly-tutorial.md), [DataCamp](../saas-apps/datacamp-tutorial.md), [TripActions, SmartWork](../saas-apps/tripactions-tutorial.md), [Dotcom, SSOGEN](../saas-apps/dotcom-monitor-tutorial.md), [EBS,](https://leavebot.io/#home),,, [,](https://www.intumit.com/english/SmartWork.html)- [Azure AD SSO Gateway för Oracle E-Business Suite-, JDE](../saas-apps/ssogen-tutorial.md), [VÄRDBASERAD MyCirqa SSO](../saas-apps/hosted-mycirqa-sso-tutorial.md), [yuhu Property Management Platform](../saas-apps/yuhu-property-management-platform-tutorial.md), [LumApps](https://sites.lumapps.com/login), driver- [Enterprise](../saas-apps/upwork-enterprise-tutorial.md), [TalentSoft](../saas-apps/talentsoft-tutorial.md), [SmartDB för Microsoft Teams](http://teams.smartdb.jp/login/), [PressPage](../saas-apps/presspage-tutorial.md), [ContractSafe Saml2 SSO](../saas-apps/contractsafe-saml2-sso-tutorial.md), [Maxient Driver Manager-programvara](../saas-apps/maxient-conduct-manager-software-tutorial.md), [helpshift](../saas-apps/helpshift-tutorial.md), [PortalTalk 365](https://www.portaltalk.com/) [,,](https://portal.coreview.com/) [Squelch Cloud Office365 Connector](https://laxmi.squelch.io/login), [PingFlow Authentication](https://app-staging.pingview.io/), PrinterLogic [SaaS](../saas-apps/printerlogic-saas-tutorial.md), [Taskize Connect](../saas-apps/taskize-connect-tutorial.md), [Sandwai](https://app.sandwai.com/), [EZRentOut](../saas-apps/ezrentout-tutorial.md), [AssetSonar](../saas-apps/assetsonar-tutorial.md), Akari [Virtual Assistant](https://akari.io/akari-virtual-assistant/)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -935,7 +935,7 @@ I november 2019 har vi lagt till dessa 21 nya appar med stöd för federation i 
 
 [Flygbord](../saas-apps/airtable-tutorial.md), [HootSuite](../saas-apps/hootsuite-tutorial.md), [blå åtkomst för medlemmar (BAM)](../saas-apps/blue-access-for-members-tutorial.md), [bitly](../saas-apps/bitly-tutorial.md), [Riva](../saas-apps/riva-tutorial.md), [ResLife Portal](https://app.reslifecloud.com/hub5_signin/microsoft_azuread/?g=44BBB1F90915236A97502FF4BE2952CB&c=5&uid=0&ht=2&ref=), [NegometrixPortal enkel inloggning (SSO)](../saas-apps/negometrixportal-tutorial.md), [TeamsChamp](https://login.microsoftonline.com/551f45da-b68e-4498-a7f5-a6e1efaeb41c/adminconsent?client_id=ca9bbfa4-1316-4c0f-a9ee-1248ac27f8ab&redirect_uri=https://admin.teamschamp.com/api/adminconsent&state=6883c143-cb59-42ee-a53a-bdb5faabf279) [, Motus,](../saas-apps/motus-tutorial.md)MyAryaka, BlueMail [, Beedle](https://loginself1.bluemail.me/), Visma [,](../saas-apps/visma-tutorial.md) [OneDesk](../saas-apps/onedesk-tutorial.md), [foko Retail](../saas-apps/foko-retail-tutorial.md), [Qmarkets-idé & innovation Management](../saas-apps/qmarkets-idea-innovation-management-tutorial.md), [Beedle](https://teams-web.beedle.co/#/) [Netskope User Authentication](../saas-apps/netskope-user-authentication-tutorial.md), [uniFLOW online](../saas-apps/uniflow-online-tutorial.md), [Claromentis](../saas-apps/claromentis-tutorial.md), [JISC student registrering](../saas-apps/jisc-student-voter-registration-tutorial.md), [e4enable](https://portal.e4enable.com/) [MyAryaka](../saas-apps/myaryaka-tutorial.md)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -1096,7 +1096,7 @@ I oktober 2019 har vi lagt till dessa 35 nya appar med stöd för federation i a
 
 [I händelse av kris – mobil](../saas-apps/in-case-of-crisis-mobile-tutorial.md), [Juno resa](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [Tact](https://tact.ai/assistant/), [OpusCapita Cash Management](http://cm1.opuscapita.com/tenantname), [Salestim](https://www.salestim.com/), [Learnster](../saas-apps/learnster-tutorial.md), [dynaTrace](../saas-apps/dynatrace-tutorial.md), [HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process), [Freshworks, eCornell](../saas-apps/freshworks-tutorial.md) [, ShipHazmat](../saas-apps/ecornell-tutorial.md), Netskope, Bindtuning, HireVue,,,,, [,](../saas-apps/shiphazmat-tutorial.md) [Cloud Security](../saas-apps/netskope-cloud-security-tutorial.md), [contentable](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [e](https://www.hirevue.com/) [HireVue koordinat-USOnly](https://www.hirevue.com/), [HireVue-koordinat – US](https://www.hirevue.com/), [WittyParrot](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [Cloudmore](../saas-apps/cloudmore-tutorial.md) [, Visit.org, Cambium](../saas-apps/visitorg-tutorial.md)Xirrus [EasyPass Portal](https://login.xirrus.com/azure-signup), [Paylocity](../saas-apps/paylocity-tutorial.md), [Maile!](../saas-apps/mail-luck-tutorial.md), [team](https://theteamie.com/), [Velocity for Teams](https://velocity.peakup.org/teams/login) [, SIGNL4, EAB](https://account.signl4.com/manage) [navigera implementering](../saas-apps/eab-navigate-impl-tutorial.md), [ScreenMeet](https://console.screenmeet.com/), [Omega Point](https://pi.ompnt.com/), [Speak e-mail for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [talad e-post för Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md), iHealthHome [Care navigerings system](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -1199,7 +1199,7 @@ I september 2019 har vi lagt till dessa 29 nya appar med stöd för federation i
 
 [ScheduleLook](https://schedulelook.bbsonlineservices.net/), [MS Azure SSO-åtkomst för Ethidex Compliance &trade; Office – enkel inloggning](../saas-apps/ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md), [iserver-portalen](../saas-apps/iserver-portal-tutorial.md), [SKYSITE](../saas-apps/skysite-tutorial.md), [Concur res-och utgift](../saas-apps/concur-travel-and-expense-tutorial.md), [WorkBoard](../saas-apps/workboard-tutorial.md), `https://apps.yeeflow.com/` , Arc- [anläggningar](../saas-apps/arc-facilities-tutorial.md), [Luware Stratus-team](https://stratus.emea.luware.cloud/login), [breda idéer](https://wideideas.online/wideideas/), [Prisma-moln](../saas-apps/prisma-cloud-tutorial.md), JDLT- [klient hubb](https://clients.jdlt.co.uk/login), [RENRAKU](../saas-apps/renraku-tutorial.md), [sealpath Brings säker webbläsare](https://protection.sealpath.com/SealPathInterceptorWopiSaas/Open/InstallSealPathEditorOneDrive), [Prisma moln](../saas-apps/prisma-cloud-tutorial.md), `https://app.penneo.com/` , `https://app.testhtm.com/settings/email-integration` , [Cintoo Cloud](https://aec.cintoo.com/login), [Whitesource](../saas-apps/whitesource-tutorial.md), [värd arvs online SSO](../saas-apps/hosted-heritage-online-sso-tutorial.md), [IDC](../saas-apps/idc-tutorial.md), [CakeHR](../saas-apps/cakehr-tutorial.md), [BIS](../saas-apps/bis-tutorial.md), [COO Kai team build](https://ms-contacts.coo-kai.jp/), [SonarQube](../saas-apps/sonarqube-tutorial.md), [Adobe Identity Management](../saas-apps/tutorial-list.md), [identifierings förmåner SSO](../saas-apps/discovery-benefits-sso-tutorial.md) [Amelio](https://app.amelio.co/)`https://itask.yipinapp.com/`
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -1370,7 +1370,7 @@ I augusti 2019 har vi lagt till dessa 26 nya appar med stöd för federation i a
 
 [Civic-plattform](../saas-apps/civic-platform-tutorial.md), [Amazon-verksamhet](../saas-apps/amazon-business-tutorial.md), [ProNovos Ops Manager](../saas-apps/pronovos-ops-manager-tutorial.md), [Cognidox](../saas-apps/cognidox-tutorial.md), [Viareports Inativ portal (Europa)](../saas-apps/viareports-inativ-portal-europe-tutorial.md), [Azure Databricks](https://azure.microsoft.com/services/databricks), [Robin](../saas-apps/robin-tutorial.md), [Academy-närvaro](../saas-apps/academy-attendance-tutorial.md), [prioritets mat ris](https://sync.appfluence.com/pmwebng/), [Cousto MySpace](https://cousto.platformers.be/account/login), [Uploadcare](https://uploadcare.com/accounts/signup/), [Carbonite Endpoint backup](../saas-apps/carbonite-endpoint-backup-tutorial.md), [CPQSync av Cincom](../saas-apps/cpqsync-by-cincom-tutorial.md), [Chargebee](../saas-apps/chargebee-tutorial.md), [leverera. Media &trade; Portal](https://portal.deliver.media), [Frontline utbildning](../saas-apps/frontline-education-tutorial.md), [F5](https://www.f5.com/products/security/access-policy-manager), [stashcat AD Connect](https://www.stashcat.com), [Blink](../saas-apps/blink-tutorial.md), [Vocoli](../saas-apps/vocoli-tutorial.md), ProNovos- [analys](../saas-apps/pronovos-analytics-tutorial.md) [, Sigstr,](../saas-apps/sigstr-tutorial.md) [Darwinbox,](../saas-apps/darwinbox-tutorial.md) [titta efter färger](../saas-apps/watch-by-colors-tutorial.md), [nät](../saas-apps/harness-tutorial.md)och [EAB navigera i strategiska vård](../saas-apps/eab-navigate-strategic-care-tutorial.md)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -1523,7 +1523,7 @@ I juli 2019 har vi lagt till dessa 18 nya appar med stöd för federation i app-
 
 [Ungerboeck program vara](../saas-apps/ungerboeck-software-tutorial.md), [starkt mönster Omnichannel kontakt Center](../saas-apps/bright-pattern-omnichannel-contact-center-tutorial.md), [smarta Nelly](../saas-apps/clever-nelly-tutorial.md), [AcquireIO](../saas-apps/acquireio-tutorial.md), [LOOOP](https://www.looop.co/schedule-a-demo/), [productboard](../saas-apps/productboard-tutorial.md), [MS Azure SSO-åtkomst för Ethidex &trade; Compliance Office](../saas-apps/ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md), [djupet](../saas-apps/hype-tutorial.md), [abstract](../saas-apps/abstract-tutorial.md) [,](../saas-apps/ascentis-tutorial.md), [FlipSnack](https://www.flipsnack.com/accounts/sign-in-sso.html), [Wandera](../saas-apps/wandera-tutorial.md), [TwineSocial](https://twinesocial.com/), [Kallidus](../saas-apps/kallidus-tutorial.md), [,](../saas-apps/hyperanna-tutorial.md) [PharmID WasteWitness](https://pharmid.com/), [i2B Connect](https://www.i2b-online.com/sign-up-to-use-i2b-connect-here-sso-access/), JFrog- [artefakting](../saas-apps/jfrog-artifactory-tutorial.md)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -1701,7 +1701,7 @@ I juni 2019 har vi lagt till dessa 22 nya appar med stöd för federation i app-
 
 [Azure AD SAML Toolkit](../saas-apps/saml-toolkit-tutorial.md), [Otsuka Shokai (大塚商会)](../saas-apps/otsuka-shokai-tutorial.md), [ANAQUA](../saas-apps/anaqua-tutorial.md), [Azure VPN-klient](https://portal.azure.com/), [utgifteri](../saas-apps/expensein-tutorial.md), [Hjälp](../saas-apps/helper-helper-tutorial.md)verktyg för hjälp, [Costpoint](../saas-apps/costpoint-tutorial.md), [GlobalOne](../saas-apps/globalone-tutorial.md), [Mercedes-Benz In-Car Office](https://me.secure.mercedes-benz.com/), [Skore](https://app.justskore.it/), [Oracle Cloud Infrastructure Console](../saas-apps/oracle-cloud-tutorial.md), [CyberArk SAML Authentication](../saas-apps/cyberark-saml-authentication-tutorial.md), [scrible edu](https://www.scrible.com/sign-in/#/create-account), [PandaDoc](../saas-apps/pandadoc-tutorial.md), [Perceptyx](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial), [Proptimise OS](https://proptimise.co.uk/software/), [vtiger CRM (SAML)](../saas-apps/vtiger-crm-saml-tutorial.md), Oracle Access Manager för Oracle återförsäljarversion, Oracle Access Manager för Oracle E-Business Suite, Oracle IDCS för E-Business Suite, Oracle IDCS för IDCS, Oracle JD för Edwards
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -1849,7 +1849,7 @@ I maj 2019 har vi lagt till dessa 21 nya appar med stöd för federation i app-g
 
 [Freedcamp](../saas-apps/freedcamp-tutorial.md), [riktiga länkar](../saas-apps/real-links-tutorial.md), [Kianda](https://app.kianda.com/sso/OpenID/AzureAD/), [enkel inloggning](../saas-apps/simple-sign-tutorial.md), [Braze](../saas-apps/braze-tutorial.md), [displayer](../saas-apps/displayr-tutorial.md), [Templafy](../saas-apps/templafy-tutorial.md), [Marketo Sales-engagerande](https://toutapp.com/login), [ACLP](../saas-apps/aclp-tutorial.md),- [system](../saas-apps/outsystems-tutorial.md), [META4 global timme](../saas-apps/meta4-global-hr-tutorial.md), [Quantum Workplace](../saas-apps/quantum-workplace-tutorial.md), [kobolt](../saas-apps/cobalt-tutorial.md), [webMethods API-moln](../saas-apps/webmethods-integration-cloud-tutorial.md), [RedFlag](https://pocketstop.com/redflag/), [Whatfix](../saas-apps/whatfix-tutorial.md), [kontroll](../saas-apps/control-tutorial.md), [JOBHUB](../saas-apps/jobhub-tutorial.md), [NEOGOV](../saas-apps/neogov-tutorial.md), [näring](../saas-apps/foodee-tutorial.md), [MyVR](../saas-apps/myvr-tutorial.md)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -1979,7 +1979,7 @@ I april 2019 har vi lagt till dessa 21 nya appar med stöd för federation i app
 
 [SAP Fiori](../saas-apps/sap-fiori-tutorial.md), [HRworks enkel inloggning](../saas-apps/hrworks-single-sign-on-tutorial.md), [Percolate](../saas-apps/percolate-tutorial.md), [MobiControl](../saas-apps/mobicontrol-tutorial.md), [Citrix NetScaler](../saas-apps/citrix-netscaler-tutorial.md), [shibumi](../saas-apps/shibumi-tutorial.md), [Bänkning](../saas-apps/benchling-tutorial.md), [MileIQ](https://mileiq.onelink.me/991934284/7e980085), PageDNA, [EduBrite](../saas-apps/pagedna-tutorial.md) [LMS](../saas-apps/edubrite-lms-tutorial.md), [RStudio Connect](../saas-apps/rstudio-connect-tutorial.md), [AMMS](../saas-apps/amms-tutorial.md), [spetsig Connect](../saas-apps/mitel-connect-tutorial.md), [Alibaba Cloud (rollbaserad SSO)](../saas-apps/alibaba-cloud-service-role-based-sso-tutorial.md), [Certent egendoms hantering](../saas-apps/certent-equity-management-tutorial.md), [Sectigo certifikat hanterare](../saas-apps/sectigo-certificate-manager-tutorial.md), [GreenOrbit](../saas-apps/greenorbit-tutorial.md), [Workgrid](../saas-apps/workgrid-tutorial.md), [Monday.com](../saas-apps/mondaycom-tutorial.md), SurveyMonkey [Enterprise](../saas-apps/surveymonkey-enterprise-tutorial.md) [, INDIGGO](https://indiggolead.com/)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2073,7 +2073,7 @@ I mars 2019 har vi lagt till dessa 14 nya appar med stöd för federation i app-
 
 [ISEC7 Mobile Exchange delegate](https://www.isec7.com/english/), [MediusFlow](https://office365.cloudapp.mediusflow.com/), [ePlatform](../saas-apps/eplatform-tutorial.md), [Fulcrum](../saas-apps/fulcrum-tutorial.md), [ExcelityGlobal](../saas-apps/excelityglobal-tutorial.md), [förklarings-baserade gransknings system](../saas-apps/explanation-based-auditing-system-tutorial.md), [Lean](../saas-apps/lean-tutorial.md), [Powerschool prestanda](../saas-apps/powerschool-performance-matters-tutorial.md), [Cinode](https://cinode.com/), [Iris](../saas-apps/iris-intranet-tutorial.md), [Empactis](../saas-apps/empactis-tutorial.md), [SmartDraw, Confirmit](../saas-apps/smartdraw-tutorial.md)- [horisonter](../saas-apps/confirmit-horizons-tutorial.md), [aktivitet](../saas-apps/tas-tutorial.md)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2209,7 +2209,7 @@ I februari 2019 har vi lagt till dessa 27 nya appar med stöd för federation i 
 
 [Euromonitor Passport](../saas-apps/euromonitor-passport-tutorial.md), [MINDTICKLE](../saas-apps/mindtickle-tutorial.md), [fett finger](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7), [netstack](../saas-apps/airstack-tutorial.md), [Oracle Fusion ERP](../saas-apps/oracle-fusion-erp-tutorial.md), [iDrive](../saas-apps/idrive-tutorial.md), [skyward Qmlativ](../saas-apps/skyward-qmlativ-tutorial.md), [Brightidea](../saas-apps/brightidea-tutorial.md), [AlertOps](../saas-apps/alertops-tutorial.md), [Soloinsight-CloudGate SSO](../saas-apps/soloinsight-cloudgate-sso-tutorial.md), permission klickning, [Brandfolder](../saas-apps/brandfolder-tutorial.md), [StoregateSmartFile](../saas-apps/smartfile-tutorial.md), [Pexip](../saas-apps/pexip-tutorial.md), [Stormboard](../saas-apps/stormboard-tutorial.md), [seismisk](../saas-apps/seismic-tutorial.md), [dela en dröm](https://www.shareadream.org/how-it-works), [Bugsnag](../saas-apps/bugsnag-tutorial.md), [webMethods integration Cloud](../saas-apps/webmethods-integration-cloud-tutorial.md), [kunskap överallt](../saas-apps/knowledge-anywhere-lms-tutorial.md), [OU Campus](../saas-apps/ou-campus-tutorial.md) [Periscope Data](../saas-apps/periscope-data-tutorial.md) [Netop Portal](../saas-apps/netop-portal-tutorial.md) [smartvid.io](../saas-apps/smartvid.io-tutorial.md) [PureCloud by Genesys](../saas-apps/purecloud-by-genesys-tutorial.md) [ClickUp Productivity Platform](../saas-apps/clickup-productivity-platform-tutorial.md)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2315,7 +2315,7 @@ I januari 2019 har vi lagt till dessa 35 nya appar med stöd för federation i a
 
 [Firstbird](../saas-apps/firstbird-tutorial.md), [Folloze](../saas-apps/folloze-tutorial.md), [personal-palett](../saas-apps/talent-palette-tutorial.md), [infor CloudSuite](../saas-apps/infor-cloud-suite-tutorial.md), [Cisco paraply](../saas-apps/cisco-umbrella-tutorial.md), [Zscaler Internet Access-administratör](../saas-apps/zscaler-internet-access-administrator-tutorial.md), [förfallo påminnelse](../saas-apps/expiration-reminder-tutorial.md), [InstaVR Viewer](../saas-apps/instavr-viewer-tutorial.md), [CORPTAX](../saas-apps/corptax-tutorial.md), [verb](https://app.verb.net/login), [OpenLattice](https://openlattice.com/agora), [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso Digital Close](../saas-apps/pavaso-digital-close-tutorial.md), [GoodPractice Toolkit](../saas-apps/goodpractice-toolkit-tutorial.md), [Cloud Service PICCO](../saas-apps/cloud-service-picco-tutorial.md), [AuditBoard](../saas-apps/auditboard-tutorial.md) [, iProva,](../saas-apps/iprova-tutorial.md) [fungerande](../saas-apps/workable-tutorial.md), [CallPlease](https://webapp.callplease.com/create-account/create-account.html), [GTNexus SSO system](../saas-apps/gtnexus-sso-module-tutorial.md), [CBRE ServiceInsight](../saas-apps/cbre-serviceinsight-tutorial.md), [Deskradar](../saas-apps/deskradar-tutorial.md), [Coralogixv](../saas-apps/coralogix-tutorial.md), [Signagelive](../saas-apps/signagelive-tutorial.md), [ar för företag](../saas-apps/ares-for-enterprise-tutorial.md), [K2 för Office 365](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [iDiD Manager](../saas-apps/idid-manager-tutorial.md), [HighGear](../saas-apps/highgear-tutorial.md), [på](../saas-apps/visitly-tutorial.md)plats, [korn Alp](../saas-apps/korn-ferry-alp-tutorial.md), [Acadia](../saas-apps/acadia-tutorial.md), Adoddle [cSaas-plattform](../saas-apps/adoddle-csaas-platform-tutorial.md)<!-- , [CaféX Portal (Meetings)](https://docs.microsoft.com/azure/active-directory/saas-apps/cafexportal-meetings-tutorial), [MazeMap Link](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial)-->
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2535,7 +2535,7 @@ I november 2018 har vi lagt till dessa 26 nya appar med stöd för federation i 
 
 [CoreStack](https://cloud.corestack.io/site/login), [HubSpot](../saas-apps/hubspot-tutorial.md), [GetThere](../saas-apps/getthere-tutorial.md), [gra-PE](../saas-apps/grape-tutorial.md), [eHour](https://getehour.com/try-now), [Consent2Go](../saas-apps/consent2go-tutorial.md), [Appinux](../saas-apps/appinux-tutorial.md), [DriveDollar](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview), [Useall](../saas-apps/useall-tutorial.md), [oändlig Campus](../saas-apps/infinitecampus-tutorial.md), [Alaya](https://alayagood.com), [HEYBUDDY](../saas-apps/heybuddy-tutorial.md), [Wrike SAML](../saas-apps/wrike-tutorial.md), [drift](../saas-apps/drift-tutorial.md), [Zenegy för företag, Central 365](https://accounting.zenegy.com/), [EVERBRIDGE medlems Portal](../saas-apps/everbridge-tutorial.md), [ideo](https://profile.ideo.com/users/sign_up), [Ivanti Service Manager (ISM)](../saas-apps/ivanti-service-manager-tutorial.md), [Peakon](../saas-apps/peakon-tutorial.md), [Allbound SSO](../saas-apps/allbound-sso-tutorial.md), [Plex Apps-klassiskt test](https://test.plexonline.com/signon), [Plex Apps – klassiskt](https://www.plexonline.com/signon), [Plex Apps-UX-test](https://test.cloud.plex.com/sso), [Plex Apps – UX](https://cloud.plex.com/sso), [Plex Apps – IAM](https://accounts.plex.com/), [hantverk-Childcare poster, närvaro, & Financial tracking system](https://getcrafts.ca/craftsregistration)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2557,7 +2557,7 @@ I oktober 2018 har vi lagt till dessa 14 nya appar med stöd för federation i a
 
 [Mina belönings punkter](../saas-apps/myawardpoints-tutorial.md), [Vibe HCM](../saas-apps/vibehcm-tutorial.md), ambyint, [MyWorkDrive](../saas-apps/myworkdrive-tutorial.md), [låna](../saas-apps/borrowbox-tutorial.md), dialpad, ON24 [virtuell miljö](../saas-apps/on24-tutorial.md), [RingCentral](../saas-apps/ringcentral-tutorial.md), [Zscaler tre](../saas-apps/zscaler-three-tutorial.md), [Phraseanet](../saas-apps/phraseanet-tutorial.md), [bedömning](../saas-apps/appraisd-tutorial.md), Workspot- [kontroll](../saas-apps/workspotcontrol-tutorial.md), [Shuccho Navi](../saas-apps/shucchonavi-tutorial.md), [Glassfrog](../saas-apps/glassfrog-tutorial.md)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2708,7 +2708,7 @@ I september 2018 har vi lagt till dessa 16 nya appar med stöd för federation i
 
 [Uberflip](../saas-apps/uberflip-tutorial.md), [Möt rekryterings program vara](../saas-apps/comeetrecruitingsoftware-tutorial.md), [Workteam](../saas-apps/workteam-tutorial.md), [ArcGIS Enterprise](../saas-apps/arcgisenterprise-tutorial.md), [Nuclino](../saas-apps/nuclino-tutorial.md), [JDA Cloud](../saas-apps/jdacloud-tutorial.md), [snö](../saas-apps/snowflake-tutorial.md), NavigoCloud, [Figma](../saas-apps/figma-tutorial.md), Join.me, [ZephyrSSO](../saas-apps/zephyrsso-tutorial.md), [Silverback, Riverbed](../saas-apps/silverback-tutorial.md)Xirrus EasyPass, [Rackspace SSO](../saas-apps/rackspacesso-tutorial.md), Enlyft SSO för Azure, SurveyMonkey, [sammankalla](../saas-apps/convene-tutorial.md), [dmarcian](../saas-apps/dmarcian-tutorial.md)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2826,7 +2826,7 @@ I augusti 2018 har vi lagt till dessa 16 nya appar med stöd för federation i a
 
 [Hornbill](../saas-apps/hornbill-tutorial.md), [bridgeline-obundna](../saas-apps/bridgelineunbound-tutorial.md), [recept Labs – mobil-och Webbtestering](../saas-apps/saucelabs-mobileandwebtesting-tutorial.md), [meta Networks Connector](../saas-apps/metanetworksconnector-tutorial.md), [sätt vi gör](../saas-apps/waywedo-tutorial.md), [Spotinst](../saas-apps/spotinst-tutorial.md), [Promaster (av Inlogik)](../saas-apps/promaster-tutorial.md), SchoolBooking, [4me](../saas-apps/4me-tutorial.md), [dokumentation](../saas-apps/dossier-tutorial.md), [N2F – utgifts rapporter](../saas-apps/n2f-expensereports-tutorial.md), [Comm100 Live Chat](../saas-apps/comm100livechat-tutorial.md), [SafeConnect](../saas-apps/safeconnect-tutorial.md), [ZenQMS](../saas-apps/zenqms-tutorial.md), [eLuminate](../saas-apps/eluminate-tutorial.md), [Dovetale](../saas-apps/dovetale-tutorial.md).
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2912,7 +2912,7 @@ I juli 2018 har vi lagt till dessa 16 nya appar med stöd för federation i app-
 
 [Innovation Hub](../saas-apps/innovationhub-tutorial.md), [Leapsome](../saas-apps/leapsome-tutorial.md), [viss admin SSO](../saas-apps/certainadminsso-tutorial.md), PSUC-mellanlagring, [iPass SmartConnect](../saas-apps/ipasssmartconnect-tutorial.md), [skärm utsändning-O-Matic](../saas-apps/screencast-tutorial.md), Powerschool Unified klass rum, [Eli onboarding](../saas-apps/elionboarding-tutorial.md), [Bomgar support](../saas-apps/bomgarremotesupport-tutorial.md), [NimbleX](../saas-apps/nimblex-tutorial.md), [Föreställ dig webvision](../saas-apps/imagineerwebvision-tutorial.md), [Insight4GRC](../saas-apps/insight4grc-tutorial.md), [SecureW2 JoinNow Connector](../saas-apps/securejoinnow-tutorial.md), [Kanbanize](../saas-apps/kanbanize-tutorial.md), [SmartLPA](../saas-apps/smartlpa-tutorial.md), [kunskaps bas](../saas-apps/skillsbase-tutorial.md)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -3092,7 +3092,7 @@ I juni 2018 har vi lagt till dessa 15 nya appar med stöd för federation i app-
 
 [Skytap](../saas-apps/skytap-tutorial.md), [att reglera musik](../saas-apps/settlingmusic-tutorial.md), [SAML 1,1 token Enabled LOB-app](../saas-apps/saml-tutorial.md), [överstämning](../saas-apps/supermood-tutorial.md), [AutoTask](../saas-apps/autotaskendpointbackup-tutorial.md), [Endpoint backup](../saas-apps/autotaskendpointbackup-tutorial.md), [skyhigh Networks](../saas-apps/skyhighnetworks-tutorial.md), Smartway2, [TonicDM](../saas-apps/tonicdm-tutorial.md), [Moconavi](../saas-apps/moconavi-tutorial.md), [Zoho One](../saas-apps/zohoone-tutorial.md), [SharePoint on-premises](../saas-apps/sharepoint-on-premises-tutorial.md), [förutse CX Suite](../saas-apps/foreseecxsuite-tutorial.md), [Vidyard](../saas-apps/vidyard-tutorial.md), [ChronicX](../saas-apps/chronicx-tutorial.md)
 
-Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -3270,7 +3270,7 @@ I maj 2018 har vi lagt till dessa 18 nya appar med stöd för federation i vårt
 
 Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md).
 
-Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -3339,7 +3339,7 @@ När du konfigurerar SAML-baserade SSO-program kan du testa integrationen på ko
 Mer information finns i:
 
 - [Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet](../manage-apps/view-applications-portal.md)
-- [Felsöka SAML-baserad enkel inloggning till program i Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Felsöka SAML-baserad enkel inloggning till program i Azure Active Directory](../manage-apps/debug-saml-sso-issues.md)
 
 ---
 
@@ -3415,7 +3415,7 @@ Kriterie HCM [, FiscalNote](../saas-apps/fiscalnote-tutorial.md), [Secret Server
 
 Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md).
 
-Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -3558,7 +3558,7 @@ I mars 2018 har vi lagt till dessa 15 nya appar med stöd för federation i vår
 
 Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md).
 
-Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -3844,7 +3844,7 @@ I januari 2018 lades följande nya appar med stöd för federation i app-galleri
 
 Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md).
 
-Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -3998,7 +3998,7 @@ I december 2017 har vi lagt till dessa nya appar med stöd för federation i vå
 
 Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md).
 
-Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 

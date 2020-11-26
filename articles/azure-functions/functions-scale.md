@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88e9d16a205df16a2be63e67f45cdbcf9144b30f
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f41354630f4885a30bd5c036495b216a2cc05599
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108464"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167802"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Skala och var värd i Azure Functions
 
@@ -97,7 +97,7 @@ Om du kör på en App Service plan bör du aktivera inställningen **Always on**
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Fastställa värd planen för ett befintligt program
 
-För att avgöra vilken värd plan som används av din Function-app, se **App Service plan** på fliken **Översikt** för function-appen i [Azure Portal](https://portal.azure.com). Om du vill se pris nivån väljer du namnet på **app Services planen**och väljer sedan **Egenskaper** i det vänstra fönstret.
+För att avgöra vilken värd plan som används av din Function-app, se **App Service plan** på fliken **Översikt** för function-appen i [Azure Portal](https://portal.azure.com). Om du vill se pris nivån väljer du namnet på **app Services planen** och väljer sedan **Egenskaper** i det vänstra fönstret.
 
 ![Visa skalnings plan i portalen](./media/functions-scale/function-app-overview-portal.png)
 
@@ -204,7 +204,7 @@ Följande jämförelse tabell visar alla viktiga aspekter som kan hjälpa dig me
 | **[Premiumplan](#premium-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python  | 
 | **[Dedikerade plan](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
 | **[ASE](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core  |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python | 
-| **[Kubernetes](functions-kubernetes-keda.md)** | Saknas | Saknas |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
+| **[Kubernetes](functions-kubernetes-keda.md)** | saknas | saknas |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
 
 <sup>1</sup> Linux är det enda operativ system som stöds för python runtime-stacken.  
 <sup>2</sup> Windows är det enda operativ system som stöds för PowerShell runtime-stacken.   
@@ -257,6 +257,6 @@ Följande jämförelse tabell visar alla viktiga aspekter som kan hjälpa dig me
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ [Snabb start: skapa ett Azure Functions projekt med Visual Studio Code](functions-create-first-function-vs-code.md)
++ [Snabb start: skapa ett Azure Functions projekt med Visual Studio Code](./create-first-function-vs-code-csharp.md)
 + [Distributions tekniker i Azure Functions](functions-deployment-technologies.md) 
 + [Utvecklarguide för Azure Functions](functions-reference.md)

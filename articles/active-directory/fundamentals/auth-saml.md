@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab14413de1f999747e5b3fb58b505e0a9258a55
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cd2aa5e9ff8cbaeead69f11d2e3de7f760b53ec
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441223"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168652"
 ---
 # <a name="saml-authentication-with-azure-active-directory"></a>SAML-autentisering med Azure Active Directory
 
@@ -53,8 +53,8 @@ En av de viktigaste användnings fallen är att SAML-adresser är SSO, särskilt
 
 ## <a name="implement-saml-authentication-with-azure-ad"></a>Implementera SAML-autentisering med Azure AD
 
-* [Självstudier för att integrera SaaS-program med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Självstudier för att integrera SaaS-program med hjälp av Azure Active Directory](../saas-apps/tutorial-list.md) 
 
-* [Konfigurera SAML-baserad enkel inloggning för program som inte är gallerier](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) 
+* [Konfigurera SAML-baserad enkel inloggning för program som inte är gallerier](../manage-apps/add-application-portal.md) 
 
-* [Så här använder Azure AD SAML-protokoll](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference)
+* [Så här använder Azure AD SAML-protokoll](../develop/active-directory-saml-protocol-reference.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: a2d5234b3c80456a98fde4547b9665ca1b0a83dd
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 651c1913491952c53af42abec5ce5d5009da06a0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913554"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168074"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Kontinuerlig leverans med hjälp av GitHub-åtgärd
 
@@ -23,7 +23,7 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 För ett Azure Functions-arbetsflöde har filen tre delar: 
 
-| Section | Uppgifter |
+| Avsnitt | Uppgifter |
 | ------- | ----- |
 | **Autentisering** | Ladda ned en publicerings profil.<br/>Skapa en GitHub-hemlighet.|
 | **Skapa** | Konfigurera miljön.<br/>Bygg in Function-appen.|
@@ -34,7 +34,7 @@ För ett Azure Functions-arbetsflöde har filen tre delar:
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Ett GitHub-konto. Om du inte har någon kan du registrera dig [kostnads fritt](https://github.com/join).  
 - En fungerande app som finns på Azure med en GitHub-lagringsplats.   
-    - [Snabbstart: Skapa en funktion i Azure med hjälp av Visual Studio Code](functions-create-first-function-vs-code.md)
+    - [Snabbstart: Skapa en funktion i Azure med hjälp av Visual Studio Code](./create-first-function-vs-code-csharp.md)
 
 ## <a name="generate-deployment-credentials"></a>Generera autentiseringsuppgifter för distribution
 
@@ -46,7 +46,7 @@ När du har sparat autentiseringsuppgifterna för publicerings profilen som [Git
 
 Så här hämtar du publicerings profilen för din Function-app:
 
-1. Välj sidan **Översikt** för Function-appen och välj sedan **Hämta publicerings profil** .
+1. Välj sidan **Översikt** för Function-appen och välj sedan **Hämta publicerings profil**.
 
    :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Ladda ned publicerings profil":::
 
@@ -55,11 +55,11 @@ Så här hämtar du publicerings profilen för din Function-app:
 
 ### <a name="add-the-github-secret"></a>Lägg till GitHub-hemligheten
 
-1. I [GitHub](https://github.com), bläddra till din lagrings plats, Välj **Inställningar**  >  **hemligheter**  >  **Lägg till en ny hemlighet** .
+1. I [GitHub](https://github.com), bläddra till din lagrings plats, Välj **Inställningar**  >  **hemligheter**  >  **Lägg till en ny hemlighet**.
 
-   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Ladda ned publicerings profil":::
+   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Lägg till hemlighet":::
 
-1. Lägg till en ny hemlighet `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` med **namn** , innehållet i publicerings profil filen för **värdet** och välj sedan **Lägg till hemlighet** .
+1. Lägg till en ny hemlighet `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` med **namn**, innehållet i publicerings profil filen för **värdet** och välj sedan **Lägg till hemlighet**.
 
 GitHub kan nu autentisera till din Function-app i Azure.
 

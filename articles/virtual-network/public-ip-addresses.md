@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ef79844cf2f90ce97ea30a1948a441f909255f98
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358175"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169944"
 ---
 # <a name="public-ip-addresses"></a>Offentliga IP-adresser
 
@@ -54,7 +54,7 @@ Offentliga IP-adresser för standard-SKU:
 - Har en justerbar inkommande tidsgräns för inaktivitet i flöde på 4–30 minuter, med ett standardvärde på 4 minuter, och en fast utgående tidsgräns för inaktivitet i flöde på 4 minuter.
 - Skydda som standard och stängas till inkommande trafik. Tillåt en lista över inkommande trafik med en [nätverks säkerhets grupp](security-overview.md#network-security-groups).
 - Tilldelad till nätverks gränssnitt, offentliga standard belastningsutjämnare eller programgatewayer. Mer information om standard Load Balancer finns i [Azure standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Kan vara Zone-redundant eller zonindelade (kan skapas zonindelade och garanteras i en bestämd tillgänglighets zon). Om du vill veta mer om tillgänglighetszoner kan du läsa [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Standard Load Balancer och tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Kan vara Zone-redundant (annonseras från alla tre zoner) eller zonindelade (kan skapas zonindelade och garanteras i en bestämd tillgänglighets zon). Om du vill veta mer om tillgänglighetszoner kan du läsa [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Standard Load Balancer och tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zon redundanta IP-adresser kan bara skapas i [regioner där 3 tillgänglighets zoner](https://docs.microsoft.com/azure/availability-zones/az-region) är Live.** IP-adresser som skapats innan zoner är Live är inte zonens redundanta.
  
 > [!NOTE]
 > Inkommande kommunikation med en resurs med standard-SKU misslyckas tills du har skapat och kopplat en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups) och uttryckligen tillåtit önskad inkommande trafik.
@@ -182,11 +182,11 @@ I följande tabell visas den egenskap som kan användas för att koppla en offen
 | --- | --- | --- | --- |
 | Virtuell dator |Nätverksgränssnitt |Ja |Ja |
 | Internetuppkopplad lastbalanserare |Konfiguration på klientsidan |Ja |Ja |
-| VPN gateway |IP-konfiguration för gateway |Ja |Inga |
+| VPN gateway |IP-konfiguration för gateway |Ja |Nej |
 | Programgateway |Konfiguration på klientsidan |Ja (endast V1) |Ja (endast V2) |
-| Azure Firewall | Konfiguration på klientsidan | Inga | Ja|
+| Azure Firewall | Konfiguration på klientsidan | Nej | Ja|
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 
 Begränsningarna för IP-adresser anges i den fullständiga uppsättningen [nätverks gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) i Azure. 
 

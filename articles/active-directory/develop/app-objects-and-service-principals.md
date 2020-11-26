@@ -13,19 +13,19 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: db25e0a9ebe01a45c594fe214efcdd3551cf6c14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fe48cf28ab3004087e2b022d7a9eca69a1e58e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449364"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169638"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objekt för program och tjänstens huvudnamn i Azure Active Directory
 
 Den här artikeln beskriver program registrering, program objekt och tjänst huvud namn i Azure Active Directory: vad de är, hur de används och hur de är relaterade till varandra. Ett exempel scenario för flera klienter visas också för att illustrera förhållandet mellan ett programs program objekt och motsvarande tjänst huvud objekt.
 
 ## <a name="application-registration"></a>Programregistrering
-För att kunna delegera identitets-och åtkomst hanterings funktioner till Azure AD måste ett program registreras med en Azure AD- [klient](developer-glossary.md#tenant). När du registrerar ditt program med Azure AD skapar du en identitets konfiguration för ditt program som gör det möjligt att integrera med Azure AD. När du registrerar en app i [Azure Portal][AZURE-Portal]väljer du om det är en enskild klient (endast tillgänglig i din klient) eller flera innehavare (tillgänglig för i andra klienter) och om du vill kan du ange en omdirigerings-URI (där åtkomsttoken skickas till).
+För att kunna delegera identitets-och åtkomst hanterings funktioner till Azure AD måste ett program registreras med en Azure AD- [klient](developer-glossary.md#tenant). När du registrerar ditt program med Azure AD skapar du en identitets konfiguration för ditt program som gör det möjligt att integrera med Azure AD. När du registrerar en app i [Azure Portal][AZURE-Portal]väljer du om det är en enskild klient (endast tillgänglig i din klient) eller flera innehavare (tillgänglig i andra klienter) och om du vill kan du ange en omdirigerings-URI (där åtkomsttoken skickas till).
 
 :::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Skärm bild av Azure Portal registrera ett programfönster":::
 

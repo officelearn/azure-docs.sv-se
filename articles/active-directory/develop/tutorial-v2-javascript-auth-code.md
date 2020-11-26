@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 6b8a9cbfd3e7057f0d85d5f4e19fea3aa4fbe90b
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 79fe821e2da494ab8c9e4cb407e2c2b025f75568
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980226"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169111"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Självstudie: Logga in användare och anropa Microsoft Graph-API: et från en JavaScript-app med en enda sida (SPA) med auth Code Flow
 
@@ -32,7 +32,7 @@ I de här självstudierna har du
 
 MSAL.js 2,0 förbättrar MSAL.js 1,0 genom att stödja auktoriserings kod flödet i webbläsaren i stället för det implicita tilldelnings flödet. MSAL.js 2,0 har **inte** stöd för det implicita flödet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Node.js](https://nodejs.org/en/download/) för att köra en lokal webbserver
 * [Visual Studio Code](https://code.visualstudio.com/download) eller en annan kod redigerare
@@ -351,7 +351,7 @@ const graphConfig = {
 
 - `Enter_the_Graph_Endpoint_Here` är instansen av det Microsoft Graph-API som programmet ska kommunicera med.
   - För den **globala** Microsoft Graph API-slutpunkten ersätter du båda instanserna av den här strängen med `https://graph.microsoft.com` .
-  - För slut punkter i **nationella** moln distributioner, se [nationella moln distributioner](https://docs.microsoft.com/graph/deployments) i Microsoft Graph-dokumentationen.
+  - För slut punkter i **nationella** moln distributioner, se [nationella moln distributioner](/graph/deployments) i Microsoft Graph-dokumentationen.
 
 `graphMeEndpoint`Värdena och `graphMailEndpoint` i *graphConfig.js* bör likna följande om du använder den globala slut punkten:
 

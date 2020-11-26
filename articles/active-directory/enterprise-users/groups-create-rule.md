@@ -13,17 +13,17 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a1f970a97616fbc38a2f5d274998596992d4a45
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 343486286d45538b949de03604811bb2371701c1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522081"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169026"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Skapa eller uppdatera en dynamisk grupp i Azure Active Directory
 
 I Azure Active Directory (Azure AD) kan du använda regler för att fastställa grupp medlemskap baserat på användar-eller enhets egenskaper. Den här artikeln beskriver hur du konfigurerar en regel för en dynamisk grupp i Azure Portal.
-Dynamiskt medlemskap stöds för säkerhets grupper eller Microsoft 365 grupper. När en grupp medlemskaps regel används utvärderas användar-och enhets attribut för matchningar med medlemskaps regeln. När ett attributändringar ändras för en användare eller enhet bearbetas alla dynamiska grupp regler i organisationen för medlemskaps ändringar. Användare och enheter läggs till eller tas bort om de uppfyller villkoren för en grupp. Säkerhets grupper kan användas för antingen enheter eller användare, men Microsoft 365 grupper kan bara vara användar grupper. Användning av dynamiska grupper kräver Azure AD Premium P1-licens. Se [regler för dynamiskt medlemskap för grupper](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-dynamic-membership) för mer information. 
+Dynamiskt medlemskap stöds för säkerhets grupper eller Microsoft 365 grupper. När en grupp medlemskaps regel används utvärderas användar-och enhets attribut för matchningar med medlemskaps regeln. När ett attributändringar ändras för en användare eller enhet bearbetas alla dynamiska grupp regler i organisationen för medlemskaps ändringar. Användare och enheter läggs till eller tas bort om de uppfyller villkoren för en grupp. Säkerhets grupper kan användas för antingen enheter eller användare, men Microsoft 365 grupper kan bara vara användar grupper. Användning av dynamiska grupper kräver Azure AD Premium P1-licens. Se [regler för dynamiskt medlemskap för grupper](./groups-dynamic-membership.md) för mer information. 
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Regel verktyg i Azure Portal
 

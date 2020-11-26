@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5f529e6148463ae384791985659378cb9d0a5046
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836996"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168873"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referens guide för Azure Active Directory hanterings åtgärder för autentisering
 
@@ -160,7 +160,7 @@ Att tillhandahålla en standardiserad mekanism för enkel inloggning till hela f
 > [!NOTE]
 > Om du inte har en mekanism för att identifiera ohanterade program i din organisation rekommenderar vi att du implementerar en identifierings process med hjälp av en lösning för CASB (Cloud Access Security Broker) som [Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Slutligen, om du har ett Azure AD App-galleri och använder program som har stöd för enkel inloggning med Azure AD, rekommenderar vi [att du visar programmet i app-galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Slutligen, om du har ett Azure AD App-galleri och använder program som har stöd för enkel inloggning med Azure AD, rekommenderar vi [att du visar programmet i app-galleriet](../develop/v2-howto-app-gallery-listing.md).
 
 #### <a name="single-sign-on-recommended-reading"></a>Enkel inloggning, Rekommenderad läsning
 
@@ -255,7 +255,7 @@ Villkorlig åtkomst är ett viktigt verktyg för att förbättra din organisatio
 
 #### <a name="conditional-access-recommended-reading"></a>Rekommenderad läsning för villkorlig åtkomst
 
-- [Metod tips för villkorlig åtkomst i Azure Active Directory](../conditional-access/best-practices.md)
+- [Metod tips för villkorlig åtkomst i Azure Active Directory](../conditional-access/overview.md)
 - [Konfigurationer för identitets- och enhetsåtkomst](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Referens för Azure Active Directory villkorlig åtkomst inställningar](../conditional-access/concept-conditional-access-conditions.md)
 - [Vanliga principer för villkorlig åtkomst](../conditional-access/concept-conditional-access-policy-common.md)
@@ -309,7 +309,7 @@ Nedan visas en lista över appar med behörigheter som du kanske vill granska f�
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
-- Appar har beviljat fullständig användar personifiering av den inloggade användaren. Exempel:
+- Appar har beviljat fullständig användar personifiering av den inloggade användaren. Ett exempel:
 
 |Resurs | Behörighet |
 | :- | :- |

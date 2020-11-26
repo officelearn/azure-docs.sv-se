@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea8905051d06e4f8787d80abf5cc33dbc21692e0
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 30d268b116b35ede5741179c3f60da909c792ba8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95488444"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168977"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-och Graph-exempel för gruppbaserad licensiering i Azure AD
 
@@ -661,9 +661,9 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 Mer information om funktions uppsättningen för licens hantering via grupper finns i följande artiklar:
 
 * [Vad är gruppbaserad licensiering i Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Tilldela licenser till en grupp i Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+* [Tilldela licenser till en grupp i Azure Active Directory](./licensing-groups-assign.md)
 * [Identifiera och lösa licensproblem för en grupp i Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Migrera enskilda licensierade användare till gruppbaserad licensiering i Azure Active Directory](licensing-groups-migrate-users.md)
 * [Så här migrerar du användare mellan produkt licenser med gruppbaserad licensiering i Azure Active Directory](licensing-groups-change-licenses.md)
-* [Fler scenarier med gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+* [Fler scenarier med gruppbaserad licensiering i Azure Active Directory](./licensing-group-advanced.md)
 * [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](licensing-ps-examples.md)

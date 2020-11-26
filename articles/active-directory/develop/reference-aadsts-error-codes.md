@@ -12,12 +12,12 @@ ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 59ed397f3bd54a324f8fa375a3ea870860c31142
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: fa6fc11441811589967ddd7728501b521f9f9155
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410937"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169281"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Felkoder för Azure AD-autentisering och -auktorisering
 
@@ -60,7 +60,7 @@ Här är ett exempel på fel svar:
 
 `error`Fältet har flera möjliga värden – granska protokoll dokumentations länkarna och OAuth 2,0-specifikationerna för att lära dig mer om vissa fel (till exempel `authorization_pending` i [enhets kod flödet](v2-oauth2-device-code.md)) och hur du kan reagera på dem.  Några vanliga visas här:
 
-| Felkod         | Description        | Klient åtgärd    |
+| Felkod         | Beskrivning        | Klient åtgärd    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Protokoll fel, till exempel en obligatorisk parameter som saknas. | Åtgärda och skicka begäran på nytt.|
 | `invalid_grant`    | En del av autentiserings materialet (auth Code, Refresh token, Access token, PKCE Challenge) var ogiltigt, kunde inte parsas, saknas eller på annat sätt oanvändbar | Testa en ny begäran till `/authorize` slut punkten för att få en ny auktoriseringskod.  Överväg att granska och verifiera appens användning av protokollen. |
@@ -315,7 +315,7 @@ Om du till exempel har fått felkoden "AADSTS50058" gör du en sökning i [https
 | AADSTS700022 | InvalidMultipleResourcesScope-det tillhandahållna värdet för parameter området för indata är inte giltigt eftersom det innehåller fler än en resurs. |
 | AADSTS700023 | InvalidResourcelessScope-det angivna värdet för Indataparametern för indata-parametern är inte giltigt när en åtkomsttoken begärs. |
 | AADSTS7000215 | Ogiltig klient hemlighet har angetts. Utvecklarens fel-appen försöker logga in utan nödvändiga eller korrekta autentiseringsmetoder.|
-| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-de angivna klientens hemliga nycklar har upphört att gälla. Gå till Azure Portal om du vill skapa nya nycklar för appen eller Överväg att använda autentiseringsuppgifter för ytterligare säkerhet: [https://aka.ms/certCreds](https://aka.ms/certCreds) |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-de angivna klientens hemliga nycklar har upphört att gälla. Gå till Azure Portal om du vill skapa nya nycklar för appen eller Överväg att använda autentiseringsuppgifter för ytterligare säkerhet: [https://aka.ms/certCreds](./active-directory-certificate-credentials.md) |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant-auktoriseringskod är avsedd att användas gentemot andra klienter, vilket avvisas. OAuth2-auktoriseringskod måste lösas in mot samma klient som den förvärvades för (/vanliga eller/{tenant-ID} efter behov) |
 | AADSTS1000000 | UserNotBoundError – bindnings-API: t kräver att Azure AD-användaren också autentiseras med en extern IDP, vilket inte har hänt än. |
 | AADSTS1000002 | BindCompleteInterruptError – bindningen har slutförts, men användaren måste vara informerad. |

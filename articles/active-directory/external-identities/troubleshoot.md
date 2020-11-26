@@ -14,19 +14,19 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646bd2b6a8e22698e6fbcb44d2442e921c7850a5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e7a77c110c12fd6b42e8defbe43a40579b9c6588
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441513"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168771"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsöka Azure Active Directory B2B-samarbete
 
 Här följer några lösningar på vanliga problem med Azure Active Directory (Azure AD) B2B-samarbete.
 
    > [!IMPORTANT]
-   > Från och med den **31 mars 2021**kommer Microsoft inte längre att stödja inlösen av inbjudningar genom att skapa ohanterade Azure AD-konton och klienter för B2B-samarbets scenarier. Vi rekommenderar att kunderna väljer [autentisering med e-post med eng ång slö sen ord](one-time-passcode.md). Vi välkomnar din feedback om den här offentliga för hands versionen och är glada att skapa ännu fler sätt att samar beta.
+   > Från och med den **31 mars 2021** kommer Microsoft inte längre att stödja inlösen av inbjudningar genom att skapa ohanterade Azure AD-konton och klienter för B2B-samarbets scenarier. Vi rekommenderar att kunderna väljer [autentisering med e-post med eng ång slö sen ord](one-time-passcode.md). Vi välkomnar din feedback om den här offentliga för hands versionen och är glada att skapa ännu fler sätt att samar beta.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Jag har lagt till en extern användare men ser inte dem i den globala adress boken eller i person väljaren
 
@@ -93,11 +93,11 @@ En användare som har ett gäst konto kan inte logga in och får följande fel m
 
 Användaren har ett Azure-användarkonto och är en viral-klient som har övergivits eller inte hanteras. Det finns dessutom inga globala administratörer eller företags administratörer i klient organisationen.
 
-För att lösa det här problemet måste du ta över den övergivna klienten. Se  [ta över en ohanterad katalog som administratör i Azure Active Directory](../users-groups-roles/domains-admin-takeover.md). Du måste också ha åtkomst till Internet-riktad DNS för domänsuffix i fråga för att kunna tillhandahålla direkt bevis som du styr av namn området. När klienten har returnerats till ett hanterat tillstånd kan du diskutera med kunden om du lämnar användarna och det verifierade domän namnet är det bästa alternativet för deras organisation.
+För att lösa det här problemet måste du ta över den övergivna klienten. Se  [ta över en ohanterad katalog som administratör i Azure Active Directory](../enterprise-users/domains-admin-takeover.md). Du måste också ha åtkomst till Internet-riktad DNS för domänsuffix i fråga för att kunna tillhandahålla direkt bevis som du styr av namn området. När klienten har returnerats till ett hanterat tillstånd kan du diskutera med kunden om du lämnar användarna och det verifierade domän namnet är det bästa alternativet för deras organisation.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>En gäst användare med en just-in-Time-eller "viral"-klient kan inte återställa sina lösen ord
 
-Om identitets klienten är en just-in-Time (JIT) eller virus klient (vilket innebär att det är en separat, ohanterad Azure-klient) kan bara gäst användaren återställa sina lösen ord. Ibland tar en organisation [över hanteringen av viral-klienter](../users-groups-roles/domains-admin-takeover.md) som skapas när anställda använder sina arbets-e-postadresser för att registrera sig för tjänster. När organisationen har tagit över en virus klient kan bara en administratör i organisationen återställa användarens lösen ord eller aktivera SSPR. Vid behov kan du, som bjuda in organisationen, ta bort gäst användar kontot från katalogen och skicka en inbjudan igen.
+Om identitets klienten är en just-in-Time (JIT) eller virus klient (vilket innebär att det är en separat, ohanterad Azure-klient) kan bara gäst användaren återställa sina lösen ord. Ibland tar en organisation [över hanteringen av viral-klienter](../enterprise-users/domains-admin-takeover.md) som skapas när anställda använder sina arbets-e-postadresser för att registrera sig för tjänster. När organisationen har tagit över en virus klient kan bara en administratör i organisationen återställa användarens lösen ord eller aktivera SSPR. Vid behov kan du, som bjuda in organisationen, ta bort gäst användar kontot från katalogen och skicka en inbjudan igen.
 
 ## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>En gäst användare kan inte använda AzureAD PowerShell v1-modulen
 

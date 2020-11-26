@@ -4,12 +4,12 @@ description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7d97405a0b75129ddb0da581955728b393bf49ca
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8254abda68949e6884143316d4b29b07ade129dc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539081"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167853"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -19,7 +19,7 @@ Som python-utvecklare kanske du också är intresse rad av någon av följande a
 
 | Komma igång | Begrepp| Scenarier/exempel |
 | -- | -- | -- | 
-| <ul><li>[Python-funktionen med Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-python)</li><li>[Python-funktionen med Terminal/kommando-prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)</li></ul> | <ul><li>[Utvecklarguide](functions-reference.md)</li><li>[Värdalternativ](functions-scale.md)</li><li>[Prestanda &nbsp; överväganden](functions-best-practices.md)</li></ul> | <ul><li>[Bildklassificering med PyTorch](machine-learning-pytorch.md)</li><li>[Azure Automation-exempel](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Maskininlärning med TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Sök i python-exempel](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+| <ul><li>[Python-funktionen med Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Python-funktionen med Terminal/kommando-prompt](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Utvecklarguide](functions-reference.md)</li><li>[Värdalternativ](functions-scale.md)</li><li>[Prestanda &nbsp; överväganden](functions-best-practices.md)</li></ul> | <ul><li>[Bildklassificering med PyTorch](machine-learning-pytorch.md)</li><li>[Azure Automation-exempel](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Maskininlärning med TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Sök i python-exempel](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 ## <a name="programming-model"></a>Programmeringsmodell
 
@@ -93,22 +93,22 @@ Den rekommenderade mappstrukturen för ett python Functions-projekt ser ut som i
 ```
 Huvudprojektmappen (<project_root>) kan innehålla följande filer:
 
-* *local.settings.jspå* : används för att lagra appinställningar och anslutnings strängar när de körs lokalt. Den här filen publiceras inte i Azure. Mer information finns i [Local. Settings. File](functions-run-local.md#local-settings-file).
-* *requirements.txt* : innehåller listan över python-paket som systemet installerar vid publicering till Azure.
-* *host.jspå* : innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure. Alla alternativ stöds inte när du kör lokalt. Läs mer i [host.jspå](functions-host-json.md).
-* *. VSCode/* : (valfritt) innehåller konfiguration av Store-VSCode. Läs mer i VSCode- [inställningen](https://code.visualstudio.com/docs/getstarted/settings).
-* *. venv/* : (valfritt) innehåller en virtuell python-miljö som används av lokal utveckling.
-* *Dockerfile* : (valfritt) används vid publicering av ditt projekt i en [anpassad behållare](functions-create-function-linux-custom-image.md).
-* *test/* : (valfritt) innehåller test fall för din Function-app.
-* *. funcignore* : (valfritt) deklarerar filer som inte ska publiceras i Azure. Den här filen innehåller vanligt vis `.vscode/` att ignorera din redigerings inställning, `.venv/` för att ignorera den lokala python-miljön, `tests/` för att ignorera test ärenden och `local.settings.json` förhindra att lokala appinställningar publiceras.
+* *local.settings.jspå*: används för att lagra appinställningar och anslutnings strängar när de körs lokalt. Den här filen publiceras inte i Azure. Mer information finns i [Local. Settings. File](functions-run-local.md#local-settings-file).
+* *requirements.txt*: innehåller listan över python-paket som systemet installerar vid publicering till Azure.
+* *host.jspå*: innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure. Alla alternativ stöds inte när du kör lokalt. Läs mer i [host.jspå](functions-host-json.md).
+* *. VSCode/*: (valfritt) innehåller konfiguration av Store-VSCode. Läs mer i VSCode- [inställningen](https://code.visualstudio.com/docs/getstarted/settings).
+* *. venv/*: (valfritt) innehåller en virtuell python-miljö som används av lokal utveckling.
+* *Dockerfile*: (valfritt) används vid publicering av ditt projekt i en [anpassad behållare](functions-create-function-linux-custom-image.md).
+* *test/*: (valfritt) innehåller test fall för din Function-app.
+* *. funcignore*: (valfritt) deklarerar filer som inte ska publiceras i Azure. Den här filen innehåller vanligt vis `.vscode/` att ignorera din redigerings inställning, `.venv/` för att ignorera den lokala python-miljön, `tests/` för att ignorera test ärenden och `local.settings.json` förhindra att lokala appinställningar publiceras.
 
 Varje funktion har sin egen kod fil och bindnings konfigurations fil (function.jspå).
 
-När du distribuerar projektet till en Function-app i Azure ska hela innehållet i huvudprojektet ( *<project_root>* ) tas med i paketet, men inte själva mappen, vilket innebär `host.json` att det ska finnas i paket roten. Vi rekommenderar att du underhåller dina tester i en mapp tillsammans med andra funktioner, i det här exemplet `tests/` . Mer information finns i [enhets testning](#unit-testing).
+När du distribuerar projektet till en Function-app i Azure ska hela innehållet i huvudprojektet (*<project_root>*) tas med i paketet, men inte själva mappen, vilket innebär `host.json` att det ska finnas i paket roten. Vi rekommenderar att du underhåller dina tester i en mapp tillsammans med andra funktioner, i det här exemplet `tests/` . Mer information finns i [enhets testning](#unit-testing).
 
 ## <a name="import-behavior"></a>Import beteende
 
-Du kan importera moduler i funktions koden med både absoluta och relativa referenser. Utifrån mappstrukturen som visas ovan fungerar följande importer från funktions filen *<project_root> \Mina \_ First \_ Function \\ _ \_ init \_ \_ . py* :
+Du kan importera moduler i funktions koden med både absoluta och relativa referenser. Utifrån mappstrukturen som visas ovan fungerar följande importer från funktions filen *<project_root> \Mina \_ First \_ Function \\ _ \_ init \_ \_ . py*:
 
 ```python
 from shared_code import my_first_helper_function #(absolute)
@@ -385,7 +385,7 @@ FUNCTIONS_WORKER_PROCESS_COUNT gäller för varje värd som fungerar när du ska
 
 Om du vill hämta anrops kontexten för en funktion under körningen ska du inkludera [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) argumentet i signaturen.
 
-Exempel:
+Ett exempel:
 
 ```python
 import azure.functions
@@ -491,7 +491,7 @@ func azure functionapp publish <APP_NAME>
 
 Kom ihåg att ersätta `<APP_NAME>` med namnet på din Function-app i Azure.
 
-[Azure Functions-tillägget för Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) begär också en fjärran sluten version som standard.
+[Azure Functions-tillägget för Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) begär också en fjärran sluten version som standard.
 
 ### <a name="local-build"></a>Lokal version
 
@@ -533,7 +533,7 @@ func azure functionapp publish <APP_NAME> --no-build
 
 Kom ihåg att ersätta `<APP_NAME>` med namnet på din Function-app i Azure.
 
-## <a name="unit-testing"></a>Enhets testning
+## <a name="unit-testing"></a>Enhetstestning
 
 Funktioner som skrivs i python kan testas som annan python-kod med standard testnings ramverk. För de flesta bindningar är det möjligt att skapa ett objekt av en modell genom att skapa en instans av en lämplig klass från `azure.functions` paketet. Eftersom [`azure.functions`](https://pypi.org/project/azure-functions/) paketet inte är omedelbart tillgängligt ser du till att installera det via `requirements.txt` filen enligt beskrivningen i avsnittet [paket hantering](#package-management) ovan.
 

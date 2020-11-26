@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 6713c0d45a8b5363122c726d1d31e5c479ba8fff
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 514f2e9a82a50f95f9c054c6a54e7b5af3c0af15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95504644"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167785"
 ---
 # <a name="introduction-to-azure-functions"></a>Introduktion till Azure Functions
 
@@ -38,7 +38,7 @@ Följande är ett vanligt, _men inte heller en uttömmande_ uppsättning scenari
 | --- | --- |
 | **Bygg ett webb-API** | Implementera en slut punkt för dina webb program med hjälp av [http-utlösaren](./functions-bindings-http-webhook.md) |
 | **Bearbeta fil överföringar** | Kör kod när en fil laddas upp eller ändras i [Blob Storage](./functions-bindings-storage-blob.md) |
-| **Bygg ett Server lös arbets flöde** | Kedja en serie funktioner tillsammans med hjälp av [varaktiga funktioner](./durable-functions-overview.md) |
+| **Bygg ett Server lös arbets flöde** | Kedja en serie funktioner tillsammans med hjälp av [varaktiga funktioner](./durable/durable-functions-overview.md) |
 | **Svara på databas ändringar** | Kör anpassad logik när ett dokument skapas eller uppdateras i [Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
 | **Köra schemalagda aktiviteter** | Kör kod vid [angivna tider](./functions-bindings-timer.md) |
 | **Skapa Reliable Message Queue-system** | Bearbeta meddelande köer med hjälp av [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md)eller [Event Hubs](./functions-bindings-event-hubs.md) |

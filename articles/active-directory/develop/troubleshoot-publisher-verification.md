@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 4a66db34adb4eb751abc741964b740b3b6f48c69
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 857659cdd97666dba585c1ec22c750e29bf28879
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073741"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169179"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Felsöka verifiering av utgivare
 Om du inte kan slutföra processen eller har oväntad funktion med [utgivar verifieringen](publisher-verification-overview.md), bör du börja med att göra följande om du får fel eller om du får oväntade beteenden: 
@@ -51,8 +51,8 @@ Nedan visas några vanliga problem som kan uppstå under processen.
     1. Gå till din [partner profil](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) och kontrol lera att: 
         - MPN-ID: t är korrekt. 
         - Det finns inga fel eller "väntande åtgärder" visas och verifierings statusen under juridisk företags profil och partner information anger både "auktoriserad" eller "lyckad".
-    1. Gå till [sidan för MPN-klient hantering](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) och bekräfta att klienten som appen är registrerad i och att du loggar med ett användar konto från finns i listan över associerade klienter. Om du behöver lägga till ytterligare en klient, följer du anvisningarna [här](https://docs.microsoft.com/partner-center/multi-tenant-account). Observera att alla globala administratörer för alla klient organisationer som du lägger till beviljas globala administratörs behörigheter på ditt partner Center-konto.
-    1. Gå till [sidan för användar hantering av MPN](https://partner.microsoft.com/pcv/users) och bekräfta att användaren som du loggar in som är antingen en global administratör, MPN-administratör eller konto administratör. Om du behöver lägga till en användare till en roll i Partner Center följer du instruktionerna [här](https://docs.microsoft.com/partner-center/create-user-accounts-and-set-permissions).
+    1. Gå till [sidan för MPN-klient hantering](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) och bekräfta att klienten som appen är registrerad i och att du loggar med ett användar konto från finns i listan över associerade klienter. Om du behöver lägga till ytterligare en klient, följer du anvisningarna [här](/partner-center/multi-tenant-account). Observera att alla globala administratörer för alla klient organisationer som du lägger till beviljas globala administratörs behörigheter på ditt partner Center-konto.
+    1. Gå till [sidan för användar hantering av MPN](https://partner.microsoft.com/pcv/users) och bekräfta att användaren som du loggar in som är antingen en global administratör, MPN-administratör eller konto administratör. Om du behöver lägga till en användare till en roll i Partner Center följer du instruktionerna [här](/partner-center/create-user-accounts-and-set-permissions).
 
 - **När jag loggar in på Azure AD-portalen ser jag inga appar registrerade. Varför?** 
     Dina app-registreringar kan ha skapats med ett annat användar konto i den här klienten, ett personligt/konsument konto eller en annan klient. Se till att du är inloggad med rätt konto i klient organisationen där dina app-registreringar skapades.

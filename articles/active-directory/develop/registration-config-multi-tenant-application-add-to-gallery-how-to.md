@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
-ms.openlocfilehash: 37f305a7564382b9c6c5a031340d81a22cfedbf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0df811f4e8b5d6a95868dfebe192e96fbfa80ed9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120719"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169264"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Lägga till ett program för flera klientorganisationer till Azure AD-programgalleriet
 
@@ -29,9 +29,9 @@ Azure Active Directory (Azure AD) är en molnbaserad identitets tjänst. [Azure 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Om programmet har stöd för SAML eller OpenIDConnect
 Om du har ett program för flera innehavare som du vill ska visas i Azure AD-programgalleriet, måste du först se till att programmet har stöd för någon av följande tekniker för enkel inloggning:
 
-- **OpenID Connect**: om du vill att din app ska visas skapar du ett program för flera innehavare i Azure AD och implementerar [Azure AD medgivande Framework](./consent-framework.md) för ditt program. Skicka inloggningsbegäran till en gemensam slut punkt så att alla kunder kan ge sitt medgivande till programmet. Du kan styra en användares åtkomst baserat på klient-ID och användarens UPN som togs emot i token. Skicka programmet genom att använda processen som beskrivs i ange [ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+- **OpenID Connect**: om du vill att din app ska visas skapar du ett program för flera innehavare i Azure AD och implementerar [Azure AD medgivande Framework](./consent-framework.md) för ditt program. Skicka inloggningsbegäran till en gemensam slut punkt så att alla kunder kan ge sitt medgivande till programmet. Du kan styra en användares åtkomst baserat på klient-ID och användarens UPN som togs emot i token. Skicka programmet genom att använda processen som beskrivs i ange [ditt program i Azure Active Directory program galleriet](./v2-howto-app-gallery-listing.md).
 
-- **SAML**: om ditt program stöder SAML 2,0 kan appen listas i galleriet. Följ anvisningarna i [att lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+- **SAML**: om ditt program stöder SAML 2,0 kan appen listas i galleriet. Följ anvisningarna i [att lista ditt program i Azure Active Directory program galleriet](./v2-howto-app-gallery-listing.md).
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Om programmet inte har stöd för SAML eller OpenIDConnect
 Program som inte stöder SAML eller OpenIDConnect kan fortfarande integreras i app-galleriet via lösen ords teknik för enkel inloggning.
@@ -40,11 +40,11 @@ Med enkel inloggning med lösen ord, även kallat lösen ords valv, kan du hante
 
 Om du vill lista ditt program med den här tekniken:
 1. Skapa ett webb program som har en HTML-inloggnings sida för att konfigurera [enkel inloggning med lösen ord](../manage-apps/what-is-single-sign-on.md). 
-2. Skicka begäran enligt beskrivningen i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+2. Skicka begäran enligt beskrivningen i [lista ditt program i Azure Active Directory program galleriet](./v2-howto-app-gallery-listing.md).
 
 ## <a name="escalations"></a>Förfrågningar
 
 För alla eskaleringar skickar du e-post till [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) så kommer vi tillbaka till dig så snart som möjligt.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du [visar ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
+Lär dig hur du [visar ditt program i Azure Active Directory program galleriet](./v2-howto-app-gallery-listing.md).

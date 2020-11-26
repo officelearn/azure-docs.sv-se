@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1a08aa4261e8d2546d16bb60394829c83604b4cd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 50f57f48ca839c5389df49fc5dc7586030916b6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019967"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169757"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Gör så här: Ange valfria anspråk för din app
 
@@ -49,7 +49,7 @@ Den uppsättning valfria anspråk som är tillgängliga som standard för progra
 
 **Tabell 2: v 1.0 och v 2.0 valfri anspråks uppsättning**
 
-| Name                       |  Beskrivning   | Tokentyp | Användar typ | Kommentarer  |
+| Namn                       |  Beskrivning   | Tokentyp | Användar typ | Obs!  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Tid när användaren senast autentiserades. Se OpenID Connect spec.| JWT        |           |  |
 | `tenant_region_scope`      | Resurs innehavarens region | JWT        |           | |
@@ -67,7 +67,7 @@ Den uppsättning valfria anspråk som är tillgängliga som standard för progra
 | `email`                    | Det adresser bara e-postmeddelandet för den här användaren, om användaren har ett.  | JWT, SAML | MSA, Azure AD | Det här värdet ingår som standard om användaren är en gäst i klienten.  För hanterade användare (användare i klienten) måste det begäras via detta valfria anspråk eller, endast v 2.0, med OpenID-omfånget.  För hanterade användare måste e-postadressen anges i [Office Admin-portalen](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Användarens konto status i klient organisationen | JWT, SAML | | Om användaren är medlem i klienten är värdet `0` . Om de är en gäst är värdet `1` . |
 | `groups`| Valfri formatering för grupp anspråk |JWT, SAML| |Används tillsammans med GroupMembershipClaims-inställningen i [applikations manifestet](reference-app-manifest.md), som även måste anges. Mer information finns i [grupp anspråk](#configuring-groups-optional-claims) nedan. Mer information om grupp anspråk finns i [så här konfigurerar du grupp anspråk](../hybrid/how-to-connect-fed-group-claims.md)
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktig identifierare för användaren och bör inte användas för att unikt identifiera användar information (till exempel som en databas nyckel). Använd i stället användar objekt-ID ( `oid` ) som en databas nyckel. Användare som loggar in med ett [alternativt inloggnings-ID](/azure/active-directory/authentication/howto-authentication-use-email-signin) ska inte visas som användarens huvud namn (UPN). Använd i stället följande ID-token-anspråk för att Visa inloggnings status för användaren: `preferred_username` eller `unique_name` för v1-token och `preferred_username` för v2-token. Även om det här anspråket ingår automatiskt kan du ange det som ett valfritt anspråk för att bifoga ytterligare egenskaper för att ändra dess beteende i gäst användarens ärende.  |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktig identifierare för användaren och bör inte användas för att unikt identifiera användar information (till exempel som en databas nyckel). Använd i stället användar objekt-ID ( `oid` ) som en databas nyckel. Användare som loggar in med ett [alternativt inloggnings-ID](../authentication/howto-authentication-use-email-signin.md) ska inte visas som användarens huvud namn (UPN). Använd i stället följande ID-token-anspråk för att Visa inloggnings status för användaren: `preferred_username` eller `unique_name` för v1-token och `preferred_username` för v2-token. Även om det här anspråket ingår automatiskt kan du ange det som ett valfritt anspråk för att bifoga ytterligare egenskaper för att ändra dess beteende i gäst användarens ärende.  |
 | `idtyp`                    | Tokentyp   | JWT-åtkomsttoken | Special: endast i endast app-åtkomsttoken |  Värdet är `app` när token är en app-only-token. Detta är det mest exakta sättet för ett API för att avgöra om en token är en app-token eller en app + User-token.|
 
 ## <a name="v20-specific-optional-claims-set"></a>v 2.0 – angivna valfria anspråks uppsättningar
@@ -76,7 +76,7 @@ De här anspråken ingår alltid i v 1.0 Azure AD-tokens, men ingår inte i v 2.
 
 **Tabell 3: v 2.0 – endast valfria anspråk**
 
-| JWT-anspråk     | Name                            | Beskrivning                                | Kommentarer |
+| JWT-anspråk     | Namn                            | Beskrivning                                | Kommentarer |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP-adress                      | IP-adressen som klienten loggade in från.   |       |
 | `onprem_sid`  | Lokal säkerhets identifierare |                                             |       |
@@ -85,7 +85,7 @@ De här anspråken ingår alltid i v 1.0 Azure AD-tokens, men ingår inte i v 2.
 | `in_corp`     | Inifrån företagsnätverket        | Signalerar om klienten loggar in från företags nätverket. Om de inte är det inkluderas inte anspråket.   |  Baserat på de [betrodda IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) -inställningarna i MFA.    |
 | `family_name` | Efternamn                       | Innehåller användarens efter namn, efter namn eller familj som definierats i användarobjektet. <br>"family_name": "Miller" | Stöds i MSA och Azure AD. Kräver `profile` omfånget.   |
 | `given_name`  | Förnamn                      | Anger det första eller "tilldelade" namnet på användaren, enligt vad som anges på användarobjektet.<br>"given_name": "Frank"                   | Stöds i MSA och Azure AD.  Kräver `profile` omfånget. |
-| `upn`         | UPN (User Principal Name) | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktig identifierare för användaren och bör inte användas för att unikt identifiera användar information (till exempel som en databas nyckel). Använd i stället användar objekt-ID ( `oid` ) som en databas nyckel. Användare som loggar in med ett [alternativt inloggnings-ID](/azure/active-directory/authentication/howto-authentication-use-email-signin) ska inte visas som användarens huvud namn (UPN). Använd i stället följande ID-token-anspråk för att Visa inloggnings status för användaren: `preferred_username` eller `unique_name` för v1-token och `preferred_username` för v2-token. | Se [Ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för konfiguration av anspråket. Kräver `profile` omfånget.|
+| `upn`         | UPN (User Principal Name) | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktig identifierare för användaren och bör inte användas för att unikt identifiera användar information (till exempel som en databas nyckel). Använd i stället användar objekt-ID ( `oid` ) som en databas nyckel. Användare som loggar in med ett [alternativt inloggnings-ID](../authentication/howto-authentication-use-email-signin.md) ska inte visas som användarens huvud namn (UPN). Använd i stället följande ID-token-anspråk för att Visa inloggnings status för användaren: `preferred_username` eller `unique_name` för v1-token och `preferred_username` för v2-token. | Se [Ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för konfiguration av anspråket. Kräver `profile` omfånget.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfria anspråk
 
@@ -93,7 +93,7 @@ Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returnera
 
 **Tabell 4: värden för konfiguration av valfria anspråk**
 
-| Egenskapsnamn  | Ytterligare egenskaps namn | Description |
+| Egenskapsnamn  | Ytterligare egenskaps namn | Beskrivning |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Kan användas för både SAML-och JWT-svar och för v 1.0-och v 2.0-token. |
 |                | `include_externally_authenticated_upn`  | Inkluderar gäst-UPN som lagrats i resurs klienten. Till exempel `foo_hometenant.com#EXT#@resourcetenant.com` |
@@ -139,7 +139,7 @@ Du kan konfigurera valfria anspråk för ditt program via användar gränssnitte
 1. Välj **Lägg till**.
 
 > [!NOTE]
-> Bladet för **konfiguration** av UI-alternativ är inte tillgängligt för appar som registrerats i en Azure AD B2C klient för närvarande. För program som är registrerade i en B2C-klient kan de valfria anspråken konfigureras genom att ändra applikations manifestet. Mer information finns i [lägga till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input) 
+> Bladet för **konfiguration** av UI-alternativ är inte tillgängligt för appar som registrerats i en Azure AD B2C klient för närvarande. För program som är registrerade i en B2C-klient kan de valfria anspråken konfigureras genom att ändra applikations manifestet. Mer information finns i [lägga till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C](../../active-directory-b2c/custom-policy-configure-user-input.md) 
 
 **Konfigurera valfria anspråk via applikations manifestet:**
 
@@ -186,7 +186,7 @@ Deklarerar de valfria anspråk som begärs av ett program. Ett program kan konfi
 
 **Tabell 5: egenskaper för OptionalClaims-typ**
 
-| Namn          | Typ                       | Description                                           |
+| Namn          | Typ                       | Beskrivning                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Samling (OptionalClaim) | De valfria anspråk som returneras i JWT ID-token.     |
 | `accessToken` | Samling (OptionalClaim) | De valfria anspråk som returneras i JWT-åtkomsttoken. |
@@ -199,7 +199,7 @@ Om det stöds av ett angivet anspråk kan du också ändra beteendet för Option
 
 **Tabell 6: egenskaper för OptionalClaim-typ**
 
-| Namn                   | Typ                    | Description                                                                                                                                                                                                                                                                                                   |
+| Namn                   | Typ                    | Beskrivning                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Namnet på det valfria anspråket.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Källa (katalog objekt) för anspråket. Det finns fördefinierade anspråk och användardefinierade anspråk från tilläggs egenskaper. Om source-värdet är null är anspråket ett fördefinierat valfritt anspråk. Om source-värdet är User är värdet i egenskapen name egenskapen Extension från objektet User. |

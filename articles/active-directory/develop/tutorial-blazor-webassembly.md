@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 5489feeeec64c7b3d4b5fc28eddfe8b780308796
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 09e922ffddcce732d9213eb91026561528c0728a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979886"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169145"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Självstudie: Logga in användare och anropa ett skyddat API från en blixt WebAssembly-app
 
@@ -26,9 +26,9 @@ I de här självstudierna har du
 > [!div class="checklist"]
 >
 > * Skapa en ny konfigurations program för Windows-webbsammansättning som kon figurer ATS för att använda Azure Active Directory (Azure AD) för [autentisering och auktorisering](authentication-vs-authorization.md) med hjälp av Microsoft Identity Platform
-> * Hämta data från ett skyddat webb-API, i det här fallet [Microsoft Graph](https://docs.microsoft.com/graph/overview)
+> * Hämta data från ett skyddat webb-API, i det här fallet [Microsoft Graph](/graph/overview)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [.NET Core 3,1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 * En Azure AD-klient där du kan registrera en app. Om du inte har åtkomst till en Azure AD-klient kan du skaffa en genom att registrera dig hos [Microsoft 365 Developer-programmet](https://developer.microsoft.com/microsoft-365/dev-program) eller genom att skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free).

@@ -3,12 +3,12 @@ title: Utveckla och kör Azure Functions lokalt
 description: Lär dig att koda och testa Azure Functions på den lokala datorn innan du kör dem på Azure Functions.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: c011dff9f43de59d3f08445a7bbd5387b27563ad
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 9c37d51abcc8d612b777b845515cf07666369d4f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920040"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168142"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Koda och testa Azure Functions lokalt
 
@@ -20,7 +20,7 @@ Hur du utvecklar funktioner på din lokala dator beror på [språk](supported-la
 
 |Miljö                              |Språk         |Beskrivning|
 |-----------------------------------------|------------|---|
-|[Visual Studio Code](functions-develop-vs-code.md)| [C# (klass bibliotek)](functions-dotnet-class-library.md), [c#-skript (. CSX)](functions-reference-csharp.md), [Java Script](functions-reference-node.md), [PowerShell](./create-first-function-vs-code-powershell.md), [python](functions-reference-python.md) | [Azure Functions-tillägget för vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) lägger till funktioner som stöder vs Code. Kräver kärn verktyg. Stöder utveckling av Linux, MacOS och Windows när du använder version 2. x av kärn verktygen. Mer information finns i [skapa din första funktion med Visual Studio Code](functions-create-first-function-vs-code.md). |
+|[Visual Studio Code](functions-develop-vs-code.md)| [C# (klass bibliotek)](functions-dotnet-class-library.md), [c#-skript (. CSX)](functions-reference-csharp.md), [Java Script](functions-reference-node.md), [PowerShell](./create-first-function-vs-code-powershell.md), [python](functions-reference-python.md) | [Azure Functions-tillägget för vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) lägger till funktioner som stöder vs Code. Kräver kärn verktyg. Stöder utveckling av Linux, MacOS och Windows när du använder version 2. x av kärn verktygen. Mer information finns i [skapa din första funktion med Visual Studio Code](./create-first-function-vs-code-csharp.md). |
 | [Kommando tolk eller Terminal](functions-run-local.md) | [C# (klass bibliotek)](functions-dotnet-class-library.md), [c#-skript (. CSX)](functions-reference-csharp.md), [Java Script](functions-reference-node.md), [PowerShell](functions-reference-powershell.md), [python](functions-reference-python.md) | [Azure Functions Core tools] tillhandahåller kärn körning och mallar för att skapa funktioner som möjliggör lokal utveckling. Version 2. x stöder utveckling på Linux, MacOS och Windows. Alla miljöer förlitar sig på kärn verktyg för den lokala Functions-körningen. |
 | [Visual Studio 2019](functions-develop-vs.md) | [C# (klassbibliotek)](functions-dotnet-class-library.md) | Azure Functions verktyg ingår i **Azure Development** -arbetsbelastningen för [Visual Studio 2019](https://www.visualstudio.com/vs/) och senare versioner. Gör att du kan kompilera funktioner i ett klass bibliotek och publicera. dll-filen på Azure. Innehåller kärn verktygen för lokal testning. Läs mer i [utveckla Azure Functions med Visual Studio](functions-develop-vs.md). |
 | [Maven](./create-first-function-cli-java.md) (olika) | [Java](functions-reference-java.md) | Integrerar med Core-verktyg för att möjliggöra utveckling av Java-funktioner. Version 2. x stöder utveckling på Linux, MacOS och Windows. Mer information finns i [skapa din första funktion med Java och maven](./create-first-function-cli-java.md). Har även stöd för utveckling med [Sol förmörkelse](functions-create-maven-eclipse.md) och [IntelliJ idé](functions-create-maven-intellij.md) |

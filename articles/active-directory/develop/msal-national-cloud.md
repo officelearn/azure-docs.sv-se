@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d899fe7f84a8708bb8ee32cc008567b272a885c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705868"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169383"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Använda MSAL i en nationell moln miljö
 
@@ -49,7 +49,7 @@ När du har bestämt dig är det viktigt att du utför registreringen av appen. 
 
 ### <a name="get-an-azure-government-subscription"></a>Hämta en Azure Government-prenumeration
 
-Information om hur du hämtar en Azure Government-prenumeration finns [i hantera och ansluta till din prenumeration i Azure Government](../../azure-government/documentation-government-manage-subscriptions.md).
+Information om hur du hämtar en Azure Government-prenumeration finns [i hantera och ansluta till din prenumeration i Azure Government](../../azure-government/compare-azure-government-global-azure.md).
 
 Om du inte har en Azure Government prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/global-infrastructure/government/request/) innan du börjar.
 
@@ -77,7 +77,7 @@ Så här aktiverar du MSAL.js program för suveräna moln:
 1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet och ställer in din portal-session till önskad Azure AD-klient.
 1. Gå till sidan [Appregistreringar](https://aka.ms/ra/ff) på Microsoft Identity Platform för utvecklare.
 1. När sidan **Registrera ett program** visas anger du ett namn för programmet.
-1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog**.
+1. Under **konto typer som stöds** väljer du **konton i valfri organisations katalog**.
 1. I avsnittet **omdirigerings-URI** väljer du **webb** plattform och anger värdet till programmets URL-adress baserat på din webb server. I nästa avsnitt finns anvisningar om hur du ställer in och hämtar omdirigerings-URL: en i Visual Studio och Node.
 1. Välj **Register** (Registrera).
 1. På appens sida **Översikt** antecknar du värdet för **Application (client) ID** (Program-ID (klient)).
@@ -124,8 +124,8 @@ I den koden:
 
 - `Enter_the_Application_Id_here` är **programmets (klient) ID-** värdet för det program som du har registrerat.
 - `Enter_the_Tenant_Info_Here` är inställt på något av följande alternativ:
-    - Om ditt program har stöd **för konton i den här organisations katalogen**ersätter du värdet med klient-ID eller klient namn (till exempel contoso.Microsoft.com).
-    - Om ditt program har stöd **för konton i en organisations katalog**ersätter du värdet med `organizations` .
+    - Om ditt program har stöd **för konton i den här organisations katalogen** ersätter du värdet med klient-ID eller klient namn (till exempel contoso.Microsoft.com).
+    - Om ditt program har stöd **för konton i en organisations katalog** ersätter du värdet med `organizations` .
 
     För att hitta autentiserings slut punkter för alla nationella moln, se [Azure AD-autentiseringens slut punkter](./authentication-national-cloud.md#azure-ad-authentication-endpoints).
 

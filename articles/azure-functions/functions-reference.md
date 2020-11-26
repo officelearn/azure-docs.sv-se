@@ -4,12 +4,12 @@ description: Lär dig Azure Functions koncept och tekniker som du behöver för 
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 9a3c0643f4fc965ff64106758320aeb445aaf9ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54bfd770fba9a1766396d66c0c263111c233c9c2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85921732"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167887"
 ---
 # <a name="azure-functions-developer-guide"></a>Utvecklarguide för Azure Functions
 I Azure Functions delar specifika funktioner några viktiga tekniska koncept och komponenter, oavsett vilket språk eller vilken bindning du använder. Innan du hoppar till inlärnings information som är specifik för ett specifikt språk eller en bindning bör du läsa igenom den här översikten som gäller för alla.
@@ -61,7 +61,7 @@ Ovanstående är standard mappstrukturen för en Function-app. Om du vill ändra
 > Om du distribuerar ett paket manuellt ska du se till att distribuera _host.jspå_ fil-och funktions-mappar direkt till `wwwroot` mappen. Inkludera inte `wwwroot` mappen i dina distributioner. Annars slutar du med `wwwroot\wwwroot` mappar.
 
 #### <a name="use-local-tools-and-publishing"></a>Använd lokala verktyg och publicera
-Function-appar kan skapas och publiceras med en rad olika verktyg, inklusive [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [Sol förmörkelse](./functions-create-maven-eclipse.md)och [Azure Functions Core tools](./functions-develop-local.md). Mer information finns i [kod-och test Azure Functions lokalt](./functions-develop-local.md).
+Function-appar kan skapas och publiceras med en rad olika verktyg, inklusive [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](./create-first-function-vs-code-csharp.md), [IntelliJ](./functions-create-maven-intellij.md), [Sol förmörkelse](./functions-create-maven-eclipse.md)och [Azure Functions Core tools](./functions-develop-local.md). Mer information finns i [kod-och test Azure Functions lokalt](./functions-develop-local.md).
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 

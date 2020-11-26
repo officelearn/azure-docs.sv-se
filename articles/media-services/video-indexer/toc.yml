@@ -54,6 +54,7 @@
     - name: Undersöka utdata för Video Indexer
       href: video-indexer-output-json-v2.md
     - name: Hitta exakta ögonblick i videor
+      displayName: search
       href: video-indexer-search.md
     - name: 'Hitta scener, klipp och nyckelbilder'
       href: scenes-shots-keyframes.md

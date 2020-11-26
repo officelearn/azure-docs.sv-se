@@ -4,12 +4,12 @@ description: Lär dig hur du kan distribuera kod till Azure Functions på olika 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 3988f30d0e6429a8cac450711d4033e4b2603d46
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 7a75408008a90a2c40553b1f6c5c196775a48e61
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900168"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168108"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Distributions tekniker i Azure Functions
 
@@ -86,7 +86,7 @@ Följande [program inställningar](functions-how-to-use-azure-function-app-setti
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-Som standard är både [Azure Functions Core tools](functions-run-local.md) och [Azure Functions-tillägget för Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) utför fjärran slutna versioner vid distribution till Linux. På grund av detta skapar båda verktygen automatiskt de här inställningarna för dig i Azure.
+Som standard är både [Azure Functions Core tools](functions-run-local.md) och [Azure Functions-tillägget för Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) utför fjärran slutna versioner vid distribution till Linux. På grund av detta skapar båda verktygen automatiskt de här inställningarna för dig i Azure.
 
 När appar har skapats via fjärr anslutning i Linux [körs de från distributions paketet](run-functions-from-deployment-package.md).
 
@@ -185,7 +185,7 @@ I det portalbaserade redigerings programmet kan du redigera filerna som finns i 
 
 >__När du ska använda den:__ Portalen är ett bra sätt att komma igång med Azure Functions. För mer intensiv utvecklings arbete rekommenderar vi att du använder något av följande klient verktyg:
 >
->* [Visual Studio Code](functions-create-first-function-vs-code.md)
+>* [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 >* [Azure Functions Core Tools (kommando rad)](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
@@ -210,7 +210,7 @@ När du gör en distribution kan alla befintliga körningar slutföras, och tids
 
 Om du behöver mer kontroll över den här över gången bör du använda distributions platser.
 
-## <a name="deployment-slots"></a>Distributionsfack
+## <a name="deployment-slots"></a>Distributionsplatser
 
 När du distribuerar din Function-app till Azure kan du distribuera till en separat distributions plats i stället för direkt till produktion. Mer information om distributions platser finns i dokumentationen för [Azure Functions distributions fack](functions-deployment-slots.md) för mer information.
 

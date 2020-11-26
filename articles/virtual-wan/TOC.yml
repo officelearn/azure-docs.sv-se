@@ -67,6 +67,10 @@
           href: virtual-wan-ipsec.md
         - name: Flera ISP-länkar – val av Azure-sökväg
           href: path-selection-multiple-links.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Prissättningsbegrepp
       href: pricing-concepts.md
     - name: Om NVA i den virtuell hubb

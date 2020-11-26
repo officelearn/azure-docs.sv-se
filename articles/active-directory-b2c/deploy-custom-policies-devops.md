@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4dd9f98f174144cef455157162694a470aa1065f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2652bd8ed33eb68e228f059fba9daa3c6e7c22da
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951779"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170165"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Distribuera anpassade principer med Azure-pipeliner
 
@@ -29,9 +29,9 @@ Det finns tre primära steg som krävs för att aktivera Azure-pipelines för at
 1. Konfigurera en Azure-pipeline
 
 > [!IMPORTANT]
-> Hantering av Azure AD B2C anpassade principer med en Azure-pipeline använder för närvarande för **hands versions** åtgärder som är tillgängliga i Microsoft Graph API- `/beta` slutpunkten. Användning av dessa API:er i produktionsprogram stöds inte. Mer information finns i referens för [Microsoft Graph REST API beta-slutpunkt](/graph/api/overview?toc=.%252fref%252ftoc.json&view=graph-rest-beta).
+> Hantering av Azure AD B2C anpassade principer med en Azure-pipeline använder för närvarande för **hands versions** åtgärder som är tillgängliga i Microsoft Graph API- `/beta` slutpunkten. Användning av dessa API:er i produktionsprogram stöds inte. Mer information finns i referens för [Microsoft Graph REST API beta-slutpunkt](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Azure AD B2C klient organisation](tutorial-create-tenant.md)och autentiseringsuppgifter för en användare i katalogen med rollen [B2C IEF princip administratör](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Anpassade principer](custom-policy-get-started.md) har laddats upp till din klient

@@ -14,18 +14,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: 7e53e21b6d929e2f0ba9a2e23e4e8e1b2278f828
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 3f5791bfcf6547b7fc4e84bee3d4c1c49453af9c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209898"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169502"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>Gör så här: aktivera enkel inloggning mellan appar på Android med MSAL
 
 Enkel inloggning (SSO) gör det möjligt för användare att bara ange sina autentiseringsuppgifter en gång och låta dessa autentiseringsuppgifter automatiskt fungera mellan program.
 
-[Microsoft Identity Platform](/azure/active-directory/develop/) och Microsoft Authentication Library (MSAL) hjälper dig att aktivera SSO i din egen uppsättning appar. Med hanterings funktionerna för Service Broker och autentiserare kan du utöka SSO över hela enheten.
+[Microsoft Identity Platform](./index.yml) och Microsoft Authentication Library (MSAL) hjälper dig att aktivera SSO i din egen uppsättning appar. Med hanterings funktionerna för Service Broker och autentiserare kan du utöka SSO över hela enheten.
 
 I den här instruktionen får du lära dig hur du konfigurerar SDK: er som används av ditt program för att tillhandahålla enkel inloggning till dina kunder.
 
@@ -33,7 +33,7 @@ I den här instruktionen får du lära dig hur du konfigurerar SDK: er som anvä
 
 Den här instruktionen förutsätter att du vet hur du:
 
-- Etablera din app med hjälp av Azure Portal. Mer information om det här ämnet finns i anvisningarna för att skapa en app i [Android-kursen](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#create-a-project)
+- Etablera din app med hjälp av Azure Portal. Mer information om det här ämnet finns i anvisningarna för att skapa en app i [Android-kursen](./tutorial-v2-android.md#create-a-project)
 - Integrera ditt program med [Microsoft Authentication Library för Android](https://github.com/AzureAD/microsoft-authentication-library-for-android).
 
 ## <a name="methods-for-single-sign-on"></a>Metoder för enkel inloggning
@@ -81,7 +81,7 @@ Om en enhet inte redan har en Service Broker-app installerad instruerar MSAL anv
 
 När en Broker installeras på en enhet hanteras alla efterföljande interaktiva Tokenbegäran (anrop till `acquireToken()` ) av Service Broker i stället för lokalt av MSAL. SSO-tillstånd som tidigare var tillgängligt för MSAL är inte tillgängligt för Broker. Detta innebär att användaren måste autentisera igen eller välja ett konto i den befintliga listan över konton som är kända för enheten.
 
-Att installera en Broker kräver inte att användaren loggar in igen. Endast när användaren behöver matcha en `MsalUiRequiredException` skickas nästa begäran till Service Broker. `MsalUiRequiredException` kan genereras av flera olika orsaker och måste lösas interaktivt. Exempel:
+Att installera en Broker kräver inte att användaren loggar in igen. Endast när användaren behöver matcha en `MsalUiRequiredException` skickas nästa begäran till Service Broker. `MsalUiRequiredException` kan genereras av flera olika orsaker och måste lösas interaktivt. Ett exempel:
 
 - Användaren ändrade lösen ordet som är kopplat till sitt konto.
 - Användarens konto uppfyller inte längre en princip för villkorlig åtkomst.
@@ -117,7 +117,7 @@ Windows:
 keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
-När du har genererat en signatur-hash med ett- *verktyg*använder du Azure Portal för att generera omdirigerings-URI: n:
+När du har genererat en signatur-hash med ett- *verktyg* använder du Azure Portal för att generera omdirigerings-URI: n:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och välj din Android-app i **Appregistreringar**.
 1. Välj **autentisering**  >  **Lägg till en plattforms**-  >  **Android**.

@@ -79,6 +79,46 @@
               href: sync-ldap.md
             - name: SCIM-synkronisering
               href: sync-scim.md
+        - name: Utveckla för motståndskraft
+          items:
+            - name: Översikt
+              href: resilience-overview.md
+            - name: Vägledning för infrastruktur
+              items:
+                - name: Översikt av infrastruktur
+                  href: resilience-in-infrastructure.md
+                - name: Hantering av autentiseringsuppgifter
+                  href: resilience-in-credentials.md
+                - name: Enhetstillstånd
+                  href: resilience-with-device-states.md
+                - name: Utvärdering av kontinuerlig åtkomst
+                  href: resilience-with-continuous-access-evaluation.md
+                - name: Autentisering av externa användare
+                  href: resilience-b2b-authentication.md
+                - name: Hybridautentisering
+                  href: resilience-in-hybrid.md
+                - name: Programproxy
+                  href: resilience-on-premises-access.md
+            - name: Vägledning för Azure AD B2C
+              items:
+                - name: Azure AD B2C – introduktion till motståndskraft
+                  href: resilience-b2c.md
+                - name: Slutanvändarens upplevelse
+                  href: resilient-end-user-experience.md
+                - name: Gränssnitt med externa processer
+                  href: resilient-external-processes.md
+                - name: Bästa praxis för Azure AD B2C-utvecklare
+                  href: resilience-b2c-developer-best-practices.md
+                - name: Övervakning och analys
+                  href: resilience-with-monitoring-alerting.md
+            - name: Vägledning för programutveckling
+              items:
+                - name: Utvecklingsöversikt
+                  href: resilience-app-development-overview.md
+                - name: Klientprogram
+                  href: resilience-client-app.md
+                - name: Daemon-program
+                  href: resilience-daemon-app.md
         - name: Certifikatutfärdare som används i Azure
           href: certificate-authorities.md
     - name: Distributionsguide

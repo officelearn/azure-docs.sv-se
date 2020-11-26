@@ -445,61 +445,72 @@
           href: quickstart-create-apache-spark-pool-studio.md
     - name: Självstudier
       items:
-        - name: Kör Apache Spark-program
-          href: ./spark/intellij-tool-synapse.md
-          displayname: intellij
-        - name: Köra PySpark-program för Spark-pooler
-          href: ./spark/vscode-tool-synapse.md
-        - name: Spark-jobbdefinitioner
+        - name: Datavisualisering med Synapse Studio-notebook-filer
+          href: ./spark/apache-spark-data-visualization-tutorial.md
+        - name: Analysera data med Apache Spark och Power BI
+          href: ./spark/apache-spark-to-power-bi.md
+        - name: Skapa maskininlärningsmodeller
+          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+        - name: Skicka Spark-jobbdefinitioner
           href: ./spark/apache-spark-job-definitions.md
     - name: Begrepp
       items:
-        - name: Apache Spark-begrepp
+        - name: Apache Spark
           href: ./spark/apache-spark-concepts.md
-        - name: Vad är Delta Lake
+        - name: Data Lake
           href: ./spark/apache-spark-what-is-delta-lake.md
-        - name: Funktionell Delta Lake-översikt
-          href: ./spark/apache-spark-delta-lake-overview.md
-        - name: Apache Spark-prestanda
-          href: ./spark/apache-spark-performance.md
-        - name: Prestandaoptimering för Apache Spark med hjälp av Hyperspace-index
-          href: ./spark/apache-spark-performance-hyperspace.md
-        - name: Beteende för automatisk skalning i Apache Spark
+        - name: Beteende för Apache Spark-autoskalning
           href: ./spark/apache-spark-autoscale.md
-        - name: Utveckling
+        - name: Synapse-körningar
+          href: ./spark/apache-spark-version-support.md
+        - name: Maskininlärning
+          href: ./spark/apache-spark-machine-learning-concept.md
+        - name: Notebooks
+          href: ./spark/apache-spark-notebook-concept.md
+        - name: Övervakningsverktyg
+          href: monitoring/how-to-monitor-spark-applications.md
+    - name: Anvisningar
+      items:
+        - name: Arbeta med Delta Lake
+          href: ./spark/apache-spark-delta-lake-overview.md
+        - name: Hantera bibliotek
+          href: ./spark/apache-spark-azure-portal-add-libraries.md
+        - name: Använda anteckningsböcker
           items:
-            - name: Bibliotek
-              items:
-                - name: Lägg till och hantera bibliotek
-                  href: ./spark/apache-spark-azure-portal-add-libraries.md
-                - name: Stöd för körningsspråk och bibliotek
-                  href: ./spark/apache-spark-version-support.md
-            - name: Azure Synapse Studio-notebook-filer
+            - name: Hantera anteckningsböcker
               href: ./spark/apache-spark-development-using-notebooks.md
-            - name: Skydda autentiseringsuppgifter med TokenLibrary
-              href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
+            - name: Visualisera data
+              href: ./spark/apache-spark-data-visualization.md
+            - name: Ansluta till Spark med IntelliJ-plugin-programmet
+              href: ./spark/intellij-tool-synapse.md
+            - name: Ansluta till Spark-pooler med VSCode
+              href: ./spark/vscode-tool-synapse.md
+        - name: Utforska språk
+          items:
             - name: .NET för Apache Spark
               href: ./spark/spark-dotnet.md
-        - name: Övervakning
+        - name: Säkerhet
+          items:
+            - name: Skydda autentiseringsuppgifter med TokenLibrary
+              href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
+        - name: Optimera prestanda
+          items:
+            - name: Apache Spark-prestanda
+              href: ./spark/apache-spark-performance.md
+            - name: Prestandaoptimering för Apache Spark med hjälp av Hyperspace-index
+              href: ./spark/apache-spark-performance-hyperspace.md
+        - name: Hantera och övervaka
           items:
             - name: Historikserver för Spark-pool
               href: ./spark/apache-spark-history-server.md
-    - name: Anvisningar
-      items:
-        - name: Hantera och övervaka
-          items:
-            - name: Apache Spark-program
-              href: monitoring/how-to-monitor-spark-applications.md
-            - name: Information om Apache Spark-program
+            - name: Övervaka Spark-program
               href: monitoring/apache-spark-applications.md
-            - name: Analysera JSON med Apache Spark
-              href: how-to-analyze-complex-schema.md
         - name: Mata in och förbereda data
           items:
-            - name: Till informationslagret
-              items:
-                - name: Importera och exportera data med Apache Spark
-                  href: ./spark/synapse-spark-sql-pool-import-export.md
+            - name: SQL Data Warehouse
+              href: ./spark/synapse-spark-sql-pool-import-export.md
+            - name: Analysera JSON
+              href: how-to-analyze-complex-schema.md
 - name: Synapse Link
   items:
     - name: Översikt
@@ -616,6 +627,8 @@
               href: ../data-factory/connector-azure-database-for-mysql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure Database for PostgreSQL
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Azure Databricks Delta Lake
+              href: ../data-factory/connector-azure-databricks-delta-lake.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure SQL Database
@@ -959,8 +972,8 @@
               href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Felsökning av anslutningsprogram
               href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Felsökning av verktyget Kopiera data
-              href: ../data-factory/copy-data-tool-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Säkerhet och åtkomstkontroll
+              href: ../data-factory/security-and-access-control-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Felsökning av lokalt installerad integrationskörning
               href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Machine Learning
@@ -973,15 +986,22 @@
       items:
         - name: Skapa en ny länkad tjänst för Azure Machine Learning
           href: machine-learning/quickstart-integrate-azure-machine-learning.md
+    - name: Begrepp
+      items:
+        - name: Inlärningsmodeller
+          href: ./spark/apache-spark-machine-learning-training.md
     - name: Självstudier
       items:
+        - name: Visualisera data med Apache Spark
+          href: ./spark/apache-spark-data-visualization-tutorial.md
+          displayname: machine learning
         - name: Guide till modellbedömning för SQL-pooler
           href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
         - name: Köra ett regressionsexperiment med Azure AutoML
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
           displayname: machine learning
-        - name: Skapa en Apache Spark-maskininlärningsapp
+        - name: Skapa en maskininlärningsmodell med Apache Spark MLlib
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
           displayname: machine learning
 - name: Referens
@@ -1046,5 +1066,9 @@
           href: ./sql-data-warehouse/sql-data-warehouse-partner-data-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Maskininlärning och AI
           href: ./sql-data-warehouse/sql-data-warehouse-partner-machine-learning-ai.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Systemintegrering
+          href: ./sql-data-warehouse/sql-data-warehouse-partner-system-integration.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Offentlig förhandsversion – partner
           href: ./sql-data-warehouse/sql-data-warehouse-partner-launch.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Kompatibilitetsproblem med program från tredje part
+          href: ./sql-data-warehouse/sql-data-warehouse-partner-compatibility-issues.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

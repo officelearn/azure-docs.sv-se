@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: daf40a2ced3f753619e9c4723dbe78cd7e51ff21
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: c1604d79ce5eb9949028cd677b340bf3d4b09f6c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577914"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172847"
 ---
 # <a name="oauth-20-authentication-with-azure-active-directory"></a>OAuth 2,0-autentisering med Azure Active Directory
 
@@ -34,20 +34,19 @@ För avancerade klient & moderna app-scenarier och RESTful Web API-åtkomst.
 
 ## <a name="components-of-system"></a>System komponenter
 
-* **Användare** : begär en tjänst från webb programmet (app). Användaren är vanligt vis resurs ägaren som äger data och har behörighet att tillåta klienter att komma åt data eller resursen. 
+* **Användare**: begär en tjänst från webb programmet (app). Användaren är vanligt vis resurs ägaren som äger data och har behörighet att tillåta klienter att komma åt data eller resursen. 
 
-* **Webbläsare** : den webbläsare som användaren interagerar med är OAuth-klienten. 
+* **Webbläsare**: den webbläsare som användaren interagerar med är OAuth-klienten. 
 
-* **Webbapp** : webbappen eller resurs servern, är den plats där resursen eller data finns. Den litar på auktoriseringsservern för att autentisera och auktorisera OAuth-klienten på ett säkert sätt. 
+* **Webbapp**: webbappen eller resurs servern, är den plats där resursen eller data finns. Den litar på auktoriseringsservern för att autentisera och auktorisera OAuth-klienten på ett säkert sätt. 
 
-* **Azure AD** : Azure AD är auktoriseringsservern, som även kallas identitets leverantör (IdP). Det hanterar säkert vad som helst att göra med användarens information, deras åtkomst och förtroende relationen. Det ansvarar för att utfärda de token som beviljar och återkallar åtkomst till resurser.
+* **Azure AD**: Azure AD är auktoriseringsservern, som även kallas identitets leverantör (IdP). Det hanterar säkert vad som helst att göra med användarens information, deras åtkomst och förtroende relationen. Det ansvarar för att utfärda de token som beviljar och återkallar åtkomst till resurser.
 
 ## <a name="implement-oauth-20-with-azure-ad"></a>Implementera OAuth 2,0 med Azure AD
 
-* [Integrera program med Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Integrera program med Azure AD](../saas-apps/tutorial-list.md) 
 
-* [OAuth 2,0-och OpenID Connect-protokoll på Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 
+* [OAuth 2,0-och OpenID Connect-protokoll på Microsoft Identity Platform](../develop/active-directory-v2-protocols.md) 
 
-* [Program typer och OAuth2](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) 
+* [Program typer och OAuth2](../develop/v2-app-types.md) 
 
- 

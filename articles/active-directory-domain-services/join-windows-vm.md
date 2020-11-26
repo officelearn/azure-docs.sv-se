@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 3df96f5576829694b5eb12fd1811de112279884d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5481dbfe1f7b185e87ee13f26f23ea563350b0fa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963235"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171797"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: ansluta en virtuell Windows Server-dator till en Azure Active Directory Domain Services hanterad domän
 
@@ -58,11 +58,11 @@ Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare ti
 
 1. Från Azure Portal-menyn eller från **Start** sidan väljer du **skapa en resurs**.
 
-1. Från **Kom igång**väljer du **Windows Server 2016 Data Center**.
+1. Från **Kom igång** väljer du **Windows Server 2016 Data Center**.
 
     ![Välj att skapa en virtuell Windows Server 2016 datacenter-dator i Azure Portal](./media/join-windows-vm/select-vm-image.png)
 
-1. I fönstret **grundläggande** inställningar konfigurerar du kärn inställningarna för den virtuella datorn. Lämna standardinställningarna för *tillgänglighets alternativ*, *bild*och *storlek*.
+1. I fönstret **grundläggande** inställningar konfigurerar du kärn inställningarna för den virtuella datorn. Lämna standardinställningarna för *tillgänglighets alternativ*, *bild* och *storlek*.
 
     | Parameter            | Föreslaget värde   |
     |----------------------|-------------------|
@@ -70,16 +70,16 @@ Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare ti
     | Namn på virtuell dator | Ange ett namn för den virtuella datorn, till exempel *myVM* |
     | Region               | Välj region för att skapa din virtuella dator i, t. ex. *USA, östra* |
     | Användarnamn             | Ange ett användar namn för det lokala administratörs kontot som ska skapas på den virtuella datorn, till exempel *azureuser* |
-    | lösenordsinställning             | Ange och bekräfta sedan ett säkert lösen ord för den lokala administratören som ska skapas på den virtuella datorn. Ange inte autentiseringsuppgifter för ett domän användar konto. |
+    | Lösenord             | Ange och bekräfta sedan ett säkert lösen ord för den lokala administratören som ska skapas på den virtuella datorn. Ange inte autentiseringsuppgifter för ett domän användar konto. |
 
 1. Som standard är virtuella datorer som skapats i Azure tillgängliga från Internet via RDP. När RDP är aktiverat, kommer automatiska inloggnings attacker att uppstå, vilket kan inaktivera konton med vanliga namn som *administratör* eller *administratör* på grund av flera misslyckade inloggnings försök.
 
     RDP bör endast aktive ras vid behov, och begränsas till en uppsättning auktoriserade IP-intervall. Den här konfigurationen hjälper till att förbättra säkerheten på den virtuella datorn och minskar risken för potentiella angrepp. Du kan också skapa och använda en Azure skydds-värd som endast tillåter åtkomst via Azure Portal via TLS. I nästa steg i den här självstudien använder du en Azure skydds-värd för att ansluta till den virtuella datorn på ett säkert sätt.
 
-    Under **offentliga inkommande portar**väljer du *ingen*.
+    Under **offentliga inkommande portar** väljer du *ingen*.
 
 1. När du är färdig väljer du **Nästa: diskar**.
-1. Välj *standard SSD*på den nedrullningsbara menyn för **typ av operativ system disk**och välj sedan **Nästa: nätverk**.
+1. Välj *standard SSD* på den nedrullningsbara menyn för **typ av operativ system disk** och välj sedan **Nästa: nätverk**.
 1. Din virtuella dator måste ansluta till ett virtuellt nätverk i Azure som kan kommunicera med det undernät som din hanterade domän har distribuerats till. Vi rekommenderar att en hanterad domän distribueras till ett eget dedikerat undernät. Distribuera inte den virtuella datorn i samma undernät som den hanterade domänen.
 
     Det finns två huvudsakliga sätt att distribuera den virtuella datorn och ansluta till ett lämpligt virtuellt nätverks under nät:
@@ -102,15 +102,15 @@ Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare ti
 
     ![Lägg till ytterligare ett IP-adressintervall för virtuellt nätverk i Azure Portal](./media/join-windows-vm/add-vnet-address-range.png)
 
-1. Sedan väljer du **undernät**på menyn till vänster i fönstret virtuellt nätverk och väljer sedan **+ undernät** för att lägga till ett undernät.
+1. Sedan väljer du **undernät** på menyn till vänster i fönstret virtuellt nätverk och väljer sedan **+ undernät** för att lägga till ett undernät.
 
-1. Välj **+ undernät**och ange sedan ett namn för under nätet, till exempel *hantering*. Ange ett **adress intervall (CIDR-block)**, till exempel *10.0.5.0/24*. Kontrol lera att detta IP-adressintervall inte överlappar andra befintliga Azure-eller lokala adress intervall. Lämna de andra alternativen som standardvärden och välj sedan **OK**.
+1. Välj **+ undernät** och ange sedan ett namn för under nätet, till exempel *hantering*. Ange ett **adress intervall (CIDR-block)**, till exempel *10.0.5.0/24*. Kontrol lera att detta IP-adressintervall inte överlappar andra befintliga Azure-eller lokala adress intervall. Lämna de andra alternativen som standardvärden och välj sedan **OK**.
 
     ![Skapa en under näts konfiguration i Azure Portal](./media/join-windows-vm/create-subnet.png)
 
 1. Det tar några sekunder att skapa under nätet. När den har skapats väljer du *X* för att stänga under näts fönstret.
 1. Gå tillbaka till fönstret **nätverk** för att skapa en virtuell dator och välj det undernät som du skapade i den nedrullningsbara menyn, till exempel *hantering*. Se till att du väljer rätt undernät och distribuera inte den virtuella datorn i samma undernät som den hanterade domänen.
-1. För **offentlig IP-adress**väljer du *ingen* på den nedrullningsbara menyn. När du använder Azure-skydds i den här självstudien för att ansluta till-hanteringen behöver du inte någon offentlig IP-adress som tilldelats den virtuella datorn.
+1. För **offentlig IP-adress** väljer du *ingen* på den nedrullningsbara menyn. När du använder Azure-skydds i den här självstudien för att ansluta till-hanteringen behöver du inte någon offentlig IP-adress som tilldelats den virtuella datorn.
 1. Lämna de andra alternativen som standardvärden och välj sedan **hantering**.
 1. Ange att **startdiagnostik** ska *stängas av*. Lämna de andra alternativen som standardvärden och välj sedan **Granska + skapa**.
 1. Granska inställningarna för den virtuella datorn och välj sedan **skapa**.
@@ -125,7 +125,7 @@ Använd en Azure skydds-värd för att på ett säkert sätt ansluta till dina v
 
 Utför följande steg för att använda en skydds-värd för att ansluta till din virtuella dator:
 
-1. I **översikts** fönstret för den virtuella datorn väljer du **Anslut**och sedan **skydds**.
+1. I **översikts** fönstret för den virtuella datorn väljer du **Anslut** och sedan **skydds**.
 
     ![Ansluta till en virtuell Windows-dator med skydds i Azure Portal](./media/join-windows-vm/connect-to-vm.png)
 
@@ -140,7 +140,7 @@ Om det behövs kan du tillåta att webbläsaren öppnar popup-fönster för att 
 När den virtuella datorn har skapats och en webbaserad RDP-anslutning har etablerats med hjälp av Azure skydds kan du nu ansluta den virtuella Windows Server-datorn till den hanterade domänen. Den här processen är samma som en dator som ansluter till en vanlig lokal Active Directory Domain Services domän.
 
 1. Om **Serverhanteraren** inte öppnas som standard när du loggar in på den virtuella datorn väljer du **Start** -menyn och väljer **Serverhanteraren**.
-1. I den vänstra rutan i fönstret **Serverhanteraren** väljer du **lokal server**. Välj **arbets grupp**under **Egenskaper** i den högra rutan.
+1. I den vänstra rutan i fönstret **Serverhanteraren** väljer du **lokal server**. Välj **arbets grupp** under **Egenskaper** i den högra rutan.
 
     ![Öppna Serverhanteraren på den virtuella datorn och redigera arbets grupps egenskapen](./media/join-windows-vm/server-manager.png)
 
@@ -246,5 +246,5 @@ Om du vill administrera en hanterad domän konfigurerar du en virtuell hantering
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [password-sync]: ./tutorial-create-instance.md
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

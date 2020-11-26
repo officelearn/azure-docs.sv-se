@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 846c47017ba2887c287dd080c44c46b372660d0e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 016a2917c02deaecf35c526426cb2a6dbc89e338
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443610"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173200"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>En webbapp som anropar webb-API: er: anropa ett webb-API
 
@@ -152,7 +152,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > Du kan använda samma princip för att anropa alla webb-API: er.
 >
-> De flesta Azure-webb-API: er tillhandahåller ett SDK som fören klar anropet till API: t, som är fallet för Microsoft Graph. Se till exempel [skapa ett webb program som ger åtkomst till Blob Storage med Azure AD](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet) för ett exempel på en webbapp som använder Microsoft. Identity. Web och använder Azure Storage SDK.
+> De flesta Azure-webb-API: er tillhandahåller ett SDK som fören klar anropet till API: t, som är fallet för Microsoft Graph. Se till exempel [skapa ett webb program som ger åtkomst till Blob Storage med Azure AD](../../storage/common/storage-auth-aad-app.md?tabs=dotnet&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för ett exempel på en webbapp som använder Microsoft. Identity. Web och använder Azure Storage SDK.
 
 # <a name="java"></a>[Java](#tab/java)
 

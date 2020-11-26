@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662491"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172375"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect synkronisering: Katalog tillägg
 Du kan använda katalog tillägg för att utöka schemat i Azure Active Directory (Azure AD) med dina egna attribut från lokala Active Directory. Med den här funktionen kan du bygga LOB-appar genom att förbruka attribut som du fortsätter att hantera lokalt. Dessa attribut kan användas via [tillägg](/graph/extensibility-overview
@@ -60,7 +60,7 @@ Under installationen av Azure AD Connect registreras ett program där dessa attr
 
 Se till att du väljer **alla program** för att se den här appen.
 
-Attributen föregås av **tillägget \_ {ApplicationId} \_ **. ApplicationId har samma värde för alla attribut i din Azure AD-klient. Du behöver det här värdet för alla andra scenarier i det här avsnittet.
+Attributen föregås av **tillägget \_ {ApplicationId} \_**. ApplicationId har samma värde för alla attribut i din Azure AD-klient. Du behöver det här värdet för alla andra scenarier i det här avsnittet.
 
 ## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Visa attribut med hjälp av Microsoft Graph API
 
@@ -70,6 +70,9 @@ De här attributen är nu tillgängliga via Microsoft Graph API, med [Microsoft 
 > I Microsoft Graph API måste du be om vilka attribut som ska returneras. Välj uttryckligen attribut så här: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division` .
 >
 > Mer information finns i [Microsoft Graph: Använd frågeparametrar](/graph/query-parameters#select-parameter).
+
+>[!NOTE]
+> Det går inte att synkronisera attributvärden från AADConnect till utöknings bara attribut som inte har skapats av AADConnect. Detta kan orsaka prestanda problem och oväntade resultat. Endast utöknings bara attribut som skapas på det sätt som anges ovan stöds för synkronisering.
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Använda attributen i dynamiska grupper
 

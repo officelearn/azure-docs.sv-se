@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 10ae9e1356cea954435d15441d74f4f86a804578
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 929aed28df2725ccde62c348a18ef7b41334e233
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95893988"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172137"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
@@ -37,6 +37,7 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
  
   > [Lär dig mer om extrahering av layout](concept-layout.md)
 
+- **Uppdatering av klient bibliotek** – [klient biblioteken](quickstarts/client-library.md) för .net, python, Java och Java Script har angett allmän tillgänglighet.
 - **Nytt språk som stöds: japanska** – följande nya språk stöds nu: for `AnalyzeLayout` och `AnalyzeCustomForm` : Japanese ( `ja` ). [Stöd för språk](language-support.md)
 - **Text linje formats indikering (handskriven/övrigt) (endast latinska språk)** – formulär tolken visar nu ett `appearance` objekt som klassificerar om varje textrad är handskriven eller inte, tillsammans med ett säkerhets resultat. Den här funktionen stöds bara för latinska språk.
 - **Kvalitets förbättringar** – extraherings förbättringar, inklusive förbättringar av en enda siffer extrahering.
@@ -46,8 +47,8 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
   ![FOTT-exempel](./media/ui-preview.jpg)
   
-- **Feedback-slinga** – när du analyserar filer via verktyget exempel etikettering kan du nu även lägga till det i tränings uppsättningen och adujst etiketter om det behövs och träna för att förbättra modellen.
-- **AutoLabel Documets** -Automitcally etiketterar ytterligare dokument baserat på tidigare märkta dokument i projektet. 
+- **Feedback-slinga** – när du analyserar filer via verktyget exempel etikettering kan du nu även lägga till det i inlärnings uppsättningen och justera etiketterna om det behövs och träna för att förbättra modellen.
+- **Automatiska etikett dokument** – etiketterar automatiskt ytterligare dokument baserat på tidigare märkta dokument i projektet.
 
 ## <a name="august-2020"></a>Augusti 2020
 

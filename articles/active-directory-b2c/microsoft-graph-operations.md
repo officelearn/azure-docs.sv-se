@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9db46d13c9a798204958a7c295df9cca169fc08f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cd4c70354920655507f987f43a542e4b474803e1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94954043"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170947"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph åtgärder som är tillgängliga för Azure AD B2C
 
@@ -36,12 +36,12 @@ Mer information om hur du hanterar Azure AD B2C användar konton med Microsoft G
 
 ## <a name="user-phone-number-management"></a>Hantering av användar telefonnummer
 
-- [Lägg till](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)
-- [Ta](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)
-- [Uppdatera](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)
-- [Ta bort](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)
+- [Lägg till](/graph/api/authentication-post-phonemethods)
+- [Ta](/graph/api/b2cauthenticationmethodspolicy-get)
+- [Uppdatera](/graph/api/b2cauthenticationmethodspolicy-update)
+- [Ta bort](/graph/api/phoneauthenticationmethod-delete)
 
-Mer information om hur du hanterar användares inloggnings telefonnummer med Microsoft Graph-API finns i [B2C-autentiseringsmetoder](https://docs.microsoft.com/graph/api/resources/b2cauthenticationmethodspolicy).
+Mer information om hur du hanterar användares inloggnings telefonnummer med Microsoft Graph-API finns i [B2C-autentiseringsmetoder](/graph/api/resources/b2cauthenticationmethodspolicy).
 
 ## <a name="identity-providers-user-flow"></a>Identitets leverantörer (användar flöde)
 

@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46ecc2cba96b07d9105020e69ae3198a3765be7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319851"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172239"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planera och Felsök ändringar av UPN-namn i Azure Active Directory
 
@@ -174,7 +174,7 @@ Din organisation kan kräva att [Microsoft Authenticator-appen](../user-help/use
 
 * Multi-Factor Authentication via ett push-meddelande eller verifierings kod
 
-* Agera som en autentiseringsprovider på iOS-och Android-enheter för att tillhandahålla enkel inloggning för program som använder [Broker-autentisering](../develop/brokered-auth.md)
+* Agera som en autentiseringsprovider på iOS-och Android-enheter för att tillhandahålla enkel inloggning för program som använder [Broker-autentisering](../develop/msal-android-single-sign-on.md)
 
 * Enhets registrering (kallas även Workplace Join) till Azure AD, vilket är ett krav för andra funktioner som Intune-appskydd och enhets registrerings/hantering.
 

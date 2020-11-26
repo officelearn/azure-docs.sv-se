@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 8f184de8953e8e8bfe982d2502ca476fb54a66c9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7fd9e504448d55b4a2ef8c10b4ba1176cb2e3402
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95903720"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172643"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Fem steg för att integrera alla dina appar med Azure AD
 
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD) har ett galleri som innehåller tusentals för
 - [AWS](../saas-apps/amazon-web-service-tutorial.md)
 - [Slack](../saas-apps/slack-tutorial.md)
 
-Dessutom kan du [integrera program som inte finns i galleriet](../manage-apps/view-applications-portal.md), inklusive program som redan finns i din organisation eller program från tredje part från en leverantör som inte redan ingår i Azure AD-galleriet. Du kan också [lägga till din app i galleriet](../azuread-dev/howto-app-gallery-listing.md) om den inte finns där.
+Dessutom kan du [integrera program som inte finns i galleriet](../manage-apps/view-applications-portal.md), inklusive program som redan finns i din organisation eller program från tredje part från en leverantör som inte redan ingår i Azure AD-galleriet. Du kan också [lägga till din app i galleriet](../develop/v2-howto-app-gallery-listing.md) om den inte finns där.
 
 Slutligen kan du även integrera de appar som du utvecklar internt. Detta beskrivs i steg fem i den här hand boken.
 

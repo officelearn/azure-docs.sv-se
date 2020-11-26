@@ -13,16 +13,16 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: ed3e9da628ab779ab47673fa2ce728c5c25539be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b683eaaf4c93ef0dcf74680e1e174e0f867a7041
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166441"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173404"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Använda MSAL.NET för att logga in användare med sociala identiteter
 
-Du kan använda MSAL.NET för att logga in användare med sociala identiteter genom att använda [Azure Active Directory B2C (Azure AD B2C)](https://aka.ms/aadb2c). Azure AD B2C är byggd runt begreppet principer. I MSAL.NET anger du en princip som översätter för att tillhandahålla en utfärdare.
+Du kan använda MSAL.NET för att logga in användare med sociala identiteter genom att använda [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md). Azure AD B2C är byggd runt begreppet principer. I MSAL.NET anger du en princip som översätter för att tillhandahålla en utfärdare.
 
 - När du instansierar det offentliga klient programmet måste du ange principen som en del av utfärdaren.
 - När du vill tillämpa en princip anropar du en åsidosättning av `AcquireTokenInteractive` som accepterar `authority` parametern.
@@ -78,7 +78,7 @@ I föregående kodfragment:
 
 - `policy` är en sträng som innehåller namnet på ditt Azure AD B2C användar flöde eller en anpassad princip (till exempel `PolicySignUpSignIn` ).
 - `ParentActivityOrWindow` krävs för Android (aktiviteten) och är valfritt för andra plattformar som har stöd för ett överordnat användar gränssnitt som Windows på Microsoft Windows och UIViewController i iOS. Mer information om UI-dialogrutan finns i [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) på MSAL-wikin.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` är en metod som söker efter ett konto för en specifik princip. Exempel:
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` är en metod som söker efter ett konto för en specifik princip. Ett exempel:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -153,7 +153,7 @@ Den här `AcquireTokenByUsernamePassword` metoden använder följande parametrar
 
 ### <a name="limitations-of-the-ropc-flow"></a>Begränsningar för ROPC-flödet
 
-ROPC-flödet **fungerar bara för lokala konton**där dina användare har registrerats med Azure AD B2C med hjälp av en e-postadress eller ett användar namn. Det här flödet fungerar inte när du federerar till en extern identitetsprovider som stöds av Azure AD B2C (Facebook, Google osv.).
+ROPC-flödet **fungerar bara för lokala konton** där dina användare har registrerats med Azure AD B2C med hjälp av en e-postadress eller ett användar namn. Det här flödet fungerar inte när du federerar till en extern identitetsprovider som stöds av Azure AD B2C (Facebook, Google osv.).
 
 ## <a name="google-auth-and-embedded-webview"></a>Google auth och Embedded webbvy
 

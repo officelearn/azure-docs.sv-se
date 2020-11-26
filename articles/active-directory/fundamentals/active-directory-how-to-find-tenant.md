@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbf23a32fdf5515402e18f70fe032a1a589dbcbe
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 32526a31a9d52fbfac57f1d384b25e0939b5e297
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424465"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172881"
 ---
 # <a name="how-to-find-your-azure-active-directory-tenant-id"></a>Så här hittar du Azure Active Directory klient-ID
 
@@ -26,7 +26,7 @@ Azure-prenumerationer har en förtroende relation med Azure Active Directory (Az
 
 ## <a name="find-tenant-id-through-the-azure-portal"></a>Hitta klient-ID via Azure Portal
 
-1. Logga in i [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
  
 1. Välj **Azure Active Directory**.
 
@@ -51,7 +51,7 @@ Mer information finns i denna Azure PowerShell cmdlet-referens för [Get-AzTenan
 ## <a name="find-tenant-id-with-cli"></a>Hitta klient-ID med CLI
 Om du vill använda ett kommando rads gränssnitt för att hitta klient-ID: t kan du göra det med [Azure CLI](/cli/azure/install-azure-cli) eller [Microsoft 365 CLI](https://pnp.github.io/cli-microsoft365/). 
 
-För Azure CLI använder du en av kommandona **AZ login** , **AZ Account List** eller **AZ Account List** (Visa i följande exempel). Observera egenskapen **tenantId** för var och en av dina prenumerationer i utdata från varje kommando.
+För Azure CLI använder du en av kommandona **AZ login**, **AZ Account List** eller **AZ Account List** (Visa i följande exempel). Observera egenskapen **tenantId** för var och en av dina prenumerationer i utdata från varje kommando.
 
 ```azurecli-interactive
 az login
@@ -77,4 +77,4 @@ Mer information finns i kommando referensen Microsoft 365 [klient-ID get](https:
 
 - Information om hur du associerar eller lägger till en prenumeration på en klient organisation finns i [associera eller lägga till en Azure-prenumeration i Azure Active Directory klient organisationen](active-directory-how-subscriptions-associated-directory.md).
 
-- Information om hur du hittar objekt-ID finns i [hitta användar objekt-ID](https://docs.microsoft.com/partner-center/find-ids-and-domain-names#find-the-user-object-id).
+- Information om hur du hittar objekt-ID finns i [hitta användar objekt-ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id).

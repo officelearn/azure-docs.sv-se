@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 420cc2bc38d079fa95f6b90ed20cb31e994f4ea3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 6be0720b7eafb251b262d5cd182bdf06e201402d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027082"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173081"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>Vad är externa identiteter i Azure Active Directory?
 
@@ -27,9 +27,9 @@ Med externa identiteter i Azure AD kan du ge personer utanför organisationen å
 
 Externa Azure AD-identiteter fokuserar mindre på användarens relation till din organisation och mer om hur användaren vill logga in på dina appar och resurser. I det här ramverket har Azure AD stöd för en mängd olika scenarier från Business-to-Business (B2B)-samarbete för att komma åt hantering för kunder/kund-eller program som riktas mot allmänheten (företags-till-kund eller B2C).
 
-- **Dela dina appar och resurser med externa användare (B2B-samarbete)** . Bjud in externa användare till din egen klient organisation som "gäst"-användare som du kan tilldela behörigheter till (för auktorisering) samtidigt som de låter dem använda sina befintliga autentiseringsuppgifter (för autentisering). Användarna loggar in på de delade resurserna med hjälp av en enkel Inbjudnings-och inlösnings process med sitt arbete, skola eller annat e-postkonto. Du kan också använda [hantering av Azure AD](../governance/entitlement-management-overview.md) -behörighet för att konfigurera principer som [hanterar åtkomst för externa användare](../governance/entitlement-management-external-users.md#how-access-works-for-external-users). Och nu med tillgänglighet för självbetjänings [registrering av användar flöden (för hands version)](self-service-sign-up-overview.md)kan du tillåta externa användare att registrera sig för själva program. Upplevelsen kan anpassas för att möjliggöra registrering med en arbets-, skol-eller social identitet (som Google eller Facebook). Du kan också samla in information om användaren under registrerings processen. Mer information finns i [Azure AD B2B-dokumentationen](index.yml).
+- **Dela dina appar och resurser med externa användare (B2B-samarbete)**. Bjud in externa användare till din egen klient organisation som "gäst"-användare som du kan tilldela behörigheter till (för auktorisering) samtidigt som de låter dem använda sina befintliga autentiseringsuppgifter (för autentisering). Användarna loggar in på de delade resurserna med hjälp av en enkel Inbjudnings-och inlösnings process med sitt arbete, skola eller annat e-postkonto. Du kan också använda [hantering av Azure AD](../governance/entitlement-management-overview.md) -behörighet för att konfigurera principer som [hanterar åtkomst för externa användare](../governance/entitlement-management-external-users.md#how-access-works-for-external-users). Och nu med tillgänglighet för självbetjänings [registrering av användar flöden (för hands version)](self-service-sign-up-overview.md)kan du tillåta externa användare att registrera sig för själva program. Upplevelsen kan anpassas för att möjliggöra registrering med en arbets-, skol-eller social identitet (som Google eller Facebook). Du kan också samla in information om användaren under registrerings processen. Mer information finns i [Azure AD B2B-dokumentationen](index.yml).
 
-- **Bygg användar resan med en lösning för identitets hantering med vit etikett för konsument-och kundriktade appar (Azure AD B2C)** . Om du är ett företag eller en utvecklare som skapar kundrelaterade appar kan du skala till miljon tals konsumenter, kunder eller medborgare med hjälp av Azure AD B2C. Utvecklare kan använda Azure AD som det fullständiga CIAM-systemet (Customer Identity and Access Management) för sina program. Kunder kan logga in med en identitet som de redan har upprättat (t. ex. Facebook eller Gmail). Med Azure AD B2C kan du helt anpassa och styra hur kunderna registrerar sig, loggar in och hanterar sina profiler när de använder dina program. Mer information finns i Azure AD B2C- [dokumentationen](../../active-directory-b2c/index.yml).
+- **Bygg användar resan med en lösning för identitets hantering med vit etikett för konsument-och kundriktade appar (Azure AD B2C)**. Om du är ett företag eller en utvecklare som skapar kundrelaterade appar kan du skala till miljon tals konsumenter, kunder eller medborgare med hjälp av Azure AD B2C. Utvecklare kan använda Azure AD som det fullständiga CIAM-systemet (Customer Identity and Access Management) för sina program. Kunder kan logga in med en identitet som de redan har upprättat (t. ex. Facebook eller Gmail). Med Azure AD B2C kan du helt anpassa och styra hur kunderna registrerar sig, loggar in och hanterar sina profiler när de använder dina program. Mer information finns i Azure AD B2C- [dokumentationen](../../active-directory-b2c/index.yml).
 
 ## <a name="compare-external-identities-solutions"></a>Jämför lösningar för externa identiteter
 
@@ -51,7 +51,7 @@ Skydda och hantera kunder och partners bortom organisationens gränser med exter
 
 ## <a name="about-multitenant-applications"></a>Om program med flera klienter
 
-Om du tillhandahåller en app som en tjänst och inte vill hantera dina kunders användar konton, är en app för flera klient organisationer det rätta valet för dig. När du utvecklar program som är avsedda för andra Azure AD-klienter kan du rikta användare från en enda organisation (en enda klient) eller användare från vilken organisation som helst som redan har en Azure AD-klient (flera klient program). Appregistreringar i Azure AD är en enda klient som standard, men du kan göra registreringen av flera klienter. Detta program för flera innehavare registreras en gång av dig själv i din egen Azure AD. Men alla Azure AD-användare från en organisation kan använda programmet utan ytterligare arbete på din sida. Mer information finns i [Hantera identitet i program](https://docs.microsoft.com/azure/architecture/multitenant-identity/)med flera klienter, [instruktions guide](../develop/howto-convert-app-to-be-multi-tenant.md).
+Om du tillhandahåller en app som en tjänst och inte vill hantera dina kunders användar konton, är en app för flera klient organisationer det rätta valet för dig. När du utvecklar program som är avsedda för andra Azure AD-klienter kan du rikta användare från en enda organisation (en enda klient) eller användare från vilken organisation som helst som redan har en Azure AD-klient (flera klient program). Appregistreringar i Azure AD är en enda klient som standard, men du kan göra registreringen av flera klienter. Detta program för flera innehavare registreras en gång av dig själv i din egen Azure AD. Men alla Azure AD-användare från en organisation kan använda programmet utan ytterligare arbete på din sida. Mer information finns i [Hantera identitet i program](/azure/architecture/multitenant-identity/)med flera klienter, [instruktions guide](../develop/howto-convert-app-to-be-multi-tenant.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

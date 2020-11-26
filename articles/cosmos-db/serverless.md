@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: c811a2ea5c06250068e7c0276e4b79e9108d920d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/25/2020
+ms.openlocfilehash: cabc243c6ba74217873b5b0a5fa51a7cb410512e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490363"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170845"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB utan server (för hands version)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -33,9 +33,8 @@ När du använder Azure Cosmos DB har varje databas åtgärd en kostnad uttryckt
 
 Azure Cosmos DB server lös bästa passar scenarier där du förväntar dig:
 
-- **Ljus trafik** : eftersom etablerings kapaciteten i sådana situationer inte krävs och kan vara kostnads förhindrande
-- **Måttlig burst** -överföring: eftersom Server lös behållare kan leverera upp till 5 000 enheter för programbegäran per sekund
-- **Måttlig prestanda** : eftersom Server lös behållare har [särskilda prestanda egenskaper](#performance)
+- **Låg, intermittent och oförutsägbar trafik**: eftersom etablerings kapaciteten i sådana situationer inte krävs och kan vara kostnads förhindrande
+- **Måttlig prestanda**: eftersom Server lös behållare har [särskilda prestanda egenskaper](#performance)
 
 Därför bör Azure Cosmos DB server utan server beaktas för följande typer av arbets belastning:
 
@@ -62,7 +61,6 @@ Alla behållare som har skapats i ett Server lös konto är en server lös behå
     - Du kan inte skicka några data flöden när du skapar en server lös behållare och gör så returnerar ett fel.
     - Du kan inte läsa eller uppdatera data flödet på en server lös behållare och detta returnerar ett fel.
     - Du kan inte skapa en delad data flödes databas i ett Server lös konto och detta returnerar ett fel.
-- Server lös behållare kan leverera en maximal data flödes kapacitet på 5 000 enheter för programbegäran per sekund.
 - Server lös behållare kan lagra högst 50 GB data och index.
 
 ## <a name="monitoring-your-consumption"></a>Övervaka förbrukningen
@@ -79,9 +77,9 @@ Du kan hitta samma diagram när du använder Azure Monitor, enligt beskrivningen
 
 Utan server resurser ger särskilda prestanda egenskaper som skiljer sig från vad etablerade data flödes resurser levererar:
 
-- **Tillgänglighet** : när det serverbaserade erbjudandet blir allmänt tillgängligt kommer tillgängligheten för Server lös behållare att omfattas av en serviceavtal (SLA) på 99,9% när Tillgänglighetszoner (zon redundans) inte används. Service avtalet är 99,99% när Tillgänglighetszoner används.
-- **Latens** : när det Server lösa erbjudandet blir allmänt tillgängligt, kommer svars tiden för Server lösa behållare att omfattas av ett service nivå mål (service nivå mål) på 10 millisekunder eller mindre för punkt-och 30 millisekunder eller mindre för skrivningar. En punkt-Läs åtgärd består i att hämta ett enskilt objekt med dess ID-och partitionsnyckel-värde.
-- **Burst** -tillgänglighet: när det serverbaserade erbjudandet blir allmänt tillgängligt kommer burst-funktionen för Server lös behållare att omfattas av ett service nivå mål (service nivå mål) på 95%. Det innebär att den maximala Burst-hastigheten kan uppnås minst 95% av tiden.
+- **Tillgänglighet**: när det serverbaserade erbjudandet blir allmänt tillgängligt kommer tillgängligheten för Server lös behållare att omfattas av en serviceavtal (SLA) på 99,9% när Tillgänglighetszoner (zon redundans) inte används. Service avtalet är 99,99% när Tillgänglighetszoner används.
+- **Latens**: när det Server lösa erbjudandet blir allmänt tillgängligt, kommer svars tiden för Server lösa behållare att omfattas av ett service nivå mål (service nivå mål) på 10 millisekunder eller mindre för punkt-och 30 millisekunder eller mindre för skrivningar. En punkt-Läs åtgärd består i att hämta ett enskilt objekt med dess ID-och partitionsnyckel-värde.
+- **Burst**-tillgänglighet: när det serverbaserade erbjudandet blir allmänt tillgängligt kommer burst-funktionen för Server lös behållare att omfattas av ett service nivå mål (service nivå mål) på 95%. Det innebär att den maximala Burst-hastigheten kan uppnås minst 95% av tiden.
 
 > [!NOTE]
 > Som valfri Azure-förhandsgranskning undantas Azure Cosmos DB server lös från service nivå avtal (SLA). De prestanda egenskaper som nämns ovan tillhandahålls som en förhands granskning av vad det här erbjudandet kommer att leverera när det är allmänt tillgängligt.

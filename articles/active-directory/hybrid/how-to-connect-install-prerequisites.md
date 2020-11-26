@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eccc0e71c73fb8bd2a5a50ebd0dda048d34dbea0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 032b1ca945cf729f8a6682cf71d26a716b1e8863
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488408"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172355"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 I den här artikeln beskrivs kraven och maskin varu kraven för Azure Active Directory (Azure AD) Connect.
@@ -52,7 +52,7 @@ Azure Active Directory Connect kör signerade PowerShell-skript som en del av in
 
 Den rekommenderade körnings principen under installationen är "RemoteSigned".
 
-Mer information om hur du anger körnings principen för PowerShell finns i [set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+Mer information om hur du anger körnings principen för PowerShell finns i [set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
 
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect Server
@@ -82,7 +82,7 @@ Vi rekommenderar att du skärper Azure AD Connect-servern för att minska säker
 - Skapa ett [dedikerat konto för all personal med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/securing-privileged-access). Administratörer bör inte surfa på webben, kontrol lera sin e-post och utföra dagliga produktivitets uppgifter med mycket privilegierade konton.
 - Följ rikt linjerna för att [skydda privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 - Neka användningen av NTLM-autentisering med AADConnect-servern. Här följer några sätt att göra detta: [Begränsa NTLM på AADConnect-servern](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) och [Begränsa NTLM på en domän](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
-- Se till att varje dator har ett unikt lokalt administratörs lösen ord. Mer information finns i [lokal administratör lösen ords lösning (upphörde)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) kan konfigurera unika slumpmässiga lösen ord på varje arbets Station och Server lagra dem i Active Directory som skyddas av en ACL. Endast berättigade behöriga användare kan läsa eller begära återställning av lösen ord för det lokala administratörs kontot. Du kan få en uppgång för användning på arbets stationer och servrar från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Ytterligare vägledning för att använda en miljö med fördröjning och privilegierade åtkomst arbets stationer (Paw) finns i [operativa standarder som baseras på principen om ren källa](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
+- Se till att varje dator har ett unikt lokalt administratörs lösen ord. Mer information finns i [lokal administratör lösen ords lösning (upphörde)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) kan konfigurera unika slumpmässiga lösen ord på varje arbets Station och Server lagra dem i Active Directory som skyddas av en ACL. Endast berättigade behöriga användare kan läsa eller begära återställning av lösen ord för det lokala administratörs kontot. Du kan få en uppgång för användning på arbets stationer och servrar från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899). Ytterligare vägledning för att använda en miljö med fördröjning och privilegierade åtkomst arbets stationer (Paw) finns i [operativa standarder som baseras på principen om ren källa](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
 - Implementera dedikerade [arbets stationer med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/privileged-access-workstations) för all personal med privilegie rad åtkomst till din organisations informations system. 
 - Följ dessa [rikt linjer](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) för att minska angrepps ytan i Active Directorys miljön.
 
@@ -99,7 +99,7 @@ Vi rekommenderar att du skärper Azure AD Connect-servern för att minska säker
 * Om du använder [Express inställningar](reference-connect-accounts-permissions.md#express-settings-installation) eller uppgraderar från DirSync måste du ha ett företags administratörs konto för din lokala Active Directory.
 * Om du använder installations Sök vägen för anpassade inställningar har du fler alternativ. Mer information finns i [anpassade installations inställningar](reference-connect-accounts-permissions.md#custom-installation-settings).
 
-### <a name="connectivity"></a>Anslutning
+### <a name="connectivity"></a>Anslutningar
 * Den Azure AD Connect servern behöver DNS-matchning för både intranätet och Internet. DNS-servern måste kunna matcha namn både till din lokala Active Directory och Azure AD-slutpunkter.
 * Om du har brand väggar i intranätet och du behöver öppna portar mellan Azure AD Connect-servrar och domän kontrol Lanterna, se [Azure AD Connect portar](reference-connect-ports.md) för mer information.
 * Om din proxy eller brand vägg begränsar vilka URL: er som kan nås, måste URL: erna som dokumenteras i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) öppnas. Se även [Safelist Azure Portal URL: er på brand väggen eller proxyservern](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
@@ -140,7 +140,7 @@ Vi rekommenderar att du skärper Azure AD Connect-servern för att minska säker
 Mer information finns i MSDN om [default proxy-elementet](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 Mer information om problem med anslutningen finns i [Felsöka anslutnings problem](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Övrigt
+### <a name="other"></a>Annat
 Valfritt: Använd ett test användar konto för att verifiera synkroniseringen.
 
 ## <a name="component-prerequisites"></a>Komponent krav

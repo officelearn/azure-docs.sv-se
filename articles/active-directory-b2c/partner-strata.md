@@ -11,23 +11,23 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 6276bd0db9bfb93897f7350b87d208ac2951c859
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: bddc4c64feb31f78bed482bbd729ab1c4b8e676e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330333"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171423"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Självstudie för att utöka Azure AD B2C för att skydda lokala program med hjälp av Strata
 
 I den här självstudien får du lära dig att integrera Azure Active Directory (AD) B2C med Strata [Maverics Identity Orchestrator](https://www.strata.io/maverics-identity-orchestrator/).
 Maverics Identity Orchestrator utökar Azure AD B2C för att skydda lokala program. Den ansluter till ett identitets system, transparent migrerar användare och autentiseringsuppgifter, synkroniserar principer och konfigurationer och abstraktar autentisering och sessionshantering. Att använda Strata företag kan snabbt övergå från äldre till Azure AD B2C utan att behöva skriva om program. Lösningen har följande fördelar:
 
-- **Kund-Single Sign-On (SSO) till lokala hybrid appar** : Azure AD B2C stöder kundsso med Maverics Identity Orchestrator. Användarna loggar in med sina konton som finns i Azure AD B2C eller sociala identitets leverantör (IdP). Maverics utökar SSO till appar som tidigare har skyddats av gamla identitets system som Symantec SiteMinder.
+- **Kund-Single Sign-On (SSO) till lokala hybrid appar**: Azure AD B2C stöder kundsso med Maverics Identity Orchestrator. Användarna loggar in med sina konton som finns i Azure AD B2C eller sociala identitets leverantör (IdP). Maverics utökar SSO till appar som tidigare har skyddats av gamla identitets system som Symantec SiteMinder.
 
-- **Utöka standardbaserad SSO till appar utan att skriva om dem** : Använd Azure AD B2C för att hantera användar åtkomst och aktivera SSO med Maverics Identity Orchestrator SAML eller OIDC-anslutningar.
+- **Utöka standardbaserad SSO till appar utan att skriva om dem**: Använd Azure AD B2C för att hantera användar åtkomst och aktivera SSO med Maverics Identity Orchestrator SAML eller OIDC-anslutningar.
 
-- **Enkel konfiguration** : Azure AD B2C ger ett enkelt steg-för-steg-användar gränssnitt för att ansluta Maverics Identity Orchestrator SAML eller OIDC connectors till Azure AD B2C.
+- **Enkel konfiguration**: Azure AD B2C ger ett enkelt steg-för-steg-användar gränssnitt för att ansluta Maverics Identity Orchestrator SAML eller OIDC connectors till Azure AD B2C.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -35,7 +35,7 @@ För att komma igång behöver du:
 
 - En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 
-- En [Azure AD B2C klient](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) som är länkad till din Azure-prenumeration.
+- En [Azure AD B2C klient](./tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 
 - En instans av [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) att lagra hemligheter som används av Maverics Identity Orchestrator. Den används för att ansluta till Azure AD B2C eller andra attribut leverantörer, till exempel en LDAP-katalog (Lightweight Directory Access Protocol) eller en databas.
 
@@ -47,17 +47,17 @@ För att komma igång behöver du:
 
 Strata Maverics-integrering innehåller följande komponenter:
 
-- **Azure AD B2C** : den auktoriserade server som ansvarar för att verifiera användarens autentiseringsuppgifter. Autentiserade användare kan komma åt lokala appar med hjälp av ett lokalt konto som lagras i Azure AD B2C-katalogen.
+- **Azure AD B2C**: den auktoriserade server som ansvarar för att verifiera användarens autentiseringsuppgifter. Autentiserade användare kan komma åt lokala appar med hjälp av ett lokalt konto som lagras i Azure AD B2C-katalogen.
 
-- **En extern social-eller företags IDP** : kan vara valfri OpenID Connect-Provider, Facebook, Google eller GitHub. Se information om hur du använder [externa IDP: er](https://docs.microsoft.com/azure/active-directory-b2c/technical-overview#external-identity-providers) med Azure AD B2C.  
+- **En extern social-eller företags IDP**: kan vara valfri OpenID Connect-Provider, Facebook, Google eller GitHub. Se information om hur du använder [externa IDP: er](./technical-overview.md#external-identity-providers) med Azure AD B2C.  
 
-- **Strata för Maverics-identitet** : tjänsten som dirigerar användar inloggning och skickar transparent identitet till appar via HTTP-huvuden.
+- **Strata för Maverics-identitet**: tjänsten som dirigerar användar inloggning och skickar transparent identitet till appar via HTTP-huvuden.
 
 I följande arkitektur diagram visas implementeringen.
 
 ![Bild visar arkitekturen för en Azure AD B2C-integrering med Strata Maverics för att ge åtkomst till hybrid program](./media/partner-strata/strata-architecture-diagram.png)
 
-| Steg | Description |
+| Steg | Beskrivning |
 |:-------|:---------------|
 | 1. | Användaren gör en begäran om åtkomst till det lokala värd programmet. Maverics Identity Orchestrator-proxyservrar begär Anden som gjorts av användaren till programmet.|
 | 2. | Orchestrator kontrollerar användarens autentiserings tillstånd. Om den inte får en sessionstoken, eller om den angivna sessionstoken är ogiltig, skickar den användaren till Azure AD B2C för autentisering.|
@@ -75,7 +75,7 @@ Kontakta [Strata](https://www.strata.io/contact/)för att få den program vara s
 
 1. **Registrera ditt program**
 
-   a. [Registrera Orchestrator som ett program](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=app-reg-ga) i Azure AD B2C klient organisationen.
+   a. [Registrera Orchestrator som ett program](./tutorial-register-applications.md?tabs=app-reg-ga) i Azure AD B2C klient organisationen.
    >[!Note]
    >Du behöver klient namnet och identifieraren, klient-ID, klient hemlighet, konfigurerade anspråk och omdirigerings-URI senare när du konfigurerar Orchestrator-instansen.
 
@@ -83,13 +83,13 @@ Kontakta [Strata](https://www.strata.io/contact/)för att få den program vara s
 
    c. Lägg till en omdirigerings-URI för programmet. Denna URI matchar `oauthRedirectURL` parametern för Orchestrator: s Azure AD B2C anslutnings konfiguration, till exempel `https://example.com/oidc-endpoint` .
 
-2. **Skapa ett användar flöde** : skapa ett användar [flöde för inloggning och inloggning](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows).
+2. **Skapa ett användar flöde**: skapa ett användar [flöde för inloggning och inloggning](./tutorial-create-user-flows.md).
 
-3. **Lägg till en IDP** : Välj att logga in din användare med antingen ett lokalt konto eller en social-eller företags [IDP](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+3. **Lägg till en IDP**: Välj att logga in din användare med antingen ett lokalt konto eller en social-eller företags [IDP](./tutorial-add-identity-providers.md).
 
 4. **Definiera** användarattribut: definiera de attribut som ska samlas in vid registreringen.
 
-5. **Ange program anspråk** : Ange de attribut som ska returneras till programmet via din Orchestrator-instans. Orchestrator använder attribut från anspråk som returneras av Azure AD B2C och kan hämta ytterligare attribut från andra anslutna identitets system som LDAP-kataloger och databaser. Dessa attribut anges i HTTP-huvuden och skickas till det överordnade lokala programmet.
+5. **Ange program anspråk**: Ange de attribut som ska returneras till programmet via din Orchestrator-instans. Orchestrator använder attribut från anspråk som returneras av Azure AD B2C och kan hämta ytterligare attribut från andra anslutna identitets system som LDAP-kataloger och databaser. Dessa attribut anges i HTTP-huvuden och skickas till det överordnade lokala programmet.
 
 ## <a name="configure-maverics-identity-orchestrator"></a>Konfigurera Maverics Identity Orchestrator
 
@@ -259,7 +259,7 @@ appgateways:
 
 Det är viktigt att skydda de hemligheter som används i Orchestrator för att ansluta till Azure AD B2C och andra identitets system. Maverics kommer som standard att läsa in hemligheter i vanlig text av `maverics.yaml` , men i den här självstudien använder du Azure Key Vault som hemligheter-Provider.
 
-Följ instruktionerna för att [skapa en ny Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault) som Orchestrator-instansen kommer att använda som en hemligheter-Provider. Lägg till dina hemligheter i valvet och anteckna för `SECRET NAME` varje hemlighet. Exempelvis `AzureADB2CClientSecret`.
+Följ instruktionerna för att [skapa en ny Key Vault](../key-vault/secrets/quick-create-portal.md) som Orchestrator-instansen kommer att använda som en hemligheter-Provider. Lägg till dina hemligheter i valvet och anteckna för `SECRET NAME` varje hemlighet. Exempelvis `AzureADB2CClientSecret`.
 
 Om du vill deklarera ett värde som en hemlighet i en `maverics.yaml` konfigurations fil, radbryter du hemligheten med vinkelparenteser:
 
@@ -342,6 +342,6 @@ appgateways:
 
 Mer information finns i följande artiklar:
 
-- [Anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Anpassade principer i Azure AD B2C](./custom-policy-overview.md)
 
-- [Kom igång med anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Kom igång med anpassade principer i Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

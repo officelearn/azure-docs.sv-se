@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: a02fa7d9f656ed3b6e61aab1f42e2a3ffca131a7
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 4fea027663b55e87822eae1fd0cdb2d67dbc630b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917264"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170839"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduktion till etablerade data flöden i Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -137,7 +137,7 @@ Du kan använda [Azure Monitor mått](monitor-cosmos-db.md#view-operation-level-
 
 Som det beskrivs i avsnittet [Aktuellt etablerat data flöde](#current-provisioned-throughput) ovan, är det minsta data flöde som du kan etablera på en behållare eller databas beroende av ett antal faktorer. En av dem är den mängd data som för närvarande lagras, eftersom Azure Cosmos DB tillämpar ett minsta data flöde på 10 RU/s per GB lagrings utrymme.
 
-Detta kan vara ett problem i situationer där du behöver lagra stora mängder data, men ha låga data flödes krav i jämförelse. För att bättre kunna hantera dessa scenarier har Azure Cosmos DB infört ett **"högt lagrings-/låg data flöde"-program** som minskar begränsningen ru/s per GB från 10 till 1 på berättigade konton.
+Detta kan vara ett problem i situationer där du behöver lagra stora mängder data, men ha låga data flödes krav i jämförelse. För att bättre kunna hantera dessa scenarier har Azure Cosmos DB infört ett **"högt lagrings-/låg data flöde"-program** som minskar begränsningen ru/s per GB för berättigade konton.
 
 Du måste för närvarande ha minst 1 container eller en databas med delat data flöde som innehåller mer än 1 TB data i ditt konto för att bli berättigad. Om du vill delta i programmet och utvärdera din fullständiga behörighet måste du fylla i [den här undersökningen](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Azure Cosmos DBs teamet följer sedan upp och fortsätter med din onboarding.
 

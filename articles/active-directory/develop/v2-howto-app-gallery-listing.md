@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 6374164bb5049742d63a669b4c1e552c93967977
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356356"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173387"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicera din app i Azure AD App-galleriet
 
@@ -36,7 +36,7 @@ Dessutom finns det många fördelar när dina kunder använder Azure AD som iden
 - Tillhandahålla enkel inloggning för dina användare. Med enkel inloggning minskar du support kostnaderna genom att göra det enklare för dina kunder med enkel inloggning. Om enkel inloggning är aktive rad behöver kundernas IT-administratörer inte lära sig hur man konfigurerar programmet för användning i organisationen. Mer information om enkel inloggning finns i [Vad är enkel inloggning?](../manage-apps/what-is-single-sign-on.md).
 - Din app kan vara synlig i Microsoft 365 App-galleriet, Microsoft 365 App-start och inom Microsoft Search på Office.com. 
 - Integrerad hantering av appar. Mer information om hantering av appar i Azure AD finns i [Vad är program hantering?](../manage-apps/what-is-application-management.md).
-- Din app kan använda [Graph API](https://docs.microsoft.com/graph/) för att komma åt data som driver användar produktivitet i Microsofts eko system.
+- Din app kan använda [Graph API](/graph/) för att komma åt data som driver användar produktivitet i Microsofts eko system.
 - Programspecifik dokumentation som skapas tillsammans med Azure AD-teamet för våra ömsesidiga kunder underlättar implementeringen.
 - Du ger kunderna möjlighet att fullständigt hantera sin autentisering och auktorisering av personal identiteter.
 - Placera alla konto hanterings-och efterlevnads ansvar med kundens ägare av dessa identiteter.
@@ -47,7 +47,7 @@ Dessutom finns det många fördelar när dina kunder använder Azure AD som iden
 - Lägg till säkerhet och bekvämlighet när användare loggar in på program med hjälp av Azure AD SSO och tar bort behovet av separata autentiseringsuppgifter.
 
 > [!TIP]
-> När du erbjuder ditt program för användning av andra företag via ett köp eller en prenumeration gör du ditt program tillgängligt för kunder i sina egna Azure-klienter. Detta kallas att skapa ett program med flera innehavare. En översikt över det här konceptet finns i [program med flera klient organisationer i Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) och [innehav i Azure Active Directory](single-and-multi-tenant-apps.md).
+> När du erbjuder ditt program för användning av andra företag via ett köp eller en prenumeration gör du ditt program tillgängligt för kunder i sina egna Azure-klienter. Detta kallas att skapa ett program med flera innehavare. En översikt över det här konceptet finns i [program med flera klient organisationer i Azure](../../dotnet-develop-multitenant-applications.md) och [innehav i Azure Active Directory](single-and-multi-tenant-apps.md).
 
 > [!IMPORTANT]
 > Om du vill publicera din app i Azure AD-galleriet måste du godkänna särskilda villkor. Innan du börjar, se till att läsa och godkänna de [allmänna](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)villkoren.
@@ -162,7 +162,7 @@ Om din app stöder SAML 2,0 kan du integrera den direkt med en Azure AD-klient. 
 Microsoft tillhandahåller inte eller rekommenderar bibliotek för SAML-implementeringar. Det finns många tillgängliga bibliotek med öppen källkod.
 
 ### <a name="implement-ws-fed"></a>Implementera WS-Fed
-Mer information om WS-Fed i ASP.NET Core finns [i autentisera användare med WS-Federation i ASP.net Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
+Mer information om WS-Fed i ASP.NET Core finns [i autentisera användare med WS-Federation i ASP.net Core](/aspnet/core/security/authentication/ws-federation).
 
 ### <a name="implement-password-vaulting"></a>Implementera lösen ords valv
 
@@ -173,7 +173,7 @@ Skapa ett webb program som har en HTML-inloggnings sida. Kontrol lera att ditt p
 
 Du behöver en Azure AD-klient för att testa appen. Information om hur du konfigurerar din utvecklings miljö finns i [snabb start: Konfigurera en klient](quickstart-create-new-tenant.md).
 
-En Azure AD-klient levereras med varje Microsoft 365 prenumeration. Information om hur du konfigurerar en kostnads fri Microsoft 365 utvecklings miljö finns i [delta i Microsoft 365 Developer-programmet](https://docs.microsoft.com/office/developer-program/microsoft-365-developer-program).
+En Azure AD-klient levereras med varje Microsoft 365 prenumeration. Information om hur du konfigurerar en kostnads fri Microsoft 365 utvecklings miljö finns i [delta i Microsoft 365 Developer-programmet](/office/developer-program/microsoft-365-developer-program).
 
 När du har en klient måste du aktivera och testa åtkomst med enkel inloggning. 
 
@@ -209,7 +209,7 @@ Vi rekommenderar att dokumentationen på din webbplats minst omfattar följande 
 
 ### <a name="documentation-on-the-microsoft-site"></a>Dokumentation på Microsofts webbplats
 
-När du visar ditt program med Azure Active Directory program galleriet, som även publicerar ditt program på Azure Marketplace, kommer Microsoft att generera dokumentation för våra ömsesidiga kunder som förklarar steg för steg-processen. Du kan se ett exempel [här](https://aka.ms/appstutorial). Den här dokumentationen skapas baserat på ditt bidrag till galleriet och du kan enkelt uppdatera det om du gör ändringar i programmet med ditt GitHub-konto.
+När du visar ditt program med Azure Active Directory program galleriet, som även publicerar ditt program på Azure Marketplace, kommer Microsoft att generera dokumentation för våra ömsesidiga kunder som förklarar steg för steg-processen. Du kan se ett exempel [här](../saas-apps/tutorial-list.md). Den här dokumentationen skapas baserat på ditt bidrag till galleriet och du kan enkelt uppdatera det om du gör ändringar i programmet med ditt GitHub-konto.
 
 
 ## <a name="step-5---submit-your-app"></a>Steg 5 – skicka in din app
@@ -262,7 +262,7 @@ Om du vill lägga till ditt program i listan i galleriet med hjälp av lösen or
 
 ![Visar en lista med ett SSO-program i galleriet](./media/howto-app-gallery-listing/passwordsso.png)
 
-Om du implementerar en [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2,0-slutpunkt för användar etablering väljer du alternativet som visas. 
+Om du implementerar en [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0-slutpunkt för användar etablering väljer du alternativet som visas. 
 
    ![Begäran om användar etablering](./media/howto-app-gallery-listing/user-provisioning.png)
 

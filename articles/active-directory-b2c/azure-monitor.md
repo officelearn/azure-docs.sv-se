@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95992835"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170624"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Övervaka Azure AD B2C med Azure Monitor
 
@@ -140,9 +140,9 @@ När du har distribuerat mallen och väntat några minuter tills resurs projekti
 
 Diagnostiska inställningar definierar var loggar och mått för en resurs ska skickas. Möjliga destinationer är:
 
-- [Azure Storage-konto](../azure-monitor/platform/resource-logs-collect-storage.md)
-- Lösningar för [Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-- [Log Analytics arbets yta](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Azure Storage-konto](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- Lösningar för [Event Hub](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+- [Log Analytics arbets yta](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
 I det här exemplet använder vi Log Analytics arbets ytan för att skapa en instrument panel.
 
@@ -180,7 +180,7 @@ Nu kan du konfigurera din Log Analytics arbets yta för att visualisera dina dat
 Med logg frågor kan du utnyttja värdet för de data som samlas in i Azure Monitor loggar. Ett kraftfullt frågespråk gör att du kan koppla data från flera tabeller, aggregera stora mängder data och utföra komplexa åtgärder med minimal kod. I stort sett kan alla frågor besvaras och analyseras så länge som stödjande data har samlats in och du förstår hur du skapar rätt fråga. Mer information finns i [Kom igång med logg frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 
 1. Från **Log Analytics arbets yta** väljer du **loggar**
-1. I Frågeredigeraren klistrar du in följande fråga för [Kusto-fråga](https://docs.microsoft.com/azure/data-explorer/kusto/query/) . Den här frågan visar princip användning per åtgärd under de senaste x dagarna. Standard varaktigheten anges till 90 dagar (90d). Observera att frågan bara fokuserar på den åtgärd där en token/kod utfärdas av en princip.
+1. I Frågeredigeraren klistrar du in följande fråga för [Kusto-fråga](/azure/data-explorer/kusto/query/) . Den här frågan visar princip användning per åtgärd under de senaste x dagarna. Standard varaktigheten anges till 90 dagar (90d). Observera att frågan bara fokuserar på den åtgärd där en token/kod utfärdas av en princip.
 
     ```kusto
     AuditLogs
@@ -205,7 +205,7 @@ Med logg frågor kan du utnyttja värdet för de data som samlas in i Azure Moni
 
 1. Välj **Spara**.
 
-Du kan också ändra frågan för att visualisera data med hjälp av [Render](https://docs.microsoft.com/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) -operatorn.
+Du kan också ändra frågan för att visualisera data med hjälp av [Render](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) -operatorn.
 
 ```kusto
 AuditLogs

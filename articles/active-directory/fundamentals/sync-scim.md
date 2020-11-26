@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f957070ec94fc4c61089f31fe91261a2f52c4ee4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b95aac504bc6ee72c353faecad25384e2dc90840
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578866"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172426"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>SCIM-synkronisering med Azure Active Directory
 
@@ -35,21 +35,20 @@ Du vill automatiskt etablera användar information från ett HCM-system till Azu
 
 ## <a name="components-of-system"></a>System komponenter 
 
-* **HCM system** : program och tekniker som möjliggör mänsklig kapital hanterings process och praxis som stöder och AUTOMATISERAr HR-processer under hela livs cykeln för anställda. 
+* **HCM system**: program och tekniker som möjliggör mänsklig kapital hanterings process och praxis som stöder och AUTOMATISERAr HR-processer under hela livs cykeln för anställda. 
 
-* **Azure AD Provisioning-tjänsten** : använder scim 2,0-protokollet för automatisk etablering. Tjänsten ansluter till SCIM-slutpunkten för programmet och använder SCIM för användar objekt och REST-API: er för att automatisera etablering och avetablering av användare och grupper.  
+* **Azure AD Provisioning-tjänsten**: använder scim 2,0-protokollet för automatisk etablering. Tjänsten ansluter till SCIM-slutpunkten för programmet och använder SCIM för användar objekt och REST-API: er för att automatisera etablering och avetablering av användare och grupper.  
 
-* **Azure AD** : användar lagring som används för att hantera livs cykeln för identiteter och deras rättigheter. 
+* **Azure AD**: användar lagring som används för att hantera livs cykeln för identiteter och deras rättigheter. 
 
-* **Mål system** : program eller system som har scim-slutpunkt och fungerar med Azure AD-etableringen för att aktivera automatisk etablering av användare och grupper.  
+* **Mål system**: program eller system som har scim-slutpunkt och fungerar med Azure AD-etableringen för att aktivera automatisk etablering av användare och grupper.  
 
 ## <a name="implement-scim-with-azure-ad"></a>Implementera SCIM med Azure AD 
 
-* [Hur etablering fungerar i Azure AD ](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works)
+* [Hur etablering fungerar i Azure AD ](../app-provisioning/how-provisioning-works.md)
 
-* [Hantera användar konto etablering för företags program i Azure Portal ](https://docs.microsoft.com/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal)
+* [Hantera användar konto etablering för företags program i Azure Portal ](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
-* [Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD  ](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)
+* [Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD  ](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-* [SCIM 2,0 protokoll kompatibilitet för Azure AD Provisioning-tjänsten](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility)
-
+* [SCIM 2,0 protokoll kompatibilitet för Azure AD Provisioning-tjänsten](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md)

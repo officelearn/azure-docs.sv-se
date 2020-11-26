@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 184616058cb2a86025eb75b4923e374ab42ebf05
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 99741a412ae02a2d30293e1aa254245f5ca7b662
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953567"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171440"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Saviynt med Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ I den här självstudien får du ställa in Saviynt för att tillhandahålla det
 
 - Säkerhet på data nivå för att avgöra om en användare kan utföra en viss åtgärd på en viss användare. Till exempel kan support administratören för en Storbritannien-region endast hantera Storbritannien-användare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du:
 
@@ -69,7 +69,7 @@ I följande arkitektur diagram visas implementeringen.
 
 1. Kontakta [Saviynt](https://saviynt.com/contact-us/) om du vill skapa ett Saviynt-konto
 
-2. Skapa delegerade administrations principer och tilldela användare som [delegerade administratörer](../active-directory/users-groups-roles/roles-concept-delegation.md) med olika roller.
+2. Skapa delegerade administrations principer och tilldela användare som [delegerade administratörer](../active-directory/roles/concept-delegation.md) med olika roller.
 
 ## <a name="configure-azure-ad-b2c-with-saviynt"></a>Konfigurera Azure AD B2C med Saviynt
 

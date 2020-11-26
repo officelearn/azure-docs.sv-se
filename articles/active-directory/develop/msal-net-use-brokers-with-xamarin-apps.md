@@ -13,11 +13,11 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 7fa13a328a55b0e9eaa546e70bf0711f4f011cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89068549"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173438"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Använda Microsoft Authenticator eller Intune-företagsportal på Xamarin-program
 
@@ -239,7 +239,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 MSAL använder URL: er för att anropa Service Broker och återgår sedan till din app. För att slutföra den här tur och retur måste du registrera en **omdirigerings-URI** för din app med hjälp av [Azure Portal](https://portal.azure.com).
 
-Formatet på omdirigerings-URI för programmet beror på vilket certifikat som används för att signera APK. Exempel:
+Formatet på omdirigerings-URI för programmet beror på vilket certifikat som används för att signera APK. Ett exempel:
 
 ```
 msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=

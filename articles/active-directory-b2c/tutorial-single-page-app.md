@@ -11,18 +11,18 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 705df6ddc6b665ac3d0d62ec3dad93e38f5e513e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6a9f3b864bd8aba2140c7d32d4b5474ff7b95f88
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953108"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171236"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Självstudie: aktivera autentisering i ett program med en sida med Azure AD B2C
 
 Den här självstudien visar hur du använder Azure Active Directory B2C (Azure AD B2C) för att registrera och logga in användare i ett enda webb program (SPA) med hjälp av antingen:
-* [OAuth 2,0 Authorization Code Flow](https://docs.microsoft.com/azure/active-directory-b2c/authorization-code-flow) (med [MSAL.js 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
-* [OAuth-flöde för implicit beviljande av OAuth 2,0](https://docs.microsoft.com/azure/active-directory-b2c/implicit-flow-single-page-application) (med [MSAL.js 1. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
+* [OAuth 2,0 Authorization Code Flow](./authorization-code-flow.md) (med [MSAL.js 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
+* [OAuth-flöde för implicit beviljande av OAuth 2,0](./implicit-flow-single-page-application.md) (med [MSAL.js 1. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
 
 I den här självstudien är den första i en serie i två delar:
 
@@ -36,7 +36,7 @@ I den här självstudien är den första i en serie i två delar:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med stegen i den här självstudien:
 
@@ -51,7 +51,7 @@ Dessutom behöver du följande i din lokala utvecklings miljö:
 
 ## <a name="update-the-application"></a>Uppdatera programmet
 
-I den [andra själv studie kursen](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-spa) som du avslutade som en del av förutsättningarna registrerade du ett program med en sida i Azure AD B2C. Om du vill aktivera kommunikation med kod exemplet i den här självstudien lägger du till en svars-URL (kallas även en omdirigerings-URI) till program registreringen.
+I den [andra själv studie kursen](./tutorial-register-spa.md) som du avslutade som en del av förutsättningarna registrerade du ett program med en sida i Azure AD B2C. Om du vill aktivera kommunikation med kod exemplet i den här självstudien lägger du till en svars-URL (kallas även en omdirigerings-URI) till program registreringen.
 
 Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](./app-registrations-training-guide.md)
 

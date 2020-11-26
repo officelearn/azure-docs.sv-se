@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dd6e760fe8052463491f249b54c3af3d2636d46d
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376892"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170930"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera TheAccessHub Admin Tool med Azure Active Directory B2C
 
@@ -38,13 +38,13 @@ För att komma igång behöver du:
 
 - En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 
-- En [Azure AD B2C klient](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Klienten måste vara länkad till din Azure-prenumeration.
+- En [Azure AD B2C klient](./tutorial-create-tenant.md). Klienten måste vara länkad till din Azure-prenumeration.
 
 - En TheAccessHub-administratörs verktygs miljö: kontakta [N8 identitet](https://n8id.com/contact/) för att etablera en ny miljö.
 
 - Valfritt Information om anslutningar och autentiseringsuppgifter för alla databaser eller LDAP-protokoll (Lightweight Directory Access Protocol) som du vill migrera kund information från.
 
-- Valfritt Konfigurerat Azure AD B2Cs miljö för att använda [anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started), om du vill integrera TheAccessHub-administrationsverktyget i ditt registrerings princip flöde.
+- Valfritt Konfigurerat Azure AD B2Cs miljö för att använda [anpassade principer](./custom-policy-get-started.md), om du vill integrera TheAccessHub-administrationsverktyget i ditt registrerings princip flöde.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -52,7 +52,7 @@ Administrations verktyget TheAccessHub körs som alla andra program i Azure. Den
 
 ![Bild som visar n8identity-arkitektur diagram](./media/partner-n8identity/n8identity-architecture-diagram.png)
 
-|Steg | Description |
+|Steg | Beskrivning |
 |:-----| :-----------|
 | 1. | Användaren kommer till inloggnings sidan. Användare väljer registrering för att skapa ett nytt konto och ange information på sidan. Azure AD B2C samlar in användarattribut.
 | 2. | Azure AD B2C anropar administrations verktyget för TheAccessHub och skickar på användarattribut
@@ -162,9 +162,9 @@ Behörigheter för att hantera kund-och CSR/helpdesk-användare i TheAccessHub a
 
 3. Välj > **Lägg till grupp**
 
-4. Ange ett **grupp namn** , en **grupp Beskrivning** och en **grupp ägare**
+4. Ange ett **grupp namn**, en **grupp Beskrivning** och en **grupp ägare**
 
-5. Sök efter och markera rutorna i de kollegor som du vill ska vara medlemmar i gruppen och välj sedan > **Lägg till**
+5. Sök efter och markera rutorna i de kollegor som du vill ska vara medlemmar i gruppen och välj sedan >**Lägg till**
 
 6. Längst ned på sidan kan du se alla medlemmar i gruppen.
 
@@ -180,7 +180,7 @@ Behörigheter för att hantera kund-och CSR/helpdesk-användare i TheAccessHub a
 
 3. Välj > **Lägg till organisation**
 
-4. Ange ett **organisations namn** , en **organisations ägare** och en **överordnad organisation**.
+4. Ange ett **organisations namn**, en **organisations ägare** och en **överordnad organisation**.
 
     a. Organisationens namn är det bästa värdet som motsvarar dina kund uppgifter. Om du anger namnet på organisationen i belastningen när du läser in kollega och kunddata, kan kollegan automatiskt placeras i organisationen.
 
@@ -280,7 +280,7 @@ Med hjälp av TheAccessHub Admin Tool kan du importera data från olika database
 
    b. Välj **auktorisera anslutning**
 
-   c. I ett nytt fönster uppmanas du att logga in på **OneDrive** , logga in med en användare med Läs behörighet till ditt OneDrive-konto. TheAccessHub admin-verktyget kommer att fungera för att den här användaren ska kunna läsa CSV-läsa filer.
+   c. I ett nytt fönster uppmanas du att logga in på **OneDrive**, logga in med en användare med Läs behörighet till ditt OneDrive-konto. TheAccessHub admin-verktyget kommer att fungera för att den här användaren ska kunna läsa CSV-läsa filer.
 
    d. Följ anvisningarna och välj **Godkänn** för att bevilja TheAccessHub admin verktyget de begärda behörigheterna.
 
@@ -358,7 +358,7 @@ Så här synkroniserar du data från Azure AD B2C till administrations verktyget
 
 ## <a name="configure-azure-ad-b2c-policies"></a>Konfigurera Azure AD B2C principer
 
-Ibland kan synkronisering av TheAccessHub-administrationsverktyget vara begränsad i sin förmåga att hålla sitt tillstånd uppdaterat med Azure AD B2C. Vi kan dra nytta av TheAccessHub Admin Tools API och Azure AD B2C principer för att informera TheAccessHub admin-verktyget om ändringar när de sker. Den här lösningen kräver tekniska kunskaper om [Azure AD B2C anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#:~:text=%20Get%20started%20with%20custom%20policies%20in%20Azure,Experience%20Framework%20applications.%20Azure%20AD%20B2C...%20More%20). I nästa avsnitt får du ett exempel på princip steg och ett säkert certifikat för att meddela TheAccessHub administrations verktyg för nya konton i dina Sign-Up anpassade principer.
+Ibland kan synkronisering av TheAccessHub-administrationsverktyget vara begränsad i sin förmåga att hålla sitt tillstånd uppdaterat med Azure AD B2C. Vi kan dra nytta av TheAccessHub Admin Tools API och Azure AD B2C principer för att informera TheAccessHub admin-verktyget om ändringar när de sker. Den här lösningen kräver tekniska kunskaper om [Azure AD B2C anpassade principer](./custom-policy-get-started.md). I nästa avsnitt får du ett exempel på princip steg och ett säkert certifikat för att meddela TheAccessHub administrations verktyg för nya konton i dina Sign-Up anpassade principer.
 
 ### <a name="create-a-secure-credential-to-invoke-theaccesshub-admin-tools-api"></a>Skapa en säker autentiseringsuppgift för att anropa TheAccessHub Admin Tools API
 
@@ -372,7 +372,7 @@ Ibland kan synkronisering av TheAccessHub-administrationsverktyget vara begräns
 
 5. Välj **Hämta** för att hämta klient certifikatet.
 
-6. Följ den här [självstudien](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#https-client-certificate-authentication ) för att lägga till klient certifikatet i Azure AD B2C.
+6. Följ den här [självstudien](./secure-rest-api.md#https-client-certificate-authentication ) för att lägga till klient certifikatet i Azure AD B2C.
 
 ### <a name="retrieve-your-custom-policy-examples"></a>Hämta dina anpassade princip exempel
 
@@ -386,12 +386,12 @@ Ibland kan synkronisering av TheAccessHub-administrationsverktyget vara begräns
 
 5. Välj **Hämta** för att få en zip-fil med grundläggande principer som lägger till kunder i TheAccessHub admin-verktyget när kunderna registrerar sig.
 
-6. Följ den här [självstudien](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) för att komma igång med att utforma anpassade principer i Azure AD B2C.
+6. Följ den här [självstudien](./custom-policy-get-started.md) för att komma igång med att utforma anpassade principer i Azure AD B2C.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information finns i följande artiklar:
 
-- [Anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Anpassade principer i Azure AD B2C](./custom-policy-overview.md)
 
-- [Kom igång med anpassade principer i Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Kom igång med anpassade principer i Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

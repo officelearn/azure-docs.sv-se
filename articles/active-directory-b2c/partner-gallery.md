@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3bf65fd2cc6feb338c1cd7d0742fb3d2a4289eff
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c695a08e25512720c542c2a94048c5390b452591
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287192"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171016"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C ISV-partner
 
@@ -37,6 +37,7 @@ Vårt ISV partner Network utökar våra lösnings funktioner som hjälper dig at
 | ![Skärm bild av en Jumio-logotyp.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) är en tjänst för ID-verifiering som möjliggör verifiering av AUTOMATISERAt ID i real tid, vilket skyddar kund information. |
 | ![Skärm bild av en LexisNexis-logotyp.](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) är en profilerings-och identitets verifierings leverantör som verifierar användar identifiering och ger omfattande riskbedömning baserat på användarens enhet. |
 | ![Skärm bild av en N8 Identity-logotyp.](./media/partner-gallery/n8identity-logo.png) | [N8-identitet](./partner-n8identity.md) är en plattform för identitets-som-tjänst-styrning som tillhandahåller lösningar för att hantera migrering av kund konton och kund tjänst begär Anden (CSR) som körs på Microsoft Azure. |
+| ![Skärm bild av en Nevis-logotyp.](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) tillhandahåller en mobil-och helt anpassad slut användar upplevelse med Nevis-appen för att ge stark kundautentisering och överensstämmer med PSD2-transaktions kraven (Payment Services direktiv 2). |
 | ![Skärm bild av en Onfido-logotyp.](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) är ett dokument-ID och en verifierings lösning för ansikts biometrik som gör det möjligt för företag att möta sina *kunskaper om kund* -och identitets krav i real tid.  |
 | ![Skärm bild av en Saviynt-logotyp.](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-saviynt.md) Cloud – ursprunglig plattform använder intelligent analys och ger integration mellan applikationer för att effektivisera IT-modernisering och främja bättre säkerhet, styrning och efterlevnad. Business modernisering ändrar hur företag granskar åtkomst begär Anden, gör åtkomst granskningar, rapporterar analyser och effektiviserar certifierings kampanjer.  |
 | ![Skärm bild av en Strata-logotyp.](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) skyddar lokala program genom att tvinga konsekventa åtkomst principer, hålla identiteter synkroniserade och göra det enkelt att överföra program från äldre identitets system till standardbaserad autentisering och åtkomst kontroll som tillhandahålls av Azure AD B2C. |

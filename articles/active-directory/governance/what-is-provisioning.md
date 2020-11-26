@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ef6f6068bce7a676e55eca10ae9198b2238a143
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 640367d1b833f61e8a83fe9ce6b14d6d799cf9b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135428"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172460"
 ---
 # <a name="what-is-provisioning"></a>Vad är etablering?
 
@@ -59,7 +59,7 @@ Mer information finns i [Vad är HR driven etablering?](what-is-hr-driven-provis
 
 ![app-etablering](media/what-is-provisioning/cloud-3b.png)
 
-I Azure AD innebär termen **[app-etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** att automatiskt skapa kopior av användar identiteter i de program som användarna behöver åtkomst till, för program som har sitt eget data lager, som skiljer sig från Azure AD eller Active Directory. Förutom att skapa användar identiteter innehåller app-etablering underhåll och borttagning av användar identiteter från dessa appar, när användarens status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), eftersom var och en av dessa program har sin egen användar databas som skiljer sig från Azure AD.
+I Azure AD innebär termen **[app-etablering](../app-provisioning/user-provisioning.md)** att automatiskt skapa kopior av användar identiteter i de program som användarna behöver åtkomst till, för program som har sitt eget data lager, som skiljer sig från Azure AD eller Active Directory. Förutom att skapa användar identiteter innehåller app-etablering underhåll och borttagning av användar identiteter från dessa appar, när användarens status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), eftersom var och en av dessa program har sin egen användar databas som skiljer sig från Azure AD.
 
 Mer information finns i [Vad är app-etablering?](what-is-app-provisioning.md)
 
@@ -77,7 +77,7 @@ Mer information finns i [Vad är etablering mellan kataloger?](what-is-inter-dir
 
  
 ## <a name="next-steps"></a>Nästa steg 
-- [Vad är hantering av identitets livs cykel?](what-is-identity-lifecycle-management.md)
+- [Vad är livscykelhantering för identiteter?](what-is-identity-lifecycle-management.md)
 - [Vad är HR driven etablering?](what-is-hr-driven-provisioning.md)
-- [Vad är app-etablering?](what-is-app-provisioning.md)
+- [Vad är appetablering?](what-is-app-provisioning.md)
 - [Vad är etablering mellan kataloger?](what-is-inter-directory-provisioning.md)

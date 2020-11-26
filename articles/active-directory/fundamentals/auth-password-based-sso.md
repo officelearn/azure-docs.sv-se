@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74815976036abafc56f97e622351a1018fe30504
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 5bd6a5c8af117bf6cb39969a5f1b1f17ff08681c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576940"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172830"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Lösenordsbaserad autentisering med Azure Active Directory
 
@@ -35,20 +35,19 @@ Du måste skydda med förautentisering och tillhandahålla SSO genom lösen ords
 
 ## <a name="components-of-system"></a>System komponenter
 
-* **Användare** : ansluter till ett utformat program från antingen Mina appar eller genom att direkt besöka webbplatsen. 
+* **Användare**: ansluter till ett utformat program från antingen Mina appar eller genom att direkt besöka webbplatsen. 
 
-* **Webbläsare** : komponenten som användaren interagerar med för att få åtkomst till den externa URL: en för programmet. Användaren får åtkomst till det formulärbaserade programmet via tillägget för appar. 
+* **Webbläsare**: komponenten som användaren interagerar med för att få åtkomst till den externa URL: en för programmet. Användaren får åtkomst till det formulärbaserade programmet via tillägget för appar. 
 
-* Mina **appar-tillägg** : identifierar det konfigurerade lösenordsbaserade SSO-programmet och skickar autentiseringsuppgifterna till inloggnings formuläret. Tillägget för Mina appar är installerat i webbläsaren. 
+* Mina **appar-tillägg**: identifierar det konfigurerade lösenordsbaserade SSO-programmet och skickar autentiseringsuppgifterna till inloggnings formuläret. Tillägget för Mina appar är installerat i webbläsaren. 
 
-* **Azure AD** : autentiserar användaren.
+* **Azure AD**: autentiserar användaren.
 
 ## <a name="implement-password-based-sso-with-azure-ad"></a>Implementera lösenordsbaserad SSO med Azure AD
 
-* [Vad är lösen ords baserat SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) 
+* [Vad är lösen ords baserat SSO](../manage-apps/what-is-single-sign-on.md) 
 
-* [Konfigurera lösenordsbaserad SSO för moln program ](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications)
+* [Konfigurera lösenordsbaserad SSO för moln program ](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
-* [Konfigurera lösenordsbaserad SSO för lokala program med Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting)
+* [Konfigurera lösenordsbaserad SSO för lokala program med Application Proxy](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 
- 

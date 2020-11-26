@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: bc16f75a4ed2f9fe3be8a8bdc2d981a339780cc3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7c30bca947788e93e57f462094d51f00e338c0b8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960787"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171661"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Distribuera Azure AD-programproxy för säker åtkomst till interna program i en Azure Active Directory Domain Services hanterad domän
 
@@ -72,7 +72,7 @@ När du har en virtuell dator som är redo att användas som Azure AD-programpro
         > [!NOTE]
         > Det globala administratörs kontot som används för att registrera anslutningen måste tillhöra samma katalog där du aktiverar Application Proxy-tjänsten.
         >
-        > Om till exempel Azure AD-domänen är *contoso.com*bör den globala administratören vara `admin@contoso.com` eller ett annat giltigt alias i domänen.
+        > Om till exempel Azure AD-domänen är *contoso.com* bör den globala administratören vara `admin@contoso.com` eller ett annat giltigt alias i domänen.
 
    * Om förbättrad säkerhets konfiguration i Internet Explorer är aktiverat för den virtuella datorn där du installerar anslutningen, kan registrerings skärmen blockeras. Om du vill tillåta åtkomst följer du anvisningarna i fel meddelandet eller stänger av förbättrad säkerhet i Internet Explorer under installationen.
    * Om anslutnings registreringen Miss lyckas, se [Felsöka programproxyn](../active-directory/manage-apps/application-proxy-troubleshoot.md).
@@ -120,6 +120,6 @@ Med Azure AD-programproxy integrerat med Azure AD DS kan du publicera program so
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [Get-ADComputer]: /powershell/module/addsadministration/get-adcomputer
 [Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer

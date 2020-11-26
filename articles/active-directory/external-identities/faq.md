@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f92b95e38dea6555ca881d56ccf1cf2d68783e53
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 2825d3776f7b45f6726aaec05484900511ed1477
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896097"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172983"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Vanliga frågor och svar om Azure Active Directory B2B-samarbete
 
@@ -30,7 +30,7 @@ Vanliga frågor och svar (FAQ) om Azure Active Directory (B2B-samarbete från Bu
 Helt! Se vårt [blogg inlägg om den här funktionen](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Mer information om hur du anpassar din organisations inloggnings sida finns i avsnittet [lägga till företags anpassning för inloggnings-och åtkomst panel sidor](../fundamentals/customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Kan B2B-samarbets användare få åtkomst till SharePoint Online och OneDrive?
-Ja. Möjligheten att söka efter befintliga gäst användare i SharePoint Online med hjälp av person väljaren är **inaktive rad** som standard. Om du vill aktivera alternativet för att söka efter befintliga gäst användare ställer du in **ShowPeoplePickerSuggestionsForGuestUsers** på **på** . Du kan aktivera den här inställningen antingen på klient nivån eller på webbplats samlings nivå. Du kan ändra den här inställningen med hjälp av Set-SPOTenant-och Set-SPOSite-cmdletar. Med dessa cmdletar kan medlemmar söka igenom alla befintliga gäst användare i katalogen. Ändringar i klient omfånget påverkar inte SharePoint Online-webbplatser som redan har etablerats.
+Ja. Möjligheten att söka efter befintliga gäst användare i SharePoint Online med hjälp av person väljaren är **inaktive rad** som standard. Om du vill aktivera alternativet för att söka efter befintliga gäst användare ställer du in **ShowPeoplePickerSuggestionsForGuestUsers** på **på**. Du kan aktivera den här inställningen antingen på klient nivån eller på webbplats samlings nivå. Du kan ändra den här inställningen med hjälp av Set-SPOTenant-och Set-SPOSite-cmdletar. Med dessa cmdletar kan medlemmar söka igenom alla befintliga gäst användare i katalogen. Ändringar i klient omfånget påverkar inte SharePoint Online-webbplatser som redan har etablerats.
 
 ### <a name="is-the-csv-upload-feature-still-supported"></a>Stöds funktionen för att ladda upp CSV fortfarande?
 Ja. Mer information om hur du använder fil uppladdnings funktionen i. csv finns i [det här PowerShell-exemplet](code-samples.md).
@@ -64,17 +64,17 @@ Om en användare inte har tilldelats rollen begränsad administratör behöver i
 Ja! Du kan skapa en princip för villkorlig åtkomst som blockerar alla gäst-och externa användare från att få åtkomst till Azure Portal. När du konfigurerar den här principen bör du vara noga med att undvika att blockera åtkomst till medlemmar och administratörer av misstag.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som säkerhets administratör eller administratör för villkorlig åtkomst.
-2. I Azure Portal väljer du **Azure Active Directory** . 
-3. Under **Hantera** väljer du **säkerhet** .
-4. Under **skydda** väljer du **villkorlig åtkomst** . Välj **ny princip** .
+2. Välj **Azure Active Directory** i Azure Portal. 
+3. Under **Hantera** väljer du **säkerhet**.
+4. Under **skydda** väljer du **villkorlig åtkomst**. Välj **ny princip**.
 5. På sidan **nytt** i text rutan **namn** anger du ett namn för principen (till exempel "blockera gäster från åtkomst till portalen").
-6. Under **Tilldelningar** väljer du **Användare och grupper** .
-7. På fliken **Inkludera** väljer du **Välj användare och grupper** och väljer sedan **alla gäst-och externa användare (för hands version)** .
-9. Välj **Done** (Klar).
-10. På sidan **ny** i avsnittet **tilldelningar** väljer du **molnappar eller åtgärder** .
-11. Välj **Välj appar** på sidan **molnappar eller åtgärder** och välj sedan **Välj** .
-12. Välj **Microsoft Azure-hantering** på sidan **Välj** och välj sedan **Välj** .
-13. På sidan **molnappar eller åtgärder** väljer du **Slutför** .
+6. Under **Tilldelningar** väljer du **Användare och grupper**.
+7. På fliken **Inkludera** väljer du **Välj användare och grupper** och väljer sedan **alla gäst-och externa användare (för hands version)**.
+9. Välj **Klar**.
+10. På sidan **ny** i avsnittet **tilldelningar** väljer du **molnappar eller åtgärder**.
+11. Välj **Välj appar** på sidan **molnappar eller åtgärder** och välj sedan **Välj**.
+12. Välj **Microsoft Azure-hantering** på sidan **Välj** och välj sedan **Välj**.
+13. På sidan **molnappar eller åtgärder** väljer du **Slutför**.
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Stöder Azure AD B2B-samarbete Multi-Factor Authentication och e-postkonton för konsumenter?
 Ja. Multi-Factor Authentication-och konsument-e-postkonton stöds både för Azure AD B2B-samarbete.
@@ -84,7 +84,7 @@ Om din Azure AD-klient är hem katalogen för en användare kan du [återställa
  
 * Gäst användare som loggar in med en Microsoft-konto (till exempel guestuser@live.com ) kan återställa sina egna lösen ord med hjälp av Microsoft-konto självbetjäning för återställning av lösen ord (SSPR). Se [hur du återställer Microsoft-konto-lösenordet](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Gäst användare som loggar in med ett Google-konto eller en annan extern identitetsprovider kan återställa sina egna lösen ord med hjälp av identitets leverantörens SSPR-metod. Till exempel kan en gäst användare med Google-kontot guestuser@gmail.com återställa sitt lösen ord genom att följa anvisningarna i [ändra eller återställa ditt lösen ord](https://support.google.com/accounts/answer/41078).
-* Om identitets klienten är en just-in-Time-klient (JIT) eller "viral"-klient (vilket innebär att det är en separat, ohanterad Azure-klient) kan bara gäst användaren återställa sina lösen ord. Ibland tar en organisation [över hanteringen av viral-klienter](../users-groups-roles/domains-admin-takeover.md) som skapas när anställda använder sina arbets-e-postadresser för att registrera sig för tjänster. När organisationen har tagit över en virus klient kan bara en administratör i organisationen återställa användarens lösen ord eller aktivera SSPR. Vid behov kan du, som bjuda in organisationen, ta bort gäst användar kontot från katalogen och skicka en inbjudan igen.
+* Om identitets klienten är en just-in-Time-klient (JIT) eller "viral"-klient (vilket innebär att det är en separat, ohanterad Azure-klient) kan bara gäst användaren återställa sina lösen ord. Ibland tar en organisation [över hanteringen av viral-klienter](../enterprise-users/domains-admin-takeover.md) som skapas när anställda använder sina arbets-e-postadresser för att registrera sig för tjänster. När organisationen har tagit över en virus klient kan bara en administratör i organisationen återställa användarens lösen ord eller aktivera SSPR. Vid behov kan du, som bjuda in organisationen, ta bort gäst användar kontot från katalogen och skicka en inbjudan igen.
 
 * Om gäst användarens Hem Katalog är din Azure AD-klient kan du återställa användarens lösen ord. Du kan till exempel ha skapat en användare eller synkroniserat en användare från din lokala Active Directory och ange sina UserType till gäst. Eftersom den här användaren är i hem katalogen kan du återställa lösen ordet från Azure Portal.
 

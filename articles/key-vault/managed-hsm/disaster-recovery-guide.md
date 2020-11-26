@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 08c1b415ac075429a9bc89098233fffb8c25b710
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 69a0272061d8518119114e8fe7b023c889639844
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369264"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171571"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Katastrof återställning av hanterad HSM
 
@@ -35,7 +35,7 @@ Här följer stegen i processen för haveri beredskap:
 1. Gör en säkerhets kopia av den nya HSM-filen. En säkerhets kopia krävs före eventuell återställning, även om HSM är tom. Säkerhets kopiorna är enkla att återställa.
 1. Återställa den senaste HSM-säkerhetskopieringen från käll-HSM
 
-Innehållet i ditt nyckel valv replikeras i regionen och till en sekundär region minst 150 km, men inom samma geografi. Den här funktionen upprätthåller hög tålighet för dina nycklar och hemligheter. Mer information om vissa region par finns i dokumentet om [Azure-kopplade regioner](../../best-practices-availability-paired-regions.md) .
+Med de här stegen kan du replikera innehållet i HSM manuellt till en annan region. HSM-namnet (och tjänstens slut punkts-URI) är olika, så du kan behöva ändra program konfigurationen för att använda dessa nycklar från en annan plats.
 
 ## <a name="create-a-new-managed-hsm"></a>Skapa en ny hanterad HSM
 
@@ -48,7 +48,7 @@ Du måste ange följande indata för att skapa en hanterad HSM-resurs:
 - Azure-platsen.
 - En lista med inledande administratörer.
 
-Exemplet nedan skapar en HSM med namnet **ContosoMHSM** i resurs gruppen  **ContosoResourceGroup** , som finns på platsen **östra USA 2** , med **den aktuella inloggade användaren** som administratör.
+Exemplet nedan skapar en HSM med namnet **ContosoMHSM** i resurs gruppen  **ContosoResourceGroup**, som finns på platsen **östra USA 2** , med **den aktuella inloggade användaren** som administratör.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
@@ -60,8 +60,8 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 
 Utdata från det här kommandot visar egenskaper för den hanterade HSM som du har skapat. De två viktigaste egenskaperna är:
 
-* **namn** : i exemplet är namnet ContosoMHSM. Du kommer att använda det här namnet för andra Key Vault-kommandon.
-* **hsmUri** : i exemplet är URI: n " https://contosohsm.managedhsm.azure.net ." Program som använder din HSM via sin REST API måste använda denna URI.
+* **namn**: i exemplet är namnet ContosoMHSM. Du kommer att använda det här namnet för andra Key Vault-kommandon.
+* **hsmUri**: i exemplet är URI: n " https://contosohsm.managedhsm.azure.net ." Program som använder din HSM via sin REST API måste använda denna URI.
 
 Ditt Azure-konto har nu behörighet att utföra alla åtgärder på den här hanterade HSM. Från och med har ingen annan behörighet.
 
@@ -86,7 +86,7 @@ För det här steget behöver du följande:
 - Skapa en säkerhets domän överförings-BLOB krypterad med den säkerhets domän som vi laddade ned i föregående steg och sedan
 - Ladda upp den säkerhetsdomän som överför blobben till HSM för att slutföra säkerhets domän återställning
 
-I exemplet nedan använder vi säkerhets domänen från **ContosoMHSM** , 2 av motsvarande privata nycklar och överför den till **ContosoMHSM2** , vilket väntar på att ta emot en säkerhets domän. 
+I exemplet nedan använder vi säkerhets domänen från **ContosoMHSM**, 2 av motsvarande privata nycklar och överför den till **ContosoMHSM2**, vilket väntar på att ta emot en säkerhets domän. 
 
 ```azurecli-interactive
 az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key
@@ -102,7 +102,7 @@ Om du vill skapa en HSM-säkerhetskopiering behöver du följande
 - Ett lagrings konto där säkerhets kopian ska lagras
 - En Blob Storage-behållare i det här lagrings kontot där säkerhets kopieringen ska skapa en ny mapp för att lagra en krypterad säkerhets kopia
 
-Vi använder `az keyvault backup` kommandot för HSM-säkerhetskopieringen i lagrings behållaren **mhsmbackupcontainer** , som finns i **ContosoBackup** för lagrings kontot i exemplet nedan. Vi skapar en SAS-token som upphör att gälla om 30 minuter och anger att en hanterad HSM ska skriva säkerhets kopian.
+Vi använder `az keyvault backup` kommandot för HSM-säkerhetskopieringen i lagrings behållaren **mhsmbackupcontainer**, som finns i **ContosoBackup** för lagrings kontot i exemplet nedan. Vi skapar en SAS-token som upphör att gälla om 30 minuter och anger att en hanterad HSM ska skriva säkerhets kopian.
 
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')

@@ -11,21 +11,21 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2427d974f96c0905ea2eb33daea7c89de277ec9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8520afdd05ecce8604ce72596bdf06053217cc2e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441818"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173098"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-samarbete för inbjudan
 
 I den här artikeln beskrivs de olika sätt som gäst användare kan komma åt resurser och medgivande processen som de stöter på. Om du skickar ett e-postmeddelande med inbjudan till gästen innehåller inbjudan en länk som gästen kan lösa in för att få åtkomst till din app eller Portal. E-postinbjudan är bara ett av de sätt som gäster kan få åtkomst till dina resurser. Alternativt kan du lägga till gäster till katalogen och ge dem en direkt länk till portalen eller appen som du vill dela. Oavsett vilken metod de använder, vägleds gästerna genom en process för godkännande av första gången. Den här processen säkerställer att dina gäster samtycker till sekretess villkoren och accepterar de [användnings villkor](../conditional-access/terms-of-use.md) som du har konfigurerat.
 
-När du lägger till en gäst användare i din katalog har gäst användar kontot en medgivande status (synlig i PowerShell) som inlednings vis är inställt på **PendingAcceptance**. Den här inställningen är kvar tills gästen accepterar din inbjudan och accepterar din sekretess policy och användnings villkor. Därefter ändras medgivande statusen till **godkänd**och medgivande sidorna visas inte längre för gästen.
+När du lägger till en gäst användare i din katalog har gäst användar kontot en medgivande status (synlig i PowerShell) som inlednings vis är inställt på **PendingAcceptance**. Den här inställningen är kvar tills gästen accepterar din inbjudan och accepterar din sekretess policy och användnings villkor. Därefter ändras medgivande statusen till **godkänd** och medgivande sidorna visas inte längre för gästen.
 
    > [!IMPORTANT]
-   > Från och med den **31 mars 2021**kommer Microsoft inte längre att stödja inlösen av inbjudningar genom att skapa ohanterade Azure AD-konton och klienter för B2B-samarbets scenarier. Vi rekommenderar att kunderna väljer [autentisering med e-post med eng ång slö sen ord](one-time-passcode.md). Vi välkomnar din feedback om den här offentliga för hands versionen och är glada att skapa ännu fler sätt att samar beta.
+   > Från och med den **31 mars 2021** kommer Microsoft inte längre att stödja inlösen av inbjudningar genom att skapa ohanterade Azure AD-konton och klienter för B2B-samarbets scenarier. Vi rekommenderar att kunderna väljer [autentisering med e-post med eng ång slö sen ord](one-time-passcode.md). Vi välkomnar din feedback om den här offentliga för hands versionen och är glada att skapa ännu fler sätt att samar beta.
 
 ## <a name="redemption-through-the-invitation-email"></a>Inlösen via e-postinbjudan
 
@@ -33,7 +33,7 @@ När du lägger till en gäst användare till din katalog med [hjälp av Azure P
 
 1. Gästen får ett [e-postmeddelande om inbjudan](./invitation-email-elements.md) som skickas från **Microsofts inbjudningar**.
 2. Gästen väljer **acceptera inbjudan** i e-postmeddelandet.
-3. Gästen kommer att använda sina egna autentiseringsuppgifter för att logga in i din katalog. Om gästen inte har ett konto som kan sammanställas till din katalog och funktionen [eng ång slö sen](./one-time-passcode.md) ord för e-post inte är aktive rad. gästen uppmanas att skapa en personlig [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) eller ett självbetjänings [konto för Azure AD](../users-groups-roles/directory-self-service-signup.md). Mer information finns i [inlösnings flödet för inbjudan](#invitation-redemption-flow) .
+3. Gästen kommer att använda sina egna autentiseringsuppgifter för att logga in i din katalog. Om gästen inte har ett konto som kan sammanställas till din katalog och funktionen [eng ång slö sen](./one-time-passcode.md) ord för e-post inte är aktive rad. gästen uppmanas att skapa en personlig [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) eller ett självbetjänings [konto för Azure AD](../enterprise-users/directory-self-service-signup.md). Mer information finns i [inlösnings flödet för inbjudan](#invitation-redemption-flow) .
 4. Gästen vägleds genom den [godkännande upplevelse](#consent-experience-for-the-guest) som beskrivs nedan.
 
 ## <a name="redemption-through-a-direct-link"></a>Inlösen via en direkt länk
@@ -74,9 +74,9 @@ När en användare klickar på länken **acceptera inbjudan** i ett [e-postmedde
 
 7. Om [e-post med eng ång slö sen ord för gäster har Aktiver ATS](./one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode)skickas ett lösen ord till användaren via det inbjudna e-postmeddelandet. Användaren kommer att hämta och ange lösen ordet på inloggnings sidan för Azure AD.
 
-8. Om e-postlösenord med eng ång slö sen ord för gäster är inaktiverat, kontrollerar Azure AD domänsuffix för att avgöra om det tillhör ett konsument konto. I så fall uppmanas användaren att skapa en personlig [Microsoft-konto](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create). Annars uppmanas användaren att skapa ett självbetjänings [konto för Azure AD](../users-groups-roles/directory-self-service-signup.md).
+8. Om e-postlösenord med eng ång slö sen ord för gäster är inaktiverat, kontrollerar Azure AD domänsuffix för att avgöra om det tillhör ett konsument konto. I så fall uppmanas användaren att skapa en personlig [Microsoft-konto](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create). Annars uppmanas användaren att skapa ett självbetjänings [konto för Azure AD](../enterprise-users/directory-self-service-signup.md).
 
-9. Azure AD försöker skapa ett självbetjänings [konto för Azure AD](../users-groups-roles/directory-self-service-signup.md) genom att kontrol lera åtkomsten till e-postmeddelandet. Verifierar att kontot görs genom att skicka en kod till e-postmeddelandet och låta användaren hämta och skicka det till Azure AD. Men om den inbjudna användarens klient är federerad eller om fältet AllowEmailVerifiedUsers är inställt på false i den inbjudna användarens klient organisation, kan inte användaren slutföra inlösningen och flödet resulterar i ett fel. Mer information finns i [felsöka Azure Active Directory B2B-samarbete](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
+9. Azure AD försöker skapa ett självbetjänings [konto för Azure AD](../enterprise-users/directory-self-service-signup.md) genom att kontrol lera åtkomsten till e-postmeddelandet. Verifierar att kontot görs genom att skicka en kod till e-postmeddelandet och låta användaren hämta och skicka det till Azure AD. Men om den inbjudna användarens klient är federerad eller om fältet AllowEmailVerifiedUsers är inställt på false i den inbjudna användarens klient organisation, kan inte användaren slutföra inlösningen och flödet resulterar i ett fel. Mer information finns i [felsöka Azure Active Directory B2B-samarbete](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
 
 10. Användaren uppmanas att skapa en personlig [Microsoft-konto (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create).
 

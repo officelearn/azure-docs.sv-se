@@ -40,6 +40,10 @@
       href: threat-intelligence-settings.md
     - name: FQDN i nätverksregler
       href: fqdn-filtering-network-rules.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
 - name: Anvisningar
   items:
     - name: Distribuera säkerhetspartnerprovidrar

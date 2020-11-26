@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: 7ab62b04f8bea76c7efb587665f87ccaf123da24
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a7794bcdfa4f82698fdc5875bc94dcf52b70166e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109008"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185104"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Installera eller avinstallera Azure IoT Edge runtime
 
@@ -24,7 +24,7 @@ Det finns två steg för att konfigurera en IoT Edge enhet. Det första steget �
 
 Den här artikeln beskriver stegen för att installera Azure IoT Edge runtime på Linux-eller Windows-enheter. För Windows-enheter har du ytterligare möjlighet att använda Linux-behållare eller Windows-behållare. För närvarande rekommenderas Windows-behållare i Windows för produktions scenarier. Linux-behållare i Windows är användbara för utvecklings-och testnings scenarier, särskilt om du utvecklar på en Windows-dator för att distribuera till Linux-enheter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den senaste informationen om vilka operativ system som för närvarande stöds för produktions scenarier finns i [Azure IoT Edge system som stöds](support.md#operating-systems)
 
@@ -51,7 +51,7 @@ Förbered din enhet för att få åtkomst till Microsoft-installations paketen.
      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Raspbian-storlek**:
+   * **Raspberry Pi OS-storlek**:
 
      ```bash
      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list

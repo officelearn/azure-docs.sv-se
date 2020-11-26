@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: f7980ca7bc6f23c383ea013c2b017b3bd61e2d25
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 410281ce67faf345539701389d4b03351d403b99
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842304"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186073"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ansluta ITSM-produkter/-tjänster med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/-tjänst och Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) i Log Analytics för att centralt hantera dina arbets uppgifter. Mer information om ITSMC finns i [Översikt](./itsmc-overview.md).
@@ -46,7 +46,7 @@ Se till att följande krav är uppfyllda:
 > [!NOTE]
 > 
 > - ITSM-anslutningsprogram kan bara ansluta till molnbaserade ServiceNow-instanser. Lokala ServiceNow-instanser stöds inte för närvarande.
-> - För att kunna använda anpassade [mallar](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) som en del av de åtgärder som parametern "ProjectionType" i SCSM-mallen ska mappas till "IncidentManagement! System. WorkItem. incident. ProjectionType "
+> - För att kunna använda anpassade [mallar](./itsmc-overview.md#template-definitions) som en del av de åtgärder som parametern "ProjectionType" i SCSM-mallen ska mappas till "IncidentManagement! System. WorkItem. incident. ProjectionType "
 
 ### <a name="connection-procedure"></a>Anslutnings procedur
 
@@ -104,7 +104,7 @@ Kör skriptet genom att ange följande obligatoriska information:
 
 - Information om Azure-prenumeration
 - Namn på resursgrupp
-- Plats
+- Location
 - Service Manager Server information (Server namn, domän, användar namn och lösen ord)
 - Prefix för webbplats namn för din webbapp
 - Service Bus-namnrymd.
@@ -432,4 +432,3 @@ Använd följande procedur för att generera klient-ID/nyckel för Cherwell:
 
 ## <a name="next-steps"></a>Nästa steg
  - [Skapa ITSM arbets objekt från Azure-aviseringar](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
-

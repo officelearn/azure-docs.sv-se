@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: b709981e199d63c32426381ba48665402de820ce
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1729e0b27dd50519359cf6a39bfa81ba7b3b41e9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422713"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185155"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ansluta Azure Functions till Azure Storage med Visual Studio Code
 
@@ -55,7 +55,7 @@ Den här artikeln förutsätter att du redan har loggat in på Azure-prenumerati
 
 ## <a name="download-the-function-app-settings"></a>Ladda ned appens funktions inställningar
 
-I [föregående snabb starts artikel](functions-create-first-function-vs-code.md)skapade du en Function-app i Azure tillsammans med det lagrings konto som krävs. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagrings kö i samma konto. Om du vill ansluta till ditt lagrings konto när du kör funktionen lokalt måste du hämta inställningarna för appen till local.settings.jspå filen. 
+I [föregående snabb starts artikel](./create-first-function-vs-code-csharp.md)skapade du en Function-app i Azure tillsammans med det lagrings konto som krävs. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagrings kö i samma konto. Om du vill ansluta till ditt lagrings konto när du kör funktionen lokalt måste du hämta inställningarna för appen till local.settings.jspå filen. 
 
 1. Tryck på F1-tangenten för att öppna kommando paletten och Sök sedan efter och kör kommandot `Azure Functions: Download Remote Settings....` . 
 
@@ -182,7 +182,7 @@ Hoppa över det här avsnittet om du redan har installerat Azure Storage Explore
 
     ![Lägg till ett Azure-konto i Microsoft Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png)
 
-1. I dialog rutan **Anslut** väljer du **Lägg till ett Azure-konto** , väljer din Azure- **miljö** och väljer **Logga in..**. 
+1. I dialog rutan **Anslut** väljer du **Lägg till ett Azure-konto**, väljer din Azure- **miljö** och väljer **Logga in..**. 
 
     ![Logga in på ditt Azure-konto](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-connect-azure-account.png)
 

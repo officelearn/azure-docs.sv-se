@@ -4,12 +4,12 @@ description: Beskriver hur du distribuerar Azure Resource Manager-mallar med hj�
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3dcb246956aae274f17cf938ee3d406562b22941
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf705f68544c4c4e0db55d4a375e1e50530c8957
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905267"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185716"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Distribuera Azure Resource Manager-mallar med GitHub-åtgärder
 
@@ -30,7 +30,7 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 Filen har två avsnitt:
 
-|Section  |Uppgifter  |
+|Avsnitt  |Uppgifter  |
 |---------|---------|
 |**Autentisering** | 1. definiera ett huvud namn för tjänsten. <br /> 2. skapa en GitHub-hemlighet. |
 |**Distribuera** | 1. distribuera Resource Manager-mallen. |
@@ -157,4 +157,4 @@ När din resurs grupp och lagrings plats inte längre behövs rensar du de resur
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa din första ARM-mall](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Skapa din första ARM-mall](./template-tutorial-create-first-template.md)

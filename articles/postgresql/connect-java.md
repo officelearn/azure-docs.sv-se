@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
 ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341424"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184713"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>Snabb start: Använd Java och JDBC med Azure Database for PostgreSQL
 
@@ -21,14 +21,14 @@ Det här avsnittet visar hur du skapar ett exempel program som använder Java oc
 
 JDBC är standard Java-API: et för att ansluta till traditionella Relations databaser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto. Om du inte har någon kan du [få en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
 - [Azure Cloud Shell](../cloud-shell/quickstart.md) eller [Azure CLI](/cli/azure/install-azure-cli). Vi rekommenderar Azure Cloud Shell så att du loggas in automatiskt och har åtkomst till alla verktyg du behöver.
 - En [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support)som stöds, version 8 (ingår i Azure Cloud Shell).
 - Verktyget [Apache maven](https://maven.apache.org/) build.
 
-## <a name="prepare-the-working-environment"></a>Förbered arbets miljön
+## <a name="prepare-the-working-environment"></a>Förbereda arbetsmiljön
 
 Vi kommer att använda miljövariabler för att begränsa skrivfel och för att göra det enklare för dig att anpassa följande konfiguration efter dina egna behov.
 
@@ -43,11 +43,11 @@ AZ_POSTGRESQL_PASSWORD=<YOUR_POSTGRESQL_PASSWORD>
 AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
-Ersätt plats hållarna med följande värden, som används i den här artikeln:
+Ersätt platshållarna med följande värden, som används i hela artikeln:
 
-- `<YOUR_DATABASE_NAME>`: Namnet på din PostgreSQL-Server. Det bör vara unikt i Azure.
-- `<YOUR_AZURE_REGION>`: Den Azure-region som du ska använda. Du kan använda `eastus` som standard, men vi rekommenderar att du konfigurerar en region närmare var du bor. Du kan ha en fullständig lista över tillgängliga regioner genom att ange `az account list-locations` .
-- `<YOUR_POSTGRESQL_PASSWORD>`: Lösen ordet för din PostgreSQL-databas server. Lösen ordet måste innehålla minst åtta tecken. Tecknen ska vara från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #,% osv.).
+- `<YOUR_DATABASE_NAME>`: Namnet på din PostgreSQL-Server. Det ska vara unikt i Azure.
+- `<YOUR_AZURE_REGION>`: Den Azure-region som du ska använda. Du kan använda `eastus` som standard, men vi rekommenderar att du konfigurerar den region som är närmast dig. Du kan ha en fullständig lista över tillgängliga regioner genom att ange `az account list-locations` .
+- `<YOUR_POSTGRESQL_PASSWORD>`: Lösen ordet för din PostgreSQL-databas server. Lösenordet måste innehålla minst åtta tecken. Tecknen måste komma från tre av följande kategorier: Engelska versaler, engelska gemener, siffror (0–9) och specialtecken (som !, $, # eller %).
 - `<YOUR_LOCAL_IP_ADDRESS>`: IP-adressen för den lokala datorn som du kör Java-programmet från. Ett bekvämt sätt att hitta det är att peka din webbläsare på [whatismyip.Akamai.com](http://whatismyip.akamai.com/).
 
 Skapa sedan en resurs grupp med hjälp av följande kommando:
@@ -60,7 +60,7 @@ az group create \
 ```
 
 > [!NOTE]
-> Vi använder `jq` verktyget för att Visa JSON-data och gör det lättare att läsa. Det här verktyget installeras som standard på [Azure Cloud Shell](https://shell.azure.com/). Om du inte gillar verktyget kan du på ett säkert sätt ta bort `| jq` delen av alla kommandon som vi kommer att använda.
+> Vi använder `jq` verktyget för att Visa JSON-data och gör det lättare att läsa. Det här verktyget installeras som standard på [Azure Cloud Shell](https://shell.azure.com/). Om du inte gillar det här verktyget kan du ta bort `| jq` i alla kommandon.
 
 ## <a name="create-an-azure-database-for-postgresql-instance"></a>Skapa en Azure Database for PostgreSQL-instans
 
@@ -87,7 +87,7 @@ Det här kommandot skapar en liten PostgreSQL-Server.
 
 ### <a name="configure-a-firewall-rule-for-your-postgresql-server"></a>Konfigurera en brand Väggs regel för PostgreSQL-servern
 
-Azure Database for PostgreSQL instanser är säkra som standard. De har en brand vägg som inte tillåter inkommande anslutningar. Om du vill kunna använda databasen måste du lägga till en brand Väggs regel som tillåter att den lokala IP-adressen kommer åt databas servern.
+Azure Database for PostgreSQL instanser är säkra som standard. Databaserna har en brandvägg som inte tillåter inkommande anslutningar. Om du vill kunna använda databasen måste du lägga till en brand Väggs regel som tillåter att den lokala IP-adressen kommer åt databas servern.
 
 Eftersom du konfigurerade din lokala IP-adress i början av den här artikeln kan du öppna serverns brand vägg genom att köra följande kommando:
 
@@ -173,7 +173,7 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
 ```
 
-## <a name="code-the-application"></a>Koda programmet
+## <a name="code-the-application"></a>Koda appen
 
 ### <a name="connect-to-the-database"></a>Ansluta till databasen
 

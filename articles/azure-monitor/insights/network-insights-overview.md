@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 52ca879d5a680d0e62cc469e768236eac11f3719
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 2f262b328efcc341c93f1e5c31cab8cbd3ecbf6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030226"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184645"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor för nätverk
 Azure Monitor för nätverk ger en omfattande vy över [hälsa](../../service-health/resource-health-checks-resource-types.md) och [mått](../platform/metrics-supported.md) för alla distribuerade nätverks resurser, utan att kräva någon konfiguration. Den ger även till gång till funktioner för nätverks övervakning, t. ex. [anslutnings övervakaren](../../network-watcher/connection-monitor-preview.md), [flödes loggning för nätverks säkerhets grupper (nsg: er)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)och [trafikanalys](../../network-watcher/traffic-analytics.md). Och innehåller [andra funktioner för nätverksdiagnostik.](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics)
@@ -71,7 +71,7 @@ Med olika filter kan du skala ned till en angiven sökväg och tillstånd. Välj
 
 Välj **Visa detaljerade mått** för att öppna en förkonfigurerad arbets bok som tillhandahåller detaljerade mått för programgatewayen, alla resurser för Server dels poolen och klient-IP-adresser. 
 
-## <a name="connectivity"></a><a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a><a name="connectivity"></a>Anslutningar
 
 Fliken **anslutning** är ett enkelt sätt att visualisera alla tester som kon figurer ATS via [anslutnings övervakaren](../../network-watcher/connection-monitor-overview.md) och anslutnings övervakaren (klassisk) för den valda uppsättningen prenumerationer.
 
@@ -119,11 +119,11 @@ Det här avsnittet hjälper dig att diagnostisera och felsöka vanliga problem s
 Information om hur du felsöker eventuella nätverksrelaterade problem som du identifierar med Azure Monitor för nätverk finns i fel söknings dokumentationen för fel söknings resurser. 
 
 Här följer några länkar till fel söknings artiklar för tjänster som används ofta. Mer felsöknings artiklar om dessa tjänster finns i de andra artiklarna i fel söknings avsnittet i innehålls förteckningen för tjänsten.
-* [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-peering-issues)
-* [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-gateway-internal-load-balancer-app-service-environment)
-* [Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot)
-* [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-expressroute-overview) 
-* [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-troubleshoot) 
+* [Azure Virtual Network](../../virtual-network/virtual-network-troubleshoot-peering-issues.md)
+* [Azure Application Gateway](../../application-gateway/create-gateway-internal-load-balancer-app-service-environment.md)
+* [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-troubleshoot.md)
+* [Azure ExpressRoute](../../expressroute/expressroute-troubleshooting-expressroute-overview.md) 
+* [Azure Load Balancer](../../load-balancer/load-balancer-troubleshoot.md) 
 
 ### <a name="why-dont-i-see-the-resources-for-all-the-subscriptions-ive-selected"></a>Varför visas inte resurserna för alla prenumerationer jag har valt?
 

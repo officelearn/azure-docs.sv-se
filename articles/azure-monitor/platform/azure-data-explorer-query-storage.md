@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 18ece47187e3f83277d7d925ad958d2ede7cb337
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 2735aec0f95f5e282bb1dffba6e4f42f966cf117
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030024"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186549"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Fråga exporterade data från Azure Monitor med Azure Datautforskaren (förhands granskning)
 Export av data från Azure Monitor till ett Azure Storage-konto möjliggör låg kostnads kvarhållning och möjlighet att omfördela loggar till olika regioner. Använd Azure-Datautforskaren för att fråga data som har exporter ATS från dina Log Analytics arbets ytor. När den har kon figurer ATS kommer de tabeller som stöds som skickas från dina arbets ytor till ett Azure Storage-konto att vara tillgängliga som data källa för Azure-Datautforskaren.
@@ -136,4 +136,4 @@ external_table("HBTest","map") | take 10000
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig att [skriva frågor i Azure datautforskaren](https://docs.microsoft.com/azure/data-explorer/write-queries)
+- Lär dig att [skriva frågor i Azure datautforskaren](/azure/data-explorer/write-queries)

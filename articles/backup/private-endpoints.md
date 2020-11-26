@@ -4,11 +4,11 @@ description: Förstå processen med att skapa privata slut punkter för Azure Ba
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.openlocfilehash: 0ca4e7a83e18ac72e25131d320737ce9578b1cf3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172242"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184765"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 
@@ -73,11 +73,11 @@ För att skapa nödvändiga privata slut punkter för Azure Backup måste valvet
 Vi rekommenderar att du ger **deltagar** rollen för dessa tre resurs grupper till valvet (hanterad identitet). Följande steg beskriver hur du gör detta för en viss resurs grupp (detta måste göras för var och en av de tre resurs grupperna):
 
 1. Gå till resurs gruppen och navigera till **Access Control (IAM)** i det vänstra fältet.
-1. När **Access Control**går du till **Lägg till en roll tilldelning**.
+1. När **Access Control** går du till **Lägg till en roll tilldelning**.
 
     ![Lägg till en rolltilldelning](./media/private-endpoints/add-role-assignment.png)
 
-1. I fönstret **Lägg till roll tilldelning** väljer du **deltagare** som **roll**och använder **namnet** på valvet som **huvud konto**. Välj valvet och välj **Spara** när du är färdig.
+1. I fönstret **Lägg till roll tilldelning** väljer du **deltagare** som **roll** och använder **namnet** på valvet som **huvud konto**. Välj valvet och välj **Spara** när du är färdig.
 
     ![Välj roll och huvud konto](./media/private-endpoints/choose-role-and-principal.png)
 
@@ -99,7 +99,7 @@ I det här avsnittet beskrivs processen för att skapa en privat slut punkt för
 
 1. En gång i processen för att **skapa en privat slut punkt** måste du ange information om hur du skapar din privata slut punkts anslutning.
 
-    1. **Grundläggande**information: Fyll i den grundläggande informationen för dina privata slut punkter. Regionen ska vara samma som valvet och resursen.
+    1. **Grundläggande** information: Fyll i den grundläggande informationen för dina privata slut punkter. Regionen ska vara samma som valvet och resursen.
 
         ![Fyll i grundläggande information](./media/private-endpoints/basic-details.png)
 

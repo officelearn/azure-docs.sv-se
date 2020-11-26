@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9715724fc0fbd25198dd3244215ac2c12638d2b8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000733"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185971"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Kundhanterad nyckel i Azure Monitor 
 
@@ -72,7 +72,7 @@ Följande regler gäller:
 1. Bevilja behörighet till din Key Vault
 1. Länkar Log Analytics arbets ytor
 
-Customer-Managed nyckel konfigurationen stöds inte i Azure Portal och etableringen utförs via [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/)-, [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) -eller [rest](https://docs.microsoft.com/rest/api/loganalytics/) -begäranden.
+Customer-Managed nyckel konfigurationen stöds inte i Azure Portal och etableringen utförs via [PowerShell](/powershell/module/az.operationalinsights/)-, [CLI](/cli/azure/monitor/log-analytics) -eller [rest](/rest/api/loganalytics/) -begäranden.
 
 ### <a name="asynchronous-operations-and-status-check"></a>Asynkrona åtgärder och status kontroll
 
@@ -107,7 +107,7 @@ De här inställningarna kan uppdateras i Key Vault via CLI och PowerShell:
 
 ### <a name="create-cluster"></a>Skapa kluster
 
-Följ proceduren som illustreras i [artikeln om dedikerade kluster](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#creating-a-cluster). 
+Följ proceduren som illustreras i [artikeln om dedikerade kluster](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
 > [!IMPORTANT]
 > Kopiera och spara svaret eftersom du kommer att behöva informationen i nästa steg.
@@ -212,7 +212,7 @@ Du måste ha Skriv behörighet till både din arbets yta och ditt kluster för a
 
 Den här åtgärden är asynkron och kan vara en stund att slutföra.
 
-Följ proceduren som illustreras i [artikeln om dedikerade kluster](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster).
+Följ proceduren som illustreras i [artikeln om dedikerade kluster](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-the-cluster).
 
 ## <a name="key-revocation"></a>Återkallande av nyckel
 

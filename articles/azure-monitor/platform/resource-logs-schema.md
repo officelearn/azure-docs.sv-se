@@ -4,12 +4,12 @@ description: Förstå tjänster och händelse schema som stöds för Azures resu
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 2a66f90043e0f544dd86d2ab1245a3d8cbaff3d5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 1f8754245e394ecdffbb045d7f4cc96ec8a3ff78
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95534576"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184509"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Gemensamt och tjänstspecifikt schema för Azure-resurs loggar
 
@@ -23,14 +23,14 @@ En kombination av resurs typen (tillgänglig i `resourceId` egenskapen) och `cat
 
 ## <a name="top-level-common-schema"></a>Gemensamt schema på översta nivån
 
-| Name | Obligatorisk/valfri | Beskrivning |
+| Namn | Obligatorisk/valfri | Beskrivning |
 |---|---|---|
-| time | Obligatorisk | Tids stämplingen (UTC) för händelsen. |
-| resourceId | Obligatorisk | Resurs-ID för den resurs som har orsakat händelsen. För klient tjänster är detta av formatet/Tenants/Tenant-ID/providers/Provider-Name. |
+| time | Obligatoriskt | Tids stämplingen (UTC) för händelsen. |
+| resourceId | Obligatoriskt | Resurs-ID för den resurs som har orsakat händelsen. För klient tjänster är detta av formatet/Tenants/Tenant-ID/providers/Provider-Name. |
 | tenantId | Krävs för klient loggar | Klient-ID för den Active Directory klient som den här händelsen är kopplad till. Den här egenskapen används bara för loggar på klient nivå, den visas inte i loggar på resurs nivå. |
-| operationName | Obligatorisk | Namnet på åtgärden som representeras av den här händelsen. Om händelsen representerar en Azure RBAC-åtgärd är det här Azure RBAC-åtgärds namnet (till exempel Microsoft. Storage/storageAccounts/blobServices/blobbar/Read). Vanligt vis modelleras i form av en Resource Manager-åtgärd, även om de inte är faktiska dokumenterade Resource Manager-åtgärder ( `Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>` ) |
+| operationName | Obligatoriskt | Namnet på åtgärden som representeras av den här händelsen. Om händelsen representerar en Azure RBAC-åtgärd är det här Azure RBAC-åtgärds namnet (till exempel Microsoft. Storage/storageAccounts/blobServices/blobbar/Read). Vanligt vis modelleras i form av en Resource Manager-åtgärd, även om de inte är faktiska dokumenterade Resource Manager-åtgärder ( `Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>` ) |
 | operationVersion | Valfritt | Den API-version som är kopplad till åtgärden, om operationName utfördes med hjälp av ett API (till exempel `http://myservice.windowsazure.net/object?api-version=2016-06-01` ). Om det inte finns något API som motsvarar den här åtgärden representerar-versionen den åtgärd som är associerad med åtgärden i framtiden. |
-| category | Obligatorisk | Händelsens logg kategori. Kategori är den granularitet som du kan använda för att aktivera eller inaktivera loggar för en viss resurs. Egenskaperna som visas i en händelses egenskaps-BLOB är desamma inom en viss logg kategori och resurs typ. Typiska logg kategorier är "granskning", "körning" och "begäran". |
+| category | Obligatoriskt | Händelsens logg kategori. Kategori är den granularitet som du kan använda för att aktivera eller inaktivera loggar för en viss resurs. Egenskaperna som visas i en händelses egenskaps-BLOB är desamma inom en viss logg kategori och resurs typ. Typiska logg kategorier är "granskning", "körning" och "begäran". |
 | resultType | Valfritt | Händelsens status. Vanliga värden är startad, pågår, lyckades, misslyckades, aktivt och löst. |
 | resultSignature | Valfritt | Händelsens under status. Om den här åtgärden motsvarar ett REST API-anrop är det här fältet HTTP-statuskod för motsvarande REST-anrop. |
 | resultDescription | Valfritt | Den statiska text beskrivningen för den här åtgärden, till exempel "Hämta lagrings fil". |
@@ -76,7 +76,7 @@ Schemat för resurs loggar varierar beroende på resurs-och logg kategori. I den
 | Load Balancer |[Log Analytics för Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Anpassat Logic Apps B2B-spårningsschema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Nätverkssäkerhetsgrupper |[Log Analytics för nätverkssäkerhetsgrupper (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| DDOS-skydd | [Hantera Azure DDoS Protection standard](../../virtual-network/manage-ddos-protection.md) |
+| DDOS-skydd | [Hantera Azure DDoS Protection standard](../../ddos-protection/manage-ddos-protection.md) |
 | Dedikerad Power BI | [Loggning för Power BI Embedded i Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data modell för Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Sök |[Aktivera och använda Sök Trafikanalys](../../search/search-traffic-analytics.md) |

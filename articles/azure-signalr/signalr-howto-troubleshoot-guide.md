@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 11ea348a80bc226b6a96bea1e7c023ee9c06b13a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: cc17dcef7a554bee2715c79ba7d0c2356db2c6b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684125"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185665"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Fel söknings guide för Azure SignalR service vanliga problem
 
@@ -148,7 +148,7 @@ När [klient anslutningen](#client_connection_drop)går ur ASP.net SignalR, åte
 
 För **lediga** instanser är gränsen för **samtidiga** anslutningar 20 för **standard** instanser, gränsen för antal **samtidiga** anslutningar **per enhet** är 1 K, vilket innebär att Unit100 tillåter 100 samtidiga anslutningar.
 
-Anslutningarna omfattar både klient-och Server anslutningar. Sök [efter](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-messages-and-connections#how-connections-are-counted) hur anslutningar räknas.
+Anslutningarna omfattar både klient-och Server anslutningar. Sök [efter](./signalr-concept-messages-and-connections.md#how-connections-are-counted) hur anslutningar räknas.
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>500 fel vid Negotiate: Azure SignalR-tjänsten är inte ansluten ännu, försök igen senare.
 
@@ -162,7 +162,7 @@ Aktivera spårning på Server sidan för att ta reda på fel informationen när 
 
 #### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>Aktivera loggning på Server sidan för ASP.NET Core Signalerare
 
-Loggning på Server sidan för ASP.NET Core Signalerare integreras med den `ILogger` baserade [loggningen](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) som finns i ASP.net Core Framework. Du kan aktivera loggning på Server sidan genom att använda `ConfigureLogging` , en exempel användning på följande sätt:
+Loggning på Server sidan för ASP.NET Core Signalerare integreras med den `ILogger` baserade [loggningen](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) som finns i ASP.net Core Framework. Du kan aktivera loggning på Server sidan genom att använda `ConfigureLogging` , en exempel användning på följande sätt:
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
         {
@@ -257,7 +257,7 @@ SignalR klient anslutning har `DisposeAsync` aldrig anropats. anslutningen förb
 
 Kontrol lera om du stänger anslutningen. Anropa manuellt `HubConnection.DisposeAsync()` för att stoppa anslutningen när du har använt den.
 
-Exempel:
+Ett exempel:
 
 ```C#
 var connection = new HubConnectionBuilder()

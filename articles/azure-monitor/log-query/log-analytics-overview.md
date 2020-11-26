@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: 26d6bcb52099b15aeeb73a36a7144c14bdf481d6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ba27739ff9e9d992ffe6202629a1db19604b1409
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497345"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186124"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Översikt över Log Analytics i Azure Monitor
 Log Analytics är ett verktyg i Azure Portal som används för att redigera och köra logg frågor med data i Azure Monitor loggar. Du kan skriva en enkel fråga som returnerar en uppsättning poster och sedan använda funktioner i Log Analytics för att sortera, filtrera och analysera dem. Du kan också skriva en mer avancerad fråga för att utföra statistisk analys och visualisera resultatet i ett diagram för att identifiera en viss trend. Oavsett om du arbetar med resultatet av dina frågor interaktivt eller använder dem med andra Azure Monitor funktioner som logg frågas aviseringar eller arbets böcker, Log Analytics är det verktyg som du tänker använda för att skriva och testa dem. 
 
 
 > [!TIP]
-> Den här artikeln innehåller en beskrivning av Log Analytics och var och en av dess funktioner. Om du vill gå direkt till en själv studie kurs kan du läsa [Log Analytics själv studie kursen](get-started-portal.md).
+> Den här artikeln innehåller en beskrivning av Log Analytics och var och en av dess funktioner. Om du vill gå direkt till en själv studie kurs kan du läsa [Log Analytics själv studie kursen](./log-analytics-tutorial.md).
 
 
 
@@ -85,11 +85,11 @@ Visar resultatet som en av flera tillgängliga diagram typer. Du kan ange diagra
 | **X-axel** | Kolumn i de resultat som ska användas för X-axeln 
 | **Y-axel** | Kolumn i de resultat som ska användas för Y-axeln. Detta är vanligt vis en numerisk kolumn. |
 | **Uppdela per** | Kolumn i resultatet som definierar serien i diagrammet. En serie skapas för varje värde i kolumnen. |
-| **Aggregat** | Typ av agg regering som ska utföras på de numeriska värdena i Y-axeln. |
+| **Aggregering** | Typ av agg regering som ska utföras på de numeriska värdena i Y-axeln. |
 
 ## <a name="relationship-to-azure-data-explorer"></a>Relation till Azure Datautforskaren
 Om du redan är bekant med Azure Datautforskaren Web UI ska du Log Analytics se bekant. Det beror på att det är byggt på Azure Datautforskaren och använder samma KQL (Kusto Query Language). Log Analytics lägger till funktioner som är speciella för Azure Monitor, till exempel filtrering efter tidsintervall och möjlighet att skapa en varnings regel från en fråga. Båda verktygen innehåller en utforskare som gör att du kan söka igenom strukturen för tillgängliga tabeller, men Azure Datautforskaren Web UI fungerar huvudsakligen med tabeller i Azure Datautforskaren-databaser medan Log Analytics fungerar med tabeller i en Log Analytics arbets yta. 
 
 ## <a name="next-steps"></a>Nästa steg
-- Gå igenom en [själv studie kurs om hur du använder Log Analytics i Azure Portal](get-started-portal.md).
+- Gå igenom en [själv studie kurs om hur du använder Log Analytics i Azure Portal](./log-analytics-tutorial.md).
 - Gå igenom en [själv studie kurs om att skriva frågor](get-started-queries.md).

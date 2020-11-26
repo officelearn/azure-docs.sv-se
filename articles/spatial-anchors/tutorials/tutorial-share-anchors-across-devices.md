@@ -9,11 +9,11 @@ ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 3048eb1ca7f9312a43bc1ab5885bf19d4c2e7931
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95998506"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185465"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Självstudie: dela spatiala ankare mellan sessioner och enheter
 
@@ -79,7 +79,7 @@ Använd de här inställningarna i fönstret **Konfigurera värd plan** :
 | Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
 |App Service-plan| MySharingServicePlan | Namnet på App Service plan |
-| Plats | USA, västra | Data centret där webbappen finns |
+| Location | USA, västra | Data centret där webbappen finns |
 | Storlek | Kostnadsfri | Den [pris nivå](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) som avgör värd funktioner |
 
 Välj **OK**.

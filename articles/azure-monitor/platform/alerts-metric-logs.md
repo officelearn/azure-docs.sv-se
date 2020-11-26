@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 23ebb513e55e6b61f608354ae1cb3bf3864a54ae
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7c1e1d52b8434db930fcdd05c5c5441ba027abc8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108855"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186022"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Skapa mått varningar för loggar i Azure Monitor
 
@@ -25,7 +25,7 @@ Du kan använda mått varningar på populära Log Analytics loggar som har extra
 
 - [Prestanda räknare](./data-sources-performance-counters.md) för Windows & Linux-datorer
 - [Pulsslags poster för Agenthälsa](../insights/solution-agenthealth.md)
-- [Uppdatera hanterings](../../automation/update-management/update-mgmt-overview.md) poster
+- [Uppdatera hanterings](../../automation/update-management/overview.md) poster
 - [Händelse data](./data-sources-windows-events.md) loggar
 
 Det finns många fördelar med att använda **mått aviseringar för loggar** över frågor baserade [logg aviseringar](./alerts-log.md) i Azure. en del av dem visas nedan:
@@ -55,7 +55,7 @@ Innan Mät värdet för loggar som samlats in på Log Analytics data fungerar m�
 
 1. **Arbets ytan aktiv Log Analytics**: det måste finnas en giltig och Log Analytics aktiv arbets yta. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../learn/quick-create-workspace.md).
 2. **Agenten har kon figurer ATS för Log Analytics arbets yta**: agenten måste konfigureras för virtuella Azure-datorer (och/eller) lokala virtuella datorer för att skicka data till arbets ytan Log Analytics som används i föregående steg. Mer information finns i [Översikt över Log Analytics-agenten](./agents-overview.md).
-3. **Log Analytics lösningar som stöds är installerade**: Log Analytics lösning bör konfigureras och skicka data till Log Analytics lösningar för arbets ytor som stöds är [prestanda räknare för Windows & Linux](./data-sources-performance-counters.md), [pulsslags poster för agenthälsa](../insights/solution-agenthealth.md), [uppdaterings hantering](../../automation/update-management/update-mgmt-overview.md)och [händelse data](./data-sources-windows-events.md).
+3. **Log Analytics lösningar som stöds är installerade**: Log Analytics lösning bör konfigureras och skicka data till Log Analytics lösningar för arbets ytor som stöds är [prestanda räknare för Windows & Linux](./data-sources-performance-counters.md), [pulsslags poster för agenthälsa](../insights/solution-agenthealth.md), [uppdaterings hantering](../../automation/update-management/overview.md)och [händelse data](./data-sources-windows-events.md).
 4. **Log Analytics lösningar som har kon figurer ATS för att skicka loggar**: Log Analytics lösning ska ha nödvändiga loggar/data som motsvarar [mått som stöds för Log Analytics arbets ytor som](./metrics-supported.md#microsoftoperationalinsightsworkspaces) är aktiverade. Till exempel måste för den *% tillgängliga minnes* räknaren konfigureras i lösningen för [prestanda räknare](./data-sources-performance-counters.md) först.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Konfigurera mått avisering för loggar
@@ -67,7 +67,7 @@ Steg-för-steg-information och exempel – se [skapa och hantera mått avisering
 - Mål för mått avisering är giltig *Log Analytics arbets yta*
 - Den signal som valts för mått avisering för den valda *Log Analytics arbets ytan* är av typen **mått**
 - Filtrera efter vissa villkor eller resurser med dimensions filter; mått för loggar är flerdimensionella
-- När du konfigurerar *signal logik*kan en enskild avisering skapas för att omfatta flera dimensions värden (t. ex. datorer)
+- När du konfigurerar *signal logik* kan en enskild avisering skapas för att omfatta flera dimensions värden (t. ex. datorer)
 - Om du **inte** använder Azure Portal för att skapa mått aviseringar för den valda *Log Analytics arbets ytan*; Därefter måste användaren manuellt skapa en explicit regel för att konvertera loggdata till ett mått med [Azure Monitor-schemalagda Frågeregler](/rest/api/monitor/scheduledqueryrules).
 
 > [!NOTE]

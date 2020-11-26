@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 78344bd3896ca7d00c9f761c586b6f5142dc1e58
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 73d951b3e85c170cf068693bb9b374349516ca8f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253413"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183489"
 ---
 # <a name="azure-active-directory-authentication"></a>Azure Active Directory-autentisering
 
@@ -54,7 +54,7 @@ Azure AD-utfärdaren är den slut punkt som du använder för att skaffa en Azur
 
 ### <a name="authentication-libraries"></a>Autentiseringsbibliotek
 
-Azure tillhandahåller en uppsättning bibliotek, som kallas Azure Active Directory autentiseringsscheman, för att förenkla processen med att förvärva en Azure AD-token. Azure skapar dessa bibliotek för flera språk. Mer information finns i [dokumentationen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
+Azure tillhandahåller en uppsättning bibliotek, som kallas Azure Active Directory autentiseringsscheman, för att förenkla processen med att förvärva en Azure AD-token. Azure skapar dessa bibliotek för flera språk. Mer information finns i [dokumentationen](../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ## <a name="errors"></a>Fel
 

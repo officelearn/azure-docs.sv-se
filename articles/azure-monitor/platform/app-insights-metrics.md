@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c61287475eb82241aa5c9e1d1649e8b20e3b28c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327080"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185954"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights log-baserade mått
 
@@ -35,10 +35,10 @@ När du ritar samma mått i [Metrics Explorer](metrics-getting-started.md)finns 
 
 - Alla valda **filter** dimensioner översätts till ytterligare *WHERE* -satser.
 
-- Den markerade dimensionen för **delad diagram** översätts till en extra sammanfattnings egenskap. Om du till exempel delar diagrammet efter *plats*och ritar med en tids kornig het på 5 minuter sammanfattas *sammanfattnings* satsen *... per Bing (tidsstämpel, 5 m), plats*.
+- Den markerade dimensionen för **delad diagram** översätts till en extra sammanfattnings egenskap. Om du till exempel delar diagrammet efter *plats* och ritar med en tids kornig het på 5 minuter sammanfattas *sammanfattnings* satsen *... per Bing (tidsstämpel, 5 m), plats*.
 
 > [!NOTE]
-> Om du är nybörjare på Kusto-frågespråket börjar du med att kopiera och klistra in Kusto-uttryck i rutan Log Analytics fråga utan att göra några ändringar. Klicka på **Kör** för att visa det grundläggande diagrammet. När du börjar förstå syntaxen för frågespråket kan du börja göra små ändringar och se hur ändringen påverkar. Att utforska dina egna data är ett bra sätt att börja realisera den fulla kraften hos [Log Analytics](../log-query/get-started-portal.md) och [Azure Monitor](../overview.md).
+> Om du är nybörjare på Kusto-frågespråket börjar du med att kopiera och klistra in Kusto-uttryck i rutan Log Analytics fråga utan att göra några ändringar. Klicka på **Kör** för att visa det grundläggande diagrammet. När du börjar förstå syntaxen för frågespråket kan du börja göra små ändringar och se hur ändringen påverkar. Att utforska dina egna data är ett bra sätt att börja realisera den fulla kraften hos [Log Analytics](../log-query/log-analytics-tutorial.md) och [Azure Monitor](../overview.md).
 
 ## <a name="availability-metrics"></a>Tillgänglighets mått
 
@@ -49,7 +49,7 @@ Mått i kategorin tillgänglighet gör att du kan se hälso tillståndet för di
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|---|---|---|
-|Procentandel|Genomsnitt|Körnings plats, test namn|
+|Procent|Genomsnitt|Körnings plats, test namn|
 
 ```Kusto
 availabilityResults 
@@ -312,7 +312,7 @@ Måttet visar hur mycket av den totala processor kapaciteten som förbrukas av p
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|
-|Procentandel|Genomsnitt, min, max|Moln roll instans
+|Procent|Genomsnitt, min, max|Moln roll instans
 
 ```Kusto
 performanceCounters
@@ -358,7 +358,7 @@ PROCESSOR förbrukning för *alla* processer som körs på den övervakade Serve
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|
-|Procentandel|Genomsnitt, min, max|Moln roll instans
+|Procent|Genomsnitt, min, max|Moln roll instans
 
 >[!NOTE]
 > Måttet för processor tiden är inte tillgängligt för de program som finns i Azure App Services. Använd  [process processor](#process-cpu-performancecountersprocesscpupercentage) måttet för att spåra processor användningen för de webb program som finns i app Services.
@@ -492,4 +492,3 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
 ```
-

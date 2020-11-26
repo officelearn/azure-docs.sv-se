@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 05b1ea8e6daa9fae0588535534c4a8be45ab91d5
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d9fdfc89c8c02749fdf677ad119f1eed5a4b1fa2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285261"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185189"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Snabb start: Azure Key Vault certifikat klient bibliotek för python
 
@@ -21,7 +21,7 @@ Kom igång med klient biblioteket för Azure Key Vault-certifikat för python. F
 
 [API-referens dokumentation](/python/api/overview/azure/keyvault-certificates-readme)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates)  |  [Paket (python-paket index)](https://pypi.org/project/azure-keyvault-certificates)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 2.7 + eller 3.5.3 +](/azure/developer/python/configure-local-development-environment)
@@ -70,10 +70,10 @@ Den här snabb starten använder Azure Identity Library med Azure CLI för att a
 
 ### <a name="grant-access-to-your-key-vault"></a>Bevilja åtkomst till ditt nyckel valv
 
-Skapa en åtkomst princip för nyckel valvet som ger hemliga behörigheter till ditt användar konto
+Skapa en åtkomst princip för nyckel valvet som ger certifikat behörighet till ditt användar konto
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create
 ```
 
 #### <a name="set-environment-variables"></a>Ange miljövariabler

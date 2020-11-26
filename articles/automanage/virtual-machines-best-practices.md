@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 001721ac0fdbbaaf808b962a79353369ab1dddb5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 208c1ba6a0fb059640b3f8bb19bb4bc90e5eb116
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521962"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183659"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices"></a>Metod tips för Azure automanage för virtuella datorer
 
@@ -31,9 +31,9 @@ För alla dessa tjänster kommer vi att automatiskt registrera, konfigurera auto
 |Backup    |Azure Backup tillhandahåller oberoende och isolerade säkerhetskopior för att skydda mot oavsiktlig förstöring av data på dina virtuella datorer. Läs [mer](../backup/backup-azure-vms-introduction.md). Avgifterna baseras på antalet och storleken på de virtuella datorer som skyddas. Läs [mer](https://azure.microsoft.com/pricing/details/backup/).    |Metod tips för Azure VM – produktion    |Ja    |
 |Azure Security Center    |Azure Security Center är ett enhetligt infrastruktur säkerhets hanterings system som förstärker säkerhets position för dina data Center och ger avancerat skydd för dina hybrid arbets belastningar i molnet. Läs [mer](../security-center/security-center-introduction.md).  Den automatiska hanteringen konfigurerar den prenumeration där den virtuella datorn finns på den kostnads fria nivån av Azure Security Center. Om din prenumeration redan har publicerats på Azure Security Center, kommer den automatiska hanteringen inte att konfigurera om den.    |Metod tips för Azure VM – produktion, metod tips för Azure VM – utveckling/testning    |Nej    |
 |Microsoft-programvara mot skadlig kod    |Microsoft Antimalware för Azure är ett kostnads fritt real tids skydd som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Den genererar aviseringar när en känd skadlig eller oönskad program vara försöker installera sig själv eller köra på dina Azure-system. Läs [mer](../security/fundamentals/antimalware.md). |Metod tips för Azure VM – produktion, metod tips för Azure VM – utveckling/testning    |Ja    |
-|Uppdateringshantering    |Du kan använda Uppdateringshantering i Azure Automation för att hantera uppdateringar av operativ system för dina virtuella datorer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agent datorer och hantera processen för att installera nödvändiga uppdateringar för servrar. Läs [mer](../automation/update-management/update-mgmt-overview.md).    |Metod tips för Azure VM – produktion, metod tips för Azure VM – utveckling/testning    |Nej    |
+|Uppdateringshantering    |Du kan använda Uppdateringshantering i Azure Automation för att hantera uppdateringar av operativ system för dina virtuella datorer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agent datorer och hantera processen för att installera nödvändiga uppdateringar för servrar. Läs [mer](../automation/update-management/overview.md).    |Metod tips för Azure VM – produktion, metod tips för Azure VM – utveckling/testning    |Nej    |
 |Ändringsspårning & inventering    |Ändringsspårning och Inventory kombinerar funktioner för ändrings spårning och inventering så att du kan spåra ändringar av virtuella datorer och Server infrastruktur. Tjänsten stöder ändrings spårning i tjänster, program vara, register och filer i din miljö för att hjälpa dig att diagnostisera oönskade ändringar och utlösa aviseringar. Med inventerings support kan du söka efter insyn i installerade program och andra konfigurations objekt i gäst resurser.  Läs [mer](../automation/change-tracking/overview.md).    |Metod tips för Azure VM – produktion, metod tips för Azure VM – utveckling/testning    |Nej    |
-|Konfiguration av Azure-gäst    | Princip för gäst konfiguration används för att övervaka konfigurationen och rapportera om datorns kompatibilitet. Tjänsten för automatisk hantering installerar [Windows säkerhets bas linjer](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) med hjälp av gäst konfigurations tillägget. Läs [mer](../governance/policy/concepts/guest-configuration.md).    |Metod tips för Azure VM – produktion, metod tips för Azure VM – utveckling/testning    |Nej    |
+|Konfiguration av Azure-gäst    | Princip för gäst konfiguration används för att övervaka konfigurationen och rapportera om datorns kompatibilitet. Tjänsten för automatisk hantering installerar [Windows säkerhets bas linjer](/windows/security/threat-protection/windows-security-baselines) med hjälp av gäst konfigurations tillägget. Läs [mer](../governance/policy/concepts/guest-configuration.md).    |Metod tips för Azure VM – produktion, metod tips för Azure VM – utveckling/testning    |Nej    |
 |Azure Automation – konto    |Azure Automation stöder hantering under hela livs cykeln för din infrastruktur och dina program. Läs [mer](../automation/automation-intro.md).    |Metod tips för Azure VM – produktion, metod tips för Azure VM – utveckling/testning    |Nej    |
 |Log Analytics-arbetsyta    |Azure Monitor lagrar loggdata i en Log Analytics arbets yta, som är en Azure-resurs och en behållare där data samlas in, aggregeras och fungerar som en administrativ gränser. Läs [mer](../azure-monitor/platform/design-logs-deployment.md).    |Metod tips för Azure VM – produktion, metod tips för Azure VM – utveckling/testning    |Nej    |
 

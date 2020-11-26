@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: c09b50272ce73fe084e84d49be7d9d81cbe725aa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8563f734db8524d6e90171bb2272723f14533055
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207146"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185937"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
 Azure Log Analytics agent samlar in telemetri från virtuella Windows-och Linux-datorer i alla moln, lokala datorer och de som övervakas av [System Center Operations Manager](/system-center/scom/) och skickar insamlade data till din Log Analytics-arbetsyta i Azure Monitor. Log Analytics agenten stöder också insikter och andra tjänster i Azure Monitor som [Azure Monitor for VMS](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)och [Azure Automation](../../automation/automation-intro.md). Den här artikeln innehåller en detaljerad översikt över agent-, system-och nätverks krav och distributions metoder.
@@ -51,7 +51,7 @@ I följande tabell visas de typer av data som du kan konfigurera en Log Analytic
 Log Analytics agent skickar data till en Log Analytics arbets yta i Azure Monitor. Windows-agenten kan vara multihomed för att skicka data till flera arbets ytor och System Center Operations Manager hanterings grupper. Linux-agenten kan bara skicka till ett enda mål, antingen en arbets yta eller en hanterings grupp.
 
 ## <a name="other-services"></a>Övriga tjänster
-Agenten för Linux och Windows är inte bara för att ansluta till Azure Monitor. Andra tjänster som Azure Security Center och Azure Sentinel är beroende av agenten och dess anslutna Log Analytics arbets yta. Agenten stöder också Azure Automation som värd för Hybrid Runbook Worker-rollen och andra tjänster som [ändringsspårning](../../automation/change-tracking/overview.md), [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md)och [Azure Security Center](../../security-center/security-center-intro.md). Mer information om Hybrid Runbook Worker-rollen finns i [Azure Automation hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
+Agenten för Linux och Windows är inte bara för att ansluta till Azure Monitor. Andra tjänster som Azure Security Center och Azure Sentinel är beroende av agenten och dess anslutna Log Analytics arbets yta. Agenten stöder också Azure Automation som värd för Hybrid Runbook Worker-rollen och andra tjänster som [ändringsspårning](../../automation/change-tracking/overview.md), [uppdateringshantering](../../automation/update-management/overview.md)och [Azure Security Center](../../security-center/security-center-introduction.md). Mer information om Hybrid Runbook Worker-rollen finns i [Azure Automation hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="workspace-and-management-group-limitations"></a>Begränsningar för arbets yta och hanterings grupp
 
@@ -111,10 +111,10 @@ I följande tabell visas den konfigurations information för proxy och brand vä
 
 |Agentresurs|Portar |Riktning |Kringgå HTTPS-kontroll|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Outbound (Utgående)|Ja |  
-|*.oms.opinsights.azure.com |Port 443 |Outbound (Utgående)|Ja |  
-|*.blob.core.windows.net |Port 443 |Outbound (Utgående)|Ja |
-|*.azure-automation.net |Port 443 |Outbound (Utgående)|Ja |
+|*.ods.opinsights.azure.com |Port 443 |Utgående|Ja |  
+|*.oms.opinsights.azure.com |Port 443 |Utgående|Ja |  
+|*.blob.core.windows.net |Port 443 |Utgående|Ja |
+|*.azure-automation.net |Port 443 |Utgående|Ja |
 
 För brand Väggs information som krävs för Azure Government, se [Azure Government hantering](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 

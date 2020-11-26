@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: ed9942fa7b73418e3ef1ddf0651781d32b662995
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 04f1eb0d9db00a2be1a4619cafe38aa18145fc78
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049952"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186005"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Arkivera data från Log Analytics arbets yta till Azure Storage med hjälp av Logic app
 Den här artikeln beskriver en metod för att använda [Azure Logic Apps](../../logic-apps/index.yml) för att fråga efter data från en Log Analytics arbets yta i Azure Monitor och skicka till Azure Storage. Använd den här processen när du behöver exportera Azure Monitor loggdata för scenarier för granskning och efterlevnad, eller om du vill tillåta en annan tjänst att hämta dessa data.  
@@ -25,7 +25,7 @@ Metoden som beskrivs i den här artikeln beskriver en schemalagd export från en
 - Exportera till en lokal dator med hjälp av PowerShell-skript. Se [Invoke-AzOperationalInsightsQueryExport]] ( https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport) .
 
 ## <a name="overview"></a>Översikt
-I den här proceduren används [Azure Monitor loggar Connector](https://docs.microsoft.com/connectors/azuremonitorlogs/) som gör att du kan köra en logg fråga från en Logic app och använda dess utdata i andra åtgärder i arbets flödet. [Azure Blob Storage-anslutningen](https://docs.microsoft.com/connectors/azureblob/) används i den här proceduren för att skicka frågeresultatet till Azure Storage. De andra åtgärderna beskrivs i avsnitten nedan.
+I den här proceduren används [Azure Monitor loggar Connector](/connectors/azuremonitorlogs/) som gör att du kan köra en logg fråga från en Logic app och använda dess utdata i andra åtgärder i arbets flödet. [Azure Blob Storage-anslutningen](/connectors/azureblob/) används i den här proceduren för att skicka frågeresultatet till Azure Storage. De andra åtgärderna beskrivs i avsnitten nedan.
 
 ![Översikt över Logic app](media/logs-export-logicapp/logic-app-overview.png)
 
@@ -39,7 +39,7 @@ SecurityEvent
 
 När du exporterar data enligt ett schema, använder du funktionen ingestion_time () i din fråga för att se till att du inte är missa sent inkommande data. Om data fördröjs på grund av nätverks-eller plattforms problem säkerställer det att den tas med i nästa Logic app-körning. Se [Lägg till Azure Monitor loggar åtgärd](#add-azure-monitor-logs-action) för ett exempel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande är förutsättningar som måste slutföras innan du slutför den här proceduren.
 
 - Log Analytics arbets yta. Den användare som skapar Logic-appen måste ha minst Läs behörighet till arbets ytan. 
@@ -61,7 +61,7 @@ Använd proceduren i [skapa en behållare](../../storage/blobs/storage-quickstar
 
 ## <a name="create-logic-app"></a>Skapa en logikapp
 
-Gå till **Logic Apps** i Azure Portal och klicka på **Lägg till**. Välj en **prenumeration**, en **resurs grupp**och en **region** för att lagra den nya Logic-appen och ge den ett unikt namn. Du kan aktivera **Log Analytics** inställningen för att samla in information om körnings data och händelser enligt beskrivningen i [Konfigurera Azure Monitor loggar och samla in diagnostikdata för Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). Den här inställningen krävs inte för att använda anslutnings programmet för Azure Monitor-loggar.
+Gå till **Logic Apps** i Azure Portal och klicka på **Lägg till**. Välj en **prenumeration**, en **resurs grupp** och en **region** för att lagra den nya Logic-appen och ge den ett unikt namn. Du kan aktivera **Log Analytics** inställningen för att samla in information om körnings data och händelser enligt beskrivningen i [Konfigurera Azure Monitor loggar och samla in diagnostikdata för Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). Den här inställningen krävs inte för att använda anslutnings programmet för Azure Monitor-loggar.
 
 ![Skapa en logikapp](media/logs-export-logicapp/create-logic-app.png)
 
@@ -69,7 +69,7 @@ Gå till **Logic Apps** i Azure Portal och klicka på **Lägg till**. Välj en *
 Klicka på **Granska + skapa** och sedan på **skapa**. När distributionen är klar klickar du på **gå till resurs** för att öppna **Logic Apps designer**.
 
 ## <a name="create-a-trigger-for-the-logic-app"></a>Skapa en utlösare för Logic app
-Under **börja med en gemensam utlösare**väljer du **upprepning**. Detta skapar en logisk app som körs automatiskt med jämna mellanrum. I rutan **frekvens** för åtgärden väljer du **timme** och i rutan **intervall** anger du **1** för att köra arbets flödet en gång per dag.
+Under **börja med en gemensam utlösare** väljer du **upprepning**. Detta skapar en logisk app som körs automatiskt med jämna mellanrum. I rutan **frekvens** för åtgärden väljer du **timme** och i rutan **intervall** anger du **1** för att köra arbets flödet en gång per dag.
 
 ![Upprepnings åtgärd](media/logs-export-logicapp/recurrence-action.png)
 
@@ -131,7 +131,7 @@ Utdata från åtgärden **Kör fråga och lista resultat** är FORMATERAD i JSON
 Du kan ange ett JSON-schema som beskriver den nytto last som du förväntar dig att ta emot. Designern parsar JSON-innehåll med hjälp av det här schemat och genererar användarvänliga token som representerar egenskaperna i ditt JSON-innehåll. Du kan sedan enkelt referera till och använda dessa egenskaper i din Logic app-arbetsflöde. 
 
 
-Klicka på **+ nytt steg**och klicka sedan på **+ Lägg till en åtgärd**. Under **Välj en åtgärd**, skriver du **JSON** och väljer sedan **parsa JSON**.
+Klicka på **+ nytt steg** och klicka sedan på **+ Lägg till en åtgärd**. Under **Välj en åtgärd**, skriver du **JSON** och väljer sedan **parsa JSON**.
 
 ![Välj parsa JSON-aktivitet](media/logs-export-logicapp/select-parse-json.png)
 
@@ -166,7 +166,7 @@ Klicka i **innehålls** rutan om du vill visa en lista över värden från tidig
 ## <a name="add-the-compose-action"></a>Lägg till åtgärden Skriv
 Åtgärden **Skriv** använder PARSade JSON-utdata och skapar objektet som du behöver lagra i blobben.
 
-Klicka på **+ nytt steg**och klicka sedan på **+ Lägg till en åtgärd**. Under **Välj en åtgärd** **skriver du Skriv och** väljer sedan åtgärden **Skriv** .
+Klicka på **+ nytt steg** och klicka sedan på **+ Lägg till en åtgärd**. Under **Välj en åtgärd** **skriver du Skriv och** väljer sedan åtgärden **Skriv** .
 
 ![Välj Skriv åtgärd](media/logs-export-logicapp/select-compose.png)
 
@@ -179,7 +179,7 @@ Klicka i rutan **indata** om du vill visa en lista med värden från tidigare ak
 ## <a name="add-the-create-blob-action"></a>Lägg till åtgärden Skapa BLOB
 Åtgärden skapa BLOB skriver den sammansatta JSON-filen till lagring.
 
-Klicka på **+ nytt steg**och klicka sedan på **+ Lägg till en åtgärd**. Under **Välj en åtgärd**skriver du **BLOB** och väljer sedan åtgärden **skapa BLOB** .
+Klicka på **+ nytt steg** och klicka sedan på **+ Lägg till en åtgärd**. Under **Välj en åtgärd** skriver du **BLOB** och väljer sedan åtgärden **skapa BLOB** .
 
 ![Välj Skapa BLOB](media/logs-export-logicapp/select-create-blob.png)
 

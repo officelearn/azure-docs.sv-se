@@ -3,14 +3,14 @@ title: Azure datacenter DNS-poster som används av Azure Automation | Microsoft 
 description: Den här artikeln innehåller de DNS-poster som krävs av Azure Automation funktioner vid begränsning av kommunikation till en speciell Azure-region som är värd för Automation-kontot.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/23/2020
+ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17d0857a8979cfcc632ab8951fb255f97229a665
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4b8f48afc75c0a96937575bdad5bb884d0cb4d8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87117178"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183727"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>DNS-poster för Azure-regioner som används av Azure Automation
 
@@ -89,6 +89,9 @@ Ersätt `<accountId>` i DNS-posten med GUID som representerar ditt Automation-ko
 ![Primär nyckel sida för Automation-konto](./media/automation-region-dns-records/automation-account-keys.png)
 
 Kopiera värdet efter *konton/* från **URL** -fältet – `https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
+
+> [!NOTE]
+> Alla webhook-och agentservice DNS-poster har uppdaterats till den nya format-DNS-posten för att stödja privat länk. För JRDS DNS-poster stöds både gamla och nya DNS-poster för formatmall. Om du inte använder en privat länk ser du de gamla DNS-posterna, medan de som använder privat länk kommer att se ny stil för DNS-poster.
 
 Vi rekommenderar att du använder de adresser som anges när du definierar [undantag](../automation-runbook-execution.md#exceptions). Om du vill ha en lista över regions-IP-adresser i stället för region namn kan du hämta JSON-filen från Microsoft Download Center för följande moln miljöer:
 

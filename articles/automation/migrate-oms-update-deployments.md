@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2226f55c829afa4316a92888d16f6dc68e1f931
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987592"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183608"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrera Azure Monitor loggar uppdaterings distributioner till Azure Portal
 
@@ -19,7 +19,7 @@ Hanterings portalen för Operations Management Suite (OMS) är [inaktuell](../az
 ## <a name="key-information"></a>Viktig information
 
 * Befintliga distributioner fortsätter att fungera. När du har återskapat distributionen i Azure kan du ta bort din gamla distribution.
-* Alla befintliga funktioner som du hade i OMS är tillgängliga i Azure. Mer information om Uppdateringshantering finns i [uppdateringshantering översikt](update-management/update-mgmt-overview.md).
+* Alla befintliga funktioner som du hade i OMS är tillgängliga i Azure. Mer information om Uppdateringshantering finns i [uppdateringshantering översikt](./update-management/overview.md).
 
 ## <a name="access-the-azure-portal"></a>Åtkomst till Azure-portalen
 
@@ -31,19 +31,19 @@ Hanterings portalen för Operations Management Suite (OMS) är [inaktuell](../az
 
     ![Azure Monitor-loggar](media/migrate-oms-update-deployments/log-analytics.png)
 
-3. Klicka på **uppdateringshantering**i ditt Automation-konto.
+3. Klicka på **uppdateringshantering** i ditt Automation-konto.
 
     :::image type="content" source="media/migrate-oms-update-deployments/azure-automation.png" alt-text="Skärm bild av sidan för hantering av uppdateringar.":::
 
 4. I Azure Portal väljer du **Automation-konton** under **alla tjänster**. 
 
-5. Under **hanterings verktyg**väljer du lämpligt Automation-konto och klickar på **uppdateringshantering**.
+5. Under **hanterings verktyg** väljer du lämpligt Automation-konto och klickar på **uppdateringshantering**.
 
 ## <a name="recreate-existing-deployments"></a>Återskapa befintliga distributioner
 
 Alla uppdaterings distributioner som skapas i OMS-portalen har en [Sparad sökning](../azure-monitor/platform/computer-groups.md) som också kallas en dator grupp, med samma namn som den uppdaterings distribution som finns. Den sparade sökningen innehåller en lista över datorer som har schemalagts i uppdaterings distributionen.
 
-:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Skärm bild av sidan för hantering av uppdateringar.":::
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Skärm bild av sidan med uppdaterings distributioner med fälten namn och servrar markerade.":::
 
 Följ dessa steg om du vill använda den befintliga sparade sökningen:
 
@@ -53,7 +53,7 @@ Följ dessa steg om du vill använda den befintliga sparade sökningen:
 
 2. Fönstret ny uppdaterings distribution öppnas. Ange värden för egenskaperna som beskrivs i följande tabell och klicka sedan på **skapa**:
 
-3. För **datorer som ska uppdateras**väljer du den sparade sökning som används av OMS-distributionen.
+3. För **datorer som ska uppdateras** väljer du den sparade sökning som används av OMS-distributionen.
 
     | Egenskap | Beskrivning |
     | --- | --- |
@@ -74,4 +74,4 @@ Följ dessa steg om du vill använda den befintliga sparade sökningen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Uppdateringshantering i Azure Automation finns i [uppdateringshantering översikt](update-management/update-mgmt-overview.md).
+Mer information om Uppdateringshantering i Azure Automation finns i [uppdateringshantering översikt](./update-management/overview.md).

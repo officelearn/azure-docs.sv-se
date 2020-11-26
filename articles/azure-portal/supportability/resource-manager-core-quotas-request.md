@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7486cee351880dc0465a43b1259a5f07ef31c77b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 550c011bb9f4aeb99a4dcb8da0e7ae2be4202788
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173299"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185886"
 ---
 # <a name="quota-increase-requests"></a>Begäranden om att öka kvoten
 
@@ -24,7 +24,6 @@ Du kan begära en ökning av virtuella processorer kvot gräns för VM-serien fr
 När en ny prenumeration skapas får den totala regionala virtuella processorer inte vara lika med summan av standard kvoter för vCPU för alla enskilda VM-serier. Detta faktum kan leda till en prenumeration med tillräcklig kvot för varje enskild VM-serie som du vill distribuera. Det kunde inte ha tillräcklig kvot för den totala regionala virtuella processorer för alla distributioner. I så fall måste du skicka en begäran om att öka den totala regionala virtuella processorer-gränsen explicit. Den totala regionala virtuella processorer-gränsen får inte överskrida summan av den godkända kvoten över alla VM-serier för regionen.
 
 > [!NOTE]
-> Om du vill höja gränsen eller kvoten över standard gränsen kan du [öppna en kund support förfrågan online utan kostnad](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-resource-quota#solution).
+> Om du vill höja gränsen eller kvoten över standard gränsen kan du [öppna en kund support förfrågan online utan kostnad](../../azure-resource-manager/templates/error-resource-quota.md#solution).
 
 Mer information om kvoter finns i [vCPU kvoter för virtuella datorer](../../virtual-machines/windows/quotas.md) och [begränsningar, kvoter och begränsningar för Azure-prenumerationer och tjänster](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-

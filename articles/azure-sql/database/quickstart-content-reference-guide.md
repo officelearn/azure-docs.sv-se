@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
-ms.openlocfilehash: 727792b110c3bc486d31214096be1934539f6d11
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 392f361f6fe487a15bdd63c2f3281ccc78b2f86d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790312"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184424"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Komma igång med enkla databaser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ Du kan använda PowerShell eller Azure CLI för att skapa, konfigurera och skala
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>Migrera till en enkel databas med minimal avbrottstid
 
-Med de här snabbstarterna kan du snabbt skapa eller importera databasen till Azure med hjälp av en `.bacpac`-fil. Men `.bacpac` `.dacpac` filer är utformade för att snabbt flytta databaser över olika versioner av SQL Server och inom Azure SQL, eller för att implementera kontinuerlig integrering i din DevOps-pipeline. Den här metoden är dock inte avsedd för migrering av produktionsdatabaser med minimal avbrottstid, eftersom du skulle behöva sluta lägga till nya data, vänta tills exporten av källdatabasen till en `.bacpac`-fil är klar och sedan vänta tills importen till Azure SQL Database är klar. All denna väntan resulterar i avbrottstid för ditt program, särskilt för stora databaser. För att flytta produktionsdatabasen behöver du ett bättre sätt att migrera som garanterar minimal avbrottstid för migrering. För detta använder du [data migration service (DMS)](../../dms/tutorial-sql-server-to-azure-sql.md?toc=%252fazure%252fsql-database%252ftoc.json) för att migrera databasen med minimal stillestånds tid. DMS åstadkommer detta genom att inkrementellt överföra ändringar som gjorts i källdatabasen till den enkla databas som återställs. På så sätt kan du snabbt växla programmet från käll- till måldatabas med minimal avbrottstid.
+Med de här snabbstarterna kan du snabbt skapa eller importera databasen till Azure med hjälp av en `.bacpac`-fil. Men `.bacpac` `.dacpac` filer är utformade för att snabbt flytta databaser över olika versioner av SQL Server och inom Azure SQL, eller för att implementera kontinuerlig integrering i din DevOps-pipeline. Den här metoden är dock inte avsedd för migrering av produktionsdatabaser med minimal avbrottstid, eftersom du skulle behöva sluta lägga till nya data, vänta tills exporten av källdatabasen till en `.bacpac`-fil är klar och sedan vänta tills importen till Azure SQL Database är klar. All denna väntan resulterar i avbrottstid för ditt program, särskilt för stora databaser. För att flytta produktionsdatabasen behöver du ett bättre sätt att migrera som garanterar minimal avbrottstid för migrering. För detta använder du [data migration service (DMS)](../../dms/tutorial-sql-server-to-azure-sql.md?toc=%2fazure%2fsql-database%2ftoc.json) för att migrera databasen med minimal stillestånds tid. DMS åstadkommer detta genom att inkrementellt överföra ändringar som gjorts i källdatabasen till den enkla databas som återställs. På så sätt kan du snabbt växla programmet från käll- till måldatabas med minimal avbrottstid.
 
 ## <a name="hands-on-learning-modules"></a>Praktiska inlärnings moduler
 

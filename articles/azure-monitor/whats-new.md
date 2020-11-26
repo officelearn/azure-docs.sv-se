@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 4fa00bffc35c4ed67ce70751c8882b74ad6b01a1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bf15e380eb1a88acc39ca63165d18d04a260b35d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95534508"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185903"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
 
@@ -230,7 +230,7 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 - [Azure Monitor kundhanterad nyckel](platform/customer-managed-keys.md) som har lagts till för att lägga till fel meddelande och avsnitt CMK konfiguration för frågor.
 - [Azure Monitor http-datacollector-API](platform/data-collector-api.md) – tillagt python 3-exempel.
 - [Optimera logg frågor i Azure Monitor](log-query/query-optimization.md) -tillägg-avsnittet om hur du undviker flera data genomsökningar när du använder under frågor.
-- [Självstudie: kom igång med Log Analytics frågor](log-query/get-started-portal.md) – tillagd video.
+- [Självstudie: kom igång med Log Analytics frågor](./log-query/log-analytics-tutorial.md) – tillagd video.
 
 ### <a name="platform-logs"></a>Plattformsloggar
 - [Skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer](platform/diagnostic-settings.md) – tillagd video.

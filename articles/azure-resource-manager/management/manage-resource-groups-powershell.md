@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: jgao
-ms.openlocfilehash: 1e9d44561d79c411bdff167acad4f37c21251e23
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: e5449dc26197a0aa2e2b0da49ad9e5ca4fb19e82
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951748"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185767"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Hantera Azure Resource Manager resurs grupper med hjälp av Azure PowerShell
 
@@ -206,7 +206,7 @@ Om du använder `-SkipResourceNameParameterization` -parametern när du exporter
 
 Funktionen Exportera mall stöder inte export av Azure Data Factory-resurser. Information om hur du kan exportera Data Factory-resurser finns i [Kopiera eller klona en data fabrik i Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-Om du vill exportera resurser som skapats via den klassiska distributions modellen måste du [migrera dem till distributions modellen för Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Om du vill exportera resurser som skapats via den klassiska distributions modellen måste du [migrera dem till distributions modellen för Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Mer information finns i avsnittet [Exportera en och flera resurser till mallen i Azure Portal](../templates/export-template-portal.md).
 

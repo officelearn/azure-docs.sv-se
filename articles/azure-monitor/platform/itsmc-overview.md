@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: b4e35296a999070a6f536f4a52cfb7c3a1d4f42a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428048"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186498"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Anslut Azure till ITSM-verktyg med hjälp av Anslutningsprogram för hantering av IT-tjänster (ITSM)
 
@@ -50,11 +50,11 @@ Du kan börja använda ITSMC genom att utföra följande steg:
 
 Innan du kan skapa en anslutning måste du lägga till ITSMC.
 
-1. I Azure Portal väljer du **skapa en resurs** :
+1. I Azure Portal väljer du **skapa en resurs**:
 
    ![Skärm bild som visar meny alternativet Skapa en resurs.](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Sök efter **anslutningsprogram för hantering av IT-tjänster (ITSM)** på Azure Marketplace. Välj **skapa** :
+2. Sök efter **anslutningsprogram för hantering av IT-tjänster (ITSM)** på Azure Marketplace. Välj **skapa**:
 
    ![Skärm bild som visar knappen Skapa i Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
 
@@ -90,11 +90,11 @@ Baserat på den ITSM-produkt som du ansluter till väljer du någon av följande
 
 När du har beredd dina ITSM-verktyg utför du följande steg för att skapa en anslutning:
 
-1. I **alla resurser** letar du efter **Servicedesk ( *namnet på din arbets yta* )** :
+1. I **alla resurser** letar du efter **Servicedesk (*namnet på din arbets yta*)**:
 
    ![Skärm bild som visar de senaste resurserna i Azure Portal.](media/itsmc-overview/itsm-connections.png)
 
-1. Under **arbets ytans data källor** i det vänstra fönstret väljer du **ITSM-anslutningar** :
+1. Under **arbets ytans data källor** i det vänstra fönstret väljer du **ITSM-anslutningar**:
 
    ![Skärm bild som visar meny alternativet ITSM-anslutningar.](media/itsmc-overview/add-new-itsm-connection.png)
    Den här sidan visar listan över anslutningar.
@@ -129,7 +129,7 @@ När du har skapat din ITSM-anslutning kan du skapa arbets objekt i ITSM-verktyg
 Använd följande procedur för att skapa arbets objekt:
 
 1. I Azure Portal väljer du  **aviseringar**.
-2. På menyn längst upp på skärmen väljer du **Hantera åtgärder** :
+2. På menyn längst upp på skärmen väljer du **Hantera åtgärder**:
 
     ![Skärm bild som visar meny alternativet hantera åtgärder.](media/itsmc-overview/action-groups-selection-big.png)
 
@@ -145,7 +145,7 @@ Använd följande procedur för att skapa arbets objekt:
 
 7. Välj en typ av **arbets objekt** .
 
-8. Om du vill fylla i fält med fasta värden väljer du **Använd anpassad mall**. Annars väljer du en befintlig [mall](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) i listan **mall** och anger de fasta värdena i fälten mall.
+8. Om du vill fylla i fält med fasta värden väljer du **Använd anpassad mall**. Annars väljer du en befintlig [mall](#template-definitions) i listan **mall** och anger de fasta värdena i fälten mall.
 
 9. Om du väljer **skapa enskilda arbets objekt för varje konfigurations objekt** kommer varje konfigurations objekt ha sitt eget arbets objekt. Det kommer att finnas ett arbets objekt per konfigurations objekt. Det kommer att uppdateras enligt de aviseringar som kommer att skapas.
 
@@ -260,7 +260,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 
 | Log Analytics fält | ServiceNow-fält |
 |:--- |:--- |
-| ServiceDeskId_s| Tal |
+| ServiceDeskId_s| Antal |
 | IncidentState_s | Tillstånd |
 | Urgency_s |Angelägenhetsgrad |
 | Impact_s |Påverkan|
@@ -272,7 +272,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | AssignedTo_s | Tilldelad  |
 | Category_s | Kategori |
 | Title_s|  Kort beskrivning |
-| Description_s|  Kommentarer |
+| Description_s|  Obs! |
 | CreatedDate_t|  Inleddes |
 | ClosedDate_t| stängd|
 | ResolvedDate_t|Matchat|
@@ -282,7 +282,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 
 | Log Analytics | ServiceNow-fält |
 |:--- |:--- |
-| ServiceDeskId_s| Tal |
+| ServiceDeskId_s| Antal |
 | CreatedBy_s | Begärd av |
 | ClosedBy_s | Stängd av |
 | AssignedTo_s | Tilldelad  |
@@ -329,4 +329,3 @@ Om du har frågor eller feedback om Anslutningsprogram för hantering av IT-tjä
 
 ## <a name="next-steps"></a>Nästa steg
 [Lägg till ITSM produkter/tjänster i Anslutningsprogram för hantering av IT-tjänster (ITSM)](./itsmc-connections.md)
-

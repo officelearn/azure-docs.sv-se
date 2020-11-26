@@ -4,12 +4,12 @@ description: Lär dig hur du skalar din resurs-webbapp, moln tjänst, virtuell d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5af60befeda9f0ed4ed76f7ab8449e94950352fb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020916"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186583"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Kom igång med autoskalning i Azure
 I den här artikeln beskrivs hur du konfigurerar inställningarna för autoskalning för resursen i Microsoft Azure-portalen.
@@ -151,12 +151,12 @@ I det här avsnittet beskrivs hur du flyttar Azure autoskalning till en annan re
 1. Se till att Azure Autoscale är tillgängligt i den [Azure-region som du vill flytta till](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
 
 ### <a name="move"></a>Flytta
-Använd [REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) för att skapa en autoskalningsinställning i den nya miljön. Den autoskalningsinställning som skapats i mål regionen är en kopia av den automatiska skalnings inställningen i käll regionen.
+Använd [REST API](/rest/api/monitor/autoscalesettings/createorupdate) för att skapa en autoskalningsinställning i den nya miljön. Den autoskalningsinställning som skapats i mål regionen är en kopia av den automatiska skalnings inställningen i käll regionen.
 
-Det går inte att flytta [diagnostikinställningar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) som har skapats i Association med inställningen för autoskalning i käll regionen. Du måste återskapa diagnostikinställningar i mål regionen när du har skapat inställningarna för autoförsäljning. 
+Det går inte att flytta [diagnostikinställningar](./diagnostic-settings.md) som har skapats i Association med inställningen för autoskalning i käll regionen. Du måste återskapa diagnostikinställningar i mål regionen när du har skapat inställningarna för autoförsäljning. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Lär dig mer om att flytta resurser i Azure-regioner
-Mer information om hur du flyttar resurser mellan regioner och haveri beredskap i Azure finns i [Flytta resurser till en ny resurs grupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+Mer information om hur du flyttar resurser mellan regioner och haveri beredskap i Azure finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
 ## <a name="next-steps"></a>Nästa steg
 - [Skapa en aktivitets logg avisering för att övervaka alla åtgärder för autoskalning av motorn i din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

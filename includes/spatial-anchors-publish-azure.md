@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
 ms.openlocfilehash: 80685dee7907b81832c94044d1feb8fcf2e41bde
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95998503"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185457"
 ---
 ### <a name="open-the-publish-wizard"></a>Öppna guiden publicera
 
@@ -48,7 +48,7 @@ Använd de här inställningarna i fönstret **Konfigurera värd plan** :
 | Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
 |App Service-plan| MySharingServicePlan | Namnet på App Service plan |
-| Plats | USA, västra | Data centret där webbappen finns |
+| Location | USA, västra | Data centret där webbappen finns |
 | Storlek | Kostnadsfri | Den [pris nivå](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) som avgör värd funktioner |
 
 Välj **OK**.

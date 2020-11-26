@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: e3a8e8b908c9d278654bfe992474811d6a9ddb86
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d365b13ef8fb7ed9676bb00919315dc6fc9773ee
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993709"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184594"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Övervaka Azure-resurser med Azure Monitor
 När du har viktiga program och affärs processer som förlitar sig på Azure-resurser, vill du övervaka resurserna för deras tillgänglighet, prestanda och drift. I den här artikeln beskrivs övervaknings data som genereras av Azure-resurser och hur du kan använda funktionerna i Azure Monitor för att analysera och varna för dessa data.
@@ -57,7 +57,7 @@ Resurser i Azure genererar [loggar](../platform/data-platform-logs.md) och [måt
 - [Aktivitets logg](../platform/platform-logs-overview.md) – ger inblick i åtgärderna på varje Azure-resurs i prenumerationen från utsidan (hanterings planet), till exempel när du skapar en ny resurs eller startar en virtuell dator. Det här är information om vad, vem och när för Skriv åtgärder (skicka, skicka och ta bort) som har tagits till resurserna i din prenumeration.
 
 
-## <a name="configuration-requirements"></a>Konfigurations krav
+## <a name="configuration-requirements"></a>Konfigurationskrav
 
 ### <a name="configure-monitoring"></a>Konfigurera övervakning
 Vissa övervaknings data samlas in automatiskt, men du kan behöva utföra vissa konfigurationer beroende på dina behov. Se informationen nedan om du vill ha detaljerad information för varje typ av övervaknings data.
@@ -93,7 +93,7 @@ Många tjänster omfattar övervaknings data på sina **översikts** sidor så a
 
 
 ### <a name="insights-and-solutions"></a>Insikter och lösningar 
-Vissa tjänster tillhandahåller verktyg utöver standard funktionerna i Azure Monitor. [Insikter](./insights-overview.md) ger en anpassad övervaknings upplevelse som bygger på Azure Monitor data plattform och standard funktioner. [Lösningar](./solutions.md) tillhandahåller fördefinierad övervaknings logik som bygger på Azure Monitor loggar. 
+Vissa tjänster tillhandahåller verktyg utöver standard funktionerna i Azure Monitor. [Insikter](../monitor-reference.md) ger en anpassad övervaknings upplevelse som bygger på Azure Monitor data plattform och standard funktioner. [Lösningar](./solutions.md) tillhandahåller fördefinierad övervaknings logik som bygger på Azure Monitor loggar. 
 
 Om en tjänst har Azure Monitor insikter kan du komma åt den från **övervakning** i varje resurs meny. Få till gång till alla insikter och lösningar från **Azure Monitor** -menyn.
 
@@ -119,7 +119,7 @@ Visa poster i aktivitets loggen i Azure Portal med det ursprungliga filtret inst
 ### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 Azure Monitor loggar konsoliderar loggar och mått från flera tjänster och andra data källor för analys med ett kraftfullt verktyg för frågor. Som beskrivs ovan skapar du en diagnostisk inställning för att samla in plattforms mått, aktivitets logg och resurs loggar i en Log Analytics arbets yta i Azure Monitor.
 
-Med [Log Analytics](../log-query/get-started-portal.md) kan du arbeta med [logg frågor](../log-query/log-query-overview.md), vilket är en kraftfull funktion i Azure Monitor som gör att du kan utföra avancerad analys av loggdata med ett fullständigt aktuellt frågespråk. Öppna Log Analytics från **loggar** på menyn **övervakning** för en Azure-resurs för att arbeta med logg frågor med hjälp av resursen som [fråge omfånget](../log-query/scope.md#query-scope). På så sätt kan du analysera data i flera tabeller för just den resursen. Använd **loggar** från Azure Monitor-menyn för att få åtkomst till loggar för alla resurser. 
+Med [Log Analytics](../log-query/log-analytics-tutorial.md) kan du arbeta med [logg frågor](../log-query/log-query-overview.md), vilket är en kraftfull funktion i Azure Monitor som gör att du kan utföra avancerad analys av loggdata med ett fullständigt aktuellt frågespråk. Öppna Log Analytics från **loggar** på menyn **övervakning** för en Azure-resurs för att arbeta med logg frågor med hjälp av resursen som [fråge omfånget](../log-query/scope.md#query-scope). På så sätt kan du analysera data i flera tabeller för just den resursen. Använd **loggar** från Azure Monitor-menyn för att få åtkomst till loggar för alla resurser. 
 
 - I [Kom igång med logg frågor i Azure Monitor](../log-query/get-started-queries.md) finns en själv studie kurs om hur du använder frågespråket som används för att skriva logg frågor.
 - Mer information om hur resurs loggar samlas in i Azure Monitor loggar och information om hur du kommer åt dem i en fråga finns i [samla in Azure-resursposter i Log Analytics arbets ytan i Azure Monitor](../platform/resource-logs.md#send-to-log-analytics-workspace) .

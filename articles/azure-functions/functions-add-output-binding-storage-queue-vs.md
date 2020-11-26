@@ -4,12 +4,12 @@ description: Lär dig hur du lägger till en utgående bindning för att ansluta
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 0711516143839dbcdbafec56ab1d9643b4b8cdc7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 635392212027c73e5aa954eb671be31228796a0d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167130"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185138"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Ansluta funktioner till Azure Storage med hjälp av Visual Studio
 
@@ -29,15 +29,15 @@ Innan du börjar den här artikeln måste du:
 
 ## <a name="download-the-function-app-settings"></a>Ladda ned appens funktions inställningar
 
-I [föregående snabb starts artikel](functions-create-first-function-vs-code.md)skapade du en Function-app i Azure tillsammans med det lagrings konto som krävs. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagrings kö i samma konto. Om du vill ansluta till ditt lagrings konto när du kör funktionen lokalt måste du hämta inställningarna för appen till *local.settings.jspå* filen. 
+I [föregående snabb starts artikel](./create-first-function-vs-code-csharp.md)skapade du en Function-app i Azure tillsammans med det lagrings konto som krävs. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagrings kö i samma konto. Om du vill ansluta till ditt lagrings konto när du kör funktionen lokalt måste du hämta inställningarna för appen till *local.settings.jspå* filen. 
 
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**. 
 
-1. Under **åtgärder**väljer du **Redigera Azure App Service inställningar**. 
+1. Under **åtgärder** väljer du **Redigera Azure App Service inställningar**. 
 
     ![Redigera program inställningarna](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
 
-1. Under **AzureWebJobsStorage**, kopierar du **värdet för fjärrsträng till** **lokalt**och väljer sedan **OK**. 
+1. Under **AzureWebJobsStorage**, kopierar du **värdet för fjärrsträng till** **lokalt** och väljer sedan **OK**. 
 
 Lagrings bindningen, som använder `AzureWebJobsStorage` inställningen för anslutningen, kan nu ansluta till din Queue Storage när den körs lokalt.
 
@@ -75,7 +75,7 @@ En ny kö med namnet `outqueue` skapas i ditt lagrings konto av Functions-körni
 
 1. I Visual Studio från menyn **Visa** väljer du **Cloud Explorer**.
 
-1. Expandera dina Azure-prenumerationer och **lagrings konton**i **Cloud Explorer**och expandera sedan det lagrings konto som används av din funktion. Om du inte kommer ihåg namnet på lagrings kontot kontrollerar du `AzureWebJobsStorage` inställningen för anslutnings strängen i *local.settings.js* filen.  
+1. Expandera dina Azure-prenumerationer och **lagrings konton** i **Cloud Explorer** och expandera sedan det lagrings konto som används av din funktion. Om du inte kommer ihåg namnet på lagrings kontot kontrollerar du `AzureWebJobsStorage` inställningen för anslutnings strängen i *local.settings.js* filen.  
 
 1. Expandera noden **köer** och dubbelklicka sedan på kön med namnet **disqueue** för att visa innehållet i kön i Visual Studio. 
 
@@ -89,7 +89,7 @@ Nu är det dags att publicera om den uppdaterade Function-appen till Azure.
 
 ## <a name="redeploy-and-verify-the-updated-app"></a>Distribuera om och verifiera den uppdaterade appen
 
-1. I **Solution Explorer**högerklickar du på projektet och väljer **publicera**. Välj sedan **publicera** för att publicera projektet på Azure igen.
+1. I **Solution Explorer** högerklickar du på projektet och väljer **publicera**. Välj sedan **publicera** för att publicera projektet på Azure igen.
 
 1. När distributionen är klar kan du använda webbläsaren igen för att testa den omdistribuerade funktionen. Som tidigare lägger du till frågesträngen `&name=<yourname>` i URL: en.
 

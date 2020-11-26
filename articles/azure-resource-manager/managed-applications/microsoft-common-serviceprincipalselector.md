@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: tomfitz
-ms.openlocfilehash: 9d41e41f110e927f436b38d6291719c138defa53
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2fdbbad467d8c762db485fc7935e9cef78313fd0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745822"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184458"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Elementet Microsoft. Common. ServicePrincipalSelector UI
 
-En kontroll som låter användarna välja ett befintligt [huvud namn för tjänsten](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) eller registrera ett nytt program. När du väljer **Skapa ny** följer du stegen för att registrera ett nytt program. När du väljer ett befintligt program tillhandahåller kontrollen en text ruta för att ange ett lösen ord eller tumavtryck för certifikatet.
+En kontroll som låter användarna välja ett befintligt [huvud namn för tjänsten](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) eller registrera ett nytt program. När du väljer **Skapa ny** följer du stegen för att registrera ett nytt program. När du väljer ett befintligt program tillhandahåller kontrollen en text ruta för att ange ett lösen ord eller tumavtryck för certifikatet.
 
 ## <a name="ui-samples"></a>UI-exempel
 

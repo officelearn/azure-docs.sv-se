@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 07d9ae0d7cdf8e823bb59cb376d40cdf846bb2cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3cb01a8f1c06bad618ae5c7930920ee0f067038c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092763"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184543"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Övervaka hälsan för Log Analytics arbets ytan i Azure Monitor
-För att upprätthålla prestanda och tillgänglighet för din Log Analytics-arbetsyta i Azure Monitor måste du kunna identifiera eventuella problem som uppstår i proaktivt. Den här artikeln beskriver hur du övervakar hälso tillståndet för din Log Analytics-arbetsyta med hjälp av data i [Åtgärds](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) tabellen. Den här tabellen ingår i varje Log Analytics arbets yta och innehåller fel och varningar som inträffar i din arbets yta. Du bör regelbundet granska dessa data och skapa aviseringar för att proaktivt meddelas när det finns viktiga incidenter på arbets ytan.
+För att upprätthålla prestanda och tillgänglighet för din Log Analytics-arbetsyta i Azure Monitor måste du kunna identifiera eventuella problem som uppstår i proaktivt. Den här artikeln beskriver hur du övervakar hälso tillståndet för din Log Analytics-arbetsyta med hjälp av data i [Åtgärds](/azure/azure-monitor/reference/tables/operation) tabellen. Den här tabellen ingår i varje Log Analytics arbets yta och innehåller fel och varningar som inträffar i din arbets yta. Du bör regelbundet granska dessa data och skapa aviseringar för att proaktivt meddelas när det finns viktiga incidenter på arbets ytan.
 
 ## <a name="_logoperation-function"></a>_LogOperation funktion
 
-Azure Monitor loggar skickar information om eventuella problem till [Åtgärds](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) tabellen på arbets ytan där problemet uppstod. Systemfunktionen **_LogOperation** baseras på **Åtgärds** tabellen och innehåller en förenklad uppsättning information för analys och avisering.
+Azure Monitor loggar skickar information om eventuella problem till [Åtgärds](/azure/azure-monitor/reference/tables/operation) tabellen på arbets ytan där problemet uppstod. Systemfunktionen **_LogOperation** baseras på **Åtgärds** tabellen och innehåller en förenklad uppsättning information för analys och avisering.
 
 ## <a name="columns"></a>Kolumner
 
@@ -60,8 +60,8 @@ Inmatnings åtgärder är problem som uppstod vid data inmatning, inklusive medd
 | Metadatatjänst. | Fel | Ett konfigurations fel har identifierats. | |
 | Datainsamling | Fel   | Data utelämnades eftersom begäran skapades tidigare än antalet angivna dagar. | [Hantera användning och kostnader med Azure Monitor-loggar](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Datainsamling | Information    | Konfiguration av samlings dator har identifierats.| |
-| Datainsamling | Information    | Data insamlingen startades på grund av en ny dag. | [Hantera användning och kostnader med Azure Monitor-loggar](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
-| Datainsamling | Varning | Data insamlingen stoppades på grund av att den dagliga gränsen har uppnåtts.| [Hantera användning och kostnader med Azure Monitor-loggar](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
+| Datainsamling | Information    | Data insamlingen startades på grund av en ny dag. | [Hantera användning och kostnader med Azure Monitor-loggar](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Datainsamling | Varning | Data insamlingen stoppades på grund av att den dagliga gränsen har uppnåtts.| [Hantera användning och kostnader med Azure Monitor-loggar](./manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Databearbetning | Fel   | Ogiltigt JSON-format. | [Skicka loggdata till Azure Monitor med API: t för HTTP-datainsamling (offentlig för hands version)](data-collector-api.md#request-body) | 
 | Databearbetning | Varning | Värdet har trimmats till den högsta tillåtna storleken. | [Azure Monitor tjänst gränser](../service-limits.md#log-analytics-workspaces) |
 | Databearbetning | Varning | Fält värde trimmat eftersom storleks gränsen har uppnåtts. | [Azure Monitor tjänst gränser](../service-limits.md#log-analytics-workspaces) | 
@@ -74,7 +74,7 @@ Inmatnings åtgärder är problem som uppstod vid data inmatning, inklusive medd
 
    
 
-## <a name="alert-rules"></a>Aviserings regler
+## <a name="alert-rules"></a>Aviseringsregler
 Använd [loggnings frågans aviseringar](../platform/alerts-log-query.md) i Azure Monitor för att proaktivt meddelas när ett problem upptäcks på arbets ytan Log Analytics. Du bör använda en strategi som gör att du kan reagera i rätt tid för problem samtidigt som du minimerar kostnaderna. Din prenumeration debiteras för varje varnings regel med en kostnad beroende på den frekvens som den utvärderas.
 
 En rekommenderad strategi är att börja med två varnings regler baserat på problemets nivå. Använd en kort frekvens som var 5: e minut för fel och en längre frekvens, till exempel 24 timmar för varningar. Eftersom fel indikerar potentiell data förlust, vill du snabbt svara på dem för att minimera eventuell förlust. Varningar indikerar vanligt vis ett problem som inte kräver omedelbara åtgärder, så att du kan granska dem dagligen.
@@ -82,7 +82,7 @@ En rekommenderad strategi är att börja med två varnings regler baserat på pr
 Använd processen i [skapa, Visa och hantera logg aviseringar med hjälp av Azure Monitor](../platform/alerts-log.md) för att skapa logg varnings reglerna. I följande avsnitt beskrivs informationen för varje regel.
 
 
-| Söka i data | Tröskelvärde | Period | Frekvens |
+| Fråga | Tröskelvärde | Period | Frekvens |
 |:---|:---|:---|:---|
 | `_LogOperation | where Level == "Error"`   | 0 | 5 | 5 |
 | `_LogOperation | where Level == "Warning"` | 0 | 1440 | 1440 |

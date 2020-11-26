@@ -3,12 +3,12 @@ title: Automatisera Azure Application insikter med PowerShell | Microsoft Docs
 description: Automatisera att skapa och hantera resurser, aviseringar och tillgänglighets test i PowerShell med hjälp av en Azure Resource Manager mall.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: 58ed537a8fa6622756e7bcddceb6e9321cfbd82e
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: c380880845c162a1e8fb38e699a439ac04fb3b5a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94741095"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186294"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Hantera Application Insights-resurser med hjälp av PowerShell
 
@@ -469,7 +469,6 @@ Azure bör konfigurera resurserna i strikt ordning. För att se till att en inst
 Andra automatiserings artiklar:
 
 * [Skapa en Application Insights resurs](./create-new-resource.md#creating-a-resource-automatically) – snabb metod utan att använda en mall.
-* [Skapa webbtester](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-alerts-metric#availability-test-with-metric-alert)
+* [Skapa webbtester](../samples/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
 * [Skicka Azure Diagnostics-data till Application Insights](powershell-azure-diagnostics.md)
 * [Skapa versions anteckningar](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-

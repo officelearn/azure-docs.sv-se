@@ -6,14 +6,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: d00ffb1cb9b9fd6231322d4ef5bfebfbe242eac7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3c3a20d8401affc519e118c7f2295339990e7dee
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014245"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186515"
 ---
-# <a name="azure-monitor-logs-overview"></a>Översikt över Azure Monitor loggar
+# <a name="azure-monitor-logs-overview"></a>Översikt över Azure Monitor-loggar
 Azure Monitor loggar är en funktion i Azure Monitor som samlar in och ordnar logg-och prestanda data från [övervakade resurser](../monitor-reference.md). Data från olika källor, t. ex. [plattforms loggar](platform-logs-overview.md) från Azure-tjänster, logg-och prestanda data från [virtuella datorer agenter](agents-overview.md)och användnings-och prestanda data från [program](../app/app-insights-overview.md) kan konsol IDE ras till en enda arbets yta så att de kan analyseras tillsammans med ett avancerat frågespråk som kan snabbt analysera miljon tals poster. Du kan utföra en enkel fråga som bara hämtar en bestämd uppsättning poster eller utföra avancerad data analys för att identifiera kritiska mönster i dina övervaknings data. Arbeta med logg frågor och deras resultat interaktivt med Log Analytics, Använd dem i en varnings regel för att användaren ska kunna se ett proaktivt meddelande om problem eller visualisera resultatet i en arbets bok eller instrument panel.
 
 > [!NOTE]
@@ -25,11 +25,11 @@ I följande tabell beskrivs några av de olika sätt som du kan använda loggar 
 
 |  |  |
 |:---|:---|
-| **Analysera** | Använd [Log Analytics](../log-query/get-started-portal.md) i Azure Portal för att skriva [logg frågor](../log-query/log-query-overview.md) och analysera logg data interaktivt med en kraftfull analys motor |
+| **Analysera** | Använd [Log Analytics](../log-query/log-analytics-tutorial.md) i Azure Portal för att skriva [logg frågor](../log-query/log-query-overview.md) och analysera logg data interaktivt med en kraftfull analys motor |
 | **Varning** | Konfigurera en [logg varnings regel](alerts-log.md) som skickar ett meddelande eller [automatiserar en åtgärd](action-groups.md) när resultatet av frågan matchar ett visst resultat. |
-| **Visualisera** | Fäst frågeresultaten som återges som tabeller eller diagram på en [Azure-instrumentpanel](../../azure-portal/azure-portal-dashboards.md).<br>Skapa en [arbets bok](../app/usage-workbooks.md) som ska kombineras med flera data uppsättningar i en interaktiv rapport. <br>Exportera resultatet av en fråga för att [Power BI](powerbi.md) att använda olika visualiseringar och dela med användare utanför Azure.<br>Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) för att dra nytta av dess instrument panel och kombinera med andra data källor.|
+| **Visualisera** | Fäst frågeresultaten som återges som tabeller eller diagram på en [Azure-instrumentpanel](../../azure-portal/azure-portal-dashboards.md).<br>Skapa en [arbets bok](./workbooks-overview.md) som ska kombineras med flera data uppsättningar i en interaktiv rapport. <br>Exportera resultatet av en fråga för att [Power BI](powerbi.md) att använda olika visualiseringar och dela med användare utanför Azure.<br>Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) för att dra nytta av dess instrument panel och kombinera med andra data källor.|
 | **Insikter** | Stöd för [insikter](../monitor-reference.md#insights-and-core-solutions) som ger en anpassad övervaknings miljö för specifika program och tjänster.  |
-| **Hämta** | Få åtkomst till logg frågeresultat från en kommando rad med hjälp av [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Kom åt logg frågeresultaten från en kommando rad med [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Få åtkomst till logg frågeresultaten från ett anpassat program med hjälp av [REST API](https://dev.loganalytics.io/). |
+| **Hämta** | Få åtkomst till logg frågeresultat från en kommando rad med hjälp av [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Kom åt logg frågeresultaten från en kommando rad med [PowerShell-cmdletar](/powershell/module/az.operationalinsights).<br>Få åtkomst till logg frågeresultaten från ett anpassat program med hjälp av [REST API](https://dev.loganalytics.io/). |
 | **Export** | Konfigurera [automatisk export av loggdata](logs-data-export.md) till Azure Storage-konto eller azure-Event Hubs.<br>Bygg ett arbets flöde för att hämta loggdata och kopiera det till en extern plats med hjälp av [Logic Apps](logicapp-flow-connector.md). |
 
 ![Översikt över loggar](media/data-platform-logs/logs-overview.png)
@@ -75,8 +75,8 @@ Data hämtas från en Log Analytics arbets yta med en logg fråga som är en skr
 ## <a name="log-analytics"></a>Log Analytics
 Använd Log Analytics, som är ett verktyg i Azure Portal, för att redigera och köra logg frågor och analysera resultaten interaktivt. Du kan sedan använda de frågor som du skapar för att stödja andra funktioner i Azure Monitor till exempel aviseringar och arbets böcker för logg frågor. Åtkomst Log Analytics från alternativet **loggar** på Azure Monitor-menyn eller från de flesta andra tjänster i Azure Portal.
 
-- En beskrivning av Log Analytics finns [i Översikt över Log Analytics i Azure Monitor](/azure/azure-monitor/log-query/log-analytics-overview) . 
-- Se [Log Analytics själv studie kursen](/azure/azure-monitor/log-query/log-analytics-tutorial) för att gå igenom hur du använder Log Analytics funktioner för att skapa en enkel logg fråga och analysera resultatet.
+- En beskrivning av Log Analytics finns [i Översikt över Log Analytics i Azure Monitor](../log-query/log-analytics-overview.md) . 
+- Se [Log Analytics själv studie kursen](../log-query/log-analytics-tutorial.md) för att gå igenom hur du använder Log Analytics funktioner för att skapa en enkel logg fråga och analysera resultatet.
 
 
 

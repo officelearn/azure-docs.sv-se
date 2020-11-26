@@ -4,12 +4,12 @@ description: Övervaka webb- och arbetsroller effektivt med Application Insights
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: cae2e4e1d5b5e199e772c5263a46d82289f5d6ac
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 29482403358936b95fc5e814b68238cc8c25f7a8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992838"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186362"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 [Application Insights][start] kan övervaka [Azure Cloud Service-appar](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, haverier och användning genom att kombinera data från Application Insights sdk: er med [Azure-diagnostik](../platform/diagnostics-extension-overview.md) data från moln tjänsterna. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -85,9 +85,9 @@ Varje resurs identifieras med en Instrumentation-nyckel. Du kan behöva den här
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Konfigurera Azure Diagnostics för varje roll
 Ange det här alternativet om du vill övervaka din app med Application Insights. För webb roller ger det här alternativet prestanda övervakning, varningar, diagnostik och användnings analys. För andra roller kan du söka efter och övervaka Azure-diagnostik, till exempel omstart, prestanda räknare och anrop till system. Diagnostics. trace. 
 
-1. I Visual Studio Solution Explorer går **\<YourCloudService>**  >  du till **roller**och öppnar egenskaperna för varje roll.
+1. I Visual Studio Solution Explorer går **\<YourCloudService>**  >  du till **roller** och öppnar egenskaperna för varje roll.
 
-1. I **konfiguration**markerar du kryss rutan **skicka diagnostikdata till Application Insights** och väljer sedan den Application Insights resurs som du skapade tidigare.
+1. I **konfiguration** markerar du kryss rutan **skicka diagnostikdata till Application Insights** och väljer sedan den Application Insights resurs som du skapade tidigare.
 
 Om du har valt att använda en separat Application Insights-resurs för varje versionskonfiguration väljer du konfigurationen först.
 
@@ -102,7 +102,7 @@ Med det här alternativet kan du lägga till anpassad affärstelemetri till vilk
 
 I Visual Studio konfigurerar du Application Insights SDK för varje molnapprojekt.
 
-1. Om du vill konfigurera **webb roller**högerklickar du på projektet och väljer sedan **Konfigurera Application Insights** eller **Lägg till > Application Insights telemetri**.
+1. Om du vill konfigurera **webb roller** högerklickar du på projektet och väljer sedan **Konfigurera Application Insights** eller **Lägg till > Application Insights telemetri**.
 
 1. Så här konfigurerar du **arbets roller**: 
 
@@ -191,7 +191,7 @@ Om du vill visa prestanda räknare och antal händelser öppnar du [Metrics Expl
 
 ![Azure-diagnostik data](./media/cloudservices/23-wad.png)
 
-Om du vill söka bland de olika spårnings loggar som skickas av Azure-diagnostik använder du [Sök](./diagnostic-search.md) eller en [analys fråga](../log-query/get-started-portal.md). Anta till exempel att du har ett ohanterat undantag som har orsakat en roll för krasch och åter användning. Den här informationen skulle visas i kanalen Program i Windows-händelseloggen. Du kan använda Sök för att visa händelse loggen för Windows och hämta fullständig stack spårning för undantags felet. Detta hjälper dig att hitta orsaken till problemet.
+Om du vill söka bland de olika spårnings loggar som skickas av Azure-diagnostik använder du [Sök](./diagnostic-search.md) eller en [analys fråga](../log-query/log-analytics-tutorial.md). Anta till exempel att du har ett ohanterat undantag som har orsakat en roll för krasch och åter användning. Den här informationen skulle visas i kanalen Program i Windows-händelseloggen. Du kan använda Sök för att visa händelse loggen för Windows och hämta fullständig stack spårning för undantags felet. Detta hjälper dig att hitta orsaken till problemet.
 
 ![Azure-diagnostik Sök](./media/cloudservices/25-wad.png)
 

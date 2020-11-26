@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 1813da8a8a812eeded235d71c351ec352c42707c
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: bd929d06bca370ffab53ce2023188bc12a1d8bd1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920091"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186447"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics arbets ytans data export i Azure Monitor (förhands granskning)
 Med Log Analytics data export för arbets yta i Azure Monitor kan du kontinuerligt exportera data från valda tabeller i din Log Analytics arbets yta till ett Azure Storage-konto eller Azure-Event Hubs som det samlas in. Den här artikeln innehåller information om den här funktionen och hur du konfigurerar data export i dina arbets ytor.
@@ -68,7 +68,7 @@ Data skickas till lagrings konton varje timme. Konfigurationen för data export 
 
 Lagrings kontots BLOB-sökväg är *WorkspaceResourceId =/Subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.jspå*. Eftersom bifogade blobbar är begränsade till 50 000 skrivningar i lagringen kan antalet exporterade blobbar utökas om antalet tillägg är högt. Namngivnings mönstret för blobbar i sådana fall är PT1H_ #. JSON, där # är det stegvisa antalet blobar.
 
-Data formatet lagrings konto är [JSON-linjer](diagnostic-logs-append-blobs.md). Det innebär att varje post avgränsas med en ny rad, utan matris för yttre poster och inga kommatecken mellan JSON-poster. 
+Data formatet lagrings konto är [JSON-linjer](./resource-logs-blob-format.md). Det innebär att varje post avgränsas med en ny rad, utan matris för yttre poster och inga kommatecken mellan JSON-poster. 
 
 [![Exempel data för lagring](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
@@ -78,10 +78,10 @@ Log Analytics data export kan skriva till att lägga till blobar till oförände
 Data skickas till händelsehubben i nära real tid när den når Azure Monitor. En Event Hub skapas för varje datatyp som du exporterar med namnet *am –* följt av namnet på tabellen. Tabellen *SecurityEvent* skulle till exempel skickas till en Event Hub med namnet ' *am-SecurityEvent*'. Om du vill att exporterade data ska uppnå en viss händelsehubben, eller om du har en tabell med ett namn som överskrider tecken gränsen på 47, kan du ange ett eget namn på händelsehubben och exportera alla data för definierade tabeller till den.
 
 Överväganden:
-1. Den grundläggande Event Hub-SKU: n stöder lägre storleks [gräns](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) för händelser och vissa loggar på din arbets yta kan överstiga den och tas bort. Vi rekommenderar att du använder "standard" eller "dedikerad" händelsehubben som export mål.
+1. Den grundläggande Event Hub-SKU: n stöder lägre storleks [gräns](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) för händelser och vissa loggar på din arbets yta kan överstiga den och tas bort. Vi rekommenderar att du använder "standard" eller "dedikerad" händelsehubben som export mål.
 2. Volymen för exporterade data ökar ofta med tiden och skalningen av Event Hub måste ökas för att hantera större överföringshastigheter och undvika begränsnings scenarier och data fördröjning. Du bör använda funktionen för automatisk ökning i Event Hubs för att automatiskt skala upp och öka antalet data flödes enheter och uppfylla användnings behoven. Mer information finns i [skala upp Azure Event Hubs data flödes enheter automatiskt](../../event-hubs/event-hubs-auto-inflate.md) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande är förutsättningar som måste slutföras innan du konfigurerar Log Analytics data export.
 
 - Lagrings kontot och händelsehubben måste redan skapas och måste finnas i samma region som Log Analytics-arbetsytan. Om du behöver replikera dina data till andra lagrings konton kan du använda något av [alternativen för Azure Storage redundans](../../storage/common/storage-redundancy.md).  

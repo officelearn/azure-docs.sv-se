@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 7f70994f35148614fb048ed2c3297727d5099b05
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 00cec2ca11b77f6cb9d6c0f3c429931bdcc6f6e4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056522"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186141"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Snabb start: övervaka en Azure-resurs med Azure Monitor
 [Azure Monitor](../overview.md) börjar samla in data från Azure-resurser när de har skapats. Den här snabb starten innehåller en kort genom gång av de data som samlas in automatiskt för en resurs och hur du kan visa den i Azure Portal för en viss resurs. Senare kan du lägga till en konfiguration för att samla in ytterligare data och kan gå till Azure Monitor menyn för att använda samma verktyg för att få åtkomst till data som samlats in för alla resurser i din prenumeration.
@@ -70,5 +70,4 @@ Mått är numeriska värden som beskriver viss aspekt av din resurs vid en viss 
 I den här snabb starten visade du aktivitets loggen och måtten för en Azure-resurs som samlas in automatiskt av Azure Monitor. Fortsätt till nästa snabb start som visar hur du samlar in aktivitets loggen på en Log Analytics arbets yta där de kan analyseras med hjälp av [logg frågor](../log-query/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Skicka Azure aktivitets logg till Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-activity-log-portal)
-
+> [Skicka Azure aktivitets logg till Log Analytics arbets yta](./quick-collect-activity-log-portal.md)

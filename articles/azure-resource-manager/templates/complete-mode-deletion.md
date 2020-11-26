@@ -3,12 +3,12 @@ title: Borttagning i complete-läget
 description: Visar hur resurs typer hanterar fullständig borttagning av läge i Azure Resource Manager mallar.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: b1f7623d6eee1ff629412a4cc0d76e59e6c9e847
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0c67bfcda81ad128e0018c4ab37c4b0cbe680f0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370132"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184033"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Borttagning av Azure-resurser för komplett läges distributioner
 
@@ -18,7 +18,7 @@ De resurs typer som marker ATS med **Ja** tas bort när typen inte finns i malle
 
 Resurs typerna som marker ATS med **Nej** tas inte bort automatiskt när de inte finns i mallen. de tas dock bort om den överordnade resursen tas bort. En fullständig beskrivning av beteendet finns i [Azure Resource Manager distributions lägen](deployment-modes.md).
 
-Om du distribuerar till [fler än en resurs grupp i en mall](cross-scope-deployment.md)är resurserna i resurs gruppen som anges i distributions åtgärden tillgängliga för borttagning. Resurser i de sekundära resurs grupperna tas inte bort.
+Om du distribuerar till [fler än en resurs grupp i en mall](./deploy-to-resource-group.md)är resurserna i resurs gruppen som anges i distributions åtgärden tillgängliga för borttagning. Resurser i de sekundära resurs grupperna tas inte bort.
 
 Resurserna visas i namn området för resurs leverantören. Information om hur du matchar ett namn område för en resurs leverantör med dess Azure-tjänst namn finns i [Resource providers för Azure-tjänster](../management/azure-services-resource-providers.md).
 
@@ -837,7 +837,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Prognoser | Nej |
 > | samtliga | Nej |
 > | Marknads platser | Nej |
-> | Pricesheets | Nej |
+> | Prisdokument | Nej |
 > | läkemedle | Nej |
 > | ReservationDetails | Nej |
 > | ReservationRecommendationDetails | Nej |
@@ -933,7 +933,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ExternalSubscriptions/fråga | Nej |
 > | Prognos | Nej |
 > | Insikter | Nej |
-> | Söka i data | Nej |
+> | Fråga | Nej |
 > | registrera | Nej |
 > | Reportconfigs | Nej |
 > | Rapporter | Nej |

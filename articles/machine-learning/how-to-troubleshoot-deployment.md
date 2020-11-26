@@ -1,5 +1,5 @@
 ---
-title: Felsöka webb tjänst distribution
+title: Felsöka fjärrdistribution av webb tjänster
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du arbetar runt, löser och felsöker vanliga Docker-distributions fel med Azure Kubernetes service och Azure Container Instances.
 services: machine-learning
@@ -8,19 +8,19 @@ ms.subservice: core
 author: gvashishtha
 ms.author: gopalv
 ms.reviewer: jmartens
-ms.date: 11/02/2020
+ms.date: 11/25/2020
 ms.topic: troubleshooting
-ms.custom: contperfq4, devx-track-python, deploy
-ms.openlocfilehash: dfbfea22738e6aeb0df31ad941b2ff10e53795a4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: contperfq4, devx-track-python, deploy, contperfq2
+ms.openlocfilehash: 0b8da0be16adc79b606b59f394b223b001453607
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311299"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185070"
 ---
 # <a name="troubleshoot-model-deployment"></a>Felsöka modell distribution
 
-Lär dig att felsöka och lösa, eller Undvik, vanliga Docker-distributions fel med Azure Container Instances (ACI) och Azure Kubernetes service (AKS) med Azure Machine Learning.
+Lär dig att felsöka och lösa eller kringgå, vanliga fjärrdocker distributions fel med Azure Container Instances (ACI) och Azure Kubernetes service (AKS) med Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -28,9 +28,6 @@ Lär dig att felsöka och lösa, eller Undvik, vanliga Docker-distributions fel 
 * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 * [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* För att felsöka lokalt måste du ha en fungerande Docker-installation på det lokala systemet.
-
-    Verifiera din Docker-installation genom att använda kommandot `docker run hello-world` från en terminal eller kommando tolk. Information om hur du installerar Docker eller felsöker Docker-fel finns i [Docker-dokumentationen](https://docs.docker.com/).
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Steg för Docker-distribution av Machine Learning-modeller
 
@@ -79,94 +76,8 @@ print(service.get_logs())
 
 ## <a name="debug-locally"></a>Felsök lokalt
 
-Om du har problem när du distribuerar en modell till ACI eller AKS kan du distribuera den som en lokal webb tjänst. Med en lokal webbtjänst blir det enklare att felsöka problem.
+Om du har problem när du distribuerar en modell till ACI eller AKS kan du distribuera den som en lokal webb tjänst. Med en lokal webbtjänst blir det enklare att felsöka problem. Om du vill felsöka en distribution lokalt kan du läsa [artikeln om lokal fel sökning](./how-to-troubleshoot-deployment-local.md).
 
-Du hittar ett exempel på en [lokal distributions antecknings bok](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) i  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) -lagrings platsen för att utforska ett körbara-exempel.
-
-> [!WARNING]
-> Distributioner av lokala webb tjänster stöds inte i produktions scenarier.
-
-Om du vill distribuera lokalt ändrar du koden så att den används `LocalWebservice.deploy_configuration()` för att skapa en distributions konfiguration. Använd sedan `Model.deploy()` för att distribuera tjänsten. I följande exempel distribueras en modell (som finns i modell variabeln) som en lokal webb tjänst:
-
-```python
-from azureml.core.environment import Environment
-from azureml.core.model import InferenceConfig, Model
-from azureml.core.webservice import LocalWebservice
-
-
-# Create inference configuration based on the environment definition and the entry script
-myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
-inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-# Create a local deployment, using port 8890 for the web service endpoint
-deployment_config = LocalWebservice.deploy_configuration(port=8890)
-# Deploy the service
-service = Model.deploy(
-    ws, "mymodel", [model], inference_config, deployment_config)
-# Wait for the deployment to complete
-service.wait_for_deployment(True)
-# Display the port that the web service is available on
-print(service.port)
-```
-
-Om du definierar din egen Conda-specifikation YAML visar du azureml-defaults version >= 1.0.45 som ett pip-beroende. Det här paketet krävs för att vara värd för modellen som en webb tjänst.
-
-Nu kan du arbeta med tjänsten som vanligt. Följande kod visar hur du skickar data till tjänsten:
-
-```python
-import json
-
-test_sample = json.dumps({'data': [
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-]})
-
-test_sample = bytes(test_sample, encoding='utf8')
-
-prediction = service.run(input_data=test_sample)
-print(prediction)
-```
-
-Mer information om hur du anpassar din python-miljö finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md). 
-
-### <a name="update-the-service"></a>Uppdatera tjänsten
-
-Under lokal testning kan du behöva uppdatera `score.py` filen för att lägga till loggning eller försöka lösa eventuella problem som du har identifierat. Om du vill läsa in ändringarna i `score.py` filen igen använder du `reload()` . Följande kod läser till exempel in skriptet för tjänsten och skickar sedan data till den. Data får poäng med den uppdaterade `score.py` filen:
-
-> [!IMPORTANT]
-> `reload`Metoden är endast tillgänglig för lokala distributioner. Information om hur du uppdaterar en distribution till ett annat beräknings mål finns i [så här uppdaterar du din WebService](how-to-deploy-update-web-service.md).
-
-```python
-service.reload()
-print(service.run(input_data=test_sample))
-```
-
-> [!NOTE]
-> Skriptet läses in på nytt från den plats som anges av det `InferenceConfig` objekt som används av tjänsten.
-
-Om du vill ändra modellen, Conda-beroenden eller distributions konfigurationen använder du [Update ()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate--args-). I följande exempel uppdateras modellen som används av tjänsten:
-
-```python
-service.update([different_model], inference_config, deployment_config)
-```
-
-### <a name="delete-the-service"></a>Ta bort tjänsten
-
-Om du vill ta bort tjänsten använder du [Delete ()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
-
-### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a> Granska Docker-loggen
-
-Du kan skriva ut detaljerade logg meddelanden för Docker-motorn från serviceobjektet. Du kan visa loggen för ACI, AKS och lokala distributioner. Följande exempel visar hur du skriver ut loggarna.
-
-```python
-# if you already have the service object handy
-print(service.get_logs())
-
-# if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices['mysvc'].get_logs())
-```
-Om du ser att linjen `Booting worker with pid: <pid>` inträffar flera gånger i loggarna innebär det att det inte finns tillräckligt med minne för att starta arbetaren.
-Du kan åtgärda felet genom att öka värdet för `memory_gb` i `deployment_config`
- 
 ## <a name="container-cannot-be-scheduled"></a>Behållaren kan inte schemaläggas
 
 När du distribuerar en tjänst till ett Azure Kubernetes Service-beräkningsmål försöker Azure Machine Learning schemalägga tjänsten med det begärda antalet resurser. Om det inte finns några tillgängliga noder i klustret med en lämplig mängd resurser efter 5 minuter, kommer distributionen att Miss par. Fel meddelandet är `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Du kan åtgärda det här felet genom att antingen lägga till fler noder, ändra SKU: er för dina noder eller ändra resurs kraven för din tjänst. 
@@ -177,7 +88,7 @@ Fel meddelandet indikerar vanligt vis vilken resurs du behöver mer av – om du
 
 När avbildningen har skapats försöker systemet starta en behållare med hjälp av distributions konfigurationen. Som en del av processen för container Start `init()` anropas funktionen i bedömnings skriptet av systemet. Om det finns undantag som inte har fångats i `init()` funktionen kan du se **CrashLoopBackOff** -fel i fel meddelandet.
 
-Använd informationen i avsnittet [Granska Docker-loggen](#dockerlog) för att kontrol lera loggarna.
+Använd informationen i artikeln [Granska Docker-loggen](how-to-troubleshoot-deployment-local.md#dockerlog) .
 
 ## <a name="function-fails-get_model_path"></a>Funktionen misslyckades: get_model_path ()
 
@@ -196,7 +107,7 @@ Om du ställer in loggnings nivån på fel sökning kan det leda till att ytterl
 
 ## <a name="function-fails-runinput_data"></a>Funktionen misslyckades: kör (input_data)
 
-Om tjänsten har distribuerats, men den kraschar när du skickar data till bedömnings slut punkten, kan du lägga till fel som fångar upp instruktionen i `run(input_data)` funktionen så att den returnerar ett detaljerat fel meddelande i stället. Exempel:
+Om tjänsten har distribuerats, men den kraschar när du skickar data till bedömnings slut punkten, kan du lägga till fel som fångar upp instruktionen i `run(input_data)` funktionen så att den returnerar ett detaljerat fel meddelande i stället. Ett exempel:
 
 ```python
 def run(input_data):
@@ -221,7 +132,7 @@ En status kod för 502 visar att tjänsten har utlöst ett undantag eller krasch
 
 Distributioner av Azure Kubernetes-tjänster stöder automatisk skalning, vilket gör att repliker kan läggas till för att stödja ytterligare belastning. Autoskalning är utformat för att hantera **gradvisa** ändringar i belastningen. Om du får stora toppar i begär Anden per sekund, kan klienterna få HTTP-statuskod 503. Även om autoskalning reagerar snabbt, tar det AKS en stor del av tiden för att skapa ytterligare behållare.
 
-Beslut om att skala upp/ned baseras på användning av aktuella behållares repliker. Det totala antalet repliker som är upptagna (bearbetning av en begäran) dividerat med det totala antalet aktuella repliker är den aktuella användningen. Om det här värdet överskrider så `autoscale_target_utilization` skapas fler repliker. Om den är lägre minskas replikerna. Beslut om att lägga till repliker är Eager och snabbt (cirka 1 sekund). Beslut att ta bort repliker är försiktigt (cirka 1 minut). Som standard är den automatiska skalnings mål användningen inställd på **70%** , vilket innebär att tjänsten kan hantera toppar i begär Anden per sekund (RPS) på **upp till 30%**.
+Beslut om att skala upp/ned baseras på användning av aktuella behållares repliker. Det totala antalet repliker som är upptagna (bearbetning av en begäran) dividerat med det totala antalet aktuella repliker är den aktuella användningen. Om det här värdet överskrider så `autoscale_target_utilization` skapas fler repliker. Om den är lägre minskas replikerna. Beslut om att lägga till repliker är Eager och snabbt (cirka 1 sekund). Beslut att ta bort repliker är försiktigt (cirka 1 minut). Som standard är den automatiska skalnings mål användningen inställd på **70%**, vilket innebär att tjänsten kan hantera toppar i begär Anden per sekund (RPS) på **upp till 30%**.
 
 Det finns två saker som kan hjälpa till att förhindra 503 status koder:
 
@@ -281,3 +192,4 @@ Lär dig mer om distribution:
 
 * [Distribuera och var](how-to-deploy-and-where.md)
 * [Självstudie: träna & distribuera modeller](tutorial-train-models-with-aml.md)
+* [Köra och felsöka experiment lokalt](./how-to-debug-visual-studio-code.md)

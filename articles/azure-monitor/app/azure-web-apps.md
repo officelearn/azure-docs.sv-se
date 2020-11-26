@@ -4,12 +4,12 @@ description: Övervakning av program prestanda för Azure App Services. Diagramm
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: f46d00f97dab18b0c7c1d4a5742a87308f814e9e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c0ee68659f4729ed8f63b9ea990343adf51513bd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832906"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186379"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
@@ -372,7 +372,7 @@ Nedan finns vår stegvisa fel söknings guide för tillägg/agent-baserad överv
 
     * Bekräfta att det inte finns några poster för `AppAlreadyInstrumented` , `AppContainsDiagnosticSourceAssembly` , och `AppContainsAspNetTelemetryCorrelationAssembly` .
         * Om någon av dessa poster finns tar du bort följande paket från programmet: `Microsoft.ApplicationInsights` , `System.Diagnostics.DiagnosticSource` och `Microsoft.AspNet.TelemetryCorrelation` .
-        * För ASP.NET Core endast appar: om ditt program refererar till ett Application Insights paket, till exempel om du tidigare har instrumenterat (eller försökt att instrumentera) din app med [ASP.net Core SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), kan det vara möjligt att aktivera App Service-integrering och data kanske inte visas i Application Insights. Åtgärda problemet genom att aktivera "interop with Application Insights SDK" i portalen och du kommer att börja se data i Application Insights 
+        * För ASP.NET Core endast appar: om ditt program refererar till ett Application Insights paket, till exempel om du tidigare har instrumenterat (eller försökt att instrumentera) din app med [ASP.net Core SDK](./asp-net-core.md), kan det vara möjligt att aktivera App Service-integrering och data kanske inte visas i Application Insights. Åtgärda problemet genom att aktivera "interop with Application Insights SDK" i portalen och du kommer att börja se data i Application Insights 
         > [!IMPORTANT]
         > Den här funktionen är i för hands version 
 
@@ -432,4 +432,3 @@ De senaste uppdateringarna och fel korrigeringarna [finns i viktig information](
 * [Få aviseringar](../platform/alerts-overview.md) när drifthändelser inträffar eller när mätvärden överskrider ett tröskelvärde.
 * Använd [Application Insights för JavaScript-appar och webbsidor](javascript.md) för att hämta klienttelemetri från webbläsare som besöker en webbsida.
 * [Konfigurera tillgänglighetswebbtester](monitor-web-app-availability.md) så att du aviseras om webbplatsen inte fungerar.
-

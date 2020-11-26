@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 9b434c426264fcfee0dfe663a7d1b21a354badec
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 2a21d7a06e8a92022b620704d1fb51a303da3ae0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491264"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185988"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Fråga efter data i Azure Monitor med Azure Datautforskaren (förhands granskning)
 Med Azure Datautforskaren proxy-klustret kan du utföra kors produkt frågor mellan Azure Datautforskaren, Log Analytics arbets ytor och klassiska Application Insights program i Azure Monitor. Du kan mappa Log Analytics arbets ytor i Azure Monitor eller klassiska Application Insights appar som proxy-kluster. Du kan sedan fråga proxy-klustret med hjälp av Azure Datautforskaren-verktyg och se det i en kors kluster fråga. Artikeln visar hur du ansluter till ett proxy-kluster, lägger till ett proxy-kluster i Azure Datautforskaren Web UI och kör frågor mot dina Log Analytics-arbetsytor eller klassiska Application Insights-appar från Azure Datautforskaren.
@@ -60,7 +60,7 @@ Du kan köra frågorna med hjälp av klient verktyg som har stöd för Kusto-fr�
 > * Databas namnet måste ha samma namn som den angivna resursen i proxy-klustret. Namnen är skiftlägeskänsliga.
 > * I kors kluster frågor kontrollerar du att namngivningen av Application Insights appar och Log Analytics arbets ytor är korrekt.
 >     * Om namnen innehåller specialtecken ersätts de av URL-kodningen i namnet på proxyservern. 
->     * Om namnen innehåller tecken som inte uppfyller [KQL-ID: n](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names), ersätts de av bindestrecks **-** tecknet.
+>     * Om namnen innehåller tecken som inte uppfyller [KQL-ID: n](/azure/data-explorer/kusto/query/schema-entities/entity-names), ersätts de av bindestrecks **-** tecknet.
 
 ### <a name="direct-query-from-your-log-analytics-or-application-insights-proxy-cluster"></a>Direkt fråga från Log Analytics eller Application Insights proxy-kluster
 
@@ -93,9 +93,9 @@ Frågor över flera klienter stöds inte av Azure Datautforskaren proxy. Du är 
 
 Om Azure Datautforskaren-resursen finns i klient organisationen "A" och Log Analytics arbets ytan är i klient organisationen "B" använder du någon av följande två metoder:
 
-- Med Azure Datautforskaren kan du lägga till roller för huvud konton i olika klienter. Lägg till ditt användar-ID i klienten ' B ' som en behörig användare i Azure Datautforskaren-klustret. Verifiera att egenskapen *[' TrustedExternalTenant '](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* i Azure datautforskaren-klustret innehåller klienten ' B '. Kör kors frågan fullständigt i klient organisationen ' B '.
+- Med Azure Datautforskaren kan du lägga till roller för huvud konton i olika klienter. Lägg till ditt användar-ID i klienten ' B ' som en behörig användare i Azure Datautforskaren-klustret. Verifiera att egenskapen *[' TrustedExternalTenant '](/powershell/module/az.kusto/update-azkustocluster)* i Azure datautforskaren-klustret innehåller klienten ' B '. Kör kors frågan fullständigt i klient organisationen ' B '.
 
-- Använd [Lighthouse](/azure/lighthouse/) för att projicera Azure Monitor resursen i klient organisationen "A".
+- Använd [Lighthouse](../../lighthouse/index.yml) för att projicera Azure Monitor resursen i klient organisationen "A".
 
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Ansluta till Azure Datautforskaren-kluster från olika klienter
 
@@ -124,7 +124,7 @@ Följande syntax är tillgängliga när du anropar Log Analytics-eller Applicati
 
 |Beskrivning av syntax  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| Databas i ett kluster som bara innehåller den definierade resursen i den här prenumerationen ( **rekommenderas för kors kluster frågor** ) |   kluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | kluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
+| Databas i ett kluster som bara innehåller den definierade resursen i den här prenumerationen (**rekommenderas för kors kluster frågor**) |   kluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | kluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
 | Kluster som innehåller alla appar/arbets ytor i den här prenumerationen    |     kluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>` )    |    kluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>` )     |
 |Kluster som innehåller alla appar/arbets ytor i prenumerationen och som är medlemmar i den här resurs gruppen    |   kluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |    kluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |
 |Kluster som bara innehåller den definierade resursen i den här prenumerationen      |    kluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>` )    |  kluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>` )     |
@@ -132,4 +132,4 @@ Följande syntax är tillgängliga när du anropar Log Analytics-eller Applicati
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [data strukturen för Log Analytics arbets ytor och Application Insights](data-platform-logs.md).
-- Lär dig att [skriva frågor i Azure datautforskaren](https://docs.microsoft.com/azure/data-explorer/write-queries).
+- Lär dig att [skriva frågor i Azure datautforskaren](/azure/data-explorer/write-queries).

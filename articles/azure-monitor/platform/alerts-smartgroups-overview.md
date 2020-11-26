@@ -4,12 +4,12 @@ description: Smarta grupper är agg regeringar för aviseringar som hjälper dig
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
-ms.openlocfilehash: dff59ac207e6078a264d1350d24c9e6f4a461d78
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 743bd1a674c034cd6a0350f959289ac3ecb568de
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012892"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186617"
 ---
 # <a name="smart-groups"></a>Smarta grupper
 
@@ -33,7 +33,7 @@ Följande Smart Group-tillstånd stöds.
 | Bekräftad | En administratör har granskat den smarta gruppen och börjat arbeta med den. |
 | Stängd | Problemet har åtgärd ATS. När en smart grupp har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
 
-[Lär dig hur du ändrar status för din smart grupp.](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+[Lär dig hur du ändrar status för din smart grupp.](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 > [!NOTE]
 >  Att ändra status för en smart grupp ändrar inte statusen för de enskilda medlems aviseringarna.
@@ -47,7 +47,7 @@ Sidan smart grupp information visas när du väljer en smart grupp. Den innehål
 
 Informations sidan för smart grupp innehåller följande avsnitt.
 
-| Section | Description |
+| Avsnitt | Beskrivning |
 |:---|:---|
 | Aviseringar | Visar en lista över enskilda aviseringar som ingår i den smarta gruppen. Välj en avisering för att öppna sidan aviserings information. |
 | Historik | Visar en lista över varje åtgärd som utförs av den smarta gruppen och eventuella ändringar som görs i den. Detta är för närvarande begränsat för att ge status ändringar och ändringar i varnings medlemskap. |
@@ -58,5 +58,5 @@ Namnet på en smart grupp är namnet på den första aviseringen. Du kan inte sk
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hantera smarta grupper](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
-- [Ändra din status för avisering och smart grupp](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Hantera smarta grupper](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [Ändra din status för avisering och smart grupp](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)

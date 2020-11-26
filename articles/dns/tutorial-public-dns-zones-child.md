@@ -11,15 +11,15 @@ ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
 ms.openlocfilehash: d805fb926131e047572887758b10506e4edd5944
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960775"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183387"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Självstudie: skapa en ny underordnad DNS-zon
 
-I den här guiden får du lära dig att: 
+I de här självstudierna får du lära dig att 
 
 > [!div class="checklist"]
 > * Logga in på Azure-portalen.
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration.  Om du inte har något konto kan du [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Befintlig överordnad Azure DNS zon.  

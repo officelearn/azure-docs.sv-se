@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -9,11 +9,11 @@ ms.date: 09/11/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 74b5014b6590fc501291355ee4d142c52ceff129
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90045084"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183902"
 ---
 >[!NOTE]
 >Vi arbetar hårt för att lägga till ytterligare regioner. När en region läggs till läggs den till i listan.

@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: ec2ffe71a32781a855da258f3621738f1a5f6be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9a1bef582053eccdbfef63c2159cf540ffd9bfb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294299"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186600"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Felsöka logg aviseringar i Azure Monitor  
 
 Den här artikeln visar hur du löser vanliga problem med logg aviseringar i Azure Monitor. Den innehåller också lösningar på vanliga problem med funktioner och konfiguration av logg aviseringar.
 
-Logg aviseringar gör att användare kan använda en [Log Analytics](../log-query/get-started-portal.md) fråga för att utvärdera resurser loggar varje uppsättnings frekvens och utlösa en avisering baserat på resultaten. Regler kan utlösa en eller flera åtgärder med hjälp av [Åtgärds grupper](./action-groups.md). [Lär dig mer om funktioner och terminologi för logg aviseringar](alerts-unified-log.md).
+Logg aviseringar gör att användare kan använda en [Log Analytics](../log-query/log-analytics-tutorial.md) fråga för att utvärdera resurser loggar varje uppsättnings frekvens och utlösa en avisering baserat på resultaten. Regler kan utlösa en eller flera åtgärder med hjälp av [Åtgärds grupper](./action-groups.md). [Lär dig mer om funktioner och terminologi för logg aviseringar](alerts-unified-log.md).
 
 > [!NOTE]
 > Den här artikeln tar inte hänsyn till fall där Azure Portal visar en varnings regel som utlöses och en avisering inte utförs av en associerad åtgärds grupp. I sådana fall kan du läsa mer om fel sökning [här](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
@@ -36,7 +36,7 @@ Systemet försöker utföra aviserings utvärderingen flera gånger för att min
 
 Tidsintervallet för frågor anges i regel villkors definitionen. Det här fältet kallas för **period** för arbets ytor och Application Insights, och det kallas **tidsintervallet för åsidosättningar** för alla andra resurs typer. Precis som i Log Analytics begränsar tidsintervallet frågedata till den angivna perioden. Även om kommandot **sedan** används i frågan, kommer tidsintervallet att gälla. 
 
-En fråga skannar till exempel 60 minuter, när tidsintervallet är 60 minuter, även om texten innehåller **sedan sedan (1d)**. Tidsintervallet och tids filtreringen för frågan måste matcha. I exempel fallet kan det **Period**  /  vara förväntat att ändra**tidsintervallet** för tids perioden för tids perioden till en dag.
+En fråga skannar till exempel 60 minuter, när tidsintervallet är 60 minuter, även om texten innehåller **sedan sedan (1d)**. Tidsintervallet och tids filtreringen för frågan måste matcha. I exempel fallet kan det **Period**  /  vara förväntat att ändra **tidsintervallet** för tids perioden för tids perioden till en dag.
 
 ![Tidsperiod](media/alert-log-troubleshoot/LogAlertTimePeriod.png)
 
@@ -131,7 +131,7 @@ Om du har nått kvot gränsen kan följande steg hjälpa dig att lösa problemet
 
     - Prenumerations-ID och resurs-ID för vilka kvot gränsen måste ökas.
     - Orsak till kvot ökning.
-    - Resurs typ för kvot ökningen: **Log Analytics**, **Application Insights**och så vidare.
+    - Resurs typ för kvot ökningen: **Log Analytics**, **Application Insights** och så vidare.
     - Begärd kvot gräns.
 
 

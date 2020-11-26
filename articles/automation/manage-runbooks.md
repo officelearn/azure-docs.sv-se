@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 65451ed99580d9f2d66bd28518f0ec40a21ffe65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ed5eda668f6bd52ba144aa664119ab613fdb7742
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317088"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183591"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Hantera Runbooks i Azure Automation
 
@@ -45,7 +45,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importera en Runbook
 
-Du kan importera ett PowerShell-eller PowerShell-arbetsflöde ( **. ps1** ), en grafisk Runbook ( **. graphrunbook** ) eller ett python 2-skript ( **. py** ) för att skapa en egen Runbook. Du måste ange vilken [typ av Runbook](automation-runbook-types.md) som skapas under importen, med hänsyn till följande överväganden.
+Du kan importera ett PowerShell-eller PowerShell-arbetsflöde (**. ps1**), en grafisk Runbook (**. graphrunbook**) eller ett python 2-skript (**. py**) för att skapa en egen Runbook. Du måste ange vilken [typ av Runbook](automation-runbook-types.md) som skapas under importen, med hänsyn till följande överväganden.
 
 * Du kan importera en **. ps1** -fil som inte innehåller ett arbets flöde till antingen en [PowerShell-Runbook](automation-runbook-types.md#powershell-runbooks) eller en [PowerShell Workflow-Runbook](automation-runbook-types.md#powershell-workflow-runbooks). Om du importerar den till en PowerShell Workflow-Runbook konverteras den till ett arbets flöde. I det här fallet ingår kommentarer i runbooken för att beskriva de ändringar som gjorts.
 
@@ -223,7 +223,7 @@ Så här använder du ett anpassat skript:
 
 1. Skapa ett Automation-konto och få en [deltagar roll](automation-role-based-access-control.md).
 2. [Länka kontot till Azure-arbetsytan](../security-center/security-center-enable-data-collection.md).
-3. Aktivera [hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [uppdateringshantering](update-management/update-mgmt-overview.md)eller någon annan automatiserings funktion. 
+3. Aktivera [hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [uppdateringshantering](./update-management/overview.md)eller någon annan automatiserings funktion. 
 4. Om du behöver hög behörighet på en Linux-dator. Logga in för att [stänga av signatur kontroller](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 ## <a name="test-a-runbook"></a>Testa en Runbook

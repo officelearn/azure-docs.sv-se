@@ -4,16 +4,16 @@ description: Hantera smarta grupper som skapats över dina aviserings instanser
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 09/24/2018
-ms.openlocfilehash: 763bfefcf71b0be43722b99f31641015a5991607
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 564440336bf6a90cbd40aba6c8284cbc6c5e3ff3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105846"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186056"
 ---
 # <a name="manage-smart-groups"></a>Hantera smarta grupper
 
-[Smarta grupper](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) använder Machine Learning-algoritmer för att gruppera aviseringar baserat på samförekomster eller likheter, så att användaren nu kan hantera smarta grupper i stället för att behöva hantera varje avisering individuellt. Den här artikeln beskriver hur du kommer åt och använder smarta grupper i Azure Monitor.
+[Smarta grupper](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) använder Machine Learning-algoritmer för att gruppera aviseringar baserat på samförekomster eller likheter, så att användaren nu kan hantera smarta grupper i stället för att behöva hantera varje avisering individuellt. Den här artikeln beskriver hur du kommer åt och använder smarta grupper i Azure Monitor.
 
 1. Om du vill se de smarta grupper som skapats för dina aviserings instanser kan du antingen:
 

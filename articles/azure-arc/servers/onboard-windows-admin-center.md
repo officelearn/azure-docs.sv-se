@@ -3,12 +3,12 @@ title: Ansluta hybrid datorer till Azure från Windows administrations Center
 description: I den här artikeln får du lära dig hur du installerar agenten och ansluter datorer till Azure med hjälp av Azure Arc-aktiverade servrar från administrations Center för Windows.
 ms.date: 10/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: d47e3dd4434d719f890b64e4cdfb12a189c0632a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8fa118a254689feade2897f083bb3aa2dc9db02c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133796"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183421"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-windows-admin-center"></a>Ansluta hybrid datorer till Azure från Windows administrations Center
 
@@ -38,18 +38,18 @@ Utför följande steg för att konfigurera Windows Server med ARC-aktiverade ser
 
 1. Välj **Azure Hybrid Services** i den vänstra rutan.
 
-1. På sidan **Azure Hybrid Services** väljer du **identifiera Azure-tjänster** .
+1. På sidan **Azure Hybrid Services** väljer du **identifiera Azure-tjänster**.
 
-1. På sidan **identifiera Azure-tjänster** , under **utnyttja Azure-principer och lösningar för att hantera dina servrar med Azure-båge** , väljer du **Konfigurera** .
+1. På sidan **identifiera Azure-tjänster** , under **utnyttja Azure-principer och lösningar för att hantera dina servrar med Azure-båge**, väljer du **Konfigurera**.
 
-1. På sidan **Settings\Azure båge för servrar** , om du uppmanas att autentisera till Azure och välj sedan **Kom igång** .
+1. På sidan **Settings\Azure båge för servrar** , om du uppmanas att autentisera till Azure och välj sedan **Kom igång**.
 
 1. På sidan **Anslut server till Azure** anger du följande:
 
     1. I list rutan **Azure-prenumeration** väljer du Azure-prenumerationen.
     1. För **resurs grupp** väljer du antingen **ny** för att skapa en ny resurs grupp eller under List rutan **resurs grupp** väljer du en befintlig resurs grupp för att registrera och hantera datorn från.
     1. I list rutan **region** väljer du den Azure-region där du vill lagra metadata för servrarna.
-    1. Om datorn eller servern kommunicerar via en proxyserver för att ansluta till Internet väljer du alternativet **Använd proxyserver** . Ange IP-adressen för proxyservern eller namnet och port numret som datorn ska använda för att kommunicera med proxyservern.
+    1. Om datorn eller servern kommunicerar via en proxyserver för att ansluta till Internet väljer du alternativet **Använd proxyserver**. Ange IP-adressen för proxyservern eller namnet och port numret som datorn ska använda för att kommunicera med proxyservern.
 
 1. Välj **Konfigurera** för att fortsätta med konfigurationen av Windows Server med Azure Arc-aktiverade servrar.
 
@@ -69,4 +69,4 @@ När du har installerat agenten och konfigurerat den för att ansluta till Azure
 
 * Lär dig hur du hanterar din dator med hjälp av [Azure policy](../../governance/policy/overview.md), till exempel för [gäst konfiguration](../../governance/policy/concepts/guest-configuration.md)av virtuella datorer, verifiera att datorn rapporterar till den förväntade Log Analytics arbets ytan, aktivera övervakning med [Azure monitor med virtuella datorer](../../azure-monitor/insights/vminsights-enable-policy.md)och mycket mer.
 
-* Läs mer om den [Log Analytics agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill samla in operativ system och data för övervakning av arbets belastning, hantera dem med hjälp av Automation-runbooks eller funktioner som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).
+* Läs mer om den [Log Analytics agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill samla in operativ system och data för övervakning av arbets belastning, hantera dem med hjälp av Automation-runbooks eller funktioner som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-introduction.md).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 6b3fdf052ce7f0d6a5c3497aa1ac971d9249546a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 118bdcb6929abfc162ff05e91f1621f087b6c50c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015603"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186736"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Så här frågar du efter loggar från Azure Monitor for VMs
 
@@ -112,7 +112,7 @@ Varje RemoteIp-egenskap i *VMConnection* -tabellen kontrol leras mot en uppsätt
 |:--|:--|
 |MaliciousIp |RemoteIp-adressen |
 |IndicatorThreadType |En hot indikator upptäcktes av följande värden: *botnät*, *C2*, *CryptoMining*, *Darknet*, *DDoS*, *MaliciousUrl*, *malware*, *phishing*, *proxy*, *oönskade program*, *visnings lista*.   |
-|Description |Beskrivning av det observerade hotet. |
+|Beskrivning |Beskrivning av det observerade hotet. |
 |TLPLevel |TLP-nivån (trafik ljus protokoll) är en av de definierade värdena, *vitt*, *grönt*, *gult*, *rött*. |
 |Konfidensbedömning |Värdena är *0 – 100*. |
 |Allvarlighetsgrad |Värdena är *0 – 5*, där *5* är det allvarligaste och *0* inte är allvarligt. Standardvärdet är *3*.  |
@@ -233,7 +233,7 @@ Poster med en typ av *VMProcess* har inventerings data för TCP-anslutna process
 |Grupp | Namn på process grupp. Processer i samma grupp är logiskt relaterade, t. ex. en del av samma produkt-eller system komponent. |
 |StartTime | Start tid för process bassäng |
 |FirstPid | Det första PID i lagringspoolen |
-|Description | Beskrivning av processen |
+|Beskrivning | Beskrivning av processen |
 |CompanyName | Företagets namn |
 |InternalName | Det interna namnet |
 |ProductName | Produktens namn |
@@ -442,7 +442,7 @@ Poster med en typ av *InsightsMetrics* har prestanda data från gäst operativ s
 |Dator | Datorns FQDN | 
 |Ursprung | *vm.azm.ms* |
 |Namnområde | Prestanda räknarens kategori | 
-|Name | Namn på prestanda räknaren |
+|Namn | Namn på prestanda räknaren |
 |Val | Insamlat värde | 
 |Taggar | Relaterad information om posten. Se tabellen nedan för taggar som används med olika post typer.  |
 |AgentId | Unik identifierare för varje dators agent |
@@ -451,7 +451,7 @@ Poster med en typ av *InsightsMetrics* har prestanda data från gäst operativ s
 
 De prestanda räknare som för närvarande samlas in i tabellen *InsightsMetrics* visas i följande tabell:
 
-| Namnområde | Name | Beskrivning | Enhet | Taggar |
+| Namnområde | Namn | Beskrivning | Enhet | Taggar |
 |:---|:---|:---|:---|:---|
 | Dator    | Pulsslag             | Datorns pulsslag                        | | |
 | Minne      | AvailableMB           | Tillgängliga byte för minne                    | Megabyte      | memorySizeMB – total minnes storlek|
@@ -473,7 +473,6 @@ De prestanda räknare som för närvarande samlas in i tabellen *InsightsMetrics
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du inte har använt att skriva logg frågor i Azure Monitor kan du läsa om [hur du använder Log Analytics](../log-query/get-started-portal.md) i Azure Portal för att skriva logg frågor.
+* Om du inte har använt att skriva logg frågor i Azure Monitor kan du läsa om [hur du använder Log Analytics](../log-query/log-analytics-tutorial.md) i Azure Portal för att skriva logg frågor.
 
-* Lär dig mer om att [skriva Sök frågor](/azure/azure-monitor/log-query/get-started-queries).
-
+* Lär dig mer om att [skriva Sök frågor](../log-query/get-started-queries.md).

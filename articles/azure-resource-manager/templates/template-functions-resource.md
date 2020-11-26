@@ -3,12 +3,12 @@ title: Mall funktioner – resurser
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta värden för resurser.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0d118b80439579b0c8be45fdf1180b9a03b54c1d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b7bb726250c6d1ef8a597481b5f7e95f024a56d4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95994151"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183999"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Resurs funktioner för ARM-mallar
 
@@ -37,12 +37,12 @@ Returnerar resurs-ID för en [tilläggs resurs](../management/extension-resource
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| resourceId |Yes |sträng |Resurs-ID för resursen som tilläggs resursen tillämpas på. |
-| resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
-| resourceName1 |Yes |sträng |Resursens namn. |
-| resourceName2 |No |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceId |Ja |sträng |Resurs-ID för resursen som tilläggs resursen tillämpas på. |
+| resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
+| resourceName1 |Ja |sträng |Resursens namn. |
+| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -179,11 +179,11 @@ Syntaxen för den här funktionen varierar beroende på namnet på list åtgärd
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| resourceName eller resourceIdentifier |Yes |sträng |Unikt ID för resursen. |
-| apiVersion |Yes |sträng |API-version för resurs körnings tillstånd. Normalt i formatet **åååå-mm-dd**. |
-| functionValues |No |objekt | Ett objekt som har värden för funktionen. Ange bara det här objektet för funktioner som stöder mottagning av ett objekt med parameter värden, t. ex. **listAccountSas** på ett lagrings konto. Ett exempel på att skicka funktions värden visas i den här artikeln. |
+| resourceName eller resourceIdentifier |Ja |sträng |Unikt ID för resursen. |
+| apiVersion |Ja |sträng |API-version för resurs körnings tillstånd. Normalt i formatet **åååå-mm-dd**. |
+| functionValues |Nej |objekt | Ett objekt som har värden för funktionen. Ange bara det här objektet för funktioner som stöder mottagning av ett objekt med parameter värden, t. ex. **listAccountSas** på ett lagrings konto. Ett exempel på att skicka funktions värden visas i den här artikeln. |
 
 ### <a name="valid-uses"></a>Giltig användning
 
@@ -438,13 +438,13 @@ Bestämmer om en resurs typ stöder zoner för en region.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| providerNamespace | Yes | sträng | Resurs leverantörens namn område för resurs typen för att kontrol lera om det finns stöd för zonen. |
-| resourceType | Yes | sträng | Resurs typen för att kontrol lera om det finns stöd för zonen. |
-| location | Yes | sträng | Regionen för att kontrol lera om det finns stöd för zonen. |
-| numberOfZones | No | heltal | Antalet logiska zoner som ska returneras. Standard är 1. Talet måste vara ett positivt heltal mellan 1 och 3.  Använd 1 för resurser med en zon. För resurser med flera zoner måste värdet vara mindre än eller lika med antalet zoner som stöds. |
-| offset | No | heltal | Förskjutningen från den inledande logiska zonen. Funktionen returnerar ett fel om förskjutningen plus numberOfZones överskrider antalet zoner som stöds. |
+| providerNamespace | Ja | sträng | Resurs leverantörens namn område för resurs typen för att kontrol lera om det finns stöd för zonen. |
+| resourceType | Ja | sträng | Resurs typen för att kontrol lera om det finns stöd för zonen. |
+| location | Ja | sträng | Regionen för att kontrol lera om det finns stöd för zonen. |
+| numberOfZones | Nej | heltal | Antalet logiska zoner som ska returneras. Standard är 1. Talet måste vara ett positivt heltal mellan 1 och 3.  Använd 1 för resurser med en zon. För resurser med flera zoner måste värdet vara mindre än eller lika med antalet zoner som stöds. |
+| offset | Nej | heltal | Förskjutningen från den inledande logiska zonen. Funktionen returnerar ett fel om förskjutningen plus numberOfZones överskrider antalet zoner som stöds. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -547,10 +547,10 @@ Returnerar information om en resurs leverantör och de resurs typer som stöds. 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Yes |sträng |Namn område för providern |
-| resourceType |No |sträng |Typ av resurs inom den angivna namn rymden. |
+| providerNamespace |Ja |sträng |Namn område för providern |
+| resourceType |Nej |sträng |Typ av resurs inom den angivna namn rymden. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -635,11 +635,11 @@ Returnerar ett objekt som representerar en resurs körnings tillstånd.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| resourceName eller resourceIdentifier |Yes |sträng |Namn eller unik identifierare för en resurs. När du refererar till en resurs i den aktuella mallen anger du endast resurs namnet som en parameter. Ange resurs-ID när du refererar till en tidigare distribuerad resurs eller när namnet på resursen är tvetydigt. |
-| apiVersion |No |sträng |API-version för den angivna resursen. **Den här parametern krävs när resursen inte är etablerad i samma mall.** Normalt i formatet **åååå-mm-dd**. Giltiga API-versioner för din resurs finns i [referens för mallar](/azure/templates/). |
-| Fullständig |No |sträng |Värde som anger om det fullständiga resurs objekt ska returneras. Om du inte anger `'Full'` returneras bara resursens egenskaps objekt. Det fullständiga objektet innehåller värden, till exempel resurs-ID och plats. |
+| resourceName eller resourceIdentifier |Ja |sträng |Namn eller unik identifierare för en resurs. När du refererar till en resurs i den aktuella mallen anger du endast resurs namnet som en parameter. Ange resurs-ID när du refererar till en tidigare distribuerad resurs eller när namnet på resursen är tvetydigt. |
+| apiVersion |Nej |sträng |API-version för den angivna resursen. **Den här parametern krävs när resursen inte är etablerad i samma mall.** Normalt i formatet **åååå-mm-dd**. Giltiga API-versioner för din resurs finns i [referens för mallar](/azure/templates/). |
+| Fullständig |Nej |sträng |Värde som anger om det fullständiga resurs objekt ska returneras. Om du inte anger `'Full'` returneras bara resursens egenskaps objekt. Det fullständiga objektet innehåller värden, till exempel resurs-ID och plats. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -798,7 +798,7 @@ När du skapar en fullständigt kvalificerad referens till en resurs, är ordnin
 
 **{Resource-Provider-namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-Resource-Name}]**
 
-Exempel:
+Ett exempel:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` stämmer `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` inte korrekt
 
@@ -1030,7 +1030,7 @@ Egenskapen **managedBy** returneras bara för resurs grupper som innehåller res
 
 ### <a name="remarks"></a>Kommentarer
 
-`resourceGroup()`Funktionen kan inte användas i en mall som har [distribuerats på prenumerations nivån](deploy-to-subscription.md). Den kan bara användas i mallar som har distribuerats till en resurs grupp. Du kan använda `resourceGroup()` funktionen i en [länkad eller kapslad mall (med inre omfång)](linked-templates.md) som är riktad mot en resurs grupp, även när den överordnade mallen distribueras till prenumerationen. I det scenariot distribueras den länkade eller kapslade mallen på resurs grupps nivå. Mer information om hur du riktar in en resurs grupp på en prenumerations nivå distribution finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-scope-deployment.md).
+`resourceGroup()`Funktionen kan inte användas i en mall som har [distribuerats på prenumerations nivån](deploy-to-subscription.md). Den kan bara användas i mallar som har distribuerats till en resurs grupp. Du kan använda `resourceGroup()` funktionen i en [länkad eller kapslad mall (med inre omfång)](linked-templates.md) som är riktad mot en resurs grupp, även när den överordnade mallen distribueras till prenumerationen. I det scenariot distribueras den länkade eller kapslade mallen på resurs grupps nivå. Mer information om hur du riktar in en resurs grupp på en prenumerations nivå distribution finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](./deploy-to-resource-group.md).
 
 En vanlig användning av resourceGroup-funktionen är att skapa resurser på samma plats som resurs gruppen. I följande exempel används resurs grupps platsen för ett standard parameter värde.
 
@@ -1055,7 +1055,7 @@ param location string = resourceGroup().location
 
 Du kan också använda funktionen resourceGroup för att lägga till taggar från resurs gruppen till en resurs. Mer information finns i [använda taggar från resurs gruppen](../management/tag-resources.md#apply-tags-from-resource-group).
 
-När du använder kapslade mallar för att distribuera till flera resurs grupper kan du ange omfånget för att utvärdera funktionen resourceGroup. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-scope-deployment.md).
+När du använder kapslade mallar för att distribuera till flera resurs grupper kan du ange omfånget för att utvärdera funktionen resourceGroup. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](./deploy-to-resource-group.md).
 
 ### <a name="resource-group-example"></a>Exempel på resurs grupp
 
@@ -1107,13 +1107,13 @@ Returnerar den unika identifieraren för en resurs. Du använder den här funkti
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |No |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp eller prenumeration. |
-| resourceGroupName |No |sträng |Standardvärdet är den aktuella resurs gruppen. Ange det här värdet när du behöver hämta en resurs i en annan resurs grupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
-| resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
-| resourceName1 |Yes |sträng |Resursens namn. |
-| resourceName2 |No |sträng |Nästa resurs namns segment, om det behövs. |
+| subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp eller prenumeration. |
+| resourceGroupName |Nej |sträng |Standardvärdet är den aktuella resurs gruppen. Ange det här värdet när du behöver hämta en resurs i en annan resurs grupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
+| resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
+| resourceName1 |Ja |sträng |Resursens namn. |
+| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -1372,7 +1372,7 @@ Funktionen returnerar följande format:
 
 ### <a name="remarks"></a>Kommentarer
 
-När du använder kapslade mallar för att distribuera till flera prenumerationer kan du ange omfattningen för utvärdering av prenumerations funktionen. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-scope-deployment.md).
+När du använder kapslade mallar för att distribuera till flera prenumerationer kan du ange omfattningen för utvärdering av prenumerations funktionen. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](./deploy-to-resource-group.md).
 
 ### <a name="subscription-example"></a>Exempel på prenumeration
 
@@ -1410,12 +1410,12 @@ Returnerar den unika identifieraren för en resurs som distribueras på prenumer
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |No |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
-| resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
-| resourceName1 |Yes |sträng |Resursens namn. |
-| resourceName2 |No |sträng |Nästa resurs namns segment, om det behövs. |
+| subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
+| resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
+| resourceName1 |Ja |sträng |Resursens namn. |
+| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -1542,11 +1542,11 @@ Returnerar den unika identifieraren för en resurs som distribueras på klient n
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
-| resourceName1 |Yes |sträng |Resursens namn. |
-| resourceName2 |No |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
+| resourceName1 |Ja |sträng |Resursens namn. |
+| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 4cc345eda8a8d51fb61cbbbd5cf0bf84633ccf0b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ec40e209d522daf882b8c704c7de6a1fb6aa29f9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676088"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183948"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database och Azure SQL-hanterad instans Anslut och skicka frågor till artiklar
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ Följande dokument innehåller länkar till Azure-exempel som visar hur du anslu
 | Snabbstart | Beskrivning |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|Den här snabb starten visar hur du använder SSMS för att ansluta till en databas och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
-|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)|Den här snabb starten visar hur du använder Azure Data Studio för att ansluta till en databas och sedan använder Transact-SQL-uttryck (T-SQL) för att skapa de TutorialDB som används i Azure Data Studio självstudier.|
+|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%2fazure%2fsql-database%2ftoc.json)|Den här snabb starten visar hur du använder Azure Data Studio för att ansluta till en databas och sedan använder Transact-SQL-uttryck (T-SQL) för att skapa de TutorialDB som används i Azure Data Studio självstudier.|
 |[Azure-portalen](connect-query-portal.md)|Den här snabb starten visar hur du använder Frågeredigeraren för att ansluta till en databas (endast Azure SQL Database) och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
 |[Visual Studio Code](connect-query-vscode.md)|Den här snabb starten visar hur du använder Visual Studio Code för att ansluta till en databas och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
 |[.NET med Visual Studio](connect-query-dotnet-visual-studio.md)|Den här snabb starten visar hur du använder .NET Framework för att skapa ett C#-program med Visual Studio för att ansluta till en databas och använda Transact-SQL-uttryck för att fråga data.|
@@ -62,7 +62,7 @@ Du kan använda olika bibliotek och ramverk för att ansluta till Azure SQL Data
 
 I följande tabell ser du vilka anslutningsbibliotek eller *drivrutiner* som klientprogram kan använda i olika språk för att ansluta till och använda SQL Server lokalt eller i molnet. Du kan använda dem i Linux, Windows eller Docker och använda dem för att ansluta till Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics (tidigare SQL Data Warehouse).
 
-| Språk | Plattform | Ytterligare resurser | Ladda ned | Kom igång |
+| Språk | Plattform | Ytterligare resurser | Hämta | Kom igång |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET för SQL Server](/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Ladda ned](https://www.microsoft.com/net/download/) | [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Microsoft JDBC-drivrutin för SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Ladda ned](https://go.microsoft.com/fwlink/?linkid=852460) |  [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: db77df29d1b9b0adf07c7da377c028dee5312617
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: cd0fd7ac004d07b71a69a3e59c9cfd4727d98eb6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579206"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184679"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Självstudie: skapa en hierarki med IoT Edge enheter (förhands granskning)
 
@@ -27,7 +27,7 @@ Du kan strukturera en hierarki med enheter så att endast det översta lagret ha
 
 Målet med den här självstudien är att skapa en hierarki med IoT Edge enheter som simulerar en produktions miljö. I slutet kommer du att distribuera den [simulerade temperatur sensor modulen](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.simulated-temperature-sensor) till en enhet med lägre lager utan Internet åtkomst genom att hämta behållar avbildningar via hierarkin.
 
-För att uppnå det här målet vägleder dig genom den här självstudien genom att skapa en hierarki med IoT Edge enheter, distribuera IoT Edge runtime-behållare till dina enheter och konfigurera enheterna lokalt. I den här guiden får du lära dig att:
+För att uppnå det här målet vägleder dig genom den här självstudien genom att skapa en hierarki med IoT Edge enheter, distribuera IoT Edge runtime-behållare till dina enheter och konfigurera enheterna lokalt. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -39,11 +39,11 @@ För att uppnå det här målet vägleder dig genom den här självstudien genom
 
 I den här självstudien definieras följande nätverks skikt:
 
-* **Översta lagret** : IoT Edge enheter i det här skiktet kan ansluta direkt till molnet.
+* **Översta lagret**: IoT Edge enheter i det här skiktet kan ansluta direkt till molnet.
 
-* **Lägre lager** : IoT Edge enheter i det här skiktet kan inte ansluta direkt till molnet. De måste gå igenom en eller flera mellanliggande IoT Edge enheter för att kunna skicka och ta emot data.
+* **Lägre lager**: IoT Edge enheter i det här skiktet kan inte ansluta direkt till molnet. De måste gå igenom en eller flera mellanliggande IoT Edge enheter för att kunna skicka och ta emot data.
 
-I den här självstudien används en hierarki med två enheter för enkelhetens skull. En enhet, **topLayerDevice** , representerar en enhet i hierarkins övre skikt, som kan ansluta direkt till molnet. Enheten kommer även att kallas för den **överordnade enheten**. Den andra enheten, **lowerLayerDevice** , representerar en enhet i den nedre nivån i hierarkin, som inte kan ansluta direkt till molnet. Enheten kommer även att kallas för den **underordnade enheten**. Du kan lägga till ytterligare lägre lager enheter för att representera produktions miljön. Konfigurationen av ytterligare lägre lager enheter kommer att följa **lowerLayerDevice** -konfigurationen.
+I den här självstudien används en hierarki med två enheter för enkelhetens skull. En enhet, **topLayerDevice**, representerar en enhet i hierarkins övre skikt, som kan ansluta direkt till molnet. Enheten kommer även att kallas för den **överordnade enheten**. Den andra enheten, **lowerLayerDevice**, representerar en enhet i den nedre nivån i hierarkin, som inte kan ansluta direkt till molnet. Enheten kommer även att kallas för den **underordnade enheten**. Du kan lägga till ytterligare lägre lager enheter för att representera produktions miljön. Konfigurationen av ytterligare lägre lager enheter kommer att följa **lowerLayerDevice**-konfigurationen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -67,13 +67,13 @@ Det första steget, som du skapar IoT Edge enheter, kan göras via Azure Portal 
 
 1. I [Azure Portal](https://ms.portal.azure.com/)navigerar du till IoT Hub.
 
-1. I menyn i den vänstra rutan, under **Automatisk enhets hantering** , väljer du **IoT Edge**.
+1. I menyn i den vänstra rutan, under **Automatisk enhets hantering**, väljer du **IoT Edge**.
 
 1. Välj **+ Lägg till en IoT Edge enhet**. Enheten kommer att bli den översta lager enheten, så ange ett lämpligt unikt enhets-ID. Välj **Spara**.
 
 1. Välj **+ Lägg till en IoT Edge enhet** igen. Enheten kommer att vara enhetens lägre lager enhet, så ange ett lämpligt unikt enhets-ID.
 
-1. Välj **Ange en överordnad enhet** , Välj ditt översta skikts enhet i listan över enheter och välj **OK**. Välj **Spara**.
+1. Välj **Ange en överordnad enhet**, Välj ditt översta skikts enhet i listan över enheter och välj **OK**. Välj **Spara**.
 
    ![Anger överordnad för enhet med lägre lager](./media/tutorial-nested-iot-edge/set-parent-device.png)
 
@@ -188,8 +188,8 @@ Installera IoT Edge genom att följa dessa steg på båda enheterna.
 1. Installera hsmlib och IoT Edge daemon <!-- Update with proper image links on release -->
 
    ```bash
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0.rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/libiothsm-std_1.2.0.rc2-1-1_debian9_amd64.deb -o libiothsm-std.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/iotedge_1.2.0_rc2-1_debian9_amd64.deb -o iotedge.deb
    sudo dpkg -i ./libiothsm-std.deb
    sudo dpkg -i ./iotedge.deb
    ```
@@ -261,7 +261,7 @@ Slutför de här stegen och starta om tjänsten IoT Edge för att konfigurera di
      type: "docker"
      env: {}
      config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1"
+       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -273,7 +273,7 @@ Slutför de här stegen och starta om tjänsten IoT Edge för att konfigurera di
      type: "docker"
      env: {}
      config:
-       image: "<parent_device_fqdn_or_ip>:8000/azureiotedge-agent:1.2.0-rc1"
+       image: "<parent_device_fqdn_or_ip>:8000/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -297,15 +297,15 @@ I [Azure Portal](https://ms.portal.azure.com/):
 
 1. Navigera till din IoT Hub.
 
-1. I menyn i den vänstra rutan, under **Automatisk enhets hantering** , väljer du **IoT Edge**.
+1. I menyn i den vänstra rutan, under **Automatisk enhets hantering**, väljer du **IoT Edge**.
 
 1. Klicka på enhets-ID: t för den **översta lager** gränsen i listan över enheter.
 
 1. I den övre stapeln väljer du **Ange moduler**.
 
-1. Välj **körnings inställningar** , bredvid kugg hjuls ikonen.
+1. Välj **körnings inställningar**, bredvid kugg hjuls ikonen.
 
-1. Skriv i fältet bild under **Edge Hub** `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1` .
+1. Skriv i fältet bild under **Edge Hub** `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2` .
 
    ![Redigera Edge Hub-bilden](./media/tutorial-nested-iot-edge/edge-hub-image.png)
 
@@ -318,7 +318,7 @@ I [Azure Portal](https://ms.portal.azure.com/):
 
    ![Redigera kant hubbens miljövariabler](./media/tutorial-nested-iot-edge/edge-hub-environment-variables.png)
 
-1. Skriv i fältet bild under **Edge-agent** `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1` . Välj **Spara**.
+1. Skriv i fältet bild under **Edge-agent** `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2` . Välj **Spara**.
 
 1. Lägg till Docker-Registry-modulen i enheten på den översta nivån. Välj **+ Lägg till** och välj **IoT Edge modul** i list rutan. Ange namnet `registry` på din Docker-register-modul och ange `registry:latest` för avbildnings-URI: n. Lägg sedan till miljövariabler och skapa alternativ för att peka din lokala register-modul i Microsoft container Registry för att hämta behållar avbildningar från och för att betjäna avbildningarna i registret: 5000.
 
@@ -412,14 +412,14 @@ I [Azure Portal](https://ms.portal.azure.com/):
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1",
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1",
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -470,15 +470,15 @@ I [Azure Portal](https://ms.portal.azure.com/):
 
 1. Navigera till din IoT Hub.
 
-1. I menyn i den vänstra rutan, under **Automatisk enhets hantering** , väljer du **IoT Edge**.
+1. I menyn i den vänstra rutan, under **Automatisk enhets hantering**, väljer du **IoT Edge**.
 
 1. Klicka på enhets-ID: t för den lägre lager enheten i listan över IoT Edge enheter.
 
 1. I den övre stapeln väljer du **Ange moduler**.
 
-1. Välj **körnings inställningar** , bredvid kugg hjuls ikonen.
+1. Välj **körnings inställningar**, bredvid kugg hjuls ikonen.
 
-1. Skriv i fältet bild under **Edge Hub** `$upstream:8000/azureiotedge-hub:1.2.0-rc1` .
+1. Skriv i fältet bild under **Edge Hub** `$upstream:8000/azureiotedge-hub:1.2.0-rc2` .
 
 1. Lägg till följande miljövariabler i din Edge Hub-modul:
 
@@ -487,13 +487,13 @@ I [Azure Portal](https://ms.portal.azure.com/):
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. Skriv i fältet bild under **Edge-agent** `$upstream:8000/azureiotedge-agent:1.2.0-rc1` . Välj **Spara**.
+1. Skriv i fältet bild under **Edge-agent** `$upstream:8000/azureiotedge-agent:1.2.0-rc2` . Välj **Spara**.
 
 1. Lägg till modulen temperatur sensor. Välj **+ Lägg till** och välj **Marketplace-modul** i list rutan. Sök efter `Simulated Temperature Sensor` och välj modulen.
 
 1. Under **IoT Edge moduler** väljer du den `Simulated Temperature Sensor` modul som du nyss lade till och uppdaterar dess bild-URI så att den pekar på `$upstream:8000/azureiotedge-simulated-temperature-sensor:1.0` .
 
-1. Välj **Spara** , **Granska + skapa** och **skapa** för att slutföra distributionen.
+1. Välj **Spara**, **Granska + skapa** och **skapa** för att slutföra distributionen.
 
    ![Slutför distribution med Edge Hub, Edge agent och simulerad temperatur sensor](./media/tutorial-nested-iot-edge/complete-lower-layer-deployment.png)
 
@@ -534,14 +534,14 @@ I [Azure Portal](https://ms.portal.azure.com/):
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc1",
+                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc2",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc1",
+                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc2",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",

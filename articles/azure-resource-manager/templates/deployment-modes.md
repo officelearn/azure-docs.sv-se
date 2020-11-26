@@ -3,14 +3,14 @@ title: Distributionsmodeller
 description: Beskriver hur du anger om du vill använda ett fullständigt eller stegvis distributions läge med Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: e584acd4af1dc6adb5f5d383acd5d16da0815f32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc499be4185905af7eaf71b3515895de9bee46d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371591"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184050"
 ---
-# <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager distributions lägen
+# <a name="azure-resource-manager-deployment-modes"></a>Distributionslägen för Azure Resource Manager
 
 När du distribuerar dina resurser anger du att distributionen är antingen en stegvis uppdatering eller en fullständig uppdatering. Skillnaden mellan dessa två lägen är hur resurs hanteraren hanterar befintliga resurser i resurs gruppen som inte finns i mallen.
 
@@ -29,7 +29,7 @@ Om din mall innehåller en resurs som inte har distribuerats eftersom [villkoret
 
 Var försiktig med att använda fullständigt läge med [kopierings slingor](copy-resources.md). Alla resurser som inte är angivna i mallen när du har löst kopierings slingen tas bort.
 
-Om du distribuerar till [fler än en resurs grupp i en mall](cross-scope-deployment.md)är resurserna i resurs gruppen som anges i distributions åtgärden tillgängliga för borttagning. Resurser i de sekundära resurs grupperna tas inte bort.
+Om du distribuerar till [fler än en resurs grupp i en mall](./deploy-to-resource-group.md)är resurserna i resurs gruppen som anges i distributions åtgärden tillgängliga för borttagning. Resurser i de sekundära resurs grupperna tas inte bort.
 
 Det finns vissa skillnader i hur resurs typer hanterar fullständigt läge borttagningar. Överordnade resurser tas bort automatiskt när de inte finns i en mall som distribueras i fullständigt läge. Vissa underordnade resurser tas inte bort automatiskt när de inte finns i mallen. De underordnade resurserna tas dock bort om den överordnade resursen tas bort.
 

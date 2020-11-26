@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07c04274829530942bab0e3267200f6524c4ddc7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 20683808c81b32560170b175edf1c37c332f47ad
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95793409"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183625"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera ett Linux-Hybrid Runbook Worker
 
@@ -73,7 +73,7 @@ Minimi kraven för Linux-system och användar Hybrid Runbook Worker:
 Du kan lägga till arbets datorn i en Hybrid Runbook Worker grupp i ett av dina Automation-konton. För datorer som är värdar för system hybrid Runbook Worker som hanteras av Uppdateringshantering kan de läggas till i en Hybrid Runbook Worker grupp. Men du måste använda samma Automation-konto för både Uppdateringshantering och Hybrid Runbook Worker grupp medlemskapet.
 
 >[!NOTE]
->Azure Automation [uppdateringshantering](update-management/update-mgmt-overview.md) installerar automatiskt system hybrid Runbook Worker på en Azure-eller icke-Azure-dator som är aktive rad för uppdateringshantering. Den här arbetaren är dock inte registrerad med några Hybrid Runbook Worker grupper i ditt Automation-konto. Om du vill köra Runbooks på dessa datorer måste du lägga till dem i en Hybrid Runbook Worker grupp. Följ steg 4 under avsnittet [Installera ett Linux-hybrid Runbook Worker](#install-a-linux-hybrid-runbook-worker) för att lägga till det i en grupp.
+>Azure Automation [uppdateringshantering](./update-management/overview.md) installerar automatiskt system hybrid Runbook Worker på en Azure-eller icke-Azure-dator som är aktive rad för uppdateringshantering. Den här arbetaren är dock inte registrerad med några Hybrid Runbook Worker grupper i ditt Automation-konto. Om du vill köra Runbooks på dessa datorer måste du lägga till dem i en Hybrid Runbook Worker grupp. Följ steg 4 under avsnittet [Installera ett Linux-hybrid Runbook Worker](#install-a-linux-hybrid-runbook-worker) för att lägga till det i en grupp.
 
 ## <a name="supported-linux-hardening"></a>Linux-härdning som stöds
 

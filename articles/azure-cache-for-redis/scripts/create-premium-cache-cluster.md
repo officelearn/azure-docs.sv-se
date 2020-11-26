@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ad29c7d12428d8f010017f9ef3a66cecb82db43a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb5a6ac082ebaf978023321f15341ec7f35779a6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502842"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184236"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Skapa en Premium Azure-cache för Redis med klustring
 
@@ -34,12 +34,12 @@ Det här skriptet använder följande kommandon för att skapa en resurs grupp o
 
 | Kommando | Obs! |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
-| [AZ Redis Create](https://docs.microsoft.com/cli/azure/redis) | Skapa Azure-cache för Redis-instans. |
+| [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
+| [AZ Redis Create](/cli/azure/redis) | Skapa Azure-cache för Redis-instans. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare Azure-cache för Redis CLI-skript exempel finns i [Azure-cachen för Redis-dokumentationen](../cli-samples.md).

@@ -3,12 +3,12 @@ title: Begränsningar och kvoter för Azure-prenumeration
 description: Innehåller en lista över vanliga gränser, kvoter och begränsningar för Azure-prenumerationer och tjänster. Den här artikeln innehåller information om hur du ökar gränserna tillsammans med högsta värden.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 54eb25e302d49be9e3ab1febeb5c636d267d7e4f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 810d503f1abdc14ad2d255a89aebe7c10954a889
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577846"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186209"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar
 
@@ -96,7 +96,7 @@ Pris nivåer avgör din Sök tjänsts kapacitet och begränsningar. Nivåerna ä
 
 * En **kostnads fri** tjänst för flera innehavare, som delas med andra Azure-prenumeranter, är avsedd för utvärdering och små utvecklings projekt.
 * **Basic** tillhandahåller dedikerade data bearbetnings resurser för produktions arbets belastningar i en mindre skala, med upp till tre repliker för arbets belastningar med hög tillgänglighet.
-* **Standard** , som omfattar S1, S2, S3 och S3, är för större produktions arbets belastningar. Det finns flera nivåer på standard nivån så att du kan välja en resurs konfiguration som bäst matchar din arbets belastnings profil.
+* **Standard**, som omfattar S1, S2, S3 och S3, är för större produktions arbets belastningar. Det finns flera nivåer på standard nivån så att du kan välja en resurs konfiguration som bäst matchar din arbets belastnings profil.
 
 **Gränser per prenumeration**
 
@@ -398,7 +398,7 @@ Mer information finns i [storlekar för virtuella datorer](../../virtual-machine
 
 #### <a name="disk-encryption-sets"></a>Disk krypterings uppsättningar
 
-Det finns en begränsning på 50 disk krypterings uppsättningar per region, per prenumeration. Mer information finns i krypterings dokumentationen för virtuella [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) -eller [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) -datorer. Kontakta Azure-supporten om du behöver öka kvoten.
+Det finns en begränsning på 50 disk krypterings uppsättningar per region, per prenumeration. Mer information finns i krypterings dokumentationen för virtuella [Linux](../../virtual-machines/disk-encryption.md#restrictions) -eller [Windows](../../virtual-machines/disk-encryption.md#restrictions) -datorer. Kontakta Azure-supporten om du behöver öka kvoten.
 
 ### <a name="managed-virtual-machine-disks"></a>Hanterade virtuella dator diskar
 

@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: cf25ef59bc1ea5db61dcfb3c76c0d978cb1f95d0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b41575208d0793a33864556ec4313ae1a71f2db5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931844"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184475"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Rekommendationer från benchmark-prestandatest för Azure NetApp Files
 
@@ -24,7 +24,7 @@ Om du vill förstå prestanda egenskaperna för en Azure NetApp Files volym kan 
 
 ### <a name="vm-instance-sizing"></a>Storlek på virtuell dator instans
 
-För bästa resultat bör du kontrol lera att du använder en virtuell dator instans (VM) som har rätt storlek för att utföra testerna. I följande exempel används en Standard_D32s_v3-instans. Mer information om storlekar för virtuella dator instanser finns i [storlekar för virtuella Windows-datorer i Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-network%252ftoc.json) för Windows-baserade virtuella datorer och [storlekar för virtuella Linux-datorer i Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) för Linux-baserade virtuella datorer.
+För bästa resultat bör du kontrol lera att du använder en virtuell dator instans (VM) som har rätt storlek för att utföra testerna. I följande exempel används en Standard_D32s_v3-instans. Mer information om storlekar för virtuella dator instanser finns i [storlekar för virtuella Windows-datorer i Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för Windows-baserade virtuella datorer och [storlekar för virtuella Linux-datorer i Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för Linux-baserade virtuella datorer.
 
 ### <a name="azure-netapp-files-volume-sizing"></a>Azure NetApp Files volym storlek
 

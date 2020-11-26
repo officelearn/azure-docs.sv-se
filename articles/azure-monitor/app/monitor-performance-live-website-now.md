@@ -4,12 +4,12 @@ description: Övervaka prestanda för en webbplats utan att distribuera den igen
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020933"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186311"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrument-webbappar vid körning med Application Insights kod koppling
 
@@ -41,7 +41,7 @@ Här är en sammanfattning av vad du får med respektive väg:
 |  | Byggtid | Körtid |
 | --- | --- | --- |
 | **Begär & undantag** |Ja |Ja |
-| **[Mer detaljerade undantag](./asp-net-exceptions.md)** | |Yes |
+| **[Mer detaljerade undantag](./asp-net-exceptions.md)** | |Ja |
 | **[Beroendediagnostik](./asp-net-dependencies.md)** |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP verb|
 | **[Systemprestandaräknare](./performance-counters.md)** |Ja |Ja |
 | **[API för anpassad telemetri][api]** |Ja |Nej |
@@ -93,7 +93,7 @@ Dessa är några steg som du kan utföra för att bekräfta att installationen l
 
 - Bekräfta att applicationInsights.config-filen finns i mål app-katalogen och innehåller din iKey.
 
-- Om du misstänker att data saknas kan du köra en fråga i [Analytics](../log-query/get-started-portal.md) för att visa en lista över alla moln roller som för närvarande skickar telemetri.
+- Om du misstänker att data saknas kan du köra en fråga i [Analytics](../log-query/log-analytics-tutorial.md) för att visa en lista över alla moln roller som för närvarande skickar telemetri.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -340,4 +340,3 @@ Lägg till mer telemetri:
 [qna]: ../faq.md
 [roles]: ./resources-roles-access-control.md
 [usage]: ./javascript.md
-

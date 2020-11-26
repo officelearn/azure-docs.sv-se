@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 940955c8ace956354a2747f5ad21430620c2a9d1
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: b84d24174771e8395677874c9dac863fa6f27a54
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95744576"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185920"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor-loggar    
 
@@ -78,7 +78,7 @@ Log Analytics avgifter läggs till på din Azure-faktura. Du kan se information 
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Visa Log Analytics användning på din Azure-faktura 
 
-Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management + fakturerings](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%252fazure%252fbilling%252fTOC.json) hubben. Med funktionen "cost Analysis" kan du till exempel Visa dina utgifter för Azure-resurser. Lägg först till ett filter efter "resurs typ" (till Microsoft. operationalinsights/Workspace för Log Analytics och Microsoft. operationalinsights/Workspace för Log Analytics kluster) så att du kan spåra dina Log Analytics utgifter. Välj sedan "mäta kategori" eller "mätare" för "Gruppera efter".  Observera att andra tjänster, till exempel Azure Security Center och Azure Sentinel, också fakturerar användningen mot Log Analytics arbets ytans resurser. Om du vill se mappningen till tjänst namnet kan du välja tabellvy i stället för ett diagram. 
+Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management + fakturerings](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) hubben. Med funktionen "cost Analysis" kan du till exempel Visa dina utgifter för Azure-resurser. Lägg först till ett filter efter "resurs typ" (till Microsoft. operationalinsights/Workspace för Log Analytics och Microsoft. operationalinsights/Workspace för Log Analytics kluster) så att du kan spåra dina Log Analytics utgifter. Välj sedan "mäta kategori" eller "mätare" för "Gruppera efter".  Observera att andra tjänster, till exempel Azure Security Center och Azure Sentinel, också fakturerar användningen mot Log Analytics arbets ytans resurser. Om du vill se mappningen till tjänst namnet kan du välja tabellvy i stället för ett diagram. 
 
 Om du vill ha mer information om din användning kan du [ladda ned information om din användning från Azure-portalen](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). I det nedladdade kalkylbladet visas användning per Azure-resurs (till exempel Log Analytics-arbetsytan) per dag. I det här Excel-kalkylbladet hittar du användning från dina Log Analytics-arbetsytor genom att först filtrera fram kolumnen "mätar kategori" för att Visa "Log Analytics", "insikter och analyser" (används av några av de äldre pris nivåerna) och "Azure Monitor" (används av pris nivåer för kapacitets reservationer) och lägger sedan till ett filter i kolumnen "instance ID", som är "innehåller arbets yta" eller "innehåller kluster" (den senare för att inkludera Log Analytics kluster användning). Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information som hjälper dig att [förstå Microsoft Azure-fakturan](../../cost-management-billing/understand/review-individual-bill.md). 
 
@@ -128,7 +128,7 @@ Ingen av de äldre pris nivåerna har regional-baserade priser.
 
 ## <a name="log-analytics-and-security-center"></a>Log Analytics och Security Center
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/) faktureringen är nära knuten till Log Analytics fakturering. Security Center ger 500 MB/nod/dag-allokering mot en uppsättning [säkerhets data typer](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) och data typerna Update och UpdateSummary när uppdateringshantering-lösningen inte körs på arbets ytan eller lösnings målet har Aktiver ATS. Om arbets ytan är på pris nivån bakåtkompatibelt per nod, kombineras Security Center-och Log Analytics tilldelningarna gemensamt för alla fakturerbara inmatade data.  
+[Azure Security Center](../../security-center/index.yml) faktureringen är nära knuten till Log Analytics fakturering. Security Center ger 500 MB/nod/dag-allokering mot en uppsättning [säkerhets data typer](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) och data typerna Update och UpdateSummary när uppdateringshantering-lösningen inte körs på arbets ytan eller lösnings målet har Aktiver ATS. Om arbets ytan är på pris nivån bakåtkompatibelt per nod, kombineras Security Center-och Log Analytics tilldelningarna gemensamt för alla fakturerbara inmatade data.  
 
 ## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
 
@@ -481,7 +481,7 @@ Några förslag på hur du minskar mängden loggar som samlas in är:
 | Prestandaräknare       | Ändra [prestandaräknarens konfiguration](data-sources-performance-counters.md) för att: <br> - Minska insamlingsfrekvensen <br> - Minska antalet prestandaräknare |
 | Händelseloggar                 | Ändra [händelseloggens konfiguration](data-sources-windows-events.md) för att: <br> - Minska antalet händelseloggar som samlas in <br> - Endast samla in obligatoriska händelsenivåer. Till exempel, samla inte in händelser på *Informationsnivå* |
 | Syslog                     | Ändra [systemloggkonfigurationen](data-sources-syslog.md) för att: <br> - Minska antalet anläggningar som samlas in <br> - Endast samla in obligatoriska händelsenivåer. Till exempel, samla inte in händelser på *Informations-* eller *Felsökningsnivå* |
-| AzureDiagnostics           | Ändra [resurs logg samling](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-in-azure-portal) till: <br> – Minska antalet resursloggar som skickas till Log Analytics <br> – Endast samla in nödvändiga loggar |
+| AzureDiagnostics           | Ändra [resurs logg samling](./diagnostic-settings.md#create-in-azure-portal) till: <br> – Minska antalet resursloggar som skickas till Log Analytics <br> – Endast samla in nödvändiga loggar |
 | Lösningsdata från datorer som inte behöver lösningen | Använd [lösnings mål](../insights/solution-targeting.md) om du endast vill samla in data från nödvändiga grupper av datorer. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Hämtar noder som faktureras i pris nivån per nod

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/08/2020
-ms.openlocfilehash: 048230bb85d2ac599efc6bd3fb326f98038cce57
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2aa83a861697882127c75eb696807f604c3061f0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687169"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184560"
 ---
 # <a name="troubleshoot-azure-monitor-for-vms-guest-health-preview"></a>Felsöka Azure Monitor for VMs gäst hälsa (för hands version)
 I den här artikeln beskrivs fel söknings steg som du kan vidta när du har problem med Azure Monitor for VMs hälsan.
@@ -42,7 +42,7 @@ Kontrol lera att systemets tilldelade identitet är aktive rad på den virtuella
 Kontrol lera att data insamlings regeln som anger hälso tillägg som data källa är associerad med den virtuella datorn.
 
 ## <a name="error-message-for-bad-request-due-to-insufficient-permissions"></a>Fel meddelande för felaktig begäran på grund av otillräcklig behörighet
-Det här felet indikerar att **Microsoft. WorkloadMonitor** Resource Provider inte registrerades i prenumerationen. Se [Azure Resource providers och-typer](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) för information om hur du registrerar resurs leverantören. 
+Det här felet indikerar att **Microsoft. WorkloadMonitor** Resource Provider inte registrerades i prenumerationen. Se [Azure Resource providers och-typer](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) för information om hur du registrerar resurs leverantören. 
 
 ![Felaktig begäran](media/vminsights-health-troubleshoot/bad-request.png)
 

@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 10/28/2020
-ms.openlocfilehash: c0c925f68e8edbae00f980d9445c59d7213a4b25
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 6b6ae2ffca420dc126d56c0f1cfed9188dec0e47
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901308"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185614"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Hög tillgänglighet för Azure SQL Database-och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -94,7 +94,7 @@ Zonens redundanta version av hög tillgänglighets arkitektur illustreras med f�
 
 ## <a name="hyperscale-service-tier-availability"></a>Tillgänglighet för storskalig Service Tier
 
-Den storskaliga Service Tier-arkitekturen beskrivs i [arkitekturen distribuerade funktioner](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture) och är för närvarande endast tillgänglig för SQL Database, inte SQL-hanterad instans.
+Den storskaliga Service Tier-arkitekturen beskrivs i [arkitekturen distribuerade funktioner](./service-tier-hyperscale.md#distributed-functions-architecture) och är för närvarande endast tillgänglig för SQL Database, inte SQL-hanterad instans.
 
 ![Funktions arkitektur för skala](./media/high-availability-sla/hyperscale-architecture.png)
 
@@ -102,12 +102,12 @@ Tillgänglighets modellen i storskalig innehåller fyra lager:
 
 - Ett tillstånds löst beräknings lager som kör `sqlservr.exe` processerna och bara innehåller temporära och cachelagrade data, till exempel icke-omfattande RBPEX cache, tempdb, modell databas osv. på anslutna SSD och planera cache, resurspool och columnstore-pool i minnet. Detta tillstånds lösa lager inkluderar den primära beräknings repliken och eventuellt ett antal sekundära beräknings repliker som kan fungera som redundans.
 - Ett tillstånds löst lagrings lager som bildas av sid servrar. Det här lagret är den distribuerade lagrings motorn för de `sqlservr.exe` processer som körs på beräknings replikerna. Varje Page Server innehåller bara tillfälliga och cachelagrade data, till exempel för att täcka RBPEX-cache på anslutna SSD och data sidor som cachelagras i minnet. Varje sid Server har en länkad sid server i en aktiv-aktiv konfiguration för att tillhandahålla belastnings utjämning, redundans och hög tillgänglighet.
-- Ett tillstånds känsligt lagrings lager för transaktions logg som bildas av Compute-noden som kör logg tjänst processen, landnings zonen för transaktions loggen och transaktions loggen långsiktig lagring. Landnings zon och långsiktig lagring använder Azure Storage, vilket ger tillgänglighet och [redundans](https://docs.microsoft.com/azure/storage/common/storage-redundancy) för transaktions loggen, vilket garanterar data hållbarhet för genomförda transaktioner.
-- Ett tillstånds känsligt data lagrings lager med databasfilerna (MDF/. NDF) som lagras i Azure Storage och som uppdateras av sid servrar. Det här lagret använder data tillgänglighet och [redundanta](https://docs.microsoft.com/azure/storage/common/storage-redundancy) funktioner i Azure Storage. Det garanterar att varje sida i en datafil kommer att bevaras även om processer i andra lager av arkitektur krascher i stor skala, eller om det inte går att beräkna noder.
+- Ett tillstånds känsligt lagrings lager för transaktions logg som bildas av Compute-noden som kör logg tjänst processen, landnings zonen för transaktions loggen och transaktions loggen långsiktig lagring. Landnings zon och långsiktig lagring använder Azure Storage, vilket ger tillgänglighet och [redundans](../../storage/common/storage-redundancy.md) för transaktions loggen, vilket garanterar data hållbarhet för genomförda transaktioner.
+- Ett tillstånds känsligt data lagrings lager med databasfilerna (MDF/. NDF) som lagras i Azure Storage och som uppdateras av sid servrar. Det här lagret använder data tillgänglighet och [redundanta](../../storage/common/storage-redundancy.md) funktioner i Azure Storage. Det garanterar att varje sida i en datafil kommer att bevaras även om processer i andra lager av arkitektur krascher i stor skala, eller om det inte går att beräkna noder.
 
 Compute-noder i alla storskaliga lager körs på Azure Service Fabric, som kontrollerar hälso tillståndet för varje nod och utför redundans till tillgängliga felfria noder vid behov.
 
-Mer information om hög tillgänglighet i hög tillgänglighet finns i [databas hög tillgänglighet i hög skala](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
+Mer information om hög tillgänglighet i hög tillgänglighet finns i [databas hög tillgänglighet i hög skala](./service-tier-hyperscale.md#database-high-availability-in-hyperscale).
 
 
 ## <a name="accelerated-database-recovery-adr"></a>Accelererad databas återställning (ADR)

@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9fef834e550f144075ec9cc72cac3b11cc1e99e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3e8e359a97c091e025049ac8a978e1beca1d759
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504219"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184235"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Hämta värdnamn, portar och nycklar för Azure cache för Redis
 
@@ -33,12 +33,12 @@ Det här skriptet använder följande kommandon för att hämta värdnamn, nyckl
 
 | Kommando | Obs! |
 |---|---|
-| [AZ Redis show](https://docs.microsoft.com/cli/azure/redis) | Hämta information om en Azure-cache för Redis-instansen. |
-| [AZ Redis-lista – nycklar](https://docs.microsoft.com/cli/azure/redis) | Hämta åtkomst nycklar för en Azure-cache för Redis-instans. |
+| [AZ Redis show](/cli/azure/redis) | Hämta information om en Azure-cache för Redis-instansen. |
+| [AZ Redis-lista – nycklar](/cli/azure/redis) | Hämta åtkomst nycklar för en Azure-cache för Redis-instans. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare Azure-cache för Redis CLI-skript exempel finns i [Azure-cachen för Redis-dokumentationen](../cli-samples.md).

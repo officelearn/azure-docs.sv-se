@@ -4,12 +4,12 @@ description: Beskriver hur du löser vanliga fel när du distribuerar resurser t
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 785a74184cae8523b99da7f647ca87fda53c8648
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000716"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185835"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga fel i Azure-distributioner med Azure Resource Manager
 
@@ -76,10 +76,10 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | StorageAccountAlreadyTaken | Ange ett unikt namn för lagringskontot. | [Matcha lagrings konto namn](error-storage-account-name.md) |
 | StorageAccountNotFound | Kontrol lera prenumerationen, resurs gruppen och namnet på det lagrings konto som du försöker använda. | |
 | SubnetsNotInSameVnet | En virtuell dator kan bara ha ett virtuellt nätverk. När du distribuerar flera nätverkskort ser du till att de tillhör samma virtuella nätverk. | [Flera nätverkskort](../../virtual-machines/windows/multiple-nics.md) |
-| SubscriptionNotFound | Det går inte att komma åt en angiven prenumeration för distribution. Det kan bero på att prenumerations-ID: t är felaktigt, att användaren som distribuerar mallen inte har tillräcklig behörighet för att distribuera till prenumerationen, eller att prenumerations-ID: t har fel format. När du använder kapslade distributioner för att [distribuera mellan omfattningar](cross-scope-deployment.md)anger du GUID för prenumerationen. | |
+| SubscriptionNotFound | Det går inte att komma åt en angiven prenumeration för distribution. Det kan bero på att prenumerations-ID: t är felaktigt, att användaren som distribuerar mallen inte har tillräcklig behörighet för att distribuera till prenumerationen, eller att prenumerations-ID: t har fel format. När du använder kapslade distributioner för att [distribuera mellan omfattningar](./deploy-to-resource-group.md)anger du GUID för prenumerationen. | |
 | SubscriptionNotRegistered | När du distribuerar en resurs måste resurs leverantören vara registrerad för din prenumeration. När du använder en Azure Resource Manager mall för distribution registreras resurs leverantören automatiskt i prenumerationen. Ibland slutförs inte den automatiska registreringen i tid. För att undvika det här tillfälliga felet registrerar du resurs leverantören före distributionen. | [Lös registrering](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Ta bort onödiga beroenden. | [Lös cirkulära beroenden](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Minska antalet resurs grupper för en enskild distribution. | [Distribution över omfång](cross-scope-deployment.md) |
+| TooManyTargetResourceGroups | Minska antalet resurs grupper för en enskild distribution. | [Distribution över omfång](./deploy-to-resource-group.md) |
 
 ## <a name="find-error-code"></a>Hitta felkod
 

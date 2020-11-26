@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 0fa0b0d5e3620fc45a104ea31fd3bcbedd673da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318954"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186226"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuera Azure Monitor Application Insights agent för lokala servrar
 
@@ -50,7 +50,7 @@ Application Insights agent finns här: https://www.powershellgallery.com/package
 - [Kända problem](status-monitor-v2-troubleshoot.md#known-issues)
 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 - Stöder Application Insights-agenten proxy-installationer?
 
@@ -67,7 +67,7 @@ Vart och ett av dessa alternativ beskrivs i de [detaljerade anvisningarna](statu
   - [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) -cmdlet: en kan användas för att kontrol lera att aktiveringen har slutförts.
   - Vi rekommenderar att du använder [Live-mått](./live-stream.md) för att snabbt avgöra om din app skickar telemetri.
 
-  - Du kan också använda [Log Analytics](../log-query/get-started-portal.md) för att visa en lista över alla moln roller som för närvarande skickar telemetri:
+  - Du kan också använda [Log Analytics](../log-query/log-analytics-tutorial.md) för att visa en lista över alla moln roller som för närvarande skickar telemetri:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -86,4 +86,3 @@ Lägg till mer telemetri:
 * [Skapa webbtester](monitor-web-app-availability.md) så att du är säker på att webbplatsen är aktiv.
 * [Lägg till telemetri för webb klienter](./javascript.md) om du vill visa undantag från webb sidans kod och aktivera spårnings anrop.
 * [Lägg till Application Insights SDK till din kod](./asp-net.md) så att du kan infoga spårnings-och logg anrop.
-

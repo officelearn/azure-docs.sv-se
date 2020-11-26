@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: d38a4ba04529e70ecfd772eef7f60179041f0273
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 880d173c6eef9d267e8860ebad805e071706de42
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927376"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186158"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Skapa och dela instrumentpaneler för Log Analytics
 
@@ -57,7 +57,7 @@ Instrumentpaneler är privata som standard när de skapas, vilket innebär att d
 Du uppmanas att välja en prenumeration och resursgrupp som din instrumentpanel ska publiceras till. För att underlätta för dig guidar portalen dig genom ett mönster där du placerar dina instrumentpaneler i en resursgrupp som kallas **instrumentpaneler**.  Verifiera den valda prenumerationen och klicka på **Publicera**.  Åtkomst till den information som visas i instrument panelen styrs av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-query"></a>Visualisera en logg fråga
-[Log Analytics](../log-query/get-started-portal.md) är en särskild portal som används för att arbeta med logg frågor och deras resultat. Funktionen ger möjlighet att redigera en fråga på flera rader, köra kod selektivt, sammanhangsberoende Intellisense och Smart Analytics. I den här självstudien ska du använda Log Analytics för att skapa en datavy i grafiskt format, spara den för en kommande fråga och fästa den på den delade instrument panelen som skapades tidigare.
+[Log Analytics](../log-query/log-analytics-tutorial.md) är en särskild portal som används för att arbeta med logg frågor och deras resultat. Funktionen ger möjlighet att redigera en fråga på flera rader, köra kod selektivt, sammanhangsberoende Intellisense och Smart Analytics. I den här självstudien ska du använda Log Analytics för att skapa en datavy i grafiskt format, spara den för en kommande fråga och fästa den på den delade instrument panelen som skapades tidigare.
 
 Öppna Log Analytics genom att välja **loggar** på Azure Monitor-menyn. Den börjar med en ny tom fråga.
 

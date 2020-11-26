@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2020
-ms.openlocfilehash: 30521e85feda0fc19329364dcb710d322ae8cfc1
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: c6db5a856b127d4549de9597f8157f524a38af79
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95323232"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186668"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Översikt över Azure Monitor agenter
 
@@ -81,8 +81,8 @@ Använd Log Analytics-agenten om du behöver:
 * Samla in loggar och prestanda data från virtuella eller fysiska datorer i eller utanför Azure. 
 * Skicka data till en Log Analytics arbets yta för att dra nytta av funktioner som stöds av [Azure Monitor loggar](data-platform-logs.md) som [logg frågor](../log-query/log-query-overview.md).
 * Använd [Azure Monitor for VMS](../insights/vminsights-overview.md) som gör att du kan övervaka dina virtuella datorer i skala och övervaka deras processer och beroenden på andra resurser och externa processer..  
-* Hantera säkerheten för dina virtuella datorer med hjälp av [Azure Security Center](../../security-center/security-center-intro.md)  eller [Azure Sentinel](../../sentinel/overview.md).
-* Använd [Azure Automation uppdaterings hantering](../../automation/update-management/update-mgmt-overview.md), [Azure Automation tillstånds konfiguration](../../automation/automation-dsc-overview.md)eller [Azure Automation ändringsspårning och inventering](../../automation/change-tracking/overview.md) för att leverera omfattande hantering av dina virtuella Azure-datorer
+* Hantera säkerheten för dina virtuella datorer med hjälp av [Azure Security Center](../../security-center/security-center-introduction.md)  eller [Azure Sentinel](../../sentinel/overview.md).
+* Använd [Azure Automation uppdaterings hantering](../../automation/update-management/overview.md), [Azure Automation tillstånds konfiguration](../../automation/automation-dsc-overview.md)eller [Azure Automation ändringsspårning och inventering](../../automation/change-tracking/overview.md) för att leverera omfattande hantering av dina virtuella Azure-datorer
 * Använd olika [lösningar](../monitor-reference.md#insights-and-core-solutions) för att övervaka en viss tjänst eller ett visst program.
 
 Begränsningar för Log Analytics agenten är:

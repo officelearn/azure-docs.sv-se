@@ -2,13 +2,13 @@
 title: Flytta virtuella Azure-datorer till en ny prenumeration eller resurs grupp
 description: Använd Azure Resource Manager för att flytta virtuella datorer till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 219a8b438d2715f6e97085a527b386e51759ec2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: ace1fb6bf3944df539ec8f7301357e67d2b315a9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317114"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184084"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Flytta vägledning för virtuella datorer
 
@@ -19,7 +19,6 @@ I den här artikeln beskrivs scenarier som inte stöds för närvarande och steg
 Följande scenarier stöds inte än:
 
 * Virtual Machine Scale Sets med standard-SKU Load Balancer eller offentlig IP-adress för standard-SKU: n kan inte flyttas.
-* Virtuella datorer som skapats från Marketplace-resurser med anslutna planer kan inte flyttas mellan prenumerationer. Avetablera den virtuella datorn i den aktuella prenumerationen och distribuera igen i den nya prenumerationen.
 * Det går inte att flytta virtuella datorer i ett befintligt virtuellt nätverk till en ny prenumeration när du inte flyttar alla resurser i det virtuella nätverket.
 * Det går inte att flytta virtuella datorer med låg prioritet och den virtuella datorns skalnings uppsättningar med låg prioritet flyttas över resurs grupper eller prenumerationer.
 * Det går inte att flytta virtuella datorer i en tillgänglighets uppsättning individuellt.
@@ -35,6 +34,24 @@ az vm encryption disable --resource-group demoRG --name myVm1
 ```azurepowershell-interactive
 Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
 ```
+
+## <a name="virtual-machines-with-marketplace-plans"></a>Virtuella datorer med Marketplace-planer
+
+Virtuella datorer som skapats från Marketplace-resurser med anslutna planer kan inte flyttas mellan prenumerationer. För att undvika den här begränsningen kan du avetablera den virtuella datorn i den aktuella prenumerationen och distribuera den igen i den nya prenumerationen. Följande steg hjälper dig att återskapa den virtuella datorn i den nya prenumerationen. Men de kanske inte fungerar för alla scenarier. Om planen inte längre är tillgänglig i Marketplace fungerar inte de här stegen.
+
+1. Kopiera information om planen.
+
+1. Klona OS-disken till mål prenumerationen eller flytta den ursprungliga disken när du har tagit bort den virtuella datorn från käll prenumerationen.
+
+1. Godkänn villkoren för marknads platsen för din plan i mål prenumerationen. Du kan acceptera villkoren genom att köra följande PowerShell-kommando:
+
+   ```azurepowershell
+   Get-AzMarketplaceTerms -Publisher {publisher} -Product {product/offer} -Name {name/SKU} | Set-AzMarketplaceTerms -Accept
+   ```
+
+   Du kan också skapa en ny instans av en virtuell dator med planen via portalen. Du kan ta bort den virtuella datorn när du har accepterat villkoren i den nya prenumerationen.
+
+1. I mål prenumerationen återskapar du den virtuella datorn från den klonade OS-disken med PowerShell, CLI eller en Azure Resource Manager mall. Ta med Marketplace-planen som är kopplad till disken. Informationen om planen bör matcha den plan som du har köpt i den nya prenumerationen.
 
 ## <a name="virtual-machines-with-azure-backup"></a>Virtuella datorer med Azure Backup
 

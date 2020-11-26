@@ -15,12 +15,12 @@ ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 53628f5aa0bc5ab5dedde5deb9950c7b13fb4bf6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490754"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184271"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Felsöka Azure RBAC
 
@@ -151,7 +151,7 @@ På samma sätt kan det hända att du ser en tom lista om du anger den här roll
 }
 ```
 
-Det är inte ett problem att lämna roll tilldelningarna där säkerhets objekt har tagits bort. Om du vill kan du ta bort roll tilldelningarna med hjälp av steg som liknar andra roll tilldelningar. Information om hur du tar bort roll tilldelningar finns i [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure POWERSHELL](role-assignments-powershell.md#remove-a-role-assignment)eller [Azure CLI](role-assignments-cli.md#remove-role-assignment)
+Det är inte ett problem att lämna roll tilldelningarna där säkerhets objekt har tagits bort. Om du vill kan du ta bort roll tilldelningarna med hjälp av steg som liknar andra roll tilldelningar. Information om hur du tar bort roll tilldelningar finns i [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure POWERSHELL](role-assignments-powershell.md#remove-a-role-assignment)eller [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
 
 Om du försöker ta bort roll tilldelningarna med objekt-ID: t och roll definitions namnet i PowerShell och fler än en roll tilldelning matchar dina parametrar visas följande fel meddelande: "den angivna informationen mappas inte till en roll tilldelning". Följande utdata visar ett exempel på fel meddelandet:
 
@@ -212,7 +212,7 @@ De här objekten kräver **Skriv** åtkomst till den **App Service plan** som mo
 De här objekten kräver **Skriv** åtkomst till hela **resurs gruppen** som innehåller din webbplats:  
 
 * TLS/SSL-certifikat och bindningar (TLS/SSL-certifikat kan delas mellan platser i samma resurs grupp och Geo-plats)  
-* Aviserings regler  
+* Aviseringsregler  
 * Inställningar för autoskalning  
 * Application Insights-komponenter  
 * Webbtester  
@@ -223,7 +223,7 @@ På liknande sätt som Web Apps kräver vissa funktioner på bladet virtuell dat
 
 Virtuella datorer är relaterade till domän namn, virtuella nätverk, lagrings konton och varnings regler.
 
-De här objekten kräver **Skriv** åtkomst till den **virtuella datorn** :
+De här objekten kräver **Skriv** åtkomst till den **virtuella datorn**:
 
 * Slutpunkter  
 * IP-adresser  
@@ -234,7 +234,7 @@ Dessa kräver **Skriv** behörighet till både den **virtuella datorn** och **re
 
 * Tillgänglighetsuppsättning  
 * Belastningsutjämnad uppsättning  
-* Aviserings regler  
+* Aviseringsregler  
 
 Om du inte kan komma åt någon av dessa paneler kan du be administratören om deltagar åtkomst till resurs gruppen.
 

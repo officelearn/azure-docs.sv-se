@@ -6,18 +6,18 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: 4b0b85b08c3f813440d556c61ba5e290ac200049
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 413bb88deac96c1ca12e8a9d25fc9cd16edf4616
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687131"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183965"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>Så här felsöker du problem med anslutning och meddelande leverans
 
 Den här vägledningen innehåller flera olika sätt att hjälpa till med självbetjäning för att hitta rotor saken direkt eller begränsa problemet. Resultatet av självdiagnostik är också användbart vid rapportering till oss för ytterligare undersökning.
 
-Först måste du kontrol lera från Azure Portal vilka [ServiceMode](https://docs.microsoft.com/azure/azure-signalr/concept-service-mode) är Azure SignalR-tjänsten (även kallat **ASRS**) konfigurerad för.
+Först måste du kontrol lera från Azure Portal vilka [ServiceMode](./concept-service-mode.md) är Azure SignalR-tjänsten (även kallat **ASRS**) konfigurerad för.
 
 :::image type="content" source="./media/signalr-howto-troubleshoot-method/service-mode.png" alt-text="ServiceMode":::
 
@@ -49,13 +49,13 @@ Det finns flera sätt som kan hjälpa dig att begränsa problemet.
 
 ### <a name="how-to-view-the-traffic-and-narrow-down-the-issue"></a>Så här visar du trafiken och begränsar problemet
 
-Att samla in den pågående trafiken är det mest effektiva sättet att begränsa problemet. Du kan avbilda [nätverks spåren](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#network-traces) med hjälp av alternativen som beskrivs nedan:
+Att samla in den pågående trafiken är det mest effektiva sättet att begränsa problemet. Du kan avbilda [nätverks spåren](/aspnet/core/signalr/diagnostics#network-traces) med hjälp av alternativen som beskrivs nedan:
 
-* [Samla in ett nätverks spår med Fiddler](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#network-traces)
+* [Samla in ett nätverks spår med Fiddler](/aspnet/core/signalr/diagnostics#network-traces)
 
-* [Samla in ett nätverks spår med tcpdump](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#collect-a-network-trace-with-tcpdump-macos-and-linux-only)
+* [Samla in ett nätverks spår med tcpdump](/aspnet/core/signalr/diagnostics#collect-a-network-trace-with-tcpdump-macos-and-linux-only)
 
-* [Samla in ett nätverks spår i webbläsaren](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#collect-a-network-trace-in-the-browser)
+* [Samla in ett nätverks spår i webbläsaren](/aspnet/core/signalr/diagnostics#collect-a-network-trace-in-the-browser)
 
 <a name="view_traffic_client"></a>
 
@@ -63,7 +63,7 @@ Att samla in den pågående trafiken är det mest effektiva sättet att begräns
 
 För en Signals beständig anslutning är den först `/negotiate` till den värdbaserade app-servern och sedan Omdirigerad till Azure SignalR-tjänsten och upprättar sedan den verkliga permanenta anslutningen till Azure SignalR-tjänsten. Mer information om de detaljerade stegen hittar du i [interna Azure SignalR-tjänster](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md) .
 
-Med nätverks spårning på klient sidan kan du kontrol lera vilken begäran som Miss lyckas med vilken status kod och vilka svar och leta efter lösningar i [fel söknings guiden](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide).
+Med nätverks spårning på klient sidan kan du kontrol lera vilken begäran som Miss lyckas med vilken status kod och vilka svar och leta efter lösningar i [fel söknings guiden](./signalr-howto-troubleshoot-guide.md).
 
 #### <a name="server-requests"></a>Server begär Anden
 
@@ -71,7 +71,7 @@ SignalR *Server* underhåller *Server anslutningen* mellan *Server* och *tjänst
 
 *Server anslutning* kan släppas på grund av instabilitet i nätverket eller regelbundet underhåll av Azure SignalR-tjänsten, eller din värdbaserade App Server-uppdatering/-underhåll. Så länge klient sidan har metoden koppla från/Återanslut är effekten minimal, precis som alla klient sidor orsakade från kopplings anslutning.
 
-Visa nätverks spårning på Server sidan för att ta reda på status koden och fel information varför *Server anslutningen* tappas bort eller avvisas av *tjänsten*, och leta efter rotor saken i [fel söknings guiden](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide).
+Visa nätverks spårning på Server sidan för att ta reda på status koden och fel information varför *Server anslutningen* tappas bort eller avvisas av *tjänsten*, och leta efter rotor saken i [fel söknings guiden](./signalr-howto-troubleshoot-guide.md).
 
 
 ### <a name="how-to-add-logs"></a>Lägga till loggar
@@ -86,18 +86,18 @@ Loggning på klient sidan är exakt detsamma som när du använder en egen värd
 
 ##### <a name="enable-client-side-logging-for-aspnet-core-signalr"></a>Aktivera loggning på klient sidan för `ASP.NET Core SignalR`
 
-* [Loggning av JavaScript-klient](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#javascript-client-logging)
+* [Loggning av JavaScript-klient](/aspnet/core/signalr/diagnostics#javascript-client-logging)
 
-* [.NET-klient loggning](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#net-client-logging)
+* [.NET-klient loggning](/aspnet/core/signalr/diagnostics#net-client-logging)
 
 
 ##### <a name="enable-client-side-logging-for-aspnet-signalr"></a>Aktivera loggning på klient sidan för `ASP.NET SignalR`
 
-* [.NET-klient](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-net-client-windows-desktop-apps)
+* [.NET-klient](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-net-client-windows-desktop-apps)
 
-* [Aktivera spårning i Windows Phone 8-klienter](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-windows-phone-8-clients)
+* [Aktivera spårning i Windows Phone 8-klienter](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-windows-phone-8-clients)
 
-* [Aktivera spårning i JavaScript-klienten](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-javascript-client)
+* [Aktivera spårning i JavaScript-klienten](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-javascript-client)
 
 <a name="add_logs_server"></a>
 
@@ -105,7 +105,7 @@ Loggning på klient sidan är exakt detsamma som när du använder en egen värd
 
 ##### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>Aktivera loggning på Server sidan för `ASP.NET Core SignalR`
 
-Loggning på Server sidan för `ASP.NET Core SignalR` integreras med den `ILogger` baserade [loggning](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) som finns i `ASP.NET Core` ramverket. Du kan aktivera loggning på Server sidan genom att använda `ConfigureLogging` , en exempel användning på följande sätt:
+Loggning på Server sidan för `ASP.NET Core SignalR` integreras med den `ILogger` baserade [loggning](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) som finns i `ASP.NET Core` ramverket. Du kan aktivera loggning på Server sidan genom att använda `ConfigureLogging` , en exempel användning på följande sätt:
 
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
@@ -162,7 +162,7 @@ Kontrol lera om några felaktiga varnings-eller fel loggar har registrerats.
 
 #### <a name="how-to-enable-logs-inside-azure-signalr-service"></a>Så här aktiverar du loggar i Azure SignalR-tjänsten
 
-Du kan också [Aktivera diagnostikloggar](https://docs.microsoft.com/azure/azure-signalr/signalr-tutorial-diagnostic-logs) för Azure SignalR service. dessa loggar innehåller detaljerad information om varje anslutning som är ansluten till Azure SignalR-tjänsten.
+Du kan också [Aktivera diagnostikloggar](./signalr-howto-diagnostic-logs.md) för Azure SignalR service. dessa loggar innehåller detaljerad information om varje anslutning som är ansluten till Azure SignalR-tjänsten.
 
 <a name="serverless_mode_tsg"></a>
 
@@ -194,7 +194,7 @@ Du kan kontrol lera hälso-API: t för tjänstens hälsa.
     * Eller starta om instans.
     * Om alla alternativ ovan inte fungerar kan du kontakta oss genom att lägga till nya support förfrågningar i Azure Portal.
 
-Mer om [haveri beredskap](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-disaster-recovery).
+Mer om [haveri beredskap](./signalr-concept-disaster-recovery.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

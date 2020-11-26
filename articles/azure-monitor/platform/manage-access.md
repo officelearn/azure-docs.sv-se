@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 79e5b1ddde0ff5f0d09dc1c20e3b20ec4de3d925
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 234ef58920a9f896d3e8ebcc561562ea7ceb2708
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536684"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186430"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till loggdata och arbetsytor i Azure Monitor
 
@@ -106,7 +106,7 @@ Varje arbets yta kan ha flera associerade konton, och varje konto kan ha åtkoms
 
 Följande aktiviteter kräver även Azure-behörigheter:
 
-|Åtgärd |Azure-behörigheter krävs |Anteckningar |
+|Åtgärd |Azure-behörigheter krävs |Obs! |
 |-------|-------------------------|------|
 | Lägga till och ta bort övervaknings lösningar | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Behörigheterna måste beviljas på resursgrupp- eller prenumerationsnivå. |
 | Ändra prisnivån | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -285,7 +285,7 @@ I exemplen ovan definieras en lista över tabeller som tillåts. I det här exem
 
 ### <a name="custom-logs"></a>Anpassade loggar
 
- Anpassade loggar skapas från data källor som anpassade loggar och API för HTTP-datainsamling. Det enklaste sättet att identifiera logg typen är genom att kontrol lera tabellerna som visas under [anpassade loggar i logg schemat](../log-query/get-started-portal.md#understand-the-schema).
+ Anpassade loggar skapas från data källor som anpassade loggar och API för HTTP-datainsamling. Det enklaste sättet att identifiera logg typen är genom att kontrol lera tabellerna som visas under [anpassade loggar i logg schemat](../log-query/log-analytics-tutorial.md#table-schema).
 
  Du kan inte bevilja åtkomst till enskilda anpassade loggar, men du kan bevilja åtkomst till alla anpassade loggar. Skapa en roll med åtkomst till alla anpassade loggar genom att skapa en anpassad roll med följande åtgärder:
 

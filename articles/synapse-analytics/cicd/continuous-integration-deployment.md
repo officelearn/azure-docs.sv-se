@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 2f2221ad10a2e07a3443cab9f957c8ec26969a3b
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7b77a47acba6180df4a067887b79d8cdc0f56df6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031417"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185087"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Kontinuerlig integrering och leverans för Azure dataSynapses-arbetsyta
 
@@ -25,7 +25,7 @@ För Azure Synapse-arbetsytan, kontinuerlig integrering och leverans (CI/CD) fly
 
 Den här artikeln beskriver hur du kan använda Azure release pipeline för att automatisera distributionen av en Synapse-arbetsyta till flera miljöer.
 
-## <a name="pre-requirements"></a>Före krav
+## <a name="prerequisites"></a>Förutsättningar
 
 -   Arbets ytan som används för utveckling har kon figurer ATS med en git-lagringsplats i Studio, se [käll kontroll i Synapse Studio](source-control.md).
 -   Ett Azure DevOps-projekt har förberetts för att köra versions pipelinen.
@@ -82,7 +82,7 @@ Lägg till en Azure Resource Manager distributions uppgift för att skapa eller 
     
     ![distribution av arbets ytor och pooler](media/pools-resource-deploy.png)
 
-1. Valfritt Lägg till **Azure PowerShell** för roll tilldelningen tilldela och uppdatera arbets ytan. Om du använder versions pipeline för att skapa en Synapse-arbetsyta måste pipelinens tjänst objekt läggas till som standard arbets ytans administratör. Du kan köra PowerShell för att ge andra konton åtkomst till arbets ytan. 
+1. Valfritt Lägg till **Azure PowerShell** för roll tilldelningen tilldela och uppdatera arbets ytan. Om du använder versions pipeline för att skapa en Synapse-arbetsyta läggs pipelinens tjänst objekt till som standard arbets ytans administratör. Du kan köra PowerShell för att ge andra konton åtkomst till arbets ytan. 
     
     ![bevilja behörighet](media/release-creation-grant-permission.png)
 
@@ -115,12 +115,8 @@ När du har sparat alla ändringar kan du välja **Skapa version** för att skap
 Om du använder git-integrering med din Synapse-arbetsyta och har en CI/CD-pipeline som flyttar dina ändringar från utveckling till test och sedan till produktion, rekommenderar vi följande metod tips:
 
 -   **Git-integrering**. Konfigurera endast din utvecklings Synapse-arbetsyta med git-integrering. Ändringar av test-och produktions arbets ytor distribueras via CI/CD och kräver inte git-integrering.
--   **Förbered pooler innan artefakter migreras**. Om du kopplar pooler till ditt SQL-skript eller en antecknings bok i arbets ytan utveckling förväntas samma namn på pooler i olika miljöer. 
--   **Andra**. Se [andra metod tips](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
+-   **Förbered pooler innan artefakter migreras**. Om du har SQL-skript eller antecknings bok ansluten till pooler i arbets ytan utveckling förväntas samma namn på pooler i olika miljöer. 
+-   **Infrastruktur som kod (IaC)**. Hantering av infrastruktur (nätverk, virtuella datorer, belastningsutjämnare och nätverkstopologi) i en beskrivande modell använder samma version som DevOps-teamet för käll koden. 
+-   **Andra**. Se [metod tips för ADF-artefakter](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
 
-## <a name="unsupported-features"></a>Funktioner som inte stöds
-
-- Synapse Studio tillåter inte körsbär-plockning av incheckningar eller selektiv publicering av resurser. 
-- Synapse Studio stöder inte ett anpassat inchecknings meddelande.
-- Efter design kommer borttagnings åtgärden att allokeras till git direkt
 

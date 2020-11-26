@@ -5,12 +5,12 @@ services: automation
 ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 1ed4ad3e1bae34b5007d13c7d092f46e972ac8a8
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 35feb136ca1fd7ea0be16a906f7d5193cf8570c7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347088"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183557"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Aktivera Uppdateringshantering från en virtuell Azure-dator
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du kan aktivera funktionen [uppdateringshanterin
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in i [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="enable-the-feature-for-deployment"></a>Aktivera funktionen för distribution
 
@@ -39,7 +39,7 @@ Logga in i [Azure-portalen](https://portal.azure.com).
 
     ![Välj gäst + värd uppdateringar från vänster fönster](media/enable-from-vm/select-guest-and-os-updates.png)
 
-4. Du måste ha `Microsoft.OperationalInsights/workspaces/read` behörighet för att avgöra om den virtuella datorn är aktive rad för en arbets yta. Mer information om ytterligare behörigheter som krävs finns i [behörigheter som krävs för att aktivera datorer](../automation-role-based-access-control.md#feature-setup-permissions). Information om hur du aktiverar flera datorer samtidigt finns i [aktivera uppdateringshantering från ett Automation-konto](update-mgmt-enable-automation-account.md).
+4. Du måste ha `Microsoft.OperationalInsights/workspaces/read` behörighet för att avgöra om den virtuella datorn är aktive rad för en arbets yta. Mer information om ytterligare behörigheter som krävs finns i [behörigheter som krävs för att aktivera datorer](../automation-role-based-access-control.md#feature-setup-permissions). Information om hur du aktiverar flera datorer samtidigt finns i [aktivera uppdateringshantering från ett Automation-konto](./enable-from-automation-account.md).
 
 5. På sidan Aktivera Uppdateringshantering väljer du Log Analytics arbets yta och Automation-konto och klickar på **Aktivera** för att aktivera uppdateringshantering. När du har aktiverat Uppdateringshantering kan det ta ungefär 15 minuter innan du kan visa uppdaterings utvärderingen från den virtuella datorn.
 

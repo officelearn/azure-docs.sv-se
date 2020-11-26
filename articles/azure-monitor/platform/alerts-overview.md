@@ -4,12 +4,12 @@ description: Översikt över aviseringar i Azure. Aviseringar, klassiska aviseri
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: b8d24eab79bdf16e4d883549be00431bd5372af8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d0f71ebf8a7acab6d4b46f59049bf1efd5290284
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536055"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186651"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -84,7 +84,7 @@ Följande aviserings tillstånd stöds.
 
 *Aviserings tillståndet* är annorlunda och oberoende av *övervaknings villkoret*. Aviserings tillstånd anges av användaren. Övervaknings villkoret anges av systemet. När en varning utlöses är övervaknings villkoret för aviseringen inställt på *"utlöst"*, och när det underliggande villkoret som orsakade aviseringen rensas, anges övervaknings villkoret till *"löst"*. 
 
-Aviserings statusen har inte ändrats förrän användaren ändrar det. Lär dig [hur du ändrar status för dina aviseringar och smarta grupper](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
+Aviserings statusen har inte ändrats förrän användaren ändrar det. Lär dig [hur du ändrar status för dina aviseringar och smarta grupper](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ## <a name="alerts-experience"></a>Aviserings upplevelse 
 Sidan standard varningar innehåller en sammanfattning av de aviseringar som skapas inom ett visst tidsintervall. Den visar den totala aviseringen för varje allvarlighets grad, med kolumner som anger det totala antalet aviseringar i varje tillstånd för varje allvarlighets grad. Välj någon av allvarlighets graderna för att öppna sidan [alla aviseringar](#all-alerts-page) som filtrerats efter allvarlighets grad.
@@ -167,7 +167,7 @@ När du väljer en avisering innehåller den här sidan information om avisering
 
 Sidan aviserings information innehåller följande avsnitt:
 
-| Section | Beskrivning |
+| Avsnitt | Beskrivning |
 |:---|:---|
 | Sammanfattning | Visar egenskaper och annan viktig information om aviseringen. |
 | Historik | Visar en lista över varje åtgärd som vidtas av aviseringen och eventuella ändringar som gjorts i aviseringen. För närvarande begränsad till tillstånds ändringar. |
@@ -204,12 +204,12 @@ Använd [Aviseringshantering REST API](/rest/api/monitor/alertsmanagement/alerts
 
 ## <a name="smart-groups"></a>Smarta grupper
 
-Smarta grupper är agg regeringar för aviseringar baserade på Machine Learning-algoritmer som kan hjälpa till att minska aviserings bruset och hjälp vid fel sökning. [Lär dig mer om smarta grupper](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) och [hur du hanterar dina smarta grupper](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
+Smarta grupper är agg regeringar för aviseringar baserade på Machine Learning-algoritmer som kan hjälpa till att minska aviserings bruset och hjälp vid fel sökning. [Lär dig mer om smarta grupper](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) och [hur du hanterar dina smarta grupper](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Läs mer om smarta grupper](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Läs mer om smarta grupper](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Lär dig mer om åtgärds grupper](./action-groups.md)
-- [Hantera dina varnings instanser i Azure](./alerts-managing-alert-instances.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
-- [Hantera smarta grupper](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Hantera dina varnings instanser i Azure](./alerts-managing-alert-instances.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [Hantera smarta grupper](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Läs mer om priser för Azure-aviseringar](https://azure.microsoft.com/pricing/details/monitor/)

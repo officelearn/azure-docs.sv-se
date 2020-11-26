@@ -7,23 +7,23 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 6543b629af8d67658afe61ef81e22eb7355e1de7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b49faabb1c61a10418bfce3ae2e8187429981ad
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772812"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186090"
 ---
 # <a name="azure-activity-log"></a>Azure-aktivitetslogg
-Aktivitets loggen är en [plattforms logg](platform-logs-overview.md) i Azure som ger inblick i händelser på prenumerations nivå. Detta inkluderar sådan information som när en resurs ändras eller när en virtuell dator startas. Du kan visa aktivitets loggen i Azure Portal eller hämta poster med PowerShell och CLI. Om du vill ha ytterligare funktioner bör du skapa en diagnostisk inställning för att skicka aktivitets loggen till [Azure Monitor loggar](data-platform-logs.md), till Azure Event Hubs att vidarebefordra utanför Azure eller till Azure Storage för arkivering. Den här artikeln innehåller information om hur du visar aktivitets loggen och skickar den till olika destinationer.
+Aktivitetsloggen är en [plattformslogg](platform-logs-overview.md) i Azure som ger inblick i händelser på prenumerationsnivå. Bland annat loggas information som när en resurs ändras eller när en virtuell dator startas. Du kan visa aktivitets loggen i Azure Portal eller hämta poster med PowerShell och CLI. Om du vill ha ytterligare funktioner bör du skapa en diagnostisk inställning för att skicka aktivitets loggen till [Azure Monitor loggar](data-platform-logs.md), till Azure Event Hubs att vidarebefordra utanför Azure eller till Azure Storage för arkivering. Den här artikeln innehåller information om hur du visar aktivitets loggen och skickar den till olika destinationer.
 
 Information om hur du skapar en diagnostisk inställning finns i [skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer](diagnostic-settings.md) .
 
 > [!NOTE]
-> Poster i aktivitets loggen skapas i systemet och kan inte ändras eller tas bort.
+> Posterna i aktivitetsloggen skapas i systemet och kan inte ändras eller tas bort.
 
 ## <a name="view-the-activity-log"></a>Visa aktivitets loggen
-Du kan komma åt aktivitets loggen från de flesta menyer i Azure Portal. Den meny som du öppnar den från bestämmer dess ursprungliga filter. Om du öppnar den från **Monitor** -menyn visas bara det enda filtret i prenumerationen. Om du öppnar den från en resurs meny, anges filtret till den resursen. Du kan alltid ändra filtret om du vill visa alla andra poster. Klicka på **Lägg till filter** om du vill lägga till ytterligare egenskaper till filtret.
+Du kan öppna aktivitetsloggen från de flesta menyer i Azure-portalen. Startfiltret beror på vilken meny du öppnar loggen från. Om du öppnar den från **Monitor** -menyn visas bara det enda filtret i prenumerationen. Om du öppnar den från en resurs meny, anges filtret till den resursen. Du kan alltid ändra filtret om du vill visa alla andra poster. Klicka på **Lägg till filter** om du vill lägga till ytterligare egenskaper till filtret.
 
 ![Visa aktivitets logg](./media/activity-logs-overview/view-activity-log.png)
 
@@ -58,9 +58,9 @@ Du kan också komma åt aktivitets logg händelser med följande metoder.
 - Lagra aktivitets logg poster under längre tid än 90 dagar.
 - Ingen data inmatning eller data lagrings avgift för aktivitets logg data som lagras i en Log Analytics-arbetsyta.
 
-[Skapa en diagnostisk inställning](diagnostic-settings.md) för att skicka aktivitets loggen till en Log Analytics-arbetsyta. Du kan skicka aktivitets loggen från en enskild prenumeration till upp till fem arbets ytor. Att samla in loggar över klienter kräver [Azure-Lighthouse](../../lighthouse/index.yml).
+[Skapa en diagnostisk inställning](diagnostic-settings.md) för att skicka aktivitets loggen till en Log Analytics-arbetsyta. Du kan skicka aktivitets loggen från en enskild prenumeration till upp till fem arbets ytor. Om du vill samla loggar för flera klientorganisationer behöver du [Azure Lighthouse](../../lighthouse/index.yml).
 
-Aktivitets logg data i en Log Analytics arbets yta lagras i en tabell med namnet *AzureActivity* som du kan hämta med en [logg fråga](../log-query/log-query-overview.md) i [Log Analytics](../log-query/get-started-portal.md). Strukturen för den här tabellen varierar beroende på vilken [kategori logg posten](activity-log-schema.md)har. En beskrivning av tabell egenskaperna finns i [referens för Azure Monitor-data](/azure/azure-monitor/reference/tables/azureactivity).
+Aktivitets logg data i en Log Analytics arbets yta lagras i en tabell med namnet *AzureActivity* som du kan hämta med en [logg fråga](../log-query/log-query-overview.md) i [Log Analytics](../log-query/log-analytics-tutorial.md). Strukturen för den här tabellen varierar beroende på vilken [kategori logg posten](activity-log-schema.md)har. En beskrivning av tabell egenskaperna finns i [referens för Azure Monitor-data](/azure/azure-monitor/reference/tables/azureactivity).
 
 Om du till exempel vill visa antalet aktivitets logg poster för varje kategori använder du följande fråga.
 
@@ -169,7 +169,7 @@ I det här avsnittet beskrivs äldre metoder för att samla in aktivitets loggen
 ### <a name="log-profiles"></a>Logg profiler
 Logg profiler är den äldre metoden för att skicka aktivitets loggen till Azure Storage eller Event Hub. Använd följande procedur för att fortsätta arbeta med en logg profil eller inaktivera den för att förbereda för migrering till en diagnostisk inställning.
 
-1. Välj **aktivitets logg**på **Azure Monitor** -menyn i Azure Portal.
+1. Välj **aktivitets logg** på **Azure Monitor** -menyn i Azure Portal.
 3. Klicka på **Diagnostikinställningar**.
 
    ![Diagnostikinställningar](media/diagnostic-settings-subscription/diagnostic-settings.png)
@@ -202,11 +202,11 @@ Om det redan finns en logg profil måste du först ta bort den befintliga logg p
     | Egenskap | Krävs | Beskrivning |
     | --- | --- | --- |
     | Namn |Ja |Namn på din logg profil. |
-    | StorageAccountId |Inga |Resurs-ID för det lagrings konto där aktivitets loggen ska sparas. |
-    | serviceBusRuleId |Inga |Service Bus regel-ID för det Service Bus namn område som du vill ha händelse hubbar skapade i. Det här är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}` . |
+    | StorageAccountId |Nej |Resurs-ID för det lagrings konto där aktivitets loggen ska sparas. |
+    | serviceBusRuleId |Nej |Service Bus regel-ID för det Service Bus namn område som du vill ha händelse hubbar skapade i. Det här är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Plats |Ja |Kommaavgränsad lista över regioner för vilka du vill samla in aktivitets logg händelser. |
     | RetentionInDays |Ja |Antal dagar som händelser ska behållas i lagrings kontot, mellan 1 och 365. Värdet noll lagrar loggarna oändligt. |
-    | Kategori |Inga |Kommaavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är _Write_, _Delete_och _Action_. |
+    | Kategori |Nej |Kommaavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är _Write_, _Delete_ och _Action_. |
 
 ### <a name="example-script"></a>Exempelskript
 Följande är ett exempel på PowerShell-skript för att skapa en logg profil som skriver aktivitets loggen till både ett lagrings konto och en Event Hub.
@@ -281,7 +281,7 @@ Kolumnerna i följande tabell är föråldrade i det uppdaterade schemat. De fin
 | ResourceProvider  | ResourceProviderValue  |
 
 > [!IMPORTANT]
-> I vissa fall kan värdena i dessa kolumner vara i alla versaler. Om du har en fråga som innehåller dessa kolumner bör du använda [operatorn = ~](/azure/kusto/query/datatypes-string-operators) för att göra en Skift läges okänslig jämförelse.
+> I vissa fall kan värdena i de här kolumnerna anges med versaler. Om du har en fråga där de här kolumnerna ingår ska du använda [operatorn =~](/azure/kusto/query/datatypes-string-operators) så att jämförelsen blir skiftlägesokänslig.
 
 Följande kolumn har lagts till i *AzureActivity* i det uppdaterade schemat:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: 50669dcce044988f2e45acc2a17ae43c140d1ab5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930313"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184492"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Riktlinjer för Azure NetApp Files-nätverksplanering
 
@@ -58,7 +58,7 @@ I följande tabell beskrivs de nätverkstopologier som stöds av Azure NetApp Fi
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
 |    Anslutning till volym i ett lokalt virtuellt nätverk    |    Ja    |         |
 |    Anslutning till volym i ett peer-kopplat VNet (samma region)    |    Ja    |         |
-|    Anslutning till volym i ett peer-kopplat VNet (mellan regioner eller global peering)    |    Inga    |    Inget    |
+|    Anslutning till volym i ett peer-kopplat VNet (mellan regioner eller global peering)    |    Nej    |    Inget    |
 |    Anslutning till en volym över ExpressRoute-Gateway    |    Ja    |         |
 |    Anslutning från lokal plats till en volym i ett eker VNet över ExpressRoute-gateway och VNet-peering med Gateway-överföring    |    Ja    |        |
 |    Anslutning från lokal plats till en volym i en eker VNet över VPN-gateway    |    Ja    |         |
@@ -116,7 +116,7 @@ Följande diagram illustrerar en hybrid miljö:
 
 ![Hybrid nätverks miljö](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-I hybrid scenariot behöver program från lokala data Center åtkomst till resurserna i Azure.  Detta är fallet om du vill utöka ditt data Center till Azure, eller om du vill använda Azure Native Services eller för haveri beredskap. Se [VPN gateway planerings alternativ](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%252fazure%252fvirtual-network%252ftoc.json#planningtable) för information om hur du ansluter flera resurser lokalt till resurser i Azure via en plats-till-plats-VPN eller en ExpressRoute.
+I hybrid scenariot behöver program från lokala data Center åtkomst till resurserna i Azure.  Detta är fallet om du vill utöka ditt data Center till Azure, eller om du vill använda Azure Native Services eller för haveri beredskap. Se [VPN gateway planerings alternativ](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) för information om hur du ansluter flera resurser lokalt till resurser i Azure via en plats-till-plats-VPN eller en ExpressRoute.
 
 I en topologi med hybrid nav – ekrar fungerar Hub VNet i Azure som en central punkt för anslutningen till ditt lokala nätverk. Ekrarna är virtuella nätverk som peer-kopplas med hubben och de kan användas för att isolera arbets belastningar.
 

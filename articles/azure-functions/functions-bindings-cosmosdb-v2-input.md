@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 42932d712d6c4a94cad28aec924b88fbc126662b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dec41a5e05d22891aae9d16280ebb6b0c8da3f20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212795"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185121"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB bindning för Azure Functions 2. x och högre
 
@@ -20,7 +20,7 @@ Azure Cosmos DB-indatabindningen använder SQL API för att hämta en eller fler
 Information om konfiguration och konfigurations information finns i [översikten](./functions-bindings-cosmosdb-v2.md).
 
 > [!NOTE]
-> Om samlingen är [partitionerad](../cosmos-db/partition-data.md#logical-partitions)måste Sök åtgärder också ange värdet för partitionsnyckel.
+> Om samlingen är [partitionerad](../cosmos-db/partitioning-overview.md#logical-partitions)måste Sök åtgärder också ange värdet för partitionsnyckel.
 >
 
 <a id="example" name="example"></a>
@@ -212,7 +212,7 @@ I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) so
 Exemplet visar hur du använder ett bindnings uttryck i `SqlQuery` parametern. Du kan skicka flödes data till `SqlQuery` parametern som visas, men för närvarande kan [du inte skicka frågesträngs värden](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 > [!NOTE]
-> Om du bara behöver fråga efter ID: t rekommenderar vi att du använder ett uppslag, precis som i [föregående exempel](#http-trigger-look-up-id-from-query-string-c), eftersom det förbrukar mindre [enheter för programbegäran](../cosmos-db/request-units.md). Punkt läsnings åtgärder (GET) är [mer effektiva](../cosmos-db/optimize-cost-queries.md) än frågor efter ID.
+> Om du bara behöver fråga efter ID: t rekommenderar vi att du använder ett uppslag, precis som i [föregående exempel](#http-trigger-look-up-id-from-query-string-c), eftersom det förbrukar mindre [enheter för programbegäran](../cosmos-db/request-units.md). Punkt läsnings åtgärder (GET) är [mer effektiva](../cosmos-db/optimize-cost-reads-writes.md) än frågor efter ID.
 >
 
 ```cs
@@ -1315,7 +1315,7 @@ public class DocByIdFromRoute {
 I följande exempel visas en Java-funktion som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en väg parameter för att ange det ID som ska sökas upp. Detta ID används för att hämta ett dokument från den angivna databasen och samlingen, vilket konverterar resultat uppsättningen till ett ```ToDoItem[]``` , eftersom många dokument kan returneras, beroende på frågevillkor.
 
 > [!NOTE]
-> Om du bara behöver fråga efter ID: t rekommenderar vi att du använder ett uppslag, precis som i [föregående exempel](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), eftersom det förbrukar mindre [enheter för programbegäran](../cosmos-db/request-units.md). Punkt läsnings åtgärder (GET) är [mer effektiva](../cosmos-db/optimize-cost-queries.md) än frågor efter ID.
+> Om du bara behöver fråga efter ID: t rekommenderar vi att du använder ett uppslag, precis som i [föregående exempel](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), eftersom det förbrukar mindre [enheter för programbegäran](../cosmos-db/request-units.md). Punkt läsnings åtgärder (GET) är [mer effektiva](../cosmos-db/optimize-cost-reads-writes.md) än frågor efter ID.
 >
 
 ```java
@@ -1434,15 +1434,15 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**bastyp**     | Saknas | Måste anges till `cosmosDB` .        |
-|**position**     | Saknas | Måste anges till `in` .         |
-|**Namn**     | Saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
+|**bastyp**     | saknas | Måste anges till `cosmosDB` .        |
+|**position**     | saknas | Måste anges till `in` .         |
+|**Namn**     | saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
 |**Databas** |**DatabaseName** |Databasen som innehåller dokumentet.        |
 |**Samling** |**CollectionName** | Namnet på den samling som innehåller dokumentet. |
 |**id**    | **Identitet** | ID för det dokument som ska hämtas. Den här egenskapen stöder [bindnings uttryck](./functions-bindings-expressions-patterns.md). Ange inte både `id` egenskaperna och **sqlQuery** . Om du inte anger någon, hämtas hela samlingen. |
 |**sqlQuery**  |**SqlQuery**  | En Azure Cosmos DB SQL-fråga som används för att hämta flera dokument. Egenskapen stöder runtime-bindningar, som i det här exemplet: `SELECT * FROM c where c.departmentId = {departmentId}` . Ange inte både `id` egenskaperna och `sqlQuery` . Om du inte anger någon, hämtas hela samlingen.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|Namnet på den app-inställning som innehåller Azure Cosmos DB anslutnings strängen. |
-|**partitionKey**|**PartitionKey**|Anger partitionens nyckel värde för sökningen. Kan innehålla bindnings parametrar. Det krävs för uppslag i [partitionerade](../cosmos-db/partition-data.md#logical-partitions) samlingar.|
+|**partitionKey**|**PartitionKey**|Anger partitionens nyckel värde för sökningen. Kan innehålla bindnings parametrar. Det krävs för uppslag i [partitionerade](../cosmos-db/partitioning-overview.md#logical-partitions) samlingar.|
 |**preferredLocations**| **PreferredLocations**| Valfritt Definierar önskade platser (regioner) för geo-replikerade databas konton i Azure Cosmos DBs tjänsten. Värdena ska vara kommaavgränsade. Till exempel "östra USA, södra centrala USA, norra Europa". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

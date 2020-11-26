@@ -14,12 +14,12 @@ ms.reviewer: davidph, sstein
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62f1015bc945b5c01f719d7e96e6446c49ac8b8a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2e32a4abeae78aa7105f21ecffbb18c2eae841a4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675151"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185631"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>Snabb start: Använd R med Azure SQL Database Machine Learning Services (för hands version) för att fråga en databas 
 
@@ -49,7 +49,7 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen i A
 
 2. Gå till sidan **SQL-databaser**  eller **SQL-hanterade instanser** .
 
-3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för en databas i Azure SQL Database eller det fullständigt kvalificerade Server namnet bredvid **värd** för en hanterad instans i Azure SQL-hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera** .
+3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för en databas i Azure SQL Database eller det fullständigt kvalificerade Server namnet bredvid **värd** för en hanterad instans i Azure SQL-hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
 
 ## <a name="create-code-to-query-your-database"></a>Skapa en kod för att fråga databasen
 
@@ -84,4 +84,4 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen i A
 
 - [Utforma din första databas i Azure SQL Database](design-first-database-tutorial.md)
 - [Azure SQL Database Machine Learning Services (med R)](../managed-instance/machine-learning-services-overview.md)
-- [Skapa och kör enkla R-skript i Azure SQL Database Machine Learning Services (förhands granskning)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context)
+- [Skapa och kör enkla R-skript i Azure SQL Database Machine Learning Services (förhands granskning)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context)

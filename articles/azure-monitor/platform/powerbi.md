@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 8b9624313716081a039b12c73e54b9f7afc2a323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53277f64c3d1b03572732157756da1fececbcd43
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86505320"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184577"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importera Azure Monitor loggdata till Power BI
 
@@ -28,7 +28,7 @@ Om du vill importera data från en [Log Analytics arbets yta](manage-access.md) 
 ## <a name="export-query"></a>Exportera fråga
 Börja med att skapa en [logg fråga](../log-query/log-query-overview.md) som returnerar de data som du vill fylla i Power BI data uppsättningen.  Sedan kan du exportera frågan till [Power Query (M) språk](/powerquery-m/power-query-m-language-specification) som kan användas av Power BI Desktop.
 
-1. [Skapa logg frågan i Log Analytics](../log-query/get-started-portal.md) för att extrahera data för din data uppsättning.
+1. [Skapa logg frågan i Log Analytics](../log-query/log-analytics-tutorial.md) för att extrahera data för din data uppsättning.
 2. Välj **Exportera**  >  **Power BI fråga (M)**.  Detta exporterar frågan till en textfil med namnet **PowerBIQuery.txt**. 
 
     ![Exportera loggs ökning](media/powerbi/export-analytics.png)
@@ -72,7 +72,7 @@ Den data uppsättning som skapades i Power BI kommer att ha samma data som du ti
 
     ![Power BI schema](media/powerbi/powerbi-schedule.png)
 
-5. Under **schemalagd uppdatering** aktiverar du alternativet för att **hålla dina data**aktuella.  Du kan också ändra **uppdaterings frekvensen** och en eller flera angivna tider för att köra uppdateringen.
+5. Under **schemalagd uppdatering** aktiverar du alternativet för att **hålla dina data** aktuella.  Du kan också ändra **uppdaterings frekvensen** och en eller flera angivna tider för att köra uppdateringen.
 
     ![Power BI uppdatera](media/powerbi/powerbi-schedule-refresh.png)
 

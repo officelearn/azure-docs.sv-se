@@ -4,12 +4,12 @@ description: Application Insights utför Smart analys av din app-telemetri och v
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: c817e2c7f609bbbec52eff1b898a8d7c53209a28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28a32c714618a3b6b0c3126d8060295f134ddc7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321317"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186243"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Smart identifiering-prestanda avvikelser
 
@@ -57,7 +57,7 @@ Meddelanden om Smart identifiering är aktiverade som standard och skickas till 
 
 E-postmeddelanden om Smart identifiering av prestanda avvikelser är begränsade till en e-postadress per dag per Application Insights resurs. E-postmeddelandet skickas endast om det finns minst ett nytt problem som har upptäckts den dagen. Du får inte upprepas upprepade meddelanden. 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 * *Så kommer Microsoft-personal att titta på mina data?*
   * Nej. Tjänsten är helt automatisk. Endast du får meddelanden. Dina data är [privata](./data-retention-privacy.md).
@@ -175,11 +175,10 @@ De här diagnostikverktygen hjälper dig att inspektera Telemetrin från din app
 
 * [Profilerare](profiler.md) 
 * [fel sökning av ögonblicks bild](./snapshot-debugger.md)
-* [Analys](../log-query/get-started-portal.md)
+* [Analys](../log-query/log-analytics-tutorial.md)
 * [Analytics-Smart diagnostik](../log-query/log-query-overview.md)
 
 Smart identifiering är helt automatisk. Men kanske vill du konfigurera ytterligare aviseringar?
 
 * [Manuellt konfigurerade mått varningar](../platform/alerts-log.md)
 * [Webbtester för tillgänglighet](./monitor-web-app-availability.md)
-

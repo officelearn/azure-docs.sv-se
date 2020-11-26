@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: d97390861200a0a7f3b04d951e0ca2a17796835d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce3b1d9f8d01e722e4ec5078d92ef4148072da25
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372509"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185750"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Hantera Azure-resurser med hjälp av Azure PowerShell
 
@@ -63,7 +63,7 @@ Du kan skapa en resurs grupp och distribuera resurser till gruppen. Mer informat
 
 ## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Distribuera resurser till flera prenumerationer eller resurs grupper
 
-Normalt distribuerar du alla resurser i mallen till en enda resurs grupp. Det finns dock scenarier där du vill distribuera en uppsättning resurser tillsammans, men placera dem i olika resurs grupper eller prenumerationer. Mer information finns i [Distribuera Azure-resurser till flera prenumerationer eller resurs grupper](../templates/cross-scope-deployment.md).
+Normalt distribuerar du alla resurser i mallen till en enda resurs grupp. Det finns dock scenarier där du vill distribuera en uppsättning resurser tillsammans, men placera dem i olika resurs grupper eller prenumerationer. Mer information finns i [Distribuera Azure-resurser till flera prenumerationer eller resurs grupper](../templates/deploy-to-resource-group.md).
 
 ## <a name="delete-resources"></a>Ta bort resurser
 

@@ -5,12 +5,12 @@ ms.date: 10/19/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bffd1cc0ce2a6a827c0bc708321a6bd2839aae2d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 23e5293301a2fc311565d0c1c8ec5fd92bebe9b2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207333"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183574"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regioner som stöder länkade Log Analytics-arbetsytor
 
@@ -87,6 +87,6 @@ Du kan också ta bort länken för arbets ytan från ditt Automation-konto på a
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om Uppdateringshantering i [uppdateringshantering översikt](../update-management/update-mgmt-overview.md).
+* Läs mer om Uppdateringshantering i [uppdateringshantering översikt](../update-management/overview.md).
 * Läs mer om Ändringsspårning och inventering i [ändringsspårning och inventerings översikt](../change-tracking/overview.md).
 * Läs mer om Starta/stoppa virtuella datorer när de inte används i [Starta/stoppa virtuella datorer när de inte används översikt](../automation-solution-vm-management.md).

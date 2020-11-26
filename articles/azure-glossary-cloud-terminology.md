@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 2e183ad8a6e25c12f073f51e9416b4fc0ed9365f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 33672e90406b94a1b5788803911c072cdc2577f7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530411"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186396"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure ord lista: en ord lista med moln terminologi på Azure-plattformen
 
@@ -41,12 +41,12 @@ De beräknings resurser som [Azure App Service](app-service/overview.md) tillhan
 
 ## <a name="availability-set"></a>tillgänglighets uppsättning
 En samling virtuella datorer som hanteras tillsammans för att ge programredundans och tillförlitlighet. Användningen av en tillgänglighets uppsättning garanterar att det under en planerad eller oplanerad underhålls händelse minst en virtuell dator är tillgänglig.  
-Se [Hantera tillgängligheten för virtuella Windows-datorer](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) och [Hantera tillgängligheten för virtuella Linux-datorer](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)
+Se [Hantera tillgängligheten för virtuella Windows-datorer](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och [Hantera tillgängligheten för virtuella Linux-datorer](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>Klassisk Azure-distributions modell
 En av två [distributions modeller](./azure-resource-manager/management/deployment-models.md) som används för att distribuera resurser i Azure (den nya modellen är Azure Resource Manager). Vissa Azure-tjänster stöder bara distributions modellen Resource Manager, vissa stöder bara den klassiska distributions modellen och vissa stöder båda. Dokumentationen för varje Azure-tjänst anger vilken eller vilka modeller de stöder.
 
-## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Azures kommandoradsgränssnitt (CLI)
+## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Kommando rads gränssnitt för Azure (CLI)
 Ett kommando rads gränssnitt som kan användas för att hantera Azure-tjänster från Windows, macOS och Linux.  Vissa tjänster eller tjänst funktioner kan endast hanteras via PowerShell eller CLI. Se [Azure CLI](/cli/azure)
 
 ## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
@@ -58,7 +58,7 @@ En av två [distributions modeller](./azure-resource-manager/management/deployme
 
 ## <a name="fault-domain"></a>feldomän
 Samlingen av virtuella datorer i en tillgänglighets uppsättning som kan ha misslyckats på samma gång. Ett exempel är en grupp datorer i ett rack som delar en gemensam ström källa och nätverks växel. I Azure separeras de virtuella datorerna i en tillgänglighets uppsättning automatiskt över flera fel domäner.  
-Se [Hantera tillgängligheten för virtuella Windows-datorer](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) eller [Hantera tillgängligheten för virtuella Linux-datorer](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)  
+Se [Hantera tillgängligheten för virtuella Windows-datorer](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) eller [Hantera tillgängligheten för virtuella Linux-datorer](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
 ## <a name="geo"></a>geografiska
 En definierad gräns för data placering som vanligt vis innehåller två eller flera regioner. Gränserna kan vara inom eller förbi nationella gränser och påverkas av skatte regler. Varje geo har minst en region. Exempel på geografiska områden är Asien och stillahavsområdet och Japan. Kallas även *geografi*.  
@@ -135,7 +135,7 @@ Se [använda taggar för att organisera dina Azure-resurser](./azure-resource-ma
 
 ## <a name="update-domain"></a>uppdatera domän
 Samlingen av virtuella datorer i en tillgänglighets uppsättning som uppdateras på samma gång. Virtuella datorer i samma uppdaterings domän startas om tillsammans under planerat underhåll. Azure startar aldrig om mer än en uppdaterings domän i taget. Kallas även för en uppgraderings domän.  
-Se [Hantera tillgängligheten för virtuella Windows-datorer](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) och [Hantera tillgängligheten för virtuella Linux-datorer](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)
+Se [Hantera tillgängligheten för virtuella Windows-datorer](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och [Hantera tillgängligheten för virtuella Linux-datorer](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="virtual-machine"></a><a name="vm"></a>virtuell dator
 Program varu implementeringen av en fysisk dator som kör ett operativ system. Flera virtuella datorer kan köras samtidigt på samma maskin vara. I Azure är virtuella datorer tillgängliga i olika storlekar.  
@@ -144,7 +144,7 @@ Se [Virtual Machines-dokumentation](https://azure.microsoft.com/documentation/se
 ## <a name="virtual-machine-extension"></a><a name="vm-extension"></a>tillägg för virtuell dator
 En resurs som implementerar beteenden eller funktioner som antingen hjälper andra program att fungera eller ger möjlighet att interagera med en dator som körs. Du kan till exempel använda tillägget för VM-åtkomst för att återställa eller ändra värden för fjärråtkomst på en virtuell Azure-dator.
 <!-- This definition seems obscure to me; maybe a list of examples would work better than a conceptual definition? -->
-Se om tillägg och funktioner för [virtuella datorer (Windows)](./virtual-machines/extensions/features-windows.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) eller [om tillägg och funktioner för virtuella datorer (Linux)](./virtual-machines/extensions/features-linux.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)
+Se om tillägg och funktioner för [virtuella datorer (Windows)](./virtual-machines/extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) eller [om tillägg och funktioner för virtuella datorer (Linux)](./virtual-machines/extensions/features-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="virtual-network"></a><a name="vnet"></a>virtuellt nätverk
 Ett nätverk som ger anslutning mellan dina Azure-resurser som är isolerade från alla andra Azure-klienter. Med en [Azure-VPN gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) kan du upprätta anslutningar mellan virtuella nätverk och mellan ett virtuellt nätverk och ett lokalt nätverk. Du kan helt kontrol lera IP-adressblock, DNS-inställningar, säkerhets principer och routningstabeller i ett virtuellt nätverk.  

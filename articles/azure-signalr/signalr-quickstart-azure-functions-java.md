@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.custom: devx-track-java
-ms.openlocfilehash: aa300122ab6c448862d46579d6e9ce1e5fc06a79
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 62f31d8426e86cc20e957f3a47b30109dee0a634
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874414"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185682"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Snabb start: Använd Java för att skapa ett chattrum med Azure Functions-och SignalR-tjänsten
 
@@ -103,4 +103,4 @@ Har du problem? Prova [fel söknings guiden](signalr-howto-troubleshoot-guide.md
 I den här snabb starten har du skapat och kört ett program utan server i real tid med hjälp av Maven. Nu kan du läsa om hur du skapar Java-Azure Functions från grunden.
 
 > [!div class="nextstepaction"]
-> [Skapa din första funktion med Java och Maven](../azure-functions/functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java%252cprogramming-language-java)
+> [Skapa din första funktion med Java och Maven](../azure-functions/create-first-function-cli-csharp.md?pivots=programming-language-java%2cprogramming-language-java)

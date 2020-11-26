@@ -5,16 +5,16 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
 ms.date: 09/24/2018
-ms.openlocfilehash: b91c3d59a5a37457d67fdfbc646334fccb331df5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fa1701c59f099f5222ab6454cc67b9dc20d1e7e7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104809"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186685"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Hantera tillstånd för aviseringar och smarta grupper
 
-Aviseringar i Azure Monitor har nu ett [aviserings tillstånd och ett övervaknings villkor](./alerts-overview.md) och kan, på samma sätt, smarta grupper ha ett [smart grupp tillstånd](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json). Ändringar av statusen samlas nu in i historik som är associerade med respektive avisering eller smart grupp. Den här artikeln vägleder dig genom processen att ändra tillstånd, för både en avisering och en smart grupp.
+Aviseringar i Azure Monitor har nu ett [aviserings tillstånd och ett övervaknings villkor](./alerts-overview.md) och kan, på samma sätt, smarta grupper ha ett [smart grupp tillstånd](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json). Ändringar av statusen samlas nu in i historik som är associerade med respektive avisering eller smart grupp. Den här artikeln vägleder dig genom processen att ändra tillstånd, för både en avisering och en smart grupp.
 
 ## <a name="change-the-state-of-an-alert"></a>Ändra status för en avisering
 

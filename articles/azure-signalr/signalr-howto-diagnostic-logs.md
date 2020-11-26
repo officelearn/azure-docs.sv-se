@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151058"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183982"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Resurs loggar för Azure SignalR service
 
@@ -31,7 +31,7 @@ Du kan visa resurs loggar för Azure SignalR-tjänsten. Dessa loggar ger en mer 
 
 Resurs loggar är inaktiverade som standard. Följ dessa steg om du vill aktivera resurs loggar:
 
-1. Klicka på **diagnostikinställningar**under **övervakning**i [Azure Portal](https://portal.azure.com).
+1. Klicka på **diagnostikinställningar** under **övervakning** i [Azure Portal](https://portal.azure.com).
 
     ![Fönster navigering till diagnostikinställningar](./media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png)
 
@@ -122,7 +122,7 @@ Följ dessa steg om du vill visa resurs loggar:
 
     ![Meny alternativ för Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Ange `SignalRServiceDiagnosticLogs` och välj tidsintervall för att fråga resurs loggar. För avancerade frågor, se [Kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+2. Ange `SignalRServiceDiagnosticLogs` och välj tidsintervall för att fråga resurs loggar. För avancerade frågor, se [Kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 
     ![Fråga logg i Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
@@ -133,7 +133,7 @@ Namn | Beskrivning
 TimeGenerated | Händelse tid för logg
 Samling | Samling av logg händelsen. Tillåtna värden är: `Connection` `Authorization` och `Throttling`
 OperationName | Åtgärds namn för händelsen
-Plats | Plats för Azure SignalR-tjänsten
+Location | Plats för Azure SignalR-tjänsten
 Nivå | Logga händelse nivå
 CallerIpAddress | IP-adress för servern/klienten
 Meddelande | Detaljerat meddelande om logg händelse
@@ -182,7 +182,7 @@ Om du får 401 obehörigt returnerat för klient begär Anden, kontrollerar du r
 
 #### <a name="throttling"></a>Begränsning
 
-Om du upptäcker att du inte kan upprätta signal klient anslutningar till Azure SignalR-tjänsten, kontrollerar du resurs loggarna. Om du stöter `Connection count reaches limit` på resurs loggen upprättar du för många anslutningar till signal tjänsten, som når gränsen för antal anslutningar. Överväg att skala upp signal tjänsten. Om du stöter `Message count reaches limit` på resurs loggen innebär det att du använder den kostnads fria nivån och använder upp kvoten för meddelanden. Om du vill skicka fler meddelanden bör du överväga att ändra signal tjänsten till standard nivån för att skicka ytterligare meddelanden. Mer information finns i [priser för Azure SignalR service](https://azure.microsoft.com/pricing/details/signalr-service/).
+Om du upptäcker att du inte kan upprätta signal klient anslutningar till Azure SignalR-tjänsten, kontrollerar du resurs loggarna. Om du stöter `Connection count reaches limit` på resurs loggen upprättar du för många anslutningar till signal tjänsten, som når gränsen för antal anslutningar. Överväg att skala upp signal tjänsten. Om du stöter `Message count reaches limit` på resurs loggen innebär det att du använder den kostnads fria nivån och använder upp kvoten för meddelanden. Om du vill skicka fler meddelanden bör du överväga att ändra signal tjänsten till standard nivån för att skicka ytterligare meddelanden. Mer information finns i [priser för Azure SignalR service](https://azure.microsoft.com/pricing/details/signalr-service/).
 
 ### <a name="get-help"></a>Få hjälp
 

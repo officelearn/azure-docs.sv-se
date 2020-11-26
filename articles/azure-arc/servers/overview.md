@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure Arc-aktiverade servrar för att han
 keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
 ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: 2df970f7c94f1e306243aba1480ee7023b8f76c1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8368f89b8e471698ede3e9e8eb691e69f494b6e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578730"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183404"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Vad är Azure Arc-aktiverade servrar?
 
@@ -29,7 +29,7 @@ När du ansluter datorn till Azure Arc-aktiverade servrar kan du utföra följan
 
 - Förenkla distributionen med andra Azure-tjänster som Azure Automation [tillstånds konfiguration](../../automation/automation-dsc-overview.md) och Azure Monitor Log Analytics arbets yta med de [Azure VM-tillägg](manage-vm-extensions.md) som stöds för din icke-Azure Windows-eller Linux-dator. Detta inkluderar konfiguration av konfiguration eller program vara efter distribution med hjälp av tillägget för anpassat skript.
 
-- Använd [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md) i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-servrar
+- Använd [uppdateringshantering](../../automation/update-management/overview.md) i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-servrar
 
     > [!NOTE]
     > För närvarande stöds inte aktivering av Uppdateringshantering direkt från en ARC-aktiverad server. Se [aktivera uppdateringshantering från ditt Automation-konto](../../automation/update-management/enable-from-automation-account.md) för att förstå kraven och hur du aktiverar för servern.

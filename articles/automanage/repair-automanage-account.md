@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.openlocfilehash: 226a23bfdacb0f7423c7dafb8cae36af7333699d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4694fa679c7bbff309a0452219ff39bacf2488c4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681847"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183710"
 ---
 # <a name="repair-an-automanage-account"></a>Reparera ett konto för autohantering
 Ditt [Azure automanage-konto](./automanage-virtual-machines.md#automanage-account) är säkerhets kontexten eller identiteten under vilken de automatiska åtgärderna utförs. Om du nyligen har flyttat en prenumeration som innehåller ett automatiskt hanterat konto till en ny klient måste du konfigurera om kontot. Om du vill konfigurera om den måste du återställa identitets typen och tilldela lämpliga roller för kontot.
@@ -22,8 +22,8 @@ Ditt [Azure automanage-konto](./automanage-virtual-machines.md#automanage-accoun
 Återställ identitets typen för automanage-kontot med hjälp av följande Azure Resource Manager-mall (ARM). Spara filen lokalt som armdeploy.jspå eller liknande namn. Anteckna namnet på och platsen för autohantering av kontot eftersom de är obligatoriska parametrar i ARM-mallen.
 
 1. Skapa en Resource Manager-distribution med hjälp av följande mall. Använd `identityType = None`.
-    * Du kan skapa distributionen i Azure CLI med hjälp av `az deployment sub create` . Mer information finns i [AZ Deployment sub](https://docs.microsoft.com/cli/azure/deployment/sub).
-    * Du kan skapa distributionen i PowerShell med hjälp av `New-AzDeployment` modulen. Mer information finns i [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
+    * Du kan skapa distributionen i Azure CLI med hjälp av `az deployment sub create` . Mer information finns i [AZ Deployment sub](/cli/azure/deployment/sub).
+    * Du kan skapa distributionen i PowerShell med hjälp av `New-AzDeployment` modulen. Mer information finns i [New-AzDeployment](/powershell/module/az.resources/new-azdeployment).
 
 1. Kör samma ARM-mall igen med `identityType = SystemAssigned` .
 
@@ -63,7 +63,7 @@ Kontot för autohantering kräver deltagar-och resurs princip deltagar roller f�
 
 Om du använder en ARM-mall eller Azure CLI måste du ha ägar-ID: t (även kallat objekt-ID) för kontot för autohantering. (Du behöver inte ID om du använder Azure Portal.) Du hittar detta ID genom att använda följande metoder:
 
-- [Azure CLI](https://docs.microsoft.com/cli/azure/ad/sp): Använd kommandot `az ad sp list --display-name <name of your Automanage Account>` .
+- [Azure CLI](/cli/azure/ad/sp): Använd kommandot `az ad sp list --display-name <name of your Automanage Account>` .
 
 - Azure Portal: gå till **Azure Active Directory** och Sök efter ditt konto för automatisk hantering efter namn. Under **företags program** väljer du det hanterade konto namnet när det visas.
 

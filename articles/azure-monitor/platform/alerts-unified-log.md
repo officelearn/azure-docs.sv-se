@@ -6,28 +6,28 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 89cec12804f6fd2b8a3885248c42646d6c6dbb13
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995088"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186566"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Logg aviseringar i Azure Monitor
 
 ## <a name="overview"></a>Översikt
 
-Logg aviseringar är en av de aviserings typer som stöds i [Azure-aviseringar](./alerts-overview.md). Logg aviseringar gör att användare kan använda en [Log Analytics](../log-query/get-started-portal.md) fråga för att utvärdera resurser loggar varje uppsättnings frekvens och utlösa en avisering baserat på resultaten. Regler kan utlösa en eller flera åtgärder med hjälp av [Åtgärds grupper](./action-groups.md).
+Logg aviseringar är en av de aviserings typer som stöds i [Azure-aviseringar](./alerts-overview.md). Logg aviseringar gör att användare kan använda en [Log Analytics](../log-query/log-analytics-tutorial.md) fråga för att utvärdera resurser loggar varje uppsättnings frekvens och utlösa en avisering baserat på resultaten. Regler kan utlösa en eller flera åtgärder med hjälp av [Åtgärds grupper](./action-groups.md).
 
 > [!NOTE]
-> Loggdata från en [Log Analytics arbets yta](../log-query/get-started-portal.md) kan skickas till Azure Monitor Metrics-lagret. Mått aviseringar har [olika beteende](alerts-metric-overview.md), vilket kan vara mer önskvärt beroende på vilka data du arbetar med. Information om vad och hur du kan skicka loggar till mått finns i [mått avisering för loggar](alerts-metric-logs.md).
+> Loggdata från en [Log Analytics arbets yta](../log-query/log-analytics-tutorial.md) kan skickas till Azure Monitor Metrics-lagret. Mått aviseringar har [olika beteende](alerts-metric-overview.md), vilket kan vara mer önskvärt beroende på vilka data du arbetar med. Information om vad och hur du kan skicka loggar till mått finns i [mått avisering för loggar](alerts-metric-logs.md).
 
 > [!NOTE]
 > Det finns för närvarande inga ytterligare avgifter för API-versionen `2020-05-01-preview` och resursbaserade logg aviseringar.  Prissättningen för funktioner som finns i förhands granskning kommer att meddelas i framtiden och ett meddelande som visas innan faktureringen påbörjas. Om du väljer att fortsätta använda nya API-versioner och resursbaserade logg aviseringar efter meddelande perioden debiteras du enligt tillämplig taxa.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Logg aviseringar kör frågor om Log Analytics data. Först ska du börja [samla in loggdata](resource-logs.md) och skicka frågor till loggdata. Du kan använda [avsnittet exempel på aviserings frågor](../log-query/saved-queries.md) i Log Analytics för att förstå vad du kan identifiera eller [komma igång med att skriva en egen fråga](../log-query/get-started-portal.md).
+Logg aviseringar kör frågor om Log Analytics data. Först ska du börja [samla in loggdata](resource-logs.md) och skicka frågor till loggdata. Du kan använda [avsnittet exempel på aviserings frågor](../log-query/example-queries.md) i Log Analytics för att förstå vad du kan identifiera eller [komma igång med att skriva en egen fråga](../log-query/log-analytics-tutorial.md).
 
 [Azure Monitoring Contributor](./roles-permissions-security.md) är en gemensam roll som behövs för att skapa, ändra och uppdatera logg aviseringar. Du måste också ha åtkomst till & frågans körnings rättigheter för resurs loggarna. Partiell åtkomst till resurs loggar kan inte utföra frågor eller returnera ofullständiga resultat. [Läs mer om hur du konfigurerar logg aviseringar i Azure](./alerts-log.md).
 
@@ -44,7 +44,7 @@ Villkors definitionen för loggs öknings regler börjar från:
 I följande avsnitt beskrivs olika parametrar som du kan använda för att ställa in ovanstående logik.
 
 ### <a name="log-query"></a>Logg fråga
-Den [Log Analytics](../log-query/get-started-portal.md) -fråga som används för att utvärdera regeln. Resultaten som returneras av den här frågan används för att avgöra om en avisering ska utlösas. Frågan kan begränsas till:
+Den [Log Analytics](../log-query/log-analytics-tutorial.md) -fråga som används för att utvärdera regeln. Resultaten som returneras av den här frågan används för att avgöra om en avisering ska utlösas. Frågan kan begränsas till:
 
 - En speciell resurs, till exempel en virtuell dator.
 - En resurs vid skalning, till exempel en prenumeration eller resurs grupp.
@@ -102,7 +102,7 @@ För arbets ytor och Application Insights, anropas det **baserat på** med val *
 
 ### <a name="aggregation-type"></a>Sammansättningstyp
 
-Beräkningen som görs på flera poster för att aggregera dem till ett numeriskt värde. Exempel:
+Beräkningen som görs på flera poster för att aggregera dem till ett numeriskt värde. Ett exempel:
 - **Count** returnerar antalet poster i frågan
 - **Medelvärde** returnerar medelvärdet för mått kolumnen [**agg regerings granularitet**](#aggregation-granularity) definierad.
 
@@ -209,4 +209,3 @@ Pris information finns på [sidan Azure Monitor prissättning](https://azure.mic
 * Förstå [webhookar i logg aviseringar i Azure](alerts-log-webhook.md).
 * Lär dig mer om [Azure-aviseringar](./alerts-overview.md).
 * Läs mer om [Log Analytics](../log-query/log-query-overview.md).
-

@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8874a17b40b60a194811630b2f93d2be9d7faf7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8901847a1c214b257243c4da0a74897061409bee
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494714"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184254"
 ---
 # <a name="get-details-of-an-azure-cache-for-redis"></a>Hämta information om en Azure-cache för Redis
 
@@ -32,11 +32,11 @@ I det här skriptet används följande kommandon för att hämta information om 
 
 | Kommando | Obs! |
 |---|---|
-| [AZ Redis show](https://docs.microsoft.com/cli/azure/redis) | Hämta information om en Azure-cache för Redis-instansen. |
+| [AZ Redis show](/cli/azure/redis) | Hämta information om en Azure-cache för Redis-instansen. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare Azure-cache för Redis CLI-skript exempel finns i [Azure-cachen för Redis-dokumentationen](../cli-samples.md).

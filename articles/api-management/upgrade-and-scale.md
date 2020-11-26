@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: c7f0e98b5ea2fdd13b1daa9fd9737998eb6cfaf1
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 466af29a3f073f73d4a0fc62d74709cd59f82425
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96010222"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183795"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Uppgradera och skala en Azure API Management-instans  
 
@@ -80,7 +80,7 @@ Du kan uppgradera och nedgradera till och från valfri nivå. Uppgradering eller
 Om du skalar från eller till Developer-nivån kommer det att vara stillestånds tid. Annars finns det ingen stillestånds tid. 
 
 ## <a name="compute-isolation"></a>Beräknings isolering
-Om dina säkerhets krav innehåller [beräknings isolering](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation)kan du använda den **isolerade** pris nivån. Den här nivån säkerställer att beräknings resurserna hos en API Management tjänst instans använder hela den fysiska värden och ger den nödvändiga isolerings nivån som krävs för att stödja, till exempel US Department of the försvar Level 5 (IL5)-arbets belastningar. Om du vill få åtkomst till den isolerade nivån [skapar du ett support ärende](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+Om dina säkerhets krav innehåller [beräknings isolering](../azure-government/azure-secure-isolation-guidance.md#compute-isolation)kan du använda den **isolerade** pris nivån. Den här nivån säkerställer att beräknings resurserna hos en API Management tjänst instans använder hela den fysiska värden och ger den nödvändiga isolerings nivån som krävs för att stödja, till exempel US Department of the försvar Level 5 (IL5)-arbets belastningar. Om du vill få åtkomst till den isolerade nivån [skapar du ett support ärende](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 
 

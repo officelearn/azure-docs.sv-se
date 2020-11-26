@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 391d9562bc73265a10976f485c78e3966aa4fe83
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b770e4488b6edb1c2d3749066315b552c0b5b40a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536293"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186175"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -31,7 +31,7 @@ I september 2018 har Microsoft kombinerat Azure Monitor, Log Analytics och Appli
 Funktioner i Azure Monitor som aktive ras automatiskt, till exempel insamling av mått och aktivitets loggar får utan kostnad. Det finns en kostnad som är kopplad till andra funktioner som logg frågor och aviseringar. Se [sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/) för detaljerad pris information.
 
 ### <a name="how-do-i-enable-azure-monitor"></a>Hur gör jag för att aktivera Azure Monitor?
-Azure Monitor aktive ras så snart du skapar en ny Azure-prenumeration, och [aktivitets logg](./platform/platform-logs-overview.md) -och plattforms [mått](platform/data-platform-metrics.md) samlas in automatiskt. Skapa [diagnostikinställningar](platform/diagnostic-settings.md) för att samla in mer detaljerad information om driften av dina Azure-resurser och lägga till [övervaknings lösningar](insights/solutions.md) och [insikter](insights/insights-overview.md) för att tillhandahålla ytterligare analys av insamlade data för specifika tjänster. 
+Azure Monitor aktive ras så snart du skapar en ny Azure-prenumeration, och [aktivitets logg](./platform/platform-logs-overview.md) -och plattforms [mått](platform/data-platform-metrics.md) samlas in automatiskt. Skapa [diagnostikinställningar](platform/diagnostic-settings.md) för att samla in mer detaljerad information om driften av dina Azure-resurser och lägga till [övervaknings lösningar](insights/solutions.md) och [insikter](./monitor-reference.md) för att tillhandahålla ytterligare analys av insamlade data för specifika tjänster. 
 
 ### <a name="how-do-i-access-azure-monitor"></a>Hur gör jag för att åtkomst Azure Monitor?
 Få åtkomst till alla Azure Monitor funktioner och data från **Monitor** -menyn i Azure Portal. I avsnittet **övervakning** på menyn för olika Azure-tjänster får du till gång till samma verktyg med data som har filtrerats till en viss resurs. Azure Monitor data är också tillgängliga för en mängd olika scenarier med CLI, PowerShell och en REST API.
@@ -65,7 +65,7 @@ Insikter och lösningar ger en anpassad upplevelse för att arbeta med data som 
 ## <a name="solutions-and-insights"></a>Lösningar och insikter
 
 ### <a name="what-is-an-insight-in-azure-monitor"></a>Vad är insikter i Azure Monitor?
-Insikter ger en anpassad övervaknings upplevelse för specifika Azure-tjänster. De använder samma mått och loggar som andra funktioner i Azure Monitor men kan samla in ytterligare data och ge en unik upplevelse i Azure Portal. Se [insikter i Azure Monitor](insights/insights-overview.md).
+Insikter ger en anpassad övervaknings upplevelse för specifika Azure-tjänster. De använder samma mått och loggar som andra funktioner i Azure Monitor men kan samla in ytterligare data och ge en unik upplevelse i Azure Portal. Se [insikter i Azure Monitor](./monitor-reference.md).
 
 Information om hur du visar insikter i Azure Portal finns i avsnittet om **insikter** på **Monitor** -menyn eller i avsnittet **övervakning** på tjänstens meny.
 
@@ -77,7 +77,7 @@ Om du vill visa lösningar i Azure Portal klickar du på **mer** i avsnittet om 
 ## <a name="logs"></a>Loggar
 
 ### <a name="whats-the-difference-between-azure-monitor-logs-and-azure-data-explorer"></a>Vad är skillnaden mellan Azure Monitor loggar och Azure Datautforskaren?
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Monitor-loggar bygger på Azure-Datautforskaren och använder samma KQL (Kusto Query Language) med vissa mindre skillnader. Se [skillnader i Azure Monitor loggs frågespråk](log-query/data-explorer-difference.md).
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Monitor-loggar bygger på Azure-Datautforskaren och använder samma KQL (Kusto Query Language) med vissa mindre skillnader. Se [skillnader i Azure Monitor loggs frågespråk](/azure/data-explorer/kusto/query/).
 
 ### <a name="how-do-i-retrieve-log-data"></a>Hur gör jag för att hämta logg data?
 Alla data hämtas från en Log Analytics-arbetsyta med hjälp av en logg fråga som skrivits med hjälp av KQL (Kusto Query Language). Du kan skriva egna frågor eller använda lösningar och insikter som innehåller logg frågor för ett visst program eller en viss tjänst. Se [Översikt över logg frågor i Azure Monitor](log-query/log-query-overview.md).
@@ -224,7 +224,7 @@ View Designer är bara tillgängligt för användare som har tilldelats deltagar
 * [Node.js-appar](app/nodejs.md)
 * [Web Apps på Azure](app/azure-web-apps.md)
 * [Cloud Services på Azure](app/cloudservices.md)
-* [App-servrar som körs i Docker](app/docker.md)
+* [App-servrar som körs i Docker](./azure-monitor-app-hub.yml)
 * [Webb program med en enda sida](app/javascript.md)
 * [SharePoint](app/sharepoint.md)
 * [Windows Desktop-app](app/windows-desktop.md)
@@ -401,7 +401,7 @@ Varje objekt som överförs har en `itemCount` egenskap som visar hur många urs
 
 Det finns **för närvarande inte stöd för** att flytta befintliga Application Insights-resurser från en region till en annan. Historiska data som du har samlat in **kan inte migreras** till en ny region. Den enda delvis lösningen är att:
 
-1. Skapa en helt ny Application Insights resurs ([klassisk](app/create-new-resource.md) eller [arbets yta baserad](/azure/azure-monitor/app/create-workspace-resource)) i den nya regionen.
+1. Skapa en helt ny Application Insights resurs ([klassisk](app/create-new-resource.md) eller [arbets yta baserad](./app/create-workspace-resource.md)) i den nya regionen.
 2. Återskapa alla unika anpassningar som är specifika för den ursprungliga resursen i den nya resursen.
 3. Ändra ditt program till att använda den nya region resursens [instrument nyckel](app/create-new-resource.md#copy-the-instrumentation-key) eller [anslutnings sträng](app/sdk-connection-string.md).  
 4. Test för att bekräfta att allt fortsätter att fungera som förväntat med din nya Application Insights-resurs. 
@@ -414,7 +414,7 @@ Unika anpassningar som ofta behöver återskapas manuellt eller uppdateras för 
 - Återskapa tillgänglighets aviseringar.
 - Återskapa eventuella anpassade inställningar för Azure-rollbaserad åtkomst kontroll (Azure RBAC) som krävs för att användarna ska kunna komma åt den nya resursen. 
 - Replikera inställningar som omfattar provtagning, data kvarhållning, dagligt tak och anpassad mått aktivering. De här inställningarna styrs via fönstret **användning och uppskattade kostnader** .
-- All integrering som förlitar sig på API-nycklar som [versions anteckningar](/azure/azure-monitor/app/annotations), [real tids mått skydda kontroll kanal](app/live-stream.md#secure-the-control-channel) osv. Du måste generera nya API-nycklar och uppdatera associerad integrering. 
+- All integrering som förlitar sig på API-nycklar som [versions anteckningar](./app/annotations.md), [real tids mått skydda kontroll kanal](app/live-stream.md#secure-the-control-channel) osv. Du måste generera nya API-nycklar och uppdatera associerad integrering. 
 - Kontinuerlig export i klassiska resurser måste konfigureras igen.
 - Diagnostikinställningar i arbets ytans baserade resurser måste konfigureras igen.
 

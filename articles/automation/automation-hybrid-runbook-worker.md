@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea2b8deb07a899ab35ddd761df3e3ddb413dd45d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 7bd9560399a2b2b377cb543a4f829883bcbdf7c8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509081"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183778"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Översikt över Hybrid Runbook Worker
 
@@ -29,7 +29,7 @@ Det finns två typer av Runbook-arbetare – system och användare. I följande 
 
 En Hybrid Runbook Worker kan köras antingen på Windows eller Linux-operativsystemet, och den här rollen förlitar sig på den [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) som rapporterar till en Azure Monitor [Log Analytics arbets yta](../azure-monitor/platform/design-logs-deployment.md). Arbets ytan kan inte bara övervaka datorn för det operativ system som stöds, utan även för att ladda ned de komponenter som krävs för att installera Hybrid Runbook Worker.
 
-När Azure Automation [uppdateringshantering](update-management/update-mgmt-overview.md) är aktive rad konfigureras alla datorer som är anslutna till din Log Analytics-arbetsyta automatiskt som en system hybrid Runbook Worker.
+När Azure Automation [uppdateringshantering](./update-management/overview.md) är aktive rad konfigureras alla datorer som är anslutna till din Log Analytics-arbetsyta automatiskt som en system hybrid Runbook Worker.
 
 Varje användar Hybrid Runbook Worker är medlem i en Hybrid Runbook Worker grupp som du anger när du installerar arbetaren. En grupp kan innehålla en enda anställd, men du kan inkludera flera arbetare i en grupp för hög tillgänglighet. Varje dator kan vara värd för en Hybrid Runbook Worker rapportering till ett Automation-konto. Du kan inte registrera hybrid Worker över flera Automation-konton. Detta beror på att en hybrid Worker bara kan lyssna efter jobb från ett enda Automation-konto. För datorer som är värdar för system hybrid Runbook Worker som hanteras av Uppdateringshantering kan de läggas till i en Hybrid Runbook Worker grupp. Men du måste använda samma Automation-konto för både Uppdateringshantering och Hybrid Runbook Worker grupp medlemskapet.
 
@@ -99,7 +99,7 @@ Azure Automation Hybrid Runbook Worker kan användas i Azure Government för att
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Uppdateringshantering adresser för Hybrid Runbook Worker
 
-Förutom de standard adresser och portar som krävs för Hybrid Runbook Worker, har Uppdateringshantering ytterligare krav för nätverks konfiguration som beskrivs i avsnittet [nätverks planering](update-management/update-mgmt-overview.md#ports) .
+Förutom de standard adresser och portar som krävs för Hybrid Runbook Worker, har Uppdateringshantering ytterligare krav för nätverks konfiguration som beskrivs i avsnittet [nätverks planering](./update-management/overview.md#ports) .
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Azure Automation tillstånds konfiguration på en Hybrid Runbook Worker
 

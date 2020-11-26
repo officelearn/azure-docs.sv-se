@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 066e9cf6c63c9f2073ba869e8b40e25bfc993cd8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ddb73de87789934aa66893bdbe6519011cf324b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491383"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186107"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Logg frågans omfång och tidsintervall i Azure Monitor Log Analytics
-När du kör en [logg fråga](log-query-overview.md) i [Log Analytics i Azure Portal](get-started-portal.md), beror den uppsättning data som utvärderas av frågan på omfattningen och tidsintervallet som du väljer. I den här artikeln beskrivs omfattning och tidsintervall och hur du kan ställa in dem beroende på dina behov. Det beskriver också beteendet för olika typer av omfång.
+När du kör en [logg fråga](log-query-overview.md) i [Log Analytics i Azure Portal](./log-analytics-tutorial.md), beror den uppsättning data som utvärderas av frågan på omfattningen och tidsintervallet som du väljer. I den här artikeln beskrivs omfattning och tidsintervall och hur du kan ställa in dem beroende på dina behov. Det beskriver också beteendet för olika typer av omfång.
 
 
 ## <a name="query-scope"></a>Frågeomfång
@@ -75,7 +75,7 @@ Om du anger ett filter i frågan som använder kolumnen standard tid som visas i
 
 ![Filtrerad fråga](media/scope/query-filtered.png)
 
-Om du använder [arbets ytan](workspace-expression.md) eller [appens](app-expression.md) kommando för att hämta data från en annan arbets yta eller ett klassiskt program kan tids väljaren bete sig annorlunda. Om omfånget är en Log Analytics arbets yta och du använder **appen** , eller om omfånget är ett klassiskt Application Insights-program och du använder **arbets ytan** , kan Log Analytics inte förstå att den kolumn som används i filtret bestämmer tids filtret.
+Om du använder [arbets ytan](workspace-expression.md) eller [appens](app-expression.md) kommando för att hämta data från en annan arbets yta eller ett klassiskt program kan tids väljaren bete sig annorlunda. Om omfånget är en Log Analytics arbets yta och du använder **appen**, eller om omfånget är ett klassiskt Application Insights-program och du använder **arbets ytan**, kan Log Analytics inte förstå att den kolumn som används i filtret bestämmer tids filtret.
 
 I följande exempel är omfånget inställt på en Log Analytics-arbetsyta.  Frågan använder **arbets ytan** för att hämta data från en annan Log Analytics-arbetsyta. Tids väljaren ändras till **set i frågan** eftersom den ser ett filter som använder den förväntade **TimeGenerated** -kolumnen.
 
@@ -87,5 +87,5 @@ Om frågan använder **appen** för att hämta data från ett klassiskt Applicat
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Gå igenom en [själv studie kurs om hur du använder Log Analytics i Azure Portal](get-started-portal.md).
+- Gå igenom en [själv studie kurs om hur du använder Log Analytics i Azure Portal](./log-analytics-tutorial.md).
 - Gå igenom en [själv studie kurs om att skriva frågor](get-started-queries.md).

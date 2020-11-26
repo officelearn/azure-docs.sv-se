@@ -6,16 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: b23f1d455610222ffa5713773a0bfb947f23ce34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fb0288d592af8bd23415b31ecf6a6e3448b92ba
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346072"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186039"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Skapa en loggavisering med en Resource Manager-mall
 
-Logg aviseringar gör att användare kan använda en [Log Analytics](../log-query/get-started-portal.md) fråga för att utvärdera resurser loggar varje uppsättnings frekvens och utlösa en avisering baserat på resultaten. Reglerna kan utlösa körningen av en eller flera åtgärder med hjälp av [Åtgärds grupper](./action-groups.md). [Lär dig mer om funktioner och terminologi för logg aviseringar](alerts-unified-log.md).
+Logg aviseringar gör att användare kan använda en [Log Analytics](../log-query/log-analytics-tutorial.md) fråga för att utvärdera resurser loggar varje uppsättnings frekvens och utlösa en avisering baserat på resultaten. Reglerna kan utlösa körningen av en eller flera åtgärder med hjälp av [Åtgärds grupper](./action-groups.md). [Lär dig mer om funktioner och terminologi för logg aviseringar](alerts-unified-log.md).
 
 Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera [logg aviseringar](alerts-unified-log.md) i Azure Monitor. Med Resource Manager-mallar kan du konfigurera aviseringar via programmering på ett konsekvent och reproducerbart sätt i alla miljöer. Logg aviseringar skapas i `Microsoft.Insights/scheduledQueryRules` resurs leverantören. Se API-referens för [schemalagda FRÅGEREGLER API](/rest/api/monitor/scheduledqueryrules/).
 
@@ -26,7 +26,7 @@ De grundläggande stegen är följande:
 4. Distribuera mallen med valfri distributions metod.
 
 > [!NOTE]
-> Loggdata från en [Log Analytics arbets yta](../log-query/get-started-portal.md) kan skickas till Azure Monitor Metrics-lagret. Mått aviseringar har [olika beteende](alerts-metric-overview.md), vilket kan vara mer önskvärt beroende på vilka data du arbetar med. Information om vad och hur du kan skicka loggar till mått finns i [mått avisering för loggar](alerts-metric-logs.md).
+> Loggdata från en [Log Analytics arbets yta](../log-query/log-analytics-tutorial.md) kan skickas till Azure Monitor Metrics-lagret. Mått aviseringar har [olika beteende](alerts-metric-overview.md), vilket kan vara mer önskvärt beroende på vilka data du arbetar med. Information om vad och hur du kan skicka loggar till mått finns i [mått avisering för loggar](alerts-metric-logs.md).
 
 > [!NOTE]
 > Logg aviseringar för Log Analytics som används för att hanteras med hjälp av äldre [Log Analytics aviserings-API](api-alerts.md) och äldre mallar för [Log Analytics sparade sökningar och aviseringar](../insights/solutions.md). [Läs mer om att växla till det aktuella ScheduledQueryRules-API: et](alerts-log-api-switch.md).

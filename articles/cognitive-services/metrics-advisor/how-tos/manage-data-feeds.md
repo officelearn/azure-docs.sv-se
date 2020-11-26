@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: mbullwin
-ms.openlocfilehash: de8d5d8e9fc5ce1df05cfd4c67ef146760e2c7e9
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fb6eaf44967732d3a41ea92b0896540a40f694e3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043178"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184730"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Så här gör du: hantera dina data matningar
 
-Lär dig hur du hanterar dina registrerade datafeeds i Metrics Advisor. Den här artikeln vägleder dig genom hantering av datafeeds i mått övervakaren.
+Lär dig hur du hanterar dina registrerade datafeeds i Metrics Advisor. Den här artikeln vägleder dig genom hantering av datafeeds i Metrics Advisor.
 
 ## <a name="edit-a-data-feed"></a>Redigera en datafeed
 
@@ -43,7 +43,7 @@ Så här tar du bort en datafeed:
 
 1. På sidan datafeed-lista klickar du på **ta bort** på datafeeden.
 
-2. Klicka på **ta bort**på sidan information om data flöde.
+2. Klicka på **ta bort** på sidan information om data flöde.
 
 När du ändrar Start tiden måste du verifiera schemat igen. Du kan ändra den genom att använda **Edit Parameters**.
 
@@ -72,7 +72,7 @@ Det finns flera valfria avancerade inställningar när du skapar en ny datafeed,
 
 ### <a name="ingestion-options"></a>Inmatnings alternativ
 
-* **Tids förskjutning**för inhämtning: som standard matas data in enligt angiven kornig het. Till exempel kommer ett mått med en *daglig* tidsstämpel att matas in en dag efter tidsstämpeln. Du kan använda förskjutningen för att skjuta upp tiden för inmatningen med ett *positivt* tal eller gå vidare med ett *negativt* tal.
+* **Tids förskjutning** för inhämtning: som standard matas data in enligt angiven kornig het. Till exempel kommer ett mått med en *daglig* tidsstämpel att matas in en dag efter tidsstämpeln. Du kan använda förskjutningen för att skjuta upp tiden för inmatningen med ett *positivt* tal eller gå vidare med ett *negativt* tal.
 
 * **Max samtidighet**: Ange den här parametern om data källan har stöd för begränsad samtidighet. Lämna annars kvar standardvärdet.
 
@@ -106,7 +106,7 @@ Alternativen är:
 
 Mall för åtgärds länkar används för att fördefiniera http-URL: er som kan användas för att definiera, som består av plats hållare,,, `%datafeed` `%metric` `%timestamp` `%detect_config` och `%tagset` . Du kan använda mallen för att omdirigera från en avvikelse eller en incident till en viss URL för att öka detalj nivån.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Data flöde för bakfyllning" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Mall för åtgärds länk" lightbox="../media/action-link-template.png":::
 
 När du har fyllt i åtgärds länken klickar **du på gå till åtgärds länk** i incident listans åtgärds alternativ och på snabb menyn i incident trädet. Ersätt plats hållarna i åtgärds länk mal len med motsvarande värden för avvikelsen eller incidenten.
 

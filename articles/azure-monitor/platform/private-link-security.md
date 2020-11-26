@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 61073ce7e8d3abc43d1db031608da72e6d3e0791
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 3f9779d2676d4d2b67efff37118d109664b84bd5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926809"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184611"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Använd Azure Private Link för att ansluta nätverk till Azure Monitor på ett säkert sätt
 
@@ -90,18 +90,18 @@ I nedanstående topologi:
 
 Börja med att skapa en Azure Monitor privat länk omfångs resurs.
 
-1. Gå till **skapa en resurs** i Azure Portal och sök efter **Azure Monitor privat länk omfång** .
+1. Gå till **skapa en resurs** i Azure Portal och sök efter **Azure Monitor privat länk omfång**.
 
    ![Sök omfång för Azure Monitor privat länk](./media/private-link-security/ampls-find-1c.png)
 
-2. Klicka på **skapa** .
+2. Klicka på **skapa**.
 3. Välj en prenumeration och en resurs grupp.
 4. Ge AMPLS ett namn. Det är bäst att använda ett namn som är tydligt vilket syfte och vilken säkerhets gräns som området ska användas för, så att ingen av misstag kan bryta nätverks säkerhets gränser. Till exempel "AppServerProdTelem".
-5. Klicka på **Granska + Skapa** . 
+5. Klicka på **Granska + Skapa**. 
 
    ![Skapa Azure Monitor privat länk omfång](./media/private-link-security/ampls-create-1d.png)
 
-6. Låt validerings passet ta en titt och klicka sedan på **skapa** .
+6. Låt validerings passet ta en titt och klicka sedan på **skapa**.
 
 ## <a name="connect-azure-monitor-resources"></a>Anslut Azure Monitor resurser
 
@@ -119,23 +119,23 @@ Du kan ansluta din AMPLS först till privata slut punkter och sedan Azure Monito
 
 Nu när du har resurser som är anslutna till din AMPLS skapar du en privat slut punkt för att ansluta vårt nätverk. Du kan göra det här för att utföra den här uppgiften i det [Azure Portal privata länk centret](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints)eller inuti Azure Monitor privata länk omfång, som du gjort i det här exemplet.
 
-1. I din omfattnings resurs klickar du på **anslutningar för privata slut punkter** i den vänstra resurs menyn. Klicka på **privat slut punkt** för att starta processen för att skapa slut punkten. Du kan också godkänna anslutningar som startades i det privata länk centret här genom att markera dem och klicka på **Godkänn** .
+1. I din omfattnings resurs klickar du på **anslutningar för privata slut punkter** i den vänstra resurs menyn. Klicka på **privat slut punkt** för att starta processen för att skapa slut punkten. Du kan också godkänna anslutningar som startades i det privata länk centret här genom att markera dem och klicka på **Godkänn**.
 
     ![Skärm bild av UX för privata slut punkts anslutningar](./media/private-link-security/ampls-select-private-endpoint-connect-3.png)
 
 2. Välj prenumeration, resurs grupp och namn för slut punkten och regionen som den ska leva i. Regionen måste vara samma region som det virtuella nätverk som du ska ansluta det till.
 
-3. Klicka på **Nästa: resurs** . 
+3. Klicka på **Nästa: resurs**. 
 
 4. På resurs skärmen
 
    a. Välj den **prenumeration** som innehåller din Azure Monitor privata scope-resurs. 
 
-   b. För **resurs typ** väljer du **Microsoft. Insights/privateLinkScopes** . 
+   b. För **resurs typ** väljer du **Microsoft. Insights/privateLinkScopes**. 
 
    c. I list rutan **resurs** väljer du det definitions område för privata länkar som du skapade tidigare. 
 
-   d. Klicka på **Nästa: konfiguration >** .
+   d. Klicka på **Nästa: konfiguration >**.
       ![Skärm bild av Välj Skapa privat slut punkt](./media/private-link-security/ampls-select-private-endpoint-create-4.png)
 
 5. I konfigurations fönstret,
@@ -144,13 +144,13 @@ Nu när du har resurser som är anslutna till din AMPLS skapar du en privat slut
  
    b.    Välj **Ja** för **integrering med privat DNS-zon** och låt den automatiskt skapa en ny privat DNS zon. De faktiska DNS-zonerna kan skilja sig från vad som visas på skärm bilden nedan. 
    > [!NOTE]
-   > Om du väljer **Nej** och hellre vill hantera DNS-poster manuellt, slutför först konfigurationen av din privata länk, inklusive den här privata slut punkten och AMPLS-konfigurationen. Konfigurera sedan DNS enligt instruktionerna i [Azures DNS-konfiguration för privat slut punkt](https://docs.microsoft.com/azure/private-link/private-endpoint-dns). Se till att du inte skapar tomma poster som förberedelse för konfigurationen av den privata länken. De DNS-poster som du skapar kan åsidosätta befintliga inställningar och påverka din anslutning med Azure Monitor.
+   > Om du väljer **Nej** och hellre vill hantera DNS-poster manuellt, slutför först konfigurationen av din privata länk, inklusive den här privata slut punkten och AMPLS-konfigurationen. Konfigurera sedan DNS enligt instruktionerna i [Azures DNS-konfiguration för privat slut punkt](../../private-link/private-endpoint-dns.md). Se till att du inte skapar tomma poster som förberedelse för konfigurationen av den privata länken. De DNS-poster som du skapar kan åsidosätta befintliga inställningar och påverka din anslutning med Azure Monitor.
  
-   c.    Klicka på **Granska + skapa** .
+   c.    Klicka på **Granska + skapa**.
  
    d.    Tillåt validerings pass. 
  
-   e.    Klicka på **Skapa** . 
+   e.    Klicka på **Skapa**. 
 
     ![Skärm bild av Välj Skapa privat Endpoint2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -164,7 +164,7 @@ Gå till Azure-portalen. I din Log Analytics arbets ytans resurs finns ett meny 
 
 Först kan du ansluta den här Log Analytics resursen till alla Azure Monitor privata länk omfattningar som du har åtkomst till. Klicka på **Lägg till** och välj omfånget Azure Monitor privat länk.  Klicka på **Använd** för att ansluta. Alla anslutna omfattningar visas på den här skärmen. Genom att göra den här anslutningen kan nätverks trafiken i de anslutna virtuella nätverken komma åt den här arbets ytan. Att göra anslutningen har samma resultat som att ansluta den från omfånget som vi gjorde när vi [anslöt Azure Monitor-resurser](#connect-azure-monitor-resources).  
 
-För det andra kan du styra hur den här resursen kan nås utanför de privata länk definitionerna som anges ovan. Om du ställer in **Tillåt offentligt nätverks åtkomst för** inmatning till **Nej** kan inte datorer utanför de anslutna omfattningarna Ladda upp data till den här arbets ytan. Om du ställer in **Tillåt offentlig nätverks åtkomst för frågor** till **Nej** , kan datorer utanför omfattningarna inte komma åt data på den här arbets ytan. Dessa data omfattar åtkomst till arbets böcker, instrument paneler, API-baserade klient upplevelser, insikter i Azure Portal och mycket annat. Upplevelser som körs utanför Azure Portal och som frågar Log Analytics data måste också köras i det privata, länkade VNET.
+För det andra kan du styra hur den här resursen kan nås utanför de privata länk definitionerna som anges ovan. Om du ställer in **Tillåt offentligt nätverks åtkomst för** inmatning till **Nej** kan inte datorer utanför de anslutna omfattningarna Ladda upp data till den här arbets ytan. Om du ställer in **Tillåt offentlig nätverks åtkomst för frågor** till **Nej**, kan datorer utanför omfattningarna inte komma åt data på den här arbets ytan. Dessa data omfattar åtkomst till arbets böcker, instrument paneler, API-baserade klient upplevelser, insikter i Azure Portal och mycket annat. Upplevelser som körs utanför Azure Portal och som frågar Log Analytics data måste också köras i det privata, länkade VNET.
 
 Att begränsa åtkomsten på det här sättet gäller inte för Azure Resource Manager och har därför följande begränsningar:
 * Åtkomst till data – samtidigt som frågor från offentliga nätverk används för de flesta Log Analytics-upplevelser, kan vissa få frågedata via Azure Resource Manager och kan därför inte fråga efter data om inte inställningarna för privata länkar tillämpas på Resource Manager även (funktionen kommer snart snart). Detta omfattar exempelvis Azure Monitor lösningar, arbets böcker och insikter och LogicApp-anslutningen.
@@ -190,9 +190,9 @@ Gå till Azure-portalen. I din Azure Monitor Application Insights komponent resu
 
 ![AI-nätverks isolering](./media/private-link-security/ampls-application-insights-lan-network-isolation-6.png)
 
-Först kan du ansluta den här Application Insights resursen till Azure Monitor de privata länk omfattningar som du har åtkomst till. Klicka på **Lägg till** och välj **omfånget Azure Monitor privat länk** . Klicka på Använd för att ansluta. Alla anslutna omfattningar visas på den här skärmen. Genom att göra den här anslutningen kan nätverks trafiken i de anslutna virtuella nätverken komma åt den här komponenten. Att göra anslutningen har samma resultat som att ansluta den från omfånget som vi gjorde när vi [anslöt Azure Monitor-resurser](#connect-azure-monitor-resources). 
+Först kan du ansluta den här Application Insights resursen till Azure Monitor de privata länk omfattningar som du har åtkomst till. Klicka på **Lägg till** och välj **omfånget Azure Monitor privat länk**. Klicka på Använd för att ansluta. Alla anslutna omfattningar visas på den här skärmen. Genom att göra den här anslutningen kan nätverks trafiken i de anslutna virtuella nätverken komma åt den här komponenten. Att göra anslutningen har samma resultat som att ansluta den från omfånget som vi gjorde när vi [anslöt Azure Monitor-resurser](#connect-azure-monitor-resources). 
 
-För det andra kan du styra hur den här resursen kan nås utanför de privata länk omfattningar som anges ovan. Om du ställer in **Tillåt offentligt nätverks åtkomst för** inmatning till **Nej** kan inte datorer eller SDK: er utanför de anslutna omfattningarna Ladda upp data till den här komponenten. Om du ställer in **Tillåt offentlig nätverks åtkomst för frågor** till **Nej** , kommer datorer utanför omfattningarna inte att kunna komma åt data i den här Application Insights resursen. Dessa data omfattar till gång till APM-loggar, Mät värden och Live Metrics-dataströmmen, samt erfarenheter som bygger på de flesta arbets böcker, instrument paneler, API-baserade klient upplevelser, insikter i Azure Portal och mycket mer. 
+För det andra kan du styra hur den här resursen kan nås utanför de privata länk omfattningar som anges ovan. Om du ställer in **Tillåt offentligt nätverks åtkomst för** inmatning till **Nej** kan inte datorer eller SDK: er utanför de anslutna omfattningarna Ladda upp data till den här komponenten. Om du ställer in **Tillåt offentlig nätverks åtkomst för frågor** till **Nej**, kommer datorer utanför omfattningarna inte att kunna komma åt data i den här Application Insights resursen. Dessa data omfattar till gång till APM-loggar, Mät värden och Live Metrics-dataströmmen, samt erfarenheter som bygger på de flesta arbets böcker, instrument paneler, API-baserade klient upplevelser, insikter i Azure Portal och mycket mer. 
 
 Observera att användnings upplevelser som inte är Portal måste köras i det privata, länkade VNET som innehåller de övervakade arbets belastningarna. 
 
@@ -240,7 +240,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Om du vill använda Azure Monitor Portal upplevelser som Application Insights och Log Analytics måste du tillåta att Azure Portal-och Azure Monitor-tillägg kan nås i privata nätverk. Lägg till **AzureActiveDirectory** , **AzureResourceManager** , **AzureFrontDoor. FirstParty** och **AzureFrontDoor. frontend** [service-Taggar](../../firewall/service-tags.md) i nätverks säkerhets gruppen.
+Om du vill använda Azure Monitor Portal upplevelser som Application Insights och Log Analytics måste du tillåta att Azure Portal-och Azure Monitor-tillägg kan nås i privata nätverk. Lägg till **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty** och **AzureFrontDoor. frontend** [service-Taggar](../../firewall/service-tags.md) i nätverks säkerhets gruppen.
 
 ### <a name="programmatic-access"></a>Programmässig åtkomst
 

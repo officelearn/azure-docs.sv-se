@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 7a7a3669c5462adba3828bb1fd6c2fc9c4b3213c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9d1aa54ba1e3f3a589df8f694e340909c4e24ecc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566171"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183693"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Självstudie: Aktivera Application Gateway ingress Controller-tillägg för ett befintligt AKS-kluster med en befintlig Application Gateway via Azure CLI (för hands version)
 
 Du kan använda Azure CLI för att aktivera [AGIC-tillägget (Application Gateway ingress Controller)](ingress-controller-overview.md) , som för närvarande är en för hands version, för ditt [AKS-kluster (Azure Kubernetes Services](https://azure.microsoft.com/services/kubernetes-service/) ). I den här självstudien får du lära dig hur du använder AGIC-tillägg för att exponera ditt Kubernetes-program i ett befintligt AKS-kluster via en befintlig Application Gateway som distribueras i separata virtuella nätverk. Du börjar med att skapa ett AKS-kluster i ett virtuellt nätverk och en Application Gateway i ett separat virtuellt nätverk för att simulera befintliga resurser. Sedan aktiverar du AGIC-tillägget, peer-koppla de två virtuella nätverken och distribuerar ett exempel program som visas via Application Gateway med hjälp av AGIC-tillägget. Om du aktiverar AGIC-tillägget för en befintlig Application Gateway och ett befintligt AKS-kluster i samma virtuella nätverk kan du hoppa över peering-steget nedan. Tillägget ger ett mycket snabbare sätt att distribuera AGIC för ditt AKS-kluster än [tidigare via Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) och erbjuder även en fullständigt hanterad upplevelse.  
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa en resursgrupp 
@@ -35,16 +35,16 @@ I den här guiden får du lära dig att:
 
  - I den här självstudien krävs version 2.0.4 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
- - Registrera funktions flaggan *AKS-IngressApplicationGatewayAddon* med hjälp av kommandot [AZ Feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) , som du ser i följande exempel. du behöver bara göra detta en gång per prenumeration medan tillägget fortfarande är i för hands version:
+ - Registrera funktions flaggan *AKS-IngressApplicationGatewayAddon* med hjälp av kommandot [AZ Feature register](/cli/azure/feature#az-feature-register) , som du ser i följande exempel. du behöver bara göra detta en gång per prenumeration medan tillägget fortfarande är i för hands version:
      ```azurecli-interactive
      az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
      ```
-    Det kan ta några minuter för statusen att Visa registrerad. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) :
+    Det kan ta några minuter för statusen att Visa registrerad. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature#az-feature-register) :
      ```azurecli-interactive
      az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
      ```
 
- - När du är klar uppdaterar du registreringen av resurs leverantören Microsoft. container service med hjälp av [AZ Provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) kommando:
+ - När du är klar uppdaterar du registreringen av resurs leverantören Microsoft. container service med hjälp av [AZ Provider register](/cli/azure/provider#az-provider-register) kommando:
     ```azurecli-interactive
     az provider register --namespace Microsoft.ContainerService
     ```
@@ -71,7 +71,7 @@ Om du vill konfigurera ytterligare parametrar för `az aks create` kommandot kan
 
 ## <a name="deploy-a-new-application-gateway"></a>Distribuera en ny Application Gateway 
 
-Nu ska du distribuera en ny Application Gateway, för att simulera att ha en befintlig Application Gateway som du vill använda för att belastningsutjämna trafik till ditt AKS-kluster, för *klustret*. Namnet på Application Gateway kommer att vara *myApplicationGateway* , men du måste först skapa en offentlig IP-resurs med namnet *myPublicIp* och ett nytt virtuellt nätverk som kallas *myVnet* med adress utrymme 11.0.0.0/8 och ett undernät med adress utrymme 11.1.0.0/16 som kallas för *undernät* och distribuera Application Gateway i *under nätet* med *myPublicIp*. 
+Nu ska du distribuera en ny Application Gateway, för att simulera att ha en befintlig Application Gateway som du vill använda för att belastningsutjämna trafik till ditt AKS-kluster, för *klustret*. Namnet på Application Gateway kommer att vara *myApplicationGateway*, men du måste först skapa en offentlig IP-resurs med namnet *myPublicIp* och ett nytt virtuellt nätverk som kallas *myVnet* med adress utrymme 11.0.0.0/8 och ett undernät med adress utrymme 11.1.0.0/16 som kallas för *undernät* och distribuera Application Gateway i *under nätet* med *myPublicIp*. 
 
 När du använder ett AKS-kluster och Application Gateway i separata virtuella nätverk, får inte adress utrymmena för de två virtuella nätverken överlappa varandra. Standard adress utrymmet som ett AKS-kluster distribuerar i är 10.0.0.0/8, så vi ställer in det Application Gateway virtuella nätverkets adressprefix till 11.0.0.0/8. 
 

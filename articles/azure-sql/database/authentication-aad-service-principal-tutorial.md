@@ -9,19 +9,19 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/21/2020
-ms.openlocfilehash: 6231e4631c19aa3595fa85ca0aa7997861de65a3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e068ad01c07af4e5833399c0053da3362cd6aaa6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675041"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185648"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Självstudie: Skapa Azure AD-användare med hjälp av Azure AD-program
 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 > [!NOTE]
-> Den här artikeln är i **offentlig för hands version** . Mer information finns i [Azure Active Directory tjänstens huvud namn med Azure SQL](authentication-aad-service-principal.md). Den här artikeln använder Azure SQL Database för att demonstrera de nödvändiga själv studie stegen, men kan användas på samma sätt i [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
+> Den här artikeln är i **offentlig för hands version**. Mer information finns i [Azure Active Directory tjänstens huvud namn med Azure SQL](authentication-aad-service-principal.md). Den här artikeln använder Azure SQL Database för att demonstrera de nödvändiga själv studie stegen, men kan användas på samma sätt i [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 Den här artikeln vägleder dig genom processen att skapa Azure AD-användare i Azure SQL Database, med hjälp av Azure-tjänstens huvud namn (Azure AD-program). Den här funktionen finns redan i Azure SQL-hanterad instans, men presenteras nu i Azure SQL Database och Azure Synapse Analytics. För att stödja det här scenariot måste en Azure AD-identitet genereras och tilldelas till den logiska Azure SQL-servern.
 
@@ -44,9 +44,9 @@ I de här självstudierna får du lära dig att
 
 ## <a name="assign-an-identity-to-the-azure-sql-logical-server"></a>Tilldela en identitet till den logiska Azure SQL-servern
 
-1. Anslut till din Azure Active Directory. Du måste hitta klient-ID: t. Du hittar detta genom att gå till [Azure Portal](https://portal.azure.com)och gå till din **Azure Active Directory** -resurs. I **översikts** fönstret bör du se ditt **klient-ID** . Kör följande PowerShell-kommando:
+1. Anslut till din Azure Active Directory. Du måste hitta klient-ID: t. Du hittar detta genom att gå till [Azure Portal](https://portal.azure.com)och gå till din **Azure Active Directory** -resurs. I **översikts** fönstret bör du se ditt **klient-ID**. Kör följande PowerShell-kommando:
 
-    - Ersätt `<TenantId>` med ditt **klient-ID** .
+    - Ersätt `<TenantId>` med ditt **klient-ID**.
 
     ```powershell
     Connect-AzAccount -Tenant <TenantId>
@@ -161,11 +161,11 @@ En liknande metod för hur du ställer in **katalog läsar** behörighet för SQ
 
 1. Följ anvisningarna här för att [Registrera din app och ange behörigheter](active-directory-interactive-connect-azure-sql-db.md#register-your-app-and-set-permissions).
 
-    Se till att lägga till **program behörigheter** samt de **delegerade behörigheterna** .
+    Se till att lägga till **program behörigheter** samt de **delegerade behörigheterna**.
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="objekt-ID":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Skärm bild som visar Appregistreringar sidan för Azure Active Directory. En app med visnings namnet AppSP är markerad.":::
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="objekt-ID":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="API – behörigheter":::
 
 2. Du måste också skapa en klient hemlighet för att logga in. Följ anvisningarna här för att [Ladda upp ett certifikat eller skapa en hemlighet för inloggning](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
@@ -173,15 +173,15 @@ En liknande metod för hur du ställer in **katalog läsar** behörighet för SQ
     - **Program-ID**
     - **Klient-ID** – det ska vara samma som innan
 
-I den här självstudien kommer vi att använda *AppSP* som vårt huvud huvud tjänst huvud konto och *MyApp* som andra tjänst huvud användare som skapas i Azure SQL med *AppSP* . Du måste skapa två program, *AppSP* och *MyApp* .
+I den här självstudien kommer vi att använda *AppSP* som vårt huvud huvud tjänst huvud konto och *MyApp* som andra tjänst huvud användare som skapas i Azure SQL med *AppSP*. Du måste skapa två program, *AppSP* och *MyApp*.
 
 Mer information om hur du skapar ett Azure AD-program finns i artikeln [så här gör du: använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 ### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Behörigheter som krävs för att ange eller ta bort Azure AD-administratören
 
-För att tjänstens huvud namn ska kunna ange eller ta bort en Azure AD-administratör för Azure SQL krävs ytterligare API-behörighet. [Katalogen. Read. all](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application API-behörighet måste läggas till i ditt program i Azure AD.
+För att tjänstens huvud namn ska kunna ange eller ta bort en Azure AD-administratör för Azure SQL krävs ytterligare API-behörighet. [Katalogen. Read. all](/graph/permissions-reference#application-permissions-18) Application API-behörighet måste läggas till i ditt program i Azure AD.
 
-:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="objekt-ID":::
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Directory. Reader. alla behörigheter i Azure AD":::
 
 Tjänstens huvud namn måste också ha rollen [**SQL Server Contributor**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) för SQL Database eller rollen [**SQL-hanterad instans deltagare**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) för SQL-hanterad instans.
 
@@ -199,7 +199,7 @@ När du har skapat ett huvud namn för tjänsten i Azure AD skapar du användare
     GO
     ```
 
-2. Bevilja `db_owner` behörighet till *AppSP* , vilket gör att användaren kan skapa andra Azure AD-användare i databasen.
+2. Bevilja `db_owner` behörighet till *AppSP*, vilket gör att användaren kan skapa andra Azure AD-användare i databasen.
 
     ```sql
     EXEC sp_addrolemember 'db_owner', [AppSP]
@@ -223,7 +223,7 @@ När du har skapat ett huvud namn för tjänsten i Azure AD skapar du användare
 > [!IMPORTANT]
 > Tjänstens huvud namn som används för att logga in på SQL Database måste ha en klient hemlighet. Om det inte finns något följer du steg 2 i [skapa ett tjänst objekt (ett Azure AD-program) i Azure AD](#create-a-service-principal-an-azure-ad-application-in-azure-ad). Den här klient hemligheten måste läggas till som en indataparameter i skriptet nedan.
 
-1. Använd följande skript för att skapa en tjänst huvud användare i Azure AD- *tjänsten med hjälp av* tjänstens huvud namn *AppSP* .
+1. Använd följande skript för att skapa en tjänst huvud användare i Azure AD- *tjänsten med hjälp av* tjänstens huvud namn *AppSP*.
 
     - Ersätt `<TenantId>` med din `TenantId` tidigare insamlade version.
     - Ersätt `<ClientId>` med din `ClientId` tidigare insamlade version.

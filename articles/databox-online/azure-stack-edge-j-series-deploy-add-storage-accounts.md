@@ -10,11 +10,11 @@ ms.date: 08/31/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: c24970b30e522d593a491194dbbabb0421ad7f4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891065"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185569"
 ---
 # <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>Självstudie: överföra data via lagrings konton med Azure Stack Edge Pro GPU 
 
@@ -24,14 +24,14 @@ I den här självstudien beskrivs hur du lägger till och ansluter till lagrings
 
 Den här proceduren kan ta cirka 30 minuter att slutföra.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Lägg till ett lagrings konto
 > * Anslut till lagrings kontot
 
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du lägger till lagrings konton i Azure Stack Edge Pro, se till att:
 

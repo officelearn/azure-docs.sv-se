@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 04d53dc213d5e992dc79e322b071025bdb447b1b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4527d871df3667f483efd529d93f044377f34651
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057509"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186192"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Snabb start: samla in data från en Linux-dator i en hybrid miljö med Azure Monitor
 
@@ -38,7 +38,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
     ![Hitta Log Analytics arbets yta i Azure Portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
-2. Välj **skapa**och välj sedan alternativ för följande objekt:
+2. Välj **skapa** och välj sedan alternativ för följande objekt:
 
    * Ange ett namn för den nya **Log Analytics-arbetsytan**, som *DefaultLAWorkspace*.  
    * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
@@ -115,7 +115,7 @@ Azure Monitor kan samla in händelser från Linux syslog och prestanda räknare 
 
 1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du Log Analytics. När du skriver filtreras listan baserat på dina inaktuella inaktuella inaktuella inaktuella. Välj **Log Analytics arbets ytor** och i listan över Log Analytics arbets ytor, väljer du den arbets yta som du söker efter och väljer **Avancerade inställningar** för arbets ytan **Log Analytics** .
 
-2. Välj **data**och välj sedan **syslog**.  
+2. Välj **data** och välj sedan **syslog**.  
 
 3. Du lägger till syslog genom att skriva in namnet på loggen. Ange **syslog** och välj sedan plus tecknet **+** .  
 
@@ -137,7 +137,7 @@ Azure Monitor kan samla in händelser från Linux syslog och prestanda räknare 
 
 Nu när du har aktiverat insamling av data kan du köra en enkel loggsökning för att se vissa data från måldatorn.  
 
-1. I den valda arbets ytan väljer du **loggar**i den vänstra rutan.
+1. I den valda arbets ytan väljer du **loggar** i den vänstra rutan.
 
 2. På sidan loggar fråga skriver `Perf` du i Frågeredigeraren och väljer **Kör**.
  
@@ -166,5 +166,4 @@ Nu när du kan samla in funktions- och prestandadata från din lokala Linux-dato
 Om du vill lära dig hur du visar och analyserar data kan du fortsätta till självstudiekursen.
 
 > [!div class="nextstepaction"]
-> [Visa eller analysera data i Log Analytics](../log-query/get-started-portal.md)
-
+> [Visa eller analysera data i Log Analytics](../log-query/log-analytics-tutorial.md)

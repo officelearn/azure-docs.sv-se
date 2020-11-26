@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: b2b903f259fdd2564fbcaed5eb0a750edf9c06e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 936be917d5b494c9d71386440c711ef6c29ffb45
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075883"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183506"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Push-inställningar till app-konfiguration med Azure-pipeline
 
@@ -23,7 +23,7 @@ Med push-åtgärden för [Azure App konfiguration](https://marketplace.visualstu
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - Konfigurations resurs för app – skapa en kostnads fri i [Azure Portal](https://portal.azure.com).
 - Azure DevOps-projekt – [skapa ett kostnads fritt](https://go.microsoft.com/fwlink/?LinkId=2014881)
-- Azure App konfiguration av push-uppgift – Ladda ned kostnads fritt från [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push#:~:text=Navigate%20to%20the%20Tasks%20tab,the%20Azure%20App%20Configuration%20instance.).
+- Azure App konfiguration av push-uppgift – Ladda ned kostnads fritt från [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push).
 
 ## <a name="create-a-service-connection"></a>Skapa en tjänst anslutning
 
@@ -49,7 +49,7 @@ Tilldela rätt roll tilldelningar för program konfigurationen till de autentise
 1. Navigera till konfigurations arkivet för mål programmet. 
 1. Välj **åtkomst kontroll (IAM)** till vänster.
 1. Längst upp väljer du **+ Lägg till** och välj **Lägg till roll tilldelning**.
-1. Under **roll**väljer du **konfigurations data ägare för appar**. Med den här rollen kan aktiviteten läsa från och skriva till appens konfigurations arkiv. 
+1. Under **roll** väljer du **konfigurations data ägare för appar**. Med den här rollen kan aktiviteten läsa från och skriva till appens konfigurations arkiv. 
 1. Välj det tjänst huvud namn som är associerat med den tjänst anslutning som du skapade i föregående avsnitt.
   
 ## <a name="use-in-builds"></a>Använd i versioner

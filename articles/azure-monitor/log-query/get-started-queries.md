@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 8b3b6a41da6e3100739da920472d582711d1e9b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a949c9b34e299e0dc4eccbb62f4b4ebb38d6ccb9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024389"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186719"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Kom igång med loggfrågor i Azure Monitor
 
 > [!NOTE]
-> Du kan arbeta med den här övningen i din egen miljö om du samlar in data från minst en virtuell dator. Om du inte gör det använder du vår [demo miljö](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), som innehåller massor av exempel data.  Om du redan vet hur du frågar i KQL, men bara behöver skapa användbara frågor baserat på resurs typ (er), kan du läsa avsnittet [sparade exempel frågor](saved-queries.md).
+> Du kan arbeta med den här övningen i din egen miljö om du samlar in data från minst en virtuell dator. Om du inte gör det använder du vår [demo miljö](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), som innehåller massor av exempel data.  Om du redan vet hur du frågar i KQL, men bara behöver skapa användbara frågor baserat på resurs typ (er), kan du läsa avsnittet [sparade exempel frågor](./example-queries.md).
 
 I den här självstudien får du lära dig att skriva logg frågor i Azure Monitor. Du får lära dig att:
 
@@ -28,14 +28,14 @@ I den här självstudien får du lära dig att skriva logg frågor i Azure Monit
 - Definiera och Använd anpassade fält
 - Sammanställda och grupp resultat
 
-En själv studie kurs om hur du använder Log Analytics i Azure Portal finns i [Kom igång med Azure Monitor Log Analytics](get-started-portal.md).<br>
+En själv studie kurs om hur du använder Log Analytics i Azure Portal finns i [Kom igång med Azure Monitor Log Analytics](./log-analytics-tutorial.md).<br>
 Mer information om logg frågor i Azure Monitor finns i [Översikt över logg frågor i Azure Monitor](log-query-overview.md).
 
 Följ tillsammans med en video version av den här kursen nedan:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
-## <a name="writing-a-new-query"></a>Skriver en ny fråga
+## <a name="writing-a-new-query"></a>Skriva en ny fråga
 
 Frågor kan inledas med antingen ett tabell namn eller kommandot *search* . Du måste börja med ett tabell namn, eftersom det definierar en tydlig omfattning för frågan och förbättrar både frågans prestanda och relevansen för resultatet.
 
@@ -44,7 +44,7 @@ Frågor kan inledas med antingen ett tabell namn eller kommandot *search* . Du m
 
 ### <a name="table-based-queries"></a>Tabellbaserade frågor
 
-Azure Monitor ordnar loggdata i tabeller, var och en består av flera kolumner. Alla tabeller och kolumner visas i rutan schema i Log Analytics i Analytics-portalen. Identifiera en tabell som du är intresse rad av och ta en titt på data:
+Azure Monitor organiserar loggdata i form av tabeller som var och en består av flera kolumner. Alla tabeller och kolumner visas i rutan schema i Log Analytics i Analytics-portalen. Identifiera en tabell som du är intresse rad av och ta en titt på data:
 
 ```Kusto
 SecurityEvent

@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 11/25/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2e54c0b09c3dbe398b0522d0ad9ad2314e29ed26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dcc84dc252001721a3848a008a3db80dcc7822d2
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023848"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301266"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Felsöka Azure Data Factory-anslutningsprogram
 
@@ -440,7 +440,7 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 
 - **Meddelande**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Orsak**: den första raden kommer att användas som kolumn namn när du anger firstRowAsHeader i aktivitet. Det här felet innebär att den första raden innehåller ett tomt värde. Exempel: "Kolumna,, ColumnB".
+- **Orsak**: den första raden kommer att användas som kolumn namn när du anger firstRowAsHeader i aktivitet. Det här felet innebär att den första raden innehåller ett tomt värde. Exempel: "Kolumna, ColumnB".
 
 - **Rekommendation**: kontrol lera den första raden och korrigera värdet om det finns ett tomt värde.
 
@@ -645,6 +645,29 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 
 - **Rekommendation**: ta bort CompressionType i nytto lasten.
 
+
+## <a name="rest"></a>REST
+
+### <a name="unexpected-network-response-from-rest-connector"></a>Oväntat nätverks svar från REST Connector
+
+- **Symptom**: slut punkten tar ibland emot oväntat svar (400/401/403/500) från rest Connector.
+
+- **Orsak**: rest source Connector använder URL och http-metod/sidhuvud/brödtext från länkad tjänst/data uppsättning/kopierings källa som parametrar vid konstruktion av en http-begäran. Problemet orsakades troligen av några misstag i en eller flera angivna parametrar.
+
+- **Lösning**: 
+    - Använd "sväng" i cmd-fönstret för att kontrol lera om parametern är orsaken eller inte (**Accept** -och **User-Agent** -huvuden ska alltid ingå):
+        ```
+        curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
+        ```
+      Om kommandot returnerar samma oväntade svar måste du åtgärda parametrarna med "sväng" tills det returnerar det förväntade svaret. 
+
+      Du kan också använda "sväng--Help" för mer avancerad användning av kommandot.
+
+    - Om endast ADF REST Connector returnerar oväntade svar kan du kontakta Microsoft Support för ytterligare fel sökning.
+    
+    - Observera att "sväng" kanske inte lämpar sig för att återskapa verifierings problemet för SSL-certifikat. I vissa fall kördes "klammer"-kommandot utan att några validerings problem med SSL-certifikatet har påträffats. Men när samma URL körs i webbläsaren, returneras inget SSL-certifikat i den första platsen där klienten kan upprätta förtroende med servern.
+
+      Verktyg som **Postman** och **Fiddler** rekommenderas för ovanstående fall.
 
 
 ## <a name="general-copy-activity-error"></a>Fel vid allmän kopierings aktivitet

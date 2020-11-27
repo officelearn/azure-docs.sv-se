@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92603165ac399415ec4fb6daeea1641065671a83
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86112120"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302927"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Dator grupper i Azure Monitor logg frågor
 Med dator grupper i Azure Monitor kan du begränsa [logg frågor](../log-query/log-query-overview.md) till en viss uppsättning datorer.  Varje grupp fylls med datorer antingen med en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en logg fråga begränsas resultatet till poster som matchar datorerna i gruppen.
@@ -61,7 +61,7 @@ När du konfigurerar Azure Monitor att importera Active Directory grupp medlemsk
 > [!NOTE]
 > Importerade Active Directory grupper innehåller bara Windows-datorer.
 
-Du konfigurerar Azure Monitor att importera Active Directory säkerhets grupper från **Avancerade inställningar** i din Log Analytics arbets yta i Azure Portal.  Välj **dator grupper** **Active Directory**och **importera Active Directory grupp medlemskap från datorer**.  Det krävs ingen ytterligare konfiguration.
+Du konfigurerar Azure Monitor att importera Active Directory säkerhets grupper från **Avancerade inställningar** i din Log Analytics arbets yta i Azure Portal.  Välj **dator grupper** **Active Directory** och **importera Active Directory grupp medlemskap från datorer**.  Det krävs ingen ytterligare konfiguration.
 
 ![Dator grupper från Active Directory](media/computer-groups/configure-activedirectory.png)
 
@@ -70,7 +70,7 @@ När grupper har importer ATS visar menyn hur många datorer med grupp medlemska
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
 När du konfigurerar Azure Monitor för att importera WSUS-gruppmedlemskap analyseras mål grupps medlemskapet för alla datorer med Log Analytics agenten.  Om du använder mål på klient sidan, har alla datorer som är anslutna till Azure Monitor och ingår i alla WSUS-målfält importerade grupp medlemskap för att Azure Monitor. Om du använder riktad på Server sidan bör Log Analytics Agent installeras på WSUS-servern för att grupp medlemskaps informationen ska importeras till Azure Monitor.  Detta medlemskap uppdateras kontinuerligt var fjärde timme. 
 
-Du konfigurerar Azure Monitor att importera WSUS-grupper från **Avancerade inställningar** i Log Analytics-arbetsytan i Azure Portal.  Välj **dator grupper**, **WSUS**och importera sedan **WSUS-gruppmedlemskap**.  Det krävs ingen ytterligare konfiguration.
+Du konfigurerar Azure Monitor att importera WSUS-grupper från **Avancerade inställningar** i Log Analytics-arbetsytan i Azure Portal.  Välj **dator grupper**, **WSUS** och importera sedan **WSUS-gruppmedlemskap**.  Det krävs ingen ytterligare konfiguration.
 
 ![Dator grupper från WSUS](media/computer-groups/configure-wsus.png)
 
@@ -97,13 +97,13 @@ Klicka på **x** i kolumnen **ta bort** om du vill ta bort dator gruppen.  Klick
 Du använder en dator grupp som skapats från en logg fråga i en fråga genom att behandla dess alias som en funktion, vanligt vis med följande syntax:
 
 ```kusto
-Table | where Computer in (ComputerGroup)`
+Table | where Computer in (ComputerGroup)
 ```
 
 Du kan till exempel använda följande för att returnera UpdateSummary-poster för endast datorer i en dator grupp med namnet mycomputergroup.
 
 ```kusto
-UpdateSummary | where Computer in (mycomputergroup)`
+UpdateSummary | where Computer in (mycomputergroup)
 ```
 
 Importerade dator grupper och de datorer som ingår lagras i tabellen **ComputerGroup** .  Följande fråga skulle till exempel returnera en lista över datorer i gruppen domän datorer från Active Directory. 

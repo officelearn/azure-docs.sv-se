@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 11/16/2020
-ms.openlocfilehash: 38f65253791f28d9ae9806bea1264e594b769b19
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: aaf0374bcafdb91f316b7133de1c2d019b12b285
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94741917"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302866"
 ---
 # <a name="introduction-to-listing-options"></a>Introduktion till List alternativ
 
@@ -145,7 +145,7 @@ I följande tabell visas de alternativ som är tillgängliga för olika erbjudan
 
 &#42; SaaS transactable erbjudanden i AppSource är för närvarande endast kredit kort.
 
-&#42;&#42; Microsoft 365 tillägg är kostnads fria att installeras och kan försäljas med hjälp av ett SaaS-erbjudande. Mer information finns i köpa [ditt Office 365-tillägg via Microsofts kommersiella Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace.md).
+&#42;&#42; Microsoft 365 tillägg är kostnads fria att installeras och kan försäljas med hjälp av ett SaaS-erbjudande. Mer information finns i köpa [ditt Office 365-tillägg via Microsofts kommersiella Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ## <a name="marketplace-rewards"></a>Marknads förmåner
 

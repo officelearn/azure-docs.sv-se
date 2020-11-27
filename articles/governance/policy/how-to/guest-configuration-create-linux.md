@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en princip för Azure Policy gäst konfigura
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 1f6308250717d35dc725b097575bf3921646c6a0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694250"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302712"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Skapa gästkonfigurationsprinciper för Linux
 
@@ -89,6 +89,10 @@ DSC agerar som en omslutning för att standardisera hur den körs, hur parametra
 #### <a name="configuration-requirements"></a>Konfigurationskrav
 
 Namnet på den anpassade konfigurationen måste vara konsekvent överallt. Namnet på. zip-filen för innehålls paketet, konfigurations namnet i MOF-filen och gäst tilldelnings namnet i Azure Resource Manager mall (ARM-mallen) måste vara samma.
+
+PowerShell-cmdletar hjälper dig att skapa paketet.
+Ingen mapp-eller versions katalog för rot nivå krävs.
+Paket formatet måste vara en. zip-fil. och får inte överskrida en total storlek på 100 MB vid okomprimerad.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Anpassad konfiguration av gäst konfiguration på Linux
 

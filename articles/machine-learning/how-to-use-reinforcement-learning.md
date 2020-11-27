@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b9966d4d9ab0a37f5484ec9eb9b7e2472a6b41dc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a7fdb370847e72657829d53df019203b0a5b211b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012910"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302577"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Förstärka inlärningen (för hands version) med Azure Machine Learning
 
@@ -36,7 +36,7 @@ I den här artikeln får du lära dig att:
 
 Den här artikeln baseras på [RLlib Pong-exemplet](https://aka.ms/azureml-rl-pong) som finns i Azure Machine Learning Notebooks GitHub- [lagringsplats](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kör den här koden i någon av följande miljöer. Vi rekommenderar att du försöker Azure Machine Learning beräknings instans för den snabbaste start upplevelsen. De förstärkta exempel antecknings böckerna är tillgängliga för att snabbt kunna klona och köra Azure Machine Learning beräknings instanser.
 
@@ -117,7 +117,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="specify-a-virtual-network"></a>Ange ett virtuellt nätverk
 
-För HUVUDWEBBADRESS-jobb som använder flera beräknings mål måste du ange ett virtuellt nätverk med öppna portar som tillåter att arbetsnoder och huvudnoder kan kommunicera med varandra. Det virtuella nätverket kan finnas i vilken resurs grupp som helst, men det bör finnas i samma region som din arbets yta. Mer information om hur du konfigurerar ditt virtuella nätverk finns i [installations programmet för arbets ytan installation](https://aka.ms/azure-rl-env-setup) som kan hittas i avsnittet krav. Här anger du namnet på det virtuella nätverket i resurs gruppen.
+För HUVUDWEBBADRESS-jobb som använder flera beräknings mål måste du ange ett virtuellt nätverk med öppna portar som tillåter att arbetsnoder och huvudnoder kan kommunicera med varandra. Det virtuella nätverket kan finnas i vilken resurs grupp som helst, men det bör finnas i samma region som din arbets yta. Mer information om hur du konfigurerar ditt virtuella nätverk finns i installations programmet för arbets ytan installation som kan hittas i avsnittet krav. Här anger du namnet på det virtuella nätverket i resurs gruppen.
 
 ```python
 vnet = 'your_vnet'

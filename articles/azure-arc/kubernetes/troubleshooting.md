@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Felsöka vanliga problem med ARC-aktiverade Kubernetes-kluster.
 keywords: Kubernetes, båge, Azure, behållare
-ms.openlocfilehash: 4a8f4c652f1ab73e0b9979f77d7de5014c8d31a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e05701b92d2d96074a07e0e61ce65145a1d9dfd
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540616"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302400"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Azure Arc Enabled Kubernetes Troubleshooting (för hands version)
 
@@ -69,7 +69,7 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Alla poddar ska visas `STATUS` som `Running` och `READY` ska vara antingen `3/3` eller `2/2` . Hämta loggar och beskriv poddar som returnerar `Error` eller `CrashLoopBackOff` . Om något av dessa poddar har fastnat i `Pending` tillstånd kan det bero på otillräckliga resurser på klusternoderna. När du [skalar upp klustret](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#resizing-a-cluster) får dessa poddar över gång till `Running` status.
+Alla poddar ska visas `STATUS` som `Running` och `READY` ska vara antingen `3/3` eller `2/2` . Hämta loggar och beskriv poddar som returnerar `Error` eller `CrashLoopBackOff` . Om något av dessa poddar har fastnat i `Pending` tillstånd kan det bero på otillräckliga resurser på klusternoderna. När du [skalar upp klustret](https://kubernetes.io/docs/tasks/administer-cluster/) får dessa poddar över gång till `Running` status.
 
 ## <a name="connecting-kubernetes-clusters-to-azure-arc"></a>Ansluta Kubernetes-kluster till Azure-bågen
 

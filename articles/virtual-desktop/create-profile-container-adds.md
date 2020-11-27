@@ -6,18 +6,18 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ea834ed874f3011d95f8b924df860576f72bc4ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70a56b7efc34ba2fd3c06521c6e4cac6ea28778f
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88825621"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302475"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Skapa en profil behållare med Azure Files och Azure AD DS
 
 I den här artikeln visas hur du skapar en FSLogix profil behållare med Azure Files och Azure Active Directory Domain Services (AD DS).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du redan har konfigurerat en Azure AD DS-instans. Om du inte har en ännu, följ instruktionerna i [skapa en grundläggande hanterad domän](../active-directory-domain-services/tutorial-create-instance.md) först och gå sedan tillbaka hit.
 
@@ -27,7 +27,7 @@ Om du vill lägga till ytterligare administratörer skapar du en ny användare o
 
 Så här lägger du till en administratör:
 
-1. Välj **Azure Active Directory** på sid panelen, Välj **alla användare**och välj sedan **ny användare**.
+1. Välj **Azure Active Directory** på sid panelen, Välj **alla användare** och välj sedan **ny användare**.
 
 2.  Ange användar informationen i fälten.
 
@@ -35,7 +35,7 @@ Så här lägger du till en administratör:
 
 4. Välj **Administratörs** gruppen för AAD-domänkontrollant.
 
-5. I den vänstra rutan väljer du **medlemmar**och väljer sedan **Lägg till medlemmar** i huvud fönstret. Då visas en lista över alla användare som är tillgängliga i Azure AD. Välj namnet på den användar profil som du nyss skapade.
+5. I den vänstra rutan väljer du **medlemmar** och väljer sedan **Lägg till medlemmar** i huvud fönstret. Då visas en lista över alla användare som är tillgängliga i Azure AD. Välj namnet på den användar profil som du nyss skapade.
 
 ## <a name="set-up-an-azure-storage-account"></a>Konfigurera ett Azure Storage konto
 
@@ -67,7 +67,7 @@ Så här tilldelar du användare åtkomst behörigheter:
 
 4. På fliken **Lägg till roll tilldelning** väljer du lämplig inbyggd roll i listan roll. Du måste minst välja **Storage File data SMB Share Contributor** för att kontot ska få rätt behörighet.
 
-5. För **tilldela åtkomst till**väljer du **Azure Active Directory användare, grupp eller tjänstens huvud namn**.
+5. För **tilldela åtkomst till** väljer du **Azure Active Directory användare, grupp eller tjänstens huvud namn**.
 
 6. Välj ett namn eller en e-postadress för målets Azure Active Directory identitet.
 
@@ -79,11 +79,11 @@ Sedan måste du hämta åtkomst nyckeln för ditt lagrings konto.
 
 Så här hämtar du åtkomst nyckeln för lagrings kontot:
 
-1. Välj **lagrings konton**från Azure Portal sid panelen.
+1. Välj **lagrings konton** från Azure Portal sid panelen.
 
 2. I listan över lagrings konton väljer du det konto som du har aktiverat Azure AD DS för och skapade de anpassade rollerna i stegen ovan.
 
-3. Under **Inställningar**väljer du **åtkomst nycklar** och kopierar nyckeln från **KEY1**.
+3. Under **Inställningar** väljer du **åtkomst nycklar** och kopierar nyckeln från **KEY1**.
 
 4. Gå till fliken **Virtual Machines** och leta upp alla virtuella datorer som kommer att bli en del av din värddator.
 
@@ -99,7 +99,7 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
 7. Kör följande kommando:
 
      ```cmd
-     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
+     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
      ```
 
     - Ersätt `<desired-drive-letter>` med en valfri enhets beteckning (till exempel `y:` ).
@@ -107,7 +107,7 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
     - Ersätt `<share-name>` med namnet på resursen som du skapade tidigare.
     - Ersätt `<storage-account-key>` med lagrings konto nyckeln från Azure.
 
-    Exempel:
+    Ett exempel:
 
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
@@ -125,7 +125,7 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
     - Ersätt `<mounted-drive-letter>` med bokstaven för den enhet som du använde för att mappa enheten.
     - Ersätt `<user-email>` med UPN för den användare eller Active Directory grupp som innehåller de användare som ska ha åtkomst till resursen.
 
-    Exempel:
+    Ett exempel:
 
      ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
@@ -142,29 +142,29 @@ Så här konfigurerar du en FSLogix profil behållare:
 
 1. Logga in på den virtuella dator som du konfigurerade i början av den här artikeln och [Ladda ned och installera FSLogix-agenten](/fslogix/install-ht/).
 
-2. Zippa upp FSLogix agent-filen som du laddade ned och gå till **x64**  >  -**versioner**och öppna **FSLogixAppsSetup.exe**.
+2. Zippa upp FSLogix agent-filen som du laddade ned och gå till **x64**  >  -**versioner** och öppna **FSLogixAppsSetup.exe**.
 
 3. När installations programmet har startat väljer **du jag accepterar licens villkoren.** Ange en ny nyckel om det är tillämpligt.
 
-4. Välj **installera**.
+4. Välj **Installera**.
 
-5. Öppna **enhet C**och gå sedan till **program filer**  >  **FSLogix**-  >  **appar** för att kontrol lera att FSLogix-agenten har installerats korrekt.
+5. Öppna **enhet C** och gå sedan till **program filer**  >  **FSLogix**-  >  **appar** för att kontrol lera att FSLogix-agenten har installerats korrekt.
 
      >[!NOTE]
      > Om det finns flera virtuella datorer i värd gruppen måste du upprepa steg 1 till 5 för varje virtuell dator.
 
 6. Kör **Registereditorn** (regedit) som administratör.
 
-7. Navigera till **datorn**  >  **HKEY_LOCAL_MACHINE**  >  **program vara**  >  **FSLogix**, högerklicka på **FSLogix**, Välj **ny**och välj sedan **nyckel**.
+7. Navigera till **datorn**  >  **HKEY_LOCAL_MACHINE**  >  **program vara**  >  **FSLogix**, högerklicka på **FSLogix**, Välj **ny** och välj sedan **nyckel**.
 
 8. Skapa en ny nyckel med namnet **profiler**.
 
-9.  Högerklicka på **profiler**, Välj **ny**och välj sedan **DWORD (32-bitars) värde.** Ge värdet värdet **aktiverat** och ange värdet **1**för **datavärdet** .
+9.  Högerklicka på **profiler**, Välj **ny** och välj sedan **DWORD (32-bitars) värde.** Ge värdet värdet **aktiverat** och ange värdet **1** för **datavärdet** .
 
     > [!div class="mx-imgBorder"]
     > ![En skärm bild av profil nyckeln. REG_DWORD-filen markeras och dess data värde är inställt på 1.](media/dword-value.png)
 
-10. Högerklicka på **profiler**, Välj **ny**och sedan **Multiple String-värde**. Namnge värdet **VHDLocations** och ange en URI för Azure Files-resursen `\\fsprofile.file.core.windows.net\share` som datavärdet.
+10. Högerklicka på **profiler**, Välj **ny** och sedan **Multiple String-värde**. Namnge värdet **VHDLocations** och ange en URI för Azure Files-resursen `\\fsprofile.file.core.windows.net\share` som datavärdet.
 
     > [!div class="mx-imgBorder"]
     > ![En skärm bild av profil nyckeln som visar VHDLocations-filen. Dess data värde visar URI för den Azure Files resursen.](media/multi-string-value.png)
@@ -206,7 +206,7 @@ Så här tilldelar du användare:
 
     Precis som de tidigare cmdletarna, se till att ersätta `<your-wvd-tenant>` , `<wvd-pool>` och `<user-principal>` med relevanta värden.
 
-    Exempel:
+    Ett exempel:
 
      ```powershell
      $pool1 = "contoso"
@@ -232,7 +232,7 @@ Så här verifierar du din profil:
 
 3. När användarsessionen har upprättats öppnar du Azure Portal och loggar in med ett administratörs konto.
 
-4. Välj **lagrings konton**från sido panelen.
+4. Välj **lagrings konton** från sido panelen.
 
 5. Välj det lagrings konto som du konfigurerade som fil resurs för din sessions värd pool och aktive rad med Azure AD DS.
 

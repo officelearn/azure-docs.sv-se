@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 9e1c45b99138a05ef78976b90f65f57304e676ff
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: aa97fa5e92d4afe11cf8af5f7cfd3458a3c12014
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962781"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302733"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>Migrera SQL Server till SQL-hanterad instans med PowerShell & Azure Database Migration Service
 
@@ -80,7 +80,7 @@ Denna cmdlet förväntar sig följande obligatoriska parametrar:
 * *Tjänst namn*. Sträng som motsvarar det önskade unika tjänst namnet för Azure Database Migration Service.
 * *Plats*. Anger tjänstens plats. Ange en plats för Azure Data Center, till exempel USA, västra eller Sydostasien.
 * *SKU*. Den här parametern motsvarar DMS SKU-namnet. SKU-namn som stöds för närvarande är *Basic_1vCore* *Basic_2vCores* *GeneralPurpose_4vCores*.
-* *ID för virtuell undernät*. Du kan använda cmdleten [`New-AzVirtualNetworkSubnetConfig`](//powershell/module/az.network/new-azvirtualnetworksubnetconfig) för att skapa ett undernät.
+* *ID för virtuell undernät*. Du kan använda cmdleten [`New-AzVirtualNetworkSubnetConfig`](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) för att skapa ett undernät.
 
 I följande exempel skapas en tjänst med namnet *MyDMS* i resurs gruppen *MyDMSResourceGroup* som finns i regionen *USA, östra* med ett virtuellt nätverk med namnet *MyVNET* och ett undernät med namnet *mitt undernät*.
 

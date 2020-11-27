@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: cfa40332c45eac23d062b83bb789c25f1906ae24
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8e479367a04e105ae2111ce66707999aff7ef960
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831641"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302449"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Högpresterande tjänster med Triton-Härlednings Server (för hands version) 
 
@@ -32,7 +32,7 @@ Triton är ett ramverk som är *optimerat för en härledning*. Den ger bättre 
 > [!TIP]
 > Kodfragmenten i det här dokumentet är i exempel syfte och kanske inte visar en komplett lösning. Information om hur du använder exempel kod finns i [Azure Machine Learning från slut punkt till slut punkt för Triton i](https://github.com/Azure/azureml-examples/tree/main/tutorials).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 * Bekanta dig med [hur och var du distribuerar en modell](how-to-deploy-and-where.md) med Azure Machine Learning.
@@ -53,7 +53,7 @@ Innan du försöker använda Triton för din egen modell är det viktigt att du 
 
 ### <a name="setting-the-number-of-workers"></a>Ange antalet arbetare
 
-Ställ in miljövariabeln för att ange antalet arbetare i distributionen `WORKER_COUNT` . Med tanke på att du har ett [miljö](https://docs.microsoft.compython/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) objekt `env` som kallas kan du göra följande:
+Ställ in miljövariabeln för att ange antalet arbetare i distributionen `WORKER_COUNT` . Med tanke på att du har ett [miljö](/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) objekt `env` som kallas kan du göra följande:
 
 ```{py}
 env.environment_variables["WORKER_COUNT"] = "1"

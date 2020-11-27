@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 9a2bda0a526c307ae17d8415f6f24423ddf51b63
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 8a4f9a5df8def928c06fe95a53c7be0d93ec76c4
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917774"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302681"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Azure HDInsight ID Broker (HIB)
 
@@ -52,7 +52,7 @@ Följande diagram visar det grundläggande autentiseringsschemat för federerade
 
 Så här skapar du ett Enterprise Security Package kluster med HDInsight ID Broker aktiverat:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Följ de grundläggande stegen för att skapa Enterprise Security Package-kluster. Mer information finns i [skapa ett HDInsight-kluster med Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 1. Välj **Aktivera HDInsight ID Broker**.
 
@@ -138,9 +138,9 @@ curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application
 
 För att använda Beeline och livy kan du även följa de exempel koder som anges [här](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) för att konfigurera klienten att använda OAuth och ansluta till klustret.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 ### <a name="what-app-is-created-by-hdinsight-in-aad"></a>Vilken app skapas av HDInsight i AAD?
-För varje kluster registreras ett program från tredje part i AAD med kluster-URI som identifierar (t https://clustername.azurehdinsight.net . ex.).
+För varje kluster registreras ett program från tredje part i AAD med kluster-URI som identifierar (t `https://clustername.azurehdinsight.net` . ex.).
 
 ### <a name="why-are-users-prompted-for-consent-before-using-hib-enabled-clusters"></a>Varför uppmanas användarna att ange medgivande innan de använder HIB-aktiverade kluster?
 I AAD krävs medgivande för alla program från tredje part innan det kan autentisera användare eller komma åt data.

@@ -4,12 +4,12 @@ description: Lär dig hur du kör en agent-baserad migrering av virtuella VMware
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: ffdbdba0aeae33b04195c5a6bf6aeaff5658424b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 437dbce1c577b5d837ad0c70e8e8865ba59cf9e6
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012245"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302759"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrera virtuella VMware-datorer till Azure (agent-baserad)
 
@@ -40,7 +40,7 @@ Innan du påbörjar den här självstudien [granskar](./agent-based-migration-ar
 
 Slutför uppgifterna i tabellen för att förbereda Azure för agent-baserad migrering.
 
-**Uppgift** | **Detaljer**
+**Uppgift** | **Information**
 --- | ---
 **Skapa ett Azure Migrate-projekt** | Ditt Azure-konto behöver deltagar-eller ägar behörighet för att skapa ett projekt.
 **Verifiera behörigheter för Azure-kontot** | Ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.
@@ -84,7 +84,7 @@ Azure Migrate Server-migrering behöver åtkomst till VMware-servrar för att id
 
 #### <a name="vmware-account-permissions"></a>Behörighet för VMware-konto
 
-**Uppgift** | **Roll/behörigheter** | **Detaljer**
+**Uppgift** | **Roll/behörigheter** | **Information**
 --- | --- | ---
 **VM-identifiering** | Minst en skrivskyddad användare<br/><br/> Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).
 **Replikering** |  Skapa en roll (Azure_Site_Recovery) med behörigheterna som krävs och tilldela sedan rollen till en VMware-användare eller grupp<br/><br/> Datacenterobjekt –> Sprid till underordnat objekt, roll=Azure_Site_Recovery<br/><br/> Datalager -> Allokera utrymme, bläddra i datalagret, filåtgärder på låg nivå, ta bort filen, uppdatera filer för virtuella datorer<br/><br/> Nätverk -> Tilldela nätverk<br/><br/> Resurs -> Tilldela VM till resurspool, migrera avstängd VM, migrera påslagen VM<br/><br/> Uppgifter -> Skapa uppgift, uppdatera uppgift<br/><br/> Virtuell dator -> Konfiguration<br/><br/> Virtuell dator -> Interagera -> Besvara fråga, enhetsanslutning, konfigurera CD-skiva, konfigurera diskettstation, stänga av, sätta på, installera VMware-verktyg<br/><br/> Virtuell dator -> Lager -> Skapa, registrera, avregistrera<br/><br/> Virtuell dator -> Etablering -> Tillåt nedladdning till virtuell dator, tillåt filuppladdning till virtuell dator<br/><br/> Virtuell dator -> Ögonblicksbilder -> Ta bort ögonblicksbilder | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, data lager, VMsa, nd-nätverk).
@@ -134,36 +134,6 @@ Se till att VMware-servrar och virtuella datorer uppfyller kraven för migrering
 > [!NOTE]
 > Agent-baserad migrering med Azure Migrate Server-migrering baseras på funktionerna i tjänsten Azure Site Recovery. Vissa krav kan vara länkade till Site Recovery-dokumentationen.
 
-
-
-## <a name="add-the-azure-migrateserver-migration-tool"></a>Lägg till verktyget Azure Migrate: Migreringsverktyg för Server
-
-Om du inte redan har ett Azure Migrate-projekt [konfigurerar du det](how-to-add-tool-first-time.md) nu och lägger till Migreringsverktyg för Server.
-
-Om du har ett projekt lägger du till verktyget enligt följande:
-
-1. I Azure-portalen > **Alla tjänster** söker du efter **Azure Migrate**.
-2. Under **Tjänster** väljer du **Azure Migrate**.
-
-    ![Konfigurera Azure Migrate](./media/tutorial-migrate-vmware-agent/azure-migrate-search.png)
-
-3. I **översikten** klickar du på **Utvärdera och migrera servrar**.
-4. Under **identifiera, utvärdera och migrera servrar** klickar du på **utvärdera och migrera servrar**.
-
-    ![Identifiera och utvärdera servrar](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
-
-1. I **Discover, assess and migrate servers** (Identifiera, utvärdera och migrera servrar) klickar du på **Lägg till verktyg**.
-2. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.
-3. I **Projektinformation** anger du projektnamnet och geografin där du vill skapa projektet och klickar på **Nästa**. Granska stödda geografiska områden för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [offentliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
-
-    ![Skapa ett Azure Migrate-projekt](./media/tutorial-migrate-vmware-agent/migrate-project.png)
-
-
-4. I **Välj utvärderingsverktyg** väljer du **Hoppa över att lägga till ett utvärderingsverktyg just nu** > **Nästa**.
-5. I **Välj migreringsverktyg** väljer du  **Azure Migrate: Servermigrering** > **Nästa**.
-6. I **Review + add tools** (Granska + lägg till verktyg)
-granskar du inställningarna och klickar på **Lägg till verktyg**
-7. När du har lagt till verktyget visas det i Azure Migrate för Project > **Server**-  >  **Migreringsverktyg**.
 
 ## <a name="set-up-the-replication-appliance"></a>Konfigurera replikerings enheten
 

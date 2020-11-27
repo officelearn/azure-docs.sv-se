@@ -4,12 +4,12 @@ description: Lär dig hur du kör en agent lös migrering av virtuella VMware-da
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 3e263306cf18dfebe4b73f8d940b8eb5c99ed16f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 7eb918a844b1cd542664ac7e5aec2736ceba0e6f
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310635"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301635"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrera virtuella VMware-datorer till Azure (utan agent)
 
@@ -21,7 +21,7 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 > Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudierna använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. 
 
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Lägg till Azure-migrering: Migreringsverktyg för Server.
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Kör en testmigrering för att se till att allt fungerar som förväntat.
 > * Kör en fullständig migrering av virtuella datorer.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -38,24 +38,8 @@ Innan du börjar de här självstudierna bör du:
 
 1. [Slutför den första självstudien](./tutorial-discover-vmware.md) för att förbereda Azure och VMware för migrering.
 2. Vi rekommenderar att du slutför den andra självstudien för att [utvärdera virtuella VMware-datorer](./tutorial-assess-vmware-azure-vm.md) innan du migrerar dem till Azure, men du behöver inte. 
-
-
-## <a name="add-the-azure-migrate-server-migration-tool"></a>Lägg till verktyget för migrering av Azure Migrate Server
-
-Om du inte har konfigurerat något Azure Migrate-projekt ännu, [gör du det](how-to-add-tool-first-time.md) innan du lägger till verktyget. Om du har skapat ett projekt lägger du till verktyget enligt följande:
-
-1. Klicka på **Översikt**i Azure Migrate projektet. 
-2. I **identifiera, utvärdera**och migrera servrar klickar du på **utvärdera och migrera servrar**.
-
-     ![Utvärdera och migrera servrar](./media/tutorial-migrate-vmware/assess-migrate.png)
-
-3. I **Migreringsverktyg**väljer **du klicka här för att lägga till ett Migreringsverktyg när du är redo att migrera**.
-
-    ![Välj ett verktyg](./media/tutorial-migrate-vmware/select-migration-tool.png)
-
-4. I listan verktyg väljer du **Azure Migrate:**  >  **Lägg till verktyget** Migreringsverktyg
-
-    ![Verktyg för servermigrering](./media/tutorial-migrate-vmware/server-migration-tool.png)
+3. Gå till det redan skapade projektet eller [skapa ett nytt projekt](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+4. Verifiera behörigheter för ditt Azure-konto – ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Konfigurera Azure Migrate-enheten
 
@@ -75,7 +59,7 @@ När du har konfigurerat installationen och slutfört identifieringen kan du på
 
 Aktivera replikering på följande sätt:
 
-1. I Azure Migrate Project >- **servrar** **Azure Migrate: Server-migrering**klickar du på **Replikera**.
+1. I Azure Migrate Project >- **servrar** **Azure Migrate: Server-migrering** klickar du på **Replikera**.
 
     ![Replikera virtuella datorer](./media/tutorial-migrate-vmware/select-replicate.png)
 
@@ -84,17 +68,17 @@ Aktivera replikering på följande sätt:
 
     ![Källinställningar](./media/tutorial-migrate-vmware/source-settings.png)
 
-4. I **Virtuella datorer** väljer du de datorer som du vill replikera. Om du vill använda storleks ändring och disk typ för virtuell dator från en utvärdering om du har kört en, i **Importera inställningar för migrering från en Azure Migrate-utvärdering?** väljer du **Ja**och väljer den virtuella dator gruppen och utvärderings namnet. Om du inte använder bedömnings inställningar väljer du **Nej**.
+4. I **Virtuella datorer** väljer du de datorer som du vill replikera. Om du vill använda storleks ändring och disk typ för virtuell dator från en utvärdering om du har kört en, i **Importera inställningar för migrering från en Azure Migrate-utvärdering?** väljer du **Ja** och väljer den virtuella dator gruppen och utvärderings namnet. Om du inte använder bedömnings inställningar väljer du **Nej**.
    
     ![Välj utvärdering](./media/tutorial-migrate-vmware/select-assessment.png)
 
-5. I **virtuella datorer**väljer du de virtuella datorer som du vill migrera. Klicka sedan på **Nästa: mål inställningar**.
+5. I **virtuella datorer** väljer du de virtuella datorer som du vill migrera. Klicka sedan på **Nästa: mål inställningar**.
 
     ![Välj virtuella datorer](./media/tutorial-migrate-vmware/select-vms.png)
 
-6. I **mål inställningar**väljer du prenumerationen och mål regionen. Ange resurs gruppen där de virtuella Azure-datorerna finns efter migreringen.
-7. I **Virtual Network**väljer du det virtuella Azure-nätverk/undernät som de virtuella Azure-datorerna ska ansluta till efter migreringen.
-8. I **tillgänglighets alternativ**väljer du:
+6. I **mål inställningar** väljer du prenumerationen och mål regionen. Ange resurs gruppen där de virtuella Azure-datorerna finns efter migreringen.
+7. I **Virtual Network** väljer du det virtuella Azure-nätverk/undernät som de virtuella Azure-datorerna ska ansluta till efter migreringen.
+8. I **tillgänglighets alternativ** väljer du:
     -  Tillgänglighets zon för att fästa den migrerade datorn i en angiven tillgänglighets zon i regionen. Använd det här alternativet för att distribuera servrar som utgör en program nivå med flera noder i Tillgänglighetszoner. Om du väljer det här alternativet måste du ange den tillgänglighets zon som ska användas för var och en av de valda datorerna på fliken beräkning. Det här alternativet är bara tillgängligt om det valda mål området för migreringen stöder Tillgänglighetszoner
     -  Tillgänglighets uppsättning för att placera den migrerade datorn i en tillgänglighets uppsättning. Den valda mål resurs gruppen måste ha en eller flera tillgänglighets uppsättningar för att kunna använda det här alternativet.
     - Inget alternativ för infrastrukturs redundans krävs om du inte behöver någon av dessa tillgänglighets konfigurationer för de migrerade datorerna.
@@ -106,7 +90,7 @@ Aktivera replikering på följande sätt:
 
     ![Mål inställningar](./media/tutorial-migrate-vmware/target-settings.png)
 
-10. I **Compute**granskar du VM-namn, storlek, typ av operativ system disk och tillgänglighets konfiguration (om du valde i föregående steg). De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+10. I **Compute** granskar du VM-namn, storlek, typ av operativ system disk och tillgänglighets konfiguration (om du valde i föregående steg). De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
     - **VM-storlek**: om du använder bedömnings rekommendationer visas den rekommenderade storleken i list rutan VM-storlek. Annars väljer Azure Migrate en storlek baserat på den närmaste matchningen i Azure-prenumerationen. Du kan också välja en storlek manuellt i **Storlek på virtuell Azure-dator**. 
     - **OS-disk**: Ange OS-disken (start) för den virtuella datorn. Operativsystemdisken är den disk där operativsystemets bootloader och installationsprogram finns. 
@@ -161,7 +145,7 @@ När delta-replikering börjar kan du köra en testmigrering för de virtuella d
 Gör en testmigrering enligt följande:
 
 
-1. I Server för **migrerings mål**  >  **Servers**  >  **Azure Migrate: Server migrering**klickar du på **test migrerade servrar**.
+1. I Server för **migrerings mål**  >  **Servers**  >  **Azure Migrate: Server migrering** klickar du på **test migrerade servrar**.
 
      ![Testmigrerade servrar](./media/tutorial-migrate-vmware/test-migrated-servers.png)
 
@@ -181,12 +165,12 @@ Gör en testmigrering enligt följande:
 
 När du har kontrollerat att testmigreringen fungerar som förväntat kan du migrera de lokala datorerna.
 
-1. I Azure Migrate Project >- **servrar**  >  **Azure Migrate: Server-migrering**klickar du på **Replikera servrar**.
+1. I Azure Migrate Project >- **servrar**  >  **Azure Migrate: Server-migrering** klickar du på **Replikera servrar**.
 
     ![Servrarna replikeras](./media/tutorial-migrate-vmware/replicate-servers.png)
 
 2. I **Replikera datorer** högerklickar du på den virtuella datorn > **Migrera**.
-3. I **migrera**  >  **Stäng virtuella datorer och utför en planerad migrering utan data förlust**väljer du **Ja**  >  **OK**.
+3. I **migrera**  >  **Stäng virtuella datorer och utför en planerad migrering utan data förlust** väljer du **Ja**  >  **OK**.
     - Som standard stänger Azure Migrate av den lokala virtuella datorn och kör en replikering på begäran som synkroniserar eventuella VM-ändringar som har inträffat sedan den senaste replikeringen utfördes. Detta säkerställer att ingen dataförlust sker.
     - Om du inte vill stänga av den virtuella datorn väljer du **Nej**
 4. Ett migreringsjobb startas för den virtuella datorn. Spåra jobbet i Azure-meddelanden.

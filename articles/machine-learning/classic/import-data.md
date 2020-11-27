@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 00501a1e17f8e085b817cfe3dac819ba890248f5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c69ed7b9e2aaa7113637868e1c1329ed2962b931
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309843"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302783"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importera dina utbildnings data till Azure Machine Learning Studio (klassisk) från olika data källor
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Om du vill använda dina egna data i Machine Learning Studio (klassisk) för att utveckla och träna en förutsägelse analys lösning kan du använda data från: 
@@ -54,7 +54,7 @@ Du kan importera ett antal data typer till experimentet, beroende på vilken mek
 * SQL Database-tabell
 * OData-värden
 * SVMLight-data (. SVMLight) (se [SVMLight-definitionen](http://svmlight.joachims.org/) för format information)
-* ARFF-data (Attribute Relations fil format) (. arff) (se [arff-definitionen](https://weka.wikispaces.com/ARFF) för format information)
+* ARFF-data (Attribute Relations fil format) (. arff) (se [arff-definitionen](https://www.cs.waikato.ac.nz/ml/weka/arff.html) för format information)
 * Zip-fil (. zip)
 * R-objekt eller arbetsytefil (. RData
 
@@ -73,12 +73,12 @@ Följande data typer kan identifieras av Studio (klassisk):
 * DateTime
 * TimeSpan
 
-Studio använder en intern datatyp som kallas * **data tabell** _ för att skicka data mellan moduler. Du kan uttryckligen konvertera dina data till data tabell format med hjälp av modulen [konvertera till data uppsättning][convert-to-dataset] .
+Studio använder en intern datatyp som kallas ***data tabell** _ för att skicka data mellan moduler. Du kan uttryckligen konvertera dina data till data tabell format med hjälp av modulen [konvertera till data uppsättning][convert-to-dataset] .
 
 Alla moduler som accepterar andra format än data tabeller kommer att konvertera data till data tabellen tyst innan de skickas till nästa modul.
 
 Vid behov kan du konvertera data tabell format tillbaka till CSV-, TSV-, ARFF-eller SVMLight-format med andra konverterings moduler.
-Titta i avsnittet _ *konverteringar för data format* * i modulen modul för moduler som utför dessa funktioner.
+Titta i avsnittet _ *konverteringar för data format** i modulen modul för moduler som utför dessa funktioner.
 
 ## <a name="data-capacities"></a>Data kapaciteter
 

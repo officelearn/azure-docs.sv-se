@@ -8,12 +8,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: f164418c29e9838928f3d03519342ebef40e16e7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b14bd60ab744be5a1735abc073f32f8ebc3e1ab1
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015705"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301708"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Skapa och Använd brand Väggs reglerna för webbaserade program v2 på Application Gateway
 
@@ -21,7 +21,7 @@ Brand väggen för webbaserade program (WAF) V2 på Azure Application Gateway ge
 
 I den här artikeln visas några exempel på anpassade regler som du kan skapa och använda med din v2-WAF. Information om hur du distribuerar en WAF med en anpassad regel med hjälp av Azure PowerShell finns i [Konfigurera anpassade regler för brand vägg för webbaserade program med hjälp av Azure PowerShell](configure-waf-custom-rules.md).
 
-JSON-kodfragmenten som visas i den här artikeln härleds från en [ApplicationGatewayWebApplicationFirewallPolicies](/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) -resurs.
+JSON-kodfragmenten som visas i den här artikeln härleds från en [ApplicationGatewayWebApplicationFirewallPolicies](/azure/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) -resurs.
 
 >[!NOTE]
 > Om din Application Gateway inte använder WAF-nivån visas alternativet för att uppgradera programgatewayen till WAF-nivån i den högra rutan.

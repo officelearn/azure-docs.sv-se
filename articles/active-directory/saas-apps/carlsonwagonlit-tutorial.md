@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 04399dc82a3bd2d70b8b472b121e95a73ca43136
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9c27139e2dca37c1ff8d963e1e8cdb5de682d39d
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009627"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302945"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Självstudie: Azure Active Directory integrering med Carlson Wagonlit Travel
 
@@ -30,7 +30,7 @@ När du integrerar Carlson Wagonlit Travel med Azure AD får du följande förde
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Carlson Wagonlit Travel behöver du följande:
 
@@ -119,7 +119,7 @@ För att konfigurera enkel inloggning i Azure AD med Carlson Wagonlit Travel beh
 
 ### <a name="configure-carlson-wagonlit-travel-single-sign-on"></a>Konfigurera enkel inloggning i Carlson Wagonlit Travel
 
-För att konfigurera enkel inloggning på **Carlson Wagonlit Travel**-sidan behöver du skicka nedladdad **federationsmetadata-XML** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Carlson Wagonlit Travel](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **Carlson Wagonlit Travel**-sidan behöver du skicka nedladdad **federationsmetadata-XML** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Carlson Wagonlit Travel](https://www.mycwt.com/traveler-help/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -174,7 +174,7 @@ I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure ge
 
 ### <a name="create-carlson-wagonlit-travel-test-user"></a>Skapa Carlson Wagonlit Travel-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Carlson Wagonlit Travel. Arbeta med [Carlson Wagonlit Travel support team](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html) för att lägga till användare i Carlson Wagonlit Travel Platform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Carlson Wagonlit Travel. Arbeta med [Carlson Wagonlit Travel support team](https://www.mycwt.com/traveler-help/) för att lägga till användare i Carlson Wagonlit Travel Platform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

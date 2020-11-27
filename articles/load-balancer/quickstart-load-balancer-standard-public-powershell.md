@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: b9bcdbdf8bdad0d1ad96fc043f29a84b962318c2
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 9f443b15cd427dd31c2ffa95af8d1124f1169881
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95324018"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302645"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Snabb start: skapa en offentlig belastningsutjämnare för att belastningsutjämna virtuella datorer med Azure PowerShell
 
 Kom igång med Azure Load Balancer genom att använda Azure PowerShell för att skapa en offentlig belastningsutjämnare och tre virtuella datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installerat lokalt eller Azure Cloud Shell
@@ -618,7 +618,7 @@ I det här avsnittet ska du skapa de virtuella datorerna för belastningsutjämn
 
 * Skapa tre nätverks gränssnitt med [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
 
-* Ange ett administratörs användar namn och lösen ord för de virtuella datorerna med [Get-Credential](/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
+* Ange ett administratörs användar namn och lösen ord för de virtuella datorerna med [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
 
 * Använd [New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm) för att skapa en tillgänglighets uppsättning för de virtuella datorerna.
 

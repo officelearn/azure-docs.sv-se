@@ -3,12 +3,12 @@ title: Så här skapar du gästkonfigurationsprinciper för Windows
 description: Lär dig hur du skapar en princip för Azure Policy gäst konfiguration för Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: ea9b40006deefbac2c253082eda4ef2da12149a4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 124f747a1e7c7925efc2519ee826d62034e69cc5
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700695"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302690"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Så här skapar du gästkonfigurationsprinciper för Windows
 
@@ -160,7 +160,7 @@ Det slutförda paketet används av gäst konfigurationen för att skapa Azure Po
 
 PowerShell-cmdletar hjälper dig att skapa paketet.
 Ingen mapp-eller versions katalog för rot nivå krävs.
-Paket formatet måste vara en. zip-fil.
+Paket formatet måste vara en. zip-fil och får inte överskrida den totala storleken 100 MB vid okomprimerat.
 
 ### <a name="storing-guest-configuration-artifacts"></a>Lagring av gäst konfigurations artefakter
 

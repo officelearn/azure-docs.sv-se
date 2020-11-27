@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar virtuella AWS-datorer 
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 62bfad2cc92e7af61a10360878ebaa3093897e97
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 12785d1e65caf11b24102d2a9c186fe0adcb1fd3
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310725"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302660"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Upptäck, utvärdera och migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur man:
 > * Kör en testmigrering för att se till att allt fungerar som förväntat.
 > * Kör en fullständig migrering till Azure.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 ## <a name="discover-and-assess"></a>Identifiera och utvärdera
 
@@ -61,7 +61,7 @@ Konfigurera en utvärdering på följande sätt:
 
 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 - Se till att de virtuella AWS-datorerna som du vill migrera kör en operativ system version som stöds. Virtuella AWS-datorer behandlas som fysiska datorer för migreringen. Granska de [operativ system och kernel-versioner som stöds](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för migreringen av den fysiska servern. Du kan använda standard kommandon som *hostnamectl* eller *uname-a* för att kontrol lera operativ system och kernel-versioner för dina virtuella Linux-datorer.  Vi rekommenderar att du utför en testmigrering (redundanstest) för att kontrol lera om den virtuella datorn fungerar som förväntat innan du fortsätter med den faktiska migreringen.
 - Se till att dina virtuella AWS-datorer uppfyller de [konfigurationer som stöds](./migrate-support-matrix-physical-migration.md#physical-server-requirements) för migrering till Azure.
@@ -75,15 +75,15 @@ Granska de [Windows](prepare-for-migration.md#windows-machines) -och [Linux](pre
 
 Förbered Azure för migrering med Azure Migrate: Migreringsverktyg för Server.
 
-**Uppgift** | **Detaljer**
+**Uppgift** | **Information**
 --- | ---
-**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha Contributes eller ägar behörigheter för att skapa ett projekt.
+**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto behöver deltagar-eller ägar behörighet för att [skapa ett nytt projekt](https://docs.microsoft.com/azure/migrate/create-manage-projects).
 **Verifiera behörigheter för ditt Azure-konto** | Ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.
 
 ### <a name="assign-permissions-to-create-project"></a>Tilldela behörigheter för att skapa projekt
 
 1. I Azure-portalen öppnar du prenumerationen och väljer **Åtkomstkontroll (IAM)** .
-2. Leta upp det relevanta kontot i **kontrol lera åtkomst**och klicka på det för att visa behörigheter.
+2. Leta upp det relevanta kontot i **kontrol lera åtkomst** och klicka på det för att visa behörigheter.
 3. Du bör ha behörighet som **deltagare** eller **ägare** .
     - Om du nyligen skapade ett kostnadsfritt Azure-konto är du ägare av prenumerationen.
     - Om du inte är prenumerationens ägare kan du be ägaren tilldela dig rollen.
@@ -108,7 +108,7 @@ För att förbereda för AWS till Azure-migrering måste du förbereda och distr
 
 Azure Migrate: Server-migreringen använder en replikeringsfil för att replikera datorer till Azure. Replikeringssystemet kör följande komponenter.
 
-- **Konfigurations**Server: konfigurations servern samordnar kommunikationen mellan AWS-miljön och Azure och hanterar datareplikering.
+- **Konfigurations** Server: konfigurations servern samordnar kommunikationen mellan AWS-miljön och Azure och hanterar datareplikering.
 - **Processerver**: processervern fungerar som en gateway för replikering. Den tar emot replikeringsdata, optimerar dem med cachelagring, komprimering och kryptering och skickar dem till ett cache Storage-konto i Azure.
 
 Förbered distribution av installationer enligt följande:
@@ -126,43 +126,18 @@ Förbered distribution av installationer enligt följande:
 - Replikerings enheten använder MySQL. Granska [alternativen](migrate-replication-appliance.md#mysql-installation) för att installera MySQL på-enheten.
 - Granska de Azure-URL: er som krävs för att replikeringssystemet ska kunna komma åt [offentliga](migrate-replication-appliance.md#url-access) och [offentliga](migrate-replication-appliance.md#azure-government-url-access) moln.
 
-## <a name="add-the-server-migration-tool"></a>Lägg till Migreringsverktyg för Server
-
-Konfigurera ett Azure Migrate projekt och Lägg sedan till Migreringsverktyg för server i det.
-
-1. I Azure-portalen > **Alla tjänster** söker du efter **Azure Migrate**.
-2. Under **Tjänster** väljer du **Azure Migrate**.
-3. I **översikten** klickar du på **Utvärdera och migrera servrar**.
-4. Under **identifiera, utvärdera och migrera servrar**klickar du på **utvärdera och migrera servrar**.
-
-    ![Identifiera och utvärdera servrar](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. I **Discover, assess and migrate servers** (Identifiera, utvärdera och migrera servrar) klickar du på **Lägg till verktyg**.
-6. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.
-7. I **Projektinformation** anger du projektnamnet och geografin där du vill skapa projektet och klickar på **Nästa**. Granska stödda geografiska områden för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [offentliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
-    - Projektets geografi används bara för att lagra metadata som samlats in från AWS-datorer.
-    - Du kan välja vilken målregion du vill när du kör en migrering.
-
-    ![Skapa ett Azure Migrate-projekt](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. I **Välj utvärderingsverktyg** väljer du **Hoppa över att lägga till ett utvärderingsverktyg just nu** > **Nästa**.
-9. I **Välj migreringsverktyg** väljer du  **Azure Migrate: Servermigrering** > **Nästa**.
-10. I **Review + add tools** (Granska + lägg till verktyg)
-granskar du inställningarna och klickar på **Lägg till verktyg**
-11. När du har lagt till verktyget visas det i Azure Migrate för Project > **Server**-  >  **Migreringsverktyg**.
-
 ## <a name="set-up-the-replication-appliance"></a>Konfigurera replikerings enheten
 
 Det första steget i migreringen är att konfigurera replikerings enheten. Om du vill konfigurera installations programmet för AWS VM-migrering måste du hämta installations filen för installationen och sedan köra den på den [virtuella datorn som du för beredde](#prepare-a-machine-for-the-replication-appliance).
 
 ### <a name="download-the-replication-appliance-installer"></a>Ladda ned installations programmet för replikerings enheten
 
-1. I **Azure Migrate: Server-migrering**i Azure Migrate Project >- **servrar**klickar du på **identifiera**.
+1. I **Azure Migrate: Server-migrering** i Azure Migrate Project >- **servrar** klickar du på **identifiera**.
 
     ![Identifiera virtuella datorer](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
 2. I **identifiera datorer**  >  **är dina datorer virtualiserade?**, klicka på **inte virtualiserad/annan**.
-3. I **mål region**väljer du den Azure-region som du vill migrera datorerna till.
+3. I **mål region** väljer du den Azure-region som du vill migrera datorerna till.
 4. Välj **Bekräfta att mål regionen för migrering är <region namn>**.
 5. Klicka på **Skapa resurser**. Detta skapar ett Azure Site Recovery valv i bakgrunden.
     - Om du redan har konfigurerat migrering med Azure Migrate Server-migreringen kan du inte konfigurera mål alternativet eftersom resurserna tidigare har kon figurer ATS.
@@ -170,26 +145,26 @@ Det första steget i migreringen är att konfigurera replikerings enheten. Om du
     - Om du vill migrera dina virtuella datorer till en annan region måste du skapa ett nytt/annat Azure Migrate-projekt.
 
 6. I vill **du installera en ny replikeringsprincip? väljer du** **installera en replikeringsprincip**.
-7. I **Hämta och installera installations programmet för replikering**laddar du ned installations programmet för installationen och registrerings nyckeln. Du behöver nyckeln för att kunna registrera installationen. Nyckeln är giltig i fem dagar efter att den har laddats ned.
+7. I **Hämta och installera installations programmet för replikering** laddar du ned installations programmet för installationen och registrerings nyckeln. Du behöver nyckeln för att kunna registrera installationen. Nyckeln är giltig i fem dagar efter att den har laddats ned.
 
     ![Hämta Provider](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 8. Kopiera installations filen och nyckel filen för installations programmet till Windows Server 2016 eller Windows Server 2012 AWS VM som du skapade för replikeringen.
 9. Kör installations filen för replikeringstjänsten enligt beskrivningen i nästa procedur.  
     9.1. I **Innan du börjar** väljer du **Installera konfigurerationsservern och processervern** och väljer sedan **Nästa**.   
-    9,2 i **program vara från tredje part**väljer **du jag accepterar licens avtalet från tredje part**och väljer sedan **Nästa**.   
-    9,3 under **registrering**väljer du **Bläddra**och går sedan till den plats där du vill placera valv registrerings nyckel filen. Välj **Nästa**.  
-    9,4 i **Internet inställningar**väljer **du Anslut till Azure Site Recovery utan proxyserver**och väljer sedan **Nästa**.  
+    9,2 i **program vara från tredje part** väljer **du jag accepterar licens avtalet från tredje part** och väljer sedan **Nästa**.   
+    9,3 under **registrering** väljer du **Bläddra** och går sedan till den plats där du vill placera valv registrerings nyckel filen. Välj **Nästa**.  
+    9,4 i **Internet inställningar** väljer **du Anslut till Azure Site Recovery utan proxyserver** och väljer sedan **Nästa**.  
     9,5 kontroll sidan för **krav kontroll** körs söker efter flera objekt. När den är klar väljer du **Nästa**.  
-    9,6 i **MySQL-konfiguration**anger du ett lösen ord för MySQL db och väljer sedan **Nästa**.  
-    9,7 i **miljö information**väljer du **Nej**. Du behöver inte skydda dina virtuella datorer. Välj **Nästa**.  
-    9,8 på **installations plats**väljer du **Nästa** för att acceptera standardvärdet.  
-    9,9 i **Val av nätverk**väljer du **Nästa** för att acceptera standardvärdet.  
-    9,10 i **Sammanfattning**väljer du **Installera**.   
+    9,6 i **MySQL-konfiguration** anger du ett lösen ord för MySQL db och väljer sedan **Nästa**.  
+    9,7 i **miljö information** väljer du **Nej**. Du behöver inte skydda dina virtuella datorer. Välj **Nästa**.  
+    9,8 på **installations plats** väljer du **Nästa** för att acceptera standardvärdet.  
+    9,9 i **Val av nätverk** väljer du **Nästa** för att acceptera standardvärdet.  
+    9,10 i **Sammanfattning** väljer du **Installera**.   
     9,11 **installations förloppet** visar information om installations processen. När den är klar väljer du **Avsluta**. Ett fönster visar ett meddelande om en omstart. Välj **OK**.   
     9,12 härnäst visas ett meddelande om anslutnings lösen frasen för konfigurations servern. Kopiera lösen frasen till Urklipp och spara lösen frasen i en tillfällig textfil på de virtuella käll datorerna. Du behöver den här lösen frasen senare under installationen av mobilitets tjänsten.
 10. När installationen är klar startas konfigurations guiden för enheten automatiskt (du kan också starta guiden manuellt genom att använda cspsconfigtool-genvägen som skapas på Skriv bordet på enheten). Använd fliken Hantera konton i guiden för att lägga till konto information som ska användas för push-installation av mobilitets tjänsten. I den här självstudien kommer vi att manuellt installera mobilitets tjänsten på virtuella käll datorer som ska replikeras, så skapa ett dummy-konto i det här steget och fortsätt. Du kan ange följande information för att skapa vår dummy-konto – "gäst" som eget namn, "username" som användar namn och "lösen ord" som lösen ord för kontot. Du kommer att använda det här dummy-kontot i steget aktivera replikering. 
-11. När installationen har startats om efter installationen går du till **identifiera datorer**, väljer den nya installationen i **Välj konfigurations Server**och klickar på **Slutför registrering**. Genom att slutföra registreringen utförs några slutliga uppgifter för att förbereda replikeringen.
+11. När installationen har startats om efter installationen går du till **identifiera datorer**, väljer den nya installationen i **Välj konfigurations Server** och klickar på **Slutför registrering**. Genom att slutföra registreringen utförs några slutliga uppgifter för att förbereda replikeringen.
 
     ![Slutför registrering](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
@@ -250,14 +225,14 @@ En mobilitets tjänst agent måste vara installerad på de virtuella AWS-datorer
 > [!NOTE]
 > Via portalen kan du lägga till upp till 10 virtuella datorer för replikering samtidigt. Om du vill replikera fler virtuella datorer samtidigt kan du lägga till dem i batchar med 10.
 
-1. I Azure Migrate Project >- **servrar** **Azure Migrate: Server-migrering**klickar du på **Replikera**.
+1. I Azure Migrate Project >- **servrar** **Azure Migrate: Server-migrering** klickar du på **Replikera**.
 
     ![Replikera virtuella datorer](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
 2. I **Replikera**, > **käll inställningar**  >  **att datorerna har virtualiserats?** väljer du **inte virtualiserad/övrigt**.
-3. I **lokal**installation väljer du namnet på Azure Migrate-installationen som du konfigurerar.
-4. I **processerver**väljer du namnet på replikerings enheten. 
-5. I **autentiseringsuppgifter för gäst**väljer du det dummy-konto som skapades tidigare under [installationen av installations programmet för replikering](#download-the-replication-appliance-installer) för att installera mobilitets tjänsten manuellt (push-installation stöds inte). Klicka sedan på **Nästa: virtuella datorer**.   
+3. I **lokal** installation väljer du namnet på Azure Migrate-installationen som du konfigurerar.
+4. I **processerver** väljer du namnet på replikerings enheten. 
+5. I **autentiseringsuppgifter för gäst** väljer du det dummy-konto som skapades tidigare under [installationen av installations programmet för replikering](#download-the-replication-appliance-installer) för att installera mobilitets tjänsten manuellt (push-installation stöds inte). Klicka sedan på **Nästa: virtuella datorer**.   
  
     ![Replikera inställningar](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 6. I **Virtual Machines**, i **Importera migreringsjobb från en utvärdering?**, lämnar du standardinställningen **Nej, jag anger inställningarna för migrering manuellt**.
@@ -267,7 +242,7 @@ En mobilitets tjänst agent måste vara installerad på de virtuella AWS-datorer
 
 8. I **Målinställningar** väljer du prenumeration och den målregion som du vill migrera till. Ange sedan den resursgrupp där du vill att de virtuella Azure-datorerna ska finnas efter migreringen.
 9. I **Virtuellt nätverk** väljer du det Azure VNet/undernät som de virtuella Azure-datorerna ska anslutas till efter migreringen.
-10. I **tillgänglighets alternativ**väljer du:
+10. I **tillgänglighets alternativ** väljer du:
     -  Tillgänglighets zon för att fästa den migrerade datorn i en angiven tillgänglighets zon i regionen. Använd det här alternativet för att distribuera servrar som utgör en program nivå med flera noder i Tillgänglighetszoner. Om du väljer det här alternativet måste du ange den tillgänglighets zon som ska användas för var och en av de valda datorerna på fliken beräkning. Det här alternativet är bara tillgängligt om det valda mål området för migreringen stöder Tillgänglighetszoner
     -  Tillgänglighets uppsättning för att placera den migrerade datorn i en tillgänglighets uppsättning. Den valda mål resurs gruppen måste ha en eller flera tillgänglighets uppsättningar för att kunna använda det här alternativet.
     - Inget alternativ för infrastrukturs redundans krävs om du inte behöver någon av dessa tillgänglighets konfigurationer för de migrerade datorerna.
@@ -277,7 +252,7 @@ En mobilitets tjänst agent måste vara installerad på de virtuella AWS-datorer
 
     ![Mål inställningar](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
-12. I **Compute**granskar du VM-namn, storlek, OS-disktyp och tillgänglighets konfiguration (om det valts i föregående steg). De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+12. I **Compute** granskar du VM-namn, storlek, OS-disktyp och tillgänglighets konfiguration (om det valts i föregående steg). De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
     - **VM-storlek**: om du använder bedömnings rekommendationer visas den rekommenderade storleken i list rutan VM-storlek. Annars väljer Azure Migrate en storlek baserat på den närmaste matchningen i Azure-prenumerationen. Du kan också välja en storlek manuellt i **Storlek på virtuell Azure-dator**.
     - **OS-disk**: Ange OS-disken (start) för den virtuella datorn. Operativsystemdisken är den disk där operativsystemets bootloader och installationsprogram finns.
@@ -286,7 +261,7 @@ En mobilitets tjänst agent måste vara installerad på de virtuella AWS-datorer
 
 ![Beräknings inställningar](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-13. I **diskar**anger du om de virtuella dator diskarna ska replikeras till Azure och väljer disk typ (standard SSD/HDD eller Premium Managed Disks) i Azure. Klicka på **Nästa**.
+13. I **diskar** anger du om de virtuella dator diskarna ska replikeras till Azure och väljer disk typ (standard SSD/HDD eller Premium Managed Disks) i Azure. Klicka på **Nästa**.
     - Du kan undanta diskar från replikering.
     - Om du undantar diskar kommer de inte att synas i den virtuella Azure-datorn efter migreringen. 
 
@@ -319,7 +294,7 @@ När delta-replikering börjar kan du köra en testmigrering för de virtuella d
 
 Gör en testmigrering enligt följande:
 
-1. I Server för **migrerings mål**  >  **Servers**  >  **Azure Migrate: Server migrering**klickar du på **test migrerade servrar**.
+1. I Server för **migrerings mål**  >  **Servers**  >  **Azure Migrate: Server migrering** klickar du på **test migrerade servrar**.
 
      ![Testmigrerade servrar](./media/tutorial-migrate-physical-virtual-machines/test-migrated-servers.png)
 
@@ -339,12 +314,12 @@ Gör en testmigrering enligt följande:
 
 När du har kontrollerat att testmigreringen fungerar som förväntat kan du migrera de virtuella AWS-datorerna.
 
-1. I Azure Migrate Project >- **servrar**  >  **Azure Migrate: Server-migrering**klickar du på **Replikera servrar**.
+1. I Azure Migrate Project >- **servrar**  >  **Azure Migrate: Server-migrering** klickar du på **Replikera servrar**.
 
     ![Servrarna replikeras](./media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
 2. I **Replikera datorer** högerklickar du på den virtuella datorn > **Migrera**.
-3. I **migrera**  >  **Stäng virtuella datorer och utför en planerad migrering utan data förlust**väljer du **Ja**  >  **OK**.
+3. I **migrera**  >  **Stäng virtuella datorer och utför en planerad migrering utan data förlust** väljer du **Ja**  >  **OK**.
     - Om du inte vill stänga av den virtuella datorn väljer du **Nej**.
 4. Ett migreringsjobb startas för den virtuella datorn. Du kan visa jobbets status genom att klicka på ikonen för meddelande klocka längst upp till höger på Portal sidan eller genom att gå till sidan jobb i Migreringsverktyg för Server (klicka på Översikt på verktygs panelen > välja jobb på den vänstra menyn).
 5. När jobbet är klart kan du se och hantera den virtuella datorn på sidan Virtual Machines.

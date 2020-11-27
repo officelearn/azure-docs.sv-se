@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar fysiska datorer till A
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 67ea5800885b4edb16581f22c199d139053af495
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c783cb22ce8a31d346e98c53dee365fa59b73b8a
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018944"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302896"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrera datorer som fysiska servrar till Azure
 
@@ -50,9 +50,9 @@ Innan du börjar de här självstudierna bör du:
 
 Förbered Azure för migrering med Server migrering.
 
-**Uppgift** | **Detaljer**
+**Uppgift** | **Information**
 --- | ---
-**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha Contributes eller ägar behörigheter för att skapa ett projekt.
+**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto behöver deltagar-eller ägar behörighet för att [skapa ett nytt projekt](https://docs.microsoft.com/azure/migrate/create-manage-projects).
 **Verifiera behörigheter för ditt Azure-konto** | Ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.
 
 
@@ -110,29 +110,6 @@ Förbered distribution av installationer enligt följande:
 
 > [!NOTE]
 > Replikeringssystemet bör inte installeras på en käll dator som du vill replikera eller på Azure Migrate identifierings-och utvärderings installation som du kan ha installerat tidigare.
-
-## <a name="add-the-server-migration-tool"></a>Lägg till Migreringsverktyg för Server
-
-Konfigurera ett Azure Migrate projekt och Lägg sedan till Migreringsverktyg för server i det.
-
-1. I Azure-portalen > **Alla tjänster** söker du efter **Azure Migrate**.
-2. Under **Tjänster** väljer du **Azure Migrate**.
-3. I **översikten** klickar du på **Utvärdera och migrera servrar**.
-4. Under **identifiera, utvärdera och migrera servrar** klickar du på **utvärdera och migrera servrar**.
-
-    ![Identifiera och utvärdera servrar](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. I **Discover, assess and migrate servers** (Identifiera, utvärdera och migrera servrar) klickar du på **Lägg till verktyg**.
-6. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.
-7. I **Projektinformation** anger du projektnamnet och geografin där du vill skapa projektet och klickar på **Nästa**. Granska stödda geografiska områden för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [offentliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
-
-    ![Skapa ett Azure Migrate-projekt](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. I **Välj utvärderingsverktyg** väljer du **Hoppa över att lägga till ett utvärderingsverktyg just nu** > **Nästa**.
-9. I **Välj migreringsverktyg** väljer du  **Azure Migrate: Servermigrering** > **Nästa**.
-10. I **Review + add tools** (Granska + lägg till verktyg)
-granskar du inställningarna och klickar på **Lägg till verktyg**
-11. När du har lagt till verktyget visas det i Azure Migrate för Project > **Server**-  >  **Migreringsverktyg**.
 
 ## <a name="set-up-the-replication-appliance"></a>Konfigurera replikerings enheten
 

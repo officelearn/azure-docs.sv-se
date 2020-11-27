@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5b9c41209902e384988064207bb3e1ded1c47477
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 691bb538ea0f46e26c318a68e9f66a9a986eb5d4
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182962"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301848"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Azures säkerhets bas linje för App Service
 
@@ -168,7 +168,7 @@ Granska de refererade länkarna om du vill ha mer information.
 
 - [Så här konfigurerar du end-to-end-TLS genom att använda Application Gateway med portalen](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Skydda ASE enligt beskrivningen i låsa en App Service](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [Skydda ASE enligt beskrivningen i låsa en App Service](/azure/app-service/environment/firewall-integration)
 
 **Azure Security Center-övervakning**: Ja
 
@@ -205,7 +205,7 @@ Granska de refererade länkarna om du vill ha mer information.
 
 - [Så här konfigurerar du end-to-end-TLS genom att använda Application Gateway med portalen](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Skydda ASE enligt beskrivningen i låsa en App Service](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [Skydda ASE enligt beskrivningen i låsa en App Service](/azure/app-service/environment/firewall-integration)
 
 **Azure Security Center-övervakning**: Inte tillämpligt
 
@@ -221,7 +221,7 @@ Använd någon av de inbyggda Azure Policy definitionerna som är relaterade til
 
 - [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
-- [Begränsningar för Azure App Service åtkomst](/azure/app-service/app-service-ip-restriction)
+- [Begränsningar för Azure App Service åtkomst](/azure/app-service/app-service-ip-restrictions)
 
 **Azure Security Center-övervakning**: Inte tillämpligt
 

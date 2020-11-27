@@ -4,12 +4,12 @@ description: Lär dig att anpassa funktionen för autentisering och auktoriserin
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ad83e7ad5e1ffc03bf7c62df9b28512e19a62100
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0e07dc42a45a697b293e2ebc90bdd92aa924f071
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010205"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302031"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -33,7 +33,7 @@ På sidan **autentisering/auktorisering** i Azure Portal konfigurerar du först 
 
 I **åtgärd som ska vidtas när begäran inte autentiseras** väljer du **Tillåt anonyma begär Anden (ingen åtgärd)**.
 
-På inloggnings sidan eller i navigerings fältet eller på någon annan plats i appen lägger du till en inloggnings länk till alla providers som du har aktiverat ( `/.auth/login/<provider>` ). Exempel:
+På inloggnings sidan eller i navigerings fältet eller på någon annan plats i appen lägger du till en inloggnings länk till alla providers som du har aktiverat ( `/.auth/login/<provider>` ). Ett exempel:
 
 ```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -55,7 +55,7 @@ Om du vill omdirigera användaren efter inloggning till en anpassad URL, använd
 
 I en klient-riktad inloggning loggar programmet in användaren till providern manuellt och skickar sedan autentiseringstoken till App Service för verifiering (se [Authentication Flow](overview-authentication-authorization.md#authentication-flow)). Den här verifieringen ger i själva verket ingen åtkomst till de resurser som behövs, men en lyckad verifiering ger dig en sessionstoken som du kan använda för att få åtkomst till program resurser. 
 
-För att verifiera providerns token måste App Service-appen först konfigureras med önskad Provider. När du har hämtat autentiseringstoken från providern efter att du har hämtat token, kan du ställa in token `/.auth/login/<provider>` för verifiering. Exempel: 
+För att verifiera providerns token måste App Service-appen först konfigureras med önskad Provider. När du har hämtat autentiseringstoken från providern efter att du har hämtat token, kan du ställa in token `/.auth/login/<provider>` för verifiering. Ett exempel: 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -86,7 +86,7 @@ Om providerns token verifieras, returnerar API: t med en `authenticationToken` i
 }
 ```
 
-När du har denna sessionstoken kan du komma åt skyddade app-resurser genom att lägga till `X-ZUMO-AUTH` rubriken till dina HTTP-begäranden. Exempel: 
+När du har denna sessionstoken kan du komma åt skyddade app-resurser genom att lägga till `X-ZUMO-AUTH` rubriken till dina HTTP-begäranden. Ett exempel: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -107,7 +107,7 @@ Här är en enkel utloggningslänk på en webbsida:
 <a href="/.auth/logout">Sign out</a>
 ```
 
-Som standard omdirigerar en lyckad utloggning klienten till URL: en `/.auth/logout/done` . Du kan ändra omdirigerings sidan efter utloggning genom att lägga till `post_logout_redirect_uri` Frågeparametern. Exempel:
+Som standard omdirigerar en lyckad utloggning klienten till URL: en `/.auth/logout/done` . Du kan ändra omdirigerings sidan efter utloggning genom att lägga till `post_logout_redirect_uri` Frågeparametern. Ett exempel:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -172,7 +172,7 @@ När din leverantörs åtkomsttoken (inte [sessionstoken](#extend-session-token-
 
 - **Google**: Lägg till en `access_type=offline` frågesträngparametern till ditt `/.auth/login/google` API-anrop. Om du använder Mobile Apps SDK kan du lägga till parametern i en av `LogicAsync` överlagringarna (se [Google Refresh-token](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: tillhandahåller inte uppdaterade tokens. Token för lång livs längd upphör att gälla om 60 dagar (se [Facebook-förfallo tid och tillägg för](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)åtkomsttoken).
-- **Twitter**: åtkomsttoken upphör inte att gälla (se [vanliga frågor och svar om Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Twitter**: åtkomsttoken upphör inte att gälla (se [vanliga frågor och svar om Twitter](https://developer.twitter.com/en/docs/authentication/faq)).
 - **Microsoft-konto**: Välj omfånget när du [konfigurerar autentiseringsinställningar för Microsoft-konton](configure-authentication-provider-microsoft.md) `wl.offline_access` .
 - **Azure Active Directory**: i [https://resources.azure.com](https://resources.azure.com) utför du följande steg:
     1. Välj **Läs/skriv** längst upp på sidan.
@@ -269,7 +269,7 @@ För alla Windows-appar kan du definiera behörighets beteendet för IIS-webbser
 
 ### <a name="identity-provider-level"></a>Identitets leverantörs nivå
 
-Identitets leverantören kan ge viss behörighet för att aktivera nycklar. Exempel:
+Identitets leverantören kan ge viss behörighet för att aktivera nycklar. Ett exempel:
 
 - För [Azure App Service](configure-authentication-provider-aad.md)kan du [Hantera åtkomst på företags nivå](../active-directory/manage-apps/what-is-access-management.md) direkt i Azure AD. Instruktioner finns i [så här tar du bort en användares åtkomst till ett program](../active-directory/manage-apps/methods-for-removing-user-access.md).
 - Google [-API](configure-authentication-provider-google.md)-projekt som tillhör en [organisation](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) kan konfigureras så att de endast tillåter åtkomst till användare i din organisation (se [Google ' **Setting Up The OAuth 2,0** support Page](https://support.google.com/cloud/answer/6158849?hl=en)).

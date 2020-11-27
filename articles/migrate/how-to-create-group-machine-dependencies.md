@@ -3,16 +3,16 @@ title: Konfigurera agentbaserade beroende analyser i Azure Migrate Server utvär
 description: I den här artikeln beskrivs hur du konfigurerar en agent-baserad beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 17c6e3e24596727350b11946bdf6896e22d41529
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 58c1aeea00ae033def0f45d220c12d13cc28b4b2
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028970"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302844"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurera beroende visualisering
 
-I den här artikeln beskrivs hur du konfigurerar en agent lös beroende analys i Azure Migrate: Server bedömning. Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identifiera och förstå beroenden mellan datorer som du vill utvärdera och migrera till Azure.
+I den här artikeln beskrivs hur du konfigurerar en agent beroende analys i Azure Migrate: Server utvärdering. Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identifiera och förstå beroenden mellan datorer som du vill utvärdera och migrera till Azure.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -42,7 +42,7 @@ I den här artikeln beskrivs hur du konfigurerar en agent lös beroende analys i
 2. Klicka på **Essentials** i **Azure Migrate: Server bedömning**.
 3. I **OMS-arbetsytan** klickar du på **kräver konfiguration**.
 
-     ![Konfigurera Log Analytics arbets yta](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
+     ![Konfigurera Log Analytics-arbetsyta](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
 
 4. I **Konfigurera OMS-arbetsyta** anger du om du vill skapa en ny arbets yta eller Använd en befintlig.
     - Du kan välja en befintlig arbets yta från alla arbets ytor i den migrerade projekt prenumerationen.

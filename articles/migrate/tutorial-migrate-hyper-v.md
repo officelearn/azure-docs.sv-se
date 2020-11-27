@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 84f04d2f1f8c9b54a1f2a2a13cc97954ac5add90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 038d0ec817d4f81371546e8d7aa4b48b299c8d98
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995326"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302555"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrera virtuella Hyper-V-datorer till Azure 
 
@@ -43,23 +43,9 @@ Innan du börjar de här självstudierna bör du:
 2. [Granska](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Krav för Hyper-V-värden för migrering och de Azure-URL: er som Hyper-V-värdar och-kluster behöver åtkomst för VM-migrering.
 3. [Granska](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) kraven för virtuella Hyper-V-datorer som du vill migrera till Azure.
 4. Vi rekommenderar att du  [bedömer virtuella Hyper-V-datorer](tutorial-assess-hyper-v.md) innan du migrerar dem till Azure, men du behöver inte.
+5. Gå till det redan skapade projektet eller [skapa ett nytt projekt](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+6. Verifiera behörigheter för ditt Azure-konto – ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.
 
-   
-## <a name="add-the-azure-migrateserver-migration-tool"></a>Lägg till verktyget Azure Migrate: Migreringsverktyg för Server
-
-Lägg till verktyget Azure Migrate: Migreringsverktyg för Server. Om du inte redan har ett Azure Migrate projekt [skapar du det först](how-to-add-tool-first-time.md) för att skapa ett Azure Migrate-projekt. Du lägger till verktyget Azure Migrate: Migreringsverktyg för server när du skapar projektet.
-
-Om du har skapat ett projekt lägger du till verktyget enligt följande:
-
-1. Klicka på **Översikt** i Azure Migrate projektet. 
-2. I **identifiera, utvärdera** och migrera servrar klickar du på **utvärdera och migrera servrar**.
-3. I **Migreringsverktyg** väljer **du klicka här för att lägga till ett Migreringsverktyg när du är redo att migrera**.
-
-    ![Välj ett verktyg](./media/tutorial-migrate-hyper-v/select-migration-tool.png)
-
-4. I listan verktyg väljer du **Azure Migrate:**  >  **Lägg till verktyget** Migreringsverktyg
-
-    ![Verktyg för servermigrering](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
 ## <a name="download-and-install-the-provider"></a>Hämta och installera providern
 

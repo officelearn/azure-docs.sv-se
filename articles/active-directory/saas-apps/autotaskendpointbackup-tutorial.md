@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
-ms.openlocfilehash: b451e1645061d2de1758bf02ff0f59c07a43158e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0264baf6a8ff107c4a3aa811b9e8639352dca782
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457528"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Självstudie: Azure Active Directory integration med aktivitets slut punkts säkerhets kopiering
 
@@ -106,7 +106,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Au
     b. Skriv en URL i text rutan **svars-URL** med följande mönster: `https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Autotask Endpoint Backup-kundsupporten](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Autotask Endpoint Backup-kundsupporten](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
@@ -124,7 +124,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Au
 
 ### <a name="configure-autotask-endpoint-backup-single-sign-on"></a>Konfigurera enkel inloggning för Autotask Endpoint Backup
 
-För att konfigurera enkel inloggning på **Autotask Endpoint Backup**-sidan måste du skicka den nedladdade **XML:en med fedarationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [Autotask Endpoint Backup-supportteamet](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **Autotask Endpoint Backup**-sidan måste du skicka den nedladdade **XML:en med fedarationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [Autotask Endpoint Backup-supportteamet](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -179,7 +179,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-autotask-endpoint-backup-test-user"></a>Skapa en testanvändare för Autotask Endpoint Backup
 
-I det här avsnittet ska du skapa en användare med namnet Britta Simon i Autotask Endpoint Backup. Arbeta med arbets plats för [slut punkts support för aktiviteter](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm) för att lägga till användare i aktivitets slut punkts säkerhets kopierings plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i Autotask Endpoint Backup. Arbeta med arbets plats för [slut punkts support för aktiviteter](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) för att lägga till användare i aktivitets slut punkts säkerhets kopierings plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

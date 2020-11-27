@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 6d98f1a1dfb575f4af8b666d173f9354b5eeac6b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e2d89718d953f05b3e5500db412ac8ac03bfa00b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966266"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301939"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatiserad katastrof återställnings lösning med Azure Site Recovery för fil resurser som finns på StorSimple
 
@@ -44,7 +44,7 @@ Att implementera en lösning för haveri beredskap med en klickning som använde
    - StorSimple lagrings enhet lokalt registrerad med Azure StorSimple Manager
    - StorSimple Cloud Appliance som skapats i Azure StorSimple Manager. Installationen kan behållas i avstängnings tillstånd.
    - Fil resurser som finns på de volymer som kon figurer ATS på StorSimple lagrings enhet
-   - [Azure Site Recovery Services-valvet](/azure/storsimple/hyper-v-vmm-disaster-recovery) har skapats i en Microsoft Azure-prenumeration
+   - [Azure Site Recovery Services-valvet](/azure/site-recovery/hyper-v-vmm-azure-tutorial) har skapats i en Microsoft Azure-prenumeration
 
 Om Azure är din återställnings plats kör du dessutom [verktyget för beredskap för virtuella Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) -datorer på virtuella datorer för att säkerställa att de är kompatibla med virtuella Azure-datorer och Azure Site Recovery-tjänster.
 
@@ -112,7 +112,7 @@ Det här steget kräver att du förbereder den lokala fil Server miljön, skapar
    1. Använd rollen fil-och lagrings tjänster för att skapa fil resurser på dessa volymer.
 
 #### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Skapa och förbereda ett Azure Site Recovery-valv
-Läs Azure Site Recovery- [dokumentationen](/azure/storsimple/hyper-v-azure-tutorial) för att komma igång med Azure Site Recovery innan du skyddar den virtuella fil servern.
+Läs Azure Site Recovery- [dokumentationen](/azure/site-recovery/) för att komma igång med Azure Site Recovery innan du skyddar den virtuella fil servern.
 
 #### <a name="to-enable-protection"></a>Aktivera skydd
 1. Koppla från iSCSI-målen från de lokala virtuella datorer som du vill skydda genom att Azure Site Recovery:
@@ -124,7 +124,7 @@ Läs Azure Site Recovery- [dokumentationen](/azure/storsimple/hyper-v-azure-tuto
    > [!NOTE]
    > Detta gör att fil resurserna är tillfälligt otillgängliga.
    
-1. [Aktivera skydd av virtuell dator](/azure/storsimple/hyper-v-azure-tutorial) för den virtuella fil serverdatorn från Azure Site Recovery-portalen.
+1. [Aktivera skydd av virtuell dator](/azure/site-recovery/hyper-v-azure-tutorial) för den virtuella fil serverdatorn från Azure Site Recovery-portalen.
 1. När den första synkroniseringen börjar kan du återansluta målet igen. Gå till iSCSI-initieraren, Välj StorSimple-enheten och klicka på **Anslut**.
 1. När synkroniseringen är klar och statusen för den virtuella datorn är **skyddad** väljer du den virtuella datorn, väljer fliken **Konfigurera** och uppdaterar nätverket för den virtuella datorn i enlighet med detta (det nätverk som det misslyckade över VM: ar kommer att ingå i). Om nätverket inte visas innebär det att synkroniseringen fortfarande pågår.
 

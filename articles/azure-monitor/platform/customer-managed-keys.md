@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 9715724fc0fbd25198dd3244215ac2c12638d2b8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ac785b3ad534e80d4dd240d1a29ba5f6aa75e10a
+ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185971"
+ms.locfileid: "96299047"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Kundhanterad nyckel i Azure Monitor 
 
@@ -538,7 +538,9 @@ Läs mer om [Customer lockbox för Microsoft Azure](../../security/fundamentals/
   1. När du använder REST kopierar du Azure-AsyncOperation URL-värdet från svaret och följer [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
   2. Skicka GET-begäran till kluster eller arbets yta och observera svaret. Till exempel kan inte en länkad arbets yta ha *clusterResourceId* under *funktioner*.
 
-- [Double Encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) konfigureras automatiskt för kluster som skapats från oktober 2020 när dubbel kryptering var i regionen. Om du skapar ett kluster och får ett fel meddelande om att <region namn> inte stöder Double Encryption för kluster. "kan du fortfarande skapa klustret men med dubbla kryptering inaktiverat. Det går inte att aktivera eller inaktivera det när klustret har skapats. Om du vill skapa ett kluster när Double Encryption inte stöds i region, lägger du till `"properties": {"isDoubleEncryptionEnabled": false}` i rest-brödtext för begäran.
+- [Double Encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) konfigureras automatiskt för kluster som skapats från oktober 2020 i regioner som stöds. Du kan kontrol lera om klustret har kon figurer ATS för Double Encryption med en GET-begäran på klustret och att `"isDoubleEncryptionEnabled"` det är `true` för kluster med dubbel kryptering aktiverat. 
+  - Om du skapar ett kluster och får ett fel meddelande om att <region namn> inte stöder Double Encryption för kluster. "kan du fortfarande skapa klustret utan Double Encryption. Lägg till `"properties": {"isDoubleEncryptionEnabled": false}` i innehållet i rest-begäran.
+  - Inställningen Double Encryption kan inte ändras efter att klustret har skapats.
 
 - Felmeddelanden
   

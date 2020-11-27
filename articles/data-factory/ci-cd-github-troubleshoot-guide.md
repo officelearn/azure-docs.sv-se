@@ -1,0 +1,166 @@
+---
+title: Felsök problem med CI-CD, Azure DevOps och GitHub i ADF
+description: Använd olika metoder för att felsöka problem med CI-CD i ADF.
+author: ssabat
+ms.author: susabat
+ms.reviewer: susabat
+ms.service: data-factory
+ms.workload: data-services
+ms.topic: troubleshooting
+ms.date: 11/26/2020
+ms.openlocfilehash: f07cc8e3d5e9d6f59671a3c8c2efd9f5fb9f27b7
+ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96299064"
+---
+# <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Felsök problem med CI-CD, Azure DevOps och GitHub i ADF 
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+Den här artikeln visar vanliga fel söknings metoder för CI-CD, Azure-DevOps och GitHub-problem i Azure Data Factory.
+
+Om du har frågor eller problem med att använda käll kontroll eller DevOps-tekniker finns det några artiklar som kan vara användbara.:
+
+- Se [käll kontroll i ADF](source-control.md) för att lära dig hur käll kontroll utförs i ADF. 
+- Se  [CI-CD i ADF](continuous-integration-deployment.md) för att lära dig mer om hur DevOps CI-CD är förbrukad i ADF.
+ 
+## <a name="common-errors-and-messages"></a>Vanliga fel och meddelanden
+
+### <a name="connect-to-git-repository-failed-due-to-different-tenant"></a>Det gick inte att ansluta till git-lagringsplatsen på grund av en annan klient
+
+#### <a name="issue"></a>Problem
+    
+Ibland uppstår autentiserings problem som HTTP-status 401. I synnerhet när du har flera klienter med gäst kontot kan saker bli mer komplicerade.
+
+#### <a name="cause"></a>Orsak
+
+Det vi har observerat är att token hämtades från den ursprungliga klienten, men ADF är i gäst klienten och försöker använda token för att besöka DevOps i gäst klienten. Detta är inte det förväntade beteendet.
+
+#### <a name="recommendation"></a>Rekommendation
+
+Du bör använda token som utfärdats från gäst klienten i stället. Till exempel måste du tilldela samma Azure Active Directory som gäst-och DevOps, så att den kan ange token-beteendet korrekt och använda rätt klient organisation.
+
+### <a name="template-parameters-in-the-parameters-file-are-not-valid"></a>Mallparametrar i parameter filen är inte giltiga
+
+#### <a name="issue"></a>Problem
+
+Om vi tar bort en utlösare i dev Branch, som redan är tillgänglig i test-eller produktions grenen med **samma** konfiguration (t. ex. frekvens och intervall), så slutförs distributionen av pipeline och motsvarande utlösare tas bort i respektive miljö. Men om du har en **annan** konfiguration (t. ex. frekvens och intervall) för utlösare i test-/produktions miljöer och om du tar bort samma utlösare i dev, Miss lyckas distributionen med ett fel.
+
+#### <a name="cause"></a>Orsak
+
+CI/CD-pipelinen Miss lyckas med följande fel:
+
+`
+2020-07-20T11:19:02.1276769Z ##[error]Deployment template validation failed: 'The template parameters 'Trigger_Salesforce_properties_typeProperties_recurrence_frequency, Trigger_Salesforce_properties_typeProperties_recurrence_interval, Trigger_Salesforce_properties_typeProperties_recurrence_startTime, Trigger_Salesforce_properties_typeProperties_recurrence_timeZone' in the parameters file are not valid; they are not present in the original template and can therefore not be provided at deployment time. The only supported parameters for this template are 'factoryName, PlanonDWH_connectionString, PlanonKeyVault_properties_typeProperties_baseUrl
+`
+
+#### <a name="recommendation"></a>Rekommendation
+
+Felet beror på att vi ofta tar bort en utlösare som är parameterstyrda, och därför är parametrarna inte tillgängliga i ARM-mallen (eftersom utlösaren inte finns längre). Eftersom parametern inte finns i ARM-mallen längre, måste vi uppdatera de åsidosatta parametrarna i DevOps-pipeline. Annars måste alla parametrar i ARM-mallen ändras, så att de uppdaterar åsidosatta parametrar i DevOps-pipeline (i distributions aktiviteten).
+
+### <a name="updating-property-type-is-not-supported"></a>Uppdatering av egenskaps typ stöds inte
+
+#### <a name="issue"></a>Problem
+
+CI/CD versions pipelinen fungerar inte med följande fel:
+
+`
+2020-07-06T09:50:50.8716614Z There were errors in your deployment. Error code: DeploymentFailed.
+2020-07-06T09:50:50.8760242Z ##[error]At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.
+2020-07-06T09:50:50.8771655Z ##[error]Details:
+2020-07-06T09:50:50.8772837Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
+2020-07-06T09:50:50.8774148Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
+2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops#troubleshooting
+2020-07-06T09:50:50.8776801Z ##[error]Task failed while creating or updating the template deployment.
+`
+
+#### <a name="cause"></a>Orsak
+
+Detta beror på ett Integration Runtime med samma namn i mål fabriken men med en annan typ. Integration Runtime måste vara av samma typ vid distribution.
+
+#### <a name="recommendation"></a>Rekommendation
+
+- Läs följande metod tips för CI/CD nedan:
+
+    https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
+- Integrerings körningar ändras inte ofta och liknar varandra i alla steg i CI/CD, så Data Factory förväntar dig att du har samma namn och typ av integration runtime i alla stadier av CI/CD. Om namn och typer & egenskaper skiljer sig åt, se till att matcha källans och målets IR-konfiguration och distribuera sedan lanserings pipelinen.
+- Om du vill dela integrerings körningar i alla faser bör du överväga att använda en ternär fabrik som bara innehåller de delade integrerings körningarna. Du kan använda den här delade fabriken i alla dina miljöer som en länkad integration runtime-typ.
+
+### <a name="document-creation-or-update-failed-because-of-invalid-reference"></a>Det gick inte att skapa eller uppdatera dokument på grund av Ogiltig referens
+
+#### <a name="issue"></a>Problem
+
+När du försöker publicera ändringar till en Data Factory visas följande fel meddelande:
+
+`
+"error": {
+        "code": "BadRequest",
+        "message": "The document creation or update failed because of invalid reference '<entity>'.",
+        "target": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<rgname>/providers/Microsoft.DataFactory/factories/<datafactory>/pipelines/<pipeline>",
+        "details": null
+    }
+`
+
+#### <a name="symptom"></a>Symptom
+
+Du har frånkopplat git-konfigurationen och konfigurerat den igen med flaggan "Importera resurser" markerad, vilket anger Data Factory som "synkroniserat". Det innebär att inga ändringar har publicerats.
+
+**Lösning**
+
+Koppla från git-konfigurationen och konfigurera den igen, och se till att du inte markerar kryss rutan importera befintliga resurser.
+
+### <a name="data-factory-move-failing-from-one-resource-group-to-another"></a>Det går inte att flytta Data Factory från en resurs grupp till en annan
+
+#### <a name="issue"></a>Problem
+
+Du kan inte flytta Data Factory från en resurs grupp till en annan, som inte har följande fel:
+
+`
+{
+    "code": "ResourceMoveProviderValidationFailed",
+    "message": "Resource move validation failed. Please see details. Diagnostic information: timestamp 'xxxxxxxxxxxxZ', subscription id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', tracking id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', request correlation id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.",
+    "details": [
+        {
+            "code": "BadRequest",
+            "target": "Microsoft.DataFactory/factories",
+            "message": "One of the resources contain integration runtimes that are either SSIS-IRs in starting/started/stopping state, or Self-Hosted IRs which are shared with other resources. Resource move is not supported for those resources."
+        }
+    ]
+}
+`
+
+#### <a name="resolution"></a>Lösning
+
+Du måste ta bort SSIS-IR och Shared IRs för att tillåta flytt åtgärden. Om du inte vill ta bort IRs, så är det bästa sättet att följa dokumentet kopiera och klona för att kopiera och när det är färdigt, ta bort den gamla data fabriken.
+
+###  <a name="unable-to-export-and-import-arm-template"></a>Det går inte att exportera och importera ARM-mall
+
+#### <a name="issue"></a>Problem
+
+Det går inte att exportera och importera ARM-mall. Inget fel inträffade på portalen, men i webb läsar spårningen kan du se följande fel:
+
+`Failed to load resource: the server responded with a status code of 401 (Unauthorized)`
+
+#### <a name="cause"></a>Orsak
+
+Du har skapat en kund roll som användare och den har inte den behörighet som krävs. När fabriken läses in i användar gränssnittet kontrol leras en serie exponerings kontroll värden för fabriken. I det här fallet har användarens åtkomst roll inte behörighet att komma åt *queryFeaturesValue* -API: et. Funktionen globala parametrar är inaktive rad för att få åtkomst till detta API. ARM-exportens kod Sök väg förlitar sig delvis på funktionen globala parametrar.
+
+#### <a name="resolution"></a>Lösning
+
+För att lösa problemet måste du lägga till följande behörighet i rollen: *Microsoft. DataFactory/factors/queryFeaturesValue/Action*. Den här behörigheten ska inkluderas som standard i rollen Data Factory deltagare.
+
+## <a name="next-steps"></a>Nästa steg
+
+Om du behöver hjälp med fel sökning kan du prova följande resurser:
+
+*  [Data Factory blogg](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory funktions begär Anden](https://feedback.azure.com/forums/270578-data-factory)
+*  [Azure-videor](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Sidan Microsoft Q&en fråga](/answers/topics/azure-data-factory.html)
+*  [Stack Overflow-forum för Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
+*  [Twitter-information om Data Factory](https://twitter.com/hashtag/DataFactory)
+
+
+ 

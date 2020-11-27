@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Konfigurera PaperCut Cloud Print Management (Pocket/Hive) för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig att automatiskt etablera och avetablera användar konton från Azure AD till PaperCut Cloud Print Management (Pocket/Hive).
+title: 'Självstudie: Konfigurera PaperCut Cloud Print Management för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig att automatiskt etablera och avetablera användar konton från Azure AD till PaperCut Cloud Print Management.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: d0ecc06cd256dc2fae598e8bc44336d69a9c99df
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 860b880faae9c5fe37a2c7eab2ef3a068ed4da3e
+ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031393"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96299098"
 ---
-# <a name="tutorial-configure-papercut-cloud-print-management-pockethive-for-automatic-user-provisioning"></a>Självstudie: Konfigurera PaperCut Cloud Print Management (Pocket/Hive) för automatisk användar etablering
+# <a name="tutorial-configure-papercut-cloud-print-management-for-automatic-user-provisioning"></a>Självstudie: Konfigurera PaperCut Cloud Print Management för automatisk användar etablering
 
-I den här självstudien beskrivs de steg du behöver utföra i både PaperCut Cloud Print Management (Pocket/Hive) och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD har kon figurer ATS etablerar och avetablerar Azure AD automatiskt användare och grupper till [PaperCut Cloud Print Management](https://www.papercut.com/products/papercut-pocket/) med hjälp av Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+I den här självstudien beskrivs de steg du behöver utföra i både PaperCut Cloud Print Management och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD har kon figurer ATS etablerar och avetablerar Azure AD automatiskt användare och grupper till [PaperCut Cloud Print Management](https://www.papercut.com/products/papercut-pocket/) med hjälp av Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
 
 > [!div class="checklist"]
-> * Skapa användare i PaperCut Cloud Print Management (Pocket/Hive)
-> * Ta bort användare i PaperCut Cloud Print Management (Pocket/Hive) när de inte behöver åtkomst längre
-> * Behåll användarattribut synkroniserade mellan Azure AD och PaperCut Cloud Print Management (Pocket/Hive)
+> * Skapa användare i PaperCut Cloud Print Management
+> * Ta bort användare i PaperCut Cloud Print Management när de inte behöver åtkomst längre
+> * Behåll användarattribut synkroniserade mellan Azure AD och PaperCut Cloud Print Management
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -39,7 +39,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 * [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (till exempel program administratör, moln program administratör, program ägare eller global administratör). 
-* Ett användar konto i PaperCut Cloud Print Management (Pocket/Hive) med administratörs behörighet
+* Ett användar konto i PaperCut Cloud Print Management med administratörs behörighet
 
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablering av distributionen
@@ -58,23 +58,23 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 
 
-4. När du har installerat en tilläggs information visas sidan med klient- **URL:** en och den **hemliga token**. Dessa värden anges i fältet klient \* -URL och fältet hemligt token på \* fliken etablering i PaperCut för Cloud Print Management (Pocket/Hive) i Azure Portal.
+4. När du har installerat en tilläggs information visas sidan med klient- **URL:** en och den **hemliga token**. De här värdena anges i fältet för klient-URL \* och fältet hemligt token på \* fliken etablering i PaperCut Cloud Print Management-programmet i Azure Portal.
 
 
 
-## <a name="step-3-add-papercut-cloud-print-management-pockethive-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till PaperCut Cloud Print Management (Pocket/Hive) från Azure AD Application Gallery
+## <a name="step-3-add-papercut-cloud-print-management-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till PaperCut Cloud Print Management från Azure AD Application Gallery
 
-Lägg till PaperCut Cloud Print Management (Pocket/Hive) från Azure AD-programgalleriet för att börja hantera etablering till PaperCut Cloud Print Management (Pocket/Hive). Om du tidigare har konfigurerat PaperCut Cloud Print Management (Pocket/Hive) för enkel inloggning kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Lägg till PaperCut Cloud Print Management från Azure AD Application Gallery för att börja hantera etablering till PaperCut Cloud Print Management. Om du tidigare har konfigurerat PaperCut Cloud Print Management för enkel inloggning kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska finnas i etableringsomfånget
 
 Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 
-* När du tilldelar användare och grupper till PaperCut Cloud Print Management (Pocket/Hive) måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) och lägga till fler roller.
+* När du tilldelar användare och grupper till PaperCut Cloud Print Management måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) och lägga till fler roller.
 
 * Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-papercut-cloud-print-management-pockethive"></a>Steg 5. Konfigurera automatisk användar etablering till PaperCut Cloud Print Management (Pocket/Hive)
+## <a name="step-5-configure-automatic-user-provisioning-to-papercut-cloud-print-management"></a>Steg 5. Konfigurera automatisk användar etablering till PaperCut Cloud Print Management
 
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i TestApp baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
@@ -84,7 +84,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **PaperCut Cloud Print Management (Pocket/Hive)**.
+2. I listan program väljer du **PaperCut Cloud Print Management**.
 
    ![Länken PaperCut Cloud Print Management i listan program](common/all-applications.png)
 
@@ -96,7 +96,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
    ![Fliken etablering automatiskt](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** kan du mata in din PaperCut för Cloud Print hantering (Pocket/Hive) och en hemlig token. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till PaperCut Cloud Print Management. Om anslutningen Miss lyckas kontrollerar du att ditt PaperCut Cloud Print Management-konto har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** måste du skriva in klient-URL: en för PaperCut för moln utskrifts hantering och en hemlig token. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till PaperCut Cloud Print Management. Om anslutningen Miss lyckas kontrollerar du att ditt PaperCut Cloud Print Management-konto har administratörs behörighet och försöker igen.
 
    ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -118,11 +118,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Om du vill aktivera Azure AD Provisioning-tjänsten för PaperCut Cloud Print Management (Pocket/Hive) ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
+11. Om du vill aktivera Azure AD Provisioning-tjänsten för PaperCut Cloud Print Management ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
     ![Etableringsstatus är på](common/provisioning-toggle-on.png)
 
-12. Definiera de användare och/eller grupper som du vill etablera för PaperCut av moln utskrifts hantering (Pocket/Hive) genom att välja önskade värden i **området** **Inställningar** .
+12. Definiera de användare och/eller grupper som du vill etablera för att PaperCut Cloud Print Management genom att välja önskade värden i **området** i avsnittet **Inställningar** .
 
     ![Etableringsomfång](common/provisioning-scope.png)
 

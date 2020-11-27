@@ -66,6 +66,10 @@
       href: signalr-concept-authenticate-oauth.md
     - name: Händelsehantering
       href: signalr-concept-event-grid-integration.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
 - name: Anvisningar
   items:
     - name: Skala

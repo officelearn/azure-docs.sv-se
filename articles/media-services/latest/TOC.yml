@@ -45,6 +45,10 @@
           href: manage-assets-quickstart.md
         - name: Använda portalen för att kryptera innehåll
           href: encrypt-content-quickstart.md
+    - name: Använda en ARM-mall
+      items:
+        - name: Skapa ett konto med ARM
+          href: quickstart-arm-template-account.md
 - name: Självstudier
   items:
     - name: .NET

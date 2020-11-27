@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/05/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: af2eac929e3e3f40e1ac1cd384c943b1e09171a8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b8b8d100eb2ff16e8f8b7a734ad493ed4faddd33
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967473"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299538"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
@@ -273,7 +273,7 @@ Mer information om ANF för HANA finns i dokument- [NFS v 4.1-volymer på Azure 
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Kostnads medveten lösning med Azure Premium Storage
-Den Azure Premium Storage-lösning som beskrivs i det här dokumentet i avsnitts [lösningar med Premium Storage och azure Skrivningsaccelerator för Azure M-seriens virtuella datorer](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) avsåg SAP HANA produktions scenarier som stöds. En av egenskaperna för konfigurationer som stöds för produktion är separering av volymer för SAP HANA data och gör om att logga in på två olika volymer. Orsaken till en sådan separation är att arbets Belastningens egenskaper på volymerna skiljer sig åt. Med de föreslagna produktions konfigurationerna kan olika typer av cachelagring eller till och med olika typer av Azure block-lagring vara nödvändiga. Konfigurationerna för produktion som stöds med Azure block Storage Target är kompatibla med det [enda service nivå avtalet för virtuella datorer för azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/) också.  För icke-produktions scenarier kan vissa av de överväganden som vidtas för produktions system inte gälla för mer låga system som inte är för produktion. Det leder till att HANA-data och logg volymen kombineras. Även om det i vissa culprits, till exempel inte uppfyller vissa data flöden eller fördröjnings-KPI: er som krävs för produktions system. En annan aspekt för att minska kostnaderna i sådana miljöer kan vara användningen av [Azure standard SSD Storage](./planning-guide-storage.md#azure-standard-ssd-storage). Det är ett alternativ som gör att du inte validerar [service avtalet för enskild virtuell dator för Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+Den Azure Premium Storage-lösning som beskrivs i det här dokumentet i avsnitts [lösningar med Premium Storage och azure Skrivningsaccelerator för Azure M-seriens virtuella datorer](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) avsåg SAP HANA produktions scenarier som stöds. En av egenskaperna för konfigurationer som stöds för produktion är separering av volymer för SAP HANA data och gör om att logga in på två olika volymer. Orsaken till en sådan separation är att arbets Belastningens egenskaper på volymerna skiljer sig åt. Med de föreslagna produktions konfigurationerna kan olika typer av cachelagring eller till och med olika typer av Azure block-lagring vara nödvändiga. För icke-produktions scenarier kan vissa av de överväganden som vidtas för produktions system inte gälla för mer låga system som inte är för produktion. Det leder till att HANA-data och logg volymen kombineras. Även om det i vissa culprits, till exempel inte uppfyller vissa data flöden eller fördröjnings-KPI: er som krävs för produktions system. En annan aspekt för att minska kostnaderna i sådana miljöer kan vara användningen av [Azure standard SSD Storage](./planning-guide-storage.md#azure-standard-ssd-storage). Tänk på att du väljer Standard SSD eller Standard HDD Azure Storage har påverkan på din VM-service avtal enligt beskrivningen i artikelns  [service avtal för Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 Ett mindre kostsamt alternativ för sådana konfigurationer kan se ut så här:
 

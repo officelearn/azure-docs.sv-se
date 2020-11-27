@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c7a8fb63f775a76342849957f070861fd200a9d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 81a892b10996686cf58d45867e3d889505b5d3d9
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998931"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299589"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Fråga Storage-filer med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
@@ -47,7 +47,7 @@ Om du vill fråga Parquet-källdata använder du FORMAT = ' PARQUET '
 ```syntaxsql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Granska artikeln [query Parquet-filer](query-parquet-files.md) för användnings exempel.
@@ -59,7 +59,7 @@ Om du vill fråga CSV-källdata använder du FORMAT = CSV. Du kan ange schemat f
 ```sql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Det finns ytterligare alternativ som kan användas för att justera tolknings regler till anpassat CSv-format:
@@ -85,7 +85,7 @@ OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolde
 WITH (
       C1 int, 
       C2 varchar(20),
-      C3 as varchar(max)
+      C3 varchar(max)
 ) as rows
 ```
 
@@ -248,7 +248,7 @@ Demonstrations data innehåller följande data uppsättningar:
 - Testa Parquet-filer med kapslade kolumner
 - Böcker i JSON-format
 
-| Mappsökväg                                                  | Description                                                  |
+| Mappsökväg                                                  | Beskrivning                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | SKV                                                        | Överordnad mapp för data i CSV-format                         |
 | /csv/population/<br />/csv/population-unix/<br />/csv/population-unix-hdr/<br />/csv/population-unix-hdr-escape<br />/csv/population-unix-hdr-quoted | Mappar med populations data filer i olika CSV-format. |

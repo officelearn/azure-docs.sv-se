@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3f0a9f0b7fdef26cf1ef2b145ede1826fda6ebd
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d24ae1f42c685589309506b2d5e0eab157b2bc42
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685604"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299623"
 ---
 # <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Använda fil-metadata i SQL-pooler utan Server
 
@@ -24,7 +24,7 @@ Ibland kan du behöva veta vilken fil eller mapp källa som motsvarar en speciel
 
 Du kan använda funktionen `filepath` och `filename` för att returnera fil namn och/eller sökvägen i resultat uppsättningen. Eller så kan du använda dem för att filtrera data baserat på fil namnet och/eller mappsökvägen. Dessa funktioner beskrivs i funktionen syntax i avsnittet [filename](query-data-storage.md#filename-function) och funktionen fil [Sök väg](query-data-storage.md#filepath-function). I följande avsnitt hittar du korta beskrivningar utmed exempel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt första steg är att **skapa en databas** med en data källa som refererar till ett lagrings konto. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 
@@ -76,7 +76,7 @@ ORDER BY
 
 Funktionen filsökväg returnerar en fullständig eller partiell sökväg:
 
-- När den anropas utan en parameter, returnerar den den fullständiga fil Sök vägen som raden kommer från.
+- När den anropas utan en parameter, returnerar den den fullständiga fil Sök vägen som raden kommer från. När DATA_SOURCE används i OpenRowSet, returnerar den sökvägen i förhållande till DATA_SOURCE. 
 - När den anropas med en parameter, returneras en del av sökvägen som matchar jokertecknet för den position som anges i parametern. Parameter värde 1 skulle till exempel returnera en del av sökvägen som matchar det första jokertecknet.
 
 Följande exempel läser NYC Yellow taxi-datafiler under de tre senaste månaderna av 2017. Det returnerar antalet åsidosättningar per fil Sök väg. Delen OpenRowSet i frågan anger vilka filer som ska läsas.

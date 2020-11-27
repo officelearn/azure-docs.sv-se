@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1cd6f5f7865d18461ac7a635530e9aabfde380a6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 325e28b9fde349fc4bf01d2b130bee0be0684962
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955420"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299606"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Azure Storage-typer för SAP-arbetsbelastning
 Azure har flera olika lagrings typer som skiljer sig mycket i funktioner, data flöde, svars tid och priser. Några av lagrings typerna är inte eller av begränsad användning för SAP-scenarier. Flera typer av Azure-lagring är väl lämpade eller optimerade för vissa SAP-arbetsbelastnings scenarier. I synnerhet för SAP HANA fick vissa Azure Storage-typer certifierade för användning med SAP HANA. I det här dokumentet ska vi gå igenom de olika typerna av lagring och beskriva deras kapacitet och användbarhet med SAP-arbetsbelastningar och SAP-komponenter.
@@ -34,6 +34,8 @@ Markera om enheterna som används i den här artikeln. Leverantörer av offentli
 Microsoft Azure lagring av Standard HDD, Standard SSD, Azure Premium-lagring och Ultra disk behåller den grundläggande virtuella hård disken (med OS) och anslutna VM-datadiskar eller virtuella hård diskar i tre kopior på tre olika lagringsnoder. Växling till en annan replik och dirigering av en ny replik om det skulle uppstå ett diskfel är transparent. Som ett resultat av denna redundans behöver du **inte** använda någon typ av lagrings redundans på flera Azure-diskar. Detta faktum kallas lokalt redundant lagring (LRS). LRS är standard för dessa typer av lagring i Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) ger tillräcklig redundans för att uppnå samma service avtal som annan intern Azure-lagring.
 
 Det finns flera olika typer av redundans, som beskrivs i artikeln [Azure Storage replikering](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) som gäller för vissa av de olika lagrings typerna Azure måste erbjuda. 
+
+Tänk också på att olika typer av Azure-lagring påverkar de enskilda VM-service avtal som släpps i [SLA för Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 ### <a name="azure-managed-disks"></a>Azure Managed disks
 
@@ -131,7 +133,6 @@ Den här typen av lagring är riktad mot DBMS-arbetsbelastningar, lagrings trafi
 - I/O-dataflödet för den här lagringen är inte linjärt med storleken på disk kategorin. För mindre diskar, som kategorin mellan 65 GiB och 128 GiB, är data flödet runt 780KB/GiB. För de extremt stora diskarna som en 32 767 GiB-disk är data flödet runt 28KB/GiB
 - IOPS-och data flödes service avtal kan inte ändras utan att diskens kapacitet ändras
 
-Azure har ett enda service avtal för virtuell dator med 99,9% som är knutet till användningen av Azure Premium Storage eller Azure Ultra disk Storage. SLA är dokumenterat i [SLA för Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). För att kunna följa detta service avtal för virtuell dator måste bas-VHD-disken samt **all** ansluten disk vara antingen Azure Premium Storage eller Azure Ultra disk Storage.
 
 Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 

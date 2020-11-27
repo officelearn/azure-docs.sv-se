@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 247abafd7abec38e43794b76268ee52538aee508
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 63b9d74fbbb1a79dd4f3d3e7c5fb094a372282e0
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655688"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299640"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Använd Logstash för att ansluta data källor till Azure Sentinel
 
@@ -57,7 +57,7 @@ Plugin-programmet för Azure Sentinel-utdata för Logstash skickar JSON-formater
 
 Plugin-programmet för Azure Sentinel-utdata är tillgängligt i Logstash-samlingen.
 
-- Följ instruktionerna i Logstash [work with plugin](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) -dokument för att installera **_Microsoft-Logstash-output-Azure-loganalytics_* _-plugin-programmet.
+- Följ instruktionerna i Logstash [work with plugin](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) -dokument för att installera **_[Microsoft-Logstash-output-Azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)_* _-plugin-programmet.
    
 - Om ditt Logstash-system inte har Internet åtkomst följer du anvisningarna i dokumentet Logstash [Offline-plugin-hantering](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) för att förbereda och använda ett offline-plugin-paket. (Detta kräver att du skapar ett annat Logstash-system med Internet åtkomst.)
 
@@ -65,7 +65,7 @@ Plugin-programmet för Azure Sentinel-utdata är tillgängligt i Logstash-samlin
 
 Använd informationen i Logstash- [strukturen i ett konfigurations fil](https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html) dokument och Lägg till plugin-programmet för Azure Sentinel-utdata i konfigurationen med följande nycklar och värden. (Rätt syntax för config-filen visas efter tabellen.)
 
-| Fältnamn | Datatyp | Description |
+| Fältnamn | Datatyp | Beskrivning |
 |----------------|---------------|-----------------|
 | `workspace_id` | sträng | Ange arbets ytans ID-GUID. _ |
 | `workspace_key` | sträng | Ange arbets ytans primära nyckel-GUID. * |

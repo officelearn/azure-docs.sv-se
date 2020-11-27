@@ -105,6 +105,8 @@
       href: ../../devtest-labs/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Firewall
       href: ../../firewall/security-baseline.md
+    - name: Säkerhetsbaslinje för Azure Firewall Manager
+      href: ../../firewall-manager/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Front Door
       href: ../../frontdoor/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Functions
@@ -185,6 +187,8 @@
       href: ../../logic-apps/security-baseline.md
     - name: Network Watcher-säkerhetsbaslinje
       href: ../../network-watcher/security-baseline.md
+    - name: Power BI-baslinje
+      href: /power-bi/fundamentals/security-baseline
     - name: Security Center-baslinje
       href: ../../security-center/security-baseline.md
     - name: Baslinje för Service Bus
@@ -207,5 +211,7 @@
       href: ../../virtual-network/security-baseline.md
     - name: Säkerhetsbaslinje för Virtual Network NAT
       href: ../../virtual-network/nat-security-baseline.md
+    - name: Säkerhetsbaslinje för Virtual WAN
+      href: ../../virtual-wan/security-baseline.md
     - name: Säkerhetsbaslinje för VPN Gateway
       href: ../../vpn-gateway/security-baseline.md

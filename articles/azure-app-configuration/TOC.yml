@@ -70,6 +70,8 @@
       items:
         - name: Push-överföring med Azure-pipelines
           href: push-kv-devops-pipeline.md
+        - name: Pll-överföring med Azure-pipelines
+          href: pull-key-value-devops-pipeline.md
         - name: Push-överföring med GitHub Actions
           href: concept-github-action.md
         - name: Skapa projekt med exporterad konfiguration

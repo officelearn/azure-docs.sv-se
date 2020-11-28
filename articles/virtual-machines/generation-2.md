@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 0aedcc3be4cb319dc24990507d85756bd77777e4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 56a360f461c89d7c60e973bf2d6258d63113ab47
+ms.sourcegitcommit: 6b16e7cc62b29968ad9f3a58f1ea5f0baa568f02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963835"
+ms.lasthandoff: 11/28/2020
+ms.locfileid: "96303773"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer ur generation 2 i Azure
 
@@ -49,6 +49,8 @@ Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure (förutom f
 * [NCv3-serien](ncv3-series.md)
 * [ND-serien](nd-series.md)
 * [NVv3-serien](nvv3-series.md)
+* [NVv4-serien](nvv4-series.md)
+* [NCasT4_v3-serien](nct4-v3-series.md)
 
 <sup>1</sup> Mv2-serien stöder inte VM-avbildningar av generation 1 och stöder endast en delmängd av generation 2-avbildningar. Mer information finns i [dokumentationen för Mv2-serien](mv2-series.md) .
 

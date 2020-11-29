@@ -1,16 +1,16 @@
 ---
-title: Vad är nytt i Azure Backup
+title: Nyheter i Azure Backup
 description: Lär dig mer om nya funktioner i Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: e48a7df1e42591843c30b77026a4d8656773a57d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ba29ddea5d5f096640f2bfc012c44ab06bb3e131
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511597"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309672"
 ---
-# <a name="whats-new-in-azure-backup"></a>Vad är nytt i Azure Backup
+# <a name="whats-new-in-azure-backup"></a>Nyheter i Azure Backup
 
 Azure Backup kan ständigt förbättra och lansera nya funktioner som förbättrar skyddet av dina data i Azure. De här nya funktionerna utökar ditt data skydd till nya arbets belastnings typer, förbättrar säkerheten och förbättrar tillgängligheten för dina säkerhets kopierings data. De lägger också till nya funktioner för hantering, övervakning och automatisering.
 
@@ -19,6 +19,7 @@ Du kan lära dig mer om de nya versionerna genom att skriva bok märken på den 
 ## <a name="updates-summary"></a>Uppdaterings Sammanfattning
 
 - November 2020
+  - [Azure Resource Manager mall för säkerhets kopiering av Azure-filresursen (AFS)](#azure-resource-manager-template-for-afs-backup)
   - [Stegvisa säkerhets kopieringar för SAP HANA databaser på virtuella Azure-datorer](#incremental-backups-for-sap-hana-databases)
 - September 2020
   - [Backup Center](#backup-center)
@@ -30,6 +31,12 @@ Du kan lära dig mer om de nya versionerna genom att skriva bok märken på den 
   - [Säkerhetskopiera SAP HANA i RHEL Azure Virtual Machines](#backup-sap-hana-in-rhel-azure-virtual-machines)
   - [ZRS (Zone redundant Storage) för säkerhets kopierings data](#zone-redundant-storage-zrs-for-backup-data)
   - [Mjuk borttagning för SQL Server och SAP HANA arbets belastningar i virtuella Azure-datorer](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-resource-manager-template-for-afs-backup"></a>Azure Resource Manager mall för AFS-säkerhetskopiering
+
+Azure Backup har nu stöd för att konfigurera säkerhets kopiering för befintliga Azure-filresurser med en Azure Resource Manager ARM-mall (ARM). Mallen konfigurerar skydd för en befintlig Azure-filresurs genom att ange lämplig information för Recovery Services valvet och säkerhets kopierings principen. Du kan också skapa ett nytt Recovery Services valv och en säkerhets kopierings princip och registrera lagrings kontot som innehåller fil resursen i Recovery Services-valvet.
+
+Mer information finns i [Azure Resource Manager mallar för Azure Backup](backup-rm-template-samples.md).
 
 ## <a name="incremental-backups-for-sap-hana-databases"></a>Stegvisa säkerhets kopieringar för SAP HANA databaser
 

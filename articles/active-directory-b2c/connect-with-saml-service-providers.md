@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4426a305d72fdd86ee58b3f4a05153593515d4b5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7c6ba79a82fe3d291008f3317ddce7df4adcda0a
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949657"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309655"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
@@ -270,7 +270,7 @@ Din anpassade princip och Azure AD B2C klient är nu klara. Skapa sedan en progr
 
 ### <a name="41-register-your-application-in-azure-ad-b2c"></a>4,1 registrera ditt program i Azure AD B2C
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar** och välj sedan **ny registrering**.
@@ -453,7 +453,7 @@ En SAML-token är en säkerhetstoken som utfärdas av Azure AD B2C efter en lyck
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |Det huvud konto som används för att kontrollera token, till exempel användar objekt-ID. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Den kan användas för att utföra verifierings kontroller på ett säkert sätt, till exempel när token används för att få åtkomst till en resurs. Som standard fylls ämnes anspråket med objekt-ID: t för användaren i katalogen.|
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | En URI-referens som representerar klassificeringen av strängbaserade ID-information. Som standard utelämnas den här egenskapen. Du kan ställa in den förlitande partens [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) för att ange `NameID` formatet, till exempel `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` . |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |Tiden då token börjar gälla. Time-värdet är kodat i UTC. Programmet bör använda detta anspråk för att kontrol lera giltigheten för token för token. Om du vill ändra inställningarna för dina livs längder för token anger du `TokenNotBeforeSkewInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) för den tekniska profilen för SAML-token. |
-|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Tiden då token blir ogiltig. Programmet bör använda detta anspråk för att kontrol lera giltigheten för token för token. Värdet är 15 minuter efter `NotBefore` och kan inte ändras.|
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Tiden då token blir ogiltig. Programmet bör använda detta anspråk för att kontrol lera giltigheten för token för token. Standardvärdet är 5 minuter efter `NotBefore` och kan uppdateras genom att lägga till `TokenLifeTimeInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) för den tekniska profilen för SAML-token.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |En URI-referens som identifierar en avsedd mål grupp. Den identifierar den avsedda mottagaren av token. Värdet är identiskt med SAML-begäran `AssertionConsumerServiceURL` .|
 |`<Response>``<Assertion>` `<AttributeStatement>` samling av`<Attribute>` | | Intygs insamling (anspråk), enligt konfigurationen i den [förlitande partens tekniska profil](relyingparty.md#technicalprofile) utgående anspråk. Du kan konfigurera namnet på kontrollen genom att ange `PartnerClaimType` för det utgående anspråket. |
 

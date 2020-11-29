@@ -4,12 +4,12 @@ description: Azure Resource Manager mallar för användning med Recovery Service
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 29a2499bfd3125cad98e72f7543bb9a29293f624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4c2f444cb821f7979571b9d777895a59450e7c2
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755202"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309587"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Azure Resource Manager-mallar för Azure Backup
 
@@ -18,7 +18,7 @@ I följande tabell finns länkar till Azure Resource Manager-mallar du kan anvä
 | Mall | Beskrivning |
 |---|---|
 |**Recovery Services-valv** | |
-| [skapar ett Recovery Services-valv](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vault-create)| Skapa ett Recovery Services-valv. Du kan använda valvet för Azure Backup och Azure Site Recovery. |
+| [Skapa ett Recovery Services-valv](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vault-create)| Skapa ett Recovery Services-valv. Du kan använda valvet för Azure Backup och Azure Site Recovery. |
 |**Säkerhetskopiera virtuella datorer**| |
 | [Säkerhetskopiera virtuella Resource Manager-datorer](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-backup-vms) | Använd det befintliga Recovery Services-valvet och Backup-principen för säkerhetskopiering av virtuella Resource Manager-datorer i samma resursgrupp.|
 | [Säkerhetskopiera virtuella IaaS-datorer till ett Recovery Services-valv](https://github.com/Azure/azure-quickstart-templates/tree/master/201-recovery-services-backup-classic-resource-manager-vms) | Mall för säkerhetskopiering av klassiska virtuella datorer och virtuella Resource Manager-datorer. |
@@ -29,4 +29,6 @@ I följande tabell finns länkar till Azure Resource Manager-mallar du kan anvä
 | [Använda Azure Monitor-loggar med Azure Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Mallen distribuerar Azure Monitor loggar med Azure Backup, vilket gör att du kan övervaka säkerhets kopierings-och återställnings jobb, säkerhets kopierings aviseringar och moln lagring som används i dina Recovery Services-valv.|  
 |**Säkerhetskopiera SQL Server i Azure VM** |  |
 | [Säkerhetskopiera SQL Server i Azure VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | Mall skapar ett Recovery Services valv och en princip för säkerhets kopiering av arbets belastning. Den registrerar den virtuella datorn med Azure Backup tjänsten och konfigurerar skyddet på den virtuella datorn. För närvarande fungerar det bara för SQL Gallery-avbildningar. |
+|**Säkerhetskopiera Azure-filresurser** |  |
+| [Säkerhetskopiera Azure-filresurser](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-backup-file-share) | Den här mallen konfigurerar skydd för en befintlig Azure-filresurs genom att ange lämplig information för Recovery Services valvet och säkerhets kopierings principen. Du kan också skapa ett nytt Recovery Services valv och en säkerhets kopierings princip och registrera lagrings kontot som innehåller fil resursen i Recovery Services-valvet. |
 |   |   |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: ac785b3ad534e80d4dd240d1a29ba5f6aa75e10a
-ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
+ms.openlocfilehash: 6264ea50f128764a5213a7a1fd9b8c47ddae8961
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96299047"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309689"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Kundhanterad nyckel i Azure Monitor 
 
@@ -76,7 +76,23 @@ Customer-Managed nyckel konfigurationen stöds inte i Azure Portal och etablerin
 
 ### <a name="asynchronous-operations-and-status-check"></a>Asynkrona åtgärder och status kontroll
 
-Vissa konfigurations steg körs asynkront eftersom de inte kan slutföras snabbt. När du använder REST returnerar svaret ursprungligen en HTTP-statuskod 200 (OK) och rubriken med *Azure-AsyncOperation-* egenskapen när den godkänns:
+Vissa konfigurations steg körs asynkront eftersom de inte kan slutföras snabbt. `status`I Response innehåller kan vara något av följande: "pågår", "uppdatering", "ta bort", "lyckades" eller "misslyckades", inklusive felkoden.
+
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+
+Ej tillämpligt
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Ej tillämpligt
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Ej tillämpligt
+
+# <a name="rest"></a>[REST](#tab/rest)
+
+När du använder REST returnerar svaret ursprungligen en HTTP-statuskod 200 (OK) och rubriken med *Azure-AsyncOperation-* egenskapen när den godkänns:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
@@ -87,7 +103,7 @@ GET https://management.azure.com/subscriptions/subscription-id/providers/microso
 Authorization: Bearer <token>
 ```
 
-`status`I Response innehåller kan vara något av följande: "pågår", "uppdatering", "ta bort", "lyckades" eller "misslyckades", inklusive felkoden.
+---
 
 ### <a name="allowing-subscription"></a>Tillåter prenumeration
 
@@ -137,16 +153,25 @@ Uppdatera KeyVaultProperties i kluster med information om nyckel identifierare.
 
 Åtgärden är asynkron och kan ta en stund att slutföra.
 
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+
+Ej tillämpligt
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
 ```
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -200,6 +225,8 @@ Ett svar på GET-begäran bör se ut så här när nyckel identifierarens uppdat
 }
 ```
 
+---
+
 ### <a name="link-workspace-to-cluster"></a>Länka arbets ytan till kluster
 
 Du måste ha Skriv behörighet till både din arbets yta och ditt kluster för att kunna utföra den här åtgärden, bland annat följande åtgärder:
@@ -250,15 +277,25 @@ När du tar med din egen lagring (BYOS) och länkar den till din arbets yta öve
 
 Länka ett lagrings konto för *fråga* till din arbets yta – *sparade – sökningar* frågor sparas i ditt lagrings konto. 
 
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+
+Ej tillämpligt
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
@@ -276,21 +313,33 @@ Content-type: application/json
 }
 ```
 
+---
+
 Efter konfigurationen sparas alla nya *sparade Sök* frågor i ditt lagrings utrymme.
 
 **Konfigurera BYOS för logg aviserings frågor**
 
 Länka ett lagrings konto för *aviseringar* till arbets ytan – *logg aviserings* frågor sparas i ditt lagrings konto. 
 
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+
+Ej tillämpligt
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
@@ -308,9 +357,12 @@ Content-type: application/json
 }
 ```
 
+---
+
 Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
 
 ## <a name="customer-lockbox-preview"></a>Customer Lockbox (för hands version)
+
 Med lås får du kontrollen att godkänna eller avvisa Microsoft Engineer-begäran för att få åtkomst till dina data under en support förfrågan.
 
 I Azure Monitor har du den här kontrollen på data i arbets ytor som är länkade till ditt Log Analytics-dedikerade kluster. Den säkra kontrollen gäller för data som lagras i ett Log Analytics dedikerat kluster där den hålls isolerad i klustrets lagrings konton under den skyddade din säkra prenumeration.  
@@ -321,13 +373,23 @@ Läs mer om [Customer lockbox för Microsoft Azure](../../security/fundamentals/
 
 - **Hämta alla kluster i en resurs grupp**
   
+  # <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+
+  Ej tillämpligt
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics cluster list --resource-group "resource-group-name"
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -369,15 +431,27 @@ Läs mer om [Customer lockbox för Microsoft Azure](../../security/fundamentals/
   }
   ```
 
+  ---
+
 - **Hämta alla kluster i en prenumeration**
+
+  # <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+
+  Ej tillämpligt
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster list
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsCluster
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -388,17 +462,29 @@ Läs mer om [Customer lockbox för Microsoft Azure](../../security/fundamentals/
     
   Samma svar som för "kluster i en resurs grupp", men i prenumerations omfånget.
 
+  ---
+
 - **Uppdatera *kapacitets reservation* i kluster**
 
   När data volymen till dina länkade arbets ytor ändras med tiden och du vill uppdatera kapacitets reservations nivån korrekt. Följ [uppdaterings klustret](#update-cluster-with-key-identifier-details) och ange ditt nya kapacitets värde. Det kan vara mellan 1000 och 3000 GB per dag och i steg om 100. För högre nivå än 3000 GB per dag når du din Microsoft-kontakt för att aktivera den. Observera att du inte behöver ange en fullständig REST-begäran, men bör inkludera SKU: n:
+
+  # <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+
+  Ej tillämpligt
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity daily-ingestion-gigabyte
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity daily-ingestion-gigabyte
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -413,6 +499,8 @@ Läs mer om [Customer lockbox för Microsoft Azure](../../security/fundamentals/
   }
   ```
 
+  ---
+
 - **Uppdatera *billingType* i kluster**
 
   Egenskapen *billingType* bestämmer fakturerings behörighet för klustret och dess data:
@@ -420,6 +508,20 @@ Läs mer om [Customer lockbox för Microsoft Azure](../../security/fundamentals/
   - *arbets ytor* – faktureringen hänförs till prenumerationerna som är värdar för dina arbets ytor proportionellt
   
   Följ [uppdaterings klustret](#update-cluster-with-key-identifier-details) och ange det nya billingType-värdet. Observera att du inte behöver ange den fullständiga texten i REST-begäran och ska innehålla *billingType*:
+
+  # <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+
+  Ej tillämpligt
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+  Ej tillämpligt
+
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+  Ej tillämpligt
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -433,36 +535,67 @@ Läs mer om [Customer lockbox för Microsoft Azure](../../security/fundamentals/
   }
   ``` 
 
+  ---
+
 - **Ta bort arbetsytans länk**
 
   Du behöver Skriv-behörigheter på arbets ytan och klustret för att utföra den här åtgärden. Du kan när som helst ta bort länken till en arbets yta från klustret. Nya inmatade data efter åtgärden ta bort länk lagras i Log Analytics lagring och krypteras med Microsoft-nyckel. Du kan fråga dig om data som har matats in till din arbets yta före och efter att bryta länken sömlöst så länge klustret är etablerade och konfigurerat med giltig Key Vault nyckel.
 
   Den här åtgärden är asynkron och kan vara en stund att slutföra.
 
+  # <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+
+  Ej tillämpligt
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --name "cluster-name" --workspace-name "workspace-name"
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -Name "workspace-name" -LinkedServiceName cluster
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rest
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 
+  ---
+
   - **Kontrol lera länk status för arbets ytan**
   
   Utför åtgärden Hämta på arbets ytan och observera om egenskapen *clusterResourceId* finns i svaret under *funktioner*. En länkad arbets yta kommer att ha egenskapen *clusterResourceId* .
+
+  # <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+
+  Ej tillämpligt
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
+
+   ```rest
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+  ---
 
 - **Ta bort klustret**
 
@@ -470,18 +603,30 @@ Läs mer om [Customer lockbox för Microsoft Azure](../../security/fundamentals/
   
   Åtgärden för att ta bort länken är asynkron och kan ta upp till 90 minuter att slutföra.
 
+  # <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+
+  Ej tillämpligt
+
+  # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics cluster delete --resource-group "resource-group-name" --name "cluster-name"
   ```
- 
+
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
+
+  ---
   
 - **Återställa ditt kluster och dina data** 
   

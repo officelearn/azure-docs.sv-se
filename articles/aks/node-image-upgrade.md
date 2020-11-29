@@ -3,37 +3,69 @@ title: Uppgradera Node-avbildningar för Azure Kubernetes service (AKS)
 description: Lär dig hur du uppgraderar avbildningarna på AKS-klusternoder och Node-pooler.
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 211190228c1ea9c98004b55da96ad38808821d67
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 11/25/2020
+ms.author: jpalma
+ms.openlocfilehash: e8214345bd1c328f0996f8aa8a2a8bb402a76e8d
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682391"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309604"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Uppgradering av noden Azure Kubernetes service (AKS)
 
-AKS stöder uppgradering av avbildningar på en nod så att du är uppdaterad med de senaste uppdateringarna för operativ systemet och körning. AKS tillhandahåller en ny avbildning per vecka med de senaste uppdateringarna, så det är bra att uppgradera nodens avbildningar regelbundet för de senaste funktionerna, inklusive Linux-eller Windows-korrigeringsfiler. I den här artikeln lär du dig hur du uppgraderar AKS-klusternoder samt hur du uppdaterar avbildningar av noder utan att uppgradera versionen av Kubernetes.
+AKS stöder uppgradering av avbildningar på en nod så att du är uppdaterad med de senaste uppdateringarna för operativ systemet och körning. AKS tillhandahåller en ny avbildning per vecka med de senaste uppdateringarna, så det är bra att uppgradera nodens avbildningar regelbundet för de senaste funktionerna, inklusive Linux-eller Windows-korrigeringsfiler. Den här artikeln visar hur du uppgraderar AKS för klusternoder och hur du uppdaterar avbildningar av noder utan att uppgradera versionen av Kubernetes.
 
-Om du är intresse rad av att lära dig om de senaste avbildningarna som tillhandahålls av AKS kan du läsa mer i [AKS-versions informationen](https://github.com/Azure/AKS/releases) .
+Mer information om de senaste avbildningarna som tillhandahålls av AKS finns i [viktig](https://github.com/Azure/AKS/releases)information för AKS.
 
 Information om hur du uppgraderar Kubernetes-versionen för klustret finns i [uppgradera ett AKS-kluster][upgrade-cluster].
 
-## <a name="limitations"></a>Begränsningar
+> [!NOTE]
+> AKS-klustret måste använda skalnings uppsättningar för virtuella datorer för noderna.
 
-* AKS-klustret måste använda skalnings uppsättningar för virtuella datorer för noderna.
+## <a name="check-if-your-node-pool-is-on-the-latest-node-image"></a>Kontrol lera att Node-poolen finns på den senaste noden
 
-## <a name="install-the-aks-cli-extension"></a>Installera AKS CLI-tillägget
-
-Innan nästa kärn CLI-version släpps behöver du *AKS-Preview CLI-* tillägget för att kunna använda noden avbildnings uppgradering. Använd kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
+Du kan se vad är den senaste versionen av Node-avbildningen som är tillgänglig för Node-poolen med följande kommando: 
 
 ```azurecli
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
+az aks nodepool get-upgrades \
+    --nodepool-name mynodepool \
+    --cluster-name myAKSCluster \
+    --resource-group myResourceGroup
 ```
+
+I utdata kan du se `latestNodeImageVersion` precis som i exemplet nedan:
+
+```output
+{
+  "id": "/subscriptions/XXXX-XXX-XXX-XXX-XXXXX/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/nodepool1/upgradeProfiles/default",
+  "kubernetesVersion": "1.17.11",
+  "latestNodeImageVersion": "AKSUbuntu-1604-2020.10.28",
+  "name": "default",
+  "osType": "Linux",
+  "resourceGroup": "myResourceGroup",
+  "type": "Microsoft.ContainerService/managedClusters/agentPools/upgradeProfiles",
+  "upgrades": null
+}
+```
+
+Så för `nodepool1` den senaste tillgängliga nod-avbildningen `AKSUbuntu-1604-2020.10.28` . Nu kan du jämföra det med den aktuella nodens avbildnings version som används av Node-poolen genom att köra:
+
+```azurecli
+az aks nodepool show \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --query nodeImageVersion
+```
+
+Ett exempel på utdata skulle vara:
+
+```output
+"AKSUbuntu-1604-2020.10.08"
+```
+
+I det här exemplet kan du uppgradera från den aktuella `AKSUbuntu-1604-2020.10.08` avbildnings versionen till den senaste versionen `AKSUbuntu-1604-2020.10.28` . 
 
 ## <a name="upgrade-all-nodes-in-all-node-pools"></a>Uppgradera alla noder i alla noder i pooler
 
@@ -64,7 +96,7 @@ az aks show \
 
 Att uppgradera avbildningen på en Node-pool liknar att uppgradera avbildningen på ett kluster.
 
-Om du vill uppdatera OS-avbildningen för Node-poolen utan att utföra en Kubernetes kluster uppgradering använder du `--node-image-only` alternativet i följande exempel:
+Om du vill uppdatera operativ system avbildningen i Node-poolen utan att göra en Kubernetes-uppgradering av klustret, använder du `--node-image-only` alternativet i följande exempel:
 
 ```azurecli
 az aks nodepool upgrade \

@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 0522f677c731aa1cd218a14429791db14179686a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5312ee08bad9d0b84e13c53fe4b1de59fad896f1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497069"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326054"
 ---
 # <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Migreringsguiden: DB2 till SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -63,7 +63,7 @@ Följ dessa steg om du vill skapa en utvärdering:
 
 1. Granska HTML-rapporten för att förstå konverterings statistik och eventuella fel eller varningar. Du kan också öppna rapporten i Excel för att få en inventering av DB2-objekt och den insats som krävs för att utföra schema konverteringar. Standard platsen för rapporten finns i rapportmappen i SSMAProjects.
 
-   Till exempel: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
+   Exempel: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/report.png" alt-text="Granska rapporten för att identifiera eventuella fel eller varningar":::
 
@@ -139,10 +139,10 @@ När data har migrerats till mål miljön måste alla program som tidigare förb
 
 Test metoden för migrering av databasen består av följande aktiviteter:
 
-1. **Utveckla verifieringstester** : om du vill testa migreringen av databasen måste du använda SQL-frågor. Du måste skapa verifierings frågorna som ska köras mot både käll-och mål databaserna. Dina verifierings frågor ska omfatta det definitions område som du har definierat.
-1. **Konfigurera test miljö** : test miljön bör innehålla en kopia av käll databasen och mål databasen. Se till att isolera test miljön.
-1. **Kör verifieringstester** : kör verifieringstester mot källan och målet och analysera sedan resultaten.
-1. **Kör prestandatester** : kör prestandatest mot källan och målet och analysera och jämför sedan resultaten.
+1. **Utveckla verifieringstester**: om du vill testa migreringen av databasen måste du använda SQL-frågor. Du måste skapa verifierings frågorna som ska köras mot både käll-och mål databaserna. Dina verifierings frågor ska omfatta det definitions område som du har definierat.
+1. **Konfigurera test miljö**: test miljön bör innehålla en kopia av käll databasen och mål databasen. Se till att isolera test miljön.
+1. **Kör verifieringstester**: kör verifieringstester mot källan och målet och analysera sedan resultaten.
+1. **Kör prestandatester**: kör prestandatest mot källan och målet och analysera och jämför sedan resultaten.
 
    > [!NOTE]
    > Om du behöver hjälp med att utveckla och köra verifierings test efter migrering bör du tänka på vilken data kvalitets lösning som är tillgänglig från partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
@@ -164,7 +164,7 @@ Dessa resurser har utvecklats som en del av data SQL-Ninja program, som sponsras
 
 Efter migreringen granskar du [guiden för validering och optimering efter migreringen](/sql/relational-databases/post-migration-validation-and-optimization-guide). 
 
-För en matris med tjänster och verktyg från Microsoft och tredje part som är tillgängliga för att hjälpa dig med olika scenarier för databas-och data migrering, samt särskilda uppgifter, se [tjänster och verktyg för data migration](/azure/dms/dms-tools-matrix).
+För en matris med tjänster och verktyg från Microsoft och tredje part som är tillgängliga för att hjälpa dig med olika scenarier för databas-och data migrering, samt särskilda uppgifter, se [tjänster och verktyg för data migration](../../../dms/dms-tools-matrix.md).
 
 Mer information om andra biflyttnings guider finns i [databas migrering](https://datamigration.microsoft.com/). 
 

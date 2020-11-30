@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2a7d77579eaebd3ee951d0184e25937783420806
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308329"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325204"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent datakryptering i Azure SQL med kundhanterad nyckel
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -78,7 +78,7 @@ Granskare kan använda Azure Monitor för att granska Key Vault-AuditEvent logga
 
 - Key Vault och SQL Database/Managed instance måste tillhöra samma Azure Active Directory-klient. Nyckel valv för flera klienter och Server interaktioner stöds inte. Om du vill flytta resurserna efteråt måste TDE med AKV konfigureras om. Lär dig mer om att [Flytta resurser](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- Funktionen för [mjuk borttagning](../../key-vault/general/soft-delete-overview.md) måste vara aktive rad i nyckel valvet för att det ska gå att ta bort data förlust, oavsiktlig nyckel (eller Key Vault). Mjuka, borttagna resurser behålls i 90 dagar, såvida de inte återställs eller rensas av kunden under tiden. Åtgärder för att *återställa* och *Rensa* har sina egna behörigheter som är kopplade till en åtkomst princip för nyckel valv. Funktionen mjuk borttagning är inaktive rad som standard och kan aktive ras via [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) eller [CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Den kan inte aktive ras via Azure Portal.  
+- Funktionen för [mjuk borttagning](../../key-vault/general/soft-delete-overview.md) måste vara aktive rad i nyckel valvet för att det ska gå att ta bort data förlust, oavsiktlig nyckel (eller Key Vault). Mjuka, borttagna resurser behålls i 90 dagar, såvida de inte återställs eller rensas av kunden under tiden. Åtgärder för att *återställa* och *Rensa* har sina egna behörigheter som är kopplade till en åtkomst princip för nyckel valv. Funktionen mjuk borttagning är inaktive rad som standard och kan aktive ras via [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) eller [CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli). Den kan inte aktive ras via Azure Portal.  
 
 - Bevilja servern eller hanterad instans åtkomst till nyckel valvet (get, wrapKey, unwrapKey) med sin Azure Active Directory identitet. När du använder Azure Portal skapas Azure AD-identiteten automatiskt. När du använder PowerShell eller CLI måste Azure AD-identiteten skapas och slutföras måste verifieras. Se [Konfigurera TDE med BYOK](transparent-data-encryption-byok-configure.md) och [Konfigurera TDE med BYOK för SQL-hanterad instans](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) för detaljerade steg-för-steg-instruktioner när du använder PowerShell.
 
@@ -146,7 +146,7 @@ Nedan visas de ytterligare steg som krävs på portalen för att den oåtkomliga
 
 Det kan hända att någon med tillräckliga åtkomst rättigheter till Key Vault oavsiktligt inaktiverar Server åtkomst till nyckeln av:
 
-- återkalla nyckel valvets *Get* -, *wrapKey* -, *unwrapKey* -behörigheter från servern
+- återkalla nyckel valvets *Get*-, *wrapKey*-, *unwrapKey* -behörigheter från servern
 
 - tar bort nyckeln
 

@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1f4d0d5c2d5442d14d68922c4d0c27b45b2b841e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984455"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324728"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt 
 
@@ -119,7 +119,7 @@ Du kan inte ändra taggen för en befintlig avgränsnings ruta. Om du gör en ta
 
 Som standard kan du redigera befintliga avgränsnings rutor. Verktyget **Lock/unlock regioner** ![ Lock/unlock regions ](./media/how-to-label-images/lock-bounding-boxes-tool.png) eller "L" växlar beteendet. Om regionerna är låsta kan du bara ändra form eller plats för en ny avgränsnings ruta.
 
-Använd områdena modifierings verktyg för **regioner** ![ ](./media/how-to-label-images/regions-tool.png) eller "M" för att justera en befintlig avgränsnings ruta. Justera figuren genom att dra i kanterna eller hörnen. Klicka på insidan för att kunna dra hela avgränsnings rutan. Om du inte kan redigera en region har du förmodligen växlat **Lås/Lås upp** regions verktyget.
+Använd **områdes manipulations** verktyget ![ det här är en område manipulations verktygs ikon – fyra pilar som pekar utåt från mitten, uppåt, höger, nedåt och till vänster.](./media/how-to-label-images/regions-tool.png) eller "M" för att justera en befintlig avgränsnings ruta. Justera figuren genom att dra i kanterna eller hörnen. Klicka på insidan för att kunna dra hela avgränsnings rutan. Om du inte kan redigera en region har du förmodligen växlat **Lås/Lås upp** regions verktyget.
 
 Använd mallen för **mallbaserade Box** ![ -verktyget ](./media/how-to-label-images/template-box-tool.png) eller "T" för att skapa flera avgränsnings rutor av samma storlek. Om bilden inte har några markerings rutor och du aktiverar mallbaserade rutor, kommer verktyget att producera 50-för-50-pixel-rutor. Om du skapar en avgränsnings ruta och sedan aktiverar mallbaserade rutor, blir alla nya avgränsnings rutor storleken på den sista rutan som du skapade. Du kan ändra storlek på mallbaserade rutor efter placering. Att ändra storlek på en mall-baserad ruta ändrar bara storlek på den aktuella rutan.
 
@@ -143,7 +143,7 @@ Om du vill ändra taggen för en polygon väljer du verktyget **Flytta region** 
 
 Du kan redigera befintliga polygoner. Verktyget **Lås/Lås upp regioner** ![ redigerar polygoner med verktyget lås/Lås upp regioner ](./media/how-to-label-images/lock-bounding-boxes-tool.png) eller "L" och växlar beteendet. Om regionerna är låsta kan du bara ändra form eller plats för en ny polygon.
 
-Använd verktyget **Lägg till eller ta bort polygon-punkter** för att ![ lägga till eller ta bort polygoner-verktyget ](./media/how-to-label-images/add-remove-points-tool.png) eller "U" för att justera en befintlig polygon. Klicka på polygonen för att lägga till eller ta bort en punkt. Om du inte kan redigera en region har du förmodligen växlat **Lås/Lås upp** regions verktyget.
+Använd verktyget **Lägg till eller ta bort polygoner** ![ Detta är verktygs ikonen Lägg till eller ta bort polygon-punkter.](./media/how-to-label-images/add-remove-points-tool.png) eller "U" för att justera en befintlig polygon. Klicka på polygonen för att lägga till eller ta bort en punkt. Om du inte kan redigera en region har du förmodligen växlat **Lås/Lås upp** regions verktyget.
 
 Om du vill ta bort *alla* polygoner i den aktuella bilden väljer du verktyget **ta** bort alla regioner ![ ta bort alla regioner ](./media/how-to-label-images/delete-regions-tool.png) .
 

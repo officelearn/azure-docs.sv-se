@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 3827fa7a98cef9358db0ee102925586bce97fae6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cf0703406b71cb56bdd75a04746dfce7db6af471
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188691"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327142"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program med flera SID-guide
 
@@ -90,11 +90,11 @@ Innan du börjar, se följande SAP-anteckningar och dokument först:
 * [NetApp SAP-program på Microsoft Azure med Azure NetApp Files][anf-sap-applications-azure]
 ## <a name="overview"></a>Översikt
 
-De virtuella datorerna som ingår i klustret måste ha en storlek för att kunna köra alla resurser, om redundans inträffar. Varje SAP-SID kan växlas över oberoende av varandra i kluster med hög tillgänglighet för flera-SID.  Om du använder SBD staket kan SBD-enheterna delas mellan flera kluster.  
+De virtuella datorer som ingår i klustret måste ha en storlek för att kunna köra alla resurser, om redundans inträffar. Varje SAP-SID kan växlas över oberoende av varandra i kluster med hög tillgänglighet för flera-SID.  Om du använder SBD staket kan SBD-enheterna delas mellan flera kluster.  
 
 För att uppnå hög tillgänglighet kräver SAP-NetWeaver hög tillgängliga NFS-resurser. I det här exemplet antar vi att SAP NFS-resurserna finns på en [fil Server](./high-availability-guide-suse-nfs.md)med hög tillgänglighet som kan användas av flera SAP-system. Eller resurserna distribueras på [Azure NETAPP Files NFS-volymer](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  
 
-![Översikt över SAP NetWeaver-hög tillgänglighet](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
+![Pacemaker-kluster visar detaljerad information om två multi-SID-kluster, msidcl1 och msidcl2.](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
 > [!IMPORTANT]
 > Stödet för multi-SID-klustring av SAP ASCS/ERS med SUSE Linux som gäst operativ system i virtuella Azure-datorer är begränsat till **fem** SAP-sid i samma kluster. Varje nytt SID ökar komplexiteten. Det finns **inte stöd** för en blandning av SAP-server 1 och transaktionskö för replikering Server 2 i samma kluster. Multi-SID-klustring beskriver installationen av flera SAP ASCS/ERS-instanser med olika sid i ett pacemaker-kluster. För närvarande stöds inte Multi-SID-klustring för ASCS/ERS.  

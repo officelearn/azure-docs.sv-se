@@ -8,12 +8,12 @@ ms.author: tamram
 ms.topic: quickstart
 ms.date: 12/02/2019
 ms.subservice: tables
-ms.openlocfilehash: d592dd6ac705d0f1a0b3ed55e115d06023b0a511
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 93c6cb0f61185457ef0684d2a1ba691a0534aa13
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88236275"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326785"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Snabbstart: Skapa en Azure Storage-tabell i Azure-portalen 
 
@@ -31,15 +31,15 @@ Du kan nu använda Table Service i Azure-portalen för att skapa en tabell.
 
 1. Klicka på Översikt > tabeller.
 
-   ![Azure Portal](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
+   ![På vmamcgestorage, ett lagrings konto, är fliken Översikt markerad. I översikts fönstret, under tjänster, markeras tabeller.](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
 
 2. Klicka på **+ Tabell**.
 
-   ![Azure Portal](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
+   ![På Table service för vmamcgestorage är alternativet + Table markerat.](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
 
 3. Ange ett namn för din tabell i rutan **Tabellnamn** och klicka därefter på **OK**. 
 
-   ![Azure Portal](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
+   ![På fliken Lägg till tabell i Table service, anges tabellen i tabell namn och är markerad. Knappen OK är markerad och markerad.](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

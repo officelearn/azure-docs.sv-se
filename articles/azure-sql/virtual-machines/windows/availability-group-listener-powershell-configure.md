@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cb55274800b239cf0e1e942647ae0c65b321b862
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 147c507cde9abf2ef97098c6b41fbbd4d67f02d2
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790057"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324813"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera Always on tillgänglighets grupps lyssnare – Resource Manager
 
@@ -64,7 +64,7 @@ Om du begränsar åtkomsten med en Azure-nätverks säkerhets grupp kontrollerar
 Den aktuella [Microsoft-mallen](./availability-group-quickstart-template-configure.md) för en tillgänglighets grupp använder en grundläggande belastningsutjämnare med grundläggande IP-adresser.
 
    > [!NOTE]
-   > Du måste konfigurera en [tjänst slut punkt](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network) om du använder en standard-belastningsutjämnare och Azure Storage för moln vittnet. 
+   > Du måste konfigurera en [tjänst slut punkt](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) om du använder en standard-belastningsutjämnare och Azure Storage för moln vittnet. 
    > 
 
 I exemplen i den här artikeln anges en standard belastningsutjämnare. I exemplen innehåller skriptet `-sku Standard` .
@@ -197,9 +197,9 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Navigera till **AlwaysOn High Availability** tillgänglighets  >  **Availability Groups**  >  **grupps lyssnare för tillgänglighets** grupper med hög tillgänglighet för AlwaysOn. 
 
-1. Du bör nu se det lyssnar namn som du skapade i Klusterhanteraren för växling vid fel. Högerklicka på namnet på lyssnaren och välj **Egenskaper** .
+1. Du bör nu se det lyssnar namn som du skapade i Klusterhanteraren för växling vid fel. Högerklicka på namnet på lyssnaren och välj **Egenskaper**.
 
-1. I rutan **port** anger du Port numret för tillgänglighets gruppens lyssnare genom att använda $EndpointPort som du använde tidigare (1433 var standard) och väljer sedan **OK** .
+1. I rutan **port** anger du Port numret för tillgänglighets gruppens lyssnare genom att använda $EndpointPort som du använde tidigare (1433 var standard) och väljer sedan **OK**.
 
 ## <a name="test-the-connection-to-the-listener"></a>Testa anslutningen till lyssnaren
 
@@ -236,7 +236,7 @@ Observera följande rikt linjer för tillgänglighets gruppens lyssnare i Azure 
   - Belastningsutjämnarens flytande IP-adresser för AG-lyssnaren
   - Klustrets kärn IP-adress, om tillämpligt.
 
-* Skapa en tjänst slut punkt när du använder en standard-belastningsutjämnare med Azure Storage för moln vittnet. Mer information finns i [bevilja åtkomst från ett virtuellt nätverk](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
+* Skapa en tjänst slut punkt när du använder en standard-belastningsutjämnare med Azure Storage för moln vittnet. Mer information finns i [bevilja åtkomst från ett virtuellt nätverk](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Mer information
 

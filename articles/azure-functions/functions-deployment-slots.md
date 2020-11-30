@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 0361ba7bc67948c25b842a3fb7406d2999fdd725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87d7d4676c604ca7219b7580eb3ce585282a7f11
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530620"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327248"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions distributions platser
 
@@ -57,7 +57,38 @@ Tänk på följande punkter:
 
 ## <a name="manage-settings"></a>Hantera inställningar
 
-[!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
+Vissa konfigurations inställningar är platsspecifika. Nedan visas information om vilka inställningar som ändras när du byter platser och som är oförändrade.
+
+Platsspecifika **Inställningar**:
+
+* Publicerings slut punkter
+* Egna domännamn
+* Icke-offentliga certifikat och TLS/SSL-inställningar
+* Skalnings inställningar
+* Jobb scheman för WebJobs
+* IP-begränsningar
+* Alltid på
+* Diagnostikinställningar
+* Resursdelning för korsande ursprung (CORS)
+
+**Inställningar som inte är** platsspecifika:
+
+* Allmänna inställningar, till exempel Ramverks version, 32/64-bitars, Web Sockets
+* Appinställningar (kan konfigureras för att fästa på en plats)
+* Anslutnings strängar (kan konfigureras att fästa mot en plats)
+* Mappningar för hanterare
+* Offentliga certifikat
+* WebJobs-innehåll
+* Hybrid anslutningar *
+* Integrering av virtuella nätverk *
+* Tjänst slut punkter *
+* Azure Content Delivery Network *
+
+Funktioner som har marker ATS med en asterisk (*) planeras att inte växlas. 
+
+> [!NOTE]
+> Vissa inställningar för appar som tillämpas på inställningar som inte har växlats växlas inte heller. Till exempel, eftersom diagnostikinställningar inte växlas, växlas inte relaterade appinställningar, till exempel `WEBSITE_HTTPLOGGING_RETENTION_DAYS` och `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` , även om de inte visas som plats inställningar.
+>
 
 ### <a name="create-a-deployment-setting"></a>Skapa en distributions inställning
 
@@ -71,17 +102,17 @@ Använd följande steg för att skapa en distributions inställning:
 
     :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Hitta platser i Azure Portal." border="true":::
 
-1. Välj **konfiguration**och välj sedan det inställnings namn som du vill använda för den aktuella platsen.
+1. Välj **konfiguration** och välj sedan det inställnings namn som du vill använda för den aktuella platsen.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Hitta platser i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Konfigurera program inställningen för en plats i Azure Portal." border="true":::
 
-1. Välj **distributions plats inställning**och välj sedan **OK**.
+1. Välj **distributions plats inställning** och välj sedan **OK**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Hitta platser i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Konfigurera distributions plats inställningen." border="true":::
 
 1. När du har angett avsnittet försvinner väljer du **Spara** för att behålla ändringarna
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Hitta platser i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Spara distributions plats inställningen." border="true":::
 
 ## <a name="deployment"></a>Distribution
 
@@ -100,26 +131,26 @@ Du kan lägga till en plats via [CLI](/cli/azure/functionapp/deployment/slot?vie
 
 1. Navigera till din Function-app.
 
-1. Välj **distributions platser**och välj sedan **+ Lägg till plats**.
+1. Välj **distributions platser** och välj sedan **+ Lägg till plats**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Hitta platser i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Lägg till Azure Functions distributions plats." border="true":::
 
 1. Skriv namnet på facket och välj **Lägg till**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Hitta platser i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Ge Azure Functions distributions facket." border="true":::
 
 ## <a name="swap-slots"></a>Växla platser
 
 Du kan växla mellan platser via [CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) eller via portalen. Följande steg visar hur du byter platser i portalen:
 
 1. Navigera till Function-appen.
-1. Välj **distributions platser**och välj sedan **Växla**.
+1. Välj **distributions platser** och välj sedan **Växla**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Hitta platser i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Skärm bild som visar sidan &quot;distributions fack&quot; där åtgärden Lägg till plats har valts." border="true":::
 
 1. Verifiera konfigurations inställningarna för din växling och välj **Växla**
     
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Hitta platser i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Växla distributions facket." border="true":::
 
 Åtgärden kan ta en stund medan växlings åtgärden körs.
 
@@ -137,15 +168,15 @@ Du kan ta bort en plats via [CLI](/cli/azure/functionapp/deployment/slot?view=az
 
 1. Välj **Ta bort**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Hitta platser i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Skärm bild som visar sidan &quot;Översikt&quot; där åtgärden ta bort har marker ATS." border="true":::
 
 1. Skriv namnet på den distributions plats som du vill ta bort och välj sedan **ta bort**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Hitta platser i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Ta bort distributions platsen i Azure Portal." border="true":::
 
 1. Stäng bekräftelse fönstret för borttagning.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Hitta platser i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Bekräfta borttagning av distributions plats." border="true":::
 
 ## <a name="automate-slot-management"></a>Automatisera plats hantering
 
@@ -170,11 +201,11 @@ Använd följande steg för att ändra en platss App Service plan:
 
     :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Hitta platser i Azure Portal." border="true":::
 
-1. Under **App Service plan**väljer du **ändra App Service plan**.
+1. Under **App Service plan** väljer du **ändra App Service plan**.
 
 1. Välj den plan som du vill uppgradera till eller skapa en ny plan.
 
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Hitta platser i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Ändra App Service plan i Azure Portal." border="true":::
 
 1. Välj **OK**.
 

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5c20fbbe25b51160f42f233d30c39ccaec0f5cac
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5d5404537ad107a54bd32110727e5a7d0f74ebea
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026069"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326904"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Migration guide: SQL Server till SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -99,7 +99,7 @@ Om du behöver jämföra arbets Belastningens prestanda på en SQL-hanterad inst
 
 ### <a name="create-sql-managed-instance"></a>Skapa hanterad SQL-instans 
 
-Baserat på informationen i fasen identifiering och utvärdering skapar du en lämplig storleks mål SQL-hanterad instans. Du kan göra detta med hjälp av mallen [Azure Portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)eller en [Azure Resource Manager (arm)](/azure/azure-sql/managed-instance/create-template-quickstart). 
+Baserat på informationen i fasen identifiering och utvärdering skapar du en lämplig storleks mål SQL-hanterad instans. Du kan göra detta med hjälp av mallen [Azure Portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)eller en [Azure Resource Manager (arm)](../../managed-instance/create-template-quickstart.md). 
 
 
 ## <a name="migrate"></a>Migrera
@@ -124,7 +124,7 @@ Om du vill utföra migreringar med DMS följer du stegen nedan:
 1. När databasen har återställts väljer du **Starta start punkt**. Migreringsprocessen kopierar säkerhets kopian av loggen när du gör den tillgänglig i SMB-nätverks resursen och återställer den på målet. 
 1. Stoppa all inkommande trafik till käll databasen och uppdatera anslutnings strängen till den nya Azure SQL-hanterade instans databasen. 
 
-En detaljerad steg-för-steg-guide om migreringen finns i [migrera SQL Server till en Azure SQL-hanterad instans online med DMS](/azure/dms/tutorial-sql-server-managed-instance-online). 
+En detaljerad steg-för-steg-guide om migreringen finns i [migrera SQL Server till en Azure SQL-hanterad instans online med DMS](../../../dms/tutorial-sql-server-managed-instance-online.md). 
    
 
 
@@ -144,14 +144,14 @@ Följ dessa steg om du vill migrera med säkerhets kopiering och återställning
 
 1. Säkerhetskopiera databasen till Azure Blob Storage. Använd till exempel [säkerhets kopiering till URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) i [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Använd [Microsoft Azure-verktyget](https://go.microsoft.com/fwlink/?LinkID=324399) för att stödja databaser som är äldre än SQL Server 2012 SP1-CU2. 
 1. Anslut till din Azure SQL-hanterade instans med hjälp av SQL Server Management Studio. 
-1. Skapa en autentiseringsuppgift med hjälp av en signatur för delad åtkomst för att komma åt ditt Azure Blob Storage-konto med dina databas säkerhets kopior. Ett exempel:
+1. Skapa en autentiseringsuppgift med hjälp av en signatur för delad åtkomst för att komma åt ditt Azure Blob Storage-konto med dina databas säkerhets kopior. Exempel:
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
    WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
    , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
-1. Återställ säkerhets kopian från BLOB-behållaren för Azure Storage. Ett exempel: 
+1. Återställ säkerhets kopian från BLOB-behållaren för Azure Storage. Exempel: 
 
     ```sql
    RESTORE DATABASE [TargetDatabaseName] FROM URL =
@@ -160,7 +160,7 @@ Följ dessa steg om du vill migrera med säkerhets kopiering och återställning
 
 1. När återställningen är klar kan du Visa databasen i **Object Explorer** i SQL Server Management Studio. 
 
-Mer information om migreringen finns i [återställa en databas till en Azure SQL-hanterad instans med SSMS](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
+Mer information om migreringen finns i [återställa en databas till en Azure SQL-hanterad instans med SSMS](../../managed-instance/restore-sample-database-quickstart.md).
 
 > [!NOTE]
 > En databas återställnings åtgärd är asynkron och går att försöka igen. Du kan få ett fel meddelande i SQL Server Management Studio om anslutningen bryts eller om timeout går ut. Azure SQL Database fortsätter att försöka återställa databasen i bakgrunden och du kan följa förloppet för återställningen med hjälp av vyerna [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
@@ -203,7 +203,7 @@ Test metoden för migrering av databasen består av följande aktiviteter:
 
 ## <a name="leverage-advanced-features"></a>Utnyttja avancerade funktioner 
 
-Se till att dra nytta av de avancerade molnbaserade funktioner som erbjuds av SQL-hanterad instans, till exempel [inbyggd hög tillgänglighet](../../database/high-availability-sla.md), [hot identifiering](../../database/advanced-data-security.md)och [övervakning och justering av arbets belastningen](../../database/monitor-tune-overview.md). 
+Se till att dra nytta av de avancerade molnbaserade funktioner som erbjuds av SQL-hanterad instans, till exempel [inbyggd hög tillgänglighet](../../database/high-availability-sla.md), [hot identifiering](../../database/azure-defender-for-sql.md)och [övervakning och justering av arbets belastningen](../../database/monitor-tune-overview.md). 
 
 Med [Azure SQL-analys](../../../azure-monitor/insights/azure-sql.md) kan du övervaka en stor uppsättning hanterade instanser på ett centraliserat sätt.
 

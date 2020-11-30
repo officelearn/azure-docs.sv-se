@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 60f781ddfa5717bbe5bcbb05ec8c236c8594c587
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c6d03c896242d02e147e880a99eb9f1e7bb15da8
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793100"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326883"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -80,7 +80,7 @@ Information om tillgängliga SQL Server på Linux avbildningar av virtuella dato
 ### <a name="bring-your-own-license"></a><a id="BYOL"></a> Bring your own license
 Du kan även använda din egen licens (Bring your own license, BYOL). I det här scenariot betalar du bara för den virtuella datorn utan ytterligare avgifter för SQL Server-licensiering.  När du använder din egen licens kan du spara pengar långsiktigt för kontinuerliga arbetsbelastningar under produktion. Kraven för att använda det här alternativet finns i [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md#byol) (Prisvägledning för virtuella SQL Server Azure-datorer).
 
-Om du vill ta med din egen licens kan du antingen konvertera en befintlig SQL Server VM för betalning per användning eller distribuera en avbildning med hjälp av den fasta **{BYOL}** . Mer information om hur du byter licensierings modell mellan betala per användning och BYOL finns i [så här ändrar du licensierings modellen för en SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+Om du vill ta med din egen licens kan du antingen konvertera en befintlig SQL Server VM för betalning per användning eller distribuera en avbildning med hjälp av den fasta **{BYOL}**. Mer information om hur du byter licensierings modell mellan betala per användning och BYOL finns i [så här ändrar du licensierings modellen för en SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 | Version | Operativsystem | Utgåva |
 | --- | --- | --- |
@@ -116,11 +116,11 @@ För att komma åt sidan **Azure SQL-resurser** väljer du **azure SQL** på Azu
 > [!NOTE]
 > Azure SQL är ett snabbt och enkelt sätt att få åtkomst till alla dina Azure SQL-databaser, elastiska pooler, logiska servrar, hanterade instanser och virtuella datorer. Azure SQL är inte en tjänst eller resurs. 
 
-Om du vill hantera befintliga resurser väljer du önskat objekt i listan. Om du vill skapa nya Azure SQL-resurser väljer du **+ Lägg till** . 
+Om du vill hantera befintliga resurser väljer du önskat objekt i listan. Om du vill skapa nya Azure SQL-resurser väljer du **+ Lägg till**. 
 
 ![Skapa Azure SQL-resurs](./media/sql-server-on-azure-vm-iaas-what-is-overview/create-azure-sql-resource.png)
 
-När du har valt **+ Lägg till** , Visa ytterligare information om de olika alternativen genom att välja **Visa information** på valfri panel.
+När du har valt **+ Lägg till**, Visa ytterligare information om de olika alternativen genom att välja **Visa information** på valfri panel.
 
 ![panel information om databaser](./media/sql-server-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
 
@@ -135,19 +135,19 @@ Mer information finns i:
 Azure underhåller en avbildning av en virtuell dator för varje kombination av operativsystem, version och utgåva som stöds. Det betyder att avbildningar uppdateras med tiden och att äldre avbildningar tas bort. Mer information finns i avsnittet **Avbildningar** i [Virtuella SQL Server-datorer, vanliga frågor och svar](frequently-asked-questions-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>CEIP (Customer Experience Improvement Program)
-CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det skickar periodvisa rapporter till Microsoft för att hjälpa att förbättra SQL Server. Det krävs inga hanteringsaktiviteter för CEIP om du inte vill inaktivera den efter etablering. Du kan anpassa eller inaktivera CEIP genom att ansluta till den virtuella datorn med Fjärrskrivbord. Kör sedan verktyget **Fel- och användningsrapportering för SQL Server** . Inaktivera rapporteringen genom att följa anvisningarna. Mer information om datainsamling finns i [SQL Server-sekretesspolicyn](/sql/sql-server/sql-server-privacy).
+CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det skickar periodvisa rapporter till Microsoft för att hjälpa att förbättra SQL Server. Det krävs inga hanteringsaktiviteter för CEIP om du inte vill inaktivera den efter etablering. Du kan anpassa eller inaktivera CEIP genom att ansluta till den virtuella datorn med Fjärrskrivbord. Kör sedan verktyget **Fel- och användningsrapportering för SQL Server**. Inaktivera rapporteringen genom att följa anvisningarna. Mer information om datainsamling finns i [SQL Server-sekretesspolicyn](/sql/sql-server/sql-server-privacy).
 
 ## <a name="related-products-and-services"></a>Relaterade produkter och tjänster
 ### <a name="windows-virtual-machines"></a>Virtuella Windows-datorer
 * [Översikt över Azure Virtual Machines](../../../virtual-machines/windows/overview.md)
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 * [Introduktion till Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Nätverk
 * [Översikt över Virtual Network](../../../virtual-network/virtual-networks-overview.md)
 * [IP-adresser i Azure](../../../virtual-network/public-ip-addresses.md)
-* [Skapa ett fullständigt domännamn i Azure-portalen](../../../virtual-machines/linux/portal-create-fqdn.md)
+* [Skapa ett fullständigt domännamn i Azure-portalen](../../../virtual-machines/create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 * [SQL Server dokumentation](/sql/index)

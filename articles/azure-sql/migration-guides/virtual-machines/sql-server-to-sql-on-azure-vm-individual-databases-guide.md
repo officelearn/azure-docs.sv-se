@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 1558c396566b2fcfc098a749407d5e7a28316b6f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019457"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325933"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guide för migrering: SQL Server till SQL Server på virtuella Azure-datorer 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -38,8 +38,8 @@ Mer information om ytterligare migrerings strategier finns i [Översikt över SQ
 Att migrera till SQL Server på virtuella Azure-datorer kräver följande: 
 
 - [Databas Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
-- Ett [Azure Migrate-projekt](/azure/migrate/create-manage-projects).
-- En för beredd mål [SQL Server på en virtuell Azure-dator](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) som är samma eller större än käll SQL Server.
+- Ett [Azure Migrate-projekt](../../../migrate/create-manage-projects.md).
+- En för beredd mål [SQL Server på en virtuell Azure-dator](../../virtual-machines/windows/create-sql-vm-portal.md) som är samma eller större än käll SQL Server.
 - [Anslutning mellan Azure och lokalt](/azure/architecture/reference-architectures/hybrid-networking).
 - [Välja en lämplig migrations strategi](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate).
 
@@ -157,8 +157,8 @@ Följande tabell innehåller en lista över komponenter och rekommenderade metod
 || Användar databaser med FILESTREAM |  Använd [säkerhets kopierings-och återställnings](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) metoder för migrering. DMA stöder inte databaser med FILESTREAM. |
 | **Säkerhet** | SQL Server-och Windows-inloggningar | Använd DMA för att [migrera användar inloggningar](/sql/dma/dma-migrateserverlogins). |
 || SQL Server roller | Skript med SQL Server Management Studio |
-|| Kryptografiproviders | Rekommendera [att konvertera för att använda Azure Key Vault-tjänsten](../../virtual-machines/windows/azure-key-vault-integration-configure.md). I den här proceduren används [resurs leverantören för SQL-VM](../../virtual-machines/windows/sql-vm-resource-provider-register.md). |
-| **Server objekt** | Säkerhetskopiera enheter | Ersätt med säkerhets kopia av databasen med hjälp av [Azure Backup tjänst](../../../backup/backup-sql-server-database-azure-vms.md) eller Skriv säkerhets kopior till [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 +). I den här proceduren används [resurs leverantören för SQL-VM](../../virtual-machines/windows/sql-vm-resource-provider-register.md).|
+|| Kryptografiproviders | Rekommendera [att konvertera för att använda Azure Key Vault-tjänsten](../../virtual-machines/windows/azure-key-vault-integration-configure.md). I den här proceduren används [resurs leverantören för SQL-VM](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md). |
+| **Server objekt** | Säkerhetskopiera enheter | Ersätt med säkerhets kopia av databasen med hjälp av [Azure Backup tjänst](../../../backup/backup-sql-server-database-azure-vms.md) eller Skriv säkerhets kopior till [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 +). I den här proceduren används [resurs leverantören för SQL-VM](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md).|
 || Länkade servrar | Skript med SQL Server Management Studio. |
 || Server utlösare | Skript med SQL Server Management Studio. |
 | **Replikering** | Lokala publikationer | Skript med SQL Server Management Studio. |

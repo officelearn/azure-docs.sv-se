@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: ae2f2b8b9b6f3bc934321b13dcefeff46e43b089
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788170"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325142"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Komma igång med Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ Tidigare angivna snabb starter gör att du snabbt kan skapa en SQL-hanterad inst
 För att du ska kunna migrera produktions databasen eller till och med utvecklings-och test databaser som du vill använda för en viss prestandatest måste du dock överväga att använda vissa ytterligare metoder, till exempel:
 
 - Prestandatest – du bör mäta bas linje prestanda måtten på din käll SQL Servers instans och jämföra dem med prestanda måtten på den mål SQL-hanterade instans där du har migrerat databasen. Läs mer om [bästa praxis för jämförelse av prestanda](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Online-migrering – med den inbyggda `RESTORE` beskrivningen i den här artikeln måste du vänta på att databaserna ska återställas (och kopieras till Azure Blob Storage om de inte redan finns där). Detta leder till viss avbrottstid för ditt program, särskilt för större databaser. Om du vill flytta produktionsdatabasen använder du [Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%252fazure%252fsql-database%252ftoc.json) för att migrera din databas med minimal avbrottstid. DMS utför detta genom att stegvis skicka de ändringar som gjorts i käll databasen till den SQL-hanterade instans databas som återställs. På så sätt kan du snabbt växla ditt program från källa till mål databas med minimal stillestånds tid.
+- Online-migrering – med den inbyggda `RESTORE` beskrivningen i den här artikeln måste du vänta på att databaserna ska återställas (och kopieras till Azure Blob Storage om de inte redan finns där). Detta leder till viss avbrottstid för ditt program, särskilt för större databaser. Om du vill flytta produktionsdatabasen använder du [Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%2fazure%2fsql-database%2ftoc.json) för att migrera din databas med minimal avbrottstid. DMS utför detta genom att stegvis skicka de ändringar som gjorts i käll databasen till den SQL-hanterade instans databas som återställs. På så sätt kan du snabbt växla ditt program från källa till mål databas med minimal stillestånds tid.
 
 Läs mer om den [rekommenderade migreringsprocessen](migrate-to-instance-from-sql-server.md).
 

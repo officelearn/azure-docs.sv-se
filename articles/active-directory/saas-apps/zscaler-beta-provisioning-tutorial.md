@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: de42230639351c0dc1e7986156a33b178386d1a4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 59784b6e618e875a6eedc947ce75afdf3bd1df74
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357750"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327414"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zscaler beta för automatisk användar etablering
 
@@ -44,7 +44,7 @@ Innan du konfigurerar Zscaler beta för automatisk användar etablering med Azur
 
 **Gör så här om du vill lägga till Zscaler beta från Azure AD-programgalleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory** -ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -56,7 +56,7 @@ Innan du konfigurerar Zscaler beta för automatisk användar etablering med Azur
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Zscaler Beta** , väljer **Zscaler Beta** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Zscaler Beta**, väljer **Zscaler Beta** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
     ![Zscaler Beta i resultatlistan](common/search-new-app.png)
 
@@ -83,7 +83,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>Konfigurera automatisk användar etablering för Zscaler beta i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och välj **företags program** , Välj **alla program** och välj sedan **Zscaler beta**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och välj **företags program**, Välj **alla program** och välj sedan **Zscaler beta**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -93,63 +93,63 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 3. Välj fliken **Etablering**.
 
-    ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/provisioning-tab.png)
+    ![Det finns en lista med flikar ordnade i kategorier och med titeln ZScaler beta-Provisioning/Enterprise Application. Fliken provision i kategorin hantera är markerad.](./media/zscaler-beta-provisioning-tutorial/provisioning-tab.png)
 
 4. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/provisioning-credentials.png)
+    ![Automatiskt läge har marker ATS i list rutan etablerings läge. Det finns fält för administratörsautentiseringsuppgifter, som används för att ansluta till API: et för Zscaler beta och det finns en knapp för att testa anslutningen.](./media/zscaler-beta-provisioning-tutorial/provisioning-credentials.png)
 
 5. Under avsnittet **admin credentials** måste du skriva in **klient-URL: en** och den **hemliga token** för ditt Zscaler beta-konto enligt beskrivningen i steg 6.
 
 6. Hämta klient- **URL: en** och den **hemliga token** genom att gå till **Administration > autentiseringsinställningar** i användar gränssnittet för Zscaler beta Portal och klicka på **SAML** under **Autentiseringstyp**.
 
-    ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/secret-token-1.png)
+    ![Vid autentiseringsinställningar i verifierings profilen, är den valda katalog typen värdbaserad DB och den valda autentiseringstypen är SAML.](./media/zscaler-beta-provisioning-tutorial/secret-token-1.png)
 
     Klicka på **Konfigurera SAML** för att öppna **konfigurationens SAML** -alternativ.
 
-    ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
+    ![Om du konfigurerar SAML är alternativet Aktivera SAML Auto-Provisioning och aktivera SCIM-Based etablerings alternativen markerade. Text rutorna bas-URL och Bearer-token är markerade.](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
 
     Välj **aktivera SCIM-Based etablering** för att hämta **bas-URL** och **Bearer-token** och spara sedan inställningarna. Kopiera **bas-URL** : en till klient- **URL: en** och **ha token token**  till **hemlig token** i Azure Portal.
 
 7. När du fyller i fälten som visas i steg 5, klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till Zscaler beta. Om anslutningen Miss lyckas kontrollerar du att Zscaler beta-kontot har administratörs behörighet och försöker igen.
 
-    ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/test-connection.png)
+    ![På administratörs behörighet har fälten för klient-URL och hemligt token värden och knappen Testa anslutning är markerad.](./media/zscaler-beta-provisioning-tutorial/test-connection.png)
 
 8. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/notification.png)
+    ![Text rutan för e-postmeddelandet är tom och kryss rutan Skicka ett e-postmeddelande när ett fel inträffar är avmarkerad.](./media/zscaler-beta-provisioning-tutorial/notification.png)
 
 9. Klicka på **Spara**.
 
 10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Zscaler beta**.
 
-    ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/user-mappings.png)
+    ![Synkroniseringen Azure Active Directory användare till ZScalerBeta är markerad och aktive rad.](./media/zscaler-beta-provisioning-tutorial/user-mappings.png)
 
 11. Granska de användarattribut som synkroniseras från Azure AD till Zscaler beta i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Zscaler beta för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/user-attribute-mappings.png)
+    ![I avsnittet attribut mappningar för användarattribut visas Active Directory attributen bredvid de Zscalar-beta-attribut som de är synkroniserade med. Ett par attribut visas som matchning.](./media/zscaler-beta-provisioning-tutorial/user-attribute-mappings.png)
 
 12. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper för att Zscaler beta**.
 
-    ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/group-mappings.png)
+    ![Synkronisera Azure Active Directory grupper till ZScalerBeta har valts och Aktiver ATS.](./media/zscaler-beta-provisioning-tutorial/group-mappings.png)
 
-13. Granska gruppattributen som synkroniseras från Azure AD till Zscaler beta i avsnittet **Mappning av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha grupperna i Zscaler beta för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
+13. Granska gruppattributen som synkroniseras från Azure AD till Zscaler beta i avsnittet **mappningar av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha grupperna i Zscaler beta för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/group-attribute-mappings.png)
+    ![I avsnittet attribut mappningar för Gruppattribut visas Active Directory attributen bredvid de Zscalar-beta-attribut som de är synkroniserade med. Ett par attribut visas som matchning.](./media/zscaler-beta-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. Om du vill aktivera Azure AD Provisioning-tjänsten för Zscaler beta, ändra **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/provisioning-status.png)
+    ![Etablerings statusen visas och ställs in på på.](./media/zscaler-beta-provisioning-tutorial/provisioning-status.png)
 
 16. Definiera de användare och/eller grupper som du vill etablera till Zscaler-Beta genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/scoping.png)
+    ![List rutan omfattning visas och endast synkronisering av tilldelade användare och grupper har valts. Det andra tillgängliga värdet är synkronisera alla användare och grupper.](./media/zscaler-beta-provisioning-tutorial/scoping.png)
 
 17. När du är redo att etablera klickar du på **Spara**.
 
-    ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/save-provisioning.png)
+    ![Knappen Spara längst upp i Zscaler beta-etableringen är markerad. Det finns också en ignorera-knapp.](./media/zscaler-beta-provisioning-tutorial/save-provisioning.png)
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Zscaler beta.
 

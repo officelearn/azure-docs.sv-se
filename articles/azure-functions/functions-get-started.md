@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: cshoe
 zone_pivot_groups: programming-languages-set-functions-lang-workers
-ms.openlocfilehash: d988bb7ef31df518d50ab9e2e8ffc1dcad4454da
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 78fd13825becfa186960a0dfd3dee83c312c9bcf
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168057"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326955"
 ---
 # <a name="getting-started-with-azure-functions"></a>Komma igång med Azure Functions
 
@@ -25,7 +25,7 @@ Använd följande resurser för att komma igång.
 
 | Åtgärd | Resurser |
 | --- | --- |
-| **Skapa din första funktion** | Använd något av följande verktyg:<br><br><li>[Visual Studio Code](./functions-create-your-first-function-visual-studio.md)<li>[Visual Studio](./create-first-function-vs-code-csharp.md)<li>[Kommandorad](./create-first-function-cli-csharp.md) |
+| **Skapa din första funktion** | Använd något av följande verktyg:<br><br><li>[Visual Studio](./functions-create-your-first-function-visual-studio.md)<li>[Visual Studio Code](./create-first-function-vs-code-csharp.md)<li>[Kommandorad](./create-first-function-cli-csharp.md) |
 | **Se en funktion som kör** | <li>[Azure samples-webbläsare](/samples/browse/?expanded=azure&languages=csharp&products=azure-functions)<li>[Azure community-bibliotek](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=C%23) |
 | **Utforska en interaktiv självstudie**| <li>[Välj den bästa serverlösa teknikerna i Azure för ditt företagsscenario](/learn/modules/serverless-fundamentals/)<li>[Väl utformat ramverk – prestanda effektivitet](/learn/modules/azure-well-architected-performance-efficiency/)<li>[Kör en Azure-funktion med utlösare](/learn/modules/execute-azure-function-with-triggers/) <br><br>Se Microsoft Learn för en [fullständig lista över interaktiva självstudier](/learn/browse/?expanded=azure&products=azure-functions).|
 | **Läs mer i djupet** | <li>Lär dig hur funktioner [automatiskt ökar eller minskar](./functions-scale.md) instanser för att matcha efter frågan<li>Utforska de olika [distributions metoder](./functions-deployment-technologies.md) som är tillgängliga<li>Använd inbyggda [övervaknings verktyg](./functions-monitoring.md) för att analysera dina funktioner<li>Läs [språk referens för C#](./functions-dotnet-class-library.md)|

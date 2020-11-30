@@ -3,12 +3,12 @@ title: Livs cykel hantering av virtuella Azure VMware-lösningar
 description: Lär dig att hantera alla aspekter av livs cykeln för dina virtuella Azure VMware-lösningar med Microsoft Azure inbyggda verktyg.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 5280d362c1e7b1bf33579d051c4cc11adb1b7e59
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ff1032900fa936895f3adfcb0d8a872f24948aca
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545775"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326819"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Livs cykel hantering av virtuella Azure VMware-lösningar
 
@@ -61,7 +61,7 @@ Azure Uppdateringshantering i Azure Automation hanterar uppdateringar av operati
 
 2. **Log Analytics arbets ytan** möjliggör insamling av logg samling och prestanda räknare med hjälp av Log Analytics-agenten eller-tilläggen. Om du vill skapa din Log Analytics arbets yta, se [skapa en Log Analytics arbets yta i Azure Portal](../azure-monitor/learn/quick-create-workspace.md). Om du vill kan du också skapa en arbets yta via [CLI](../azure-monitor/learn/quick-create-workspace-cli.md), [PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md)eller [Azure Resource Manager mall](../azure-monitor/samples/resource-manager-workspace.md).
 
-3. Om du vill aktivera Azure Uppdateringshantering för dina virtuella datorer, se [aktivera uppdateringshantering från ett Automation-konto](../automation/update-management/update-mgmt-enable-automation-account.md). I processen länkar du Log Analytics arbets ytan till ditt Automation-konto. 
+3. Om du vill aktivera Azure Uppdateringshantering för dina virtuella datorer, se [aktivera uppdateringshantering från ett Automation-konto](../automation/update-management/enable-from-automation-account.md). I processen länkar du Log Analytics arbets ytan till ditt Automation-konto. 
  
 4. När du har lagt till virtuella datorer i Azure Uppdateringshantering kan du [distribuera uppdateringar på virtuella datorer och granska resultaten](../automation/update-management/deploy-updates.md). 
 

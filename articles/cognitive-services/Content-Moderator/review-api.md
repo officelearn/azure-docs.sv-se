@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: d98f2390be3b3f4b3770125185cb33daa5ff6371
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143647"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325340"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Granskningar av innehålls moderatorer, arbets flöden och jobb
 
@@ -26,7 +26,7 @@ Content Moderator kombinerar dator-assisterad redaktör med funktioner för män
 I en granskning överförs innehållet till gransknings verktyget. Du kan visa den genom att klicka på dess innehålls typ under fliken **Granska** på instrument panelen. Från gransknings skärmen kan du ändra de använda taggarna och använda dina egna anpassade taggar efter behov. När du skickar en granskning skickas resultatet till en angiven slut punkt för återanrop och innehållet tas bort från platsen.
 
 > [!div class="mx-imgBorder"]
-> ![Granska verktygs webbplats med fliken Granska valt](./Review-Tool-user-Guide/images/review-tab.png)
+> ![Den nedrullningsbara menyn granskning är markerad. Den visar dessa innehålls typer: bild, text och video.](./Review-Tool-user-Guide/images/review-tab.png)
 
 ### <a name="manage-reviews"></a>Hantera granskningar
 
@@ -40,7 +40,7 @@ Med knappen tre punkt **åtgärder** i varje granskning kan du gå till granskni
 Använd verktygsfältet **Sök** för att sortera granskningar efter en rad olika kategorier, till exempel gransknings status, taggar, innehålls typ, under grupper, tilldelade användare och skapat/ändrat datum.
 
 > [!div class="mx-imgBorder"]
-> ![Granska verktygs webbplats med fliken Granska valt](./Review-Tool-user-Guide/images/review-search.png)
+> ![Verktygsfältet Sök visas. Den har olika kombinations rutor för att ange Sök villkor, till exempel gransknings status och taggar.](./Review-Tool-user-Guide/images/review-search.png)
 
 I [guiden granska verktyg](./review-tool-user-guide/review-moderated-images.md) kan du komma igång med att skapa recensioner eller se [rest Apis guide](./try-review-api-review.md) för att lära dig hur du gör det program mässigt.
 
@@ -50,7 +50,7 @@ Ett arbets flöde är ett molnbaserad anpassat filter för innehåll. Arbets fl�
 
 ### <a name="view-workflows"></a>Visa arbets flöden
 
-Om du vill visa dina befintliga arbets flöden går du till [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) och väljer **admin** -  >  **arbetsflöden** .
+Om du vill visa dina befintliga arbets flöden går du till [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) och väljer **admin**-  >  **arbetsflöden**.
 
 > [!div class="mx-imgBorder"]
 > ![Standard arbets flöde](images/default-workflow-list.png)

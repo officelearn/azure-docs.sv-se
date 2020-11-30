@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 392cc06c6e0bce7ec2304da61033fc508d940bbb
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 079d5ea0259a436100b81489043b71a81ec1a330
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143763"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327227"
 ---
 # <a name="video-moderation-with-the-review-tool"></a>Videoinspelning med gransknings verktyget
 
@@ -26,7 +26,7 @@ Använd Content Moderator datorbaserade [videokontrollanter](video-moderation-ap
 På instrument panelen väljer du någon av gransknings köerna inom video innehålls typen. Då startar en granskning och öppnar sidan för inspelning av video innehåll.
 
 > [!div class="mx-imgBorder"]
-> ![Videokontrollant, detaljerad vy i gransknings verktyget](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
+> ![På Content Moderator (för hands version) är skjutreglaget markerat och inställt på 4 granskningar. Växlarna oskärpa alla och svart och vit är markerade och båda är inställda.](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
 ### <a name="review-count"></a>Recensionsantal
 
@@ -55,7 +55,7 @@ I detaljvyn **visar** den högra rutan flera flikar som ger dig information om v
 * Välj fliken **Historik** om du vill se historiken för granskningen, till exempel när den skapades och hur den ändrades.
 
 > [!div class="mx-imgBorder"]
-> ![Knappen Mass etiketter för video moderator](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
+> ![Den högra rutan är markerad och fliken anteckningar är markerad. Det finns ett test områden med etiketten Lägg till en anteckning.](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
 ## <a name="apply-moderation-tags"></a>Använd moderator Taggar
 
@@ -63,10 +63,10 @@ Den huvudsakliga uppgiften i en video granskning är att tillämpa eller ta bort
 
 ### <a name="bulk-tagging"></a>Mass markering
 
-I verktygsfältet för **Mass etiketter** kan du lägga till taggar till flera markerade videor samtidigt. Välj en eller flera videor och välj sedan de taggar som du vill använda och klicka på **Skicka** . 
+I verktygsfältet för **Mass etiketter** kan du lägga till taggar till flera markerade videor samtidigt. Välj en eller flera videor och välj sedan de taggar som du vill använda och klicka på **Skicka**. 
 
 > [!div class="mx-imgBorder"]
-> ![Knappen Mass etiketter för video moderator](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+> ![Knappen + är markerad i fönstret massredigera taggar.](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
 
 
 ### <a name="key-frame-tagging"></a>Nyckel Rute taggning
@@ -77,7 +77,7 @@ Du kan också lägga till moderator Taggar i vissa nyckel ramar. Välj bild ruto
 > Om tjänsten inte kan extrahera nyckel rutor visas **inga tillgängliga ramar** i panel rutan nyckel ram och alternativet för att välja nyckel rutor är nedtonat. I det här fallet kan du bara använda taggar för videon som helhet (med **video taggarna +** knappen).
 
 > [!div class="mx-imgBorder"]
-> ![Videokontrollant, detaljerad vy i gransknings verktyget](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+> ![Panelerna panel, Videos pelare, nyckel Rute Taggar och rutor för video etiketter visas. Nyckel Rute taggarna + och video taggarna + knappar är markerade.](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
 
 ## <a name="put-a-review-on-hold"></a>Spärra en granskning
 
@@ -86,7 +86,7 @@ Med knappen **Håll** nere i video fönstret kan du se till att en granskning ä
 Du kan se vilka videor som är kvar genom att klicka på knappen **Håll** högst upp på skärmen. Rutan Behåll visas till höger. Härifrån kan du välja flera granskningar och antingen släppa dem i kön igen eller ange deras förfallo tid. Efter den förkonfigurerade tiden frigörs granskningar av undantag tillbaka till kön. Välj **Spara** för att börja räkna från den för tillfället valda förfallo tiden.
 
 > [!div class="mx-imgBorder"]
-> ![Videokontrollant, detaljerad vy i gransknings verktyget](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+> ![I fönstret video är knappen håll markerad. Längst ned i fönstret markeras en kombinations ruta för parkerad tid, tillsammans med knapparna för att frigöra och spara.](./Review-Tool-User-Guide/images/video-moderation-hold.png)
 
 ## <a name="submit-a-review"></a>Skicka en granskning
 

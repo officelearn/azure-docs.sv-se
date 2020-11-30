@@ -4,12 +4,12 @@ description: Lär dig mer om standard Azure Batch kvoter, gränser och begränsn
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b2039794a0c8a13070c9d81b83869ca4097bd02e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107546"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325983"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -23,15 +23,33 @@ Om du planerar att köra produktions arbets belastningar i batch kan du behöva 
 
 ## <a name="resource-quotas"></a>Resurskvoter
 
-En kvot är en kredit gräns, inte en kapacitets garanti. Kontakta Azure-supporten om du har storskaliga kapacitets behov.
+En kvot är en gräns, inte en kapacitets garanti. Kontakta Azure-supporten om du har storskaliga kapacitets behov.
 
 Observera också att kvoter inte är garanterade värden. Kvoter kan variera beroende på ändringar från batch-tjänsten eller en användar förfrågan för att ändra ett kvot värde.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+## <a name="core-quotas"></a>Kärn kvoter
+
+### <a name="cores-quotas-in-batch-service-mode"></a>Kärn kvoter i batch service-läge
+
+Genomförandet av dedikerade kärn kvoter förbättras, med de ändringar som görs tillgängliga i faser och slutförda för alla batch-konton i slutet av december 2020.
+
+Det finns kärn kvoter för varje VM-serie som stöds av batch och visas på sidan **kvoter** i portalen. Kvot gränser för VM-serien kan uppdateras med en support förfrågan enligt beskrivningen nedan.
+
+När den befintliga mekanismen har fasats ut, kontrol leras inte kvot gränserna för VM-serien, bara den totala kvot gränsen för kontot tillämpas. Det innebär att det kan vara möjligt att allokera fler kärnor för en VM-serie än vad som anges av kvoten för VM-serien, upp till den totala konto kvot gränsen.
+
+Den uppdaterade mekanismen upprätthåller kvoterna för VM-serien, utöver den totala konto kvoten. Som en del av över gången till den nya mekanismen, kan kvot värden för VM-serien uppdateras för att undvika allokeringsfel – alla VM-serier som används under de senaste månaderna får sin kvot för VM-serien uppdaterad för att matcha den totala konto kvoten. Den här ändringen kommer inte att aktivera användning av mer kapacitet än vad som redan är tillgängligt.
+
+Det är möjligt att avgöra om kvot tvång för VM-serien har Aktiver ATS för ett batch-konto genom att kontrol lera följande:
+
+* API-egenskapen för batch-kontot [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) .
+
+* Text på sidan för batch-konto- **kvoter** i portalen.
+
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Kärn kvoter i användar prenumerations läge
 
-Om du har skapat ett [Batch-konto](accounts.md) med pool-allokeringsinställningar inställt på **användar prenumeration**tillämpas kvoter på olika sätt. I det här läget skapas virtuella batch-datorer och andra resurser direkt i prenumerationen när en pool skapas. Kvoterna för Azure Batch kärnor gäller inte för ett konto som skapats i det här läget. I stället tillämpas kvoterna i din prenumeration för regionala beräknings kärnor och andra resurser.
+Om du har skapat ett [Batch-konto](accounts.md) med pool-allokeringsinställningar inställt på **användar prenumeration** skapas virtuella batch-datorer och andra resurser direkt i prenumerationen när en pool skapas eller ändras. Kvoten Azure Batch Core gäller inte och kvoterna i din prenumeration för regionala beräknings kärnor, beräknings kärnor per serie och andra resurser används och tillämpas.
 
 Läs mer om de här kvoterna i [Azure-prenumerationer och tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
@@ -69,11 +87,11 @@ Ytterligare begränsningar som anges av batch-tjänsten. Till skillnad från [re
 
 Så här visar du kvoter för batch-kontot i [Azure Portal](https://portal.azure.com):
 
-1. Välj **batch-konton**och välj sedan det batch-konto som du är intresse rad av.
+1. Välj **batch-konton** och välj sedan det batch-konto som du är intresse rad av.
 1. Välj **kvoter** på menyn för batch-kontot.
 1. Visa de kvoter som för närvarande tillämpas på batch-kontot.
 
-    ![Batch-konto-kvoter][account_quotas]
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Batch-konto-kvoter":::
 
 ## <a name="increase-a-quota"></a>Öka en kvot
 
@@ -93,7 +111,7 @@ Du kan begära en kvot ökning för batch-kontot eller prenumerationen med hjäl
     
 1. I **Information**:
       
-    1. I **Ange information**anger du plats, kvot typ och batch-konto.
+    1. I **Ange information** anger du plats, kvot typ och batch-konto.
     
        ![Ökning av batch-kvot][quota_increase]
 

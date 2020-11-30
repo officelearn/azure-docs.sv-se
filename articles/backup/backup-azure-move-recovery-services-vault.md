@@ -4,12 +4,12 @@ description: Instruktioner om hur du flyttar ett Recovery Services valv över Az
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5a73963970b5fad7b3992d501d9aac5cc7229622
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 12c276b861e7db8e93e60eea7e9cd7f3aba04860
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926690"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325782"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -30,7 +30,7 @@ Alla offentliga regioner och suveräna regioner stöds, förutom Frankrikes cent
 - Om en virtuell dator inte flyttas med Recovery Services valvet över prenumerationer, eller till en ny resurs grupp, förblir den aktuella återställnings punkten för virtuella datorer intakt i valvet tills den upphör att gälla.
 - Oavsett om den virtuella datorn har flyttats med valvet eller inte, kan du alltid återställa den virtuella datorn från den sparade säkerhets kopierings historiken i valvet.
 - Azure Disk Encryption kräver att nyckel valvet och de virtuella datorerna finns i samma Azure-region och prenumeration.
-- Information om hur du flyttar en virtuell dator med hanterade diskar finns i den här [artikeln](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription).
+- Information om hur du flyttar en virtuell dator med hanterade diskar finns i den här [artikeln](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Alternativen för att flytta resurser som distribueras via den klassiska modellen varierar beroende på om du flyttar resurserna i en prenumeration eller till en ny prenumeration. Mer information finns i den här [artikeln](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Säkerhets kopierings principer som definierats för valvet behålls när valvet flyttas över prenumerationer eller till en ny resurs grupp.
 - Du kan bara flytta ett valv som innehåller någon av följande typer av säkerhets kopierings objekt. Alla säkerhets kopierings objekt av typer som inte anges nedan måste stoppas och data tas bort permanent innan du flyttar valvet.
@@ -99,7 +99,7 @@ Du kan flytta ett Recovery Services valv och dess associerade resurser till en a
 
    ![Lägg till prenumeration](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. Välj **Jag är medveten om att verktyg och skript som är kopplade till flyttade resurser inte fungerar förrän jag uppdaterar dem så att de använder nya resurs-ID: n** för att bekräfta, och välj sedan **OK** .
+7. Välj **Jag är medveten om att verktyg och skript som är kopplade till flyttade resurser inte fungerar förrän jag uppdaterar dem så att de använder nya resurs-ID: n** för att bekräfta, och välj sedan **OK**.
 
 > [!NOTE]
 > Säkerhets kopiering mellan prenumerationer (RS Vault och skyddade virtuella datorer finns i olika prenumerationer) är inte ett scenario som stöds. Dessutom går det inte att ändra alternativ för redundans från lokal redundant lagring (LRS) till global redundant lagring (GRS) och vice versa i flytt åtgärden för valvet.
@@ -159,7 +159,7 @@ För att skydda arbets belastningar i ett nytt valv måste det aktuella skyddet 
 
 2. Stoppa skyddet och ta bort säkerhets kopior från det aktuella valvet. Välj **säkerhets kopierings objekt** på instrument panelen för valv-menyn. Objekt som anges här och som måste flyttas till det nya valvet måste tas bort tillsammans med sina säkerhets kopierings data. Se [ta bort skyddade objekt i molnet](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) och [ta bort skyddade objekt lokalt](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 
-3. Om du planerar att flytta AFS (Azure-filresurser), SQL-servrar eller SAP HANA-servrar måste du också avregistrera dem. På instrument panelen för valv väljer du **säkerhets kopierings infrastruktur** . Se hur du [avregistrerar SQL-servern](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [avregistrerar ett lagrings konto som är associerat med Azure-filresurser](manage-afs-backup.md#unregister-a-storage-account)och [avregistrerar en SAP HANA instans](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+3. Om du planerar att flytta AFS (Azure-filresurser), SQL-servrar eller SAP HANA-servrar måste du också avregistrera dem. På instrument panelen för valv väljer du **säkerhets kopierings infrastruktur**. Se hur du [avregistrerar SQL-servern](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [avregistrerar ett lagrings konto som är associerat med Azure-filresurser](manage-afs-backup.md#unregister-a-storage-account)och [avregistrerar en SAP HANA instans](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
 
 4. När de har tagits bort från det gamla valvet fortsätter du att konfigurera säkerhets kopieringarna för din arbets belastning i det nya valvet.
 

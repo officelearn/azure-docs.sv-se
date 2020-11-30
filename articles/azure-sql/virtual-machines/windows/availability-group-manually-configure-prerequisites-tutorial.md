@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 59eae5303d9eca48fa4cec30fe622faf19ffba1f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8572a73586b01967c8aef7f6c4947b5ce96146b4
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961897"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324865"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Självstudie: förutsättningar för att skapa tillgänglighets grupper på SQL Server på Azure Virtual Machines
 
@@ -91,7 +91,7 @@ Skapa det virtuella nätverket i Azure Portal:
    | --- | --- |
    | **Namn** |autoHAVNET |
    | **Adressutrymme** |10.33.0.0/24 |
-   | **Namn på undernät** |Administratör |
+   | **Namn på undernät** |Admin |
    | **Adressintervall för undernätet** |10.33.0.0/29 |
    | **Prenumeration** |Ange den prenumeration som du vill använda. **Prenumerationen** är tom om du bara har en prenumeration. |
    | **Resursgrupp** |Välj **Använd befintlig** och välj namnet på resurs gruppen. |
@@ -144,7 +144,7 @@ Följande tabell sammanfattar inställningarna för nätverks konfiguration:
 
 ## <a name="create-availability-sets"></a>Skapa tillgänglighetsuppsättningar
 
-Innan du skapar virtuella datorer måste du skapa tillgänglighets uppsättningar. Tillgänglighets uppsättningar minskar stillestånds tiden för planerade eller oplanerade underhålls händelser. En Azure-tillgänglighets uppsättning är en logisk grupp resurser som Azure placerar på fysiska fel domäner och uppdaterings domäner. En feldomän ser till att medlemmarna i tillgänglighets uppsättningen har separata strömförsörjnings-och nätverks resurser. En uppdaterings domän garanterar att medlemmarna i tillgänglighets uppsättningen inte har upprättats för underhåll på samma gång. Mer information finns i [Hantera tillgängligheten för virtuella datorer](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
+Innan du skapar virtuella datorer måste du skapa tillgänglighets uppsättningar. Tillgänglighets uppsättningar minskar stillestånds tiden för planerade eller oplanerade underhålls händelser. En Azure-tillgänglighets uppsättning är en logisk grupp resurser som Azure placerar på fysiska fel domäner och uppdaterings domäner. En feldomän ser till att medlemmarna i tillgänglighets uppsättningen har separata strömförsörjnings-och nätverks resurser. En uppdaterings domän garanterar att medlemmarna i tillgänglighets uppsättningen inte har upprättats för underhåll på samma gång. Mer information finns i [Hantera tillgängligheten för virtuella datorer](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Du behöver två tillgänglighets uppsättningar. En är för domän kontrol Lanterna. Den andra är för SQL Server virtuella datorer.
 

@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: c5392c822c42c2e0ee3f6ce9edffc6229d572165
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c805bacbd4a2219fb79168ad6426efd8b0a390df
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782424"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324524"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services i Azure SQL-hanterad instans (för hands version)
 
@@ -54,7 +54,7 @@ Denna begränsade offentliga för hands version omfattas av [villkoren för för
 
 Om du är intresse rad av att delta i för hands versions programmet och accepterar dessa villkor kan du begära registrering genom att skapa ett support ärende för Azure på [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
 
-1. På sidan **skapa ett support ärende** klickar du på **skapa en incident** .
+1. På sidan **skapa ett support ärende** klickar du på **skapa en incident**.
 
 1. På sidan **Hjälp + Support** klickar du på **ny supportbegäran** om du vill skapa ett nytt ärende.
 
@@ -67,16 +67,16 @@ Om du är intresse rad av att delta i för hands versions programmet och accepte
    - Problem typ- **Machine Learning Services för SQL-hanterad instans (för hands version)**
    - Underordnat problem – **andra problem eller frågor om hur**
 
-1. Klicka på **Nästa: lösningar** .
+1. Klicka på **Nästa: lösningar**.
 
-1. Läs informationen om förhands granskningen och klicka sedan på **Nästa: information** .
+1. Läs informationen om förhands granskningen och klicka sedan på **Nästa: information**.
 
 1. På den här sidan:
-   - För frågan **försöker du registrera dig för för hands versionen?** Välj **Ja** . 
+   - För frågan **försöker du registrera dig för för hands versionen?** Välj **Ja**. 
    - För **Beskrivning** anger du information om din begäran, inklusive det logiska Server namn, den region och det PRENUMERATIONS-ID som du vill registrera i förhands granskningen. Ange andra uppgifter efter behov.
    - Välj önskad kontakt metod. 
 
-1. När du är klar klickar du på **Nästa: granska + skapa** och klicka sedan på **skapa** .
+1. När du är klar klickar du på **Nästa: granska + skapa** och klicka sedan på **skapa**.
 
 När du har registrerat dig i programmet introducerar Microsoft dig och aktiverar Machine Learning Services för din befintliga eller nya databas.
 
@@ -85,6 +85,6 @@ Machine Learning Services i SQL-hanterad instans är inte rekommenderat för pro
 ## <a name="next-steps"></a>Nästa steg
 
 - Se [viktiga skillnader från SQL Server Machine Learning Services](machine-learning-services-differences.md).
-- Information om hur du använder python i Machine Learning Services finns i [köra Python-skript](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
-- Information om hur du använder R i Machine Learning Services finns i [Kör R-skript](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
+- Information om hur du använder python i Machine Learning Services finns i [köra Python-skript](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
+- Information om hur du använder R i Machine Learning Services finns i [Kör R-skript](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
 - Mer information om Machine Learning på andra SQL-plattformar finns i [dokumentationen för SQL Machine Learning](/sql/machine-learning/).

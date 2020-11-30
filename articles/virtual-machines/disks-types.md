@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0a6b6196888aedfd6aa60c9395ff27611907661a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ef481b73b6dc42bc35252c08ae8d63b9de95b2ba
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413165"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325102"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Vilka disktyper är tillgängliga i Azure?
 
@@ -82,7 +82,7 @@ När du etablerar en Premium Storage-disk, till skillnad från standard lagring,
 
 ## <a name="bursting"></a>Bursting "
 
-Premium SSD storlekar som är mindre än P30 erbjuder nu disk burst och kan överföra sina IOPS per disk upp till 3 500 och bandbredden upp till 170 Mbit/s. Burst-överföring automatiseras och fungerar baserat på ett kredit system. Krediter samlas in automatiskt i en burst-Bucket när disk trafiken är lägre än det tillhandahållna prestanda målet och krediterna förbrukas automatiskt när trafiken överförs bortom målet, upp till den maximala burst-gränsen. Max burst-gränsen definierar taket för disk-IOPS & bandbredd även om du har burst-krediter att använda. Disk burst ger bättre tolerans på oförutsägbara ändringar av IO-mönster. Du kan använda den bäst för start och program för operativ system diskar med hög belastnings trafik.    
+Premium SSD storlekar som är mindre än P30 nu erbjuder disk burst-överföring och kan överföra deras IOPS per disk upp till 3 500 och bandbredden upp till 170 MB/s. Burst-överföring automatiseras och fungerar baserat på ett kredit system. Krediter samlas in automatiskt i en burst-Bucket när disk trafiken är lägre än det tillhandahållna prestanda målet och krediterna förbrukas automatiskt när trafiken överförs bortom målet, upp till den maximala burst-gränsen. Max burst-gränsen definierar taket för disk-IOPS & bandbredd även om du har burst-krediter att använda. Disk burst ger bättre tolerans på oförutsägbara ändringar av IO-mönster. Du kan använda den bäst för start och program för operativ system diskar med hög belastnings trafik.    
 
 Disk burst-stöd kommer att aktive ras vid nya distributioner av tillämpliga disk storlekar som standard, utan någon användar åtgärd krävs. För befintliga diskar av tillämpliga storlekar kan du aktivera burst-överföring med något av följande två alternativ: koppla från och återanslut disken eller stoppa och starta om den anslutna virtuella datorn. Alla användbara disk storlekar börjar med en fullständig överförings kredit Bucket när disken är ansluten till en virtuell dator som har stöd för maximal varaktighet vid högsta burst-gräns på 30 minuter. Mer information om hur du använder burst-överföring på Azure-diskar finns [Premium SSD bursting](linux/disk-bursting.md). 
 
@@ -124,15 +124,15 @@ När du använder hanterade diskar gäller följande saker:
 - Utgående data överföringar
 - Antal transaktioner
 
-**Hanterad disk storlek** : hanterade diskar debiteras enligt den etablerade storleken. Azure mappar den etablerade storleken (avrundat uppåt) till den närmaste erbjudna disk storleken. Mer information om de disk storlekar som erbjuds finns i föregående tabeller. Varje disk mappar till ett erbjudande för allokerad disk storlek och debiteras enligt detta. Om du till exempel har upprättat en 200 GiB Standard SSD, mappas den till disk storleks erbjudandet för E15 (256 GiB). Faktureringen för en etablerad disk beräknas per timme genom att använda det månatliga priset för lagrings erbjudandet. Om du till exempel har upprättat en E10-disk och tagit bort den efter 20 timmar debiteras du för E10-erbjudandet som har klassificerats till 20 timmar. Detta gäller oavsett hur mycket faktisk data som skrivs till disken.
+**Hanterad disk storlek**: hanterade diskar debiteras enligt den etablerade storleken. Azure mappar den etablerade storleken (avrundat uppåt) till den närmaste erbjudna disk storleken. Mer information om de disk storlekar som erbjuds finns i föregående tabeller. Varje disk mappar till ett erbjudande för allokerad disk storlek och debiteras enligt detta. Om du till exempel har upprättat en 200 GiB Standard SSD, mappas den till disk storleks erbjudandet för E15 (256 GiB). Faktureringen för en etablerad disk beräknas per timme genom att använda det månatliga priset för lagrings erbjudandet. Om du till exempel har upprättat en E10-disk och tagit bort den efter 20 timmar debiteras du för E10-erbjudandet som har klassificerats till 20 timmar. Detta gäller oavsett hur mycket faktisk data som skrivs till disken.
 
-**Ögonblicks bilder** : ögonblicks bilder faktureras baserat på storleken som används. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB.
+**Ögonblicks bilder**: ögonblicks bilder faktureras baserat på storleken som används. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB.
 
 Mer information om ögonblicks bilder finns i avsnittet om ögonblicks bilder i [översikten över hanterade diskar](managed-disks-overview.md).
 
-**Utgående data överföringar** : [utgående data överföringar](https://azure.microsoft.com/pricing/details/bandwidth/) (data som går ut från Azures Data Center) debiteras för bandbredds användning.
+**Utgående data överföringar**: [utgående data överföringar](https://azure.microsoft.com/pricing/details/bandwidth/) (data som går ut från Azures Data Center) debiteras för bandbredds användning.
 
-**Transaktioner** : du debiteras för antalet transaktioner som du utför på en standard-hanterad disk. För standard-SSD anses varje I/O-åtgärd som är mindre än eller lika med 256 KiB data flöde betraktas som en enda I/O-åtgärd. I/O-åtgärder som är större än 256 KiB-dataflöde betraktas som flera I/o med storleken 256 KiB. För standard-HDD betraktas varje IO-åtgärd som en enskild transaktion, oavsett I/O-storlek.
+**Transaktioner**: du debiteras för antalet transaktioner som du utför på en standard-hanterad disk. För standard-SSD anses varje I/O-åtgärd som är mindre än eller lika med 256 KiB data flöde betraktas som en enda I/O-åtgärd. I/O-åtgärder som är större än 256 KiB-dataflöde betraktas som flera I/o med storleken 256 KiB. För standard-HDD betraktas varje IO-åtgärd som en enskild transaktion, oavsett I/O-storlek.
 
 Detaljerad information om priser för Managed Disks, inklusive transaktionskostnader, finns [Managed disks prissättning](https://azure.microsoft.com/pricing/details/managed-disks).
 

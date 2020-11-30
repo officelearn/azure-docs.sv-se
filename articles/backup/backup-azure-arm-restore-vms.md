@@ -4,12 +4,12 @@ description: Återställa en virtuell Azure-dator från en återställnings punk
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 335dfc665cc7fb9727e4eff3e65a18a2aa5c3f94
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c28de679bd957a472e543489a2dd15b3883aed5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002995"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327193"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Så här återställer du Azure VM-data i Azure Portal
 
@@ -19,7 +19,7 @@ Den här artikeln beskriver hur du återställer virtuella Azure-Datadata från 
 
 Azure Backup erbjuder ett antal olika sätt att återställa en virtuell dator.
 
-**Återställningsalternativ** | **Detaljer**
+**Återställningsalternativ** | **Information**
 --- | ---
 **Skapa en ny virtuell dator** | Skapar och kör snabbt igång en grundläggande virtuell dator från en återställningspunkt.<br/><br/> Du kan ange ett namn på den virtuella datorn, välja resurs gruppen och det virtuella nätverk (VNet) där det ska placeras och ange ett lagrings konto för den återställda virtuella datorn. Den nya virtuella datorn måste skapas i samma region som den virtuella källdatorn.<br><br>Om en återställning av en virtuell dator Miss lyckas eftersom en Azure VM-SKU inte var tillgänglig i det angivna Azure-området, eller på grund av andra problem, återställer Azure Backup fortfarande diskarna i den angivna resurs gruppen.
 **Återställ disk** | Återställer en virtuell datordisk, som sedan kan användas för att skapa en ny virtuell dator.<br/><br/> Azure Backup tillhandahåller en mall som hjälper dig att anpassa och skapa en virtuell dator. <br/><br> Återställnings jobbet genererar en mall som du kan hämta och använda för att ange anpassade VM-inställningar och skapa en virtuell dator.<br/><br/> Diskarna kopieras till den resursgrupp som du anger.<br/><br/> Alternativt kan du koppla disken till en befintlig virtuell dator eller skapa en ny virtuell dator med hjälp av PowerShell.<br/><br/> Det här alternativet är användbart om du vill anpassa den virtuella datorn, lägga till konfigurationsinställningar som inte fanns vid tidpunkten för säkerhetskopieringen eller lägga till inställningar som måste konfigureras med hjälp av mallen eller PowerShell.
@@ -203,7 +203,7 @@ Det finns ett antal vanliga scenarier där du kan behöva återställa virtuella
 **Nätverks säkerhets grupp (NSG) på NIC/undernät** | Azure VM Backup stöder säkerhets kopiering och återställning av NSG-information på VNet, undernät och NIC-nivå.
 **Zon fästa virtuella datorer** | Om du säkerhetskopierar en virtuell Azure-dator som är fäst i en zon (med Azure Backup) kan du återställa den i samma zon som den fästa. [Läs mer](../availability-zones/az-overview.md)
 **Återställa virtuell dator i valfri tillgänglighets uppsättning** | När du återställer en virtuell dator från portalen finns det inget alternativ för att välja en tillgänglighets uppsättning. Det finns ingen tillgänglighets uppsättning för en återställd virtuell dator. Om du använder alternativet för att återställa diskar kan du [Ange en tillgänglighets uppsättning](../virtual-machines/windows/tutorial-availability-sets.md) när du skapar en virtuell dator från disken med hjälp av den angivna mallen eller PowerShell.
-**Återställa särskilda virtuella datorer, till exempel virtuella SQL-datorer** | Om du säkerhetskopierar en virtuell SQL-dator med hjälp av Azure VM backup och sedan använder alternativet Återställ virtuell dator eller skapar en virtuell dator efter att ha återställt diskar, måste den nya virtuella datorn vara registrerad hos SQL-providern som anges [här](../azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md?tabs=azure-cli%2Cbash). Den återställda virtuella datorn kommer att konverteras till en virtuell SQL-dator.
+**Återställa särskilda virtuella datorer, till exempel virtuella SQL-datorer** | Om du säkerhetskopierar en virtuell SQL-dator med hjälp av Azure VM backup och sedan använder alternativet Återställ virtuell dator eller skapar en virtuell dator efter att ha återställt diskar, måste den nya virtuella datorn vara registrerad hos SQL-providern som anges [här](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md?tabs=azure-cli%2cbash). Den återställda virtuella datorn kommer att konverteras till en virtuell SQL-dator.
 
 ### <a name="restore-domain-controller-vms"></a>Återställa virtuella datorer i domänkontrollanten
 

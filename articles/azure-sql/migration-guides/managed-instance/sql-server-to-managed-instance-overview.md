@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2c143c299cec1d48dd5438d5350c818d5cc93800
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2241049e5c3cb5039a73c0f7637f7e3553d2e227
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023726"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326887"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Översikt över migrering: SQL Server till SQL-hanterad instans
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -63,7 +63,7 @@ Några allmänna rikt linjer som hjälper dig att välja rätt tjänst nivå och
 Du kan välja beräknings-och lagrings resurser under distributionen och sedan ändra dem när du har använt [Azure Portal](../../database/scale-resources.md) utan att det har uppstått avbrott i programmet. 
 
 > [!IMPORTANT]
-> Eventuella skillnader i kraven för det [virtuella nätverket för den hanterade instansen](/azure/azure-sql/managed-instance/connectivity-architecture-overview#network-requirements) kan hindra dig från att skapa nya instanser eller använda befintliga. Lär dig mer om att [skapa nya](/azure/azure-sql/managed-instance/virtual-network-subnet-create-arm-template?branch=release-ignite-arc-data)   och [Konfigurera befintliga](/azure/azure-sql/managed-instance/vnet-existing-add-subnet?branch=release-ignite-arc-data)   nätverk. 
+> Eventuella skillnader i kraven för det [virtuella nätverket för den hanterade instansen](../../managed-instance/connectivity-architecture-overview.md#network-requirements) kan hindra dig från att skapa nya instanser eller använda befintliga. Lär dig mer om att [skapa nya](../../managed-instance/virtual-network-subnet-create-arm-template.md?branch=release-ignite-arc-data)   och [Konfigurera befintliga](../../managed-instance/vnet-existing-add-subnet.md?branch=release-ignite-arc-data)   nätverk. 
 
 ### <a name="sql-server-vm-alternative"></a>SQL Server VM alternativ
 
@@ -88,7 +88,7 @@ I följande tabell visas rekommenderade Migreringsverktyg:
 
 |Teknik | Beskrivning|
 |---------|---------|
-|[Azure Database Migration Service (DMS)](/azure/dms/tutorial-sql-server-to-managed-instance)  | Azure-tjänsten från första part som stöder migrering i offline-läge för program som kan ge stillestånds tid under migreringsprocessen. Till skillnad från kontinuerlig migrering i onlineläge kör offline mode-migrering en eng ång slöation av en fullständig säkerhets kopia av databasen från källan till målet. | 
+|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | Azure-tjänsten från första part som stöder migrering i offline-läge för program som kan ge stillestånds tid under migreringsprocessen. Till skillnad från kontinuerlig migrering i onlineläge kör offline mode-migrering en eng ång slöation av en fullständig säkerhets kopia av databasen från källan till målet. | 
 |[Inbyggd säkerhets kopiering och återställning](../../managed-instance/restore-sample-database-quickstart.md) | SQL-hanterad instans har stöd för återställning av interna SQL Server databas säkerhets kopior (. bak-filer), vilket gör det till det enklaste alternativet för migrering för kunder som kan ge fullständig databas säkerhets kopiering till Azure Storage. Fullständiga och differentiella säkerhets kopieringar stöds också och dokumenteras i [avsnittet migrerings till gångar](#migration-assets) längre fram i den här artikeln.| 
 | | |
 
@@ -100,8 +100,8 @@ I följande tabell visas alternativa Migreringsverktyg:
 |---------|---------|
 |[Transaktionsreplikering](../../managed-instance/replication-transactional-overview.md) | Replikera data från käll SQL Server databas tabeller till SQL-hanterad instans genom att tillhandahålla ett Överflyttnings alternativ för utgivarens prenumerant och upprätthålla transaktionell konsekvens. |  |
 |[Masskopiering](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| [Verktyget för Mass kopierings program (BCP)](/sql/tools/bcp-utility) kopierar data från en instans av SQL Server till en data fil. Använd BCP-verktyget för att exportera data från källan och importera data filen till den mål SQL-hanterade instansen.</br></br> För Mass kopierings åtgärder med hög hastighet för att flytta data till Azure SQL Database kan [Smart Mass](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) kopierings verktyget användas för att maximera överföringshastigheten genom att använda parallella kopierings aktiviteter. | 
-|[Guiden Importera export/BACPAC](/azure/azure-sql/database/database-import?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) är en Windows-fil med ett `.bacpac` tillägg som kapslar in en Databass schema och data. BACPAC kan användas för att exportera data från en käll SQL Server och för att importera filen till en hanterad Azure SQL-instans.  |  
-|[Azure Data Factory (ADF)](/azure/data-factory/connector-azure-sql-managed-instance)| [Kopierings aktiviteten](/azure/data-factory/copy-activity-overview) i Azure Data Factory migrerar data från käll SQL Server databas (er) till SQL-hanterad instans med hjälp av inbyggda anslutningar och en [integration runtime](/azure/data-factory/concepts-integration-runtime).</br> </br> ADF har stöd för en mängd olika [kopplingar](/azure/data-factory/connector-overview) för att flytta data från SQL Server källor till SQL-hanterad instans. |
+|[Guiden Importera export/BACPAC](../../database/database-import.md?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) är en Windows-fil med ett `.bacpac` tillägg som kapslar in en Databass schema och data. BACPAC kan användas för att exportera data från en käll SQL Server och för att importera filen till en hanterad Azure SQL-instans.  |  
+|[Azure Data Factory (ADF)](../../../data-factory/connector-azure-sql-managed-instance.md)| [Kopierings aktiviteten](../../../data-factory/copy-activity-overview.md) i Azure Data Factory migrerar data från käll SQL Server databas (er) till SQL-hanterad instans med hjälp av inbyggda anslutningar och en [integration runtime](../../../data-factory/concepts-integration-runtime.md).</br> </br> ADF har stöd för en mängd olika [kopplingar](../../../data-factory/connector-overview.md) för att flytta data från SQL Server källor till SQL-hanterad instans. |
 | | |
 
 ## <a name="compare-migration-options"></a>Jämför migrerings alternativ
@@ -114,7 +114,7 @@ I följande tabell jämförs rekommenderade migrerings alternativ:
 
 |Migreringsalternativ  |När du ska använda detta  |Överväganden  |
 |---------|---------|---------|
-|[Azure Database Migration Service (DMS)](/azure/dms/tutorial-sql-server-to-managed-instance) | – Migrera enskilda databaser eller flera databaser i stor skala. </br> – Kan hantera stillestånd under migreringsprocessen. </br> </br> Källor som stöds: </br> -SQL Server (2005-2019) lokalt eller virtuell Azure-dator </br> – AWS EC2 </br> – AWS FJÄRR SKRIVBORDS TJÄNSTER </br> -GCP Compute SQL Server VM |  – Migreringar i skala kan automatiseras via [PowerShell](/azure/dms/howto-sql-server-to-azure-sql-mi-powershell). </br> – Tiden för att slutföra migreringen är beroende av databasens storlek och påverkas av säkerhets kopierings-och återställnings tiden. </br> – Tillräckligt med stillestånd kan krävas. |
+|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | – Migrera enskilda databaser eller flera databaser i stor skala. </br> – Kan hantera stillestånd under migreringsprocessen. </br> </br> Källor som stöds: </br> -SQL Server (2005-2019) lokalt eller virtuell Azure-dator </br> – AWS EC2 </br> – AWS FJÄRR SKRIVBORDS TJÄNSTER </br> -GCP Compute SQL Server VM |  – Migreringar i skala kan automatiseras via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md). </br> – Tiden för att slutföra migreringen är beroende av databasens storlek och påverkas av säkerhets kopierings-och återställnings tiden. </br> – Tillräckligt med stillestånd kan krävas. |
 |[Inbyggd säkerhets kopiering och återställning](../../managed-instance/restore-sample-database-quickstart.md) | – Migrera enskilda affärs program databaser (n).  </br> – Snabb och enkel migrering utan en separat migrerings tjänst eller verktyg.  </br> </br> Källor som stöds: </br> -SQL Server (2005-2019) lokalt eller virtuell Azure-dator </br> – AWS EC2 </br> – AWS FJÄRR SKRIVBORDS TJÄNSTER </br> -GCP Compute SQL Server VM | -Säkerhets kopiering av databasen använder flera trådar för att optimera data överföring till Azure Blob Storage, men ISV-bandbredd och databas storlek kan påverka överföringshastigheten. </br> – Nedtid bör vara tillräckligt lång tid som krävs för att utföra en fullständig säkerhets kopiering och återställning (vilket är en storlek på data åtgärd).| 
 | | | |
 
@@ -126,8 +126,8 @@ I följande tabell jämförs alternativa flyttnings alternativ:
 |---------|---------|---------|
 |[Transaktionsreplikering](../../managed-instance/replication-transactional-overview.md) | – Migrera genom att kontinuerligt Publicera ändringar från käll databas tabeller till mål databas tabeller för SQL-hanterad instans. </br> – Fullständig eller partiell databas migrering av valda tabeller (delmängd av databas).  </br> </br> Källor som stöds: </br> -SQL Server (2012-2019) med vissa begränsningar </br> – AWS EC2  </br> -GCP Compute SQL Server VM | </br> – Installationen är relativt komplex jämfört med andra alternativ för migrering.   </br> -Tillhandahåller ett alternativ för kontinuerlig replikering för att migrera data (utan att databaserna tas offline).</br> -Transaktionell replikering har ett antal begränsningar som du bör tänka på när du konfigurerar utgivaren på käll SQL Server. Se [begränsningar för publicering av objekt](/sql/relational-databases/replication/publish/publish-data-and-database-objects#limitations-on-publishing-objects) för mer information.  </br> – Det finns en möjlighet att [övervaka replikeringen](/sql/relational-databases/replication/monitor/monitoring-replication) .    |
 |[Masskopiering](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| – Migrering av fullständiga eller partiella datamigreringar. </br> – Kan hantera stillestånds tid. </br> </br> Källor som stöds: </br> -SQL Server (2005-2019) lokalt eller virtuell Azure-dator </br> – AWS EC2 </br> – AWS FJÄRR SKRIVBORDS TJÄNSTER </br> -GCP Compute SQL Server VM   | – Kräver stillestånds tid för att exportera data från källa och importera till målet. </br> – Fil formaten och data typerna som används i export/import måste vara konsekventa med tabell scheman. |
-|[Guiden Importera export/BACPAC](/azure/azure-sql/database/database-import)| – Migrera enskilda affärs program databaser (n). </br>– Lämpligt för mindre databaser.  </br>  Kräver inte någon separat Migreringsverktyg eller verktyg. </br> </br> Källor som stöds: </br> -SQL Server (2005-2019) lokalt eller virtuell Azure-dator </br> – AWS EC2 </br> – AWS FJÄRR SKRIVBORDS TJÄNSTER </br> -GCP Compute SQL Server VM  |   </br> – Kräver stillestånds tid när data behöver exporteras vid källan och importeras vid målet.   </br> -De fil format och data typer som används i export/import måste vara konsekventa med tabell scheman för att undvika fel vid trunkering/data typs fel. </br> -Åtgången för att exportera en databas med ett stort antal objekt kan vara betydligt högre. |
-|[Azure Data Factory (ADF)](/azure/data-factory/connector-azure-sql-managed-instance)| – Migrera och/eller omvandla data från käll SQL Server databas (er).</br> -Sammanfoga data från flera data källor till en Azure SQL-hanterad instans för arbets belastningar i Business Intelligence (BI).   </br> – Kräver att du skapar pipeline för data förflyttning i ADF för att flytta data från källa till mål.   </br> - [Kostnaden](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) är en viktig faktor och baseras på pipelines utlösare, aktivitets körningar, varaktighet för data förflyttning osv. |
+|[Guiden Importera export/BACPAC](../../database/database-import.md)| – Migrera enskilda affärs program databaser (n). </br>– Lämpligt för mindre databaser.  </br>  Kräver inte någon separat Migreringsverktyg eller verktyg. </br> </br> Källor som stöds: </br> -SQL Server (2005-2019) lokalt eller virtuell Azure-dator </br> – AWS EC2 </br> – AWS FJÄRR SKRIVBORDS TJÄNSTER </br> -GCP Compute SQL Server VM  |   </br> – Kräver stillestånds tid när data behöver exporteras vid källan och importeras vid målet.   </br> -De fil format och data typer som används i export/import måste vara konsekventa med tabell scheman för att undvika fel vid trunkering/data typs fel. </br> -Åtgången för att exportera en databas med ett stort antal objekt kan vara betydligt högre. |
+|[Azure Data Factory (ADF)](../../../data-factory/connector-azure-sql-managed-instance.md)| – Migrera och/eller omvandla data från käll SQL Server databas (er).</br> -Sammanfoga data från flera data källor till en Azure SQL-hanterad instans för arbets belastningar i Business Intelligence (BI).   </br> – Kräver att du skapar pipeline för data förflyttning i ADF för att flytta data från källa till mål.   </br> - [Kostnaden](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) är en viktig faktor och baseras på pipelines utlösare, aktivitets körningar, varaktighet för data förflyttning osv. |
 | | | |
 
 ## <a name="feature-interoperability"></a>Funktions samverkan 
@@ -136,7 +136,7 @@ Det finns ytterligare överväganden när du migrerar arbets belastningar som ä
 
 #### <a name="sql-server-integration-services"></a>SQL Server Integration Services
 
-Migrera SQL Server Integration Services-paket (SSIS) och projekt i SSISDB till Azure SQL-hanterad instans med [Azure Database migration service (DMS)](/azure/dms/how-to-migrate-ssis-packages-managed-instance). 
+Migrera SQL Server Integration Services-paket (SSIS) och projekt i SSISDB till Azure SQL-hanterad instans med [Azure Database migration service (DMS)](../../../dms/how-to-migrate-ssis-packages-managed-instance.md). 
 
 Endast SSIS-paket i SSISDB som börjar med SQL Server 2012 stöds för migrering. Konvertera äldre SSIS-paket innan migreringen. Mer information finns i [självstudien om projekt konvertering](/sql/integration-services/lesson-6-2-converting-the-project-to-the-project-deployment-model) . 
 
@@ -149,7 +149,7 @@ Rapporter i SQL Server Reporting Services (SSRS) kan migreras till sid brytnings
 
 SQL Server Analysis Services tabell modeller från SQL Server 2012 och senare kan migreras till Azure Analysis Services, vilket är en distributions modell för PaaS för Analysis Services tabell modell i Azure. Du kan lära dig mer om att migrera lokal-modeller till Azure Analysis Services i den här [video kursen](https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/).
 
-Du kan också överväga att migrera dina lokala Analysis Services tabell modeller till [Power BI Premium att använda nya XMLA-Läs/skriv-slutpunkter](https://docs.microsoft.com/power-bi/admin/service-premium-connect-tools). 
+Du kan också överväga att migrera dina lokala Analysis Services tabell modeller till [Power BI Premium att använda nya XMLA-Läs/skriv-slutpunkter](/power-bi/admin/service-premium-connect-tools). 
 > [!NOTE]
 > Power BI XMLA-funktionen för Läs/skriv slut punkter finns för närvarande i offentlig för hands version och bör inte beaktas för produktions arbets belastningar förrän funktionerna blir allmänt tillgängliga.
 
@@ -161,7 +161,7 @@ Utöver den hög tillgänglighets arkitektur som ingår i SQL-hanterad instans f
 
 #### <a name="sql-agent-jobs"></a>SQL Agent-jobb
 
-Använd alternativet offline Azure Database Migration Service (DMS) för att migrera [SQL Agent-jobb](/azure/dms/howto-sql-server-to-azure-sql-mi-powershell#offline-migrations). Annars kan du skripta jobben i Transact-SQL (T-SQL) med SQL Server Management Studio och sedan manuellt återskapa dem på den SQL-hanterade instansen. 
+Använd alternativet offline Azure Database Migration Service (DMS) för att migrera [SQL Agent-jobb](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md#offline-migrations). Annars kan du skripta jobben i Transact-SQL (T-SQL) med SQL Server Management Studio och sedan manuellt återskapa dem på den SQL-hanterade instansen. 
 
 > [!IMPORTANT]
 > Azure DMS stöder för närvarande endast jobb med del system i T-SQL. Jobb med stegen i SSIS-paketet måste migreras manuellt. 
@@ -193,7 +193,7 @@ Det finns inte stöd för återställning av system databaser. Om du vill migrer
 
 Se till att dra nytta av de avancerade molnbaserade funktioner som erbjuds av SQL-hanterad instans. Du behöver till exempel inte längre oroa dig för att hantera säkerhets kopieringar eftersom tjänsten gör det åt dig. Du kan återställa till vilken [tidpunkt som helst inom bevarande perioden](../../database/recovery-using-backups.md#point-in-time-restore). Dessutom behöver du inte bekymra dig om att konfigurera hög tillgänglighet eftersom [hög tillgänglighet är inbyggt](../../database/high-availability-sla.md). 
 
-För att förstärka säkerheten bör du överväga att använda [Azure Active Directory autentisering](../../database/authentication-aad-overview.md), [granskning](../../managed-instance/auditing-configure.md), [hot identifiering](../../database/advanced-data-security.md), [säkerhet på radnivå](/sql/relational-databases/security/row-level-security)och [dynamisk data maskning](/sql/relational-databases/security/dynamic-data-masking).
+För att förstärka säkerheten bör du överväga att använda [Azure Active Directory autentisering](../../database/authentication-aad-overview.md), [granskning](../../managed-instance/auditing-configure.md), [hot identifiering](../../database/azure-defender-for-sql.md), [säkerhet på radnivå](/sql/relational-databases/security/row-level-security)och [dynamisk data maskning](/sql/relational-databases/security/dynamic-data-masking).
 
 Förutom avancerade hanterings-och säkerhetsfunktioner innehåller SQL-hanterad instans en uppsättning avancerade verktyg som kan hjälpa dig att [övervaka och finjustera din arbets belastning](../../database/monitor-tune-overview.md). Med [Azure SQL-analys](../../../azure-monitor/insights/azure-sql.md) kan du övervaka en stor uppsättning hanterade instanser på ett centraliserat sätt.  [Automatisk justering](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction)   i hanterade instanser övervakar kontinuerligt prestandan för din SQL Plans körnings statistik och korrigerar automatiskt de identifierade prestanda problemen. 
 
@@ -203,7 +203,7 @@ Vissa funktioner är bara tillgängliga när kompatibilitetsnivån för [databas
 
 Mer hjälp finns i följande resurser som har utvecklats för Real World migration-projekt.
 
-|Tillgång  |Description  |
+|Tillgång  |Beskrivning  |
 |---------|---------|
 |[Modell och verktyg för data arbets belastnings bedömning](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Det här verktyget ger föreslagna "bästa anpassning"-språkplattformar, moln beredskap och program/databas reparations nivåer för en specifik arbets belastning. Den erbjuder enkel, enkel beräkning och rapportgenerering som hjälper till att påskynda stora fastighets bedömningar genom att tillhandahålla och automatisera och enhetlig mål plattforms besluts process.|
 |[DBLoader-verktyg](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|DBLoader kan användas för att läsa in data från avgränsade textfiler till SQL Server. I det här Windows-konsol verktyget används SQL Server inbyggda klient Bulkload-gränssnittet, som fungerar på alla versioner av SQL Server, inklusive Azure SQL MI.|

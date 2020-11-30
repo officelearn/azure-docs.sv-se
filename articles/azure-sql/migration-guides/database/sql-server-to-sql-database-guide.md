@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 55ce3747aaf105c7e2cbb830b1175769a658fd72
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ee4abaf3c9f6aa70ba14920711c8917994254649
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497048"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326989"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guide för migrering: SQL Server till SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ Följ dessa steg om du vill migrera en databas från SQL Server till Azure SQL D
 
 1. Hämta och installera [databasen Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595).
 1. Skapa ett nytt projekt och välj **migrering** som projekt typ.
-1. Ange käll Server typen till **SQL Server** och den mål server typ som ska **Azure SQL Database** , Välj migrerings omfånget som **schema och data** och välj **skapa**.
+1. Ange käll Server typen till **SQL Server** och den mål server typ som ska **Azure SQL Database**, Välj migrerings omfånget som **schema och data** och välj **skapa**.
 1. I migreringsjobbet anger du käll Server information, till exempel Server namn, autentiseringsuppgifter för att ansluta till servern och käll databasen som ska migreras.
 1. I informationen om mål servern anger du Azure SQL Database Server namnet och autentiseringsuppgifterna för att ansluta till servern och mål databasen som ska migreras till.
 1. Välj schema objekt och distribuera dem till mål Azure SQL Database.
@@ -165,10 +165,10 @@ När data har migrerats till mål miljön måste alla program som tidigare förb
 
 Test metoden för migrering av databasen består av följande aktiviteter:
 
-1. **Utveckla verifieringstester** : om du vill testa migreringen av databasen måste du använda SQL-frågor. Du måste skapa verifierings frågorna som ska köras mot både käll-och mål databaserna. Dina verifierings frågor ska omfatta det definitions område som du har definierat.
-1. **Konfigurera test miljö** : test miljön bör innehålla en kopia av käll databasen och mål databasen. Se till att isolera test miljön.
-1. **Kör verifieringstester** : kör verifieringstester mot källan och målet och analysera sedan resultaten.
-1. **Kör prestandatester** : kör prestandatest mot källan och målet och analysera och jämför sedan resultaten.
+1. **Utveckla verifieringstester**: om du vill testa migreringen av databasen måste du använda SQL-frågor. Du måste skapa verifierings frågorna som ska köras mot både käll-och mål databaserna. Dina verifierings frågor ska omfatta det definitions område som du har definierat.
+1. **Konfigurera test miljö**: test miljön bör innehålla en kopia av käll databasen och mål databasen. Se till att isolera test miljön.
+1. **Kör verifieringstester**: kör verifieringstester mot källan och målet och analysera sedan resultaten.
+1. **Kör prestandatester**: kör prestandatest mot källan och målet och analysera och jämför sedan resultaten.
 
    > [!NOTE]
    > Om du behöver hjälp med att utveckla och köra verifierings test efter migrering bör du tänka på vilken data kvalitets lösning som är tillgänglig från partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
@@ -176,7 +176,7 @@ Test metoden för migrering av databasen består av följande aktiviteter:
 
 ## <a name="leverage-advanced-features"></a>Utnyttja avancerade funktioner 
 
-Se till att dra nytta av de avancerade molnbaserade funktioner som erbjuds av SQL Database, till exempel [inbyggd hög tillgänglighet](../../database/high-availability-sla.md), [hot identifiering](../../database/advanced-data-security.md)och [övervakning och justering av arbets belastningen](../../database/monitor-tune-overview.md). 
+Se till att dra nytta av de avancerade molnbaserade funktioner som erbjuds av SQL Database, till exempel [inbyggd hög tillgänglighet](../../database/high-availability-sla.md), [hot identifiering](../../database/azure-defender-for-sql.md)och [övervakning och justering av arbets belastningen](../../database/monitor-tune-overview.md). 
 
 Vissa SQL Server funktioner är bara tillgängliga när kompatibilitetsnivån för [databas](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) har ändrats till den senaste kompatibilitetsnivån (150). 
 

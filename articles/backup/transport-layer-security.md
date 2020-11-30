@@ -3,12 +3,12 @@ title: Transport Layer Security i Azure Backup
 description: Lär dig hur du aktiverar Azure Backup att använda krypterings protokollet Transport Layer Security (TLS) för att skydda data när de överförs över ett nätverk.
 ms.topic: conceptual
 ms.date: 11/01/2020
-ms.openlocfilehash: 9881fd3532cbc7d67c7d5adbce75e02fc62e0bcf
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: ba9c9d91f562f54695a0739908c8a409d14d5852
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280698"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327125"
 ---
 # <a name="transport-layer-security-in-azure-backup"></a>Transport Layer Security i Azure Backup
 
@@ -45,7 +45,7 @@ Följande register nycklar kontrollerar att TLS 1,2-protokollet är aktiverat p�
 
 ### <a name="configuring-net-framework"></a>Konfigurera .NET Framework
 
-Följande register nycklar konfigurerar .NET Framework som stöder stark kryptering. Du kan läsa mer om att [konfigurera .NET Framework här](https://docs.microsoft.com/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry).
+Följande register nycklar konfigurerar .NET Framework som stöder stark kryptering. Du kan läsa mer om att [konfigurera .NET Framework här](/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry).
 
 ```reg
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
@@ -65,7 +65,7 @@ TLS 1,2 är säkrare än tidigare kryptografiska protokoll som SSL 2,0, SSL 3,0,
 
 ### <a name="what-determines-the-encryption-protocol-used"></a>Vad bestämmer det krypterings protokoll som används?
 
-Den högsta protokoll versionen som stöds av både klienten och servern förhandlas om att upprätta den krypterade konversationen. Mer information om TLS-handskakning-protokollet finns i [upprätta en säker session med hjälp av TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls).
+Den högsta protokoll versionen som stöds av både klienten och servern förhandlas om att upprätta den krypterade konversationen. Mer information om TLS-handskakning-protokollet finns i [upprätta en säker session med hjälp av TLS](/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls).
 
 ### <a name="what-is-the-impact-of-not-enabling-tls-12"></a>Vad är effekten av att inte aktivera TLS 1,2?
 
@@ -77,6 +77,6 @@ För ökad säkerhet från angrepp med protokoll nedgradering, börjar Azure Bac
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Transport Layer Säkerhetsprotokoll](https://docs.microsoft.com/windows/win32/secauthn/transport-layer-security-protocol)
-- [Garantera stöd för TLS 1,2 över distribuerade operativ system](https://docs.microsoft.com/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
-- [Metod tips för TLS (Transport Layer Security) med .NET Framework](https://docs.microsoft.com/dotnet/framework/network-programming/tls)
+- [Transport Layer Säkerhetsprotokoll](/windows/win32/secauthn/transport-layer-security-protocol)
+- [Garantera stöd för TLS 1,2 över distribuerade operativ system](/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
+- [Metod tips för TLS (Transport Layer Security) med .NET Framework](/dotnet/framework/network-programming/tls)

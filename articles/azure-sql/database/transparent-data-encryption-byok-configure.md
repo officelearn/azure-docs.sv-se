@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 8881dc3f67ac1c9f699bd2bf7bcf1dbbcd5e9c0c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 40572d50f7653539758ff892019e7e65b0ffa6dd
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905335"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324898"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och Azure CLI: Aktivera transparent datakryptering med kundhanterad nyckel från Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -46,7 +46,7 @@ Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault fö
 
 Instruktioner för installation av Az-modulen finns i [Installera Azure PowerShell](/powershell/azure/install-az-ps). För vissa cmdlets, se [AzureRM. SQL](/powershell/module/AzureRM.Sql/).
 
-Mer information om Key Vault finns i [PowerShell-instruktioner från Key Vault](../../key-vault/secrets/quick-create-powershell.md) och [hur du använder Key Vault mjuk borttagning med PowerShell](../../key-vault/general/soft-delete-powershell.md).
+Mer information om Key Vault finns i [PowerShell-instruktioner från Key Vault](../../key-vault/secrets/quick-create-powershell.md) och [hur du använder Key Vault mjuk borttagning med PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 > [!IMPORTANT]
 > PowerShell-modulen för Azure Resource Manager (RM) stöds fortfarande, men all framtida utveckling är för AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
@@ -136,7 +136,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 Om du vill installera den version av Azure CLI som krävs (version 2,0 eller senare) och ansluta till din Azure-prenumeration, se [Installera och konfigurera Azures plattforms oberoende Command-Line gränssnitt 2,0](/cli/azure/install-azure-cli).
 
-Mer information om Key Vault finns i [hantera Key Vault med cli 2,0](../../key-vault/general/manage-with-cli2.md) och [hur du använder Key Vault mjuk borttagning med CLI](../../key-vault/general/soft-delete-cli.md).
+Mer information om Key Vault finns i [hantera Key Vault med cli 2,0](../../key-vault/general/manage-with-cli2.md) och [hur du använder Key Vault mjuk borttagning med CLI](../../key-vault/general/key-vault-recovery.md).
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Tilldela en Azure AD-identitet till servern
 

@@ -4,12 +4,12 @@ description: Anpassade bildpooler är ett effektivt sätt att konfigurera datorn
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: c24da435540f62a793620fe6005d176ce10c7b05
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917791"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327312"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Använd det delade avbildnings galleriet för att skapa en anpassad avbildnings-pool
 
@@ -58,7 +58,7 @@ I Azure kan du förbereda en delad avbildning från en hanterad avbildning, som 
 - En generaliserad lokal virtuell hård disk som laddats upp till molnet
 
 > [!NOTE]
-> För närvarande stöder batch endast generaliserade delade avbildningar. Du kan inte skapa en anpassad avbildning från en specialiserad delad avbildning just nu.
+> Batch stöder endast generaliserade delade avbildningar. en specialiserad delad avbildning kan inte användas för att skapa en pool.
 
 Följande steg visar hur du förbereder en virtuell dator, tar en ögonblicks bild och skapar en avbildning från ögonblicks bilden.
 

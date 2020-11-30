@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: d85866e490b2c56abb7de1e94cd0ffaa8f714615
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096631"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327159"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -60,7 +60,7 @@ Om du redan har konfigurerat säkerhets kopian och måste gå från GRS till LRS
 
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Hur kan jag flytta data från Recovery Services-valvet till lokalt?
 
-Export av data direkt från Recovery Services-valvet till lokalt med hjälp av Data Box-enhet stöds inte. Data måste återställas till ett lagrings konto och kan sedan flyttas till lokalt via [data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-overview) eller [Importera/exportera](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+Export av data direkt från Recovery Services-valvet till lokalt med hjälp av Data Box-enhet stöds inte. Data måste återställas till ett lagrings konto och kan sedan flyttas till lokalt via [data Box-enhet](../databox/data-box-overview.md) eller [Importera/exportera](../storage/common/storage-import-export-service.md).
 
 ## <a name="azure-backup-agent"></a>Azure Backup-agent
 
@@ -83,7 +83,7 @@ Ja.
 
 Azure Backup stöder dessa operativsystem för säkerhetskopiering av filer och mappar samt appar som skyddas av Azure Backup Server och SCDPM.
 
-**Operativsystem** | **SKU** | **Detaljer**
+**Operativsystem** | **SKU** | **Information**
 --- | --- | ---
 Arbetsstation | |
 Windows 10 64-bitars | Enterprise, Pro, Home | Datorerna ska köra de senaste Service Packs och uppdateringarna.
@@ -121,7 +121,7 @@ Azure VM | Se [support mat ris för säkerhets kopiering av virtuella Azure-dato
 
 Följande tabell beskriver hur datakällans storlek bestäms.
 
-**Datakälla** | **Detaljer**
+**Datakälla** | **Information**
 --- | ---
 Volym |Den mängd data som säkerhetskopieras från en virtuell dator med en enskild volym som säkerhetskopieras.
 SQL Server-databas |Storlek på den enkla databas storleken som säkerhets kopie ras.

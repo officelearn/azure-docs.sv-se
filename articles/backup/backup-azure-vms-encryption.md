@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 description: Beskriver hur du säkerhetskopierar och återställer krypterade virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 67c0e879fe2acf241b1ed08a5658209bf70b1b9c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c4760a54d0200e48b2d6a38c963e9fc23925f7ff
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95978122"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324932"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -16,13 +16,13 @@ Den här artikeln beskriver hur du säkerhetskopierar och återställer virtuell
 
 ## <a name="encryption-using-platform-managed-keys"></a>Kryptering med hjälp av plattforms hanterade nycklar
 
-Som standard krypteras alla diskar i de virtuella datorerna automatiskt i vila med hjälp av PMK (Platform-Managed Keys) som använder [kryptering av lagrings tjänst](../storage/common/storage-service-encryption.md). Du kan säkerhetskopiera de här virtuella datorerna med Azure Backup utan några särskilda åtgärder som krävs för att stödja krypteringen i slutet. Mer information om kryptering med plattforms hanterade nycklar [finns i den här artikeln](../virtual-machines/windows/disk-encryption.md#platform-managed-keys).
+Som standard krypteras alla diskar i de virtuella datorerna automatiskt i vila med hjälp av PMK (Platform-Managed Keys) som använder [kryptering av lagrings tjänst](../storage/common/storage-service-encryption.md). Du kan säkerhetskopiera de här virtuella datorerna med Azure Backup utan några särskilda åtgärder som krävs för att stödja krypteringen i slutet. Mer information om kryptering med plattforms hanterade nycklar [finns i den här artikeln](../virtual-machines/disk-encryption.md#platform-managed-keys).
 
 ![Krypterade diskar](./media/backup-encryption/encrypted-disks.png)
 
 ## <a name="encryption-using-customer-managed-keys"></a>Kryptering med kundhanterade nycklar
 
-När du krypterar diskar med anpassade hanterade nycklar (CMK) lagras nyckeln som används för att kryptera diskarna i Azure Key Vault och hanteras av dig. Kryptering för lagringstjänst (SSE) med CMK skiljer sig från Azure Disk Encryption-kryptering (ADE). ADE använder krypterings verktygen i operativ systemet. SSE krypterar data i lagrings tjänsten, så att du kan använda alla operativ system eller avbildningar för dina virtuella datorer. Mer information om kryptering av hanterade diskar med Kundhanterade nycklar finns i [den här artikeln](../virtual-machines/windows/disk-encryption.md#customer-managed-keys).
+När du krypterar diskar med anpassade hanterade nycklar (CMK) lagras nyckeln som används för att kryptera diskarna i Azure Key Vault och hanteras av dig. Kryptering för lagringstjänst (SSE) med CMK skiljer sig från Azure Disk Encryption-kryptering (ADE). ADE använder krypterings verktygen i operativ systemet. SSE krypterar data i lagrings tjänsten, så att du kan använda alla operativ system eller avbildningar för dina virtuella datorer. Mer information om kryptering av hanterade diskar med Kundhanterade nycklar finns i [den här artikeln](../virtual-machines/disk-encryption.md#customer-managed-keys).
 
 ## <a name="encryption-support-using-ade"></a>Krypterings stöd med ADE
 

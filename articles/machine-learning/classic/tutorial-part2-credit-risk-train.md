@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 59567cf2dc03952a78852f3288e78ba06aa769ee
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 557c624b6ed683f701b6a8d38854cd8604e05b31
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325685"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325272"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Självstudie 2: träna kredit risk modeller – Azure Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
-
+**gäller för:** ![ Detta är en bock markering, vilket innebär att den här artikeln gäller Machine Learning Studio (klassisk).  ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk)   ![ Detta är ett X, vilket innebär att den här artikeln gäller för Azure Machine Learning](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 I den här självstudien tittar vi närmare på hur du utvecklar en lösning för förutsägelseanalys. Du utvecklar en enkel modell i Machine Learning Studio (klassisk).  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del två i en självstudieserie i tre delar**.
 
@@ -84,7 +83,7 @@ Nu måste du meddela [träningsmodellmodulen][train-model] att du vill att model
 
 1. Välj [träningsmodellmodulen][train-model]. Klicka på **Starta kolumnväljaren** i fönstret **Egenskaper**.
 
-1. I dialogrutan **Select a single column** (Välj en enskild kolumn) skriver du ”credit risk” (kreditrisk) i sökfältet under **Tillgängliga kolumner** , väljer ”Credit risk” nedan och klickar sedan på högerpilen ( **>** ) för att flytta ”Credit risk” till **Valda kolumner**. 
+1. I dialogrutan **Select a single column** (Välj en enskild kolumn) skriver du ”credit risk” (kreditrisk) i sökfältet under **Tillgängliga kolumner**, väljer ”Credit risk” nedan och klickar sedan på högerpilen (**>**) för att flytta ”Credit risk” till **Valda kolumner**. 
 
     ![Välj kolumnen Credit Risk för träningsmodellmodulen](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
@@ -118,7 +117,7 @@ Konfigurera nu modulen [Normalize Data][normalize-data] (Normalisera data):
 
 1. Klicka för att välja modulen [Normalize Data][normalize-data] (Normalisera data). I fönstret **Egenskaper** väljer du **Tanh** för parametern **Transformation method** (Transformeringsmetod).
 
-1. Klicka på **Starta kolumnväljaren** , välj ”Inga kolumner” för **Börja med** , välj **Inkludera** i den första listrutan, välj **kolumntyp** i den andra listrutan och välj **Numerisk** i den tredje listrutan. Detta anger att alla numeriska kolumner (endast numeriska) transformeras.
+1. Klicka på **Starta kolumnväljaren**, välj ”Inga kolumner” för **Börja med**, välj **Inkludera** i den första listrutan, välj **kolumntyp** i den andra listrutan och välj **Numerisk** i den tredje listrutan. Detta anger att alla numeriska kolumner (endast numeriska) transformeras.
 
 1. Klicka på plustecknet (+) till höger om den här raden – när du gör det skapas en rad med listrutor. Välj **Exkludera** i den första listrutan, välj **kolumnnamn** i den andra listrutan och ange ”Credit Risk” (Kreditrisk) i textfältet. Detta anger att kolumnen Credit Risk (Kreditrisk) bör ignoreras (du måste göra detta eftersom den här kolumnen är numerisk och därför skulle transformeras om du inte uteslöt den).
 

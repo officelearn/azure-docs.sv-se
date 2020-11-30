@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ef3f9f8d75049051ad568abf1163014a78b0cda3
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790244"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324745"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudie: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -21,7 +21,7 @@ ms.locfileid: "92790244"
 > [!NOTE]
 > Vi använder SQL Server 2017 med RHEL 7,6 i den här självstudien, men det går att använda SQL Server 2019 i RHEL 7 eller RHEL 8 för att konfigurera hög tillgänglighet. Kommandona för att konfigurera pacemake-klustret och tillgänglighets grupps resurserna har ändrats i RHEL 8, och du vill titta på artikeln [skapa tillgänglighets grupps resurs](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) och RHEL 8-resurser för mer information om rätt kommandon.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > - Skapa en ny resurs grupp, tillgänglighets uppsättning och virtuella Linux-datorer (VM)
@@ -263,7 +263,7 @@ Du bör få resultat som liknar följande när kommandot har slutförts för var
 > [!IMPORTANT]
 > Standard avbildningen som skapas med kommandot ovan skapar en 32 GB OS-disk som standard. Du kan eventuellt ta slut på utrymme med den här standard installationen. Du kan använda följande parameter som har lagts till i `az vm create` kommandot ovan för att skapa en OS-disk med 128 GB som exempel: `--os-disk-size-gb 128` .
 >
-> Du kan sedan [Konfigurera Logical Volume Manager (LVM)](../../../virtual-machines/linux/configure-lvm.md) om du behöver expandera lämpliga volym volymer för att hantera installationen.
+> Du kan sedan [Konfigurera Logical Volume Manager (LVM)](/previous-versions/azure/virtual-machines/linux/configure-lvm) om du behöver expandera lämpliga volym volymer för att hantera installationen.
 
 ### <a name="test-connection-to-the-created-vms"></a>Testa anslutningen till de skapade virtuella datorerna
 
@@ -304,7 +304,7 @@ Anslut till varje VM-nod och följ anvisningarna nedan för att aktivera HA. Mer
 1. Uppdatera och installera pacemaker-paket på alla noder med följande kommandon:
 
     > [!NOTE]
-    > **nmap** installeras som en del av det här kommando blocket som ett verktyg för att hitta tillgängliga IP-adresser i nätverket. Du behöver inte installera **nmap** , men det kommer att vara användbart senare i den här självstudien.
+    > **nmap** installeras som en del av det här kommando blocket som ett verktyg för att hitta tillgängliga IP-adresser i nätverket. Du behöver inte installera **nmap**, men det kommer att vara användbart senare i den här självstudien.
 
     ```bash
     sudo yum update -y
@@ -489,11 +489,11 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  3. Klicka på [ **Appregistreringar**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Klicka på **ny registrering**
  5. Ange ett **namn** som `<resourceGroupName>-app` , Välj **endast konton i den här organisations katalogen**
- 6. Välj program typ **webb** , ange en inloggnings-URL (till exempel http://localhost) och klicka på Lägg till. Inloggnings-URL: en används inte och kan vara en giltig URL. När du är färdig klickar du på **Registrera**
+ 6. Välj program typ **webb**, ange en inloggnings-URL (till exempel http://localhost) och klicka på Lägg till. Inloggnings-URL: en används inte och kan vara en giltig URL. När du är färdig klickar du på **Registrera**
  7. Välj **certifikat och hemligheter** för din nya app-registrering och klicka sedan på **ny klient hemlighet**
  8. Ange en beskrivning för en ny nyckel (klient hemlighet), Välj **aldrig upphör att gälla** och klicka på **Lägg till**
  9. Skriv ned värdet för hemligheten. Den används som lösen ord för tjänstens huvud namn
-10. Välj **Översikt** . Anteckna program-ID: t. Den används som användar namn (inloggnings-ID i stegen nedan) för tjänstens huvud namn
+10. Välj **Översikt**. Anteckna program-ID: t. Den används som användar namn (inloggnings-ID i stegen nedan) för tjänstens huvud namn
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Skapa en anpassad roll för stängsel-agenten
 

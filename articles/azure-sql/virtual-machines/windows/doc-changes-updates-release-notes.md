@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: 262e15754ba481ee37b6af9783e5a3bc82d9450c
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ff4e6e0451b57046fb8f07f5a1051235e1f6d0f5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556364"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325731"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Dokumentations ändringar för SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -96,7 +96,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 | **Stöd för namngiven instans** | Du kan nu använda [tillägget SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md#installation) med en namngiven instans, om standard instansen har avinstallerats på rätt sätt. | 
 | **Portal förbättring** | Azure Portals upplevelsen för att distribuera en SQL Server VM har förbättringar för att förbättra användbarhet. Mer information finns i [snabb start](sql-vm-create-portal-quickstart.md) och mer utförlig [instruktions guide](create-sql-vm-portal.md) för att distribuera en SQL Server VM.|
 | **Portal förbättring** | Det är nu möjligt att ändra licensierings modellen för en SQL Server VM från betala per användning för att få en egen licens genom att använda [Azure Portal](licensing-model-azure-hybrid-benefit-ahb-change.md#change-license-model).|
-| **Förenkling av tillgänglighets grupps distribution till en SQL Server VM via Azure CLI** | Nu är det enklare än någonsin att distribuera en tillgänglighets grupp till en SQL Server VM i Azure. Du kan använda [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) för att skapa Windows-redundanskluster, en intern belastningsutjämnare och tillgänglighets grupps lyssnare, allt från kommando raden. Mer information finns i [använda Azure CLI för att konfigurera en Always on-tillgänglighets grupp för SQL Server på en virtuell Azure-dator](availability-group-az-cli-configure.md). | 
+| **Förenkling av tillgänglighets grupps distribution till en SQL Server VM via Azure CLI** | Nu är det enklare än någonsin att distribuera en tillgänglighets grupp till en SQL Server VM i Azure. Du kan använda [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) för att skapa Windows-redundanskluster, en intern belastningsutjämnare och tillgänglighets grupps lyssnare, allt från kommando raden. Mer information finns i [använda Azure CLI för att konfigurera en Always on-tillgänglighets grupp för SQL Server på en virtuell Azure-dator](./availability-group-az-commandline-configure.md). | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 
@@ -112,7 +112,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-**Virtuella Windows-datorer** :
+**Virtuella Windows-datorer**:
 
 * [Översikt över SQL Server på en virtuell Windows-dator](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Etablera SQL Server på en virtuell Windows-dator](create-sql-vm-portal.md)
@@ -121,7 +121,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 * [Metod tips för prestanda för SQL Server på Azure Virtual Machines](performance-guidelines-best-practices.md)
 * [Program mönster och utvecklings strategier för SQL Server på Azure Virtual Machines](application-patterns-development-strategies.md)
 
-**Virtuella Linux-datorer** :
+**Virtuella Linux-datorer**:
 
 * [Översikt över SQL Server på en virtuell Linux-dator](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Etablera SQL Server på en virtuell Linux-dator](../linux/sql-vm-create-portal-quickstart.md)

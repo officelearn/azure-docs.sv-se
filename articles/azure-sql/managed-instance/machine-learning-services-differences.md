@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 10/26/2020
-ms.openlocfilehash: adf454ac697f8cabf4256ebfc5baa5d0d1c76264
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c806c0a13f9f5f13588b780054d1f285beb44802
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782475"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324541"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Viktiga skillnader medllan Machine Learning Services i Azure SQL Managed Instance och SQL Server
 
@@ -55,7 +55,7 @@ Machine Learning Services i SQL-hanterad instans och SQL Server stöd för både
 Hantering av python-och R-paket fungerar annorlunda mellan SQL-hanterad instans och SQL Server. Dessa skillnader är:
 
 - Det finns inget stöd för paket som är beroende av externa körningar (t. ex. Java) eller som behöver åtkomst till OS-API: er för installation eller användning.
-- Paket kan utföra utgående nätverks anrop (ändras från tidigare i förhands granskningen). Du kan ställa in rätt utgående säkerhets regler på nivån [nätverks säkerhets grupp](/azure/virtual-network/network-security-groups-overview) för att aktivera utgående nätverks anrop.
+- Paket kan utföra utgående nätverks anrop (ändras från tidigare i förhands granskningen). Du kan ställa in rätt utgående säkerhets regler på nivån [nätverks säkerhets grupp](../../virtual-network/network-security-groups-overview.md) för att aktivera utgående nätverks anrop.
 
 Mer information om hur du hanterar python-och R-paket finns i:
 

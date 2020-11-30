@@ -3,12 +3,12 @@ title: Säkerhetskopiera SQL Server till Azure som en DPM-arbetsbelastning
 description: En introduktion till att säkerhetskopiera SQL Server databaser med hjälp av tjänsten Azure Backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8130990f86311221ae6d097137a66a6e9b81be73
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 592a51051a0d02a6c1d491db0fe559e2e62babb2
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218093"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327057"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Säkerhetskopiera SQL Server till Azure som en DPM-arbetsbelastning
 
@@ -24,7 +24,7 @@ Säkerhetskopiera en SQL Server-databas till Azure och återställa den från Az
 
 >[!NOTE]
 >DPM 2019-UR2 har stöd för SQL Server instanser av redundanskluster (FCI) med hjälp av klusterdelade volymer (CSV).<br><br>
->Det finns stöd för att skydda [SQL Server redundanskluster med Lagringsdirigering på Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure)  och [SQL Server instansen av kluster för växling vid fel med delade Azure-diskar](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure) med den här funktionen. DPM-servern måste distribueras på den virtuella Azure-datorn för att skydda SQL FCI-instansen som distribueras på virtuella Azure-datorer. 
+>Det finns stöd för att skydda [SQL Server redundanskluster med Lagringsdirigering på Azure](../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md)  och [SQL Server instansen av kluster för växling vid fel med delade Azure-diskar](../azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md) med den här funktionen. DPM-servern måste distribueras på den virtuella Azure-datorn för att skydda SQL FCI-instansen som distribueras på virtuella Azure-datorer. 
 
 ## <a name="prerequisites-and-limitations"></a>Krav och begränsningar
 
@@ -145,7 +145,7 @@ För att skydda SQL Server databaser i Azure måste du först skapa en princip f
 1. Välj hur du vill överföra den första säkerhets kopian till Azure.
 
     * Alternativet **automatiskt över nätverket** följer ditt schema för säkerhets kopiering för att överföra data till Azure.
-    * Mer information om **säkerhets kopiering offline**finns i [Översikt över säkerhets kopiering offline](offline-backup-overview.md).
+    * Mer information om **säkerhets kopiering offline** finns i [Översikt över säkerhets kopiering offline](offline-backup-overview.md).
 
     När du har valt en överförings funktion väljer du **Nästa**.
 
@@ -157,7 +157,7 @@ För att skydda SQL Server databaser i Azure måste du först skapa en princip f
 
 En återställnings punkt skapas när den första säkerhets kopieringen sker. I stället för att vänta på att schemat ska köras kan du manuellt utlösa skapandet av en återställnings punkt:
 
-1. Kontrol lera att databasens status är **OK**i skydds gruppen.
+1. Kontrol lera att databasens status är **OK** i skydds gruppen.
 
     ![En skydds grupp som visar databasens status](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
 1. Högerklicka på databasen och välj sedan **skapa återställnings punkt**.

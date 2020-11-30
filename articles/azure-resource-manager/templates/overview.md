@@ -3,12 +3,12 @@ title: Översikt över mallar
 description: Beskriver fördelarna med Azure Resource Manager mallar för att distribuera resurser.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 1873c737d17fc8774ddd1276d1375799ca2da35e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 188fd5782795a4fb5456978a2a596cabc6dfd874
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280046"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325068"
 ---
 # <a name="what-are-arm-templates"></a>Vad är ARM-mallar?
 
@@ -38,7 +38,7 @@ Om du försöker bestämma mellan att använda ARM-mallar och en annan infrastru
 
 * **Testning**: du kan se till att din mall följer rekommenderade rikt linjer genom att testa den med verktyget arm Template Tool Kit (arm-TTK). Det här test paketet är ett PowerShell-skript som du kan ladda ned från [GitHub](https://github.com/Azure/arm-ttk). Med verktygs paketet är det enklare för dig att utveckla expertis med hjälp av mallens språk.
 
-* **Förhandsgranska ändringar**: du kan använda [åtgärden vad händer om](template-deploy-what-if.md) du vill få en förhands granskning av ändringarna innan du distribuerar mallen. Med vad som händer, kan du se vilka resurser som kommer att skapas, uppdateras eller tas bort och vilka resurs egenskaper som kommer att ändras. Konsekvens åtgärden kontrollerar miljöns aktuella tillstånd och eliminerar behovet av att hantera tillstånd.
+* **Förhandsgranska ändringar**: du kan använda [åtgärden vad händer om](template-deploy-what-if.md) du vill få en förhands granskning av ändringarna innan du distribuerar mallen. Med vad som händer, kan du se vilka resurser som kommer att skapas, uppdateras eller tas bort och vilka resurs egenskaper som ska ändras. Konsekvens åtgärden kontrollerar miljöns aktuella tillstånd och eliminerar behovet av att hantera tillstånd.
 
 * **Inbyggd verifiering**: din mall distribueras bara när du har överfört verifieringen. Resource Manager kontrollerar mallen innan du påbörjar distributionen för att kontrol lera att distributionen kommer att lyckas. Distributionen är mindre troligt att stoppas i ett halv klart tillstånd.
 

@@ -3,12 +3,12 @@ title: Aktivera din Azure VMware-lösnings resurs
 description: Lär dig hur du skickar en support förfrågan för att aktivera din Azure VMware-lösnings resurs. Du kan också begära fler värdar i ditt befintliga Azure VMware-lösningar privata moln.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 68f8fe38c67ec5ddad7cf662a7996330ee2a1e73
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 526d6b38f4b4e3f6c4806b71b4728dee90cf558a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95794720"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325085"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Så här aktiverar du Azure VMware-lösnings resurser
 Lär dig hur du skickar en support förfrågan för att aktivera din [Azure VMware-lösnings](introduction.md) resurs. Du kan också begära fler värdar i ditt befintliga Azure VMware-lösningar privata moln.
@@ -76,7 +76,7 @@ Kryptografiproviders måste använda [Microsoft Partner Center](https://partner.
 
 1. Välj **Azure-plan** och välj sedan **Lägg till i kundvagn**. 
 
-1. Granska och slutför de allmänna inställningarna för Azure plan-prenumerationen för din kund. Mer information finns i [dokumentationen till Microsoft Partner Center](https://docs.microsoft.com/partner-center/azure-plan-manage).
+1. Granska och slutför de allmänna inställningarna för Azure plan-prenumerationen för din kund. Mer information finns i [dokumentationen till Microsoft Partner Center](/partner-center/azure-plan-manage).
 
 När du har konfigurerat Azure-planen och de nödvändiga vSphere RBAC-behörigheterna är på plats som en CSP, kommer du att engagera Microsoft för att aktivera kvoten för en Azure plan-prenumeration. Åtkomst Azure Portal från Partner Center med hjälp av **admin på uppdrag av** (administrate)-proceduren.
 

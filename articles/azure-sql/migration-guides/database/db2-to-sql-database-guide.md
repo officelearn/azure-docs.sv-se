@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: bc7db167ed1d1d8823e90bf422f17428a7ed4e48
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 369f17a39b9d7b2f85fffb8b72a293558d16416e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497132"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325170"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>Migration guide: DB2 till SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -61,7 +61,7 @@ Följ dessa steg om du vill skapa en utvärdering:
 
 1. Granska HTML-rapporten för att förstå konverterings statistik och eventuella fel eller varningar. Du kan också öppna rapporten i Excel för att få en inventering av DB2-objekt och den insats som krävs för att utföra schema konverteringar. Standard platsen för rapporten finns i rapportmappen i SSMAProjects.
 
-   Till exempel: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
+   Exempel: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
 
    :::image type="content" source="media/db2-to-sql-database-guide/report.png" alt-text="Granska rapporten för att identifiera eventuella fel eller varningar":::
 
@@ -138,10 +138,10 @@ När data har migrerats till mål miljön måste alla program som tidigare förb
 
 Test metoden för migrering av databasen består av följande aktiviteter:
 
-1. **Utveckla verifieringstester** : om du vill testa migreringen av databasen måste du använda SQL-frågor. Du måste skapa verifierings frågorna som ska köras mot både käll-och mål databaserna. Dina verifierings frågor ska omfatta det definitions område som du har definierat.
-1. **Konfigurera test miljö** : test miljön bör innehålla en kopia av käll databasen och mål databasen. Se till att isolera test miljön.
-1. **Kör verifieringstester** : kör verifieringstester mot källan och målet och analysera sedan resultaten.
-1. **Kör prestandatester** : kör prestandatest mot källan och målet och analysera och jämför sedan resultaten.
+1. **Utveckla verifieringstester**: om du vill testa migreringen av databasen måste du använda SQL-frågor. Du måste skapa verifierings frågorna som ska köras mot både käll-och mål databaserna. Dina verifierings frågor ska omfatta det definitions område som du har definierat.
+1. **Konfigurera test miljö**: test miljön bör innehålla en kopia av käll databasen och mål databasen. Se till att isolera test miljön.
+1. **Kör verifieringstester**: kör verifieringstester mot källan och målet och analysera sedan resultaten.
+1. **Kör prestandatester**: kör prestandatest mot källan och målet och analysera och jämför sedan resultaten.
 
    > [!NOTE]
    > Om du behöver hjälp med att utveckla och köra verifierings test efter migrering bör du tänka på vilken data kvalitets lösning som är tillgänglig från partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
@@ -149,7 +149,7 @@ Test metoden för migrering av databasen består av följande aktiviteter:
 
 ## <a name="leverage-advanced-features"></a>Utnyttja avancerade funktioner 
 
-Se till att dra nytta av de avancerade molnbaserade funktioner som erbjuds av SQL Database, till exempel [inbyggd hög tillgänglighet](../../database/high-availability-sla.md), [hot identifiering](../../database/advanced-data-security.md)och [övervakning och justering av arbets belastningen](../../database/monitor-tune-overview.md). 
+Se till att dra nytta av de avancerade molnbaserade funktioner som erbjuds av SQL Database, till exempel [inbyggd hög tillgänglighet](../../database/high-availability-sla.md), [hot identifiering](../../database/azure-defender-for-sql.md)och [övervakning och justering av arbets belastningen](../../database/monitor-tune-overview.md). 
 
 
 Vissa SQL Server funktioner är bara tillgängliga när kompatibilitetsnivån för [databas](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) har ändrats till den senaste kompatibilitetsnivån (150). 

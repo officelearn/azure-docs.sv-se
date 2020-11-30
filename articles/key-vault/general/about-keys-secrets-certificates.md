@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 78f228a5e188bc930a9e7484f4c982ba746331dd
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357784"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327091"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Översikt över Azure Key Vault nycklar, hemligheter och certifikat
 
@@ -46,10 +46,10 @@ Hemligheter|/secrets|Stöds|Stöds inte
 Certifikat|/certificates|Stöds|Stöds inte
 Lagringskontonycklar|/storageaccount|Stöds|Stöds inte
 |||
-- **Kryptografiska nycklar** : stöder flera nyckel typer och algoritmer och möjliggör användning av program skyddade och HSM-skyddade nycklar. Mer information finns i [om nycklar](../keys/about-keys.md).
-- **Hemligheter** : ger säker lagring av hemligheter, t. ex. lösen ord och databas anslutnings strängar. Mer information finns i [om hemligheter](../secrets/about-secrets.md).
-- **Certifikat** : stöder certifikat, som bygger på nycklar och hemligheter och lägger till en automatiserad förnyelse funktion. Mer information finns i [om certifikat](../certificates/about-certificates.md).
-- **Azure Storage konto nycklar** : kan hantera nycklar för ett Azure Storage konto åt dig. Internt Key Vault kan ange (Sync) nycklar med ett Azure Storage konto och återskapa (rotera) nycklarna med jämna mellanrum. Mer information finns i [Hantera lagrings konto nycklar med Key Vault](../secrets/overview-storage-keys.md).
+- **Kryptografiska nycklar**: stöder flera nyckel typer och algoritmer och möjliggör användning av program skyddade och HSM-skyddade nycklar. Mer information finns i [om nycklar](../keys/about-keys.md).
+- **Hemligheter**: ger säker lagring av hemligheter, t. ex. lösen ord och databas anslutnings strängar. Mer information finns i [om hemligheter](../secrets/about-secrets.md).
+- **Certifikat**: stöder certifikat, som bygger på nycklar och hemligheter och lägger till en automatiserad förnyelse funktion. Mer information finns i [om certifikat](../certificates/about-certificates.md).
+- **Azure Storage konto nycklar**: kan hantera nycklar för ett Azure Storage konto åt dig. Internt Key Vault kan ange (Sync) nycklar med ett Azure Storage konto och återskapa (rotera) nycklarna med jämna mellanrum. Mer information finns i [Hantera lagrings konto nycklar med Key Vault](../secrets/overview-storage-keys.md).
 
 Mer allmän information om Key Vault finns i [om Azure Key Vault](overview.md). Mer information om hanterade HSM-pooler finns i vad är [Azure Key Vault hanterad HSM?](../managed-hsm/overview.md)
 
@@ -75,20 +75,21 @@ Objekt som lagras i Key Vault versioner skapas när en ny instans av ett objekt 
 
 Objekt i Key Vault kan åtgärdas genom att ange en version eller genom att utesluta version för åtgärder på den aktuella versionen av objektet. Till exempel kan en nyckel med namnet, som `MasterKey` utför åtgärder utan att ange en version, orsaka att systemet använder den senaste tillgängliga versionen. Att utföra åtgärder med den versions bara identifierade identifieraren gör att systemet använder den aktuella versionen av objektet.  
 
+### <a name="vault-name-and-object-name"></a>Valv-namn och objekt namn
 Objekt identifieras unikt inom Key Vault med hjälp av en URL. Inga två objekt i systemet har samma URL, oavsett Geo-plats. Den fullständiga URL: en till ett objekt kallas för objekt-ID. URL: en består av ett prefix som identifierar Key Vault, objekt typ, användardefinierat objekt namn och en objekt version. Objekt namnet är Skift läges okänsligt och oföränderligt. Identifierare som inte innehåller objekt versionen kallas för bas identifierare.  
 
 Mer information finns i [autentisering, begär Anden och svar](authentication-requests-and-responses.md)
 
 En objekt identifierare har följande allmänna format (beroende på behållar typ):  
 
-- **För valv** : `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **För valv**: `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-- **För hanterade HSM-pooler** : `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+- **För hanterade HSM-pooler**: `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
 > [!NOTE]
 > Se [stöd för objekt](#object-types) typer för typer av objekt som stöds av varje behållar typ.
 
-Där:  
+Plats:  
 
 | Element | Beskrivning |  
 |-|-|  

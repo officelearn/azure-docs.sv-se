@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 1459c80c857a436c8369d3ebe89794e0b69c33b1
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 35bed58f95deebb78d8e787c8bc3f522ce7004df
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980889"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326977"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Azure Hybrid-förmån – hur det gäller för Virtuella Linux-datorer
 
@@ -155,9 +155,13 @@ A: Nej, du kan inte. Azure Hybrid-förmån stöder endast konvertering för avbi
 
 A: Nej, du kan inte. Azure Hybrid-förmån stöder endast konvertering för avbildningar enligt principen betala per användning.
 
-*F: Jag har laddat upp en egen RHEL-avbildning från lokal (via ASR eller på annat sätt) till Azure. Kan jag konvertera faktureringen för dessa bilder från BYOS till PAYG?*
+*F: Jag har laddat upp en egen RHEL-avbildning från lokal (via Azure Migrate, ASR eller på annat sätt) till Azure. Kan jag konvertera faktureringen för dessa bilder från BYOS till PAYG?*
 
 A: Nej, du kan inte. Azure Hybrid-förmån funktionen är bara tillgänglig för RHEL-och SLES Marketplace-avbildningar idag. 
+
+*F: Jag har laddat upp en egen RHEL-avbildning från lokal (via Azure Migrate, ASR eller på annat sätt) till Azure. Behöver jag göra något för att dra nytta av Azure Hybrid-förmån?*
+
+A: Nej. RHEL-avbildningar som du överför betraktas redan som BYOS och du debiteras bara för Azures infrastruktur kostnader. Du ansvarar för RHEL prenumerations kostnader precis som du gör för dina lokala miljöer. 
 
 *F: kan jag använda Azure Hybrid-förmån på virtuella datorer som har distribuerats från Marketplace RHEL och SLES SAP-avbildningar?*
 

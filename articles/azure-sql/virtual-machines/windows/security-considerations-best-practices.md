@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e6f6d1960c07dc23c584dec5bb424f91630fc1bb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 92cd20f9e636c50416a72ec974a33c87da1ae2cb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785076"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327278"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Säkerhetsöverväganden för SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Följande avsnitt innehåller förslag på hur du tänker på dessa punkter.
 
 ## <a name="secure-connections"></a>Säkra anslutningar
 
-När du skapar en SQL Server virtuell dator med en galleri bild kan du med alternativet **SQL Server anslutning** kan du välja **lokalt (inne i VM)** , **privat (inom Virtual Network)** eller **offentlig (Internet)** .
+När du skapar en SQL Server virtuell dator med en galleri bild kan du med alternativet **SQL Server anslutning** kan du välja **lokalt (inne i VM)**, **privat (inom Virtual Network)** eller **offentlig (Internet)**.
 
 ![SQL Server anslutning](./media/security-considerations-best-practices/sql-vm-connectivity-option.png)
 
@@ -59,7 +59,7 @@ Till sist kan du aktivera krypterade anslutningar för instansen av SQL Server d
 
 ## <a name="encryption"></a>Kryptering
 
-Managed disks erbjuder Server-Side kryptering och Azure Disk Encryption. [Kryptering på Server sidan](../../../virtual-machines/windows/disk-encryption.md) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) använder antingen Bitlocker eller DM-Crypt-teknik och integrerar med Azure Key Vault för att kryptera både operativ systemet och data diskarna. 
+Managed disks erbjuder Server-Side kryptering och Azure Disk Encryption. [Kryptering på Server sidan](../../../virtual-machines/disk-encryption.md) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) använder antingen Bitlocker eller DM-Crypt-teknik och integrerar med Azure Key Vault för att kryptera både operativ systemet och data diskarna. 
 
 ## <a name="use-a-non-default-port"></a>Använd en port som inte är standard
 
@@ -84,7 +84,7 @@ När SQL Server lyssnar på en port som inte är standard, måste du ange porten
 
 Du vill inte att angripare ska kunna gissa konto namn eller lösen ord. Använd följande tips för att få hjälp:
 
-- Skapa ett unikt lokalt administratörs konto som inte heter **administratör** .
+- Skapa ett unikt lokalt administratörs konto som inte heter **administratör**.
 
 - Använd komplexa starka lösen ord för alla dina konton. Mer information om hur du skapar ett starkt lösen ord finns i artikeln [skapa ett starkt lösen ord](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password) .
 
@@ -93,7 +93,7 @@ Du vill inte att angripare ska kunna gissa konto namn eller lösen ord. Använd 
   - Skapa ett SQL-konto med ett unikt namn som har **sysadmin** -medlemskap. Du kan göra detta från portalen genom att aktivera **SQL-autentisering** under etableringen.
 
     > [!TIP] 
-    > Om du inte aktiverar SQL-autentisering under etableringen måste du manuellt ändra autentiseringsläget till **SQL Server och Windows-autentiseringsläge** . Mer information finns i [ändra autentiseringsläge för Server](/sql/database-engine/configure-windows/change-server-authentication-mode).
+    > Om du inte aktiverar SQL-autentisering under etableringen måste du manuellt ändra autentiseringsläget till **SQL Server och Windows-autentiseringsläge**. Mer information finns i [ändra autentiseringsläge för Server](/sql/database-engine/configure-windows/change-server-authentication-mode).
 
   - Om du måste använda **sa** -inloggningen aktiverar du inloggningen efter etableringen och tilldelar ett nytt starkt lösen ord.
 

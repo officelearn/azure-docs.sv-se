@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar funktioner med Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9679f6030ac889ac442a40cd852f5cc17f505756
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1ffbd760ae75605d75652b29d379420d6946aa8f
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422526"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326462"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java Developer Guide
 
@@ -45,15 +45,27 @@ I artikel länkarna ovan visas hur du skapar dina första funktioner med hjälp 
 
 ### <a name="project-scaffolding"></a>Project-ramverk
 
-Om du föredrar kommando rads utveckling från terminalen är det enklaste sättet att Autogenerera Java-baserade funktions projekt att använda `Apache Maven` archetypes. Java maven-archetype för Azure Functions publiceras _i följande_ : _artifactId_ : [com. Microsoft. Azure: Azure-Functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+Om du föredrar kommando rads utveckling från terminalen är det enklaste sättet att Autogenerera Java-baserade funktions projekt att använda `Apache Maven` archetypes. Java maven-archetype för Azure Functions publiceras _i följande_:_artifactId_: [com. Microsoft. Azure: Azure-Functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
 
 Följande kommando genererar ett nytt Java-funktions projekt med hjälp av den här archetype:
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-archetype 
+    -DarchetypeArtifactId=azure-functions-archetype
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+mvn archetype:generate ^
+    -DarchetypeGroupId=com.microsoft.azure ^
+    -DarchetypeArtifactId=azure-functions-archetype
+```
+
+---
 
 För att komma igång med den här archetype, se [Java-snabb](./create-first-function-cli-java.md)starten.
 
@@ -153,7 +165,7 @@ Du kan kontrol lera vilken version av Java som är mål för maven-archetype med
 
 Maven-archetype genererar en pom.xml som är riktad mot den angivna Java-versionen. Följande element i pom.xml visar vilken Java-version som ska användas:
 
-| Element |  Java 8-värde | Java 11-värde | Description |
+| Element |  Java 8-värde | Java 11-värde | Beskrivning |
 | ---- | ---- | ---- | --- |
 | **`Java.version`** | 1.8 | 11 | Den version av Java som används av maven-compiler-plugin-programmet. |
 | **`JavaVersion`** | 8 | 11 | Java-version som körs av Function-appen i Azure. |
@@ -202,7 +214,7 @@ Du kan ange ytterligare argument i en app-inställning med namnet `JAVA_OPTS` . 
 > [!IMPORTANT]  
 > I förbruknings planen måste du också lägga till inställningen WEBSITE_USE_PLACEHOLDER med värdet 0 för att anpassningen ska fungera. Den här inställningen ökar kall start tider för Java functions.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 I [Azure Portal](https://portal.azure.com)använder du [fliken program inställningar](functions-how-to-use-azure-function-app-settings.md#settings) för att lägga till `JAVA_OPTS` inställningen.
 
@@ -210,19 +222,40 @@ I [Azure Portal](https://portal.azure.com)använder du [fliken program inställn
 
 Du kan använda kommandot [AZ functionapp config appSettings set](/cli/azure/functionapp/config/appsettings) för att ange `JAVA_OPTS` , som i följande exempel:
 
-#### <a name="consumption-plan"></a>[Förbrukningsplan](#tab/consumption)
+# <a name="consumption-plan"></a>[Förbrukningsplan](#tab/consumption/bash)
+
 ```azurecli-interactive
 az functionapp config appsettings set \
---settings "JAVA_OPTS=-Djava.awt.headless=true" \
-"WEBSITE_USE_PLACEHOLDER=0" \
---name <APP_NAME> --resource-group <RESOURCE_GROUP>
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" \
+    "WEBSITE_USE_PLACEHOLDER=0" \
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
-#### <a name="dedicated-plan--premium-plan"></a>[Dedikerad plan/Premium-plan](#tab/dedicated+premium)
+
+# <a name="consumption-plan"></a>[Förbrukningsplan](#tab/consumption/cmd)
+
+```azurecli-interactive
+az functionapp config appsettings set ^
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" ^
+    "WEBSITE_USE_PLACEHOLDER=0" ^
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+
+# <a name="dedicated-plan--premium-plan"></a>[Dedikerad plan/Premium-plan](#tab/dedicated+premium/bash)
+
 ```azurecli-interactive
 az functionapp config appsettings set \
---settings "JAVA_OPTS=-Djava.awt.headless=true" \
---name <APP_NAME> --resource-group <RESOURCE_GROUP>
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" \
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
+
+# <a name="dedicated-plan--premium-plan"></a>[Dedikerad plan/Premium-plan](#tab/dedicated+premium/cmd)
+
+```azurecli-interactive
+az functionapp config appsettings set ^
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" ^
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+
 ---
 
 Det här exemplet aktiverar konsol löst läge. Ersätt `<APP_NAME>` med namnet på din Function-app och `<RESOURCE_GROUP>` med resurs gruppen. 
@@ -460,15 +493,36 @@ Du kan använda Azure CLI för att strömma Java STDOUT-och stderr-loggning, sam
 
 Så här konfigurerar du din Function-app för att skriva program loggning med hjälp av Azure CLI:
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli-interactive
 az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+---
+
 Om du vill strömma logga utdata för din Function-app med hjälp av Azure CLI öppnar du en ny kommando tolk, bash eller terminalserversession och anger följande kommando:
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli-interactive
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+
+---
+
 Kommandot [AZ webapp log pilslut](/cli/azure/webapp/log) har alternativ för att filtrera utdata med hjälp av `--provider` alternativet. 
 
 Om du vill hämta loggfilerna som en enda ZIP-fil med hjälp av Azure CLI öppnar du en ny kommando tolk, bash eller terminalserversession och anger följande kommando:

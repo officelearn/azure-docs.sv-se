@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 6eb76c9d8cc8447755e045972a7aceddefd1604a
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ebde8048c26364d77d95b9c7b34f9d1d7a4a20ee
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532978"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326291"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Självstudie: kom igång med Azure Machine Learning i Jupyter Notebooks
 
@@ -80,7 +80,7 @@ Du har slutfört följande experiment-konfiguration och kör steg i Azure Machin
     > [!IMPORTANT]
     > Du kan visa antecknings böcker i mappen **exempel** , men du kan inte köra en antecknings bok därifrån. Om du vill köra en antecknings bok, se till att du öppnar den klonade versionen av antecknings boken i avsnittet **användarfiler** .
     
-1. Välj **självstudien – 1st-experiment-SDK-träna. ipynb** -filen i **självstudierna/bild klassificerings-mnist** -datamappen.
+1. Välj filen **img-klassifikation-part1-Training. ipynb** i **självstudierna/bild klassificerings-mnist-** datamappen.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Skärm bild som visar mappen öppna självstudier.":::
 

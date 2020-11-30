@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du s�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: e6e14209a8df7160d103cb036d38c9fee29b34dd
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296071"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324796"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -83,7 +83,7 @@ Azure Backup skapar en separat resurs grupp i formatet `AzureBackupRG_<geo>_<num
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Stöder Azure Backup Standard SSD-hanterade diskar?
 
-Ja, Azure Backup stöder [standard-SSD Managed disks](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
+Ja, Azure Backup stöder [standard-SSD Managed disks](../virtual-machines/disks-types.md#standard-ssd).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kan vi säkerhetskopiera en virtuell dator med en Skrivningsaccelerator (WA)-aktiverad disk?
 

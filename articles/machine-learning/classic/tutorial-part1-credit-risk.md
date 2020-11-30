@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 946435175ea5cd366103bc1254bae0d9afe0926e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 62cecc011980c2d11e6f99895c90b0ced744039a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325801"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325357"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Självstudie 1: förutsägelse kredit risk-Azure Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
-
+**gäller för:** ![ Detta är en bock markering, vilket innebär att den här artikeln gäller Machine Learning Studio (klassisk).  ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk)   ![ Detta är ett X, vilket innebär att den här artikeln gäller för Azure Machine Learning](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -75,7 +74,7 @@ För att utveckla en förutsägande modell för kreditrisk, behöver du data som
 
 Du använder filen med namnet **german.data**. Ladda ned den här filen till den lokala hårddisken.  
 
-Datamängden **german.data** innehåller rader med 20 variabler för 1000 tidigare kreditsökanden. De här 20 variablerna representerar datamängdens uppsättning med funktioner ( *funktionsvektorn* ), som tillhandahåller identifieringsegenskaper för varje kreditsökande. Ytterligare en kolumn i varje rad representerar sökandens beräknade kreditrisk. 700 sökande har identifierats som en låg kreditrisk och 300 som en hög risk.
+Datamängden **german.data** innehåller rader med 20 variabler för 1000 tidigare kreditsökanden. De här 20 variablerna representerar datamängdens uppsättning med funktioner (*funktionsvektorn*), som tillhandahåller identifieringsegenskaper för varje kreditsökande. Ytterligare en kolumn i varje rad representerar sökandens beräknade kreditrisk. 700 sökande har identifierats som en låg kreditrisk och 300 som en hög risk.
 
 UCI-webbplatsen innehåller en beskrivning av attributen för funktionsvektor för dessa data. Dessa data innehåller ekonomisk information, kredithistorik, anställningsstatus och personlig information. Varje sökande har getts en binär klassificering som anger om sökanden utgör en låg eller hög kreditrisk. 
 
@@ -119,7 +118,7 @@ När data har konverterats till CSV-format måste du ladda upp den till Machine 
 
 1. Öppna den Machine Learning Studio (klassiska) start sidan ( [https://studio.azureml.net](https://studio.azureml.net) ). 
 
-2. Klicka på menyn ![Meny](./media/tutorial-part1-credit-risk/menu.png) i det övre vänstra hörnet i fönstret, klicka på **Azure Machine Learning** , välj **Studio** och logga in.
+2. Klicka på menyn ![ det här är meny ikonen – tre staplade linjer.](./media/tutorial-part1-credit-risk/menu.png) i det övre vänstra hörnet i fönstret klickar du på **Azure Machine Learning**, väljer **Studio** och loggar in.
 
 3. Klicka på **+NEW** (Ny) längst ned i fönstret.
 
@@ -179,7 +178,7 @@ Nästa steg i den här självstudien är att skapa ett experiment i Machine Lear
 
 Du kan visa de första 100 raderna i data och viss statistisk information för hela data uppsättningen: Klicka på utdataporten för data uppsättningen (den lilla cirkeln längst ned) och välj **visualisera**.  
 
-Eftersom data filen inte levererades med kolumn rubriker, har Studio (klassisk) tillhandahållit allmänna rubriker (Col1, Col2 *osv.* ). Bra rubriker är inte nödvändiga för skapandet av en modell, men de gör det lättare att arbeta med data i experimentet. Och när du senare publicerar den här modellen i en webbtjänst hjälper rubrikerna till att identifiera kolumnerna för användare av tjänsten.  
+Eftersom data filen inte levererades med kolumn rubriker, har Studio (klassisk) tillhandahållit allmänna rubriker (Col1, Col2 *osv.*). Bra rubriker är inte nödvändiga för skapandet av en modell, men de gör det lättare att arbeta med data i experimentet. Och när du senare publicerar den här modellen i en webbtjänst hjälper rubrikerna till att identifiera kolumnerna för användare av tjänsten.  
 
 Du kan lägga till kolumnrubriker med hjälp av modulen [Edit Metadata][edit-metadata] (Redigera metadata).
 

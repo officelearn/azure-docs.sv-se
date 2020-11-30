@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d23560e8ee387ca8bc9cb4bba4211f6c8272addd
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 07f1a6ff5d15ee552680c59c86a194aeabe5b866
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490890"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326394"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använd Azure import/export-tjänsten för att importera data till Azure Blob Storage
 
@@ -34,7 +34,7 @@ Du måste:
 * Aktivera BitLocker på Windows-systemet. Se [hur du aktiverar BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 * [Ladda ned den senaste WAImportExport-versionen 1](https://www.microsoft.com/download/details.aspx?id=42659) på Windows-systemet. Den senaste versionen av verktyget har säkerhets uppdateringar för att tillåta en extern skydds funktion för BitLocker-nyckeln och den uppdaterade funktionen för upplåsnings läge.
 
-  * Zippa upp till standardmappen `waimportexportv1` . Ett exempel är `C:\WaImportExportV1`.
+  * Zippa upp till standardmappen `waimportexportv1` . Exempelvis `C:\WaImportExportV1`.
 * Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com` .
   * Kontot måste vara giltigt, måste ha ett saldo och måste ha funktioner för retur leverans.
   * Generera ett spårnings nummer för export jobbet.
@@ -52,7 +52,7 @@ Utför följande steg för att förbereda enheterna.
 1. Anslut dina disk enheter till Windows-systemet via SATA-anslutningar.
 2. Skapa en enda NTFS-volym på varje enhet. Tilldela volymen en enhets beteckning. Använd inte mountpoints.
 3. Aktivera BitLocker-kryptering på NTFS-volymen. Om du använder ett Windows Server-system kan du använda instruktionerna i [så här aktiverar du BitLocker på Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-4. Kopiera data till krypterad volym. Använd dra och släpp-eller Robocopy eller ett sådant kopierings verktyg. En journal fil ( *. jrn* ) skapas i samma mapp som du kör verktyget.
+4. Kopiera data till krypterad volym. Använd dra och släpp-eller Robocopy eller ett sådant kopierings verktyg. En journal fil (*. jrn*) skapas i samma mapp som du kör verktyget.
 
    Om enheten är låst och du måste låsa upp enheten kan stegen för att låsa upp vara olika beroende på ditt användnings fall.
 
@@ -84,7 +84,7 @@ Utför följande steg för att förbereda enheterna.
     |/ID     |Sessions-ID. Använd ett unikt sessions nummer för varje instans av kommandot.      |
     |/t:     |Enhets beteckningen för den disk som ska levereras. Till exempel enhet `D` .         |
     |/bk:     |Enhetens BitLocker-nyckel. Det numeriska lösen ordet från utdata från `manage-bde -protectors -get D:`      |
-    |/srcdir:     |Enhets beteckningen för den disk som ska levereras följt av `:\` . Ett exempel är `D:\`.         |
+    |/srcdir:     |Enhets beteckningen för den disk som ska levereras följt av `:\` . Exempelvis `D:\`.         |
     |/dstdir:     |Namnet på mål behållaren i Azure Storage.         |
     |/blobtype:     |Det här alternativet anger vilken typ av blobbar som du vill importera data till. För block-blobbar är detta `BlockBlob` och för sid blobbar `PageBlob` .         |
     |/skipwrite:     |Alternativet som anger att det inte finns några nya data som behöver kopieras och befintliga data på disken måste förberedas.          |
@@ -109,7 +109,7 @@ Utför följande steg för att skapa ett import jobb i Azure Portal.
 
     ![Klicka på Skapa import/export-jobb](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. I **grunderna** :
+4. I **grunderna**:
 
    * Välj **Importera till Azure**.
    * Ange ett beskrivande namn för import jobbet. Använd namnet för att följa förloppet för dina jobb.
@@ -120,7 +120,7 @@ Utför följande steg för att skapa ett import jobb i Azure Portal.
 
      ![Skapa import jobb – steg 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-5. I **jobb information** :
+5. I **jobb information**:
 
    * Ladda upp filerna för enhets journaler som du fick under steget förberedelse av enhet. Om `waimportexport.exe version1` användes överför du en fil för varje enhet som du har för berett. Om journal filens storlek överskrider 2 MB kan du använda den som `<Journal file name>_DriveInfo_<Drive serial ID>.xml` skapats med journal filen.
    * Välj det mål lagrings konto där data ska finnas.
@@ -128,7 +128,7 @@ Utför följande steg för att skapa ett import jobb i Azure Portal.
 
    ![Skapa import jobb – steg 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-6. I **information om retur leverans** :
+6. I **information om retur leverans**:
 
    * Välj operatören i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet på `adbops@microsoft.com`  med information om den operatör som du planerar att använda.
    * Ange ett giltigt transportföretags konto nummer som du har skapat med transport företaget. Microsoft använder det här kontot för att skicka tillbaka enheterna till dig när ditt import jobb har slutförts. Om du inte har ett konto nummer skapar du ett [FedEx](https://www.fedex.com/us/oadr/) -eller [DHL](https://www.dhl.com/) -konto.
@@ -139,7 +139,7 @@ Utför följande steg för att skapa ett import jobb i Azure Portal.
 
      ![Skapa import jobb – steg 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
-7. I **sammanfattningen** :
+7. I **sammanfattningen**:
 
    * Granska jobb informationen som visas i sammanfattningen. Anteckna jobb namnet och leverans adressen till Azure-datacenter för att leverera diskar tillbaka till Azure. Den här informationen används senare på frakt etiketten.
    * Skapa import jobbet genom att klicka på **OK** .
@@ -160,7 +160,7 @@ Använd följande steg för att skapa ett import jobb i Azure CLI.
     az extension add --name import-export
     ```
 
-1. Du kan använda en befintlig resurs grupp eller skapa en. Skapa en resurs grupp genom att köra kommandot [AZ Group Create](/cli/azure/group#az_group_create) :
+1. Du kan använda en befintlig resurs grupp eller skapa en. Du kan skapa en resursgrupp med hjälp av kommandot [az group create](/cli/azure/group#az_group_create):
 
     ```azurecli
     az group create --name myierg --location "West US"

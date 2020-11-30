@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: be063105db2384f566e7c94d9f2e7a2bd808b15f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c394fe2aa7639d32e5d79bcb22a01151f7666f5b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790142"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324626"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Översikt över SQL Server i Azure Virtual Machines (Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -67,7 +67,7 @@ När du konfigurerar SQL Server på Linux installerar du databas motor paketet o
 
 * [Översikt över Azure Virtual Machines](../../../virtual-machines/linux/overview.md)
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 
 * [Introduktion till Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
@@ -75,7 +75,7 @@ När du konfigurerar SQL Server på Linux installerar du databas motor paketet o
 
 * [Översikt över Virtual Network](../../../virtual-network/virtual-networks-overview.md)
 * [IP-adresser i Azure](../../../virtual-network/public-ip-addresses.md)
-* [Skapa ett fullständigt domännamn i Azure-portalen](../../../virtual-machines/windows/portal-create-fqdn.md)
+* [Skapa ett fullständigt domännamn i Azure-portalen](../../../virtual-machines/create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 

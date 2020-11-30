@@ -8,12 +8,12 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: fbeb6f5f223642c09183c149188c6717c1f33a8e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748501"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324966"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>Så här aktiverar du skydd mot mjuk borttagning och rensning
 
@@ -23,11 +23,11 @@ Den här artikeln beskriver två återställnings funktioner i Azure Key Vault, 
 
 Det mjuka borttagnings-och tömnings skyddet är två olika återställnings funktioner för nyckel valv.
 > [!IMPORTANT]
-> Mjuk borttagning måste vara aktiverat på alla nyckel valv. Möjligheten att inaktivera skydd mot mjuka borttagningar kommer att föråldras med 2020 december. Se fullständig information [ **här** .](soft-delete-change.md)
+> Mjuk borttagning måste vara aktiverat på alla nyckel valv. Möjligheten att inaktivera skydd mot mjuka borttagningar kommer att föråldras med 2020 december. Se fullständig information [ **här**.](soft-delete-change.md)
 
 **Mjuk borttagning** är utformad för att förhindra oavsiktlig borttagning av nyckel valvet och nycklar, hemligheter och certifikat som lagras i Key Vault. Tänk på mjuk borttagning som en pappers korg. När du tar bort ett nyckel valv eller ett Key Vault-objekt fortsätter det att kunna återskapas för en användar konfigurerbar kvarhållningsperiod eller standardvärdet på 90 dagar. Nyckel valv i läget Soft Deleted kan också **rensas** , vilket innebär att de tas bort permanent. På så sätt kan du återskapa nyckel valv och Key Vault-objekt med samma namn. Både återställning och borttagning av nyckel valv och objekt kräver förhöjd åtkomst princip behörigheter. **När mjuk borttagning har Aktiver ATS kan det inte inaktive ras.**
 
-Det är viktigt att Observera att **nyckel valvs namn är globalt unika** , så du kan inte skapa ett nyckel valv med samma namn som ett nyckel valv i läget Soft Deleted. På samma sätt är namnen på nycklar, hemligheter och certifikat unika i ett nyckel valv. Du kommer inte att kunna skapa en hemlighet, nyckel eller certifikat med samma namn som ett annat i läget Soft Deleted.
+Det är viktigt att Observera att **nyckel valvs namn är globalt unika**, så du kan inte skapa ett nyckel valv med samma namn som ett nyckel valv i läget Soft Deleted. På samma sätt är namnen på nycklar, hemligheter och certifikat unika i ett nyckel valv. Du kommer inte att kunna skapa en hemlighet, nyckel eller certifikat med samma namn som ett annat i läget Soft Deleted.
 
 **Rensnings skyddet** är utformat för att förhindra borttagning av nyckel valvet, nycklar, hemligheter och certifikat med skadlig Insider. Tänk på detta som en pappers korg med ett tidsbaserat lås. Du kan återställa objekt när som helst under den konfigurerbara kvarhållningsperioden. **Du kommer inte att kunna ta bort eller ta bort ett nyckel valv permanent förrän kvarhållningsperioden förflutit.** När kvarhållningsperioden har gått ur nyckel valvet eller Key Vault-objektet rensas det automatiskt.
 
@@ -44,7 +44,7 @@ Det är viktigt att Observera att **nyckel valvs namn är globalt unika** , så 
 1. Kontrol lera att alternativ knappen bredvid mjuk borttagning är inställd på Aktivera återställning.
 1. Om mjuk borttagning inte är aktiverat i nyckel valvet, klickar du på alternativ knappen för att aktivera mjuk borttagning och klickar på Spara.
 
-:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="<en skärm bild av Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="I egenskaper är mjuk borttagning markerat, precis som värdet för att aktivera det.":::
 
 ## <a name="grant-access-to-a-service-principal-to-purge-and-recover-deleted-secrets"></a>Bevilja åtkomst till ett huvud namn för tjänsten för att rensa och återställa borttagna hemligheter
 
@@ -56,7 +56,7 @@ Det är viktigt att Observera att **nyckel valvs namn är globalt unika** , så 
 1. Rulla längst ned i list rutan och klicka på "Återställ" och "Rensa"
 1. Säkerhets objekt kommer också att behöva hämta och lista funktioner för att utföra de flesta åtgärder.
 
-:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="<en skärm bild av Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="I det vänstra navigerings fönstret markeras åtkomst principer. I åtkomst principer visas List rutan hemliga positioner och fyra objekt väljs: Hämta, lista, Återställ och rensa.":::
 
 ## <a name="list-recover-or-purge-a-soft-deleted-key-vault"></a>Visa, återställa eller rensa ett mjukt borttaget nyckel valv
 
@@ -72,9 +72,9 @@ Det är viktigt att Observera att **nyckel valvs namn är globalt unika** , så 
 1. Välj alternativet för att återställa längst ned i kontext fönstret om du vill återställa nyckel valvet.
 1. Välj alternativet Rensa om du vill ta bort nyckel valvet permanent.
 
-:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="<en skärm bild av Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="Alternativet hantera borttagna valv är markerat på nyckel valv.":::
 
-:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="<en skärm bild av Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="Vid hantering av borttagna nyckel valv markeras och väljs det enda nyckel valvet som är markerat och knappen Återställ markeras.":::
 
 ## <a name="list-recover-or-purge-soft-deleted-secrets-keys-and-certificates"></a>Visa, återställa eller rensa mjuka borttagna hemligheter, nycklar och certifikat
 
@@ -87,7 +87,7 @@ Det är viktigt att Observera att **nyckel valvs namn är globalt unika** , så 
 1. Välj den hemlighet, nyckel eller det certifikat som du vill hantera.
 1. Välj alternativet för att återställa eller rensa längst ned i kontext fönstret.
 
-:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="<en skärm bild av Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="Alternativet hantera borttagna nycklar är markerat på nycklar.":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

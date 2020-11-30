@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ad880b7c23c687530a79ca1123474e94c923e150
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95529996"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310399"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduktion till Azure Defender för containerregister
 
@@ -85,6 +85,8 @@ Ja. Om du har ett organisations behov av att ignorera en sökning i, i stället 
 
 [Lär dig mer om att skapa regler för att inaktivera resultat från verktyget Integrated sårbarhets bedömning](defender-for-container-registries-usage.md#disable-specific-findings-preview).
 
+### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>Varför är Security Center Avisera mig om en avbildning som inte finns i mitt register?
+Security Center ger sårbarhets bedömningar för varje bild som flyttas eller hämtas i ett register. Vissa bilder kan återanvända taggar från en avbildning som redan har genomsökts. Du kan till exempel tilldela om taggen "senaste" varje gång du lägger till en bild i en sammanfattning. I sådana fall finns fortfarande "Old"-avbildningen kvar i registret och kan fortfarande hämtas av sammanfattningen. Om avbildningen har säkerhets resultat och hämtas, kommer den att exponera säkerhets problem.
 
 
 ## <a name="next-steps"></a>Nästa steg

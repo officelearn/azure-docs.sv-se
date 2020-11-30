@@ -62,7 +62,7 @@
         - name: Registrera till Azure Sentinel
           href: scenario-onboard-azure-sentinel.md
         - name: Registrera till Azure Security Center
-          href: /security-center/quickstart-onboard-machines
+          href: ../../security-center/quickstart-onboard-machines.md
     - name: Felsökning
       items:
         - name: Problem med agentanslutning

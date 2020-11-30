@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 3f9779d2676d4d2b67efff37118d109664b84bd5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8633aba2f7cda5dec4a48e9f7132283f8235f746
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184611"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317528"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Använd Azure Private Link för att ansluta nätverk till Azure Monitor på ett säkert sätt
 
@@ -79,10 +79,10 @@ Det finns ett antal begränsningar som du bör tänka på när du planerar konfi
 * Ett AMPLS-objekt kan endast ansluta till 10 privata slut punkter.
 
 I nedanstående topologi:
-* Varje VNet ansluter till 1 AMPLS-objekt, så det går inte att ansluta till andra AMPLSs.
-* AMPLS B ansluter till 2 virtuella nätverk: med 2/10 av dess möjliga privata slut punkts anslutningar.
-* AMPLS A ansluter till 2 arbets ytor och 1 program insikts komponent: använda 3/50 av sin möjliga Azure Monitor-resurser.
-* Arbets ytan 2 ansluter till AMPLS A och AMPLS B: med 2/5 av de möjliga AMPLS-anslutningarna.
+* Varje VNet ansluter till endast **ett** AMPLS-objekt.
+* AMPLS B är anslutet till privata slut punkter för två virtuella nätverk (VNet2 och VNet3) med 2/10 (20%) av dess möjliga privata slut punkts anslutningar.
+* AMPLS A ansluter till två arbets ytor och en komponent för program insikter med 3/50 (6%) de möjliga Azure Monitor resurs anslutningarna.
+* Workspace2 ansluter till AMPLS A och AMPLS B med 2/5 (40%) möjliga AMPLS-anslutningar.
 
 ![Diagram över AMPLS-gränser](./media/private-link-security/ampls-limits.png)
 
@@ -103,9 +103,9 @@ Börja med att skapa en Azure Monitor privat länk omfångs resurs.
 
 6. Låt validerings passet ta en titt och klicka sedan på **skapa**.
 
-## <a name="connect-azure-monitor-resources"></a>Anslut Azure Monitor resurser
+### <a name="connect-azure-monitor-resources"></a>Anslut Azure Monitor resurser
 
-Du kan ansluta din AMPLS först till privata slut punkter och sedan Azure Monitor resurser eller vice versa, men anslutnings processen går snabbare om du börjar med dina Azure Monitor-resurser. Så här ansluter vi Azure Monitor Log Analytics arbets ytor och Application Insights komponenter till en AMPLS
+Anslut Azure Monitor resurser (Log Analytics arbets ytor och Application Insights-komponenter) till din AMPLS.
 
 1. I sökområdet Azure Monitor privat länk klickar du på **Azure Monitor resurser** i den vänstra menyn. Klicka på knappen **Lägg till** .
 2. Lägg till arbets ytan eller komponenten. Om du klickar på knappen **Lägg till** visas en dialog ruta där du kan välja Azure Monitor resurser. Du kan bläddra igenom dina prenumerationer och resurs grupper, eller så kan du skriva in namnet för att filtrera ned dem. Välj arbets ytan eller komponenten och klicka på **tillämpa** för att lägga till dem i ditt omfång.
@@ -158,16 +158,19 @@ Nu har du skapat en ny privat slut punkt som är ansluten till den här Azure Mo
 
 ## <a name="configure-log-analytics"></a>Konfigurera Log Analytics
 
-Gå till Azure-portalen. I din Log Analytics arbets ytans resurs finns ett meny alternativ för **nätverks isolering** på den vänstra sidan. Du kan styra två olika tillstånd från den här menyn. 
+Gå till Azure-portalen. I din Log Analytics arbets ytans resurs finns ett meny alternativ för **nätverks isolering** på den vänstra sidan. Du kan styra två olika tillstånd från den här menyn.
 
 ![LA nätverks isolering](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
-Först kan du ansluta den här Log Analytics resursen till alla Azure Monitor privata länk omfattningar som du har åtkomst till. Klicka på **Lägg till** och välj omfånget Azure Monitor privat länk.  Klicka på **Använd** för att ansluta. Alla anslutna omfattningar visas på den här skärmen. Genom att göra den här anslutningen kan nätverks trafiken i de anslutna virtuella nätverken komma åt den här arbets ytan. Att göra anslutningen har samma resultat som att ansluta den från omfånget som vi gjorde när vi [anslöt Azure Monitor-resurser](#connect-azure-monitor-resources).  
+### <a name="connected-azure-monitor-private-link-scopes"></a>Anslutna Azure Monitor privata länk omfång
+Alla omfattningar som är anslutna till den här arbets ytan visas på den här skärmen. Genom att ansluta till scope (AMPLSs) tillåts nätverks trafik från det virtuella nätverket som är anslutet till varje AMPLS för att uppnå den här arbets ytan. Att skapa en anslutning med här har samma resultat som när du ställer in det i omfånget, som vi gjorde vid [anslutning Azure Monitor resurser](#connect-azure-monitor-resources). Om du vill lägga till en ny anslutning klickar du på **Lägg till** och väljer omfånget Azure Monitor privat länk. Klicka på **Använd** för att ansluta. Observera att en arbets yta kan ansluta till 5 AMPLS-objekt, vilket beskrivs i [ta hänsyn till begränsningar](#consider-limits). 
 
-För det andra kan du styra hur den här resursen kan nås utanför de privata länk definitionerna som anges ovan. Om du ställer in **Tillåt offentligt nätverks åtkomst för** inmatning till **Nej** kan inte datorer utanför de anslutna omfattningarna Ladda upp data till den här arbets ytan. Om du ställer in **Tillåt offentlig nätverks åtkomst för frågor** till **Nej**, kan datorer utanför omfattningarna inte komma åt data på den här arbets ytan. Dessa data omfattar åtkomst till arbets böcker, instrument paneler, API-baserade klient upplevelser, insikter i Azure Portal och mycket annat. Upplevelser som körs utanför Azure Portal och som frågar Log Analytics data måste också köras i det privata, länkade VNET.
+### <a name="access-from-outside-of-private-links-scopes"></a>Åtkomst från utanför privata länk omfattningar
+Inställningarna på den nedre delen av den här sidan styr åtkomsten från offentliga nätverk, vilket innebär att nätverk som inte är anslutna via de omfång som anges ovan. Om du ställer in **Tillåt offentligt nätverks åtkomst för** inmatning till **Nej** kan inte datorer utanför de anslutna omfattningarna Ladda upp data till den här arbets ytan. Om du ställer in **Tillåt offentlig nätverks åtkomst för frågor** till **Nej**, kommer datorer utanför omfattningarna inte att kunna komma åt data i den här arbets ytan, vilket innebär att det inte går att fråga efter data i arbets ytan. Innehåller frågor i arbets böcker, instrument paneler, API-baserade klient upplevelser, insikter i Azure Portal och mycket annat. Upplevelser som körs utanför Azure Portal och som frågar Log Analytics data måste också köras i det privata, länkade VNET.
 
-Att begränsa åtkomsten på det här sättet gäller inte för Azure Resource Manager och har därför följande begränsningar:
-* Åtkomst till data – samtidigt som frågor från offentliga nätverk används för de flesta Log Analytics-upplevelser, kan vissa få frågedata via Azure Resource Manager och kan därför inte fråga efter data om inte inställningarna för privata länkar tillämpas på Resource Manager även (funktionen kommer snart snart). Detta omfattar exempelvis Azure Monitor lösningar, arbets böcker och insikter och LogicApp-anslutningen.
+### <a name="exceptions"></a>Undantag
+Att begränsa åtkomsten enligt beskrivningen ovan gäller inte för Azure Resource Manager och har därför följande begränsningar:
+* Åtkomst till data – samtidigt som du blockerar/tillåter frågor från offentliga nätverk gäller de flesta Log Analyticss upplevelser, men vissa upplevelser frågar data via Azure Resource Manager och kommer därför inte att kunna fråga efter data, om inte inställningarna för privata länkar tillämpas på Resource Manager också (funktionen kommer snart snart). Detta omfattar exempelvis Azure Monitor lösningar, arbets böcker och insikter och LogicApp-anslutningen.
 * Arbets ytans hantering – inställning av arbets yta och konfigurations ändringar (inklusive aktivering av de här åtkomst inställningarna på eller av) hanteras av Azure Resource Manager. Begränsa åtkomsten till hantering av arbets ytor med lämpliga roller, behörigheter, nätverks kontroller och granskning. Mer information finns i [Azure Monitor roller, behörigheter och säkerhet](roles-permissions-security.md).
 
 > [!NOTE]

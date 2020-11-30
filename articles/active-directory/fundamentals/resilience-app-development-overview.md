@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: c2c2f9d0ad7bfa50f543b57326b9fc8dab0069c6
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: d06e851390537bf94b59e656f84bf58fe7216410
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029310"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317360"
 ---
 # <a name="increase-resilience-of-authentication-and-authorization-applications-you-develop"></a>Öka återhämtningen av autentiserings-och auktoriserings program som du utvecklar
 
@@ -29,4 +29,4 @@ De här artiklarna ger vägledning om ökad återhämtning i appar med hjälp av
 - [Bygg återhämtning till program som loggar in användare](resilience-client-app.md)
 - [Bygg återhämtning till program utan användare](resilience-daemon-app.md)
 - [Bygg återhämtning i din infrastruktur för identitets-och åtkomst hantering](resilience-in-infrastructure.md)
-- [Bygg återhämtning i din kund identitets-och åtkomst hantering med Azure Active Directory B2C](resilience-b2c.md)
+- [Bygg återhämtning i dina CIAM-system](resilience-b2c.md)

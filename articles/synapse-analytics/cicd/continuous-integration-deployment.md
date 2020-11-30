@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7b77a47acba6180df4a067887b79d8cdc0f56df6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5dbd49312b58dc656e2239e8a0a4acea614023de
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185087"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317192"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Kontinuerlig integrering och leverans för Azure dataSynapses-arbetsyta
 
@@ -91,15 +91,25 @@ Lägg till en Azure Resource Manager distributions uppgift för att skapa eller 
 
 ## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Konfigurera en fas uppgift för distribution av artefakter 
 
-Använd [Synapse arbets ytor bygg & release](https://marketplace.visualstudio.com/items?itemName=PraveenMathamsetty.synapsecicd-deploy) -uppgift för att distribuera andra objekt i Synapse-arbetsytan, t. ex. data uppsättning, SQL-skript, Notebook, Spark Job Definition, data flöde, pipeline, länkad tjänst, AUTENTISERINGSUPPGIFTER och IR (integration Runtime).  
+Använd [distributions tillägget Synapse-arbetsyta](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) för att distribuera andra objekt i Synapse-arbetsytan, t. ex. data uppsättning, SQL-skript, Notebook, Spark jobb definition, data flöde, pipeline, länkad tjänst, AUTENTISERINGSUPPGIFTER och IR (integration Runtime).  
+
+1. Sök och hämta tillägget från **Azure DevOps Marketplace**(https://marketplace.visualstudio.com/azuredevops) 
+
+     ![Hämta tillägg](media/get-extension-from-market.png)
+
+1. Välj en organisation för att installera tillägget. 
+
+     ![Installera tillägget](media/install-extension.png)
 
 1. Kontrol lera att Azure DevOps pipeline: s tjänst princip har beviljats behörigheten för prenumerationen och även tilldelats som arbets ytans administratör för mål arbets ytan. 
 
-1. Skapa en ny uppgift. Sök efter **Synapse-arbetsytor bygg & release** och välj sedan **Lägg till**.
+1. Skapa en ny uppgift. Sök efter **distributionen av Synapse-arbetsytan** och välj sedan **Lägg till**.
+
+     ![Lägg till tillägg](media/add-extension-task.png)
 
 1.  I uppgiften, ange relaterad git-lagringsplats för **workspace_publish** och Välj resurs grupp, region, namn och moln miljö för mål arbets ytan. Ange parametrar och värden om du behöver.
 
-    ![distribuera Synapse-arbetsyta](media/create-release-artifacts-deployment.png)
+    ![Distribuera Synapse-arbetsyta](media/create-release-artifacts-deployment.png)
 
 > [!IMPORTANT]
 > I CI/CD-scenarier måste integrerings körnings typen (IR) i olika miljöer vara densamma. Om du till exempel har en lokal IR-anslutning i utvecklings miljön, måste samma IR också vara av typen egen värd i andra miljöer, till exempel test och produktion. Om du däremot delar integrerings körningar över flera steg, måste du konfigurera integration runtime som länkad egen värd i alla miljöer, till exempel utveckling, testning och produktion.

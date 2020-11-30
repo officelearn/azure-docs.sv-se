@@ -1,31 +1,31 @@
 ---
-title: Snabb start – Azure Key Vault certifikat klient bibliotek för .NET (version 4)
-description: Lär dig att skapa, hämta och ta bort certifikat från ett Azure Key Vault med hjälp av .NET-klient biblioteket (version 4)
+title: Snabb start – Azure Key Vault nycklar klient bibliotek för .NET (version 4)
+description: Lär dig hur du skapar, hämtar och tar bort nycklar från ett Azure Key Vault med hjälp av .NET-klient biblioteket (version 4)
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/23/2020
 ms.service: key-vault
-ms.subservice: certificates
+ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 49f244ea8e602f3b5e6499b8e14db2be15bfc8f7
+ms.openlocfilehash: 658fa81c972846292b1bf608110fc95ffe1a730d
 ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317085"
+ms.locfileid: "96318460"
 ---
-# <a name="quickstart-azure-key-vault-certificate-client-library-for-net-sdk-v4"></a>Snabb start: Azure Key Vault klient bibliotek för certifikat för .NET (SDK v4)
+# <a name="quickstart-azure-key-vault-key-client-library-for-net-sdk-v4"></a>Snabb start: Azure Key Vault nyckel klient bibliotek för .NET (SDK v4)
 
-Kom igång med klient biblioteket för Azure Key Vault-certifikat för .NET. [Azure Key Vault](../general/overview.md) är en moln tjänst som tillhandahåller en säker lagring för certifikat. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Du kan skapa och hantera Azure-nyckelvalv via Azure Portal. I den här snabb starten lär du dig att skapa, hämta och ta bort certifikat från ett Azure Key Vault med hjälp av .NET-klient biblioteket
+Kom igång med klient biblioteket för Azure Key Vaults nyckel för .NET. [Azure Key Vault](../general/overview.md) är en moln tjänst som tillhandahåller en säker lagring för kryptografiska nycklar. Du kan lagra kryptografiska nycklar, lösen ord, certifikat och andra hemligheter på ett säkert sätt. Du kan skapa och hantera Azure-nyckelvalv via Azure Portal. I den här snabb starten lär du dig att skapa, hämta och ta bort nycklar från ett Azure Key Vault med hjälp av klient biblioteket för .NET-nyckel
 
-Key Vault klient biblioteks resurser:
+Key Vault viktiga klient biblioteks resurser:
 
-[API-referens dokumentation](/dotnet/api/azure.security.keyvault.certificates)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  |  [Paket (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Certificates/)
+[API-referens dokumentation](/dotnet/api/azure.security.keyvault.keys)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  |  [Paket (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.keys/)
 
-Mer information om Key Vault och certifikat finns i:
+Mer information om Key Vault och nycklar finns i:
 - [Översikt över Key Vault](../general/overview.md)
-- [Certifikat översikt](about-certificates.md).
+- [Översikt över nycklar](about-keys.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -79,10 +79,10 @@ Den här snabb starten använder Azure Identity Library med Azure CLI för att a
 
 ### <a name="install-the-packages"></a>Installera paketen
 
-Från kommando gränssnittet installerar du klient biblioteket för Azure Key Vault certifikat för .NET:
+Från kommando gränssnittet installerar du Azure Key Vault nyckel klient bibliotek för .NET:
 
 ```dotnetcli
-dotnet add package Azure.Security.KeyVault.Certificates
+dotnet add package Azure.Security.KeyVault.Keys
 ```
 
 I den här snabb starten måste du också installera Azure SDK-klient biblioteket för Azure-identitet:
@@ -93,10 +93,10 @@ dotnet add package Azure.Identity
 
 #### <a name="grant-access-to-your-key-vault"></a>Bevilja åtkomst till ditt nyckel valv
 
-Skapa en åtkomst princip för nyckel valvet som ger certifikat behörighet till ditt användar konto
+Skapa en åtkomst princip för nyckel valvet som beviljar nyckel behörighet till ditt användar konto
 
 ```console
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
 
 #### <a name="set-environment-variables"></a>Ange miljövariabler
@@ -119,7 +119,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## <a name="object-model"></a>Objekt modell
 
-Med klient biblioteket för Azure Key Vault certifikat för .NET kan du hantera certifikat. I avsnittet [kod exempel](#code-examples) visas hur du skapar en-klient, ställer in ett certifikat, hämtar ett certifikat och tar bort ett certifikat.
+Med klient biblioteket för Azure Key Vaults nyckel för .NET kan du hantera nycklar. I avsnittet [kod exempel](#code-examples) visas hur du skapar en-klient, ställer in en nyckel, hämtar en nyckel och tar bort en nyckel.
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -130,7 +130,7 @@ Lägg till följande direktiv överst i *program.cs*:
 ```csharp
 using System;
 using Azure.Identity;
-using Azure.Security.KeyVault.Certificates;
+using Azure.Security.KeyVault.Keys;
 ```
 
 ### <a name="authenticate-and-create-a-client"></a>Autentisera och skapa en klient
@@ -140,44 +140,43 @@ I den här snabb starten används inloggad användare för att autentisera till 
 I det här exemplet expanderas namnet på nyckel valvet till Key Vault-URI: n i formatet "https:// \<your-key-vault-name\> . Vault.Azure.net". Det här exemplet använder klassen  ["DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential) , som gör att du kan använda samma kod i olika miljöer med olika alternativ för att tillhandahålla identitet. Mer information om att autentisera till Key Vault finns i [Developer ' s guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```csharp
-string keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
+var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
 var kvUri = "https://" + keyVaultName + ".vault.azure.net";
 
-var client = new CertificateClient(new Uri(kvUri), new DefaultAzureCredential());
+var client = new KeyClient(new Uri(kvUri), new DefaultAzureCredential());
 ```
 
-### <a name="save-a-certificate"></a>Spara ett certifikat
+### <a name="save-a-key"></a>Spara en nyckel
 
-I det här exemplet kan du för enkelhetens skull använda självsignerade certifikat med standard utgivnings princip. För den här uppgiften använder du metoden [StartCreateCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync) . Metodens parametrar accepterar ett certifikat namn och [certifikat principen](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates.certificatepolicy).
+För den här uppgiften använder du metoden [CreateKeyAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.createkeyasync) . Metodens parametrar accepterar ett nyckel namn och [nyckel typen](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.keys.keytype).
 
 ```csharp
-var operation = await client.StartCreateCertificateAsync("myCertificate", CertificatePolicy.Default);
-var certificate = await operation.WaitForCompletionAsync();
+var key = await client.CreateKeyAsync("myKey", KeyType.Rsa);
 ```
 
 > [!NOTE]
-> Om det finns ett certifikat namn skapas en ny version av certifikatet i koden ovan.
+> Om det finns ett nyckel namn, kommer över koden att skapa en ny version av nyckeln.
 
-### <a name="retrieve-a-certificate"></a>Hämta ett certifikat
+### <a name="retrieve-a-key"></a>Hämta en nyckel
 
-Nu kan du hämta det tidigare skapade certifikatet med [GetCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.getcertificateasync) -metoden.
+Nu kan du hämta den tidigare skapade nyckeln med [GetKeyAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.getkeyasync) -metoden.
 
 ```csharp
-var certificate = await client.GetCertificateAsync("myCertificate");
+var key = await client.GetKeyAsync("myKey");
 ```
 
-### <a name="delete-a-certificate"></a>Ta bort ett certifikat
+### <a name="delete-a-key"></a>Ta bort en nyckel
 
-Slutligen tar vi bort och rensar certifikatet från nyckel valvet med metoderna [StartDeleteCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startdeletecertificateasync) och [PurgeDeletedCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.purgedeletedcertificateasync)  .
+Slutligen tar vi bort och rensar nyckeln från nyckel valvet med metoderna [StartDeleteKeyAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.startdeletekeyasync) och [PurgeDeletedKeyAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.purgedeletedkeyasync) .
 
 ```csharp
-var operation = await client.StartDeleteCertificateAsync("myCertificate");
+var operation = await client.StartDeleteKeyAsync("myKey");
 
-// You only need to wait for completion if you want to purge or recover the certificate.
+// You only need to wait for completion if you want to purge or recover the key.
 await operation.WaitForCompletionAsync();
 
-var certificate = operation.Value;
-await client.PurgeDeletedCertificateAsync("myCertificate");
+var key = operation.Value;
+await client.PurgeDeletedKeyAsync("myKey");
 ```
 
 ## <a name="sample-code"></a>Exempelkod
@@ -190,7 +189,7 @@ await client.PurgeDeletedCertificateAsync("myCertificate");
     using System;
     using System.Threading.Tasks;
     using Azure.Identity;
-    using Azure.Security.KeyVault.Certificates;
+    using Azure.Security.KeyVault.Keys;
     
     namespace key_vault_console_app
     {
@@ -198,29 +197,28 @@ await client.PurgeDeletedCertificateAsync("myCertificate");
         {
             static async Task Main(string[] args)
             {
-                const string certificateName = "myCertificate";
+                const string keyName = "myKey";
                 var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
                 var kvUri = $"https://{keyVaultName}.vault.azure.net";
     
-                var client = new CertificateClient(new Uri(kvUri), new DefaultAzureCredential());
+                var client = new KeyClient(new Uri(kvUri), new DefaultAzureCredential());
     
-                Console.Write($"Creating a certificate in {keyVaultName} called '{certificateName}' ...");
-                CertificateOperation operation = await client.StartCreateCertificateAsync(certificateName, CertificatePolicy.Default);
-                await operation.WaitForCompletionAsync();
-                Console.WriteLine(" done.");
+                Console.Write($"Creating a key in {keyVaultName} called '{keyName}' ...");
+                var createdKey = await client.CreateKeyAsync(keyName, KeyType.Rsa);
+                Console.WriteLine("done.");
     
-                Console.WriteLine($"Retrieving your certificate from {keyVaultName}.");
-                var certificate = await client.GetCertificateAsync(certificateName);
-                Console.WriteLine($"Your certificate version is '{certificate.Value.Properties.Version}'.");
+                Console.WriteLine($"Retrieving your key from {keyVaultName}.");
+                var key = await client.GetKeyAsync(keyName);
+                Console.WriteLine($"Your key version is '{key.Value.Properties.Version}'.");
     
-                Console.Write($"Deleting your certificate from {keyVaultName} ...");
-                DeleteCertificateOperation deleteOperation = await client.StartDeleteCertificateAsync(certificateName);
-                // You only need to wait for completion if you want to purge or recover the certificate.
+                Console.Write($"Deleting your key from {keyVaultName} ...");
+                var deleteOperation = await client.StartDeleteKeyAsync(keyName);
+                // You only need to wait for completion if you want to purge or recover the key.
                 await deleteOperation.WaitForCompletionAsync();
-                Console.WriteLine(" done.");
+                Console.WriteLine("done.");
 
-                Console.Write($"Purging your certificate from {keyVaultName} ...");
-                await client.PurgeDeletedCertificateAsync(certificateName);
+                Console.Write($"Purging your key from {keyVaultName} ...");
+                await client.PurgeDeletedKeyAsync(keyName);
                 Console.WriteLine(" done.");
             }
         }
@@ -245,10 +243,10 @@ await client.PurgeDeletedCertificateAsync("myCertificate");
     En variant av följande utdata visas:
 
     ```console
-    Creating a certificate in mykeyvault called 'myCertificate' ... done.
-    Retrieving your certificate from mykeyvault.
-    Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
-    Deleting your certificate from jl-kv ... done
+    Creating a key in mykeyvault called 'myKey' ... done.
+    Retrieving your key from mykeyvault.
+    Your key version is '8532359bced24e4bb2525f2d2050738a'.
+    Deleting your key from jl-kv ... done
     ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -287,12 +285,12 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett nyckel valv, lagrat ett certifikat och hämtade det certifikatet. 
+I den här snabb starten skapade du ett nyckel valv, lagrat en nyckel och hämtat nyckeln. 
 
 Mer information om Key Vault och hur du integrerar det med dina appar finns i följande artiklar:
 
 - Läs en [Översikt över Azure Key Vault](../general/overview.md)
-- Läs en [Översikt över certifikat](about-certificates.md)
+- Läs en [Översikt över nycklar](about-keys.md)
 - Se en [åtkomst Key Vault från självstudien för App Service program](../general/tutorial-net-create-vault-azure-web-app.md)
 - Se en [åtkomst Key Vault från den virtuella datorns självstudie](../general/tutorial-net-virtual-machine.md)
 - Se [Azure Key Vault Developer ' s guide](../general/developers-guide.md)

@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 89cec12804f6fd2b8a3885248c42646d6c6dbb13
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186566"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317562"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Logg aviseringar i Azure Monitor
 
@@ -90,7 +90,7 @@ requests
 | where resultCode == "500"
 ```
 
-- **Tids period:** 15 minuter
+- **Tids period/agg regerings kornig het:** 15 minuter
 - **Aviserings frekvens:** 15 minuter
 - **Tröskel värde:** Större än 0
 
@@ -102,7 +102,7 @@ För arbets ytor och Application Insights, anropas det **baserat på** med val *
 
 ### <a name="aggregation-type"></a>Sammansättningstyp
 
-Beräkningen som görs på flera poster för att aggregera dem till ett numeriskt värde. Ett exempel:
+Beräkningen som görs på flera poster för att aggregera dem till ett numeriskt värde. Exempel:
 - **Count** returnerar antalet poster i frågan
 - **Medelvärde** returnerar medelvärdet för mått kolumnen [**agg regerings granularitet**](#aggregation-granularity) definierad.
 
@@ -145,7 +145,7 @@ Du vill till exempel övervaka fel för flera virtuella datorer som kör webbpla
 - **Kolumn för resurs-ID:** _ResourceId (delning per resurs-ID-kolumn i varnings regler är bara tillgänglig för prenumerationer och resurs grupper för närvarande)
 - **Dimensioner/aggregerade på:**
   - Computer = VM1, VM2 (filtrerings värden i varnings regel definitionen är för närvarande inte tillgängligt för arbets ytor och Application Insights. Filtrera efter frågetext.)
-- **Tids period:** 15 minuter
+- **Tids period/agg regerings kornig het:** 15 minuter
 - **Aviserings frekvens:** 15 minuter
 - **Tröskel värde:** Större än 0
 

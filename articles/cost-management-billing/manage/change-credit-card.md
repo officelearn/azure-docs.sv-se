@@ -6,21 +6,21 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 09/15/2020
+ms.topic: how-to
+ms.date: 11/20/2020
 ms.author: banders
-ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: fbb69a4449c32f85cc4be438645b654608aa7489
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92131147"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026564"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Lägga till eller uppdatera ett kreditkort för Azure
 
 Det här dokumentet gäller för kunder som har registrerat sig för Azure med ett kreditkort online.
 
-I Azure-portalen kan du ändra din standardbetalningsmetod till ett nytt kreditkort och uppdatera kreditkortsinformationen. Du måste vara [kontoadministratör](../understand/subscription-transfer.md#whoisaa) för att göra dessa ändringar.
+I Azure-portalen kan du ändra din standardbetalningsmetod till ett nytt kreditkort och uppdatera kreditkortsinformationen. Du måste vara [kontoadministratör](../understand/subscription-transfer.md#whoisaa) eller ha rätt [MCA-behörighet](understand-mca-roles.md) för att göra dessa ändringar.
 
 Om du vill ta bort ett kreditkort kan du läsa [Ta bort en betalningsmetod för Azure-fakturering](delete-azure-payment-method.md).
 
@@ -82,11 +82,11 @@ Om ditt kreditkort förnyas och siffran förblir densamma uppdaterar du befintli
 
 ## <a name="manage-credit-cards-for-a-microsoft-customer-agreement"></a>Hantera kreditkort för ett Microsoft-kundavtal
 
-Följande avsnitt gäller för kunder som har ett Microsoft-kundavtal och som har registrerat sig för Azure Online med ett kreditkort. [Läs om hur du kontrollerar om du har ett Microsoft-kundavtal](#check-the-type-of-your-account).
+Följande avsnitt gäller kunder med ett Microsoft-kundavtal som har registrerat sig för Azure Online med ett kreditkort och kunder med nödvändiga [MCA-behörigheter](understand-mca-roles.md). [Läs om hur du kontrollerar om du har ett Microsoft-kundavtal](#check-the-type-of-your-account).
 
 ### <a name="change-default-credit-card"></a>Ändra standardkreditkort
 
-Om du har ett Microsoft-kundavtal är ditt kreditkort kopplat till en faktureringsprofil. För att kunna ändra betalningsmetoden för en faktureringsprofil måste du vara den person som registrerade sig för Azure och skapade faktureringskontot.
+Om du har ett Microsoft-kundavtal är ditt kreditkort kopplat till en faktureringsprofil. Du kan bara byta betalningsmetod för en faktureringsprofil om det var du som gjorde Azure-registreringen och skapade faktureringskontot, eller så måste du ha rätt [MCA-behörigheter](understand-mca-roles.md).
 
 Om du vill ändra standardbetalningsmetoden till check/banköverföring kan du läsa [Betala för Azure-prenumerationer med faktura](pay-by-invoice.md).
 

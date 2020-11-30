@@ -3,17 +3,17 @@ title: Hantera Azure-kostnader med automatisering
 description: Den här artikeln beskriver hur du kan hantera Azure-kostnader med automatisering.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: matrive
-ms.openlocfilehash: 939e621da414fc2d4d55d85e8b66a409b1338941
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.reviewer: adwise
+ms.openlocfilehash: 47d9c2838c5c806214e3be2f9ba7ce335bc0af67
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131980"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956100"
 ---
 # <a name="manage-costs-with-automation"></a>Hantera kostnader med automatisering
 
@@ -63,11 +63,18 @@ Följande exempel är vanliga typer av begäranden som används av Microsoft-kun
 
 ### <a name="get-usage-details-for-a-scope-during-specific-date-range"></a>Hämta användningsinformation för ett omfång inom ett specifikt datumintervall
 
-De data som returneras av begäran motsvarar det datum då användningen togs emot av faktureringssystemet. Informationen kan omfatta kostnader från flera fakturor.
+De data som returneras av begäran motsvarar det datum då användningen togs emot av faktureringssystemet. Informationen kan omfatta kostnader från flera fakturor. Vilket anrop som ska användas varierar beroende på prenumerationstyp.
+
+För äldre kunder med ett Enterprise-avtal (EA) eller en prenumeration av typen Betala per användning, använder du följande anrop:
 
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?$filter=properties%2FusageStart%20ge%20'2020-02-01'%20and%20properties%2FusageEnd%20le%20'2020-02-29'&$top=1000&api-version=2019-10-01
+```
 
+För moderna kunder med ett Microsoft-kundavtal använder du följande anrop:
+
+```http
+GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=&2020-08-05$top=1000&api-version=2019-10-01
 ```
 
 ### <a name="get-amortized-cost-details"></a>Hämta information om amorterad kostnad

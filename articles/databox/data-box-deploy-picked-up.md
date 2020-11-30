@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 11/19/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 72575725c0924b8ec5f9466f4ffbba86bf071db4
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 28637f35294e9c70cbf0e96fb2cdcb1853d2ba39
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631551"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992734"
 ---
 ::: zone target="docs"
 
@@ -47,7 +47,7 @@ I den här självstudien får du lära dig om ämnen som:
 Innan du börjar ska du kontrollera att:
 
 * Du har slutfört självstudien [: Kopiera data till Azure Data Box och verifiera](data-box-deploy-copy-data.md).
-* Kopieringsjobben har slutförts och det finns inga fel på sidan **Anslut och kopiera** . Förbered för att skicka kan inte köras om kopieringsjobb pågår eller om det finns fel på sidan **Anslut och kopiera** .
+* Kopieringsjobben har slutförts och det finns inga fel på sidan **Anslut och kopiera**. Förbered för att skicka kan inte köras om kopieringsjobb pågår eller om det finns fel på sidan **Anslut och kopiera**.
 
 ## <a name="prepare-to-ship"></a>Förbereda för att skicka
 
@@ -92,7 +92,7 @@ Utför följande steg om du returnerar enheten i USA, Kanada eller Europa.
     * Om du inte uppger spårningsnumret kräver UPS att du betalar en extra avgift vid upphämtningen.
 
     I stället för att schemalägga upphämtningen kan du även lämna in Data Box-enheten på närmaste inlämningsställe.
-4. Nära Data Box-enheten hämtas och skannas av transportföretaget uppdateras orderstatusen i portalen till **hämtad** . Du får också ett spårnings-ID.
+4. Nära Data Box-enheten hämtas och skannas av transportföretaget uppdateras orderstatusen i portalen till **hämtad**. Du får också ett spårnings-ID.
 
 ::: zone target="chromeless"
 
@@ -103,12 +103,6 @@ Utför följande steg om du returnerar enheten i USA, Kanada eller Europa.
 ## <a name="erasure-of-data-from-data-box"></a>Radera data från Data Box
 
 När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarna enligt [NIST SP 800-88 Revision 1-riktlinjerna](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -131,12 +125,6 @@ Azure-datacenter i Australien kräver ytterligare en säkerhetsavisering. För a
 ## <a name="erasure-of-data-from-data-box"></a>Radera data från Data Box
 
 När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarna enligt [NIST SP 800-88 Revision 1-riktlinjerna](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -182,12 +170,6 @@ När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarn
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="singapore"></a>[Singapore](#tab/in-singapore)
 
 1. Returnera enheten i originalkartongen.
@@ -223,33 +205,33 @@ När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarn
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="south-africa"></a>[Sydafrika](#tab/in-sa)
 
 1. Placera enheten i den ursprungliga förpackningen.
 2. Rulla ihop strömkabeln som levererades med enheten och placera kabeln säkert på baksidan av enheten.
-3. Så här bokar du en upphämtning med DHL:
+3. Skriv ned spårningsnumret (visas som referensnummer på sidan **Förbered för att skicka** i det lokala webbgränssnittet för Data Box). Detta är tillgängligt när steget ”Förbered för att skicka” har slutförts. Hämta frakthandlingen på den här sidan och klistra fast den på förpackningen.
+4. Begär en returkod från Azure Data Box Operations. En returkod krävs för att skicka tillbaka paketet till datacentret. Skicka ett e-postmeddelande till [adbops@microsoft.com](mailto:adbops@microsoft.com). Skriv ned den här koden på frakthandlingen bredvid returadressen så att den syns tydligt.
+5. Boka en upphämtning med DHL på något av följande sätt:
+ 
+   * Boka en upphämtning online genom att gå till [DHL Express South Africa, **Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference) (Schemalägg en upphämtning).
+   * Skicka ett e-postmeddelande till [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) baserat på följande mall:
 
-    * Kontakta kundtjänsten på +27 (0) 119 21 36 00. Välj alternativ 1 och uppge numret på fraktsedeln.
-    * Du måste ringa före 14:00 för att schemalägga en upphämtning.
-    * Skicka ett e-postmeddelande till [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) baserat på följande mall:
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
 
-    ```output
-    To: Priority.Support@dhl.com
-    Subject: Pickup request for Microsoft Azure
-    Body: Need pick up for the below shipment
-      *  DHL tracking number (reference number/waybill number)
-      *  Requested pickup date: yyyy/mm/dd;time:HH MM
-    ```
+    * Du kan också lämna in paketet hos närmaste DHL-servicepunkt.
 
-    * Du kan också lämna in paketet på närmaste DHL-servicepunkt.
-
-4. Om du stöter på problem skickar du ett e-postmeddelande till [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com). Beskriv problemet och ange numret på fraktsedeln på ämnesraden. Du kan också ringa +27 (0) 119 21 39 02.
+6. Om du stöter på problem skickar du ett e-postmeddelande till [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com). Beskriv problemet och ange numret på fraktsedeln på ämnesraden. Du kan också ringa +27 (0) 119 21 39 02.
 
 ::: zone target="chromeless"
 
@@ -260,12 +242,6 @@ När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarn
 ## <a name="erasure-of-data-from-data-box"></a>Radera data från Data Box
 
 När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarna enligt [NIST SP 800-88 Revision 1-riktlinjerna](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -301,12 +277,6 @@ Om du stöter på problem kontaktar du Data Box Operations Asia via e-post på [
 ## <a name="erasure-of-data-from-data-box"></a>Radera data från Data Box
  
 När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarna enligt [NIST SP 800-88 Revision 1-riktlinjerna](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -369,8 +339,6 @@ Om du använder Data Box i US Government, Japan, Singapore, Korea, Indien, Sydaf
 
 ::: zone target="chromeless"
 
----
-
 ## <a name="verify-data-upload-to-azure"></a>Kontrollera datauppladdning till Azure
 
 [!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
@@ -381,7 +349,11 @@ När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarn
 
 ::: zone-end
 
+---
+
 ::: zone target="docs"
+
+## <a name="verify-data-upload-to-azure"></a>Kontrollera datauppladdning till Azure
 
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 

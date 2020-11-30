@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 7cbb628f6af286141fb1c7b330117ded33142c4f
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 4cc213db19a567f18c5ff483b64a75e3bbeef892
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94744255"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962118"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Överför Azure-prenumerationer mellan prenumeranter och molnlösningsleverantörer
 
@@ -58,7 +58,7 @@ För att kunna överföra andra Azure-prenumerationer till en CSP-partner måste
 
 1. Skapa Azure-målprenumerationer.
 1. Se till att käll- och målprenumerationerna finns i samma Azure Active Directory-klient (Azure AD). Mer information om hur du ändrar en Azure AD-klient finns i [Lägga till eller associera en Azure-prenumeration till Azure Active Directory-klienten](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
-    Observera att ändringskatalogen inte är CSP-prenumerationen. Du överförs till exempel från en CSP till en prenumeration där du betalar per användning. Du måste ändra katalog för prenumerationen med betalning per användning så att katalogen matchar.
+    Observera att alternativet för att byta katalog inte stöds med CSP-prenumerationen. Du överförs till exempel från en CSP till en prenumeration där du betalar per användning. Du måste ändra katalog för prenumerationen med betalning per användning så att katalogen matchar.
 
     > [!IMPORTANT]
     >  - När du associerar en prenumeration med en annan katalog förlorar de användare som har tilldelats roller med [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) sin åtkomst. Klassiska prenumerationsadministratörer, inklusive tjänstadministratörer och medadministratörer, förlorar också åtkomsten.

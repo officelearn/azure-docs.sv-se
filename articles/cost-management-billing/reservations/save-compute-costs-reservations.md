@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/18/2020
 ms.author: banders
-ms.openlocfilehash: 5aeb9046b8901580e4de37b1735a2d2dddd42fce
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: eef19a6c421a64c3951d35eea78ea84f7e7d97b2
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147465"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887220"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
@@ -90,7 +90,7 @@ Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäni
 - **Reserverad VM-instans** – en reservation omfattar bara den virtuella datorns och molntjänsternas beräkningskostnader. Den omfattar inte avgifter för ytterligare programvara, Windows, nätverk eller lagring.
 - **Reserverad kapacitet i Azure Storage** – En reservation omfattar lagringskapacitet för standardlagringskonton för blob-lagring eller Azure Data Lake Gen2-lagring. Reservationen omfattar inte bandbredds- eller transaktionsavgifter.
 - **Reserverad Azure Cosmos DB-kapacitet** – en reservation omfattar det dataflöde som allokeras för dina resurser. Den omfattar inte avgifter för lagring och nätverk.
-- **SQL Database-reserverad v-kärna** – endast beräkningskostnaderna ingår i en reservation. SQL-licensen debiteras separat.
+- **SQL Database-reserverad virtuell kärna** – Täcker både SQL Managed Instance och SQL Database – elastisk pool/enkel databas. Endast beräkningskostnaderna ingår i en reservation. SQL-licensen debiteras separat. 
 - **Azure Synapse Analytics** – en reservation omfattar cDWU-användningen. Den omfattar inte lagrings- eller nätverksavgifter som är kopplade till Azure Synapse Analytics-användningen.
 - **Azure Databricks** – En reservation täcker endast DBU-användningen. Andra avgifter för till exempel beräkning, lagring och nätverk debiteras separat.
 - **App Service-stämpelavgift** – en reservation omfattar stämpelanvändning. Den gäller inte för arbeten, och därför debiteras andra resurser som är kopplade till stämpeln separat.

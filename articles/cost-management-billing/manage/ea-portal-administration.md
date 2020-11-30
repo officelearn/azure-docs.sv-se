@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f18f1184f921aca4f2c1e33ac00dcf14c63b24eb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683653"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893366"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
@@ -146,7 +146,7 @@ Innan du utför överföringen av ägarskapet behöver du förstå dessa princip
 - När du utför överföringar av prenumerationer eller kontoägarskap mellan två organisations-ID:n i samma klientorganisation bevaras Azure RBAC-principer och befintliga roller för tjänstadministratör och medadministratör.
 - Överföringar av prenumerationer eller kontoägarskap mellan flera klientorganisationer leder till att dina Azure RBAC-principer och rolltilldelningar går förlorade.
 - Principer och administratörsroller överförs inte mellan olika kataloger. Tjänstadministratörer uppdateras till ägare av målkontot.
-- För att undvika förlust av RBAC-principer och rolltilldelningar vid överföring av prenumeration mellan klienter kontrollerar du att kryssrutan **Flytta prenumerationerna till mottagarens Azure AD-klient** fortfarande är **omarkerad**. På så sätt behålls tjänsterna, RBAC-rollerna och principerna på den aktuella Azure AD-klienten och endast faktureringsägarskapet för kontot överförs.  
+- Kontrollera att kryssrutan **Flytta prenumerationerna till mottagarens Azure AD-klient** är **omarkerad** för att undvika att Azure RBAC-principer och rolltilldelningar går förlorade när du överför en prenumeration mellan klienter. På så sätt behålls tjänsterna, Azure-rollerna och principerna i Azure AD-klientorganisationen, och endast faktureringsägarskapet för kontot överförs.  
     :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Bild som visar omarkerad kryssruta för att flytta prenumerationer till Azure AD-klientorganisation" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 
 
@@ -282,7 +282,7 @@ Du kan administrera kostnader och användning för Azure EA i Azure EA-portalen.
 
 De olika rollerna har olika åtkomstnivå och behörighet.
 
-Du kan läsa mer om användarroller under [Enterprise user roles](https://docs.microsoft.com/azure/manage/understand-ea-roles#enterprise-user-roles) (Roller för företagsanvändare).
+Du kan läsa mer om användarroller under [Enterprise user roles](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles) (Roller för företagsanvändare).
 
 ## <a name="add-an-azure-ea-account"></a>Lägga till ett Azure EA-konto
 

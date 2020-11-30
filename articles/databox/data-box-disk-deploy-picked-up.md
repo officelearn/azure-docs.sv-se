@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/03/2020
+ms.date: 11/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 0aace1041eba771a26bed4c85361ea2551c71ba6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f1d667f55a8be1b701fda6240895dd8f96315cff
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659428"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94986325"
 ---
 ::: zone target="docs"
 
@@ -164,23 +164,28 @@ Gör så här om du returnerar enheten i Sydafrika.
 
 2. Försegla fraktlådan och se till att adressetiketten är väl synlig.
 
-3. Så här bokar du en upphämtning med DHL:
+3. Begär en returkod från Azure Data Box Operations. En returkod krävs för att skicka tillbaka paketet till datacentret. Skicka ett e-postmeddelande till [adbops@microsoft.com](mailto:adbops@microsoft.com). Skriv ned den här koden på frakthandlingen bredvid returadressen så att den syns tydligt.
 
-    * Ring kundtjänsten på +27 (0) 119 21 36 00. Välj alternativ 1 och uppge numret på fraktsedeln.
-    * Du måste ringa före kl. 14 (standardtid för Sydafrika, ZA) för att schemalägga en upphämtning.  
-    * Skicka ett e-postmeddelande till [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) för att boka upphämtningen. Använd följande e-postmall:
+4. Boka en upphämtning med DHL på något av följande sätt:
+   * Boka en upphämtning online genom att gå till [DHL Express South Africa, **Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference) (Schemalägg en upphämtning).
+   * Skicka ett e-postmeddelande till [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) baserat på följande mall:
 
-    ```output
-    To: Priority.Support@dhl.com
-    Subject:Pickup request for Microsoft Azure
-    Body:  Need pick up for the below shipment
-    *  DHL tracking number (reference number/waybill number)
-    *  Requested pickup date：yyyy/mm/dd; time: HH MM
-    ```
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
 
-    * Du kan också lämna in paketet på närmaste DHL-servicepunkt.
+    * Du kan också lämna in paketet hos närmaste DHL-servicepunkt.
 
-4. Om du stöter på problem skickar du ett e-postmeddelande till [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com). Beskriv problemet och ange numret på fraktsedeln på ämnesraden. Du kan också ringa +27 (0) 119 21 39 02.
+5. Om du stöter på problem skickar du ett e-postmeddelande till [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com). Beskriv problemet och ange numret på fraktsedeln på ämnesraden. Du kan också ringa +27 (0) 119 21 39 02.
 
 ### <a name="china"></a>[Kina](#tab/in-china)
 

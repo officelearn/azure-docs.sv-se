@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d22ab9f028f0491db33d62d0a6dff8d06282f925
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f22a8f085938f5a3cc3e7a748391a9048129296c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368727"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888376"
 ---
 # <a name="buy-a-reservation"></a>Köpa en reservation
 
@@ -21,9 +21,9 @@ Med Azure Reservations kan du spara pengar genom att registrera dig för en 1- e
 
 ## <a name="who-can-buy-a-reservation"></a>Vem kan köpa en reservation
 
-Om du vill köpa en plan måste du ha rollen som prenumerationsägare för en Enterprise-prenumeration (MS-AZR-0017P eller MS-AZR-0148P), en Betala per användning-prenumeration (MS-AZR-0003P eller MS-AZR-0023P) eller en MCA-prenumeration (Microsoft-kundavtal). Molnlösningsleverantörer kan använda Azure-portalen eller  [Partnercenter](/partner-center/azure-reservations) för att köpa Azure-reservationer.
+För att kunna köpa en reservation måste du ha rollen som ägare eller reservationsansvarig för en Azure-prenumeration av typen Enterprise (MS-AZR-0017P eller MS-AZR-0148P), Betala per användning (MS-AZR-0003P eller MS-AZR-0023P) eller Microsoft-kundavtal. Molnlösningsleverantörer kan använda Azure-portalen eller  [Partnercenter](/partner-center/azure-reservations) för att köpa Azure-reservationer.
 
-Enterprise-avtalskunder (EA) kan begränsa köp till EA-administratörer genom att inaktivera alternativet **Lägg till reserverade instanser** i EA-portalen. EA-administratörer måste vara prenumerationsägare för minst en EA-prenumeration för att kunna köpa en reservation. Alternativet är användbart för företag som vill att ett centraliserat team ska köpa reservationer för olika kostnadsställen. Efter köpet kan centraliserade team lägga till ägare för kostnadsställe till reservationerna. Ägarna kan sedan omfångsanpassa reservationen till sina prenumerationer. Det centrala teamet behöver inte ha åtkomst som prenumerationsägare där reservationen köps.
+Enterprise-avtalskunder (EA) kan begränsa köp till EA-administratörer genom att inaktivera alternativet **Lägg till reserverade instanser** i EA-portalen. EA-administratörer måste ha rollen som ägare eller reservationsansvarig för minst en EA-prenumeration för att kunna köpa en reservation. Alternativet är användbart för företag som vill att reservationer ska köpas av ett centralt team.
 
 En reservationsrabatt gäller bara för resurser som är kopplade till prenumerationer som köpts via Enterprise-, CSP-planer (Cloud Solution Provider), Microsoft-kundavtal eller individuella planer med Betala per användning-priser.
 

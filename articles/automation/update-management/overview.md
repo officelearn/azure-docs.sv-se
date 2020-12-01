@@ -3,14 +3,14 @@ title: Översikt över Azure Automation Uppdateringshantering
 description: Den här artikeln innehåller en översikt över den Uppdateringshantering funktionen som implementerar uppdateringar för dina Windows-och Linux-datorer.
 services: automation
 ms.subservice: update-management
-ms.date: 11/23/2020
+ms.date: 11/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: eadceb17d01b40deab656bdd6223cb8f0844f54f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 37ab05ce7e963ab7fdc4d2b02e254adaa205446c
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528252"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327499"
 ---
 # <a name="update-management-overview"></a>Översikt över Uppdateringshantering
 
@@ -72,14 +72,14 @@ I följande tabell visas de operativ system som stöds för uppdaterings bedömn
 > [!NOTE]
 > Uppdaterings utvärdering av Linux-datorer stöds bara i vissa regioner enligt listan i Automation-kontot och Log Analytics [mappnings tabellen](../how-to/region-mappings.md#supported-mappings)för arbets ytan.
 
-|Operativsystem  |Anteckningar  |
+|Operativsystem  |Kommentarer  |
 |---------|---------|
 |Windows Server 2019 (Data Center/Data Center Core/standard)<br><br>Windows Server 2016 (Data Center/Data Center Core/standard)<br><br>Windows Server 2012 R2 (Data Center/standard)<br><br>Windows Server 2012 ||
 |Windows Server 2008 R2 (RTM och SP1 standard)| Uppdateringshantering stöder utvärderingar och korrigeringar för det här operativ systemet. [Hybrid Runbook Worker](../automation-windows-hrw-install.md) stöds för Windows Server 2008 R2. |
 |CentOS 6 och 7 (x64)      | Linux-agenter kräver åtkomst till ett uppdaterings lager. Klassificerings-baserad uppdatering kräver `yum` att returnera säkerhets data som CentOS inte har i sina RTM-versioner. Mer information om klassificerings-baserad uppdatering på CentOS finns i [uppdaterings klassificeringar i Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 och 7 (x64)     | Linux-agenter kräver åtkomst till ett uppdaterings lager.        |
 |SUSE Linux Enterprise Server 12 (x64)     | Linux-agenter kräver åtkomst till ett uppdaterings lager.        |
-|Ubuntu 14,04 LTS, 16,04 LTS och 18,04 (x64)      |Linux-agenter kräver åtkomst till ett uppdaterings lager.         |
+|Ubuntu 14,04 LTS, 16,04 LTS och 18,04 LTS (x64)      |Linux-agenter kräver åtkomst till ett uppdaterings lager.         |
 
 > [!NOTE]
 > Skalnings uppsättningar för virtuella Azure-datorer kan hanteras via Uppdateringshantering. Uppdateringshantering fungerar på själva instanserna och inte på bas avbildningen. Du måste schemalägga uppdateringarna på ett stegvist sätt så att alla VM-instanser inte uppdateras samtidigt. Du kan lägga till noder för skalnings uppsättningar för virtuella datorer genom att följa stegen under [Lägg till en icke-Azure-dator i ändringsspårning och inventering](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
@@ -88,7 +88,7 @@ I följande tabell visas de operativ system som stöds för uppdaterings bedömn
 
 I följande tabell visas operativ system som inte stöds:
 
-|Operativsystem  |Anteckningar  |
+|Operativsystem  |Kommentarer  |
 |---------|---------|
 |Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.<br> Den rekommenderade metoden för Azure Windows Virtual Desktop (WVD)<br> för att hantera uppdateringar är [Microsoft Endpoint Configuration Manager](../../virtual-desktop/configure-automatic-updates.md) för hantering av klient datorer för Windows 10. |
 |Windows Server 2016 Nano Server     | Stöds inte.       |

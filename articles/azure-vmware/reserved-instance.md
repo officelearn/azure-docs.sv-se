@@ -3,12 +3,12 @@ title: Spara kostnader med den reserverade instansen av Azure VMware-lösningen
 description: Lär dig hur du köper en reserverad instans för Azure VMware-lösningen.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: b57e985068adabccecbbdb43dd11bcf6596bf422
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 80780e9718001893b6960220b5004c1c29b2fec5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578973"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327405"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Spara kostnader med Azure VMware-lösningen
 
@@ -22,7 +22,7 @@ Reserverade instanser är tillgängliga med vissa undantag.
 
 -   **Otillräcklig kvot** – en reservation som är begränsad till en enda/delad prenumeration måste ha värd kvoten tillgänglig i prenumerationen för den nya reserverade instansen. Du kan [skapa en begäran om kvot ökning](enable-azure-vmware-solution.md) för att lösa problemet.
 
--   **Erbjudande för erbjudandet** – du behöver ett [Azure-Enterprise-avtal (EA)](../cost-management-billing/manage/ea-portal-agreements.md) med Microsoft.
+-   **Erbjudande för erbjudandet**– du behöver ett [Azure-Enterprise-avtal (EA)](../cost-management-billing/manage/ea-portal-agreements.md) med Microsoft.
 
 -   **Kapacitets begränsningar** – i sällsynta fall begränsar Azure inköpet av nya reservationer för Azure VMware-lösningen värd-SKU: er på grund av låg kapacitet i en region.
 
@@ -58,12 +58,12 @@ Dessa krav gäller för att köpa en reserverad dedikerad värd instans:
    | Omfång        | Reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer:<br><ul><li><b>Enskilt resurs grupps omfång</b> – tillämpar reservations rabatten på de matchande resurserna i den valda resurs gruppen.</li><li><b>Enda prenumerations omfång</b> – tillämpar reservations rabatten på de matchande resurserna i den valda prenumerationen.</li><li><b>Delat omfång</b> – använder reservations rabatten för att matcha resurser i berättigade prenumerationer som finns i fakturerings kontexten. För EA-kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.</li></ul>       |
    | Region       | Den Azure-region som omfattas av reservationen.   |
    | Värd storlek    | AV36    |
-   | Term         | Ett år eller tre år.  |
-   | Quantity     | Antalet instanser som ska köpas i reservationen. Antalet är antalet Azure VMware-lösningar som kan få fakturerings rabatt.    |
+   | Period         | Ett år eller tre år.  |
+   | Kvantitet     | Antalet instanser som ska köpas i reservationen. Antalet är antalet Azure VMware-lösningar som kan få fakturerings rabatt.    |
 
 ### <a name="buy-reserved-instances-for-a-csp-subscription"></a>Köp reserverade instanser för en CSP-prenumeration
 
-Kryptografiproviders som vill köpa reserverade instanser för sina kunder måste använda administrate-proceduren ( **admin på uppdrag av** ) i [partner Center-dokumentationen](https://docs.microsoft.com/partner-center/azure-plan-manage). Om du vill ha mer information kan du Visa [admin på uppdrag av (administrate)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) video.
+Kryptografiproviders som vill köpa reserverade instanser för sina kunder måste använda administrate-proceduren ( **admin på uppdrag av** ) i [partner Center-dokumentationen](/partner-center/azure-plan-manage). Om du vill ha mer information kan du Visa [admin på uppdrag av (administrate)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) video.
 
 1. Logga in på [partner Center](https://partner.microsoft.com).
 
@@ -87,8 +87,8 @@ Kryptografiproviders som vill köpa reserverade instanser för sina kunder måst
    | Omfång        | Reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer:<br><ul><li><b>Enskilt resurs grupps omfång</b> – tillämpar reservations rabatten på de matchande resurserna i den valda resurs gruppen.</li><li><b>Enda prenumerations omfång</b> – tillämpar reservations rabatten på de matchande resurserna i den valda prenumerationen.</li><li><b>Delat omfång</b> – använder reservations rabatten för att matcha resurser i berättigade prenumerationer som finns i fakturerings kontexten. För EA-kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.</li></ul>       |
    | Region       | Den Azure-region som omfattas av reservationen.   |
    | Värd storlek    | AV36    |
-   | Term         | Ett år eller tre år.  |
-   | Quantity     | Antalet instanser som ska köpas i reservationen. Antalet är antalet Azure VMware-lösningar som kan få fakturerings rabatt.     |
+   | Period         | Ett år eller tre år.  |
+   | Kvantitet     | Antalet instanser som ska köpas i reservationen. Antalet är antalet Azure VMware-lösningar som kan få fakturerings rabatt.     |
 
 Mer information om hur du visar de inköpta reservationerna för din kund finns i [Visa Azure-reservationer som en Azure Solution Provider-artikel (CSP)](../cost-management-billing/reservations/how-to-view-csp-reservations.md) .
 
@@ -113,7 +113,7 @@ Du kan göra dessa ändringar i en reservation efter köpet:
 
 Du kan också dela upp en reservation i mindre segment eller slå samman reservationer. Ingen av ändringarna orsakar en ny kommersiell transaktion eller ändrar slut datumet för reservationen.
 
-Mer information om CSP-hanterade reservationer finns i [sälja Microsoft Azure reservationer till kunder med hjälp av Partner Center, Azure Portal eller API: er](https://docs.microsoft.com/partner-center/azure-reservations).
+Mer information om CSP-hanterade reservationer finns i [sälja Microsoft Azure reservationer till kunder med hjälp av Partner Center, Azure Portal eller API: er](/partner-center/azure-reservations).
 
 
 
@@ -122,7 +122,7 @@ Mer information om CSP-hanterade reservationer finns i [sälja Microsoft Azure r
 >
 > - En befintlig reservations region
 > - SKU
-> - Quantity
+> - Kvantitet
 > - Varaktighet
 >
 >Du kan dock *byta* ut en reservation om du vill göra ändringar.
@@ -131,4 +131,4 @@ Mer information om CSP-hanterade reservationer finns i [sälja Microsoft Azure r
 
 Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-CSP: er kan avbryta, byta ut eller återbetala reservationer, med vissa begränsningar som köps för kunden. Mer information finns i [Hantera, avbryta, byta ut eller återbetala Microsoft Azure reservationer för kunder](https://docs.microsoft.com/partner-center/azure-reservations-manage).
+CSP: er kan avbryta, byta ut eller återbetala reservationer, med vissa begränsningar som köps för kunden. Mer information finns i [Hantera, avbryta, byta ut eller återbetala Microsoft Azure reservationer för kunder](/partner-center/azure-reservations-manage).

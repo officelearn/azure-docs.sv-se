@@ -3,12 +3,12 @@ title: Kom igång och skapa ett Azure Lab Services labb i Teams
 description: Lär dig hur du kommer igång och skapar ett Azure Lab Services labb i team.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cc4ad604bdf250cc6e4ba2c50c2f7143c921e906
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217090"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433979"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Kom igång och skapa ett labb tjänst labb i Teams
 
@@ -40,18 +40,18 @@ Du, som en grupp ägare, kan lägga till **Azure Lab Services** app direkt i din
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Lägg till en flik":::
-1. Välj ett labb tjänst konto som du vill använda för att skapa klass rum labb i det här teamet. 
+1. Välj ett labb tjänst konto som du vill använda för att skapa labb i det här teamet. 
 
     Azure Lab Services använder enkel inloggning på [Azure Lab Services webbplats](https://labs.azure.com) och hämtar alla labb konton som du har åtkomst till. 
 
-    De konton som finns i samma klient organisation som team och för vilka du har åtkomst till **ägare**, **deltagare**eller **skapare** visas. 
+    De konton som finns i samma klient organisation som team och för vilka du har åtkomst till **ägare**, **deltagare** eller **skapare** visas. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Lägg till en flik":::
+    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Välkommen till sensorn":::
 1. Tryck på **Spara** och fliken läggs till i kanalen.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Lägg till en flik":::
+    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Skapade fliken sensorn":::
 
     Nu kan du välja fliken **Azure Lab Services** från din kanal och börja hantera labb enligt beskrivningen i följande artiklar.
 

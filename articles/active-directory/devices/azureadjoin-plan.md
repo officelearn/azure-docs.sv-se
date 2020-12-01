@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3587ef6be9d6c9969dff5d1af2181ed51aea7d29
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3acaf4929158b24ff50655aa18c05b41aeec4b53
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308288"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435458"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gör så här: planera din Azure AD Join-implementering
 
@@ -94,6 +94,8 @@ Om du skapar användare i din:
 - **Azure AD** krävs ingen ytterligare konfiguration.
 
 Lokala UPN: er som skiljer sig från Azure AD-UPN: er stöds inte på Azure AD-anslutna enheter. Om användarna använder ett lokalt UPN bör du planera att växla till att använda deras primära UPN i Azure AD.
+
+UPN-ändringar stöds bara vid start av Windows 10 2004 Update. Användare på enheter med den här uppdateringen får inga problem efter att ha ändrat sina UPN. För enheter före uppdatering av Windows 10 2004 skulle användare ha SSO-och villkorliga åtkomst problem på sina enheter. De behöver logga in på Windows via panelen "annan användare" med hjälp av sitt nya UPN för att lösa det här problemet. 
 
 ## <a name="assess-your-device-management"></a>Utvärdera din enhets hantering
 
@@ -199,11 +201,11 @@ Här är en jämförelse av dessa tre metoder
  
 | Element | Installation av självbetjäning | Windows Autopilot | Massregistrering |
 | --- | --- | --- | --- |
-| Kräv användar interaktion för att konfigurera | Ja | Ja | Nej |
-| Kräv IT-ansträngning | Nej | Ja | Ja |
+| Kräv användar interaktion för att konfigurera | Ja | Ja | Inga |
+| Kräv IT-ansträngning | Inga | Ja | Ja |
 | Tillämpliga flöden | Inställningar för OOBE-& | Endast OOBE | Endast OOBE |
 | Lokal administratörsbehörighet till primär användare | Ja, som standard | Konfigurerbar | Nej |
-| Kräv enhets-OEM-support | Nej | Ja | Nej |
+| Kräv enhets-OEM-support | Inga | Ja | Inga |
 | Versioner som stöds | 1511 + | 1709 + | 1703 + |
  
 Välj distributions metod eller-metoder genom att granska tabellen ovan och granska följande överväganden för att införa någon av metoderna:  
@@ -243,7 +245,7 @@ Välj **Ja** om du vill att användarna ska kunna utföra MFA när de ansluter t
 
 Innan du kan konfigurera dina mobilitets inställningar kan du behöva lägga till en MDM-Provider först.
 
-**Så här lägger du till en MDM-Provider** :
+**Så här lägger du till en MDM-Provider**:
 
 1. På **sidan Azure Active Directory** går du till avsnittet **Hantera** och klickar på `Mobility (MDM and MAM)` . 
 1. Klicka på **Lägg till program**.
@@ -261,8 +263,8 @@ Välj **en** eller **flera** baserat på distributionens omfattning.
 
 Beroende på ditt omfång händer något av följande: 
 
-- **Användaren är i MDM-omfattning** : om du har en Azure AD Premium prenumeration automatiseras MDM-registreringen tillsammans med Azure AD Join. Alla omfångs användare måste ha en lämplig licens för din MDM. Om MDM-registreringen Miss lyckas i det här scenariot kommer Azure AD Join också att återställas.
-- **Användaren är inte i MDM-omfattning** : om användarna inte är i MDM-omfattningen slutförs Azure AD Join utan någon MDM-registrering. Detta resulterar i en ohanterad enhet.
+- **Användaren är i MDM-omfattning**: om du har en Azure AD Premium prenumeration automatiseras MDM-registreringen tillsammans med Azure AD Join. Alla omfångs användare måste ha en lämplig licens för din MDM. Om MDM-registreringen Miss lyckas i det här scenariot kommer Azure AD Join också att återställas.
+- **Användaren är inte i MDM-omfattning**: om användarna inte är i MDM-omfattningen slutförs Azure AD Join utan någon MDM-registrering. Detta resulterar i en ohanterad enhet.
 
 ### <a name="mdm-urls"></a>MDM-URL:er
 
@@ -284,7 +286,7 @@ MAM gäller inte för Azure AD Join.
 
 Om du vill aktivera tillstånds växling till Azure AD så att användarna kan synkronisera sina inställningar på olika enheter, se [aktivera Enterprise State roaming i Azure Active Directory](enterprise-state-roaming-enable.md). 
 
-**Rekommendation** : Aktivera den här inställningen även för Hybrid Azure AD-anslutna enheter.
+**Rekommendation**: Aktivera den här inställningen även för Hybrid Azure AD-anslutna enheter.
 
 ## <a name="configure-conditional-access"></a>Konfigurera villkorlig åtkomst
 

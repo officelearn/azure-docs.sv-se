@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 30e76ec3085922ec2a1d4693681eb97c9052c026
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9f0309f4e8273c2ef19ea86636de8e3aa6b6c4bc
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978738"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435108"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Skapa generaliserade avbildningar utan en etablerings agent
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Den här system tjänsten gör tre saker för grundläggande etablering:
 
 1. Rapporter som är klara för Azure (för att visa att den har slutförts).
-1. Byter namn på den virtuella datorn baserat på det användardefinierade VM-namnet genom att hämta dessa data från [Azure instance metadata service (IMDS)](./instance-metadata-service.md). **Obs!** IMDS innehåller också andra [metadata för instans](./instance-metadata-service.md#accessing-azure-instance-metadata-service), till exempel offentliga SSH-nycklar, så att du kan ange fler än värd namnet.
+1. Byter namn på den virtuella datorn baserat på det användardefinierade VM-namnet genom att hämta dessa data från [Azure instance metadata service (IMDS)](./instance-metadata-service.md). **Obs!** IMDS innehåller också andra [metadata för instans](./instance-metadata-service.md#access-azure-instance-metadata-service), till exempel offentliga SSH-nycklar, så att du kan ange fler än värd namnet.
 1. Inaktiverar sig själv så att de bara körs vid första starten och inte vid efterföljande omstarter.
 
 Använd enheten i fil systemet och kör följande för att aktivera det:

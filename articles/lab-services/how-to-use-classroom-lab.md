@@ -3,12 +3,12 @@ title: Få åtkomst till ett klassrumslabb i Azure Lab Services | Microsoft Docs
 description: Lär dig hur du registrerar dig för ett klass rums labb, visar alla labb som du kan komma åt, starta/stoppa en virtuell dator i labbet och ansluta till den virtuella datorn.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 0c2f0ba5e6a47e00f47a31e08c036ea17ff2507a
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 6d5585082473a363df5f25f331475536544ae828
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946118"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433146"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Få åtkomst till ett klassrumslabb i Azure Lab Services
 Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, visar alla labb som du kan komma åt, starta/stoppa en virtuell dator i labbet och ansluta till den virtuella datorn. 
@@ -62,7 +62,7 @@ Förlopps indikatorn i panelen visar antalet timmar som använts för antalet ti
 - Om en kvot inte är tilldelad (noll timmar) visas bara texten som är **tillgänglig under klasser** i stället för förlopps indikatorn. 
     
     ![Status när ingen kvot har angetts](./media/tutorial-connect-vm-in-classroom-lab/available-during-class.png)
-- Om du tog **slut på kvoten**är färgen på förlopps indikatorn **röd**. 
+- Om du tog **slut på kvoten** är färgen på förlopps indikatorn **röd**. 
 
     ![Förlopps indikator i röd färg](./media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png)
 - Förlopps indikatorns färg är **blå** när den ligger utanför den schemalagda tiden för labbet och en del av kvot tiden har använts. 
@@ -70,8 +70,8 @@ Förlopps indikatorn i panelen visar antalet timmar som använts för antalet ti
     ![Förlopps indikator i blå färg](./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png)
 
 
-## <a name="view-all-the-classroom-labs"></a>Visa alla klassrumslabb
-När du registrerat dig till labben kan du visa alla klassrumslabb genom att utföra följande steg: 
+## <a name="view-all-the-labs"></a>Visa alla labb
+När du har registrerat dig på labben kan du Visa alla labb genom att utföra följande steg: 
 
 1. Navigera till [https://labs.azure.com](https://labs.azure.com) . Internet Explorer 11 stöds inte ännu. 
 2. Logga in på tjänsten med hjälp av det användarkonto som du använde för att registrera dig till labbet. 

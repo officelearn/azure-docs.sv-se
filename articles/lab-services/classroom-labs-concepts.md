@@ -1,16 +1,16 @@
 ---
-title: Klass rum labb koncept – Azure Lab Services | Microsoft Docs
+title: Labb koncept – Azure Lab Services | Microsoft Docs
 description: Lär dig grunderna i labb tjänster och hur det kan göra det enkelt att skapa och hantera labb.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 38dd77df7a80ad252b553b6afa8b52d7fee753a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa3a8dad195b4b3cbf0786c8923c8b330d148898
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443714"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435526"
 ---
-# <a name="classroom-labs-concepts"></a>Classroom Labs-begrepp
+# <a name="labs-concepts"></a>Labb koncept
 
 Följande lista innehåller koncept och definitioner för nyckel labb tjänster:
 
@@ -26,7 +26,7 @@ Scheman är de tidsintervaller som en lärare kan skapa för klassen så att de 
 
 Det finns tre typer av scheman: standard, endast start och stopp.
 
-- **Standard.**  Det här schemat startar alla elev-VM: ar vid den angivna start tiden och stänger alla student virtuella datorer på den angivna stopp tiden.
+- **Standard**.  Det här schemat startar alla elev-VM: ar vid den angivna start tiden och stänger alla student virtuella datorer på den angivna stopp tiden.
 - **Endast start**.   Det här schemat startar alla elev-VM: ar vid den angivna tiden.  Student-VM: ar stoppas inte förrän en student stoppar den virtuella datorn via Azure Lab Services portalen eller ett avbrott som endast stoppas.
 - **Stoppa bara**.  Det här schemat stoppar alla elev-VM: ar vid den angivna tiden.  
 
@@ -48,7 +48,7 @@ Normalt är en IT-administratör av organisationens moln resurser, som äger Azu
 
 ### <a name="educator"></a>Utbildare
 
-Normalt skapar användare till exempel en lärare eller en online-undervisare klassrumslabb under ett labbkonto. En utbildare utför följande uppgifter:
+Vanligt vis skapar användare som lärare eller en online-utbildare labb under ett labb konto. En utbildare utför följande uppgifter:
 
 - Skapar ett klassrumslabb.
 - Skapar virtuella maskiner i labbet.

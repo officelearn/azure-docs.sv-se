@@ -3,12 +3,12 @@ title: Azure Lab Services i Microsoft Teams
 description: Ger en översikt över hur du använder Azure Lab Services i Microsoft Teams.
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 0c7defdb6f801a10c5fadfdca805381a31f39378
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f39613427ed174dfca80d4a48be9473ab7025e79
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047836"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433927"
 ---
 # <a name="azure-lab-services-within-microsoft-teams"></a>Azure Lab Services i Microsoft Teams
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver fördelarna med att använda Azure Lab Services i te
 
 Azure Lab Services integrering med Microsoft Teams hjälper lärare att ställa in en klass rums miljö och tillhandahålla virtuella labb miljöer i teamet (klass): 
 
-* Lärare kan konfigurera klass rum labb så att eleverna kan komma åt sina virtuella datorer inifrån team, utan att lämna lag och behöva navigera till [Azure Lab Services webbplats](https://labs.azure.com).
+* Lärare kan ställa in labb så att eleverna kan komma åt sina virtuella datorer inifrån team, utan att lämna lag och behöva navigera till [Azure Lab Services webbplats](https://labs.azure.com).
 * Enkel inloggning (SSO) från team till Azure Lab Services.
 * Team-och labb ägare behöver inte underhålla klass listor i två olika system – labb användar lista fylls i automatiskt från grupp medlemskapet och en synkronisering utförs automatiskt var 24: e timme. 
 * När den första publiceringen av mallen VM har labb kapaciteten (det vill säga antalet virtuella datorer i labbet) justeras automatiskt baserat på tillägg/borttagning av användare från grupp medlemskapet. 

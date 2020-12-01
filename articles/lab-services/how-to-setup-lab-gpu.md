@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 3cbca82ba88baf5ddda2a6d7a6cdd35b62f28b8e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 264d103cd5f1459a6d29a35a1ecefc595285587a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647944"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433996"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurera ett labb med virtuella GPU-datorer
 
@@ -115,6 +115,6 @@ Följ anvisningarna i avsnittet "verifiera driv rutins installation" i [Installe
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
-- [Skapa och hantera klassrumslabb](how-to-manage-classroom-labs.md)
+- [Skapa och hantera labb](how-to-manage-classroom-labs.md)
 - [SOLIDWORKs-klass typ för Computer-Aided Design (CAD)](class-type-solidworks.md)
 - [Klass typ för MATLAB (mat ris labb)](class-type-matlab.md)

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: 3632a34678c7a0f0e6fa93e5ce8000b07bb413a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec17b98daa8eca31cda076921288e2838960511
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86054533"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434540"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Azure-hanterade program med meddelanden
 
@@ -61,7 +61,7 @@ Information om hur du kommer igång finns i [publicera ett tjänst katalog progr
 
 ```
 ## <a name="add-azure-marketplace-managed-application-notifications"></a>Lägg till aviseringar för hanterade program i Azure Marketplace
-Mer information finns i [skapa ett erbjudande för Azure-program](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+Mer information finns i [skapa ett erbjudande för Azure-program](../../marketplace/create-new-azure-apps-offer.md).
 
 ![Azure Marketplace-hanterade program meddelanden i Azure Portal](./media/publish-notifications/marketplace-notifications.png)
 ## <a name="event-triggers"></a>Händelseutlösare
@@ -71,11 +71,11 @@ Typ | ProvisioningState | Utlösare för avisering
 ---|---|---
 PUT | Har godkänts | En hanterad resurs grupp har skapats och projicerats efter att program har lagts till (innan distributionen i den hanterade resurs gruppen har startats).
 PUT | Lyckades | Fullständig etablering av det hanterade programmet lyckades efter en placering.
-PUT | Misslyckades | Det gick inte att ställa in program instansens etablerings plats.
+PUT | Misslyckad | Det gick inte att ställa in program instansens etablerings plats.
 9.0a | Lyckades | Efter en lyckad korrigering på den hanterade program instansen för att uppdatera taggar, JIT-åtkomstkontroll eller hanterad identitet.
 DELETE | Tas bort | Så snart användaren initierar en borttagning av en hanterad App-instans.
 DELETE | Borttagen | Efter en fullständig och lyckad borttagning av det hanterade programmet.
-DELETE | Misslyckades | Efter ett fel under avetablerings processen som blockerar borttagningen.
+DELETE | Misslyckad | Efter ett fel under avetablerings processen som blockerar borttagningen.
 ## <a name="notification-schema"></a>Meddelande schema
 När du skapar en webhook-slutpunkt för att hantera meddelanden måste du parsa nytto lasten för att få viktiga egenskaper för att sedan agera på aviseringen. Tjänst katalogen och hanterade program meddelanden i Azure Marketplace innehåller många av samma egenskaper. Två små skillnader beskrivs i tabellen som följer exemplen.
 

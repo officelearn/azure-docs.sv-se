@@ -3,12 +3,12 @@ title: Konfigurera ett klassrumslabb med Azure Lab Services | Microsoft Docs
 description: I den här självstudien använder du Azure Lab Services för att skapa ett klass rums labb med virtuella datorer som används av studenter i din klass.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8981a03b53b1cfb67b03d89f8a1468511d9b1b93
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336742"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434863"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudie: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
@@ -21,7 +21,7 @@ I den här självstudien gör du följande:
 > * Ange schema för labbet
 > * Skicka inbjudan via e-post till studenter
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 I den här självstudien skapar du ett labb med virtuella datorer för din klass. Om du vill konfigurera ett klass rums labb i ett labb konto måste du vara medlem i någon av dessa roller i labb kontot: ägare, labb skapare eller deltagare. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i ägarrollen. Så du kan använda det användar konto som du använde för att skapa ett labb konto för att skapa ett klass rums labb. 
 
 Här är det vanligaste arbets flödet när du använder Azure Lab Services:
@@ -116,7 +116,7 @@ Skapa en schemalagd händelse för labbet så att virtuella datorer i labbet sta
     
     ![Schemalägg i kalendern](./media/how-to-create-schedules/schedule-calendar.png)
 
-    Mer information om hur du skapar och hanterar scheman för en klass finns i [skapa och hantera schema för klass rum labb](how-to-create-schedules.md).
+    Mer information om hur du skapar och hanterar scheman för en klass finns i [skapa och hantera schema för labb](how-to-create-schedules.md).
 
 
 ## <a name="add-users-to-the-lab"></a>Lägga till användare i labbet
@@ -143,7 +143,7 @@ Skapa en schemalagd händelse för labbet så att virtuella datorer i labbet sta
 1. På sidan **Skicka inbjudan via e-post** anger du ett valfritt meddelande och väljer sedan **Skicka**. E-postmeddelandet innehåller automatiskt registrerings länken. Du kan hämta den här registrerings länken genom att välja **... (tre punkter)** i verktygsfältet och **registrerings länken**. 
 
     ![Skicka registrerings länk via e-post](./media/tutorial-setup-classroom-lab/send-email.png)
-4. Du ser status för **inbjudan** i listan **användare** . Statusen bör ändras till att **skickas** och sedan **skickas till &lt; datum &gt; **. 
+4. Du ser status för **inbjudan** i listan **användare** . Statusen bör ändras till att **skickas** och sedan **skickas till &lt; datum &gt;**. 
 
     Mer information om hur du lägger till studenter i en klass och hur du hanterar användningen av labbet finns i [så här konfigurerar du elev användning](how-to-configure-student-usage.md).
 

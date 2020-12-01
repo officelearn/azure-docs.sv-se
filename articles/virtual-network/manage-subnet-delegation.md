@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: d2db8eb5b93d84a5ece182fffbca5870762ee89e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e4f002d038820edf128e3fefb229a0918a8ac55
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84703952"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433514"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Lägga till eller ta bort en under näts delegering
 
@@ -36,13 +36,13 @@ I det här avsnittet skapar du ett virtuellt nätverk och under nätet som du se
 1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**  >  **nätverk**  >  **virtuellt nätverk**.
 1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange *MyVirtualNetwork*. |
     | Adressutrymme | Ange *10.0.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | Location | Välj **öster**.|
+    | Plats | Välj **öster**.|
     | Undernät – Namn | Ange *undernät*. |
     | Undernät – adressintervall | Ange *10.0.0.0/24*. |
     |||
@@ -60,21 +60,23 @@ I det här avsnittet delegerar du det undernät som du skapade i föregående av
 
 1. I portalens sökfält anger du *myVirtualNetwork*. När **myVirtualNetwork** visas i sökresultatet väljer du det.
 2. I Sök resultaten väljer du *myVirtualNetwork*.
-3. Välj **undernät**under **Inställningar**och välj sedan **undernät**.
+3. Välj **undernät** under **Inställningar** och välj sedan **undernät**.
 4. På sidan för **under näts Delegerings** listan *väljer du bland* de tjänster som listas under **delegera undernät till en tjänst** (till exempel **Microsoft. DBforPostgreSQL/serversv2**).  
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Ta bort under näts delegering från en Azure-tjänst
 
 1. I portalens sökfält anger du *myVirtualNetwork*. När **myVirtualNetwork** visas i sökresultatet väljer du det.
 2. I Sök resultaten väljer du *myVirtualNetwork*.
-3. Välj **undernät**under **Inställningar**och välj sedan **undernät**.
-4. Välj **ingen** från tjänsterna som listas under **delegera undernät till en tjänst**för under **näts delegering** *på sidan för undernät.* 
+3. Välj **undernät** under **Inställningar** och välj sedan **undernät**.
+4. Välj **ingen** från tjänsterna som listas under **delegera undernät till en tjänst** för under **näts delegering** *på sidan för undernät.* 
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Förbered din miljö för Azure CLI.
 
-Om du väljer att installera och använda Azure CLI lokalt i stället, kräver den här artikeln att du använder Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Se [Installera Azure CLI](/cli/azure/install-azure-cli) för installations- eller uppgraderingsinformation.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Den här artikeln kräver version 2.0.28 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 Skapa en resursgrupp med [az group create](https://docs.microsoft.com/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.

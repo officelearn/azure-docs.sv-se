@@ -3,12 +3,12 @@ title: Ta bort ett Azure Lab Services labb från team
 description: Lär dig hur du tar bort ett Azure Lab Services labb från team.
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 1d2fe73d33a88e595f42b47c1e7122dcbdfe1063
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 8d1e20f8f676eb9863187b550a3c0400871d670c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094564"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433962"
 ---
 # <a name="delete-labs-within-teams"></a>Ta bort labb i team
 
@@ -21,7 +21,7 @@ Den här artikeln visar hur du tar bort ett labb från **Azure Lab Services** -a
 
 ## <a name="delete-labs"></a>Ta bort labb
 
-Ett labb som skapats i team kan tas bort på [webbplatsen labb tjänster](https://labs.azure.com) genom att ta bort labbet direkt, enligt beskrivningen i [Hantera klass rum labb i Azure Lab Services](how-to-manage-classroom-labs.md). 
+Ett labb som skapats i team kan tas bort på [webbplatsen labb tjänster](https://labs.azure.com) genom att ta bort labbet direkt, enligt beskrivningen i [hantera labb i Azure Lab Services](how-to-manage-classroom-labs.md). 
 
 Labb borttagning utlöses också när teamet tas bort. Om teamet som labbet skapas i tas bort, skulle labbet tas bort automatiskt 24 timmar efter att synkroniseringen av den automatiska användar listan har utlösts. 
 

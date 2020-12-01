@@ -192,8 +192,16 @@
           href: application-proxy-remove-personal-data.md
         - name: Konfigurera anpassat domän
           href: application-proxy-configure-custom-domain.md
-        - name: Skydda äldre appar med appars leveranskontroller eller nätverk
-          href: secure-hybrid-access.md
+        - name: Skydda äldre appar
+          items:
+            - name: Skydda hybridåtkomst med Azure AD
+              href: secure-hybrid-access.md
+            - name: F5- och Azure AD-integrering
+              href: f5-aad-integration.md
+            - name: Distribution av F5 BIG-IP VE i Azure IaaS
+              href: f5-bigip-deployment-guide.md
+            - name: F5 Big-IP med Azure AD för lösenordsfritt VPN
+              href: f5-aad-password-less-vpn.md
         - name: Publicera genomgångar
           items:
             - name: Integrera med programproxy på en NDES-server

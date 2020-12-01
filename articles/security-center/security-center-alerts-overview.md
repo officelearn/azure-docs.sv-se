@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 033f06aa61baf04b5c74fbbe9cc8f925d5d4e3d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c1406e6a1f2f36c5d42544c52ade3f991fe2ba0a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182316"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433027"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Säkerhetsaviseringar i Azure Security Center
 
@@ -91,7 +91,7 @@ Du har flera alternativ för att visa aviseringar utanför Security Center, inkl
 
 - **Hämta CSV-rapport** på instrument panelen för aviseringar innehåller en export till CSV-filen vid ett tillfälle.
 - Med **kontinuerlig export** från pris &s inställningar kan du konfigurera strömmar av säkerhets aviseringar och rekommendationer till Log Analytics arbets ytor och Event Hubs. [Läs mer om kontinuerlig export](continuous-export.md)
-- **Azure Sentinel Connector** strömmar Azure Defender-varningar från Azure Security Center till Azure Sentinel. [Lär dig mer om att ansluta Azure Security Center med Sentinel](../sentinel/connect-azure-security-center.md)
+- **Azure Sentinel Connector** strömmar säkerhets aviseringar från Azure Security Center till Azure Sentinel. [Lär dig mer om att ansluta Azure Security Center med Sentinel](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,14 +1,14 @@
 ---
 title: Ange lösen ord för virtuella datorer i Azure Lab Services | Microsoft Docs
-description: Lär dig hur du ställer in och återställer lösen ord för virtuella datorer i klass rum labb Azure Lab Services.
+description: Lär dig hur du ställer in och återställer lösen ord för virtuella datorer (VM) i labb med Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6ae577ee4c0c7e31760e0fb12afeaeac1ef8b7e2
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379697"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434234"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurera och hantera en pool för virtuella datorer 
 Den här artikeln visar hur du utför följande uppgifter:
@@ -102,4 +102,4 @@ Labb skaparen (lärare) kan ansluta till en elev-VM om följande villkor är upp
 ## <a name="next-steps"></a>Nästa steg
 Information om andra alternativ för elev användning som du (som labb ägare) kan konfigurera finns i följande artikel: [Konfigurera elev användning](how-to-configure-student-usage.md).
 
-Information om hur studenter kan återställa lösen ord för sina virtuella datorer finns i [Ange eller återställa lösen ord för virtuella datorer i klass rum labb (studenter)](how-to-set-virtual-machine-passwords-student.md).
+Information om hur studenter kan återställa lösen ord för sina virtuella datorer finns i [Ange eller återställa lösen ord för virtuella datorer i labb (studenter)](how-to-set-virtual-machine-passwords-student.md).

@@ -3,12 +3,12 @@ title: Hantera en mall för ett klass rums labb i Azure Lab Services | Microsoft
 description: Lär dig hur du skapar och hanterar en labb-mall för klass rum i Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0f7c74f75de3d24acd01330910bf6ee3f8f18533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be84a05fd8b278f5176cd768191d10a20fc719e6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445805"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434285"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Skapa och hantera en klass rums mall i Azure Lab Services
 En mall i ett labb är en basavbildning av en virtuell dator som alla användares virtuella datorer skapas från. Konfigurera mallen för virtuella datorer så att den är konfigurerad med exakt det som du vill förse labbanvändarna med. Du kan ange ett namn och en beskrivning av mallen som visas för labbanvändarna. Sedan publicerar du mallen för att skapa instanser av den virtuella mallen som är tillgänglig för dina labb användare. När du publicerar en mall skapar Azure Lab Services virtuella datorer i labbet med hjälp av mallen. Antalet virtuella datorer som skapas i den här processen är samma som det högsta antalet användare som tillåts i labbet. Du kan definiera antalet i användningsprincipen för labbet. Alla virtuella datorer har samma konfiguration som mallen.
@@ -67,4 +67,4 @@ Se följande artiklar:
 - [Skapa och hantera labbkonton som administratör](how-to-manage-lab-accounts.md)
 - [Skapa och hantera labb som labbägare](how-to-manage-classroom-labs.md)
 - [Konfigurera och kontroller användning av ett labb som labbägare](how-to-configure-student-usage.md)
-- [Som labb användare, åtkomst till klass rum labb](how-to-use-classroom-lab.md)
+- [Som labb användare, åtkomst labb](how-to-use-classroom-lab.md)

@@ -1,16 +1,16 @@
 ---
-title: Skapa ett schema för klass rums labb i Azure Lab Services | Microsoft Docs
-description: Lär dig hur du skapar scheman för klass rums labb i Azure Lab Services så att virtuella datorer i labbet startar och stängs ned vid en viss tidpunkt.
+title: Skapa schema för labb i Azure Lab Services | Microsoft Docs
+description: Lär dig hur du skapar scheman för labb i Azure Lab Services så att virtuella datorer i labbet startar och stängs ned vid en viss tidpunkt.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a827c3d9f3022cb7d27ee43c9c95227c44f97e7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326447"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434034"
 ---
-# <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Skapa och hantera scheman för klass rums labb i Azure Lab Services 
+# <a name="create-and-manage-schedules-for-labs-in-azure-lab-services"></a>Skapa och hantera scheman för labb i Azure Lab Services 
 Med scheman kan du konfigurera ett klass rums labb så att virtuella datorer i labbet startar och stängs av automatiskt vid en viss tidpunkt. Du kan definiera ett eng ång slö schema eller ett återkommande schema. Följande procedurer ger dig anvisningar om hur du skapar och hanterar scheman för ett klass rums labb: 
 
 > [!IMPORTANT]
@@ -77,4 +77,4 @@ Se följande artiklar:
 - [Skapa och hantera labbkonton som administratör](how-to-manage-lab-accounts.md)
 - [Skapa och hantera labb som labbägare](how-to-manage-classroom-labs.md)
 - [Konfigurera och kontroller användning av ett labb som labbägare](how-to-configure-student-usage.md)
-- [Som labb användare, åtkomst till klass rum labb](how-to-use-classroom-lab.md)
+- [Som labb användare, åtkomst labb](how-to-use-classroom-lab.md)

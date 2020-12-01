@@ -3,12 +3,12 @@ title: Ansluta till ett peer-nätverk i Azure Lab Services | Microsoft Docs
 description: Lär dig hur du ansluter ditt labb nätverk till ett annat nätverk som en peer. Du kan till exempel ansluta ditt lokala organisations-/universitets nätverk med Labbets virtuella nätverk i Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 169160005b27f6ab9575749e4a72a26d2df4000b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 99ea72f11c8f389a15171a1fe3b376646494903a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647995"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434251"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Anslut ditt labb nätverk till ett peer-virtuellt nätverk i Azure Lab Services
 
@@ -26,7 +26,7 @@ Du kan behöva ansluta ditt labbs nätverk till ett peer-virtuellt nätverk i vi
 Vissa lokala nätverk är anslutna till Azure Virtual Network antingen via [ExpressRoute](../expressroute/expressroute-introduction.md) eller [Virtual Network Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Dessa tjänster måste konfigureras utanför Azure Lab Services. Mer information om hur du ansluter ett lokalt nätverk till Azure med hjälp av ExpressRoute finns i [Översikt över ExpressRoute](../expressroute/expressroute-introduction.md). För lokal anslutning med en Virtual Network Gateway måste gatewayen, det angivna virtuella nätverket och labb kontot vara i samma region.
 
 > [!NOTE]
-> När du skapar en Azure-Virtual Network som ska peer-kopplas med ett labb konto är det viktigt att du förstår hur det virtuella nätverkets region påverkar hur klass rums labben skapas.  Mer information finns i administratörs guidens avsnitt på [regions\locations](./administrator-guide.md#regionslocations).
+> När du skapar en Azure-Virtual Network som ska peer-kopplas med ett labb konto är det viktigt att du förstår hur det virtuella nätverkets region påverkar hur labb skapas.  Mer information finns i administratörs guidens avsnitt på [regions\locations](./administrator-guide.md#regionslocations).
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfigurera när labb kontot skapas
 

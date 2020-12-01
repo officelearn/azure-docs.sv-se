@@ -8,18 +8,18 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3a3518ba68c9474fc4a34390e6fd9a7d1e88f6c6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f261db8d40e1a1cc1737ff6a3f5c50da661b73e6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959602"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433480"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Självstudie: Konfigurera en miljö för maskin inlärning på IoT Edge
 
 Den här artikeln hjälper dig att förbereda din miljö för utveckling och distribution. Börja med att konfigurera en utvecklings dator med alla verktyg du behöver. Skapa sedan nödvändiga moln resurser i Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Varje artikel i serien bygger på arbetet i föregående artikel. Om du har kommit till den här artikeln direkt kan du gå till den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien.
 
@@ -39,7 +39,7 @@ Den virtuella utvecklings datorn kommer att konfigureras med:
 * [.NET Core SDK](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure PowerShell](/powershell/azure/?view=azps-1.1.0)
+* [Azure PowerShell](/powershell/azure/)
 * [VS Code-tillägg](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -83,7 +83,7 @@ Det tar cirka 30 minuter att skapa och konfigurera den virtuella datorn.
 
    Skriptet körs i flera minuter eftersom det utför följande steg:
 
-    1. Installerar [modulen för Azure PowerShell AZ](/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
+    1. Installerar [modulen för Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
     1. Du blir ombedd att logga in på Azure.
     1. Bekräftar informationen för att skapa den virtuella datorn. Tryck på **j** eller **RETUR** för att fortsätta.
     1. Skapar resurs gruppen om den inte finns.

@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 0ff6d064b6bfabbd8a648c23b5648aae9b12a11d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8c037d35c2df4572800d2519347aa113a86cde36
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207503"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434846"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Självstudie: skapa ett affärs klart program för Azure Remote rendering
 
@@ -118,11 +118,11 @@ Om du förväntar dig att en stor del av användningarna överskrider tröskelv�
 
 ### <a name="ask-the-user"></a>Be användaren
 
-Om du vill ha stöd för både *standard* och *Premium*, är det enklaste sättet att avgöra vilken typ av session som ska instansieras att fråga användaren när de väljer 3D-tillgångar att visa. Utmaningen med den här metoden är att användaren måste förstå 3D-till gångens komplexitet eller till och med flera till gångar som ska visas. Detta rekommenderas vanligt vis inte av den anledningen. Om användaren väljer fel och väljer *standard*kan den resulterande användar upplevelsen komprometteras vid en inopportune tidpunkt.
+Om du vill ha stöd för både *standard* och *Premium*, är det enklaste sättet att avgöra vilken typ av session som ska instansieras att fråga användaren när de väljer 3D-tillgångar att visa. Utmaningen med den här metoden är att användaren måste förstå 3D-till gångens komplexitet eller till och med flera till gångar som ska visas. Detta rekommenderas vanligt vis inte av den anledningen. Om användaren väljer fel och väljer *standard* kan den resulterande användar upplevelsen komprometteras vid en inopportune tidpunkt.
 
 ### <a name="analyze-the-3d-model"></a>Analysera 3D-modellen
 
-En annan relativt enkel metod är att analysera komplexiteten för de valda 3D-resurserna. Om modell komplexiteten är under tröskelvärdet för *standard*startar du en *standardsession,* annars initierar en *Premium* -session. Här är utmaningen att en enskild session slutligen kan användas för att visa flera modeller av vilka vissa kan överstiga komplexitets tröskeln för en standardsession, vilket ger möjlighet att sömlöst använda samma session *för en sekvens* med olika 3D-tillgångar.
+En annan relativt enkel metod är att analysera komplexiteten för de valda 3D-resurserna. Om modell komplexiteten är under tröskelvärdet för *standard* startar du en *standardsession,* annars initierar en *Premium* -session. Här är utmaningen att en enskild session slutligen kan användas för att visa flera modeller av vilka vissa kan överstiga komplexitets tröskeln för en standardsession, vilket ger möjlighet att sömlöst använda samma session *för en sekvens* med olika 3D-tillgångar.
 
 ### <a name="automatic-switching"></a>Automatisk växling
 
@@ -213,7 +213,7 @@ Utifrån det förväntade användnings fallet bestämmer du den bästa platsen e
 
 Om ditt användnings mönster har användnings mönster där samma 3D-till gång kan överföras flera gånger, kommer backend att spåra vilka modeller som redan har konverterats för användning med ARR, så att en modell bara bearbetas i förväg en gång för flera framtida val. Ett exempel på design granskning är där ett team har åtkomst till en gemensam ursprunglig 3D-till gång. Varje grupp medlem förväntas granska modellen med hjälp av ARR vid en viss tidpunkt i arbets flödet. Endast den första vyn utlöser sedan för bearbetnings steget. De efterföljande vyerna skulle slå upp den associerade efter bearbetningen av den associerade filen med SAS-utdata.
 
-Beroende på användnings fallet vill du förmodligen bestämma och eventuellt spara rätt storlek, *standard* eller *Premium*för Azure Remote rendering-servern för varje 3D-till gång eller grupp av till gångar som ska visas tillsammans i samma session.  
+Beroende på användnings fallet vill du förmodligen bestämma och eventuellt spara rätt storlek, *standard* eller *Premium* för Azure Remote rendering-servern för varje 3D-till gång eller grupp av till gångar som ska visas tillsammans i samma session.  
 
 ### <a name="on-device-model-selection-list"></a>Val lista för enhets modell
 
@@ -255,7 +255,7 @@ Många företags klienter bestämmer att din Azure Stack kan distribueras under 
 Mer information:
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [Självstudie: publicera Azure-hanterade program på Marketplace](../../../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
+* [Självstudie: publicera Azure-hanterade program på Marketplace](../../../../marketplace/create-new-azure-apps-offer.md)
 
 ### <a name="security"></a>Säkerhet
 
@@ -279,4 +279,4 @@ Mer information:
 
 * [Azure AD-tjänsteautentisering](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-service-authentication)
 * [Förbättra din säkerhets position med Azure](https://azure.microsoft.com/overview/security/)
-* [Cloud Security](https://azure.microsoft.com/product-categories/security/)
+* [Molnsäkerhet](https://azure.microsoft.com/product-categories/security/)

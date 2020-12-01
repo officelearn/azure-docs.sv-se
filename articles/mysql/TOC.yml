@@ -124,6 +124,8 @@
           href: concepts-supported-versions.md
         - name: Begränsningar
           href: concepts-limits.md
+        - name: Metodtips för drift
+          href: concept-operation-excellence-best-practices.md
         - name: Prisnivåer
           items:
             - name: Prisnivåer
@@ -195,6 +197,10 @@
             - name: Prestandarekommendationer
               href: concepts-performance-recommendations.md
               displayName: recommendation
+            - name: Regelverk för övervakning
+              href: concept-monitoring-best-practices.md
+            - name: Bästa praxis för prestanda
+              href: concept-performance-best-practices.md
         - name: Programutveckling
           items:
             - name: Översikt över programutveckling

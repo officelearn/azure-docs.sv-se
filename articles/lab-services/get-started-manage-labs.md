@@ -3,12 +3,12 @@ title: Kom igång med Azure Lab Services
 description: Den här artikeln beskriver hur du kommer igång med Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: bdc4f4af06d70a1798e7409b78f6b47530ddd7f4
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6fb0da7f91e0eecdeefecdb6635b657245fda9af
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917111"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434438"
 ---
 # <a name="get-started-with-lab-services"></a>Kom igång med labb tjänster 
 
@@ -48,7 +48,7 @@ Det viktigaste att komma ihåg när du hanterar de virtuella datorerna är att n
 
 ### <a name="overview"></a>Översikt
 
-Instrument paneler för klass rums labb i Azure Lab Services ger en ögonblicks bild av olika aspekter av ett visst labb, inklusive VM-information, antal tilldelade och Otilldelade virtuella datorer, antal registrerade och avregistrerade användare och information om labb scheman. 
+Instrument paneler för labb i Azure Lab Services ger en ögonblicks bild av olika aspekter av ett visst labb, inklusive information om virtuella datorer, antal tilldelade och Otilldelade virtuella datorer, antal registrerade och avregistrerade användare och information om labb scheman. 
 
 > [!NOTE]
 > Även om de flesta administrativa aspekter av instrument panelen och [Azure Lab Services webbplats](https://labs.azure.com/) kommer att vara synliga för lärare, kan behörigheter som är specifika för din roll påverka möjligheten att ändra vissa kriterier i instrument panelen. Om du stöter på ett problem med din specifika labb konfiguration kan du kontakta din common Table EXPRESSIONS-administratör.

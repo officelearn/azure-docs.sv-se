@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2020
+ms.date: 11/10/2020
 ms.author: memildin
-ms.openlocfilehash: b7c4c0565d17e62226a518bc443223df8339faec
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0e853a4ce1e3891ddffd2f9fb1315da49a896933
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949385"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433230"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Säkerhetspoäng i Azure Security Center
 
@@ -70,8 +70,6 @@ I Sammanfattning visas dina säkra poäng på följande platser i Security Cente
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="Sidan säker poäng på Security Centerens rekommendationer":::
 
-
-
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Få dina säkra Poäng från REST API
 
 Du kan komma åt dina poäng via Secure score-API: t (för närvarande i för hands version). API-metoderna ger flexibiliteten att fråga data och skapa en egen rapporterings mekanism för dina säkra poäng över tid. Du kan till exempel använda [Secure Scores-API: et](/rest/api/securitycenter/securescores) för att hämta poängen för en speciell prenumeration. Dessutom kan du använda [API: et för säker Poäng](/rest/api/securitycenter/securescorecontrols) för att visa en lista över säkerhets kontrollerna och de aktuella poängen för dina prenumerationer.
@@ -79,8 +77,6 @@ Du kan komma åt dina poäng via Secure score-API: t (för närvarande i för ha
 ![Hämta en enskild säker Poäng via API: et](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 Exempel på verktyg som byggts ovanpå Secure score-API: et finns i avsnittet [Secure Scores i vår GitHub-community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
-
-
 
 ### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Få dina säkra Poäng från Azure Resource Graph (ARG)
 
@@ -114,13 +110,34 @@ För att komma åt säkra Poäng för flera prenumerationer med ARG:
 
 1. Välj **Kör fråga**.
 
+
+
+
+## <a name="tracking-your-secure-score-over-time"></a>Spåra dina säkra poäng över tid
+
+Om du är en Power BI användare med ett Pro-konto kan du använda instrument panelen **säker poäng över tid** Power BI för att spåra dina säkra poäng över tid och undersöka eventuella ändringar.
+
+> [!TIP]
+> Du hittar den här instrument panelen, samt andra verktyg för att arbeta med program mässigt med säkra poäng, i det dedikerade området i Azure Security Center Community på GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
+
+Instrument panelen innehåller följande två rapporter som hjälper dig att analysera din säkerhets status:
+
+- **Resurs Sammanfattning** – tillhandahåller sammanfattande data om dina resursers hälsa.
+- **Översikt över säkra Poäng** – tillhandahåller sammanfattade data om Poäng förloppet. Använd diagrammet "säkra poäng över tid per prenumeration" för att visa ändringar i poängen. Om du ser en dramatisk förändring i resultatet, kontrollerar du tabellen "identifierade ändringar som kan påverka din säkra poäng" för möjliga ändringar som kan ha orsakat ändringen. Den här tabellen visar borttagna resurser, nyligen distribuerade resurser eller resurser som deras säkerhets status ändrats för någon av rekommendationerna.
+
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Den valfria säkra poängen över tid PowerBI-instrumentpanelen för att spåra dina säkra poäng över tid och undersöka ändringar":::
+
+
+
+
+
 ## <a name="how-your-secure-score-is-calculated"></a>Så här beräknas din säkra Poäng 
 
 Bidraget för varje säkerhets kontroll till den övergripande säkra poängen visas tydligt på sidan rekommendationer.
 
 [![Den förbättrade säkra poängen introducerar säkerhets kontroller](media/secure-score-security-controls/security-controls.png)](media/secure-score-security-controls/security-controls.png#lightbox)
 
-För att få alla möjliga punkter för en säkerhets kontroll måste alla dina resurser följa alla säkerhets rekommendationer i säkerhets kontrollen. Security Center har till exempel flera rekommendationer om hur du skyddar dina hanterings portar. Tidigare kunde du åtgärda några av de relaterade och beroende rekommendationerna samtidigt som du lämnar andra olösta och dina säkra poäng skulle öka. När du har tittat på målet är det enkelt att att att din säkerhetsinte hade förbättras tills du har löst alla. Nu måste du reparera dem för att göra en skillnad på dina säkra poäng.
+För att få alla möjliga punkter för en säkerhets kontroll måste alla dina resurser följa alla säkerhets rekommendationer i säkerhets kontrollen. Security Center har till exempel flera rekommendationer om hur du skyddar dina hanterings portar. Du måste åtgärda dem för att göra en skillnad på dina säkra poäng.
 
 Säkerhets kontrollen "tillämpa system uppdateringar" har till exempel en högsta poäng på sex punkter, som du kan se i knapp beskrivningen för kontrollens potentiella öknings värde:
 
@@ -137,9 +154,9 @@ Den maximala poängen för den här kontrollen, tillämpa system uppdateringar, 
 
 |Mått|Formel och exempel|
 |-|-|
-|**Säkerhets kontrollens aktuella Poäng**|<br>![Formel för att beräkna en säkerhets kontrolls aktuella Poäng](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Varje enskild säkerhets kontroll bidrar till säkerhets poängen. Varje resurs som påverkas av en rekommendation inom kontrollen bidrar till kontrollens aktuella resultat. Den aktuella poängen för varje kontroll är ett mått på statusen för resurserna *i* kontrollen.<br>![Knapp beskrivningar som visar de värden som används när du beräknar säkerhets kontrollens aktuella Poäng](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>I det här exemplet skulle max poängen på 6 divideras med 78 eftersom det är summan av de felfria och felaktiga resurserna.<br>6/78 = 0,0769<br>Om du multiplicerar det med antalet felfria resurser (4) resulterar det i den aktuella poängen:<br>0,0769 * 4 = **0,31**<br><br>|
-|**Säkerhetspoäng**<br>Enstaka prenumeration|<br>![Ekvation för att beräkna nuvarande säkra Poäng](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Säker Poäng för enskild prenumeration med alla kontroller aktiverade](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>I det här exemplet finns det en enda prenumeration med alla säkerhets kontroller som är tillgängliga (en potentiell högsta poäng på 60 punkter). Poängen visar 28 punkter av en möjlig 60 och de återstående 32 punkterna visas i siffrorna "potentiella Poäng ökning" i säkerhets kontrollerna.<br>![Lista över kontroller och potentiella Poäng ökningar](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
-|**Säkerhetspoäng**<br>Flera prenumerationer|<br>De aktuella poängen för alla resurser i alla prenumerationer läggs till och beräkningen är sedan samma som för en enskild prenumeration<br><br>När du visar flera prenumerationer utvärderar säkra poäng alla resurser i alla aktiverade principer och grupperar deras kombinerade påverkan på varje säkerhets kontrolls maximala poäng.<br>![Säkra Poäng för flera prenumerationer med aktiverade kontroller](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Den kombinerade poängen är **inte** ett medelvärde. i stället är det utvärderat position av status för alla resurser i alla prenumerationer.<br>Om du går till sidan rekommendationer och lägger till tillgängliga tillgängliga punkter, kommer du att se att det är skillnaden mellan den aktuella poängen (24) och den maximala poängen som är tillgänglig (60).|
+|**Säkerhets kontrollens aktuella Poäng**|<br>![Ekvation för att beräkna en säkerhets kontrolls Poäng](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Varje enskild säkerhets kontroll bidrar till säkerhets poängen. Varje resurs som påverkas av en rekommendation inom kontrollen bidrar till kontrollens aktuella resultat. Den aktuella poängen för varje kontroll är ett mått på statusen för resurserna *i* kontrollen.<br>![Knapp beskrivningar som visar de värden som används när du beräknar säkerhets kontrollens aktuella Poäng](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>I det här exemplet skulle max poängen på 6 divideras med 78 eftersom det är summan av de felfria och felaktiga resurserna.<br>6/78 = 0,0769<br>Om du multiplicerar det med antalet felfria resurser (4) resulterar det i den aktuella poängen:<br>0,0769 * 4 = **0,31**<br><br>|
+|**Säkerhetspoäng**<br>Enstaka prenumeration|<br>![Ekvation för att beräkna en prenumerations säkra Poäng](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Säker Poäng för enskild prenumeration med alla kontroller aktiverade](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>I det här exemplet finns det en enda prenumeration med alla säkerhets kontroller som är tillgängliga (en potentiell högsta poäng på 60 punkter). Poängen visar 28 punkter av en möjlig 60 och de återstående 32 punkterna visas i siffrorna "potentiella Poäng ökning" i säkerhets kontrollerna.<br>![Lista över kontroller och potentiella Poäng ökningar](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
+|**Säkerhetspoäng**<br>Flera prenumerationer|<br>![Ekvation för att beräkna säkra Poäng för flera prenumerationer](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>När du beräknar de kombinerade poängen för flera prenumerationer innehåller Security Center en *vikt* för varje prenumeration. De relativa vikterna för dina prenumerationer bestäms av Security Center baserat på faktorer som antalet resurser.<br>Den aktuella poängen för varje prenumeration beräknas på samma sätt som för en enskild prenumeration, men sedan tillämpas vikten på det sätt som visas i ekvationen.<br>När du visar flera prenumerationer utvärderar säkra poäng alla resurser i alla aktiverade principer och grupperar deras kombinerade påverkan på varje säkerhets kontrolls maximala poäng.<br>![Säkra Poäng för flera prenumerationer med aktiverade kontroller](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Den kombinerade poängen är **inte** ett medelvärde. i stället är det utvärderat position av status för alla resurser i alla prenumerationer.<br>Om du går till sidan rekommendationer och lägger till tillgängliga tillgängliga punkter, kommer du att se att det är skillnaden mellan den aktuella poängen (24) och den maximala poängen som är tillgänglig (60).|
 ||||
 
 ### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>Vilka rekommendationer ingår i de säkra Poäng beräkningarna?
@@ -271,3 +288,4 @@ I den här artikeln beskrivs säkra poäng och de säkerhets kontroller som det 
 
 - [Lär dig mer om de olika elementen i en rekommendation](security-center-recommendations.md)
 - [Lär dig hur du åtgärdar rekommendationer](security-center-remediate-recommendations.md)
+- [Visa GitHub-baserade verktyg för att arbeta program mässigt med säkra Poäng](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)

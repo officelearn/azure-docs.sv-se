@@ -10,16 +10,16 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 1ace40098e1d53c6199accea755ffb6969781663
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ecb034ae621c935c3ebcd5b480e116c2cb1d864f
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015671"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435543"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicera och prenumerera med Azure IoT Edge
 
-Du kan använda Azure IoT Edge MQTT Broker för att publicera och prenumerera på meddelanden. Den här artikeln visar hur du ansluter till denna Service Broker, publicerar och prenumererar på meddelanden över användardefinierade ämnen och använder IoT Hub-meddelanden. IoT Edge MQTT-Broker är inbyggd IoT Edge Hub. Mer information finns i [Utjämnings funktionerna i IoT Edge Hub](iot-edge-runtime.md).
+Du kan använda Azure IoT Edge MQTT Broker för att publicera och prenumerera på meddelanden. Den här artikeln visar hur du ansluter till den här Service Broker, publicerar och prenumererar på meddelanden över användardefinierade ämnen och använder IoT Hub-översättande primitiver. IoT Edge MQTT-Broker är inbyggd IoT Edge Hub. Mer information finns i [Utjämnings funktionerna i IoT Edge Hub](iot-edge-runtime.md).
 
 > [!NOTE]
 > IoT Edge MQTT-Broker finns för närvarande i en offentlig för hands version.
@@ -27,7 +27,7 @@ Du kan använda Azure IoT Edge MQTT Broker för att publicera och prenumerera p�
 ## <a name="pre-requisites"></a>Förutsättningar
 
 - Ett Azure-konto med en giltig prenumeration
-- [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) med `azure-iot` CLI-tillägget installerat. Mer information finns i [installations stegen för Azure IoT Extension för Azure Azure CLI](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot).
+- [Azure CLI](/cli/azure/) med `azure-iot` CLI-tillägget installerat. Mer information finns i [installations stegen för Azure IoT Extension för Azure Azure CLI](/cli/azure/azure-cli-reference-for-iot).
 - En **IoT Hub** SKU antingen F1, S1, S2 eller S3.
 - Ha en **IoT Edge-enhet med version 1,2 eller senare**. Eftersom IoT Edge MQTT-Broker för närvarande finns i en offentlig för hands version kan du ange följande miljövariabler som true på behållaren edgeHub för att aktivera MQTT-Broker:
 
@@ -36,7 +36,7 @@ Du kan använda Azure IoT Edge MQTT Broker för att publicera och prenumerera p�
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
 
-- **Mosquitto-klienter** som är installerade på den IoT Edge enheten. I den här artikeln används populära Mosquitto-klienter som innehåller [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) och [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Andra MQTT-klienter kan användas i stället. Kör följande kommando för att installera Mosquitto-klienter på en Ubuntu-enhet:
+- **Mosquitto-klienter** som är installerade på den IoT Edge enheten. I den här artikeln används populära Mosquitto-klienter [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) och [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Andra MQTT-klienter kan användas i stället. Kör följande kommando för att installera Mosquitto-klienter på en Ubuntu-enhet:
 
     ```cmd
     sudo apt-get update && sudo apt-get install mosquitto-clients
@@ -62,28 +62,28 @@ För att aktivera TLS, kommer en TLS-kanal att initieras om en klient ansluter p
 
 ### <a name="authentication"></a>Autentisering
 
-För att en MQTT-klient ska kunna autentisera sig själv måste den först skicka ett CONNECT-paket till MQTT-koordinatorn för att initiera en anslutning i sitt namn. Det här paketet innehåller tre delar av autentiseringsinformation: a `client identifier` , a `username` och `password` :
+För att en MQTT-klient ska kunna autentisera sig själv måste den först skicka ett CONNECT-paket till MQTT-koordinatorn för att initiera en anslutning i sitt namn. Det här paketet innehåller tre delar av autentiseringsinformation: a `client identifier` , a `username` och a `password` :
 
--   `client identifier`Fältet är namnet på enhets-eller modulens namn i IoT Hub. Den använder följande syntax:
+- `client identifier`Fältet är namnet på enhets-eller modulens namn i IoT Hub. Den använder följande syntax:
 
-    - För en enhet: `<device_name>`
+  - För en enhet: `<device_name>`
 
-    - För en modul: `<device_name>/<module_name>`
+  - För en modul: `<device_name>/<module_name>`
 
    För att kunna ansluta till MQTT-Broker måste en enhet eller modul registreras i IoT Hub.
 
-   Observera att Broker inte tillåter anslutning av två klienter med samma autentiseringsuppgifter. Koordinatorn kopplar från den redan anslutna klienten om en andra klient ansluter med samma autentiseringsuppgifter.
+   Service Broker tillåter inte anslutningar från flera klienter med samma autentiseringsuppgifter. Koordinatorn kopplar från den redan anslutna klienten om en andra klient ansluter med samma autentiseringsuppgifter.
 
 - `username`Fältet härleds från enhets-eller modulens namn och IoTHub namn som enheten tillhör med följande syntax:
 
-    - För en enhet: `<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
+  - För en enhet: `<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
 
-    - För en modul: `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
+  - För en modul: `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
 
 - `password`Fältet i Connect-paketet är beroende av autentiseringsläget:
 
-    - I händelse av [autentisering med symmetriska nycklar](how-to-authenticate-downstream-device.md#symmetric-key-authentication) `password` är fältet en SAS-token.
-    - I händelse av den [självsignerade X. 509-autentiseringen](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)finns `password` inte fältet. I det här autentiseringsläget krävs en TLS-kanal. Klienten måste ansluta till port 8883 för att upprätta en TLS-anslutning. Under TLS-handskakningen begär MQTT-koordinatorn ett klient certifikat. Det här certifikatet används för att verifiera klientens identitet och därför `password` behövs inte fältet senare när anslutnings paketet skickas. Att skicka både ett klient certifikat och fältet lösen ord leder till ett fel och anslutningen stängs. MQTT-bibliotek och TLS-klientcertifikat har vanligt vis ett sätt att skicka ett klient certifikat när en anslutning initieras. Du kan se ett steg-för-steg-exempel i avsnittet [använda X509-certifikat för klientautentisering](how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
+  - När du använder [autentisering med symmetriska nycklar](how-to-authenticate-downstream-device.md#symmetric-key-authentication) `password` är fältet en SAS-token.
+  - När du använder [självsignerad X. 509-autentisering](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)finns `password` inte fältet. I det här autentiseringsläget krävs en TLS-kanal. Klienten måste ansluta till port 8883 för att upprätta en TLS-anslutning. Under TLS-handskakningen begär MQTT-koordinatorn ett klient certifikat. Det här certifikatet används för att verifiera klientens identitet och därför `password` behövs inte fältet senare när anslutnings paketet skickas. Att skicka både ett klient certifikat och fältet lösen ord leder till ett fel och anslutningen stängs. MQTT-bibliotek och TLS-klientcertifikat har vanligt vis ett sätt att skicka ett klient certifikat när en anslutning initieras. Du kan se ett steg-för-steg-exempel i avsnittet [använda X509-certifikat för klientautentisering](how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
 
 Moduler som distribueras med IoT Edge använda [symmetriska nycklar-autentisering](how-to-authenticate-downstream-device.md#symmetric-key-authentication) och anropar den [IoT Edge lokala API: et för arbets belastningen](https://github.com/Azure/iotedge/blob/40f10950dc65dd955e20f51f35d69dd4882e1618/edgelet/workload/README.md) för att få en SAS-token, även när du är offline.
 
@@ -94,7 +94,7 @@ När en MQTT-klient autentiseras för IoT Edge hubb måste den ha behörighet at
 > [!NOTE]
 > För den allmänt tillgängliga för hands versionen är redigeringen av Auktoriseringsprinciper för MQTT-Broker endast tillgänglig via Visual Studio, Visual Studio Code eller Azure CLI. Azure Portal stöder för närvarande inte redigering av IoT Edge Hub, dubbel och dess auktoriseringsprincip.
 
-Varje policy för Auktoriseringsprinciper består av en kombination av `identities` , `allow` eller `deny` , `operations` och `resources` :
+Varje policy för Auktoriseringsprinciper består av en kombination av `identities` , `allow` eller `deny` effekter, `operations` och `resources` :
 
 - `identities` Beskriv principens ämne. Den måste mappas till den som `client identifier` skickas av klienter i deras Connect-paket.
 - `allow` eller `deny` effekter definierar om åtgärder ska tillåtas eller nekas.
@@ -163,16 +163,18 @@ Nedan visas ett exempel på en auktoriseringsprincip som uttryckligen inte till�
 ```
 
 Några saker att tänka på när du skriver auktoriseringsprincipen:
+
 - Den kräver `$edgeHub` dubbla schema version 1,2
 - Som standard nekas alla åtgärder.
-- Authorization-instruktioner utvärderas i ordningen än de visas i JSON-definitionen. Den börjar med att titta på `identities` och väljer sedan de första Allow-eller DENY-instruktioner som matchar begäran. Om det uppstår konflikter mellan Allow-och Deny-instruktioner, neka-instruktionen WINS.
-- Flera variabler (t. ex. ersättningar) kan användas i auktoriseringsprincipen:
-    - `{{iot:identity}}` representerar identiteten för den för tillfället anslutna klienten. Till exempel `myDevice` i händelse av en enhet, `myEdgeDevice/SampleModule` i händelse av en modul.
-    - `{{iot:device_id}}` representerar identiteten för den anslutna enhet som är ansluten. Till exempel `myDevice` i händelse av en enhet, `myEdgeDevice` i händelse av en modul.
-    - `{{iot:module_id}}` representerar identiteten för den för tillfället anslutna modulen. Till exempel "" i händelse av en enhet, `SampleModule` i händelse av en modul.
-    - `{{iot:this_device_id}}` representerar identiteten för den IoT Edge enhet som kör auktoriseringsprincipen. Till exempel `myIoTEdgeDevice`.
+- Authorization-instruktioner utvärderas i den ordning som de visas i JSON-definitionen. Den börjar med att titta på `identities` och väljer sedan de första Allow-eller DENY-instruktioner som matchar begäran. Om det uppstår konflikter mellan Allow-och Deny-instruktioner, neka-instruktionen WINS.
+- Flera variabler (till exempel ersättningar) kan användas i auktoriseringsprincipen:
+    - `{{iot:identity}}` representerar identiteten för den för tillfället anslutna klienten. Till exempel en enhets identitet som `myDevice` eller en modul identitet som `myEdgeDevice/SampleModule` .
+    - `{{iot:device_id}}` representerar identiteten för den anslutna enhet som är ansluten. Till exempel en enhets identitet som `myDevice` eller enhets identiteten där en modul körs `myEdgeDevice` .
+    - `{{iot:module_id}}` representerar identiteten för den för tillfället anslutna modulen. Den här variabeln är tom för anslutna enheter eller en modul identitet som `SampleModule` .
+    - `{{iot:this_device_id}}` representerar identiteten för den IoT Edge enhet som kör auktoriseringsprincipen. Exempelvis `myIoTEdgeDevice`.
 
-Auktoriseringen av ämnen i IoT Hub hanteras något annorlunda än användardefinierade ämnen. Här är de viktiga punkter som du bör komma ihåg:
+Auktoriseringar för avsnitt om IoT Hub hanteras något annorlunda än användardefinierade ämnen. Här är de viktiga punkter som du bör komma ihåg:
+
 - Azure IoT-enheter eller-moduler behöver en uttrycklig auktoriseringsregel för att ansluta till IoT Edge Hub MQTT Broker. En auktoriseringsprincip för standard anslutning anges nedan.
 - Azure IoT-enheter eller-moduler kan komma åt sina egna IoT Hub-ämnen som standard utan någon explicit auktoriseringsregel. Dock måste auktoriseringen härröra från överordnade/underordnade relationer i detta fall och dessa relationer måste anges. IoT Edge moduler anges automatiskt som underordnade till deras IoT Edge enhet, men enheterna måste uttryckligen anges som underordnade till deras IoT Edge Gateway.
 - Azure IoT-enheter eller-moduler kan komma åt ämnen, inklusive information om IoT Hub, för andra enheter eller moduler som tillhandahåller att lämpliga uttryckliga auktoriseringsregler definieras.
@@ -230,7 +232,7 @@ Skapa två IoT-enheter i IoT Hub och hämta sina lösen ord. Använda Azure CLI 
        az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> --key-type primary --du 3600
        ```
     
-       där 3600 är varaktigheten för SAS-token i sekunder (t. ex. 3600 = 1 timme).
+       där 3600 är varaktigheten för SAS-token i sekunder (till exempel 3600 = 1 timme).
     
     - För en modul:
     
@@ -238,9 +240,9 @@ Skapa två IoT-enheter i IoT Hub och hämta sina lösen ord. Använda Azure CLI 
        az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> -m <module_name> --key-type primary --du 3600
        ```
     
-       där 3600 är varaktigheten för SAS-token i sekunder (t. ex. 3600 = 1 timme).
+       där 3600 är varaktigheten för SAS-token i sekunder (till exempel 3600 = 1 timme).
 
-3. Kopiera SAS-token som är det värde som motsvarar nyckeln "SAS" från utdata. Här är ett exempel på utdata från Azure CLI-kommandot ovan:
+3. Kopiera SAS-token, vilket är värdet som motsvarar nyckeln "SAS" från utdata. Här är ett exempel på utdata från Azure CLI-kommandot ovan:
 
     ```
     {
@@ -327,7 +329,7 @@ mosquitto_sub \
 
 var `<edge_device_address>`  =  `localhost` i det här exemplet eftersom klienten körs på samma enhet som IoT Edge.
 
-Observera att port 1883 (MQTT), t. ex. utan TLS, används i det första exemplet. Ett annat exempel med port 8883 (MQTTS), t. ex. med TLS aktiverat, visas i nästa avsnitt.
+Observera att port 1883 (MQTT), utan TLS, används i det första exemplet. Ett annat exempel med port 8883 (MQTTS), med TLS aktiverat, visas i nästa avsnitt.
 
 Den **sub_client** MQTT-klienten har startats och väntar på inkommande meddelanden `test_topic` .
 
@@ -384,7 +386,7 @@ För att få dubbla korrigeringar måste en klient prenumerera på särskilda Io
 
 ### <a name="receive-direct-methods"></a>Ta emot direkta metoder
 
-Att ta emot en direkt metod liknar att ta emot fullständiga dubbla med det tillägg som klienten behöver för att bekräfta att klienten har tagit emot anropet. Första klienten prenumererar på IoT Hub Special-avsnittet `$iothub/methods/POST/#` . När en direkt metod tas emot i det här avsnittet måste klienten extrahera begärande-ID: n `rid` från det underavsnitt där direkt metoden tas emot och slutligen publicera ett bekräftelse meddelande på IoT Hub Special-avsnittet `$iothub/methods/res/200/<request_id>` .
+Att ta emot en direkt metod liknar att ta emot fullständiga dubbla med det tillägg som klienten behöver för att bekräfta att klienten har tagit emot anropet. Första klienten prenumererar på Special ämnet för IoT Hub `$iothub/methods/POST/#` . När en direkt metod tas emot i det här avsnittet måste klienten extrahera begärande-ID: n `rid` från det underavsnitt där direkt metoden tas emot och slutligen publicera ett bekräftelse meddelande på IoT Hub Special-avsnittet `$iothub/methods/res/200/<request_id>` .
 
 ### <a name="send-direct-methods"></a>Skicka direkta metoder
 
@@ -410,7 +412,7 @@ MQTT-bryggan kan konfigureras för att ansluta en IoT Edge hubb MQTT-Broker till
 - `settings` definierar vilka ämnen som ska bryggas för en slut punkt. Det kan finnas flera inställningar per slut punkt och följande värden används för att konfigurera den:
     - `direction`: antingen `in` prenumererar du på ämnena i den fjärranslutna Service Broker eller publicerar dem i avsnittet om `out` fjärrbroker
     - `topic`: ett kärn ämnes mönster som ska matchas. [Jokertecken i MQTT](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107) kan användas för att definiera det här mönstret. Olika prefix kan tillämpas på det här avsnitts mönstret i den lokala Service Broker-och fjärranslutna koordinatorn.
-    - `outPrefix`: Prefix som tillämpas på i `topic` mönstret på fjärrservern.
+    - `outPrefix`: Prefix som tillämpas på `topic` mönstret på fjärrservern.
     - `inPrefix`: Prefix som tillämpas på `topic` mönstret i den lokala utjämningen.
 
 Nedan visas ett exempel på en IoT Edge MQTT brygga-konfiguration som återpublicerar alla meddelanden som tas emot på ämnen `alerts/#` i en överordnad IoT Edge-enhet till en underordnad IoT Edge enhet i samma ämnen och publicerar om alla meddelanden som skickas på ämnen `/local/telemetry/#` av en underordnad IoT Edge enhet till en överordnad IoT Edge enhet i ämnen `/remote/messages/#` .
@@ -437,7 +439,7 @@ Nedan visas ett exempel på en IoT Edge MQTT brygga-konfiguration som återpubli
 }
 ```
 Andra anteckningar på IoT Edge Hub MQTT-bryggan:
-- MQTT-protokollet kommer automatiskt att användas som överordnat protokoll när MQTT-Broker används och IoT Edge används i en kapslad konfiguration, t. ex. med en `parent_hostname` angiven. Läs mer om överordnade protokoll i [moln kommunikation](iot-edge-runtime.md#cloud-communication). Mer information om kapslade konfigurationer finns i [ansluta en underordnad IoT Edge enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
+- MQTT-protokollet kommer automatiskt att användas som överordnat protokoll när MQTT-Broker används och IoT Edge används i en kapslad konfiguration, till exempel med en `parent_hostname` angiven. Läs mer om överordnade protokoll i [moln kommunikation](iot-edge-runtime.md#cloud-communication). Mer information om kapslade konfigurationer finns i [ansluta en underordnad IoT Edge enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
 
 ## <a name="next-steps"></a>Nästa steg
 

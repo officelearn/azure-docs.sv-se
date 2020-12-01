@@ -50,6 +50,8 @@
           href: costs/manage-automation.md
         - name: Cost Management för partner
           href: costs/get-started-partners.md
+        - name: 'Migrera från EA-rapporter till Azure Resource Manager-API:er'
+          href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
     - name: Reservationer
       items:
         - name: Vad är Azure Reservations?
@@ -327,7 +329,7 @@
             - name: Azure Synapse Analytics
               href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
             - name: Virtuella datorer
-              href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/toc.json
+              href: ../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2ftoc.json
         - name: 'Visa, hantera och optimera efter köp'
           items:
             - name: Visa reservationer och användning

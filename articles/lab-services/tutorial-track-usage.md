@@ -3,12 +3,12 @@ title: Spåra användning av ett labb i Azure Lab Services | Microsoft Docs
 description: I den här självstudien spårar du som labbskapare/ägare användningen av ditt labb.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: a9a9b49b568decc621be1969a8578d61ac7e4861
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a3ca9e011eb89b3db8b202bab11d14f10d74e7e
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445040"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434625"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Självstudie: Spåra användning av ett labb i Azure Lab Services
 Den här kursen visar hur en labbskapare/ägare kan spåra användningen av ett labb.
@@ -50,4 +50,4 @@ Mer information om hur du hanterar en pool för virtuella datorer för labbet fi
 > När en lärare aktive ras på en elev-VM påverkas inte kvoten för studenten. Kvoten för en användare anger antalet Labb timmar som är tillgängliga för användaren utanför den schemalagda klass tiden. Mer information om kvoter finns i [Ange kvoter för användare](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om klassrumslabb finns i artiklarna under [Instruktionsguider](how-to-manage-lab-accounts.md).
+Mer information om labb finns i artiklar under [instruktions guider](how-to-manage-lab-accounts.md).

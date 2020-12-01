@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7641c1e3bc3620b294c2953b993e9179a4875536
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 65b8c21251f092311150a50480f5abecb1ad7c17
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951816"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434574"
 ---
 # <a name="azure-managed-applications-overview"></a>Översikt över Azure Managed Applications
 
@@ -49,7 +49,7 @@ Information om att publicera en tjänstkatalog för hanterade program finns i [S
 
 Leverantörer som vill fakturera för sina tjänster kan göra ett hanterat program tillgängligt via Azure Marketplace. När en leverantör publicerar ett program är det tillgängligt för användare utanför organisationen. Med den här metoden kan leverantörer av hanterade tjänster (MSP:er), oberoende programvaruleverantörer (ISV:er) och systemintegratörer (SI:er) erbjuda sina lösningar till alla Azure-kunder.
 
-Mer information om hur du publicerar program på Marketplace finns i [Använda marknadsplatsprogram](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+Mer information om hur du publicerar program på Marketplace finns i [Använda marknadsplatsprogram](../../marketplace/create-new-azure-apps-offer.md).
 
 ## <a name="resource-groups-for-managed-applications"></a>Resursgrupper för hanterade program
 
@@ -71,7 +71,7 @@ Användaren har fullständig åtkomst till resursgruppen och använder den för 
 
 Den här resursgruppen innehåller alla resurser som krävs av det hanterade programmet. Den här resursgruppen innehåller exempelvis lösningens virtuella datorer, lagringskonton och virtuella nätverk. Användaren har begränsad åtkomst till den här resursgruppen eftersom användaren inte hanterar de enskilda resurserna för det hanterade programmet. Utgivarens åtkomst till den här resursgruppen motsvarar rollen som anges i definitionen av hanterade program. Utgivaren kan till exempel begära ägar- eller deltagarroll för den här resursgruppen. Åtkomsten är antingen permanent eller begränsad till en viss tidpunkt.
 
-När du publicerar det [hanterade programmet på Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)kan utgivaren ge konsumenterna möjlighet att utföra specifika åtgärder på resurser i den hanterade resurs gruppen. Utgivaren kan till exempel ange att konsumenter kan starta om virtuella datorer. Alla andra åtgärder utöver Läs åtgärder nekas fortfarande. Ändringar av resurser i en hanterad resurs grupp av en konsument med beviljade åtgärder är föremål för [Azure policy](../../governance/policy/overview.md) tilldelningar i klient organisationen som omfattas för att inkludera den hanterade resurs gruppen.
+När du publicerar det [hanterade programmet på Marketplace](../../marketplace/create-new-azure-apps-offer.md)kan utgivaren ge konsumenterna möjlighet att utföra specifika åtgärder på resurser i den hanterade resurs gruppen. Utgivaren kan till exempel ange att konsumenter kan starta om virtuella datorer. Alla andra åtgärder utöver Läs åtgärder nekas fortfarande. Ändringar av resurser i en hanterad resurs grupp av en konsument med beviljade åtgärder är föremål för [Azure policy](../../governance/policy/overview.md) tilldelningar i klient organisationen som omfattas för att inkludera den hanterade resurs gruppen.
 
 När användaren tar bort det hanterade programmet tas även den hanterade resursgruppen bort.
 

@@ -1,5 +1,5 @@
 ---
-title: Hantera bibliotek för Apache Spark i Azure Synapse Analytics
+title: Hantera bibliotek för Apache Spark
 description: Lär dig hur du lägger till och hanterar bibliotek som används av Apache Spark i Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 8d478b35b702e02f303358972526c091ceb3657e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 27881b048a738d4de2acb57dcc4c2dad1f4d5b24
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95917133"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435373"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Hantera bibliotek för Apache Spark i Azure Synapse Analytics
 
@@ -36,7 +36,7 @@ När du har identifierat de bibliotek som du vill använda för Spark-programmet
 
 > [!IMPORTANT]
 > - Om paketet som du installerar är stort eller tar lång tid att installera, påverkar detta start tiden för Spark-instansen.
-> - Paket som kräver stöd för kompilator vid installations tillfället, till exempel GCC, stöds inte.
+> - Paket som kräver kompilatorstöd vid installationstillfället, till exempel GCC, stöds inte.
 > - Paket kan inte nedgraderas, bara läggas till eller uppgraderas.
 > - Om du vill installera bibliotek måste du ha behörigheter för Storage BLOB-data deltagare eller lagrings-BLOB-data på det primära Gen2-lagrings kontot som är kopplat till Synapse-arbetsytan.
 

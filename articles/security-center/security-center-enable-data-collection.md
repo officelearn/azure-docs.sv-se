@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 53130e395995b3533a45a96f897a0c6bcf1e4c71
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2b4710fec43e27235ef6c05abb6018e1af4310d3
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187195"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434948"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Automatiska etablerings agenter och tillägg från Azure Security Center
 
@@ -138,7 +138,7 @@ Azure Defender krävs för att lagra Windows säkerhets händelse data. [Läs me
 Att lagra data i Log Analytics kan debiteras ytterligare avgifter för data lagring. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/security-center/).
 
 ### <a name="information-for-azure-sentinel-users"></a>Information för Azure Sentinel-användare 
-Användare av Azure Sentinel: Observera att insamling av säkerhets händelser inom kontexten för en enskild arbets yta kan konfigureras antingen från Azure Security Center eller Azure Sentinel, men inte med båda. Om du planerar att lägga till Azure Sentinel till en arbets yta som redan får Azure Defender-aviseringar från Azure Security Center och är inställt på att samla in säkerhets händelser, har du två alternativ:
+Användare av Azure Sentinel: Observera att insamling av säkerhets händelser inom kontexten för en enskild arbets yta kan konfigureras antingen från Azure Security Center eller Azure Sentinel, men inte med båda. Om du planerar att lägga till Azure Sentinel till en arbets yta som redan får aviseringar från Azure Security Center och är inställt på samla in säkerhets händelser, har du två alternativ:
 - Lämna samlingen säkerhets händelser i Azure Security Center som den är. Du kan fråga efter och analysera dessa händelser i Azure Sentinel och i Azure Defender. Du kommer dock inte att kunna övervaka anslutningens anslutnings status eller ändra dess konfiguration i Azure Sentinel. Om detta är viktigt för dig bör du överväga det andra alternativet.
 - Inaktivera insamling av säkerhets händelser i Azure Security Center (genom att ställa in **säkerhets händelser i Windows** på **ingen** i konfigurationen av din Log Analytics-agent). Lägg sedan till Connector Security Events i Azure Sentinel. Precis som med det första alternativet kan du fråga efter och analysera händelser i både Azure Sentinel och Azure Defender/ASC, men du kommer nu att kunna övervaka anslutnings status för anslutningen eller ändra dess konfiguration i och endast i Azure Sentinel.
 

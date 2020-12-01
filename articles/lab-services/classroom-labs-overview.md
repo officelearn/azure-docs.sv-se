@@ -1,19 +1,19 @@
 ---
-title: Om klass rums labb i Azure Lab Services | Microsoft Docs
+title: Om labb i Azure Lab Services | Microsoft Docs
 description: Lär dig hur du snabbt skapar en klass rums labb miljö i molnet – konfigurera ett labb med en mall-VM med den program vara som krävs för klassen och gör en kopia av den virtuella datorn som är tillgänglig för varje elev i klassen.
 ms.topic: overview
 ms.date: 06/26/2020
-ms.openlocfilehash: e6ff56a831282c3abf5eec644573b9a3e88c6543
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 79d6f1cc9f2a6d8d8be872359a4677b36602eea5
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85445635"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434812"
 ---
-# <a name="introduction-to-classroom-labs"></a>Introduktion till klassrumslabb
+# <a name="introduction-to-labs"></a>Introduktion till labb
 Azure Lab Services låter dig snabbt konfigurera en ett klassrums-labbmiljö i molnet. En undervisare skapar ett klassrumslabb, etablerar virtuella Windows- eller Linux-datorer, installerar nödvändig programvara och verktyg i klassen och gör dem tillgängliga för studenterna. Studenterna i klassen ansluter till virtuella datorer (VM) i labbet och använder dem för sina projekt, uppgifter, klassrumsövningar. 
 
-Klassrumlabben är hanterade labbtyper som hanteras av Azure. Själva tjänsten hanterar all infrastrukturhantering för en hanterad labbtyp, från att skapa virtuella datorer till att hantera fel och skala infrastrukturen. Du kan ange vilken typ av infrastruktur du behöver och installera alla verktyg och programvara som krävs för klassen. 
+Labben är hanterade labb typer som hanteras av Azure. Själva tjänsten hanterar all infrastrukturhantering för en hanterad labbtyp, från att skapa virtuella datorer till att hantera fel och skala infrastrukturen. Du kan ange vilken typ av infrastruktur du behöver och installera alla verktyg och programvara som krävs för klassen. 
 
 ## <a name="automatic-management-of-azure-infrastructure-and-scale"></a>Automatisk hantering av Azure-infrastruktur och skala 
 Azure Lab Services är en hanterad tjänst. Det innebär att etablering och hantering av ett labbs underliggande infrastruktur hanteras automatiskt av tjänsten. Du behöver bara fokusera på att förbereda rätt labbupplevelse för dina användare. Låt tjänsten hantera resten och lansera labbets virtuella datorer till din publik. Skala ditt labb till hundratals virtuella datorer med ett enda klick.

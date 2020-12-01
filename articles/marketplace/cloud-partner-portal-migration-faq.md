@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bedecd4a050c445af0ab0ae0250197369b9173b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f0546a76974e429b625ba03fdf4598da7d32c990
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131419"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433367"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Vanliga frågor om över gång från Cloud Partner Portal till Partner Center
 
@@ -58,16 +58,16 @@ Detta är skillnaderna i utbetalnings rapporten mellan den tillbakadragna Cloud 
 
 | Partnerportalen i molnet | Partnercenter |
 | --- | --- |
-| **Länk** : https://cloudpartner.azure.com/ | **Länk** : https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory och https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navigering** : utbetalnings rapportering som tillhandahålls i insikts utbetalning | **Navigering** : utbetalnings rapport som tillhandahålls i Partner Center – utbetalnings ikon |
-| **Omfattning** :<ul><li>Transaktion per rad objekt är synligt för insamling i arbete, samlas in och betalas.</li><li>Rapportering – visar alla rad artiklar när inköps ordern har skapats, inklusive pågående insamling och fakturering, samt insamlings status och rad artiklar som ännu inte är berättigade att betala.</li></ul> | **Omfattning** :<ul><li>Visar rad artiklarna efter att de bedömts som berättigade intäkter.</li><li>Kunderna betalar till Microsoft först och sedan kan ISV: erna se utbetalnings rapporten som startar.</li><li>Utbetalnings rapporten visar inte insamlingen pågår och faktureringen pågår.</li></ul> |
-| **Transaktionen är inte klar för utbetalning** : fakturering pågår | **Transaktionen är inte klar för utbetalning** : nästa beräknade betalning: utbetalnings statusen är i tillståndet Unprocessed. |
-| **Utbetalnings status** : ej tillämpligt | **Utbetalnings status** :<ul><li>Obearbetad: amorteringen är berättigad till betalning.</li><li>Kommande: du kommer att skickas till utgivaren i nästa månads utbetalning.</li><li>Skickat: betalningen har skickats till din bank.</li></ul> |
+| **Länk**: https://cloudpartner.azure.com/ | **Länk**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory och https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navigering**: utbetalnings rapportering som tillhandahålls i insikts utbetalning | **Navigering**: utbetalnings rapport som tillhandahålls i Partner Center – utbetalnings ikon |
+| **Omfattning**:<ul><li>Transaktion per rad objekt är synligt för insamling i arbete, samlas in och betalas.</li><li>Rapportering – visar alla rad artiklar när inköps ordern har skapats, inklusive pågående insamling och fakturering, samt insamlings status och rad artiklar som ännu inte är berättigade att betala.</li></ul> | **Omfattning**:<ul><li>Visar rad artiklarna efter att de bedömts som berättigade intäkter.</li><li>Kunderna betalar till Microsoft först och sedan kan ISV: erna se utbetalnings rapporten som startar.</li><li>Utbetalnings rapporten visar inte insamlingen pågår och faktureringen pågår.</li></ul> |
+| **Transaktionen är inte klar för utbetalning**: fakturering pågår | **Transaktionen är inte klar för utbetalning**: nästa beräknade betalning: utbetalnings statusen är i tillståndet Unprocessed. |
+| **Utbetalnings status**: ej tillämpligt | **Utbetalnings status**:<ul><li>Obearbetad: amorteringen är berättigad till betalning.</li><li>Kommande: du kommer att skickas till utgivaren i nästa månads utbetalning.</li><li>Skickat: betalningen har skickats till din bank.</li></ul> |
 |||
 
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>Vad händer om jag har publicerat i Cloud Partner Portal?
 
-Erbjudandena har flyttats till Partner Center och kommer att vara tillgängliga när du har loggat in på Partner Center, med undantag för tjänsten Dynamics NAV Managed och Cortana Intelligence erbjudanden. Om ditt erbjudande var aktivt på den kommersiella marknads platsen fortsätter det att vara Live och kunderna kan fortsätta att köpa och distribuera dem utan avbrott. Se nästa fråga, **vilka erbjudanden som flyttats till Partner Center?** , för mer information.
+Erbjudandena har flyttats till Partner Center och kommer att vara tillgängliga när du har loggat in på Partner Center, med undantag för tjänsten Dynamics NAV Managed och Cortana Intelligence erbjudanden. Om ditt erbjudande var aktivt på den kommersiella marknads platsen fortsätter det att vara Live och kunderna kan fortsätta att köpa och distribuera dem utan avbrott. Se nästa fråga, **vilka erbjudanden som flyttats till Partner Center?**, för mer information.
 
 ## <a name="what-offers-were-moved-to-partner-center"></a>Vilka erbjudanden har flyttats till Partner Center?
 
@@ -79,7 +79,7 @@ För de erbjudande typer som stöds i Partner Center har alla erbjudanden flytta
 | --- | --- | --- |
 | SaaS | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [planera ett SaaS-erbjudande för den kommersiella marknads platsen](plan-saas-offer.md). |
 | Virtuell dator | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [planera ett erbjudande för virtuella datorer](marketplace-virtual-machines.md). |
-| Azure-program | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett erbjudande för Azure-program](partner-center-portal/create-new-azure-apps-offer.md). |
+| Azure-program | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett erbjudande för Azure-program](create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett Dynamics 365 Business Central-erbjudande](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 för kund engagemang & PowerApps | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa en Dynamics 365 för kund engagemang & PowerApps-erbjudande](partner-center-portal/create-new-customer-engagement-offer.md). |
 | Dynamics 365 for Operations | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa en Dynamics 365 för drift erbjudande](partner-center-portal/create-new-operations-offer.md). |
@@ -103,7 +103,7 @@ De erbjudanden som du har skapat i Cloud Partner Portal är tillgängliga i Part
 
     Exempel: Antag att du har åtkomst till tre program: MPN-programmet, programmet för hänvisning och programmet för kommersiella marknads platser. När du loggar in på Partner Center visas de här tre programmen i navigerings fönstret.
 
-2. Välj **kommersiell Marketplace** -  >  **Översikt** för att få åtkomst till dina erbjudanden.
+2. Välj **kommersiell Marketplace**-  >  **Översikt** för att få åtkomst till dina erbjudanden.
 
     Om du inte ser programmet för kommersiella marknads platser i navigerings fönstret till vänster kan du ha fel konto. Följ stegen i nästa avsnitt för att få åtkomst till rätt konto.
 
@@ -117,7 +117,7 @@ Om du är en del av flera konton visas en knapp för konto väljaren som marker 
 
 ## <a name="how-do-i-create-new-offers"></a>Hur gör jag för att skapa nya erbjudanden?
 
-Få åtkomst till programmet för kommersiella marknads platser i [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) för att skapa nya erbjudanden. På sidan Översikt väljer du **+ nytt erbjudande** .
+Få åtkomst till programmet för kommersiella marknads platser i [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) för att skapa nya erbjudanden. På sidan Översikt väljer du **+ nytt erbjudande**.
 
 [![Skärm bild som visar översikts menyn för partner Center.](media/cpp-pc-faq/new-offer.png "Visar översikts menyn för partner Center")](media/cpp-pc-faq/new-offer.png#lightbox)
 
@@ -127,7 +127,7 @@ Om du inte kan logga in på ditt konto kan du öppna ett [support ärende](https
 
 ## <a name="where-are-instructions-for-using-partner-center"></a>Var finns instruktioner för att använda Partner Center?
 
-Gå till den [kommersiella Marketplace-dokumentationen](index.yml)och expandera sedan den **kommersiella Marketplace-portalen i Partner Center** . Om du vill se hjälp artiklar om hur du skapar erbjudanden i Partner Center expanderar du **skapa ett nytt erbjudande** .
+Gå till den [kommersiella Marketplace-dokumentationen](index.yml)och expandera sedan den **kommersiella Marketplace-portalen i Partner Center**. Om du vill se hjälp artiklar om hur du skapar erbjudanden i Partner Center expanderar du **skapa ett nytt erbjudande**.
 
 ## <a name="what-are-the-publishing-and-offer-management-differences"></a>Vad är skillnaderna mellan publicering och erbjudande?
 
@@ -135,7 +135,7 @@ Här följer några skillnader mellan Cloud Partner Portal-och partner Center.
 
 ### <a name="modular-publishing-capabilities"></a>Funktioner för modulär publicering
 
-Partner Center tillhandahåller ett modulärt publicerings alternativ som låter dig välja de ändringar som du vill publicera i stället för att alltid publicera alla uppdateringar samtidigt. Följande skärm visar till exempel att de enda ändringar som är markerade för publicering är ändringar i **Egenskaper** och  **erbjudande lista** . De ändringar du gör på sidan för förhands granskning kommer inte att publiceras.
+Partner Center tillhandahåller ett modulärt publicerings alternativ som låter dig välja de ändringar som du vill publicera i stället för att alltid publicera alla uppdateringar samtidigt. Följande skärm visar till exempel att de enda ändringar som är markerade för publicering är ändringar i **Egenskaper** och  **erbjudande lista**. De ändringar du gör på sidan för förhands granskning kommer inte att publiceras.
 
 [![Skärm bilden visar gransknings-och publicerings sidan för partner Center.](media/cpp-pc-faq/review-page.png "Visar gransknings-och publicerings sidan för partner Center")](media/cpp-pc-faq/review-page.png#lightbox)
 

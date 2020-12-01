@@ -1,14 +1,14 @@
 ---
-title: Konfigurera användnings inställningar i klass labb labb med Azure Lab Services
+title: Konfigurera användnings inställningar i labb för Azure Lab Services
 description: Lär dig hur du konfigurerar antalet studenter för ett labb, gör dem registrerade med labbet, styr antalet timmar som de kan använda den virtuella datorn och mer.
 ms.topic: article
 ms.date: 11/11/2020
-ms.openlocfilehash: d3100f1a7e67e3b0d403375de02cb3daf5fcfb31
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e768c74d338cf21eb56660fe3790fc1f0f3ec80d
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555727"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434557"
 ---
 # <a name="add-and-manage-lab-users"></a>Lägg till och hantera labbanvändare
 
@@ -20,7 +20,7 @@ I det här avsnittet lägger du till studenter i ett labb manuellt eller genom a
 
 1. I det vänstra fönstret väljer **du användare**. 
 
-    Som standard är alternativet **begränsa åtkomst** aktiverat och om de inte finns med i listan över användare kan studenter inte registrera sig för labbet även om de har en registrerings länk. Endast listade användare kan registrera sig i labbet med hjälp av den registrerings länk som du skickar. I den här proceduren ska du lägga till användare i listan. Du kan också inaktivera **begränsa åtkomst** , vilket gör att eleverna kan registrera sig för labbet så länge de har registrerings länken. 
+    Som standard är alternativet **begränsa åtkomst** aktiverat och om de inte finns med i listan över användare kan studenter inte registrera sig för labbet även om de har en registrerings länk. Endast listade användare kan registrera sig i labbet med hjälp av den registrerings länk som du skickar. I den här proceduren ska du lägga till användare i listan. Du kan också inaktivera **begränsa åtkomst**, vilket gör att eleverna kan registrera sig för labbet så länge de har registrerings länken. 
 
 1. Välj **Lägg till användare** längst upp i fönstret **användare** och välj sedan **Lägg till efter e-postadress**. 
 
@@ -81,7 +81,7 @@ Den här metoden visar hur du skickar e-post med en registrerings länk och ett 
 
 1. I fönstret **Skicka inbjudan per e-post** anger du ett valfritt meddelande och väljer sedan **Skicka**. 
 
-    E-postmeddelandet innehåller automatiskt registrerings länken. Om du vill hämta och spara registrerings länken separat väljer du ellipsen ( **...** ) överst i fönstret **användare** och väljer sedan **registrerings länken**. 
+    E-postmeddelandet innehåller automatiskt registrerings länken. Om du vill hämta och spara registrerings länken separat väljer du ellipsen (**...**) överst i fönstret **användare** och väljer sedan **registrerings länken**. 
 
     ![Fönstret "skicka registrerings länk via e-post"](./media/tutorial-setup-classroom-lab/send-email.png)
 
@@ -169,7 +169,7 @@ Gör så här om du vill ange ytterligare kvoter:
 Om du vill lägga till studenter i ett klass rums labb använder du sina e-postkonton. Eleverna kan ha följande typer av e-post konton:
 
 - Ett student-e-postkonto som tillhandahålls av ditt universitets Azure Active Directory-instans.
-- Ett e-postkonto från Microsoft-domän, till exempel *Outlook.com* , *hotmail.com* , *MSN.com* eller *Live.com*.
+- Ett e-postkonto från Microsoft-domän, till exempel *Outlook.com*, *hotmail.com*, *MSN.com* eller *Live.com*.
 - Ett e-postkonto som inte kommer från Microsoft, till exempel ett som tillhandahålls av Yahoo! eller Google. Dessa typer av konton måste dock länkas till ett Microsoft-konto.
 - Ett GitHub-konto. Kontot måste vara länkat till ett Microsoft-konto.
 
@@ -207,7 +207,7 @@ Om de inte har länkat sitt GitHub-konto till en Microsoft-konto kan de göra f�
 ## <a name="export-a-list-of-users-to-a-csv-file"></a>Exportera en lista med användare till en CSV-fil
 
 1. Gå till fönstret **användare** .
-1. Välj ellipsen ( **...** ) i verktygsfältet och välj sedan **exportera CSV**. 
+1. Välj ellipsen (**...**) i verktygsfältet och välj sedan **exportera CSV**. 
 
     ![Knappen "exportera CSV"](./media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
 
@@ -218,4 +218,4 @@ Se följande artiklar:
 
 - För administratörer: [skapa och hantera labb konton](how-to-manage-lab-accounts.md)
 - För labb ägare: [skapa och hantera labb](how-to-manage-classroom-labs.md) och [Konfigurera och publicera mallar](how-to-create-manage-template.md)
-- För labb användare: [komma åt klass rum labb](how-to-use-classroom-lab.md)
+- För labb användare: [Access Labs](how-to-use-classroom-lab.md)

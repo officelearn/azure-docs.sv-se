@@ -47,6 +47,8 @@
           href: how-to-legacy-device-symm-key.md
         - name: Använd anpassade allokeringsprinciper
           href: tutorial-custom-allocation-policies.md
+        - name: Tillhandahålla flera X.509-enheter
+          href: tutorial-custom-hsm-enrollment-group-x509.md
     - name: 2 – Etablera enheter till flera hubbar
       items:
         - name: Länka flera hubbar till DPS

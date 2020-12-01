@@ -3,12 +3,12 @@ title: Ange Marketplace-avbildningar för ett labb i Azure Lab Services
 description: Den här artikeln visar hur du anger de Marketplace-avbildningar som labb skaparen kan använda för att skapa labb i ett labb konto i Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5a353394fec3dadf0f808a25ec66f6e9028820a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c81c8d7a15d67055729a29e98f5b7e30f3d0764
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445618"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434744"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Ange Marketplace-avbildningar som är tillgängliga för labbuppgiftsförfattare
 Som labbkontoägare kan du ange Marketplace-avbildningar som labbskapare kan använda för att skapa labb i labbkontot. 
@@ -60,4 +60,4 @@ Se följande artiklar:
 - [Skapa och hantera labb som labbägare](how-to-manage-classroom-labs.md)
 - [Konfigurera och publicera mallar som labbägare](how-to-create-manage-template.md)
 - [Konfigurera och kontroller användning av ett labb som labbägare](how-to-configure-student-usage.md)
-- [Som labb användare, åtkomst till klass rum labb](how-to-use-classroom-lab.md)
+- [Som labb användare, åtkomst labb](how-to-use-classroom-lab.md)

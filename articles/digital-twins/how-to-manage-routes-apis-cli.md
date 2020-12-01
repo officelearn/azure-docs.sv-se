@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6b767a2cf4739a0b36b9f5c5c960e3e3ead58262
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: fc260736a740362db2c19730afc93dd4f3d22c2e
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353093"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435425"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Hantera slut punkter och vägar i Azure Digitals dubbla (API: er och CLI)
 
@@ -90,18 +90,31 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 När en slut punkt inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden**.
 
-Du måste använda [arm-API: erna](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) för att skapa slut punkten för att kunna skapa en slut punkt med att obeställbara meddelanden har Aktiver ATS. 
-
-Innan du anger platsen för obeställbara meddelanden måste du ha ett lagrings konto med en behållare. Du anger URL: en för den här behållaren när du skapar slut punkten. Obeställbara meddelanden anges som en behållar-URL med en SAS-token. Denna token behöver bara `write` behörighet för mål behållaren i lagrings kontot. Den fullständigt utformade URL: en kommer att ha formatet: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
-
-Mer information om SAS-token finns i: [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)](../storage/common/storage-sas-overview.md)
-
 Mer information om obeställbara meddelanden finns i [*begrepp: händelse vägar*](concepts-route-events.md#dead-letter-events).
 
-#### <a name="configuring-the-endpoint"></a>Konfigurera slut punkten
+#### <a name="set-up-storage-resources"></a>Konfigurera lagrings resurser
 
-När du skapar en slut punkt lägger `deadLetterSecret` du till en till- `properties` objektet i bröd texten i begäran, som innehåller en behållar-URL och SAS-token för ditt lagrings konto.
+Innan du anger platsen för obeställbara meddelanden måste du ha ett [lagrings konto](../storage/common/storage-account-create.md?tabs=azure-portal) med en [behållare](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) konfigurerad i ditt Azure-konto. Du anger URL: en för den här behållaren när du skapar slut punkten senare.
+Obeställbara meddelanden anges som en behållar-URL med en [SAS-token](../storage/common/storage-sas-overview.md). Denna token behöver bara `write` behörighet för mål behållaren i lagrings kontot. Den fullständigt utformade URL: en kommer att ha formatet: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
+Följ stegen nedan för att konfigurera de här lagrings resurserna på ditt Azure-konto för att förbereda för att konfigurera slut punkts anslutningen i nästa avsnitt.
+
+1. Följ [den här artikeln](../storage/common/storage-account-create.md?tabs=azure-portal) för att skapa ett lagrings konto och spara lagrings konto namnet för att använda det senare.
+2. Skapa en behållare med hjälp av [den här artikeln](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) och spara behållar namnet för att använda det senare när du ställer in anslutningen mellan behållaren och slut punkten.
+3. Skapa sedan en SAS-token för ditt lagrings konto. Börja med att navigera till ditt lagrings konto i [Azure Portal](https://ms.portal.azure.com/#home) (du kan hitta det med namn med Portal Sök fältet).
+4. På sidan lagrings konto väljer du länken _signatur för delad åtkomst_ i det vänstra navigerings fältet för att välja rätt behörigheter för att generera SAS-token.
+5. För _tillåtna tjänster_ och _tillåtna resurs typer_ väljer du de inställningar som du vill använda. Du måste markera minst en ruta i varje kategori. För tillåtna behörigheter väljer du **Skriv** (du kan också välja andra behörigheter om du vill).
+Ange de återstående inställningar som du vill ha.
+6. Välj sedan knappen _generera SAS och anslutnings sträng_ för att generera SAS-token. Detta genererar flera SAS-och anslutnings sträng värden längst ned på samma sida, under inställnings alternativen. Bläddra nedåt för att visa värdena och Använd ikonen Kopiera till Urklipp för att kopiera värdet **SAS-token** . Spara den för att använda senare.
+
+:::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="Sidan lagrings konto i Azure Portal visar alla inställnings val för att generera en SAS-token." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
+
+:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Kopiera SAS-token som ska användas i hemligheten för obeställbara meddelanden." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+
+#### <a name="configure-the-endpoint"></a>Konfigurera slut punkten
+
+Slut punkter för obeställbara meddelanden skapas med hjälp av Azure Resource Manager API: er. När du skapar en slut punkt använder du [Azure Resource Manager API-dokumentationen](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) för att fylla de begärda parametrarna för begäran. Lägg också till i `deadLetterSecret` Properties-objektet i **bröd texten** i begäran, som innehåller en behållar-URL och SAS-token för ditt lagrings konto.
+      
 ```json
 {
   "properties": {
@@ -113,8 +126,7 @@ När du skapar en slut punkt lägger `deadLetterSecret` du till en till- `proper
   }
 }
 ```
-
-Mer information finns i Azure Digitals REST API-dokumentationen: [endpoints-DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+Mer information om att strukturera den här begäran finns i Azure Digitals REST API-dokumentationen: [endpoints-DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### <a name="message-storage-schema"></a>Lagrings schema för meddelanden
 

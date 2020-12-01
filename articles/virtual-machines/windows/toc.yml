@@ -453,7 +453,7 @@
                       href: ../image-version-vm-powershell.md
                     - name: Från en hanterad disk eller ögonblicksbild
                       href: ../image-version-snapshot-powershell.md
-                    - name: Migrera från en hanterad avbildning
+                    - name: Klona en hanterad avbildning
                       href: ../image-version-managed-image-powershell.md
                     - name: Kopiera från ett annat galleri
                       href: ../image-version-another-gallery-powershell.md
@@ -475,7 +475,7 @@
                       href: ../image-version-vm-cli.md
                     - name: Från en hanterad disk eller ögonblicksbild
                       href: ../image-version-snapshot-cli.md
-                    - name: Migrera från en hanterad avbildning
+                    - name: Klona en hanterad avbildning
                       href: ../image-version-managed-image-cli.md
                     - name: Kopiera från ett annat galleri
                       href: ../image-version-another-gallery-cli.md

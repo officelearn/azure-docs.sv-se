@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 4125a4493b72fa60203067f3eba1ccebdc820b02
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: azureday1
+ms.openlocfilehash: e07ec17a4e14f0099d82bd444f2ee8d37abe9908
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182979"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435016"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Självstudie: åtkomst Microsoft Graph från en säker app som användare
 
@@ -25,7 +26,7 @@ Lär dig hur du kommer åt Microsoft Graph från en webbapp som körs på Azure 
 
 Du vill lägga till åtkomst till Microsoft Graph från din webbapp och utföra vissa åtgärder som den inloggade användaren. I det här avsnittet beskrivs hur du tilldelar delegerade behörigheter till webbappen och hämtar den inloggade användarens profil information från Azure Active Directory (Azure AD).
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -74,6 +75,8 @@ Spara inställningarna genom att välja **Lägg** till. Den här inställningen 
 ## <a name="call-microsoft-graph-net"></a>Anrops Microsoft Graph (.NET)
 
 Din webbapp har nu de behörigheter som krävs och lägger även till Microsoft Graph klient-ID: t i inloggnings parametrarna. Med hjälp av [Microsoft. Identity. Web-biblioteket](https://github.com/AzureAD/microsoft-identity-web/)hämtar webbappen en åtkomsttoken för autentisering med Microsoft Graph. I version 1.2.0 och senare integrerar Microsoft. Identity. Web Library med och kan köras tillsammans med modulen App Service autentisering/auktorisering. Microsoft. Identity. Web upptäcker att webbappen finns i App Service och hämtar åtkomsttoken från modulen App Service autentisering/auktorisering. Åtkomsttoken skickas sedan till autentiserade begär Anden med Microsoft Graph-API: et.
+
+Om du vill se den här koden som en del av ett exempel program, se [exemplet på GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
 
 > [!NOTE]
 > Microsoft. Identity. Web-biblioteket krävs inte i din webbapp för grundläggande autentisering/auktorisering eller för att autentisera begär Anden med Microsoft Graph. Det är möjligt att på [ett säkert sätt anropa underordnade API: er](tutorial-auth-aad.md#call-api-securely-from-server-code) med endast modulen App Service autentisering/auktorisering aktive rad.

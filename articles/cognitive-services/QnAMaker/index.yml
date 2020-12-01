@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Dokumentation om QnA Maker
   description: QnA Maker är en molnbaserad API-tjänst som skapar ett konversationsanpassat lager för frågor och svar över dina data. Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker. QnA Maker-tjänsten svarar på dina användares frågor på naturligt språk genom att matcha med det bästa möjliga svaret från vanliga frågor och svar i kunskapsbasen.
-  ms.openlocfilehash: 487e783aa0c3ac5ad294c34f8522ee54fbfd6aea
-  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+  ms.openlocfilehash: 54c5e8c880020ac4c29dc730902dadef10838390
+  ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/21/2020
-  ms.locfileid: "95021345"
+  ms.lasthandoff: 11/30/2020
+  ms.locfileid: "96338102"
 landingContent:
 - title: Om QnA Maker
   linkLists:
@@ -34,18 +34,12 @@ landingContent:
     links:
     - text: Utvecklingscykel
       url: concepts/development-lifecycle-knowledge-base.md
-    - text: Datakällor
-      url: concepts/knowledge-base.md
   - linkListType: video
     links:
     - text: Bygg en robot på några minuter
       url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
 - title: Skapa och redigera en kunskapsbas
   linkLists:
-  - linkListType: concept
-    links:
-    - text: Vad är en kunskapsbas?
-      url: concepts/knowledge-base.md
   - linkListType: get-started
     links:
     - text: 'Snabbstart: Skapa en ny kunskapsbas'
@@ -95,11 +89,11 @@ landingContent:
   - linkListType: get-started
     links:
     - text: 'Portal: Skapa en Azure Bot Service-robot'
-      url: tutorials/create-qna-bot.md
+      url: ./quickstarts/create-publish-knowledge-base.md#create-a-bot
     - text: 'Power Apps: Skapa en QnA Maker-baserad robot'
       url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - text: 'Bot Framework: Använda Dispatch mellan LUIS- och QnA Maker-appar'
-      url: https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs
+      url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0
     - text: Andra exempelrobotar
       url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 - title: Referens
@@ -109,15 +103,15 @@ landingContent:
     - text: Begränsningar för en kunskapsbas
       url: limits.md
     - text: Redigera API:er
-      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
+      url: /rest/api/cognitiveservices/qnamaker/knowledgebase
     - text: API för att generera svar
-      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/Runtime
+      url: /rest/api/cognitiveservices/qnamaker4.0/Runtime
     - text: Referensdokumentation för .Net-SDK
-      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+      url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
+      url: /powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
     - text: Kommandoradsgränssnitt för Azure (CLI)
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
 - title: Hjälp och feedback
   linkLists:
   - linkListType: reference
